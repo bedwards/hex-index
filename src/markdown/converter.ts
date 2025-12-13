@@ -77,6 +77,28 @@ export function htmlToMarkdown(html: string): string {
 }
 
 /**
+ * Clean HTML for Speechify-compatible reading
+ * Removes Substack widgets, subscription prompts, and cleans up structure
+ */
+export function cleanHtmlForReading(html: string): string {
+  return html
+    // Remove Substack subscription widgets
+    .replace(/<div[^>]*class="[^"]*subscribe[^"]*"[^>]*>[\s\S]*?<\/div>/gi, '')
+    .replace(/<div[^>]*class="[^"]*subscription[^"]*"[^>]*>[\s\S]*?<\/div>/gi, '')
+    // Remove button wrappers
+    .replace(/<div[^>]*class="[^"]*button-wrapper[^"]*"[^>]*>[\s\S]*?<\/div>/gi, '')
+    // Remove share widgets
+    .replace(/<div[^>]*class="[^"]*share[^"]*"[^>]*>[\s\S]*?<\/div>/gi, '')
+    // Remove empty paragraphs
+    .replace(/<p>\s*<\/p>/gi, '')
+    // Remove excessive whitespace
+    .replace(/\n{3,}/g, '\n\n')
+    // Clean up line breaks
+    .replace(/\s*\n\s*/g, '\n')
+    .trim();
+}
+
+/**
  * Extract all links from HTML content
  */
 export function extractLinks(html: string, sourceUrl: string): ExtractedLink[] {
@@ -197,6 +219,7 @@ export function convertFeedItem(
   publication: { name: string; slug: string }
 ): ConvertedArticle {
   const markdown = htmlToMarkdown(item.contentHtml);
+  const html = cleanHtmlForReading(item.contentHtml);
   const links = extractLinks(item.contentHtml, item.url);
 
   const metadata: ArticleMetadata = {
@@ -210,7 +233,7 @@ export function convertFeedItem(
     estimated_read_time: estimateReadTime(item.contentHtml),
   };
 
-  return { metadata, markdown, links };
+  return { metadata, markdown, html, links };
 }
 
 /**

@@ -266,6 +266,7 @@ describe('generateMarkdownFile', () => {
         estimated_read_time: 1,
       },
       markdown: 'This is the article content.',
+      html: '<p>This is the article content.</p>',
       links: [],
     };
 

@@ -24,7 +24,7 @@ async function ensureDir(dir: string): Promise<void> {
 }
 
 /**
- * Get the storage path for an article
+ * Get the storage path for an article (markdown)
  */
 export function getArticlePath(
   publicationSlug: string,
@@ -35,7 +35,28 @@ export function getArticlePath(
 }
 
 /**
- * Store an article to the filesystem
+ * Get the storage path for an article's HTML content
+ */
+export function getHtmlPath(
+  publicationSlug: string,
+  articleSlug: string,
+  config: LibraryConfig = DEFAULT_LIBRARY_CONFIG
+): string {
+  return join(config.baseDir, publicationSlug, `${articleSlug}.html`);
+}
+
+/**
+ * Get the relative content path for database storage
+ */
+export function getContentPath(
+  publicationSlug: string,
+  articleSlug: string
+): string {
+  return `${publicationSlug}/${articleSlug}.html`;
+}
+
+/**
+ * Store an article to the filesystem (both markdown and HTML)
  */
 export async function storeArticle(
   article: ConvertedArticle,
@@ -43,16 +64,21 @@ export async function storeArticle(
 ): Promise<StorageResult> {
   try {
     const articleSlug = slugify(article.metadata.title);
-    const path = getArticlePath(article.metadata.publication_slug, articleSlug, config);
+    const mdPath = getArticlePath(article.metadata.publication_slug, articleSlug, config);
+    const htmlPath = getHtmlPath(article.metadata.publication_slug, articleSlug, config);
+    const contentPath = getContentPath(article.metadata.publication_slug, articleSlug);
 
     // Ensure directory exists
-    await ensureDir(dirname(path));
+    await ensureDir(dirname(mdPath));
 
-    // Generate and write markdown
-    const content = generateMarkdownFile(article);
-    await writeFile(path, content, 'utf-8');
+    // Generate and write markdown (for reference/backup)
+    const mdContent = generateMarkdownFile(article);
+    await writeFile(mdPath, mdContent, 'utf-8');
 
-    return { success: true, path };
+    // Write clean HTML for reading
+    await writeFile(htmlPath, article.html, 'utf-8');
+
+    return { success: true, path: contentPath };
   } catch (err) {
     return {
       success: false,

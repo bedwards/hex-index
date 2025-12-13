@@ -17,6 +17,7 @@ export interface ArticleMetadata {
 export interface ConvertedArticle {
   metadata: ArticleMetadata;
   markdown: string;
+  html: string; // Clean HTML for Speechify-compatible reading
   links: ExtractedLink[];
 }
 

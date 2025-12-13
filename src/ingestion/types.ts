@@ -2,6 +2,7 @@
  * Types for article ingestion pipeline
  */
 
+import { Pool } from 'pg';
 import { FeedItem } from '../feed/types.js';
 import { ConvertedArticle, StorageResult } from '../markdown/types.js';
 
@@ -29,6 +30,8 @@ export interface IngestionOptions {
   dryRun: boolean;
   /** Verbose logging */
   verbose: boolean;
+  /** Database pool for inserting articles (optional - if not provided, only stores to filesystem) */
+  db?: Pool;
 }
 
 export const DEFAULT_INGESTION_OPTIONS: IngestionOptions = {
