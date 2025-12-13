@@ -10,7 +10,7 @@
     "init": "tsx bin/init.ts",
     "dev": "concurrently \"npm run dev:api\" \"npm run dev:frontend\"",
     "dev:api": "tsx watch src/api/index.ts",
-    "dev:frontend": "vite",
+    "dev:frontend": "vite --host",
     "build": "npm run build:api && npm run build:frontend",
     "build:api": "tsc -p tsconfig.api.json",
     "build:frontend": "vite build",
