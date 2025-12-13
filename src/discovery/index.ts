@@ -3,4 +3,4 @@
  */
 
 export * from './types.js';
-export * from './analyzer.js';
+export { analyzePublication, analyzePublications, validateSlugOrUrl } from './analyzer.js';

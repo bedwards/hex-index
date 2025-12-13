@@ -27,6 +27,48 @@ const DATA_INDICATORS = [
   'figure',
 ];
 
+// Scoring thresholds - constants for quality score calculation
+const SCORING_THRESHOLDS = {
+  // Activity thresholds (posts per 30 days)
+  ACTIVITY_VERY_ACTIVE: 8,    // 25 points - 2+ posts per week
+  ACTIVITY_ACTIVE: 4,          // 20 points - weekly posts
+  ACTIVITY_SOMEWHAT_ACTIVE: 2, // 15 points
+  ACTIVITY_MINIMAL: 1,         // 10 points
+
+  // Read time thresholds (minutes)
+  LENGTH_VERY_LONG: 15,  // 25 points
+  LENGTH_LONG: 10,       // 22 points
+  LENGTH_MEDIUM_LONG: 7, // 18 points
+  LENGTH_MEDIUM: 5,      // 12 points
+  LENGTH_SHORT: 3,       // 6 points
+
+  // Data-rich percentage thresholds
+  DEPTH_HIGH: 50,    // 25 points - 50%+ posts are data-rich
+  DEPTH_MEDIUM: 30,  // 20 points
+  DEPTH_LOW: 15,     // 15 points
+
+  // Consistency thresholds (avg days between posts)
+  CONSISTENCY_VERY_REGULAR: 3,  // 25 points
+  CONSISTENCY_WEEKLY: 7,        // 20 points
+  CONSISTENCY_BIWEEKLY: 14,     // 15 points
+  CONSISTENCY_MONTHLY: 30,      // 10 points
+} as const;
+
+// Score values (typed as number for assignment compatibility)
+const SCORES: {
+  MAX_CATEGORY: number;
+  ACTIVITY: { VERY_ACTIVE: number; ACTIVE: number; SOMEWHAT: number; MINIMAL: number; INACTIVE: number };
+  LENGTH: { VERY_LONG: number; LONG: number; MEDIUM_LONG: number; MEDIUM: number; SHORT: number; VERY_SHORT: number };
+  DEPTH: { HIGH: number; MEDIUM: number; LOW: number; SOME: number; NONE: number };
+  CONSISTENCY: { VERY_REGULAR: number; WEEKLY: number; BIWEEKLY: number; MONTHLY: number; IRREGULAR: number };
+} = {
+  MAX_CATEGORY: 25,
+  ACTIVITY: { VERY_ACTIVE: 25, ACTIVE: 20, SOMEWHAT: 15, MINIMAL: 10, INACTIVE: 0 },
+  LENGTH: { VERY_LONG: 25, LONG: 22, MEDIUM_LONG: 18, MEDIUM: 12, SHORT: 6, VERY_SHORT: 0 },
+  DEPTH: { HIGH: 25, MEDIUM: 20, LOW: 15, SOME: 10, NONE: 0 },
+  CONSISTENCY: { VERY_REGULAR: 25, WEEKLY: 20, BIWEEKLY: 15, MONTHLY: 10, IRREGULAR: 5 },
+};
+
 // Topic keywords for classification
 const TOPIC_KEYWORDS: Record<string, string[]> = {
   economics: ['economy', 'economic', 'inflation', 'gdp', 'monetary', 'fiscal', 'market'],
@@ -41,6 +83,46 @@ const TOPIC_KEYWORDS: Record<string, string[]> = {
   philosophy: ['philosophy', 'philosophical', 'ethics', 'moral'],
 };
 
+// Valid slug pattern: alphanumeric, hyphens, underscores (no path traversal or special chars)
+const VALID_SLUG_PATTERN = /^[a-zA-Z0-9][a-zA-Z0-9_-]{0,62}$/;
+
+// Valid URL pattern for feed URLs
+const VALID_FEED_URL_PATTERN = /^https?:\/\/[a-zA-Z0-9][a-zA-Z0-9._-]*\.[a-zA-Z]{2,}(\/[a-zA-Z0-9._/-]*)?$/;
+
+/**
+ * Validate slug or URL input to prevent injection attacks
+ */
+export function validateSlugOrUrl(input: string): { valid: boolean; error?: string } {
+  if (!input || typeof input !== 'string') {
+    return { valid: false, error: 'Input must be a non-empty string' };
+  }
+
+  const trimmed = input.trim();
+  if (trimmed.length === 0) {
+    return { valid: false, error: 'Input cannot be empty' };
+  }
+
+  // If it's a URL, validate the URL pattern
+  if (trimmed.includes('://')) {
+    if (!VALID_FEED_URL_PATTERN.test(trimmed)) {
+      return { valid: false, error: 'Invalid feed URL format' };
+    }
+    return { valid: true };
+  }
+
+  // Check for path traversal attempts (for non-URL inputs)
+  if (trimmed.includes('..') || trimmed.includes('//')) {
+    return { valid: false, error: 'Invalid characters in input' };
+  }
+
+  // Otherwise validate as a slug
+  if (!VALID_SLUG_PATTERN.test(trimmed)) {
+    return { valid: false, error: 'Invalid slug format. Use only letters, numbers, hyphens, and underscores.' };
+  }
+
+  return { valid: true };
+}
+
 /**
  * Analyze a single publication by its slug or feed URL
  */
@@ -48,6 +130,12 @@ export async function analyzePublication(
   slugOrUrl: string,
   options: { delayMs?: number } = {}
 ): Promise<PublicationAnalysis> {
+  // Validate input
+  const validation = validateSlugOrUrl(slugOrUrl);
+  if (!validation.valid) {
+    throw new Error(validation.error ?? 'Invalid input');
+  }
+
   // Normalize to feed URL
   const feedUrl = slugOrUrl.includes('://')
     ? slugOrUrl
@@ -217,71 +305,68 @@ function detectTopics(
 }
 
 /**
- * Calculate quality score breakdown
+ * Calculate quality score breakdown using defined thresholds
  */
 function calculateScoreBreakdown(
   activity: ActivityMetrics,
   content: ContentMetrics
 ): QualityScoreBreakdown {
   // Activity score (0-25): Based on recent posting frequency
-  let activityScore = 0;
-  if (activity.postsLast30Days >= 8) {
-    activityScore = 25; // Very active (2+ per week)
-  } else if (activity.postsLast30Days >= 4) {
-    activityScore = 20; // Active (weekly)
-  } else if (activity.postsLast30Days >= 2) {
-    activityScore = 15; // Somewhat active
-  } else if (activity.postsLast30Days >= 1) {
-    activityScore = 10; // Minimally active
-  } else {
-    activityScore = 0; // Inactive
+  let activityScore = SCORES.ACTIVITY.INACTIVE;
+  if (activity.postsLast30Days >= SCORING_THRESHOLDS.ACTIVITY_VERY_ACTIVE) {
+    activityScore = SCORES.ACTIVITY.VERY_ACTIVE;
+  } else if (activity.postsLast30Days >= SCORING_THRESHOLDS.ACTIVITY_ACTIVE) {
+    activityScore = SCORES.ACTIVITY.ACTIVE;
+  } else if (activity.postsLast30Days >= SCORING_THRESHOLDS.ACTIVITY_SOMEWHAT_ACTIVE) {
+    activityScore = SCORES.ACTIVITY.SOMEWHAT;
+  } else if (activity.postsLast30Days >= SCORING_THRESHOLDS.ACTIVITY_MINIMAL) {
+    activityScore = SCORES.ACTIVITY.MINIMAL;
   }
 
   // Length score (0-25): Based on average read time
-  let lengthScore = 0;
-  if (content.avgReadTime >= 15) {
-    lengthScore = 25; // Very long-form
-  } else if (content.avgReadTime >= 10) {
-    lengthScore = 22; // Long-form
-  } else if (content.avgReadTime >= 7) {
-    lengthScore = 18; // Medium-long
-  } else if (content.avgReadTime >= 5) {
-    lengthScore = 12; // Medium
-  } else if (content.avgReadTime >= 3) {
-    lengthScore = 6; // Short
-  } else {
-    lengthScore = 0; // Very short
+  let lengthScore = SCORES.LENGTH.VERY_SHORT;
+  if (content.avgReadTime >= SCORING_THRESHOLDS.LENGTH_VERY_LONG) {
+    lengthScore = SCORES.LENGTH.VERY_LONG;
+  } else if (content.avgReadTime >= SCORING_THRESHOLDS.LENGTH_LONG) {
+    lengthScore = SCORES.LENGTH.LONG;
+  } else if (content.avgReadTime >= SCORING_THRESHOLDS.LENGTH_MEDIUM_LONG) {
+    lengthScore = SCORES.LENGTH.MEDIUM_LONG;
+  } else if (content.avgReadTime >= SCORING_THRESHOLDS.LENGTH_MEDIUM) {
+    lengthScore = SCORES.LENGTH.MEDIUM;
+  } else if (content.avgReadTime >= SCORING_THRESHOLDS.LENGTH_SHORT) {
+    lengthScore = SCORES.LENGTH.SHORT;
   }
 
-  // Depth score (0-25): Based on data-rich content
-  let depthScore = 0;
+  // Depth score (0-25): Based on data-rich content percentage
+  // Guard against division by zero with Math.max
+  let depthScore = SCORES.DEPTH.NONE;
   if (content.dataRichCount > 0 && content.avgWordCount > 0) {
     const dataRichPercentage =
       (content.dataRichCount / Math.max(activity.totalPosts, 1)) * 100;
-    if (dataRichPercentage >= 50) {
-      depthScore = 25;
-    } else if (dataRichPercentage >= 30) {
-      depthScore = 20;
-    } else if (dataRichPercentage >= 15) {
-      depthScore = 15;
+    if (dataRichPercentage >= SCORING_THRESHOLDS.DEPTH_HIGH) {
+      depthScore = SCORES.DEPTH.HIGH;
+    } else if (dataRichPercentage >= SCORING_THRESHOLDS.DEPTH_MEDIUM) {
+      depthScore = SCORES.DEPTH.MEDIUM;
+    } else if (dataRichPercentage >= SCORING_THRESHOLDS.DEPTH_LOW) {
+      depthScore = SCORES.DEPTH.LOW;
     } else if (dataRichPercentage > 0) {
-      depthScore = 10;
+      depthScore = SCORES.DEPTH.SOME;
     }
   }
 
   // Consistency score (0-25): Based on posting regularity
   let consistencyScore = 0;
   if (activity.avgDaysBetweenPosts !== null) {
-    if (activity.avgDaysBetweenPosts <= 3) {
-      consistencyScore = 25; // Very consistent
-    } else if (activity.avgDaysBetweenPosts <= 7) {
-      consistencyScore = 20; // Weekly
-    } else if (activity.avgDaysBetweenPosts <= 14) {
-      consistencyScore = 15; // Bi-weekly
-    } else if (activity.avgDaysBetweenPosts <= 30) {
-      consistencyScore = 10; // Monthly
+    if (activity.avgDaysBetweenPosts <= SCORING_THRESHOLDS.CONSISTENCY_VERY_REGULAR) {
+      consistencyScore = SCORES.CONSISTENCY.VERY_REGULAR;
+    } else if (activity.avgDaysBetweenPosts <= SCORING_THRESHOLDS.CONSISTENCY_WEEKLY) {
+      consistencyScore = SCORES.CONSISTENCY.WEEKLY;
+    } else if (activity.avgDaysBetweenPosts <= SCORING_THRESHOLDS.CONSISTENCY_BIWEEKLY) {
+      consistencyScore = SCORES.CONSISTENCY.BIWEEKLY;
+    } else if (activity.avgDaysBetweenPosts <= SCORING_THRESHOLDS.CONSISTENCY_MONTHLY) {
+      consistencyScore = SCORES.CONSISTENCY.MONTHLY;
     } else {
-      consistencyScore = 5; // Irregular
+      consistencyScore = SCORES.CONSISTENCY.IRREGULAR;
     }
   }
 
