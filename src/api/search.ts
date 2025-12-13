@@ -18,7 +18,7 @@ import {
 const SearchQuerySchema = z.object({
   q: z.string().optional(),
   tags: z.string().optional(), // JSON string of tag filters
-  publication: z.uuid().optional(),
+  publication: z.string().optional(), // Publication slug
   date_from: z.iso.datetime().optional(),
   date_to: z.iso.datetime().optional(),
   min_read_time: z.coerce.number().int().min(0).optional(),
@@ -107,7 +107,7 @@ export function createSearchRouter(pool: Pool): Router {
       const searchParams: ArticleSearchParams = {
         query: query.q,
         tags,
-        publication_id: query.publication,
+        publication_slug: query.publication,
         min_read_time: query.min_read_time,
         max_read_time: query.max_read_time,
         from_date: query.date_from ? new Date(query.date_from) : undefined,
