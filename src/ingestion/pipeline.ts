@@ -1,6 +1,6 @@
 /**
  * Article ingestion pipeline
- * Orchestrates: fetch RSS → parse → convert → store
+ * Orchestrates: fetch RSS → parse → convert → store → database
  */
 
 import { fetchFeed } from '../feed/fetcher.js';
@@ -8,6 +8,12 @@ import { FeedItem } from '../feed/types.js';
 import { convertFeedItem, slugify } from '../markdown/converter.js';
 import { storeArticle, articleExists } from '../markdown/storage.js';
 import { LibraryConfig } from '../markdown/types.js';
+import {
+  createPublication,
+  getPublicationBySlug,
+  createArticle,
+  getArticleByUrl,
+} from '../db/queries.js';
 import {
   IngestionSource,
   IngestionOptions,
@@ -24,12 +30,13 @@ import {
 export async function processArticle(
   item: FeedItem,
   source: IngestionSource,
-  options: IngestionOptions
+  options: IngestionOptions,
+  publicationId?: string
 ): Promise<ArticleProcessResult> {
   const config: LibraryConfig = { baseDir: options.libraryDir };
   const articleSlug = slugify(item.title);
 
-  // Check if article already exists
+  // Check if article already exists in filesystem
   if (articleExists(source.slug, articleSlug, config)) {
     return {
       item,
@@ -48,7 +55,7 @@ export async function processArticle(
   }
 
   try {
-    // Convert to markdown
+    // Convert to markdown and HTML
     const converted = convertFeedItem(item, {
       name: source.name,
       slug: source.slug,
@@ -83,6 +90,33 @@ export async function processArticle(
           phase: 'store',
         },
       };
+    }
+
+    // Insert into database if pool provided
+    if (options.db && publicationId) {
+      try {
+        // Check if article already exists in DB by URL
+        const existing = await getArticleByUrl(options.db, item.url);
+        if (!existing) {
+          await createArticle(options.db, {
+            publication_id: publicationId,
+            title: item.title,
+            slug: articleSlug,
+            original_url: item.url,
+            content_path: stored.path,
+            author_name: converted.metadata.author,
+            published_at: item.publishedAt,
+            word_count: converted.metadata.word_count,
+            estimated_read_time_minutes: converted.metadata.estimated_read_time,
+            tags: converted.metadata.tags,
+          });
+        }
+      } catch (dbErr) {
+        // Log but don't fail - filesystem storage succeeded
+        if (options.verbose) {
+          console.info(`  DB insert failed: ${dbErr instanceof Error ? dbErr.message : String(dbErr)}`);
+        }
+      }
     }
 
     return {
@@ -145,6 +179,29 @@ export async function ingestSource(
     };
   }
 
+  // Get or create publication in database
+  let publicationId: string | undefined;
+  if (opts.db) {
+    try {
+      let publication = await getPublicationBySlug(opts.db, source.slug);
+      if (!publication) {
+        // Create new publication
+        publication = await createPublication(opts.db, {
+          name: source.name,
+          slug: source.slug,
+          base_url: source.feedUrl.replace('/feed', ''),
+          feed_url: source.feedUrl,
+          author_name: source.author,
+        });
+      }
+      publicationId = publication.id;
+    } catch (dbErr) {
+      if (opts.verbose) {
+        console.info(`  DB publication error: ${dbErr instanceof Error ? dbErr.message : String(dbErr)}`);
+      }
+    }
+  }
+
   // Get items from parsed feed
   let items: FeedItem[] = fetchResult.feed.items;
 
@@ -157,7 +214,7 @@ export async function ingestSource(
   for (const item of items) {
     articlesProcessed++;
 
-    const result = await processArticle(item, source, opts);
+    const result = await processArticle(item, source, opts, publicationId);
 
     if (result.skipped) {
       articlesSkipped++;

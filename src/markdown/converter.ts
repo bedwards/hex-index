@@ -4,6 +4,7 @@
  */
 
 import TurndownService from 'turndown';
+import * as cheerio from 'cheerio';
 import {
   ArticleMetadata,
   ConvertedArticle,
@@ -74,6 +75,38 @@ export function htmlToMarkdown(html: string): string {
     .replace(/\n{3,}/g, '\n\n');
 
   return turndown.turndown(processed).trim();
+}
+
+/**
+ * Clean HTML for Speechify-compatible reading
+ * Removes Substack widgets, subscription prompts, and cleans up structure
+ * Uses cheerio for safe DOM manipulation (no ReDoS risk)
+ */
+export function cleanHtmlForReading(html: string): string {
+  const $ = cheerio.load(html);
+
+  // Remove Substack subscription and share widgets by class patterns
+  $('[class*="subscribe"]').remove();
+  $('[class*="subscription"]').remove();
+  $('[class*="button-wrapper"]').remove();
+  $('[class*="share"]').remove();
+
+  // Remove common Substack CTA elements
+  $('.captioned-button-wrap').remove();
+  $('.subscription-widget-wrap').remove();
+  $('.post-cta').remove();
+
+  // Remove empty paragraphs
+  $('p').each((_, el) => {
+    if ($(el).text().trim() === '') {
+      $(el).remove();
+    }
+  });
+
+  // Get cleaned HTML and normalize whitespace
+  return $.html()
+    .replace(/\n{3,}/g, '\n\n')
+    .trim();
 }
 
 /**
@@ -197,6 +230,7 @@ export function convertFeedItem(
   publication: { name: string; slug: string }
 ): ConvertedArticle {
   const markdown = htmlToMarkdown(item.contentHtml);
+  const html = cleanHtmlForReading(item.contentHtml);
   const links = extractLinks(item.contentHtml, item.url);
 
   const metadata: ArticleMetadata = {
@@ -210,7 +244,7 @@ export function convertFeedItem(
     estimated_read_time: estimateReadTime(item.contentHtml),
   };
 
-  return { metadata, markdown, links };
+  return { metadata, markdown, html, links };
 }
 
 /**

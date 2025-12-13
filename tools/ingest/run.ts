@@ -9,6 +9,8 @@
  */
 
 import { parseArgs } from 'util';
+import { config } from 'dotenv';
+import { Pool } from 'pg';
 import {
   ingestSource,
   ingestBatch,
@@ -16,6 +18,9 @@ import {
   IngestionSource,
   IngestionOptions,
 } from '../../src/ingestion/index.js';
+
+// Load environment variables
+config();
 
 const { values } = parseArgs({
   options: {
@@ -78,12 +83,24 @@ async function main(): Promise<void> {
     process.exit(0);
   }
 
+  // Connect to database if DATABASE_URL is set
+  let db: Pool | undefined;
+  if (process.env.DATABASE_URL) {
+    db = new Pool({ connectionString: process.env.DATABASE_URL });
+    if (values.verbose) {
+      console.info('Connected to database');
+    }
+  } else if (values.verbose) {
+    console.info('No DATABASE_URL - storing to filesystem only');
+  }
+
   // Build options
   const options: Partial<IngestionOptions> = {
     libraryDir: values.library ?? './library',
     fetchDelayMs: parseInt(values.delay ?? '1000', 10),
     dryRun: values['dry-run'] ?? false,
     verbose: values.verbose ?? false,
+    db,
   };
 
   if (values.max) {

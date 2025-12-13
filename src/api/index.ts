@@ -1,4 +1,5 @@
 import express, { Request, Response, NextFunction } from 'express';
+import { join } from 'path';
 import { config } from 'dotenv';
 import { createPool } from '../db/queries.js';
 import { createSearchRouter } from './search.js';
@@ -22,6 +23,18 @@ app.get('/api/health', (_req, res) => {
     database: pool ? 'connected' : 'not configured',
   });
 });
+
+// Serve library content (HTML files for reading)
+// Path is relative to project root
+const libraryPath = join(process.cwd(), 'library');
+app.use('/library', express.static(libraryPath, {
+  setHeaders: (res, path) => {
+    // Set correct content type for HTML files
+    if (path.endsWith('.html')) {
+      res.setHeader('Content-Type', 'text/html; charset=utf-8');
+    }
+  },
+}));
 
 // Mount search routes (only if database is configured)
 if (pool) {
