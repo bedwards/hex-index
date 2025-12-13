@@ -108,7 +108,7 @@ export function createSearchRouter(pool: Pool): Router {
         query: query.q,
         tags,
         publication_slug: query.publication,
-        min_read_time: query.min_read_time,
+        min_read_time: 10, // query.min_read_time,
         max_read_time: query.max_read_time,
         from_date: query.date_from ? new Date(query.date_from) : undefined,
         to_date: query.date_to ? new Date(query.date_to) : undefined,
