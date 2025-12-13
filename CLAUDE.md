@@ -1,5 +1,7 @@
 # Claude Code Instructions
 
+<!-- Claude GitHub Integration: Verified 2025-12-13 -->
+
 This file instructs Claude instances working on this project. Read it completely before starting any task.
 
 ## Core Philosophy
