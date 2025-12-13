@@ -176,10 +176,10 @@ export async function searchArticles(
     paramIndex++;
   }
 
-  // Publication filter
-  if (params.publication_id) {
-    conditions.push(`publication_id = $${paramIndex}`);
-    values.push(params.publication_id);
+  // Publication filter by slug
+  if (params.publication_slug) {
+    conditions.push(`publication_slug = $${paramIndex}`);
+    values.push(params.publication_slug);
     paramIndex++;
   }
 

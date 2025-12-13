@@ -98,7 +98,7 @@ export interface CreateArticleLinkInput {
 export interface ArticleSearchParams {
   query?: string;
   tags?: Record<string, string>;
-  publication_id?: string;
+  publication_slug?: string;
   min_read_time?: number;
   max_read_time?: number;
   from_date?: Date;
