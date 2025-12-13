@@ -10,6 +10,7 @@ import {
   slugify,
   convertFeedItem,
   generateMarkdownFile,
+  cleanHtmlForReading,
 } from './converter.js';
 import { FeedItem } from '../feed/types.js';
 
@@ -206,6 +207,64 @@ describe('htmlToMarkdown - Substack-specific', () => {
     const html = '<p>Content</p><div class="button-wrapper">Click me</div>';
     const md = htmlToMarkdown(html);
     expect(md).not.toContain('Click me');
+  });
+});
+
+describe('cleanHtmlForReading', () => {
+  it('removes subscribe widgets', () => {
+    const html = '<p>Content</p><div class="subscribe-widget">Subscribe!</div><p>More</p>';
+    const cleaned = cleanHtmlForReading(html);
+    expect(cleaned).not.toContain('Subscribe');
+    expect(cleaned).toContain('Content');
+    expect(cleaned).toContain('More');
+  });
+
+  it('removes subscription widgets', () => {
+    const html = '<p>Content</p><div class="subscription-widget-wrap">Sign up</div>';
+    const cleaned = cleanHtmlForReading(html);
+    expect(cleaned).not.toContain('Sign up');
+    expect(cleaned).toContain('Content');
+  });
+
+  it('removes button wrappers', () => {
+    const html = '<p>Content</p><div class="button-wrapper">Click me</div>';
+    const cleaned = cleanHtmlForReading(html);
+    expect(cleaned).not.toContain('Click me');
+  });
+
+  it('removes share widgets', () => {
+    const html = '<p>Content</p><div class="share-dialog">Share this</div>';
+    const cleaned = cleanHtmlForReading(html);
+    expect(cleaned).not.toContain('Share this');
+  });
+
+  it('removes post-cta elements', () => {
+    const html = '<p>Content</p><div class="post-cta">Read more</div>';
+    const cleaned = cleanHtmlForReading(html);
+    expect(cleaned).not.toContain('Read more');
+  });
+
+  it('removes empty paragraphs', () => {
+    const html = '<p>Content</p><p></p><p>   </p><p>More</p>';
+    const cleaned = cleanHtmlForReading(html);
+    // Should contain content but not empty p tags
+    expect(cleaned).toContain('Content');
+    expect(cleaned).toContain('More');
+  });
+
+  it('preserves article content', () => {
+    const html = '<p>First paragraph</p><p>Second paragraph with <strong>bold</strong> text.</p>';
+    const cleaned = cleanHtmlForReading(html);
+    expect(cleaned).toContain('First paragraph');
+    expect(cleaned).toContain('Second paragraph');
+    expect(cleaned).toContain('<strong>bold</strong>');
+  });
+
+  it('handles nested widgets', () => {
+    const html = '<div class="subscribe-widget"><div class="inner"><button>Subscribe</button></div></div><p>Article</p>';
+    const cleaned = cleanHtmlForReading(html);
+    expect(cleaned).not.toContain('Subscribe');
+    expect(cleaned).toContain('Article');
   });
 });
 

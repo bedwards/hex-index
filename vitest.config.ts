@@ -15,6 +15,7 @@ export default defineConfig({
         '**/*.config.*',
         '**/*.test.ts',
         'tools/screenshots/**',
+        'src/db/**', // Database queries require integration testing with real PostgreSQL
       ],
       thresholds: {
         statements: 70,

@@ -4,6 +4,7 @@
  */
 
 import TurndownService from 'turndown';
+import * as cheerio from 'cheerio';
 import {
   ArticleMetadata,
   ConvertedArticle,
@@ -79,22 +80,32 @@ export function htmlToMarkdown(html: string): string {
 /**
  * Clean HTML for Speechify-compatible reading
  * Removes Substack widgets, subscription prompts, and cleans up structure
+ * Uses cheerio for safe DOM manipulation (no ReDoS risk)
  */
 export function cleanHtmlForReading(html: string): string {
-  return html
-    // Remove Substack subscription widgets
-    .replace(/<div[^>]*class="[^"]*subscribe[^"]*"[^>]*>[\s\S]*?<\/div>/gi, '')
-    .replace(/<div[^>]*class="[^"]*subscription[^"]*"[^>]*>[\s\S]*?<\/div>/gi, '')
-    // Remove button wrappers
-    .replace(/<div[^>]*class="[^"]*button-wrapper[^"]*"[^>]*>[\s\S]*?<\/div>/gi, '')
-    // Remove share widgets
-    .replace(/<div[^>]*class="[^"]*share[^"]*"[^>]*>[\s\S]*?<\/div>/gi, '')
-    // Remove empty paragraphs
-    .replace(/<p>\s*<\/p>/gi, '')
-    // Remove excessive whitespace
+  const $ = cheerio.load(html);
+
+  // Remove Substack subscription and share widgets by class patterns
+  $('[class*="subscribe"]').remove();
+  $('[class*="subscription"]').remove();
+  $('[class*="button-wrapper"]').remove();
+  $('[class*="share"]').remove();
+
+  // Remove common Substack CTA elements
+  $('.captioned-button-wrap').remove();
+  $('.subscription-widget-wrap').remove();
+  $('.post-cta').remove();
+
+  // Remove empty paragraphs
+  $('p').each((_, el) => {
+    if ($(el).text().trim() === '') {
+      $(el).remove();
+    }
+  });
+
+  // Get cleaned HTML and normalize whitespace
+  return $.html()
     .replace(/\n{3,}/g, '\n\n')
-    // Clean up line breaks
-    .replace(/\s*\n\s*/g, '\n')
     .trim();
 }
 
