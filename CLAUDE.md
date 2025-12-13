@@ -363,6 +363,38 @@ Do not ignore Dependabot advice. If a PR fails CI, fix the underlying issue rath
 
 **This is a brand new project foundation. Nothing is locked in. Use the latest.**
 
+## User Experience Priorities
+
+### The Human Uses This App
+The human prompter actively uses this application for reading. This is not a demo or prototype—it's a tool they use regularly. Prioritize features that improve the actual reading experience.
+
+### Speechify Compatibility
+The human uses the **Speechify Chrome extension** for text-to-speech reading. All HTML output must be:
+- Clean, semantic markup (proper `<p>`, `<h1>`-`<h6>`, `<blockquote>` tags)
+- Free of Substack widgets, subscription prompts, share buttons, and CTAs
+- No JavaScript-dependent content that Speechify can't read
+- No empty paragraphs or excessive whitespace that creates awkward pauses
+
+When generating or cleaning HTML for the reader, always consider how it will sound when read aloud.
+
+### Real Content Over Test Data
+The human wants to read real articles, not see "3 test articles" in the UI. When building features:
+1. Ensure ingestion actually populates the database
+2. Use the real sources from `content/sources.json`
+3. Test with actual content, not mocks
+4. If the database is empty, that's a bug to fix, not a state to accept
+
+### Reading Experience First
+When prioritizing work, favor features that directly improve the reading experience:
+- Content availability (ingestion, database population)
+- Clean article rendering
+- Fast load times
+- Typography and readability
+- Search that finds what you're looking for
+
+### Claude PR Reviews
+Before merging PRs, get feedback from the Claude GitHub integration. Address the feedback—especially security issues and test coverage—before merging. The human values this review process.
+
 ## Architecture Decisions
 
 This project assumes:
