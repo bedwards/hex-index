@@ -8,7 +8,10 @@ import {
   extractLinks,
   generateFrontmatter,
   slugify,
+  convertFeedItem,
+  generateMarkdownFile,
 } from './converter.js';
+import { FeedItem } from '../feed/types.js';
 
 describe('htmlToMarkdown', () => {
   it('converts paragraphs', () => {
@@ -168,5 +171,110 @@ describe('slugify', () => {
   it('truncates long titles', () => {
     const longTitle = 'a'.repeat(150);
     expect(slugify(longTitle).length).toBeLessThanOrEqual(100);
+  });
+});
+
+describe('htmlToMarkdown - Substack-specific', () => {
+  it('converts figcaption to italic', () => {
+    const html = '<figure><img src="test.jpg"/><figcaption>Image caption</figcaption></figure>';
+    const md = htmlToMarkdown(html);
+    expect(md).toContain('*Image caption*');
+  });
+
+  it('handles empty figcaption', () => {
+    const html = '<figure><img src="test.jpg"/><figcaption></figcaption></figure>';
+    const md = htmlToMarkdown(html);
+    // Should not contain empty italic markers
+    expect(md).not.toContain('**');
+  });
+
+  it('removes subscribe widgets', () => {
+    const html = '<p>Content</p><div class="subscribe-widget">Subscribe!</div><p>More</p>';
+    const md = htmlToMarkdown(html);
+    expect(md).not.toContain('Subscribe');
+    expect(md).toContain('Content');
+    expect(md).toContain('More');
+  });
+
+  it('removes subscription widgets', () => {
+    const html = '<p>Content</p><div class="subscription-widget">Sign up</div>';
+    const md = htmlToMarkdown(html);
+    expect(md).not.toContain('Sign up');
+  });
+
+  it('removes button wrappers', () => {
+    const html = '<p>Content</p><div class="button-wrapper">Click me</div>';
+    const md = htmlToMarkdown(html);
+    expect(md).not.toContain('Click me');
+  });
+});
+
+describe('extractLinks - edge cases', () => {
+  it('handles invalid URLs as external', () => {
+    const html = '<a href="not-a-valid-url">link</a>';
+    const links = extractLinks(html, 'https://test.substack.com/p/article');
+
+    expect(links).toHaveLength(1);
+    expect(links[0].type).toBe('external');
+  });
+
+  it('ignores javascript links', () => {
+    const html = '<a href="javascript:void(0)">click</a>';
+    const links = extractLinks(html, 'https://test.substack.com/p/article');
+
+    expect(links).toHaveLength(0);
+  });
+});
+
+describe('convertFeedItem', () => {
+  it('converts a feed item to ConvertedArticle', () => {
+    const item: FeedItem = {
+      title: 'Test Article',
+      url: 'https://test.substack.com/p/test-article',
+      author: 'Test Author',
+      publishedAt: new Date('2025-01-15T12:00:00Z'),
+      contentHtml: '<p>This is <strong>test</strong> content with a <a href="https://example.com">link</a>.</p>',
+    };
+
+    const result = convertFeedItem(item, { name: 'Test Pub', slug: 'test-pub' });
+
+    expect(result.metadata.title).toBe('Test Article');
+    expect(result.metadata.author).toBe('Test Author');
+    expect(result.metadata.publication).toBe('Test Pub');
+    expect(result.metadata.publication_slug).toBe('test-pub');
+    expect(result.metadata.published_at).toBe('2025-01-15T12:00:00.000Z');
+    expect(result.metadata.source_url).toBe('https://test.substack.com/p/test-article');
+    expect(result.metadata.word_count).toBeGreaterThan(0);
+    expect(result.metadata.estimated_read_time).toBeGreaterThanOrEqual(1);
+    expect(result.markdown).toContain('**test**');
+    expect(result.links).toHaveLength(1);
+    expect(result.links[0].url).toBe('https://example.com');
+  });
+});
+
+describe('generateMarkdownFile', () => {
+  it('combines frontmatter and markdown content', () => {
+    const article = {
+      metadata: {
+        title: 'Test',
+        author: 'Author',
+        publication: 'Pub',
+        publication_slug: 'pub',
+        published_at: '2025-01-15T00:00:00.000Z',
+        source_url: 'https://test.substack.com/p/test',
+        word_count: 100,
+        estimated_read_time: 1,
+      },
+      markdown: 'This is the article content.',
+      links: [],
+    };
+
+    const output = generateMarkdownFile(article);
+
+    expect(output).toContain('---');
+    expect(output).toContain('title: "Test"');
+    expect(output).toContain('This is the article content.');
+    // Frontmatter should be followed by blank line then content
+    expect(output).toMatch(/---\n\nThis is the article content\./);
   });
 });

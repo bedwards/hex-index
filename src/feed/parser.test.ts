@@ -76,6 +76,46 @@ describe('parseFeed', () => {
     const invalidXml = `<?xml version="1.0"?><unknown><data/></unknown>`;
     expect(() => parseFeed(invalidXml, 'https://test.com/feed')).toThrow('Unknown feed format');
   });
+
+  it('extracts image from enclosure', () => {
+    const rssXml = `<?xml version="1.0" encoding="UTF-8"?>
+    <rss version="2.0">
+      <channel>
+        <title>Test</title>
+        <link>https://test.substack.com</link>
+        <item>
+          <title>Article with Image</title>
+          <link>https://test.substack.com/p/test</link>
+          <pubDate>Mon, 13 Dec 2025 12:00:00 GMT</pubDate>
+          <dc:creator>Author</dc:creator>
+          <enclosure url="https://example.com/image.jpg" type="image/jpeg"/>
+        </item>
+      </channel>
+    </rss>`;
+
+    const feed = parseFeed(rssXml, 'https://test.substack.com/feed');
+    expect(feed.items[0].imageUrl).toBe('https://example.com/image.jpg');
+  });
+
+  it('extracts image from media:content', () => {
+    const rssXml = `<?xml version="1.0" encoding="UTF-8"?>
+    <rss version="2.0" xmlns:media="http://search.yahoo.com/mrss/">
+      <channel>
+        <title>Test</title>
+        <link>https://test.substack.com</link>
+        <item>
+          <title>Article with Media</title>
+          <link>https://test.substack.com/p/test</link>
+          <pubDate>Mon, 13 Dec 2025 12:00:00 GMT</pubDate>
+          <dc:creator>Author</dc:creator>
+          <media:content url="https://example.com/media.jpg" medium="image"/>
+        </item>
+      </channel>
+    </rss>`;
+
+    const feed = parseFeed(rssXml, 'https://test.substack.com/feed');
+    expect(feed.items[0].imageUrl).toBe('https://example.com/media.jpg');
+  });
 });
 
 describe('extractTextContent', () => {
