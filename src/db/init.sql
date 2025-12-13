@@ -8,12 +8,12 @@ CREATE EXTENSION IF NOT EXISTS "pgcrypto";
 -- Create a schema for the application
 CREATE SCHEMA IF NOT EXISTS app;
 
--- Example table structure (customize for your project)
--- DELETE THIS AND REPLACE WITH YOUR ACTUAL SCHEMA
+-- Migrations tracking table
 CREATE TABLE IF NOT EXISTS app.migrations (
     id SERIAL PRIMARY KEY,
     name VARCHAR(255) NOT NULL UNIQUE,
     applied_at TIMESTAMP WITH TIME ZONE DEFAULT NOW()
 );
 
--- Add any initial seed data or setup here
+-- Note: Main schema is in src/db/migrations/001_initial_schema.sql
+-- Run `npm run db:migrate` after `npm run db:up` to apply migrations
