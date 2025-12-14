@@ -4,7 +4,7 @@
  */
 
 import { XMLParser } from 'fast-xml-parser';
-import { Feed, FeedItem } from './types.js';
+import { Feed, FeedItem, MediaType } from './types.js';
 
 const parser = new XMLParser({
   ignoreAttributes: false,
@@ -29,10 +29,11 @@ interface RSSItem {
   'dc:creator'?: string;
   author?: string;
   description?: string;
-  'content:encoded'?: string;
+  'content:encoded'?: string | { '#text'?: string };
   guid?: string | { '#text': string };
-  enclosure?: { '@_url'?: string };
-  'media:content'?: { '@_url'?: string };
+  enclosure?: { '@_url'?: string; '@_type'?: string };
+  'media:content'?: { '@_url'?: string; '@_type'?: string; '@_medium'?: string };
+  category?: string | string[] | { '#text'?: string }[];
 }
 
 interface AtomFeed {
@@ -60,6 +61,88 @@ interface AtomEntry {
   content?: string | { '#text': string; '@_type'?: string };
   id?: string;
   'media:thumbnail'?: { '@_url'?: string };
+  'media:content'?: { '@_url'?: string; '@_type'?: string; '@_medium'?: string };
+  category?: string | string[] | { '#text'?: string }[];
+}
+
+/**
+ * Detect media type from RSS/Atom feed item metadata
+ */
+function detectMediaType(item: {
+  enclosure?: { '@_type'?: string };
+  'media:content'?: { '@_type'?: string; '@_medium'?: string };
+  'content:encoded'?: string | { '#text'?: string };
+  category?: string | string[] | { '#text'?: string }[];
+}): MediaType {
+  // Check enclosure type (RSS)
+  if (item.enclosure?.['@_type']) {
+    const type = item.enclosure['@_type'];
+    if (type.startsWith('audio/')) {
+      return 'audio';
+    }
+    if (type.startsWith('video/')) {
+      return 'video';
+    }
+  }
+
+  // Check Media RSS type
+  if (item['media:content']?.['@_type']) {
+    const type = item['media:content']['@_type'];
+    if (type.startsWith('audio/')) {
+      return 'audio';
+    }
+    if (type.startsWith('video/')) {
+      return 'video';
+    }
+  }
+
+  // Check for media attributes in Media RSS
+  if (item['media:content']?.['@_medium']) {
+    const medium = item['media:content']['@_medium'];
+    if (medium === 'audio') {
+      return 'audio';
+    }
+    if (medium === 'video') {
+      return 'video';
+    }
+  }
+
+  // Check categories for media indicators
+  if (item.category) {
+    const cats = Array.isArray(item.category) ? item.category : [item.category];
+    for (const cat of cats) {
+      const category = typeof cat === 'string' ? cat : (cat as { '#text'?: string })['#text'] || '';
+      const lowerCat = category.toLowerCase();
+      if (lowerCat.includes('podcast') || lowerCat.includes('audio')) {
+        return 'audio';
+      }
+      if (lowerCat.includes('video')) {
+        return 'video';
+      }
+    }
+  }
+
+  // Check HTML content for media tags and transcripts
+  const content = item['content:encoded'];
+  if (content) {
+    const htmlContent = typeof content === 'string' ? content : content['#text'] || '';
+    const lowerHtml = htmlContent.toLowerCase();
+
+    // Check for media tags
+    if (lowerHtml.includes('<video')) {
+      return 'video';
+    }
+    if (lowerHtml.includes('<audio')) {
+      return 'audio';
+    }
+
+    // Check for transcript indicators (these are audio/video with transcripts)
+    if (lowerHtml.includes('transcript') || lowerHtml.includes('listen to this episode')) {
+      return 'audio';
+    }
+  }
+
+  return 'text';
 }
 
 /**
@@ -85,12 +168,17 @@ function parseRSS(rss: { channel: RSSChannel }, feedUrl: string): Feed {
   const channel = rss.channel;
 
   const items: FeedItem[] = (channel.item ?? []).map((item) => {
-    const contentHtml = item['content:encoded'] ?? item.description ?? '';
+    const contentHtml = typeof item['content:encoded'] === 'string'
+      ? item['content:encoded']
+      : item['content:encoded']?.['#text'] ?? item.description ?? '';
     const summary = item.description && item['content:encoded'] ? item.description : undefined;
 
-    // Extract image from enclosure or media:content
+    // Extract image from enclosure or media:content (only if not audio/video)
     let imageUrl: string | undefined;
-    if (item.enclosure?.['@_url']) {
+    const enclosureType = item.enclosure?.['@_type'];
+    const isMediaEnclosure = enclosureType?.startsWith('audio/') || enclosureType?.startsWith('video/');
+
+    if (item.enclosure?.['@_url'] && !isMediaEnclosure) {
       imageUrl = item.enclosure['@_url'];
     } else if (item['media:content']?.['@_url']) {
       imageUrl = item['media:content']['@_url'];
@@ -99,12 +187,21 @@ function parseRSS(rss: { channel: RSSChannel }, feedUrl: string): Feed {
     // Extract GUID
     const guid = typeof item.guid === 'string' ? item.guid : item.guid?.['#text'];
 
+    // Detect media type
+    const mediaType = detectMediaType({
+      enclosure: item.enclosure,
+      'media:content': item['media:content'],
+      'content:encoded': item['content:encoded'],
+      category: item.category,
+    });
+
     return {
       title: item.title,
       url: item.link,
       publishedAt: item.pubDate ? new Date(item.pubDate) : new Date(),
       author: item['dc:creator'] ?? item.author ?? channel.title,
       contentHtml,
+      mediaType,
       summary,
       imageUrl,
       guid,
@@ -137,12 +234,20 @@ function parseAtom(atom: AtomFeed, feedUrl: string): Feed {
     const summary = typeof entry.summary === 'string' ? entry.summary : entry.summary?.['#text'];
     const title = typeof entry.title === 'string' ? entry.title : entry.title?.['#text'] ?? '';
 
+    // Detect media type
+    const mediaType = detectMediaType({
+      'media:content': entry['media:content'],
+      'content:encoded': content,
+      category: entry.category,
+    });
+
     return {
       title,
       url: entryHtmlLink?.['@_href'] ?? '',
       publishedAt: entry.published ? new Date(entry.published) : entry.updated ? new Date(entry.updated) : new Date(),
       author: entry.author?.name ?? atom.author?.name ?? '',
       contentHtml: content,
+      mediaType,
       summary,
       imageUrl: entry['media:thumbnail']?.['@_url'],
       guid: entry.id,

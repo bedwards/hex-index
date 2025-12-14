@@ -3,6 +3,8 @@
  * These match the schema in migrations/001_initial_schema.sql
  */
 
+import type { MediaType } from '../feed/types.js';
+
 export interface Publication {
   id: string;
   name: string;
@@ -30,6 +32,7 @@ export interface Article {
   published_at: Date | null;
   word_count: number | null;
   estimated_read_time_minutes: number | null;
+  media_type: MediaType;
   tags: Record<string, unknown>;
   metadata: Record<string, unknown>;
   full_text_search: string | null;
@@ -82,6 +85,7 @@ export interface CreateArticleInput {
   published_at?: Date;
   word_count?: number;
   estimated_read_time_minutes?: number;
+  media_type?: MediaType;
   tags?: Record<string, unknown>;
   metadata?: Record<string, unknown>;
 }

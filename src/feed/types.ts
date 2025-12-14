@@ -2,12 +2,15 @@
  * Types for RSS/Atom feed parsing
  */
 
+export type MediaType = 'text' | 'audio' | 'video';
+
 export interface FeedItem {
   title: string;
   url: string;
   publishedAt: Date;
   author: string;
   contentHtml: string;
+  mediaType: MediaType;
   summary?: string;
   imageUrl?: string;
   guid?: string;

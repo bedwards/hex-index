@@ -8,6 +8,7 @@ import { FeedItem } from '../feed/types.js';
 import { convertFeedItem, slugify } from '../markdown/converter.js';
 import { storeArticle, articleExists } from '../markdown/storage.js';
 import { LibraryConfig } from '../markdown/types.js';
+import { config } from '../config.js';
 import {
   createPublication,
   getPublicationBySlug,
@@ -33,15 +34,24 @@ export async function processArticle(
   options: IngestionOptions,
   publicationId?: string
 ): Promise<ArticleProcessResult> {
-  const config: LibraryConfig = { baseDir: options.libraryDir };
+  const libraryConfig: LibraryConfig = { baseDir: options.libraryDir };
   const articleSlug = slugify(item.title);
 
   // Check if article already exists in filesystem
-  if (articleExists(source.slug, articleSlug, config)) {
+  if (articleExists(source.slug, articleSlug, libraryConfig)) {
     return {
       item,
       skipped: true,
       skipReason: 'already exists',
+    };
+  }
+
+  // Filter: Only text posts (no audio/video)
+  if (config.textOnly && item.mediaType !== 'text') {
+    return {
+      item,
+      skipped: true,
+      skipReason: `${item.mediaType} content (text-only filter)`,
     };
   }
 
@@ -66,6 +76,15 @@ export async function processArticle(
       converted.metadata.author = source.author;
     }
 
+    // Filter: Minimum read time
+    if (converted.metadata.estimated_read_time < config.minReadTimeMinutes) {
+      return {
+        item,
+        skipped: true,
+        skipReason: `${converted.metadata.estimated_read_time} min read (minimum: ${config.minReadTimeMinutes} min)`,
+      };
+    }
+
     // Dry run - don't store
     if (options.dryRun) {
       return {
@@ -76,7 +95,7 @@ export async function processArticle(
     }
 
     // Store to filesystem
-    const stored = await storeArticle(converted, config);
+    const stored = await storeArticle(converted, libraryConfig);
 
     if (!stored.success) {
       return {
@@ -108,6 +127,7 @@ export async function processArticle(
             published_at: item.publishedAt,
             word_count: converted.metadata.word_count,
             estimated_read_time_minutes: converted.metadata.estimated_read_time,
+            media_type: item.mediaType,
             tags: converted.metadata.tags,
           });
         }

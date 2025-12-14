@@ -109,8 +109,8 @@ export async function createArticle(
   const { rows } = await client.query<Article>(
     `INSERT INTO app.articles
      (publication_id, title, slug, original_url, content_path, author_name,
-      published_at, word_count, estimated_read_time_minutes, tags, metadata)
-     VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11)
+      published_at, word_count, estimated_read_time_minutes, media_type, tags, metadata)
+     VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12)
      RETURNING *`,
     [
       input.publication_id,
@@ -122,6 +122,7 @@ export async function createArticle(
       input.published_at ?? null,
       input.word_count ?? null,
       input.estimated_read_time_minutes ?? null,
+      input.media_type ?? 'text',
       JSON.stringify(input.tags ?? {}),
       JSON.stringify(input.metadata ?? {}),
     ]

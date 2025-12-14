@@ -24,8 +24,8 @@ vi.mock('../feed/parser.js', async (importOriginal) => {
   const actual = await importOriginal<typeof import('../feed/parser.js')>();
   return {
     ...actual,
-    countWords: vi.fn(() => 100),
-    estimateReadTime: vi.fn(() => 1),
+    countWords: vi.fn(() => 2500),
+    estimateReadTime: vi.fn(() => 13), // 2500 words / 200 wpm = 12.5, rounded to 13
   };
 });
 
@@ -34,7 +34,9 @@ const mockFeedItem: FeedItem = {
   url: 'https://test.substack.com/p/test-article',
   author: 'Test Author',
   publishedAt: new Date('2025-01-01'),
-  contentHtml: '<p>Test content</p>',
+  // Generate enough content for 10+ minute read time (2000+ words at 200 wpm)
+  contentHtml: '<p>' + 'word '.repeat(2500) + '</p>',
+  mediaType: 'text' as const,
 };
 
 const mockSource: IngestionSource = {

@@ -293,6 +293,7 @@ describe('convertFeedItem', () => {
       author: 'Test Author',
       publishedAt: new Date('2025-01-15T12:00:00Z'),
       contentHtml: '<p>This is <strong>test</strong> content with a <a href="https://example.com">link</a>.</p>',
+      mediaType: 'text' as const,
     };
 
     const result = convertFeedItem(item, { name: 'Test Pub', slug: 'test-pub' });

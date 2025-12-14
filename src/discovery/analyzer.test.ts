@@ -23,6 +23,7 @@ const createMockFeed = (items: Array<{ title: string; contentHtml: string; publi
     publishedAt: item.publishedAt,
     author: item.author,
     contentHtml: item.contentHtml,
+    mediaType: 'text' as const,
   })),
 });
 
