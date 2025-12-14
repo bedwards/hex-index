@@ -15,7 +15,7 @@ import { createDraft } from '../../src/substack/publisher.js';
 config();
 
 async function main(): Promise<void> {
-  console.log('🧪 Testing Substack draft creation...\n');
+  console.info('🧪 Testing Substack draft creation...\n');
 
   // Load auth config
   const authConfig = loadAuthConfig();
@@ -26,7 +26,7 @@ async function main(): Promise<void> {
     process.exit(1);
   }
 
-  console.log(`📝 Creating test draft on ${authConfig.subdomain}.substack.com...\n`);
+  console.info(`📝 Creating test draft on ${authConfig.subdomain}.substack.com...\n`);
 
   // Create test draft
   const testPost = {
@@ -59,12 +59,12 @@ async function main(): Promise<void> {
   const result = await createDraft(authConfig, testPost);
 
   if (result.success) {
-    console.log('✅ Test draft created successfully!\n');
-    console.log(`📎 Draft URL: ${result.postUrl}\n`);
-    console.log('Next steps:');
-    console.log('  1. Open the draft in your Substack dashboard');
-    console.log('  2. Verify it looks correct');
-    console.log('  3. Delete it or publish it');
+    console.info('✅ Test draft created successfully!\n');
+    console.info(`📎 Draft URL: ${result.postUrl}\n`);
+    console.info('Next steps:');
+    console.info('  1. Open the draft in your Substack dashboard');
+    console.info('  2. Verify it looks correct');
+    console.info('  3. Delete it or publish it');
   } else {
     console.error('❌ Failed to create draft\n');
     console.error(`Error: ${result.error}\n`);

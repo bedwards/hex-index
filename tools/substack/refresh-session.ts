@@ -28,7 +28,7 @@ async function refreshSubstackSession(): Promise<void> {
     process.exit(1);
   }
 
-  console.log('🔐 Starting Substack authentication...');
+  console.info('🔐 Starting Substack authentication...');
 
   const browser = await chromium.launch({
     headless: true,
@@ -42,13 +42,13 @@ async function refreshSubstackSession(): Promise<void> {
     const page = await context.newPage();
 
     // Navigate to login
-    console.log('📱 Navigating to Substack login...');
+    console.info('📱 Navigating to Substack login...');
     await page.goto('https://substack.com/sign-in', {
       waitUntil: 'networkidle',
     });
 
     // Enter email
-    console.log('✉️  Entering email...');
+    console.info('✉️  Entering email...');
     await page.fill('input[type="email"]', email);
     await page.click('button[type="submit"]');
 
@@ -60,23 +60,23 @@ async function refreshSubstackSession(): Promise<void> {
     const passwordFieldVisible = await passwordField.isVisible().catch(() => false);
 
     if (passwordFieldVisible) {
-      console.log('🔑 Entering password...');
+      console.info('🔑 Entering password...');
       await passwordField.fill(password);
       await page.click('button[type="submit"]');
     } else {
-      console.log('📧 Substack sent magic link email');
-      console.log('   Please check brian.mabry.edwards@gmail.com');
-      console.log('   Click the link, then run this script again');
+      console.info('📧 Substack sent magic link email');
+      console.info('   Please check brian.mabry.edwards@gmail.com');
+      console.info('   Click the link, then run this script again');
       process.exit(1);
     }
 
     // Wait for successful login
-    console.log('⏳ Waiting for authentication...');
+    console.info('⏳ Waiting for authentication...');
     await page.waitForURL('https://substack.com/home', {
       timeout: 30000,
     });
 
-    console.log('✅ Login successful!');
+    console.info('✅ Login successful!');
 
     // Extract session cookie
     const cookies = await context.cookies();
@@ -87,7 +87,7 @@ async function refreshSubstackSession(): Promise<void> {
       process.exit(1);
     }
 
-    console.log('🍪 Session cookie extracted');
+    console.info('🍪 Session cookie extracted');
 
     // Update .secrets file
     const secretsPath = '.secrets';
@@ -107,13 +107,13 @@ async function refreshSubstackSession(): Promise<void> {
 
     await writeFile(secretsPath, lines.join('\n') + '\n');
 
-    console.log('💾 Updated .secrets file');
-    console.log('');
-    console.log('✨ Session refresh complete!');
-    console.log('');
-    console.log('Next steps:');
-    console.log('  1. Reload your shell: source .secrets');
-    console.log('  2. Test the session: npx tsx tools/substack/test-draft.ts');
+    console.info('💾 Updated .secrets file');
+    console.info('');
+    console.info('✨ Session refresh complete!');
+    console.info('');
+    console.info('Next steps:');
+    console.info('  1. Reload your shell: source .secrets');
+    console.info('  2. Test the session: npx tsx tools/substack/test-draft.ts');
   } catch (error) {
     console.error('❌ Authentication failed:', error);
     process.exit(1);
