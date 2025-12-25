@@ -395,6 +395,26 @@ When prioritizing work, favor features that directly improve the reading experie
 ### Claude PR Reviews
 Before merging PRs, get feedback from the Claude GitHub integration. Address the feedback—especially security issues and test coverage—before merging. The human values this review process.
 
+## Wikipedia Integration
+
+The library enriches Substack articles with related Wikipedia content. For each article, we identify 3 specific topics, scrape Wikipedia, and rewrite the content for enjoyable reading with Speechify.
+
+**Full design document**: [docs/wikipedia-integration.md](docs/wikipedia-integration.md)
+
+### Key Concepts
+- **Topic selection**: Specific, not general. "Battle of Thermopylae" not "Ancient Greece"
+- **Rewriting**: Enjoyable essays, not encyclopedic reference. Vary sentence/paragraph length, spell out acronyms, avoid jargon, explain from first principles
+- **One-shot Claude instances**: Each rewrite spawns an Opus 4.5 Claude Code instance with specific instructions
+
+### Related Issues
+- [#54](https://github.com/bedwards/hex-index/issues/54): Database schema
+- [#55](https://github.com/bedwards/hex-index/issues/55): Wikipedia scraper
+- [#56](https://github.com/bedwards/hex-index/issues/56): Topic analyzer
+- [#57](https://github.com/bedwards/hex-index/issues/57): Rewriter with Claude Code spawning
+- [#58](https://github.com/bedwards/hex-index/issues/58): UI for Wikipedia articles
+- [#59](https://github.com/bedwards/hex-index/issues/59): Ingestion pipeline hook
+- [#60](https://github.com/bedwards/hex-index/issues/60): Retrofit existing articles
+
 ## Architecture Decisions
 
 This project assumes:
