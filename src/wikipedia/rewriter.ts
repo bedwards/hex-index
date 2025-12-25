@@ -1,12 +1,50 @@
 /**
  * Wikipedia article rewriter
  * Transforms encyclopedic content into enjoyable reading for Speechify
+ * Uses one-shot Claude Code CLI invocations for rewrites
  */
 
-import Anthropic from '@anthropic-ai/sdk';
+import { spawn } from 'child_process';
 import { WikipediaContent } from './types.js';
 
-const anthropic = new Anthropic();
+/**
+ * Invoke Claude Code CLI with a prompt and return the response
+ * Uses the user's existing Claude subscription (no API key needed)
+ */
+async function invokeClaude(prompt: string): Promise<string> {
+  return new Promise((resolve, reject) => {
+    const claude = spawn('claude', ['--print'], {
+      stdio: ['pipe', 'pipe', 'pipe'],
+    });
+
+    let stdout = '';
+    let stderr = '';
+
+    claude.stdout.on('data', (data: Buffer) => {
+      stdout += data.toString();
+    });
+
+    claude.stderr.on('data', (data: Buffer) => {
+      stderr += data.toString();
+    });
+
+    claude.on('close', (code) => {
+      if (code !== 0) {
+        reject(new Error(`Claude CLI exited with code ${code}: ${stderr}`));
+        return;
+      }
+      resolve(stdout.trim());
+    });
+
+    claude.on('error', (err) => {
+      reject(new Error(`Failed to spawn claude CLI: ${err.message}`));
+    });
+
+    // Write prompt to stdin and close
+    claude.stdin.write(prompt);
+    claude.stdin.end();
+  });
+}
 
 export interface RewriteResult {
   html: string;
@@ -74,18 +112,8 @@ Start with a brief note crediting the source:
 
 Then write the essay. Do not include any explanation or commentary outside the HTML content.`;
 
-  const message = await anthropic.messages.create({
-    model: 'claude-sonnet-4-20250514',
-    max_tokens: 8192,
-    messages: [{ role: 'user', content: prompt }],
-  });
-
-  const responseContent = message.content[0];
-  if (responseContent.type !== 'text') {
-    throw new Error('Unexpected response type from Claude');
-  }
-
-  let html = responseContent.text.trim();
+  // Spawn claude CLI to rewrite the article
+  let html = await invokeClaude(prompt);
 
   // Clean up any markdown code blocks if present
   if (html.startsWith('```html')) {
