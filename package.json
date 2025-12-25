@@ -37,9 +37,13 @@
     "ingest": "tsx tools/ingest/run.ts",
     "discover": "tsx tools/discovery/analyze.ts",
     "cleanup:media": "tsx tools/cleanup-media-posts.ts",
+    "wikipedia:retrofit": "tsx src/wikipedia/cli.ts retrofit",
+    "wikipedia:stats": "tsx src/wikipedia/cli.ts stats",
+    "wikipedia:enrich": "tsx src/wikipedia/cli.ts enrich",
     "prepare": "husky || true"
   },
   "dependencies": {
+    "@anthropic-ai/sdk": "^0.71.2",
     "@types/turndown": "^5.0.6",
     "cheerio": "^1.1.2",
     "dotenv": "^17.2.3",

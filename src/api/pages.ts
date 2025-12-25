@@ -37,6 +37,24 @@ interface Publication {
   article_count: number;
 }
 
+interface WikipediaArticle {
+  id: string;
+  title: string;
+  slug: string;
+  original_url: string;
+  content_path: string | null;
+  word_count: number | null;
+  estimated_read_time_minutes: number | null;
+}
+
+interface WikipediaLink {
+  wikipedia_id: string;
+  title: string;
+  slug: string;
+  read_time: number | null;
+  topic_summary: string;
+}
+
 function escapeHtml(str: string): string {
   return str
     .replace(/&/g, '&amp;')
@@ -256,6 +274,16 @@ export function createPagesRouter(pool: Pool): Router {
 
       const article = result.rows[0];
 
+      // Get related Wikipedia articles
+      const wikiResult = await pool.query<WikipediaLink>(`
+        SELECT w.id as wikipedia_id, w.title, w.slug, w.estimated_read_time_minutes as read_time, awl.topic_summary
+        FROM app.article_wikipedia_links awl
+        JOIN app.wikipedia_articles w ON awl.wikipedia_id = w.id
+        WHERE awl.article_id = $1
+        ORDER BY awl.relevance_rank
+      `, [id]);
+      const wikiLinks = wikiResult.rows;
+
       // Load article content from library
       let articleContent = '<p>Article content not available.</p>';
       if (article.content_path) {
@@ -270,6 +298,24 @@ export function createPagesRouter(pool: Pool): Router {
       const readTime = article.estimated_read_time_minutes
         ? `${article.estimated_read_time_minutes} min read`
         : '';
+
+      // Render Wikipedia deep dives section
+      const wikiSection = wikiLinks.length > 0 ? `
+        <aside class="deep-dives">
+          <h2>Deep Dives</h2>
+          <ul class="deep-dives-list">
+            ${wikiLinks.map(w => `
+              <li class="deep-dive-item">
+                <a href="/wikipedia/${escapeHtml(w.slug)}" class="deep-dive-link">
+                  <span class="deep-dive-title">${escapeHtml(w.title)}</span>
+                  <span class="deep-dive-meta">${w.read_time ? `${w.read_time} min read` : ''}</span>
+                </a>
+                <p class="deep-dive-summary">${escapeHtml(w.topic_summary)}</p>
+              </li>
+            `).join('')}
+          </ul>
+        </aside>
+      ` : '';
 
       const content = `
         <article class="article content-width">
@@ -291,6 +337,7 @@ export function createPagesRouter(pool: Pool): Router {
               ` : ''}
             </div>
           </header>
+          ${wikiSection}
           <div class="article-content">
             ${articleContent}
           </div>
@@ -370,6 +417,91 @@ export function createPagesRouter(pool: Pool): Router {
     } catch (err) {
       console.error('Error rendering publication:', err);
       res.status(500).send(layout('Error', '<div class="container error">Failed to load publication</div>'));
+    }
+  });
+
+  // Wikipedia article page
+  router.get('/wikipedia/:slug', async (req: Request, res: Response) => {
+    try {
+      const { slug } = req.params;
+
+      const result = await pool.query<WikipediaArticle>(`
+        SELECT * FROM app.wikipedia_articles WHERE slug = $1
+      `, [slug]);
+
+      if (result.rows.length === 0) {
+        res.status(404).send(layout('Not Found', '<div class="container error">Wikipedia article not found</div>'));
+        return;
+      }
+
+      const wiki = result.rows[0];
+
+      // Load content from library
+      let wikiContent = '<p>Content not available.</p>';
+      if (wiki.content_path) {
+        try {
+          const contentPath = join(libraryPath, wiki.content_path);
+          wikiContent = await readFile(contentPath, 'utf-8');
+        } catch {
+          // Content file not found
+        }
+      }
+
+      const readTime = wiki.estimated_read_time_minutes
+        ? `${wiki.estimated_read_time_minutes} min read`
+        : '';
+
+      // Find which Substack articles link to this Wikipedia article
+      const linksResult = await pool.query<{ article_id: string; title: string }>(`
+        SELECT a.id as article_id, a.title
+        FROM app.article_wikipedia_links awl
+        JOIN app.articles a ON awl.article_id = a.id
+        WHERE awl.wikipedia_id = $1
+        ORDER BY a.published_at DESC
+        LIMIT 5
+      `, [wiki.id]);
+      const relatedArticles = linksResult.rows;
+
+      const relatedSection = relatedArticles.length > 0 ? `
+        <aside class="related-articles">
+          <h3>Related Substack Articles</h3>
+          <ul>
+            ${relatedArticles.map(a => `
+              <li><a href="/article/${escapeHtml(a.article_id)}">${escapeHtml(a.title)}</a></li>
+            `).join('')}
+          </ul>
+        </aside>
+      ` : '';
+
+      const content = `
+        <article class="article content-width wikipedia-article">
+          <header class="article-header">
+            <span class="article-type-badge">Wikipedia Rewrite</span>
+            <h1 class="article-title">${escapeHtml(wiki.title)}</h1>
+            <div class="article-meta">
+              <a href="${escapeHtml(wiki.original_url)}" target="_blank" rel="noopener" class="article-source-link">
+                View on Wikipedia
+              </a>
+              ${readTime ? `
+                <span class="article-separator">·</span>
+                <span class="article-read-time">${readTime}</span>
+              ` : ''}
+            </div>
+          </header>
+          ${relatedSection}
+          <div class="article-content">
+            ${wikiContent}
+          </div>
+          <footer class="article-footer">
+            <a href="/" class="back-link">&larr; Back to articles</a>
+          </footer>
+        </article>
+      `;
+
+      res.send(layout(wiki.title, content));
+    } catch (err) {
+      console.error('Error rendering Wikipedia article:', err);
+      res.status(500).send(layout('Error', '<div class="container error">Failed to load article</div>'));
     }
   });
 

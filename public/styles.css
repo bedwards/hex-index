@@ -582,6 +582,148 @@ main {
   padding: var(--spacing-2xl);
   color: var(--color-text-muted);
 }
+
+/* Deep Dives (Wikipedia links) */
+.deep-dives {
+  background: var(--color-background);
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  padding: var(--spacing-lg);
+  margin-bottom: var(--spacing-xl);
+}
+
+.deep-dives h2 {
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--color-text-secondary);
+  margin-bottom: var(--spacing-md);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.deep-dives-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+}
+
+.deep-dive-item {
+  padding-bottom: var(--spacing-md);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.deep-dive-item:last-child {
+  padding-bottom: 0;
+  border-bottom: none;
+}
+
+.deep-dive-link {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: var(--spacing-md);
+  text-decoration: none;
+}
+
+.deep-dive-link:hover {
+  text-decoration: none;
+}
+
+.deep-dive-title {
+  font-weight: 500;
+  color: var(--color-accent);
+}
+
+.deep-dive-link:hover .deep-dive-title {
+  text-decoration: underline;
+}
+
+.deep-dive-meta {
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+  white-space: nowrap;
+}
+
+.deep-dive-summary {
+  font-size: 0.9rem;
+  color: var(--color-text-secondary);
+  margin-top: var(--spacing-xs);
+  line-height: 1.5;
+}
+
+/* Wikipedia article page */
+.wikipedia-article .article-type-badge {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--color-accent);
+  background: rgba(37, 99, 235, 0.1);
+  padding: var(--spacing-xs) var(--spacing-sm);
+  border-radius: 4px;
+  margin-bottom: var(--spacing-md);
+}
+
+.article-source-link {
+  color: var(--color-text-secondary);
+  font-size: 0.9rem;
+}
+
+.article-source-link:hover {
+  color: var(--color-accent);
+}
+
+/* Related articles section */
+.related-articles {
+  background: var(--color-background);
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  padding: var(--spacing-lg);
+  margin-bottom: var(--spacing-xl);
+}
+
+.related-articles h3 {
+  font-family: var(--font-sans);
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--color-text-secondary);
+  margin-bottom: var(--spacing-md);
+}
+
+.related-articles ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.related-articles li {
+  margin-bottom: var(--spacing-sm);
+}
+
+.related-articles a {
+  color: var(--color-text);
+  font-size: 0.95rem;
+}
+
+.related-articles a:hover {
+  color: var(--color-accent);
+}
+
+/* Source note in rewritten articles */
+.source-note {
+  font-size: 0.9rem;
+  color: var(--color-text-muted);
+  font-style: italic;
+  margin-bottom: var(--spacing-lg);
+  padding-bottom: var(--spacing-md);
+  border-bottom: 1px solid var(--color-border);
+}
+
 /* Responsive */
 @media (max-width: 768px) {
   html {
