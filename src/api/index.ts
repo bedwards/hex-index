@@ -3,6 +3,7 @@ import { join } from 'path';
 import { config } from 'dotenv';
 import { createPool } from '../db/queries.js';
 import { createSearchRouter } from './search.js';
+import { createPagesRouter } from './pages.js';
 
 config();
 
@@ -14,6 +15,9 @@ const databaseUrl = process.env.DATABASE_URL;
 const pool = databaseUrl ? createPool(databaseUrl) : null;
 
 app.use(express.json());
+
+// Serve static CSS
+app.use(express.static(join(process.cwd(), 'public')));
 
 // Health check endpoint
 app.get('/api/health', (_req, res) => {
@@ -39,6 +43,8 @@ app.use('/library', express.static(libraryPath, {
 // Mount search routes (only if database is configured)
 if (pool) {
   app.use('/api', createSearchRouter(pool));
+  // Mount HTML pages router (Web 1.0 style for Speechify compatibility)
+  app.use('/', createPagesRouter(pool));
 } else {
   // Return 503 for search endpoints when database is not configured
   app.use('/api/search', (_req, res) => {
