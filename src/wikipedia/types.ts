@@ -29,8 +29,7 @@ export interface WikipediaArticle {
   title: string;
   slug: string;
   originalUrl: string;
-  contentHtml: string;
-  contentPath: string | null;
+  contentPath: string;
   wordCount: number;
   estimatedReadTimeMinutes: number;
   sourceWordCount: number;

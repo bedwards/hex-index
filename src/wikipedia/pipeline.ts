@@ -90,20 +90,19 @@ async function saveWikipediaArticle(
   // Write HTML file
   await writeFile(fullPath, html, 'utf-8');
 
-  // Insert into database
+  // Insert into database (metadata only, content is on filesystem)
   const result = await pool.query<WikipediaArticle>(`
     INSERT INTO app.wikipedia_articles (
-      title, slug, original_url, content_html, content_path,
+      title, slug, original_url, content_path,
       word_count, estimated_read_time_minutes, source_word_count
-    ) VALUES ($1, $2, $3, $4, $5, $6, $7, $8)
+    ) VALUES ($1, $2, $3, $4, $5, $6, $7)
     ON CONFLICT (original_url) DO UPDATE SET
-      content_html = EXCLUDED.content_html,
       content_path = EXCLUDED.content_path,
       word_count = EXCLUDED.word_count,
       estimated_read_time_minutes = EXCLUDED.estimated_read_time_minutes,
       updated_at = NOW()
     RETURNING *
-  `, [title, slug, url, html, contentPath, wordCount, readTime, sourceWordCount]);
+  `, [title, slug, url, contentPath, wordCount, readTime, sourceWordCount]);
 
   return result.rows[0];
 }
