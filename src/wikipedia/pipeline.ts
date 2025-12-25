@@ -152,7 +152,7 @@ export async function enrichArticleWithWikipedia(
 
     // Get article info
     const articleResult = await pool.query<ArticleInfo>(`
-      SELECT a.id, a.title, a.content_path, p.name as publication_name
+      SELECT a.id, a.title, a.content_path as "contentPath", p.name as "publicationName"
       FROM app.articles a
       JOIN app.publications p ON a.publication_id = p.id
       WHERE a.id = $1
