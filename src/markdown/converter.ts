@@ -213,6 +213,9 @@ function escapeYamlString(str: string): string {
  * Generate a slug from a title
  */
 export function slugify(title: string): string {
+  if (!title || typeof title !== 'string') {
+    return 'untitled';
+  }
   return title
     .toLowerCase()
     .replace(/[^a-z0-9\s-]/g, '')
