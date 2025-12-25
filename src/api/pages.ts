@@ -113,6 +113,37 @@ function layout(title: string, content: string, currentPath: string = '/'): stri
 </html>`;
 }
 
+/**
+ * Minimal layout optimized for Speechify text-to-speech reading
+ * - Simple header with just hex-index link
+ * - No nav, no search, no footer
+ * - Clean semantic HTML for text highlighting
+ */
+function readingLayout(title: string, content: string): string {
+  return `<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>${escapeHtml(title)} - hex-index</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body class="reading-mode">
+  <a href="#main" class="skip-link">Skip to content</a>
+
+  <header class="header header-minimal">
+    <div class="container header-inner">
+      <a href="/" class="logo">hex-index</a>
+    </div>
+  </header>
+
+  <main id="main" class="main">
+    ${content}
+  </main>
+</body>
+</html>`;
+}
+
 function renderArticleCard(article: Article): string {
   const readTime = article.estimated_read_time_minutes
     ? `${article.estimated_read_time_minutes} min read`
@@ -255,7 +286,7 @@ export function createPagesRouter(pool: Pool): Router {
     }
   });
 
-  // Article page
+  // Article page - optimized for Speechify text-to-speech
   router.get('/article/:id', async (req: Request, res: Response) => {
     try {
       const { id } = req.params;
@@ -299,60 +330,50 @@ export function createPagesRouter(pool: Pool): Router {
         ? `${article.estimated_read_time_minutes} min read`
         : '';
 
-      // Render Wikipedia deep dives section
+      // Extract subtitle from tags if present
+      const subtitle = article.tags?.subtitle || '';
+
+      // Render Wikipedia deep dives section - compact list before content
       const wikiSection = wikiLinks.length > 0 ? `
-        <aside class="deep-dives">
-          <h2>Deep Dives</h2>
+        <nav class="deep-dives" aria-label="Related Wikipedia articles">
+          <p class="deep-dives-label">Deep Dives</p>
           <ul class="deep-dives-list">
             ${wikiLinks.map(w => `
-              <li class="deep-dive-item">
-                <a href="/wikipedia/${escapeHtml(w.slug)}" class="deep-dive-link">
-                  <span class="deep-dive-title">${escapeHtml(w.title)}</span>
-                  <span class="deep-dive-meta">${w.read_time ? `${w.read_time} min read` : ''}</span>
-                </a>
-                <p class="deep-dive-summary">${escapeHtml(w.topic_summary)}</p>
-              </li>
+              <li><a href="/wikipedia/${escapeHtml(w.slug)}">${escapeHtml(w.title)}</a>${w.read_time ? ` <span class="read-time">${w.read_time} min</span>` : ''}</li>
             `).join('')}
           </ul>
-        </aside>
+        </nav>
       ` : '';
 
+      // Optimized article layout for Speechify:
+      // 1. Title (h1) - Speechify starts here by default
+      // 2. Subtitle (if present)
+      // 3. Meta: author, date, reading time
+      // 4. Source link to original Substack
+      // 5. Deep Dives links
+      // 6. Article content
       const content = `
         <article class="article content-width">
           <header class="article-header">
             <h1 class="article-title">${escapeHtml(article.title)}</h1>
-            <div class="article-meta">
-              <span class="article-author">${escapeHtml(article.author_name || 'Unknown author')}</span>
-              <span class="article-separator">·</span>
-              <a href="/publication/${escapeHtml(article.publication_slug)}" class="article-publication">
-                ${escapeHtml(article.publication_name)}
-              </a>
-              ${article.published_at ? `
-                <span class="article-separator">·</span>
-                <span class="article-date">${formatDate(article.published_at)}</span>
-              ` : ''}
-              ${readTime ? `
-                <span class="article-separator">·</span>
-                <span class="article-read-time">${readTime}</span>
-              ` : ''}
-            </div>
+            ${subtitle ? `<p class="article-subtitle">${escapeHtml(subtitle)}</p>` : ''}
+            <p class="article-meta">
+              ${escapeHtml(article.author_name || 'Unknown author')}
+              ${article.published_at ? ` · ${formatDate(article.published_at)}` : ''}
+              ${readTime ? ` · ${readTime}` : ''}
+            </p>
+            <p class="article-source">
+              <a href="${escapeHtml(article.original_url)}" target="_blank" rel="noopener">Read on ${escapeHtml(article.publication_name)}</a>
+            </p>
           </header>
           ${wikiSection}
           <div class="article-content">
             ${articleContent}
           </div>
-          <footer class="article-footer">
-            <a href="/" class="back-link">&larr; Back to articles</a>
-            <div class="article-source">
-              Originally published on <a href="${escapeHtml(article.original_url)}" target="_blank" rel="noopener">
-                ${escapeHtml(article.publication_name)}
-              </a>
-            </div>
-          </footer>
         </article>
       `;
 
-      res.send(layout(article.title, content));
+      res.send(readingLayout(article.title, content));
     } catch (err) {
       console.error('Error rendering article:', err);
       res.status(500).send(layout('Error', '<div class="container error">Failed to load article</div>'));
@@ -420,7 +441,7 @@ export function createPagesRouter(pool: Pool): Router {
     }
   });
 
-  // Wikipedia article page
+  // Wikipedia article page - optimized for Speechify text-to-speech
   router.get('/wikipedia/:slug', async (req: Request, res: Response) => {
     try {
       const { slug } = req.params;
@@ -463,42 +484,38 @@ export function createPagesRouter(pool: Pool): Router {
       const relatedArticles = linksResult.rows;
 
       const relatedSection = relatedArticles.length > 0 ? `
-        <aside class="related-articles">
-          <h3>Related Substack Articles</h3>
+        <nav class="related-articles" aria-label="Related Substack articles">
+          <p class="related-label">From your reading</p>
           <ul>
             ${relatedArticles.map(a => `
               <li><a href="/article/${escapeHtml(a.article_id)}">${escapeHtml(a.title)}</a></li>
             `).join('')}
           </ul>
-        </aside>
+        </nav>
       ` : '';
 
+      // Optimized Wikipedia layout for Speechify:
+      // 1. Type badge + Title
+      // 2. Meta: read time, source link
+      // 3. Related Substack articles
+      // 4. Content
       const content = `
         <article class="article content-width wikipedia-article">
           <header class="article-header">
-            <span class="article-type-badge">Wikipedia Rewrite</span>
+            <p class="article-type-badge">Wikipedia Deep Dive</p>
             <h1 class="article-title">${escapeHtml(wiki.title)}</h1>
-            <div class="article-meta">
-              <a href="${escapeHtml(wiki.original_url)}" target="_blank" rel="noopener" class="article-source-link">
-                View on Wikipedia
-              </a>
-              ${readTime ? `
-                <span class="article-separator">·</span>
-                <span class="article-read-time">${readTime}</span>
-              ` : ''}
-            </div>
+            <p class="article-meta">
+              ${readTime ? `${readTime} · ` : ''}<a href="${escapeHtml(wiki.original_url)}" target="_blank" rel="noopener">View on Wikipedia</a>
+            </p>
           </header>
           ${relatedSection}
           <div class="article-content">
             ${wikiContent}
           </div>
-          <footer class="article-footer">
-            <a href="/" class="back-link">&larr; Back to articles</a>
-          </footer>
         </article>
       `;
 
-      res.send(layout(wiki.title, content));
+      res.send(readingLayout(wiki.title, content));
     } catch (err) {
       console.error('Error rendering Wikipedia article:', err);
       res.status(500).send(layout('Error', '<div class="container error">Failed to load article</div>'));
