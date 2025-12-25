@@ -113,22 +113,59 @@ export function extractKeyTerms(html: string): string[] {
 
 /**
  * Use Claude to analyze article and suggest Wikipedia topics
+ * PRIORITY: First use Wikipedia links found in the article, then Claude for remaining slots
  */
 export async function analyzeArticleForTopics(
   articleHtml: string,
   articleTitle: string,
   publicationName: string
 ): Promise<TopicSuggestion[]> {
+  const validatedSuggestions: TopicSuggestion[] = [];
+
+  // PRIORITY 1: Extract and validate Wikipedia links from the article
+  const existingLinks = extractWikipediaLinks(articleHtml);
+  console.info(`  Found ${existingLinks.length} Wikipedia links in article`);
+
+  for (const link of existingLinks) {
+    if (validatedSuggestions.length >= 3) {break;}
+
+    const { meetsMinimum, estimatedReadTime } = await checkWikipediaArticleLength(link, 10);
+
+    if (meetsMinimum || estimatedReadTime >= 5) {
+      // Extract topic from URL
+      const topicMatch = link.match(/\/wiki\/([^#?]+)/);
+      if (topicMatch) {
+        const topic = decodeURIComponent(topicMatch[1].replace(/_/g, ' '));
+        validatedSuggestions.push({
+          topic,
+          wikipediaUrl: link.startsWith('http') ? link : `https://en.wikipedia.org${link}`,
+          reason: `Linked in the article (${estimatedReadTime} min read)`,
+          confidence: meetsMinimum ? 'high' : 'low',
+        });
+        console.info(`    ✓ Using linked article: ${topic}`);
+      }
+    }
+  }
+
+  // If we already have 3, return early
+  if (validatedSuggestions.length >= 3) {
+    return validatedSuggestions.slice(0, 3);
+  }
+
+  // PRIORITY 2: Use Claude to suggest additional topics to fill remaining slots
+  const remainingSlots = 3 - validatedSuggestions.length;
+  console.info(`  Need ${remainingSlots} more topics from Claude analysis`);
+
   // Extract text for analysis
   const $ = cheerio.load(articleHtml);
   $('.subscribe-widget, .subscription-widget, .share, .button-wrapper').remove();
   const articleText = $('body').text().slice(0, 8000); // Limit context
-
-  // Get existing Wikipedia links
-  const existingLinks = extractWikipediaLinks(articleHtml);
   const keyTerms = extractKeyTerms(articleHtml);
 
-  const prompt = `Analyze this article and suggest 3 specific Wikipedia topics that would provide valuable context for the reader.
+  // Exclude already-used URLs from Claude suggestions
+  const excludeUrls = validatedSuggestions.map(s => s.wikipediaUrl);
+
+  const prompt = `Analyze this article and suggest ${remainingSlots} specific Wikipedia topics that would provide valuable context for the reader.
 
 ARTICLE TITLE: ${articleTitle}
 PUBLICATION: ${publicationName}
@@ -137,7 +174,7 @@ ARTICLE TEXT (excerpt):
 ${articleText}
 
 KEY TERMS DETECTED: ${keyTerms.join(', ')}
-EXISTING WIKIPEDIA LINKS: ${existingLinks.length > 0 ? existingLinks.join(', ') : 'None'}
+ALREADY USING: ${excludeUrls.length > 0 ? excludeUrls.join(', ') : 'None'}
 
 REQUIREMENTS:
 1. Topics must be SPECIFIC, not general (e.g., "Dunbar's number" not "Psychology")
@@ -146,8 +183,9 @@ REQUIREMENTS:
 4. Each Wikipedia article must have enough content for at least 10 minutes of reading
 5. Avoid topics the reader likely already knows well given they read this publication
 6. Prefer historical events, scientific concepts, specific people, or phenomena over broad categories
+7. DO NOT suggest topics that are already in the ALREADY USING list
 
-Respond with exactly 3 topics in this JSON format:
+Respond with exactly ${remainingSlots} topics in this JSON format:
 [
   {
     "topic": "Exact Wikipedia article title",
@@ -176,13 +214,10 @@ Only output the JSON array, no other text.`;
     }
   }
 
-  // Validate and filter suggestions
-  const validatedSuggestions: TopicSuggestion[] = [];
-
+  // Validate Claude's suggestions
   for (const suggestion of suggestions) {
-    if (!suggestion.topic || !suggestion.reason) {
-      continue;
-    }
+    if (validatedSuggestions.length >= 3) {break;}
+    if (!suggestion.topic || !suggestion.reason) {continue;}
 
     // If no URL provided, search for it
     if (!suggestion.wikipediaUrl) {
@@ -194,6 +229,9 @@ Only output the JSON array, no other text.`;
       }
     }
 
+    // Skip if already in our list
+    if (excludeUrls.some(u => u === suggestion.wikipediaUrl)) {continue;}
+
     // Check article length
     const { meetsMinimum, estimatedReadTime } = await checkWikipediaArticleLength(
       suggestion.wikipediaUrl,
@@ -203,13 +241,8 @@ Only output the JSON array, no other text.`;
     if (meetsMinimum) {
       validatedSuggestions.push(suggestion);
     } else if (estimatedReadTime >= 5) {
-      // Accept shorter articles with lower confidence
       suggestion.confidence = 'low';
       validatedSuggestions.push(suggestion);
-    }
-
-    if (validatedSuggestions.length >= 3) {
-      break;
     }
   }
 
