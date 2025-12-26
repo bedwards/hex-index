@@ -32,6 +32,8 @@ export interface IngestionOptions {
   verbose: boolean;
   /** Database pool for inserting articles (optional - if not provided, only stores to filesystem) */
   db?: Pool;
+  /** Enrich new articles with Wikipedia content (default: true) */
+  enrichWithWikipedia?: boolean;
 }
 
 export const DEFAULT_INGESTION_OPTIONS: IngestionOptions = {

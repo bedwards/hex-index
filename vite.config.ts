@@ -31,11 +31,8 @@ export default defineConfig({
 
     allowedHosts: ['studio', 'localhost'],
     proxy: {
-      '/api': {
-        target: 'http://localhost:3000',
-        changeOrigin: true,
-      },
-      '/library': {
+      // Proxy everything to the API server (server-rendered HTML, no SPA)
+      '^/(?!@|node_modules|src).*': {
         target: 'http://localhost:3000',
         changeOrigin: true,
       },

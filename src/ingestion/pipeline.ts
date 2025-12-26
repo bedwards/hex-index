@@ -15,6 +15,7 @@ import {
   createArticle,
   getArticleByUrl,
 } from '../db/queries.js';
+import { enrichArticleWithWikipedia } from '../wikipedia/pipeline.js';
 import {
   IngestionSource,
   IngestionOptions,
@@ -112,12 +113,13 @@ export async function processArticle(
     }
 
     // Insert into database if pool provided
+    let newArticleId: string | undefined;
     if (options.db && publicationId) {
       try {
         // Check if article already exists in DB by URL
         const existing = await getArticleByUrl(options.db, item.url);
         if (!existing) {
-          await createArticle(options.db, {
+          const newArticle = await createArticle(options.db, {
             publication_id: publicationId,
             title: item.title,
             slug: articleSlug,
@@ -130,11 +132,32 @@ export async function processArticle(
             media_type: item.mediaType,
             tags: converted.metadata.tags,
           });
+          newArticleId = newArticle.id;
         }
       } catch (dbErr) {
         // Log but don't fail - filesystem storage succeeded
         if (options.verbose) {
           console.info(`  DB insert failed: ${dbErr instanceof Error ? dbErr.message : String(dbErr)}`);
+        }
+      }
+    }
+
+    // Enrich new articles with Wikipedia content
+    if (options.db && newArticleId && options.enrichWithWikipedia !== false) {
+      try {
+        if (options.verbose) {
+          console.info(`  Enriching with Wikipedia: ${item.title}`);
+        }
+        const enrichResult = await enrichArticleWithWikipedia(options.db, newArticleId);
+        if (enrichResult.success && enrichResult.wikipediaArticles.length > 0) {
+          if (options.verbose) {
+            console.info(`    Added ${enrichResult.wikipediaArticles.length} Wikipedia articles`);
+          }
+        }
+      } catch (enrichErr) {
+        // Log but don't fail - article storage succeeded
+        if (options.verbose) {
+          console.info(`  Wikipedia enrichment failed: ${enrichErr instanceof Error ? enrichErr.message : String(enrichErr)}`);
         }
       }
     }
