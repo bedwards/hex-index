@@ -395,6 +395,62 @@ When prioritizing work, favor features that directly improve the reading experie
 ### Claude PR Reviews
 Before merging PRs, get feedback from the Claude GitHub integration. Address the feedback—especially security issues and test coverage—before merging. The human values this review process.
 
+## Two-Site Architecture
+
+**CRITICAL: This project has TWO sites. Do not confuse them. Do not regress either.**
+
+### 1. Private Library (Express + Postgres)
+- **Location**: `src/` directory
+- **URL**: Runs locally at `http://localhost:3000`
+- **Features**: Full-text search, complete article content, Wikipedia deep dives
+- **Database**: PostgreSQL (required)
+- **For**: The human's personal use, Speechify-compatible reading
+
+**DO NOT MODIFY** the private library when working on the static site. They are separate systems.
+
+### 2. Public Static Site (GitHub Pages)
+- **Location**: `docs/` directory (generated, not hand-edited)
+- **URL**: https://bedwards.github.io/hex-index/
+- **Features**: Article excerpts (copyright compliant), full Wikipedia content
+- **Database**: None required (static HTML)
+- **For**: Public sharing of the curated library
+
+### Key Differences
+
+| Feature | Private Library | Public Static Site |
+|---------|-----------------|-------------------|
+| Article content | Full text | ~200 word excerpt |
+| Wikipedia content | Full (we own copyright) | Full (we own copyright) |
+| Search | Full-text search | No search |
+| Database | PostgreSQL required | No database |
+| Deployment | Local or Vercel | GitHub Pages |
+
+### Regenerating the Static Site
+```bash
+npm run static:generate   # Generate from current DB state
+npm run static:clean      # Clean and regenerate
+npm run static:preview    # Preview at localhost:3000
+```
+
+The static site is generated from the current database state. It outputs to `docs/` which GitHub Pages serves.
+
+### Copyright Compliance
+- **Substack articles**: Show ~200 word excerpts with "Read full article" links
+- **Wikipedia rewrites**: Show full content (we own copyright on our rewrites)
+
+### Files
+```
+tools/static-site/
+  generate.ts           # Main CLI script
+  templates.ts          # HTML templates
+  utils.ts              # Shared utilities
+  pages/
+    home.ts             # Paginated home pages
+    article.ts          # Article excerpt pages
+    wikipedia.ts        # Wikipedia full pages
+    publication.ts      # Publication listing pages
+```
+
 ## Wikipedia Integration
 
 The library enriches Substack articles with related Wikipedia content. For each article, we identify 3 specific topics, scrape Wikipedia, and rewrite the content for enjoyable reading with Speechify.
@@ -555,6 +611,11 @@ npx tsx tools/github/pr-comments.ts --pr <n>
 # Build & Deploy
 npm run build              # Build all
 vercel                     # Deploy to Vercel
+
+# Static Site (GitHub Pages)
+npm run static:generate    # Generate docs/ from DB
+npm run static:clean       # Clean and regenerate
+npm run static:preview     # Preview at localhost:3000
 ```
 
 ## Final Reminder

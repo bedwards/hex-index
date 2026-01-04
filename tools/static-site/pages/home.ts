@@ -112,7 +112,6 @@ function generateHomePage(
 
   const content = `
     <section class="article-list">
-      <h1 class="section-title">Latest Articles</h1>
       ${articleCards}
       ${pagination}
     </section>
