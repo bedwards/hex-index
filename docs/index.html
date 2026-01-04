@@ -3,284 +3,475 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>claude-base | Foundation for Claude Code Projects</title>
-  <meta name="description" content="A production-ready foundation for projects where Claude Code is a primary developer. Built on principles from the Anthropic Engineering Blog.">
-  <style>
-    :root {
-      --bg: #fafafa;
-      --text: #1a1a1a;
-      --text-muted: #666;
-      --accent: #6366f1;
-      --accent-hover: #4f46e5;
-      --border: #e5e5e5;
-      --code-bg: #f3f4f6;
-    }
-
-    @media (prefers-color-scheme: dark) {
-      :root {
-        --bg: #111;
-        --text: #e5e5e5;
-        --text-muted: #999;
-        --border: #333;
-        --code-bg: #1a1a1a;
-      }
-    }
-
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-      line-height: 1.6;
-      color: var(--text);
-      background: var(--bg);
-      padding: 2rem;
-    }
-
-    .container {
-      max-width: 720px;
-      margin: 0 auto;
-    }
-
-    header {
-      margin-bottom: 3rem;
-      padding-bottom: 2rem;
-      border-bottom: 1px solid var(--border);
-    }
-
-    h1 {
-      font-size: 2.5rem;
-      font-weight: 700;
-      margin-bottom: 0.5rem;
-      letter-spacing: -0.02em;
-    }
-
-    .tagline {
-      font-size: 1.25rem;
-      color: var(--text-muted);
-    }
-
-    h2 {
-      font-size: 1.5rem;
-      font-weight: 600;
-      margin: 2.5rem 0 1rem;
-      letter-spacing: -0.01em;
-    }
-
-    p {
-      margin-bottom: 1rem;
-    }
-
-    a {
-      color: var(--accent);
-      text-decoration: none;
-    }
-
-    a:hover {
-      color: var(--accent-hover);
-      text-decoration: underline;
-    }
-
-    code {
-      font-family: 'SF Mono', Monaco, 'Cascadia Code', monospace;
-      font-size: 0.9em;
-      background: var(--code-bg);
-      padding: 0.2em 0.4em;
-      border-radius: 4px;
-    }
-
-    pre {
-      background: var(--code-bg);
-      padding: 1.25rem;
-      border-radius: 8px;
-      overflow-x: auto;
-      margin: 1rem 0;
-    }
-
-    pre code {
-      background: none;
-      padding: 0;
-    }
-
-    ul {
-      margin: 1rem 0;
-      padding-left: 1.5rem;
-    }
-
-    li {
-      margin-bottom: 0.5rem;
-    }
-
-    .cta {
-      display: inline-block;
-      background: var(--accent);
-      color: white;
-      padding: 0.75rem 1.5rem;
-      border-radius: 6px;
-      font-weight: 500;
-      margin: 1rem 0.5rem 1rem 0;
-    }
-
-    .cta:hover {
-      background: var(--accent-hover);
-      text-decoration: none;
-    }
-
-    .cta.secondary {
-      background: transparent;
-      border: 1px solid var(--border);
-      color: var(--text);
-    }
-
-    .cta.secondary:hover {
-      border-color: var(--text-muted);
-    }
-
-    .features {
-      display: grid;
-      gap: 1.5rem;
-      margin: 2rem 0;
-    }
-
-    .feature {
-      padding: 1.25rem;
-      border: 1px solid var(--border);
-      border-radius: 8px;
-    }
-
-    .feature h3 {
-      font-size: 1.1rem;
-      font-weight: 600;
-      margin-bottom: 0.5rem;
-    }
-
-    .feature p {
-      color: var(--text-muted);
-      margin: 0;
-      font-size: 0.95rem;
-    }
-
-    blockquote {
-      border-left: 3px solid var(--accent);
-      padding-left: 1rem;
-      margin: 1.5rem 0;
-      color: var(--text-muted);
-      font-style: italic;
-    }
-
-    footer {
-      margin-top: 4rem;
-      padding-top: 2rem;
-      border-top: 1px solid var(--border);
-      color: var(--text-muted);
-      font-size: 0.9rem;
-    }
-  </style>
+  <title>Home - Hex Index</title>
+  <link rel="stylesheet" href="./styles.css">
 </head>
 <body>
-  <div class="container">
-    <header>
-      <h1>claude-base</h1>
-      <p class="tagline">Foundation for Claude Code projects</p>
-    </header>
-
-    <main>
-      <p>A production-ready starting point for projects where <strong>Claude Code is a primary developer</strong>. Built on principles from the <a href="https://www.anthropic.com/engineering">Anthropic Engineering Blog</a>.</p>
-
-      <a href="https://github.com/bedwards/claude-base" class="cta">View on GitHub</a>
-      <a href="https://github.com/bedwards/claude-base/blob/main/CLAUDE.md" class="cta secondary">Read CLAUDE.md</a>
-
-      <h2>Quick Start</h2>
-      <pre><code># Clone claude-base (keep it for future projects)
-git clone https://github.com/bedwards/claude-base.git ~/claude-base
-
-# Create your new project
-mkdir my-app && cd my-app
-~/claude-base/bin/init.ts --name my-app
-
-# Setup
-npm install
-cp .env.example .env
-cp .secrets.example .secrets
-npm run db:up && npm run dev</code></pre>
-
-      <h2>What's Included</h2>
-      <div class="features">
-        <div class="feature">
-          <h3>TypeScript + Testing</h3>
-          <p>ESLint, Vitest with coverage, Playwright E2E. No Jest.</p>
-        </div>
-        <div class="feature">
-          <h3>Screenshot Framework</h3>
-          <p>Capture and compare screenshots for visual verification. Claude reads these to guide UI/UX decisions.</p>
-        </div>
-        <div class="feature">
-          <h3>GitHub Integration</h3>
-          <p>Actions for CI/CD, PR checks, rate-limit-aware issue creation, Claude GitHub App integration.</p>
-        </div>
-        <div class="feature">
-          <h3>Discord Communication</h3>
-          <p>Tools for Claude instances to coordinate work and avoid conflicts on shared resources.</p>
-        </div>
-        <div class="feature">
-          <h3>Postgres + Docker</h3>
-          <p>Local development matches production. Migrations and seeds included.</p>
-        </div>
-        <div class="feature">
-          <h3>Pre-commit Hooks</h3>
-          <p>Blocks secrets from being committed. Runs typecheck, lint, and tests.</p>
-        </div>
-      </div>
-
-      <h2>Core Principles</h2>
-
-      <p>From <a href="https://www.anthropic.com/engineering">Anthropic's Engineering Blog</a>:</p>
-
-      <blockquote>
-        "Context, therefore, must be treated as a finite resource with diminishing marginal returns."
-      </blockquote>
-
-      <blockquote>
-        "A major failure mode occurred when agents tried to do too much at once—essentially to attempt to one-shot the app."
-      </blockquote>
-
-      <blockquote>
-        "Claude struggled to recognize end-to-end failures without explicit prompting to test as a human user would."
-      </blockquote>
-
-      <p><strong>Our interpretation:</strong></p>
-      <ul>
-        <li>One feature at a time. Complete it. Verify it. Move on.</li>
-        <li>Screenshots are your eyes. Use them constantly.</li>
-        <li>No mock data in production. Fail fast, hard, and ugly.</li>
-        <li>If it looks like it works, it must actually work.</li>
-      </ul>
-
-      <h2>For Claude Instances</h2>
-      <p>The <a href="https://github.com/bedwards/claude-base/blob/main/CLAUDE.md">CLAUDE.md</a> file contains comprehensive instructions:</p>
-      <ul>
-        <li>Own your PRs—don't wait for human review</li>
-        <li>Own the main branch—fix it if it breaks</li>
-        <li>Work in an infinite development loop</li>
-        <li>Take on big, hairy goals</li>
-        <li>Limit interactions with the human prompter</li>
-      </ul>
-
-      <h2>What's NOT Included</h2>
-      <ul>
-        <li>Significant example code to delete</li>
-        <li>Opinions about your domain logic</li>
-        <li>MCP servers or SKILLS</li>
-        <li>Vendor lock-in beyond standard tools</li>
-      </ul>
-    </main>
-
-    <footer>
-      <p>Built with Claude Code. <a href="https://github.com/bedwards/claude-base/blob/main/README.md#appendix-the-prompt-that-created-this">See the original prompt</a>.</p>
-    </footer>
+  <header class="site-header">
+    <nav>
+      <a href="./index.html" class="logo">Hex Index</a>
+    </nav>
+  </header>
+  <main>
+    
+    <section class="article-list">
+      <h1 class="section-title">Latest Articles</h1>
+      <article class="article-card">
+  <a href="./article/426b4327-1e8c-4229-9148-38b7f1aee577/index.html" class="article-link">
+    <h2 class="article-title">Trump Is Going For Regime Change in Venezuela</h2>
+  </a>
+  <div class="article-meta">
+    <span class="author">Yascha Mounk</span>
+    <span class="separator">&middot;</span>
+    <a href="./publication/persuasion/index.html" class="publication">
+      Persuasion
+    </a>
+    <span class="separator">&middot;</span><time>Jan 3, 2026</time>
+    <span class="separator">&middot;</span>
+    <span class="read-time">11 min read</span>
   </div>
+</article>
+<article class="article-card">
+  <a href="./article/89f31801-4b43-4336-9eab-d62f9a06e326/index.html" class="article-link">
+    <h2 class="article-title">200. Five Questions About the Maduro Arrest Operation</h2>
+  </a>
+  <div class="article-meta">
+    <span class="author">Steve Vladeck</span>
+    <span class="separator">&middot;</span>
+    <a href="./publication/onefirst/index.html" class="publication">
+      One First
+    </a>
+    <span class="separator">&middot;</span><time>Jan 3, 2026</time>
+    <span class="separator">&middot;</span>
+    <span class="read-time">14 min read</span>
+  </div>
+</article>
+<article class="article-card">
+  <a href="./article/bf7000d0-fc42-4097-82d4-3c6c6d1d7f64/index.html" class="article-link">
+    <h2 class="article-title">(Largely) HOISTED FROM THE ARCHIVES: “West”, “North Atlantic”, or “Dover Circle”?</h2>
+  </a>
+  <div class="article-meta">
+    <span class="author">Brad DeLong</span>
+    <span class="separator">&middot;</span>
+    <a href="./publication/braddelong/index.html" class="publication">
+      DeLong&#039;s Grasping Reality
+    </a>
+    <span class="separator">&middot;</span><time>Jan 2, 2026</time>
+    <span class="separator">&middot;</span>
+    <span class="read-time">15 min read</span>
+  </div>
+</article>
+<article class="article-card">
+  <a href="./article/60965d95-447f-4f44-9c77-c86cbe83398e/index.html" class="article-link">
+    <h2 class="article-title">READING: John Maynard Keynes on Isaac Newton</h2>
+  </a>
+  <div class="article-meta">
+    <span class="author">Brad DeLong</span>
+    <span class="separator">&middot;</span>
+    <a href="./publication/braddelong/index.html" class="publication">
+      DeLong&#039;s Grasping Reality
+    </a>
+    <span class="separator">&middot;</span><time>Jan 2, 2026</time>
+    <span class="separator">&middot;</span>
+    <span class="read-time">24 min read</span>
+  </div>
+</article>
+<article class="article-card">
+  <a href="./article/d9847911-304b-4813-81b1-12462eda60bc/index.html" class="article-link">
+    <h2 class="article-title">On its 250th birthday, our constitutional republic is failing the people it was founded to serve</h2>
+  </a>
+  <div class="article-meta">
+    <span class="author">Lucian K. Truscott IV</span>
+    <span class="separator">&middot;</span>
+    <a href="./publication/thewarning/index.html" class="publication">
+      The Warning
+    </a>
+    <span class="separator">&middot;</span><time>Jan 2, 2026</time>
+    <span class="separator">&middot;</span>
+    <span class="read-time">10 min read</span>
+  </div>
+</article>
+<article class="article-card">
+  <a href="./article/04d8815c-f665-437f-85e8-e8b4e79f93f8/index.html" class="article-link">
+    <h2 class="article-title">America&#039;s chip export controls are working</h2>
+  </a>
+  <div class="article-meta">
+    <span class="author">Noah Smith</span>
+    <span class="separator">&middot;</span>
+    <a href="./publication/noahpinion/index.html" class="publication">
+      Noahpinion
+    </a>
+    <span class="separator">&middot;</span><time>Jan 2, 2026</time>
+    <span class="separator">&middot;</span>
+    <span class="read-time">12 min read</span>
+  </div>
+</article>
+<article class="article-card">
+  <a href="./article/827cad31-234f-471d-88bd-a123e149f0fd/index.html" class="article-link">
+    <h2 class="article-title">CROSSPOST: BRET DEVEREAUX: Once You Imagine Aleksander the Great’s Victims as People…</h2>
+  </a>
+  <div class="article-meta">
+    <span class="author">Brad DeLong</span>
+    <span class="separator">&middot;</span>
+    <a href="./publication/braddelong/index.html" class="publication">
+      DeLong&#039;s Grasping Reality
+    </a>
+    <span class="separator">&middot;</span><time>Jan 2, 2026</time>
+    <span class="separator">&middot;</span>
+    <span class="read-time">14 min read</span>
+  </div>
+</article>
+<article class="article-card">
+  <a href="./article/5c5fa500-4561-47a1-a9c7-202df8a89286/index.html" class="article-link">
+    <h2 class="article-title">The blame for alleged fraud in Minnesota belongs to conservatives</h2>
+  </a>
+  <div class="article-meta">
+    <span class="author">Public Notice</span>
+    <span class="separator">&middot;</span>
+    <a href="./publication/publicnotice/index.html" class="publication">
+      Public Notice
+    </a>
+    <span class="separator">&middot;</span><time>Jan 2, 2026</time>
+    <span class="separator">&middot;</span>
+    <span class="read-time">12 min read</span>
+  </div>
+</article>
+<article class="article-card">
+  <a href="./article/faa6d7a9-b133-4309-a159-c5b4d5731f19/index.html" class="article-link">
+    <h2 class="article-title">No, Aleksander the Great Was Not &quot;Great&quot; in Any Sense with a Strong Connotation of &quot;Admirable&quot;</h2>
+  </a>
+  <div class="article-meta">
+    <span class="author">Brad DeLong</span>
+    <span class="separator">&middot;</span>
+    <a href="./publication/braddelong/index.html" class="publication">
+      DeLong&#039;s Grasping Reality
+    </a>
+    <span class="separator">&middot;</span><time>Jan 1, 2026</time>
+    <span class="separator">&middot;</span>
+    <span class="read-time">15 min read</span>
+  </div>
+</article>
+<article class="article-card">
+  <a href="./article/05e97141-f131-461a-bb1a-b8a1103a7b5e/index.html" class="article-link">
+    <h2 class="article-title">Co-Packaged Optics (CPO) Book – Scaling with Light for the Next Wave of Interconnect</h2>
+  </a>
+  <div class="article-meta">
+    <span class="author">Dylan Patel</span>
+    <span class="separator">&middot;</span>
+    <a href="./publication/semianalysis/index.html" class="publication">
+      SemiAnalysis
+    </a>
+    <span class="separator">&middot;</span><time>Jan 1, 2026</time>
+    <span class="separator">&middot;</span>
+    <span class="read-time">112 min read</span>
+  </div>
+</article>
+<article class="article-card">
+  <a href="./article/b696ab82-2081-4822-90cd-c53108011432/index.html" class="article-link">
+    <h2 class="article-title">Lessons for Debt Control from Clinton&#039;s Success in the 1990s</h2>
+  </a>
+  <div class="article-meta">
+    <span class="author">Brad DeLong</span>
+    <span class="separator">&middot;</span>
+    <a href="./publication/braddelong/index.html" class="publication">
+      DeLong&#039;s Grasping Reality
+    </a>
+    <span class="separator">&middot;</span><time>Jan 1, 2026</time>
+    <span class="separator">&middot;</span>
+    <span class="read-time">12 min read</span>
+  </div>
+</article>
+<article class="article-card">
+  <a href="./article/7b58e895-c68b-4599-b011-132f6c34226f/index.html" class="article-link">
+    <h2 class="article-title">Should US homebuilders emulate Sweden?</h2>
+  </a>
+  <div class="article-meta">
+    <span class="author">Brian Potter</span>
+    <span class="separator">&middot;</span>
+    <a href="./publication/constructionphysics/index.html" class="publication">
+      Construction Physics
+    </a>
+    <span class="separator">&middot;</span><time>Jan 1, 2026</time>
+    <span class="separator">&middot;</span>
+    <span class="read-time">10 min read</span>
+  </div>
+</article>
+<article class="article-card">
+  <a href="./article/27752487-5f85-4706-ab55-aaeaed137002/index.html" class="article-link">
+    <h2 class="article-title">RKUL: Time Well Spent, 1/1/2026</h2>
+  </a>
+  <div class="article-meta">
+    <span class="author">Razib Khan</span>
+    <span class="separator">&middot;</span>
+    <a href="./publication/razib/index.html" class="publication">
+      Unsupervised Learning
+    </a>
+    <span class="separator">&middot;</span><time>Jan 1, 2026</time>
+    <span class="separator">&middot;</span>
+    <span class="read-time">17 min read</span>
+  </div>
+</article>
+<article class="article-card">
+  <a href="./article/d801245d-dfc8-4213-b70b-8e30f89392c8/index.html" class="article-link">
+    <h2 class="article-title">MAGA Trumpism is Failing. Here are Ten Examples.</h2>
+  </a>
+  <div class="article-meta">
+    <span class="author">Jay Kuo</span>
+    <span class="separator">&middot;</span>
+    <a href="./publication/statuskuo/index.html" class="publication">
+      The Status Kuo
+    </a>
+    <span class="separator">&middot;</span><time>Dec 31, 2025</time>
+    <span class="separator">&middot;</span>
+    <span class="read-time">22 min read</span>
+  </div>
+</article>
+<article class="article-card">
+  <a href="./article/873e9389-20cd-45b2-b1d6-286ea4c68df1/index.html" class="article-link">
+    <h2 class="article-title">How Dems can win the Senate in 2026</h2>
+  </a>
+  <div class="article-meta">
+    <span class="author">Public Notice</span>
+    <span class="separator">&middot;</span>
+    <a href="./publication/publicnotice/index.html" class="publication">
+      Public Notice
+    </a>
+    <span class="separator">&middot;</span><time>Dec 31, 2025</time>
+    <span class="separator">&middot;</span>
+    <span class="read-time">11 min read</span>
+  </div>
+</article>
+<article class="article-card">
+  <a href="./article/9eb29f54-3188-49f9-99ac-7166c863ad50/index.html" class="article-link">
+    <h2 class="article-title">2025 In Review: The Year The US Changed Sides</h2>
+  </a>
+  <div class="article-meta">
+    <span class="author">Phillips P. O&#039;Brien</span>
+    <span class="separator">&middot;</span>
+    <a href="./publication/phillipspobrien/index.html" class="publication">
+      Phillips P. O&#039;Brien
+    </a>
+    <span class="separator">&middot;</span><time>Dec 31, 2025</time>
+    <span class="separator">&middot;</span>
+    <span class="read-time">10 min read</span>
+  </div>
+</article>
+<article class="article-card">
+  <a href="./article/eaec92a8-618d-4bea-b044-5f87bdf98b71/index.html" class="article-link">
+    <h2 class="article-title">December 30, 2025</h2>
+  </a>
+  <div class="article-meta">
+    <span class="author">Heather Cox Richardson</span>
+    <span class="separator">&middot;</span>
+    <a href="./publication/heathercoxrichardson/index.html" class="publication">
+      Letters from an American
+    </a>
+    <span class="separator">&middot;</span><time>Dec 31, 2025</time>
+    <span class="separator">&middot;</span>
+    <span class="read-time">11 min read</span>
+  </div>
+</article>
+<article class="article-card">
+  <a href="./article/d2f46d0c-a198-475a-856b-6623d556b57d/index.html" class="article-link">
+    <h2 class="article-title">Justice Mission 2025 is a Golden Opportunity to Learn about PLA Joint Planning and Capabilities </h2>
+  </a>
+  <div class="article-meta">
+    <span class="author">Mick Ryan</span>
+    <span class="separator">&middot;</span>
+    <a href="./publication/mickryan/index.html" class="publication">
+      Mick Ryan
+    </a>
+    <span class="separator">&middot;</span><time>Dec 31, 2025</time>
+    <span class="separator">&middot;</span>
+    <span class="read-time">20 min read</span>
+  </div>
+</article>
+<article class="article-card">
+  <a href="./article/4a67878a-4e03-45c2-9bb2-2642068a15f2/index.html" class="article-link">
+    <h2 class="article-title">Highlights From The Comments On Vibecession</h2>
+  </a>
+  <div class="article-meta">
+    <span class="author">Scott Alexander</span>
+    <span class="separator">&middot;</span>
+    <a href="./publication/astralcodexten/index.html" class="publication">
+      Astral Codex Ten
+    </a>
+    <span class="separator">&middot;</span><time>Dec 30, 2025</time>
+    <span class="separator">&middot;</span>
+    <span class="read-time">46 min read</span>
+  </div>
+</article>
+<article class="article-card">
+  <a href="./article/ec7d258c-b956-4aad-b4d7-688f765689dd/index.html" class="article-link">
+    <h2 class="article-title">At least five interesting things: Buy Local edition (#74)</h2>
+  </a>
+  <div class="article-meta">
+    <span class="author">Noah Smith</span>
+    <span class="separator">&middot;</span>
+    <a href="./publication/noahpinion/index.html" class="publication">
+      Noahpinion
+    </a>
+    <span class="separator">&middot;</span><time>Dec 30, 2025</time>
+    <span class="separator">&middot;</span>
+    <span class="read-time">16 min read</span>
+  </div>
+</article>
+<article class="article-card">
+  <a href="./article/ba15dd11-4d04-49d7-8448-e8e101b0e52e/index.html" class="article-link">
+    <h2 class="article-title">How AI Labs Are Solving the Power Crisis: The Onsite Gas Deep Dive</h2>
+  </a>
+  <div class="article-meta">
+    <span class="author">Dylan Patel</span>
+    <span class="separator">&middot;</span>
+    <a href="./publication/semianalysis/index.html" class="publication">
+      SemiAnalysis
+    </a>
+    <span class="separator">&middot;</span><time>Dec 30, 2025</time>
+    <span class="separator">&middot;</span>
+    <span class="read-time">37 min read</span>
+  </div>
+</article>
+<article class="article-card">
+  <a href="./article/3ea2b600-39e2-4dc2-9d5b-2ef0264ff1ed/index.html" class="article-link">
+    <h2 class="article-title">The State Of LLMs 2025: Progress, Problems, and Predictions</h2>
+  </a>
+  <div class="article-meta">
+    <span class="author">Sebastian Raschka</span>
+    <span class="separator">&middot;</span>
+    <a href="./publication/sebastianraschka/index.html" class="publication">
+      Ahead of AI
+    </a>
+    <span class="separator">&middot;</span><time>Dec 30, 2025</time>
+    <span class="separator">&middot;</span>
+    <span class="read-time">33 min read</span>
+  </div>
+</article>
+<article class="article-card">
+  <a href="./article/4a8ca96e-71ff-4279-97b7-97b77b9f8d20/index.html" class="article-link">
+    <h2 class="article-title">The Weeb Economy</h2>
+  </a>
+  <div class="article-meta">
+    <span class="author">Noah Smith</span>
+    <span class="separator">&middot;</span>
+    <a href="./publication/noahpinion/index.html" class="publication">
+      Noahpinion
+    </a>
+    <span class="separator">&middot;</span><time>Dec 30, 2025</time>
+    <span class="separator">&middot;</span>
+    <span class="read-time">100 min read</span>
+  </div>
+</article>
+<article class="article-card">
+  <a href="./article/1deaca93-4b91-49f2-9186-e24deaa4b189/index.html" class="article-link">
+    <h2 class="article-title">Does Manufacturing Matter?</h2>
+  </a>
+  <div class="article-meta">
+    <span class="author">Jordan Schneider</span>
+    <span class="separator">&middot;</span>
+    <a href="./publication/chinatalk/index.html" class="publication">
+      ChinaTalk
+    </a>
+    <span class="separator">&middot;</span><time>Dec 29, 2025</time>
+    <span class="separator">&middot;</span>
+    <span class="read-time">11 min read</span>
+  </div>
+</article>
+<article class="article-card">
+  <a href="./article/58fd6461-c35d-47b4-bad9-2ba77993ad70/index.html" class="article-link">
+    <h2 class="article-title">199. Four Takeaways From the National Guard Ruling</h2>
+  </a>
+  <div class="article-meta">
+    <span class="author">Steve Vladeck</span>
+    <span class="separator">&middot;</span>
+    <a href="./publication/onefirst/index.html" class="publication">
+      One First
+    </a>
+    <span class="separator">&middot;</span><time>Dec 29, 2025</time>
+    <span class="separator">&middot;</span>
+    <span class="read-time">18 min read</span>
+  </div>
+</article>
+<article class="article-card">
+  <a href="./article/77b33415-cfc4-465f-8dde-6e05d3a0fbd1/index.html" class="article-link">
+    <h2 class="article-title">Weekend Update #165: Why the Pantomime?</h2>
+  </a>
+  <div class="article-meta">
+    <span class="author">Phillips P. O&#039;Brien</span>
+    <span class="separator">&middot;</span>
+    <a href="./publication/phillipspobrien/index.html" class="publication">
+      Phillips P. O&#039;Brien
+    </a>
+    <span class="separator">&middot;</span><time>Dec 28, 2025</time>
+    <span class="separator">&middot;</span>
+    <span class="read-time">11 min read</span>
+  </div>
+</article>
+<article class="article-card">
+  <a href="./article/cb29c8be-7cbe-4669-b7f1-ee09e8ada57a/index.html" class="article-link">
+    <h2 class="article-title">HOISTED FROM THE ARCHIVES: John Holbo on the Horrible Atrocity of Defending Good Causes Badly!</h2>
+  </a>
+  <div class="article-meta">
+    <span class="author">Brad DeLong</span>
+    <span class="separator">&middot;</span>
+    <a href="./publication/braddelong/index.html" class="publication">
+      DeLong&#039;s Grasping Reality
+    </a>
+    <span class="separator">&middot;</span><time>Dec 27, 2025</time>
+    <span class="separator">&middot;</span>
+    <span class="read-time">13 min read</span>
+  </div>
+</article>
+<article class="article-card">
+  <a href="./article/1d8ee94d-b216-4941-8416-e7850c72fa45/index.html" class="article-link">
+    <h2 class="article-title">December 26, 2025</h2>
+  </a>
+  <div class="article-meta">
+    <span class="author">Heather Cox Richardson</span>
+    <span class="separator">&middot;</span>
+    <a href="./publication/heathercoxrichardson/index.html" class="publication">
+      Letters from an American
+    </a>
+    <span class="separator">&middot;</span><time>Dec 27, 2025</time>
+    <span class="separator">&middot;</span>
+    <span class="read-time">10 min read</span>
+  </div>
+</article>
+<article class="article-card">
+  <a href="./article/6815fea6-d603-4f36-b4af-319d68a2d8dc/index.html" class="article-link">
+    <h2 class="article-title">Awards Season Rivals Sinners and One Battle Another Are Both Very Good, Very Fun, and Very Overrated</h2>
+  </a>
+  <div class="article-meta">
+    <span class="author">Freddie deBoer</span>
+    <span class="separator">&middot;</span>
+    <a href="./publication/freddiedeboer/index.html" class="publication">
+      
+    </a>
+    <span class="separator">&middot;</span><time>Dec 26, 2025</time>
+    <span class="separator">&middot;</span>
+    <span class="read-time">16 min read</span>
+  </div>
+</article>
+<article class="article-card">
+  <a href="./article/e714b0a2-b9c0-4ea0-9060-b6dff48a5731/index.html" class="article-link">
+    <h2 class="article-title">CROSSPOST: STEVE SCHMIDT: Bari Weiss killed CBS News in 76 days</h2>
+  </a>
+  <div class="article-meta">
+    <span class="author">Brad DeLong</span>
+    <span class="separator">&middot;</span>
+    <a href="./publication/braddelong/index.html" class="publication">
+      DeLong&#039;s Grasping Reality
+    </a>
+    <span class="separator">&middot;</span><time>Dec 26, 2025</time>
+    <span class="separator">&middot;</span>
+    <span class="read-time">12 min read</span>
+  </div>
+</article>
+      <nav class="pagination"><span class="pagination-link prev disabled">&larr; Newer</span><div class="pagination-pages"><span class="pagination-page current">1</span><a href="./page/2/index.html" class="pagination-page">2</a><a href="./page/3/index.html" class="pagination-page">3</a><a href="./page/4/index.html" class="pagination-page">4</a><a href="./page/5/index.html" class="pagination-page">5</a><span class="pagination-ellipsis">...</span><a href="./page/142/index.html" class="pagination-page">142</a></div><a href="./page/2/index.html" class="pagination-link next">Older &rarr;</a></nav>
+    </section>
+  
+  </main>
+  <footer class="site-footer">
+    <p>A curated reading library</p>
+  </footer>
 </body>
 </html>
