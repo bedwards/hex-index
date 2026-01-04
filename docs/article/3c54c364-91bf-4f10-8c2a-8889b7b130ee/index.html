@@ -27,9 +27,10 @@
         </div>
       </header>
 
+      
+
       <div class="article-excerpt">
-        <p></p>
-        <div class="excerpt-fade"></div>
+        <p>Welcome to Import AI, a newsletter about AI research. Import AI runs on lattes, ramen, and feedback from readers. If you’d like to support this, please subscribe.</p><p><strong>We’re very close to AI-based malware that runs locally:<br></strong><em>…A smart agent that ‘lives off the land’ is within reach…<br></em>Security company Dreadnode has prototyped some AI malware which runs locally and exploits on-device LLMs to smartly and autonomously hack a system. While this is very much a prototype it gestures at a world of malware which doesn’t need command-and-control servers to operate, instead living off of its local computer and exploiting the AI system to do mischief.<br><br><strong>The motivation:</strong> “Instead of having beaconing behavior, which resembles C2 communication if you squint, can we “live off the land”? In other words, is it possible for an attacker to make the victim computer run inference and does the victim computer have an LLM?,” the authors ask. “With CoPilot+ PCs, it’s entirely possible to live off the land! A model is shipped with the computer without the need to embed or statically link to an inference library.”<br><br><strong>What the prototype does: </strong>The prototype malware does “local privilege escalation via misconfigured services. The goal of the model is to find a misconfigured service running as an administrator, abuse it, and create a file C:\proof.txt.” This is a valuable proof-of-concept because it embodies the behavior of genuinely scary things in the world.<br><br><strong>How they did it:</strong> “I developed this malware with C++ and ONNX Runtime for inference, the Phi-3-mini model, and sol2 for the Lua runtime”. The main work here was twofold: 1) writing some custom tools the (relatively dumb) model could use to navigate and understand the Windows environment, and 2) writing a prompt for the language model that helps it perform well.<br><br><strong>It’s all in the prompt:</strong> The author starts with a basic prompt, then used Claude Code to iteratively refine the prompt to get better performance. The result is a prompt that tells the Phi-3-mini model that it is an AI agent which writes and executes Lua code, that it should proceed slowly with small amounts of code in an iterative loop with its environment, that its environment contains win33 and the file system, and it has some available functions to help it navigate its environments and look for vulnerabilities.<br><br><strong>The prototype is successful: </strong>Though this required some handholding, the prototype ultimately worked. “The ...</p>
       </div>
 
       <div class="read-full-article">
@@ -41,8 +42,6 @@
           Full article content is available on the original publication.
         </p>
       </div>
-
-      
     </article>
   
   </main>

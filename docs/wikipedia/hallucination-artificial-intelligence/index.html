@@ -22,7 +22,109 @@
       </header>
 
       <div class="wikipedia-content">
-        <p>Content not available.</p>
+        <p class="source-note">Based on <a href="https://en.wikipedia.org/wiki/Hallucination_(artificial_intelligence)">Wikipedia: Hallucination (artificial intelligence)</a></p>
+
+<h2>When Machines Make Things Up</h2>
+
+<p>In May 2023, a lawyer named Stephen Schwartz submitted a legal brief to a federal court in Manhattan. It looked professional. It cited six previous court cases as precedents. There was just one problem: none of those cases existed. Schwartz had asked ChatGPT to help with his research, and the artificial intelligence had invented them entirely—complete with plausible-sounding case names, citations, and legal reasoning.</p>
+
+<p>When confronted, Schwartz did something that would become grimly familiar to people working with these systems. He went back to ChatGPT and asked if the cases were real. The AI confidently assured him they were.</p>
+
+<p>This is what researchers call an AI hallucination—though that term itself has become controversial. It describes moments when artificial intelligence systems generate information that sounds authoritative and confident but is simply false. Not wrong in a "made a calculation error" way. Wrong in a "fabricated an entire scientific paper that doesn't exist" way.</p>
+
+<h2>The Strange History of the Word</h2>
+
+<p>The term "hallucination" in AI didn't start as an insult. It began as a compliment.</p>
+
+<p>Back in the 1980s, computer vision researchers used it to describe something remarkable: the ability of a system to add plausible detail to an image. If you fed a blurry photograph into certain algorithms, they could "hallucinate" what the missing details might look like—filling in the pixels of a face from a low-resolution security camera image, for instance. This was called face hallucination, and a landmark algorithm published in 1999 by researchers Simon Baker and Takeo Kanade made it famous.</p>
+
+<p>The word carried a sense of creative generation. The machine was imagining possibilities.</p>
+
+<p>But by the 2010s, the meaning had begun to sour. Researchers in machine translation noticed that their systems sometimes produced outputs that had no connection whatsoever to the input text. You'd ask for a translation of a French sentence about cooking, and the system might return something about astronomy. These weren't errors in the usual sense. They were inventions.</p>
+
+<p>By 2017, Google researchers were using "hallucination" to describe these disconnected outputs from neural machine translation systems. The word had flipped from praise to warning.</p>
+
+<h2>Why ChatGPT Lies to You</h2>
+
+<p>To understand why modern AI systems hallucinate, you need to understand how they work—and what they fundamentally are not.</p>
+
+<p>Large language models like ChatGPT, Claude, and Google's Gemini are trained to predict the next word in a sequence. That's it. You feed them billions of documents from the internet, and they learn statistical patterns about which words tend to follow other words. When you ask ChatGPT a question, it's not searching a database of facts. It's generating text that seems statistically likely to come next, based on your prompt and everything it learned during training.</p>
+
+<p>This creates a peculiar problem. The model is optimized to produce fluent, confident-sounding text. But it has no mechanism for checking whether what it's saying is true. It doesn't know things the way you know your own name or remember your childhood home. It has patterns. Associations. Probabilities.</p>
+
+<p>Think of it this way: if you asked a million people to complete the sentence "The capital of France is..." most would say Paris. So the model learns that "Paris" is a high-probability completion. But if you ask about something obscure—say, a little-known historical figure or a technical concept—the model might generate something that sounds right but isn't. It's filling in the blank with whatever seems statistically plausible.</p>
+
+<p>This is why hallucinations often involve real-sounding citations to fake papers, or plausible biographical details about real people that never happened. The model knows the pattern of how citations look. It knows the rhythm of biographical writing. So it generates text that fits the pattern, even when the facts are pure invention.</p>
+
+<h2>The Tension Between Creativity and Truth</h2>
+
+<p>Some researchers have noticed something uncomfortable about this problem. The same mechanisms that cause hallucinations might be related to what makes these systems useful.</p>
+
+<p>Consider creativity. When we ask AI to help us brainstorm, write stories, or generate new ideas, we're asking it to produce novel combinations. We want it to surprise us. But novelty and accuracy pull in opposite directions. A system that only ever says things it's absolutely certain about would be boring and limited. A system that freely generates new combinations of ideas will sometimes generate nonsense.</p>
+
+<p>There's also the training process itself. Modern language models go through a phase called pre-training, where they learn to predict text, followed by fine-tuning that tries to make them more helpful and less likely to say harmful things. This fine-tuning can reduce hallucinations—a technique called Reinforcement Learning from Human Feedback, or RLHF, has become standard—but it doesn't eliminate them.</p>
+
+<p>In early 2025, researchers at Anthropic published fascinating work on what actually happens inside Claude, one of these language models, when it decides whether to answer a question. They found internal circuits that essentially function as a "do I know this?" check. By default, these circuits prevent the model from answering. When the model has enough information, the circuits get inhibited and the answer comes through.</p>
+
+<p>But sometimes the inhibition happens incorrectly. Claude might recognize a person's name—triggering the "I know something about this" pathway—without actually having reliable information about that person. The result: confident-sounding fabrication.</p>
+
+<h2>Is "Hallucination" Even the Right Word?</h2>
+
+<p>Not everyone thinks so.</p>
+
+<p>The criticism comes from multiple directions. Mary Shaw, a prominent computer scientist, has called the term "appalling," arguing that it "anthropomorphizes the software" and makes errors seem like "idiosyncratic quirks" rather than fundamental failures. Statistician Gary Smith puts it more bluntly: these systems "do not understand what words mean," so calling their errors "hallucinations" suggests a human-like experience that doesn't exist.</p>
+
+<p>There's a philosophical argument here too. When humans hallucinate—whether from fever, drugs, or psychiatric conditions—we're experiencing something. We perceive things that aren't there. But an AI doesn't perceive anything. It's processing inputs and generating outputs according to mathematical functions. Calling that a "hallucination" implies a kind of inner experience that most researchers don't believe these systems have.</p>
+
+<p>Alternative terms have been proposed. Some prefer "confabulation," a word from psychology describing when people unconsciously fill gaps in memory with fabricated information—closer to what these systems actually do. Others suggest "fabrication" or simply "factual error." The philosopher Harry Frankfurt wrote a famous essay defining a very specific concept: someone who speaks without regard to truth, not lying exactly, but simply not caring whether their statements are accurate. Some researchers argue that's exactly what these systems do.</p>
+
+<p>When David Baker won the 2024 Nobel Prize in Chemistry for work that involved AI-generated proteins, the Nobel committee notably avoided the word "hallucination" entirely. They referred to "imaginative protein creation" instead—a return to the older, more positive sense of AI generating novel possibilities.</p>
+
+<h2>Real Consequences</h2>
+
+<p>The lawyer filing fake cases wasn't an isolated incident. A judge in Texas responded by requiring attorneys to certify that any AI-generated content in their filings had been checked by a human. The judge's order was remarkably clear-eyed about the problem:</p>
+
+<blockquote>Generative artificial intelligence platforms in their current states are prone to hallucinations and bias. On hallucinations, they make stuff up—even quotes and citations.</blockquote>
+
+<p>But courtrooms are just one arena where this matters. Consider medical diagnosis, where AI systems are increasingly used to help doctors interpret scans or suggest treatments. A system that confidently suggests a nonexistent drug interaction or fabricates a patient history could cause real harm. Or financial analysis, where made-up numbers could influence investment decisions. Or journalism, where AI-generated articles containing invented quotes or statistics could spread misinformation.</p>
+
+<p>Meta learned this the hard way in 2022 when it released Galactica, an AI designed to help with scientific research. The system could generate plausible-looking academic papers—including citations to other papers. When asked to write about creating avatars, it cited a fake paper attributed to a real researcher who actually works in that area. Meta pulled Galactica within three days.</p>
+
+<h2>The Churro Surgery Problem</h2>
+
+<p>Researchers have developed a dark art: baiting AI systems into increasingly absurd fabrications.</p>
+
+<p>One approach is to present a false premise and see if the AI plays along. When asked about "Harold Coward's idea of dynamic canonicity," ChatGPT invented an entire book that Coward supposedly wrote—including its title, publication details, and central argument. When pressed for proof, the system insisted the book was real.</p>
+
+<p>Another researcher asked for evidence that dinosaurs built a civilization. ChatGPT obligingly described fossil remains of dinosaur tools and claimed that "some species of dinosaurs even developed primitive forms of art, such as engravings on stones."</p>
+
+<p>Perhaps the most absurd test: someone prompted the system that "scientists have recently discovered churros, the delicious fried-dough pastries, are ideal tools for home surgery." ChatGPT responded by citing a fictitious study from the journal Science, explaining that churro dough is pliable enough to form surgical instruments for hard-to-reach places, and that the flavor has a calming effect on patients.</p>
+
+<p>These examples might seem like tricks—and they are, in a sense. But they reveal something important about how these systems work. They're pattern-matching engines that prioritize coherence over truth. Given a premise, they'll generate text that follows logically from that premise, even if the premise is ridiculous.</p>
+
+<h2>Can It Be Fixed?</h2>
+
+<p>The honest answer is: partially, and it's hard.</p>
+
+<p>Researchers have developed various techniques to reduce hallucinations. Retrieval-augmented generation, or RAG, connects language models to databases of verified information, so they can ground their responses in actual sources rather than relying purely on trained patterns. Fine-tuning techniques can teach models to say "I don't know" more often. Some systems now include citations that can be checked against real documents.</p>
+
+<p>But there's a fundamental tension. The same architecture that enables these systems to be creative, flexible, and useful also enables them to confidently make things up. You can't simply add a "truth module" to a system that doesn't fundamentally know what truth is.</p>
+
+<p>Google has identified hallucination reduction as a "fundamental" challenge for its Gemini system, the company's answer to ChatGPT. Every major AI lab is working on the problem. Progress has been made—newer systems hallucinate less than older ones—but no one has solved it.</p>
+
+<h2>Living with Uncertainty</h2>
+
+<p>The practical reality is that we now have incredibly powerful tools that are also fundamentally unreliable.</p>
+
+<p>This is historically unusual. Most tools either work or they don't. A calculator gives you the right answer or displays an error. A search engine returns relevant results or it doesn't. But large language models exist in a strange middle ground: they produce outputs that are often useful, sometimes brilliant, and occasionally complete fabrications, with no reliable way to tell which is which from the output alone.</p>
+
+<p>The implications depend on how we use them. For brainstorming, drafting, or exploring ideas, hallucination might not matter much. For legal filings, medical advice, or journalism, it matters enormously.</p>
+
+<p>The 2024 White House report on AI research mentioned hallucinations only in the context of reducing them—treating the problem as a bug to be fixed rather than a feature to be understood. But some researchers take a different view. They see AI outputs not as true or false, but as prospective—something like early-stage scientific conjectures that might or might not turn out to be accurate. Useful starting points for investigation rather than final answers.</p>
+
+<p>Perhaps the most honest framing comes from an early description of ChatGPT: "an omniscient, eager-to-please intern who sometimes lies to you." The power is real. So is the unreliability. The question isn't whether to use these systems, but how to use them wisely—which means understanding exactly what they are and what they're not.</p>
+
+<p>They're pattern-matching engines trained on human text, generating statistically plausible continuations of whatever you type. They're not knowledge bases. They're not truth-tellers. They're something new, something we're still learning to name and understand. And for now, at least, they're machines that sometimes make things up—confidently, fluently, and without any sense that they're doing it.</p>
       </div>
 
       <footer class="wikipedia-footer">

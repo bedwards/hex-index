@@ -22,7 +22,193 @@
       </header>
 
       <div class="wikipedia-content">
-        <p>Content not available.</p>
+        <p class="source-note">Based on <a href="https://en.wikipedia.org/wiki/Optimistic_concurrency_control">Wikipedia: Optimistic concurrency control</a></p>
+
+<h2>The Philosophy of Hope in Database Design</h2>
+
+<p>Here's a question that reveals something deep about how we build software: When two people want to change the same piece of data at the same time, should we assume the worst or hope for the best?</p>
+
+<p>Most of us, if we're honest, would design for paranoia. Lock everything down. Make people wait their turn. It's the safe choice.</p>
+
+<p>But in 1979, two computer scientists named H. T. Kung and John T. Robinson proposed something radical. What if we just... trusted everyone to work simultaneously, and only checked for conflicts at the very end? What if optimism was actually the smarter strategy?</p>
+
+<p>They called it Optimistic Concurrency Control, and it turns out this hopeful approach powers much of the modern internet.</p>
+
+<h2>The Problem of Shared Resources</h2>
+
+<p>To understand why this matters, imagine a library with exactly one copy of a popular book. Ten people want to read it. The obvious solution is a checkout system: one person takes the book, everyone else waits. Simple. Fair. Predictable.</p>
+
+<p>This is essentially what traditional database systems do. When you want to modify a record, you place a lock on it. That lock is like checking out the book. Nobody else can touch that record until you're finished and release the lock.</p>
+
+<p>Computer scientists call this pessimistic concurrency control, or more colloquially, pessimistic locking. The name is apt. The system assumes the worst: that conflicts will happen constantly, so we must prevent them at all costs.</p>
+
+<p>And for decades, this worked reasonably well.</p>
+
+<p>But then came the web.</p>
+
+<h2>Why the Web Broke Everything</h2>
+
+<p>HTTP, the protocol that underlies every website you've ever visited, has a peculiar property: it's stateless. Each request exists in isolation. The server has no memory of what came before.</p>
+
+<p>This creates an immediate problem for locks.</p>
+
+<p>Imagine you open a form to edit your profile on some website. With pessimistic locking, the moment you open that form, the system would lock your profile record. Nobody else can edit it until you're done.</p>
+
+<p>But what if you get distracted? What if you open the form, get a phone call, and forget about it? What if you simply close the browser tab without clicking "Save" or "Cancel"?</p>
+
+<p>The server has no way to know. HTTP doesn't maintain a persistent connection. There's no "user closed the tab" message. That lock just sits there, blocking everyone else, until some arbitrary timeout expires.</p>
+
+<p>Now multiply this by millions of users and you have a disaster.</p>
+
+<h2>The Optimistic Alternative</h2>
+
+<p>Optimistic Concurrency Control, often abbreviated as OCC, takes the opposite approach. Instead of preventing conflicts, it detects them.</p>
+
+<p>The philosophy is simple: most of the time, people aren't actually trying to edit the same record simultaneously. Conflicts are rare. So why make everyone pay the cost of locking when most transactions will complete without any interference at all?</p>
+
+<p>Under OCC, here's what happens:</p>
+
+<ol>
+<li><strong>You start working.</strong> The system notes when you began.</li>
+<li><strong>You make your changes.</strong> But these changes are tentative, not yet permanent.</li>
+<li><strong>You try to save.</strong> At this moment, the system checks: has anyone else modified this data since you started?</li>
+<li><strong>If the coast is clear, you're done.</strong> Your changes become permanent.</li>
+<li><strong>If there's a conflict, you start over.</strong> The system tells you what happened, and you try again.</li>
+</ol>
+
+<p>That's it. No locks. No waiting. Just a check at the end.</p>
+
+<h2>The Beautiful Tradeoff</h2>
+
+<p>This approach has a beautiful property: when conflicts are rare, it's dramatically faster than pessimistic locking.</p>
+
+<p>Think about it. With locks, every single transaction pays the overhead of acquiring locks, maintaining them, and releasing them. Every transaction must wait if someone else holds a lock it needs. Even if conflicts never actually happen, you're paying the full cost of preventing them.</p>
+
+<p>With OCC, conflict-free transactions fly through the system at full speed. The only cost is that quick check at the end. When 99% of your transactions have no conflicts, you've just eliminated 99% of your locking overhead.</p>
+
+<p>But there's a catch.</p>
+
+<p>When conflicts are common, OCC can actually perform worse than pessimistic locking. Much worse. Because when a conflict is detected, the transaction must roll back and start over. All that work, wasted. If conflicts happen frequently, you end up doing the same work over and over, never quite getting it to stick.</p>
+
+<p>It's like the difference between two traffic management strategies. Pessimistic locking is like traffic lights: everyone stops and waits their turn, even when no other cars are coming. OCC is like a roundabout: cars flow freely, but occasionally someone has to circle back and try again. Roundabouts work brilliantly when traffic is light. They become chaotic nightmares when traffic is heavy.</p>
+
+<h2>How HTTP Actually Does This</h2>
+
+<p>Here's something that might surprise you: HTTP has built-in support for optimistic concurrency control. It's been there since the 1990s, hiding in plain sight.</p>
+
+<p>When a web server sends you a resource, it can include something called an ETag—think of it as a fingerprint of the content. When you later try to update that resource, you send the ETag back with your request, essentially saying: "I'm modifying the version with this fingerprint."</p>
+
+<p>If the resource has changed since you fetched it—if someone else modified it—the fingerprint won't match. The server rejects your update with a special error code: 412 Precondition Failed.</p>
+
+<p>Most web developers never use this feature. But it's there, built into the very foundation of how the web works.</p>
+
+<h2>The Mid-Air Collision</h2>
+
+<p>Different systems have developed different vocabularies for OCC conflicts. My favorite comes from Bugzilla, the venerable bug-tracking software used by Mozilla and many other open-source projects.</p>
+
+<p>Bugzilla calls them "mid-air collisions."</p>
+
+<p>It's such a vivid metaphor. Two developers, working on the same bug report, unknowingly reach for the submit button at nearly the same moment. Like two airplanes converging on the same point in the sky. Neither knows the other is there until it's almost too late.</p>
+
+<p>But unlike actual mid-air collisions, these are recoverable. Bugzilla shows you what changed while you were working, lets you review the differences, and gives you a chance to reconcile them. Nobody dies. No planes fall from the sky. You just merge your changes thoughtfully and try again.</p>
+
+<h2>Version Control: OCC at Scale</h2>
+
+<p>If you've ever used Git, you've used optimistic concurrency control without knowing it.</p>
+
+<p>Consider what happens when two developers work on the same codebase. They each pull down the latest version. They each make changes. They each try to push their changes back.</p>
+
+<p>If their changes don't overlap, Git merges them automatically. If they do overlap, Git stops and asks for human intervention. A conflict has been detected. Someone needs to resolve it.</p>
+
+<p>This is OCC applied to an entire filesystem of code. And it works remarkably well. Millions of developers collaborate on projects like Linux, with its tens of millions of lines of code, using nothing more sophisticated than optimistic concurrency and clever merging algorithms.</p>
+
+<p>Early version control systems used pessimistic locking. You'd "check out" a file, and nobody else could edit it until you "checked it back in." This was manageable when development teams were small and colocated. It became absurd when open-source projects sprawled across continents and time zones.</p>
+
+<p>Imagine telling a developer in Tokyo that she can't edit a file because someone in San Francisco has it locked. Oh, and that developer went home for the day. Check back in eight hours.</p>
+
+<p>OCC solved this. Just let everyone edit everything. We'll sort it out at merge time.</p>
+
+<h2>The Timestamp, the Token, and the Hidden Field</h2>
+
+<p>If you build web applications, you'll eventually need to implement OCC yourself. The technique is straightforward.</p>
+
+<p>Every record gets a version marker. This might be a timestamp indicating when it was last modified. It might be a simple counter that increments with each update. It might be a hash of the record's contents. The specific choice doesn't matter much; what matters is that it changes whenever the record changes.</p>
+
+<p>When you display a form for editing that record, you include the current version marker as a hidden field. The user fills out the form. When they submit it, that hidden field comes back to you.</p>
+
+<p>You then compare the submitted version marker against the current version marker in the database. If they match, nobody has modified the record since the form was loaded. Safe to save. If they differ, someone else got there first. Conflict.</p>
+
+<p>How you handle the conflict is up to you. You might simply reject the update and ask the user to try again. You might show them what changed and let them merge manually. You might even try automatic merging if the changes don't actually overlap.</p>
+
+<p>The elegant thing about this approach is that it requires almost no special database support. Any database that can store a timestamp or counter—which is to say, every database ever created—can support OCC at the application level.</p>
+
+<h2>A Subtle Danger: Time-of-Check to Time-of-Use</h2>
+
+<p>There's a trap here that has bitten many developers.</p>
+
+<p>Remember the two phases: first you check for conflicts, then you commit your changes. Between those two moments, however brief, something could change.</p>
+
+<p>Imagine you check the version marker. It matches! No conflict. But in the microseconds between that check and your subsequent database write, someone else slips in and modifies the record. Your check was valid at the instant you performed it, but by the time you used the result of that check, it had become stale.</p>
+
+<p>Computer scientists call this a Time-of-Check to Time-of-Use bug, or TOCTOU. It's a classic race condition.</p>
+
+<p>The solution is to make the check and the commit truly atomic—a single indivisible operation. Most databases support this through conditional updates: "Update this record to have these new values, but only if the version marker still equals this expected value." The database guarantees that nothing can slip between the check and the write.</p>
+
+<p>If you implement OCC as two separate operations—first query to check, then update to write—you're vulnerable. Always combine them.</p>
+
+<h2>Where You'll Find OCC in the Wild</h2>
+
+<p>Once you know what to look for, you'll see optimistic concurrency control everywhere.</p>
+
+<p>Wikipedia uses it. Every edit you make includes the revision number you started from. If someone edits the same article before you submit, you'll know.</p>
+
+<p>Amazon's DynamoDB, the database that powers much of Amazon Web Services, implements OCC through what it calls conditional updates. You can say "update this item, but only if these conditions are still true," and DynamoDB will reject the update atomically if the conditions have changed.</p>
+
+<p>Kubernetes, the container orchestration system that runs much of the modern cloud, uses OCC for every resource update. Each resource has a version, and your update only succeeds if you're modifying the version you think you're modifying.</p>
+
+<p>Elasticsearch, the search engine, assigns sequence numbers to document versions. When updates arrive asynchronously from multiple sources, the sequence number ensures older updates don't accidentally overwrite newer ones.</p>
+
+<p>Redis, the popular in-memory data store, provides a WATCH command that implements OCC semantics. You watch certain keys, then attempt a transaction. If any watched key changed between your watch and your transaction, the whole thing aborts.</p>
+
+<p>The list goes on. CouchDB. MongoDB (through versioning). Apache Kafka. Firebase Firestore. Almost any modern distributed system that takes concurrency seriously has some form of OCC baked in.</p>
+
+<h2>The AWS Connection</h2>
+
+<p>When major cloud outages happen—like the infamous AWS us-east-1 outage that took down half the internet—the post-mortem reports often reveal fascinating details about how these systems actually work.</p>
+
+<p>Distributed systems at AWS scale must handle millions of concurrent operations across thousands of machines. Pessimistic locking at that scale would be catastrophic. The locks themselves would become bottlenecks. Deadlocks would proliferate. The system would grind to a halt.</p>
+
+<p>Instead, these systems embrace optimism. Transactions proceed without coordination, checking for conflicts only at commit time. When conflicts occur, transactions retry. The overall system throughput is much higher than any locking-based approach could achieve.</p>
+
+<p>But this optimism has its dark side. When something goes wrong—when conflict rates spike unexpectedly, or when retry storms cascade through the system—the behavior can be counterintuitive. Systems designed for the happy path sometimes struggle on the unhappy one.</p>
+
+<p>Understanding OCC helps you understand why distributed systems fail in the peculiar ways they do.</p>
+
+<h2>Pessimism Has Its Place</h2>
+
+<p>I don't want to leave you with the impression that OCC is always the right choice. It isn't.</p>
+
+<p>When conflicts are genuinely common, pessimistic locking can outperform OCC significantly. If 50% of your transactions conflict with each other, you'll waste enormous effort on transactions that ultimately fail and must be retried.</p>
+
+<p>Some domains have inherently high contention. Imagine a ticketing system during a flash sale. Thousands of people are trying to buy the last hundred tickets. Conflicts aren't rare; they're the norm. In scenarios like this, some form of locking or queuing often works better than pure optimism.</p>
+
+<p>The key insight is that both approaches have costs. Pessimistic locking pays the cost upfront: slower operations even when no conflicts occur, but graceful behavior when they do. Optimistic concurrency pays the cost on the backend: fast operations normally, but expensive retries when conflicts happen.</p>
+
+<p>The art is in understanding your workload well enough to choose wisely.</p>
+
+<h2>A Philosophical Footnote</h2>
+
+<p>There's something almost philosophical about the choice between optimistic and pessimistic concurrency control.</p>
+
+<p>Pessimistic locking assumes that other people will interfere with you. It builds walls. It guards resources. It makes you wait, just in case. It's defensive, cautious, and a little paranoid.</p>
+
+<p>Optimistic concurrency control assumes that other people are probably doing their own thing, and you can just get on with your work. If you happen to collide, you'll deal with it then. It's trusting, efficient, and occasionally wrong.</p>
+
+<p>Neither approach is inherently superior. The best choice depends on context, on how crowded the space is, on how expensive retries are, on how much you can afford to wait.</p>
+
+<p>But I find it interesting that as systems have grown larger and more distributed, optimism has generally won. The modern internet runs on the assumption that conflicts are rare enough to handle after the fact. It runs on hope.</p>
+
+<p>And mostly, that hope is justified.</p>
       </div>
 
       <footer class="wikipedia-footer">

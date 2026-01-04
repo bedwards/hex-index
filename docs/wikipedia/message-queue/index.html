@@ -22,7 +22,137 @@
       </header>
 
       <div class="wikipedia-content">
-        <p>Content not available.</p>
+        <p class="source-note">Based on <a href="https://en.wikipedia.org/wiki/Message_queue">Wikipedia: Message queue</a></p>
+
+<h2>The Invisible Postal System Running Your Digital Life</h2>
+
+<p>Every time you order something online, a small miracle happens. Your purchase confirmation appears instantly, yet somewhere in the background, a warehouse system is being notified, an inventory database is being updated, a shipping label is being generated, and your credit card is being charged. None of these systems wait for each other. They all happen independently, connected by an invisible thread.</p>
+
+<p>That thread is a message queue.</p>
+
+<p>Think of it as a post office for software. When one program needs to tell another program something, it doesn't pick up the phone and wait for an answer. Instead, it drops a letter in a mailbox and walks away. The recipient picks it up whenever they're ready. This simple idea—letting programs communicate without waiting for each other—turns out to be one of the most powerful concepts in building software that actually works at scale.</p>
+
+<h2>The Problem with Waiting</h2>
+
+<p>Most of the internet works like a phone call. You type a web address, your browser asks a server for the page, and you wait. The browser does nothing else until the server responds. This is called synchronous communication—everything happens in sequence, each step waiting for the previous one to finish.</p>
+
+<p>This works fine for simple things. But what happens when the system gets complicated?</p>
+
+<p>Imagine you're Netflix. A user clicks "play" on a movie. In the time it takes them to blink, your systems need to verify their subscription, check what device they're using, find the nearest server with that movie, figure out the best video quality for their internet connection, log the viewing for recommendations, and start streaming. If any of these steps had to wait for all the others to complete first, that play button would feel broken.</p>
+
+<p>Synchronous systems create traffic jams. One slow component holds up everything else. And if any part crashes, the whole chain breaks.</p>
+
+<p>Message queues solve this by making systems asynchronous. Asynchronous means "not at the same time"—the sender and receiver don't need to be active simultaneously. The sender drops off its message and moves on with its life. The receiver processes it whenever it's ready. If the receiver is temporarily down, the message waits patiently until it comes back.</p>
+
+<h2>How the Mailbox Actually Works</h2>
+
+<p>At its core, a message queue is exactly what it sounds like: a line of messages waiting to be processed. Think of a ticket dispenser at a deli counter. Customers take a number (send a message), and the staff calls out numbers in order (processes messages). Customers don't need to stand at the counter waiting—they can browse the store until their number is called.</p>
+
+<p>The software that manages this queue is called a message broker or queue manager. It's the postal worker of the system. When an application wants to send a message, it connects to the broker, hands over the message, and leaves. When another application wants to receive messages, it tells the broker "I'm listening" and waits for deliveries.</p>
+
+<p>The broker keeps messages safe until they're picked up. This might mean storing them in the computer's memory, writing them to disk, or even saving them to a database. The more durable the storage, the safer the messages are if something crashes—but also the slower the system runs. Like most things in engineering, it's a tradeoff.</p>
+
+<h3>The Competing Consumers Pattern</h3>
+
+<p>Here's where things get interesting. What happens when messages are coming in faster than one receiver can process them?</p>
+
+<p>You add more receivers.</p>
+
+<p>Picture a busy coffee shop with a long line. You could make one barista work faster, but there's a limit. Instead, you open more registers. Each barista grabs the next order from the queue, makes the drink, and moves on. This is called the competing consumers pattern—multiple workers racing to process messages from the same queue.</p>
+
+<p>The beauty of this design is that you can scale up or down based on demand. Black Friday at your online store? Spin up fifty workers to process orders. Quiet Tuesday night? Three will do. The queue absorbs the peaks and valleys, letting your system breathe.</p>
+
+<h2>What Happens to the Messages</h2>
+
+<p>Dropping a letter in a mailbox is simple. But what guarantees do you have that it actually arrives? Message queues offer a surprising variety of options, each with their own tradeoffs.</p>
+
+<p><strong>Durability</strong> determines whether messages survive a crash. A queue stored only in memory is fast but evaporates if the server reboots. A queue written to disk is slower but persistent. For financial transactions, you might even store messages in a database with full transaction guarantees—slow, but you'll never lose an order.</p>
+
+<p><strong>Delivery guarantees</strong> answer a surprisingly tricky question: how many times should a message be delivered? "At least once" means the system will retry until it succeeds, but the receiver might get duplicates if things go wrong. "At most once" means no duplicates, but some messages might vanish. "Exactly once" sounds ideal but is fiendishly difficult to achieve in distributed systems—many engineers consider it impossible in the general case.</p>
+
+<p><strong>Message time-to-live</strong> sets an expiration date. A notification about a flash sale is useless after the sale ends. Rather than clogging the queue with stale messages, you can tell them to self-destruct after a certain time.</p>
+
+<p><strong>Filtering</strong> lets receivers be picky. Instead of processing every message, a subscriber might only want messages about a specific customer, or messages marked as high priority. The broker sorts through the pile and delivers only what's wanted.</p>
+
+<h2>The Cousins: Publish-Subscribe and Event Systems</h2>
+
+<p>Message queues have a close relative called publish-subscribe, or pub-sub for short. The difference is subtle but important.</p>
+
+<p>In a traditional queue, each message goes to exactly one receiver. If three workers are competing for messages, each message is processed by one of them. The message is consumed—deleted from the queue—once it's handled.</p>
+
+<p>In pub-sub, messages are broadcast. A publisher sends a message to a "topic," and every subscriber listening to that topic receives a copy. It's the difference between a letter (one recipient) and a newspaper (many readers).</p>
+
+<p>Many modern messaging systems blur this line. Apache Kafka, for instance, stores messages in a log that multiple consumers can read at their own pace. It's like a newspaper that keeps every issue in an archive—new subscribers can go back and read everything from the beginning.</p>
+
+<p>This matters for systems like Netflix. When you finish watching a show, that event might need to reach the recommendation engine, the "continue watching" feature, the billing system, and the analytics platform. Pub-sub lets one event ripple out to many listeners without the original sender knowing or caring who's listening.</p>
+
+<h2>A Brief History of Waiting Less</h2>
+
+<p>The idea of message passing between programs is as old as computing itself, but message queuing as we know it emerged in the 1980s with real-time operating systems.</p>
+
+<p>Operating systems like VxWorks and QNX—still used today in everything from Mars rovers to nuclear power plants—were built around message queues as the primary way for different parts of the system to communicate. These systems needed to respond to the real world, where events happen whether you're ready or not. A queue of pending events let the system handle them in order without losing any.</p>
+
+<p>The commercial message queue era began with products like IBM's MQ Series (now just IBM MQ), launched in 1993. For decades, it was the gold standard for enterprise messaging—reliable, battle-tested, and expensive. Banks and airlines bet their operations on it.</p>
+
+<p>Then came the open-source revolution. RabbitMQ, Apache ActiveMQ, and later Apache Kafka democratized messaging. Suddenly, a startup could use the same patterns as a Fortune 500 company without the licensing fees.</p>
+
+<p>Cloud computing pushed things further. Amazon's Simple Queue Service, or SQS, launched in 2004 as one of Amazon Web Services' first offerings. You didn't need to install, configure, or maintain any messaging software. You just used it, paying by the message.</p>
+
+<h2>The Standards Battle</h2>
+
+<p>For years, every message queue spoke its own language. IBM MQ couldn't talk to Microsoft Message Queuing, which couldn't talk to anything else. This was fine if your entire company used one vendor, but a nightmare for connecting different systems.</p>
+
+<p>Java tried to solve this with the Java Message Service, or JMS, specification. JMS defined a common interface that any Java program could use to talk to any JMS-compatible message broker. Write your code once, swap brokers later. In practice, subtle differences between implementations made this trickier than advertised, but it was progress.</p>
+
+<p>Three open standards eventually emerged for the post-Java world:</p>
+
+<p>The Advanced Message Queuing Protocol, or AMQP, is the most ambitious. It defines not just how to send and receive messages, but the wire protocol—the actual bytes that travel over the network. RabbitMQ speaks AMQP natively. It became an official ISO standard in 2014.</p>
+
+<p>The Streaming Text Oriented Messaging Protocol, or STOMP, is deliberately simple. It's text-based, like HTTP, making it easy to debug with basic tools. If you can read a web page's source code, you can read a STOMP message.</p>
+
+<p>MQTT, which originally stood for MQ Telemetry Transport, is designed for constrained environments. Think of a sensor in a remote oil field communicating over an unreliable satellite connection with a tiny battery. MQTT's messages are as small as possible, and the protocol is designed to handle spotty connections gracefully. Your smart home devices probably use MQTT.</p>
+
+<h2>The Erlang Connection</h2>
+
+<p>Not all message queues are separate pieces of software bolted onto programs. Some languages bake messaging into their core.</p>
+
+<p>Erlang, created by the Swedish telecom company Ericsson in the 1980s, was designed to build telephone switches—systems that absolutely could not go down. The language's fundamental unit isn't the function or the class but the process: a tiny, independent thread of execution.</p>
+
+<p>Erlang processes communicate exclusively through message passing. There's no shared memory to corrupt, no locks to deadlock. Each process has its own mailbox, and messages queue up until the process is ready to read them. If a process crashes, the messages just sit there, waiting. A new process can pick up where the old one left off.</p>
+
+<p>This design philosophy made Erlang surprisingly relevant decades later. WhatsApp, serving billions of messages per day, was built on Erlang. So was Discord. The language's message-passing architecture, designed for telephone switches, turned out to be perfect for internet-scale messaging.</p>
+
+<h2>Queues on Your Desktop</h2>
+
+<p>You encounter message queues every time you use a computer, even if you never think about servers.</p>
+
+<p>Graphical user interfaces are built on event queues. When you click your mouse, the operating system doesn't immediately interrupt whatever the program is doing. Instead, it drops a message into a queue: "Mouse clicked at position 342, 156 at time 12:34:56.789." The program processes these messages one at a time in an event loop—an endless cycle of checking the queue and responding to events.</p>
+
+<p>This is why programs don't crash when you click too fast. The clicks queue up. It's also why a program can freeze—if it's stuck processing one message, it never gets around to the others waiting in line. That spinning beach ball on your Mac or the "Not Responding" message on Windows is just a program that hasn't checked its message queue lately.</p>
+
+<p>Unix systems have had message queues since the 1980s, built right into the operating system. The System V interface and the later POSIX interface let programs on the same machine pass messages without any external software. These are simpler than network-aware message brokers, but they follow the same principle: programs talk to mailboxes, not to each other.</p>
+
+<h2>Why This Matters for Netflix's Write-Ahead Log</h2>
+
+<p>When Netflix builds a write-ahead log—a record of every change to their data platform before it actually happens—they face a classic messaging problem. Events are generated constantly across thousands of servers. They need to flow reliably to multiple destinations: databases, analytics systems, machine learning pipelines.</p>
+
+<p>Message queuing principles make this manageable. The write-ahead log is, in essence, a very specialized message queue. Events are messages. The log is the queue. Different systems consume from different positions in the log, processing at their own pace.</p>
+
+<p>The durability guarantees matter: lose a message, and you might lose a user's viewing history or a billing record. The ordering guarantees matter: process events out of order, and your database ends up in an impossible state. The scalability matters: Netflix has over 200 million subscribers, and they're all generating events simultaneously.</p>
+
+<p>Every one of these problems has been studied, solved, and refined in the message queuing community over decades. Netflix isn't inventing new theory—they're applying proven patterns at unprecedented scale.</p>
+
+<h2>The Deeper Lesson</h2>
+
+<p>Message queues teach us something profound about systems design: sometimes the best way to connect things is to keep them apart.</p>
+
+<p>Direct connections seem simpler. If program A needs to tell program B something, just call B directly. But now A depends on B being available. B's slowness becomes A's slowness. B's crashes become A's crashes. The more direct connections you add, the more fragile the whole system becomes.</p>
+
+<p>A message queue is a buffer zone. It absorbs shocks. It lets fast producers coexist with slow consumers. It keeps running when components fail. It transforms a brittle web of dependencies into something more resilient.</p>
+
+<p>This pattern appears everywhere once you start looking. Email is a message queue between humans. Voicemail is a message queue for phone calls. A to-do list is a message queue for tasks. The principle is always the same: decouple the sender from the receiver, and the whole system becomes more robust.</p>
+
+<p>In an interconnected world, the art isn't just connection. It's the right kind of separation.</p>
       </div>
 
       <footer class="wikipedia-footer">

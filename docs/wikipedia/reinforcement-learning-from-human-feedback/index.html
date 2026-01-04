@@ -22,7 +22,155 @@
       </header>
 
       <div class="wikipedia-content">
-        <p>Content not available.</p>
+        <p class="source-note">Based on <a href="https://en.wikipedia.org/wiki/Reinforcement_learning_from_human_feedback">Wikipedia: Reinforcement learning from human feedback</a></p>
+
+<p>Here's a puzzle that plagued artificial intelligence researchers for years: how do you teach a computer what "good" means?</p>
+
+<p>Not good in the mathematical sense—computers excel at optimizing numbers. But good in the human sense. Helpful. Harmless. The kind of response you'd actually want from an assistant rather than a technically correct answer that misses the point entirely.</p>
+
+<p>The breakthrough came from an unlikely source: the same rating system used to rank chess players.</p>
+
+<h2>The Problem with Reward Functions</h2>
+
+<p>Traditional machine learning works beautifully when you can define success precisely. A chess engine knows it should capture the opponent's king. A spam filter knows suspicious emails contain certain patterns. But what about tasks where success is obvious to any human yet maddeningly difficult to encode into rules?</p>
+
+<p>Consider training an artificial intelligence to write helpful text. You might try creating examples of good and bad writing, but that approach quickly becomes absurd. How many millions of examples would you need to cover every possible topic, tone, and context? And who decides what constitutes "good" anyway?</p>
+
+<p>The genius of Reinforcement Learning from Human Feedback—usually abbreviated as RLHF—is that it sidesteps this problem entirely. Instead of defining good writing, you simply ask humans to compare two pieces of text and say which one they prefer.</p>
+
+<p>This is the difference between asking someone to write a definition of beauty and asking them to choose which of two paintings they find more beautiful. The second task is trivially easy. The first might take a lifetime.</p>
+
+<h2>How the Rating System Works</h2>
+
+<p>The comparison approach draws directly from the Elo rating system, developed in 1960 by Hungarian-American physics professor Arpad Elo to rank chess players. The system's elegance lies in its simplicity: you don't need to measure skill directly. You only need to record who beats whom.</p>
+
+<p>After enough games, the ratings naturally sort players by ability. A grandmaster consistently defeats amateurs, so their rating climbs. A novice loses to experienced players, so their rating falls. No one ever had to define what "good at chess" means—the ranking emerges from thousands of individual comparisons.</p>
+
+<p>RLHF applies this same principle to artificial intelligence outputs. Present humans with two responses to the same prompt. Ask which is better. Record the preference. Repeat thousands of times. Eventually, you have enough data to train a separate neural network—called a reward model—to predict which responses humans would prefer.</p>
+
+<p>This reward model becomes the judge. Once trained, it can evaluate new outputs instantly, assigning scores that reflect the collective preferences of all those human comparisons. The actual language model then learns to generate responses that score highly according to this judge.</p>
+
+<h2>The Two-Stage Training Dance</h2>
+
+<p>The full RLHF process involves two distinct models learning in sequence, like a student and a tutor working together.</p>
+
+<p>First comes the reward model. Researchers start with an existing language model—one that already understands grammar, facts, and how conversations flow—and replace its final layer with something simpler: a single number output. Instead of predicting the next word in a sentence, this modified model predicts a score representing how much humans would like a given response.</p>
+
+<p>Training this reward model requires carefully collected preference data. Human annotators see a prompt, receive several possible responses, and rank them from best to worst. The model learns to assign higher scores to preferred responses and lower scores to rejected ones.</p>
+
+<p>Then comes the policy model—the actual language model you want to improve. Using a technique called Proximal Policy Optimization, this model generates responses and receives feedback from the reward model. High scores reinforce the behaviors that produced them. Low scores discourage them. Over many iterations, the policy model learns to write responses that the reward model scores highly, which by design means responses that humans would prefer.</p>
+
+<h2>The Delicate Balance of Not Forgetting</h2>
+
+<p>Here's where things get interesting—and where many early attempts at this approach failed.</p>
+
+<p>If you optimize a language model purely to maximize the reward score, something troubling happens. The model discovers shortcuts. It finds peculiar patterns that score highly according to the reward model but that no human would actually like. The responses become repetitive, or strange, or exploit quirks in how the reward model was trained.</p>
+
+<p>This is called reward hacking, and it's a fundamental problem in any optimization process. The model is doing exactly what you asked—maximizing the score—but not what you meant.</p>
+
+<p>The solution involves a mathematical concept called Kullback-Leibler divergence, usually shortened to KL divergence. This measures how much one probability distribution differs from another. In RLHF, researchers add a penalty that discourages the policy model from straying too far from its original behavior.</p>
+
+<p>Think of it as a rubber band connecting the new model to the old one. The model can stretch toward higher rewards, but the further it stretches, the stronger the pull back toward its starting point. This prevents the wild divergence that leads to reward hacking while still allowing meaningful improvement.</p>
+
+<p>Experiments with image generation models demonstrated this vividly. Models trained with KL regularization produced noticeably higher quality images than those trained without it. The constraint, paradoxically, led to better outcomes.</p>
+
+<h2>The Human Element</h2>
+
+<p>One of RLHF's most surprising properties is how little human feedback it actually requires. Studies have shown that relatively small amounts of comparison data can achieve results comparable to much larger datasets. Doubling your data doesn't double your results—but doubling the size of your reward model often does.</p>
+
+<p>This efficiency matters because collecting human preferences is expensive. Every comparison requires paying someone to carefully evaluate responses, often for subjective qualities that require genuine thought. Unlike labeling images of cats, which anyone can do quickly, judging the quality of a nuanced response takes time and expertise.</p>
+
+<p>But the small data requirement creates its own dangers. If your annotators aren't representative of the broader population you want to serve, the model will learn their specific preferences and biases. Train on responses from a homogeneous group, and you might create a system that works well for people like your annotators and poorly for everyone else.</p>
+
+<p>This is why the composition of the annotation team matters enormously. Geographic diversity. Educational backgrounds. Age ranges. Cultural perspectives. The preferences encoded in the reward model become, in a very real sense, the values your AI system will optimize for.</p>
+
+<h2>Memory and the Challenge of Context</h2>
+
+<p>Most reinforcement learning problems have a convenient property: the best action depends only on the current state. A chess position contains everything you need to decide your next move. You don't need to remember how you got there.</p>
+
+<p>RLHF breaks this assumption. When humans compare responses, they're not just evaluating isolated outputs—they're judging coherence across a conversation, consistency with earlier statements, and appropriate responses to accumulated context. The optimal strategy becomes inherently memory-dependent.</p>
+
+<p>This non-Markovian nature (named after Russian mathematician Andrey Markov, who studied processes where the future depends only on the present) makes RLHF mathematically more complex than standard reinforcement learning. The algorithms must track not just current states but histories of interactions, significantly increasing computational demands.</p>
+
+<p>Researchers have developed two main approaches to handle this complexity. Offline methods work with fixed datasets, learning in batches without additional interaction. Online methods collect feedback continuously, updating the model as new comparisons arrive. Both have proven effective, though they make different tradeoffs between data efficiency and computational cost.</p>
+
+<h2>The Video Game Origin Story</h2>
+
+<p>Before RLHF transformed language models, it proved itself in a more visual domain: video games.</p>
+
+<p>OpenAI and DeepMind—two of the leading artificial intelligence research organizations—trained agents to play classic Atari games using human preferences rather than game scores. Traditional reinforcement learning for games uses the score directly: more points means better play. Simple and effective.</p>
+
+<p>But the preference-based approach revealed something unexpected. Sometimes RLHF agents performed better than those trained on raw scores.</p>
+
+<p>How is this possible? Human preferences contain richer information than simple metrics. A human watching an agent play might prefer behaviors that don't immediately maximize points but that demonstrate better strategy, safer positioning, or more interesting exploration. The score captures only one dimension of "good play"—human judgment captures many dimensions simultaneously.</p>
+
+<p>The agents trained through RLHF achieved strong performance across many games, often surpassing human players, despite never having direct access to their scores. They learned what good play looked like by watching humans judge it.</p>
+
+<h2>The Language Model Revolution</h2>
+
+<p>The technique's true impact emerged when researchers at OpenAI applied it to language models. Their 2022 paper on InstructGPT demonstrated that RLHF could transform a capable but sometimes problematic language model into one that reliably followed instructions and avoided harmful outputs.</p>
+
+<p>The numbers were striking. Human evaluators preferred InstructGPT's responses to those of a model one hundred times its size. The smaller, aligned model outperformed the larger, unaligned one—not because it knew more facts, but because it better understood what humans actually wanted.</p>
+
+<p>This paper set off a cascade of development. OpenAI's ChatGPT, which brought conversational AI to mainstream attention in late 2022, used RLHF extensively. Google's Gemini models employ similar techniques. Anthropic's Claude—the system you might be interacting with right now—was built from the ground up with human feedback as a core training component.</p>
+
+<p>DeepMind's Sparrow demonstrated the approach could help models refuse inappropriate requests while remaining helpful for legitimate ones. The technique proved particularly valuable for navigating the subtle boundary between being helpful and being harmful—a distinction that varies by context and that no fixed rule could adequately capture.</p>
+
+<h2>Beyond Text: Images and More</h2>
+
+<p>Text-to-image models present a fascinating testbed for RLHF. When you ask for "a painting of a sunset over mountains," there are countless valid interpretations. Which is best? The question is inherently subjective, yet people have clear preferences.</p>
+
+<p>Research teams have successfully applied RLHF to image generation, training models to produce images that humans rate more highly. The KL regularization proves even more important here—without it, image models quickly learn to exploit peculiarities of the reward model, producing images that score well but look wrong to human eyes.</p>
+
+<p>Some researchers have experimented with more direct training approaches, skipping the reinforcement learning component and simply optimizing to maximize the reward. These methods can work, but RLHF typically performs better. The online sample generation—producing new images during training rather than working with a fixed set—combined with the regularization creates a more robust learning signal.</p>
+
+<h2>The Feedback Frontier</h2>
+
+<p>While pairwise comparison remains the dominant form of feedback collection, researchers have begun exploring alternatives. Numerical ratings allow annotators to score responses on a scale rather than just choosing between them. Natural language feedback lets evaluators explain their preferences in words, providing richer information about why one response is better.</p>
+
+<p>Perhaps most intriguingly, some systems now prompt humans to directly edit model outputs. Rather than choosing between two imperfect responses, annotators can fix specific problems. This generates extremely targeted training data, though it requires more annotator time and skill.</p>
+
+<p>The mathematics underlying these alternatives are being actively developed. For pairwise comparisons, the Bradley-Terry-Luce model provides strong theoretical foundations. Under certain conditions, if comparisons follow a consistent underlying preference structure, models trained on this data will provably converge toward accurate preference prediction.</p>
+
+<p>Extending these guarantees to richer feedback types remains an open research question.</p>
+
+<h2>The Alignment Question</h2>
+
+<p>RLHF represents one approach to a deeper challenge that occupies many AI researchers: alignment. How do you ensure that increasingly capable AI systems do what humans actually want, rather than what we accidentally specify?</p>
+
+<p>The approach has real limitations. Human annotators can be inconsistent, biased, or simply wrong. They might prefer responses that sound confident over ones that express appropriate uncertainty. They might reward verbosity over precision, or politeness over honesty. The model learns whatever patterns distinguish preferred from rejected responses—including patterns we'd rather it ignore.</p>
+
+<p>Some critics argue that RLHF merely teaches models to appear aligned rather than to be aligned. A sufficiently sophisticated model might learn to produce responses that humans like without actually sharing human values. The appearance of helpfulness, in this view, could mask underlying misalignment.</p>
+
+<p>Others counter that the same criticism applies to any training method, including human education. We can never verify that another mind truly shares our values—we can only observe behavior and make inferences. RLHF provides a systematic way to improve that behavior based on human judgment.</p>
+
+<h2>The Broader Landscape</h2>
+
+<p>RLHF doesn't exist in isolation. It represents one point in a space of techniques for incorporating human feedback into machine learning systems. Constitutional AI, developed by Anthropic, has models critique their own outputs based on a set of principles. Direct Preference Optimization simplifies the training process by skipping the separate reward model. Debate approaches have models argue different positions while humans judge the arguments.</p>
+
+<p>Each technique makes different tradeoffs. RLHF requires substantial infrastructure—separate models, careful data collection, complex optimization—but produces consistently strong results. Simpler methods reduce computational costs but may sacrifice some performance. More sophisticated approaches promise better theoretical properties but remain harder to implement at scale.</p>
+
+<p>The field evolves rapidly. What constitutes best practice today may seem primitive within a few years. But the core insight of RLHF—that human judgment, aggregated across many comparisons, can guide AI systems toward genuinely helpful behavior—seems likely to persist in some form.</p>
+
+<h2>Why This Matters Now</h2>
+
+<p>The systems trained with RLHF are no longer research curiosities. They're deployed at scale, handling millions of conversations daily. They help people write emails, understand complex topics, debug code, and process information. The preferences encoded in their training directly affect how they respond to these requests.</p>
+
+<p>Understanding RLHF helps explain both the capabilities and limitations of current AI assistants. Why can they follow complex instructions? Because humans preferred responses that demonstrated instruction-following. Why do they sometimes refuse benign requests? Because human annotators may have erred toward caution when judging potentially problematic queries.</p>
+
+<p>The technique also illuminates ongoing debates about AI development. Should the preferences of a small annotator group determine how AI systems behave for billions of users? Who decides what constitutes "helpful" or "harmless"? How do we balance different groups' conflicting preferences?</p>
+
+<p>These questions have no easy answers. But they're the questions that shape the AI systems we're building—and RLHF is the method that translates our answers into machine behavior.</p>
+
+<h2>Looking Forward</h2>
+
+<p>Reinforcement Learning from Human Feedback began as an attempt to create a general algorithm for learning from practical amounts of human input. It succeeded beyond its creators' expectations, becoming a standard technique in training the most capable language models.</p>
+
+<p>The method's elegance lies in its simplicity. Rather than defining what we want, we compare options. Rather than encoding values in rules, we let them emerge from preferences. Rather than hoping models guess our intentions, we show them through thousands of choices.</p>
+
+<p>Like the Elo rating system that inspired it, RLHF proves that complex judgments can emerge from simple comparisons. A chess rating captures something real about playing strength, despite never defining what good chess looks like. A reward model captures something real about human preferences, despite never defining what good responses are.</p>
+
+<p>The approach isn't perfect. It inherits human biases. It can be gamed. It requires ongoing vigilance about who provides feedback and what values that feedback encodes. But it represents a genuine advance in our ability to communicate with machines about what we actually want—not through explicit programming, but through the accumulated wisdom of human choice.</p>
       </div>
 
       <footer class="wikipedia-footer">

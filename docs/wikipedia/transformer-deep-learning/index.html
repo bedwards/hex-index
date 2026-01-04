@@ -22,7 +22,173 @@
       </header>
 
       <div class="wikipedia-content">
-        <p>Content not available.</p>
+        <p class="source-note">Based on <a href="https://en.wikipedia.org/wiki/Transformer_(deep_learning_architecture)">Wikipedia: Transformer (deep learning)</a></p>
+
+<p>In 2017, a group of researchers at Google published a paper with a title that sounded almost like a dare: "Attention Is All You Need." The paper introduced an architecture called the transformer, and within a few years, it would become the foundation for ChatGPT, Google's search engine, image generators like DALL-E, and virtually every major artificial intelligence breakthrough you've heard about since.</p>
+
+<p>But here's what makes the story interesting: the transformer wasn't invented to revolutionize AI. It was designed to solve a very specific, somewhat boring problem—making machine translation faster.</p>
+
+<h2>The Problem with Reading One Word at a Time</h2>
+
+<p>Before transformers, the dominant approach for processing language was something called a recurrent neural network, or RNN. The basic idea was intuitive: read a sentence one word at a time, from left to right, just like a human would. Each word updates an internal "state" that captures what the network has learned so far.</p>
+
+<p>This approach had a fatal flaw.</p>
+
+<p>Imagine trying to translate a long German sentence into English. In German, the verb often comes at the very end. By the time an RNN reached that crucial verb, it had already processed dozens of words, and all that information was compressed into a single fixed-size state vector—like trying to remember an entire novel by looking at a single photograph of its pages.</p>
+
+<p>Information just leaked away. The beginning of the sentence became fuzzy by the time you reached the end. Researchers even discovered a trick that slightly improved translation quality: feeding sentences into the network backwards. This worked because it put the first words of the source sentence closer to the first words the network needed to produce in translation.</p>
+
+<p>That such a hack helped at all revealed how badly these systems were struggling.</p>
+
+<h2>Long Short-Term Memory: A Partial Solution</h2>
+
+<p>In 1995, researchers developed a more sophisticated recurrent architecture called Long Short-Term Memory, or LSTM. The key innovation was adding explicit mechanisms for the network to decide what information to remember and what to forget.</p>
+
+<p>Think of it like this: instead of just having a single stream of consciousness that gets overwritten as you read, an LSTM has something like a notebook. It can write important facts down, cross things out when they're no longer relevant, and consult its notes when making decisions.</p>
+
+<p>LSTMs became the standard for language processing for over two decades. Google Translate, which launched its neural version in 2016, used an LSTM with eight layers in both its encoder (which read the source language) and its decoder (which produced the translation). That system took nine months to develop and outperformed the previous statistical approach, which had taken ten years to build.</p>
+
+<p>But LSTMs still had that fundamental limitation: they processed words one at a time, in order. You couldn't parallelize the computation. If you had a sentence with a hundred words, you had to do a hundred sequential steps. This made training painfully slow, especially as researchers wanted to train on larger and larger amounts of text.</p>
+
+<h2>Attention: The Key Insight</h2>
+
+<p>The breakthrough that enabled transformers was something called attention. The idea emerged from a simple question: what if, instead of trying to compress an entire input sequence into a single vector, we let the network look back at any part of the input whenever it needed to?</p>
+
+<p>Attention works by computing a kind of relevance score between every pair of words. When translating the word "it" in the sentence "The animal didn't cross the street because it was too tired," the network can learn that "it" should pay strong attention to "animal" and much less attention to "street" or "the."</p>
+
+<p>An early version of this idea, called RNN search, was introduced in 2014 specifically for machine translation. The authors named it that because it "emulates searching through a source sentence during decoding a translation." Instead of hoping the network could memorize the whole input, they let it peek back at any part of the original sentence while generating each word of the output.</p>
+
+<p>This helped enormously with the information bottleneck. But the architecture still used recurrent networks, which meant it still processed words sequentially.</p>
+
+<h2>The Transformer's Radical Simplification</h2>
+
+<p>Here's where the 2017 paper made its controversial bet. One of the researchers, Jakob Uszkoreit, suspected that attention alone—without any recurrence—might be sufficient for language translation. This went against the conventional wisdom. Even his father, Hans Uszkoreit, a prominent computational linguist, was skeptical.</p>
+
+<p>The transformer architecture that emerged was almost aggressively simple in concept. Instead of reading words one at a time, it processes all words simultaneously. Every word can attend to every other word in a single step. This made the computation massively parallelizable—exactly what you want when training on modern graphics processing units, or GPUs.</p>
+
+<p>The cost of this approach is that computation scales quadratically with the length of the input. If you have a hundred words, you need to compute attention between every pair, which means ten thousand attention calculations. Double the length, and you quadruple the computation. This is why language models have "context windows" with hard limits on how much text they can process at once.</p>
+
+<p>But for typical sentence lengths, the parallelization benefits far outweigh this cost. Training that would have taken weeks with recurrent networks could now be done in days.</p>
+
+<h2>How Attention Actually Works</h2>
+
+<p>The mathematical heart of a transformer is something called multi-head attention. To understand it, imagine you're at a cocktail party and someone mentions your name across the room. Somehow, despite all the noise, that word cuts through—your brain has learned that your name is highly relevant to you, so it receives preferential processing.</p>
+
+<p>Transformers do something similar with text. Each word in a sentence gets converted into three different vectors: a query, a key, and a value. The query represents "what am I looking for?" The key represents "what do I contain?" And the value represents "what information should I pass along if selected?"</p>
+
+<p>To compute attention, you compare every query against every key. Queries and keys that match well—that have a high dot product—produce high attention scores. These scores get normalized to sum to one (using a function called softmax), and then used to compute a weighted average of all the values.</p>
+
+<p>The "multi-head" part means this process happens several times in parallel, with different learned transformations applied to the queries, keys, and values each time. It's as if the network can pay attention to different aspects of the relationships simultaneously—one head might track grammatical structure while another tracks semantic meaning.</p>
+
+<h2>Tokens: Not Quite Words</h2>
+
+<p>When we say transformers process "words," that's actually a simplification. They process tokens, which are the fundamental units that the model sees.</p>
+
+<p>Early language models often worked with whole words as tokens, but this creates problems. What happens with rare words? With misspellings? With new words the model has never seen? You'd need a vocabulary containing every possible word, which is essentially infinite.</p>
+
+<p>Modern transformers use subword tokenization schemes like Byte Pair Encoding. Common words might be single tokens, but rare words get split into smaller pieces. The word "tokenization" might become "token" plus "ization." The word "transformers" might become "transform" plus "ers."</p>
+
+<p>This lets the model handle any text, even made-up words, while keeping the vocabulary manageable—typically around 50,000 to 100,000 tokens. It also means that token counts don't correspond directly to word counts, which is why AI companies charge by tokens rather than words.</p>
+
+<h2>The Embedding Layer: Words as Directions in Space</h2>
+
+<p>Once text is split into tokens, each token gets converted into a vector—a list of numbers, typically several hundred or thousand dimensions long. This is called an embedding.</p>
+
+<p>These embeddings are learned during training, and they capture semantic relationships in geometric form. The famous example: the vector from "king" to "queen" is roughly parallel to the vector from "man" to "woman." Words with similar meanings cluster together; words that often appear in similar contexts end up nearby in this high-dimensional space.</p>
+
+<p>Transformers also need to encode position information. Unlike recurrent networks, which naturally know what comes before what because they process sequentially, transformers see all tokens at once. Without some way to encode position, "the cat sat on the mat" would be indistinguishable from "the mat sat on the cat."</p>
+
+<p>The original transformer added sinusoidal position encodings—waves of different frequencies that encode each position with a unique pattern. Later variants learned position encodings directly or encoded relative positions rather than absolute ones.</p>
+
+<h2>Three Flavors of Transformer</h2>
+
+<p>The original transformer had two halves: an encoder and a decoder. The encoder processes the input (say, a French sentence), and the decoder generates the output (the English translation), attending both to what it has generated so far and to the encoder's representation of the input.</p>
+
+<p>But this encoder-decoder structure isn't the only possibility. Three main variants have emerged:</p>
+
+<p>Encoder-only models, like BERT (Bidirectional Encoder Representations from Transformers), process text but don't generate new text. They're trained by masking out some words and predicting what's hidden. This makes them excellent for tasks like classification, question answering, and search—understanding what a piece of text means rather than producing new text. Google started using BERT for search queries in 2019.</p>
+
+<p>Decoder-only models, like the GPT series (Generative Pre-trained Transformer), generate text one token at a time. They're trained to predict the next word given everything that came before. Each word can only attend to earlier words—this is called causal or autoregressive attention. This makes them natural language generators, which is why ChatGPT feels like having a conversation.</p>
+
+<p>Encoder-decoder models, like T5 (Text-to-Text Transfer Transformer), use both halves. They're particularly good at tasks where the output is a transformation of the input—translation, summarization, reformatting. The encoder processes the input, and the decoder generates the output while attending to the encoded representation.</p>
+
+<h2>Training: Learning from Mountains of Text</h2>
+
+<p>How do transformers learn to understand and generate language? Through exposure to staggering amounts of text.</p>
+
+<p>The training process typically has two phases. First comes pretraining: the model learns general language patterns from a huge, unlabeled corpus. For decoder-only models, this means predicting the next word, billions of times over, on datasets like The Pile (a diverse collection of web pages, books, code, and more). For encoder-only models like BERT, this means filling in masked words.</p>
+
+<p>Then comes fine-tuning: the pretrained model is adapted to specific tasks using smaller, labeled datasets. A model pretrained on general text might be fine-tuned to classify movie reviews as positive or negative, or to answer questions based on a passage, or to translate between specific languages.</p>
+
+<p>The pretraining phase is where the magic happens. A model trained to predict the next word ends up implicitly learning grammar, facts about the world, reasoning patterns, and even elements of common sense—all as a byproduct of trying to be a better next-word predictor.</p>
+
+<h2>The Training Stability Problem</h2>
+
+<p>One practical detail that turned out to matter enormously: transformers are finicky to train. The original paper recommended a technique called learning rate warmup, where you start with a very small learning rate and gradually increase it before eventually decreasing it again.</p>
+
+<p>Why does this help? The intuition is that early in training, before the model has learned anything useful, large updates based on random gradients can push the model into bad regions of parameter space from which it never recovers. Starting with small steps lets the model find its footing.</p>
+
+<p>A 2020 discovery found that a simple architectural change—applying layer normalization before the attention and feedforward blocks instead of after—eliminated the need for warmup entirely. This is now called Pre-Layer Normalization, or Pre-LN, and it's become standard in most modern transformers.</p>
+
+<h2>Beyond Text: Vision and Everything Else</h2>
+
+<p>Perhaps the most surprising development was that transformers turned out to be useful far beyond language.</p>
+
+<p>In 2020, researchers at Google introduced the Vision Transformer, or ViT. The idea was almost comically straightforward: chop an image into patches (like a grid of sixteen-by-sixteen pixel squares), treat each patch as if it were a "word," and run it through a standard transformer.</p>
+
+<p>This shouldn't have worked. Images have spatial structure that seems fundamentally different from the sequential nature of language. Convolutional neural networks had dominated computer vision for nearly a decade precisely because they were designed around the properties of images—local patterns, translation invariance, hierarchical features.</p>
+
+<p>But given enough data, vision transformers matched and then exceeded convolutional networks. It turned out the inductive biases built into convolutional architectures—all those assumptions about what images are like—were mostly just helping the network learn faster from limited data. Given sufficient data, a more general architecture could learn those same patterns and more.</p>
+
+<p>This generality proved to be transformers' superpower. They've since been applied to audio processing, robotics, reinforcement learning, protein structure prediction, weather forecasting, and even playing chess. The same basic architecture, with minor modifications, can be trained on almost any kind of structured data.</p>
+
+<h2>Image Generation: DALL-E and Beyond</h2>
+
+<p>The image generators that have captured public imagination—DALL-E, Stable Diffusion, Midjourney—use transformers in a crucial role. When you type a prompt like "an astronaut riding a horse on the moon, oil painting style," a transformer processes that text, breaking it into tokens and computing how each token relates to every other.</p>
+
+<p>This understanding of the text prompt then guides the image generation process. The transformer's attention mechanism is particularly useful here because it captures relationships: "astronaut" should be connected to "riding" and "horse," while "oil painting" should influence the style of the entire image.</p>
+
+<p>Video generation models like OpenAI's Sora extend this further, using transformers to understand prompts and maintain consistency across frames. The attention mechanism helps ensure that objects stay coherent as they move through time—that a red ball in frame one stays the same red ball in frame one hundred.</p>
+
+<h2>The Scale Hypothesis</h2>
+
+<p>One of the most contentious ideas to emerge from the transformer era is the scale hypothesis: the notion that making models bigger and training them on more data will continue to yield improvements, perhaps indefinitely.</p>
+
+<p>The evidence for scaling is striking. GPT-2, with 1.5 billion parameters, was considered large when released in 2019. GPT-3, released in 2020, had 175 billion parameters—more than a hundred times larger—and showed qualitatively new capabilities. GPT-4, released in 2023, is rumored to be larger still.</p>
+
+<p>More parameters and more training data don't just make models slightly better at the same tasks. They unlock entirely new capabilities. GPT-2 could write coherent paragraphs but struggled with factual accuracy and logical reasoning. GPT-3 could write essays, explain code, and perform simple arithmetic. GPT-4 can pass standardized tests, write working programs, and engage in nuanced discussions.</p>
+
+<p>Critics argue that this scaling will eventually hit diminishing returns, that there are fundamental limitations that no amount of scale will overcome. Proponents counter that we haven't yet seen evidence of a ceiling. The debate continues, with billions of dollars riding on the answer.</p>
+
+<h2>The ChatGPT Moment</h2>
+
+<p>Transformers had been quietly revolutionizing natural language processing for years before most people noticed. Then, in November 2022, OpenAI released ChatGPT.</p>
+
+<p>The underlying model wasn't dramatically different from GPT-3, which had been available through an API since 2020. The key innovations were in presentation and fine-tuning. ChatGPT was wrapped in a chat interface that felt natural to use. It had been fine-tuned using reinforcement learning from human feedback, or RLHF, to be helpful, harmless, and honest—or at least to try to be.</p>
+
+<p>The result was an AI assistant that felt, to many users, like a genuine breakthrough. Within five days, ChatGPT had a million users. Within two months, it had a hundred million, making it the fastest-growing consumer application in history at that time.</p>
+
+<p>What followed was a gold rush. Google, which had invented the transformer architecture, scrambled to release its own chatbot, Bard. Microsoft integrated GPT-4 into Bing. Startups raised billions to build foundation models. Every major tech company pivoted to prioritize AI.</p>
+
+<h2>What Makes Transformers Work</h2>
+
+<p>Step back for a moment and consider how remarkable this is. The transformer architecture is, in some sense, quite simple: it's just matrix multiplications, a specific way of computing attention, and some nonlinearities. The core algorithm fits on a few pages of mathematics.</p>
+
+<p>Yet this simple architecture, scaled up and trained on enough text, produces systems that can write poetry, explain quantum mechanics, help debug code, and carry on conversations that feel meaningfully intelligent.</p>
+
+<p>There's something almost unsettling about this. We don't fully understand why transformers work as well as they do. We know what they compute—the attention patterns, the feed-forward transformations—but we don't have a complete theory of why this particular computation is so effective at capturing the structure of human language and thought.</p>
+
+<p>Some researchers argue that attention is doing something like cognitive processing: the way attention heads specialize suggests they're implementing something like symbolic reasoning, even though the underlying computation is entirely numerical. Others are more skeptical, viewing transformers as extremely sophisticated pattern matchers that might have inherent limits we haven't yet discovered.</p>
+
+<h2>The Road Ahead</h2>
+
+<p>The transformer is not the end of the story. Already, researchers are exploring alternatives and extensions: state-space models like Mamba that scale linearly instead of quadratically with sequence length, mixture-of-experts architectures that activate only part of the network for each input, and hybrid approaches that combine transformers with other techniques.</p>
+
+<p>But for now, the transformer remains the foundation. When Meta builds a new AI-powered advertising model (like the one that prompted this essay), when Google improves its search engine, when a startup tries to create the next breakthrough in AI—almost certainly, they're building on transformers.</p>
+
+<p>In 2017, a paper about improving machine translation introduced an architecture with a provocative title claiming that attention was all you need. Seven years later, that architecture underpins technologies worth hundreds of billions of dollars and has changed how millions of people interact with computers every day.</p>
+
+<p>Sometimes, the boring problems turn out to be doorways to revolution.</p>
       </div>
 
       <footer class="wikipedia-footer">

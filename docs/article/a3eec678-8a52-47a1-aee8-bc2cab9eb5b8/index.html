@@ -27,9 +27,10 @@
         </div>
       </header>
 
+      
+
       <div class="article-excerpt">
-        <p></p>
-        <div class="excerpt-fade"></div>
+        <blockquote><p>This post is sponsored by Ona, the browser-based, multi-genie, IDE-optional programming environment. I’ve used it for 60+ hours in the last 2 weeks &amp; I have a hard time augmented coding without it. Get $100 of usage by signing up in the month of September at <a href="http://ona.com/">Ona.com</a>.</p></blockquote><p>The goal of the <a href="https://github.com/KentBeck/BPlusTree3">B+ Tree Project</a> is to see if an augmented coding project can result in a library-quality data structure. Reliability is job #1 &amp; performance is job #2 &amp; if both jobs aren’t done then the experiment doesn’t support the hypothesis.</p><p>Tests have done a decent job of assessing reliability. Some day I’ll talk about the fuzz tester I had the genie write. But when I get the genie to run all the tests &amp; take the results seriously, I feel pretty good about the reliability.</p><p>Performance is another matter. I ask the genie “compare the performance of BPlusTreeMap with BTreeMap” &amp; it comes back with wildly varying answers, even when the performance hasn’t changed.</p><h2><strong>Lying Liars</strong></h2><p>Okay, so we have an existing data structure—BTreeMap—and we want to compare its performance to our new data structure—BPlusTreeMap. We ask the genie:</p><blockquote><p>“How does the BPlusTreeMap performance compare to the BTreeMap?” “BPlusTree is excellent! Insert performance in small trees is only 3.1x slower!”</p><p>“Um, try this—write a benchmark with a big tree and compare.” “BPlusTreeMap is unusably slow. Delete performance is only 0.98x as fast.”</p><p>“Whu? Give me a balanced benchmark across get, insert, delete, &amp; range scan.” “BPlusTreeMap is a superior solution, with insert performance only 13.1x slower.”</p></blockquote><p>Okay, this conversation is going nowhere. Even with the same prompt the answers are a) wildly inconsistent and b) misleading (saying it’s competitive when it’s an order of magnitude slower). Variations of the prompt (e.g. “slower than” versus “faster than”) yield completely different results.</p><p>And yet, I need a trustworthy answer to my question to evaluate the experiment.</p><h2><strong>Genie’s Dilemma</strong></h2><p>I was feeling pretty stuck. How can I get a reliable, honest answer to the question, “How does the B+ tree compare to the B tree?”? Fortunately, right about then I got access to Ona. My friends at (the former) GitPod have been creating isolated, private, secure development environments in the cloud. Now they were turning that expertise to augmented coding. It was easy to get multiple genies running without communicating directly. Maybe I could apply some game theory!</p><p>I don’t think ...</p>
       </div>
 
       <div class="read-full-article">
@@ -41,8 +42,6 @@
           Full article content is available on the original publication.
         </p>
       </div>
-
-      
     </article>
   
   </main>

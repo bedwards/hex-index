@@ -22,7 +22,129 @@
       </header>
 
       <div class="wikipedia-content">
-        <p>Content not available.</p>
+        <p class="source-note">Based on <a href="https://en.wikipedia.org/wiki/Non-uniform_memory_access">Wikipedia: Non-uniform memory access</a></p>
+
+<h2>The Processor's Dilemma: Waiting for Data in an Impatient World</h2>
+
+<p>Here's a strange twist in computing history: processors used to be the slow ones. In the earliest days of electronic computers, the memory chips could deliver data faster than the processor could chew through it. The CPU was the bottleneck, and memory sat patiently waiting.</p>
+
+<p>That relationship flipped in the 1960s, and it has never flipped back.</p>
+
+<p>Modern processors are preposterously fast. They can execute billions of operations per second. But they spend an embarrassing amount of time doing nothing at all—just waiting for data to arrive from main memory. Computer scientists have a wonderfully evocative name for this problem: they call the processor "starved for data." Picture a supercar with a fantastic engine, stuck at a gas station with a tiny nozzle that can only deliver fuel one drop at a time.</p>
+
+<p>This gap between processor speed and memory speed is one of the fundamental tensions in computer architecture. And Non-Uniform Memory Access, or NUMA, represents one of the most important solutions to this problem—even if you've never heard of it.</p>
+
+<h2>Why Memory Became the Bottleneck</h2>
+
+<p>To understand NUMA, you first need to understand why memory is so slow compared to processors. It comes down to physics and economics.</p>
+
+<p>The fastest memory is expensive and takes up a lot of space on a chip. Engineers call this type of memory SRAM, or Static Random-Access Memory. It's what sits inside your processor as "cache"—a small, precious reservoir of data that the processor can access almost instantly. A modern processor might have 64 megabytes of cache.</p>
+
+<p>Your computer's main memory, by contrast, uses DRAM—Dynamic Random-Access Memory. It's much cheaper and denser, which is why your laptop might have 16 or 32 gigabytes of it. But DRAM is also much slower. When a processor needs data that isn't in its cache, it has to wait for main memory. This wait can be a hundred times longer than a cache access, which in processor time feels like an eternity.</p>
+
+<p>For decades, chip designers attacked this problem by making caches bigger and smarter. They developed sophisticated algorithms to predict what data the processor would need next and fetch it ahead of time. These techniques helped enormously, but they couldn't keep pace with another trend: software kept getting hungrier.</p>
+
+<p>Operating systems grew. Applications expanded. Databases swelled. The amount of data that needed to travel between memory and processor exploded. Even with clever caching, processors still found themselves waiting.</p>
+
+<h2>The Multi-Processor Problem Gets Worse</h2>
+
+<p>Then came another challenge: multi-processor systems.</p>
+
+<p>If one processor starves for data, imagine several processors all trying to access the same pool of memory. The earliest multi-processor designs used what's called Symmetric Multi-Processing, or SMP. In an SMP system, all processors share a single connection to memory—like a group of people trying to drink from the same water fountain.</p>
+
+<p>This creates a traffic jam. Only one processor can access memory at a time. While one processor is reading or writing, the others wait their turn. The more processors you add, the worse the congestion becomes. You hit a wall where adding more processors doesn't actually speed up your work, because they spend most of their time stuck in line.</p>
+
+<p>This is where NUMA enters the story.</p>
+
+<h2>The NUMA Insight: Give Everyone Their Own Memory</h2>
+
+<p>The core idea of NUMA is deceptively simple: instead of making all processors share one pool of memory, give each processor its own local memory.</p>
+
+<p>In a NUMA system, Processor A has its own memory bank sitting right next to it. Processor B has a different memory bank next to it. When Processor A needs data from its local memory, it can access it quickly—no waiting, no sharing, no traffic jam. The path is short and dedicated.</p>
+
+<p>But here's the catch, and it's where the "non-uniform" part of the name comes from: what if Processor A needs data that happens to be in Processor B's memory?</p>
+
+<p>It can still get it. NUMA systems include hardware that lets processors reach into each other's memory banks. But this remote access is slower than local access. The data has to travel farther, through an interconnect that links the processors together. This creates two tiers of memory access: fast local access and slower remote access. The access time is not uniform—it depends on where the data lives.</p>
+
+<p>This non-uniformity is actually the whole point. The bet that NUMA makes is that most of the time, a processor will be working on data that can be kept in its local memory. If your software has good "memory locality"—meaning each task tends to work with a specific subset of data—then each processor can stay in its fast lane most of the time.</p>
+
+<h2>How Much Does NUMA Help?</h2>
+
+<p>The performance improvement from NUMA can be dramatic, but it depends heavily on what kind of work you're doing.</p>
+
+<p>For workloads that spread data across many independent tasks—the kind of work that servers typically do—NUMA can improve performance by a factor roughly equal to the number of processors. If you have eight processors, you might see something approaching an eightfold speedup compared to a traditional shared-memory system.</p>
+
+<p>That's the best case.</p>
+
+<p>The worst case happens when multiple processors need to access the same data frequently. Now you've lost NUMA's advantage. Data has to travel between memory banks, slowing everyone down. Worse, the system needs to keep track of which processor has the most recent version of each piece of data—a nightmare known as the cache coherency problem.</p>
+
+<h2>The Cache Coherency Challenge</h2>
+
+<p>Here's a scenario that keeps computer architects up at night.</p>
+
+<p>Processor A reads a value from memory and stores a copy in its cache. Processor B reads the same value and stores its own copy. Now Processor A modifies its cached copy. Processor B still has the old value. If Processor B uses its stale copy, the system produces wrong results.</p>
+
+<p>This is the cache coherency problem, and it exists in all multi-processor systems. But NUMA makes it harder because the processors are more independent and the memory is spread out.</p>
+
+<p>Most modern NUMA systems solve this with protocols that automatically keep caches synchronized. These systems are called cache-coherent NUMA, or ccNUMA. When one processor modifies a memory location, the hardware automatically notifies other processors that might have cached copies. Those processors then either update their copies or mark them as invalid.</p>
+
+<p>This synchronization works, but it creates overhead. Every write potentially triggers messages flying between processors. When multiple processors hammer the same memory location—something that happens in certain kinds of parallel programs—this communication overhead can actually make NUMA slower than a simpler system.</p>
+
+<p>The trick is to design your software so that different processors work on different data most of the time. Let each processor tend its own garden, with only occasional coordination.</p>
+
+<h2>The Hardware That Made NUMA Possible</h2>
+
+<p>NUMA wasn't a sudden invention. It evolved from decades of work on supercomputers and high-end servers.</p>
+
+<p>The first commercial NUMA systems appeared in the 1990s, built by companies whose names now read like a graveyard of the tech industry: Silicon Graphics, Sequent, Convex Computer, Digital Equipment Corporation. These were machines for scientific computing and enterprise databases, costing hundreds of thousands or millions of dollars.</p>
+
+<p>The turning point came in 2003 when AMD—the scrappy competitor to Intel—released the Opteron processor. The Opteron built NUMA directly into the processor design, using a technology called HyperTransport to connect processors together. Suddenly, NUMA wasn't just for expensive supercomputers. It was available in ordinary servers.</p>
+
+<p>Intel followed in 2007 with its own NUMA-capable processors, using an interconnect called QuickPath Interconnect, later replaced by UltraPath Interconnect. Today, virtually all multi-socket servers use NUMA architecture. If you've ever rented a large cloud computing instance from Amazon, Google, or Microsoft, you were almost certainly running on a NUMA system.</p>
+
+<h2>Software Has to Play Along</h2>
+
+<p>Here's an uncomfortable truth about NUMA: the hardware alone isn't enough. Your operating system and applications need to be NUMA-aware, or you'll lose most of the benefit.</p>
+
+<p>Think about it this way. A NUMA-unaware operating system might start a program on Processor A, allocate its memory from Processor B's memory bank, and then wonder why everything is slow. Every memory access becomes a remote access, traversing the interconnect.</p>
+
+<p>Modern operating systems are smarter. When a program starts, a NUMA-aware scheduler tries to allocate memory from the same processor node where the program will run. When a program needs more memory, the system tries to use local memory first. When a program spawns multiple threads, the scheduler tries to keep related threads on the same NUMA node.</p>
+
+<p>Linux has had NUMA support since kernel version 2.5, with significant improvements in version 3.8 and 3.13. Windows gained good NUMA support in Windows 7. Java added NUMA-aware memory allocation in version 7, which matters enormously for large Java applications like Elasticsearch or Kafka that run on NUMA servers.</p>
+
+<p>Even with operating system support, application developers sometimes need to think about NUMA explicitly. Database systems like PostgreSQL and MySQL have NUMA-specific configuration options. High-performance computing applications often include code to control exactly where their memory gets allocated.</p>
+
+<h2>NUMA vs. Other Approaches</h2>
+
+<p>NUMA isn't the only way to solve the memory bottleneck problem. It's worth understanding how it fits into the broader landscape of computer architecture.</p>
+
+<p>At the simpler end of the spectrum is Uniform Memory Access, or UMA. This is the traditional approach where all processors share memory equally. UMA systems are easier to program because you don't have to think about where your data lives. But they hit scaling limits when you add too many processors.</p>
+
+<p>At the more extreme end is cluster computing, where separate computers communicate over a network. Each computer has its own memory that other computers can't access directly. If you need data from another machine, you explicitly send a message to request it. Clusters can scale to thousands of machines, but programming them requires completely different techniques.</p>
+
+<p>NUMA sits in an interesting middle ground. It feels more like a single computer than a cluster—programs can access any memory location without sending explicit messages. But it has some of the scalability of a cluster, because each processor node works somewhat independently. Computer scientists sometimes describe NUMA as "tightly coupled clustering."</p>
+
+<p>Another alternative is multi-channel memory, where a single processor connects to multiple memory banks simultaneously through separate channels. This lets the processor access memory in parallel, improving bandwidth. Modern desktop processors typically have dual-channel or quad-channel memory. But this approach still treats all memory as uniform—it doesn't help with multi-processor scaling the way NUMA does.</p>
+
+<h2>The Networking Connection</h2>
+
+<p>If you're reading this in the context of GPU networking and AI infrastructure, NUMA takes on additional significance.</p>
+
+<p>Large GPU servers face exactly the same challenges that led to NUMA, but amplified. A modern AI training system might have eight high-end GPUs, each with its own high-bandwidth memory. Those GPUs need to communicate with each other and with the CPU, and the topology of those connections matters enormously.</p>
+
+<p>Technologies like NVLink, which connects NVIDIA GPUs directly to each other, embody NUMA-like thinking. A GPU can access the memory of an adjacent GPU over NVLink faster than it can access a distant GPU's memory. The access time is non-uniform, depending on the physical layout of the system.</p>
+
+<p>When AMD, Intel, and others talk about coherent interconnects for AI accelerators, they're essentially extending NUMA concepts to these new architectures. The fundamental insight remains the same: give each processing unit fast access to nearby memory, and provide slower access to distant memory as a fallback.</p>
+
+<h2>Looking Forward</h2>
+
+<p>NUMA has been a quiet workhorse of computing for three decades now. It's invisible to most users and even to most programmers, humming along in data centers to make servers faster and more scalable.</p>
+
+<p>But as computers continue to evolve—with more cores, more accelerators, more specialized processing units—the principles of NUMA become more relevant, not less. The speed of light hasn't gotten any faster. The physics of chip manufacturing still means that closer is faster. The insight that memory access time depends on location will shape computer architecture for as long as computers exist.</p>
+
+<p>Understanding NUMA means understanding one of the fundamental tensions in computing: the gap between what processors can compute and how fast we can feed them data. It's a tension that has driven innovation since the 1960s and shows no signs of disappearing.</p>
+
+<p>The next time you rent a powerful cloud instance or hear about the latest AI supercomputer, remember that somewhere inside, NUMA is at work—choreographing the dance of processors and memory, trying to keep everyone fed with the data they need.</p>
       </div>
 
       <footer class="wikipedia-footer">

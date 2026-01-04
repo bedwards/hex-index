@@ -27,9 +27,10 @@
         </div>
       </header>
 
+      
+
       <div class="article-excerpt">
-        <p></p>
-        <div class="excerpt-fade"></div>
+        <p>The Test Desiderata desires 12 properties for tests, two of which are:</p><ul><li><p>Isolation—the result of running one test should be completely independent of the results of other tests.</p></li><li><p>Composition—??? tests should run together ??? Isn’t that the same thing as isolation?</p></li></ul><p>No, and here’s why (I finally got an example—examples are always the hardest part.)</p><h2>Isolation</h2><p>If a test runs by first setting up its own test fixture, creating from scratch all the data it will be using as input, then that test is guaranteed to be <em>isolated</em>. It doesn’t matter what order you run the tests, the results will be exactly the same. (This is the same property as referential transparency in functional programming.)</p><p>Isolation is encouraged in the xUnit testing frameworks (at least most of them) by creating a new instance of a test object for every test &amp; running the setUp() function before running the test. (Some frameworks, notably NUnit, reuse test instances, opening the door to breaking isolation.)</p><h2>Composition</h2><p>Say we have a suite of isolated tests &amp; we run them all together. The suite’s success should give us confidence (be <em>predictive</em> in Desiderata terms), even though each individual test on its own isn’t comprehensive.</p><p>Example—say we have a test:</p><p><code>test1()<br>  object := new Whatever()<br>  actual := object.doSomething()<br>  assertEquals(expected, actual)</code></p><p>We get that working so we want to implement the next bit of functionality. We copy, paste, &amp; extend:</p><p><code>test2()<br>  object := new Whatever()<br>  actual := object.doSomething()<br>  assertEquals(expected, actual)<br>  actual2 := object.nowSomethingElse()<br>  assertEquals(expected2, actual2)</code></p><p>I have seen tests like this that have been copied, pasted, &amp; extended 6 or 7 times. That last test is pretty hard to read.</p><p>Notice that test2 can’t pass if test1 fails. All non-compliant programs caught by test1 will also be caught by test2. We have at least 3 options that preserve the same coverage, the same predictability:</p><ul><li><p>Leave both tests.</p></li><li><p>Delete test1.</p></li><li><p>Simplify test2.</p></li></ul><h2>Pruning</h2><p>From a purely aesthetic standpoint (&amp; don’t discount aesthetics), leaving both tests as is offends my sensibilities. They are redundant! Something <em>must</em> be wrong.</p><p>Deleting test1 loses us another property from the Test Desiderata—tests should be <em>specific</em>. That’s the property of tests where, when one fails, you know exactly where the problem is.</p><p>Which leads to my preferred solution—composition. I trim test2 to avoid the purely redundant parts:</p><p><code>test2()<br>  object := new Whatever()<br>  object.doSomething()<br>  actual := object.nowSomethingElse()<br>  assertEquals(expected, actual)</code></p><p>The composition of test1 ...</p>
       </div>
 
       <div class="read-full-article">
@@ -41,8 +42,6 @@
           Full article content is available on the original publication.
         </p>
       </div>
-
-      
     </article>
   
   </main>

@@ -22,7 +22,135 @@
       </header>
 
       <div class="wikipedia-content">
-        <p>Content not available.</p>
+        <p class="source-note">Based on <a href="https://en.wikipedia.org/wiki/Multi-agent_system">Wikipedia: Multi-agent system</a></p>
+
+<h2>The Swarm Intelligence Behind Your Morning Commute</h2>
+
+<p>Imagine you're a single ant. You're not particularly smart. You can't see very far. You have no idea what the colony is trying to accomplish on any given day. And yet, somehow, your colony builds elaborate underground cities, farms fungus, wages wars, and solves logistical problems that would stump a team of engineers.</p>
+
+<p>This is the central mystery that multi-agent systems try to understand and replicate: How do simple individuals, following simple rules, produce breathtakingly complex collective behavior?</p>
+
+<p>The answer has profound implications for everything from how self-driving cars will navigate our cities to how artificial intelligence might organize itself in the future. And it's already shaping technologies you use every day, often without realizing it.</p>
+
+<h2>What Exactly Is a Multi-Agent System?</h2>
+
+<p>A multi-agent system, often abbreviated as MAS, is a computerized system made up of multiple interacting intelligent agents. Think of it as a digital society where each member has its own goals, its own knowledge, and its own way of making decisions. These members work together, sometimes cooperating and sometimes competing, to accomplish things that none of them could achieve alone.</p>
+
+<p>The "agents" in question can be surprisingly diverse. They might be software programs trading stocks on Wall Street, robots coordinating in a warehouse, or even simulated humans in a video game. In some systems, actual humans work alongside artificial agents, creating hybrid teams that combine human intuition with machine efficiency.</p>
+
+<p>Here's what makes multi-agent systems fundamentally different from traditional software: there's no central controller. No master program telling everyone what to do. Instead, each agent makes its own decisions based on what it can see and what it wants to achieve. Order emerges from the bottom up, not the top down.</p>
+
+<p>This might sound like a recipe for chaos. And sometimes it is. But when designed well, multi-agent systems can solve problems that would be impossible for any single program, no matter how sophisticated.</p>
+
+<h2>The Three Laws of Agents</h2>
+
+<p>Every agent in a multi-agent system shares three defining characteristics, and understanding these helps explain why these systems behave the way they do.</p>
+
+<p><strong>First, agents are autonomous.</strong> They operate independently, making their own choices without waiting for permission from some central authority. A self-driving car doesn't call headquarters every time it needs to change lanes. It decides for itself, based on its sensors, its goals, and its understanding of traffic rules.</p>
+
+<p><strong>Second, agents have only local views.</strong> No single agent can see the whole picture. This isn't a limitation to work around. It's actually a design feature. In a system with millions of interacting components, no single agent could possibly process all available information. By limiting each agent's view to what's immediately relevant, the system remains manageable and responsive.</p>
+
+<p>Think about how you navigate a crowded sidewalk. You don't need a satellite view of everyone's position. You just need to see the people immediately around you and adjust accordingly. The same principle applies to software agents.</p>
+
+<p><strong>Third, there's no designated controller.</strong> The moment you introduce a central authority that makes all the decisions, you no longer have a multi-agent system. You have a regular program with a bunch of subroutines. The magic of multi-agent systems comes precisely from the absence of central control.</p>
+
+<h2>From Simple Rules to Complex Behavior</h2>
+
+<p>Perhaps the most counterintuitive aspect of multi-agent systems is how sophisticated behavior can emerge from remarkably simple individual rules.</p>
+
+<p>Consider flocking birds. Each bird follows just three rules: stay close to your neighbors, match their speed and direction, and don't crash into them. That's it. No bird knows anything about "flocking" as a concept. No bird is trying to create those mesmerizing aerial patterns you see at sunset. Yet from these three simple rules, stunning coordinated behavior emerges.</p>
+
+<p>Computer scientists have replicated this phenomenon in simulations called "boids," and the results are indistinguishable from real bird flocks. The same principles now help animate crowds in movies and video games, where rendering thousands of individually programmed characters would be impossibly expensive.</p>
+
+<p>This emergence of complex behavior from simple rules isn't magic. It's a fundamental property of interconnected systems. Physicists see something similar in how atoms arrange themselves into crystals, seeking the lowest energy state through purely local interactions. Economists observe it in markets, where individual buying and selling decisions aggregate into prices that no single trader sets.</p>
+
+<h2>How Agents Talk to Each Other</h2>
+
+<p>For agents to coordinate, they need to communicate. But how do you design a language for software agents that might have been built by different teams, using different programming languages, for different purposes?</p>
+
+<p>Two main approaches have emerged. The first is the Knowledge Query and Manipulation Language, or KQML, which gives agents a standardized way to share information and make requests. Think of it as a diplomatic protocol for software. When one agent wants information from another, it doesn't need to understand the other agent's internal workings. It just needs to phrase its request in KQML.</p>
+
+<p>The second is Agent Communication Language, or ACL, which is similar in spirit but developed by a different standards body. Both aim to solve the same problem: enabling agents that don't know anything about each other's implementation to still work together effectively.</p>
+
+<p>Beyond formal languages, agents often communicate through their environment. This is called stigmergy, a term borrowed from entomology. Ants don't talk to each other directly about where to find food. Instead, they leave pheromone trails. Other ants encounter these trails and follow them, reinforcing successful paths with their own pheromones.</p>
+
+<p>Software agents can do the same thing. An agent working on a problem might leave a "digital pheromone" indicating what it tried and what it learned. Other agents encountering this information can adjust their own behavior accordingly. The trails can even evaporate over time, ensuring that outdated information doesn't persist indefinitely.</p>
+
+<h2>The Contract Dance</h2>
+
+<p>Many multi-agent systems use a pattern called challenge-response-contract, which works something like a marketplace.</p>
+
+<p>First, an agent broadcasts a question: "Who can solve this problem?" This is the challenge phase. The agent doesn't know who might be able to help, so it asks everyone.</p>
+
+<p>Agents with relevant capabilities respond: "I can, and here's my price." This might be a literal price in economic applications, or it might be an estimate of resources required, or a confidence score indicating how well the agent thinks it can perform.</p>
+
+<p>Finally, the requesting agent negotiates and establishes a contract. This might involve just two parties, or it might require coordinating among several agents to handle different aspects of a complex task. The negotiation can evolve as agents learn more about the problem or as circumstances change.</p>
+
+<p>This marketplace approach has an elegant property: it automatically routes work to the agents best suited to handle it. No central dispatcher needs to understand everyone's capabilities. The agents themselves figure out who should do what.</p>
+
+<h2>Fault Tolerance for Free</h2>
+
+<p>Traditional software has a fragility problem. If a critical component fails, the whole system can crash. Redundancy helps, but it's expensive and requires careful engineering.</p>
+
+<p>Multi-agent systems, by their nature, tend to be remarkably robust. If one agent fails, others continue operating. If several agents fail, the remaining ones often reorganize themselves to compensate. The system degrades gracefully rather than catastrophically.</p>
+
+<p>This resembles how biological systems handle damage. If you injure some neurons in your brain, others gradually take over their functions. If you remove some ants from a colony, the remaining ants adjust their behavior to fill the gaps. No central authority needs to recognize the failure and issue instructions for recovery. The system heals itself through purely local interactions.</p>
+
+<p>This self-healing property is why multi-agent architectures are increasingly popular for critical infrastructure. Power grids, communication networks, and emergency response systems all benefit from approaches that keep working even when components fail.</p>
+
+<h2>The Rise of Language Model Agents</h2>
+
+<p>Something remarkable has happened in the past few years. Large language models, the technology behind systems like ChatGPT and Claude, have given multi-agent systems an entirely new dimension.</p>
+
+<p>Previously, designing agents required carefully specifying their knowledge, their decision rules, and their communication protocols. This was labor-intensive and brittle. Agents could only handle situations their designers had anticipated.</p>
+
+<p>Language model agents are different. They can understand natural language instructions, reason about novel situations, and communicate with each other using human language rather than rigid protocols. You can tell a language model agent what you want it to accomplish, and it will figure out how to do it, including how to coordinate with other agents.</p>
+
+<p>Frameworks like CAMEL have emerged to orchestrate these language model agents. Researchers have discovered that having agents debate with each other, presenting arguments and counterarguments, produces better solutions than having a single agent work alone. The agents catch each other's errors, contribute different perspectives, and collectively arrive at answers that none of them would have found individually.</p>
+
+<p>This opens possibilities that would have seemed like science fiction a decade ago. Instead of carefully programming each agent's behavior, you can describe what you want in plain English and let the agents figure out the details. It's a bit like the difference between giving someone turn-by-turn directions versus giving them a destination and a map.</p>
+
+<h2>Real World Applications</h2>
+
+<p>Multi-agent systems have moved far beyond academic research. They're embedded in industries you interact with constantly.</p>
+
+<p>In financial markets, algorithmic trading agents buy and sell securities in milliseconds, responding to market conditions faster than any human could. These agents don't just execute trades; they negotiate with each other, anticipate each other's behavior, and collectively create the market dynamics we observe.</p>
+
+<p>In logistics, multi-agent systems coordinate fleets of vehicles, optimize warehouse operations, and route packages through complex distribution networks. When you order something online and it arrives the next day, there's a good chance that multi-agent algorithms decided which truck should carry it, which route to take, and how to pack it alongside thousands of other packages.</p>
+
+<p>In gaming and film, agent-based simulations create believable crowds, realistic traffic, and dynamic battlefields. The massive battle scenes in modern films often use multi-agent systems rather than individually animating each soldier. Each virtual combatant makes its own decisions about movement and fighting, creating organic-looking chaos that would be impossible to choreograph by hand.</p>
+
+<p>Perhaps most significantly, multi-agent systems are shaping the future of autonomous vehicles. Companies like Waymo have built elaborate simulation environments where artificial agents imitate human drivers and pedestrians. Self-driving car algorithms are tested against millions of these simulated agents, experiencing years' worth of traffic scenarios in days of computer time.</p>
+
+<h2>Multi-Agent Systems Versus Agent-Based Models</h2>
+
+<p>There's a distinction worth drawing here, because the terminology can be confusing.</p>
+
+<p>Multi-agent systems, as typically used in engineering and computer science, focus on solving practical problems. How do we coordinate a fleet of delivery drones? How do we distribute computational load across a network? How do we enable robots to collaborate on manufacturing tasks? The goal is to build systems that accomplish useful things.</p>
+
+<p>Agent-based models, by contrast, are often used in science to understand phenomena. Economists build agent-based models to understand how markets emerge. Biologists use them to study flocking and schooling behavior. Social scientists simulate how opinions spread through populations. The goal is insight rather than utility.</p>
+
+<p>The technical approaches overlap substantially. The same mathematics, the same programming techniques, the same concepts apply to both. But the questions being asked are different. An engineer asks "how can I make this work?" A scientist asks "why does this happen?"</p>
+
+<h2>The Challenges Ahead</h2>
+
+<p>Multi-agent systems aren't magic. They come with their own problems.</p>
+
+<p>Emergent behavior cuts both ways. Just as good collective behavior can emerge from simple rules, so can pathological behavior. Financial markets have experienced "flash crashes" where trading agents triggered cascading failures that wiped out billions in value within minutes. Designing systems that emerge into helpful patterns rather than harmful ones remains an art as much as a science.</p>
+
+<p>Verification is hard. How do you test a system whose behavior emerges from millions of interactions? Traditional software testing involves running specific inputs and checking outputs. But in a multi-agent system, the same inputs might produce different outputs depending on timing, agent states, and pure randomness. Ensuring that a multi-agent system will behave correctly across all possible scenarios is essentially impossible.</p>
+
+<p>Standardization remains incomplete. Despite decades of work on agent communication languages and interaction protocols, no universal standard has taken hold. The Foundation for Intelligent Physical Agents, or FIPA, created specifications that many systems use, but active maintenance has waned. Different industries use different approaches, making integration challenging.</p>
+
+<h2>What Lies Ahead</h2>
+
+<p>The convergence of multi-agent systems with large language models is still in its early days. We're beginning to see AI systems that can spawn new agents as needed, coordinate complex workflows, and solve problems that require sustained reasoning across multiple perspectives.</p>
+
+<p>This matters for LinkedIn's hiring assistant and similar applications. When you interact with an AI that's helping you find a job or evaluate candidates, you might actually be interacting with multiple specialized agents working together. One might understand job requirements, another might analyze resumes, a third might schedule interviews. From your perspective, it's a single helpful assistant. Behind the scenes, it's a society.</p>
+
+<p>The principles that govern ant colonies and bird flocks, refined through millions of years of evolution, are now being instantiated in silicon and software. The agents are getting smarter, their coordination more sophisticated, their applications more consequential.</p>
+
+<p>And much like those ants, the individual agents don't need to understand the grand picture. They just need to follow their rules, respond to their neighbors, and let the magic of emergence do the rest.</p>
       </div>
 
       <footer class="wikipedia-footer">

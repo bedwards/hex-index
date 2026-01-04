@@ -22,7 +22,143 @@
       </header>
 
       <div class="wikipedia-content">
-        <p>Content not available.</p>
+        <p class="source-note">Based on <a href="https://en.wikipedia.org/wiki/CUDA">Wikipedia: CUDA</a></p>
+
+<h2>The Video Game Kid Who Changed Computing</h2>
+
+<p>In the early 2000s, a Stanford graduate student named Ian Buck had a wild idea. He wanted to use the chips inside gaming computers—the ones designed to render explosions and shadows in video games—for something completely different. Something like predicting protein structures or cracking encryption.</p>
+
+<p>At the time, this seemed absurd.</p>
+
+<p>Graphics cards were built for one purpose: making pixels look pretty. They were exquisitely tuned machines for calculating what color each dot on your screen should be, sixty times per second. Using them for anything else was like using a sports car to plow a field.</p>
+
+<p>But Buck had noticed something. The raw computational power packed into these graphics chips was staggering—far more than what sat in a computer's main processor. The catch was that nobody knew how to harness it for general-purpose work. So he built Brook, a programming language that let scientists tap into graphics hardware for their calculations. It was clunky. It was experimental. And it caught the attention of Nvidia, the company that dominated the graphics card market.</p>
+
+<p>In 2004, Nvidia hired Buck and paired him with John Nickolls, their director of architecture. Three years later, they released CUDA—Compute Unified Device Architecture—and the landscape of computing shifted beneath everyone's feet.</p>
+
+<h2>What CUDA Actually Does</h2>
+
+<p>To understand CUDA, you first need to understand why graphics processors are different from regular processors.</p>
+
+<p>Your computer's central processing unit, or CPU, is like a brilliant professor. It can solve incredibly complex problems, but it works on them one at a time, sequentially. It reads an instruction, executes it, reads the next instruction, executes that one. Very smart, but fundamentally serial.</p>
+
+<p>A graphics processing unit, or GPU, is more like a stadium full of accounting clerks. Each individual clerk isn't particularly sophisticated—they can only do simple arithmetic. But there are thousands of them, all working simultaneously. Need to add up a million numbers? The professor does them one by one. The clerks divide and conquer, finishing in a fraction of the time.</p>
+
+<p>This matters because many scientific and engineering problems are what computer scientists call "embarrassingly parallel." That's actually a technical term. It means the problem breaks naturally into thousands of independent pieces that don't need to talk to each other. Simulating how molecules bounce around in a fluid? Each molecule can be calculated separately. Training a neural network? Each connection weight can be adjusted in parallel. Mining cryptocurrency? Each potential solution can be tested independently.</p>
+
+<p>Before CUDA, harnessing this parallel power required programmers to disguise their math problems as graphics operations. They had to pretend their data was a texture being rendered, their calculations were pixel shaders. It was hackish and painful, requiring deep expertise in graphics programming—a skill set that most scientists simply didn't have.</p>
+
+<p>CUDA changed the game by letting programmers write in familiar languages like C++ and Python. You could think in terms of the actual problem you were solving, not in terms of fake textures and pretend pixels. The barrier to entry dropped dramatically.</p>
+
+<h2>The Architecture of Parallel Thinking</h2>
+
+<p>CUDA works by dividing your computation into a grid of blocks, and each block contains many threads. Think of it like organizing a massive volunteer effort. You have the overall project (the grid), broken into teams (blocks), each staffed by individual workers (threads).</p>
+
+<p>The magic happens because these threads don't operate in complete isolation. Threads within the same block can share data through a special fast memory space. This shared memory is much quicker to access than the GPU's main memory—the difference is like reaching for a pencil on your desk versus walking to a supply closet down the hall.</p>
+
+<p>But there's a catch, and it's an important one. GPUs work best when threads move in lockstep, all executing the same instruction at the same time, just on different data. This is called Single Instruction, Multiple Data, or SIMD. When threads need to take different paths through your code—when some go left at a fork while others go right—performance suffers. The hardware essentially has to run both paths while making some threads wait.</p>
+
+<p>This is why GPUs excel at certain problems and struggle with others. Matrix multiplication? Perfect for GPUs—every element can be computed with the same sequence of operations. Traversing a complex tree structure where each branch leads somewhere different? The CPU professor often wins.</p>
+
+<h2>The Rise of Machine Learning (And Why It Matters)</h2>
+
+<p>For the first several years after CUDA's release, it found a home in scientific computing. Physicists simulated colliding galaxies. Biochemists modeled how drugs docked with proteins. Financial firms ran risk calculations. Cryptocurrency miners brute-forced hash functions.</p>
+
+<p>Then came the deep learning revolution.</p>
+
+<p>Neural networks, it turns out, are almost perfectly suited to GPU computation. Training a neural network involves multiplying enormous matrices together, over and over, billions of times. Each multiplication is independent. Each can run in parallel. The stadium full of clerks thrives on exactly this kind of work.</p>
+
+<p>By 2012, researchers demonstrated that training neural networks on GPUs could be ten times faster than on CPUs. Within a few years, GPUs became essential infrastructure for anyone doing serious machine learning work. And since Nvidia had spent nearly a decade building out CUDA's ecosystem—the libraries, the tools, the documentation, the community expertise—they held an overwhelming advantage.</p>
+
+<p>Jensen Huang, Nvidia's CEO, had seen this coming. Under his direction, CUDA's development had increasingly focused on machine learning workloads starting around 2015. When the AI boom hit, Nvidia was ready. Their stock price increased more than tenfold in the following years.</p>
+
+<h2>The Toolbox Inside CUDA</h2>
+
+<p>CUDA isn't just a single piece of software. It's an entire ecosystem.</p>
+
+<p>At the foundation, you have the driver that lets your operating system communicate with the GPU hardware. Above that sits the runtime, which manages how your code gets executed on the device. Then come the libraries—specialized, optimized collections of functions for common tasks.</p>
+
+<p>cuBLAS handles basic linear algebra: multiplying matrices, solving systems of equations. cuFFT performs Fourier transforms, essential for signal processing and image analysis. cuRAND generates random numbers, crucial for simulations and certain machine learning techniques. cuDNN, perhaps the most important for AI applications, provides primitives specifically optimized for deep neural networks.</p>
+
+<p>These libraries matter enormously. A naive implementation of matrix multiplication might run ten times slower than cuBLAS, even on the same hardware. The Nvidia engineers who write these libraries spend years squeezing every last drop of performance from the silicon. When you use their libraries, you benefit from all that expertise automatically.</p>
+
+<p>CUDA also includes profiling tools that help you understand where your code spends its time, debuggers that help you find errors, and compilers that translate your high-level code into instructions the GPU understands.</p>
+
+<h2>The Problem of Vendor Lock-In</h2>
+
+<p>Here's the uncomfortable truth about CUDA: it only works on Nvidia hardware.</p>
+
+<p>This wasn't an accident. CUDA is proprietary technology, deliberately designed to run exclusively on Nvidia's GPUs. If you've invested years building software on CUDA, switching to a competitor's hardware means rewriting substantial portions of your code.</p>
+
+<p>This lock-in has generated significant controversy. AMD and Intel both make capable GPU hardware, but breaking into the machine learning market has proven difficult precisely because the software ecosystem is so Nvidia-centric. It's a classic chicken-and-egg problem: developers write for CUDA because that's where the users are, and users buy Nvidia because that's where the software is.</p>
+
+<p>Several projects have tried to bridge this gap. OpenCL, maintained by the Khronos Group, provides a vendor-neutral alternative—code written for OpenCL can run on GPUs from any manufacturer. But OpenCL has struggled to match CUDA's performance and ease of use, and its adoption in machine learning remains limited.</p>
+
+<p>AMD's ROCm platform and Intel's OneAPI both offer open-source alternatives. HIP, part of AMD's stack, can even translate CUDA code automatically to run on AMD hardware. A project called ZLUDA achieved near-native performance running CUDA code on AMD GPUs—though neither AMD nor Intel chose to release it officially when they had the chance.</p>
+
+<p>The situation creates a genuine tension. On one hand, Nvidia's dominance has created a stable, well-supported platform where things generally just work. On the other hand, competition drives innovation and keeps prices in check. When one company controls the essential infrastructure for an entire technological revolution, the implications ripple far beyond mere market dynamics.</p>
+
+<h2>The Technical Tradeoffs</h2>
+
+<p>No technology is perfect, and CUDA has genuine limitations that programmers must navigate.</p>
+
+<p>The most fundamental challenge involves moving data. Your GPU has its own memory, separate from your computer's main memory. Before the GPU can work on your data, you have to copy it over. When it's done, you have to copy results back. This copying takes time and consumes bandwidth on the bus connecting the two chips.</p>
+
+<p>For some workloads, this data transfer overhead dominates everything else. If you're doing a simple operation on a small dataset, the time spent shuffling bytes back and forth might exceed the time spent actually computing. The rule of thumb: GPUs shine when you have lots of computation relative to the amount of data movement.</p>
+
+<p>CUDA has evolved to mitigate this. Unified memory, introduced in version 6.0, creates a single address space accessible to both CPU and GPU. The system handles data movement automatically, though understanding when and how it moves can be tricky. Asynchronous transfers let the GPU work on one batch of data while simultaneously receiving the next, hiding some of the latency.</p>
+
+<p>Another limitation involves the SIMD execution model mentioned earlier. When threads within a group—called a warp in CUDA terminology, consisting of 32 threads—take different code paths, the hardware serializes execution. Both paths run, but threads not taking a given path sit idle. Code with lots of conditional branches can waste substantial compute capacity this way.</p>
+
+<p>Precision is another consideration. Early CUDA devices cut corners on floating-point math to maximize speed. They didn't handle denormalized numbers (extremely small values near zero) correctly, and division and square root operations were slightly inaccurate. Modern devices support full IEEE 754 compliance, the standard for floating-point arithmetic, though programmers can still opt for faster-but-less-accurate modes when appropriate.</p>
+
+<h2>The Compute Capability Matrix</h2>
+
+<p>Nvidia assigns each GPU a "compute capability" version number, like 7.5 or 8.6. This number tells you what features that GPU supports and how it behaves.</p>
+
+<p>The pattern matters. The major number (before the decimal point) indicates the architectural generation. GPUs within the same major version share fundamental characteristics. The minor number indicates refinements within that generation.</p>
+
+<p>New CUDA versions typically require minimum compute capabilities. Old GPUs eventually lose support. This isn't arbitrary cruelty—new software features often require hardware capabilities that simply don't exist on older chips. But it does mean your shiny CUDA code might not run on hardware that's only a few years old.</p>
+
+<p>Code compiled for one compute capability can usually run on higher-capability GPUs. The reverse isn't true. This forward compatibility provides some protection against hardware obsolescence, but optimal performance usually requires targeting specific hardware generations.</p>
+
+<h2>Where CUDA Lives Today</h2>
+
+<p>The applications span an almost absurd range.</p>
+
+<p>In bioinformatics, CUDA powers tools like BarraCUDA that analyze DNA sequences from next-generation sequencing machines. A human genome contains three billion base pairs; aligning sequence reads against a reference genome involves staggering amounts of computation.</p>
+
+<p>Medical imaging uses CUDA to reconstruct three-dimensional views from CT and MRI scans. The mathematical transformations involved—inverse Radon transforms for CT, Fourier transforms for MRI—are textbook cases of parallel-friendly computation.</p>
+
+<p>Fluid dynamics simulations, critical for designing everything from airplane wings to artificial hearts, run orders of magnitude faster on GPUs. The equations governing fluid flow must be solved at millions of points simultaneously; the stadium of clerks handles this admirably.</p>
+
+<p>Video processing leans heavily on CUDA. Converting between formats, applying filters, encoding and decoding streams—all involve repetitive operations on massive datasets. What once required expensive specialized hardware now runs on commodity GPUs.</p>
+
+<p>And of course, machine learning. Training large language models like the ones powering modern AI assistants involves multiplying matrices with billions of parameters. The entire field's pace of progress depends directly on the ability to perform these operations quickly. CUDA, for now, remains the dominant platform for this work.</p>
+
+<h2>The Competitive Landscape</h2>
+
+<p>For years, Nvidia faced little serious competition in GPU computing. That's beginning to change.</p>
+
+<p>Google developed Tensor Processing Units, or TPUs, specifically for machine learning workloads. Unlike general-purpose GPUs, TPUs make architectural tradeoffs optimized for the specific operations neural networks require. Google uses them internally and offers access through their cloud platform.</p>
+
+<p>Amazon built Trainium chips for training and Inferentia for running trained models. These compete directly with Nvidia's data center offerings, at least within Amazon's ecosystem.</p>
+
+<p>AMD's ROCm platform has matured considerably. Their MI300 series GPUs offer competitive performance on machine learning benchmarks, and the software stack has improved enough that major frameworks like PyTorch now support it as a first-class citizen.</p>
+
+<p>Intel has re-entered the discrete GPU market with their Arc and Max series, backed by the OneAPI software initiative. The Unified Acceleration Foundation, a consortium including Intel, AMD, and others, aims to create open standards that could challenge CUDA's dominance.</p>
+
+<p>The key difference: while CUDA remains closed-source, Intel's OneAPI and AMD's ROCm are open. This matters philosophically to some developers and practically to others—open platforms can be modified, extended, and understood in ways closed ones cannot.</p>
+
+<h2>What This Means for Computing's Future</h2>
+
+<p>The story of CUDA is ultimately a story about what happens when hardware capabilities outpace our ability to use them.</p>
+
+<p>For decades, graphics cards contained enormous computational resources that mostly sat idle when you weren't playing games. Buck and his colleagues at Nvidia figured out how to unlock that potential. Their solution wasn't just technical—it was about making power accessible to people who weren't graphics specialists.</p>
+
+<p>That accessibility changed which problems became tractable. Neural networks had existed since the 1950s. The mathematics hadn't changed. What changed was that training them became fast enough to be practical. The AI revolution isn't primarily a story of algorithmic breakthroughs. It's a story of having enough compute, cheap enough, to try things that were previously impractical.</p>
+
+<p>CUDA was the key that unlocked that compute for a generation of researchers. Whether it remains dominant as alternatives mature and competition intensifies—that story is still being written. But understanding where we are requires understanding how we got here: a video game enthusiast's curiosity, transformed into infrastructure that reshaped the technological landscape.</p>
       </div>
 
       <footer class="wikipedia-footer">

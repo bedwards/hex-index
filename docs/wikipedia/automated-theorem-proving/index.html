@@ -22,7 +22,147 @@
       </header>
 
       <div class="wikipedia-content">
-        <p>Content not available.</p>
+        <p class="source-note">Based on <a href="https://en.wikipedia.org/wiki/Automated_theorem_proving">Wikipedia: Automated theorem proving</a></p>
+
+<h2>The Machine That Proved Two Plus Two Equals Four</h2>
+
+<p>In 1954, a refrigerator-sized computer at Princeton's Institute for Advanced Study accomplished something remarkable: it proved that the sum of two even numbers is always even. The machine was called JOHNNIAC, named after the legendary mathematician John von Neumann. The proof took the computer a considerable amount of time and resources to complete. Martin Davis, the programmer who made it happen, described this modest result as the system's "great triumph."</p>
+
+<p>It sounds almost comical today. Your smartphone could verify that theorem faster than you could blink. But Davis understood something profound: he had just demonstrated that machines could do mathematics. Not arithmetic—any calculator could add numbers. Mathematics. The art of proving that something must always be true, no matter what.</p>
+
+<p>This distinction matters enormously. Calculating that two plus two equals four is trivial. Proving that the sum of any two even numbers must be even—that's a different beast entirely. It requires understanding what "even" means, manipulating abstract symbols according to logical rules, and constructing an airtight argument that covers infinitely many cases at once.</p>
+
+<h2>The Dream of Mechanical Reasoning</h2>
+
+<p>The quest to automate mathematical reasoning is surprisingly old, predating computers themselves by decades. It begins in earnest with Gottlob Frege, a German mathematician who in 1879 published a book with the unwieldy title <em>Begriffsschrift</em>—roughly translated as "concept-script." In it, Frege invented a formal language precise enough to express mathematical statements without any ambiguity whatsoever.</p>
+
+<p>Think about how slippery ordinary language can be. The sentence "I saw the man with the telescope" could mean you used a telescope to see a man, or you saw a man who was holding a telescope. Mathematics demands precision that natural language simply cannot provide. Frege's formal logic eliminated all such confusion.</p>
+
+<p>Bertrand Russell and Alfred North Whitehead took Frege's ideas and ran with them. Their monumental work <em>Principia Mathematica</em>, published between 1910 and 1913, attempted something audacious: to derive all mathematical truth from a small set of logical axioms and inference rules. If they succeeded, mathematics would become, in principle, completely mechanical. Given enough time, a sufficiently patient clerk could crank out every mathematical theorem ever discovered—and countless more besides—simply by following rules.</p>
+
+<p>The key phrase is "in principle." Russell and Whitehead's system was extraordinarily tedious. The proof that one plus one equals two doesn't appear until page 379 of the second volume. But tedium isn't a fundamental obstacle. Tedium is exactly what machines excel at.</p>
+
+<h2>The Incompleteness Bombshell</h2>
+
+<p>Then Kurt Gödel ruined everything. Or perhaps saved everything, depending on your perspective.</p>
+
+<p>In 1931, Gödel published a paper with a title that undersells its explosive content: "On Formally Undecidable Propositions of Principia Mathematica and Related Systems." What he proved was this: any logical system powerful enough to describe basic arithmetic will necessarily contain true statements that cannot be proven within that system.</p>
+
+<p>Let that sink in. It's not just that we haven't found proofs for certain mathematical statements. Gödel showed that some true statements are <em>provably unprovable</em>. No matter how clever your axioms, no matter how sophisticated your rules of inference, there will always be mathematical truths that escape your net.</p>
+
+<p>This might seem like it kills the dream of automated theorem proving before it begins. If some truths can't be proven, what hope does a machine have?</p>
+
+<p>But here's the thing: most truths can be proven. The unprovable statements Gödel constructed are exotic, self-referential curiosities. For everyday mathematics—the kind engineers and scientists and economists actually use—automated theorem provers work remarkably well. Gödel set a theoretical ceiling, but that ceiling is very, very high.</p>
+
+<h2>Logic Theorist: The First Artificial Mathematician</h2>
+
+<p>Two years after Davis's even-numbers triumph, a team at the RAND Corporation built something far more ambitious. Allen Newell, Herbert Simon, and Cliff Shaw created the Logic Theorist, a program designed to prove theorems from Russell and Whitehead's <em>Principia Mathematica</em>.</p>
+
+<p>The Logic Theorist worked differently from Davis's system. Instead of systematically grinding through all possibilities, it used heuristics—rules of thumb that human mathematicians employ when searching for proofs. It could recognize when it was getting closer to a solution and focus its efforts accordingly.</p>
+
+<p>The results were stunning. The Logic Theorist proved 38 of the first 52 theorems in <em>Principia Mathematica</em>. For one theorem, it even found a proof more elegant than Russell and Whitehead's original. Simon and Newell tried to publish this improved proof in the <em>Journal of Symbolic Logic</em>, listing the Logic Theorist as a co-author. The journal rejected the paper—not because of its content, but because one of the authors wasn't human.</p>
+
+<p>This was 1956. Artificial intelligence as a field was just being born. The Logic Theorist is often called the first AI program.</p>
+
+<h2>The Two Philosophies of Automated Proving</h2>
+
+<p>The Logic Theorist represented one approach to automated theorem proving: emulate how human mathematicians think. Use intuition, analogy, pattern recognition. This approach is clever and often fast, but it offers no guarantees. The Logic Theorist failed on 14 of those 52 theorems, and there was no way to know in advance which ones it would crack.</p>
+
+<p>The other approach trades speed for certainty. These systems don't try to be clever; they try to be thorough. Given enough time, they will find a proof for any provable theorem. The catch is that "enough time" might exceed the age of the universe.</p>
+
+<p>Completeness, the technical term for this guarantee, comes from a beautiful result in logic. In 1930, Gödel himself—yes, the same Gödel who would later prove incompleteness—showed that first-order logic is complete in a specific sense: every semantically valid statement has a proof. If a statement is true in all possible interpretations of its terms, then there exists a finite sequence of logical steps that demonstrates this truth.</p>
+
+<p>The distinction between Gödel's completeness theorem and his incompleteness theorem confuses many people. Here's the key: completeness applies to logical validity, statements true in all possible worlds. Incompleteness applies to arithmetic truth, statements true about specific structures like the natural numbers. You can prove every logically valid statement, but you can't prove every true statement about numbers.</p>
+
+<h2>The Hardness of Easy Problems</h2>
+
+<p>Even for propositional logic—the simplest kind, dealing only with basic logical connectives like "and," "or," and "not"—the computational difficulty is sobering.</p>
+
+<p>Propositional logic is decidable. This means there exists an algorithm that, given any propositional formula, will correctly determine whether it's valid in finite time. The algorithm always terminates. It always gives the right answer. Problem solved, right?</p>
+
+<p>Not quite. The problem is what computer scientists call "co-NP-complete." Without diving into the technical weeds, this means that as formulas get larger, the time required to verify their validity grows exponentially. A formula with a hundred variables might take longer than the universe has existed to check exhaustively.</p>
+
+<p>For first-order logic—which adds variables ranging over infinite domains and quantifiers like "for all" and "there exists"—the situation is worse. First-order validity is only semi-decidable. If a formula is valid, you can eventually prove it. If it's invalid, your proof search might run forever, never giving you an answer.</p>
+
+<p>This is the fundamental tension in automated theorem proving: theoretical guarantees versus practical utility. The systems that offer completeness often can't finish in any reasonable time. The systems that run fast often miss valid proofs.</p>
+
+<h2>From Theory to Silicon</h2>
+
+<p>Automated theorem proving left the realm of pure research and entered industrial practice through an unexpected door: microprocessor design.</p>
+
+<p>In 1994, Intel shipped millions of Pentium processors with a subtle bug in their floating-point division unit. Under certain rare conditions, the chip would return incorrect results. The error affected only a handful of calculations in practice, but the public relations disaster was enormous. Intel eventually took a charge of $475 million to replace defective chips.</p>
+
+<p>The Pentium FDIV bug, as it came to be known, transformed how chipmakers approach verification. The arithmetic units in modern processors are fantastically complex, with intricate logic handling edge cases for denormalized numbers, infinities, and rounding modes. Testing alone cannot catch every bug—there are simply too many possible inputs.</p>
+
+<p>Formal verification offers a solution. Instead of testing specific inputs, you prove mathematically that the hardware correctly implements its specification for all possible inputs. Companies like Intel, AMD, and ARM now use automated theorem provers routinely in their design processes. The theorem prover doesn't just check that division works for a billion test cases; it proves that division works, period.</p>
+
+<h2>The Four Color Theorem: When Computers Count as Proof</h2>
+
+<p>Perhaps no result in mathematics has sparked more philosophical debate than the computer-assisted proof of the four color theorem.</p>
+
+<p>The theorem itself is easy to state: any map can be colored using at most four colors such that no two adjacent regions share the same color. Think of a political map where neighboring countries must have different colors. Four colors always suffice, no matter how convoluted the borders.</p>
+
+<p>Mathematicians suspected this was true since the 1850s. Generations of them tried and failed to prove it. Then, in 1976, Kenneth Appel and Wolfgang Haken finally succeeded—but their proof required a computer to check roughly 1,500 special configurations. No human could verify the calculation by hand. The proof was, in a technical sense, uncheckable by humans.</p>
+
+<p>This triggered an existential crisis in mathematics. Is a proof that no human can verify really a proof? Mathematics had always been the domain of absolute certainty, where you could follow each step from axioms to conclusion and convince yourself completely of the truth. Now here was a result that required trusting not just the mathematicians but also their hardware and software.</p>
+
+<p>The philosophical debate continues, but practically speaking, the mathematical community accepted the proof. The four color theorem is now considered settled. Similar computer-assisted proofs have followed, including the proof that Connect Four can always be won by the first player with perfect play, and more recently, proofs resolving questions that had stumped human mathematicians for decades.</p>
+
+<h2>The Robbins Conjecture: Machine Beats Human</h2>
+
+<p>In 1933, Herbert Robbins proposed a simplified axiomatization of Boolean algebra. He conjectured that his three simple axioms were equivalent to the standard, more complex formulation. Mathematicians worked on the problem for over sixty years without success.</p>
+
+<p>In 1996, a theorem prover called EQP, developed at Argonne National Laboratory, proved the Robbins conjecture in about eight days of computation. The proof it found was not something any human would have discovered—it involved 17 steps that required considering thousands of possible equation transformations at each stage.</p>
+
+<p>This wasn't a case of a computer checking human work or verifying a conjecture that mathematicians were close to proving anyway. This was a machine solving a problem that had defeated the best human minds for six decades. The computer didn't just assist; it led.</p>
+
+<h2>Proof Assistants: Humans and Machines Together</h2>
+
+<p>The fully automated approach—throw a conjecture at a computer and wait for a proof—works only for certain classes of problems. For more complex mathematics, the state of the art involves collaboration between humans and machines.</p>
+
+<p>Systems like Isabelle, Coq, and Lean are called "proof assistants" or "interactive theorem provers." A human mathematician sketches the structure of a proof, breaking it into lemmas and subgoals. The computer checks that each step is valid and often fills in tedious details automatically. The human provides insight and strategy; the machine provides rigor and patience.</p>
+
+<p>This division of labor has proven remarkably productive. Proof assistants have verified the correctness of compilers, operating system kernels, and cryptographic protocols. Mathematicians have used them to formalize substantial portions of undergraduate mathematics and even research-level results.</p>
+
+<p>The community around Lean, in particular, has grown rapidly. Volunteers have formalized thousands of mathematical definitions and theorems in a shared library called mathlib. The project has attracted professional mathematicians who see formalization not just as verification but as a new way of doing mathematics—more precise, more searchable, more collaborative.</p>
+
+<h2>SMT Solvers: The Practical Workhorses</h2>
+
+<p>A crucial development in automated reasoning has been the rise of Satisfiability Modulo Theories solvers, commonly called SMT solvers. These tools combine the speed of propositional satisfiability checkers with built-in knowledge of useful mathematical theories like integer arithmetic, arrays, and bit vectors.</p>
+
+<p>The name requires unpacking. "Satisfiability" refers to the problem of determining whether a logical formula can ever be true—whether there's some assignment of values to its variables that makes it work out. "Modulo theories" means the solver understands certain mathematical structures natively, rather than encoding everything in pure logic.</p>
+
+<p>SMT solvers have become indispensable in software verification and security analysis. Tools like Z3, developed at Microsoft Research, can automatically find bugs in programs, verify security properties, and solve constraint satisfaction problems that arise across computer science.</p>
+
+<p>The relationship between SMT solvers and traditional theorem provers is interesting. They attack similar problems from different angles. Theorem provers excel when dealing with lots of quantifiers—statements about "all" or "some" elements of infinite domains. SMT solvers excel at large, quantifier-free problems that mix different mathematical domains. The boundaries blur; some systems participate in competitions for both categories.</p>
+
+<h2>The Ecosystem Today</h2>
+
+<p>Modern automated theorem proving is a mature field with thriving competition and collaboration. The TPTP library—Thousands of Problems for Theorem Provers—provides a standard benchmark suite, much like ImageNet for machine learning or the Netflix Prize for recommendation systems.</p>
+
+<p>Every year, the CADE ATP System Competition, affectionately called CASC, pits theorem provers against each other on standardized problem sets. Winners have included systems like Vampire, a prover developed at the University of Manchester that has dominated several competition divisions for over two decades. Other notable systems include E, from the Technical University of Munich; SPASS, from the Max Planck Institute; and Waldmeister, which won its specialized division fourteen years running.</p>
+
+<p>There's even a Theorem Prover Museum—a digital archive preserving the source code of historic systems for future study. The curators view these programs as cultural artifacts, scientific instruments as worthy of preservation as antique telescopes or early particle accelerators.</p>
+
+<h2>Connections to Modern AI</h2>
+
+<p>The original vision of artificial intelligence, dating back to the Logic Theorist and earlier, centered on symbolic reasoning. Intelligence meant manipulating symbols according to rules, proving theorems, and making logical deductions. The current wave of AI, driven by deep learning and large language models, works very differently—learning patterns from data rather than following explicit rules.</p>
+
+<p>But the two approaches are beginning to merge. Modern AI systems have impressive intuition but often make logical errors. They can generate plausible mathematical arguments but sometimes hallucinate invalid steps. Automated theorem provers have no intuition but never make logical mistakes. The synthesis seems obvious: let neural networks propose proof strategies while formal systems verify them.</p>
+
+<p>This is precisely what systems like AlphaProof are exploring. Such systems use reinforcement learning to guide proof search, letting AI learn which approaches are promising while maintaining the absolute rigor of formal verification. The result combines the flexibility of modern machine learning with the certainty of classical automated reasoning.</p>
+
+<p>The connection to the source material—scaling reinforcement learning for self-verifiable reasoning—becomes clear here. Mathematical proofs are the ultimate self-verifiable domain. Either a proof is valid or it isn't; there's no ambiguity, no need for human judgment. A system that can generate and verify its own mathematical proofs has solved a crucial problem: it knows when it's right.</p>
+
+<h2>The Ongoing Quest</h2>
+
+<p>Automated theorem proving began with the dream of mechanizing mathematics. That dream has partially come true. Machines can prove theorems that eluded human mathematicians. They can verify proofs no human could check. They can find bugs in hardware and software that testing would never catch.</p>
+
+<p>But the dream remains incomplete. The hard problems in mathematics still require human insight. The greatest theorems—the proofs that open new fields and reveal unexpected connections—still come from human minds, assisted increasingly by machines but not yet replaced by them.</p>
+
+<p>Perhaps that's the most interesting question for the future: not whether machines can prove theorems, but whether they can discover which theorems are worth proving. Mathematical creativity involves more than generating valid proofs. It involves sensing what's important, what's beautiful, what's connected to deeper truths. Taste, in a word.</p>
+
+<p>Can machines develop mathematical taste? The Logic Theorist found an elegant proof that impressed even Russell. Modern AI systems sometimes discover surprising mathematical connections. But whether machines can truly contribute to mathematics as collaborators rather than tools—that question remains open, awaiting its own proof.</p>
       </div>
 
       <footer class="wikipedia-footer">

@@ -22,7 +22,141 @@
       </header>
 
       <div class="wikipedia-content">
-        <p>Content not available.</p>
+        <p class="source-note">Based on <a href="https://en.wikipedia.org/wiki/Likert_scale">Wikipedia: Likert scale</a></p>
+
+<h2>The Man Whose Name Everyone Gets Wrong</h2>
+
+<p>Rensis Likert would probably be annoyed if he could hear us today. The American social psychologist invented one of the most widely used tools in survey research, and almost everyone mispronounces his name. It's "LICK-ert," rhyming with "stick-ert," not "LIKE-ert" as most people say. Some researchers have called it one of the most mispronounced names in all of social science.</p>
+
+<p>But here's the thing: even if you've never heard of Rensis Likert, you've almost certainly used his invention. Every time you've seen a survey question asking you to rate something from "Strongly Disagree" to "Strongly Agree," you've encountered a Likert scale. It's the backbone of customer satisfaction surveys, employee feedback forms, academic research, and those personality quizzes that tell you which character from a television show you'd be.</p>
+
+<p>And if you're building systems that evaluate large language models—those evals that software engineers keep talking about—understanding how Likert scales actually work becomes surprisingly important. Because beneath this seemingly simple five-point rating system lies a fascinating tangle of psychological biases, statistical debates, and measurement philosophy that affects whether your data means anything at all.</p>
+
+<h2>What Likert Actually Invented</h2>
+
+<p>Here's where things get technically interesting. Likert himself was quite precise about what he meant, and the distinction matters more than most people realize.</p>
+
+<p>A single question—like "Rate your agreement with the statement: The product was easy to use"—is technically called a <em>Likert item</em>. Just one question with a rating scale. What Likert actually invented was the idea of combining multiple such items together to measure something you can't observe directly.</p>
+
+<p>A true <em>Likert scale</em> emerges from the collective responses to a set of items, usually eight or more. You sum or average the responses, and that aggregate score is supposed to capture some underlying psychological phenomenon—like job satisfaction, or anxiety, or how much someone trusts a particular institution.</p>
+
+<p>Why does this distinction matter? Because Likert understood something profound about measurement. The underlying thing you're trying to measure—let's call it the "true attitude"—isn't directly observable. You can't just ask someone "How satisfied are you with your job, on a scale of zero to one hundred?" and expect a meaningful answer. People don't have precise numerical access to their own feelings.</p>
+
+<p>Instead, you ask multiple related questions and look for patterns. If someone agrees that "I look forward to coming to work," "I feel valued by my colleagues," and "My work is meaningful," while disagreeing that "I often think about quitting," those consistent responses collectively point toward high job satisfaction. No single item captures it, but together they triangulate the underlying reality.</p>
+
+<h2>The Anatomy of a Good Question</h2>
+
+<p>Not all rating scales are created equal. A well-designed Likert item has two crucial properties: symmetry and balance.</p>
+
+<p>Symmetry means the scale has equal numbers of positive and negative positions arranged around a neutral center. The classic five-point scale demonstrates this perfectly:</p>
+
+<ul>
+<li>Strongly disagree</li>
+<li>Disagree</li>
+<li>Neither agree nor disagree</li>
+<li>Agree</li>
+<li>Strongly agree</li>
+</ul>
+
+<p>Two options below neutral. Two options above. The neutral point sits exactly in the middle. This symmetry isn't just aesthetically pleasing—it's mathematically necessary if you want to make meaningful comparisons.</p>
+
+<p>Balance means something subtler: the psychological distance between each option should be equal. The gap between "Strongly Disagree" and "Disagree" should feel the same as the gap between "Agree" and "Strongly Agree." This is harder than it sounds, and it's where many surveys go wrong.</p>
+
+<p>Consider a four-point scale with options: "Poor," "Average," "Good," and "Very Good." Notice the problem? Three of those options are neutral or positive, while only one is negative. Someone using this scale has much more linguistic territory to express satisfaction than dissatisfaction. The scale itself biases results toward positive outcomes before anyone has answered a single question.</p>
+
+<h2>The Problem of the Missing Middle</h2>
+
+<p>Sometimes researchers deliberately remove the neutral option, creating what's called a "forced choice" scale. Instead of five points, you get four: Strongly Disagree, Disagree, Agree, Strongly Agree. No fence-sitting allowed.</p>
+
+<p>The reasoning seems sound. That neutral middle option can become a refuge for the uncertain, the disengaged, or the conflict-averse. Why bother forming an opinion when "Neither agree nor disagree" is right there, asking nothing of you?</p>
+
+<p>But removing the middle creates its own problems. What happens when someone genuinely has no opinion, or when the statement simply doesn't apply to their situation? Forcing them to pick a side introduces noise into your data. Their "Disagree" might not reflect actual disagreement—just the fact that they had to put something.</p>
+
+<p>Interestingly, research from 1987 found negligible differences between using "undecided" versus "neutral" as the middle option. People seemed to interpret both about the same way. The real question isn't what you call the middle option—it's whether you should have one at all, and that depends entirely on what you're trying to measure.</p>
+
+<h2>All the Ways Humans Mess This Up</h2>
+
+<p>Even with perfectly designed scales, human psychology introduces systematic biases that can corrupt your data in predictable ways. Understanding these biases is essential if you want to interpret survey results correctly.</p>
+
+<p><strong>Central tendency bias</strong> is the reluctance to use extreme options. People cluster toward the middle of the scale, avoiding "Strongly Agree" and "Strongly Disagree" even when they feel strongly. This happens partly because of social pressure—nobody wants to seem like an extremist—and partly because of strategic thinking. Early in a survey, respondents might avoid extreme responses, subconsciously "saving" them for questions they feel more strongly about later. This creates a pernicious distortion that varies throughout the survey and can't be fixed with simple statistical adjustments.</p>
+
+<p><strong>Acquiescence bias</strong> is the tendency to agree with statements regardless of their content. Ask someone if they agree that "Technology is improving our lives" and they'll say yes. Ask the same person if they agree that "Technology is harming our society" and many will also say yes. This isn't cognitive dissonance—it's a deep-seated tendency to please, to affirm, to go along. Children show this strongly. So do elderly people and those in institutional settings where agreeing with authority figures has been rewarded.</p>
+
+<p><strong>Social desirability bias</strong> pushes responses toward what people think looks good. In anonymous surveys about exercise habits, respondents consistently over-report their activity levels. In workplace satisfaction surveys, employees may understate their frustrations if they suspect the results aren't truly confidential. People answer based on who they want to be, not who they are.</p>
+
+<p>Then there's deliberate manipulation. "Faking good" means presenting yourself as healthier, happier, or more competent than you actually are—common in job application assessments. "Faking bad" means the opposite, exaggerating problems or dysfunction, sometimes to qualify for disability benefits or simply as a cry for help.</p>
+
+<p>Clever survey design can mitigate some of these biases. Using "balanced keying"—mixing positively and negatively worded statements—helps cancel out acquiescence bias. If someone agrees with both "I enjoy my work" and "I find my work tedious," that inconsistency reveals something about how they're responding. But other biases are harder to design away. Social desirability, in particular, reflects something fundamental about human nature that no survey technique can fully overcome.</p>
+
+<h2>The Great Debate: What Do These Numbers Actually Mean?</h2>
+
+<p>Here's where statisticians start arguing, and the arguments have real consequences for how you can analyze your data.</p>
+
+<p>When someone selects "3" on a five-point scale, what kind of number is that? The answer determines which statistical tools you're allowed to use.</p>
+
+<p>If Likert data is <em>ordinal</em>, then the numbers only indicate rank order. A "4" is higher than a "3," which is higher than a "2," but you can't say that the difference between 2 and 3 equals the difference between 3 and 4. Just like with rankings in a race—first place beats second place beats third place, but the time gaps might be completely different.</p>
+
+<p>If Likert data is <em>interval</em>, then those gaps are equal. The psychological distance from "Disagree" to "Neither agree nor disagree" is the same as from "Neither agree nor disagree" to "Agree." Now you can calculate meaningful averages. You can use powerful statistical techniques like analysis of variance.</p>
+
+<p>The problem is that Likert data doesn't cleanly fit either category.</p>
+
+<p>The numbers assigned to response options are arbitrary. There's no law of nature that says "Strongly Agree" should be coded as 5 rather than 7 or 100. The researcher simply picks numbers, usually consecutive integers, because that's convenient. Nothing about measurement theory justifies treating those numbers as having equal intervals.</p>
+
+<p>Yet research by scholars named Labovitz and Traylor provides evidence that even with substantial distortions in how people perceive the distances between scale points, Likert items perform surprisingly well under statistical procedures designed for interval data. The scales are robust to violations of the equal-distance assumption. They work better than they theoretically should.</p>
+
+<p>The practical resolution is something like this: treat Likert data as interval-level when the scale is well-designed—symmetric, balanced, with clear linguistic markers at each point—and when you're combining multiple items. The more items you sum together, the closer the result approximates true interval measurement, thanks to a mathematical principle called the central limit theorem. Individual items on their own are shakier. Aggregate scores from eight or more items are much more defensible.</p>
+
+<h2>Visualizing Opinions</h2>
+
+<p>Raw numbers from Likert scales can be hard to interpret at a glance. Was an average score of 3.7 good or bad? How much disagreement was there?</p>
+
+<p>Researchers have developed specialized visualization techniques to make Likert data more intuitive. The most recommended approach is called a "diverging stacked bar chart." Imagine a horizontal bar where responses pile up from a central point—neutral responses in the middle, disagreement extending to the left, agreement extending to the right. You can immediately see not just the average tendency but the full shape of the response distribution.</p>
+
+<p>These visualizations reveal things that summary statistics hide. Two groups might have identical average scores, but one shows strong polarization (clusters at both extremes) while the other shows consensus (everyone near the middle). For understanding public opinion or evaluating products, that difference matters enormously.</p>
+
+<h2>When the Simple Scale Isn't Enough</h2>
+
+<p>Visual analogue scales offer an alternative to Likert's discrete categories. Instead of choosing from five options, respondents mark a point anywhere along a continuous line. This eliminates the arbitrary categorization and can better capture nuanced attitudes.</p>
+
+<p>Research by Reips and Funke from 2008 found that visual analogue scales better satisfy the mathematical requirements for interval-level measurement. When you let people place themselves anywhere on a continuous spectrum, the resulting data more faithfully represents actual psychological distances.</p>
+
+<p>But visual analogue scales have their own problems. They're harder to implement, especially on paper. They require more cognitive effort from respondents. And the data analysis becomes more complex. For most practical purposes, well-designed Likert scales provide a good-enough approximation with much less friction.</p>
+
+<p>More sophisticated approaches exist for researchers who need precision. The polytomous Rasch model, for instance, can convert Likert responses into true interval-level measurements under certain conditions. Item response theory offers tools for understanding how individual questions function differently across populations. Factor analysis can identify underlying dimensions when you have many related items. These techniques require larger samples and more statistical expertise, but they extract more meaning from the same data.</p>
+
+<h2>Circular Contradictions</h2>
+
+<p>Here's something strange that can happen with Likert scales, something that challenges basic assumptions about measurement.</p>
+
+<p>Imagine rating three statements: A, B, and C. Classical measurement assumes transitivity—if A is rated higher than B, and B higher than C, then A should be higher than C. But in practice, circular relations can emerge: A greater than B, B greater than C, yet C greater than A. This shouldn't be possible for ordinal data, yet it happens.</p>
+
+<p>Such paradoxes suggest that what we're measuring isn't always as well-behaved as we assume. Human attitudes might not arrange themselves neatly along a single dimension. The questions we ask might tap into multiple underlying factors in complex ways. Or the measurement process itself might introduce distortions that create logical impossibilities in the data.</p>
+
+<p>These findings don't invalidate Likert scales—they remain useful tools—but they serve as a humbling reminder. Measuring human opinions is fundamentally harder than measuring physical properties. A thermometer reading of 72 degrees Fahrenheit means something definite. A survey response of "4 out of 5" is a much more ambiguous object.</p>
+
+<h2>Why This Matters for Evaluating AI</h2>
+
+<p>When software engineers build evaluation systems for large language models, they often reach for Likert-style ratings almost reflexively. "Rate the helpfulness of this response from 1 to 5." "How accurate was this answer on a scale of 1 to 7?"</p>
+
+<p>Understanding the mechanics of Likert scales reveals why this is both natural and fraught.</p>
+
+<p>It's natural because you're facing exactly the problem Likert was trying to solve: measuring something you can't observe directly. You can't precisely quantify "helpfulness" or "accuracy" for a language model response. But you can ask human raters to evaluate multiple responses and look for patterns in their judgments.</p>
+
+<p>It's fraught because all the biases transfer over. Raters will show central tendency, clustering toward the middle of your scale. They'll show acquiescence bias if your evaluation criteria are phrased as questions. They'll be influenced by social desirability if they think certain responses are "supposed" to be good. And the fundamental ambiguity about whether you can meaningfully average their ratings remains.</p>
+
+<p>Good evaluation design borrows from decades of psychometric research. Use multiple items when possible rather than single ratings. Balance the scale properly. Be aware that inter-rater agreement might mask systematic biases that all raters share. Consider whether ordinal statistics would be more honest than treating everything as interval data.</p>
+
+<p>Most importantly, remember that the numbers coming out of your evaluation system are not objective measurements of AI quality. They're filtered through human judgment, shaped by scale design choices, and subject to all the limitations that Rensis Likert himself understood nearly a century ago. Humility about what those numbers mean is the beginning of using them wisely.</p>
+
+<h2>The Legacy of LICK-ert</h2>
+
+<p>Rensis Likert published his landmark paper in 1932. Nearly a century later, his approach dominates survey research so completely that many people use "Likert scale" as a synonym for any rating scale, even though that's technically incorrect.</p>
+
+<p>The reason for this staying power is elegant simplicity. Likert found a way to quantify subjective experience that's easy for respondents to use and produces data that analysts can work with. It's a compromise between the chaos of open-ended responses and the false precision of asking people to assign exact numbers to their feelings.</p>
+
+<p>Perfect? No. Likert himself was careful to distinguish the scale from its items, the underlying phenomenon from the measurement instrument, the precision we want from the precision we actually get. Those distinctions reflect a sophisticated understanding of measurement that's worth preserving.</p>
+
+<p>The next time you see a survey asking you to rate something from "Strongly Disagree" to "Strongly Agree," you'll know you're participating in a nearly century-old tradition of trying to measure the unmeasurable. And if you pronounce the inventor's name correctly—LICK-ert—you'll be honoring one of the most influential and least famous psychologists in history.</p>
       </div>
 
       <footer class="wikipedia-footer">

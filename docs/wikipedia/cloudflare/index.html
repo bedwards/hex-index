@@ -22,7 +22,153 @@
       </header>
 
       <div class="wikipedia-content">
-        <p>Content not available.</p>
+        <p class="source-note">Based on <a href="https://en.wikipedia.org/wiki/Cloudflare">Wikipedia: Cloudflare</a></p>
+
+<h2>The Company That Accidentally Became the Internet's Immune System</h2>
+
+<p>On November 18, 2025, half the internet went dark. Twitter, Spotify, Uber, DoorDash, ChatGPT, League of Legends—all of them suddenly started throwing errors. Users around the world stared at spinning loading wheels and cryptic 500 messages. The culprit wasn't a sophisticated cyberattack or a natural disaster. It was a single misconfigured database file at a company many people have never heard of: Cloudflare.</p>
+
+<p>That one company's hiccup could ripple across so many services tells you something profound about how the modern internet actually works.</p>
+
+<h2>What Cloudflare Actually Does</h2>
+
+<p>To understand why Cloudflare matters, you need to understand a problem that emerged as the internet grew up. When you type a web address into your browser, you're not connecting directly to some computer in a basement. Your request travels through a sprawling network of cables, routers, and servers before reaching its destination. And along the way, bad actors are waiting.</p>
+
+<p>There are people who want to steal your data. There are criminals who want to overwhelm websites with fake traffic until they crash—these are called Distributed Denial of Service attacks, or DDoS attacks. There are bots scraping content without permission. And there's simply the challenge of delivering content quickly to users spread across the globe.</p>
+
+<p>Cloudflare sits in the middle of all this chaos, acting as a combination security guard, traffic director, and performance optimizer. When you visit a website that uses Cloudflare—and about one in five websites on the internet do—your request first goes through Cloudflare's network of servers scattered around the world. These servers check if you're a legitimate human, block any attacks, and often serve you a cached copy of the content you want, which is faster than fetching it from the original server.</p>
+
+<p>Think of it like a very sophisticated bouncer and coat check combined.</p>
+
+<h2>Born from Spam Hunting</h2>
+
+<p>The company's origin story begins with a different kind of internet problem: spam. In the mid-2000s, Matthew Prince and Lee Holloway were running Project Honey Pot, a clever system for tracking spammers across the web. They'd set up decoy email addresses—honeypots—and watch who harvested them. This gave them an unusual window into the internet's underworld.</p>
+
+<p>Prince and Holloway, joined by Michelle Zatlyn, realized they could use their knowledge of malicious traffic patterns to protect websites more broadly. They founded Cloudflare on July 26, 2009, with venture capital funding. A decade later, on September 13, 2019, the company went public on the New York Stock Exchange at fifteen dollars per share, trading under the ticker symbol NET.</p>
+
+<p>Zatlyn, who served as Chief Operating Officer, became president in 2020—a notable achievement in an industry not known for gender diversity in leadership.</p>
+
+<h2>The Art of Stopping Digital Tsunamis</h2>
+
+<p>The attacks Cloudflare defends against are staggering in scale. In March 2013, a nonprofit called The Spamhaus Project—which maintains blocklists of known spammers—came under a DDoS attack that exceeded 300 gigabits per second. At the time, experts called it the largest publicly announced attack in internet history. Cloudflare stepped in to help, and ended up getting attacked themselves. Google eventually joined the defense effort.</p>
+
+<p>But that record didn't last long. The attacks kept growing.</p>
+
+<p>February 2014 brought a 400 gigabit attack. November 2014 saw 500 gigabits in Hong Kong. By July 2021, Cloudflare claimed to have absorbed an attack exceeding 1.2 terabits per second—that's 1,200 gigabits, or four times larger than the Spamhaus attack just eight years earlier. In February 2023, they blocked 71 million malicious requests per second in a single attack.</p>
+
+<p>Then came August 2025: 11.5 terabits per second. The largest publicly recorded DDoS attack in history. Cloudflare stopped it.</p>
+
+<p>To put these numbers in perspective, a single gigabit per second connection can stream about 200 high-definition video feeds simultaneously. An 11.5 terabit attack is like trying to force 2.3 million HD video streams through a single doorway at once.</p>
+
+<h2>Lava Lamps and the Quest for True Randomness</h2>
+
+<p>One of Cloudflare's most delightful quirks involves its San Francisco headquarters lobby, where an entire wall is covered with lava lamps. This isn't corporate whimsy—it's cryptography.</p>
+
+<p>Good encryption requires truly random numbers. But computers are fundamentally deterministic machines; they do exactly what their programming tells them. Generating genuine randomness is surprisingly hard. Cloudflare's solution comes from a 1990s patent called Lavarand, originally developed by Silicon Graphics.</p>
+
+<p>A camera continuously photographs the wall of lava lamps, capturing the unpredictable swirling of the "lava" inside. These images get converted into random seeds for encryption keys. The physical unpredictability of heated wax becomes mathematical unpredictability in code.</p>
+
+<p>Cloudflare's London office uses double pendulums for the same purpose—mechanical systems whose chaotic motion is mathematically proven to be unpredictable. Their Singapore office employs a Geiger counter, harvesting randomness from the timing of radioactive decay.</p>
+
+<p>It's a beautiful intersection of physical chaos and digital security.</p>
+
+<h2>The Platform That Developers Build On</h2>
+
+<p>Cloudflare evolved beyond just protecting websites. In 2017, they launched Cloudflare Workers, a platform that lets developers run code on Cloudflare's global network without managing their own servers. This is called "serverless computing"—a somewhat misleading term, since servers are very much involved, but developers don't have to think about them.</p>
+
+<p>The appeal is straightforward. Instead of running your code in one data center in, say, Virginia, your code runs simultaneously across Cloudflare's servers worldwide. When a user in Tokyo makes a request, a server in Tokyo handles it. A user in São Paulo gets served from South America. The latency—the delay between request and response—drops dramatically.</p>
+
+<p>This platform has grown to include Workers KV for storing data, Cron Triggers for scheduled tasks, D1 for SQL databases built on SQLite, and Pages for hosting entire websites. In 2023, they added Workers AI, letting developers access machine learning models—particularly those running on Nvidia graphics processors—directly from Cloudflare's network.</p>
+
+<p>As of 2023, Cloudflare handles an average of 45 million requests per second. That's roughly the population of California making a web request every single second, around the clock.</p>
+
+<h2>The CAPTCHA Rebellion</h2>
+
+<p>You've almost certainly encountered a CAPTCHA—those annoying puzzles asking you to identify traffic lights or crosswalks to prove you're human. For years, Google's reCAPTCHA dominated this space, but Cloudflare had concerns. ReCAPTCHA collects data that flows back to Google, raising privacy questions, especially under European Union regulations like the General Data Protection Regulation, commonly known as GDPR.</p>
+
+<p>In April 2020, Cloudflare switched to hCaptcha, an alternative. But they weren't done innovating. In September 2022, they began testing something called Turnstile—a system that verifies you're human without making you solve any puzzle at all.</p>
+
+<p>Turnstile runs checks invisibly in your browser, analyzing how you interact with the page, looking for telltale signs of human behavior versus automated scripts. Machine learning optimizes the process over time. For most users, the verification happens in the background without any friction.</p>
+
+<p>It's the kind of improvement that goes unnoticed precisely because it works so well.</p>
+
+<h2>Protecting the Vulnerable</h2>
+
+<p>Not all of Cloudflare's work is commercial. In 2014, they launched Project Galileo, offering free DDoS protection to journalists, human rights groups, and artists who face targeted online attacks. Activists and independent media in authoritarian countries often can't afford enterprise-grade security, but they're frequently the targets of sophisticated attackers—sometimes with state backing.</p>
+
+<p>By 2025, more than 2,900 users and organizations participated in Project Galileo.</p>
+
+<p>The Athenian Project, started in 2017, extends similar protection to election infrastructure and political campaigns. Thirty-one US states were participating by 2025. Through a contract with the Cybersecurity and Infrastructure Security Agency—the federal agency responsible for protecting American digital systems—Cloudflare also provides critical DNS services for the .gov top-level domain.</p>
+
+<p>When the COVID-19 pandemic created a desperate need for vaccination appointments, Cloudflare offered its "Waiting Room" queue technology for free under Project Fair Shot. Instead of vaccine scheduling websites crashing under demand, visitors would wait in orderly digital lines. The project won a Webby People's Choice Award in 2022.</p>
+
+<h2>The Content Moderation Tightrope</h2>
+
+<p>Being the internet's infrastructure comes with uncomfortable responsibilities. Cloudflare has long maintained what it calls a "content neutrality" policy—it provides services without judging what customers publish, unless they break the law. This position has roots in how utilities and telecommunications companies have historically operated.</p>
+
+<p>But it has also made Cloudflare a lightning rod for criticism.</p>
+
+<p>The company provided DDoS protection to The Daily Stormer, a white supremacist and neo-Nazi website. Cloudflare had refused to take action against the site despite widespread pressure. Then, in 2017, The Daily Stormer published a post claiming that Cloudflare executives secretly supported their ideology.</p>
+
+<p>Matthew Prince terminated their service that day.</p>
+
+<p>In a statement, Prince expressed deep ambivalence about his own decision. He was repulsed by the content, but troubled by the precedent: "The ability of somebody to single-handedly choose to knock content offline doesn't align with core ideas of due process or justice." He called himself a "free speech absolutist" and said he didn't want to repeat the decision.</p>
+
+<p>A 2022 Stanford University research paper found that Cloudflare, along with several other CDN providers, disproportionately served misinformation websites. The company has continued to face pressure over far-right content on its network.</p>
+
+<p>There's no easy answer here. The same infrastructure that protects human rights activists protects hatemongers. The same neutrality that prevents arbitrary censorship enables the spread of harmful content. Cloudflare occupies a genuinely difficult position in the internet's architecture.</p>
+
+<h2>When Things Go Wrong</h2>
+
+<p>A company this central to internet infrastructure inevitably has spectacular failures. The November 2025 outage that opened this essay wasn't even the first that month. Just three weeks later, on December 5, another global outage struck.</p>
+
+<p>The November incident lasted until 14:23 UTC, when Cloudflare deployed a fix. A technical postmortem released the next day attributed the problem to a database configuration change that sent an invalid file to every server on the network. The transparency was notable—Cloudflare published detailed explanations of what went wrong, a practice that builds trust even as it documents failure.</p>
+
+<p>Earlier security incidents were more alarming. In June 2012, hackers from a group called UGNazi compromised CEO Matthew Prince's personal accounts through social engineering—they tricked AT&T support staff into giving them access to his voicemail, then exploited a vulnerability in Google's two-factor authentication. From Prince's email, they redirected the domain for 4chan, the notorious imageboard, to their own Twitter account.</p>
+
+<p>More serious was Cloudbleed, a bug that ran from September 2016 through February 2017. Due to a programming error, Cloudflare's servers would sometimes send extra data in response to web requests—data that included passwords and authentication tokens from other customers' websites. Sensitive information was literally leaking between unrelated services.</p>
+
+<p>These incidents highlight a fundamental tension in centralized infrastructure. When one company handles traffic for a fifth of the internet, their bugs become everyone's bugs. Their outages become global events.</p>
+
+<h2>The AI Pivot</h2>
+
+<p>Like virtually every technology company in the 2020s, Cloudflare has rushed to position itself in the artificial intelligence gold rush. But their angle is interesting: they're as focused on defending against AI as deploying it.</p>
+
+<p>In 2024, they launched tools to detect and block AI bots scraping websites without permission. Large language models—the technology behind ChatGPT and similar systems—are trained on vast amounts of web content, often without the knowledge or consent of content creators. Cloudflare analyzed bot traffic patterns to build automatic detection systems.</p>
+
+<p>But they didn't stop at blocking. In September 2024, Cloudflare announced plans for a marketplace where website owners could sell access to AI companies that want to scrape their content. If your data is valuable enough to train AI models, perhaps you should be compensated.</p>
+
+<p>Then came AI Labyrinth in March 2025—a deliciously devious feature. When Cloudflare detects an unauthorized AI scraper, instead of blocking it outright, they serve it fake AI-generated content. The bot thinks it's collecting training data, but it's actually ingesting nonsense. It's a kind of digital poison pill.</p>
+
+<p>They've also launched Firewall for AI, designed to protect applications running large language models, and Workers AI, which lets developers access GPU computing power across Cloudflare's network.</p>
+
+<h2>The Acquisition Appetite</h2>
+
+<p>Cloudflare has grown partly through aggressive acquisition. The list reads like a tour of internet security and infrastructure concerns: StopTheHacker and CryptoSeal in 2014; Eager Platform in 2016; Neumob in 2017; S2 Systems and Linc in 2020; Zaraz, Vectrix, and Area 1 Security in 2022; Nefeli Networks and BastionZero in 2024; Kivera in October 2024.</p>
+
+<p>In November 2025, they announced plans to acquire Replicate, a platform for running open-source machine learning models. This signals a deeper push into AI infrastructure.</p>
+
+<p>Each acquisition fills a gap. Area 1 Security brought anti-phishing technology. Nefeli Networks, co-founded by computer scientist Sylvia Ratnasamy, added cloud networking expertise. BastionZero strengthened zero-trust security—a model that assumes no user or system should be automatically trusted, even inside a corporate network.</p>
+
+<h2>The Infrastructure Paradox</h2>
+
+<p>There's something paradoxical about Cloudflare's position. The internet was designed to be decentralized, resilient, able to route around damage. No single point of failure. But economic efficiency has pushed traffic toward centralized services. When Cloudflare sneezes, the internet catches cold.</p>
+
+<p>By the fourth quarter of 2022, Cloudflare had 162,086 paying customers. Countless more use their free tier. Their servers, powered as of 2024 by AMD's EPYC processors, handle staggering volumes of traffic.</p>
+
+<p>The company provides critical infrastructure for governments—the .gov domain, cybersecurity for political campaigns, protection for thirty-one state election systems. They protect schools through Project Cybersafe Schools, part of a twenty million dollar grant program. They've even partnered with SpaceX to boost Starlink satellite internet performance.</p>
+
+<p>All of this makes Cloudflare something like a private utility company for the internet. They enjoy the benefits of scale, but carry the responsibilities of infrastructure. When they make a configuration error, websites around the world go down. When they decide to terminate a customer, that customer effectively disappears from the internet.</p>
+
+<p>That's an enormous amount of power for a company most people have never heard of.</p>
+
+<h2>Looking Forward</h2>
+
+<p>Cloudflare continues to expand into new territory. In March 2023, they announced that post-quantum cryptography—encryption designed to resist attacks from future quantum computers—would be freely available to all customers forever. They're experimenting with new payment methods. They're building AI tools while simultaneously building defenses against AI scraping.</p>
+
+<p>The fundamental bet hasn't changed since 2009: as the internet grows more complex and dangerous, someone needs to stand in the middle, filtering bad traffic, accelerating good traffic, and keeping the whole thing running. Cloudflare has built a business on being that someone.</p>
+
+<p>Whether having so much of the internet depend on one company is wise remains an open question. But for now, every time you browse the web, there's a one-in-five chance Cloudflare is involved—protecting you from attacks you'll never see, speeding up pages you'll never notice loading faster, and occasionally, when something goes wrong, reminding everyone just how much we've come to depend on infrastructure we barely know exists.</p>
       </div>
 
       <footer class="wikipedia-footer">

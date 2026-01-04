@@ -27,21 +27,6 @@
         </div>
       </header>
 
-      <div class="article-excerpt">
-        <p></p>
-        <div class="excerpt-fade"></div>
-      </div>
-
-      <div class="read-full-article">
-        <a href="https://newsletter.pragmaticengineer.com/p/how-aws-deals-with-a-major-outage" class="read-button" target="_blank" rel="noopener">
-          Read full article on The Pragmatic Engineer &rarr;
-        </a>
-        <p class="copyright-note">
-          This excerpt is provided for preview purposes.
-          Full article content is available on the original publication.
-        </p>
-      </div>
-
       
       <section class="deep-dives">
         <h2>Deep Dives</h2>
@@ -74,6 +59,20 @@
         </ul>
       </section>
     
+
+      <div class="article-excerpt">
+        <p>In October, the largest Amazon Web Services (AWS) region in the world suffered an outage lasting 15 hours, which created a global impact as thousands of sites and apps crashed or degraded – including Amazon.com, Signal, Snapchat, and <a href="https://newsletter.pragmaticengineer.com/p/the-pulse-aws-takes-down-a-good-part">others</a>.</p><p>AWS released an incident summary three days later, revealing the outage in us-east-1 was <a href="https://newsletter.pragmaticengineer.com/i/176934094/what-caused-the-outage">started by</a> a failure inside DynamoDB’s DNS system, which then spread to Amazon EC2 and to AWS’s Network Load Balancer. The incident summary overlooked questions such as why it took so long to resolve, and some media coverage sought to fill the gap.</p><p>The Register <a href="https://www.theregister.com/2025/10/20/aws_outage_amazon_brain_drain_corey_quinn/">claimed</a> that an “Amazon brain drain finally sent AWS down the spout”, because some AWS staff who knew the systems inside out had quit the company, and their institutional knowledge was sorely missed.</p><p>For more clarity and detail, I went to an internal source at Amazon: Senior Principal Engineer, <a href="https://www.linkedin.com/in/gavin-mccullagh-1124492/">Gavin McCullagh</a>, who was part of the crew which resolved this outage from start to finish. In this article, Gavin shares his insider perspective and some new details about what happened, and we find out how incident response works at the company.</p><p>This article is based on Gavin’s account of the incident to me. We cover:</p><ol><li><p><strong>Incident Response team at AWS. </strong>An overview of how global incident response works at the leading cloud provider, and a summary of Gavin’s varied background at AWS.</p></li><li><p><strong>Mitigating the outage (part 1). </strong>Rapid triage, two simultaneous problems, and extra details on how the DynamoDB outage was eventually resolved.</p></li><li><p><strong>What caused the outage? </strong>An unlucky, unexpected lock contention across the three DNS enactors started it all. Also, a clever usage of Route 53 as an optimistic locking mechanism.</p></li><li><p><strong>Oncall tooling &amp; outage coordination. </strong>Amazon’s outage severity scale, tooling used for paging and incident management, and why 3+ parallel calls are often run during a single outage.</p></li><li><p><strong>Mitigating the outage (part 2). </strong>After the DynamoDB outage was mitigated, the EC2 and Network Load Balancer (NLB) had issues that took hours to resolve.</p></li><li><p><strong>Post-incident. </strong>The typical ops review process at AWS, and how improvements after a previous major outage in 2023 helped to contain this one.</p></li><li><p><strong>Improvements and learnings. </strong>Changes that AWS is making to its services, and how the team continues to learn how to handle metastable failures better. Also, there’s a plan to use formal methods for verification, even for systems like DynamoDB’s DNS services.</p></li></ol><p>Spoiler ...</p>
+      </div>
+
+      <div class="read-full-article">
+        <a href="https://newsletter.pragmaticengineer.com/p/how-aws-deals-with-a-major-outage" class="read-button" target="_blank" rel="noopener">
+          Read full article on The Pragmatic Engineer &rarr;
+        </a>
+        <p class="copyright-note">
+          This excerpt is provided for preview purposes.
+          Full article content is available on the original publication.
+        </p>
+      </div>
     </article>
   
   </main>

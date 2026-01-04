@@ -22,7 +22,171 @@
       </header>
 
       <div class="wikipedia-content">
-        <p>Content not available.</p>
+        <p class="source-note">Based on <a href="https://en.wikipedia.org/wiki/Envoy_(software)">Wikipedia: Cloud Native Computing Foundation</a></p>
+
+<h2>The Organization That Quietly Runs the Internet's Plumbing</h2>
+
+<p>If you've ordered food delivery, streamed a video, or checked your bank balance on your phone today, there's a good chance your request traveled through software maintained by an organization you've never heard of. The Cloud Native Computing Foundation, or CNCF, doesn't make headlines. It doesn't have a consumer product with a flashy logo. But its projects form the invisible infrastructure that keeps modern internet services running at scales that would have seemed like science fiction just fifteen years ago.</p>
+
+<p>Here's what makes this story interesting: the CNCF exists because Google gave away one of its crown jewels.</p>
+
+<h2>The Gift That Built an Empire</h2>
+
+<p>In 2015, Google did something that surprised the technology industry. It took Kubernetes—an internal system that had been instrumental in running Google's own services at massive scale—and donated it to the Linux Foundation. This wasn't just open-sourcing some code. Google was handing over operational control of technology that represented years of hard-won lessons about running software across thousands of servers simultaneously.</p>
+
+<p>Why would a company give away something so valuable? The answer reveals a fascinating dynamic in modern technology: sometimes controlling a standard is less valuable than having everyone use the same standard. By making Kubernetes the shared foundation for "cloud native" computing, Google ensured that every major technology company would build their infrastructure on the same concepts, creating a vast ecosystem of compatible tools and reducing the friction of moving between cloud providers.</p>
+
+<p>The CNCF was created specifically to steward this gift. Founding members reads like a who's who of tech in 2015: Google, Red Hat, Twitter, Intel, Cisco, IBM, Docker, and VMware, among others. Today, more than 450 companies support the foundation.</p>
+
+<p>Three years later, in August 2018, Google took the final step. It handed over operational control of Kubernetes entirely to the community. The student had graduated.</p>
+
+<h2>What Does "Cloud Native" Actually Mean?</h2>
+
+<p>Let's step back and explain a term that gets thrown around constantly in technology circles but rarely gets defined clearly.</p>
+
+<p>Traditional software was built like a house. You'd design it, construct it, and then it would sit there on a server, doing its job. If more people wanted to use it, you'd build a bigger house—buy a more powerful server. This worked fine when the internet was smaller and traffic patterns were predictable.</p>
+
+<p>Cloud native software works more like a swarm of bees. Instead of one big application on one big server, you have many small pieces that can be created, destroyed, and moved around rapidly. Need to handle more traffic? Spin up more bees. Traffic died down? Send some home. A server failed? The bees just move to a different flower.</p>
+
+<p>This approach solves problems that became critical as internet services grew. When Netflix has to handle millions of people all starting to watch shows at 8 PM on a Friday, they can't just buy a bigger server. They need software that can expand and contract like breathing, heal itself when things break, and spread across data centers around the world.</p>
+
+<p>The CNCF's projects are the building blocks that make this possible.</p>
+
+<h2>Kubernetes: The Container Orchestrator That Changed Everything</h2>
+
+<p>At the heart of cloud native computing sits Kubernetes, pronounced "koo-ber-NET-eez" and often abbreviated as K8s. The name comes from the Greek word for helmsman or pilot—the person who steers the ship. It's an apt metaphor.</p>
+
+<p>Kubernetes manages containers. A container is a lightweight, standardized package that holds an application and everything it needs to run. Think of it like a shipping container: it doesn't matter what's inside or what ship carries it, the container is the same standard size and can be moved anywhere.</p>
+
+<p>But containers by themselves are just boxes. You need something to decide where they go, start new ones when demand increases, restart them when they crash, and route network traffic to find them. That's what Kubernetes does. It's the harbor master for thousands of containers, constantly making decisions about placement, scaling, and recovery.</p>
+
+<p>The CNCF's 2020 annual report showed that interest in Kubernetes had grown dramatically—in training enrollment, conference attendance, and corporate investment. This wasn't surprising to anyone watching the industry. Kubernetes had become the operating system of the cloud, the assumed foundation that everything else was built on.</p>
+
+<h2>The Service Mesh Revolution</h2>
+
+<p>Once you have thousands of small services running in containers, a new problem emerges: how do they talk to each other? And how do you see what's happening when something goes wrong?</p>
+
+<p>This is where service meshes come in, and the CNCF hosts several projects in this space.</p>
+
+<p>Envoy started at Lyft, the ride-sharing company. Lyft's engineering team was trying to move away from a monolithic architecture—one big application that did everything—toward a system of smaller services that could be developed and deployed independently. The problem was that all these services needed to communicate, and when you have hundreds of services making millions of requests to each other, things get complicated fast.</p>
+
+<p>Envoy acts as a proxy that sits alongside each service. Every network request flows through it. This might sound like adding unnecessary complexity, but it provides something invaluable: visibility. Suddenly you can see exactly how traffic flows through your system, where delays occur, and which services are talking to which.</p>
+
+<p>Lyft donated Envoy to the CNCF in September 2017. It has since become the foundation for many other tools in the ecosystem.</p>
+
+<p>Linkerd deserves special mention because it coined the term "service mesh" itself. As the CNCF's fifth member project, Linkerd pioneered the concept of adding observability, security, and reliability features at the infrastructure level rather than requiring each application to implement them. It graduated from the CNCF in July 2021.</p>
+
+<p>Istio, which joined the CNCF in 2022 and graduated in 2023, became one of the most widely adopted service mesh implementations. It builds on Envoy and adds sophisticated traffic management, security policies, and observability features.</p>
+
+<h2>The Container Runtime Layer</h2>
+
+<p>Beneath Kubernetes lies another crucial layer: the container runtime. This is the software that actually creates and runs containers on a server.</p>
+
+<p>containerd—pronounced "container-dee"—is the industry standard here. Docker, the company that popularized containers in the first place, donated this core runtime to the CNCF in 2017. The project manages the complete container lifecycle: downloading container images, starting and stopping containers, and managing storage and networking.</p>
+
+<p>CRI-O offers an alternative implementation, designed specifically to work with Kubernetes. The "CRI" stands for Container Runtime Interface, which is the standard way Kubernetes talks to container runtimes. CRI-O follows the Open Container Initiative specifications, ensuring containers are portable across different systems.</p>
+
+<h2>Observability: Seeing What's Happening</h2>
+
+<p>When you have hundreds or thousands of services running across many servers, understanding what's happening becomes a significant challenge. The CNCF hosts several projects dedicated to observability—the practice of understanding a system's internal state by examining its outputs.</p>
+
+<p>Prometheus started at SoundCloud, the audio streaming platform. It's a monitoring system that collects metrics—numbers that describe what your systems are doing. How many requests per second? What's the memory usage? How long are database queries taking? Prometheus scrapes this data from your services and stores it in a time-series database, letting you query historical patterns and set up alerts when things go wrong.</p>
+
+<p>Prometheus became only the second CNCF project to graduate, reaching that milestone in August 2018. Its model of pull-based metrics collection influenced countless other tools.</p>
+
+<p>Jaeger tackles a different observability problem: distributed tracing. When a single user request triggers actions across dozens of services, how do you follow the thread? Jaeger, created by Uber's engineering team and inspired by Google's internal Dapper system, traces requests as they flow through your infrastructure. If a request is slow, you can see exactly which service caused the delay.</p>
+
+<p>OpenTelemetry represents a unification effort. The CNCF merged two earlier projects—OpenTracing and OpenCensus—to create a comprehensive framework for collecting telemetry data. It's now the second most active project in the CNCF, a testament to how critical observability has become. Amazon Web Services even released their own distribution of OpenTelemetry, further cementing its status as an industry standard.</p>
+
+<h2>Networking and Service Discovery</h2>
+
+<p>In a dynamic environment where containers are constantly starting and stopping, how does one service find another? How does network traffic get routed correctly?</p>
+
+<p>CoreDNS handles service discovery using the Domain Name System, the same technology that translates human-readable website names into computer-readable IP addresses. In a Kubernetes cluster, CoreDNS tells services where to find each other. It graduated from the CNCF in 2019.</p>
+
+<p>Cilium provides networking, security, and observability using a technology called eBPF. This acronym stands for extended Berkeley Packet Filter, which is a way to run small programs inside the Linux kernel itself. This allows Cilium to make networking decisions at extremely high speeds with very low overhead. The technology is so powerful that it's changing how people think about kernel-level programming.</p>
+
+<h2>Storage and Databases</h2>
+
+<p>Cloud native applications need cloud native data storage. The CNCF hosts several projects in this space.</p>
+
+<p>etcd—pronounced "et-see-dee"—is a distributed key-value store. Kubernetes itself uses etcd to store all of its cluster state. When you deploy an application to Kubernetes, the information about that deployment is stored in etcd. The name is a reference to the "/etc" directory in Unix systems, which traditionally stores configuration files, combined with "distributed."</p>
+
+<p>Vitess brings horizontal scaling to MySQL, one of the most popular relational databases. Originally created at YouTube to handle their massive scale, Vitess lets you spread a MySQL database across many servers while still presenting it as a single logical database to applications. It graduated from the CNCF in November 2019.</p>
+
+<p>TiKV provides a distributed key-value database built on similar principles, offering another option for applications that need to store data across multiple machines.</p>
+
+<p>Rook became the CNCF's first cloud native storage project, focusing on turning storage software into self-managing, self-scaling services that integrate naturally with Kubernetes.</p>
+
+<h2>Security and Identity</h2>
+
+<p>Security in distributed systems presents unique challenges. How do you verify that one service is who it claims to be? How do you enforce policies about what each service can access?</p>
+
+<p>SPIFFE—the Secure Production Identity Framework For Everyone—addresses workload identity. Just as OAuth became a standard for human identity on the web, SPIFFE aims to be the standard for machine and service identity. It was designed from the ground up for modern computing environments where services scale up and down rapidly and need to prove their identity without human intervention.</p>
+
+<p>SPIRE is the reference implementation of SPIFFE, an identity provider that can issue credentials to workloads. Together, these projects enable what security professionals call "zero trust" networking, where every request must be verified regardless of where it comes from.</p>
+
+<p>Open Policy Agent, often called OPA, provides a general-purpose policy engine. Instead of embedding policy decisions throughout your code, OPA lets you define policies in a central location and query them from anywhere. Should this user have access to this resource? Can this service talk to that database? OPA can answer these questions consistently across your entire infrastructure.</p>
+
+<p>Falco focuses on runtime security—detecting threats while your applications are actually running. It has become the de facto threat detection engine for Kubernetes, watching for suspicious activities and alerting operators when something unusual happens.</p>
+
+<p>The Update Framework, or TUF, addresses a problem that has plagued software distribution for decades: how do you securely update software without being vulnerable to attackers who might tamper with the updates? TUF was the CNCF's first security-focused project and provides a comprehensive framework for building secure software update systems.</p>
+
+<h2>GitOps and Continuous Delivery</h2>
+
+<p>The CNCF hosts projects that embody a philosophy called GitOps: using Git repositories as the source of truth for infrastructure and application configuration.</p>
+
+<p>Flux enables GitOps in Kubernetes clusters. You describe your desired configuration in Git, and Flux ensures your cluster matches that description. When you push a change to Git, Flux automatically applies it to your infrastructure. This creates a complete audit trail of every change and makes it trivial to roll back to a previous state.</p>
+
+<p>Argo provides a collection of tools for working with Kubernetes, with workflows and events as its main features. Like Flux, it enables GitOps patterns, letting teams define their deployment processes as code.</p>
+
+<p>Helm takes a different approach as a package manager for Kubernetes. Just as npm manages JavaScript packages or pip manages Python packages, Helm manages Kubernetes applications. It lets developers bundle up their applications as "charts" that can be easily deployed and configured.</p>
+
+<h2>The Edge and Beyond</h2>
+
+<p>Cloud native principles are expanding beyond traditional data centers.</p>
+
+<p>KubeEdge extends Kubernetes to edge devices—the computers that sit closer to users, in factories, retail stores, or cellular towers. Created at Futurewei, a Huawei partner, KubeEdge's goal is to make edge devices an extension of the cloud, managed with the same tools and patterns as cloud infrastructure.</p>
+
+<p>Dapr—the Distributed Application Runtime—provides APIs for building microservices and, notably, agentic AI systems. It abstracts away the complexity of distributed systems, letting developers focus on their business logic rather than wrestling with service-to-service communication, state management, and event handling. Dapr joined the CNCF in 2021 and graduated in 2024.</p>
+
+<h2>The Graduation Path</h2>
+
+<p>The CNCF operates a maturity model for its projects: sandbox, incubating, and graduated. This reflects the reality that open source projects vary widely in stability, adoption, and governance.</p>
+
+<p>Sandbox projects are early stage, experiments that might or might not pan out. Incubating projects have proven their worth and are growing in adoption. Graduated projects have demonstrated widespread use, mature governance, and long-term sustainability.</p>
+
+<p>The journey from sandbox to graduation can take years. SPIFFE joined the sandbox in 2018, moved to incubation in 2020, and graduated in 2022. Harbor moved faster, becoming an incubating project in September 2019 and graduating just nine months later in June 2020.</p>
+
+<p>This structure serves multiple purposes. It sets expectations for potential users about project maturity. It provides a path for projects to grow within the ecosystem. And it gives the CNCF community a way to focus attention on projects that have proven their value.</p>
+
+<h2>The Ecosystem Effect</h2>
+
+<p>What makes the CNCF remarkable isn't any individual project—it's how the projects fit together. Kubernetes orchestrates containers. containerd runs them. Envoy and Istio handle service-to-service communication. Prometheus and Jaeger provide visibility. CoreDNS handles service discovery. Flux and Argo deploy applications. Falco watches for threats.</p>
+
+<p>Each project is independently valuable, but together they form a coherent platform for building and running distributed systems at scale. This is the true genius of the CNCF model: by hosting complementary projects under one umbrella, it creates an ecosystem where integration is natural and expected.</p>
+
+<p>When DoorDash or Lyft or Netflix needs to handle tens of millions of requests per second, they don't build everything from scratch. They assemble CNCF projects like building blocks, adding their own custom pieces only where necessary.</p>
+
+<h2>The Future of Cloud Native</h2>
+
+<p>The CNCF continues to evolve. Newer projects like Keycloak, which handles identity and access management, and Kuma, a service mesh control plane donated by Kong, show the ecosystem expanding into adjacent areas.</p>
+
+<p>The messaging project NATS, which implements publish-subscribe and request-reply patterns for inter-process communication, demonstrates how cloud native principles apply to asynchronous communication, not just synchronous web requests.</p>
+
+<p>Litmus brings chaos engineering to Kubernetes—the practice of deliberately injecting failures to ensure systems can handle them. In a world where distributed systems fail in complex and unpredictable ways, testing failure scenarios becomes essential.</p>
+
+<p>Perhaps most significantly, Dapr's explicit support for agentic AI systems signals that cloud native infrastructure is adapting to new computing paradigms. As AI becomes more prevalent, the infrastructure that supports it needs to evolve.</p>
+
+<h2>The Invisible Foundation</h2>
+
+<p>The CNCF operates in relative obscurity. Most people who use its projects daily—ordering food, watching videos, managing their finances—have no idea it exists. Even many software developers who build applications on Kubernetes couldn't name a dozen CNCF projects.</p>
+
+<p>But that invisibility is actually a sign of success. Infrastructure, when it works well, disappears. You don't think about the electrical grid until the power goes out. You don't think about cell towers until you lose signal. And you don't think about container orchestration until your food delivery app fails to load.</p>
+
+<p>The Cloud Native Computing Foundation represents a remarkable experiment in technology governance. It shows that competitors can collaborate on shared infrastructure, that open source can be a strategic advantage rather than a threat, and that the right organizational structure can accelerate innovation across an entire industry.</p>
+
+<p>The next time you tap a button on your phone and something happens instantly—your car arrives, your food is ordered, your transfer completes—remember that behind that simple interaction lies an incredibly complex system. And there's a good chance that system runs on software maintained by an organization founded when Google decided to give away one of its most valuable secrets.</p>
       </div>
 
       <footer class="wikipedia-footer">

@@ -22,7 +22,155 @@
       </header>
 
       <div class="wikipedia-content">
-        <p>Content not available.</p>
+        <p class="source-note">Based on <a href="https://en.wikipedia.org/wiki/Intelligent_agent">Wikipedia: Intelligent agent</a></p>
+
+<h2>The Thermostat Problem</h2>
+
+<p>Here's a question that might change how you think about intelligence: Is your thermostat smart?</p>
+
+<p>It perceives its environment—the temperature of the room. It takes action—turning the heat on or off. It has a goal—keeping things at seventy-two degrees. By some definitions in artificial intelligence research, that humble box on your wall qualifies as an intelligent agent.</p>
+
+<p>This isn't a trick or a joke. It's actually a profound insight about what intelligence might really be. The field of artificial intelligence, despite decades of science fiction imagery involving humanoid robots and glowing computer brains, has increasingly settled on a surprisingly simple definition: an intelligent agent is anything that perceives its environment and takes actions to achieve goals. That's it. No consciousness required. No emotions. No philosophical debates about whether the machine truly "understands" anything.</p>
+
+<p>The definition is deliberately broad. A thermostat counts. So does a chess program. So does a human being. So does a beehive, a corporation, or even an entire ecosystem. What unites them all is this loop: sense the world, decide what to do, act on that decision, repeat.</p>
+
+<h2>Why Researchers Love This Definition</h2>
+
+<p>For decades, artificial intelligence researchers tied themselves in knots trying to define their field. Does a computer need to pass the Turing test—fooling a human into thinking they're chatting with another person? Does it need to exhibit creativity? Emotions? Self-awareness?</p>
+
+<p>These questions are fascinating philosophically, but they're terrible for science. You can't measure progress if you can't agree on what you're measuring.</p>
+
+<p>The intelligent agent framework cuts through all of this. Instead of asking "Is this machine truly intelligent?" researchers can ask "How well does this agent achieve its goals?" That's a question you can actually answer with data.</p>
+
+<p>Consider two chess programs. One wins sixty percent of its games against grandmasters. The other wins forty percent. You don't need to resolve any deep philosophical puzzles to know which one is better. The goal is clear (win chess games), the measurement is straightforward (count the wins), and progress is objective.</p>
+
+<p>This approach has another benefit. It creates a common language that lets AI researchers talk to economists, control theorists, evolutionary biologists, and anyone else who studies systems pursuing goals. The mathematics of optimization—finding the best action given your objectives and constraints—turns out to be remarkably universal.</p>
+
+<h2>The Anatomy of an Agent</h2>
+
+<p>Every intelligent agent, from a thermostat to a Tesla, has the same basic architecture. Understanding it reveals something elegant about how goal-directed systems work.</p>
+
+<p>First, there are <em>sensors</em>—the ways the agent perceives the world. For a self-driving car, this might be cameras, lidar (which bounces laser light to measure distances), radar, and GPS receivers. For a human, it's eyes, ears, skin, and all the rest. For a chess program, it's the representation of the current board position.</p>
+
+<p>Second, there are <em>actuators</em>—the ways the agent affects the world. The car has its steering wheel, accelerator, and brakes. The human has muscles. The chess program has whatever mechanism lets it communicate its chosen move.</p>
+
+<p>Third, and most important, there's the <em>agent function</em>. This is the decision-making process that takes in everything the agent has ever perceived and outputs an action. Mathematically, you can write this as a function that maps the complete history of perceptions to a single action choice.</p>
+
+<p>The distinction between the agent function (the abstract mathematical description of what the agent should do) and the agent program (the actual code or neural wiring that implements it) matters more than you might think. The same abstract function can be implemented in wildly different ways. A lookup table, a neural network, and a system of logical rules might all produce identical behavior—the same percepts leading to the same actions—while working completely differently inside.</p>
+
+<h2>What Makes an Agent "Rational"?</h2>
+
+<p>Not all agents are created equal. The thermostat that keeps your room comfortable is an agent, but it's not particularly impressive. It follows a single rule: if the temperature drops below the target, turn on the heat.</p>
+
+<p>Researchers use the term "rational agent" to describe something more ambitious. A rational agent doesn't just pursue goals—it pursues them in the best possible way given what it knows.</p>
+
+<p>This is trickier than it sounds. "Best possible" means different things in different contexts. In chess, where you can see the entire board, rational play might mean looking many moves ahead and choosing the path most likely to lead to checkmate. In poker, where you can't see other players' cards, rational play means reasoning about probabilities and considering how your opponents might be trying to deceive you.</p>
+
+<p>The key insight is that rationality is relative to information. A rational agent makes the best decision it can with the information it has. It's not required to be omniscient. It's not required to be perfect. It's required to not be stupid—to not choose worse options when better ones are available and known.</p>
+
+<p>This definition lets researchers sidestep the thorny question of whether machines can "really" think. A chess program doesn't need to contemplate the beauty of the game to play rationally. It just needs to consistently choose moves that increase its chances of winning.</p>
+
+<h2>The Objective Function: What Does the Agent Actually Want?</h2>
+
+<p>At the heart of every intelligent agent is an <em>objective function</em>—a mathematical expression of what the agent is trying to achieve. Different fields call this different things: utility function in economics, reward function in reinforcement learning, fitness function in evolutionary computation, loss function in machine learning (where the goal is typically to minimize rather than maximize). But they're all variations on the same idea: a way to measure how well the agent is doing.</p>
+
+<p>Simple objective functions are easy to understand. AlphaZero, the game-playing AI that mastered chess, Go, and shogi, had an objective function you could fit on a sticky note: plus one point for winning, minus one for losing. That's it. From this simple signal, the system taught itself to play at superhuman levels.</p>
+
+<p>Complex objective functions are where things get interesting—and sometimes treacherous. Consider a self-driving car. Its objective function might need to balance passenger safety, pedestrian safety, traffic law compliance, passenger comfort, fuel efficiency, and arrival time. These goals can conflict. Does the car brake hard to avoid a small risk, making passengers uncomfortable? Does it slightly exceed the speed limit to get a sick passenger to the hospital faster?</p>
+
+<p>How you encode these tradeoffs matters enormously. Get the objective function wrong and you get an agent that pursues the wrong goal with perfect efficiency—a phenomenon AI researchers worry about quite a bit.</p>
+
+<h2>Where Do Goals Come From?</h2>
+
+<p>Some objective functions are explicitly programmed. A game-playing AI gets told that winning is good and losing is bad. A spam filter gets told which emails are spam and which aren't. The designer decides what the agent should want.</p>
+
+<p>But goals can also emerge through other processes.</p>
+
+<p>In <em>reinforcement learning</em>, the agent starts knowing nothing about which actions are good or bad. It tries things, receives feedback (rewards and punishments), and gradually learns which behaviors lead to better outcomes. The programmer designs the reward signal, but the agent's actual behavior emerges from experience. This is how many modern AI systems learn—including the systems that have achieved superhuman performance in games and robotics.</p>
+
+<p>In <em>evolutionary systems</em>, the objective function isn't reward—it's reproduction. Agents that survive and create copies of themselves persist; agents that don't disappear. Over many generations, this process can produce remarkably sophisticated behavior without anyone explicitly designing it. This is, of course, how biological intelligence emerged over billions of years of natural selection.</p>
+
+<p>There's something philosophically interesting about this distinction. When you explicitly program a goal, you know exactly what the agent is optimizing for (even if you're wrong about whether that's actually what you wanted). When goals emerge from learning or evolution, the agent's true objectives can become opaque—a genuine concern as AI systems grow more powerful.</p>
+
+<h2>A Hierarchy of Agent Sophistication</h2>
+
+<p>Not all agents reason the same way. A useful framework, popularized in the influential textbook "Artificial Intelligence: A Modern Approach" by Stuart Russell and Peter Norvig, categorizes agents by their internal complexity.</p>
+
+<p><em>Simple reflex agents</em> are the thermostats of the world. They respond to the current situation with a fixed rule: if this, then that. If the temperature is below seventy-two, turn on the heat. If an obstacle appears ahead, brake. These agents have no memory, no model of the world, no ability to plan. They just react.</p>
+
+<p>Simple reflex agents work beautifully when the world is fully observable—when everything the agent needs to know is available right now, in the current sensory input. They fail spectacularly when important information is hidden. A simple reflex driver that only sees the car directly ahead might rear-end someone when traffic suddenly stops two cars up.</p>
+
+<p><em>Model-based agents</em> maintain an internal representation of parts of the world they can't directly see. The self-driving car remembers that there was a pedestrian on the sidewalk three seconds ago, even if they've momentarily passed out of camera view. The chess program knows where all the pieces are, even the ones that aren't involved in the current threat.</p>
+
+<p>This internal model—a kind of running mental simulation of reality—lets the agent handle situations where past information matters. It's also the foundation for something more sophisticated: reasoning about how the world will change based on different actions.</p>
+
+<p><em>Goal-based agents</em> take another step. Instead of just reacting or modeling, they explicitly reason about goals and how to achieve them. A goal-based agent can ask: "If I take action A, what happens? Does that bring me closer to my goal?" This kind of reasoning enables planning—thinking multiple steps ahead to find a path from the current state to a desired state.</p>
+
+<p>The Roomba vacuum cleaner is a surprisingly good example. It doesn't just react to dirt; it plans a path through the room to cover all the floor space efficiently. ChatGPT, when generating a response, is pursuing the goal of producing text that satisfies the user's request.</p>
+
+<p><em>Utility-based agents</em> add nuance to goals. Instead of just distinguishing "goal achieved" from "goal not achieved," they can express preferences: some outcomes are better than others. A utility-based agent doesn't just want to get you to the airport—it wants to get you there safely, comfortably, and on time, balancing these objectives when they conflict.</p>
+
+<p>The mathematics of utility functions, borrowed from economics and decision theory, gives these agents a principled way to handle uncertainty. If action A has a sixty percent chance of a great outcome and forty percent chance of a bad one, while action B has a guaranteed mediocre outcome, which should you choose? Utility theory provides a framework for answering such questions.</p>
+
+<p><em>Learning agents</em> represent the final level of sophistication in this hierarchy. They don't just perceive, model, plan, and optimize—they improve over time. They learn from experience what works and what doesn't, updating their internal models and decision-making strategies.</p>
+
+<p>A learning agent has a fascinating internal structure. There's a "performance element" that takes actions in the world—this is what earlier, non-learning agents consisted of entirely. There's a "learning element" that observes how well the performance element does and adjusts it. There's a "critic" that evaluates performance against some standard. And there's a "problem generator" that suggests new experiences that might lead to learning—exploring the unknown rather than just exploiting what's already known to work.</p>
+
+<h2>The Theoretical Limits of Intelligence</h2>
+
+<p>Is there a maximally intelligent agent? A theoretical best possible decision-maker?</p>
+
+<p>Mathematicians have actually proposed one. It's called AIXI, a theoretical construct that would consider every possible program that could explain its observations, weight them by their simplicity (following Occam's Razor), and choose actions that maximize expected reward across all these possibilities.</p>
+
+<p>AIXI is provably optimal in a certain sense. If you had an AIXI agent, it would be the best possible predictor and decision-maker you could build.</p>
+
+<p>There's just one problem: AIXI is impossible to actually run. It's not just that we don't have enough computing power today—it requires infinite computation. It's what mathematicians call "uncomputable." AIXI is a theoretical ceiling, an aspirational standard, not a practical blueprint.</p>
+
+<p>Real intelligent agents must work within constraints: limited time, limited memory, limited computing power. The art of AI engineering is achieving as much intelligence as possible given these constraints. Progress in the field can be measured by watching agents achieve higher and higher scores on benchmark tasks while using the same hardware.</p>
+
+<h2>The Agent Paradigm Beyond Traditional AI</h2>
+
+<p>One of the surprising things about the intelligent agent framework is how far it extends beyond what we typically think of as artificial intelligence.</p>
+
+<p>A corporation can be viewed as an intelligent agent. It perceives the market through sales data, customer feedback, and competitive analysis. It takes actions through pricing decisions, product launches, and marketing campaigns. It has goals (usually involving profit) encoded in its objective function. The "agent program" is the collective decision-making of its employees and executives, shaped by corporate culture, incentive structures, and organizational processes.</p>
+
+<p>A nation-state is an intelligent agent. It perceives the world through intelligence agencies, diplomatic channels, and media monitoring. It acts through policy, military deployment, and international negotiations. Its goals might involve security, prosperity, or ideological influence.</p>
+
+<p>An ecosystem is a more abstract example. Individual organisms perceive and act, but the ecosystem as a whole can be modeled as an agent with the "goal" of maintaining certain equilibria. The Gaia hypothesis—the idea that Earth's biosphere behaves like a self-regulating system—is essentially the claim that our planet is an intelligent agent in this sense.</p>
+
+<p>This isn't just intellectual gymnastics. Viewing these complex systems through the lens of intelligent agents can generate genuine insights. What is the corporation's objective function, really? (It's often not as simple as "maximize shareholder value.") What happens when a nation-state's objective function is misaligned with its citizens' wellbeing? How might we design institutions that act as better agents for collective human goals?</p>
+
+<h2>Agentic AI: The Autonomous Systems Emerging Now</h2>
+
+<p>The term "agentic AI" has recently entered the conversation, referring to artificial intelligence systems that don't just respond to queries but proactively pursue goals over extended periods.</p>
+
+<p>Traditional AI assistants wait for instructions. You ask a question; they answer. You give a command; they execute it. The human remains in the loop at every step.</p>
+
+<p>Agentic AI systems are different. You give them a goal—"research this topic and write a report" or "monitor this codebase and fix bugs as they appear"—and they work autonomously for minutes, hours, or longer. They break down complex objectives into subtasks, execute those subtasks, evaluate their progress, and adjust their approach. They make decisions without waiting for human approval at each step.</p>
+
+<p>This is a significant shift. The same underlying technology becomes more powerful and more concerning when it operates with greater autonomy. An agent that can pursue goals independently is more useful—and requires more trust.</p>
+
+<h2>The Alignment Problem</h2>
+
+<p>If an intelligent agent's behavior is determined by its objective function, then the most important question becomes: does the objective function actually capture what we want?</p>
+
+<p>This is harder than it sounds. Humans are notoriously bad at specifying what they actually want. We know it when we see it, but translating that knowledge into precise mathematical terms—the kind an optimization process can target—is fraught with opportunities for error.</p>
+
+<p>Consider the famous thought experiment of the paperclip maximizer. Imagine an AI with the objective function "maximize the number of paperclips in existence." Sounds harmless. But a sufficiently powerful optimizer might pursue this goal by converting all available matter into paperclips—including the matter currently being used by humans, Earth's ecosystem, and eventually the entire solar system. The objective function is perfectly specified; it's just not what anyone actually wanted.</p>
+
+<p>Real-world examples are less dramatic but instructive. Social media recommendation systems, designed to maximize engagement, learned that outrage and controversy keep people clicking. The objective function was achieved; the side effects on society were considerable.</p>
+
+<p>This challenge—ensuring that an intelligent agent's objective function actually reflects human values—is known as the alignment problem. It's one of the central concerns in AI safety research. As agents become more capable, ensuring they're pursuing the right goals becomes increasingly critical.</p>
+
+<h2>The View from Here</h2>
+
+<p>The intelligent agent framework is both a definition and a research program. It tells us what artificial intelligence is trying to build: systems that perceive, decide, and act in pursuit of goals. It tells us how to measure progress: by how well those systems achieve their objectives.</p>
+
+<p>But it also reveals what makes this endeavor so challenging. The seemingly simple question "What does the agent want?" turns out to be extraordinarily deep. Get it right, and you have a powerful tool for achieving human purposes. Get it wrong, and you have a powerful optimizer pursuing the wrong purpose entirely.</p>
+
+<p>Your thermostat, that humble intelligent agent on your wall, has a perfectly aligned objective function. It wants exactly what you want it to want: a comfortable temperature. As we build agents of increasing sophistication and autonomy, maintaining that alignment becomes the central challenge.</p>
+
+<p>The thermostat was easy. The agents we're building now are not.</p>
       </div>
 
       <footer class="wikipedia-footer">

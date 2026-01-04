@@ -27,9 +27,10 @@
         </div>
       </header>
 
+      
+
       <div class="article-excerpt">
-        <p></p>
-        <div class="excerpt-fade"></div>
+        <h1>Resurging Recurrence</h1><p>There has been a resurgence of new recurrent neural network architectures. <a href="https://srush.github.io/annotated-s4/">S4</a>, <a href="https://twitter.com/_albertgu/status/1731727672286294400">mamba</a>, <a href="https://www.rwkv.com/">RWKV</a> etc. They aim to fix the cons of older recurrent neural networks such as LSTM &amp; GRU, over Transformers with self-attention while retaining their benefits. </p><p>To me, recurrence is something architectures require in some form because of the following reasons.  </p><ol><li><p>If you want an AI system that can process long-range sequences, you need some form of memory to which you can write and read. RNNs provide us with this with their hidden state, which you can consider as an abstract form of memory. Vanilla transformers avoid the need for this by attending to all its inputs.  The O(n**2) complexity of transformers is not reasonable for extremely long-range sequence tasks. </p></li><li><p>The second reason is more esoteric. If you think the way to build generally capable agents is to take inspiration from animals (including humans) as a template for intelligence, even in a black-box manner, we would want to avoid architectures that require you to store the raw inputs as memory. While humans can conceivably do something like self-attention on all the sensory inputs at a particular time, we for sure don’t store snapshots of raw sensory data over time and process it. This might seem like an artificial constraint for computers, but I intuit that this constraint along with constraints of embodiment are essential to interpret the sensory data into forms of intelligent behaviour. Maybe an infinite raw-sensory memory architecture in your cognitive architecture impairs you</p></li></ol><p>Let’s revisit the pros/cons of  old recurrent neural networks</p><ul><li><p><strong>Pro</strong>: During inference, the computational complexity of LSTMs and GRUs doesn’t depend on sequence length as all your past is compressed into the memory/hidden state representation</p></li><li><p><strong>Con</strong>: LSTMs/GRUs unlike transformers be parallelized across sequences while training</p></li></ul><p>The current variants want the best of both. The key thing that unifies all the new variants is the use of <strong>linear recurrence.</strong> If you have a linear relationship in computing the memory or hidden state, then you can at the very least cleverly parallelize the training across sequence length using something called an <strong><a href="https://jax.readthedocs.io/en/latest/_autosummary/jax.lax.associative_scan.html">associative scan</a>.</strong> If you apply a mathematical operator which respects associativity on a sequence, it can be parallelized with an associative scan.<br></p><div id="youtube2-OO3o14cINbo" class="youtube-wrap" data-attrs="{&quot;videoId&quot;:&quot;OO3o14cINbo&quot;,&quot;startTime&quot;:null,&quot;endTime&quot;:null}" data-component-name="Youtube2ToDOM"><div class="youtube-inner"><iframe src="https://www.youtube-nocookie.com/embed/OO3o14cINbo?rel=0&amp;autoplay=0&amp;showinfo=0&amp;enablejsapi=0" frameborder="0" loading="lazy" gesture="media" allow="autoplay; fullscreen" allowautoplay="true" allowfullscreen="true" width="728" height="409"></iframe></div></div><p><br>There are lots of other differences, s4 (which preceded mamba) which is motivated by linear time-invariant state space models from control theory could ...</p>
       </div>
 
       <div class="read-full-article">
@@ -41,8 +42,6 @@
           Full article content is available on the original publication.
         </p>
       </div>
-
-      
     </article>
   
   </main>

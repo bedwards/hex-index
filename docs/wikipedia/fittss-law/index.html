@@ -22,7 +22,127 @@
       </header>
 
       <div class="wikipedia-content">
-        <p>Content not available.</p>
+        <p class="source-note">Based on <a href="https://en.wikipedia.org/wiki/Fitts%27s_law">Wikipedia: Fitts's law</a></p>
+
+<p>In 1954, a psychologist named Paul Fitts discovered something that would eventually determine whether you love or hate using your smartphone. He found a mathematical formula that predicts exactly how long it takes you to tap a button—any button, anywhere. This formula is so reliable that it governs the design of every touchscreen, every website menu, and every video game controller you've ever used.</p>
+
+<p>It's called Fitts's law, and once you understand it, you'll never look at a user interface the same way again.</p>
+
+<h2>The Fundamental Insight</h2>
+
+<p>Here's the core idea: the time it takes you to hit a target depends on two things—how far away the target is, and how big it is. That probably sounds obvious. But Fitts didn't just observe this; he quantified it precisely.</p>
+
+<p>Think about it like throwing darts. If the dartboard is across the room and the bullseye is tiny, you're going to take your time aiming. If the board is right in front of you and the target is huge, you'll throw almost carelessly. Fitts figured out the exact mathematical relationship between these factors.</p>
+
+<p>The formula works like this: movement time equals some baseline delay, plus a factor that depends on the logarithm of the ratio between distance and target size. The logarithm is crucial here. It means that doubling the distance doesn't double the time—it only adds a fixed amount. And halving the target size has the same effect as doubling the distance.</p>
+
+<p>This logarithmic relationship is what makes Fitts's law so useful. It tells designers exactly how much harder they're making someone's life when they shrink a button or move it farther away.</p>
+
+<h2>Why Your Mouse Won Over the Joystick</h2>
+
+<p>In the 1970s, researchers at Xerox's legendary Palo Alto Research Center were trying to figure out how people should interact with computers. They had options: keyboards with arrow keys, joysticks, trackballs, and a strange new device called a mouse.</p>
+
+<p>Stuart Card and his colleagues applied Fitts's law to compare these input devices. They measured something called the "index of performance"—essentially, how many bits of targeting information a person could transmit per second using each device. The mouse won decisively.</p>
+
+<p>This wasn't just academic curiosity. According to Card's biography, this research "was a major factor leading to the mouse's commercial introduction by Xerox." Every time you reach for your mouse, you're benefiting from Fitts's insight.</p>
+
+<h2>The Two Phases of Every Click</h2>
+
+<p>When you move your cursor toward a button, something interesting happens. Your movement splits into two distinct phases.</p>
+
+<p>First comes the ballistic phase. Your hand sweeps quickly toward the general vicinity of the target. You're not being precise yet—you're just closing the distance. This phase is fast but sloppy.</p>
+
+<p>Then comes the homing phase. You slow down dramatically and make small, careful adjustments to actually land on the target. This phase is slow but accurate.</p>
+
+<p>Here's the counterintuitive finding: distance matters more than size. If you have a choice between making a button bigger or moving it closer, moving it closer usually helps more. The ballistic phase dominates the total time, and that phase is all about distance.</p>
+
+<p>This explains why the corners and edges of your screen are such valuable real estate. When your cursor hits the edge of the screen, it stops—which means you can slam your mouse in that direction without worrying about overshooting. The target effectively becomes infinitely large in one dimension. That's why operating systems have traditionally put important controls at screen corners: the Windows Start button, the Mac Apple menu, the close button.</p>
+
+<h2>The Shannon Connection</h2>
+
+<p>In the 1990s, a researcher named Scott MacKenzie noticed something remarkable. Fitts's formula looked suspiciously similar to a famous equation from information theory—the Shannon-Hartley theorem.</p>
+
+<p>Claude Shannon—the father of information theory—had shown that the amount of information you can transmit through a noisy channel depends on the ratio of signal strength to noise. MacKenzie realized that pointing at a target is essentially an information transmission problem. The distance to the target is like the signal. The size of the target is like the noise—it determines how much error is acceptable.</p>
+
+<p>This wasn't just a mathematical coincidence. It suggested something profound: when you point at something, you're essentially transmitting information about where you want to go. The difficulty of the pointing task can be measured in bits, just like data transmission.</p>
+
+<p>MacKenzie's "Shannon formulation" of Fitts's law became so influential that it was adopted as an international standard. The International Organization for Standardization now recommends it in ISO 9241 for testing human-computer interfaces.</p>
+
+<h2>The Speed-Accuracy Tradeoff</h2>
+
+<p>There's a fundamental tension in human movement: you can be fast, or you can be accurate, but you can't maximize both. Fitts's law captures this tradeoff elegantly.</p>
+
+<p>But the original formula had a flaw. It assumed people would always hit the target. In reality, people make mistakes—they click outside the button, they miss the link, they tap the wrong icon. Different people have different accuracy rates, and the same person performs differently under different conditions.</p>
+
+<p>A researcher named Crossman proposed an elegant fix in 1956. Instead of using the actual target width, use the "effective" target width—calculated from how spread out people's clicks actually are. If people are clicking all over the place, the effective width is large, reflecting their sloppiness. If they're precise, the effective width is small.</p>
+
+<p>Specifically, you calculate the effective width as about 4.133 times the standard deviation of the click positions. This magic number captures 96% of a normal distribution—meaning if people achieve exactly 4% error rate, the effective width equals the actual width.</p>
+
+<p>This adjustment transformed Fitts's law from a theoretical model into a practical measurement tool. Now you could compare different interfaces while accounting for how accurately people actually used them.</p>
+
+<h2>When Distance and Size Aren't Equal</h2>
+
+<p>The original Fitts formula treats distance and size symmetrically—they're just a ratio. But researchers discovered this isn't quite right. Distance and size have somewhat independent effects on movement time.</p>
+
+<p>In 1968, Alan Welford proposed a modified formula that separates these effects into distinct terms. His version has an additional parameter, giving it more flexibility to fit real human behavior.</p>
+
+<p>Later refinements added even more sophistication. In 2010, researchers figured out how to incorporate the angle of approach into the model. It turns out that where you're coming from matters—some approach angles are easier than others.</p>
+
+<p>These enhanced models predict movement times more accurately, but they come at a cost: more complexity, more parameters to measure, and less intuitive understanding. For most practical purposes, the simpler Shannon formulation works well enough.</p>
+
+<h2>Beyond the Mouse: Universal Human Movement</h2>
+
+<p>Fitts conducted his original experiments with people tapping metal plates with a stylus. But the law turned out to be far more general than anyone expected.</p>
+
+<p>Researchers have verified Fitts's law with hands, feet, and even the lower lip. It works with head-mounted pointing devices. It works underwater. It works for children, elderly people, and people with various disabilities. It even works for people under the influence of drugs (though the parameters change).</p>
+
+<p>This universality suggests that Fitts's law captures something fundamental about how the human motor system works—not just a quirk of hand movements or computer interfaces, but a deep principle of biological motion control.</p>
+
+<p>One interesting exception: eye movements. Some researchers have tried to apply Fitts's law to eye tracking, but this is controversial. Here's why: during the rapid jumps between fixation points (called saccades), you're essentially blind. You can't see the target while you're moving toward it. This is fundamentally different from hand movements, where you can continuously monitor your progress and make corrections.</p>
+
+<h2>The Two-Dimensional Challenge</h2>
+
+<p>Fitts originally designed his law for one-dimensional movements—sliding left or right along a single axis. But computer screens are two-dimensional, and targets can have various shapes. How do you apply the formula?</p>
+
+<p>This turns out to be surprisingly tricky. If you have a rectangular button, which dimension matters—the width, the height, or some combination? Researchers have proposed various methods:</p>
+
+<ul>
+<li>Use just the horizontal width, ignoring height entirely</li>
+<li>Add the height and width together</li>
+<li>Multiply height by width (using area)</li>
+<li>Use whichever dimension is smaller</li>
+<li>Calculate the effective width in the actual direction of movement</li>
+</ul>
+
+<p>The last option—calculating effective width based on the approach direction—generally gives the best predictions. But it requires knowing which direction the user is coming from, which isn't always possible.</p>
+
+<p>For navigating menus, an entirely different model applies. When you have to steer your cursor through a narrow corridor (like moving through nested pull-down menus), the task becomes about maintaining a trajectory rather than hitting a point target. Researchers Johnny Accot and Shumin Zhai derived the "steering law" for this situation—a cousin of Fitts's law but with different mathematics.</p>
+
+<h2>The Design Implications</h2>
+
+<p>Understanding Fitts's law transforms how you think about interface design. Consider these implications:</p>
+
+<p><strong>Make important things big.</strong> A button that's twice as wide is meaningfully easier to hit. This is why primary action buttons should be larger than secondary ones.</p>
+
+<p><strong>Reduce distance to frequently-used controls.</strong> The most common actions should be closest to where the cursor typically rests. This is why toolbars and right-click context menus exist.</p>
+
+<p><strong>Use screen edges strategically.</strong> Since the cursor stops at screen edges, controls placed there effectively become infinite in size along that edge. Corners are doubly powerful—infinite in two directions.</p>
+
+<p><strong>Consider the approaching direction.</strong> If you know users will be coming from a particular direction, make targets wider along that axis.</p>
+
+<p><strong>Group related controls.</strong> When controls are clustered together, users can stay in a small region instead of constantly traversing the screen.</p>
+
+<p>This brings us back to radio buttons and borders. When radio buttons are just small circles with no surrounding clickable area, the target is tiny—making selection unnecessarily difficult according to Fitts's law. Adding visible borders, with the entire bordered area being clickable, dramatically increases the target size. The movement time drops. The error rate drops. Users are happier, even if they couldn't articulate why.</p>
+
+<h2>A Window Into Human Information Processing</h2>
+
+<p>Perhaps the most fascinating aspect of Fitts's law is what it reveals about human cognition. The logarithmic relationship in the formula isn't arbitrary—it emerges from how our nervous system processes information and controls movement.</p>
+
+<p>When you reach for something, your brain isn't computing a precise trajectory and executing it blindly. Instead, it's continuously processing visual feedback and making corrections. The logarithm appears because each correction reduces the remaining error by a roughly constant proportion. Getting halfway to the target takes a certain amount of time. Getting halfway through the remaining distance takes about the same time again. And so on.</p>
+
+<p>This is why Fitts's law is measured in bits. Each "bit" of pointing difficulty represents one round of this corrective process—one halving of the remaining distance. The formula literally counts how many correction cycles your brain needs to perform.</p>
+
+<p>Seventy years after Paul Fitts first published his findings, his law remains the most robust and widely-used model in human-computer interaction. Every touchscreen you tap, every button you click, every link you follow—Fitts's law is silently at work, shaping the milliseconds of your digital life.</p>
       </div>
 
       <footer class="wikipedia-footer">

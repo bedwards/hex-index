@@ -22,7 +22,133 @@
       </header>
 
       <div class="wikipedia-content">
-        <p>Content not available.</p>
+        <p class="source-note">Based on <a href="https://en.wikipedia.org/wiki/Attention_(machine_learning)">Wikipedia: Attention (machine learning)</a></p>
+
+<h2>The Trick That Made AI Actually Understand Language</h2>
+
+<p>Here's a puzzle that haunted artificial intelligence researchers for decades: how do you teach a computer to translate "I love you" into French?</p>
+
+<p>The naive approach would be word-by-word substitution. "I" becomes "je," "love" becomes "aime," "you" becomes "tu." But anyone who's used an early machine translator knows how badly this fails. French doesn't follow English word order. The correct translation is "je t'aime" — and that middle word, that contracted "t'" for "you," needs to appear <em>before</em> the word for love, not after it.</p>
+
+<p>For years, AI systems struggled with this fundamental mismatch between languages. Then, around 2014, researchers discovered a mechanism that would eventually transform not just translation but the entire field of artificial intelligence. They called it attention.</p>
+
+<h2>The Problem with Memory</h2>
+
+<p>Before attention, the dominant approach to language processing used what's called a recurrent neural network, or RNN for short. Think of an RNN as reading a sentence one word at a time, maintaining a kind of running summary in its head. By the time it reaches the end of the sentence, that summary contains everything the network "remembers" about what it read.</p>
+
+<p>This sounds reasonable until you consider what happens with long sentences.</p>
+
+<p>Imagine reading a dense legal contract, one word at a time, and being asked to summarize it after reading only the last word. The beginning is fuzzy. The middle is vague. Only the recent words remain crisp in your memory. RNNs suffer from exactly this problem — they exhibit what researchers call "recency bias," where information from earlier in a sequence gradually fades as new information arrives.</p>
+
+<p>For short sentences, this works tolerably well. For anything longer than a dozen words or so, it becomes a serious limitation. The network essentially forgets the beginning of the sentence by the time it reaches the end.</p>
+
+<h2>Attention as a Lookup System</h2>
+
+<p>The attention mechanism solves this forgetting problem in an elegantly simple way: instead of relying on a compressed summary, it lets the network look back at the original input whenever it needs to.</p>
+
+<p>Think of it like taking an open-book exam versus a closed-book exam. With an RNN, you have to memorize everything before the test and hope you remember the relevant details when answering questions. With attention, you can flip through your notes and find exactly the passage you need.</p>
+
+<p>But attention is smarter than simple lookup. It doesn't just retrieve one piece of information — it retrieves a weighted combination of all the information, with the weights determined by relevance to the current task.</p>
+
+<p>Let's return to translating "I love you" into French. When the network is trying to produce the first French word, it assigns attention weights to each English word. In practice, about 94% of the attention goes to "I," which makes sense — "je" is the French equivalent. When producing the second French word, 88% of the attention shifts to "you," even though "you" appears third in English. The network has learned that French places the object pronoun before the verb, so it reaches back to grab "you" at exactly the right moment.</p>
+
+<p>This creates what researchers call an alignment matrix — a grid showing which input words the network focused on when producing each output word. For a well-trained translation model, this matrix reveals the grammatical restructuring happening under the hood.</p>
+
+<h2>Soft Attention Versus Hard Choices</h2>
+
+<p>A crucial insight in the attention mechanism is the difference between "soft" and "hard" weights.</p>
+
+<p>Hard attention would mean picking exactly one input word to focus on at each step. This sounds intuitive — when you translate "I," you look at "I" and nothing else. But language doesn't work this cleanly. Consider translating the English phrase "look it up" into French. The equivalent is "cherchez-le," where the meaning of multiple English words gets compressed into different parts of the French expression. Hard attention would force an artificial one-to-one mapping that doesn't reflect how languages actually correspond.</p>
+
+<p>Soft attention instead assigns fractional weights to every input word. Maybe 60% of attention goes to "look," 25% to "up," and 15% to "it." The network can blend information from multiple sources, creating a weighted average that captures the fuzzy, many-to-many relationships between languages.</p>
+
+<p>These soft weights have another important property: they're computed fresh for every input. Unlike the fixed parameters that a neural network learns during training, attention weights emerge dynamically based on what the network is currently processing. Feed it a different sentence, and you get different attention patterns.</p>
+
+<h2>The Transformer Revolution</h2>
+
+<p>For a few years, attention was used as an add-on to existing recurrent neural networks. The RNN would still process the sequence word by word, but attention would help it access earlier information when needed. This hybrid approach worked well, but it had a fundamental speed limitation: the recurrent structure forced sequential processing. You couldn't compute the output for word five until you'd processed words one through four.</p>
+
+<p>In 2017, a team at Google proposed a radical simplification. What if you threw away the recurrent structure entirely and relied purely on attention? Their paper, titled "Attention Is All You Need," introduced the Transformer architecture.</p>
+
+<p>The key innovation was self-attention, where each word in a sequence attends to every other word, including itself. Instead of processing words sequentially, the Transformer processes them all simultaneously, with attention weights determining how information flows between positions.</p>
+
+<p>This parallelization was a game-changer. Modern graphics processing units, or GPUs, excel at performing many calculations simultaneously. The sequential nature of RNNs meant they couldn't fully exploit this parallel hardware. Transformers, by contrast, can process entire sequences in one pass, making them dramatically faster to train on large datasets.</p>
+
+<p>The Transformer became the foundation for virtually every major language model that followed: BERT (Bidirectional Encoder Representations from Transformers), the various versions of GPT (Generative Pre-trained Transformer), T5, and countless others. When people talk about the AI revolution of the 2020s, they're largely talking about systems built on the Transformer architecture.</p>
+
+<h2>Queries, Keys, and Values</h2>
+
+<p>The mathematical machinery behind Transformer attention involves three matrices with evocative names: queries, keys, and values. The analogy is to a database lookup.</p>
+
+<p>Imagine you're searching for a book in a library. Your search term is the query — maybe you're looking for books about "19th century French poetry." Each book in the library has a key — metadata describing its contents. The value is the book's actual content.</p>
+
+<p>When you search, the system compares your query against all the keys, finding the closest matches. Then it retrieves the corresponding values — the actual books — weighted by how well they matched your search.</p>
+
+<p>In a Transformer, each word generates all three: a query (what information am I looking for?), a key (what information do I contain?), and a value (what information should I contribute?). The attention mechanism compares each query against all keys to determine how much each value should contribute to the output.</p>
+
+<p>The actual computation involves matrix multiplication and something called the softmax function, which converts raw scores into probabilities that sum to one. There's also a scaling factor — dividing by the square root of the key dimension — that prevents the scores from growing too large when working with high-dimensional vectors.</p>
+
+<h2>Multiple Perspectives Through Multiple Heads</h2>
+
+<p>A single attention mechanism captures one kind of relationship between words. But language is rich with many different types of relationships — syntactic, semantic, referential, and more. A pronoun might need to attend to its antecedent (the noun it refers to), while a verb might need to attend to its subject and object.</p>
+
+<p>Multi-head attention addresses this by running several attention mechanisms in parallel, each with its own learned parameters. These "heads" can specialize in different relationship types. One head might learn to track grammatical structure, another might focus on semantic similarity, and a third might handle long-range dependencies.</p>
+
+<p>The outputs from all heads are concatenated and transformed into a single representation. This multi-head approach gives Transformers remarkable flexibility in capturing the diverse patterns present in natural language.</p>
+
+<h2>The Memory Problem Returns</h2>
+
+<p>Attention solved the forgetting problem of recurrent networks, but it introduced a new challenge: memory consumption.</p>
+
+<p>Remember that attention computes weights between every pair of positions in the sequence. If your input has one hundred tokens, you're computing ten thousand attention weights. A thousand tokens means a million weights. The memory requirement grows with the <em>square</em> of the sequence length.</p>
+
+<p>This quadratic scaling becomes prohibitive for long documents. Processing a novel, a legal brief, or a detailed technical specification can exceed the memory capacity of even high-end GPUs.</p>
+
+<p>Researchers have developed various strategies to address this. Flash attention, developed at Stanford, is an implementation trick that restructures the computation to use GPU memory more efficiently. Instead of materializing the entire attention matrix at once, it processes smaller blocks that fit in the GPU's fastest memory tier, reducing memory usage without approximation.</p>
+
+<p>Other approaches approximate attention itself. Some techniques restrict attention to local windows, allowing each position to attend only to nearby neighbors rather than the entire sequence. Others use learned patterns that identify which long-range connections are most important, effectively learning to pay attention only where it matters.</p>
+
+<h2>Beyond Language: Attention in Vision</h2>
+
+<p>The success of attention in language processing naturally raised a question: could the same mechanism work for images?</p>
+
+<p>For decades, convolutional neural networks, or CNNs, dominated computer vision. These networks apply small filters that slide across an image, detecting local features like edges, textures, and shapes. The convolutional structure builds in a useful inductive bias — nearby pixels are more likely to be related than distant ones — and it works remarkably well for image classification, object detection, and many other visual tasks.</p>
+
+<p>But convolutions are inherently local. A filter sees only a small patch of the image at each position. Global information — understanding that two distant regions of an image are semantically related — requires stacking many convolutional layers to gradually expand the receptive field.</p>
+
+<p>In 2020, researchers demonstrated that Transformers could process images directly by treating them as sequences of patches. A 256×256 pixel image might be divided into 256 patches of 16×16 pixels each. Each patch becomes a token, and self-attention allows every patch to attend to every other patch, capturing global relationships from the very first layer.</p>
+
+<p>These Vision Transformers, or ViTs, matched or exceeded convolutional networks on image classification when trained with enough data. More intriguingly, the attention patterns in trained ViTs reveal what the model is "looking at" when making decisions. Visualizing these patterns as heatmaps — called attention maps or saliency maps — has become a standard interpretability technique.</p>
+
+<h2>The Mask That Enables Generation</h2>
+
+<p>There's a variant of attention that's crucial for language generation: masked attention.</p>
+
+<p>When a model is generating text one word at a time, it shouldn't be able to peek at words it hasn't generated yet. During training, we feed the model entire sequences, but we need to simulate the generation process where future words are unknown.</p>
+
+<p>Masked attention solves this by setting certain attention weights to zero. Specifically, it prevents any position from attending to later positions in the sequence. The first word can only attend to itself. The second word can attend to the first and second. The tenth word can attend to words one through ten. This creates a triangular pattern in the attention matrix, with meaningful weights below and on the diagonal and zeros above.</p>
+
+<p>This masking is what allows models like GPT to generate coherent text. Each generated word is based only on the words that came before, exactly as it would be during actual generation when future words don't exist yet.</p>
+
+<h2>Attention as Explanation — And Its Limits</h2>
+
+<p>One appealing aspect of attention is its apparent interpretability. Unlike the inscrutable computations deep inside a neural network, attention weights are explicit and visualizable. When a model translates a sentence, you can see which input words it focused on for each output word. When it classifies an image, you can see which regions captured its attention.</p>
+
+<p>This has led many researchers to treat attention as explanation — high attention weights mean the model found that input important, right?</p>
+
+<p>Not necessarily. Several studies have shown that attention weights don't always correlate with importance. You can sometimes change the attention weights substantially without affecting the model's output, or find that the most attended tokens aren't actually the most influential for the final prediction.</p>
+
+<p>The relationship between attention and explanation remains an active area of research and debate. Attention provides a window into the model's processing, but it's not a transparent explanation of decision-making. The weights show where information flows, not necessarily why particular outputs emerge.</p>
+
+<h2>The Foundation of Modern AI</h2>
+
+<p>It's difficult to overstate attention's impact on artificial intelligence. The mechanism, originally developed to help translation models access distant context, became the cornerstone of a new architecture that has transformed the field.</p>
+
+<p>Today's large language models — the systems that can write essays, answer questions, generate code, and carry on conversations — are built on Transformers, which are built on attention. The breakthrough came from recognizing that attention alone, without the sequential processing of earlier approaches, was sufficient to capture the patterns in language.</p>
+
+<p>The story of attention is also a story about hardware-software co-evolution. The mechanism succeeded partly because it aligned with the parallel processing capabilities of modern GPUs. Innovations like flash attention continue this theme, squeezing more performance from available hardware through algorithmic cleverness.</p>
+
+<p>From its origins in machine translation to its current role as the foundation of generative AI, attention has proven to be one of the most consequential ideas in modern machine learning. When future historians trace the development of artificial intelligence, the attention mechanism will be a pivotal chapter — the trick that taught machines to focus on what matters.</p>
       </div>
 
       <footer class="wikipedia-footer">

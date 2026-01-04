@@ -22,7 +22,123 @@
       </header>
 
       <div class="wikipedia-content">
-        <p>Content not available.</p>
+        <p class="source-note">Based on <a href="https://en.wikipedia.org/wiki/Common_Vulnerabilities_and_Exposures">Wikipedia: Common Vulnerabilities and Exposures</a></p>
+
+<p>In April 2025, the cybersecurity world nearly lost its universal language for talking about software flaws. The contract funding the Common Vulnerabilities and Exposures system—the CVE program—was hours from expiring. For a brief moment, security researchers, software companies, and government agencies faced the prospect of a world without a common naming system for the bugs that hackers exploit.</p>
+
+<p>The contract got extended. Barely.</p>
+
+<p>But the near-miss raised a question most people outside the security industry have never considered: why does it matter if software vulnerabilities have standardized names?</p>
+
+<h2>The Problem of Naming Things</h2>
+
+<p>Before 1999, talking about a specific software vulnerability was surprisingly difficult. Imagine trying to coordinate a response to a security flaw when different security scanners, different companies, and different government agencies all used different names for the same bug. One tool might call it "IIS Unicode Directory Traversal." Another might label it "Microsoft Web Server Path Escape Flaw." A third might just assign it an internal tracking number that meant nothing to anyone else.</p>
+
+<p>This wasn't a theoretical problem. It was chaos.</p>
+
+<p>Security teams couldn't easily determine whether two different reports were describing the same vulnerability or different ones. They couldn't efficiently compare the coverage of different security tools. When a critical flaw was discovered, coordinating a response across organizations became an exercise in translation.</p>
+
+<p>The solution was elegantly simple: give every publicly known vulnerability a unique identifier that everyone agrees to use. That's what the Common Vulnerabilities and Exposures system does. It assigns identifiers that look like CVE-2024-12345—the letters CVE, followed by the year, followed by a unique number.</p>
+
+<p>Think of it like the International Standard Book Number system for books. An ISBN doesn't tell you anything about what a book contains, but it ensures that when a librarian in Tokyo and a bookseller in Buenos Aires reference ISBN 978-0-13-468599-1, they're talking about the exact same book. CVE identifiers work the same way for security vulnerabilities.</p>
+
+<h2>How the System Actually Works</h2>
+
+<p>The MITRE Corporation, a nonprofit organization that runs federally funded research centers, maintains the CVE system. They've done so since the program launched publicly in September 1999, with funding from the United States Department of Homeland Security's National Cyber Security Division.</p>
+
+<p>But MITRE doesn't assign every CVE number themselves. That would create an impossible bottleneck—thousands of vulnerabilities are discovered every year. Instead, they've created a distributed system of organizations called CVE Numbering Authorities, or CNAs.</p>
+
+<p>A CNA can assign CVE identifiers for vulnerabilities within their scope. Microsoft assigns CVEs for flaws in Windows and Office. Oracle handles their database products. Red Hat covers their Linux distribution. If you discover a vulnerability in Google Chrome, Google's security team can assign the CVE directly rather than waiting for MITRE to process it.</p>
+
+<p>This distributed model has expanded significantly over time. Originally, only a handful of major vendors acted as CNAs. Today, the program includes third-party coordinators like the CERT Coordination Center at Carnegie Mellon University, which can assign CVEs for products that don't have their own CNA. Even some individual security researchers have been granted CNA status.</p>
+
+<p>The open-source software world has embraced this approach. Many major open-source projects have applied to become CNAs for their own codebases. This gives them control over how vulnerabilities in their software are cataloged—and prevents some of the gaming that can occur when vendors control their own CVE assignments.</p>
+
+<h2>The Anatomy of a CVE Entry</h2>
+
+<p>A CVE identifier is just a pointer. The real substance lives in the database entry, which contains a standardized text description of the vulnerability.</p>
+
+<p>Well, sometimes it does.</p>
+
+<p>If you browse the CVE database, you'll frequently encounter entries that say nothing more than "RESERVED." This means someone has claimed the number but hasn't yet provided details. There are legitimate reasons for this—a vulnerability might be under a coordinated disclosure embargo, meaning the flaw has been discovered but the affected vendor needs time to develop a patch before the details go public. Premature disclosure would give attackers a roadmap while users have no way to protect themselves.</p>
+
+<p>But "RESERVED" can also indicate more mundane delays. MITRE has limited resources. A CVE number might be assigned, but writing up the description and researching the details takes time. The gap between assignment and full documentation can stretch from days to months to, in some cases, years.</p>
+
+<p>The entry date in a CVE record indicates when MITRE created the entry in their system, not necessarily when the vulnerability was discovered or when it became public. This can be confusing when trying to track the timeline of a security incident.</p>
+
+<h2>The Ten Thousand Problem</h2>
+
+<p>The original CVE format had a subtle limitation that nobody worried about in 1999: the identifier only allowed for four digits after the year. CVE-2014-9999 was the maximum.</p>
+
+<p>Ten thousand vulnerabilities per year seemed like an absurdly high ceiling in the early days of the program. It wasn't.</p>
+
+<p>By the early 2010s, security researchers were discovering vulnerabilities at an accelerating rate. Automated scanning tools were finding flaws that human reviewers would have missed. The industry was getting better at security research just as software was getting more complex. The four-digit limit started looking uncomfortably close.</p>
+
+<p>In 2014, MITRE announced a new syntax that took effect the following January. The new format allows variable-length identifiers: CVE-2025-12345 if four digits suffice, but CVE-2025-123456 or CVE-2025-1234567 when more are needed. The system can now scale indefinitely.</p>
+
+<p>The change was backwards compatible—all existing CVE identifiers remained valid. But it required updates to countless security tools, databases, and processes that had hardcoded assumptions about the four-digit limit. The "CVE10K problem," as it was known, turned out to be a useful stress test of how dependent the security ecosystem had become on this single naming convention.</p>
+
+<h2>The Conflict of Interest Problem</h2>
+
+<p>Here's an uncomfortable truth about the CVE system: vendors have significant control over whether vulnerabilities in their products get assigned CVE numbers.</p>
+
+<p>Under the CNA rules, a vendor that receives a report about a security vulnerability has full discretion over how to handle it. If Microsoft decides that a reported flaw doesn't merit a CVE, they can decline to assign one. MITRE generally can't override that decision.</p>
+
+<p>This creates an obvious conflict of interest. A company might prefer that embarrassing security flaws remain unnumbered and harder to track. Denying a CVE doesn't make the vulnerability disappear, but it makes the flaw less visible, harder to reference in security advisories, and less likely to appear in automated vulnerability scanners that rely on CVE databases.</p>
+
+<p>In 2023, security researchers launched what they called the "not CVE" project, written as "!CVE" in programming notation. The project collects vulnerabilities that vendors have denied CVE assignments for, subjecting each to review by an independent panel of experts. If the panel determines the vulnerability is legitimate, it gets cataloged even without official CVE status.</p>
+
+<p>The project highlights a tension at the heart of the CVE system. It works because vendors participate voluntarily, but that voluntary participation gives vendors influence over what gets documented.</p>
+
+<h2>The Quality Control Problem</h2>
+
+<p>The opposite problem also exists: CVE identifiers sometimes get assigned to issues that shouldn't have them.</p>
+
+<p>Not every bug is a security vulnerability. Some reported flaws turn out to be duplicates of existing CVEs. Others are theoretical issues that can't actually be exploited in practice. Occasionally, someone games the system to inflate their published vulnerability count—padding a resume or generating attention for a security company.</p>
+
+<p>When a CVE is determined to be invalid, it gets marked as "REJECTED" rather than deleted. The identifier still exists in the database, but with a note explaining why it shouldn't be used. This preserves the historical record and prevents the same number from being reassigned to a different issue, which could cause confusion.</p>
+
+<p>The open-source community has been particularly active in pushing back against questionable CVE assignments. By becoming CNAs for their own projects, maintainers can ensure that only legitimate vulnerabilities receive identifiers—and that the descriptions accurately reflect the scope and severity of each flaw.</p>
+
+<h2>What Gets a CVE and What Doesn't</h2>
+
+<p>The CVE program has always focused on vulnerabilities in publicly released software. If you can download it, buy it, or obtain it through normal channels, flaws in that software can receive CVE identifiers. This includes commercial products, open-source projects, and even beta releases if they're widely distributed.</p>
+
+<p>Custom-built software that isn't distributed generally doesn't qualify. If a company writes an internal tool that only their own employees use, vulnerabilities in that tool won't get CVEs. There's no public to protect, and no common reference point needed.</p>
+
+<p>For the first two decades of the program, web services occupied a gray area. A cross-site scripting vulnerability in a website wasn't eligible for a CVE because the service itself wasn't publicly distributed software—you couldn't download Gmail and run it yourself. Only if the flaw existed in underlying software that was publicly available would it qualify.</p>
+
+<p>This distinction has started to blur. Some CNAs, including MITRE itself, have begun assigning CVEs to service-based vulnerabilities. The practice isn't universal, and the official rules haven't caught up with the changing reality of how software is delivered. But the trend reflects a broader recognition that the web service you use is, for practical purposes, as much a piece of software as the application installed on your computer.</p>
+
+<h2>The Database Ecosystem</h2>
+
+<p>The CVE system itself is just identifiers and descriptions. For deeper analysis, security professionals turn to the National Vulnerability Database, run by the National Institute of Standards and Technology.</p>
+
+<p>The NVD takes CVE entries and enriches them with additional data: severity scores using the Common Vulnerability Scoring System (a zero-to-ten scale that rates how dangerous a flaw is), links to patches and advisories, technical details about which software versions are affected, and metadata that enables automated security scanning.</p>
+
+<p>This layered architecture—CVE provides the identifiers, NVD provides the analysis—has become the foundation of the vulnerability management industry. Security scanning tools check your systems against the NVD to identify known flaws. Patch management systems reference CVE identifiers to track which fixes have been applied. Compliance frameworks require organizations to demonstrate they're addressing vulnerabilities within certain timeframes, measured by CVE.</p>
+
+<p>The Security Content Automation Protocol, developed by NIST, uses CVE as its core vocabulary. When your organization's security scanner produces a report, the findings are keyed to CVE identifiers. When a vendor releases a security bulletin, they reference the CVEs being addressed. The shared language makes the entire ecosystem function.</p>
+
+<h2>What Could Replace It</h2>
+
+<p>The April 2025 contract scare prompted serious discussion about the single point of failure the CVE system represents. What happens if MITRE's funding gets cut permanently? What happens if the US government decides the program isn't a priority?</p>
+
+<p>Some alternatives exist. The European Union has developed its own vulnerability database, though it relies heavily on CVE identifiers rather than replacing them. China maintains a separate National Vulnerability Database with its own numbering scheme. Various commercial and academic initiatives have tried to create competing or complementary systems.</p>
+
+<p>But network effects are powerful. Once everyone agrees to use CVE identifiers, switching costs become enormous. Every security tool would need updates. Every process and workflow would need revision. Every historical database would need cross-referencing. The CVE system has achieved the kind of infrastructural status where its continued operation is assumed by everyone who builds on top of it.</p>
+
+<p>The eleven-month contract extension that averted the April 2025 shutdown pushed the expiration date to March 2026. The fundamental funding question remains unresolved. A system that the entire global cybersecurity industry depends on continues operating one short-term extension at a time.</p>
+
+<h2>The Bigger Picture</h2>
+
+<p>The Common Vulnerabilities and Exposures system is a peculiar kind of infrastructure. It doesn't patch any vulnerabilities. It doesn't block any attacks. It doesn't detect any intrusions. All it does is ensure that when a security researcher in Helsinki and a systems administrator in São Paulo discuss a software flaw, they can be certain they're talking about the same thing.</p>
+
+<p>That coordination function turns out to be essential. Without a common language, the security community fragments. Information sharing becomes difficult. Tools become incompatible. The collective ability to respond to threats degrades.</p>
+
+<p>The next time you see a reference to a CVE number in a security advisory—or hear about a major vulnerability in the news—you're seeing the system at work. Someone discovered a flaw, someone assigned an identifier, someone wrote a description, and now everyone from individual users to multinational corporations can coordinate their response using a shared reference point.</p>
+
+<p>It's boring infrastructure. It's the kind of thing nobody thinks about until it nearly disappears. But like the domain name system or the global positioning satellites, the CVE program is one of those invisible foundations that modern digital life quietly depends on.</p>
       </div>
 
       <footer class="wikipedia-footer">

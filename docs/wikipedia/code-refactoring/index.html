@@ -22,7 +22,155 @@
       </header>
 
       <div class="wikipedia-content">
-        <p>Content not available.</p>
+        <p class="source-note">Based on <a href="https://en.wikipedia.org/wiki/Code_refactoring">Wikipedia: Code refactoring</a></p>
+
+<p>Imagine you've inherited a house. The plumbing works. The lights turn on. But the previous owner ran extension cords through the attic instead of proper wiring, built a bathroom by subdividing the kitchen, and installed a front door that opens directly into a bedroom. Everything <em>functions</em>, but living there is a daily exercise in frustration.</p>
+
+<p>Code refactoring is the art of renovating that house while the family still lives in it.</p>
+
+<h2>The Fundamental Promise</h2>
+
+<p>Here's what makes refactoring different from simply rewriting software: you change how the code is organized without changing what it does. The software behaves exactly the same way before and after. Users notice nothing. But developers? They breathe easier. The code becomes readable. Bugs have fewer places to hide. New features become possible.</p>
+
+<p>This distinction matters enormously. Rewriting means starting from scratch, which means reintroducing bugs you'd already fixed, losing edge cases you'd already handled, and spending months before you have anything that works. Refactoring means making things better incrementally, safely, one small improvement at a time.</p>
+
+<p>Think of it like editing a novel. You're not writing a new story—you're taking the story you have and making it clearer, tighter, more compelling. The plot stays the same. The prose gets better.</p>
+
+<h2>Why Bother?</h2>
+
+<p>Software has a peculiar tendency to decay. Not physically, of course—code doesn't rust or rot. But as teams add features, fix bugs, and respond to changing requirements, the original architecture gets stretched and bent in ways its designers never imagined. Methods that started short become long. Classes that had one responsibility accumulate five. Names that once made sense become mysterious artifacts of forgotten decisions.</p>
+
+<p>This accumulation has a name: technical debt.</p>
+
+<p>Like financial debt, technical debt isn't inherently bad. Sometimes borrowing makes sense. You ship faster by taking shortcuts, then pay down the debt later. But also like financial debt, technical debt charges interest. The messier your code, the longer every future change takes. Eventually you're spending all your time on interest payments—working around problems instead of solving them—and you can't ship new features at all.</p>
+
+<p>Refactoring is how you pay down that debt.</p>
+
+<h2>The Smell Test</h2>
+
+<p>How do you know when code needs refactoring? Experienced programmers talk about "code smells"—warning signs that something isn't quite right, even if it technically works.</p>
+
+<p>A method might be too long. Reading it feels like reading a short story when you wanted a paragraph. Your eyes glaze over. You lose track of what it's doing.</p>
+
+<p>Or you notice duplication. The same logic appears in two places, maybe three. Change one, and you have to remember to change the others. Forget, and you've introduced a bug that will haunt you months later.</p>
+
+<p>Maybe a class has grown bloated, handling user authentication <em>and</em> email formatting <em>and</em> database queries. It's become what programmers call a "god class"—omniscient, omnipresent, and impossible to test.</p>
+
+<p>These smells don't mean the code is broken. It runs fine. But the smells predict future pain. They're the code's way of telling you that maintenance is about to get expensive.</p>
+
+<h2>Small Steps, Big Changes</h2>
+
+<p>Refactoring works through tiny, mechanical transformations. You don't redesign everything at once. You make one small change, verify it didn't break anything, then make another small change. The cumulative effect transforms the codebase, but each individual step is almost trivially simple.</p>
+
+<p>Consider the "extract method" refactoring. You have a method that's fifty lines long and does three different things. You select the ten lines that handle validation, cut them out, paste them into a new method called <em>validateInput</em>, and replace the original lines with a call to that new method.</p>
+
+<p>That's it. One refactoring, done in thirty seconds.</p>
+
+<p>The code does exactly what it did before. But now you can read the original method and see its high-level structure at a glance. The validation logic has a name. You can test it independently. You can reuse it elsewhere.</p>
+
+<p>Other micro-refactorings include renaming a variable so its purpose becomes clear, moving a method to a class where it makes more sense, or replacing a series of conditional statements with polymorphism—letting different objects behave differently instead of checking types everywhere.</p>
+
+<p>Modern development environments automate many of these transformations. You click on a variable, select "rename," type the new name, and the tool updates every reference throughout your codebase. What would have been hours of tedious, error-prone manual editing becomes a few keystrokes.</p>
+
+<h2>The Safety Net</h2>
+
+<p>Here's the catch: how do you know your small changes didn't break anything?</p>
+
+<p>Automated tests.</p>
+
+<p>Before you refactor, you write tests that verify the code's current behavior. These tests are your safety net. After each small transformation, you run them. All green? Your refactoring preserved behavior. A test fails? You undo your last change and try a different approach.</p>
+
+<p>This creates a rhythm. Change, test, change, test. Each cycle takes seconds or minutes. You're never more than one small step away from working code. The fear of breaking things—which stops many programmers from improving their code—evaporates because you have constant verification that everything still works.</p>
+
+<p>But this rhythm only works if the tests run quickly. Wait ten minutes for your test suite, and you'll stop running it after every change. Wait an hour, and you'll only run it before committing. Wait a day, and you'll skip refactoring entirely because the feedback loop is unbearable.</p>
+
+<p>Fast tests enable fearless refactoring. Slow tests encourage code rot.</p>
+
+<h2>Prevention Versus Cure</h2>
+
+<p>An interesting debate exists about when refactoring should happen.</p>
+
+<p>Some advocate preventive refactoring—improving code before it starts to smell. The original author, while the code is fresh in their mind, restructures it to be more robust. They anticipate where complexity might accumulate and head it off.</p>
+
+<p>Others prefer corrective refactoring—waiting until code smells actually appear, then fixing them. Why spend effort preventing problems that might never materialize? Wait until the code actually hurts, then apply the cure.</p>
+
+<p>A hybrid approach splits the work. The original developer prepares code for easy refactoring—writing tests, keeping things modular—while later developers perform the actual refactoring when smells emerge. The person who wrote the code makes it refactorable. The person who maintains it decides what to refactor.</p>
+
+<p>There's wisdom in all three approaches. The right choice depends on the team, the codebase, and how certain you are about future requirements.</p>
+
+<h2>The Knowledge Problem</h2>
+
+<p>Refactoring has a hidden cost: knowledge.</p>
+
+<p>To refactor effectively, you need to understand what the code does, why it was written that way, and how it fits into the larger system. But software teams change. The person who wrote a module leaves. The documentation, if it existed, grows stale. Decisions that made perfect sense in context become mysteries.</p>
+
+<p>New team members face code that works but whose logic they don't fully grasp. They can see what it does—they can run it and observe the outputs—but they don't know why. Refactoring this code risks breaking assumptions they don't know exist.</p>
+
+<p>This is why refactoring sometimes requires archaeological work before the actual restructuring begins. You study the code. You read commit messages from years ago. You find the original developer, if they still work there, and ask questions. Only once you understand can you safely improve.</p>
+
+<p>Tools help. Software that analyzes code structure, maps dependencies, and visualizes data flow can recover some of the lost knowledge. But tools can't tell you why the code handles a specific edge case that a customer reported in 2019 and everyone has since forgotten.</p>
+
+<h2>Beyond Software</h2>
+
+<p>The concept of refactoring has spread beyond conventional programming.</p>
+
+<p>Hardware description languages—code that specifies how computer chips should be manufactured—can also be refactored. Engineers restructure these descriptions to make them compatible with synthesis tools, or simply to make complex circuits easier to understand. The manufactured chip behaves identically, but the design becomes more tractable.</p>
+
+<p>Database schemas get refactored too. Tables are split or merged, columns renamed, relationships restructured—all while preserving the data and maintaining the queries that depend on it. It's the same principle: improve the structure without changing the behavior.</p>
+
+<p>Even mathematics uses similar ideas. When mathematicians "factor out" common terms from an equation, they're restructuring the expression while preserving its meaning. The Forth programming community borrowed this mathematical language in the 1980s, talking about "factoring" code into smaller pieces long before the term "refactoring" became popular.</p>
+
+<h2>A Brief History</h2>
+
+<p>Programmers have informally restructured their code since programming began. But refactoring as a named practice with systematic techniques emerged in the early 1990s.</p>
+
+<p>William Opdyke and Ralph Johnson published the first known use of the term in 1990. Academic dissertations by William Griswold in 1991 and Opdyke in 1992 formalized the theory. These weren't new inventions—program transformation systems had existed for years—but they gave the practice a vocabulary and a catalog of techniques.</p>
+
+<p>The real explosion came in 1999 when Martin Fowler published <em>Refactoring: Improving the Design of Existing Code</em>. This book became the canonical reference. It cataloged dozens of refactoring techniques, each with a name, a description, and guidance on when to apply it. "Extract Method," "Move Field," "Replace Conditional with Polymorphism"—these became the standard vocabulary of the practice.</p>
+
+<p>The extreme programming movement embraced refactoring as an integral part of software development. Rather than designing everything up front and hoping it works, you build something simple, get feedback, and continuously refactor to improve the design. The code evolves toward good architecture instead of being born with it.</p>
+
+<h2>The Deeper Lesson</h2>
+
+<p>There's something almost philosophical about refactoring. It embodies the idea that quality isn't a destination but a continuous process. You don't design the perfect system and then maintain it unchanged forever. You start with something that works, then make it better, and better, and better still.</p>
+
+<blockquote>
+<p>By continuously improving the design of code, we make it easier and easier to work with. This is in sharp contrast to what typically happens: little refactoring and a great deal of attention paid to expediently add new features. If you get into the hygienic habit of refactoring continuously, you'll find that it is easier to extend and maintain code.</p>
+</blockquote>
+
+<p>That quote captures the essential tension. Every team faces pressure to add features, fix bugs, meet deadlines. Refactoring feels like it slows you down—you're working on code that already works, after all. The benefits are invisible. The costs are immediate.</p>
+
+<p>But the math changes over time. Teams that never refactor move fast at first, then slower, then barely at all. Teams that refactor continuously maintain their velocity. The investment compounds.</p>
+
+<p>Kent Beck, one of the pioneers of extreme programming, writes about "tidying"—small refactorings you do constantly, almost habitually, like keeping your desk clean. You don't schedule a major cleanup. You put things away as you go. The effort is minimal because you never let disorder accumulate.</p>
+
+<p>This connects to a deeper truth about complex systems. They don't fail suddenly. They decay gradually, one compromised decision at a time, until the accumulated weight of small shortcuts becomes crushing. Refactoring is the discipline of reversing that decay—of treating code not as a finished artifact but as a living thing that requires continuous care.</p>
+
+<h2>What Refactoring Is Not</h2>
+
+<p>Some clarifications help sharpen the concept.</p>
+
+<p>Refactoring is not debugging. When you fix a bug, you change the code's behavior—you make it do something it didn't do before. Refactoring explicitly preserves behavior. The bug that existed before exists after (until you fix it separately).</p>
+
+<p>Refactoring is not optimization. When you optimize, you might restructure code to run faster or use less memory. Sometimes this overlaps with refactoring. But optimization can also mean making code harder to read in exchange for performance. Refactoring aims for clarity.</p>
+
+<p>Refactoring is not rewriting. When you rewrite, you throw away the existing code and create new code that serves the same purpose. This sounds like refactoring but differs crucially: rewriting loses the accumulated knowledge embedded in the old code—all the edge cases handled, bugs fixed, and lessons learned. Refactoring preserves that knowledge while improving the structure.</p>
+
+<p>And refactoring is not a one-time event. Some teams schedule "refactoring sprints"—dedicated periods to clean up the codebase. This is better than nothing. But the teams that benefit most from refactoring do it continuously, as part of every task, always leaving the code a little better than they found it.</p>
+
+<h2>The Paradox of Perfection</h2>
+
+<p>There's a danger in refactoring: the pursuit of perfection.</p>
+
+<p>Some programmers refactor endlessly, chasing an ideal design that perpetually recedes. They restructure code that already works well, rename things that were already clear, abstract patterns that appear only once. They spend more time improving code than shipping features.</p>
+
+<p>This is refactoring as procrastination—using the noble pursuit of clean code to avoid the harder work of delivering value.</p>
+
+<p>Good refactoring serves a purpose. You refactor code you're about to modify, making it easier to add the feature you need. You refactor code that's causing bugs, making the logic clearer so you can find the problem. You refactor code that's slowing down the team, removing the friction that's costing hours every week.</p>
+
+<p>You don't refactor code that nobody will touch for the next year. You don't pursue theoretical elegance when practical adequacy serves. The goal isn't beautiful code for its own sake. The goal is code that lets you build what you need to build, as quickly and reliably as possible.</p>
+
+<p>Knowing when to stop is as important as knowing how to start.</p>
       </div>
 
       <footer class="wikipedia-footer">

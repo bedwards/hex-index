@@ -22,7 +22,127 @@
       </header>
 
       <div class="wikipedia-content">
-        <p>Content not available.</p>
+        <p class="source-note">Based on <a href="https://en.wikipedia.org/wiki/Network_address_translation">Wikipedia: Network address translation</a></p>
+
+<p>Right now, billions of devices are pretending to be someone else. Your laptop, your phone, your smart thermostat, your refrigerator that somehow needs internet access—all of them are hiding behind a single identity when they talk to the outside world. This isn't some shadowy conspiracy. It's network address translation, and it's the reason the internet didn't collapse under its own weight decades ago.</p>
+
+<h2>The Internet's Accidental Savior</h2>
+
+<p>Here's a number that should terrify you: 4.3 billion.</p>
+
+<p>That's roughly how many unique addresses the original internet protocol could hand out. When engineers designed Internet Protocol version 4 (IPv4) in the 1980s, 4.3 billion seemed impossibly large. The global population was around 4.4 billion people. Surely, the reasoning went, we'd never need more addresses than there were humans on Earth.</p>
+
+<p>They were catastrophically wrong.</p>
+
+<p>By 1992, just over a decade into the internet's existence, engineers realized they were headed toward a wall. Not because 4.3 billion people were online—they weren't even close—but because addresses weren't being used efficiently. Companies were grabbing huge blocks of addresses "just in case." Universities claimed millions of addresses for campuses with a few thousand computers. And then came the explosion: personal computers, laptops, phones, tablets, gaming consoles, smart televisions, security cameras, doorbells, light bulbs, refrigerators, and a seemingly infinite parade of devices all demanding their own spot on the network.</p>
+
+<p>The math became impossible. If every device needed its own globally unique address, the internet would have run out of room before most of us ever logged on.</p>
+
+<p>Network address translation was the hack that saved everything.</p>
+
+<h2>The Post Office Analogy</h2>
+
+<p>Imagine a large apartment building with hundreds of units but only one official street address. The building has a mailroom, and the mailroom clerk knows every resident by their apartment number. When a resident sends a letter, the clerk intercepts it, replaces the apartment number with the building's street address, and sends it on its way. When replies come back addressed to the building, the clerk checks their records, figures out which apartment should receive each letter, and delivers it internally.</p>
+
+<p>This is essentially what network address translation does for your home network.</p>
+
+<p>Your router sits at the boundary between your private network and the public internet. Inside your home, every device has a private address—something like 192.168.1.15 or 10.0.0.42. These private addresses are meaningless to the outside world. They're like apartment numbers: useful within the building, but you can't mail a letter to "Apartment 3B" without knowing which building it's in.</p>
+
+<p>When your laptop wants to load a webpage, it sends a request using its private address. Your router intercepts this request, rewrites the sender's address to be the router's public address (the one your internet service provider assigned you), and forwards it to the internet. The website sees only your router's public address. It has no idea your laptop exists.</p>
+
+<p>When the website responds, it sends data back to your router's public address. Your router checks its records, determines that this particular response should go to your laptop, rewrites the destination address, and passes it along. Your laptop receives the data, never knowing the gymnastics that occurred in between.</p>
+
+<h2>One Address to Rule Them All</h2>
+
+<p>The genius of network address translation lies in its economics. One public address can serve an entire network of devices. A household with twenty internet-connected gadgets needs only one public address. A corporation with ten thousand computers might use just a handful of public addresses for all their outbound traffic.</p>
+
+<p>This is why we didn't run out of internet addresses in 2005 or 2010 or 2015. Network address translation let us stretch those 4.3 billion addresses far beyond what seemed possible. It turned what should have been a crippling shortage into a manageable constraint.</p>
+
+<p>The technique became so widespread that it earned a more evocative name: IP masquerading. Your devices don't just share an address—they hide behind it, their true identities concealed from the broader internet. When you browse the web, the sites you visit see your router, not you.</p>
+
+<h2>The Port Problem</h2>
+
+<p>There's an obvious complication. If dozens of devices all share one public address, how does the router know which incoming data belongs to which device?</p>
+
+<p>The answer involves a concept called ports. Think of ports as extensions on a phone system. A company might have one main phone number, but employees have different extensions. When you call, you dial the main number and then the extension to reach the right person.</p>
+
+<p>Internet communications work similarly. Every connection involves not just an address but also a port number. Web traffic typically uses port 443 for secure connections. Email servers listen on port 465. When your laptop requests a webpage, it picks a temporary port number—say, 52847—to receive the response.</p>
+
+<p>Your router exploits this. When multiple devices make requests to the outside world, the router assigns each connection a unique port number on the public side. Device A might be assigned port 52847, device B gets port 52848, device C gets port 52849. The router maintains a translation table mapping these external port numbers to the correct internal devices.</p>
+
+<p>This approach—translating both addresses and ports—has several names. Engineers call it network address and port translation, or NAPT. It's also known as port address translation, abbreviated PAT. Most people just call it NAT and leave it at that, even though technically NAT and NAPT are slightly different things.</p>
+
+<p>By 2006, researchers estimated that roughly seventy percent of devices in peer-to-peer networks were hiding behind some form of network address translation. Today, that percentage is almost certainly higher. Most home networks, most coffee shop networks, most corporate networks—they all use NAT.</p>
+
+<h2>The Accidental Firewall</h2>
+
+<p>Network address translation was designed to solve an addressing problem, not a security problem. But it ended up providing a security benefit almost by accident.</p>
+
+<p>Here's why: NAT routers only know how to forward incoming traffic if they have a record of a corresponding outgoing request. If your laptop asked for a webpage, the router remembers that and knows to forward the response to your laptop. But if some random computer on the internet tries to connect to your laptop directly, the router has no idea what to do with that traffic. There's no record, no translation entry, no way to deliver it. The connection simply fails.</p>
+
+<p>This means devices behind NAT are essentially invisible to the outside world unless they initiate contact first. Unsolicited incoming connections get dropped. This provides a basic layer of protection against certain types of attacks—not a replacement for a real firewall, but a useful barrier nonetheless.</p>
+
+<p>Of course, this invisibility cuts both ways.</p>
+
+<h2>When Hiding Becomes a Problem</h2>
+
+<p>Imagine you want to host a video call with a friend. You're both sitting behind NAT routers. You want to send video directly to your friend, and your friend wants to send video directly to you. But neither of you has a publicly reachable address. You're both invisible.</p>
+
+<p>This is the NAT traversal problem, and it's the bane of any application that needs direct peer-to-peer communication. Video calls, voice calls, online gaming, file sharing—all of these work best when devices can talk directly to each other. But NAT makes that direct communication surprisingly difficult.</p>
+
+<p>The obvious solution is to route everything through a server that both parties can reach. You send your video to the server, the server forwards it to your friend. This works, but it's inefficient. The server becomes a bottleneck, adding latency and cost. For time-sensitive applications like voice and video, the extra delay can make conversations feel stilted and unnatural.</p>
+
+<p>Engineers developed clever workarounds. One common technique involves a third-party server that helps the two devices discover each other's external addresses and port numbers. Once both sides know how to reach each other, they can establish a direct connection—a technique called hole punching, because it effectively punches holes through the NAT barriers.</p>
+
+<p>The original protocol for this, specified in 2003, was called Simple Traversal of User Datagram Protocol over NATs, or STUN. It attempted to classify NAT devices into categories based on their behavior: full cone, restricted cone, port-restricted cone, and symmetric. These categories described how strictly the NAT enforced its rules about which external devices could send traffic to which internal ports.</p>
+
+<p>This classification scheme turned out to be too simplistic. Real-world NAT devices didn't fit neatly into these categories. Many combined behaviors in unexpected ways. The standard was eventually deprecated and replaced with updated methods in 2008, keeping the STUN acronym but changing its meaning to Session Traversal Utilities for NAT—a name that's somehow even less memorable than the original.</p>
+
+<h2>The Flavors of NAT</h2>
+
+<p>Not all network address translation works the same way. The differences matter enormously for applications trying to establish peer-to-peer connections.</p>
+
+<p>The simplest form is basic NAT, sometimes called one-to-one NAT. It simply swaps one address for another without involving ports. One private address maps to one public address. This is uncommon in home networks but useful in specific scenarios, like connecting two networks that happen to use overlapping address spaces.</p>
+
+<p>The more common form—the one running on your home router right now—uses port translation to let many devices share one public address. This is the many-to-one NAT that has become synonymous with the term NAT itself.</p>
+
+<p>Within this category, devices vary in how they handle the translation tables. Some NATs are permissive: once an internal device establishes any connection to the outside world, the NAT will forward incoming traffic from anywhere, as long as it's addressed to the right port. These are called endpoint-independent NATs. They're the easiest to traverse for peer-to-peer applications.</p>
+
+<p>Other NATs are stricter. They might only forward incoming traffic from addresses that the internal device has already contacted. Or they might only forward traffic from specific ports on those addresses. These address-dependent and port-dependent behaviors make NAT traversal progressively more difficult.</p>
+
+<p>The strictest NATs assign different external port numbers for each destination an internal device contacts. This symmetric behavior makes port prediction nearly impossible and poses the greatest challenges for peer-to-peer connectivity.</p>
+
+<p>Modern standards avoid the old cone-versus-symmetric terminology entirely, instead describing specific behaviors: mapping behaviors (how translations are created) and filtering behaviors (what incoming traffic is allowed). The recommended behavior for maximum compatibility is endpoint-independent mapping with address-dependent filtering—permissive enough to allow legitimate peer-to-peer connections while still providing some protection against unsolicited traffic.</p>
+
+<h2>The Infrastructure Implications</h2>
+
+<p>Understanding network address translation helps explain why scaling internet services to millions of concurrent users—like the Disney Hotstar streaming service—requires such careful infrastructure design.</p>
+
+<p>When sixty million people tune in to watch a cricket match simultaneously, each viewer's device is sitting behind some form of NAT. Their requests arrive at the streaming servers from shared public addresses, with port numbers that their routers assigned somewhat arbitrarily. The servers need to track these connections, respond to the correct addresses and ports, and do this for millions of concurrent sessions without losing track of who's who.</p>
+
+<p>This is manageable because NAT, despite its complexity, follows predictable rules. Responses go back to the same address and port from which requests originated. Connection tracking tables on both ends—the user's router and the server's load balancers—maintain state about active sessions. The system works because everyone follows the same dance.</p>
+
+<p>But NAT also explains why certain architectures don't work at scale. Direct peer-to-peer streaming, where viewers might share content directly with each other to reduce server load, becomes vastly more complicated when most viewers can't directly reach each other. Every peer-to-peer connection requires NAT traversal, which might involve STUN servers, relay servers for cases where direct connectivity is impossible, and fallback mechanisms for the inevitable edge cases.</p>
+
+<h2>Living on Borrowed Time</h2>
+
+<p>Network address translation was explicitly described as a short-term solution when it was first standardized in 1994. The Internet Engineering Task Force called it a temporary measure while a permanent fix—a new version of the internet protocol with vastly more addresses—was developed and deployed.</p>
+
+<p>That permanent fix, Internet Protocol version 6 (IPv6), has been ready for decades. IPv6 uses 128-bit addresses instead of IPv4's 32 bits. This provides roughly 340 undecillion unique addresses—a number so large that every atom on Earth's surface could have its own address with room to spare.</p>
+
+<p>Yet here we are, thirty years later, and most internet traffic still runs on IPv4, still relies on NAT, still treats a hack from 1994 as critical infrastructure.</p>
+
+<p>The transition to IPv6 has been glacially slow for economic reasons. NAT works well enough. The pain of address exhaustion, while real, has been distributed and manageable rather than catastrophic. Upgrading network equipment, training staff, updating software—all of this costs money. When the alternative is free (just keep using NAT), inertia wins.</p>
+
+<p>But the costs of NAT aren't zero. Peer-to-peer applications are harder to build. Real-time communications require complex traversal mechanisms. Security analysis becomes more complicated when addresses are rewritten in transit. Some protocols simply don't work through NAT without significant modification.</p>
+
+<p>The internet has been running on borrowed address space for three decades now, stretched thin by a clever hack that was never meant to last. Network address translation is simultaneously one of the great successes of internet engineering—a pragmatic solution that kept the network running when it might have collapsed—and one of its great limitations, a layer of complexity that applications must navigate and that IPv6 was explicitly designed to eliminate.</p>
+
+<p>Every time you open your laptop and connect to a website, you're participating in this massive, ongoing deception. Your device pretends to be your router. Your router pretends that all of your household's devices are a single entity. The websites you visit have no idea how many devices are really behind your single public address. And somehow, improbably, it all works.</p>
+
+<p>At least until it doesn't. And when it doesn't—when NAT traversal fails, when peer-to-peer connections can't be established, when some legacy protocol assumes everyone has a real public address—you're reminded that the internet we rely on is held together by ingenious workarounds layered on top of other ingenious workarounds, all because we underestimated how many devices would want to talk to each other.</p>
+
+<p>4.3 billion addresses. It seemed like so many at the time.</p>
       </div>
 
       <footer class="wikipedia-footer">

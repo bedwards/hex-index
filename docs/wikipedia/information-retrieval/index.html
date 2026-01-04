@@ -22,7 +22,161 @@
       </header>
 
       <div class="wikipedia-content">
-        <p>Content not available.</p>
+        <p class="source-note">Based on <a href="https://en.wikipedia.org/wiki/Information_retrieval">Wikipedia: Information retrieval</a></p>
+
+<h2>The Impossible Problem That Powers Your Daily Life</h2>
+
+<p>Every time you type a question into Google, you're asking a computer to do something that sounds simple but is actually extraordinarily difficult: find exactly what you're looking for among billions of possibilities, in less than a second, even when you haven't expressed your need very clearly.</p>
+
+<p>This is information retrieval—and understanding how it works reveals one of the most fascinating intellectual journeys in computing history.</p>
+
+<p>Think about what you're really asking. You type a few words. The system doesn't know if you want a definition, a how-to guide, recent news, or something to buy. It doesn't know your expertise level. It doesn't know if you made a typo. And yet, somehow, it usually gives you something useful on the first page.</p>
+
+<p>How?</p>
+
+<h2>The Core Problem: Relevance Is Subjective</h2>
+
+<p>Information retrieval differs fundamentally from the kind of database searching most people imagine computers doing. When you query a traditional database—say, "show me all customers in New York"—you get an exact answer. Either a customer is in New York or they aren't. The computer matches your query precisely and returns everything that fits.</p>
+
+<p>Information retrieval works nothing like this.</p>
+
+<p>When you search for "best way to learn guitar," there's no objective truth about which documents are "correct" answers. Thousands of web pages might be relevant—but relevant to different degrees, for different reasons, for different people. Some beginners want video tutorials. Some want structured courses. Some want to know which guitar to buy first.</p>
+
+<p>This is why search engines rank results rather than just returning them. The ranking is everything. A search engine that returns a million relevant documents but puts the best ones on page forty is useless. Information retrieval is fundamentally about ordering—deciding that this result should come before that one.</p>
+
+<p>And here's what makes it genuinely hard: the system has to make these judgments based only on the words you typed and the words in the documents. It has to guess what you meant, guess what would satisfy you, and guess how thousands of different documents relate to your unstated needs.</p>
+
+<h2>A Brief History of Finding Things</h2>
+
+<p>The dream of automated information retrieval is older than computers themselves.</p>
+
+<p>In 1945, Vannevar Bush—a science administrator who had coordinated much of America's World War II research—published a famous essay called "As We May Think." Bush imagined a device he called the Memex: a desk with screens and a keyboard that would let scholars browse through vast libraries of microfilmed documents, creating trails of links between related materials.</p>
+
+<p>Bush was imagining something like the web, fifty years early.</p>
+
+<p>But Bush wasn't even the first. In the 1920s and 1930s, an inventor named Emanuel Goldberg had actually built a working "Statistical Machine" that could search through documents stored on film. His device used photoelectric cells—early light sensors—to recognize patterns on microfilm and find relevant documents. Goldberg's patents may have directly inspired Bush's thinking.</p>
+
+<p>The actual birth of computer-based retrieval came in 1948, when researchers first described using the UNIVAC—one of the earliest commercial computers—to search for information. By the 1950s, the field was taking shape. These early systems appeared in unexpected places: the 1957 romantic comedy "Desk Set" featured Katherine Hepburn and Spencer Tracy arguing about whether a computer could replace reference librarians. The computer in the film was a fictional information retrieval system.</p>
+
+<p>The 1960s brought the first serious academic research. Gerard Salton at Cornell University built a research group that would define the field for decades. They developed the vector space model—a mathematical framework for thinking about how documents relate to queries—that still influences search systems today.</p>
+
+<h2>The Web Changes Everything</h2>
+
+<p>For decades, information retrieval was a specialized concern. Libraries used it. Legal researchers used it. Intelligence agencies used it. Most people never encountered these systems directly.</p>
+
+<p>Then came the web.</p>
+
+<p>Suddenly, there were millions of documents that anyone might want to search. Early web search engines like AltaVista and Yahoo appeared in the mid-1990s. They worked—sort of. You could find things. But as the web exploded in size, their limitations became painful. They relied on counting keywords, which meant clever website owners could game the rankings by stuffing pages with repeated terms.</p>
+
+<p>In 1998, two Stanford graduate students named Larry Page and Sergey Brin founded Google with a breakthrough insight: the structure of the web itself contained information about what was important.</p>
+
+<p>Their innovation, PageRank, treated each hyperlink as a vote of confidence. If many pages linked to a particular page, that page was probably important. If important pages linked to it, that was an even stronger signal. This wasn't about the words on the page—it was about what the entire web collectively "thought" about that page.</p>
+
+<p>PageRank worked remarkably well. Google's results felt almost magical compared to competitors. The company grew to dominate web search within just a few years.</p>
+
+<h2>Beyond Keywords: Teaching Computers to Understand</h2>
+
+<p>For most of search engine history, the fundamental approach was keyword matching. The computer looked for documents containing the words you typed. Clever techniques made this work better—accounting for synonyms, weighting rare words more heavily, considering where words appeared on a page—but the basic operation was matching strings of text.</p>
+
+<p>This created a persistent problem: you had to guess the right words.</p>
+
+<p>If you searched for "how to fix a running toilet" but a helpful article used the phrase "repair a toilet that won't stop running," traditional systems might miss it. The meaning was identical. The words weren't.</p>
+
+<p>The 2010s brought a revolution. Researchers developed neural networks—computing systems loosely inspired by biological brains—that could learn to represent meaning rather than just match words.</p>
+
+<p>The breakthrough moment came in 2018 when Google deployed a system called BERT—which stands for Bidirectional Encoder Representations from Transformers. The name is technical, but the idea is profound: BERT reads text the way humans do, considering how each word relates to all the other words around it.</p>
+
+<p>Consider the word "bank." In "river bank" it means one thing. In "bank account" it means another. Traditional keyword systems treated "bank" as "bank" regardless of context. BERT understands the difference because it processes words in relation to their surroundings.</p>
+
+<p>This was one of the first times that deep learning—the technology behind recent artificial intelligence breakthroughs—was used at massive scale in a production search system. The results were dramatic. Google reported that BERT improved their understanding of about 10% of English queries, particularly longer, more conversational searches.</p>
+
+<h2>Three Ways to Find What You're Looking For</h2>
+
+<p>Modern information retrieval systems fall into three broad categories, each with distinct strengths and weaknesses.</p>
+
+<p>Sparse models are the traditional approach. They represent documents and queries as lists of words, with numbers indicating how important each word is. A document about "climate change" might be represented as: climate (0.8), change (0.6), temperature (0.4), global (0.3), and so on for every word it contains. These representations are "sparse" because most words in the language don't appear in any given document, so most values are zero.</p>
+
+<p>The classic example is something called TF-IDF, which stands for Term Frequency-Inverse Document Frequency. The idea is elegant: words that appear frequently in a document but rarely across all documents are probably important for understanding what that document is about. If a document mentions "photosynthesis" twenty times, and most documents never mention it at all, then "photosynthesis" is likely central to that document's meaning.</p>
+
+<p>Sparse models are fast. Computers have been optimizing them for decades. They're interpretable—you can see exactly which words caused a match. But they're limited to the words that actually appear. They can't bridge the gap between different ways of expressing the same idea.</p>
+
+<p>Dense models take a radically different approach. Instead of representing documents as word lists, they compress the entire meaning of a document into a dense vector—a list of perhaps 768 or 1024 numbers that somehow capture what the document is about.</p>
+
+<p>This sounds strange. How can 768 numbers capture the meaning of an entire article?</p>
+
+<p>The answer is that neural networks learn these representations by processing enormous amounts of text. They learn that documents about similar topics should have similar vectors, even if they use completely different words. A document about "automobile repair" and one about "fixing your car" end up with vectors that are mathematically close together, even though they share few words.</p>
+
+<p>Dense models can find conceptually similar documents that share no vocabulary at all. Their weakness is computational cost—comparing dense vectors is more expensive than looking up words in an index—and interpretability. You can't easily explain why a dense model thought two documents were related.</p>
+
+<p>Hybrid models try to combine the best of both approaches. They might use sparse retrieval to quickly find candidate documents, then re-rank those candidates using dense models. Or they might combine scores from both approaches. The field is still working out the best ways to merge these complementary strengths.</p>
+
+<h2>How Do We Know If Search Is Working?</h2>
+
+<p>Evaluating information retrieval systems is surprisingly tricky. What does it even mean for a search result to be "correct"?</p>
+
+<p>The traditional approach uses two complementary measures: precision and recall.</p>
+
+<p>Precision asks: of the results the system returned, what fraction were actually relevant? If you search and get ten results, but only three are useful, that's 30% precision.</p>
+
+<p>Recall asks the opposite question: of all the relevant documents that exist, what fraction did the system find? If there are a hundred documents that would help you, but the system only surfaced twenty of them, that's 20% recall.</p>
+
+<p>These measures are in tension. You can achieve perfect recall by returning everything—every document is shown, so no relevant document is missed. But your precision would be terrible. You can achieve high precision by being extremely conservative—only returning results you're absolutely certain about—but you'll miss many relevant documents.</p>
+
+<p>Real systems navigate this tradeoff differently depending on their purpose. A legal research system where missing a relevant case could be malpractice might prioritize recall. A web search engine where users scan the first few results might prioritize precision at the top of the rankings.</p>
+
+<p>Since 1992, a conference called TREC—the Text REtrieval Conference—has been running systematic evaluations of retrieval systems. Researchers test their systems on shared datasets with human-judged relevance labels. This common benchmark has been crucial for the field's progress, letting researchers fairly compare approaches and identify what actually works.</p>
+
+<p>More recently, a dataset called MS MARCO (which stands for Microsoft MAchine Reading COmprehension) has become central to training and evaluating neural retrieval systems. It contains millions of real queries from Bing search, with human-annotated relevant passages. The sheer scale of MS MARCO made it possible to train the deep learning models that now power modern search.</p>
+
+<h2>Beyond Web Search</h2>
+
+<p>While web search is the most visible application of information retrieval, the techniques appear everywhere.</p>
+
+<p>Legal professionals use specialized retrieval systems to find relevant case law and statutes. These systems face a distinctive challenge: legal language is precise and archaic, with specific terms that mean very different things than in everyday English. A "motion" in law isn't movement. An "instrument" isn't musical.</p>
+
+<p>Medical researchers search databases of scientific papers to find relevant studies. Here, the stakes of missing relevant information can be life and death—a treatment approach buried in an obscure paper could save patients.</p>
+
+<p>Genomics researchers search for patterns in DNA sequences. The "documents" aren't text at all—they're strings of genetic code—but the fundamental retrieval problem is the same: finding the sequences most relevant to a particular query.</p>
+
+<p>Even email spam filtering is a retrieval problem in disguise. The system must decide whether each incoming message is relevant to the category "spam" or the category "legitimate email."</p>
+
+<p>Recommendation systems, whether suggesting videos to watch or products to buy, use retrieval techniques extensively. When Netflix shows you movies you might like, it's retrieving from a vast collection based on an implicit query—your viewing history and preferences.</p>
+
+<h2>The Mathematics of Meaning</h2>
+
+<p>Under the hood, information retrieval relies on some elegant mathematical ideas.</p>
+
+<p>The vector space model, developed in the 1960s, treats documents and queries as points in a high-dimensional space. Each dimension corresponds to a possible word or concept. A document's position in this space represents its content.</p>
+
+<p>In this framework, similarity becomes geometric. Two documents are similar if they're close together in the space. A query is a point too, and retrieval means finding the documents closest to the query point. The mathematics of distance and angle—the same geometry you learned in school, but extended to thousands of dimensions—drives the ranking.</p>
+
+<p>Probabilistic models take a different approach. They treat retrieval as a question of probability: given this query, what's the probability that this document is relevant? These models use Bayes' theorem—a fundamental law of probability—to estimate relevance from observable features like word frequencies.</p>
+
+<p>The famous BM25 ranking function, still widely used, comes from this probabilistic tradition. Its formula might look intimidating, but the intuition is straightforward: documents are more relevant if they contain the query terms, especially if those terms are rare across the collection, but there's diminishing returns to repeating terms, and longer documents need adjustment because they naturally contain more words.</p>
+
+<p>Modern neural approaches learn representations end-to-end from data. Rather than having humans specify what makes documents similar, these systems discover patterns by processing millions of examples. The resulting representations often capture subtle semantic relationships that hand-crafted formulas miss.</p>
+
+<h2>The Challenges Ahead</h2>
+
+<p>As information retrieval systems have grown more powerful, new concerns have emerged.</p>
+
+<p>Bias in search results can shape public discourse. If a search engine's ranking algorithm systematically promotes certain viewpoints or demotes others, it influences what millions of people read and believe. These biases can emerge subtly from training data—if the documents used to train a system reflect historical inequities, the system may perpetuate them.</p>
+
+<p>Explainability has become increasingly important. When a dense neural model decides that one document is more relevant than another, it's difficult to explain why. The decision emerges from millions of learned parameters in ways that resist human interpretation. For applications where decisions must be justified—legal research, medical information, hiring systems—this opacity is problematic.</p>
+
+<p>The rise of generative artificial intelligence creates new complexities. Systems like ChatGPT don't just retrieve existing documents—they generate new text. But that text is synthesized from retrieved information. The line between retrieval and generation is blurring, raising questions about attribution, accuracy, and trust.</p>
+
+<p>The web itself is changing in ways that challenge traditional retrieval. Social media posts, encrypted messaging, and content locked behind paywalls are all harder to index. Misinformation spreads rapidly and is often optimized to be found. Video and audio content contains information that text-based systems struggle to access.</p>
+
+<h2>From Science Fiction to Science Fact</h2>
+
+<p>Vannevar Bush's 1945 vision of a machine that could help scholars navigate vast libraries has been realized far beyond anything he imagined. The challenge he identified—that "there may be millions of fine thoughts, and the account of the experience on which they are based, all encased within stone walls of acceptable architectural form; but if the scholar can find the one pertinent item only by means of an exhaustive search, his syntheses are not likely to keep up with the current scene"—has been addressed on a scale he couldn't have conceived.</p>
+
+<p>Today, a child with a smartphone can search the world's information in milliseconds. That ability, so routine it's become invisible, represents decades of mathematical innovation, engineering effort, and accumulated insight about how meaning can be captured, compared, and ranked.</p>
+
+<p>Information retrieval sits at the intersection of language and mathematics, human needs and computational capabilities. Every search query is a small miracle—a few words translated into a mathematical representation, compared against billions of documents, and ranked in an order that somehow usually helps. The field continues to evolve, driven by new techniques in artificial intelligence and new challenges from an ever-changing information landscape.</p>
+
+<p>The next time you search for something and find it, take a moment to appreciate the decades of invisible work that made that possible. Finding things is hard. Computers are getting remarkably good at it.</p>
       </div>
 
       <footer class="wikipedia-footer">

@@ -27,9 +27,10 @@
         </div>
       </header>
 
+      
+
       <div class="article-excerpt">
-        <p></p>
-        <div class="excerpt-fade"></div>
+        <p>We discussed the history of Nvidia’s CUDA in <a href="https://thechipletter.substack.com/p/happy-18th-birthday-cuda">Happy 18th Birthday CUDA!</a></p><p>Let’s recap how Wikipedia <a href="https://en.wikipedia.org/wiki/CUDA">defines</a> CUDA. It’s:</p><blockquote><p>… a software layer that gives direct access to the GPU's virtual instruction set and parallel computational elements for the execution of compute kernels. In addition to drivers and runtime kernels, the CUDA platform includes compilers, libraries and developer tools to help programmers accelerate their applications.</p></blockquote><p>So CUDA sits on top of, what Wikipedia calls, the GPU’s <em><strong>virtual instruction set</strong></em>. </p><p>Nvidia call this virtual instruction set <strong>PTX</strong> for <strong>Parallel Thread eXecution</strong>. PTX has been in the news because DeepSeek highlighted their use of PTX in their <a href="https://arxiv.org/pdf/2412.19437">technical report</a> on their R3 Large Language Model.</p><p>Here’s Ben Thompson of Stratechery <a href="https://stratechery.com/2025/deepseek-faq/">commenting</a> on DeepSeek’s use of PTX:</p><blockquote><p>Here’s the thing: a huge number of the innovations I explained above are about overcoming the lack of memory bandwidth implied in using H800s instead of H100s. Moreover, if you actually did the math on the previous question, you would realize that DeepSeek actually had an excess of computing; that’s because DeepSeek actually programmed 20 of the 132 processing units on each H800 specifically to manage cross-chip communications. <em>This is actually impossible to do in CUDA.</em> DeepSeek engineers had to drop down to PTX, a low-level instruction set for Nvidia GPUs that is basically like assembly language. This is an insane level of optimization that only makes sense if you are using H800s.</p></blockquote><p>So Ben calls use of PTX an ‘<em><strong>insane level of optimization</strong></em>’ that does things that are ‘<em><strong>impossible to do in CUDA’</strong></em>.</p><p>So what’s PTX all about and just what is a ‘virtual instruction set’? And, perhaps, most intriguingly, why has Nvidia decided to use PTX rather than a real instruction set? In this post we’ll set out to understand why.</p><h4>The Origins of Virtual Instruction Sets</h4><p>The earliest programs on modern computers were written first in machine code and then in what we now call assembly language. Use of these ‘low level' languages was both inefficient and error prone, so soon led to the development of ‘high level’ languages which a compiler converted to machine code.</p><p>This also enabled a greater level of portability between machines. In theory code written in Fortran, for example, would then run on computers from IBM, Univac, GE or a number of other firms.</p><p>However, even this wasn’t ideal. In the 1950s ...</p>
       </div>
 
       <div class="read-full-article">
@@ -41,8 +42,6 @@
           Full article content is available on the original publication.
         </p>
       </div>
-
-      
     </article>
   
   </main>

@@ -22,7 +22,123 @@
       </header>
 
       <div class="wikipedia-content">
-        <p>Content not available.</p>
+        <p class="source-note">Based on <a href="https://en.wikipedia.org/wiki/Expert_system">Wikipedia: Expert system</a></p>
+
+<h2>The Machines That Tried to Think Like Doctors</h2>
+
+<p>In 1972, a computer program at Stanford University began diagnosing blood infections. It asked questions, considered symptoms, and recommended antibiotics—sometimes more accurately than the physicians who created it. The program was called MYCIN, and it represented one of humanity's first serious attempts to bottle expertise.</p>
+
+<p>This wasn't science fiction. This was working software.</p>
+
+<p>MYCIN belonged to a category of artificial intelligence called expert systems—programs designed to capture the decision-making ability of human specialists and make it available on demand. For about two decades, from the 1970s through the 1990s, expert systems were the most successful form of AI that existed. They were deployed in hospitals, banks, oil rigs, and factories. Fortune 500 companies couldn't get enough of them. Japan launched an entire national initiative around them.</p>
+
+<p>Then, seemingly overnight, they vanished from the conversation. The technology didn't disappear—it evolved, fragmented, and dissolved into the infrastructure of modern software. But to understand where AI came from, and why the current wave of neural networks feels so different, you need to understand what expert systems were trying to do and why they eventually hit a wall.</p>
+
+<h2>The Dream of Captured Expertise</h2>
+
+<p>The fundamental insight behind expert systems was deceptively simple: human experts know things, and that knowledge can be written down as rules.</p>
+
+<p>A doctor diagnosing an infection might think: "If the patient has a fever above 101 degrees, and their white blood cell count is elevated, and they recently had surgery, then consider a post-operative infection." That's an if-then rule. Stack up enough of those rules, and you've captured meaningful medical knowledge.</p>
+
+<p>This approach had a name: knowledge-based systems. The idea was that intelligent behavior comes not from clever algorithms but from having the right knowledge. Edward Feigenbaum, who led the Stanford team and is sometimes called the father of expert systems, put it bluntly: intelligent systems derive their power from the knowledge they possess, not from the specific methods they use to reason with it.</p>
+
+<p>This was a radical claim in the 1960s and 1970s. Previous AI research had focused on creating general-purpose problem solvers—programs that could tackle any challenge through pure reasoning power. Allen Newell and Herbert Simon, two giants of early AI, had spent years trying to build such universal thinkers. Feigenbaum was saying: forget generality, embrace specificity. A program that knows a lot about blood infections will be more useful than one that knows a little about everything.</p>
+
+<h2>The Anatomy of an Expert System</h2>
+
+<p>Every expert system had the same basic architecture, two components working in tandem.</p>
+
+<p>First, the knowledge base. This was a structured collection of facts and rules about the domain. In MYCIN's case, it contained hundreds of rules about infectious diseases, the organisms that cause them, and the antibiotics that treat them. Each rule captured one small piece of medical reasoning.</p>
+
+<p>Second, the inference engine. This was the machinery that applied those rules to specific situations. Feed it information about a patient, and it would chain through the rules, drawing conclusions, until it arrived at a diagnosis and treatment recommendation.</p>
+
+<p>The separation was deliberate and elegant. You could swap out the knowledge base entirely—remove the medical rules, insert legal rules—and use the same inference engine for a completely different domain. This modularity spawned an industry of "expert system shells," frameworks that provided the reasoning machinery while waiting to be filled with domain knowledge.</p>
+
+<p>But the real innovation was something less obvious: explanation.</p>
+
+<p>Because the system's reasoning was made of explicit rules, it could show its work. Ask MYCIN why it recommended a particular antibiotic, and it could trace back through the rules that fired, presenting them as a logical chain. "I recommended this antibiotic because the infection appears bacterial, and this organism is sensitive to this drug, and the patient has no known allergies." The reasoning was transparent.</p>
+
+<p>This mattered enormously in medicine, where doctors needed to understand and trust the system's recommendations before acting on them. It also mattered philosophically. Expert systems weren't black boxes. They were, in principle, inspectable and accountable.</p>
+
+<h2>Forward and Backward</h2>
+
+<p>The inference engine could work in two directions, and the choice mattered.</p>
+
+<p>Forward chaining started with facts and asked: what conclusions can we draw? You tell the system that Socrates is a man. The system knows a rule: all men are mortal. Therefore, the system concludes that Socrates is mortal. One fact triggers another, cascading forward.</p>
+
+<p>Backward chaining worked in reverse. It started with a question—is Socrates mortal?—and worked backward to find supporting evidence. The system would think: to prove Socrates is mortal, I need to prove he's a man. Is he? Let me check. If the knowledge base didn't contain the answer, the system could simply ask the user: "Is Socrates a man?"</p>
+
+<p>This backward chaining was powerful for diagnosis. A medical system trying to determine if a patient had a particular disease would work backward: what evidence would I need to conclude this? Do I have that evidence? If not, what tests should I order?</p>
+
+<p>The user interface emerged naturally from this architecture. The system could present questions in logical order, gathering exactly the information it needed, skipping irrelevant inquiries. It felt like a conversation with a knowledgeable specialist who knew which questions to ask next.</p>
+
+<h2>The Golden Age</h2>
+
+<p>By the 1980s, expert systems had become a phenomenon.</p>
+
+<p>Universities established entire courses around the technology. Two-thirds of Fortune 500 companies were using expert systems in their daily operations. Venture capital poured into startups building expert system tools. Japan's Ministry of International Trade and Industry launched the Fifth Generation Computer Systems project, a ten-year national initiative aiming to create computers that could perform human-like reasoning—with expert systems at the core of their vision.</p>
+
+<p>The technology found applications everywhere. In 1982, a program called SID—Synthesis of Integral Design—was used to design the logic gates for Digital Equipment Corporation's VAX 9000 computer. Fed rules created by expert chip designers, SID generated 93 percent of the processor's logic. In some cases, the program produced designs that outperformed what its human creators would have made. The combination of rules, it turned out, could exceed the sum of its parts.</p>
+
+<p>Oil companies used expert systems to interpret geological data when searching for drilling sites. Banks used them to evaluate loan applications. Manufacturers used them to configure complex products. The technology seemed destined to transform every industry that relied on specialized knowledge.</p>
+
+<p>And then, almost as quickly as it had risen, the expert systems industry collapsed.</p>
+
+<h2>Why They Failed (And Why They Didn't)</h2>
+
+<p>What happened depends on who you ask.</p>
+
+<p>One narrative says expert systems simply couldn't deliver on their promises. The technology was overhyped, the systems were brittle, and when the AI winter arrived in the late 1980s—a period of deflated expectations and withdrawn funding—expert systems froze along with everything else.</p>
+
+<p>There's truth in this. Building an expert system turned out to be brutally hard. You needed a knowledge engineer—someone who could interview human experts, extract their reasoning, and translate it into formal rules. This process was slow, expensive, and surprisingly difficult. Experts often couldn't articulate why they made decisions. Their knowledge was intuitive, built from years of experience, and resisted being captured in neat if-then statements.</p>
+
+<p>The systems were also fragile. Give them a situation slightly outside their training, and they would produce nonsense with perfect confidence. They had no common sense, no ability to recognize when they were out of their depth. A medical expert system that knew everything about blood infections might recommend antibiotics for a broken leg, simply because it had no rules telling it otherwise.</p>
+
+<p>Richard Karp's work on computational complexity cast a long shadow here. In 1972, Karp published a landmark paper showing that certain categories of problems were fundamentally hard—not just difficult with current technology, but provably intractable for any algorithm. Some of the reasoning tasks that expert systems needed to perform fell into these categories. There were limits to what rule-based reasoning could achieve, and researchers were bumping against them.</p>
+
+<p>But there's another narrative, the opposite one: expert systems were victims of their own success.</p>
+
+<p>The concepts underlying expert systems—rule engines, knowledge bases, inference—didn't disappear. They migrated into mainstream software development. Today, every major enterprise software platform includes a business rules engine. When you apply for a credit card online and get an instant decision, a descendant of expert system technology is evaluating your application. When a hospital's electronic health record flags a dangerous drug interaction, it's using the same fundamental approach: rules encoding expert knowledge, an engine that applies them.</p>
+
+<p>Expert systems didn't fail. They became so successful that they stopped being special.</p>
+
+<h2>The Knowledge Acquisition Bottleneck</h2>
+
+<p>The deepest problem was philosophical as much as practical.</p>
+
+<p>Expert systems assumed that expertise could be captured as explicit rules. But human cognition doesn't work that way. When a chess grandmaster looks at a board, they don't consciously apply rules. They see patterns, feel intuitions, recognize situations from thousands of past games. Their expertise is implicit, embodied in their neural architecture rather than articulated in their conscious reasoning.</p>
+
+<p>Hubert Dreyfus, a philosopher who had criticized AI since the 1960s, argued that this knowledge acquisition bottleneck was fundamental. You couldn't build a thinking machine by writing rules because human thinking wasn't rule-following in the first place. Skill, he insisted, came from experience, from being embedded in situations, from having a body and a history—none of which could be translated into formal logic.</p>
+
+<p>The expert systems community had responses to Dreyfus, but his critique landed harder as the years passed. Machine learning offered an alternative: instead of trying to write rules by hand, let the computer discover patterns from data. Neural networks could learn from examples the way humans learned from experience. They developed implicit knowledge that resisted explicit articulation—just like human experts.</p>
+
+<p>This is the technology that eventually eclipsed expert systems. Modern AI systems—the large language models, the image recognizers, the game-playing programs—learn from data rather than being programmed with rules. They're trained, not built. And they suffer from the opposite problem: they can't explain their reasoning because they don't reason in rules. They're black boxes, opaque in a way that MYCIN never was.</p>
+
+<h2>What We Lost</h2>
+
+<p>There's something melancholy about the fate of expert systems.</p>
+
+<p>They represented a particular vision of AI—one where machine intelligence would be transparent, explicable, and accountable. When MYCIN recommended an antibiotic, you could ask why and get a sensible answer. When a modern neural network makes a medical recommendation, the reasoning is locked inside millions of numerical weights, beyond human interpretation.</p>
+
+<p>Expert systems also represented a particular relationship between humans and machines. The knowledge engineer's job was to interview experts, understand their reasoning, and preserve it in software. The goal was collaboration, translation, the careful transfer of human wisdom into permanent form. There was humility in this approach: the machine was a container for human knowledge, not a replacement for human thinking.</p>
+
+<p>Today's AI feels different. Language models learn from the entire internet, absorbing patterns no individual human understands. They produce insights that emerge from data rather than being programmed by people. They're more powerful in many ways, but they're also more alien.</p>
+
+<p>The expert systems era lasted only about two decades, but it shaped the vocabulary we still use. Knowledge base, inference engine, rule-based reasoning—these concepts entered software engineering and never left. And the central question that expert systems tried to answer—how do you capture and deploy human expertise?—remains as urgent as ever.</p>
+
+<p>The next time you're asked a series of careful questions by an automated system, one query leading logically to the next, know that you're experiencing the legacy of programs that tried, forty years ago, to bottle the wisdom of doctors, lawyers, and engineers. They didn't quite succeed. But they didn't quite fail either.</p>
+
+<h2>The Shape of Intelligence</h2>
+
+<p>Expert systems taught us something important about the shape of artificial intelligence.</p>
+
+<p>There isn't just one kind of AI, one approach to machine intelligence. There's a whole landscape of possibilities, each with trade-offs. Rule-based systems are transparent but brittle. Neural networks are flexible but opaque. Hybrid approaches try to combine the virtues while avoiding the vices.</p>
+
+<p>The history of expert systems is a reminder that the current approach isn't the only approach. Fashions in AI change. The techniques that dominate today may be absorbed, combined, or supplanted tomorrow. The field is still young, still searching for the right shapes to give our thinking machines.</p>
+
+<p>MYCIN still works, in principle. You could dust off the code—if you could find a machine to run it on—and it would still diagnose blood infections using the same rules it learned in 1972. The knowledge it contains hasn't changed. What's changed is everything around it: the computers, the software ecosystems, the expectations about what intelligence means.</p>
+
+<p>The rules remain. It's the world that moved on.</p>
       </div>
 
       <footer class="wikipedia-footer">

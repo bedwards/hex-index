@@ -22,7 +22,111 @@
       </header>
 
       <div class="wikipedia-content">
-        <p>Content not available.</p>
+        <p class="source-note">Based on <a href="https://en.wikipedia.org/wiki/Open_thread">Wikipedia: Thread (online communication)</a></p>
+
+<h2>The Invention That Made the Internet Readable</h2>
+
+<p>Imagine trying to follow a conversation at a party where everyone's comments were arranged not by who they were responding to, but purely by the time they spoke. Someone answers a question asked twenty minutes ago, but their response appears sandwiched between two completely unrelated exchanges about the weather. You'd go mad.</p>
+
+<p>This was email in its earliest days. And bulletin boards. And every form of digital communication before someone had a deceptively simple idea: what if we grouped messages with the replies they spawned?</p>
+
+<p>That idea—conversation threading—is now so ubiquitous that most people don't realize it was invented at all. It's like asking who invented the paragraph. But threading is a technology, and like all technologies, it was designed with specific problems in mind, carries hidden assumptions, and creates new problems of its own.</p>
+
+<h2>What Threading Actually Is</h2>
+
+<p>A thread is simply a visual grouping of a message with all its replies, and their replies, and so on down the chain. When you see a Reddit comment with dozens of nested responses cascading to the right, you're looking at a thread. When Gmail bundles fifteen emails under a single subject line in your inbox, that's threading too.</p>
+
+<p>But there are two fundamentally different ways to display threads, and the choice between them shapes how conversations unfold.</p>
+
+<p>The first is <strong>hierarchical</strong> or <strong>nested</strong> display. Picture a family tree. The original message sits at the top. Direct replies branch below it, and replies to those replies branch further still. You can see exactly who responded to whom, tracing the conversation's evolution through branching paths.</p>
+
+<p>The second is <strong>linear</strong> or <strong>flat</strong> display. Here, all messages appear in chronological order, regardless of what they're replying to. It's simpler—a straight line instead of a tree—but you lose the structure. You can't tell at a glance whether someone is responding to the original post or to a tangential comment buried eight messages deep.</p>
+
+<p>Most modern platforms let you switch between these views. Most people don't realize they can.</p>
+
+<h2>The Hidden Machinery of Email Threads</h2>
+
+<p>Here's something that might surprise you: your email client is constantly working to reconstruct conversation threads from what is, fundamentally, a bag of disconnected messages. Email wasn't designed with threading built in—it had to be bolted on afterward.</p>
+
+<p>The mechanism is elegant in its simplicity. Every email you send contains a hidden identifier in its header—a unique string called the Message-ID. It looks something like this:</p>
+
+<p><code>&lt;unique-id-12345@example.com&gt;</code></p>
+
+<p>When you reply to an email, your client doesn't just send your response. It also includes a reference to the original message's identifier in fields called "In-Reply-To" and "References." Your email client then uses these breadcrumbs to reconstruct the conversation tree, linking each reply to its parent.</p>
+
+<p>The "References" field is particularly clever. It contains not just the identifier of the message you're directly replying to, but identifiers of all the messages in the chain leading back to the original. This means that even if some messages in a thread go missing—deleted by a spam filter, lost in transit, or simply never forwarded to you—your client can still piece together the overall structure of the conversation.</p>
+
+<p>This system works beautifully when everyone's email software follows the standards. When it doesn't—when someone uses an outdated client, or a corporate server strips headers for "security"—threads fragment into chaos. You've probably experienced this: a colleague replies to a thread, but somehow their message appears as a completely new conversation. The hidden machinery broke down.</p>
+
+<h2>The Surprising Origins of the Twitter Thread</h2>
+
+<p>In late 2016, something strange started happening on Twitter. A national security analyst named Eric Garland posted what he called a "THREAD" about Russian interference in American politics. It ran to 127 tweets. Each was numbered. Each built on the last. It took about twenty minutes to read.</p>
+
+<p>This was not what Twitter was designed for.</p>
+
+<p>Twitter's original concept was the micro-blog: short, self-contained thoughts limited to 140 characters. The thread format—long-form essays chopped into numbered fragments—was a hack, a workaround, a users' rebellion against the platform's constraints.</p>
+
+<p>And it worked. Seth Abramson became famous for his sprawling political threads, some running to hundreds of tweets. Journalists discovered they could break news and provide analysis simultaneously, constructing arguments in real time while readers watched and responded.</p>
+
+<p>The format created something genuinely new: interactive long-form journalism. Because Twitter threads are built from individual tweets, readers can respond to any specific point along the way. The author, still composing their argument, can see objections and counterarguments flowing in and adjust subsequent tweets accordingly. It's like giving a speech where the audience can interject at every sentence.</p>
+
+<p>Twitter eventually embraced what its users had invented, adding features to make threads easier to compose and follow. But the core insight came from ordinary people pushing against the limits of their tools.</p>
+
+<h2>Why Threading Changes How We Think</h2>
+
+<p>The difference between threaded and unthreaded discussion isn't just cosmetic. It changes the kinds of conversations that are possible.</p>
+
+<p>Consider a complex debate with multiple contested claims. In a linear, unthreaded format, the discussion naturally flows like a spoken conversation. Once the topic shifts, revisiting an earlier point feels awkward—you're interrupting the flow, dragging the group backward. People tend not to do it, even when they have important things to add. Earlier claims go unchallenged simply because challenging them would be socially disruptive.</p>
+
+<p>Threading breaks this constraint. Because replies attach to specific messages rather than to the conversation as a whole, you can respond to something said thirty messages ago without derailing the current discussion. Multiple sub-conversations can proceed in parallel. The overall debate branches into a tree of related arguments, each developing at its own pace.</p>
+
+<p>This makes threaded forums particularly good at what researchers call "complex multi-step tasks." Think about what it takes to properly evaluate an argument: you identify the major premises, challenge their accuracy, request evidence, then question whether the evidence actually supports the conclusion. In a linear conversation, this process constantly gets interrupted by tangents. In a threaded one, each step can proceed to completion in its own branch.</p>
+
+<p>This is why threaded discussion forums have historically been the home of serious technical discourse. Usenet newsgroups, mailing lists, Hacker News, Stack Overflow—all threaded, all capable of sustaining the kind of deep, multi-layered discussion that social media's linear feeds tend to flatten.</p>
+
+<h2>The Dark Side of Threads</h2>
+
+<p>But threading creates problems too.</p>
+
+<p>The most obvious is cognitive overload. Following a single linear conversation is hard enough. Following a branching tree of parallel conversations, each developing independently, each potentially referencing the others, can be genuinely exhausting. Studies of online discussion forums consistently find that users struggle to maintain awareness of complex thread structures. They lose track of sub-conversations. They repeat points that were already made in a different branch. They miss important arguments entirely because those arguments unfolded in a thread they never expanded.</p>
+
+<p>Threading can also fragment discussions in ways that harm comprehension. Imagine a debate where arguments supporting a claim are developing in one branch while arguments opposing it develop in another. Neither side sees the other's points unless they deliberately navigate to the other branch. The conversation looks structured, but the structure actually impedes the clash of ideas it was supposed to facilitate.</p>
+
+<p>Then there's the display mode problem. When a platform lets users choose between hierarchical and linear views, users of each mode develop different expectations about how to participate. Hierarchical users freely reply to old messages, confident that their responses will appear in the right context. Linear users, seeing these replies appear out of nowhere in their chronological feed, get confused. The same platform sustains two incompatible conversation cultures, and neither quite works.</p>
+
+<h2>The Hidden Costs of Bundling</h2>
+
+<p>Email threading introduces a particularly insidious problem: the loss of individual message control.</p>
+
+<p>When Gmail groups twenty messages under a single subject line, it becomes harder—sometimes impossible—to take action on individual messages within the bundle. You might want to flag one specific email as a to-do item while ignoring the rest of the thread. You might want to delete a chatty tangent while preserving the substantive discussion. You might want to forward only the relevant portions to a colleague.</p>
+
+<p>Threading makes all of this harder. The messages are bound together, and what you can do to one, you often must do to all.</p>
+
+<p>This matters because many people use their inbox as a task management system. Important emails represent things that need to be done; clearing them means the work is complete. But when important emails are bundled with unimportant ones, the system breaks down. The crucial message requiring action gets buried in a thread full of "thanks!" and "sounds good!" replies, each of which you have to mentally process to find the one that matters.</p>
+
+<p>Some email clients have added features to work around this—letting you snooze individual messages, or extract them from threads. But these are patches on a fundamental tension: threading optimizes for reading conversations at the expense of acting on individual messages.</p>
+
+<h2>The Broader Ecosystem</h2>
+
+<p>Threading has become so standard that it's easier to list platforms that don't support it than those that do. Email clients from Apple Mail to Gmail to Outlook all offer threaded views. Discussion platforms from Reddit to Hacker News to Discourse are built around threading from the ground up. Even image boards like 4chan—not exactly known for their sophisticated discourse—use threading to organize conversations.</p>
+
+<p>But the implementations vary wildly. Some platforms show only direct replies in nested view, flattening deeper levels. Some limit how deep nesting can go. Some show threading on desktop but flatten conversations on mobile. Some let you reply to any message while others restrict responses to the original post.</p>
+
+<p>These design choices shape the conversations that emerge. Deep nesting encourages focused one-on-one exchanges. Shallow nesting pushes conversations toward a central topic. Restricting replies to the original post creates a different dynamic than allowing responses anywhere.</p>
+
+<p>The lesson is that threading isn't a single technology—it's a design space with many possible implementations, each creating different affordances and constraints. The platforms we use have made choices within this space, and those choices shape how we communicate in ways we rarely notice.</p>
+
+<h2>The Future of Conversation</h2>
+
+<p>Threading solved a genuine problem. Before it existed, following digital conversations was genuinely difficult, and the difficulty got worse as conversations got longer. Threading made the structure visible, and visibility enabled new kinds of interaction.</p>
+
+<p>But like all solutions, it created new problems. Cognitive overload. Thread fragmentation. Loss of individual message control. The tension between different display modes. These aren't bugs to be fixed—they're inherent tradeoffs in the threading approach.</p>
+
+<p>Some platforms are experimenting with alternatives. Zulip, a chat application popular with software teams, combines threading with a topic-based organization that's neither purely hierarchical nor purely linear. Roam Research and its successors organize information into bidirectionally-linked notes rather than tree-structured threads. Discord uses channels for high-level organization and relatively flat threads within them.</p>
+
+<p>None of these has displaced traditional threading, and perhaps none will. The nested tree of messages and replies has proven remarkably durable—simple enough to understand, flexible enough to accommodate many kinds of conversation, familiar enough that new users need no instruction.</p>
+
+<p>The next time you expand a thread to see its replies, or collapse one to hide them, take a moment to notice what you're doing. You're using a technology. Someone designed it. It shapes how you think. And it could have been designed differently.</p>
       </div>
 
       <footer class="wikipedia-footer">

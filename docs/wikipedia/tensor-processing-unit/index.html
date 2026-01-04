@@ -22,7 +22,117 @@
       </header>
 
       <div class="wikipedia-content">
-        <p>Content not available.</p>
+        <p class="source-note">Based on <a href="https://en.wikipedia.org/wiki/Tensor_Processing_Unit">Wikipedia: Tensor Processing Unit</a></p>
+
+<p>In March 2016, a computer program called AlphaGo defeated Lee Sedol, one of the greatest Go players in history, in a five-game match that stunned the world. Go is an ancient Chinese board game so complex that the number of possible board positions exceeds the number of atoms in the observable universe. For decades, experts believed machines wouldn't master it for at least another decade. What most observers didn't know was that AlphaGo's secret weapon wasn't just clever software—it was a completely new kind of computer chip that Google had been quietly deploying in its data centers for over a year.</p>
+
+<p>That chip was the Tensor Processing Unit, or TPU.</p>
+
+<h2>Why Build a New Kind of Chip?</h2>
+
+<p>To understand why Google went to the trouble of designing its own silicon—a monumentally expensive and risky undertaking—you need to understand a fundamental truth about computer processors. They're not one-size-fits-all.</p>
+
+<p>The Central Processing Unit (CPU) that powers your laptop is a jack-of-all-trades. It can run spreadsheets, play videos, browse the web, and execute virtually any program you throw at it. This flexibility comes at a cost: CPUs aren't particularly efficient at any single task. They're the Swiss Army knife of computing.</p>
+
+<p>Graphics Processing Units (GPUs) took a different approach. Originally designed to render the millions of pixels in video games, GPUs excel at performing the same simple calculation on many pieces of data simultaneously. A CPU might have eight or sixteen processing cores; a modern GPU has thousands. This made them surprisingly good at training neural networks, which also require massive amounts of parallel computation.</p>
+
+<p>But Google wanted something even more specialized.</p>
+
+<p>Neural networks, at their core, perform a specific mathematical operation over and over again: matrix multiplication. Imagine two grids of numbers, and you need to multiply and add them together in a particular pattern. Do this billions of times per second, and you can recognize faces, translate languages, or play Go at superhuman levels.</p>
+
+<p>Google's insight was this: what if we built a chip that did almost nothing except matrix multiplication, but did it extraordinarily well?</p>
+
+<h2>The Systolic Array: An Old Idea Made New</h2>
+
+<p>The architecture Google chose for the TPU has a wonderful name: the systolic array. Like your heart pumping blood through your body in rhythmic pulses, a systolic array pumps data through a grid of processors in synchronized waves.</p>
+
+<p>The idea isn't new. Computer scientists built similar architectures in the 1990s. But Google's timing was perfect. The explosion of deep learning created demand for exactly this kind of specialized hardware, and advances in chip manufacturing made it practical to build at scale.</p>
+
+<p>The first TPU contained a 256-by-256 grid of tiny multipliers—65,536 in total—arranged so that data flows through them like water through a carefully designed irrigation system. Each multiplier performs a simple calculation and passes its result to its neighbor. The whole array works in lockstep, coordinated like a marching band.</p>
+
+<p>There's another crucial difference from conventional processors. The TPU trades precision for speed.</p>
+
+<p>When you write software for a regular computer, numbers are typically represented with 32 or 64 bits of precision. This lets you work with very large numbers, very small numbers, and everything in between with exquisite accuracy. But neural networks, it turns out, don't need that much precision. They're remarkably tolerant of approximation.</p>
+
+<p>The first TPU used just 8 bits per number. This is the difference between measuring your height to the nearest millimeter versus the nearest centimeter. For neural network inference—using a trained model to make predictions—this lower precision is perfectly adequate. And it means you can fit more multipliers on the same chip, process more data in parallel, and consume less power doing it.</p>
+
+<h2>The Numbers Are Staggering</h2>
+
+<p>In 2017, Norman Jouppi, the principal architect of the TPU, published a landmark paper at the International Symposium on Computer Architecture. The results were remarkable: the TPU achieved 15 to 30 times higher performance than contemporary CPUs and GPUs on neural network workloads, while consuming 30 to 80 times less power per computation.</p>
+
+<p>Those aren't incremental improvements. Those are generational leaps.</p>
+
+<p>The development timeline was equally impressive. From initial design to production deployment, the first TPU took just 15 months. In the semiconductor industry, where chip development typically takes three to five years, this was almost unheard of. Google's strategy of building a simpler, more specialized chip paid dividends in development speed as well as performance.</p>
+
+<p>The company didn't build these chips alone. Broadcom, the semiconductor giant, served as a crucial partner, translating Google's architectural specifications into manufacturable silicon and handling the complex relationship with Taiwan Semiconductor Manufacturing Company (TSMC), the foundry that actually fabricates the chips.</p>
+
+<h2>Generations of Progress</h2>
+
+<p>The first TPU had a limitation: it could only perform inference, using already-trained models to make predictions. Training a neural network—the process of teaching it from data—required different capabilities, particularly the ability to work with floating-point numbers rather than just integers.</p>
+
+<p>The second-generation TPU, announced in May 2017, addressed this limitation head-on. Google increased memory bandwidth dramatically by switching to High Bandwidth Memory (HBM), a newer technology that stacks memory chips vertically like a layer cake. This boosted bandwidth from 34 gigabytes per second to 600 gigabytes per second—nearly an 18-fold increase.</p>
+
+<p>The second generation also introduced a number format called bfloat16, invented by Google Brain. The "b" stands for "brain." It's a clever compromise that keeps the same range as standard 32-bit floating-point numbers but reduces precision, fitting more calculations into the same chip area. This format has since been adopted by other chip makers, including Nvidia and Intel.</p>
+
+<p>Perhaps most significantly, Google began connecting TPUs together into "pods." Four chips form a module. Sixty-four modules form a pod of 256 chips. The second-generation pod delivered 11.5 petaFLOPS—that's 11.5 quadrillion floating-point operations per second. To put that in perspective, the fastest supercomputer in the world in 2008, the IBM Roadrunner, achieved about 1 petaFLOP.</p>
+
+<p>Each subsequent generation roughly doubled performance. The third generation, announced in 2018, put up to 1,024 chips in a single pod. The fourth generation, described in detail in a 2023 paper, proved competitive with Nvidia's A100, the reigning champion of AI accelerators. Google claimed TPU v4 was anywhere from 5 to 87 percent faster than the A100 on various machine learning benchmarks—a remarkably wide range that reflects how much performance depends on the specific workload.</p>
+
+<p>The fifth generation introduced something unusual: its physical layout was designed with the help of deep reinforcement learning. In essence, Google used artificial intelligence to help design the chip that runs artificial intelligence. The layout problem—figuring out where to place billions of transistors on a chip—is notoriously difficult, and machine learning found solutions that human engineers hadn't considered.</p>
+
+<h2>Trillium and Beyond</h2>
+
+<p>At the Google I/O conference in May 2024, the company announced its sixth generation TPU, codenamed Trillium. The claimed performance improvement was 4.7 times over the previous generation's efficiency-optimized variant—achieved through larger matrix multiplication units, higher clock speeds, and doubled memory capacity and bandwidth.</p>
+
+<p>Then, in April 2025, Google unveiled TPU v7, codenamed Ironwood. The numbers have reached a point where they almost lose meaning: 4,614 teraFLOPS of peak performance, in configurations of up to 9,216 chips. That's enough computational power to perform quadrillions of calculations every second.</p>
+
+<p>For context, your smartphone's processor achieves perhaps a few teraFLOPS. A high-end gaming GPU might reach 40 or 50. An Ironwood cluster is roughly 100,000 times more powerful.</p>
+
+<h2>The Edge: Bringing AI to Your Pocket</h2>
+
+<p>While the cloud TPUs grew ever more powerful, Google pursued a parallel track: shrinking the technology down to sizes that could fit in everyday devices.</p>
+
+<p>In July 2018, Google announced the Edge TPU, a tiny chip designed for "edge computing"—running AI models on devices rather than in distant data centers. The Edge TPU consumes just 2 watts of power (your laptop probably uses 30 to 60 watts) while performing 4 trillion operations per second.</p>
+
+<p>Google commercialized this technology through a product line called Coral, offering single-board computers, USB accessories, and cards that plug into existing systems. These devices run Mendel Linux, a variant of the Debian operating system optimized for machine learning workloads.</p>
+
+<p>The Edge TPU has a significant limitation: it can only run models, not train them. And it only works with 8-bit integer math, which means neural networks need to be carefully prepared—quantized, in the technical jargon—before they can run on the Edge TPU. But for applications like security cameras, industrial sensors, and robotics, these constraints are acceptable tradeoffs for the dramatic reduction in power consumption and cost.</p>
+
+<p>The most visible deployment of Edge TPU technology is in Google's own Pixel smartphones. The Pixel 4, released in October 2019, contained an Edge TPU called the Pixel Neural Core, optimized for camera features. The Pixel 6, released in 2021, went further with the Google Tensor system-on-chip, which integrated an Edge TPU alongside traditional CPU and GPU cores.</p>
+
+<p>Benchmarks showed the Tensor chip had "extremely large performance advantages over the competition" on machine learning tasks. It consumed more instantaneous power than some rivals, but because it finished computations faster, the total energy used was actually lower. It's the computational equivalent of sprinting versus jogging: more intense, but over more quickly.</p>
+
+<h2>The Competitive Landscape</h2>
+
+<p>Google isn't alone in building specialized AI chips. Nvidia, the dominant force in GPU computing, has developed its own tensor-focused architecture with Tensor Cores integrated into its data center GPUs. The company's H100, released in 2022, became the most sought-after chip in the AI boom, with waiting lists stretching months.</p>
+
+<p>Amazon has built its own AI chips called Trainium and Inferentia for its cloud computing services. Microsoft has invested in custom silicon. Apple's Neural Engine powers the machine learning features on iPhones and Macs. Startups like Groq (founded by one of the original TPU engineers, Jonathan Ross) and Cerebras have developed radical new architectures.</p>
+
+<p>What makes the TPU notable is its scale and maturity. Google has been deploying these chips in production since 2015, longer than almost anyone else. The company runs some of the world's largest AI workloads: Google Search, Google Photos (which processes over 100 million photos per day on TPUs), Google Translate, and the various AI features woven throughout its products.</p>
+
+<p>In a sign of how valuable this technology has become, Google is now in discussions with "neoclouds"—newer cloud computing providers like Crusoe and CoreWeave—about deploying TPUs in their data centers. Even Meta, which operates its own massive AI infrastructure, is reportedly in talks with Google about using TPUs.</p>
+
+<h2>A Patent Fight and a Settlement</h2>
+
+<p>The TPU's success attracted legal challenges. In 2019, a company called Singular Computing, founded by Joseph Bates, a visiting professor at MIT, sued Google for patent infringement. The case centered on an esoteric but important technical detail: the dynamic range of floating-point numbers.</p>
+
+<p>Standard 16-bit floating-point format can represent numbers ranging from about 0.00006 to 65,504—a dynamic range of roughly a billion to one. Singular Computing held patents on formats with even greater dynamic range, specifically from one millionth to one million. Google's bfloat16 format, which uses a different allocation of bits, achieves this extended range.</p>
+
+<p>The legal battle stretched on for years. Google argued that non-standard floating-point formats weren't a novel invention, pointing to a configurable format called VFLOAT that existed as early as 2002. By January 2024, eight patents were being litigated. Later that month, the parties reached a settlement with undisclosed terms—a common outcome when both sides prefer certainty to the unpredictability of a jury verdict.</p>
+
+<h2>What It All Means</h2>
+
+<p>The Tensor Processing Unit represents a broader shift in computing. For decades, the industry followed a simple formula: make faster general-purpose processors, and everything gets better. Moore's Law—the observation that transistor density doubles roughly every two years—seemed to guarantee perpetual progress.</p>
+
+<p>That formula is breaking down. Transistors can't shrink forever. Clock speeds plateau. Heat becomes unmanageable. The only way forward is specialization: building chips that do one thing exceptionally well, rather than everything adequately.</p>
+
+<p>The TPU is perhaps the most successful example of this approach. By ruthlessly optimizing for matrix multiplication, by trading precision for throughput, by designing for specific frameworks like TensorFlow and PyTorch, Google achieved performance improvements that would have taken a decade of conventional progress.</p>
+
+<p>But there's a deeper lesson here about how technology evolves. The systolic array architecture that powers the TPU was invented in the 1980s. The mathematical operations it accelerates have been understood for centuries. What changed was context: the explosion of data, the rise of neural networks, the realization that approximate answers computed quickly are often more valuable than precise answers computed slowly.</p>
+
+<p>The next time you ask Google a question, upload a photo, or speak to a voice assistant, there's a good chance a TPU is involved somewhere in the chain. These specialized chips, designed in just 15 months by a team that saw an opportunity, now process a substantial fraction of the world's artificial intelligence workloads.</p>
+
+<p>Lee Sedol, the Go master who lost to AlphaGo, later said the experience changed his understanding of the game. He saw moves that no human had ever played, strategies that emerged from the machine's alien intuition. Behind that intuition was a tensor processing unit, humming away in a Google data center, multiplying matrices by the trillion.</p>
       </div>
 
       <footer class="wikipedia-footer">

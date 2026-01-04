@@ -22,7 +22,159 @@
       </header>
 
       <div class="wikipedia-content">
-        <p>Content not available.</p>
+        <p class="source-note">Based on <a href="https://en.wikipedia.org/wiki/Smalltalk">Wikipedia: Smalltalk</a></p>
+
+<h2>The Language That Won a Bet and Changed Everything</h2>
+
+<p>In 1971, Alan Kay made a bet. He claimed he could create an entire programming language—one based on a radical new idea called "message passing"—in just a few mornings, writing code that would fit on a single page. He won that bet. The language he sketched out would become Smalltalk, and it would go on to influence virtually every object-oriented programming language that followed: Java, Python, Ruby, Objective-C, and dozens more.</p>
+
+<p>But here's the twist. Smalltalk wasn't designed for professional programmers. It was designed for children.</p>
+
+<h2>Born in a Research Lab, Meant for Kids</h2>
+
+<p>The story begins at Xerox PARC—the Palo Alto Research Center in California—during the early 1970s. This was the same lab that invented the laser printer, Ethernet networking, and the graphical user interface. It was a place where researchers weren't just pushing boundaries; they were drawing entirely new maps.</p>
+
+<p>Alan Kay led a team called the Learning Research Group. Their mission wasn't to build the next business application or database system. They wanted to create tools for "constructionist learning"—a philosophy holding that people learn best by building things, by tinkering and experimenting rather than passively absorbing information. Kay imagined children programming computers as naturally as they might draw pictures or build with blocks.</p>
+
+<p>Working alongside Kay were Dan Ingalls, who implemented most of the early versions; Adele Goldberg, who wrote much of the documentation and helped bring Smalltalk to the wider world; and Ted Kaehler, Diana Merry, and Scott Wallace. Together, they created something unprecedented.</p>
+
+<p>The first working interpreter came together in October 1972. Dan Ingalls wrote it in about 700 lines of BASIC—a remarkably compact foundation for such an ambitious system. A month later, Kay demonstrated it at the Massachusetts Institute of Technology's Artificial Intelligence Lab. By December, Ted Kaehler had implemented the first bitmap line drawing routines. The following April, Smalltalk was running on the Xerox Alto, one of the first personal computers with a graphical display.</p>
+
+<h2>Everything Is an Object</h2>
+
+<p>To understand what made Smalltalk revolutionary, you need to understand its central idea: everything is an object.</p>
+
+<p>In most programming languages of that era—and even many today—there's a distinction between "primitive" values and "real" objects. Numbers like 5 or 42 are just raw data. They're handled by the processor directly. Objects, by contrast, are more sophisticated constructs with properties and behaviors.</p>
+
+<p>Smalltalk rejected this division entirely.</p>
+
+<p>In Smalltalk, the number 5 is an object. The letter "A" is an object. The Boolean value representing "true" is an object. Even the classes that define other objects are themselves objects. This wasn't just philosophical purity for its own sake. It meant that everything in the system could be inspected, modified, and extended using the same tools and techniques.</p>
+
+<p>Consider what this means in practice. In Smalltalk, you can compute 52 factorial—that's 52 times 51 times 50, all the way down to 1—and get the exact answer: 80,658,175,170,943,878,571,660,636,856,403,766,975,289,505,440,883,277,824,000,000,000,000. That's a 68-digit number, computed precisely because integers aren't limited to what fits in a computer's hardware registers. When numbers get too big for efficient small integer handling, Smalltalk transparently switches to a representation that can handle arbitrarily large values. The programmer never has to think about it.</p>
+
+<h2>Messages, Not Method Calls</h2>
+
+<p>Alan Kay once said something that surprises many programmers: "The big idea is 'messaging'—that is what the kernel of Smalltalk/Squeak is all about."</p>
+
+<p>Not objects. Messaging.</p>
+
+<p>Here's the distinction. In most object-oriented languages, when you want an object to do something, you "call a method" on it. The language checks whether that object supports that method, and if so, executes the corresponding code. It's like looking up a function in a table and running it.</p>
+
+<p>Smalltalk thinks about this differently. Objects send messages to each other. When an object receives a message, it decides for itself how to respond. The sender doesn't know or care how the receiver will handle the message. It might execute some code. It might forward the message to another object. It might do something completely unexpected.</p>
+
+<p>This might sound like a subtle distinction, but it has profound implications. It means objects can be much more autonomous, making their own decisions about behavior. It enables a level of flexibility and dynamism that's harder to achieve in languages with more rigid method-calling semantics.</p>
+
+<p>And if an object receives a message it doesn't understand? Smalltalk doesn't just crash. It sends another message—called "doesNotUnderstand:"—with the original message as an argument. This gives the object (or the programmer) a chance to handle the situation gracefully. The default behavior opens a debugger, letting the programmer figure out what went wrong interactively.</p>
+
+<h2>Living Software</h2>
+
+<p>Perhaps the most distinctive feature of Smalltalk isn't any single language construct. It's that Smalltalk programs are alive.</p>
+
+<p>In traditional programming, you write code in text files, compile it into an executable, and run that executable. If you want to make a change, you stop the program, edit the code, recompile, and start again. The program exists in two very different states: source code you edit, and running software you observe.</p>
+
+<p>Smalltalk collapses this distinction. The entire system—your code, the development tools, even the language implementation itself—exists as a collection of objects in memory. You can modify any of it while it's running. See a bug? Fix it right there, in the running system, and keep going. Want to understand how some feature works? Inspect the objects implementing it, right now, as they're executing.</p>
+
+<p>This is called "live coding," and it enables a style of programming that feels less like construction and more like sculpting. You shape the running system incrementally, seeing the effects of each change immediately. For many programmers who've experienced it, going back to the compile-edit-run cycle feels like working with one hand tied behind their back.</p>
+
+<h2>The Integrated Environment</h2>
+
+<p>When you start a Smalltalk system, you don't get a text editor and a command line. You get a complete graphical environment with windows, menus, and specialized tools for browsing code, inspecting objects, and debugging problems.</p>
+
+<p>This integrated development environment—or IDE, as we'd call it today—wasn't just convenient. It was essential to how Smalltalk worked. Because Smalltalk programs are living systems of objects rather than static text files, you need visual tools to navigate and manipulate them. The class browser lets you explore the hierarchy of classes defining your system. The inspector lets you peek inside any object to see its internal state. The debugger lets you pause execution and step through code, examining and even modifying objects as you go.</p>
+
+<p>These tools, refined over decades, set the standard for programming environments. When you use a modern IDE like Visual Studio Code or IntelliJ IDEA, you're using descendants of ideas pioneered in Smalltalk.</p>
+
+<h2>From Research Lab to the Real World</h2>
+
+<p>For its first decade, Smalltalk remained inside Xerox PARC. But in 1981, everything changed.</p>
+
+<p>Xerox shared Smalltalk-80—a mature version incorporating years of refinement—with several technology companies: Tektronix, Hewlett-Packard, Apple Computer, and Digital Equipment Corporation. These companies would test and debug Smalltalk on their own hardware platforms. They could also redistribute it freely on any systems they built. This encouraged Smalltalk to spread.</p>
+
+<p>That same year, the August issue of Byte Magazine devoted its entire issue to Smalltalk-80. For many programmers, this was their first exposure to the language and its ideas. The impact was electric. Here was a system where everything was an object, where you could modify running programs, where the development environment itself was programmable. It felt like the future.</p>
+
+<p>Several books followed, documenting the language and its implementation in detail. Smalltalk-80 became the foundation for commercial Smalltalk systems that would follow.</p>
+
+<h2>A Competitive Market Emerges</h2>
+
+<p>Through the late 1980s and into the mid-1990s, two companies dominated the Smalltalk market. ParcPlace Systems, a spin-off from Xerox PARC, sold high-end Smalltalk environments targeting Unix workstations and Sun Microsystems machines. Digitalk took a different approach, offering lower-priced products for personal computers running Microsoft Windows or IBM's OS/2 operating system.</p>
+
+<p>Both companies faced the same challenges. Smalltalk systems demanded substantial memory—a significant constraint when RAM was expensive. Performance couldn't match programs written in lower-level languages like C. And connecting to relational databases—increasingly essential for business applications—required additional work.</p>
+
+<p>IBM entered the market in 1995 with VisualAge Smalltalk. Other companies offered their own variants. For a time, Smalltalk seemed poised to become a mainstream business programming language.</p>
+
+<p>Then came Java.</p>
+
+<h2>The Java Disruption</h2>
+
+<p>In 1995, Sun Microsystems released Java. It promised many of the same benefits as Smalltalk—object-oriented programming, automatic memory management, platform independence—but with syntax resembling C and C++, languages most programmers already knew. Java also arrived just as the World Wide Web was exploding, and Sun positioned it as the language for web development.</p>
+
+<p>The Smalltalk vendors struggled to respond. In 1995, ParcPlace and Digitalk merged, hoping combined resources would help them compete. Two years later, the merged company rebranded as ObjectShare. But the strategic confusion continued. By 1999, ObjectShare was delisted from the NASDAQ stock exchange and dissolved.</p>
+
+<p>IBM, which had invested heavily in VisualAge Smalltalk, made a strategic decision to back Java instead. The company that had helped legitimize Smalltalk in the enterprise was now promoting its successor.</p>
+
+<h2>A Smaller but Devoted Community</h2>
+
+<p>Smalltalk didn't disappear. It retreated to niches where its unique strengths—rapid development, live programming, powerful debugging—outweighed its challenges.</p>
+
+<p>Several commercial implementations survived and continue to this day. Cincom acquired both VisualWorks (descended from ParcPlace's products) and ObjectStudio (originally called Enfin, which had found particular success in Europe). The company has released new versions consistently every year since 1999. Instantiations acquired what had been IBM's VisualAge Smalltalk, renaming it VA Smalltalk and continuing development. GemTalk sells GemStone/S, a Smalltalk that includes a sophisticated object database.</p>
+
+<p>Perhaps more significantly, open-source Smalltalk implementations have thrived. Squeak, derived from Apple's implementation of Smalltalk-80, has attracted many of the original Smalltalk pioneers. Dan Ingalls himself has been involved. Squeak powered the Etoys educational environment used on the One Laptop per Child project, bringing Smalltalk's original educational mission full circle.</p>
+
+<p>Pharo, a fork of Squeak oriented toward research and commercial use, has built a particularly active community. GNU Smalltalk offers a free software implementation. And in 2017, Smalltalk placed second in Stack Overflow's survey of "most loved programming languages"—a testament to the passionate devotion it inspires in those who use it.</p>
+
+<h2>The Fingerprints Smalltalk Left Everywhere</h2>
+
+<p>Even if you've never written a line of Smalltalk, you've been shaped by it.</p>
+
+<p>The Model-View-Controller pattern—MVC, the architecture underlying countless web and mobile applications—was invented in Smalltalk. The idea is to separate your application into three parts: the model (your data and business logic), the view (how it's displayed to users), and the controller (handling user input). This separation makes programs easier to understand, test, and modify. When you use Ruby on Rails, Django, or nearly any other web framework, you're using MVC.</p>
+
+<p>The graphical user interface itself owes much to Smalltalk. While Xerox PARC is famous for pioneering the GUI, Smalltalk was the environment where many interface conventions were developed and refined. Windows, menus, scrollbars, the desktop metaphor—these were all prototyped and polished in Smalltalk environments before finding their way into the Macintosh and Windows.</p>
+
+<p>WYSIWYG editing—"what you see is what you get," where a document on screen looks like it will when printed—was pioneered in Smalltalk. So were font editors and many techniques for interactive graphics.</p>
+
+<p>Integrated development environments, with their code browsers, debuggers, and inspectors, began in Smalltalk and Lisp environments before spreading to every programming language.</p>
+
+<p>Agile software development methodologies and rapid application development—approaches emphasizing iterative development, working software over documentation, and responding to change—found a natural home in Smalltalk. The language's support for quick modifications and immediate feedback made it ideal for experimental, exploratory programming.</p>
+
+<h2>Smalltalk's Unusual Vocabulary</h2>
+
+<p>Here's a delightful detail that reveals something about Smalltalk's culture. The language includes several operations for filtering and transforming collections of objects: select (to choose elements matching some criterion), collect (to transform each element), inject into (to combine elements into a single result), and others.</p>
+
+<p>Notice the rhyming "-ect" suffixes? That wasn't an accident.</p>
+
+<p>The naming was inspired by Arlo Guthrie's 1967 song "Alice's Restaurant Massacree," an 18-minute talking blues about Guthrie's experiences with the military draft. In one sequence, he describes being "injected, inspected, detected, infected, neglected, and selected." The Smalltalk designers, with characteristic whimsy, adopted this pattern for their collection operations.</p>
+
+<p>It's a small thing, but it reflects something important about the Smalltalk community: a sense of playfulness, a willingness to let personality and humor into technical artifacts. Programming languages don't have to be solemn.</p>
+
+<h2>The Bigger Picture</h2>
+
+<p>Smalltalk emerged from a remarkable moment in computing history. The Advanced Research Projects Agency—ARPA, part of the United States Department of Defense—was funding research that would define the modern digital world. In the 1960s and 70s, ARPA-funded researchers developed working prototypes of hypertext, graphical user interfaces, multimedia, the computer mouse, video conferencing, and the network that would become the internet.</p>
+
+<p>Alan Kay, while creating Smalltalk, also imagined a device he called the Dynabook: a portable computer the size of a notebook, with a flat screen, that children could use for learning and creativity. He described this in 1972. The iPad appeared in 2010, nearly four decades later, and bears an uncanny resemblance to Kay's vision.</p>
+
+<p>This context matters. Smalltalk wasn't just a programming language. It was part of a comprehensive vision for what computing could become: personal, interactive, creative, and accessible to everyone—including children. The language's design reflected these values. Its emphasis on objects communicating through messages modeled how Kay thought about learning and understanding. Its live, malleable nature supported exploration and experimentation.</p>
+
+<h2>What Smalltalk Teaches</h2>
+
+<p>For modern programmers, even those who will never write Smalltalk professionally, the language offers valuable lessons.</p>
+
+<p>First: consistency has power. By committing fully to "everything is an object," Smalltalk achieved a conceptual simplicity that makes the language easier to learn and reason about. You don't need to remember which types are primitive and which are objects. You don't need different syntax for different kinds of values. One model explains everything.</p>
+
+<p>Second: tools matter as much as language. Smalltalk's integrated environment wasn't an afterthought; it was essential to the programming experience. The ability to browse, inspect, and modify live objects transformed how programmers worked. Modern IDE features are more sophisticated, but the core insight—that great tools amplify programmer capability—came from Smalltalk.</p>
+
+<p>Third: programming can be playful. The Alice's Restaurant-inspired method names, the tradition of including games and toys in Smalltalk distributions, the emphasis on education and exploration—these weren't frivolous. They reflected a belief that programming should be joyful, that delight and productivity can coexist.</p>
+
+<h2>The Road Not Taken</h2>
+
+<p>It's tempting to wonder what computing might look like if Smalltalk had won the language wars of the 1990s instead of Java. Would we have more malleable, more inspectable software systems? Would programming be more accessible? Would the divide between "users" and "programmers" be smaller?</p>
+
+<p>We can't know. History took a different path. Java's C-like syntax made it more approachable to programmers trained in that tradition. Its static typing provided guarantees that some developers valued. Its timing, coinciding with the web's explosive growth, gave it momentum that Smalltalk couldn't match.</p>
+
+<p>But Smalltalk's ideas survived, scattered across the programming landscape like seeds. Every time you use Ruby's blocks, Python's dynamic typing, or a modern IDE's debugger, you're benefiting from concepts that Smalltalk pioneered or perfected. The language itself may be a niche interest, but its influence is everywhere.</p>
+
+<p>And for those who do discover Smalltalk—perhaps through Pharo or Squeak, both freely available—there's still magic in experiencing a system where everything really is an object, where code is data you can inspect and modify, where programming feels less like writing instructions and more like having a conversation with a living system.</p>
+
+<p>Alan Kay won his bet back in 1971. But the real payoff took decades to become clear: a vision of computing that continues to inspire and influence, long after that first page of code was written.</p>
       </div>
 
       <footer class="wikipedia-footer">

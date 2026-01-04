@@ -22,7 +22,163 @@
       </header>
 
       <div class="wikipedia-content">
-        <p>Content not available.</p>
+        <p class="source-note">Based on <a href="https://en.wikipedia.org/wiki/Supply_chain_attack">Wikipedia: Supply chain attack</a></p>
+
+<p>In the summer of 2017, Ukrainian accountants across the country opened their tax software to find a routine update waiting. They clicked install. Within hours, hospitals went dark. ATMs stopped dispensing cash. Radiation monitoring systems at Chernobyl—yes, that Chernobyl—went offline. The attack spread beyond Ukraine's borders, crippling shipping giant Maersk, pharmaceutical company Merck, and countless others. Total damages exceeded ten billion dollars.</p>
+
+<p>The attackers hadn't hacked any of these organizations directly. They'd poisoned the well.</p>
+
+<h2>The Weakest Link</h2>
+
+<p>A supply chain attack works by compromising not your target, but something your target trusts. It's the digital equivalent of poisoning the town's water supply rather than breaking into individual homes. You don't need to defeat each victim's defenses. You just need to corrupt something they all depend on.</p>
+
+<p>Think about everything your computer trusts implicitly. The operating system updates that install automatically. The software libraries that developers incorporate into their applications. The firmware burned into your hard drive. The chips soldered onto your motherboard before it ever left the factory. Any of these represents a potential attack vector—a path into your system that bypasses whatever security you've built.</p>
+
+<p>This is what makes supply chain attacks so devastating and so terrifying. They exploit trust itself.</p>
+
+<p>Traditional hacking is like picking a lock. Supply chain attacks are like bribing the locksmith to install doors that open for you. The distinction matters. When someone picks your lock, you know something's wrong. When the locksmith betrays you, your "secure" door works perfectly—it just secretly serves someone else.</p>
+
+<h2>The Expanding Attack Surface</h2>
+
+<p>Modern organizations don't build everything themselves. They can't. A typical enterprise depends on thousands of software components created by hundreds of different vendors. This interconnection is what makes modern technology so powerful and so productive. It's also what creates unprecedented vulnerability.</p>
+
+<p>Consider a simple web application. The company's developers wrote the business logic, but they're probably running it on a framework they didn't create, using a database maintained by someone else, on an operating system from a major vendor, deployed to servers they rent from a cloud provider. Each layer represents a dependency. Each dependency represents a potential point of compromise.</p>
+
+<p>A study by security company Verizon found that ninety-two percent of cybersecurity incidents they analyzed occurred at small firms. This isn't because small companies have worse security than large ones, though sometimes they do. It's because attackers have figured out that small companies often supply large ones. Why attack a well-defended Fortune 500 company directly when you can compromise their heating and cooling vendor instead?</p>
+
+<p>That's not a hypothetical. It's exactly how hackers breached Target.</p>
+
+<h2>Forty Million Credit Cards</h2>
+
+<p>In late 2013, Target was one of America's largest retailers, operating nearly two thousand stores. They weren't naive about security. Six months before the breach, they'd installed a one-point-six million dollar cybersecurity system. They had a dedicated team monitoring their networks around the clock.</p>
+
+<p>None of it mattered.</p>
+
+<p>The attackers didn't try to break through Target's defenses. Instead, they went after Fazio Mechanical Services, a Pennsylvania company that provided heating, ventilation, and air conditioning to Target stores. HVAC companies often have network access to their clients' systems so they can monitor and adjust temperatures remotely. Fazio's security wasn't anywhere near Target's level. It didn't need to be—they were just an HVAC company.</p>
+
+<p>The hackers stole login credentials from Fazio, used those credentials to access Target's network, and from there worked their way to the point-of-sale systems in over eighteen hundred stores. Between late November and mid-December, they captured credit and debit card information from roughly forty million customers.</p>
+
+<p>Target's profits dropped forty-six percent that quarter. They faced ninety lawsuits and spent over sixty million dollars just responding to the breach. The company's sophisticated security system had been rendered irrelevant because their HVAC vendor wasn't as careful.</p>
+
+<p>This is the fundamental problem with supply chain security. You're only as strong as the weakest organization you depend on.</p>
+
+<h2>The Worm That Changed Everything</h2>
+
+<p>Before the Target breach, before NotPetya devastated Ukraine, there was Stuxnet—arguably the most sophisticated piece of malware ever created and a stark demonstration of what supply chain attacks could achieve.</p>
+
+<p>Stuxnet wasn't designed to steal credit cards or hold files for ransom. It was a weapon, widely believed to be a joint operation between the United States and Israel, though neither government has officially confirmed involvement. Its target: Iran's uranium enrichment program.</p>
+
+<p>The Natanz nuclear facility in Iran wasn't connected to the internet. This is called an "air gap," and it's considered one of the strongest security measures possible. You can't hack what you can't reach. But the attackers found a way in anyway.</p>
+
+<p>They used infected USB flash drives.</p>
+
+<p>Someone—an engineer, a maintenance worker, perhaps an unwitting courier—plugged a compromised drive into a computer at Natanz. From there, Stuxnet spread through the facility's internal network, jumping from machine to machine by exploiting multiple previously unknown vulnerabilities in Microsoft Windows.</p>
+
+<p>Here's where it gets elegant. Stuxnet was designed to target specific Siemens industrial control systems—the computers that operate centrifuges, the spinning cylinders that separate uranium isotopes. The worm didn't just disable these centrifuges. It made them spin at the wrong speeds while reporting normal operation to the monitoring systems. The equipment was destroying itself, but the operators' screens showed everything working perfectly.</p>
+
+<p>Iranian technicians replaced centrifuge after centrifuge, unable to understand why their equipment kept failing. They suspected manufacturing defects. They suspected sabotage by their own scientists. They apparently didn't suspect that their control software had been weaponized.</p>
+
+<p>Stuxnet set Iran's nuclear program back by years. More importantly, it demonstrated that even the most isolated systems could be reached through their supply chains. If the equipment or software a facility depends on is compromised before it ever arrives, no amount of perimeter security helps.</p>
+
+<h2>When Updates Attack</h2>
+
+<p>Software updates are supposed to make you more secure. You install patches that fix vulnerabilities, close holes that attackers might exploit. The entire model of modern software security depends on this update mechanism.</p>
+
+<p>Which makes it a spectacularly attractive target.</p>
+
+<p>The NotPetya attack in 2017 exploited exactly this trust. M.E.Doc was accounting software widely used in Ukraine, the kind of mundane business application that nobody thinks twice about. It had an automatic update feature. The attackers compromised M.E.Doc's update servers and pushed out a malicious update that looked completely legitimate.</p>
+
+<p>When Ukrainian businesses installed what they thought was a routine software update, they were actually installing NotPetya—malware that encrypted their hard drives and demanded ransom. But NotPetya wasn't really ransomware. The email account for receiving payments was immediately shut down. There was no way to actually pay and recover your files. The ransom demand was a distraction. NotPetya's real purpose was destruction.</p>
+
+<p>The malware spread using EternalBlue, a hacking tool originally developed by the National Security Agency, the NSA, and later stolen and leaked by a group calling themselves the Shadow Brokers. EternalBlue exploited a vulnerability in how Windows computers communicate across networks. Once NotPetya infected one machine, it could spread to any other vulnerable computer it could reach—not just in Ukraine, but worldwide.</p>
+
+<p>Maersk, the Danish shipping conglomerate, watched as computers across their global operation went dark almost simultaneously. They had to rebuild their entire IT infrastructure from scratch—forty-five thousand computers and four thousand servers. The company estimated the attack cost them three hundred million dollars.</p>
+
+<p>M.E.Doc's developers initially denied their software was the source. Ukrainian authorities weren't sympathetic. Colonel Serhiy Demydiuk, head of Ukraine's CyberPolice, stated bluntly that antivirus companies had repeatedly warned M.E.Doc about security vulnerabilities in their infrastructure. They knew about the problems. They didn't fix them. The police suggested M.E.Doc's employees could face criminal charges for negligence.</p>
+
+<h2>Eighteen Thousand Organizations</h2>
+
+<p>If NotPetya demonstrated the destructive potential of supply chain attacks, the SolarWinds breach demonstrated their stealth.</p>
+
+<p>SolarWinds produces network monitoring software called Orion. It's the kind of tool that IT departments use to keep track of what's happening across their computer networks—who's connecting, what's failing, where the problems are. Because Orion needs to monitor everything, it has extensive access to everything. Because Orion is popular, it's used by organizations across industries and around the world.</p>
+
+<p>Including multiple United States government agencies.</p>
+
+<p>Sometime in 2020, attackers—believed to be Russian intelligence—compromised SolarWinds' software build process. When SolarWinds compiled Orion and pushed out updates, the attackers' malicious code was included automatically. It was signed with SolarWinds' legitimate digital certificate. It looked authentic because, in a sense, it was authentic. It was built by SolarWinds' own systems.</p>
+
+<p>Approximately eighteen thousand organizations installed the compromised updates. The attackers didn't actually exploit all of them. That would have been noisy, likely to trigger detection. Instead, they selected high-value targets: government agencies, consulting firms, technology companies. They moved carefully, patiently, extracting information while remaining undetected for months.</p>
+
+<p>The breach was discovered by FireEye, a cybersecurity company, in December 2020. Even then, the full scope wasn't immediately clear. In January 2021, a joint statement from the FBI, the Cybersecurity and Infrastructure Security Agency (CISA), the Office of the Director of National Intelligence, and the National Security Agency reported that fewer than ten U.S. government agencies had been confirmed compromised.</p>
+
+<p>"Fewer than ten" included networks at the National Nuclear Security Administration, the agency that maintains America's nuclear weapons stockpile.</p>
+
+<h2>Hardware Can Be Haunted Too</h2>
+
+<p>So far we've focused on software, but supply chain attacks can target hardware as well. This is in some ways even more concerning because hardware is harder to inspect and harder to fix.</p>
+
+<p>In 2008, European law enforcement uncovered a sophisticated credit card fraud operation. The attackers had inserted undetectable devices into credit card readers during manufacturing—before the devices ever left the factory in China. These modified readers looked identical to legitimate ones. They worked identically. But they also secretly captured card details and transmitted them to the criminals.</p>
+
+<p>The scheme stole an estimated one hundred million dollars before being discovered.</p>
+
+<p>More recently, various malware families have targeted automated teller machines. Programs with names like Tyupkin, Plotus, and GreenDispenser allow attackers to walk up to an infected ATM and drain its cash. GreenDispenser even displays an "out of service" message to discourage regular customers while the machine sits vulnerable, waiting for the criminal with the right credentials to come empty it.</p>
+
+<p>These attacks typically require an insider—an ATM technician or someone else with physical access—to install the malware. That's a supply chain attack of sorts: corrupting the maintenance chain rather than the manufacturing chain.</p>
+
+<p>The Tyupkin malware, active by 2014, infected more than fifty ATMs at banking institutions in Eastern Europe and eventually spread to the United States, India, and China. It targeted machines running Microsoft Windows and allowed attackers to withdraw forty banknotes at a time from each infected machine.</p>
+
+<h2>The Compiler Problem</h2>
+
+<p>There's a particularly devious variant of supply chain attack that targets the tools developers use to build software. If you can compromise a compiler—the program that transforms human-readable source code into executable programs—you can inject malicious code into every application built with that compiler.</p>
+
+<p>The idea was first described by Ken Thompson, one of the creators of the Unix operating system, in a famous 1984 lecture called "Reflections on Trusting Trust." Thompson demonstrated how a compiler could be modified to insert a backdoor into any program it compiled, including future versions of itself. The backdoor wouldn't appear in the source code. You could examine every line of the programs being compiled and find nothing suspicious. The malicious code existed only in the compiler's binary.</p>
+
+<p>Thompson's demonstration was theoretical, but the attack vector is real. Security researchers have found evidence of corrupted versions of Apple's XCode and Microsoft Visual Studio—development environments used to create Mac and Windows applications—circulating on pirate software sites. Developers who downloaded these bootleg tools may have unknowingly signed their applications with hidden malware.</p>
+
+<h2>Skimming British Airways</h2>
+
+<p>Not all supply chain attacks involve sophisticated nation-state actors or infrastructure software. Sometimes they're simply clever.</p>
+
+<p>In August and September 2018, British Airways customers booking flights through the airline's website had their payment card details stolen. The attackers hadn't breached British Airways' servers in the traditional sense. Instead, they'd injected malicious JavaScript code into the website's payment page.</p>
+
+<p>The code was written specifically to capture credit card information and send it to a domain called baways.com—similar enough to the legitimate British Airways domain that a casual glance might not notice anything wrong. Approximately 380,000 customers had their payment details compromised. British Airways later disclosed that an additional 185,000 customers may have been affected.</p>
+
+<p>The attack is attributed to a criminal group known as Magecart, which specializes in these "digital skimming" operations. They don't steal from the companies directly. They insert themselves into the payment process, capturing data as it flows past. It's the online equivalent of tampering with a gas station's card reader.</p>
+
+<p>How did Magecart's code end up on British Airways' website? Supply chain. Attackers often compromise third-party scripts that websites include—analytics tools, advertising networks, customer service widgets. When the airline's pages loaded, they pulled in code from various sources. One of those sources had been poisoned.</p>
+
+<h2>The Globalization Problem</h2>
+
+<p>There's a reason supply chain attacks have become more common in recent years: supply chains themselves have become more complex and more global.</p>
+
+<p>Thirty years ago, a company might have written most of its software internally and sourced hardware from a handful of trusted vendors. Today, software applications routinely incorporate hundreds or thousands of open-source components created by developers scattered around the world. Hardware passes through factories in multiple countries before reaching the end user. Each link in these chains represents a potential vulnerability.</p>
+
+<p>As researcher Muhammad Ali Nasir noted, globalization has dramatically increased the number of "exposure points" in any given supply chain. More entities are involved, and they're scattered across the globe, each with different security practices, different legal jurisdictions, and different levels of trustworthiness.</p>
+
+<p>This interconnection is exactly what makes modern technology so powerful. We stand on the shoulders of giants—and on the shoulders of thousands of anonymous developers whose code we incorporate without a second thought. But that efficiency comes with risk. When everyone depends on the same libraries and tools, compromising those libraries and tools compromises everyone.</p>
+
+<h2>What Can Be Done?</h2>
+
+<p>Defending against supply chain attacks is genuinely difficult because the whole point of trust is that you don't verify everything. If you had to personally inspect every line of code in every library you use, every chip in every device you deploy, the overhead would be impossible. Nothing would ever ship.</p>
+
+<p>But there are measures that help.</p>
+
+<p>Verification of software integrity through cryptographic signing can ensure that packages haven't been tampered with in transit—though it doesn't help if the signing happens after the malware is inserted, as with SolarWinds. Multi-factor authentication and strict access controls can limit who can push updates to critical systems. Monitoring for anomalous behavior can catch compromises after they occur, even if they slipped past initial defenses.</p>
+
+<p>Some organizations are adopting "zero trust" architectures, which assume that any component could be compromised and require continuous verification rather than granting blanket trust based on network location. This helps contain breaches but adds complexity and cost.</p>
+
+<p>Perhaps most importantly, organizations need to understand their dependencies. You can't secure what you don't know about. Many companies have no comprehensive inventory of the software components they rely on, the vendors they connect to, or the systems that have access to their networks. The HVAC vendor isn't on the security team's radar until suddenly they're the entry point for a major breach.</p>
+
+<h2>The Human Element</h2>
+
+<p>In the end, supply chain attacks exploit something fundamental about how human society works. We can't do everything ourselves. We have to trust others. A world where everyone produced their own food, built their own shelter, and wrote their own software would be a very poor world indeed.</p>
+
+<p>But trust can be abused. That's not a bug in the system; it's the oldest problem in social organization. The challenge of supply chain security isn't really a technology problem. It's the ancient challenge of knowing whom to trust and how to verify that trust remains warranted.</p>
+
+<p>The Stuxnet attackers understood this. They couldn't hack Natanz directly, so they found something Natanz trusted. The SolarWinds attackers understood it too. They didn't need to break into government networks when they could poison something those networks willingly installed.</p>
+
+<p>Every component you depend on is an extension of your own security perimeter. Every vendor with access to your systems is, for security purposes, part of your organization. The attack surface isn't just your computers and your code. It's everything your computers and code touch.</p>
+
+<p>That's a difficult truth to internalize. But until we grapple with it honestly, supply chain attacks will keep working. The poisoned wells will keep flowing, and we'll keep drinking.</p>
       </div>
 
       <footer class="wikipedia-footer">

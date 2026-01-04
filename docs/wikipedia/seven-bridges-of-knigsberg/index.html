@@ -22,7 +22,127 @@
       </header>
 
       <div class="wikipedia-content">
-        <p>Content not available.</p>
+        <p class="source-note">Based on <a href="https://en.wikipedia.org/wiki/Seven_Bridges_of_K%C3%B6nigsberg">Wikipedia: Seven Bridges of Königsberg</a></p>
+
+<p>Can you walk through a city and cross every bridge exactly once? It sounds like a simple question—the kind of puzzle you might solve while daydreaming on your commute. But when the citizens of Königsberg posed this riddle about their own city in the early eighteenth century, they had no idea they were asking a question that would birth an entirely new branch of mathematics.</p>
+
+<p>The answer, it turns out, is no. You cannot. And the proof of that impossibility changed how we think about space, connection, and the hidden structure of networks.</p>
+
+<h2>A City Built on Islands</h2>
+
+<p>Königsberg was a Prussian city straddling the Pregel River. Today it's called Kaliningrad and belongs to Russia, but in the 1730s it was a prosperous trading hub with a peculiar geography. The city sprawled across two riverbanks and two large islands—Kneiphof and Lomse—all connected by seven bridges.</p>
+
+<p>The puzzle that captivated the townspeople was straightforward: could you plan a walking route that crossed each of the seven bridges exactly once? You could start anywhere you liked and end anywhere you pleased. The only rules were that you had to use the bridges to get between landmasses (no boats, no swimming), and once you stepped onto a bridge, you had to cross it completely.</p>
+
+<p>People tried. They sketched maps, traced routes with their fingers, argued in coffee houses. Some claimed to have found solutions; others insisted it was impossible. But nobody could prove either case.</p>
+
+<p>Until Leonhard Euler.</p>
+
+<h2>The Mathematician Who Saw Differently</h2>
+
+<p>Euler was a Swiss mathematician working in St. Petersburg, and he was prolific in a way that almost defies belief. Over his lifetime, he published more mathematics than any person before or since—so much that the journal of the St. Petersburg Academy continued publishing his backlog for decades after his death. He made fundamental contributions to calculus, number theory, mechanics, optics, and astronomy. He continued working even after going blind in both eyes, dictating papers from memory.</p>
+
+<p>When the Königsberg bridge problem reached Euler, he initially dismissed it. "This type of solution bears little relationship to mathematics," he wrote to a colleague, "and I do not understand why you expect a mathematician to produce it." The problem seemed too physical, too concrete—more geography than geometry.</p>
+
+<p>But something about it nagged at him. And when Euler finally turned his attention to the puzzle in 1735, he didn't just solve it. He transformed it.</p>
+
+<h2>The Great Simplification</h2>
+
+<p>Euler's first insight was recognizing what didn't matter.</p>
+
+<p>The specific layout of Königsberg was irrelevant. The winding streets, the size of the islands, the exact position of each bridge—none of it affected whether the walk was possible. What mattered was only the abstract pattern of connections: which landmasses were linked to which, and how many bridges connected each pair.</p>
+
+<p>This was a radical move. Euler stripped away everything physical and kept only the logical skeleton. He replaced each landmass with a point (what we now call a vertex or node) and each bridge with a line connecting two points (an edge). The result was a diagram that looked nothing like a map but captured everything essential about the problem.</p>
+
+<p>This was the birth of graph theory—the mathematics of networks and connections.</p>
+
+<p>A graph, in this mathematical sense, has nothing to do with the charts you might draw to show stock prices or temperature trends. It's a collection of nodes and edges, a pure abstraction of relationship. You can stretch it, twist it, redraw it in any shape you like. As long as the connections remain the same, you have the same graph. Whether an edge is drawn as a straight line or a loop, whether one node is above or below another—these are just artifacts of how you happen to sketch it on paper.</p>
+
+<h2>Counting the Crossings</h2>
+
+<p>With the problem reframed as a graph, Euler could reason about it precisely. He focused on what happens when you walk through a node.</p>
+
+<p>Think about any landmass that isn't your starting or ending point. Every time you walk onto that landmass via a bridge, you must eventually walk off it via a different bridge. Arrivals and departures come in pairs. This means that for any intermediate landmass on your journey, you must use an even number of its bridges—half for arriving, half for leaving.</p>
+
+<p>Now, what about starting and ending points? If you start on a particular landmass, you leave it first without having arrived. If you end on a particular landmass, you arrive without needing to leave. So starting and ending points can have an odd number of bridges used.</p>
+
+<p>Here's the key: a walk can have at most two endpoints (start and finish). If you end where you started, it has zero endpoints that are "special" in this way. If you end somewhere different from where you started, you have exactly two special endpoints.</p>
+
+<p>This means that in any graph where you can traverse every edge exactly once, at most two nodes can have an odd number of edges touching them. All the others must have an even number.</p>
+
+<p>Euler then counted the bridges at each landmass in Königsberg. One landmass had five bridges. The other three each had three bridges. All four landmasses had an odd number of bridges.</p>
+
+<p>Four nodes with odd degree. But you can only have at most two.</p>
+
+<p>The walk is impossible. Not just difficult to find—mathematically, provably impossible.</p>
+
+<h2>What Euler Left Behind</h2>
+
+<p>Euler presented his solution to the St. Petersburg Academy in August 1735, and it was published in 1741 under the Latin title "Solutio problematis ad geometriam situs pertinentis"—"The solution of a problem relating to the geometry of position."</p>
+
+<p>That phrase, "geometry of position," hints at something revolutionary. Euler recognized he was doing something different from traditional geometry. He wasn't measuring angles or calculating areas. He wasn't concerned with distances at all. He was studying pure connection—what's linked to what, regardless of how far apart they are or what shape they make.</p>
+
+<p>This was a preview of topology, the branch of mathematics that would flourish in the following centuries. Topology studies properties that remain unchanged when you stretch or bend objects (without tearing or gluing). A coffee mug and a donut are topologically the same—each has exactly one hole. The letters O and D are topologically equivalent, but P is different (it has a hole plus a tail).</p>
+
+<p>Euler's bridge problem demonstrated that some mathematical truths have nothing to do with measurement. The ancient Greek view of mathematics as the "science of quantity"—of counting and measuring—suddenly seemed too narrow. There was a whole realm of structural mathematics waiting to be explored.</p>
+
+<h2>Trails and Circuits</h2>
+
+<p>Today we honor Euler by naming these walks after him. An Eulerian path (also called an Eulerian trail) is a route through a graph that traverses every edge exactly once. An Eulerian circuit is an Eulerian path that ends where it started—a complete loop.</p>
+
+<p>The conditions are now precisely understood. A connected graph has an Eulerian circuit if and only if every node has an even degree (an even number of edges). A connected graph has an Eulerian path (that isn't a circuit) if and only if exactly two nodes have odd degree—and those two nodes must be the starting and ending points.</p>
+
+<p>Carl Hierholzer later proved that these conditions are not just necessary but sufficient. If a graph meets these criteria, such a path definitely exists. Euler had stated this, but Hierholzer provided the rigorous proof.</p>
+
+<p>These ideas might seem purely abstract, but they show up constantly in practical problems. The classic example is route planning: a mail carrier wants to walk every street on their route exactly once and return to the post office. This is literally an Eulerian circuit problem. DNA sequencing algorithms use Eulerian paths to assemble short genetic fragments into complete genomes. Computer chip manufacturers use them to verify that all circuit connections work correctly.</p>
+
+<h2>The Traveling Salesman's Cousin</h2>
+
+<p>The Königsberg bridge problem has famous relatives in mathematics. The traveling salesman problem asks: given a list of cities and the distances between them, what's the shortest route that visits every city exactly once and returns home? While Euler's problem asks about traversing every edge, the traveling salesman problem asks about visiting every node.</p>
+
+<p>The Hamiltonian path problem, named after the Irish mathematician William Rowan Hamilton, is even more directly related. It asks whether a graph has a path that visits every node exactly once (as opposed to every edge). Despite the similarity to Euler's question, the Hamiltonian problem turns out to be vastly harder. There's no simple criterion like "check if nodes have even degree." Determining whether a Hamiltonian path exists is what computer scientists call NP-complete—a class of problems for which no efficient general solution is known.</p>
+
+<p>This contrast is striking. Two questions that sound almost identical—one about edges, one about nodes—have completely different mathematical characters. The edge version was solved by Euler in the 1700s with a simple counting argument. The node version remains computationally intractable nearly three centuries later.</p>
+
+<h2>Reality Enters the Graph</h2>
+
+<p>Philosophers have found the Königsberg proof fascinating for an unusual reason: it appears to be a mathematical proof about physical reality.</p>
+
+<p>Most mathematical proofs concern abstract objects—numbers, functions, geometric shapes. We use these abstractions to model reality, but there's always a gap between the model and the thing itself. When physicists use calculus to describe planetary motion, the equations are about idealized point masses and continuous curves, not the messy reality of actual planets.</p>
+
+<p>But Euler's proof seems different. It's not about an abstraction of bridges—it's about the actual bridges of an actual city. The proof doesn't just show that some mathematical model is impossible to traverse. It shows that you, physically walking through Königsberg, cannot cross each bridge exactly once.</p>
+
+<p>The proof is also explanatory in a way that many mathematical proofs are not. It doesn't just establish that the walk is impossible; it reveals why. The reason is the odd-degree constraint—too many landmasses where you'd have to use an unpaired bridge. You understand the impossibility, not just accept it.</p>
+
+<h2>What Remains of Seven Bridges</h2>
+
+<p>Königsberg no longer exists, at least not under that name. The city was heavily bombed during World War II, and afterward it became the Soviet (now Russian) city of Kaliningrad. The bridges fared about as well as the rest of the city.</p>
+
+<p>Two of the original seven bridges were destroyed in the bombing. Two more were later demolished and replaced by a highway. Only three bridges remain standing at or near their original sites, and only two of those are actually from Euler's time (one was rebuilt in 1935).</p>
+
+<p>The modern configuration has five bridges instead of seven. And here's a delicious irony: with this new arrangement, an Eulerian path is now possible. Two of the landmasses now have two bridges each (even degree), and the other two have three bridges each (odd degree). Exactly two odd-degree nodes. You can now walk across every bridge exactly once—but you must start on one island and end on the other.</p>
+
+<p>Euler's impossibility proof proved a specific fact about a specific city at a specific time. When the city changed, the mathematical fact changed with it. There's something almost poetic about this: the bridge problem was so tied to physical reality that when reality was bombed into a different shape, the problem got a different answer.</p>
+
+<h2>Bridges in Tribute</h2>
+
+<p>The Königsberg problem has become such a touchstone of mathematical culture that universities have built physical tributes to it.</p>
+
+<p>At the University of Canterbury in New Zealand, a grassy area between buildings contains a model of the bridges. The rivers are represented by low bushes, and the central island features a stone Japanese lantern. Students and faculty can attempt the impossible walk themselves—or at least, the walk that was impossible in 1735.</p>
+
+<p>The Rochester Institute of Technology embedded the puzzle into the pavement outside their ice hockey arena. The Georgia Institute of Technology installed a landscape model in 2018. These memorials are oddly fitting: problems in graph theory and network analysis remain central to computer science education, and every student eventually encounters Euler's elegant proof.</p>
+
+<p>Perhaps the most charming modern echo is the Bristol Bridges Walk. The English city of Bristol, like historical Königsberg, sits on two river banks with two river islands. But Bristol has forty-five major bridges, and unlike Königsberg, their configuration allows an Eulerian circuit. You can walk across every bridge exactly once and return to your starting point. The route covers about twenty miles and has become a popular charity challenge, turning Euler's impossibility result inside out into a recreational walk.</p>
+
+<h2>Networks Everywhere</h2>
+
+<p>Graph theory has grown from Euler's single proof into one of the most applicable branches of mathematics. Every time you use a GPS navigation system, algorithms descended from Euler's work are finding efficient routes through networks of roads. Every time you scroll through social media, graph algorithms are analyzing networks of friendships and followers to decide what to show you. Every time you search the web, Google's PageRank algorithm is treating the internet as a graph and measuring the importance of each node based on which other nodes link to it.</p>
+
+<p>The protein interactions in your cells form graphs. The neurons in your brain form graphs. The power grid is a graph. The flight routes connecting airports are a graph. Epidemiologists model disease spread through graphs of human contact. Linguists analyze the structure of sentences as graphs. Even the mathematical field that studies the foundations of mathematics—category theory—is built on a generalization of graphs.</p>
+
+<p>All of this traces back to a walking puzzle about seven bridges in a Prussian city. Euler saw past the physical details to the abstract pattern beneath, and in doing so opened a door to a new mathematical universe.</p>
+
+<p>The next time you're planning a route through your neighborhood, trying to visit every street without backtracking, remember that you're wrestling with the same fundamental question that stumped the citizens of Königsberg. And if you find yourself frustrated, take comfort in this: sometimes the answer is that there is no answer. Sometimes impossibility is itself the discovery.</p>
       </div>
 
       <footer class="wikipedia-footer">

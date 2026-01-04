@@ -22,7 +22,129 @@
       </header>
 
       <div class="wikipedia-content">
-        <p>Content not available.</p>
+        <p class="source-note">Based on <a href="https://en.wikipedia.org/wiki/Epoch_(computing)">Wikipedia: Epoch (computing)</a></p>
+
+<h2>The Day the Computers Forgot What Year It Was</h2>
+
+<p>Imagine waking up on January 1st, 2000, and your bank suddenly thinks it's 1900. Your mortgage? A century overdue. Your birth year? Nonsensical. Your credit card? Issued before electricity was common in homes.</p>
+
+<p>This wasn't science fiction. It was the Year 2000 problem, and it happened because of a simple question that every computer must answer: what time is it?</p>
+
+<p>The answer is more philosophical than you might expect.</p>
+
+<h2>How Computers Tell Time</h2>
+
+<p>Humans tell time using calendars and clocks—systems built over millennia with months named after emperors and days adjusted by popes. Computers, being fundamentally simple machines that only understand numbers, needed something cleaner.</p>
+
+<p>Their solution? Pick a starting point—any starting point—and count from there.</p>
+
+<p>This starting point is called an epoch. It's completely arbitrary. There's nothing special about midnight on January 1st, 1970, except that the engineers building Unix happened to pick it. But once you pick an epoch, everything else follows. The current time becomes just a number: how many seconds have ticked by since that moment.</p>
+
+<p>Right now, as you read this, billions of computers around the world are counting. The number is somewhere around 1.7 billion and climbing by one every second. That's Unix time—the number of seconds since the Unix epoch.</p>
+
+<h2>Why Different Systems Use Different Epochs</h2>
+
+<p>Here's where things get interesting. Not everyone agreed on the same starting point.</p>
+
+<p>Unix and systems following the Portable Operating System Interface (POSIX) standard count from January 1st, 1970. Microsoft Windows NT counts from January 1st, 1601—chosen because it's the start of a 400-year cycle in the Gregorian calendar. The C# programming language counts from January 1st in the year 1 AD, essentially trying to count from the beginning of the Common Era.</p>
+
+<p>And they don't even count in the same units. Unix counts seconds. Windows counts in intervals of 100 nanoseconds—that's 100 billionths of a second. Some older systems counted days.</p>
+
+<p>This creates exactly the kind of chaos you'd expect. When two systems need to talk to each other about time, they must translate between their epochs and their units. Get the conversion wrong, and you might schedule a meeting for the wrong century.</p>
+
+<h2>The Problem with Counting Forever</h2>
+
+<p>There's a fundamental constraint hiding in this system. Computers don't have infinite memory. Every number they store gets allocated a specific amount of space—a certain number of bits.</p>
+
+<p>Think of it like an odometer on an old car. If your odometer has five digits, you can count from 00000 to 99999. But the moment you hit 100,000 miles, the odometer doesn't magically grow a sixth digit. It rolls over to 00000, and suddenly your well-traveled vehicle appears brand new.</p>
+
+<p>This is exactly what happens with computer time.</p>
+
+<p>The Year 2000 problem—often called Y2K—was the simplest version of this. Many older systems stored only the last two digits of the year. 1998 became 98. 1999 became 99. And 2000 became... 00. Which the computer interpreted as 1900.</p>
+
+<p>We spent an estimated 300 billion dollars worldwide fixing this before midnight on December 31st, 1999. Programmers were paid premium rates to comb through ancient code written in languages they barely remembered, searching for two-digit year fields.</p>
+
+<p>But here's the thing: that was just the first time bomb.</p>
+
+<h2>The Next Apocalypse Is Scheduled for 2038</h2>
+
+<p>Many Unix-like operating systems store time as what programmers call a signed 32-bit integer. Without diving too deep into the mathematics, this means they can store numbers between negative 2.1 billion and positive 2.1 billion.</p>
+
+<p>Starting from January 1st, 1970, that gives you about 68 years in either direction. You can represent dates back to 1901 (using negative numbers) and forward to 2038.</p>
+
+<p>Specifically, forward to January 19th, 2038, at 3:14:07 in the morning, Coordinated Universal Time.</p>
+
+<p>At that exact second, the counter will hit 2,147,483,647. One second later, it will overflow. Many systems will interpret this as December 13th, 1901. Others might crash entirely. Others might behave in ways their programmers never anticipated, because programmers rarely test what happens when time runs backward.</p>
+
+<p>This is the Year 2038 problem, and unlike Y2K, we haven't fixed it yet.</p>
+
+<h2>Why We Haven't Fixed It Yet</h2>
+
+<p>The solution is obvious: use bigger numbers. A 64-bit integer can count to about 9.2 quintillion, which would give us enough seconds to last roughly 292 billion years. The sun will have burned out, the galaxies will have drifted apart, and protons themselves may have decayed before a 64-bit Unix timestamp overflows.</p>
+
+<p>Many modern systems have already made this transition. But "many" isn't "all." Embedded systems—the computers hiding inside your car, your thermostat, your medical devices—often run software written decades ago. Some run on hardware that genuinely cannot handle 64-bit numbers. Some run code that nobody has the source for anymore, written by engineers who have long since retired or died.</p>
+
+<p>And unlike Y2K, where everyone knew the deadline and worked toward it, the 2038 problem affects different systems in different ways at different times. Some will start failing years earlier when they try to schedule events in the future. Others might work fine until the exact moment of overflow.</p>
+
+<h2>Leap Seconds Make Everything Worse</h2>
+
+<p>As if this wasn't complicated enough, the Earth doesn't actually rotate at a constant speed.</p>
+
+<p>Our planet is gradually slowing down, mostly due to tidal friction from the moon. A day in the age of the dinosaurs was only about 23 hours long. Every century, we lose a tiny fraction of a second. To keep our atomic clocks synchronized with the actual position of the sun in the sky, scientists occasionally add a leap second—an extra second inserted at midnight on June 30th or December 31st.</p>
+
+<p>This is a nightmare for computers.</p>
+
+<p>Leap seconds aren't predictable. The International Earth Rotation and Reference Systems Service announces them about six months in advance, after measuring the Earth's actual rotation. Since 1972, we've added 27 leap seconds. Some years have one. Most years have none. The pattern has no formula.</p>
+
+<p>Computer systems handle this differently. Unix time, officially, ignores leap seconds entirely. It pretends they don't exist, which means Unix time and Coordinated Universal Time slowly drift apart. Other systems try to accommodate leap seconds, creating moments where 60 seconds happen in what the system clock says is a single second, or where the same second occurs twice.</p>
+
+<p>In 2012, a leap second crashed Reddit, Gawker, LinkedIn, and FourSquare. In 2017, Cloudflare—a company that provides internet infrastructure for millions of websites—saw some of their servers fail because of leap second handling bugs.</p>
+
+<p>The good news is that we've decided to stop. In 2022, the General Conference on Weights and Measures voted to abolish leap seconds by 2035. We'll let atomic time and solar time drift apart until they're a full minute off, then figure out something else. The accumulated seconds from 1972 to 2035 will stay in our timekeeping systems forever, a permanent reminder that the Earth doesn't care about our calendars.</p>
+
+<h2>Satellites Each Pick Their Own Epoch</h2>
+
+<p>Your phone probably knows the time more accurately than any clock in your house. That's because it's receiving signals from satellites specifically designed to broadcast extremely precise time.</p>
+
+<p>There are six major satellite navigation systems in the world, and they each handle time differently.</p>
+
+<p>The Global Positioning System (GPS), operated by the United States, uses its own epoch: midnight on January 6th, 1980. It counts weeks and seconds from that point. But GPS doesn't account for leap seconds. When GPS launched, it was in sync with Coordinated Universal Time. Today, GPS time is 18 seconds ahead, and that gap grows every time a leap second is added.</p>
+
+<p>Russia's Global Navigation Satellite System (GLONASS), by contrast, calculates time as an offset from Coordinated Universal Time directly. The ground stations adjust for leap seconds, so receivers don't have to handle the complexity.</p>
+
+<p>The European Union's Galileo system uses an epoch like GPS. China's BeiDou uses Coordinated Universal Time like GLONASS but doesn't adjust for leap seconds, which is a third approach entirely.</p>
+
+<p>Your phone, receiving signals from potentially all of these systems simultaneously, must juggle multiple epochs, multiple time formats, and multiple approaches to leap seconds, then convert everything into whatever time zone you're standing in. The fact that this works at all is a minor miracle of engineering.</p>
+
+<h2>The Spreadsheet That Believes in Impossible Dates</h2>
+
+<p>Sometimes the strangest bugs become permanent features.</p>
+
+<p>Lotus 1-2-3 was the dominant spreadsheet program in the 1980s. Its programmers made a mistake: they treated 1900 as a leap year. It wasn't. The year 1900 is divisible by 4 but also by 100, and century years are only leap years if they're also divisible by 400. So 1600 was a leap year, and 2000 was a leap year, but 1900 was not.</p>
+
+<p>This meant that Lotus 1-2-3 believed February 29th, 1900 existed. It didn't.</p>
+
+<p>By the time anyone noticed, millions of spreadsheets had been created using Lotus's date system. When Microsoft built Excel, they faced a choice: do dates correctly and break compatibility with all those files, or perpetuate the error.</p>
+
+<p>They chose compatibility. To this day, Microsoft Excel recognizes February 29th, 1900 as a valid date. Every spreadsheet that uses dates before March 1st, 1900 is technically wrong by one day. Microsoft's documentation acknowledges this explicitly, noting that "a change now would disrupt formulas which were written to accommodate this anomaly."</p>
+
+<p>This is the nature of timekeeping in computers. We're not just fighting the physics of the Earth's rotation and the limits of binary arithmetic. We're fighting our own history—bugs enshrined in standards, workarounds calcified into requirements, and arbitrary decisions made by engineers in the 1970s that we're still living with today.</p>
+
+<h2>The Deep Strangeness of Time</h2>
+
+<p>There's something almost philosophical about all this. Computers need to know what time it is, but "what time it is" turns out to be a surprisingly complicated question.</p>
+
+<p>Is it the number of seconds since an arbitrary moment in 1970? The number of nanoseconds since the year 1 AD? The number of weeks since 1980, adjusted for GPS satellite positions? The time zone in which you're standing, minus or plus some number of hours from the prime meridian, adjusted for daylight saving time, which different jurisdictions implement differently, and which Arizona and Hawaii don't observe at all?</p>
+
+<p>Time is a human construct. We invented it to coordinate our activities. But the universe doesn't actually tick in seconds. The Earth's rotation varies. Einstein showed us that time passes differently depending on how fast you're moving and how deep you are in a gravity well. The clocks on GPS satellites tick about 38 microseconds per day faster than clocks on Earth's surface, and the satellites have to correct for this or your navigation would be off by kilometers.</p>
+
+<p>Computers have given us the illusion of precise, universal time. But behind that illusion is a tangle of epochs and leap seconds and overflowing integers and impossible February 29ths. It's a testament to engineering that the system works at all.</p>
+
+<p>And somewhere, right now, a counter is ticking. One. Two. Three. Marching toward January 19th, 2038, when some computers will suddenly think it's 1901 again.</p>
+
+<p>We probably have enough time to fix it.</p>
+
+<p>Probably.</p>
       </div>
 
       <footer class="wikipedia-footer">

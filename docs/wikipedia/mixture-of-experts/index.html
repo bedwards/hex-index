@@ -22,7 +22,130 @@
       </header>
 
       <div class="wikipedia-content">
-        <p>Content not available.</p>
+        The HTML content should be returned directly rather than written to a file. Let me provide the rewritten article:
+
+```html
+<p class="source-note">Based on <a href="https://en.wikipedia.org/wiki/Mixture_of_experts">Wikipedia: Mixture of experts</a></p>
+
+<p>What if the secret to building smarter artificial intelligence isn't creating one brilliant system, but rather assembling a team of specialists who each know their own domain exceptionally well? This is the core insight behind mixture of experts, a technique that has quietly revolutionized how we build large language models—including, quite possibly, the very system reading these words to you right now.</p>
+
+<p>The idea is deceptively simple. Instead of training one massive neural network to handle every possible input, you train multiple smaller networks—the "experts"—and then add a clever traffic controller that decides which experts should handle each incoming request.</p>
+
+<p>Think of it like a hospital. You wouldn't want a single doctor trying to perform brain surgery, deliver babies, and set broken bones. Instead, you have neurologists, obstetricians, and orthopedic surgeons, plus a triage system that routes patients to the right specialist. The mixture of experts architecture works the same way.</p>
+
+<h2>The Three Essential Parts</h2>
+
+<p>Every mixture of experts system contains three components working in concert.</p>
+
+<p>First, there are the experts themselves. These are individual neural networks, each receiving the same input but potentially specializing in different aspects of the problem. If you're building a language model, one expert might become particularly good at handling questions about science, while another develops expertise in creative writing, and a third excels at mathematical reasoning. The specialization often emerges naturally during training, rather than being explicitly programmed.</p>
+
+<p>Second, there's the gating function—also called the router or weighting function. This is the traffic controller. When an input arrives, the gating function examines it and produces a set of weights indicating how much each expert should contribute to the final answer. Sometimes the router sends all the work to a single expert. Sometimes it blends the opinions of several.</p>
+
+<p>Third, there's a combination mechanism that takes the experts' outputs and merges them according to the router's weights. The most common approach is a simple weighted average: multiply each expert's output by its assigned weight, then add everything together. If Expert A gets a weight of 0.7 and Expert B gets 0.3, then the final answer is seventy percent Expert A's opinion plus thirty percent Expert B's.</p>
+
+<h2>Why Bother With All This Complexity?</h2>
+
+<p>The appeal becomes clear when you consider the economics of modern AI.</p>
+
+<p>Training and running neural networks is expensive. The computational cost grows with the number of parameters—the adjustable numbers that determine how the network behaves. A model with a trillion parameters costs roughly a thousand times more to run than a model with a billion parameters.</p>
+
+<p>Here's the magic of mixture of experts: you can have a trillion parameters in total across all your experts, but only activate a fraction of them for any given input. If your router typically selects just two experts out of sixty-four, you get the knowledge of a trillion-parameter model while only paying the computational cost of a much smaller system.</p>
+
+<p>This is called sparse activation, and it's revolutionized what's economically feasible in AI. Models that would have been prohibitively expensive to run become practical. The catch is that you need enough memory to store all those parameters, even if you're not using most of them at any given moment. But memory is generally cheaper than computation.</p>
+
+<h2>A Surprising Origin Story</h2>
+
+<p>The technique has an unexpectedly human beginning. In 1991, researchers Hampshire and Waibel were trying to solve a specific problem: recognizing phonemes—the distinct sound units that make up spoken language—from recordings of six different Japanese speakers. The speakers included two women and four men, each with their own vocal characteristics.</p>
+
+<p>The researchers trained six expert networks, one for each speaker, hoping the system would learn to recognize who was talking and route accordingly. What actually happened was more interesting. Five of the experts did indeed specialize in individual speakers. But the sixth male speaker never got his own expert. Instead, his voice was classified using a blend of the three other male-speaker experts.</p>
+
+<p>The system had discovered, on its own, that this speaker's voice could be adequately represented as a combination of other male voices. It had learned to be efficient in a way the researchers hadn't explicitly programmed.</p>
+
+<h2>The Gating Function: Where the Real Magic Happens</h2>
+
+<p>The router's decision about which experts to consult is arguably the most critical part of the whole system. Get this wrong, and you might route a medical question to your sports trivia expert.</p>
+
+<p>The most common approach uses something called a softmax function. This mathematical operation takes any set of numbers and converts them into a probability distribution—a set of non-negative numbers that sum to one. The router computes a score for each expert, applies softmax, and uses the resulting probabilities as weights.</p>
+
+<p>But there's a catch. The naive approach would assign at least some small weight to every expert, meaning every expert would need to compute its output for every input. That defeats the whole purpose of having specialized experts.</p>
+
+<p>The solution is sparse routing: only send the input to the top few experts with the highest scores, and set everyone else's weight to zero. Typically, systems might select just one or two experts out of dozens or hundreds. This requires careful engineering, because you can't just ignore most of the experts during training without the gradients—the signals that update neural networks—becoming problematic.</p>
+
+<h2>The Load Balancing Problem</h2>
+
+<p>Here's a subtle issue that plagued early mixture of experts systems: expert collapse.</p>
+
+<p>Imagine you're training a system with sixteen experts. Early in training, due to random chance, Expert 3 happens to perform slightly better on the training examples. The router notices this and starts sending more inputs to Expert 3. With more training data flowing its way, Expert 3 improves further. This creates a feedback loop. Eventually, Expert 3 handles nearly everything, while the other fifteen experts atrophy from disuse.</p>
+
+<p>You've spent the computational budget for sixteen experts but gotten the capability of one. This is catastrophic for efficiency.</p>
+
+<p>Modern systems solve this with auxiliary losses—additional training objectives that penalize uneven expert utilization. The router gets rewarded not just for making good routing decisions, but also for distributing work fairly across all experts. Some systems add random noise to routing decisions during training, forcing inputs to visit less-favored experts occasionally. Others use sophisticated algorithms like the Switch Transformer's expert capacity limits, which cap how many inputs each expert can handle per batch.</p>
+
+<h2>Hierarchical Mixtures: Experts All the Way Down</h2>
+
+<p>The original mixture of experts papers from the early 1990s proposed an elegant extension: hierarchical mixture of experts. Instead of having a single router choose among all experts, you build a tree structure. The top-level router decides which group of experts to consult. Then a second-level router within that group makes a more refined selection. This can continue for multiple levels.</p>
+
+<p>This hierarchical approach mirrors how actual expertise is organized. When you have a legal question, you first decide whether you need a lawyer at all, then what type of lawyer (corporate, criminal, immigration), then possibly a subspecialty within that. The hierarchical mixture of experts encodes this kind of categorical structure directly into the architecture.</p>
+
+<p>In practice, most modern large-scale systems use flat (non-hierarchical) mixtures because they're simpler to implement and train. But the hierarchical approach remains theoretically elegant and occasionally useful for problems with natural tree-like structure.</p>
+
+<h2>The DeepSeek Connection</h2>
+
+<p>If you've been following AI developments from China in 2025, you've almost certainly encountered DeepSeek, whose models have impressed the industry with their capabilities despite relatively modest computational budgets. Mixture of experts is a core part of how they achieve this efficiency.</p>
+
+<p>DeepSeek's approach involves training models with many experts but activating only a small fraction for each token processed. This lets them build models with enormous total parameter counts—representing vast amounts of learned knowledge—while keeping inference costs manageable. Their open-source releases have demonstrated that mixture of experts, done well, can compete with much larger traditionally-structured models.</p>
+
+<p>Similarly, other leading models including GPT-4 are widely believed to use mixture of experts architectures, though the companies involved haven't always confirmed the details publicly. The technique has become essentially standard for frontier models.</p>
+
+<h2>How It Differs From Other Ensemble Methods</h2>
+
+<p>Mixture of experts belongs to a broader family of techniques called ensemble methods, which combine multiple models to get better results than any single model could achieve. But it has distinctive characteristics that set it apart.</p>
+
+<p>In a traditional ensemble like a random forest, you train multiple models independently, then combine their predictions (often by averaging or voting). Every model sees every input. This doesn't save any computation during inference—if anything, it multiplies the cost.</p>
+
+<p>Boosting methods like XGBoost train models sequentially, with each new model focusing on examples that previous models got wrong. Again, all models are typically used for every prediction.</p>
+
+<p>Mixture of experts is unique in having a learned router that selectively activates different experts for different inputs. This input-dependent selection is what enables the computational savings. It's also what makes mixture of experts particularly well-suited for problems where different types of inputs genuinely benefit from different processing strategies.</p>
+
+<h2>The Opposite Approach: Dense Models</h2>
+
+<p>The alternative to sparse mixture of experts is a dense model, where every parameter is used for every input. Dense models are conceptually simpler and don't require load balancing tricks or specialized routing logic. They're also easier to parallelize across multiple processors in some respects.</p>
+
+<p>The trade-off is straightforward: dense models of a given parameter count are more expensive to run but often easier to train effectively. Sparse mixture of experts models can match the performance of much larger dense models at lower computational cost, but they require more total parameters (and thus memory) and more careful engineering to train well.</p>
+
+<p>Many practitioners view the choice as depending on your constraints. If computation is your bottleneck and you have ample memory, sparse MoE (as mixture of experts is often abbreviated) is attractive. If memory is constrained or you're optimizing for simplicity, dense models may be preferable.</p>
+
+<h2>Training Challenges</h2>
+
+<p>Training mixture of experts systems presents unique challenges beyond the load balancing problem already discussed.</p>
+
+<p>The router must be trained jointly with the experts, creating a chicken-and-egg problem. The router can only learn good routing decisions if the experts are already somewhat specialized. But the experts can only specialize if they receive differentiated training data, which requires good routing. Getting this mutual learning process started requires careful initialization and training dynamics.</p>
+
+<p>Communication overhead is another concern when training on multiple processors. In a dense model, each processor can work relatively independently on its portion of the parameters. With mixture of experts, inputs might need to be routed to experts residing on different processors, requiring inter-processor communication. Clever engineering has produced solutions like expert parallelism, where experts are distributed across processors in ways that minimize required data movement.</p>
+
+<p>Stability during training can also be tricky. The discrete routing decisions (this expert or that one) are inherently non-differentiable—you can't smoothly calculate how to adjust the router by tiny amounts. Various tricks exist to work around this, including the straight-through estimator that pretends the non-differentiable decisions were actually differentiable, or adding noise to create smooth approximations of the hard routing decisions.</p>
+
+<h2>Beyond Language Models</h2>
+
+<p>While mixture of experts has become most famous for its role in large language models, the technique applies broadly. Computer vision systems have used it, with different experts specializing in different types of images or different regions of an image. Recommendation systems use it to handle different types of users or content. Scientific computing applications use it when different physical regimes require different modeling approaches.</p>
+
+<p>The key insight—that complex problems often have regions where specialized approaches work best—is universal. Mixture of experts provides a principled framework for learning what those regions are and training specialists for each.</p>
+
+<h2>The Future of Specialization</h2>
+
+<p>Current research pushes mixture of experts in several directions. Some work focuses on making routers smarter, perhaps using the content of an input more deeply to decide on routing rather than just surface features. Others explore dynamic expert creation, where new experts can be added to a system as it encounters new types of data.</p>
+
+<p>There's also interest in mixture of experts at different levels of granularity. Rather than having experts that replace entire layers of a neural network, you might have smaller expert modules that handle specific sub-operations. This fine-grained approach could offer even more flexibility in how computation is allocated.</p>
+
+<p>The technique has also sparked philosophical discussions about what it means for AI systems to have specialized knowledge. When an expert becomes particularly adept at handling questions about medieval history or organic chemistry, is that fundamentally different from how human experts develop their specializations? The parallel is imperfect—neural network experts don't have the rich contextual understanding humans develop—but the basic principle of specialization improving capability seems to apply across both biological and artificial intelligence.</p>
+
+<h2>The Practical Takeaway</h2>
+
+<p>If you're trying to understand how modern AI systems achieve their capabilities, mixture of experts is essential context. It explains how models can have hundreds of billions or even trillions of parameters without requiring equally astronomical computing budgets to run. It explains why some models that seem similar in capability have dramatically different computational requirements.</p>
+
+<p>The technique embodies a deeper truth: intelligence, whether human or artificial, often works best when it can delegate to specialists. A single brain trying to master everything will be outperformed by a team of experts with a good coordinator. The mixture of experts architecture has translated this insight into mathematics and code, enabling AI systems that are both more capable and more efficient than their monolithic predecessors.</p>
+
+<p>Next time you interact with a large language model, there's a decent chance your words are being routed to a specialized expert particularly suited to your query—and you'll never know which one.</p>
       </div>
 
       <footer class="wikipedia-footer">

@@ -22,7 +22,113 @@
       </header>
 
       <div class="wikipedia-content">
-        <p>Content not available.</p>
+        <p class="source-note">Based on <a href="https://en.wikipedia.org/wiki/Application-specific_integrated_circuit">Wikipedia: Application-specific integrated circuit</a></p>
+
+<h2>The Chips That Do One Thing Perfectly</h2>
+
+<p>Here's a question that might seem absurd: why would anyone spend millions of dollars designing a computer chip that can only do one thing, when you could buy a general-purpose processor for a few hundred dollars that can do almost anything?</p>
+
+<p>The answer reveals something profound about the economics of silicon.</p>
+
+<p>An Application-Specific Integrated Circuit—everyone calls them ASICs, pronounced "ay-sicks"—is a chip designed from the ground up for a single purpose. The chip inside your digital voice recorder? Probably an ASIC. The specialized processor encoding video in your streaming device? An ASIC. The silicon mining Bitcoin in dedicated hardware? Definitely an ASIC.</p>
+
+<p>These chips represent a fascinating trade-off that shapes the entire semiconductor industry. Understanding ASICs means understanding why some chips cost pennies and others cost millions, why some products take years to develop and others months, and why the choice between flexibility and efficiency is perhaps the central tension in all of computer engineering.</p>
+
+<h2>From Five Thousand Gates to a Hundred Million</h2>
+
+<p>To appreciate what modern ASICs can do, you need to understand how much they've grown. In the early days of the technology, an ASIC might contain five thousand logic gates—the fundamental building blocks that perform basic operations like "and," "or," and "not."</p>
+
+<p>Five thousand sounds like a lot until you realize that today's ASICs can contain over one hundred million gates.</p>
+
+<p>This twenty-thousand-fold increase didn't just mean faster chips. It meant fundamentally different chips. A modern ASIC can contain entire microprocessors, various types of memory—including Read-Only Memory (ROM), Random Access Memory (RAM), and flash storage—and sophisticated building blocks that would have filled an entire computer just decades ago. When a single chip contains all these elements working together as a complete system, engineers call it a System-on-Chip, or SoC.</p>
+
+<p>The people who design these chips work in a surprisingly abstract way. Rather than drawing circuits by hand, they typically describe what they want the chip to do using specialized programming languages called Hardware Description Languages. The two dominant ones are Verilog and VHDL—the latter stands for Very High Speed Integrated Circuit Hardware Description Language, which gives you a sense of the era when it was named. These languages let designers think about behavior rather than wires, describing what should happen when certain inputs arrive rather than exactly how the electrons should flow.</p>
+
+<h2>The Million-Dollar Question</h2>
+
+<p>Why doesn't everyone just use ASICs for everything? The answer comes down to three letters: NRE.</p>
+
+<p>Non-Recurring Engineering costs are the expenses you pay once to design a chip, regardless of how many you manufacture. For a modern ASIC, these costs can run into the millions of dollars. You need teams of specialized engineers. You need expensive design software. Most critically, you need to create photomasks—the intricate stencils used to etch patterns onto silicon wafers—and a complete mask set for a cutting-edge process can cost tens of millions of dollars alone.</p>
+
+<p>This creates a brutal economic equation. If you're making ten million chips, spreading a ten-million-dollar NRE cost across them adds just one dollar per chip. But if you're making ten thousand chips, that same NRE adds a thousand dollars to each one.</p>
+
+<p>Enter the Field-Programmable Gate Array, or FPGA. These chips are like the anti-ASIC. Where an ASIC is hardened into silicon permanently, an FPGA contains programmable logic blocks and reconfigurable connections that let the same physical chip implement completely different circuits. You can think of an FPGA as a universal chip—a blank slate that can become almost anything.</p>
+
+<p>The trade-off is significant. FPGAs are less efficient than ASICs—they consume more power, run slower, and cost more per unit. But they require no NRE. You can design your circuit, program it into an FPGA, test it, find bugs, fix them, and reprogram. No waiting months for a new chip. No million-dollar mask sets. This makes FPGAs ideal for prototyping, for products with low production volumes, and for applications where you might need to update the functionality after deployment.</p>
+
+<p>The semiconductor industry has essentially developed a lifecycle: prototype on FPGAs, then migrate to ASICs once the design is proven and volumes justify the investment.</p>
+
+<h2>A Brief History in Silicon</h2>
+
+<p>The story of ASICs begins with gate arrays in the 1960s. Companies like Ferranti, Interdesign, and Fairchild Semiconductor developed early versions using bipolar transistor technology—a family of circuit designs that dominated early computing before being largely superseded.</p>
+
+<p>The real revolution came with Complementary Metal-Oxide-Semiconductor technology, universally abbreviated as CMOS. This approach uses pairs of transistors that naturally consume very little power when not switching states, making it ideal for battery-powered devices and dense integrated circuits. Robert Lipp developed the first CMOS gate arrays in 1974 for International Microcircuits, Inc., and this technology would eventually conquer virtually all of digital electronics.</p>
+
+<p>By the early 1980s, ASICs had become practical enough for consumer products. The ZX81 and ZX Spectrum personal computers, launched by Britain's Sinclair Research in 1981 and 1982, used gate array chips as a cost-effective way to handle graphics and input/output functions. These weren't glamorous applications, but they demonstrated that custom silicon could be economically viable for mass-market products.</p>
+
+<p>The technology evolved through several generations. Early gate arrays were customized only in their metal interconnect layers—the wires connecting pre-fabricated transistors. Later versions allowed customization of both metal and polysilicon layers, offering more flexibility. Companies like VLSI Technology and LSI Logic, founded in 1979 and 1981 respectively, commercialized increasingly sophisticated standard-cell technologies that would reshape the industry.</p>
+
+<h2>How a Chip Gets Designed</h2>
+
+<p>Designing a modern ASIC follows a surprisingly formalized process that the industry calls the design flow. Understanding this flow reveals both the sophistication and the vulnerabilities of modern chip development.</p>
+
+<p>It starts with requirements engineering—figuring out what the chip needs to do. This might sound trivial, but getting requirements wrong is catastrophic. Unlike software, where you can patch bugs after release, an ASIC is frozen in silicon. A design flaw discovered after manufacturing might mean scrapping millions of chips and waiting months for a corrected version.</p>
+
+<p>From requirements, designers create a Register-Transfer Level description using those hardware description languages. The RTL—as everyone calls it—describes the chip's behavior in terms of how data moves between registers and what operations transform that data along the way. This is similar to writing software in a high-level language, except the "program" will become physical hardware rather than instructions for an existing processor.</p>
+
+<p>Next comes verification—and this is where much of the effort goes. Teams use logic simulation, running the RTL description through test scenarios. They employ formal verification, mathematically proving that certain properties hold. They sometimes build emulators or equivalent software models. This paranoid thoroughness exists because of that fundamental difference from FPGAs: you cannot reprogram an ASIC after manufacturing. Getting it wrong costs millions.</p>
+
+<p>Logic synthesis transforms the RTL into a collection of standard cells—pre-designed logic elements from a library provided by the chip manufacturer. Think of standard cells as Lego bricks: they're pre-characterized, meaning their electrical properties like propagation delay, capacitance, and inductance are precisely known. The synthesis process figures out how to build your desired behavior from these known building blocks.</p>
+
+<p>Then comes placement: a software tool arranges these standard cells on the silicon die, like fitting pieces into a puzzle. The goal is optimization—minimizing wire lengths, balancing timing paths, meeting area constraints. This is followed by routing, where another tool draws the actual wires connecting everything. Both steps are computationally intensive search problems where "good enough" solutions are the practical reality rather than truly optimal ones.</p>
+
+<p>Finally, sign-off. Engineers extract parasitic resistances and capacitances from the physical layout—the unintended electrical effects that arise from wires running near each other. They analyze timing to ensure signals arrive when expected. They check that the design follows manufacturing rules. They verify power consumption won't exceed limits. Only when everything checks out do they release the mask information for fabrication.</p>
+
+<p>This entire flow, executed competently, almost always produces a working chip. The elegance lies in how it transforms abstract behavior descriptions into physical silicon through a series of well-defined transformations, each validated before proceeding to the next.</p>
+
+<h2>Three Flavors of Custom</h2>
+
+<p>The ASIC world offers a spectrum of customization, each with different trade-offs between cost, performance, and development time.</p>
+
+<p>At one end sits full-custom design, where engineers define every photolithographic layer of the device. This is the artisanal approach—expensive, time-consuming, demanding highly skilled designers, but capable of achieving the best possible performance and the smallest possible area. Full-custom design lets you integrate analog components alongside digital logic, incorporate pre-designed processor cores, and squeeze out every last bit of efficiency. The catch is the cost: more engineering time, higher NRE, more complex tools.</p>
+
+<p>Standard-cell design occupies the middle ground. Here, designers use manufacturer-provided libraries of pre-characterized logic elements. These libraries have been used in potentially hundreds of other designs, dramatically reducing risk. Modern computer-aided design tools can automate much of the work, and designers can still hand-optimize critical portions. For digital-only designs, standard cells offer an attractive balance of performance and practicality.</p>
+
+<p>Gate arrays represent a different trade-off entirely. The transistor layers are pre-fabricated and held in stock; only the metal interconnect layers are customized for each design. This slashes both manufacturing time and NRE costs since you only need masks for the metal layers. The downside is that you're mapping your design onto pre-existing transistor arrangements, which never achieves perfect utilization. Sometimes routing difficulties force migration to a larger array, increasing per-unit costs.</p>
+
+<p>Pure gate-array design has largely faded from practice, displaced by FPGAs for low-volume applications. But the concept has evolved into what the industry calls structured ASICs—devices that combine large pre-designed intellectual property cores, like processors and memory controllers, with blocks of uncommitted logic that can be customized through metal layers. This approach acknowledges that modern systems need complex building blocks, not just basic logic gates.</p>
+
+<h2>The Structured ASIC Compromise</h2>
+
+<p>Structured ASICs represent an interesting middle path that emerged from recognizing what designers actually spend their time on.</p>
+
+<p>In traditional cell-based or gate-array design, engineers must design power distribution networks, clock trees, and testing infrastructure themselves. These are not the differentiated parts of a chip—every design needs power, every design needs clocks, every design needs testing—yet they consume significant engineering effort.</p>
+
+<p>Structured ASICs pre-define these common elements. The vendor provides tested, characterized power and clock structures. Design tools can be simpler and faster because they don't need to solve problems already solved in the pre-defined layers. The result is lower cost and shorter design cycles compared to cell-based approaches, while still offering more customization than FPGAs.</p>
+
+<p>The distinction between structured ASICs and traditional gate arrays is subtle but important. Gate arrays pre-define metal layers primarily to accelerate manufacturing turnaround. Structured ASICs use pre-defined metallization primarily to reduce mask costs and shorten the design cycle. The difference in motivation leads to different optimization choices throughout the technology.</p>
+
+<h2>Why This Matters for AI Chips</h2>
+
+<p>The economics of ASICs become particularly fascinating in the context of artificial intelligence hardware. AI workloads—particularly the matrix multiplications at the heart of neural networks—are extremely well-defined and repetitive. They represent almost the ideal case for custom silicon: known operations, massive scale, and clear performance requirements.</p>
+
+<p>This explains the explosion of AI-specific chips in recent years. Companies recognize that general-purpose processors, optimized to do everything reasonably well, cannot match purpose-built silicon optimized for one task. The ASIC economics that seemed prohibitive for small-volume applications become compelling when millions of chips will run in data centers processing AI workloads around the clock.</p>
+
+<p>Technologies like in-memory compute—performing calculations where data lives rather than shuttling it between separate memory and processor—represent the next evolution. These approaches require custom silicon because they fundamentally rethink how computation happens at the physical level. You cannot implement true in-memory compute on a general-purpose processor; the architecture doesn't support it.</p>
+
+<p>The trade-off remains the same one that has defined ASICs since the 1960s: invest heavily upfront in design and tooling, then reap efficiency benefits across massive production volumes. What's changed is that AI has created workloads large enough and uniform enough to justify those investments many times over.</p>
+
+<h2>The Fundamental Trade-off</h2>
+
+<p>At its heart, the ASIC story is about a choice that appears throughout engineering and economics: flexibility versus efficiency.</p>
+
+<p>A general-purpose processor can run any program but does nothing optimally. An ASIC can only do one thing but does it with minimal wasted energy, minimal wasted silicon, and maximum speed. The same tension appears in manufacturing (flexible job shops versus dedicated production lines), in biology (generalist species versus specialists), and in human skills (broad knowledge versus deep expertise).</p>
+
+<p>What makes ASICs particularly interesting is how the trade-off shifts with scale. At low volumes, flexibility wins—the ability to reprogram FPGAs outweighs their efficiency penalties. At high volumes, efficiency wins—the per-unit benefits of custom silicon overwhelm the fixed development costs. This creates natural market segments: FPGAs dominate prototyping and specialized applications, while ASICs dominate mass-market products and data-center infrastructure.</p>
+
+<p>The technology continues evolving. Design tools grow more sophisticated, lowering the barrier to custom silicon. Manufacturing processes advance, enabling ever more complex chips. The boundary between ASIC and FPGA blurs as structured ASICs offer ASIC efficiency with shorter development cycles, and advanced FPGAs incorporate hardened blocks for common functions.</p>
+
+<p>But the fundamental question remains the same one engineers have asked since those first gate arrays in the 1960s: is this application important enough, and high-volume enough, to justify building something that does one thing perfectly? The answer continues to reshape the technology that underlies modern life.</p>
       </div>
 
       <footer class="wikipedia-footer">

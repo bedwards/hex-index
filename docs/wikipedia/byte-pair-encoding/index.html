@@ -22,7 +22,101 @@
       </header>
 
       <div class="wikipedia-content">
-        <p>Content not available.</p>
+        <p class="source-note">Based on <a href="https://en.wikipedia.org/wiki/Byte_pair_encoding">Wikipedia: Byte-pair encoding</a></p>
+
+<h2>The Compression Trick That Taught Machines to Read</h2>
+
+<p>Here's a puzzle that might seem impossible: take a string of text, any text, and find a way to represent it using fewer characters than the original. Not by deleting words or summarizing—that would lose information. Instead, find patterns that repeat and give them shorter names.</p>
+
+<p>This is the heart of byte-pair encoding, an algorithm that a researcher named Philip Gage described in 1994. What's remarkable isn't just that it works—compression algorithms are old news—but that a slight modification of this thirty-year-old technique now sits at the foundation of every major large language model, from GPT to Claude to Llama.</p>
+
+<p>The algorithm is beautifully simple. So simple, in fact, that you could run it by hand with a pencil and paper.</p>
+
+<h2>Learning to See Patterns</h2>
+
+<p>Imagine you're staring at the following string of letters:</p>
+
+<p><em>aaabdaaabac</em></p>
+
+<p>Your eye immediately notices something: the pair "aa" appears multiple times. Three times, in fact. What if we replaced every occurrence of "aa" with a single symbol we haven't used yet—let's call it Z?</p>
+
+<p>Now our string becomes:</p>
+
+<p><em>ZabdZabac</em></p>
+
+<p>And we keep a little lookup table in our back pocket: Z means "aa".</p>
+
+<p>But we're not done. Look at what we have now. The pair "ab" appears twice. Let's replace that with Y:</p>
+
+<p><em>ZYdZYac</em></p>
+
+<p>Our lookup table grows: Z means "aa", Y means "ab".</p>
+
+<p>We could even go further. The pair "ZY" (which really means "aaab" if you expand it) appears twice. Replace it with X:</p>
+
+<p><em>XdXac</em></p>
+
+<p>From eleven characters, we've compressed down to five, plus a small table that tells us how to reverse the process. To decompress, we simply run the replacements backward: X becomes ZY, Y becomes ab, Z becomes aa, and we're back to our original string.</p>
+
+<p>This is byte-pair encoding in its original form. Find the most frequent pair, replace it with something shorter, repeat until no pair appears more than once.</p>
+
+<h2>From Compression to Understanding</h2>
+
+<p>For years, this algorithm lived quietly in the world of data compression, a clever but unremarkable tool in the programmer's toolkit. Then something unexpected happened.</p>
+
+<p>Researchers building neural networks for language faced a fundamental problem: how do you feed text into a machine that only understands numbers? The obvious answer—assign each word a number—runs into trouble fast. The English language has hundreds of thousands of words, plus names, technical terms, slang, misspellings, and every new word that gets invented on Twitter. A vocabulary that large becomes unwieldy.</p>
+
+<p>The opposite extreme—assign each letter a number—creates different problems. The sequence "c-a-t" doesn't obviously connect to the sequence "c-a-t-s" in a way that helps the model understand they're related. And processing text character by character is slow.</p>
+
+<p>Byte-pair encoding offered a middle path.</p>
+
+<h2>The Tokenization Revolution</h2>
+
+<p>The modified version of the algorithm doesn't aim to compress text as much as possible. Instead, it creates a vocabulary of "tokens"—chunks of text that the model will treat as single units.</p>
+
+<p>Start with every individual character as its own token. Then, just like before, find the most common adjacent pair and merge them into a new token. But here's the key difference: stop when you've reached a vocabulary size you've chosen in advance.</p>
+
+<p>If you set your vocabulary size to 50,000, the algorithm will keep merging common pairs until it has exactly 50,000 tokens in its list. Some of those tokens will be single characters. Some will be common letter combinations like "ing" or "tion". Some will be entire words like "the" or "and". And some might be parts of compound words or technical terms.</p>
+
+<p>GPT-3.5 and GPT-4 use a vocabulary of about 100,000 tokens. Roughly 100,000 came from the byte-pair encoding process, with another 258 reserved for special purposes—things like marking the start and end of a text, or indicating that the model should stop generating.</p>
+
+<p>This explains something you might have wondered about: why do language models sometimes seem to struggle with certain words? The tokenization isn't random. Common words and phrases get their own tokens, making them easy for the model to process. But unusual words might get split into pieces in ways that don't match their meaning.</p>
+
+<p>The word "transformer" might be a single token. But "transformative" might be split into "transform" and "ative". And a rare technical term or a name from a less-represented language might be broken into seemingly arbitrary chunks.</p>
+
+<h2>The Byte-Level Solution</h2>
+
+<p>There's a catch with the basic approach. What happens when the model encounters a character it's never seen before? A symbol from a writing system that wasn't in the training data? An unusual emoji?</p>
+
+<p>One solution is brutal: just call it "unknown" and move on. This is the UNK token approach, and it means the model literally cannot see or process certain inputs.</p>
+
+<p>A more elegant solution comes from recognizing that computers already have a universal way of representing text: UTF-8, the encoding standard that turns every character in every writing system into a sequence of bytes. There are only 256 possible byte values. If you train your byte-pair encoding on bytes rather than characters, you can guarantee that any valid text can be tokenized.</p>
+
+<p>This "byte-level BPE" approach is now standard. Models like RoBERTa, BART, DeBERTa, GPT-2, and their successors all use it. The text gets converted to raw bytes first, then the familiar pattern-finding algorithm runs on those bytes.</p>
+
+<p>It's a bit like solving the problem of reading any language by first translating everything into Morse code. Not the most intuitive representation, but it works for everything.</p>
+
+<h2>Why This Matters</h2>
+
+<p>The choice of tokenization affects everything about how a language model behaves. Tokens are the atoms of the model's world. It can only "see" one token at a time, only predict the next token in a sequence, only count and reason about tokens rather than the underlying characters.</p>
+
+<p>This is why language models struggle with tasks that seem trivially easy to humans. Counting the number of letters in a word? Hard, if the word has been split into tokens that don't respect letter boundaries. Reversing a string? Nearly impossible, because the model doesn't have access to the individual characters.</p>
+
+<p>It also explains why different models behave differently on the same text. Each model has its own vocabulary, trained on its own data. The word "cryptocurrency" might be three tokens in one model and one token in another. These differences ripple through everything the model does.</p>
+
+<h2>A Beautiful Accident of History</h2>
+
+<p>There's something almost poetic about the fact that an algorithm designed for file compression in 1994 became the foundation for how artificial intelligence reads text in 2024. Philip Gage wasn't thinking about neural networks or large language models. He was solving a practical problem: how to make files smaller.</p>
+
+<p>But the core insight—that you can understand complex sequences by finding their repeating patterns and building a vocabulary of increasingly larger chunks—turned out to be exactly what language models needed. Not maximum compression, but meaningful decomposition.</p>
+
+<p>The algorithm doesn't know anything about language. It doesn't understand that "un" is a prefix meaning "not" or that "ing" marks the present participle. It just counts pairs and merges the common ones. Yet somehow, the vocabulary it produces often captures linguistic structure. Common suffixes become tokens. Frequent words stay whole. The algorithm discovers patterns that align with how language actually works.</p>
+
+<p>Perhaps that's not surprising. Compression and understanding have always been related. To compress something efficiently, you need to model its structure. And what is language understanding except building a model of how words and meanings fit together?</p>
+
+<p>Every time you interact with a large language model, your text first passes through this algorithm. Your words get chopped into tokens—sometimes at natural boundaries, sometimes not—and only then does the neural network begin its work. It's an invisible preprocessing step, so fundamental that it's easy to forget.</p>
+
+<p>But it's there, a piece of 1994 living at the heart of 2024's most advanced AI.</p>
       </div>
 
       <footer class="wikipedia-footer">

@@ -22,7 +22,119 @@
       </header>
 
       <div class="wikipedia-content">
-        <p>Content not available.</p>
+        <p class="source-note">Based on <a href="https://en.wikipedia.org/wiki/Wavelength-division_multiplexing">Wikipedia: Wavelength-division multiplexing</a></p>
+
+<h2>The Rainbow Inside Your Internet</h2>
+
+<p>Imagine you could shine a flashlight through a garden hose and somehow transmit a dozen television channels simultaneously—each riding on a different color of light, all traveling through the same tube without interfering with each other. That's essentially what wavelength-division multiplexing does, and it's the reason your internet connection can carry Netflix, video calls, and cloud backups all at once without breaking a sweat.</p>
+
+<p>The concept is elegant in its simplicity. Light, like sound, comes in different frequencies. We perceive these frequencies as colors. What engineers realized in the 1970s was that a single strand of glass fiber—thinner than a human hair—could carry multiple streams of data simultaneously if each stream used a different color of laser light.</p>
+
+<p>Think of it like a highway with invisible lanes. Cars in the red lane never collide with cars in the blue lane, even though they're traveling through the same physical space. Except in this case, the "cars" are pulses of light carrying your emails, and the "lanes" are different wavelengths of the electromagnetic spectrum.</p>
+
+<h2>Why Colors Don't Collide</h2>
+
+<p>The physics here is surprisingly intuitive. When you pass white light through a prism, it separates into a rainbow because different wavelengths bend at different angles. Fiber optic systems exploit this same principle in reverse. At one end of the fiber, a device called a multiplexer combines several laser beams of different colors into a single beam. At the other end, a demultiplexer—essentially a very precise prism—separates them back out, routing each color to its intended destination.</p>
+
+<p>The filtering devices that perform this magic are called etalons, which is a fancy name for extremely stable, thin-film-coated pieces of optical glass that can distinguish between wavelengths with remarkable precision. Picture a bouncer at an exclusive club who can tell the difference between someone wearing burgundy and someone wearing crimson—and who never makes mistakes.</p>
+
+<h2>A Brief History of Light Highways</h2>
+
+<p>The idea first appeared in scientific literature in 1970, courtesy of a researcher named Delange. By 1980, laboratory systems could combine two separate signals onto a single fiber.</p>
+
+<p>Two signals might not sound impressive. But consider what came next.</p>
+
+<p>Modern systems can handle 160 separate channels. Some push to 320. Take a fiber that can carry 100 gigabits per second on a single wavelength, multiply that capacity by 160, and you get over 16 terabits per second—enough to transmit the entire contents of the Library of Congress in about ten seconds.</p>
+
+<p>This exponential growth happened because telecommunications companies faced an expensive problem. Laying new fiber optic cable is enormously costly. You have to dig trenches, navigate rights-of-way, and often tear up streets. But if you could make your existing fibers carry more data, you could postpone or avoid that expense entirely.</p>
+
+<p>Wavelength-division multiplexing became the answer. Upgrade the equipment at each end of an existing fiber connection, and suddenly that same glass strand carries ten, fifty, or a hundred times more data than before. The backbone of the internet didn't need to be rebuilt—it just needed smarter lasers.</p>
+
+<h2>The Three Flavors of Light Splitting</h2>
+
+<p>Not all wavelength-division multiplexing is created equal. Engineers have developed three distinct approaches, each suited to different situations and budgets.</p>
+
+<p>The simplest version uses just two wavelengths: 1310 nanometers and 1550 nanometers. These happen to be the sweet spots where glass fiber transmits light most efficiently, with minimal signal loss. This basic two-channel approach is sometimes called "normal" or "bidirectional" wavelength-division multiplexing, and it's perfect for simple connections where you need upstream and downstream traffic on a single fiber.</p>
+
+<h3>Coarse Wavelength-Division Multiplexing</h3>
+
+<p>Coarse wavelength-division multiplexing, abbreviated as CWDM, steps things up by supporting up to 16 or 18 channels. The word "coarse" refers to the relatively wide spacing between channels—about 20 nanometers apart.</p>
+
+<p>Why does spacing matter? Because wider spacing means the equipment can be less precise, and less precise means cheaper. The lasers don't need to hit an exact frequency with pinpoint accuracy. The filters don't need to distinguish between extremely similar wavelengths. This makes coarse systems popular for metropolitan networks and cable television, where distances are moderate and cost sensitivity is high.</p>
+
+<p>There's a catch, though. That wide spacing spreads the channels across a frequency range where the glass fiber itself isn't uniformly transparent. Some wavelengths get absorbed more than others, particularly around 1383 nanometers where water molecules trapped in the glass during manufacturing cause problems. Newer fiber designs have largely solved this issue, but older cables still impose limits on which channels are practical to use.</p>
+
+<h3>Dense Wavelength-Division Multiplexing</h3>
+
+<p>Dense wavelength-division multiplexing, or DWDM, is where things get serious. Instead of 20 nanometers between channels, dense systems pack them at 100 gigahertz spacing—roughly 0.8 nanometers apart. Some systems push to 50 gigahertz or even 25 gigahertz, cramming 160 or more distinct channels into the same fiber.</p>
+
+<p>This is the technology that powers the internet's backbone. When data travels from New York to London, or from a content delivery network to your local internet service provider, it almost certainly travels over dense wavelength-division multiplexing systems.</p>
+
+<p>The precision required is extraordinary. Each laser must maintain its exact wavelength despite temperature changes, aging, and other environmental factors. A drift of just a few gigahertz—a tiny fraction of the total frequency—could cause signals to bleed into adjacent channels. The systems include sophisticated temperature control to keep lasers stable within their assigned frequency windows.</p>
+
+<h2>Amplifiers: The Unsung Heroes</h2>
+
+<p>Here's a problem that seems insurmountable at first glance. Light traveling through glass fiber gradually fades. After about 80 to 100 kilometers, the signal has weakened so much that it becomes unreadable. How do you send data across an ocean?</p>
+
+<p>The traditional solution was to convert the optical signal to electrical, clean it up with electronic equipment, and convert it back to light. These regenerators worked, but they were expensive, power-hungry, and—critically—they were designed for specific data rates. If you wanted to upgrade from one gigabit per second to ten gigabits per second, you had to replace all the regenerators along the route.</p>
+
+<p>Enter the erbium-doped fiber amplifier, usually called an EDFA. Erbium is a rare earth element that, when added to glass fiber in tiny amounts, can amplify light directly—no conversion to electricity required. Pump in some energy from an external laser, and the erbium atoms boost the passing signals.</p>
+
+<p>The magic of erbium-doped fiber amplifiers is that they're wavelength-agnostic within their operating range, roughly 1525 to 1565 nanometers, known as the C-band. They'll amplify a single channel or a hundred channels. They don't care about the data rate. This meant that upgrading a fiber link no longer required touching the amplifiers scattered along the route—just the equipment at each end.</p>
+
+<p>For longer wavelengths in what's called the L-band, from about 1565 to 1625 nanometers, a different technology called Raman amplification steps in. Together, these amplification techniques effectively double the usable spectrum.</p>
+
+<h2>The Anatomy of a Dense System</h2>
+
+<p>A working dense wavelength-division multiplexing system has several key components, each playing a specific role in the data transmission chain.</p>
+
+<p>At the sending end sits the terminal multiplexer. This device contains a transponder for each channel—essentially a translator that takes data from client equipment, converts it to the electrical domain, and retransmits it as a specific wavelength of laser light in the 1550 nanometer band. An optical multiplexer then combines all these wavelengths into a single beam, potentially boosted by an amplifier before it enters the fiber.</p>
+
+<p>Every 80 to 100 kilometers along the route, you'll find an intermediate line repeater. This is simply an amplifier site that compensates for signal loss. The repeaters boost all wavelengths simultaneously, asking no questions about what data they carry.</p>
+
+<p>More sophisticated networks include optical add-drop multiplexers at intermediate points. These can extract specific wavelengths from the combined signal—dropping them off for local use—while letting other wavelengths pass through unaffected. Think of it as an exit ramp that only certain colors of light can see.</p>
+
+<p>At the receiving end, a terminal demultiplexer performs the reverse of what happened at the sending end. It separates the combined beam back into individual wavelengths, each routed to its own transponder for conversion back to the client's expected format.</p>
+
+<h3>The Supervisory Channel</h3>
+
+<p>Running alongside all this data traffic is something called the Optical Supervisory Channel, or OSC. This is a dedicated wavelength—typically outside the main amplification band—that carries management information rather than user data.</p>
+
+<p>The supervisory channel reports on the health of the optical signal, conditions at remote sites, and any problems detected along the route. It's also used for remote software upgrades and network management. If a fiber breaks somewhere in the middle of nowhere, the supervisory channel helps technicians pinpoint exactly where.</p>
+
+<p>Unlike the data wavelengths, which pass through amplifier sites without being decoded, the supervisory channel is terminated and regenerated at each site. It picks up local status information before being retransmitted to the next segment.</p>
+
+<h2>Standards and the Grid</h2>
+
+<p>In 2002, the International Telecommunication Union established a standardized frequency grid for dense systems, designated ITU-T G.694.1. This grid spaces channels exactly 100 gigahertz apart in optical frequency, anchored to a reference point at 193.10 terahertz—corresponding to a wavelength of 1,552.52 nanometers.</p>
+
+<p>Why does standardization matter? Because it allows equipment from different manufacturers to work together. Before the standard, each vendor's lasers operated at slightly different frequencies, making it difficult or impossible to mix and match. The ITU grid created a common language that the entire industry could speak.</p>
+
+<p>The first commercial deployment of dense wavelength-division multiplexing happened in June 1996, when Ciena Corporation lit up a system on Sprint's network. The technology spread rapidly from there, becoming the default for long-haul telecommunications within a decade.</p>
+
+<h2>The Economics of Light</h2>
+
+<p>Dense systems cost more than coarse systems. The lasers must be more precise. The temperature control must be more exact. The filters must discriminate between wavelengths that differ by less than a nanometer. All of this precision costs money.</p>
+
+<p>But dense systems also serve a different market. They're deployed on internet backbone routes and between major data centers—applications where the volume of traffic justifies the premium equipment costs. A single dense wavelength-division multiplexing system might carry traffic worth millions of dollars per day in telecommunications revenue.</p>
+
+<p>Coarse systems, by contrast, find their home in metropolitan networks, cable television distribution, and "last mile" connections. Here, distances are shorter, capacity requirements are more modest, and cost sensitivity is higher. The inability to use optical amplifiers limits coarse systems to about 60 kilometers before the signal needs electronic regeneration, but that's plenty for most metropolitan applications.</p>
+
+<h2>Recent Innovations</h2>
+
+<p>The field continues to evolve. Recent developments include pluggable transceiver modules that can be software-tuned to operate on any of 40 or 80 different channels. Instead of stocking dozens of different spare parts, each locked to a specific wavelength, network operators can keep a handful of universal modules that can be configured as needed.</p>
+
+<p>This flexibility dramatically reduces inventory costs and speeds up repairs. When a component fails at 3 AM, a technician can grab any available spare and configure it to the required wavelength on site.</p>
+
+<h2>The Invisible Infrastructure</h2>
+
+<p>Most people will never see a wavelength-division multiplexing system. They're housed in anonymous buildings along fiber routes, in climate-controlled rooms with restricted access. The amplifier sites might be nothing more than small huts beside a highway, unremarkable except for the fiber optic cables entering and exiting.</p>
+
+<p>But every time you stream a movie, join a video call, or back up files to the cloud, your data almost certainly travels through these systems. The colors of light you cannot see are carrying conversations, transactions, and ideas across continents and under oceans.</p>
+
+<p>It's a reminder that some of the most transformative technologies are the ones we never notice. The glass fibers beneath our feet carry more information than all the radio waves filling the air around us. And they do it by splitting light into colors—the same principle Newton demonstrated with a prism three and a half centuries ago, now refined to the point where a single strand of glass can carry the aggregate communications of a small nation.</p>
+
+<p>The rainbow inside your internet never stops flowing.</p>
       </div>
 
       <footer class="wikipedia-footer">

@@ -27,21 +27,6 @@
         </div>
       </header>
 
-      <div class="article-excerpt">
-        <p></p>
-        <div class="excerpt-fade"></div>
-      </div>
-
-      <div class="read-full-article">
-        <a href="https://kaitchup.substack.com/p/efficient-llms-at-scale-my-neurips" class="read-button" target="_blank" rel="noopener">
-          Read full article on The Kaitchup &rarr;
-        </a>
-        <p class="copyright-note">
-          This excerpt is provided for preview purposes.
-          Full article content is available on the original publication.
-        </p>
-      </div>
-
       
       <section class="deep-dives">
         <h2>Deep Dives</h2>
@@ -66,6 +51,20 @@
         </ul>
       </section>
     
+
+      <div class="article-excerpt">
+        <p>One week after getting back from NeurIPS in San Diego, my full report is here. I had a lot to process and write up.</p><p>If you’re not familiar with it, NeurIPS has been <em>the</em> flagship conference for AI research for years, with tracks on deep learning, optimization, theory, and a growing number of applications. Ten years ago, it already felt massive with around 4,000 participants. This year, the organizers announced more than <strong>29,000 registrations</strong> (including virtual attendees, and 500 people attending from the Mexico satellite venue,<a class="footnote-anchor" data-component-name="FootnoteAnchorToDOM" id="footnote-anchor-1" href="#footnote-1" target="_self">1</a> but not counting on-site late registrations). I’ve been to dozens of research conferences in my life, and I’ve never seen anything close to this scale.</p><p>Downtown San Diego, especially the “historic” Gaslamp district, was completely taken over. Every hotel lobby, bar, and restaurant seemed to be hosting some variation of the same conversation about LLMs and agents. French and US border agents at airports had the same remarks: “Are you going to THIS conference?”. I’m sure the local businesses did very well. It felt like every second table was a mini-NeurIPS in itself.</p><div class="captioned-image-container"><figure><a class="image-link image2 is-viewable-img" target="_blank" href="https://substackcdn.com/image/fetch/$s_!Hlnx!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F9aabc6e8-9557-4d4c-ac2a-e30a3d7b57e0_1225x603.png" data-component-name="Image2ToDOM"><div class="image2-inset"><picture><source type="image/webp" srcset="https://substackcdn.com/image/fetch/$s_!Hlnx!,w_424,c_limit,f_webp,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F9aabc6e8-9557-4d4c-ac2a-e30a3d7b57e0_1225x603.png 424w, https://substackcdn.com/image/fetch/$s_!Hlnx!,w_848,c_limit,f_webp,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F9aabc6e8-9557-4d4c-ac2a-e30a3d7b57e0_1225x603.png 848w, https://substackcdn.com/image/fetch/$s_!Hlnx!,w_1272,c_limit,f_webp,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F9aabc6e8-9557-4d4c-ac2a-e30a3d7b57e0_1225x603.png 1272w, https://substackcdn.com/image/fetch/$s_!Hlnx!,w_1456,c_limit,f_webp,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F9aabc6e8-9557-4d4c-ac2a-e30a3d7b57e0_1225x603.png 1456w" sizes="100vw"><img src="https://substackcdn.com/image/fetch/$s_!Hlnx!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F9aabc6e8-9557-4d4c-ac2a-e30a3d7b57e0_1225x603.png" width="1225" height="603" data-attrs="{&quot;src&quot;:&quot;https://substack-post-media.s3.amazonaws.com/public/images/9aabc6e8-9557-4d4c-ac2a-e30a3d7b57e0_1225x603.png&quot;,&quot;srcNoWatermark&quot;:null,&quot;fullscreen&quot;:null,&quot;imageSize&quot;:null,&quot;height&quot;:603,&quot;width&quot;:1225,&quot;resizeWidth&quot;:null,&quot;bytes&quot;:null,&quot;alt&quot;:null,&quot;title&quot;:null,&quot;type&quot;:null,&quot;href&quot;:null,&quot;belowTheFold&quot;:false,&quot;topImage&quot;:true,&quot;internalRedirect&quot;:null,&quot;isProcessing&quot;:false,&quot;align&quot;:null,&quot;offset&quot;:false}" class="sizing-normal" alt="" srcset="https://substackcdn.com/image/fetch/$s_!Hlnx!,w_424,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F9aabc6e8-9557-4d4c-ac2a-e30a3d7b57e0_1225x603.png 424w, https://substackcdn.com/image/fetch/$s_!Hlnx!,w_848,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F9aabc6e8-9557-4d4c-ac2a-e30a3d7b57e0_1225x603.png 848w, https://substackcdn.com/image/fetch/$s_!Hlnx!,w_1272,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F9aabc6e8-9557-4d4c-ac2a-e30a3d7b57e0_1225x603.png 1272w, https://substackcdn.com/image/fetch/$s_!Hlnx!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F9aabc6e8-9557-4d4c-ac2a-e30a3d7b57e0_1225x603.png 1456w" sizes="100vw" fetchpriority="high"></picture><div class="image-link-expand"><div class="pencraft pc-display-flex pc-gap-8 pc-reset"></div></div></div></a></figure></div><p>In this article, I want to share what I took away from the week, not a complete overview of NeurIPS, it’s impossible, but a view from my corner of it. My work is mostly about <em>adapting</em> LLMs: fine-tuning, quantization, evaluation, and efficient inference. So that’s where I naturally gravitated: the sessions, posters, and hallway conversations on scaling, compression, and inference tricks. I spent (almost) no time in the more theoretical or classical computer vision tracks.<a class="footnote-anchor" data-component-name="FootnoteAnchorToDOM" id="footnote-anchor-2" href="#footnote-2" target="_self">2</a> There was also a “Machine Learning” track that I didn’t visit.</p><p>I’ll structure this report around a few themes:</p><ul><li><p><strong>Highlights around three topics</strong></p><ul><li><p>KV Cache: The Enemy Number One</p></li><li><p>Speculative Decoding with Trees</p></li><li><p>FP4 at Training Time: Four Bits Are (Almost) Enough</p></li></ul></li><li><p><strong>Good paper special mentions:</strong></p><ul><li><p>How to do AdamW with a batch size of 1</p></li><li><p>How leaderboards are gamed</p></li></ul></li><li><p><strong>Comments on Yejin Choi’s keynote, which perfectly captured the year</strong></p></li><li><p><em><strong>How to survive (and enjoy) a conference as big as NeurIPS</strong></em></p></li></ul><p>One important disclaimer: the <em>official</em> hot topic of this year was clearly <strong>reinforcement learning</strong>. But you won’t find much RL in this write-up. That’s partly practical: the RL area was packed, and having the kind of in-depth discussions I’d want there would have eaten most of my conference time. It’s also because I’ve already read and played with many of the RL </p>...</source>
+      </div>
+
+      <div class="read-full-article">
+        <a href="https://kaitchup.substack.com/p/efficient-llms-at-scale-my-neurips" class="read-button" target="_blank" rel="noopener">
+          Read full article on The Kaitchup &rarr;
+        </a>
+        <p class="copyright-note">
+          This excerpt is provided for preview purposes.
+          Full article content is available on the original publication.
+        </p>
+      </div>
     </article>
   
   </main>

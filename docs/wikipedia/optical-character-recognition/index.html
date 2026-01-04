@@ -22,7 +22,123 @@
       </header>
 
       <div class="wikipedia-content">
-        <p>Content not available.</p>
+        <p class="source-note">Based on <a href="https://en.wikipedia.org/wiki/Optical_character_recognition">Wikipedia: Optical character recognition</a></p>
+
+<h2>The Machine That Learned to Read</h2>
+
+<p>In 1976, a blind man sat before a strange new machine. He placed a book on its glass surface, pressed a button, and for the first time in history, a computer read aloud to him. The device was called the Kurzweil Reading Machine, and it represented something remarkable: humanity had finally taught machines to see letters and understand them as we do.</p>
+
+<p>This technology—optical character recognition, or OCR—might sound mundane in an age where we casually snap photos of receipts and watch our phones extract the text. But beneath that casual utility lies one of the most fascinating intersections of artificial intelligence, pattern recognition, and computer vision ever developed.</p>
+
+<h2>What OCR Actually Does</h2>
+
+<p>At its core, optical character recognition is translation. Not between languages, but between visual representations of text and the digital encoding that computers actually understand. When you photograph a page from a book, your phone captures millions of pixels—tiny dots of color arranged in a grid. The image might look like text to your brain, but to a computer, it's just a meaningless array of numbers representing shades.</p>
+
+<p>OCR bridges that gap. It examines those pixels, identifies patterns that correspond to letters and words, and outputs actual text—characters your computer can search, copy, edit, or read aloud.</p>
+
+<p>Think about how effortlessly you read these words. Your brain processes the shapes of letters at astonishing speed, recognizing them whether they're printed in a crisp sans-serif font or scrawled in your doctor's handwriting. You don't consciously think about it. Teaching a machine to do the same thing? That took over a century of innovation.</p>
+
+<h2>A History Rooted in Accessibility</h2>
+
+<p>The origins of OCR trace back to an unexpected source: helping the blind.</p>
+
+<p>In 1914, an inventor named Edmund Fournier d'Albe created something called the Optophone. Picture a handheld device you would drag slowly across a printed page. As it passed over letters, it would emit different musical tones—each letter had its own sound. A trained user could "hear" the text. It was crude, laborious, and required memorizing an entirely new alphabet of sounds. But it worked.</p>
+
+<p>That same year, Emanuel Goldberg developed a machine that could read printed characters and convert them into telegraph code. Goldberg would spend the next two decades refining this technology, eventually creating what he called the "Statistical Machine"—a device that could search through microfilm archives using optical recognition. IBM acquired the patent in 1931, though the technology was arguably ahead of its time.</p>
+
+<p>The real breakthrough came decades later. Ray Kurzweil—a name now synonymous with predictions about artificial intelligence and technological singularity—founded Kurzweil Computer Products in 1974 with a specific goal: create a machine that could read any printed text, regardless of font.</p>
+
+<p>Previous OCR systems were essentially memorizers. You had to train them with specific fonts, one at a time. If they encountered unfamiliar typography, they were lost. Kurzweil's system aimed for what researchers called "omni-font" recognition—the ability to read virtually any typeface.</p>
+
+<p>The unveiling of the Kurzweil Reading Machine in January 1976 drew significant attention. Leaders of the National Federation of the Blind attended the demonstration. Here was a device that combined a flatbed scanner, sophisticated recognition software, and a text-to-speech synthesizer to give blind individuals access to printed materials without requiring human assistance.</p>
+
+<p>One of the first commercial customers? LexisNexis, who used the technology to digitize legal documents and news archives for their online database—a prescient application that foreshadowed the document-digitization wave that would sweep through every industry.</p>
+
+<h2>How Machines Learn to See Letters</h2>
+
+<p>Teaching a computer to recognize text involves several distinct challenges, each requiring its own solution.</p>
+
+<p>First, the image must be prepared. A scanned document is rarely perfect. Maybe the page was slightly crooked when placed on the scanner, tilting all the text at an angle. Perhaps there are specks of dust appearing as dots, or the paper has yellowed with age, reducing the contrast between ink and background. OCR software begins with preprocessing—a series of corrections applied before any actual recognition occurs.</p>
+
+<p>De-skewing straightens crooked pages. Despeckling removes noise and smooths edges. Binarization converts the image to pure black and white, separating text from background. This last step sounds simple but proves surprisingly consequential—the quality of this black-and-white conversion significantly affects everything that follows.</p>
+
+<p>Then comes layout analysis. Text doesn't exist in a vacuum. A newspaper page might have multiple columns, headlines in different sizes, photographs with captions, and advertisements scattered throughout. The OCR system must identify these distinct regions and understand their relationships. Is this block a heading or body text? Does this column continue below that photograph or beside it?</p>
+
+<p>Finally, the actual character recognition begins. Here, two fundamental approaches have emerged over the decades.</p>
+
+<p>Matrix matching is the more intuitive method. The system maintains a library of template images—what an "A" looks like, what a "B" looks like, and so on. When examining an unknown character, it compares the shape pixel by pixel against these templates, looking for the closest match. This approach works well for clean, consistently formatted text but struggles with unusual fonts or degraded documents.</p>
+
+<p>Feature extraction takes a more abstract approach. Instead of memorizing exact shapes, the system identifies geometric features: vertical lines, horizontal lines, curves, loops, intersections. An "A" might be characterized as two diagonal lines meeting at a point with a horizontal line connecting them partway down. An "O" is a closed loop. This abstraction makes the system more robust—it can recognize letters even when their exact shapes vary.</p>
+
+<p>Modern OCR systems, including the widely-used open-source Tesseract engine, often combine both approaches. They use a two-pass system: the first pass identifies high-confidence letters, then the second pass uses those recognized letters to better understand the document's specific font characteristics, improving recognition of the remaining text. If your scan is slightly blurry or the font is unusual, that adaptive second pass becomes crucial.</p>
+
+<h2>The Neural Network Revolution</h2>
+
+<p>The most significant recent advance in OCR mirrors the broader revolution in artificial intelligence: neural networks.</p>
+
+<p>Traditional OCR systems examined one character at a time, isolating each letter before attempting recognition. This character segmentation proved surprisingly difficult. In handwriting, letters often connect. In poor-quality scans, characters might blur together or break apart. Cursive script presents particular challenges—where does one letter end and the next begin?</p>
+
+<p>Modern neural network approaches sidestep this problem entirely. Instead of recognizing individual characters, they recognize entire lines of text at once. The network learns patterns at multiple scales simultaneously, understanding not just letter shapes but word structures and even linguistic context.</p>
+
+<p>This shift has dramatically improved accuracy, particularly for handwritten text—a category so challenging it has its own name: Intelligent Character Recognition, or ICR. Where traditional OCR might achieve ninety-something percent accuracy on clean printed documents, neural networks have pushed that figure even higher while also handling far messier inputs.</p>
+
+<h2>Beyond Simple Reading</h2>
+
+<p>OCR today extends far beyond scanning books into databases. The technology has spawned specialized applications across numerous industries.</p>
+
+<p>Every time you deposit a check by photographing it with your phone, OCR reads the numbers. Automatic license plate recognition systems use specialized OCR to identify vehicles—for toll collection, parking enforcement, and law enforcement. Airports use passport recognition systems that extract information from identity documents in seconds.</p>
+
+<p>Google Books represents perhaps the most ambitious OCR project in history: an attempt to scan and make searchable millions of books from libraries worldwide. Project Gutenberg similarly uses OCR to digitize public domain literature, making classic texts freely available.</p>
+
+<p>There's even a peculiar adversarial relationship between OCR and CAPTCHA—those annoying distorted-text puzzles websites use to verify you're human. CAPTCHAs are specifically designed to be easy for humans but difficult for OCR systems to read. As OCR improves, CAPTCHAs must grow more distorted, creating an ongoing technological arms race.</p>
+
+<h2>The Challenge of Accuracy</h2>
+
+<p>OCR is remarkably good. It is not perfect. And that gap between "remarkably good" and "perfect" can cause significant problems.</p>
+
+<p>Consider digitizing historical newspapers. A ninety-nine percent accuracy rate sounds impressive until you realize that means roughly ten errors per thousand characters—perhaps two or three mistakes per paragraph. For casual reading, this might be tolerable. For scholarly research or legal documents, it's problematic. For searching through archives, a single mistranscribed name might mean failing to find a crucial document.</p>
+
+<p>Various techniques improve accuracy. Lexicon constraints restrict recognition to known words—if the OCR is uncertain whether a character is an "o" or a "0," knowing the document is in English helps the system choose the option that forms a valid word. Grammar analysis can catch errors that produce nonsensical sentences. Near-neighbor analysis uses co-occurrence frequencies: "Washington, D.C." appears far more often in English text than "Washington DOC," making the former interpretation more likely.</p>
+
+<p>Post-processing algorithms like the Levenshtein Distance—which measures how many single-character edits separate two strings—can identify and correct likely errors by finding the closest valid word to an uncertain recognition.</p>
+
+<h2>The Fonts That Made It Easy</h2>
+
+<p>One elegant solution to OCR accuracy emerged from a different direction entirely: change the text itself.</p>
+
+<p>Specialized fonts like OCR-A and OCR-B were designed specifically for machine reading. Their characters have precisely specified sizes and spacing, with distinctive shapes chosen to minimize confusion between similar-looking letters. The number "0" and the letter "O" look obviously different. The number "1," lowercase "l," and uppercase "I" are each unique.</p>
+
+<p>These fonts appear most commonly in bank check processing, where accuracy is paramount and the controlled environment allows mandating specific typography. The MICR (Magnetic Ink Character Recognition) font used on checks takes this even further—the characters are printed in magnetic ink, allowing specialized readers to detect them even through other printed material.</p>
+
+<p>The Soviet Union took a different approach to ensuring OCR accuracy for postal codes. Envelopes included pre-printed boxes with dots—users would write each digit by connecting specific dots, essentially constraining human handwriting into machine-readable patterns. It was a clever inversion: instead of teaching machines to read human writing, they guided humans to write more like machines.</p>
+
+<h2>OCR in Your Pocket</h2>
+
+<p>The smartphone transformed OCR from a specialized tool into an everyday convenience. Your phone's camera captures images far exceeding the quality of early document scanners. Cloud computing provides access to sophisticated recognition algorithms without requiring powerful local hardware. The combination enables applications that would have seemed magical just decades ago.</p>
+
+<p>Point your phone at a restaurant menu in a foreign country. The phone captures the image, sends it to cloud-based OCR services, identifies the text, translates it, and overlays the translation on your screen—all in seconds. The same technology extracts contact information from business cards, converts handwritten notes to searchable text, and makes printed documents accessible to visually impaired users through screen readers.</p>
+
+<p>Google Lens, Apple's Live Text, and similar features bring OCR to billions of users who have never heard the term. The technology has become invisible—so reliable and integrated that we forget it's there, the hallmark of truly successful innovation.</p>
+
+<h2>The Limits of Recognition</h2>
+
+<p>Despite remarkable progress, certain challenges remain.</p>
+
+<p>Historical documents present particular difficulties. Faded ink, damaged paper, archaic typography, and obsolete languages all complicate recognition. Handwritten historical manuscripts can be nearly impossible for automated systems, requiring human transcription or specialized training.</p>
+
+<p>Scene text—words appearing in photographs of the real world, on signs and billboards and product packaging—poses different challenges than scanned documents. The text might be curved, partially obscured, shot at an angle, or competing with complex backgrounds. While progress continues, scene text recognition remains harder than document scanning.</p>
+
+<p>Some writing systems are inherently more challenging. Chinese, Japanese, and Korean use thousands of distinct characters. Arabic and Hebrew are read right-to-left and include characters that change shape based on position. Cursive scripts in many languages connect letters in ways that make segmentation nearly impossible. Each writing system requires specialized handling.</p>
+
+<h2>Looking Forward</h2>
+
+<p>The trajectory of OCR technology points toward ever-greater integration with artificial intelligence. Modern systems don't just recognize text—they understand context, correct errors intelligently, and adapt to specialized domains.</p>
+
+<p>The New York Times developed an internal tool called Document Helper that processes thousands of pages per hour, preparing documents for reporter review. Insurance companies use customized OCR to extract specific information from standardized forms. Legal firms scan decades of case files into searchable archives. The technology has become infrastructure—invisible, essential, and still improving.</p>
+
+<p>From Emanuel Goldberg's telegraph-code translator to the reading machine that gave blind individuals access to printed text, from the painstaking pixel-matching of early computers to the neural networks that recognize entire lines at once, optical character recognition represents a century of teaching machines to do something humans do effortlessly: look at marks on a surface and understand them as language.</p>
+
+<p>Every time you search within a PDF, photograph a document with your phone, or watch real-time translation appear over foreign text, you're witnessing the culmination of that century of work—and the foundation for whatever comes next.</p>
       </div>
 
       <footer class="wikipedia-footer">

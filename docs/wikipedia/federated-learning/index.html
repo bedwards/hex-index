@@ -22,7 +22,161 @@
       </header>
 
       <div class="wikipedia-content">
-        <p>Content not available.</p>
+        <p class="source-note">Based on <a href="https://en.wikipedia.org/wiki/Federated_learning">Wikipedia: Federated learning</a></p>
+
+<h2>The Privacy Paradox That's Reshaping Artificial Intelligence</h2>
+
+<p>Here's a puzzle that kept machine learning researchers up at night for years: How do you train an artificial intelligence system on millions of people's data without ever actually collecting that data?</p>
+
+<p>It sounds impossible. After all, the whole point of machine learning is that algorithms get smarter by digesting vast quantities of information. Your phone's keyboard gets better at predicting your words because it learns from what you type. Medical AI can spot diseases because it's studied thousands of patient scans. The more data, the smarter the system.</p>
+
+<p>But there's a catch. That data often includes the most intimate details of our lives—our health records, our financial transactions, our late-night text messages. Centralizing all of it on some company's servers creates a honeypot for hackers and a surveillance apparatus that would make even George Orwell uncomfortable.</p>
+
+<p>The solution that emerged goes by the name federated learning, and it's quietly revolutionizing how we build AI systems. The core insight is beautifully simple: instead of bringing all the data to the model, bring the model to the data.</p>
+
+<h2>The Insight That Changed Everything</h2>
+
+<p>Imagine you're trying to teach a child to recognize different breeds of dogs. The traditional approach would be to collect photographs from everyone in the neighborhood, bring them all to one central location, and have the child study them there. That works, but now you've got a filing cabinet full of everyone's personal photos sitting in your living room.</p>
+
+<p>Federated learning flips this script entirely. Instead, you send the child to visit each neighbor's house. At each home, the child studies the photos there and takes notes—not copies of the photos, just observations about what makes a golden retriever different from a labrador. Then the child comes back and combines all those notes into a comprehensive understanding of dog breeds.</p>
+
+<p>The photos never left anyone's home. The neighbors' privacy remained intact. Yet the child learned from everyone's collection.</p>
+
+<p>This is exactly how federated learning works with AI. A central server sends a machine learning model out to thousands or millions of devices—smartphones, hospital computers, industrial sensors. Each device trains that model on its local data, then sends back only the updated model parameters. The raw data stays put.</p>
+
+<h3>What Are Model Parameters, Anyway?</h3>
+
+<p>Think of a neural network as an incredibly complex decision-making flowchart with millions of little dials and switches. These dials are the "parameters" or "weights" of the model. When the model learns something new, it adjusts these dials slightly. What gets transmitted in federated learning isn't your data—it's information about how to adjust those dials based on what your data revealed.</p>
+
+<p>It's like the difference between sending someone your diary versus sending them a brief summary of your mood trends. The summary is useful for understanding patterns, but it doesn't expose your private thoughts.</p>
+
+<h2>Not Your Average Distributed Computing</h2>
+
+<p>At first glance, federated learning might sound like regular distributed computing, where tasks get split across multiple machines to speed things up. But there's a fundamental difference that changes everything.</p>
+
+<p>Traditional distributed learning assumes all the participating computers are basically identical data centers, connected by blazing-fast networks, each holding a slice of one big, well-organized dataset. It's like having ten identical libraries, each with one-tenth of all published books, working together to analyze literature.</p>
+
+<p>Federated learning makes no such assumptions. The participants might be smartphones with spotty Wi-Fi connections, medical devices in rural clinics, or factory sensors running on battery power. Some might have gigabytes of data; others might have just a few kilobytes. Some might drop offline mid-training because their owners stepped into an elevator.</p>
+
+<p>And critically, the data isn't uniform. A keyboard prediction model training on phones across the world will encounter vastly different typing patterns—formal business English in London, emoji-heavy texts from teenagers in Tokyo, multilingual messages from immigrants in New York. This heterogeneity isn't a bug to be fixed; it's the whole point. The model needs to learn from this diversity.</p>
+
+<h2>The Dance of a Federated Learning Round</h2>
+
+<p>Every federated learning system follows a choreographed sequence that repeats over and over until the model is trained. Think of it as a conversation between a conductor and an orchestra, except the orchestra members are scattered across the globe and might miss rehearsals without warning.</p>
+
+<p>First comes initialization. The central server picks a starting model—maybe a neural network for image recognition or a language model for text prediction—and sets its initial parameters. These starting values are often random, like an untrained mind waiting to learn.</p>
+
+<p>Next, client selection. The server can't reasonably ask every device to participate in every round. Some phones might be charging and connected to Wi-Fi while others are actively in use. So the server picks a subset—maybe a few hundred or a few thousand devices that meet certain criteria like battery level and connection quality.</p>
+
+<p>Then comes the actual training. Each selected device downloads the current model, runs training on its local data for a specified number of iterations, and computes how the model parameters should change based on what it learned. This happens entirely on the device. Your phone is literally running machine learning algorithms while you sleep.</p>
+
+<p>Finally, aggregation. All those local updates get sent back to the server, which combines them into a single global update. The most common method is simple averaging—if device A says "increase this parameter by 0.1" and device B says "increase it by 0.3," the server might average them to 0.2. The updated model then becomes the starting point for the next round.</p>
+
+<p>This dance continues for hundreds or thousands of rounds until the model converges on something useful.</p>
+
+<h2>The Challenge of Herding Cats</h2>
+
+<p>Federated learning would be straightforward if all the participating devices were identical, always online, and held perfectly balanced datasets. In reality, managing a federated system is like herding cats—very sophisticated, privacy-conscious cats.</p>
+
+<h3>When Data Refuses to Be Normal</h3>
+
+<p>Machine learning textbooks often assume data is "independently and identically distributed," abbreviated as i.i.d.—meaning every data sample comes from the same underlying pattern. It's like assuming every customer at a restaurant orders from the same menu with the same preferences.</p>
+
+<p>Real federated learning laughs at this assumption. The technical term is "non-IID data," and it comes in several flavors that each cause their own headaches.</p>
+
+<p>Covariate shift happens when different devices see different variations of the same underlying concept. Handwriting recognition trained on American phones encounters one style of writing the number seven; phones in Europe see sevens with those distinctive horizontal lines through the middle. Same concept, different appearances.</p>
+
+<p>Prior probability shift means some devices simply encounter certain categories more often. A wildlife identification app trained on phones in Australia will see far more pictures of kangaroos than one trained in Canada. The Canadian phones aren't wrong about what a kangaroo looks like—they just rarely see one.</p>
+
+<p>Concept drift gets philosophical. Sometimes the same label means different things to different people. What counts as "professional attire" varies dramatically between Silicon Valley and Wall Street. An AI learning this concept from both populations needs to somehow reconcile these different interpretations.</p>
+
+<p>Then there's plain old imbalance. Some devices have vast amounts of data; others have almost none. A power user who texts constantly contributes vastly more to keyboard prediction than someone who only sends a few messages a week.</p>
+
+<h3>Dealing with Unreliable Participants</h3>
+
+<p>Unlike a data center that's guaranteed to stay online, federated learning participants come and go. Someone might start contributing to a training round, then lose Wi-Fi halfway through. Others might have such slow connections that their updates arrive after the aggregation deadline.</p>
+
+<p>Robust federated systems build in redundancy. If the server selects a hundred devices for a round but only eighty respond in time, the system proceeds with what it has. The stragglers can join the next round. This graceful degradation means the training keeps moving even when individual participants are flaky.</p>
+
+<h2>Who's in Charge Here?</h2>
+
+<p>The basic federated learning setup assumes a central server orchestrating everything—selecting clients, distributing models, aggregating updates. This works well for companies like Google or Apple training models across their users' devices. The company runs the server; the devices are the clients.</p>
+
+<p>But centralization creates its own problems. That server becomes a single point of failure. If it goes down, training stops. It also becomes a potential bottleneck—receiving millions of model updates simultaneously requires serious infrastructure.</p>
+
+<p>More philosophically, having a central server requires trusting whoever runs it. They control what model gets trained and how updates get aggregated. For some applications, that trust is reasonable. For others, it defeats the purpose of the privacy-preserving exercise.</p>
+
+<p>This has led to research into decentralized federated learning, where there's no central server at all. Instead, devices communicate directly with each other in a peer-to-peer network. Device A might send its updates to devices B and C, which average them with their own updates and pass them along to devices D and E. Through this gossip-style communication, a consensus model eventually emerges.</p>
+
+<p>Blockchain technology has found natural applications here, providing a decentralized way to coordinate updates and ensure no single party can manipulate the training process.</p>
+
+<h2>The Personalization Paradox</h2>
+
+<p>Here's an interesting tension at the heart of federated learning: we're training one global model from data that's intentionally diverse. But what if that diversity means no single model can serve everyone well?</p>
+
+<p>Consider a keyboard prediction model. A global model trained across millions of users captures general patterns—common words, typical sentence structures, universal grammar. But you're not a typical user. You have your own vocabulary, your own writing quirks, your own frequently contacted names.</p>
+
+<p>Personalized federated learning tries to have it both ways. The basic approach involves starting from a globally trained model but then fine-tuning it locally on each device. Your phone might start with a model that knows "the" is a common word, then learn that you specifically type "thesis" far more often than the average person.</p>
+
+<p>More sophisticated approaches train different layers of a neural network at different scopes. The deeper layers that recognize fundamental patterns might be trained globally, while the surface layers that make final predictions might be trained locally. It's like everyone agreeing on grammar but having their own slang.</p>
+
+<h3>When One Size Definitely Doesn't Fit All</h3>
+
+<p>Sometimes the participating devices aren't just holding different data—they're fundamentally different machines. A federated system might include both powerful smartphones and tiny Internet of Things sensors. Asking both to train the same massive neural network is like asking both a supercomputer and a calculator to solve the same complex equation.</p>
+
+<p>Heterogeneous federated learning addresses this by allowing different devices to train different model architectures while still contributing to collective learning. A smartphone might train a deep network with dozens of layers while a simple sensor trains a shallow network with just a few. Clever aggregation techniques combine insights from both, extracting what each can contribute without demanding more than it can give.</p>
+
+<h2>The Arms Race Between Privacy and Progress</h2>
+
+<p>Federated learning was born from privacy concerns, and it genuinely helps. Keeping raw data on devices means that data can't be stolen from a central server that never had it. Even if a company gets hacked, your personal information wasn't sitting on their servers to begin with.</p>
+
+<p>But privacy researchers quickly pointed out that federated learning isn't a complete solution. Those model updates that get transmitted? They can leak information too.</p>
+
+<p>If I know what the model parameters were before your phone contributed an update, and I can see what they changed to after, I might be able to infer something about your data. Under certain conditions, attackers can reconstruct surprisingly detailed information about training data just from model updates. This is called a model inversion attack.</p>
+
+<p>The response has been layered defenses. Differential privacy adds carefully calibrated noise to model updates, guaranteeing mathematically that no individual's data can be reverse-engineered. Secure aggregation uses cryptographic techniques so that the server can compute the average of many updates without ever seeing any individual update. Trusted execution environments isolate computations so that even a compromised server can't peek at intermediate values.</p>
+
+<p>Each defense adds computational overhead and often reduces model accuracy slightly. The art lies in finding the right balance—enough protection that users' privacy is genuinely safeguarded, but not so much that the resulting model is useless.</p>
+
+<h2>Where This Matters Most</h2>
+
+<p>Federated learning isn't just an academic curiosity. It's already deployed in systems you probably use daily, and it's transforming industries where data privacy isn't just important—it's legally mandated.</p>
+
+<h3>Your Phone Already Does This</h3>
+
+<p>Apple's keyboard predictions on iPhones use federated learning. When your phone learns that you often follow "I'll be" with "there soon" or that you frequently type your spouse's name, that learning stays on your device. Apple never sees your messages, yet the prediction model improves across millions of users.</p>
+
+<p>Google has deployed federated learning for Android keyboard predictions, query suggestions, and even improving the "Hey Google" voice recognition. The wake word detection gets better at understanding your voice without recording and uploading your actual speech.</p>
+
+<h3>Healthcare's Privacy Problem</h3>
+
+<p>Medical data is exquisitely sensitive and heavily regulated. Laws like the Health Insurance Portability and Accountability Act in the United States and the General Data Protection Regulation in Europe impose strict limits on how patient data can be shared.</p>
+
+<p>Yet medical AI desperately needs diverse data. A cancer detection model trained only on patients from one hospital might miss patterns specific to different demographics or equipment configurations. Traditionally, this meant either compromising privacy through data sharing agreements or accepting less capable models.</p>
+
+<p>Federated learning offers a third way. Hospitals can contribute to training a diagnostic model without ever sending patient records anywhere. The model travels to the data, learns from it locally, and only shares abstract improvements. Several major pharmaceutical companies and healthcare consortiums are now running federated learning pilots to develop diagnostic tools that are both powerful and privacy-preserving.</p>
+
+<h3>The Internet of Things</h3>
+
+<p>Smart home devices, industrial sensors, connected cars—the Internet of Things generates staggering amounts of data, but transmitting all of it to the cloud is impractical. Bandwidth is limited. Latency matters. And do you really want continuous microphone recordings from your smart speaker uploaded to corporate servers?</p>
+
+<p>Edge AI, where intelligence runs directly on devices rather than in the cloud, is increasingly powered by federated learning. A fleet of delivery trucks might collectively learn optimal routes without any single truck's movements being tracked centrally. Factory sensors might collaborate to detect equipment failures without exposing proprietary manufacturing data.</p>
+
+<h3>Financial Services</h3>
+
+<p>Banks and financial institutions are exploring federated learning for fraud detection. No single bank sees enough fraud to train an optimal detector, but sharing customer transaction data between banks would be a regulatory and public relations nightmare.</p>
+
+<p>Federated learning lets multiple banks contribute to a shared fraud model while keeping individual transactions private. The model learns patterns like "purchases in three countries within one hour often indicate stolen cards" without any bank revealing its customers' actual purchase history.</p>
+
+<h2>The Road Ahead</h2>
+
+<p>Federated learning is still maturing. Researchers are tackling challenges like making training more communication-efficient—can we compress model updates to save bandwidth? They're developing better defenses against adversarial participants who might try to poison the global model with malicious updates. They're exploring how to handle extreme heterogeneity where some participants have vastly more computational power than others.</p>
+
+<p>There's also growing interest in vertical federated learning, where different participants hold different features about the same entities rather than different entities. Imagine a bank with financial data and a retailer with purchase history wanting to collaborate on a credit model without either seeing the other's data. This requires different techniques than the horizontal case we've discussed, but the privacy-preserving principle remains the same.</p>
+
+<p>As AI becomes more powerful and more pervasive, the question of who controls training data becomes increasingly important. Federated learning doesn't solve every privacy problem, but it fundamentally shifts the balance of power. Your data can contribute to making AI smarter without ever leaving your possession.</p>
+
+<p>That's not just a technical achievement. It's a philosophical statement about how the AI future could unfold—one where intelligence is collective but data remains personal.</p>
       </div>
 
       <footer class="wikipedia-footer">

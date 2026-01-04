@@ -22,7 +22,115 @@
       </header>
 
       <div class="wikipedia-content">
-        <p>Content not available.</p>
+        <p class="source-note">Based on <a href="https://en.wikipedia.org/wiki/Memory_hierarchy">Wikipedia: Memory hierarchy</a></p>
+
+<h2>The Waiting Game Your Computer Plays Every Nanosecond</h2>
+
+<p>Here's a strange fact about modern computers: the processor, that chip doing billions of calculations per second, spends most of its time doing absolutely nothing. It sits there, idle, twiddling its electronic thumbs, waiting for data to arrive from memory.</p>
+
+<p>This isn't a design flaw. It's an unavoidable consequence of physics meeting economics.</p>
+
+<p>The fastest memory we can build is incredibly expensive. The cheapest storage we have is painfully slow. And so computer architects struck a bargain—they built a hierarchy, a ladder of memory types where each rung trades speed for capacity. Understanding this hierarchy isn't just academic. It's the key to understanding why some programs fly while others crawl, and why that spinning beach ball appears on your screen.</p>
+
+<h2>The Pyramid of Speed</h2>
+
+<p>Imagine a pyramid with four levels. At the very top, smallest and fastest, sit the processor registers—tiny storage slots built directly into the chip itself. There might be only a few dozen of these, but they operate at the full speed of the processor. When the chip needs a number for a calculation, if that number is already in a register, there's zero waiting.</p>
+
+<p>Just below the registers lives the cache. Actually, caches—modern processors have multiple layers of them, typically called L1, L2, and L3. The L1 cache is the smallest and fastest, perhaps 64 kilobytes, sitting right next to the processor core. L2 is larger and slightly slower. L3 might be measured in megabytes and shared among multiple processor cores. Some advanced chips even include an L4 cache; Intel's Haswell mobile processors, for instance, packed 128 megabytes of L4 cache.</p>
+
+<p>The next level down is main memory, what most people simply call RAM (Random Access Memory). This is where your running programs and their data actually live. A typical laptop might have 8 to 32 gigabytes of RAM. It's vastly slower than cache—perhaps a hundred times slower—but vastly larger too.</p>
+
+<p>At the base of the pyramid sits mass storage: your solid-state drive or hard disk, measured in terabytes. This is where files persist even when power disappears, but accessing it takes thousands of times longer than accessing RAM.</p>
+
+<h2>Why Not Just Make Everything Fast?</h2>
+
+<p>The obvious question is: why not build everything from the fastest memory? The answer comes down to three interrelated constraints—speed, size, and cost.</p>
+
+<p>The fastest memory technologies require exotic manufacturing processes and occupy significant chip real estate. Register memory is essentially free in terms of access time, but each register requires dedicated transistors and wiring on the processor die. You can't scale that to gigabytes.</p>
+
+<p>Cache memory uses a technology called SRAM (Static Random Access Memory), which holds each bit of data using six transistors. That's fast and reliable, but expensive in terms of chip area. Main memory uses DRAM (Dynamic Random Access Memory), which stores each bit with just one transistor and one capacitor. The trade-off? DRAM must be constantly refreshed to retain its data, and accessing it requires more complex timing.</p>
+
+<p>This creates an elegant mathematical relationship: as you move down the hierarchy, memory gets cheaper per gigabyte, larger in total capacity, but slower to access. The art of computer design lies in balancing these trade-offs.</p>
+
+<h2>The Principle of Locality</h2>
+
+<p>The entire memory hierarchy depends on a fortunate fact about how programs actually behave. They don't access memory randomly.</p>
+
+<p>When a program reads a piece of data, it's likely to read nearby data soon afterward. This is called spatial locality. Think about reading through an array: you start at the beginning and work your way through sequentially. When a program reads a piece of data, it's also likely to read that same data again soon. This is temporal locality. Think about a loop counter that gets incremented every iteration.</p>
+
+<p>These patterns of locality allow caches to work beautifully. When the processor needs data that isn't in cache (a situation called a cache miss), the cache doesn't just fetch that one piece of data. It fetches a whole block of neighboring data, betting that the processor will want those neighbors soon. Usually, it wins that bet.</p>
+
+<h2>When Things Go Wrong</h2>
+
+<p>Computer scientists have developed a colorful vocabulary for describing failures in the memory hierarchy.</p>
+
+<p>When you run out of registers and have to temporarily store a value in cache instead, that's called register spilling. When data isn't in cache and must be fetched from main memory, that's a cache miss. When data isn't even in main memory and must be retrieved from disk, that's a page fault—one of the most expensive operations a program can trigger.</p>
+
+<p>The collective demand for each level has its own term: register pressure, cache pressure, and memory pressure. When pressure exceeds capacity, performance crumbles.</p>
+
+<p>There's a reason programmers talk about "hitting a wall." A program can run beautifully while its working data fits in cache. The moment that data set grows too large, the same program suddenly becomes orders of magnitude slower. Nothing changed in the code. The data simply outgrew the fast memory available to hold it.</p>
+
+<h2>The Memory Wall</h2>
+
+<p>There's a growing imbalance in computer architecture that engineers call the memory wall. Processor speeds have improved much faster than memory speeds over the past few decades. Every year, the gap widens.</p>
+
+<p>In the 1980s, a processor might wait just a few cycles for data from main memory. Today, that wait might be hundreds of cycles. The hierarchy of caches exists specifically to paper over this gap, to keep the processor fed with data despite the growing disparity.</p>
+
+<p>This is why, for most real programs, the bottleneck isn't raw processor speed. It's memory access patterns. A program that accesses memory efficiently—staying within cache, exploiting locality—will dramatically outperform one that scatters its memory accesses randomly, even if the random program does less total computation.</p>
+
+<h2>Online, Nearline, and Offline</h2>
+
+<p>Below main memory, the hierarchy continues into what engineers call tiered storage, with its own terminology worth understanding.</p>
+
+<p>Online storage is immediately available. A spinning hard drive that's powered on and ready to serve data is online storage.</p>
+
+<p>Nearline storage isn't immediately available, but can be brought online automatically, without human intervention. A tape library robot can fetch a cartridge from a shelf and load it into a drive—that's nearline. Some data centers use massive arrays of disks that spin down when idle to save power; these are nearline too, since they need time to spin back up.</p>
+
+<p>Offline storage requires a human to do something. A backup tape sitting in a vault is offline. Someone has to physically retrieve it and insert it into a drive.</p>
+
+<p>These distinctions matter for enterprises managing petabytes of data. Not everything can be online. But how quickly can you access what's not online? That determines whether data is nearline or truly offline.</p>
+
+<h2>Who Manages All This?</h2>
+
+<p>The beauty of the memory hierarchy is that most of it is invisible to programmers. There's an elegant division of labor.</p>
+
+<p>Hardware manages the movement of data between cache and main memory automatically. The cache controller decides what to keep, what to evict, and when to write modified data back to memory. Programmers never explicitly load or unload cache—it happens transparently.</p>
+
+<p>Compilers help by generating machine code that uses registers efficiently and accesses memory in patterns that play well with cache. A good optimizing compiler can dramatically improve a program's cache behavior without the programmer thinking about it.</p>
+
+<p>The operating system manages virtual memory, the illusion that programs have more memory than physically exists. When memory pressure gets too high, the operating system pages data out to disk, bringing it back when needed. This too is mostly invisible to programs—though the performance impact of page faults certainly isn't.</p>
+
+<p>Programmers are responsible for one thing: moving data between disk and memory explicitly, through file operations. This is the one boundary in the hierarchy that remains manual, that requires conscious thought about what to load and when.</p>
+
+<h2>When Abstraction Breaks Down</h2>
+
+<p>Most programming languages pretend there are only two levels: memory and disk. High-level languages like Python, JavaScript, and Java give you variables that live in memory and files that live on disk. The cache hierarchy? Registers? Those are the computer's problem, not yours.</p>
+
+<p>This abstraction works wonderfully until it doesn't.</p>
+
+<p>There's a classic teaching example involving a three-dimensional array. The order in which you iterate through the three dimensions can make performance differ by a factor of ten or more—same data, same computation, dramatically different speeds. The difference comes down to memory access patterns and cache behavior.</p>
+
+<p>When programs hit performance walls, programmers must think about the hidden hierarchy. They restructure data to improve locality. They reorder operations to reuse cached data. They become aware of cache line sizes (typically 64 bytes in modern processors) and organize data to fit those boundaries.</p>
+
+<p>This is the domain of systems programming, and textbooks like "Computer Systems: A Programmer's Perspective" exist specifically to teach it. For most programmers most of the time, blissful ignorance works. For the moments when it doesn't, understanding the hierarchy becomes essential.</p>
+
+<h2>The AI Connection</h2>
+
+<p>Modern artificial intelligence workloads have sharpened the memory hierarchy problem to a painful point.</p>
+
+<p>Large neural networks have billions of parameters—far too many to fit in cache. Training and running these models requires constant shuffling of data between memory and processor, with the processor often waiting for data to arrive. This is why AI accelerators like graphics processing units (GPUs) and specialized chips emphasize memory bandwidth as much as raw computational power.</p>
+
+<p>Some companies are taking radical approaches. In-memory computing architectures attempt to move computation to where data lives, rather than moving data to where computation happens. If the data can't come to the processor quickly enough, perhaps the processor should go to the data.</p>
+
+<p>These innovations don't eliminate the memory hierarchy. They reshape it, trying to find new trade-offs better suited to workloads where data movement has become the dominant cost.</p>
+
+<h2>The Fundamental Trade-off</h2>
+
+<p>The memory hierarchy exists because we cannot have everything. We cannot have memory that is simultaneously fast, large, cheap, and persistent. Physics and economics forbid it.</p>
+
+<p>What we can have is a clever arrangement of imperfect options, layered so that the fast but small memory handles the urgent work while the large but slow memory holds the archive. The system bets on locality, on the probability that what you needed recently you'll need again soon, and that what you need next lives close to what you needed last.</p>
+
+<p>It's a bet that programs have been winning for decades. And understanding that bet—understanding why it usually works and when it fails—is understanding something fundamental about why computers behave the way they do.</p>
       </div>
 
       <footer class="wikipedia-footer">

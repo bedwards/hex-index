@@ -22,7 +22,139 @@
       </header>
 
       <div class="wikipedia-content">
-        <p>Content not available.</p>
+        <p class="source-note">Based on <a href="https://en.wikipedia.org/wiki/Ensemble_learning">Wikipedia: Ensemble learning</a></p>
+
+<h2>The Wisdom of Crowds, for Machines</h2>
+
+<p>Here's a counterintuitive truth: a committee of mediocre decision-makers often outperforms a single brilliant expert. This principle—which social scientists have observed in everything from guessing the weight of an ox to predicting election outcomes—turns out to be one of the most powerful ideas in modern artificial intelligence.</p>
+
+<p>It's called ensemble learning, and it's the reason many of the predictive systems you interact with daily actually work.</p>
+
+<p>The core insight is almost embarrassingly simple. Take a bunch of learning algorithms that aren't particularly good on their own. Combine their predictions. Watch as the combined result dramatically outperforms any individual predictor. It sounds like magic. It's actually mathematics.</p>
+
+<h2>Why Weakness Becomes Strength</h2>
+
+<p>To understand why ensembles work, you need to understand what makes individual machine learning models fail. Every model that learns from data faces a fundamental tension between two types of errors.</p>
+
+<p>The first is called bias. A model with high bias is too simple—it can't capture the true complexity of the patterns in your data. Imagine trying to predict housing prices using only square footage. You'd miss everything: location, condition, market timing, the quality of local schools. Your predictions would be systematically off in predictable ways.</p>
+
+<p>The second is called variance. A model with high variance is too sensitive—it memorizes the quirks of your training data rather than learning general patterns. Ask it to predict prices for houses it hasn't seen, and it flails wildly. Every tiny fluctuation in the training set produces a completely different model.</p>
+
+<p>Here's the key insight: different models make different mistakes.</p>
+
+<p>One model might consistently underestimate prices in urban areas. Another might overreact to unusual floor plans. A third might be confused by recent renovations. But if you average their predictions together, something remarkable happens. The random errors—the variance—tend to cancel out. What remains is a much cleaner signal.</p>
+
+<h2>The Three Paths to Ensemble Wisdom</h2>
+
+<p>Machine learning practitioners have developed three main approaches to building ensembles, each with its own philosophy and strengths.</p>
+
+<h3>Bagging: The Democratic Approach</h3>
+
+<p>Bootstrap aggregating—thankfully shortened to "bagging"—takes a wonderfully democratic approach to the problem. Instead of training one model on all your data, you create many slightly different versions of your dataset by sampling with replacement. This means some examples appear multiple times while others don't appear at all.</p>
+
+<p>Each of these bootstrapped datasets trains an identical type of model. But because the training data differs, the resulting models differ too. When it's time to make a prediction, everyone votes.</p>
+
+<p>The most famous example of bagging is the random forest. You grow many decision trees—sometimes hundreds or thousands—each trained on a bootstrapped sample and limited to considering only a random subset of features at each decision point. Individual trees might be scraggly, overfitted, unreliable. But the forest as a whole achieves remarkable accuracy and stability.</p>
+
+<p>There's something almost philosophical about random forests. Each tree is deliberately weakened, forced to make decisions based on incomplete information. Yet this very weakness, multiplied and averaged, produces strength.</p>
+
+<h3>Boosting: The Obsessive Approach</h3>
+
+<p>Boosting takes the opposite philosophy. Instead of training models independently and averaging them, boosting builds a sequence of models where each one specifically targets the mistakes of its predecessors.</p>
+
+<p>The process works like this: Train a simple model on your data. Look at which examples it got wrong. Increase the importance of those examples. Train another simple model, which will now focus more attention on the hard cases. Repeat.</p>
+
+<p>The final prediction combines all these models, typically giving more weight to the more accurate ones. It's like a student who keeps a list of every problem they've gotten wrong and practices those problems obsessively until they're mastered.</p>
+
+<p>The most influential boosting algorithm, called AdaBoost (short for Adaptive Boosting), was developed in the 1990s and quickly became one of the most successful techniques in machine learning. More recent variants like gradient boosting and its speed-optimized descendants—with names like XGBoost, LightGBM, and CatBoost—dominate machine learning competitions and power production systems at companies worldwide.</p>
+
+<p>Boosting tends to achieve higher accuracy than bagging but comes with a catch: it's more prone to overfitting. Those obsessively targeted weak points might actually be noise in your training data rather than genuine patterns. The algorithm can't always tell the difference.</p>
+
+<h3>Stacking: The Hierarchical Approach</h3>
+
+<p>Stacking takes yet another approach. Instead of using the same type of model throughout (like bagging) or building a sequence of related models (like boosting), stacking combines fundamentally different types of models.</p>
+
+<p>You might train a decision tree, a neural network, a logistic regression, and a support vector machine—all on the same data. Then you train another model on top, whose job is to learn how to combine these diverse predictions optimally.</p>
+
+<p>The logic is that different types of models capture different aspects of the patterns in your data. A decision tree might excel at detecting sharp boundaries between categories. A neural network might better capture subtle nonlinear relationships. A linear model might provide a stable baseline that keeps the wilder models grounded.</p>
+
+<p>Stacking is common in machine learning competitions, where squeezing out the last fraction of a percent of accuracy matters immensely. In production systems, the added complexity often isn't worth the marginal improvement.</p>
+
+<h2>The Geometry of Prediction</h2>
+
+<p>There's a beautiful geometric way to visualize why ensembles work. Imagine each model's predictions as a point in a high-dimensional space. The true answer—what you're actually trying to predict—is another point in this space. The goal is to get as close to that target point as possible.</p>
+
+<p>Now imagine you have several models, each represented by its own point. These points form a kind of cloud around (hopefully near) the target. Here's the key insight: the average of all these points—the center of the cloud—is typically closer to the target than most individual points.</p>
+
+<p>This isn't just intuition. It's provable mathematics. The average of ensemble predictions will always perform at least as well as the average performance of the individual models. And with optimal weighting, you can guarantee results at least as good as your best individual model.</p>
+
+<p>This is why diversity matters so much in ensembles. If all your models make the same mistakes, their average will inherit those mistakes. But if models err in different directions, their errors cancel out. The cloud of predictions surrounds the target rather than clustering to one side of it.</p>
+
+<h2>The Law of Diminishing Returns</h2>
+
+<p>If combining two models is good and combining ten is better, why not combine a thousand? Or a million?</p>
+
+<p>There's a limit. Each additional model you add to an ensemble brings decreasing marginal improvement. The first few models reduce variance dramatically. The next few help somewhat. Eventually, adding more models barely moves the needle while substantially increasing computational costs.</p>
+
+<p>Research suggests there's actually an optimal size for an ensemble, and it's often smaller than you'd expect. For classification problems, some theoretical work indicates that using roughly the same number of classifiers as you have categories to predict gives the best balance. Using more classifiers can actually hurt performance—a finding that surprises many practitioners who assume more is always better.</p>
+
+<h2>The Theoretical Ceiling</h2>
+
+<p>Is there a theoretical limit to how good an ensemble can be? Yes, and it has a name: the Bayes optimal classifier.</p>
+
+<p>Imagine you could somehow consider every possible model, weight each one by how likely it is to be correct, and combine all their predictions. This hypothetical super-ensemble would be the best possible classifier—by definition, nothing could outperform it on average.</p>
+
+<p>Of course, actually computing this is impossible for any realistic problem. The space of all possible models is infinite. But the Bayes optimal classifier serves as a theoretical north star, and practical methods like Bayesian model averaging try to approximate it.</p>
+
+<p>Bayesian model averaging works by considering a finite set of models and weighting each one by its posterior probability—essentially, how likely that model is to be correct given the training data you've observed. It's a principled way to hedge your bets across multiple hypotheses rather than committing to a single model.</p>
+
+<p>There's a subtle problem, though. Bayesian model averaging has a tendency to eventually put all its weight on a single model as you gather more data. It converges toward picking a winner rather than maintaining a genuine blend. A refined approach called Bayesian model combination addresses this by sampling from the space of possible ensemble weightings rather than model space directly. It's more computationally expensive but produces substantially better results.</p>
+
+<h2>Beyond Classification: Ensembles Everywhere</h2>
+
+<p>Though ensembles are most commonly discussed in the context of classification and regression—the workhorses of supervised machine learning—the principle extends much further.</p>
+
+<p>In clustering, where the goal is to discover natural groupings in data without labels to learn from, consensus clustering uses ensemble techniques to find more stable and reliable structures. Different clustering algorithms might find different groupings; combining their views often reveals the underlying structure more clearly than any single approach.</p>
+
+<p>In anomaly detection, where you're trying to find unusual data points that don't fit the normal pattern, ensemble methods help distinguish genuine outliers from the false alarms that plague individual detectors.</p>
+
+<p>The philosophy of ensembles—that combining diverse perspectives produces better judgments than any single viewpoint—appears throughout science and engineering. It's present in how scientific consensus emerges from many independent experiments, in how diversified investment portfolios reduce risk, in how democracies aggregate citizen preferences.</p>
+
+<h2>The Computational Trade-off</h2>
+
+<p>There's no free lunch. Ensembles require more computation than single models—often much more. Training a random forest with five hundred trees takes roughly five hundred times the effort of training a single tree. Making predictions requires running the input through every model in the ensemble.</p>
+
+<p>Is this worth it? Usually, yes. The accuracy improvements from ensemble methods often exceed what you could achieve by spending the same computational budget on a single, more sophisticated model. It's often easier and more reliable to combine simple models than to build one complex one.</p>
+
+<p>This is why fast base models are popular choices for ensembles. Decision trees are the go-to because they're quick to train and quick to evaluate. You can afford hundreds or thousands of them. More expensive models like neural networks can also benefit from ensemble techniques, but the computational cost limits how many you can practically combine.</p>
+
+<h2>The Paradox of Randomness</h2>
+
+<p>Here's something that confuses many people when they first encounter ensemble methods: adding randomness often improves results.</p>
+
+<p>In random forests, you deliberately cripple each tree by only letting it consider a random subset of features at each split. This seems wasteful—surely a tree that can see all the features would make better decisions? But no. The constrained, randomized trees are worse individually but better when combined.</p>
+
+<p>The reason is diversity. If every tree could see every feature, they'd all tend to make similar decisions based on the most obviously predictive features. Their errors would be correlated. By forcing each tree to work with random, limited information, you ensure they approach the problem from different angles. Their errors become uncorrelated, which is exactly what you need for averaging to work its magic.</p>
+
+<p>This principle extends beyond machine learning. In human organizations, diverse teams often outperform homogeneous groups of individually more talented people—for exactly the same mathematical reasons. Correlated errors compound. Uncorrelated errors cancel.</p>
+
+<h2>Practical Wisdom</h2>
+
+<p>If you're building a predictive system, here's the practical takeaway: almost always try an ensemble. Start with a random forest—it's hard to go wrong with random forests. They're robust, interpretable, resistant to overfitting, and fast to train. Only if you need every last bit of accuracy should you move to gradient boosting methods, and only if you understand the risk of overfitting that comes with them.</p>
+
+<p>For the highest-stakes predictions, stacking different model types can squeeze out additional performance. But for most applications, the added complexity isn't worth the marginal gains.</p>
+
+<p>Remember that ensemble performance depends critically on diversity. Combining five nearly identical models gives you little benefit. You want models that make different mistakes, that see the problem from different angles, that have different blind spots. The best ensembles look like good teams: varied in approach, unified in purpose.</p>
+
+<h2>The Deeper Lesson</h2>
+
+<p>Ensemble learning offers a philosophical lesson that extends beyond machine learning. Perfect accuracy is impossible—every model, every theory, every judgment is wrong in some way. But if you can gather multiple imperfect perspectives, weight them appropriately, and combine their insights, you can often approximate truth more closely than any single view ever could.</p>
+
+<p>This is why scientific progress depends on replication and meta-analysis. This is why courts hear multiple witnesses. This is why forecasters increasingly aggregate predictions rather than trusting any single prophet. The wisdom of crowds, properly harnessed, really does beat individual expertise.</p>
+
+<p>In machine learning, we've taken this ancient insight and made it rigorous, computational, automatic. We've proven theorems about when and why combination beats selection. We've built systems that exploit this principle millions of times per second, making predictions that shape everything from what ads you see to whether you get a loan to how your car drives itself.</p>
+
+<p>The humble ensemble—a committee of mediocre models outperforming any brilliant individual—turns out to be one of the most practical and profound ideas in artificial intelligence.</p>
       </div>
 
       <footer class="wikipedia-footer">

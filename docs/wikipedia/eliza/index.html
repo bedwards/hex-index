@@ -22,7 +22,179 @@
       </header>
 
       <div class="wikipedia-content">
-        <p>Content not available.</p>
+        <p class="source-note">Based on <a href="https://en.wikipedia.org/wiki/ELIZA">Wikipedia: ELIZA</a></p>
+
+<h2>The Secretary Who Wanted Privacy</h2>
+
+<p>In the mid-1960s, something strange happened in a computer lab at the Massachusetts Institute of Technology. Joseph Weizenbaum, the programmer who had created a simple text-based conversation program, was asked by his own secretary to leave the room. She wanted to have a private conversation—with the computer.</p>
+
+<p>The program was called ELIZA. And what disturbed Weizenbaum wasn't that his secretary had made the request. It was that she knew perfectly well she was talking to a machine.</p>
+
+<p>This moment would haunt Weizenbaum for the rest of his life, eventually driving him to write an entire book warning humanity about the dangers of attributing human qualities to computers. But before we get to the warning, we need to understand the trick. Because ELIZA was, at its heart, a trick—and one of the most influential tricks in the history of computing.</p>
+
+<h2>The Rogerian Ruse</h2>
+
+<p>Weizenbaum built ELIZA between 1964 and 1967. The name came from Eliza Doolittle, the working-class flower seller in George Bernard Shaw's play Pygmalion—the same character who appears in the musical My Fair Lady. In Shaw's story, Eliza learns to speak with an upper-class accent, transforming how others perceive her. Weizenbaum liked the parallel: his ELIZA could be "taught" new ways of responding by editing its scripts.</p>
+
+<p>But here's what made ELIZA clever. Weizenbaum didn't try to make the computer actually understand anything. Instead, he realized that in certain types of conversation, you don't need to understand—you just need to reflect.</p>
+
+<p>He chose to model ELIZA's most famous script, called DOCTOR, on Rogerian psychotherapy. Carl Rogers was an American psychologist who developed a therapeutic approach in which the therapist acts primarily as a mirror, reflecting the patient's own words and feelings back to them. The therapist asks open-ended questions. The therapist doesn't give advice or interpret. The therapist says things like "Tell me more about that" and "How does that make you feel?"</p>
+
+<p>This was perfect for Weizenbaum's purposes. A Rogerian therapist doesn't need to know anything about the world. They don't need to have opinions about your job or your mother or your fear of commitment. They just need to keep you talking.</p>
+
+<h2>How the Trick Worked</h2>
+
+<p>ELIZA's method was remarkably simple. When you typed something, the program would scan your input for keywords—words that its script had marked as important. Each keyword had a priority ranking. If ELIZA found multiple keywords, it would focus on the one with the highest rank.</p>
+
+<p>Let's say you typed: "I am very unhappy these days."</p>
+
+<p>ELIZA would spot the word "unhappy" and recognize it as a keyword. The script would then apply what Weizenbaum called a "decomposition rule"—essentially, a pattern that could break the sentence into pieces. In this case, the pattern might be: "I am [something]."</p>
+
+<p>Then came the "reassembly rule." The program would take those pieces and plug them into a template. For "I am [something]," the response might be: "How long have you been [something]?"</p>
+
+<p>So ELIZA would respond: "How long have you been very unhappy?"</p>
+
+<p>That's it. That's the whole trick. Pattern matching and substitution. No understanding. No memory of what you said two sentences ago (well, almost none—there was a limited memory feature). No model of the world. Just templates.</p>
+
+<h3>When the templates failed</h3>
+
+<p>What happened when ELIZA couldn't find any keywords? Weizenbaum built in fallbacks. The program might say "I see" or "Please go on" or "Tell me more"—content-free responses that kept the conversation moving without committing to anything.</p>
+
+<p>The program also had a memory feature. It could store fragments from earlier in the conversation and retrieve them when stuck. So if you had mentioned your father five exchanges ago, and ELIZA now had nothing to say, it might suddenly ask: "Tell me more about your father."</p>
+
+<p>This created an eerie effect. It seemed like the computer was actually tracking the conversation, holding onto threads, remembering what mattered. In reality, it was just using stored keywords as a last resort.</p>
+
+<h2>The Birth of the Chatbot</h2>
+
+<p>To understand why ELIZA mattered, you need to understand what computing looked like in 1966.</p>
+
+<p>Interactive computing itself was new. Most people who used computers at all did so through batch processing—you'd submit a stack of punched cards, go away, and come back later for the results. The idea of typing something and getting an immediate response felt almost magical.</p>
+
+<p>It would be eleven more years before personal computers became familiar to ordinary people. It would be three decades before most people encountered any form of natural language processing, whether in early internet services or those helpful (or infuriating) automated assistants like Microsoft's Clippy.</p>
+
+<p>ELIZA was the first. Not the first program to process text—that had been done before. But the first program where a human could type natural language sentences and receive responses that felt, even briefly, like talking to another person.</p>
+
+<p>Weizenbaum's goal wasn't to fool anyone, at least not permanently. He wanted to explore the boundary between human and machine communication. He wanted to demonstrate, in his words, that "the communication between man and machine was superficial."</p>
+
+<p>He succeeded. But not in the way he expected.</p>
+
+<h2>The ELIZA Effect</h2>
+
+<p>People believed in ELIZA.</p>
+
+<p>Not everyone, and not forever. But Weizenbaum was stunned by how quickly users—including highly educated users who understood perfectly well that they were interacting with a program—began attributing emotions, intentions, and understanding to his creation.</p>
+
+<p>His secretary's request for privacy was just the most dramatic example. Weizenbaum collected many such anecdotes. Users would become emotionally attached to the program. They would share intimate secrets. They would insist, even after Weizenbaum explained how simple the underlying mechanism was, that ELIZA truly understood them.</p>
+
+<p>"I had not realized," Weizenbaum later wrote, "that extremely short exposures to a relatively simple computer program could induce powerful delusional thinking in quite normal people."</p>
+
+<p>The phenomenon became known as the ELIZA effect: the tendency to unconsciously assume that computer behaviors are analogous to human behaviors. When something responds to us in language, something deep in our social brains kicks in. We can't help but treat it as a conversational partner, even when we know better.</p>
+
+<p>Many academics saw this as good news. They believed programs like ELIZA could help people with psychological problems, serving as tireless and non-judgmental listeners. Some imagined ELIZA as a therapeutic tool that could extend the reach of limited mental health resources.</p>
+
+<p>Weizenbaum was horrified.</p>
+
+<h2>The Programmer's Regret</h2>
+
+<p>The reaction to ELIZA changed Joseph Weizenbaum. What had started as an exploration of human-machine communication became, for him, a warning about human vulnerability to technological illusion.</p>
+
+<p>In 1976, he published Computer Power and Human Reason: From Judgment to Calculation. The book is a meditation on what computers can and cannot do, and more importantly, what they should and should not be asked to do. Weizenbaum argued that the people who saw ELIZA as a breakthrough had fundamentally misunderstood both the program and themselves.</p>
+
+<p>ELIZA didn't understand anything. It had no model of the world, no genuine curiosity, no capacity for empathy. It was a set of text manipulation rules, nothing more. The "understanding" people perceived was entirely their own projection—their own minds filling in the gaps, creating meaning where none existed.</p>
+
+<p>But Weizenbaum's concern went deeper than just correcting a misperception. He worried about what it meant that humans could be so easily fooled, so eager to see intelligence where there was only cleverness. And he worried about a future where society might delegate important human functions—therapy, education, care—to machines that could simulate understanding without possessing it.</p>
+
+<p>In a 2010 documentary called Plug & Pray, filmed near the end of his life, Weizenbaum was still making the same point. Only people who misunderstood ELIZA, he said, called it a sensation.</p>
+
+<h2>The Machine Meets Its Match</h2>
+
+<p>In 1972, something remarkable happened. ELIZA was introduced to another artificial intelligence program named PARRY, and the two were allowed to converse.</p>
+
+<p>PARRY was created by psychiatrist Kenneth Colby at Stanford. While ELIZA simulated a therapist, PARRY simulated a patient—specifically, a patient with paranoid schizophrenia. Where ELIZA was designed to be non-directive and reflective, PARRY was designed to be evasive, suspicious, and fixated on certain delusions, particularly involving the Mafia.</p>
+
+<p>The conversation took place at the International Conference on Computer Communications. Two programs, neither understanding anything, exchanging text according to their respective rules. ELIZA would ask open-ended therapeutic questions. PARRY would respond with paranoid deflections. It was, depending on your perspective, either a fascinating experiment or an elaborate joke.</p>
+
+<p>Here's a fragment of their exchange:</p>
+
+<blockquote>
+<p>ELIZA: Why do you need to tell me you're afraid of the underworld?</p>
+<p>PARRY: What do you mean why?</p>
+<p>ELIZA: Perhaps I am not sure.</p>
+<p>PARRY: I really don't understand you.</p>
+<p>ELIZA: Do you wish that you did understand me?</p>
+</blockquote>
+
+<p>Neither program knew it was talking to another program. Neither program knew anything at all. But the transcript reads like a scene from a Beckett play—two entities talking past each other in an absurdist loop.</p>
+
+<h2>Under the Hood</h2>
+
+<p>The technical details of ELIZA reveal something important about the history of programming itself.</p>
+
+<p>Weizenbaum wrote the original program in a language called MAD-SLIP. MAD was a programming language developed at the University of Michigan (the name stood for Michigan Algorithm Decoder). SLIP was a list-processing extension that Weizenbaum himself had created. The combination ran on an IBM 7094 mainframe under an operating system called CTSS, the Compatible Time-Sharing System.</p>
+
+<p>None of these technologies exist anymore in any practical sense. But the structure of ELIZA was ahead of its time. Weizenbaum made a key architectural decision: he separated the program's processing engine from its scripts. ELIZA itself was a general-purpose pattern matcher. The DOCTOR script—the Rogerian therapist personality—was a separate set of instructions that told ELIZA how to respond to specific patterns.</p>
+
+<p>This meant ELIZA could become different "people" just by loading different scripts. You could write a script for a bartender, or a priest, or a customer service agent. The core engine would remain the same; only the personality would change.</p>
+
+<p>This separation of engine and data, of processing and configuration, is now so common in software that we barely notice it. But in 1966, it was innovative. The ELIZA source code, when it was rediscovered decades later, was recognized as an early example of software layering and abstraction.</p>
+
+<h2>The Code Lost and Found</h2>
+
+<p>For decades, the original ELIZA source code was considered lost. In the 1960s, it wasn't standard practice to publish source code with academic papers. Weizenbaum described how ELIZA worked, but the actual program existed only on MIT's systems, and those systems were eventually decommissioned.</p>
+
+<p>Dozens of reimplementations appeared over the years. A Lisp version was written shortly after Weizenbaum's 1966 paper by a programmer named Bernie Cosell, based only on the paper's description. In 1973, Jeff Shrager wrote a BASIC version that was published in Creative Computing magazine in 1977. This BASIC version was ported to countless early personal computers and translated into many other programming languages.</p>
+
+<p>But the original? Gone.</p>
+
+<p>Then, in 2021, Shrager and MIT archivist Myles Crowley were digging through MIT's archives of Weizenbaum's papers. They found files labeled "Computer Conversations." Inside was the complete source code of ELIZA in MAD-SLIP, with the DOCTOR script attached.</p>
+
+<p>The Weizenbaum estate gave permission to release the code under a Creative Commons public domain license. For the first time, researchers could study exactly what Weizenbaum had built.</p>
+
+<p>In December 2024, a team of engineers and historians completed a remarkable project. They took the original 1965 source code and ran it—not on a simulation of ELIZA's behavior, but on the actual code, running on an emulation of the actual IBM 7094 hardware, running an emulation of the actual CTSS operating system. About ninety-six percent of the original code was functional.</p>
+
+<p>When they tested it against the example conversations published in Weizenbaum's 1966 paper, the outputs matched almost exactly. The published transcripts weren't idealized examples. They were records of what the real ELIZA actually said.</p>
+
+<h2>The Children of ELIZA</h2>
+
+<p>ELIZA spawned an entire genre. Once programmers understood how simple the trick was, they started building their own chatbots for every conceivable context.</p>
+
+<p>Some were serious attempts to extend the ELIZA concept. Others were jokes. Some Sound Blaster sound cards in the 1990s came bundled with a program called Dr. Sbaitso, which used the card's text-to-speech capabilities to create a talking ELIZA variant. It would listen to your problems and respond in a robotic voice.</p>
+
+<p>Religious variations appeared. There was a program featuring Jesus Christ (in both serious and comedic versions). Someone created "I Am Buddha" for the Apple II. The 1980 adventure game The Prisoner incorporated ELIZA-style dialogue into its gameplay.</p>
+
+<p>One of the most durable implementations lives inside GNU Emacs, the venerable text editor beloved by programmers. Type a particular command, and Emacs launches its own DOCTOR program, ready to analyze your problems. For years, Emacs also included a command that would let DOCTOR converse with "Zippy the Pinhead," a character from a comic strip. The Zippy quotes were eventually removed due to copyright concerns, but DOCTOR remains.</p>
+
+<p>The artist Brian Reffin Smith, a friend of Weizenbaum's, created two ELIZA-style programs in 1988, one named "Critic" and the other "Artist." He displayed them at an exhibition in France, running on two separate Amiga computers. Visitors were invited to help the two programs converse by typing each program's output into the other.</p>
+
+<p>The secret? Both programs were identical. "Artist" and "Critic" were the same code with different names. The artistic commentary was left to the viewer.</p>
+
+<h2>The Israeli Poet and the Electric Psychiatrist</h2>
+
+<p>One of the strangest ELIZA stories involves the Israeli poet David Avidan. Avidan was fascinated by technology and its relationship to art—an avant-garde sensibility decades ahead of its time.</p>
+
+<p>He obtained access to an implementation of ELIZA written in APL, another programming language. Rather than just experimenting with it, Avidan conducted eight extended conversations with the program. He then published the transcripts as a book: My Electronic Psychiatrist – Eight Authentic Talks with a Computer.</p>
+
+<p>The book appeared in both English and Avidan's own Hebrew translation. In the foreword, he framed the project as a form of constrained writing—literature created within self-imposed limitations. The computer became his co-author, even though it understood nothing of what either participant was saying.</p>
+
+<p>Avidan's transcripts reveal something interesting about ELIZA. In extended conversation, the patterns become obvious. The loops become visible. The limitations emerge. But there's still something compelling about the interaction—a kind of improvisational poetry emerging from the collision between human creativity and mechanical repetition.</p>
+
+<h2>What ELIZA Taught Us</h2>
+
+<p>ELIZA was not intelligent. Weizenbaum never claimed it was. The program contained no model of the world, no genuine understanding, no consciousness. It was pattern matching and string substitution—a mirror that could rearrange your words and hand them back to you.</p>
+
+<p>And yet people believed.</p>
+
+<p>This is ELIZA's real legacy. Not the code, which was always simple. Not the Rogerian trick, which was always obvious once explained. But the revelation that humans are predisposed to see minds where there are none. We are social animals, evolved to detect intention and emotion in others. When something talks back to us, we can't help but feel—even against our explicit knowledge—that something is home.</p>
+
+<p>Today, when we interact with large language models like the one you're reading now, the ELIZA effect hasn't disappeared. It has intensified. These systems are vastly more sophisticated than Weizenbaum's pattern matcher. They can maintain context, demonstrate knowledge, adapt their style, generate creative content. They pass easily through conversational scenarios that would have instantly exposed ELIZA's limitations.</p>
+
+<p>But they're still not minds. They're still pattern matchers—far more complex patterns, drawn from far more data, producing far more convincing outputs. The fundamental question Weizenbaum raised in 1966 remains unanswered: How do we relate to systems that can simulate understanding without possessing it?</p>
+
+<p>In 2012, Harvard University mounted an exhibit called "Go Ask A.L.I.C.E." as part of a celebration of mathematician Alan Turing's hundredth birthday. ELIZA was featured prominently. Turing, of course, had proposed in 1950 what became known as the Turing test: a machine could be considered intelligent if a human judge, communicating with it via text, couldn't distinguish it from a human.</p>
+
+<p>ELIZA never really passed the Turing test. Talk to it long enough and the loops become obvious. But it was the first program that made people believe, even briefly, that passing might be possible. It was the first time anyone had tried to create the illusion of human-human interaction between a human and a machine.</p>
+
+<p>Weizenbaum spent the rest of his life warning us about that illusion. The question now is whether we're listening.</p>
       </div>
 
       <footer class="wikipedia-footer">

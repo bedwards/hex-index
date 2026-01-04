@@ -22,7 +22,165 @@
       </header>
 
       <div class="wikipedia-content">
-        <p>Content not available.</p>
+        <p class="source-note">Based on <a href="https://en.wikipedia.org/wiki/Program_optimization">Wikipedia: Program optimization</a></p>
+
+<h2>The Programmer's Eternal Bargain</h2>
+
+<p>Here's a truth that took the software industry decades to learn: making a program faster almost always means making something else worse.</p>
+
+<p>You can have a program that runs like lightning, but it might gobble up memory like a starving beast. You can have one that sips memory delicately, but it might run slower than a government bureaucracy. You can optimize for startup time, and watch your steady-state performance suffer. The universe, it turns out, does not give programmers free lunches.</p>
+
+<p>This is the world of program optimization—the art and science of making software do more with less. Or sometimes, making it do the same thing with dramatically less. Or occasionally, making it do something it couldn't do at all before, simply by rethinking how it approaches the problem.</p>
+
+<h2>What Optimization Actually Means</h2>
+
+<p>The word "optimization" comes from "optimum," which means the best possible. This is a bit of a lie. Almost no software is truly optimal. The engineers who work on this stuff have a separate term for that mythical state—they call it "superoptimization," and it's about as common as unicorns.</p>
+
+<p>Real optimization is more modest. It's about making a system better along some specific dimension that matters to you. Speed, usually. But it could be memory consumption, battery life, network bandwidth, storage space, or even the wear and tear on physical hardware components.</p>
+
+<p>The interesting part is the trade-offs. There's a classic trade-off in computer science called the space-time tradeoff. Imagine you're writing a program that needs to calculate something complicated—say, whether various numbers are prime. You could calculate it fresh every time someone asks, which uses almost no memory but takes time. Or you could calculate it once, store all the answers in a big lookup table, and then just retrieve them instantly when asked. Now you're fast, but you're using memory.</p>
+
+<p>Neither approach is wrong. Which one is better depends entirely on what you're trying to accomplish and what resources you have to spare.</p>
+
+<h2>The Law of Diminishing Returns</h2>
+
+<p>Here's something counterintuitive about optimization: the first improvements are often the easiest and most dramatic.</p>
+
+<p>Imagine you have a program that takes 100 seconds to run. A clever programmer looks at it and, within an hour, finds a way to cut that to 10 seconds. Spectacular! A 10x improvement!</p>
+
+<p>Now another programmer spends a week and manages to cut it from 10 seconds to 5 seconds. That's a 2x improvement—still good, but far more effort for far less gain.</p>
+
+<p>A third programmer spends a month and shaves it from 5 seconds to 4.5 seconds. The improvement is now 11 percent, barely noticeable, and the effort has become enormous.</p>
+
+<p>This pattern repeats across almost all optimization work. The low-hanging fruit gets picked first. What remains is higher up, harder to reach, and worth proportionally less. Smart engineers know when to stop climbing the tree.</p>
+
+<h2>The Levels of the Game</h2>
+
+<p>Optimization happens at different levels, and these levels are not created equal. The choices you make at the top of the hierarchy are the hardest to change later and have the biggest impact. The choices at the bottom are easier to adjust but matter less.</p>
+
+<h3>Architecture and Design</h3>
+
+<p>At the very top sits the overall design of your system. This is where you decide whether you're building a web application or a native app, whether you'll use a client-server model or a peer-to-peer network, what programming language you'll write in, and what platform you'll target.</p>
+
+<p>These decisions are nearly irreversible. Changing them later often means starting over from scratch.</p>
+
+<p>Consider a system whose performance is limited by network latency—the time it takes for messages to travel across the internet. If your architecture requires five round-trip communications with a server to accomplish one task, you're fundamentally limited by the speed of light and the routing of internet traffic. No amount of clever code optimization will fix this. The only real solution is to redesign the system so it needs fewer network trips, ideally just one, or maybe none at all if you can push data proactively.</p>
+
+<p>The history of computing is littered with projects that failed because their fundamental architecture couldn't deliver adequate performance. The Intel 432, released in 1981, was so architecturally constrained that it never achieved acceptable speed despite years of effort. Java, when it launched in 1995, was painfully slow for years until the HotSpot just-in-time compiler arrived in 1999 and finally made it competitive with native code.</p>
+
+<h3>Algorithms and Data Structures</h3>
+
+<p>Below architecture sits the realm of algorithms and data structures—the fundamental techniques for organizing and manipulating information.</p>
+
+<p>An algorithm is a recipe, a step-by-step procedure for accomplishing some task. A data structure is a way of organizing information so you can work with it efficiently. These two concepts are deeply intertwined; different data structures make different algorithms practical.</p>
+
+<p>Computer scientists have a notation for describing how algorithms scale. They use something called Big O notation, which describes the relationship between the size of the input and the resources needed to process it.</p>
+
+<p>The best algorithms are what we call O(1), pronounced "order one" or "constant time." These algorithms take the same amount of time no matter how big the input is. Looking up an item in a hash table works this way—whether the table has 10 items or 10 million, the lookup takes about the same time.</p>
+
+<p>Next best is O(log n), pronounced "order log n" or "logarithmic time." These algorithms get only slightly slower as the input grows. Binary search works this way—to find an item in a sorted list of a million elements, you need at most about 20 comparisons. For a billion elements, you need about 30. The work grows slowly compared to the input size.</p>
+
+<p>O(n), or "linear time," means the work grows proportionally with the input. To find the largest number in an unsorted list, you have to look at every number. A list ten times bigger takes ten times longer.</p>
+
+<p>O(n log n) is typical of good sorting algorithms. It's slightly worse than linear but still manageable.</p>
+
+<p>O(n²), or "quadratic time," is where things start to get dangerous. An algorithm with quadratic time complexity gets dramatically slower as the input grows. If processing 1,000 items takes one second, processing 10,000 items takes 100 seconds. Processing 100,000 items takes nearly three hours. These algorithms simply don't scale for large inputs.</p>
+
+<p>Choosing the right algorithm can make the difference between a program that runs in milliseconds and one that runs for hours—or never finishes at all.</p>
+
+<h3>The Constant Factor</h3>
+
+<p>But here's a twist that trips up many novice programmers: Big O notation ignores constant factors, and sometimes the constants matter enormously.</p>
+
+<p>An O(n) algorithm that processes each element with 100 operations is slower than an O(n²) algorithm that uses 1 operation per pair of elements—at least until n exceeds 100. For small inputs, the "worse" algorithm might actually be faster.</p>
+
+<p>This is why sophisticated programs often use hybrid approaches. They might use a simple O(n²) algorithm for small inputs, where its lower overhead wins, and automatically switch to a fancier O(n log n) algorithm when the input grows large enough for the better scaling to pay off.</p>
+
+<h2>The Art of Avoiding Work</h2>
+
+<p>Perhaps the most powerful optimization technique is also the simplest to explain: don't do work you don't need to do.</p>
+
+<p>This sounds obvious. It isn't. Programmers constantly write code that does unnecessary work, often without realizing it.</p>
+
+<p>One common technique is the "fast path." Imagine you're writing a program that lays out text for display. Text layout is complicated—you need to handle different writing directions, ligatures where letters connect, complex scripts like Arabic or Hindi where letters change shape depending on their neighbors.</p>
+
+<p>But most of the text your program encounters might be simple English sentences with Latin characters. You can write a simple, fast algorithm for this common case and only invoke the complex, slow algorithm when you encounter text that actually needs it. For the majority of inputs, you've made your program dramatically faster.</p>
+
+<p>Caching is another form of avoiding work. If you've already calculated something once, save the result. If someone asks for it again, return the saved result instead of recalculating. This technique, called memoization, is so powerful that systems often have multiple layers of caching stacked on top of each other.</p>
+
+<p>Caching has its own problems, of course. Cached data consumes memory. Cached data can become stale—you might return an old answer when the correct answer has changed. Managing cache invalidation, deciding when cached data is no longer trustworthy, is notoriously one of the hardest problems in programming. There's a famous joke in computer science: "There are only two hard things in computer science: cache invalidation and naming things."</p>
+
+<h2>Down in the Trenches</h2>
+
+<p>At the lowest levels, optimization becomes almost an arcane art.</p>
+
+<p>In the early days of computing, programmers had to understand exactly how their code translated into machine instructions. They knew, for instance, that on certain compilers, writing <code>for (;;)</code> for an infinite loop was slightly faster than writing <code>while (true)</code>. The second version had to evaluate the expression "true" and then perform a conditional jump based on whether it was true. The first version just jumped unconditionally. A tiny difference, but in a loop that executes millions of times, tiny differences accumulate.</p>
+
+<p>Modern compilers are much smarter. They perform these micro-optimizations automatically. A modern optimizing compiler will recognize that <code>while (true)</code> and <code>for (;;)</code> are equivalent and generate the same machine code for both.</p>
+
+<p>But there are still cases where programmers need to understand the machine level. Assembly language, the human-readable form of machine code, allows programmers to exercise complete control over exactly what instructions the processor executes. For the most performance-critical code—the inner loops of operating systems, the core algorithms of video games, the real-time processing of audio and video—programmers sometimes still write assembly by hand.</p>
+
+<p>This is becoming rarer, though. Modern processors are astonishingly complex, with features like out-of-order execution (doing instructions in a different order than written to avoid waiting), speculative execution (guessing what to do next and doing it before being sure), branch prediction (guessing which way conditional logic will go), and deep instruction pipelines (overlapping the execution of multiple instructions). Understanding how code will actually run on modern hardware requires near-superhuman expertise, and often the compiler does a better job than a human could.</p>
+
+<h2>The Just-In-Time Revolution</h2>
+
+<p>There's another approach to optimization that straddles the line between compile-time and run-time: just-in-time compilation, often abbreviated as JIT.</p>
+
+<p>The idea is to delay compilation until the program is actually running, and then compile based on what you observe about how the program is actually being used.</p>
+
+<p>A traditional compiler sees your source code and must generate machine code that will work well for any input the program might receive. A just-in-time compiler can observe the actual inputs and the actual execution patterns, and generate code that's optimized for the real-world usage it's seeing.</p>
+
+<p>This technique dates back to some of the earliest regular expression engines in the 1960s, but it became famous with Java's HotSpot virtual machine and later with the V8 JavaScript engine that powers Chrome and Node.js.</p>
+
+<p>JIT compilation has a cost—you're spending time during program execution to compile code. But for long-running programs, this investment pays off handsomely. The generated code can be faster than what any ahead-of-time compiler could produce, because the JIT compiler has information that no ahead-of-time compiler could have: knowledge of the actual runtime conditions.</p>
+
+<p>An even more aggressive technique is called adaptive optimization. The system continuously monitors how the program is performing and adjusts its optimization strategies on the fly. If the program's behavior changes, the optimizations change too. This can exceed what any static optimization could achieve, because static optimization can only optimize for average or expected conditions, while adaptive optimization responds to actual conditions.</p>
+
+<h2>Platform-Dependent vs. Platform-Independent</h2>
+
+<p>Some optimization techniques work everywhere. Loop unrolling—manually writing out loop iterations to avoid the overhead of the loop machinery—helps on almost any processor. Reducing function calls helps almost everywhere. Using memory more efficiently matters on any machine.</p>
+
+<p>Other optimizations only work on specific hardware. Different processors have different instruction sets with different performance characteristics. What's fast on an Intel chip might be slow on an ARM chip. What's optimal for a processor from 2015 might not be optimal for one from 2023.</p>
+
+<p>This creates a tension. Do you write one version of your code that runs reasonably well everywhere, or do you write multiple versions, each optimized for a specific platform? In practice, performance-critical software often maintains multiple code paths and chooses between them at runtime based on what hardware it detects.</p>
+
+<h2>A Tale of Two Algorithms</h2>
+
+<p>Let me give you a concrete example that illustrates several optimization concepts at once.</p>
+
+<p>Suppose you want to calculate the sum of all integers from 1 to N. A naive approach is to loop through all the numbers and add them up. If N is a million, you perform a million additions.</p>
+
+<p>But there's a formula, attributed to the mathematician Carl Friedrich Gauss, who allegedly discovered it as a schoolchild: the sum of integers from 1 to N is N times N+1 divided by 2. Instead of a million operations, you do three: one addition, one multiplication, one division. This is called strength reduction—replacing a computationally expensive operation with an equivalent cheaper one.</p>
+
+<p>The formula is dramatically faster for large N. But there's a catch.</p>
+
+<p>For very small values of N, the formula might actually be slower. Setting up a multiplication and division, on some hardware, might take more time than just adding a handful of numbers. The loop version might also be more cache-friendly, keeping relevant data close to the processor, while the formula version might trigger more memory accesses.</p>
+
+<p>And there's another consideration: the formula is less obvious. A programmer reading the loop can immediately see what it does. A programmer reading the formula might have to think, or look up the mathematical identity. If the formula has a bug, it's harder to spot. Optimization often trades simplicity for speed, and simplicity has its own value—simpler code has fewer bugs.</p>
+
+<h2>The Danger Zone</h2>
+
+<p>Heavily optimized code is often harder to understand, and harder to understand means more likely to contain bugs.</p>
+
+<p>Optimization frequently involves "tricks"—clever techniques that exploit specific circumstances or hardware quirks. These tricks often rely on assumptions that aren't documented, because the person writing the code understood them intuitively. When those assumptions are violated, the code fails in mysterious ways.</p>
+
+<p>There's a famous quote, often attributed to the computer scientist Donald Knuth: "Premature optimization is the root of all evil." The full quote is more nuanced—Knuth was arguing that programmers spend too much time worrying about efficiency in the wrong places, not that optimization is always bad. But the abbreviated version captures an important truth: optimizing code before you understand how it needs to perform, and where its bottlenecks are, often wastes effort and introduces bugs.</p>
+
+<p>The wisest approach is usually to write clear, simple code first. Then measure. Find the actual bottlenecks, the places where your program actually spends its time. Then optimize those specific places. Most code isn't performance-critical, and optimizing it provides no benefit while making it harder to maintain.</p>
+
+<h2>The Never-Ending Trade-Off</h2>
+
+<p>We began with trade-offs, and we end with them. Optimization is fundamentally about choice—choosing what matters most and accepting compromises elsewhere.</p>
+
+<p>A program optimized for speed might use more memory. One optimized for memory might be slower. One optimized for startup time might have worse steady-state performance. One optimized for one type of input might perform poorly on another type.</p>
+
+<p>The related Substack article you mentioned, "Explore Then Expand Then Extract," touches on a different dimension of this trade-off. The author argues for preemptive performance tuning—designing for performance before you strictly need it, because the worst time to discover you have performance problems is when your product is successful and you can't afford to pause feature development.</p>
+
+<p>This is itself a trade-off. Optimizing early uses time you could spend on features. Optimizing late risks discovering that your architecture fundamentally can't deliver the performance you need. There's no universally right answer, only choices with consequences.</p>
+
+<p>The art of optimization is the art of understanding these trade-offs, predicting which ones you'll face, and making informed choices about which path to take. It's an art that mixes mathematics, engineering, psychology, and a healthy dose of humility about the limits of prediction.</p>
+
+<p>The perfect program is almost never achievable. The good-enough program, optimized along the dimensions that actually matter for its actual users, is the realistic goal. And sometimes, good enough is exactly what's needed.</p>
       </div>
 
       <footer class="wikipedia-footer">

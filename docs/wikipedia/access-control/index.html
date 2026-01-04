@@ -22,7 +22,175 @@
       </header>
 
       <div class="wikipedia-content">
-        <p>Content not available.</p>
+        <p class="source-note">Based on <a href="https://en.wikipedia.org/wiki/Access_control">Wikipedia: Access control</a></p>
+
+<p>Every day, billions of decisions happen in milliseconds that you never see. A card swipes. A fingerprint presses against glass. A password gets typed. And somewhere, a system asks the most fundamental question in all of security: Should this person be allowed in?</p>
+
+<p>This is access control—the invisible architecture that determines who goes where, when, and why. It sounds simple enough. But peel back the layers, and you'll find a fascinating interplay of psychology, technology, and the eternal arms race between those who protect and those who would breach.</p>
+
+<h2>The Three Questions</h2>
+
+<p>At its heart, access control answers three questions: Who are you? What are you allowed to do? And are you actually doing what you claim?</p>
+
+<p>These questions seem obvious until you try to answer them with certainty. Consider something as mundane as a door key. It proves nothing about identity—only possession. Anyone holding that key can walk through that door. The lock cannot distinguish between the rightful owner, their teenage child sneaking home late, or a burglar who found the key under the doormat.</p>
+
+<p>This fundamental weakness drove the entire evolution of access control technology. Mechanical locks, for all their ingenious pin-and-tumbler mechanisms, suffer from what security professionals call the "lost key problem." Lose a key, and you must change every lock it opened. Give a key to a contractor for a week, and you have no way to revoke that access short of demanding the key back—and hoping they didn't make a copy.</p>
+
+<p>The transition from mechanical to electronic access control wasn't just about convenience. It was about solving these identity and revocation problems that physical keys could never address.</p>
+
+<h2>The Shift to Electronics</h2>
+
+<p>Electronic access control systems emerged to solve the limitations that had plagued mechanical security for centuries. Where a key only proves possession, an electronic system can demand proof of identity.</p>
+
+<p>The architecture is elegant in its simplicity. You present a credential—a card, a fob, a fingerprint. A reader captures that information and sends it to a control panel, which is essentially a specialized computer running a single important program. The panel compares your credential against a list of who's allowed in. Match? The door unlocks for a few seconds, and the system logs your entry. No match? The door stays locked, and that failed attempt gets recorded too.</p>
+
+<p>But here's where it gets interesting. That log changes everything.</p>
+
+<p>With mechanical locks, you have no audit trail. You cannot know who entered at 3 AM last Tuesday or how many times the service entrance was used last month. Electronic systems create a complete history of every access attempt, successful or not. This transforms security from reactive to proactive—you can spot patterns, identify anomalies, and investigate breaches with actual data instead of guesswork.</p>
+
+<p>The system also monitors for force. Prop a door open too long after swiping your card, and an alarm triggers. Force a door without any credential at all, and security knows immediately. These capabilities simply don't exist in the mechanical world.</p>
+
+<h2>The Factors of Authentication</h2>
+
+<p>Security professionals organize authentication into three fundamental categories, each representing a different type of proof.</p>
+
+<p>The first factor is something you know. Passwords, Personal Identification Numbers (called PINs), passphrases—these are secrets stored in your memory. They're wonderfully convenient because they exist purely as information. You can change them instantly. You can't drop them in a parking lot. But they can be forgotten, guessed, or socially engineered out of you by a convincing phone caller claiming to be from the IT department.</p>
+
+<p>The second factor is something you have. A smart card. A key fob. A physical token that generates codes. These credentials exist as objects in the real world, which means they can be stolen, lost, or simply left at home on the kitchen counter when you're running late for work.</p>
+
+<p>The third factor is something you are. Your fingerprint. The pattern of blood vessels in your retina. The unique geometry of your hand. The mathematical map of your face. These biometric markers are extraordinarily difficult to forge and impossible to forget. But they come with their own problems—you cannot change your fingerprint if it gets compromised, and the technology to read them reliably across millions of people remains challenging.</p>
+
+<p>There's a fourth factor that's gained recognition more recently: someone who knows you. This is the vouching system humans have used since prehistory—the guard who recognizes your face, the colleague who confirms you're supposed to be in the building. It turns out this ancient method has a place even in modern systems, particularly for account recovery when the other factors fail.</p>
+
+<h2>Why One Factor Isn't Enough</h2>
+
+<p>Imagine Alice has access to the server room. Bob doesn't. If Alice's credential is just a card, Bob has options. He could borrow it. Steal it. Find it after Alice drops it in the cafeteria. Clone it if he has the right equipment. The access control list says "this card can enter," but the system has no way to verify that the person holding the card is actually Alice.</p>
+
+<p>This is why serious security requires multiple factors—what's called two-factor or multi-factor authentication. The card alone isn't enough. You must also enter a PIN that only you know. Or the system scans your fingerprint to confirm biologically that you're the person assigned to that card.</p>
+
+<p>The factors work because they fail differently. Stealing a card is relatively easy. Stealing a card AND discovering someone's PIN is harder. Stealing a card, discovering the PIN, AND replicating a fingerprint approaches the realm of spy movies. Each additional factor multiplies the difficulty for an attacker.</p>
+
+<p>This principle—that security improves dramatically by combining different types of proof—explains why banks send verification codes to your phone when you log in from a new computer. The password is something you know. The phone is something you have. Together, they provide much stronger assurance that you are who you claim to be.</p>
+
+<h2>The Evolution of Credentials</h2>
+
+<p>The credential technologies themselves have evolved through several generations, each addressing weaknesses in its predecessors.</p>
+
+<p>Magnetic stripe cards, like the credit cards that dominated the late twentieth century, store data in a band of magnetic material. Simple and cheap, but trivially easy to clone with inexpensive equipment. A criminal with a small reader hidden in their palm could capture your card data with a single handshake-distance pass.</p>
+
+<p>Proximity cards operating at 125 kilohertz improved on this by eliminating physical contact—you wave the card near a reader rather than swiping it through a slot. But they still broadcast their information openly, making them vulnerable to capture by anyone with the right receiver.</p>
+
+<p>Smart cards represented a leap forward. These contain actual microprocessors—tiny computers embedded in plastic. They can perform cryptographic operations, engaging in challenge-response exchanges that prove authenticity without ever revealing the secret key. Clone a magnetic stripe and you have an identical copy. Try to clone a well-designed smart card and the cryptographic secrets stay locked inside the chip.</p>
+
+<p>The newest systems use near-field communication (NFC), Bluetooth Low Energy, or ultra-wideband radio. These enable your smartphone to become your credential. The phone you already carry, already protect with biometrics, and already treat as an extension of yourself can now unlock doors and log your access. No separate card to forget or lose.</p>
+
+<h2>The Biometric Promise and Problem</h2>
+
+<p>Biometrics seemed, for a time, like the ultimate solution. You cannot forget your fingerprint. You cannot loan out your iris pattern. The credential and the identity become one.</p>
+
+<p>Fingerprint recognition is the most common. The technology maps the unique pattern of ridges and valleys on your fingertip, creating a mathematical template that can be compared against stored records. Modern smartphone sensors have made this nearly ubiquitous—billions of people now routinely unlock devices with their thumbprint.</p>
+
+<p>Facial recognition has grown dramatically with improvements in camera technology and machine learning. The systems map dozens of measurements across your face—the distance between your eyes, the width of your nose, the shape of your jawline—creating a numerical signature that ideally matches only you.</p>
+
+<p>Iris recognition peers into your eye, mapping the intricate patterns of colored tissue around your pupil. These patterns form before birth and remain stable throughout life, providing an extremely reliable identifier. Retinal scanning goes even deeper, imaging the unique pattern of blood vessels at the back of your eye.</p>
+
+<p>But biometrics carry a fundamental risk that other factors don't. If someone steals your password, you change it. If they steal your card, you cancel it and get a new one. If they somehow capture your fingerprint or facial geometry? You cannot get new ones. The compromise is permanent.</p>
+
+<p>This has led to sophisticated spoofing attacks. Researchers have demonstrated fooling fingerprint readers with gelatin molds, facial recognition with carefully constructed masks, and iris scanners with high-resolution photographs. The biometric arms race continues, with systems now checking for signs of life—pulse in a fingertip, involuntary eye movements, the three-dimensional depth that distinguishes a real face from a photograph.</p>
+
+<h2>The Architecture of Control</h2>
+
+<p>Behind every badge swipe lies an infrastructure most people never see. Understanding this architecture reveals both how the system works and where it can fail.</p>
+
+<p>The reader at the door is typically the simplest component—often just a sensor and a radio transmitter. The most basic readers do nothing but capture credential data and pass it along. They cannot decide whether you're allowed in. They're messengers, not gatekeepers.</p>
+
+<p>The control panel is where decisions happen. This hardened processor maintains the access control list—the database of who can go where and when. It receives credential data from readers, compares against its rules, and sends commands to lock or unlock. It's the brain of the local system, and it's deliberately simple and robust. Control panels don't run email programs or web browsers. They do one thing, and they do it reliably.</p>
+
+<p>Locking hardware comes in two main varieties. Electromagnetic locks use powerful magnets to hold doors closed—kill the power and the door releases, which is important for fire safety. Electric strikes modify the door frame's latch pocket, allowing the door to push open when energized while maintaining normal locking otherwise. Each approach has tradeoffs in security, safety, and cost.</p>
+
+<p>Request-to-exit sensors deserve mention because they solve a subtle problem. From inside a secure area, you need to leave without triggering an alarm. Motion detectors or push buttons signal legitimate exits, telling the system to ignore the door opening. This "mechanical free egress" is crucial for emergency evacuation—you must be able to get out quickly, even if the electronic systems fail entirely.</p>
+
+<h2>The Intelligence Migration</h2>
+
+<p>Early access control systems concentrated all intelligence at a central host computer. Every credential read traveled over wires to this central brain, which made all decisions and sent commands back. Simple architecture, but fragile. If the central host failed, nothing worked.</p>
+
+<p>The industry responded by pushing intelligence outward toward the edges. Control panels gained their own processors and databases, able to make access decisions independently even if network connections failed. This distributed architecture dramatically improved reliability—a network outage might prevent logging to the central system, but doors would still lock and unlock appropriately.</p>
+
+<p>The latest evolution pushes decision-making all the way to the door itself. Modern intelligent readers contain processors, memory, and complete access rules. They can operate entirely autonomously, reporting back to central systems when connectivity permits but functioning perfectly well when it doesn't. Each door becomes its own independent security system.</p>
+
+<p>This edge intelligence comes with tradeoffs. More processors at more locations means more hardware to purchase, power, and maintain. Configuration updates must propagate to potentially thousands of devices. But the resilience benefits often outweigh the complexity costs, especially for facilities where continuous operation is critical.</p>
+
+<h2>The Network Revolution</h2>
+
+<p>For decades, access control systems ran on dedicated wiring—RS-485 serial communications that had nothing in common with the office network running email and spreadsheets. This isolation provided security through separation. An attacker who compromised the corporate network still couldn't touch the access control system.</p>
+
+<p>But dedicated wiring is expensive. Running new cables through existing buildings costs money, time, and the patience to navigate walls, ceilings, and local building codes. The existing Ethernet infrastructure, already reaching every corner of modern buildings, became increasingly attractive.</p>
+
+<p>Internet Protocol (IP)-based access control systems emerged, allowing readers and controllers to communicate over standard networks. Installation costs dropped dramatically. A new door could be added by running a single Ethernet cable rather than specialized wiring back to a central location.</p>
+
+<p>This convergence introduced new risks. Access control systems now shared infrastructure with every other networked device, inheriting all the vulnerabilities of general-purpose computing. Ransomware that encrypted the office file server could potentially reach the access control system. A compromised network device could intercept credential data.</p>
+
+<p>The industry responded with segmentation—putting access control systems on isolated network segments that couldn't communicate with general office traffic. Encryption protects data in transit. But the fundamental tension remains: the convenience of shared infrastructure versus the security of dedicated systems.</p>
+
+<h2>The Principle of Least Privilege</h2>
+
+<p>The access control list at the heart of any system embodies an important philosophical principle: people should have exactly the access they need to do their jobs, and nothing more.</p>
+
+<p>This "principle of least privilege" sounds obvious but proves remarkably difficult to implement in practice. Organizations constantly change. People switch roles, take on new projects, collaborate across departments. Access rights accumulate over time, rarely getting removed when they're no longer needed.</p>
+
+<p>The result is "privilege creep"—a gradual inflation of access that leaves people with far more permissions than their current role requires. That marketing manager who temporarily helped with a finance project three years ago? They might still have access to financial systems. The developer who moved to a different team? Their old credentials might still unlock sensitive repositories.</p>
+
+<p>Regular access reviews try to combat this drift, systematically auditing who has access to what and whether that access remains appropriate. But these reviews are tedious, and the path of least resistance is often to leave existing access alone. After all, what harm could it cause? The answer, frequently discovered during security incidents, is quite a lot.</p>
+
+<h2>Broken Access Control: The Top Vulnerability</h2>
+
+<p>In the world of software and web applications, access control failures consistently rank as the number one security risk. The Open Worldwide Application Security Project, known as OWASP, maintains a widely-referenced list of the most critical security vulnerabilities. In 2021, broken access control moved to the top position, displacing injection attacks that had long held that dubious honor.</p>
+
+<p>What makes this so common? Building access control into software requires thinking through every possible action a user might take and deciding whether it should be permitted. Miss a single check, and an attacker can access data they shouldn't see or perform actions they shouldn't be allowed to take.</p>
+
+<p>Consider a web application showing users their own account information at a URL like example.com/user/12345. What happens if someone changes that number to 12346? A well-designed system checks whether the logged-in user has permission to view that specific account. A poorly designed system just shows whatever account number was requested, exposing other users' private data.</p>
+
+<p>These "insecure direct object reference" vulnerabilities are embarrassingly simple to exploit and surprisingly difficult to prevent comprehensively. They require developers to think adversarially about every feature, asking not just "does this work for legitimate users?" but "what happens when someone tries to abuse it?"</p>
+
+<h2>Beyond the Physical Door</h2>
+
+<p>Access control extends far beyond buildings and rooms. The same principles govern digital resources—files, databases, applications, cloud services. Who can read this document? Who can modify that record? Who can deploy software to production servers?</p>
+
+<p>Digital access control often uses role-based models. Rather than granting permissions directly to individuals, you define roles like "accountant" or "system administrator" and assign people to those roles. The role carries a bundle of permissions appropriate to that function. When someone changes jobs, you adjust their roles rather than individually revoking dozens of specific permissions.</p>
+
+<p>Attribute-based access control goes further, making decisions based on characteristics of the user, the resource, and the context. A policy might allow document access only during business hours, only from company-managed devices, only when the user's department matches the document's classification. These dynamic policies can express nuanced requirements that simple role assignments cannot capture.</p>
+
+<p>Modern systems increasingly combine approaches—roles provide a foundation, attributes enable fine-tuning, and explicit policies handle edge cases. The goal remains constant: ensuring that people can access what they need while keeping everything else protected.</p>
+
+<h2>The AI Agent Frontier</h2>
+
+<p>A new challenge is emerging that existing access control models struggle to address: autonomous artificial intelligence agents acting on behalf of humans.</p>
+
+<p>When you ask an AI assistant to schedule meetings, research information, or draft communications, you're delegating some of your access to a software entity. That agent might read your email to find scheduling conflicts. It might access corporate databases to gather information. It might interact with external services on your behalf.</p>
+
+<p>Traditional access control assumed that access decisions involved humans—people presenting credentials, people making requests, people being accountable for actions. AI agents blur these assumptions. Should an agent have the same access as the human it represents? How do you distinguish legitimate agent actions from an agent that's been manipulated or compromised?</p>
+
+<p>The security community is actively wrestling with these questions. New standards and protocols are emerging to govern agent authentication, scope agent permissions appropriately, and maintain audit trails of agent actions. The goal is extending the time-tested principles of access control to this new frontier, ensuring that autonomous systems can act usefully without becoming vectors for unauthorized access.</p>
+
+<h2>The Human Element</h2>
+
+<p>No discussion of access control is complete without acknowledging that humans remain both its purpose and its greatest vulnerability.</p>
+
+<p>Tailgating—following an authorized person through a door without presenting your own credentials—defeats even sophisticated technical controls. Social engineering convinces people to hold doors open, share passwords, or authorize access they shouldn't. The most elaborate security system fails when a helpful employee lets a stranger into the building because they claimed to have a delivery.</p>
+
+<p>Security awareness training tries to address this, teaching people to recognize manipulation attempts and resist social pressure to violate access policies. But humans are wired for trust and cooperation. It feels rude to demand credentials from someone who looks like they belong. The cultural challenge often exceeds the technical one.</p>
+
+<p>Some organizations have embraced radical transparency about these challenges. Rather than pretending that policies will be followed perfectly, they design systems assuming that social engineering will occasionally succeed. Multiple layers of control, careful compartmentalization, and robust detection create resilience even when individual defenses fail.</p>
+
+<h2>The Ongoing Balance</h2>
+
+<p>Access control systems exist in constant tension between security and usability. Every additional authentication factor adds friction. Every additional policy check adds delay. Every additional audit requirement adds administrative burden.</p>
+
+<p>Make systems too restrictive and people find workarounds—propped doors, shared passwords, sticky notes with codes. Make them too permissive and actual security degrades. The art lies in finding the balance point where legitimate users can work efficiently while unauthorized access remains difficult.</p>
+
+<p>This balance point shifts constantly. New threats emerge. Business requirements change. Technology enables different tradeoffs. What seemed adequate security a decade ago may be laughably insufficient today. What seems paranoid today may become standard practice tomorrow.</p>
+
+<p>The fundamental questions, though, remain timeless. Who are you? What should you be allowed to do? And how can we be confident you are who you claim to be? Every badge, every password, every biometric scan, every policy decision traces back to these deceptively simple questions—questions that have driven security innovation for as long as humans have had things worth protecting.</p>
       </div>
 
       <footer class="wikipedia-footer">

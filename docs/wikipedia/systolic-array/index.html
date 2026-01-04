@@ -22,7 +22,137 @@
       </header>
 
       <div class="wikipedia-content">
-        <p>Content not available.</p>
+        <p class="source-note">Based on <a href="https://en.wikipedia.org/wiki/Systolic_array">Wikipedia: Systolic array</a></p>
+
+<p>The secret weapon powering today's artificial intelligence revolution was invented to crack Nazi codes during World War II—and then forgotten for three decades.</p>
+
+<p>This is the story of systolic arrays, a computing architecture so elegant it was named after the human heartbeat.</p>
+
+<h2>Blood and Data</h2>
+
+<p>Your heart doesn't pump blood in one massive surge. Instead, it contracts in rhythmic waves, pushing blood through your circulatory system in a coordinated pulse. Each chamber does its job and passes the result along to the next. The whole system works in lockstep, millions of times per day, without a central controller barking orders.</p>
+
+<p>In the late 1970s, computer scientists H. T. Kung and Charles Leiserson looked at this biological marvel and saw something remarkable: the architecture of a parallel computer.</p>
+
+<p>They called their invention the systolic array, borrowing the medical term "systole"—the phase when the heart contracts and pushes blood forward. In their design, data pulses through a grid of simple processors the same way blood pulses through your arteries. Each processor does one small job, stores the result, and passes it to its neighbors. No central brain. No bottlenecks. Just rhythm.</p>
+
+<p>What Kung and Leiserson didn't know was that someone had beaten them to it by thirty-five years.</p>
+
+<h2>The Colossus Secret</h2>
+
+<p>During World War II, British codebreakers at Bletchley Park faced an impossible problem. The German military's Lorenz cipher was far more complex than the famous Enigma machine. Breaking it required processing massive amounts of data at speeds no existing machine could achieve.</p>
+
+<p>The solution was Colossus, often considered the world's first programmable electronic computer. And hidden within its design was an early systolic array—data flowing through processors in coordinated waves, each unit doing its part and passing results along.</p>
+
+<p>But Colossus remained classified for decades after the war. When Kung and Leiserson published their groundbreaking 1979 paper describing systolic arrays, they were independently reinventing a wheel that had been rolling in secret since 1944.</p>
+
+<h2>Why Conventional Computers Hit a Wall</h2>
+
+<p>To understand why systolic arrays matter, you need to understand the fundamental problem with how most computers work.</p>
+
+<p>The dominant paradigm in computing is called the Von Neumann architecture, named after the brilliant mathematician John von Neumann. In this design, a central processor fetches instructions from memory, executes them one by one, and stores results back to memory. The processor follows a script, reading the next line, doing what it says, moving to the next line. Think of it like a chef who can only read one step of a recipe at a time, walking back to the cookbook after each action.</p>
+
+<p>This works beautifully for many tasks. But it has a crippling weakness: the memory bottleneck.</p>
+
+<p>Every time the processor needs data, it has to fetch it from memory. Every time it produces a result, it has to store it back. These round trips take time. As processors got faster through the decades, memory couldn't keep up. The processor would sit idle, waiting for data to arrive—like that chef standing at the stove, drumming fingers while waiting for someone to bring ingredients from the pantry.</p>
+
+<p>Computer scientists call this the Von Neumann bottleneck, and it becomes especially painful for certain types of calculations.</p>
+
+<h2>The Perfect Problems</h2>
+
+<p>Some computations are naturally parallel. Multiplying two large matrices together, for instance, involves thousands of independent multiply-and-add operations. Each element of the result matrix can be calculated separately from all the others. In a Von Neumann machine, you compute them one at a time, constantly fetching and storing. But there's no inherent reason you couldn't compute them all simultaneously.</p>
+
+<p>This is exactly what systolic arrays do.</p>
+
+<p>Picture a grid of tiny processors, each one incredibly simple—capable of multiplying two numbers, adding the result to an accumulator, and passing values to its neighbors. Now imagine feeding one matrix in from the top, one row at a time, while feeding another matrix in from the left, one column at a time. The data flows through the grid like waves crossing each other.</p>
+
+<p>Each processor sees one element from each matrix, multiplies them, adds the result to its running total, and passes the original values along. By the time the waves have finished crossing, every processor holds one element of the result matrix. No memory fetches. No bottleneck. Just data flowing through silicon.</p>
+
+<p>The same principle works for convolutions—the mathematical operation at the heart of image processing and neural networks. It works for solving systems of linear equations. It works for finding the greatest common divisor of enormous numbers. Anywhere you have regular, repetitive calculations on flowing data, systolic arrays excel.</p>
+
+<h2>The Heartbeat of AI</h2>
+
+<p>For decades, systolic arrays remained a specialty item—useful for signal processing, video codecs, and scientific computing, but not mainstream. Then came the deep learning revolution.</p>
+
+<p>Neural networks, it turns out, are almost entirely matrix multiplications. Training a large language model like the one generating this text involves multiplying matrices with billions of elements, over and over, trillions of times. A conventional processor would spend most of its time shuttling numbers between processor and memory.</p>
+
+<p>Google recognized this in 2016 when they unveiled the Tensor Processing Unit, or TPU—a custom chip designed specifically for neural network calculations. At its heart sits a systolic array. Data flows in from one edge, weights flow in from another, and multiply-accumulate operations ripple through the grid in coordinated waves. The TPU can perform 65,536 multiply-add operations per clock cycle, with minimal memory access.</p>
+
+<p>The results were dramatic. Google reported that their TPUs delivered 15 to 30 times better performance per watt than conventional processors for machine learning workloads. The company used them to power everything from Google Photos to AlphaGo, the system that defeated the world champion at the ancient game of Go.</p>
+
+<p>Today, systolic arrays appear in Neural Processing Units (NPUs) embedded in smartphones, in specialized AI accelerators from Intel and other manufacturers, and in custom chips designed by tech giants for their data centers. The architecture born at Bletchley Park and rediscovered at Carnegie Mellon has become the beating heart of artificial intelligence.</p>
+
+<h2>How the Data Actually Flows</h2>
+
+<p>Let's trace through a simple example to see the magic happen.</p>
+
+<p>Imagine a linear chain of processing elements—let's call them PEs—each holding a fixed weight. Data values enter from one end, partial sums flow from the other. Each PE multiplies its weight by the incoming data value, adds the result to the incoming partial sum, and passes both along.</p>
+
+<p>Here's what each PE computes:</p>
+
+<ul>
+<li>Take the incoming data value</li>
+<li>Multiply it by the stored weight</li>
+<li>Add the product to the incoming partial sum</li>
+<li>Pass the data value to the next PE</li>
+<li>Pass the updated sum in the opposite direction</li>
+</ul>
+
+<p>After the data has flowed through, the output stream contains convolution results—weighted combinations of the input values. The same principle extends to two-dimensional arrays for image processing, three-dimensional arrays for volumetric data, and beyond.</p>
+
+<p>The elegance lies in the simplicity. Each PE does the same thing over and over. The connections between PEs are fixed and local—no routing decisions, no addressing, no contention. Data arrives, gets processed, moves on. The complexity emerges from the pattern of connections and the timing of data flows, not from sophisticated individual units.</p>
+
+<h2>Breaking the Classification System</h2>
+
+<p>Computer scientists love to categorize things, and the standard taxonomy for parallel computers comes from Michael Flynn. His 1966 classification divided machines into four categories based on how they handle instructions and data:</p>
+
+<p>Single Instruction, Single Data (SISD) describes your typical sequential processor—one instruction operating on one piece of data at a time.</p>
+
+<p>Single Instruction, Multiple Data (SIMD) describes vector processors and graphics cards—one instruction operating on many data elements simultaneously, all doing exactly the same thing.</p>
+
+<p>Multiple Instruction, Single Data (MISD) is the oddball category—multiple instructions operating on the same data, theoretically useful for fault tolerance but rarely seen in practice.</p>
+
+<p>Multiple Instruction, Multiple Data (MIMD) describes networks of independent processors, each running its own program on its own data.</p>
+
+<p>Textbooks typically classify systolic arrays as MISD. But this classification is problematic, and exploring why reveals something deep about what makes systolic arrays special.</p>
+
+<p>They're not SISD because multiple processors are active simultaneously. They're not SIMD because the data values aren't independent—they're being combined and transformed as they flow through the array. They're not MIMD because the processors aren't running independent programs.</p>
+
+<p>And they're not really MISD either, because the data is being transformed at each step. The second processor isn't operating on the same data as the first—it's operating on a modified version.</p>
+
+<p>Some researchers have proposed a new category: Single Function, Multiple Data, Merged Results. The array performs one overall function (like matrix multiplication), on multiple data streams (the input matrices), producing merged results (the output matrix). This captures the essence better than Flynn's original categories ever could.</p>
+
+<p>Perhaps the most accurate description is simply that systolic arrays represent a fundamentally different computational paradigm—one based on data flow rather than instruction flow, on rhythm rather than control.</p>
+
+<h2>Cousins and Variations</h2>
+
+<p>Systolic arrays have relatives in the computing family tree.</p>
+
+<p>Wavefront processors are a close cousin. Where systolic arrays operate in lockstep—every processor ticking to the same clock—wavefront processors use asynchronous handshaking. Each processor signals when it has data ready and waits for its neighbor to acknowledge receipt. This flexibility makes wavefront processors more adaptable but also more complex to design.</p>
+
+<p>Kahn process networks share the systolic array's flow-graph structure but add queues between processors. In a Kahn network, processors can work at different rates, with the queues absorbing temporary imbalances. This trades some of the systolic array's simplicity and timing guarantees for greater flexibility.</p>
+
+<p>Field-Programmable Gate Arrays, or FPGAs, can be configured to implement systolic arrays in reconfigurable hardware. This lets designers experiment with different array sizes and topologies without manufacturing new chips.</p>
+
+<p>One notable implementation was the iWarp processor from Carnegie Mellon University, manufactured by Intel in the early 1990s. iWarp systems connected processors in a linear array with data buses running in both directions, enabling a range of systolic algorithms for scientific computing.</p>
+
+<h2>The Biological Connection</h2>
+
+<p>The naming of systolic arrays after the heartbeat was more than poetic. There's something deeply biological about this architecture.</p>
+
+<p>Consider how your visual cortex processes images. Light hits your retina, and signals flow through layers of neurons, each layer extracting features and passing results to the next. Edge detectors feed into corner detectors feed into shape recognizers feed into object identifiers. The processing is local—each neuron only talks to its neighbors—but the collective result is rich understanding.</p>
+
+<p>Systolic arrays capture this same pattern. Local processing, flowing data, emergent computation. It's no coincidence that they excel at the same tasks that biological neural networks do well: image recognition, pattern matching, signal processing, spatial reasoning.</p>
+
+<p>Perhaps this hints at something fundamental about computation itself. The Von Neumann architecture mirrors how humans consciously solve problems: step by step, following explicit instructions, manipulating symbols in working memory. But the systolic architecture mirrors how our brains actually work at the neural level: massively parallel, locally connected, data-driven, rhythmic.</p>
+
+<h2>The Renaissance Continues</h2>
+
+<p>For a technology born in wartime secrecy and rediscovered in academic papers, systolic arrays have had a remarkable journey. From breaking Nazi codes to enabling AI assistants, from hand-drawn circuit diagrams to chips containing millions of processing elements, the fundamental insight remains the same: let data flow through a rhythm of simple processors, and complexity emerges from simplicity.</p>
+
+<p>As artificial intelligence grows more capable and more hungry for computation, the systolic array's moment has arrived. The architecture that pulses like a heartbeat now drives the systems that are learning to see, hear, speak, and reason.</p>
+
+<p>Kung and Leiserson chose their metaphor well. Just as the heart never stops beating, systolic arrays never stop processing. Data flows in, results flow out, and the rhythm continues—millions of operations per second, in silicon hearts that never tire.</p>
       </div>
 
       <footer class="wikipedia-footer">

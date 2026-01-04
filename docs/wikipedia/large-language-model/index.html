@@ -22,7 +22,201 @@
       </header>
 
       <div class="wikipedia-content">
-        <p>Content not available.</p>
+        <p class="source-note">Based on <a href="https://en.wikipedia.org/wiki/Large_language_model">Wikipedia: Large language model</a></p>
+
+<h2>The Machines That Learned to Speak</h2>
+
+<p>In November 2022, something remarkable happened. A chatbot called ChatGPT was released to the public, and within five days, over a million people had tried it. By January, that number had grown to a hundred million. People were using it to write poetry, debug code, draft emails, and have conversations that felt eerily human. The technology behind it—a large language model, or LLM—had been brewing in research labs for years. But suddenly, it was everywhere.</p>
+
+<p>What exactly is a large language model? At its core, it's a prediction machine. You give it some text, and it guesses what comes next. That's it. That's the whole trick.</p>
+
+<p>But this simple trick, scaled up to an almost incomprehensible degree, produces something that looks a lot like understanding.</p>
+
+<h2>The Scale of the Thing</h2>
+
+<p>When we say "large," we mean staggeringly, almost absurdly large. These models contain billions—sometimes trillions—of numerical values called parameters. Each parameter is a tiny dial that's been adjusted during training to help the model make better predictions. The original GPT, released in 2018, had 117 million parameters. That seems quaint now. Modern models have parameter counts in the hundreds of billions.</p>
+
+<p>To put this in perspective: training GPT-2, a model with 1.5 billion parameters, cost around fifty thousand dollars back in 2019. By 2022, training PaLM, a model with 540 billion parameters, cost eight million dollars. The Megatron-Turing model cost eleven million. These are not hobby projects. They require vast data centers filled with specialized chips, consuming enough electricity to power small towns.</p>
+
+<p>And the data they consume during training is equally vast. We're talking about significant fractions of the entire written internet—billions of web pages, books, articles, code repositories, and conversations. The models learn by reading more text than any human could encounter in thousands of lifetimes.</p>
+
+<h2>From Counting Words to Understanding Meaning</h2>
+
+<p>The story of how we got here stretches back decades. The earliest language models were statistical, counting how often certain words appeared near other words. In the 1990s, IBM researchers pioneered techniques for machine translation by aligning words across languages—finding, for instance, that "maison" in French usually corresponded to "house" in English.</p>
+
+<p>By the early 2000s, researchers were building n-gram models. The name sounds technical, but the concept is simple. An n-gram is just a sequence of n words. A bigram model predicts the next word based on the previous word. A trigram model looks at the previous two words. These models were trained on hundreds of millions of words and could capture basic patterns in language.</p>
+
+<p>But n-gram models had a fundamental limitation: they couldn't see far. They treated language as a series of local patterns, missing the long-range connections that give sentences meaning. Consider the sentence "The trophy wouldn't fit in the suitcase because it was too big." Understanding that "it" refers to the trophy requires connecting words across several positions in the sentence. N-gram models couldn't do this well.</p>
+
+<p>Neural networks offered a different approach. Instead of counting word frequencies, they learned to represent words as lists of numbers—vectors in a high-dimensional space. Words with similar meanings ended up close together in this space. The word "king" might be near "queen" and "emperor," while "banana" would be off in an entirely different region.</p>
+
+<p>In 2013, a technique called Word2Vec made this idea practical. It could learn these vector representations—called embeddings—from raw text, without any human labeling. And these embeddings captured surprisingly subtle relationships. The famous example: if you took the vector for "king," subtracted "man," and added "woman," you'd get something very close to "queen." The model had learned something about gender and royalty purely from reading text.</p>
+
+<h2>The Transformer Revolution</h2>
+
+<p>But the real breakthrough came in 2017, at a machine learning conference called NeurIPS. A team of Google researchers presented a paper with a provocative title: "Attention Is All You Need."</p>
+
+<p>They introduced an architecture called the transformer. And it changed everything.</p>
+
+<p>Previous neural network approaches to language used recurrent networks—architectures that processed words one at a time, in sequence, passing information forward step by step like a bucket brigade. This worked, but it was slow and struggled with long documents. Information from the beginning of a text would fade by the time the network reached the end.</p>
+
+<p>Transformers took a radically different approach. Instead of processing words sequentially, they processed them all at once, in parallel. And they used a mechanism called attention to determine which words should influence which other words, regardless of their distance in the text.</p>
+
+<p>Think of attention like this: when reading "The trophy wouldn't fit in the suitcase because it was too big," the model can directly connect "it" to "trophy" in a single step. It doesn't have to pass information through all the intermediate words. Every word can attend to every other word, creating a web of connections.</p>
+
+<p>This parallel processing had another crucial advantage: it was fast. Neural networks run on specialized hardware called graphics processing units, or GPUs, which excel at doing many calculations simultaneously. Recurrent networks couldn't fully exploit this capability because they had to process words in order. Transformers could.</p>
+
+<p>The combination of attention and parallelism meant transformers could be trained on far more data, far more efficiently, than any previous architecture. And as researchers would soon discover, scaling up transformers led to unexpected capabilities.</p>
+
+<h2>BERT and GPT: Two Paths Forward</h2>
+
+<p>The transformer paper was published, but it took a little while for its implications to sink in. Then in 2018, two major models emerged that would define the field for years to come.</p>
+
+<p>The first was BERT, from Google. The name stands for Bidirectional Encoder Representations from Transformers, but the important word is "bidirectional." BERT could look at text in both directions simultaneously—reading both what came before and what came after any given word. This made it excellent at understanding context.</p>
+
+<p>BERT was trained with a clever trick called masking. Random words in the training text were replaced with a special blank token, and the model had to guess what the original word was. It's like a fill-in-the-blank exercise, repeated billions of times across the internet's worth of text. This forced the model to learn deep patterns about how language works.</p>
+
+<p>The second major model was GPT, from OpenAI. The name stands for Generative Pre-trained Transformer, and it took a different approach. Instead of filling in blanks, GPT was trained to predict the next word in a sequence. Given "The cat sat on the," it would predict "mat" or "floor" or "sofa."</p>
+
+<p>This might seem like a simpler task, but it had a crucial advantage: it could generate text. BERT was primarily for understanding—analyzing text that already existed. GPT could create new text, word by word, by repeatedly predicting what came next.</p>
+
+<p>For a while, BERT dominated academic research. It became, in the technical jargon, "ubiquitous." But by 2023, the tide had turned. GPT-style models were getting better at understanding tasks too, and their ability to generate fluent text made them more versatile. BERT's star began to fade.</p>
+
+<h2>The GPT Lineage</h2>
+
+<p>The first GPT, in 2018, was impressive but limited. GPT-2, released in 2019, caused a stir for an unusual reason: OpenAI initially refused to release it fully, claiming it was "too dangerous." The concern was that it could be used to generate convincing disinformation at scale. Critics accused OpenAI of theatrical fearmongering. Defenders said they were being appropriately cautious. Either way, the drama generated enormous publicity.</p>
+
+<p>GPT-3, in 2020, was substantially larger and more capable. OpenAI made it available only through a paid application programming interface, or API—essentially renting access to the model rather than letting people download and run it themselves. This established a business model that many other AI companies would follow.</p>
+
+<p>GPT-3 demonstrated something researchers called "few-shot learning." You could give it a handful of examples of a task—say, translating English to French—and it would figure out the pattern and apply it to new inputs. It hadn't been explicitly trained to translate, but it could do it anyway. This was a glimpse of something new: a general-purpose tool that could adapt to specific tasks on the fly.</p>
+
+<p>Then came ChatGPT in late 2022, and the world changed.</p>
+
+<h2>Teaching Machines to Be Helpful</h2>
+
+<p>ChatGPT wasn't just a bigger GPT-3. It had been fine-tuned using a technique called reinforcement learning from human feedback, or RLHF.</p>
+
+<p>Here's the challenge with raw language models: they're trained to predict text, not to be helpful. The internet contains all kinds of content—helpful and harmful, truthful and false, kind and cruel. A model trained on all of it will reflect all of it.</p>
+
+<p>RLHF addresses this through a two-step process. First, humans rate model outputs. Given a prompt like "Explain quantum physics," they compare different responses and indicate which is better—clearer, more accurate, more helpful. These ratings are used to train a "reward model" that can predict human preferences.</p>
+
+<p>Then the language model is fine-tuned to maximize this reward. It learns that humans prefer responses that are truthful, helpful, and harmless. Over time, it gets better at providing them.</p>
+
+<p>There's something philosophically interesting happening here. The base model learns by predicting text. The fine-tuned model learns by predicting what humans will approve of. It's like the difference between knowing what people typically say and knowing what people want to hear. The fine-tuned model still doesn't understand anything in the human sense—it's still predicting tokens—but it's optimizing for a different target.</p>
+
+<p>OpenAI called an earlier version of this process InstructGPT. The idea was to make models that follow instructions—that do what you ask rather than just completing your sentences. When you type "Write a poem about autumn," you want the model to write a poem, not to continue "...leaves falling gently" as if you'd started writing the poem yourself.</p>
+
+<h2>How Text Becomes Numbers</h2>
+
+<p>Language models work with numbers, not letters. Before any processing happens, text must be converted into a numerical form. This conversion is called tokenization, and it's more subtle than you might expect.</p>
+
+<p>The naive approach would be to assign a number to each word. "The" is 1, "cat" is 2, "sat" is 3, and so on. But this creates problems. What about words the model has never seen before? What about misspellings? What about languages that don't separate words with spaces?</p>
+
+<p>Modern tokenizers use a clever compromise. They break text into subword units—pieces that are smaller than words but larger than individual letters. A common word like "the" gets its own token. An uncommon word like "tokenization" might be split into "token" and "ization." A very rare word might be broken into even smaller pieces.</p>
+
+<p>The most common approach is called byte-pair encoding, or BPE. It works by iteratively finding the most frequent pairs of characters and merging them. Start with individual letters. If "t" and "h" appear together very often, merge them into "th." If "th" and "e" appear together often, merge them into "the." Keep going until you have a vocabulary of a desired size—typically tens of thousands of tokens.</p>
+
+<p>This means that on average, one token represents about three-quarters of a word, or roughly four characters. But this average hides significant variation. For English text, which most tokenizers are optimized for, the encoding is efficient. For other languages, it can be surprisingly inefficient. A single word in Shan, a language from Myanmar, might require fifteen times more tokens than an English word of similar meaning. Even major languages like Portuguese and German pay a premium of about fifty percent compared to English.</p>
+
+<p>This has real consequences. Language models have limited context windows—the amount of text they can consider at once. If your language requires more tokens to express the same ideas, you can fit less content into that window.</p>
+
+<h2>The Context Window</h2>
+
+<p>Speaking of context windows: they've grown enormously. The original GPT-2 could only handle about a thousand tokens—maybe 750 words. That's a few paragraphs. Anything outside that window was invisible to the model.</p>
+
+<p>By early 2024, Google's Gemini 1.5 could handle a million tokens. That's roughly 750,000 words—several thick novels, or a substantial fraction of a company's entire documentation.</p>
+
+<p>This expansion matters because context is everything. A question like "What did John say about the proposal?" is unanswerable without knowing who John is, what the proposal contains, and what conversation is being referenced. Earlier models with small context windows needed careful prompting—you had to fit the relevant information into a tight space. Larger context windows let you be more natural, more comprehensive.</p>
+
+<p>But context windows have technical costs. The attention mechanism that makes transformers powerful also makes them expensive. Every token can attend to every other token, which means the computational cost grows with the square of the sequence length. Double the context window, and you quadruple the computation needed. Various clever techniques have been developed to mitigate this, but it remains a fundamental constraint.</p>
+
+<h2>The Data Question</h2>
+
+<p>Training a large language model requires vast quantities of text. Where does it come from?</p>
+
+<p>The short answer: everywhere. The web is the primary source—billions of pages crawled and processed. But also books, Wikipedia, scientific papers, code repositories, social media posts, and forum discussions. Some training sets include licensed content. Others rely on fair use arguments of questionable strength. The legal landscape is still being fought over in courts around the world.</p>
+
+<p>But raw data isn't enough. It has to be cleaned. The internet contains plenty of low-quality text—spam, duplicates, toxic content, and simple garbage. Including this in training data can degrade model performance or, worse, cause the model to reproduce harmful content.</p>
+
+<p>Cleaning is an art as much as a science. You want to remove obvious junk while preserving legitimate variation. Remove too aggressively, and you lose the model's ability to handle informal speech. Remove too cautiously, and you poison the well.</p>
+
+<p>A strange new challenge has emerged: as language models become more prevalent, more and more text on the internet is itself generated by language models. There's evidence that training on this synthetic text degrades performance—the model learns its own flaws and amplifies them. Future training datasets may need to filter out AI-generated content, which is ironic given how hard it is to reliably detect.</p>
+
+<p>Some researchers are exploring deliberately synthetic training data. Microsoft's Phi series of models is trained largely on "textbook-like" content generated by another model. The idea is to create cleaner, more structured training material than the messy web provides. Early results are promising, but the approach raises questions about diversity and coverage.</p>
+
+<h2>Beyond Text</h2>
+
+<p>Since 2023, the "language" in large language model has become something of a misnomer. Many of these systems now process images, audio, and even three-dimensional meshes alongside text. They're sometimes called large multimodal models, or LMMs, to acknowledge this expansion.</p>
+
+<p>This multimodality works in both directions. You can give the model an image and ask it to describe what's in it. You can also describe what you want and have the model generate an image. The same architecture that predicts the next word in a sentence can, with appropriate training, predict the next pixel in an image or the next frame in a video.</p>
+
+<p>GPT-4, released in 2023, was celebrated partly for this capability. You could show it a photograph of a handwritten math problem, and it could solve it. You could sketch a rough interface design on paper, take a picture, and ask it to generate the corresponding code. The boundaries between modalities were dissolving.</p>
+
+<h2>Open Versus Closed</h2>
+
+<p>A significant tension in the field is between open and closed models. OpenAI, despite its name, doesn't release the weights—the numerical parameters—of its most capable models. You can use GPT-4 through their API, but you can't download it and run it yourself. You certainly can't modify it or inspect how it works internally.</p>
+
+<p>Other organizations have taken different approaches. Meta released LLaMA, a family of capable models, with weights available for research purposes. Mistral AI released models under the permissive Apache license, allowing essentially any use. In January 2025, the Chinese company DeepSeek released DeepSeek R1, a 671-billion-parameter model that performs comparably to OpenAI's best, available for anyone to download and run.</p>
+
+<p>The arguments for closed models typically involve safety and commercial viability. If anyone can run a powerful model locally, there's no way to prevent misuse. And if the model can't be monetized, who will fund the billion-dollar training runs?</p>
+
+<p>The arguments for open models emphasize transparency, scientific progress, and democratic access. When models are closed, we can't verify claims about their capabilities or safety. Independent researchers can't build on them. Only well-funded organizations can participate in advancing the field.</p>
+
+<p>Research suggests that openness brings real benefits. Community contributions to open models measurably improve their efficiency and performance. Collaborative platforms like Hugging Face have enabled thousands of researchers to participate in model development. The field advances faster when more people can experiment.</p>
+
+<h2>Mixture of Experts</h2>
+
+<p>As models grew larger, a practical problem emerged. A model with hundreds of billions of parameters requires enormous computing power to run. Even just loading it into memory can exceed what typical hardware can handle. Every user query would consume tremendous resources.</p>
+
+<p>Mixture of experts, or MoE, offers a partial solution. Instead of one giant model, you have many smaller "expert" models, each specialized for different kinds of inputs. A gating mechanism—a small network—decides which expert should handle each input. For any given query, only a fraction of the total parameters are actually used.</p>
+
+<p>The approach was introduced by Google researchers in 2017 and has become increasingly important as models have scaled. Mixtral, from Mistral AI, is a prominent example. It has the effective intelligence of a very large model but runs with the efficiency of a much smaller one, because most of its parameters are dormant for any given input.</p>
+
+<h2>Making Models Smaller</h2>
+
+<p>Another approach to efficiency is quantization. Language models are typically trained using high-precision numbers—specifically, sixteen-bit floating point values. Each parameter occupies two bytes, so a model with a hundred billion parameters needs two hundred gigabytes just for storage. That exceeds the memory of most consumer devices.</p>
+
+<p>Quantization reduces this precision after training. Instead of sixteen bits per parameter, you might use eight, or four, or even fewer. The model becomes less precise, but also much smaller and faster. The quality loss is often acceptable—sometimes barely noticeable.</p>
+
+<p>This has enabled language models to run on surprising hardware. Quantized versions of LLaMA can run on high-end smartphones. Models that once required data centers can now run on gaming laptops. The democratization of access extends beyond open weights to practical accessibility.</p>
+
+<h2>Reasoning Models</h2>
+
+<p>In 2024, OpenAI released something different: a model called o1 that reasons. When given a complex problem, instead of immediately producing an answer, it generates a long chain of reasoning—considering the problem from multiple angles, checking its work, exploring alternatives—before delivering a final response.</p>
+
+<p>This sounds like what humans do when thinking carefully, and it produces notably better results on complex tasks. Math problems, logical puzzles, and multi-step analyses all improve substantially when the model "thinks out loud" before answering.</p>
+
+<p>DeepSeek's R1 model, released in early 2025, takes a similar approach. What's remarkable is that it achieves comparable performance to o1 while being open-weight and significantly cheaper to use. The reasoning approach doesn't require proprietary secrets—it's a technique that open models can adopt.</p>
+
+<h2>The Benchmark Problem</h2>
+
+<p>How do you know if one model is better than another? The field has developed extensive benchmark tests—standardized evaluations measuring everything from basic language understanding to complex reasoning.</p>
+
+<p>But benchmarks have problems. Teams optimize their models to perform well on widely-used benchmarks, a practice sometimes called "teaching to the test." Performance on the benchmark improves faster than genuine capability. Models might learn shortcuts that work for the test but fail in real-world applications.</p>
+
+<p>The phenomenon is sometimes called Goodhart's Law: when a measure becomes a target, it ceases to be a good measure. Original benchmarks that seemed challenging become saturated as models learn to ace them. New benchmarks must constantly be developed, staying one step ahead of optimization.</p>
+
+<p>This creates uncertainty about claims of improvement. When a new model beats the old model on standard benchmarks, is it genuinely more capable? Or has it just been better optimized for those particular tests?</p>
+
+<h2>Emergent Capabilities</h2>
+
+<p>One of the most intriguing aspects of large language models is the emergence of capabilities that weren't explicitly trained. A model trained purely to predict the next word somehow learns to do arithmetic, to translate between languages, to write code, to answer questions about the world.</p>
+
+<p>Some of these capabilities appear suddenly as models scale up. A smaller model might be unable to do a task at all, or do it randomly. Then, past some threshold of size or training data, performance jumps dramatically. It's as if the model crossed some invisible boundary into a new regime of capability.</p>
+
+<p>Researchers debate whether this emergence is real or an artifact of how we measure. Perhaps the capabilities are building gradually, but our binary success/failure metrics only notice once they cross a threshold. Perhaps it's a matter of the right prompting techniques being discovered. The debate continues.</p>
+
+<p>What's clear is that we don't fully understand why these models work as well as they do. We know the architecture, we know the training procedure, but the connection between billions of adjusted parameters and coherent reasoning remains mysterious. They're empirical objects as much as engineered systems—we observe what they do and try to infer why.</p>
+
+<h2>Where This Goes</h2>
+
+<p>Large language models have moved from research curiosity to infrastructure in just a few years. They're embedded in search engines, writing assistants, customer service systems, and coding tools. They're being used to summarize legal documents, draft marketing copy, tutor students, and assist with scientific research.</p>
+
+<p>But fundamental questions remain open. How should these systems be governed? Who's responsible when they make mistakes? How do we ensure they benefit society broadly rather than concentrating power? What happens to professions built on the skills these models now partially replicate?</p>
+
+<p>The technology itself continues to evolve rapidly. Context windows are growing. Multimodal capabilities are expanding. Reasoning abilities are improving. Costs are dropping. What was impossible becomes possible, what was expensive becomes cheap, in months rather than years.</p>
+
+<p>We are, in a very real sense, teaching machines to speak. Not speak in the sense of consciousness or understanding—that debate is for philosophers—but speak in the practical sense of producing and comprehending human language at scale. The implications of that capability are still unfolding.</p>
       </div>
 
       <footer class="wikipedia-footer">

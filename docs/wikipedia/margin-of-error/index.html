@@ -22,7 +22,99 @@
       </header>
 
       <div class="wikipedia-content">
-        <p>Content not available.</p>
+        <p class="source-note">Based on <a href="https://en.wikipedia.org/wiki/Margin_of_error">Wikipedia: Margin of error</a></p>
+
+<p>Every election season, you hear it: "Candidate A leads Candidate B by 3 points, within the margin of error." And then pundits debate whether the race is "really" a tie. But what does that phrase actually mean? Why should a number hovering around 3% determine whether we take a poll seriously?</p>
+
+<p>The margin of error is one of those statistical concepts that gets tossed around constantly but rarely explained properly. It's not about the poll being wrong. It's about the fundamental impossibility of asking everyone.</p>
+
+<h2>The Problem of Sampling</h2>
+
+<p>Imagine you want to know what percentage of Americans prefer chocolate ice cream over vanilla. You could, theoretically, ask all 330 million of them. But that would take forever and cost a fortune. So instead, you ask a thousand people and hope their answers reflect the broader population.</p>
+
+<p>This is sampling. And it works remarkably well—with a catch.</p>
+
+<p>The catch is that any sample you draw is just one of countless possible samples. If you picked a different thousand people, you'd get slightly different results. Pick another thousand, different results again. The margin of error tells you how much those results would typically bounce around if you kept drawing new samples over and over.</p>
+
+<p>Think of it like this: the true percentage of chocolate lovers exists out there somewhere, fixed and unchanging. Your poll result is trying to hit that target. The margin of error describes the size of the circle around the bullseye where your arrow is likely to land.</p>
+
+<h2>Why 95%?</h2>
+
+<p>When pollsters report a margin of error, they're almost always using what's called a 95% confidence level. This comes from a fundamental pattern in statistics called the normal distribution—that famous bell curve you've probably seen.</p>
+
+<p>There's a useful rule of thumb called the 68-95-99.7 rule. It tells us that in a normal distribution, about 68% of values fall within one standard deviation of the average, about 95% fall within two standard deviations, and about 99.7% fall within three.</p>
+
+<p>When a poll reports "plus or minus 3 points," it's essentially saying: if we ran this same poll a hundred times with different random samples, about 95 of those results would land within 3 percentage points of the true value.</p>
+
+<p>Why 95% and not 90% or 99%? Convention, mostly. It's a balance between being confident enough to be useful and not requiring impossibly large samples. A 99% confidence interval would be wider, giving you less precision. A 90% interval would be narrower but wrong more often.</p>
+
+<h2>The Square Root of Sample Size</h2>
+
+<p>Here's where things get counterintuitive. You might think that to cut your margin of error in half, you'd need to double your sample size. You'd be wrong.</p>
+
+<p>You'd need to quadruple it.</p>
+
+<p>The margin of error shrinks with the square root of the sample size. This is why most national polls survey around 1,000 people. Going from 1,000 to 2,000 respondents reduces the margin of error by only about 30%, from roughly 3.1 points to about 2.2 points. The improvement gets smaller and smaller as samples grow larger, while the cost keeps climbing linearly.</p>
+
+<p>This square root relationship emerges from something called the Central Limit Theorem, one of the most beautiful results in all of mathematics. It says that when you take the average of random samples, those averages follow a normal distribution regardless of what the underlying data looks like. The larger your sample, the tighter that distribution becomes—but at a diminishing rate governed by the square root.</p>
+
+<h2>The Fifty Percent Problem</h2>
+
+<p>Not all poll results are created equal when it comes to margin of error. A result of 50% has the largest possible margin of error for a given sample size. Results closer to 0% or 100% have smaller margins.</p>
+
+<p>Why? Because variance in a yes-or-no question is maximized when the split is even. Think about it: if 99% of people prefer chocolate, there's not much room for your sample to vary. You'll almost certainly get something close to 99%. But if the true split is 50-50, your sample could easily come back 47-53 or 54-46 just by chance.</p>
+
+<p>Mathematically, the variance of a binary outcome equals p times (1 minus p), where p is the proportion. That formula peaks at 0.5. It equals 0.25 when the split is even but shrinks toward zero as you approach the extremes.</p>
+
+<p>This is why when polls report multiple results—say, a presidential race with three candidates at 46%, 42%, and 12%—the margin of error they headline is typically calculated for the result closest to 50%. The 12% result actually has a smaller margin of error, but pollsters report the most conservative estimate.</p>
+
+<h2>Statistical Dead Heats</h2>
+
+<p>This brings us to the phrase that drives political junkies crazy: the "statistical tie" or "statistical dead heat."</p>
+
+<p>When one candidate leads by 3 points and the margin of error is 3 points, commentators often declare the race too close to call. But this framing can be misleading.</p>
+
+<p>The margin of error applies to each candidate's result separately. If Candidate A polls at 46% with a 3-point margin, the true value probably lies between 43% and 49%. If Candidate B polls at 42%, they're probably between 39% and 45%. These intervals overlap, which is why people call it a tie.</p>
+
+<p>But the more precise question is: what's the probability that the leader is actually behind? That requires looking at the margin of error for the difference between two candidates, not their individual results. When both candidates' support is near 50%, this margin is roughly 1.4 times the reported margin of error—so if individual margins are 3 points, the margin on the gap is closer to 4.2 points.</p>
+
+<p>A 4-point lead with a 4.2-point margin on the difference means the leader probably really is ahead, but there's meaningful uncertainty. It's not exactly a coin flip, nor is it a sure thing.</p>
+
+<h2>What Margin of Error Doesn't Cover</h2>
+
+<p>Here's the crucial caveat that statisticians wish journalists would emphasize more: the margin of error only accounts for random sampling error. It says nothing about all the other ways a poll might go wrong.</p>
+
+<p>What if your sample isn't truly random? What if certain groups are harder to reach and thus underrepresented? What if people lie about their preferences? What if the way you worded the question biased the responses?</p>
+
+<p>These are sources of systematic error, or bias, and they don't shrink no matter how large your sample grows. You could survey a million people and still get the wrong answer if your sampling method is flawed or your questions are leading.</p>
+
+<p>The margin of error assumes your sampling is unbiased—that your thousand respondents really do represent a random slice of the population. In practice, achieving truly random samples has become increasingly difficult in an era when few people answer calls from unknown numbers and response rates have plummeted.</p>
+
+<h2>Beyond Polling</h2>
+
+<p>While polls are where most people encounter margin of error, the concept extends far beyond surveys. Scientists measuring physical quantities face similar challenges. Every measurement has some random error, some noise in the signal.</p>
+
+<p>When a physicist reports that a particle has a certain mass "plus or minus" some amount, they're expressing the same fundamental idea: this is our best estimate, and here's how much it might reasonably vary due to measurement imprecision.</p>
+
+<p>The term "margin of error" gets used loosely in everyday contexts too—sometimes too loosely. When someone says "give or take," they're gesturing at the same concept without the statistical rigor. True margin of error has a precise mathematical meaning rooted in probability theory.</p>
+
+<h2>A Practical Shortcut</h2>
+
+<p>For a quick estimate of a poll's margin of error at the 95% confidence level, there's a handy approximation: divide 1 by the square root of the sample size.</p>
+
+<p>With 1,000 respondents, the square root is about 31.6. One divided by 31.6 is roughly 0.032, or 3.2 percentage points. That's close to the actual maximum margin of error for that sample size.</p>
+
+<p>This shortcut works because it incorporates all the mathematical pieces: the roughly 2-standard-deviation span for 95% confidence, the square root relationship to sample size, and the maximum variance at a 50-50 split.</p>
+
+<h2>Why This Matters</h2>
+
+<p>Understanding margin of error helps you be a more sophisticated consumer of information. When you see a poll result, you're not seeing ground truth—you're seeing one sample's attempt to estimate ground truth, with quantified uncertainty attached.</p>
+
+<p>A 3-point lead isn't the same as a 10-point lead, even if both are outside the margin of error. The certainty is different. The practical implications are different.</p>
+
+<p>And crucially, margin of error is just one piece of the puzzle. A poll with a small margin of error can still be wildly wrong if its methodology is flawed. The margin tells you about random error, the unavoidable wobble from sampling. It says nothing about whether the pollster asked good questions, reached representative respondents, or weighted their results appropriately.</p>
+
+<p>The margin of error is a measure of precision, not accuracy. A broken clock is precisely wrong. A good poll is imprecise but accurate. The goal is both: getting close to the truth while honestly acknowledging how close you can actually get.</p>
       </div>
 
       <footer class="wikipedia-footer">

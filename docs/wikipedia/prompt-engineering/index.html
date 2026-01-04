@@ -22,7 +22,153 @@
       </header>
 
       <div class="wikipedia-content">
-        <p>Content not available.</p>
+        <p class="source-note">Based on <a href="https://en.wikipedia.org/wiki/Prompt_engineering">Wikipedia: Prompt engineering</a></p>
+
+<h2>The Art of Talking to Machines</h2>
+
+<p>Here's a strange new skill that didn't exist a few years ago: convincing an artificial intelligence to do what you actually want. It turns out that the words you choose, their order, even whether you say "please"—all of it matters in ways that can shift an AI's accuracy by forty percentage points or more.</p>
+
+<p>This is prompt engineering.</p>
+
+<p>At its simplest, prompt engineering is the craft of writing instructions that get better results from generative AI systems. You're not programming in the traditional sense—you're communicating. You're choosing words, adding context, framing questions, sometimes even describing a character for the AI to play. It's part writing, part psychology, part trial and error.</p>
+
+<p>The technique works across different types of AI. For text generators like ChatGPT, a prompt might be a question, a command, or an elaborate scenario with backstory and constraints. For image generators like DALL-E or Midjourney, you might write something like "a high-quality photo of an astronaut riding a horse" or "Lo-fi slow BPM electro chill with organic samples." The AI interprets your words and produces something it believes matches your intent.</p>
+
+<p>The gap between what you intend and what you get is where prompt engineering lives.</p>
+
+<h2>A Brief History of Asking Questions</h2>
+
+<p>The foundations were laid in 2018, when researchers proposed something radical: what if every task in natural language processing could be reframed as a question-answering problem? Instead of building separate systems for translation, sentiment analysis, and summarization, they trained a single model that could answer task-related questions. Ask it "What is the sentiment?" and it would analyze emotion. Ask "Translate this sentence to German" and it would translate. One model, infinite questions.</p>
+
+<p>This was clever, but still academic.</p>
+
+<p>Then came the AI boom. ChatGPT launched in November 2022, and suddenly millions of people were typing instructions into a text box and hoping for magic. Some got brilliant results. Others got nonsense. The difference often came down to how they asked.</p>
+
+<p>Prompt engineering emerged as both art and necessity. Companies began treating it as a business skill. Job postings appeared. By February 2022, repositories were already cataloging over two thousand public prompts across roughly one hundred seventy different datasets. The field was growing faster than anyone could document it.</p>
+
+<p>A comprehensive survey in 2024 identified more than fifty distinct text-based prompting techniques and around forty multimodal variants. Researchers even developed a controlled vocabulary of thirty-three standardized terms just to keep everyone speaking the same language about prompts.</p>
+
+<h2>Why Word Order Matters More Than You'd Think</h2>
+
+<p>Large language models turn out to be remarkably sensitive creatures. Small changes in phrasing can produce dramatically different outputs.</p>
+
+<p>Researchers have documented accuracy swings of more than forty percentage points simply from reordering examples within a prompt. In some few-shot learning experiments—where you show the model a handful of examples before asking it to perform a task—formatting changes alone produced accuracy differences of up to seventy-six points.</p>
+
+<p>Seventy-six points. That's the difference between failing and acing a test.</p>
+
+<p>Linguistic features matter too. The morphology of your words (their structure and form), your syntax (how you arrange them), your word choices—all of these influence how well the model performs. Using clausal syntax, for instance, tends to improve consistency and reduce uncertainty when you're trying to retrieve specific knowledge.</p>
+
+<p>What's particularly interesting is that this sensitivity doesn't go away as models get bigger. You might expect larger, more sophisticated models to be more robust to minor prompt variations. They're not. The sensitivity persists even with massive models, additional examples, or special instruction tuning.</p>
+
+<h2>Teaching AI to Think Step by Step</h2>
+
+<p>One of the most influential prompting techniques emerged from Google Research in 2022. It's called chain-of-thought prompting, and it's deceptively simple: instead of asking the AI for an answer directly, you ask it to show its work.</p>
+
+<p>Consider this math problem: "The cafeteria had 23 apples. If they used 20 to make lunch and bought 6 more, how many apples do they have?"</p>
+
+<p>A standard prompt might just get "9" as an answer (which is correct). But a chain-of-thought prompt encourages the model to reason through it: "The cafeteria had 23 apples originally. They used 20 to make lunch. So they had 23 minus 20 equals 3. They bought 6 more apples, so they have 3 plus 6 equals 9. The answer is 9."</p>
+
+<p>This matters because the intermediate steps help the model avoid errors. It's mimicking the human process of working through a problem rather than trying to jump straight to the conclusion.</p>
+
+<p>When Google applied this technique to PaLM, their 540 billion parameter language model, the results were striking. Chain-of-thought prompting allowed PaLM to compete with models that had been specifically fine-tuned for particular tasks. On the GSM8K mathematical reasoning benchmark, it achieved what was then state-of-the-art performance.</p>
+
+<p>The technique originally required examples. You'd show the model a few problems with step-by-step solutions—these examples were called exemplars—and then present your actual question. This is known as few-shot prompting because you're giving a few shots at demonstration.</p>
+
+<p>But then researchers from Google and the University of Tokyo discovered something remarkable.</p>
+
+<p>You could skip the examples entirely. Just append five words to your question: "Let's think step by step." That's it. This zero-shot approach—zero examples, just the magic phrase—was often enough to trigger the same reasoning behavior.</p>
+
+<h2>Learning Without Being Taught</h2>
+
+<p>In-context learning is one of the stranger capabilities that emerged as language models grew larger. It's the ability of a model to temporarily learn from the information you provide in your prompt, without any permanent training or fine-tuning.</p>
+
+<p>Here's an example. Show a model: "maison → house, chat → cat, chien →" and it will likely complete the pattern with "dog." You haven't trained it on French-English translation. You've just demonstrated a pattern, and the model picked it up on the fly.</p>
+
+<p>This is genuinely weird if you think about it. The model's weights—its actual knowledge—don't change. It's not learning in the traditional machine learning sense. It's more like it's temporarily adopting a strategy based on context clues, then forgetting that strategy when you start a new conversation.</p>
+
+<p>In-context learning appears to be what researchers call an emergent ability. It doesn't scale linearly with model size. Instead, there are breakpoints—thresholds where the capability suddenly becomes much more effective. Smaller models might show weak in-context learning. Cross a certain size threshold, and the ability dramatically improves.</p>
+
+<p>Training models to be better at in-context learning can be viewed as a form of meta-learning: teaching the model to learn how to learn.</p>
+
+<h2>Trees, Rollouts, and Self-Correction</h2>
+
+<p>Chain-of-thought prompting opened the door to more sophisticated reasoning strategies.</p>
+
+<p>Self-consistency takes a democratic approach. Instead of generating one chain of thought, it generates several, following different reasoning paths to their conclusions. Then it essentially takes a vote—whichever answer appears most frequently wins. The intuition is that correct reasoning tends to converge on the same answer, while errors are more random.</p>
+
+<p>Tree-of-thought prompting goes further. Instead of a single chain, it generates multiple lines of reasoning in parallel, like branches of a tree. The model can explore different paths, backtrack when it hits dead ends, and pursue the most promising directions. It can even use classic computer science search algorithms—breadth-first, depth-first, or beam search—to navigate the tree of possibilities.</p>
+
+<p>These techniques transform the AI from a one-shot answer generator into something more like a deliberate problem-solver.</p>
+
+<h2>Grounding AI in Reality</h2>
+
+<p>There's a fundamental problem with large language models: they make things up. Not maliciously—they simply generate plausible-sounding text based on patterns, without any connection to external truth. This leads to what researchers politely call hallucinations: chatbots inventing company policies that don't exist, lawyers citing legal cases that never happened.</p>
+
+<p>Retrieval-augmented generation, or RAG, offers a partial solution. The technique modifies how AI systems generate responses by first retrieving relevant information from specified sources—databases, uploaded documents, web searches—and then incorporating that information into the response.</p>
+
+<p>Think of it as giving the AI an open-book test instead of asking it to rely on memory alone.</p>
+
+<p>As the technology publication Ars Technica put it, "RAG is a way of improving LLM performance, in essence by blending the LLM process with a web search or other document look-up process to help LLMs stick to the facts."</p>
+
+<p>The technique helps in several ways. It reduces hallucinations by grounding responses in actual sources. It allows AI to work with domain-specific information that wasn't in its training data. And it enables access to current information without expensive retraining.</p>
+
+<p>Microsoft Research developed an extension called GraphRAG that goes even further. Instead of just retrieving relevant text chunks, GraphRAG uses a knowledge graph—a structured representation of how concepts relate to each other—to help the model connect disparate pieces of information and synthesize insights. It's particularly effective when you need to understand relationships and patterns across large collections of information.</p>
+
+<h2>When AI Engineers Its Own Prompts</h2>
+
+<p>If writing good prompts is a skill, why not have AI develop that skill too?</p>
+
+<p>The automatic prompt engineer algorithm uses one language model to optimize prompts for another. Here's how it works: a "prompting" model looks at input-output examples and generates instructions that might have produced those outputs. Each instruction is tested against the target model and scored based on how well it works. The highest-scoring instructions are fed back to the prompting model for further refinement. The process repeats until you have a polished, high-performing prompt.</p>
+
+<p>It's prompt engineering without the human engineer.</p>
+
+<p>A related technique called auto-CoT automatically generates chain-of-thought examples. It takes a library of questions, converts them to mathematical vectors using a model like BERT, clusters the vectors to find diverse question types, selects representative questions from each cluster, and has an LLM generate chain-of-thought solutions for each. The result is a diverse set of demonstrations that can be added to prompts for few-shot learning.</p>
+
+<p>More sophisticated optimizers have emerged. MIPRO (Multi-prompt Instruction Proposal Optimizer) automatically refines both instructions and few-shot demonstrations across multi-stage language model programs. GEPA (Genetic-Pareto) uses evolutionary algorithms combined with analysis of execution traces to optimize compound AI systems. These approaches report substantial improvements over manual prompt engineering, often with dramatically fewer iterations.</p>
+
+<p>Open-source frameworks like DSPy and Opik now make these techniques accessible, allowing prompt optimization to be expressed as part of a programmatic pipeline rather than through manual experimentation.</p>
+
+<h2>Context Engineering: The Next Evolution</h2>
+
+<p>As AI systems have moved from research demos to production applications, practitioners have started thinking more systematically about everything that accompanies a user's prompt.</p>
+
+<p>Context engineering is the emerging term for this discipline. It encompasses not just the prompt itself, but system instructions, retrieved knowledge, tool definitions, conversation summaries, and task metadata. The goal is improving reliability, maintaining provenance (knowing where information came from), and using tokens efficiently.</p>
+
+<p>The concept emphasizes operational concerns that matter in production: token budgeting (working within the model's context window limits), version control for context artifacts, logging which context was supplied to each request, and regression tests to ensure that changes don't silently alter system behavior.</p>
+
+<p>A 2025 survey proposed a formal taxonomy with three components: context retrieval and generation (getting the right information), context processing (preparing it for the model), and context management (governing how it's used). The key insight is treating the context window as an engineering surface to be actively managed, not just a passive repository for retrieved documents.</p>
+
+<h2>The Different Language of Images</h2>
+
+<p>When text-to-image models like DALL-E 2, Stable Diffusion, and Midjourney became publicly available in 2022, users quickly discovered that prompting them was its own skill—related to but distinct from prompting language models.</p>
+
+<p>Image generators don't understand language the same way. Negation, for instance, often doesn't work. Write "a party with no cake" and you're likely to get an image of a party with a cake. The word "cake" is in there, and that's what the model latches onto.</p>
+
+<p>Negative prompts emerged as a workaround. Instead of trying to negate within your main prompt, you specify separately what you don't want to appear. It's like telling the model "give me this, but not that" in two distinct channels.</p>
+
+<p>A typical image prompt includes several components: the subject (what you want depicted), the medium (digital painting, photography, 3D render), the style (hyperrealistic, pop art, impressionist), lighting conditions (rim lighting, crepuscular rays, soft studio light), color palette, and texture. Word order matters—terms closer to the start of your prompt may be weighted more heavily.</p>
+
+<p>The Midjourney documentation offers practical wisdom: be concise. Instead of "Show me a picture of lots of blooming California poppies, make them bright, vibrant orange, and draw them in an illustrated style with colored pencils," write simply "Bright orange California poppies drawn with colored pencils."</p>
+
+<p>These models can also imitate specific artists by name. The phrase "in the style of Greg Rutkowski"—referencing a Polish digital artist known for dramatic fantasy illustrations—became so common in Stable Diffusion prompts that it sparked debates about artistic appropriation. Famous painters like Vincent van Gogh and Salvador Dalí are frequently invoked for their distinctive styles.</p>
+
+<h2>Beyond Words</h2>
+
+<p>Not all prompts need to be text. Techniques have emerged for incorporating other types of input.</p>
+
+<p>Textual inversion is a clever approach for image models. You provide a set of example images representing a concept—maybe your pet's face, or a particular artistic style—and an optimization process creates a new word embedding that captures that concept. The result is a "pseudo-word" that can be included in prompts to invoke the content or style of your examples.</p>
+
+<p>It's like teaching the model a new vocabulary word, except the definition comes from images rather than text.</p>
+
+<h2>The Uncertain Future of a New Skill</h2>
+
+<p>Prompt engineering occupies a strange position. It emerged rapidly as AI systems became powerful enough to be useful but unreliable enough to require coaxing. It's been called an important business skill, yet its economic future remains uncertain.</p>
+
+<p>Part of the uncertainty stems from the field's own success. As automatic prompt optimization improves, will human prompt engineers become less necessary? As models become more robust to phrasing variations, will the skill matter less? Or will increasingly sophisticated AI applications require increasingly sophisticated prompt engineering?</p>
+
+<p>What's clear is that right now, in this particular moment, the way you talk to AI systems dramatically affects what you get back. Whether that remains true—whether prompt engineering becomes a foundational discipline or a transitional curiosity—is one of the more interesting open questions about our AI future.</p>
+
+<p>For now, though, word choice has never mattered more.</p>
       </div>
 
       <footer class="wikipedia-footer">

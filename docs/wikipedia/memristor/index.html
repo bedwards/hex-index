@@ -22,7 +22,149 @@
       </header>
 
       <div class="wikipedia-content">
-        <p>Content not available.</p>
+        <p class="source-note">Based on <a href="https://en.wikipedia.org/wiki/Memristor">Wikipedia: Memristor</a></p>
+
+<p>In 1971, a circuit theorist named Leon Chua noticed something peculiar about the fundamental laws of electronics. For over a century, engineers had worked with three basic passive components: the resistor, the capacitor, and the inductor. These components form a kind of mathematical trinity, each one defining a relationship between two of the four fundamental circuit quantities—voltage, current, charge, and magnetic flux. But when Chua mapped out all the possible relationships, he found a gap. There should be a fourth component, one that linked charge directly to magnetic flux. He called this missing piece the memristor—a portmanteau of "memory" and "resistor."</p>
+
+<p>The name captures the device's most remarkable property: it remembers.</p>
+
+<h2>The Missing Puzzle Piece</h2>
+
+<p>To understand why the memristor matters, picture the three components you already know. A resistor opposes the flow of current—the higher its resistance, the more voltage you need to push current through it. A capacitor stores electrical charge, like a tiny bucket that fills up with electrons. An inductor stores energy in a magnetic field, pushing back against changes in current flow.</p>
+
+<p>Each of these components connects two of the four fundamental quantities in electronics. Voltage relates to current. Charge relates to voltage. Magnetic flux relates to current. But what about the relationship between charge and magnetic flux? That connection was missing from the family tree of circuit elements.</p>
+
+<p>Chua didn't discover this gap through experimentation. He found it through pure mathematical reasoning, looking for symmetries in the equations that govern circuits. The memristor he described was theoretical—a component that should exist to complete the symmetry, whether or not anyone had ever built one.</p>
+
+<h2>What Makes It Remember</h2>
+
+<p>Here's where the memristor gets interesting. A regular resistor has a fixed resistance—or at least, its resistance depends only on factors like temperature, not on what's happened to it in the past. Push current through a resistor, and it behaves the same way whether you've been using it for a second or a decade.</p>
+
+<p>A memristor is different. Its resistance depends on how much charge has flowed through it over its entire history. It's as if the component keeps a running tally of every electron that has ever passed through, and adjusts its behavior accordingly.</p>
+
+<p>When no current flows, the memristor holds its state. It remembers.</p>
+
+<p>This memory effect emerges from the mathematics in an elegant way. The memristor's resistance—more precisely called its "memristance"—is a function of the total charge that has accumulated. If you know how much charge has passed through the device, you can calculate its current resistance. And since charge is simply current integrated over time, the memristor's present state encodes information about its entire electrical history.</p>
+
+<p>Think of it like a water meter connected to a variable valve. The valve's position depends on how much water has flowed through the meter total. Push a lot of water through, and the valve opens wider (or closes further, depending on the design). Stop the flow, and the valve stays exactly where it is until water moves again.</p>
+
+<h2>The Controversy: Does It Actually Exist?</h2>
+
+<p>For decades after Chua's 1971 paper, the memristor remained a theoretical curiosity. Textbooks mentioned it occasionally, but no one had built a device that clearly demonstrated the ideal memristor behavior Chua had described.</p>
+
+<p>Then, in 2008, researchers at Hewlett-Packard Labs made a dramatic announcement. They claimed to have built the first working memristor, using thin films of titanium dioxide only a few nanometers thick. The announcement generated enormous excitement. Here was the missing fourth element, finally realized in physical form.</p>
+
+<p>But the claim sparked controversy that continues to this day.</p>
+
+<p>Critics argued that the HP device, while interesting, wasn't really a memristor in Chua's original sense. The behavior HP observed could be explained by other mechanisms—the drift of oxygen vacancies in the titanium dioxide, for instance, which changes the material's conductivity over time. This is fascinating physics, but is it the same as the ideal memristor Chua described?</p>
+
+<p>The debate gets philosophical quickly. Chua himself later broadened his definition, introducing the concept of "memristive systems"—circuits that exhibit memristor-like behavior even if they're built from combinations of conventional components. Under this expanded definition, many devices qualify. But purists insist that the ideal memristor, as originally defined, remains undemonstrated.</p>
+
+<p>Pershin and Di Ventra, two physicists who have studied these questions extensively, have proposed specific tests to determine whether a device truly exhibits ideal memristor behavior. The verdict is still out.</p>
+
+<h2>Why Anyone Cares</h2>
+
+<p>If the memristor's existence is still debated, why has it attracted so much attention? The answer lies in what memristive devices could do for computing.</p>
+
+<p>Modern computers separate memory from processing. Your processor crunches numbers, then shuttles data back and forth to memory chips that store information. This constant communication creates bottlenecks and consumes enormous amounts of energy. Engineers call this the "von Neumann bottleneck," named after the mathematician John von Neumann who established the architecture most computers still follow.</p>
+
+<p>Memristive devices could break this bottleneck by combining memory and processing in a single component. Because a memristor's resistance depends on its history, it can store information—that's the memory part. But because it's also an active circuit element that affects current flow, it can participate in computations too.</p>
+
+<p>This idea has become especially compelling for artificial intelligence applications. Neural networks, the technology behind modern AI systems, spend most of their computational effort multiplying numbers and adding up the results. A grid of memristive devices could perform these operations directly in hardware, with each device's resistance encoding a number (the "weight" in neural network terminology) and the physical laws of electricity performing the multiplication automatically.</p>
+
+<p>This approach is called "in-memory computing" or "compute-in-memory," and companies like d-Matrix are betting on it to make AI inference—the process of running trained neural networks—dramatically more efficient.</p>
+
+<h2>ReRAM: The Practical Cousin</h2>
+
+<p>While the philosophical debate about ideal memristors continues, engineers have moved ahead with practical devices that exhibit memristive behavior. The most prominent of these is Resistive Random Access Memory, usually abbreviated as ReRAM or RRAM.</p>
+
+<p>ReRAM devices switch between high-resistance and low-resistance states when you apply voltage pulses. The transition happens through the formation or dissolution of conductive filaments—microscopic pathways through an insulating material. Apply a voltage one way, and the filament forms, dropping the resistance. Apply voltage the other way, and the filament breaks, raising the resistance back up.</p>
+
+<p>This switching behavior makes ReRAM useful for storing data—high resistance could mean "zero," low resistance could mean "one." But unlike traditional flash memory, which stores charge in isolated cells, ReRAM stores information in the physical structure of the material itself. This makes it potentially faster to write, more durable over many write cycles, and—crucially—more compatible with the kind of analog computing needed for neural networks.</p>
+
+<p>Most research on memristive devices since 2008 has focused on ReRAM and related technologies. Whether or not these devices are "true" memristors in the strictest theoretical sense, they exhibit the key property that makes memristors interesting: their resistance remembers what has happened to them.</p>
+
+<h2>A Brief History of Memory Resistors</h2>
+
+<p>Chua wasn't the first person to notice that some resistors remember their past. In the 1960s, Bernard Widrow at Stanford developed what he called the "memistor"—note the slightly different spelling—as part of an early neural network system called ADALINE. Widrow's memistor used electrochemical plating to change its resistance based on accumulated charge. Push current one direction, and metal deposited on an electrode, lowering resistance. Push it the other direction, and metal dissolved away, raising resistance back up.</p>
+
+<p>The memistor worked, but it was finicky and slow. Widrow eventually abandoned it in favor of digital approaches. But the basic idea—a resistor that could be programmed by the current flowing through it—predated Chua's theoretical framework by nearly a decade.</p>
+
+<p>Even earlier, engineers working with gas discharge tubes had noticed memory effects. These tubes, filled with ionized gas, change their resistance based on how many free electrons are available to conduct current. The electron population depends on the tube's recent history—how much current has been flowing, for how long. Though no one called them memristors at the time, discharge tubes exhibit clearly memristive behavior.</p>
+
+<p>Thermistors—resistors whose resistance changes with temperature—show similar effects. The temperature of a thermistor depends partly on how much power has been dissipated in it recently, which depends on the history of current flow. This creates a kind of thermal memory, where the device's present state reflects its past.</p>
+
+<h2>Superconducting Surprises</h2>
+
+<p>One of the more unexpected places memristive behavior appears is in Josephson junctions—the quantum mechanical devices at the heart of superconducting circuits.</p>
+
+<p>A Josephson junction consists of two superconductors separated by a thin barrier. Quantum mechanics allows electrons to tunnel through the barrier, creating current flow even with no applied voltage. The current depends on the "phase difference" between the quantum mechanical wave functions on either side of the barrier.</p>
+
+<p>Here's where it gets interesting: the phase difference accumulates based on the history of voltage applied to the junction. In this sense, the junction "remembers" the time integral of voltage—which is precisely the magnetic flux linkage in Chua's original memristor definition. Paul Penfield at MIT pointed out this connection as early as 1974, just a few years after Chua's original paper.</p>
+
+<p>More recent work by Peotta and Di Ventra has explored these connections in depth, showing how the phase-dependent conductance of Josephson junctions maps onto the mathematical framework of memristive systems. This research suggests that memristive behavior might be fundamental to superconducting electronics—a tantalizing possibility for quantum computing.</p>
+
+<h2>The Mathematics of Memory</h2>
+
+<p>At its heart, the memristor is defined by a relationship between two quantities that might seem abstract at first: magnetic flux linkage and electric charge.</p>
+
+<p>Don't let the term "magnetic flux linkage" confuse you. In the context of memristors, it doesn't necessarily mean there's a magnetic field involved. Instead, flux linkage here is defined as the time integral of voltage—add up all the voltage that has ever been applied, moment by moment, and you get the flux linkage. Similarly, charge is the time integral of current.</p>
+
+<p>The memristor is defined by saying that these two quantities are related by some function. As charge accumulates, flux linkage changes in a way that depends on how much charge has already accumulated. The derivative of flux linkage with respect to charge gives you the memristance—a value with units of ohms, just like ordinary resistance.</p>
+
+<p>If the memristance is constant (doesn't depend on charge at all), you just have an ordinary resistor obeying Ohm's law. But if the memristance varies with charge, interesting things happen. The device's behavior depends on its history, encoded in the total charge that has flowed through.</p>
+
+<p>One mathematically important property: the memristance must be positive for all values of charge, at least for a passive device (one that doesn't generate power). A negative memristance would mean the device produces energy rather than consuming it—turning it into a battery or generator rather than a resistor. A perpetual motion machine, essentially.</p>
+
+<h2>The Pinched Hysteresis Loop</h2>
+
+<p>If you want to identify a memristor experimentally, there's a telltale signature to look for: the "pinched hysteresis loop."</p>
+
+<p>Apply an alternating voltage to any two-terminal device and plot the resulting current against voltage. For an ordinary resistor, you get a straight line through the origin—double the voltage, double the current. For a capacitor or inductor, you get an ellipse, because current and voltage are out of phase with each other.</p>
+
+<p>For a memristor, you get something stranger: a figure-eight shape that passes through the origin. As voltage increases from zero, current rises along one path. As voltage decreases back toward zero, current follows a different path. The two paths meet at the origin, then diverge again for negative voltages.</p>
+
+<p>This pinched loop reflects the device's memory. As current flows, charge accumulates, changing the memristance. When the current reverses, the memristance has shifted, so the return path differs from the outward path. But when voltage and current both hit zero simultaneously, the device reaches the same state regardless of which path got it there—hence the pinching at the origin.</p>
+
+<p>The presence of this pinched hysteresis loop has become the standard experimental test for memristive behavior. Find a device with a pinched loop, and you've found something that remembers.</p>
+
+<h2>Memductance: The Other Side of the Coin</h2>
+
+<p>Conductance is the reciprocal of resistance—a measure of how easily current flows rather than how much it's impeded. Just as memristance generalizes resistance, memductance generalizes conductance.</p>
+
+<p>Where memristance relates voltage to current with a memory of accumulated charge, memductance relates current to voltage with a memory of accumulated flux. The two descriptions are mathematically equivalent—just different ways of looking at the same phenomenon. But sometimes one perspective is more convenient than the other, depending on whether you're thinking about the device as impeding current or conducting it.</p>
+
+<p>Memductance has units of siemens, the standard unit of conductance named after the German engineer Werner von Siemens. One siemens equals one ampere per volt—the conductance of a device that passes one amp of current for every volt applied across it.</p>
+
+<h2>Power and Passivity</h2>
+
+<p>Despite its exotic properties, a memristor consumes power just like an ordinary resistor. The instantaneous power is simply current times voltage, which can also be written as current squared times memristance. This familiar form—I squared times R, as every physics student learns—still applies, with memristance M taking the place of resistance R.</p>
+
+<p>Under alternating current, if the memristance doesn't change much over each cycle, the memristor behaves almost exactly like a fixed resistor. The memory effects become apparent only when enough charge accumulates to significantly shift the memristance. For high-frequency signals that don't move much net charge, the memristor looks like an ordinary resistive element.</p>
+
+<p>But let the memristance grow rapidly with charge, and something dramatic happens: the device essentially turns itself off. As memristance increases, current flow decreases, which slows the accumulation of charge, which limits further increases in memristance. The system finds a stable equilibrium. This self-limiting behavior could be useful for protecting circuits from overcurrent conditions.</p>
+
+<h2>Building Mental Models</h2>
+
+<p>Perhaps the most valuable thing about the memristor—whether or not the ideal version exists in nature—is what it teaches us about modeling physical systems.</p>
+
+<p>Engineers rarely analyze real devices directly. Instead, they build models: simplified mathematical descriptions that capture the essential behavior while ignoring irrelevant details. The resistor, capacitor, and inductor are themselves models, idealized components that no physical device matches exactly.</p>
+
+<p>The memristor extends this toolkit of models. When you encounter a device whose resistance depends on its history—whether it's a thin film of titanium dioxide, a superconducting junction, or a gas discharge tube—you can often model it effectively as a memristor or memristive system. The model captures the essential memory behavior, providing a language for analysis and design.</p>
+
+<p>This modeling perspective helps resolve some of the controversy about whether "true" memristors exist. The question might be less about discovering a fundamental new component of nature and more about recognizing a useful abstraction that applies to many physical systems. Just as the ideal resistor doesn't exist (every real resistor has some inductance, some capacitance, some temperature dependence), the ideal memristor might be a theoretical limit that real devices can only approximate.</p>
+
+<p>What matters is whether the model is useful—whether thinking in terms of memristance helps us understand and design better systems. By that measure, the memristor has already proven its worth.</p>
+
+<h2>The Road Ahead</h2>
+
+<p>Half a century after Chua first described the memristor, the device remains both theoretically fascinating and practically promising. The ideal memristor may or may not exist as a fundamental circuit element distinct from combinations of resistors, capacitors, and inductors. But memristive behavior—resistance that remembers—appears throughout electronics, from exotic superconducting junctions to increasingly practical memory technologies.</p>
+
+<p>The biggest applications likely lie in computing. As artificial intelligence systems demand ever more efficient hardware for matrix multiplication and neural network inference, devices that combine memory and computation become increasingly attractive. The memristor, or at least its practical cousins, may finally find their moment.</p>
+
+<p>Leon Chua noticed a gap in the symmetry of circuit theory and proposed a component to fill it. Whether that component proves to be a fundamental building block of nature or simply a useful mathematical abstraction, his insight opened a new way of thinking about electronics—one where memory and resistance are not separate properties but aspects of a unified whole.</p>
+
+<p>The memristor remembers. And increasingly, so do our machines.</p>
       </div>
 
       <footer class="wikipedia-footer">

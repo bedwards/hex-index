@@ -22,7 +22,110 @@
       </header>
 
       <div class="wikipedia-content">
-        <p>Content not available.</p>
+        I see there's no `wikipedia` subdirectory yet. Here's the rewritten article as clean HTML:
+
+```html
+<p class="source-note">Based on <a href="https://en.wikipedia.org/wiki/Zipf%27s_law">Wikipedia: Zipf's law</a></p>
+
+<p>Here's a strange truth about language: the word "the" appears so often in English that it alone accounts for nearly seven percent of everything ever written. The second most common word, "of," shows up about half as often. The third, "and," appears roughly a third as much as "the." This pattern continues, rank after rank, following a precise mathematical relationship that seems almost too elegant to be accidental.</p>
+
+<p>This is Zipf's law, and once you understand it, you'll start seeing it everywhere—not just in words, but in city populations, corporate revenues, website traffic, musical notes, and phenomena so diverse that the pattern's universality becomes genuinely mysterious.</p>
+
+<h2>The Discovery of a Hidden Pattern</h2>
+
+<p>The law bears the name of George Kingsley Zipf, an American linguist who described the word-frequency relationship in 1932. But in the tradition of scientific naming, Zipf wasn't actually the first to notice it.</p>
+
+<p>That honor goes to a French stenographer named Jean-Baptiste Estoup, who documented the pattern in 1916 while studying the frequencies of words for his shorthand work. Before him, a German physicist named Felix Auerbach had noticed something similar in 1913, though he was looking at cities rather than words. He observed that when you rank cities by population, the sizes follow an inverse relationship to their ranks. The biggest city is about twice as large as the second-biggest, three times as large as the third, and so on.</p>
+
+<p>Zipf himself, interestingly, didn't much care for mathematics. His 1932 publication contains dismissive remarks about mathematical involvement in linguistics. The only formula he used was borrowed from someone else—Alfred Lotka, who had published a similar observation about scientific productivity in 1926. Yet despite his mathematical reluctance, Zipf's name stuck to the phenomenon, perhaps because he studied it so extensively and applied it so broadly.</p>
+
+<h2>How the Law Actually Works</h2>
+
+<p>The core idea is elegantly simple. Take any large collection of words—a novel, a newspaper archive, the entire internet—and count how often each word appears. Sort them from most frequent to least frequent. Now assign ranks: the most common word is rank one, the second most common is rank two, and so on.</p>
+
+<p>Zipf's law says that if you multiply a word's rank by its frequency, you'll get roughly the same number every time.</p>
+
+<p>Let's make this concrete with the Brown Corpus, a famous collection of about one million words of American English text compiled in the 1960s. The word "the" appears 69,971 times, holding rank one. The word "of" appears 36,411 times at rank two. If we multiply rank times frequency: for "the," that's 1 × 69,971 = 69,971. For "of," it's 2 × 36,411 = 72,822. These numbers are remarkably close, considering we're dealing with the messy reality of natural language.</p>
+
+<p>The relationship continues down the ranks. "And" appears 28,852 times at rank three, giving us 3 × 28,852 = 86,556. The products drift higher as we go down, which is why mathematicians developed a more refined version called the Zipf-Mandelbrot law that adds adjustment parameters. But the basic inverse relationship holds with striking consistency.</p>
+
+<h2>The Mathematics Behind the Miracle</h2>
+
+<p>For those comfortable with mathematical notation, Zipf's law states that the frequency of any word is inversely proportional to its rank. If we call the frequency f and the rank k, then f is proportional to 1/k.</p>
+
+<p>This means the relationship appears as a straight line when you plot it on a log-log graph—a graph where both axes use logarithmic scales. The slope of that line tells you the exponent of the power law. For classic Zipf's law, the slope is negative one, meaning frequency drops off exactly as fast as rank increases.</p>
+
+<p>Real data doesn't always fit this perfectly. Statisticians use something called the Zipf-Mandelbrot law to handle the messiness. This version adds two adjustable parameters that let the formula bend to fit actual observations more closely. One parameter adjusts the steepness of the dropoff, while the other shifts where the curve starts. With these tweaks, the law fits an astonishingly wide range of phenomena.</p>
+
+<p>There's a deep connection here to other famous mathematical distributions. The Zipf distribution is essentially the discrete version of the Pareto distribution—the same mathematics that gives us the "80/20 rule" in economics, where roughly 80 percent of effects come from 20 percent of causes. When you extend Zipf's law to infinitely many items, you encounter the Riemann zeta function, one of the most important objects in all of mathematics, connected to the unsolved mysteries of prime numbers.</p>
+
+<h2>Beyond Words: Zipf's Law in the Wild</h2>
+
+<p>The truly remarkable thing about Zipf's law isn't that it describes word frequencies. It's that the same pattern appears in contexts that seem completely unrelated to language.</p>
+
+<p>City populations follow Zipf's law almost exactly. In most countries, if you rank cities by population, you'll find the largest city has roughly twice the population of the second-largest, three times the third-largest, and so on. This is sometimes called Gibrat's law or the rank-size rule, and it holds with eerie precision across different nations and historical periods.</p>
+
+<p>Corporate size follows the pattern. If you rank companies by revenue, market capitalization, or number of employees, the distribution is Zipfian. The same applies to personal income—this is the origin of the Pareto principle, named after the Italian economist Vilfredo Pareto who noticed that about 80 percent of land in Italy was owned by 20 percent of the population.</p>
+
+<p>Television viewership obeys Zipf's law. The most-watched channel gets roughly twice the viewers of the second-most-watched, and so on down the rankings.</p>
+
+<p>Musical compositions follow it too. When you analyze which notes or chords appear most frequently in large collections of music, the distribution is Zipfian. This might help explain why certain musical patterns feel natural—they reflect the statistical regularities our brains have learned from a lifetime of listening.</p>
+
+<p>Even biology isn't exempt. The transcriptome of a cell—the collection of all RNA molecules being produced at any moment—shows Zipfian distributions. Some genes are transcribed abundantly, others rarely, following the familiar inverse relationship with rank.</p>
+
+<h2>Why Does This Happen?</h2>
+
+<p>This is where things get genuinely puzzling. Zipf's law appears in so many different contexts that there must be some deep underlying explanation. Yet despite decades of research, no one has found a single mechanism that accounts for all cases.</p>
+
+<p>One early theory, proposed by Zipf himself, invokes what he called the "principle of least effort." The idea is that communication involves a negotiation between speakers and listeners. Speakers would prefer to use the same few words over and over—less mental effort to retrieve and pronounce. Listeners would prefer that every word be unique and specific—less effort to disambiguate meaning. The equilibrium between these competing pressures, Zipf argued, produces the observed distribution.</p>
+
+<p>It's an appealing idea, but it doesn't easily extend to city sizes or corporate revenues.</p>
+
+<p>A more mathematical explanation comes from randomly generated texts. In 1992, bioinformatician Wentian Li proved something remarkable: if you generate text completely at random—imagine a monkey hitting keys on a typewriter, with each letter and the space bar having fixed probabilities—the resulting "words" will follow Zipf's law. This happens purely from the mathematics of how random strings get separated by spaces. Short words are more probable simply because there are fewer ways to make them.</p>
+
+<p>This suggests that Zipf's law might be, in some sense, a mathematical inevitability rather than something that requires a special explanation. Any process that involves ranking items by frequency might naturally produce Zipfian distributions as a byproduct of the ranking itself.</p>
+
+<p>Another explanation involves preferential attachment—the "rich get richer" phenomenon. If popular words tend to become more popular simply because they're already popular, and if commonly used words get used even more because people hear them more often, then a Zipf-like distribution emerges naturally. This is similar to how social networks form, where people with many connections tend to acquire even more connections.</p>
+
+<p>In 1959, the information theorist Vitold Belevitch showed that Zipf's law is a first-order approximation that emerges when you express almost any reasonable statistical distribution in terms of rank. The implication is unsettling: Zipf's law might be more about how we choose to look at data than about the data itself.</p>
+
+<h2>Testing Whether Data Really Follows the Law</h2>
+
+<p>Scientists can't just eyeball a distribution and declare it Zipfian. There are rigorous statistical methods for testing whether a dataset actually follows a power law distribution like Zipf's law.</p>
+
+<p>The most common approach uses what's called a Kolmogorov-Smirnov test, which measures how much the observed data deviates from the theoretical distribution. Researchers also compare the likelihood of the Zipf model against alternatives—maybe the data actually follows an exponential distribution, or a lognormal distribution. Only if the power law fits significantly better than these alternatives can you claim to have found Zipf's law in action.</p>
+
+<p>Visual inspection helps too, but it can be misleading. On a regular graph, a Zipfian distribution looks like a dramatic cliff dropping off sharply from the highest-ranked items. On a log-log graph, it should appear as a straight line. The slope of that line tells you the exponent—for true Zipf's law, the slope should be approximately negative one.</p>
+
+<p>Many datasets that look Zipfian at first glance turn out to deviate when examined carefully, especially at the extremes. The most frequent items might not follow the pattern as well as the middle ranks, and the rare items at the bottom of the ranking often behave differently too. Researchers call these "quasi-Zipfian" distributions.</p>
+
+<h2>The Connection to Artificial Intelligence</h2>
+
+<p>For those interested in machine learning and natural language processing, Zipf's law has profound practical implications.</p>
+
+<p>When training language models, you're working with word distributions that are heavily Zipfian. A handful of words appear constantly, while the vast majority appear rarely. This creates challenges: your model sees "the" millions of times but might encounter technical terms only a few times. How do you ensure the model learns the rare words adequately?</p>
+
+<p>The Zipfian distribution also affects how we think about vocabulary. Even a small vocabulary covers most actual word occurrences. The 1,000 most common English words account for roughly 90 percent of typical text. But that remaining 10 percent contains much of the meaning—the specific nouns, the technical terms, the names and places that distinguish one document from another.</p>
+
+<p>Large language models like the one you might be interacting with right now have internalized Zipf's law implicitly. They've learned that certain words and patterns are exponentially more common than others, and they use this knowledge to generate fluent text. The statistical regularities that Zipf noticed in 1932 are now baked into the neural networks that power modern artificial intelligence.</p>
+
+<h2>Mandelbrot's Refinement</h2>
+
+<p>Benoit Mandelbrot, the mathematician famous for discovering fractals, proposed a generalization of Zipf's law that fits real data more accurately. The Zipf-Mandelbrot law adds a parameter that essentially shifts the ranking, accounting for the fact that the very highest-ranked items often don't follow the simple inverse relationship perfectly.</p>
+
+<p>Mandelbrot was interested in Zipf's law because of its connection to information theory. He saw the distribution as reflecting something deep about how information is structured—how meaning gets concentrated in a few common symbols while the rare symbols carry proportionally more specific information.</p>
+
+<p>The Zipf-Mandelbrot law connects to another famous pattern: Benford's law, which describes the distribution of leading digits in many real-world datasets. Both laws emerge from the mathematics of scaling and both appear far more often than naive intuition would suggest.</p>
+
+<h2>What It All Means</h2>
+
+<p>Zipf's law is one of those scientific discoveries that raises more questions than it answers. Why should word frequencies follow the same mathematical pattern as city populations? Why should corporate revenues distribute themselves like notes in a musical composition?</p>
+
+<p>One possibility is that we're seeing the fingerprints of universal processes—optimization, growth, competition—that operate across many different domains. Another is that Zipf's law is partly a mathematical artifact, emerging naturally whenever we rank items by frequency.</p>
+
+<p>Perhaps most intriguingly, Zipf's law suggests that extreme inequality is somehow natural—baked into the mathematics of complex systems. The rich get richer, the common words get more common, the big cities attract more residents. Whether this is merely descriptive or somehow explanatory remains an open question.</p>
+
+<p>What's certain is that George Kingsley Zipf, the linguist who disliked mathematics, stumbled onto one of the most pervasive patterns in nature. Nearly a century later, we're still discovering new places where his law applies—and still puzzling over why.</p>
       </div>
 
       <footer class="wikipedia-footer">

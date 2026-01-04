@@ -22,7 +22,135 @@
       </header>
 
       <div class="wikipedia-content">
-        <p>Content not available.</p>
+        <p class="source-note">Based on <a href="https://en.wikipedia.org/wiki/Autoregressive_model">Wikipedia: Autoregressive model</a></p>
+
+<h2>The Echo Chamber of Numbers</h2>
+
+<p>Every prediction you make about the future is haunted by the past. This isn't philosophy—it's mathematics. And the autoregressive model is perhaps the purest expression of this idea: a formula that says the next value in a sequence depends on the values that came before it.</p>
+
+<p>You've probably heard the term "autoregressive" in the context of large language models like the one you might be using right now. When people say GPT or Claude is "autoregressive," they mean it generates text one token at a time, with each new word depending on all the previous words. But here's something important: these language models borrowed the term, not the technique. The original autoregressive model is something quite different—and in some ways, more elegant.</p>
+
+<h2>What Autoregression Actually Means</h2>
+
+<p>Let's break down the word itself. "Auto" means self. "Regressive" comes from regression, the statistical technique of fitting a line to data. Put them together and you get self-regression: predicting a value based on previous values of the same thing.</p>
+
+<p>Imagine you're tracking the temperature outside your window every hour. At 3 PM, it's 72 degrees. What will it be at 4 PM? You could make a wild guess. Or you could notice that temperatures don't jump around randomly—if it's 72 now, it's probably going to be somewhere close to 72 in an hour. The temperature at 4 PM depends on the temperature at 3 PM.</p>
+
+<p>That's autoregression in its simplest form.</p>
+
+<p>But the mathematical version adds precision. An autoregressive model says that the current value equals some fraction of the previous value, plus a random shock. In notation, statisticians write this as:</p>
+
+<p>Current value = (coefficient × previous value) + random noise</p>
+
+<p>That coefficient—usually written with the Greek letter phi (φ)—controls how much the past influences the present. If phi is 0.9, the current value is strongly tied to what came before. If phi is 0.1, the past barely matters, and the random noise dominates.</p>
+
+<h2>The Linear Constraint</h2>
+
+<p>Here's where the distinction from language models becomes crucial. Classical autoregressive models are linear. The relationship between past and present is a straight-line multiplication. Double the previous value, and the contribution to the current prediction doubles too.</p>
+
+<p>Large language models, despite being called autoregressive, are emphatically not linear. They're neural networks with billions of parameters, activation functions, attention mechanisms, and layer upon layer of nonlinear transformations. They borrowed the sequential, one-at-a-time generation pattern from autoregressive models, but the underlying mathematics is entirely different.</p>
+
+<p>It's like the difference between predicting tomorrow's temperature by multiplying today's by 0.95, versus using a sophisticated weather simulation that models atmospheric pressure, humidity, wind patterns, and the rotation of the Earth. Both make predictions based on current conditions, but one is a simple formula and the other is a complex system.</p>
+
+<h2>Orders of Memory</h2>
+
+<p>How far back should you look? An autoregressive model of order one—written AR(1)—only looks at the immediately previous value. An AR(2) model looks at the two previous values. An AR(10) model considers the last ten.</p>
+
+<p>The simplest possible case, AR(0), is almost a joke. It doesn't look back at all. Each value is just random noise with no connection to what came before. This is what statisticians call white noise—the hiss of static on an old television, with every moment independent of the last.</p>
+
+<p>AR(1) is where things get interesting. With just one step of memory, patterns start to emerge. If the coefficient is positive and close to 1, the series becomes smooth—values drift gradually rather than jumping around. High values tend to be followed by high values, lows by lows. The result looks like a meandering walk rather than chaotic hopping.</p>
+
+<p>AR(2) adds another dimension. Now two previous values contribute, and their combined influence can create oscillation. If the first coefficient is positive but the second is negative, the model starts to favor reversals—what went up wants to come down, what went down wants to come up. This creates wave-like patterns, rhythmic fluctuations that emerge from the mathematics alone.</p>
+
+<h2>The Stationarity Question</h2>
+
+<p>There's a constraint that matters enormously in practice: stationarity. A stationary process is one whose statistical properties don't change over time. The average stays the same. The variability stays the same. The patterns remain consistent whether you're looking at the beginning, middle, or end of the data.</p>
+
+<p>Not all autoregressive models are stationary. Consider what happens when the coefficient phi equals exactly 1. Each new value equals the previous value plus some random noise. This is called a random walk—the kind of path you'd trace if you flipped a coin at each step to decide whether to move left or right.</p>
+
+<p>Random walks don't have a stable average. They wander. Given enough time, they'll drift arbitrarily far from where they started. The variance—a measure of how spread out the values are—grows without bound as time passes. This makes them non-stationary, and it creates serious problems for anyone trying to make predictions.</p>
+
+<p>For an AR(1) model to be stationary, the coefficient must have an absolute value less than 1. When phi is 0.9, shocks eventually die out. When phi is 1.0, they persist forever. When phi is 1.1, they actually grow—small disturbances amplify into explosions, and the system becomes unstable.</p>
+
+<p>For higher-order models, the stationarity condition gets more complex. It involves something called the roots of a polynomial, which must all lie outside the unit circle on the complex plane. If that sounds abstract, the intuition is simpler: the influence of the past must fade over time, not persist or grow.</p>
+
+<h2>Shocks That Echo Forever</h2>
+
+<p>One of the most profound properties of autoregressive models is how they handle shocks. In a stationary AR model, a single unexpected event—a sudden spike, an unusual reading—affects not just the next value, but every future value to some degree.</p>
+
+<p>Think of dropping a pebble in a pond. The ripples spread outward, weakening as they go, but never quite disappearing. In an AR(1) model with coefficient 0.8, a shock at time 1 affects time 2 by 80% of its original magnitude. At time 3, the effect is 64%. At time 4, it's about 51%. The influence decays exponentially, halving roughly every few steps, but mathematically it never reaches exactly zero.</p>
+
+<p>This works in reverse too. Any given value in the series is influenced by every shock that ever occurred in the past. Recent shocks matter more than distant ones, but the entire history leaves its fingerprints on the present.</p>
+
+<p>This property explains why autoregressive models are so useful for economic and financial data. Stock prices, GDP growth, inflation rates—these quantities carry the memory of past events. A recession doesn't just affect this quarter's output; its effects ripple through years of subsequent data, gradually fading but never quite vanishing.</p>
+
+<h2>The Autocorrelation Fingerprint</h2>
+
+<p>Every autoregressive model has a distinctive signature called its autocorrelation function. Autocorrelation measures how much a series correlates with itself at different lags—how strongly today's value relates to yesterday's, to the day before that, and so on.</p>
+
+<p>For AR models, this fingerprint follows a specific pattern: exponential decay. The autocorrelation starts at 1 (perfect correlation with itself) and shrinks toward zero as the lag increases. The rate of decay depends on the coefficients.</p>
+
+<p>When the coefficients are real numbers, you get smooth exponential decay—a curve that drops quickly at first, then more slowly, asymptotically approaching zero. But when the mathematical roots of the model are complex numbers (involving the square root of negative one), something more interesting happens: damped oscillation. The autocorrelation doesn't just decay; it oscillates between positive and negative values while decaying, like a plucked guitar string that vibrates back and forth as it gradually quiets.</p>
+
+<p>This mathematical signature lets statisticians identify autoregressive processes in real data. By computing the autocorrelation function of observed values and matching it to theoretical patterns, they can determine the order of the AR model and estimate its coefficients.</p>
+
+<h2>The Spectrum of Frequencies</h2>
+
+<p>Another way to understand autoregressive models is through their spectral density—essentially, a breakdown of which frequencies dominate the series.</p>
+
+<p>An AR(1) process with a positive coefficient acts like a low-pass filter. It suppresses high-frequency fluctuations (rapid changes from moment to moment) while allowing low-frequency trends (gradual drifts) to pass through. The result is that smooth, meandering quality mentioned earlier.</p>
+
+<p>Negative coefficients do the opposite, emphasizing high frequencies and creating jagged, alternating patterns. AR(2) models can create band-pass effects, emphasizing particular rhythms while suppressing both faster and slower variations.</p>
+
+<p>Engineers in signal processing use this property constantly. Want to smooth out noisy sensor readings? Model the underlying signal as an AR process and filter accordingly. Want to detect periodic patterns in a time series? Look for peaks in the spectral density.</p>
+
+<h2>Estimation: Finding the Model in the Data</h2>
+
+<p>Given a sequence of observations, how do you figure out the autoregressive coefficients? Several methods exist, each with its own trade-offs.</p>
+
+<p>The most intuitive approach is ordinary least squares—the same technique used for standard regression. You treat past values as predictors and the current value as the response, then find the coefficients that minimize the squared prediction errors. This works well in many cases, though it can be biased for small samples.</p>
+
+<p>The Yule-Walker equations offer a more specialized approach, exploiting the theoretical relationship between autoregressive coefficients and autocorrelations. By measuring the autocorrelations in your data and solving a system of linear equations, you can back out the coefficients. This method has elegant mathematical properties but can be sensitive to estimation errors in the autocorrelations.</p>
+
+<p>Maximum likelihood estimation takes a probabilistic view. It finds the coefficients that make the observed data most probable under the assumed model. This approach tends to be more efficient—extracting more information from the same amount of data—but requires stronger assumptions about the distribution of the noise terms.</p>
+
+<h2>Choosing the Right Order</h2>
+
+<p>How many lags should your model include? Too few, and you miss important patterns. Too many, and you overfit, mistaking random fluctuations for real structure.</p>
+
+<p>Several criteria help guide this choice. The Akaike Information Criterion, usually called AIC, balances goodness of fit against model complexity. It rewards models that explain the data well but penalizes those with too many parameters. The Bayesian Information Criterion, or BIC, applies an even stronger penalty for complexity, tending to favor simpler models.</p>
+
+<p>Partial autocorrelation offers another diagnostic tool. While regular autocorrelation at lag 2 reflects both the direct effect of the two-steps-back value and its indirect effect through the one-step-back value, partial autocorrelation isolates the direct effect. For a true AR(p) process, the partial autocorrelation cuts off sharply after lag p—it's nonzero for lags 1 through p, then essentially zero thereafter. This cutoff pattern provides a visual way to identify the appropriate order.</p>
+
+<h2>Beyond the Basic Model</h2>
+
+<p>The simple autoregressive model is just the beginning. Real-world applications often require extensions.</p>
+
+<p>The autoregressive moving-average model, or ARMA, combines autoregression with a moving average component. While AR looks at past values of the series itself, the MA part looks at past prediction errors. This combination can capture a wider variety of patterns with fewer parameters than either component alone.</p>
+
+<p>When data shows trends or non-stationarity, the autoregressive integrated moving average model (ARIMA) adds a differencing step. Instead of modeling the raw values, you model the changes from one period to the next. This transformation can turn a wandering, non-stationary series into a well-behaved stationary one.</p>
+
+<p>Vector autoregressive models, or VAR, handle multiple related time series simultaneously. Instead of predicting just one variable from its own past, you predict several variables from the shared past of all of them. This captures the way different quantities influence each other over time—how interest rates affect inflation, how consumer spending responds to employment, how various financial markets move together.</p>
+
+<p>Time-varying autoregressive models, sometimes called TVAR, allow the coefficients to change over time. This handles situations where the underlying dynamics shift—where the relationship between past and present isn't constant but evolves as conditions change. These models find applications in climate science, where seasonal patterns shift; in finance, where market regimes change; and in biomedical signal processing, where physiological states fluctuate.</p>
+
+<h2>Why This Matters for Language Models</h2>
+
+<p>Now we can appreciate the connection to modern AI more precisely. Large language models generate text autoregressively in the sense that each token depends on all previous tokens. The generation happens one step at a time, with the output so far becoming part of the input for the next step.</p>
+
+<p>But the mechanism is entirely different. Classical AR models use a fixed, linear combination of past values plus noise. Language models use massive neural networks that process the entire context through attention mechanisms, layer normalizations, and nonlinear activations. The "coefficients" aren't a handful of numbers but billions of learned parameters encoding patterns from trillions of words of training text.</p>
+
+<p>The term "autoregressive" for language models emphasizes the sequential, dependent generation process—not the underlying mathematics. It's a case of a useful word being repurposed for a new context, carrying some of its meaning while losing other parts.</p>
+
+<h2>The Persistence of the Past</h2>
+
+<p>Autoregressive models capture something fundamental about how the world works: the present grows out of the past. Not deterministically—the random noise ensures that the future isn't fully predictable—but probabilistically, with each moment connected to what came before.</p>
+
+<p>This makes them natural tools for understanding processes that evolve over time while maintaining some continuity. Economic indicators. Physical measurements. Biological signals. Social phenomena. Anything where sudden jumps are rare and gradual change is the norm.</p>
+
+<p>The mathematics of autoregression—the coefficients, the stationarity conditions, the exponentially decaying autocorrelations—provide a precise language for describing this continuity. They let us quantify how strongly the past influences the present, how quickly its effects fade, and what kinds of patterns emerge from the interplay of memory and randomness.</p>
+
+<p>In a world increasingly shaped by AI systems that generate text autoregressively (in the borrowed sense), understanding the original autoregressive model feels especially worthwhile. It's a reminder that even the most sophisticated modern systems are built on foundations laid by statisticians studying time series, economists modeling markets, and engineers processing signals—all trying to understand how the echo of the past shapes the present.</p>
       </div>
 
       <footer class="wikipedia-footer">

@@ -22,7 +22,109 @@
       </header>
 
       <div class="wikipedia-content">
-        <p>Content not available.</p>
+        <p class="source-note">Based on <a href="https://en.wikipedia.org/wiki/Waterfall_model">Wikipedia: Waterfall model</a></p>
+
+<h2>The Accidental Blueprint That Shaped Software Development</h2>
+
+<p>Here's an irony that has haunted the software industry for over fifty years: the most influential diagram in the history of software engineering was meant as a warning, not a recommendation.</p>
+
+<p>In 1970, a computer scientist named Winston Royce published a paper that would forever change how organizations build software. He drew a simple diagram showing development flowing downward through distinct phases—like water cascading over rocks. Requirements at the top, then design, then coding, then testing, then deployment. Each phase complete before the next begins.</p>
+
+<p>Royce thought this approach was deeply flawed. He called it "risky" and said it "invited failure." The rest of his paper proposed ways to fix these problems.</p>
+
+<p>Nobody read the rest of the paper.</p>
+
+<p>Instead, managers and military contractors saw that clean, sequential diagram and thought: perfect. Here was a way to impose order on the messy, creative chaos of software development. Here was something they could put on a Gantt chart. And so the "waterfall model"—a name Royce never used—became the dominant approach to building software for the next several decades.</p>
+
+<h2>What Came Before</h2>
+
+<p>To understand why the waterfall model took hold so firmly, you need to understand what software development looked like in its earliest days. There was no playbook. No methodology. No best practices. Engineers were essentially making it up as they went along, and projects frequently spiraled into chaos.</p>
+
+<p>The first known attempt to impose structure on software development came in 1956, when Herbert Benington presented a paper at a symposium on advanced programming methods. He was describing work on SAGE, a massive air defense system that represented one of the most complex software projects ever attempted at the time. Benington organized development into distinct phases based on specialization—requirements people did requirements, designers did design, coders wrote code.</p>
+
+<p>But here's the thing: Benington later admitted that his team didn't actually follow this process in a strict top-to-bottom fashion. They built a prototype first. They iterated. They went back and revised earlier work when they learned new things. The clean sequential phases were more of a retrospective description than a prescription.</p>
+
+<p>This gap between how people describe software development and how they actually do it would become a recurring theme.</p>
+
+<h2>The Phases of the Waterfall</h2>
+
+<p>The waterfall model breaks software development into distinct stages, each one flowing into the next. Think of it like building a house: you wouldn't start framing walls before you've finished the foundation, and you wouldn't install plumbing before the walls are up.</p>
+
+<p>First comes the <strong>feasibility study</strong>. Before anyone writes a single line of code, you analyze whether the project makes sense at all. What problem are you solving? What alternatives exist? How much will it cost? Is it worth doing?</p>
+
+<p>If the project gets a green light, you move to <strong>requirements analysis</strong>. This is where you figure out exactly what the software needs to do. You interview stakeholders, document user needs, and specify every feature in exhaustive detail. The goal is to capture all requirements upfront, before design begins.</p>
+
+<p>Next comes <strong>design</strong>. Engineers take those requirements and translate them into a technical blueprint. What will the screens look like? How will data flow through the system? What components will you need? In the waterfall model, you're supposed to work all this out on paper before anyone starts coding.</p>
+
+<p>Then <strong>implementation</strong>—the actual writing of code. In theory, this should be straightforward. The requirements tell you what to build. The design tells you how to build it. Programmers just translate the design into working software.</p>
+
+<p>After implementation comes <strong>testing</strong>. You take all the pieces, assemble them, and verify that everything works correctly. Does the software meet the requirements? Are there bugs? Does it perform well under load?</p>
+
+<p>Finally, <strong>deployment</strong> and <strong>maintenance</strong>. You release the software to users, train them on how to use it, and then support it over time—fixing bugs, making small improvements, eventually planning for the system's retirement and replacement.</p>
+
+<h2>The Seductive Appeal of Sequential Order</h2>
+
+<p>Why did organizations embrace this approach so enthusiastically, despite Royce's warnings?</p>
+
+<p>The answer lies in how the waterfall model made software development legible to managers. Software is inherently abstract. You can't see it or touch it. Progress is hard to measure. The waterfall model imposed visible structure on this invisible work. Now you could point to concrete milestones. Now you could ask "what phase are we in?" and get a definitive answer.</p>
+
+<p>The model also aligned well with how large organizations already worked. Government contractors were used to sequential procurement processes. Manufacturing companies understood assembly lines. The waterfall model fit neatly into existing bureaucratic frameworks.</p>
+
+<p>In 1985, the United States Department of Defense made it official. A standard called DOD-STD-2167 required contractors to follow a sequential development cycle with six defined phases. If you wanted to build software for the military, you followed the waterfall.</p>
+
+<p>There were legitimate arguments in the model's favor. Catching problems early is cheaper than fixing them later—by some estimates, fifty to two hundred times cheaper. A bug discovered during requirements analysis might cost a few hours to fix. The same bug discovered after deployment could require rewriting large portions of the system. The waterfall model, at least in theory, front-loaded the thinking to prevent expensive mistakes downstream.</p>
+
+<p>Documentation was another selling point. In a waterfall project, you're supposed to produce detailed requirements documents, design specifications, and test plans. If team members leave partway through, new people can read the documents and get up to speed. Knowledge doesn't walk out the door with individuals.</p>
+
+<h2>Where It All Falls Apart</h2>
+
+<p>The waterfall model rests on a fundamental assumption: that you can know everything you need to know about a system before you start building it.</p>
+
+<p>This assumption is almost never true.</p>
+
+<p>Think about the last time you tried to explain what you wanted to someone—a contractor renovating your kitchen, say, or a graphic designer creating a logo. Did you know exactly what you wanted before you saw any options? Or did your understanding evolve as you saw drafts and prototypes?</p>
+
+<p>Software is the same way, only more so. Clients often don't know what they need until they see working software. Requirements that seemed clear on paper turn out to be ambiguous in practice. Edge cases emerge that nobody anticipated. Technologies that worked fine in isolation fail when integrated together.</p>
+
+<p>The waterfall model has no good mechanism for handling these discoveries. Each phase is supposed to be complete before the next begins. Going backward—revisiting requirements after design has started, or changing the design after coding is underway—means expensive rework. Teams find themselves trapped by decisions made months earlier, when they knew less than they know now.</p>
+
+<p>There's a deeper problem too. The waterfall model assumes you can cleanly separate thinking from doing, planning from executing. But software development doesn't work that way. The act of building software is also an act of discovery. You learn things by writing code that you could never have learned by analyzing requirements. Implementation reveals design flaws. Testing exposes requirement gaps.</p>
+
+<p>Royce understood this. His original paper described feedback loops where testing could reveal design problems, and design could reveal requirement problems. But those feedback loops were stripped out when organizations adopted the simple linear diagram.</p>
+
+<h2>The Alternatives That Emerged</h2>
+
+<p>By the 1990s, the problems with pure waterfall were becoming impossible to ignore. Projects were consistently late, over budget, and failing to deliver what users actually needed. The software industry began searching for better approaches.</p>
+
+<p>Some organizations tried modified waterfall models that kept the basic structure but allowed more flexibility. The "sashimi model" let phases overlap, so design could begin before requirements were completely finalized. The "waterfall with subprojects" approach broke large systems into smaller pieces that could each follow their own waterfalls. These modifications helped, but didn't address the fundamental issues.</p>
+
+<p>More radical alternatives emerged under the banner of "agile" development. Instead of trying to plan everything upfront, agile approaches embrace uncertainty. You build software in short cycles—typically two to four weeks—delivering working functionality at the end of each cycle. Requirements evolve based on feedback from actual users. Design emerges incrementally rather than being specified in advance.</p>
+
+<p>Even the Department of Defense eventually came around. In 1994, a new standard called MIL-STD-498 explicitly encouraged "evolutionary acquisition and iterative and incremental development"—a clear rejection of the rigid waterfall approach the military had mandated just nine years earlier.</p>
+
+<h2>The Legacy</h2>
+
+<p>The waterfall model hasn't disappeared. Some projects genuinely benefit from extensive upfront planning. If you're building software for a medical device or an airplane, you probably want very thorough requirements analysis before anyone starts coding. Regulatory environments sometimes mandate documentation that maps naturally to waterfall phases.</p>
+
+<p>But the model's greatest legacy may be the lesson it teaches about how ideas spread. A diagram intended as a cautionary example became a prescriptive standard. A nuanced paper about managing risk got reduced to a simple linear process. Feedback loops and iteration—the very things Royce said were essential—got lost in translation.</p>
+
+<p>Winston Royce spent the rest of his career in software engineering, contributing to numerous projects and methodologies. He died in 1995, having watched his cautionary diagram become an industry standard, and then having watched that standard slowly give way to approaches more like what he'd actually recommended.</p>
+
+<p>The waterfall model stands as a reminder that complex ideas rarely survive contact with organizational reality unchanged. People take what they find useful and discard what's inconvenient. Clean diagrams trump nuanced arguments. And sometimes the most influential thing you can create is an example of exactly what not to do.</p>
+
+<h2>Understanding the Broader Context</h2>
+
+<p>Software development methodologies are really about managing uncertainty. How much do you know at the start of a project? How much will you learn along the way? How expensive is it to change course?</p>
+
+<p>The waterfall model optimizes for situations where you know a lot upfront and changes are expensive. Traditional construction works this way—you really do need detailed architectural plans before you pour a foundation. Manufacturing works this way too—redesigning a production line costs far more than redesigning a document.</p>
+
+<p>But software is infinitely malleable. You can change it at any point, and unlike physical products, making a copy costs essentially nothing. This means the trade-offs that make sense for construction and manufacturing don't necessarily apply to software.</p>
+
+<p>The opposite of waterfall isn't chaos—it's embracing change as a constant rather than treating it as a failure mode. Modern software development tends toward shorter feedback cycles, closer collaboration with users, and an acceptance that requirements will evolve. You still plan, but you plan for adaptation rather than planning to avoid it.</p>
+
+<p>Perhaps the most important insight is that no methodology works for all situations. The question isn't whether waterfall is good or bad, but whether it fits the specific constraints and uncertainties of your project. A methodology is a tool, and like any tool, it can be used well or poorly, in contexts where it fits or contexts where it doesn't.</p>
+
+<p>Royce knew this. His original paper wasn't a manifesto for any particular approach—it was an exploration of how to manage risk in software development. The fact that it got reduced to a simple diagram and a catchy name tells us something important about how organizations adopt ideas: simplicity wins, even when it shouldn't.</p>
       </div>
 
       <footer class="wikipedia-footer">

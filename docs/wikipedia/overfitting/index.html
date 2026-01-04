@@ -22,7 +22,167 @@
       </header>
 
       <div class="wikipedia-content">
-        <p>Content not available.</p>
+        <p class="source-note">Based on <a href="https://en.wikipedia.org/wiki/Overfitting">Wikipedia: Overfitting</a></p>
+
+<h2>The Model That Learned Too Well</h2>
+
+<p>Imagine you're teaching a child to recognize dogs. You show them pictures: a golden retriever at the beach, a poodle in a park, a husky in the snow. The child catches on quickly—maybe too quickly. Soon they announce their rule: "A dog is a fluffy thing standing on grass or sand, with a blue sky behind it."</p>
+
+<p>They've memorized the backgrounds. They've learned the irrelevant details perfectly while missing the actual point.</p>
+
+<p>This is overfitting, one of the most treacherous traps in statistics, machine learning, and arguably human reasoning itself. It's what happens when a model becomes so exquisitely tuned to its training examples that it fails spectacularly at the one job it was designed to do: making predictions about things it hasn't seen yet.</p>
+
+<h2>The Core Problem: Memorization Versus Learning</h2>
+
+<p>At its heart, overfitting is the confusion between two very different mental activities. One is learning—extracting the underlying pattern, the signal, the thing that will remain true tomorrow and next year. The other is memorizing—cataloging every quirk, accident, and coincidence in your data as if they mattered.</p>
+
+<p>The distinction sounds obvious when stated plainly. It isn't obvious at all when you're staring at a spreadsheet or training an algorithm. The overfitted model looks brilliant on paper. It fits the historical data with uncanny precision. Every point falls exactly on the line. The predictions for last month are perfect.</p>
+
+<p>Then you try to predict next month, and it all falls apart.</p>
+
+<p>Here's an extreme illustration. Suppose you have ten data points and you fit a polynomial equation with ten terms. The math works out such that you can draw a curve that passes through every single point exactly. Perfect accuracy! Zero error on the training data!</p>
+
+<p>But that curve is almost certainly a twisted, contorted thing that bears no resemblance to whatever process actually generated those points. You haven't discovered a pattern. You've constructed an elaborate excuse for why those particular ten numbers happened to be what they were. The curve is useless for anything other than reproducing the original ten points—which you already knew.</p>
+
+<h2>Underfitting: The Opposite Problem</h2>
+
+<p>Before we go deeper into overfitting, it helps to understand its mirror image. Underfitting occurs when your model is too simple to capture what's actually happening in the data.</p>
+
+<p>Picture trying to describe the trajectory of a bouncing ball using only a straight line. The ball follows a parabolic arc—it curves up, peaks, curves down. A straight line can approximate part of this motion, but it will systematically get things wrong. No matter how cleverly you position that line, it cannot capture the fundamental curvature of the phenomenon.</p>
+
+<p>An underfitted model has what statisticians call high bias. It imposes too rigid a structure on reality. It's like a theory that's so committed to its assumptions that it ignores contradictory evidence. The model isn't flexible enough to follow where the data leads.</p>
+
+<p>Overfitting is the reverse: high variance, low bias. The model is so flexible it follows the data everywhere, including into random noise and meaningless fluctuations. It's like a conspiracy theorist who can explain every fact, every inconsistency, every apparent coincidence—because they'll invent new epicycles for each new piece of evidence.</p>
+
+<h2>The Bias-Variance Tradeoff</h2>
+
+<p>Good modeling lives in the tension between these two failure modes. This tension has a name: the bias-variance tradeoff.</p>
+
+<p>Imagine you're throwing darts at a target. Bias is how far your average dart lands from the bullseye. Variance is how spread out your darts are from each other.</p>
+
+<p>High bias, low variance means all your darts cluster tightly together, but nowhere near the center. Consistent, but consistently wrong. This is underfitting.</p>
+
+<p>Low bias, high variance means your darts are centered on the bullseye on average, but individual throws scatter wildly. Sometimes you hit the bullseye, sometimes you hit the wall. This is overfitting.</p>
+
+<p>What you want is low bias and low variance: darts that cluster tightly around the bullseye. But here's the cruel mathematical reality—for any given amount of data, reducing one type of error often increases the other. Add more flexibility to reduce bias and you typically increase variance. Constrain the model to reduce variance and you typically increase bias.</p>
+
+<p>The art of modeling is finding the sweet spot.</p>
+
+<h2>Why Overfitting Happens</h2>
+
+<p>Several conditions make overfitting more likely. Understanding them helps you recognize when to be especially cautious.</p>
+
+<p><strong>Too many parameters for the data.</strong> The fundamental trigger is having more adjustable knobs than your data can reliably constrain. If you're fitting a line through two points, you have exactly enough information. If you're fitting a polynomial with twenty terms through those same two points, you have vastly more flexibility than data. The extra terms will happily contort themselves to match noise.</p>
+
+<p><strong>Training too long.</strong> In iterative learning algorithms—like training a neural network—early stopping matters. At first, the algorithm learns genuine patterns. But if you let it run indefinitely, it eventually exhausts the real patterns and starts memorizing noise. Performance on the training data keeps improving while performance on new data deteriorates.</p>
+
+<p><strong>Rare training examples.</strong> When you have limited data, random fluctuations loom larger. A few weird outliers can dominate your model's behavior. With abundant data, those outliers get diluted into statistical insignificance.</p>
+
+<p><strong>No guiding theory.</strong> When you're exploring purely empirically—trying every possible model to see what fits—you're much more vulnerable than when theory constrains your choices. A physicist modeling planetary motion knows to look for ellipses, not arbitrary squiggles. Without such constraints, you can justify almost anything.</p>
+
+<h2>The Monkey That Typed Hamlet</h2>
+
+<p>There's a famous thought experiment about monkeys randomly hitting typewriter keys. Given infinite time, one would eventually produce the complete works of Shakespeare by pure chance.</p>
+
+<p>Model selection researchers use a variation of this thought experiment to illustrate overfitting's danger. If you can fit thousands of models at the push of a button, you will eventually find one that fits your data beautifully—even if the relationship is completely spurious. Given enough attempts, patterns will emerge from pure noise.</p>
+
+<p>Is the monkey who typed Hamlet actually a good writer? Obviously not. It has no ability to produce anything coherent going forward. Similarly, a model that was selected from thousands of candidates purely because it happened to fit the training data has no special claim on future accuracy.</p>
+
+<p>This is sometimes called the "garden of forking paths" problem, or data dredging, or p-hacking. The more models you try, the more likely you are to find one that looks good by accident.</p>
+
+<h2>Freedman's Paradox</h2>
+
+<p>Statistician David Freedman formalized a startling version of this problem. Suppose you have fifty variables that have absolutely no relationship to the thing you're trying to predict. Genuinely random noise, all of them.</p>
+
+<p>Standard statistical practice involves checking which variables are "statistically significant"—unlikely to have arisen by chance—and keeping only those in your model.</p>
+
+<p>Freedman showed mathematically that even with completely random data, you will typically find several variables that pass significance tests. Not because they're real predictors, but because with fifty chances to get lucky, some luck is nearly guaranteed.</p>
+
+<p>The researcher, following standard practice, will include these spurious variables in the model. The model will appear to work on the training data. It will fail on new data because those variables never had any predictive power to begin with.</p>
+
+<h2>A Concrete Example</h2>
+
+<p>Consider a database of retail purchases: who bought what, when. You want to predict what people will buy in the future.</p>
+
+<p>Here's a model that achieves perfect accuracy on the training data: memorize every purchase along with its exact timestamp. To "predict" what someone bought at 3:47 PM on March 15th, simply look up what was purchased at 3:47 PM on March 15th.</p>
+
+<p>Perfect historical accuracy. Zero predictive value. Those exact timestamps will never recur. The model has learned nothing generalizable.</p>
+
+<p>This example is deliberately absurd, but subtler versions happen constantly. A model might learn that purchases made on specific dates correlate with specific outcomes—not realizing that those dates corresponded to one-time events like a store's grand opening sale.</p>
+
+<h2>The Consequences of Overfitting</h2>
+
+<p>Why does this matter beyond academic interest? Several reasons.</p>
+
+<p><strong>Failed predictions.</strong> The obvious consequence: your model doesn't work when it matters. You built it to forecast, and the forecasts are wrong.</p>
+
+<p><strong>Demanding unnecessary information.</strong> An overfitted model typically requires more input variables than a properly fitted one. This means gathering extra data that doesn't actually help—which costs time and money and introduces new opportunities for error.</p>
+
+<p><strong>Lack of portability.</strong> A simple model might be expressed in a few lines or even calculated by hand. A convoluted overfitted model might require the exact computational setup of its original creator to reproduce. Scientific replication becomes difficult or impossible.</p>
+
+<p><strong>Privacy leakage.</strong> Here's an unsettling modern concern: overfitted models can sometimes be reverse-engineered to reveal their training data. If a machine learning model was trained on medical records or personal information, and if it has memorized rather than generalized, attackers might extract individual data points from the model itself. This isn't hypothetical—researchers have demonstrated extracting memorized content from large language models and image generators.</p>
+
+<p>This privacy angle has legal implications too. Some generative artificial intelligence systems have been sued for copyright infringement precisely because they can reproduce copyrighted material from their training sets—a form of overfitting to specific examples rather than learning general patterns of style and structure.</p>
+
+<h2>Fighting Back: Techniques to Prevent Overfitting</h2>
+
+<p>Fortunately, statisticians and machine learning researchers have developed an arsenal of techniques for combating overfitting.</p>
+
+<h3>Cross-Validation</h3>
+
+<p>The most straightforward defense: test your model on data it hasn't seen. Split your data into training and validation sets. Fit the model on the training set alone, then see how it performs on the validation set. If performance drops dramatically, you're overfitting.</p>
+
+<p>More sophisticated versions like k-fold cross-validation repeat this process multiple times with different splits, averaging the results for a more reliable estimate of true performance.</p>
+
+<h3>Regularization</h3>
+
+<p>This technique adds a penalty for model complexity. The model is optimizing two things simultaneously: fitting the data and staying simple. Large parameter values (which often indicate overfitting) get penalized, so the optimization process prefers smaller, more conservative estimates.</p>
+
+<p>Common regularization methods have names like Ridge regression, Lasso, and elastic net. They differ in the mathematical form of the penalty but share the core idea of shrinking parameters toward zero.</p>
+
+<h3>Early Stopping</h3>
+
+<p>For iterative algorithms, simply stop before you've squeezed out every last drop of training accuracy. Monitor performance on a validation set as training progresses. When validation performance stops improving—even as training performance continues to improve—stop.</p>
+
+<h3>Pruning</h3>
+
+<p>Used especially in decision trees and neural networks, pruning means removing parts of the model after training. A decision tree might develop elaborate branches that capture quirks of the training data; pruning removes branches that don't improve validation performance. The result is a simpler, more robust tree.</p>
+
+<h3>Dropout</h3>
+
+<p>A technique specific to neural networks that sounds almost absurd: during training, randomly disable some neurons in each pass. The network can't rely on any single neuron being present, which prevents co-adaptation and memorization. It's like studying for an exam knowing that random pages of your notes will be unavailable—you're forced to understand the material deeply rather than memorize specific locations.</p>
+
+<h3>The Principle of Parsimony</h3>
+
+<p>Also known as Occam's Razor: given two models that explain the data equally well, prefer the simpler one. This ancient philosophical principle has rigorous mathematical justification in model selection. A simpler model with fewer parameters has less room to overfit.</p>
+
+<p>The statisticians Kenneth Burnham and David Anderson, whose textbook on model selection is foundational in the field, put it directly: avoid overfitting by adhering to parsimony. Don't add complexity without good reason.</p>
+
+<h2>A Strange Exception: Benign Overfitting</h2>
+
+<p>Just when you think you understand the rules, deep learning throws a wrench in them.</p>
+
+<p>Modern neural networks often have far more parameters than data points. Classical theory says they should overfit catastrophically. Yet they frequently generalize well to new data despite fitting the training data perfectly—sometimes even fitting randomly labeled data perfectly, which should be impossible for a model with any real understanding.</p>
+
+<p>This phenomenon, called benign overfitting, remains an active area of research. One emerging explanation involves the geometry of high-dimensional spaces. When a model has vastly more parameters than data, most of those parameters point in directions that don't matter for prediction. The model can memorize noise in those irrelevant directions while still learning genuine patterns in the directions that matter.</p>
+
+<p>Think of it like a lock with a thousand tumblers, of which only ten actually need to be in the right position. The lock can be in many configurations that match the key in the ten important tumblers while being random in the other 990. The randomness in the unimportant tumblers doesn't prevent the lock from working.</p>
+
+<p>This is far from fully understood, and it may not apply to all types of models or data. But it suggests that the classical story about overfitting, while broadly correct, has nuances we're still discovering.</p>
+
+<h2>Beyond Statistics</h2>
+
+<p>Overfitting isn't just a technical problem for data scientists. It's a mode of thinking that can trap anyone.</p>
+
+<p>A historian might overfit to their sources, constructing elaborate theories that perfectly explain every available document while having no predictive power for newly discovered evidence. An investor might overfit to past market patterns, finding strategies that would have worked brilliantly in the last decade but fail in the next. A doctor might overfit to their clinical experience, learning patterns that reflect their particular patient population but don't generalize to other settings.</p>
+
+<p>Even conspiracy theorists are, in a sense, overfitters. They construct models with so many adjustable parameters—hidden agents, secret motivations, convenient coincidences—that they can explain anything. Perfect fit to the data. Zero genuine predictive power.</p>
+
+<p>The antidote is always the same: test your ideas against something you haven't seen yet. Hold data back. Make predictions before the evidence arrives. Notice when your elaborate explanation fails to anticipate what happens next.</p>
+
+<p>The best theories are those that fit the known facts adequately, not perfectly—leaving room for the signal to shine through without capturing every ripple of noise. They're simple enough to be wrong in specific, predictable ways rather than flexible enough to accommodate anything.</p>
+
+<p>In a world drowning in data, the ability to distinguish signal from noise—to learn without merely memorizing—may be the most important intellectual skill of all.</p>
       </div>
 
       <footer class="wikipedia-footer">

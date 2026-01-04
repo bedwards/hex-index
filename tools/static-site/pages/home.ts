@@ -15,13 +15,16 @@ import { readFile } from 'fs/promises';
 
 /**
  * Load article content from filesystem
+ * Content paths are relative to library/ directory
  */
 async function loadArticleContent(contentPath: string | null): Promise<string> {
   if (!contentPath) {
     return '';
   }
   try {
-    return await readFile(contentPath, 'utf-8');
+    // Content paths are relative to library/ directory
+    const fullPath = join(process.cwd(), 'library', contentPath);
+    return await readFile(fullPath, 'utf-8');
   } catch {
     return '';
   }

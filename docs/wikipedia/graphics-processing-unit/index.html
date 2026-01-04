@@ -22,7 +22,149 @@
       </header>
 
       <div class="wikipedia-content">
-        <p>Content not available.</p>
+        <p class="source-note">Based on <a href="https://en.wikipedia.org/wiki/Graphics_processing_unit">Wikipedia: Graphics processing unit</a></p>
+
+<h2>The Chip That Changed Everything Twice</h2>
+
+<p>In 1975, an arcade game called Gun Fight needed to animate cowboys shooting at each other across a dusty street. The problem? The main processor—the Central Processing Unit, or CPU—couldn't move pixels around fast enough while also handling game logic. Engineers at Midway solved this with a specialized circuit called a barrel shifter, a simple piece of hardware dedicated entirely to shuffling graphics data around in memory. It was an elegant hack born of necessity.</p>
+
+<p>Nobody realized they'd just planted the seed for the most important computing revolution of the twenty-first century.</p>
+
+<p>That barrel shifter was the distant ancestor of what we now call the Graphics Processing Unit, or GPU. Today, GPUs don't just draw cowboys—they power the artificial intelligence systems writing code, generating images, and threatening to upend entire industries. The same chip architecture that learned to render millions of triangles per second turned out to be almost perfectly designed for training neural networks. This wasn't planned. It was a spectacular accident of engineering history.</p>
+
+<h2>What Makes a GPU Different From a CPU</h2>
+
+<p>To understand why GPUs matter, you need to understand how they differ from the chips that came before them.</p>
+
+<p>A CPU is like a brilliant generalist. It can do almost anything—run your operating system, execute spreadsheet formulas, compress video files, play music. It handles tasks one at a time (or a few at a time, with multiple cores), but it handles each task extremely well. CPUs are optimized for complex decision-making, branching logic, and unpredictable workloads. They're the Swiss Army knives of computing.</p>
+
+<p>A GPU is something else entirely. It's a specialist, purpose-built for one very specific type of problem: doing the same simple calculation on thousands of pieces of data simultaneously.</p>
+
+<p>Think about what happens when you display a 3D scene on screen. Every single pixel needs to be calculated—what color should it be? How much light is hitting this tiny point? Is it in shadow? If your screen has two million pixels (roughly 1080p resolution), you need to perform these calculations two million times. But here's the key insight: each pixel calculation is independent. The color of the pixel in the upper-left corner doesn't depend on the pixel in the lower-right. You could, in principle, calculate all two million pixels at exactly the same time.</p>
+
+<p>This is what computer scientists call an "embarrassingly parallel" problem. It's embarrassing because there's no clever trick needed to parallelize it—the parallelism is obvious and natural.</p>
+
+<p>GPUs are designed from the ground up to exploit this embarrassingly parallel structure. While a high-end CPU might have 8, 16, or 32 cores, a modern GPU has thousands of smaller, simpler processing units all working in lockstep. They're not as versatile as CPU cores. They can't handle complex branching logic efficiently. But for problems that fit their structure? Nothing else comes close.</p>
+
+<h2>The Arcade Era: When Graphics Hardware Was Born</h2>
+
+<p>The earliest video games had no dedicated graphics hardware at all. The CPU did everything—game logic, collision detection, and pushing pixels to the screen. This worked for games like Pong, where the graphics were just a few moving rectangles. But as games grew more ambitious, the CPU became a bottleneck.</p>
+
+<p>The solution emerged in arcades, where companies could afford specialized hardware that home consumers couldn't. Namco's Galaxian, released in 1979, represented a quantum leap. It featured custom graphics hardware supporting RGB color (meaning each pixel could be any combination of red, green, and blue, rather than being limited to a fixed palette), multi-colored sprites (small movable graphics objects like the alien invaders), and tilemap backgrounds (where the screen is divided into a grid of reusable image tiles).</p>
+
+<p>This hardware became the template for an entire era. Companies like Konami, Sega, Irem, and Taito all built games on Galaxian-derived hardware during the golden age of arcades. The insight that graphics could be handled by dedicated circuitry, freeing the CPU for game logic, proved transformative.</p>
+
+<p>Home computers followed, though with tighter budgets. The Atari 2600 used a chip called the Television Interface Adaptor to handle video output. Atari's later 8-bit computers introduced ANTIC, which was genuinely clever—it could interpret a list of instructions describing how each scan line of the television display should be rendered. Programmers could trigger custom code at specific points during screen drawing, enabling visual effects that seemed impossible given the hardware's limitations.</p>
+
+<h2>The First Real GPUs</h2>
+
+<p>The NEC μPD7220, introduced in the early 1980s, deserves recognition as the first true GPU for personal computers. "μPD" stands for "Micro Peripheral Device"—NEC's naming convention for their integrated circuits. This chip was the first implementation of a graphics display processor as a single large-scale integration chip, meaning all the necessary circuitry fit on one piece of silicon.</p>
+
+<p>What made it revolutionary? It supported resolutions up to 1024 by 1024 pixels—remarkably high for its era—and handled graphics operations internally without constant CPU intervention. This freed the main processor to do other work while the graphics chip rendered images. Intel licensed the design and created their own version, the 82720, making it the unlikely ancestor of Intel's modern graphics processors.</p>
+
+<p>In 1984, Hitachi released the ARTC HD63484, the first major graphics processor built using CMOS technology (Complementary Metal-Oxide-Semiconductor, a manufacturing process that uses less power than earlier approaches). Remarkably, it could display 4K resolution in monochrome mode—a resolution we consider cutting-edge forty years later.</p>
+
+<p>The following year brought the Commodore Amiga and its custom graphics chipset. The Amiga included a blitter (a circuit that rapidly copies rectangular blocks of pixels from one memory location to another) and something even more interesting: a coprocessor with its own simple instruction set. This coprocessor could manipulate graphics registers in perfect synchronization with the electron beam scanning across the television screen. Programmers used it for effects like changing the color palette mid-frame, creating the illusion of more simultaneous colors than the hardware officially supported.</p>
+
+<p>Then, in 1986, Texas Instruments released the TMS34010—the first fully programmable graphics processor. Unlike its predecessors, which could only perform fixed operations, the TMS34010 could run arbitrary programs while also accelerating graphics tasks. It became the basis for Windows accelerator cards in the early 1990s, pushing Microsoft's graphical interface to usable speeds on the hardware of the day.</p>
+
+<h2>The 3D Revolution</h2>
+
+<p>Two-dimensional graphics acceleration was useful. Three-dimensional graphics acceleration was transformative.</p>
+
+<p>Real-time 3D rendering requires an extraordinary amount of calculation. Every frame, the computer must take a mathematical description of a 3D scene—objects defined as collections of triangles, with positions, textures, and lighting properties—and project it onto a 2D screen from the virtual camera's perspective. This involves matrix multiplication (a type of mathematical operation where arrays of numbers are combined according to specific rules), perspective division, texture mapping, and lighting calculations. All of this must happen at least 30 times per second for smooth motion.</p>
+
+<p>Arcade machines led the way, as they always did. The Sega Model 1, Namco System 22, and Sega Model 2 showcased what specialized 3D hardware could achieve. The 1993 Namco Magic Edge Hornet Simulator, based on SGI (Silicon Graphics, Inc., a company legendary for its graphics workstations) hardware, could perform what's called T&L—transform, clipping, and lighting—entirely in hardware. Transform means converting 3D coordinates from the object's local space to screen space. Clipping means discarding parts of objects that fall outside the visible area. Lighting means calculating how light sources illuminate surfaces.</p>
+
+<p>Home consoles caught up with the fifth generation: Sony's PlayStation, the Sega Saturn, and the Nintendo 64. The Nintendo 64's Reality Coprocessor was the first home console GPU with hardware T&L capabilities. Meanwhile, PCs were getting their own 3D acceleration, with companies like 3dfx, ATI, and Nvidia competing fiercely.</p>
+
+<p>A curious footnote: Sony coined the term "GPU" in 1994 to describe the PlayStation's graphics chip. The term stuck, though its meaning has evolved considerably since.</p>
+
+<h2>From Fixed Functions to Programmable Shaders</h2>
+
+<p>Early 3D GPUs were fixed-function devices. They could perform specific operations—texture mapping, alpha blending, z-buffering—but couldn't be programmed to do anything else. Game developers had access to a menu of features; they could not add new items to that menu.</p>
+
+<p>This began changing in the early 2000s. The ATI Radeon 9700, released in October 2002, supported Direct3D 9.0 and introduced pixel and vertex shaders capable of looping and extensive floating-point math. Vertex shaders are small programs that run once per vertex (corner point) of a 3D model, typically handling position transformations. Pixel shaders (also called fragment shaders) run once per pixel, determining final color output.</p>
+
+<p>These shaders were still limited compared to CPU programs—no arbitrary memory access, restricted flow control—but they were genuinely programmable. Developers could write custom code that ran on the GPU. The floodgates opened.</p>
+
+<p>Bump mapping became widespread. This technique uses pixel shaders to create the illusion of surface detail without actually modeling that detail in 3D geometry. A flat surface with a bump map can look rough, bumpy, or textured, all through clever manipulation of lighting calculations in the shader.</p>
+
+<p>But the real revolution was yet to come.</p>
+
+<h2>General Purpose Computing: The Accidental Supercomputer</h2>
+
+<p>Here's where the story takes an unexpected turn.</p>
+
+<p>Researchers noticed something interesting about those programmable shaders: they were really just mathematical functions that processed data in parallel. The data didn't have to be graphics. What if you fed them scientific data instead of pixel colors?</p>
+
+<p>The early attempts were, frankly, absurd. To perform a calculation on a GPU, you had to pretend your data was an image. You'd encode your numbers as pixel colors, write a shader that performed your actual computation while pretending to process textures, and then read the results back as if they were rendered pixels. The GPU's scan converter—a circuit that determines which pixels a triangle covers—would spin away doing completely pointless work.</p>
+
+<p>Absurd or not, it was fast. Dramatically faster than CPUs for certain problems.</p>
+
+<p>This approach became known as GPGPU—General Purpose computing on Graphics Processing Units. It was a hack, but it worked well enough that companies began taking it seriously.</p>
+
+<p>Nvidia's response came in 2007 with CUDA (Compute Unified Device Architecture). CUDA stripped away the graphics pretense entirely. You could now write programs that directly accessed the GPU's parallel processing capabilities without pretending to draw triangles. The GeForce 8 series, launched around the same time, introduced generic stream processing units designed for both graphics and compute workloads.</p>
+
+<p>The Khronos Group, a consortium of technology companies, developed OpenCL as an open alternative. Unlike CUDA, which only works on Nvidia hardware, OpenCL runs on GPUs from Intel, AMD, Nvidia, and even ARM. This portability made it attractive for applications that needed to run on diverse hardware, though CUDA retained advantages in the Nvidia ecosystem.</p>
+
+<h2>The AI Revolution: GPUs Find Their True Calling</h2>
+
+<p>Machine learning existed long before GPUs became involved. But training neural networks requires an operation that sounds simple and proves monumentally expensive: matrix multiplication. A matrix is just a grid of numbers, and multiplying matrices means combining them according to specific mathematical rules. Neural network training involves performing these multiplications billions upon billions of times.</p>
+
+<p>Matrix multiplication is embarrassingly parallel. Each element of the output matrix can be calculated independently. It's exactly the kind of problem GPUs were designed to solve.</p>
+
+<p>When researchers began training neural networks on GPUs instead of CPUs, speedups of 10x, 50x, even 100x became common. Problems that previously took weeks could be solved in hours. Models that were computationally infeasible suddenly became practical.</p>
+
+<p>The deep learning revolution of the 2010s and 2020s owes its existence to GPU computing. Every major language model, every image generator, every AI system that seems to possess human-like capabilities—they were all trained on clusters of GPUs running in parallel.</p>
+
+<p>Modern GPUs include dedicated hardware for AI workloads. Tensor cores, introduced by Nvidia, perform 4-by-4 matrix multiplications in a single operation, achieving up to 128 teraflops (trillions of floating-point operations per second) in some configurations. AMD's RDNA architecture and Intel's Xe cores offer similar capabilities. What was once a hack—abusing graphics hardware for math—is now a first-class use case that drives GPU design.</p>
+
+<h2>How GPU Performance Is Measured</h2>
+
+<p>Several factors determine how fast a GPU can render graphics or crunch numbers.</p>
+
+<p>Manufacturing process matters. GPUs are built through semiconductor device fabrication—a staggeringly complex process where patterns are etched onto silicon wafers using light. The "process node" (measured in nanometers) roughly indicates how small the transistors are. Smaller transistors mean more can fit on a chip, and they generally consume less power. Nvidia's 2016 Pascal architecture used 16-nanometer manufacturing; earlier chips used 28-nanometer processes, and Nvidia had them manufactured by TSMC (Taiwan Semiconductor Manufacturing Company) in Taiwan.</p>
+
+<p>Clock frequency—how many times per second the chip cycles through its operations—also affects performance. Higher clocks mean more work done per second, but also more heat generated. Modern GPUs include dynamic clock adjustment (Nvidia calls their version "GPU Boost"), automatically increasing speed when thermal and power headroom exists.</p>
+
+<p>Then there's the parallel structure itself. Nvidia measures this in streaming multiprocessors (SMs), AMD in compute units (CUs), and Intel in Xe cores. More of these units means more work can happen simultaneously. A high-end GPU might have over a hundred SMs or CUs, each containing many individual processing elements.</p>
+
+<p>Memory bandwidth matters too—how quickly data can flow between the GPU's cores and its onboard memory. Some high-end GPUs use HBM2 (High Bandwidth Memory 2), which stacks memory chips vertically to achieve bandwidths conventional approaches cannot match.</p>
+
+<p>The combined result is typically expressed in teraflops: trillions of floating-point operations per second. But this number is theoretical peak performance; real-world results depend on the specific workload and how well it maps to the GPU's architecture.</p>
+
+<h2>The Current Landscape</h2>
+
+<p>Three major companies dominate the GPU market: Nvidia, AMD, and Intel.</p>
+
+<p>Nvidia leads in both gaming and AI workloads. Their RTX series, introduced in 2018, added dedicated ray tracing cores for realistic lighting effects. Ray tracing simulates how light actually behaves—bouncing off surfaces, casting accurate shadows, creating realistic reflections—rather than approximating these effects with tricks. It's computationally expensive, which is why dedicated hardware helps. Nvidia's CUDA ecosystem gives them an enormous advantage in AI computing, with most machine learning frameworks optimized first (and sometimes exclusively) for Nvidia hardware.</p>
+
+<p>AMD has been the persistent challenger. Their RDNA architecture, introduced in 2019, brought significant improvements in power efficiency. RDNA 2, launched in late 2020 with the Radeon RX 6000 series, added hardware-accelerated ray tracing. Both the PlayStation 5 and Xbox Series X use AMD's RDNA 2 technology, giving AMD a dominant position in console gaming.</p>
+
+<p>Intel entered the discrete GPU market relatively recently (they've long made integrated graphics built into their CPUs). Their Xe architecture targets everything from laptops to data centers. Chinese companies like Jingjia Micro have also developed GPUs for their domestic market, though they lag behind in global sales.</p>
+
+<p>As of 2009 market share data, Intel held 49.4% (mostly from integrated graphics), Nvidia held 27.8%, and AMD held 20.6%. The discrete GPU market for gaming and AI has a different distribution, with Nvidia holding a commanding lead.</p>
+
+<h2>Virtual Reality and the Hunger for Performance</h2>
+
+<p>Virtual reality headsets present unique challenges. Unlike traditional monitors, VR displays must render two separate views (one for each eye) at very high frame rates. Low frame rates or stuttering in VR causes motion sickness. The headsets also sit close to your eyes, making any visual artifacts obvious.</p>
+
+<p>When consumer VR headsets launched in 2016, manufacturers recommended the Nvidia GTX 970 or AMD R9 290X as minimum requirements—cards that were considered high-end at the time. VR pushed consumers to upgrade their hardware in ways that traditional gaming hadn't.</p>
+
+<h2>The Circle Closes: From Gun Fight to GPT</h2>
+
+<p>Consider the journey.</p>
+
+<p>In 1975, a barrel shifter helped cowboys shoot each other in an arcade game. Over the following decades, dedicated graphics hardware evolved from simple pixel-shuffling circuits to programmable parallel processors containing thousands of cores. Engineers optimized these chips for matrix operations because 3D graphics requires enormous amounts of linear algebra. They added features like texture mapping, shading, and eventually ray tracing.</p>
+
+<p>Then machine learning researchers discovered that neural networks—mathematical structures involving layers of matrix multiplications and nonlinear transformations—mapped almost perfectly onto GPU architecture. The hardware designed to make video games look beautiful turned out to be nearly ideal for training artificial intelligence.</p>
+
+<p>This wasn't foresight. Nobody in 1994, when Sony coined the term "GPU," anticipated that these chips would one day power systems capable of generating human-like text and imagery. The engineers at Nvidia in the 2000s were focused on selling graphics cards to gamers, not building the infrastructure for an AI revolution.</p>
+
+<p>Yet here we are. The GPUs that render video games and the GPUs that train language models are the same chips—or at least, chips built on the same fundamental architecture. The gaming market drove prices down and production volumes up. The AI market provided new applications and new demand. Each reinforced the other.</p>
+
+<p>Sometimes the most important inventions are accidents. Sometimes a hack created to animate arcade cowboys becomes the foundation for artificial general intelligence. The history of the GPU is a reminder that technology rarely evolves in straight lines, and the applications that matter most are often the ones nobody saw coming.</p>
       </div>
 
       <footer class="wikipedia-footer">

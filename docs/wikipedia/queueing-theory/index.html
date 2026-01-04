@@ -22,7 +22,141 @@
       </header>
 
       <div class="wikipedia-content">
-        <p>Content not available.</p>
+        <p class="source-note">Based on <a href="https://en.wikipedia.org/wiki/Queueing_theory">Wikipedia: Queueing theory</a></p>
+
+<p>In 1909, a Danish engineer named Agner Krarup Erlang sat in the Copenhagen Telephone Exchange, watching operators frantically plug and unplug cables to connect callers. He faced a problem that would seem almost quaint today but was genuinely vexing at the time: how many telephone operators should the exchange employ? Hire too few, and callers would wait forever. Hire too many, and you'd waste money on idle workers. Erlang didn't just guess. He invented an entire branch of mathematics to answer the question.</p>
+
+<p>What he created is now called queueing theory—and yes, that's the correct spelling, with the unusual double "ue" preserved in academic circles as a kind of scholarly badge. One of the field's flagship journals is literally named <em>Queueing Systems</em>. The mathematics Erlang developed to manage telephone operators in Copenhagen now determines how many cashiers your grocery store needs, how emergency rooms prioritize patients, how data packets travel across the internet, and why your call is important to us but remains on hold for the next forty-seven minutes.</p>
+
+<h2>The Supermarket Problem</h2>
+
+<p>To understand queueing theory, picture yourself at a supermarket checkout. You're standing behind someone with a full cart, wondering if you should have chosen the other line. This mundane frustration contains surprising mathematical depth.</p>
+
+<p>Think of the checkout lane as a "queueing node"—essentially a black box where customers arrive, wait, get served, and leave. The cashier is the "server." If there's only one cashier, you have a single-server system. If the store opens express lanes, you get multiple servers. The line of waiting customers is the "buffer." A store that turns customers away when lines get too long has a finite buffer. One that lets the line stretch around the building has an infinite buffer.</p>
+
+<p>The key insight is that you can model this mathematically without knowing anything about <em>specific</em> customers. You don't need to know that Mrs. Henderson is buying fourteen cans of soup or that the teenager ahead of you forgot his wallet. You only need to know two things: how fast customers arrive, on average, and how fast the cashier can serve them.</p>
+
+<p>These two rates—arrival and service—determine everything about the queue's behavior.</p>
+
+<h2>Births, Deaths, and Balance</h2>
+
+<p>Queueing theorists describe what happens in a queue using a framework called a "birth-death process." This isn't as morbid as it sounds. A "birth" simply means a new customer arrives and joins the queue. A "death" means a customer finishes and leaves. The number of people in the system rises by one with each birth and falls by one with each death.</p>
+
+<p>The magic happens when arrivals and departures reach what mathematicians call a "steady state"—a dynamic equilibrium where the queue's behavior becomes predictable over time. Think of it like a bathtub with the tap running and the drain open. Water comes in, water goes out. If the tap runs faster than the drain can handle, the tub overflows. If the drain is faster, the tub empties. But if they're balanced, the water level stabilizes.</p>
+
+<p>Queues work the same way. If customers arrive faster than they can be served, the line grows without bound—a disaster. If service is faster than arrivals, the system stays manageable. The ratio of arrival rate to service rate, represented by the Greek letter rho (ρ), must stay below one for the queue to remain stable. When ρ approaches one, lines grow long and waits become excruciating. When ρ is well below one, servers sit idle much of the time.</p>
+
+<p>This creates an inherent tension. Efficiency from the business's perspective—keeping servers busy—conflicts with customer satisfaction, which improves when servers have slack time to handle bursts of demand.</p>
+
+<h2>The Notation That Conquered a Field</h2>
+
+<p>In 1953, a British mathematician named David George Kendall introduced a compact notation for describing queues that became so useful it's now universally called "Kendall's notation." It looks like a fraction: A/S/c.</p>
+
+<p>The first letter describes how customers arrive. The second describes how long service takes. The third number tells you how many servers exist. So when you see "M/M/1," you're looking at a queue where arrivals follow a Markov process (the "M"), service times also follow a Markov process, and there's exactly one server.</p>
+
+<p>What's a Markov process? It's a mathematical model where the future depends only on the present, not on the past. Named after Russian mathematician Andrey Markov, it captures situations where each moment is a fresh start. The queue doesn't "remember" that ten customers arrived in the last hour. The probability of the next arrival is always the same. This "memoryless" property makes the math tractable, which is why Markov models appear everywhere in queueing theory.</p>
+
+<p>When you see "M/G/1," the G stands for "general"—meaning service times can follow any probability distribution, not just the memoryless exponential. This makes the math harder but the models more realistic. Real cashiers don't serve every customer in the exact same time.</p>
+
+<p>Erlang himself solved the M/D/1 queue in 1917, where the "D" stands for deterministic—service takes a fixed, known amount of time. He solved M/D/k (multiple servers with fixed service times) in 1920. The M/G/1 queue, with its arbitrary service time distribution, wasn't cracked until 1930, when Felix Pollaczek found a solution later refined by Aleksandr Khinchin into what's now called the Pollaczek-Khinchine formula.</p>
+
+<h2>What Queueing Theory Actually Tells You</h2>
+
+<p>The mathematical machinery of queueing theory exists to answer practical questions. Given your arrival rate and service capacity, the theory can tell you:</p>
+
+<ul>
+<li>The probability that exactly <em>n</em> customers are in the system at any moment</li>
+<li>The average number of customers waiting</li>
+<li>The average time a customer spends waiting</li>
+<li>The average time for the entire experience (waiting plus service)</li>
+<li>The probability that a server is busy or idle</li>
+</ul>
+
+<p>These "operating characteristics" let managers make informed decisions. Should the hospital open another triage station? The theory can estimate how much that would reduce wait times. Should the call center hire more agents for the holiday season? The math can predict how many calls would go unanswered under different staffing scenarios.</p>
+
+<p>The goal isn't perfect precision—real systems are messier than models. The goal is informed comparison. You compute the characteristics of your current system, then compute them for several alternatives, then choose the option that best balances cost against waiting time.</p>
+
+<h2>Little's Law: Simplicity That Startles</h2>
+
+<p>Amid the complex probability calculations, one relationship stands out for its elegance. John Little proved in 1961 that the average number of customers in a system equals the arrival rate multiplied by the average time each customer spends in the system.</p>
+
+<p>That's it. L = λW. The average population (L) equals the arrival rate (λ, the Greek letter lambda) times the average wait (W).</p>
+
+<p>This relationship holds regardless of the arrival distribution, service distribution, or number of servers. It's remarkably general. If customers arrive at ten per hour and spend an average of half an hour in the system, there will typically be five customers present at any given moment. Double the arrival rate without changing service, and the average population doubles too.</p>
+
+<p>Little's Law explains why busy restaurants feel crowded. It's not just that many people want to eat there—it's the combination of high arrival rate and long service time (people linger over meals) that fills the space.</p>
+
+<h2>From Telephones to the Internet</h2>
+
+<p>Erlang could never have imagined where his mathematics would travel. The same theory that sized Copenhagen's switchboard staff now routes data across global networks.</p>
+
+<p>In the early 1960s, Leonard Kleinrock was a graduate student at the Massachusetts Institute of Technology, known widely as MIT. He began applying queueing theory to an entirely new problem: how to send messages through computer networks. His doctoral thesis, published as a book in 1964, laid the theoretical groundwork for something called packet switching.</p>
+
+<p>Before packet switching, communications networks used circuit switching—the telephone model, where a dedicated connection is established between two parties for the duration of their conversation. This wastes capacity when neither party is actively speaking, which happens surprisingly often in normal conversation.</p>
+
+<p>Packet switching breaks messages into small chunks—packets—that can travel independently through the network, potentially taking different routes and arriving out of order. At the destination, the packets are reassembled into the original message. This approach uses network capacity far more efficiently.</p>
+
+<p>But packet switching creates queues everywhere. Packets arrive at routers and switches, wait their turn, get processed, and move on. Kleinrock's queueing theory analysis helped prove that packet switching could work, and his work underpinned the ARPANET—the Advanced Research Projects Agency Network—which became the foundation for what we now call the internet.</p>
+
+<p>Every time you load a webpage, queueing theory is at work. Your request joins queues at routers, servers, and switches around the world. The architecture of the internet, from buffer sizes to routing algorithms, reflects decades of accumulated queueing wisdom.</p>
+
+<h2>The Human Factor</h2>
+
+<p>Pure queueing theory treats customers as mathematical abstractions—they arrive, wait, get served, depart. Real people are more complicated. They have agency, and they exercise it in ways that make queue management genuinely interesting.</p>
+
+<p>Consider "balking." This happens when a potential customer sees a long line and decides not to join. They don't become part of the queue at all—they just leave. A restaurant with a line out the door might lose hungry customers to the empty place next door. The arrival rate effectively becomes a function of queue length, creating feedback loops that basic models don't capture.</p>
+
+<p>Then there's "reneging." This is when someone joins the queue, waits for a while, loses patience, and leaves before being served. They've consumed some of the system's capacity—they took up space in line—but generated no revenue or value. Call centers track reneging obsessively because an abandoned call represents a frustrated customer who might never call back.</p>
+
+<p>Finally, consider "jockeying"—switching between queues. Anyone who has ever changed supermarket lines knows this behavior intimately. You're in line four, but line three seems to be moving faster, so you switch. Jockeying complicates analysis because queues are no longer independent; they interact through customer decisions.</p>
+
+<p>These behaviors turn queueing from pure mathematics into something closer to psychology. Why do people balk when they see three people waiting but not two? How long will they tolerate waiting before reneging? Under what conditions will they jockey? The answers vary by culture, context, and individual temperament.</p>
+
+<h2>When Things Go Wrong</h2>
+
+<p>Servers aren't perfectly reliable. Computers crash. Cashiers take breaks. Doctors get called to emergencies. Queueing theory accommodates these disruptions through models of "server failure."</p>
+
+<p>In these models, failures arrive according to their own random process (usually assumed to be Poisson, that versatile workhorse of probability). When a server fails, it becomes unavailable for some "setup period"—the time required to repair, restart, or replace it. What happens to the customer being served when the failure occurs? In many models, that customer waits in the service area until the server recovers, then resumes where they left off.</p>
+
+<p>This matters enormously for system design. If you're building a data center, you need to know how server failures affect overall throughput. If failures are rare but repairs are slow, you might need more redundancy than if failures are common but quick to fix. Queueing theory helps quantify these tradeoffs.</p>
+
+<h2>Networks of Queues</h2>
+
+<p>Single queues are analytically tractable but rarely exist in isolation. Real systems are networks where the output of one queue becomes the input to another.</p>
+
+<p>Consider a hospital. Patients arrive at the emergency department—one queue. After triage, some go to radiology—another queue. After imaging, they might go to surgery—yet another queue. The patient experiences a sequence of waits, and the total experience depends on the behavior of every queue in the chain.</p>
+
+<p>Or consider a factory. Raw materials arrive, get processed at one station, move to another for assembly, then to quality control, then to packaging. Each station is a queue. A bottleneck at any point propagates delays throughout the system.</p>
+
+<p>Analyzing these networks requires understanding how queues interact. Does congestion at one node cause backpressure at the previous node? Does rapid service at one station overwhelm the next? The mathematics grows considerably more complex, but the insights become correspondingly more valuable.</p>
+
+<h2>Scheduling and Fairness</h2>
+
+<p>When multiple customers are waiting, who gets served first? This seems like a simple question, but the answer profoundly affects system behavior.</p>
+
+<p>The most common policy is "first come, first served"—also known by its abbreviation FCFS. People generally consider this fair. The person who has waited longest gets served next. But fairness isn't the same as efficiency.</p>
+
+<p>Consider a queue where some jobs are short and others are long. Under FCFS, a quick job arriving after a lengthy one must wait for the lengthy one to complete. An alternative policy, "shortest job first," would let the quick job jump ahead. This minimizes average wait time across all customers—but it seems unfair to the person with the long job, who keeps getting bumped.</p>
+
+<p>Real systems often implement more nuanced policies. Priority queues let certain customers (emergency patients, premium subscribers) skip ahead. Round-robin systems give each job a small time slice before cycling to the next, ensuring no job monopolizes the server. Some systems use random selection, which is fair in expected value but can produce frustrating individual outcomes.</p>
+
+<p>The choice of scheduling policy is ultimately a values question. What do we mean by "fair"? Whom do we want to wait? What tradeoffs between efficiency and equity are we willing to accept? Queueing theory can predict the consequences of different policies, but choosing among them requires human judgment.</p>
+
+<h2>The Problems That Remain</h2>
+
+<p>For all its century of development, queueing theory still has unsolved problems. The M/G/k queue—Markov arrivals, general service times, and k servers—seems like it should be straightforward, but exact solutions for its performance metrics remain elusive. Researchers have good approximations, but no clean formulas like those that exist for simpler models.</p>
+
+<p>New applications keep generating new challenges. Wireless networks, where signals can interfere with each other, create "coupled orbits" that classical queueing theory never anticipated. Product development, where items have physical dimensions and temporal existence, requires extensions that blend queueing with geometry.</p>
+
+<p>And as systems grow more complex, the gap between analytically tractable models and messy reality widens. Simulation often steps in where mathematics fails—building detailed computer models of queues and running them millions of times to estimate performance. This approach trades elegance for practicality, but it works.</p>
+
+<h2>The Universal Experience</h2>
+
+<p>Perhaps the most remarkable thing about queueing theory is how it captures a universal human experience. Everyone has waited. Everyone has watched lines move and wondered why theirs is slowest. Everyone has felt that peculiar frustration when the "fast" lane turns out to be anything but.</p>
+
+<p>Erlang, working with telephone operators in Copenhagen, discovered mathematics that would describe lines at airport security, packets traversing the internet, and ambulances waiting outside emergency rooms. The same equations that help designers size factory buffers also explain why that restaurant never seems to have a table free.</p>
+
+<p>We spend more of our lives waiting than we might like to admit. Queueing theory doesn't eliminate the waiting, but it helps explain it. And with understanding comes the possibility of improvement—shorter lines, faster service, better allocation of limited resources. A century after a Danish engineer first put pen to paper in a telephone exchange, we're still learning how to wait more efficiently.</p>
       </div>
 
       <footer class="wikipedia-footer">

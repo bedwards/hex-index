@@ -22,7 +22,123 @@
       </header>
 
       <div class="wikipedia-content">
-        <p>Content not available.</p>
+        The rewritten article has been prepared. Here's the HTML content:
+
+```html
+<p class="source-note">Based on <a href="https://en.wikipedia.org/wiki/Dijkstra%27s_algorithm">Wikipedia: Dijkstra's algorithm</a></p>
+
+<p>One morning in 1956, a young Dutch programmer sat exhausted at a café terrace in Amsterdam with his fiancée. They had been shopping, and while she rested, his mind wandered to an interesting puzzle: what's the fastest way to get from Rotterdam to Groningen? Twenty minutes later, without so much as a pencil and paper, Edsger Dijkstra had invented one of the most important algorithms in computer science.</p>
+
+<p>"One of the reasons that it is so nice," Dijkstra later recalled, "was that I designed it without pencil and paper. I learned later that one of the advantages of designing without pencil and paper is that you are almost forced to avoid all avoidable complexities."</p>
+
+<p>That café daydream became a cornerstone of modern computing. Every time your phone's map application calculates the fastest route to your destination, every time a network packet finds its way across the internet to reach your device, every time a video game character navigates around obstacles—there's a good chance Dijkstra's algorithm, or one of its descendants, is doing the heavy lifting behind the scenes.</p>
+
+<h2>The Problem That Started It All</h2>
+
+<p>Dijkstra worked as a programmer at the Mathematical Center in Amsterdam, and he had a demonstration to prepare. A new computer called ARMAC had just arrived, and he wanted to show non-technical people what it could do. He needed a problem that anyone could understand.</p>
+
+<p>What could be more relatable than finding the shortest route between cities?</p>
+
+<p>He created a simplified map of 64 cities in the Netherlands. Why 64 specifically? Because 64 is two raised to the sixth power, meaning each city could be represented by just six binary digits—an elegant constraint that shows how intimately early programmers had to understand their machines' limitations.</p>
+
+<p>The problem he tackled sounds deceptively simple: given a network of cities connected by roads of varying lengths, find the shortest path from one city to any other. But simplicity in statement often hides complexity in solution. How do you systematically explore every possible route without getting lost in an exponential explosion of possibilities?</p>
+
+<h2>How the Algorithm Actually Works</h2>
+
+<p>Imagine you're standing at an intersection in an unfamiliar city, trying to find the shortest walking route to a distant landmark. You have a map, but it only shows the roads and their lengths—not which combination of roads gets you there fastest.</p>
+
+<p>Here's Dijkstra's insight: you don't need to explore every possible path. You can be smarter about it.</p>
+
+<p>Start at your origin and mark it with a distance of zero—you're already there, after all. Every other intersection gets marked with "infinity," which is just a mathematical way of saying "I don't know how to get there yet."</p>
+
+<p>Now look at all the roads leading away from where you're standing. For each intersection you can reach directly, calculate the distance: it's simply the length of that road. If this is shorter than what you had before (which it definitely is, since "infinity" isn't a real distance), update that intersection's label.</p>
+
+<p>Here's the crucial step. Among all the intersections you haven't visited yet, pick the one with the smallest distance label. Move there. This intersection is now "settled"—you've found the shortest path to it, guaranteed. You'll never need to reconsider it.</p>
+
+<p>Why can you be so confident? Think about it. If there were a shorter path to this intersection, it would have to go through some other unvisited intersection first. But that other intersection has a longer distance label—that's why you didn't pick it. And since all roads have positive lengths, going through a farther intersection and then continuing can never be shorter than going to the closer one directly.</p>
+
+<p>Repeat this process: examine all roads from your new position, update distance labels where you find improvements, then move to the next closest unsettled intersection. Keep going until you've settled your destination—or until you've explored every reachable place on the map.</p>
+
+<h2>The Beauty of Greedy Decisions</h2>
+
+<p>Dijkstra's algorithm belongs to a family called "greedy algorithms." These are procedures that make the locally optimal choice at each step, hoping this leads to a globally optimal solution. Most of the time, greedy approaches don't actually guarantee the best answer—they just give you something reasonably good, quickly.</p>
+
+<p>But Dijkstra's algorithm is special. Its greedy choices <em>do</em> guarantee the optimal answer, every single time. This isn't true for most shortest-path-like problems. Change the setup slightly—allow some roads to have negative lengths (think of them as roads where someone pays you to drive on them)—and the greedy approach falls apart completely.</p>
+
+<p>This is why the algorithm's correctness proof matters. It's not obvious that always choosing the nearest unsettled intersection works. The proof uses mathematical induction, showing that if your distance labels are correct for the intersections you've already settled, they'll remain correct when you settle one more. The non-negativity of road lengths is the linchpin that holds the whole argument together.</p>
+
+<h2>From City Maps to Computer Networks</h2>
+
+<p>Three years passed between that Amsterdam café moment and the algorithm's publication in 1959. During that time, Dijkstra encountered a related puzzle from hardware engineers working on the institute's next computer: how do you minimize the wire needed to connect pins on a back panel?</p>
+
+<p>This led him to rediscover an algorithm for finding "minimum spanning trees"—the smallest total length of connections that links everything together without any loops. The algorithm had actually been discovered thirty years earlier by Czech mathematician Vojtěch Jarník, and again by Robert Prim just two years before Dijkstra's version. Such parallel discoveries are common in mathematics; good ideas tend to emerge when their time has come.</p>
+
+<p>Today, Dijkstra's shortest-path algorithm forms the backbone of how the internet works. Two major routing protocols—the Intermediate System to Intermediate System protocol and the Open Shortest Path First protocol—use it to figure out how to forward data packets efficiently. When you load a webpage, the request travels through dozens of network routers, each one making split-second decisions about where to send your data next. Those decisions are informed by shortest-path calculations running continuously in the background.</p>
+
+<h2>The Quest for Speed</h2>
+
+<p>Dijkstra's original algorithm had a limitation. Each time it needed to find the nearest unsettled intersection, it had to scan through every unsettled intersection to find the minimum. On a map with a thousand cities, settling all of them required roughly a million comparisons. With a million cities, you're looking at a trillion comparisons.</p>
+
+<p>Computer scientists describe this by saying the algorithm runs in time proportional to the square of the number of locations. Double the map size, quadruple the running time.</p>
+
+<p>In 1984, Michael Fredman and Robert Tarjan proposed a clever optimization using a data structure called a Fibonacci heap. This exotic structure—named for the famous sequence because of how it manages its internal organization—can find and remove the minimum element much faster than a simple list, and can decrease an element's value extremely efficiently.</p>
+
+<p>With a Fibonacci heap, the algorithm's running time grows much more slowly as the map expands. The improvement is dramatic for large, sparse networks—exactly the kind you find in real-world road systems, where each city connects to only a handful of neighbors rather than to every other city.</p>
+
+<p>But the story doesn't end there. For specific applications, researchers have found ways to go even faster. If you're willing to do some preprocessing—computing auxiliary data structures before anyone asks for directions—you can answer shortest-path queries almost instantaneously. Techniques called "contraction hierarchies" can speed things up by seven orders of magnitude. That's the difference between waiting ten million seconds (about four months) and waiting one second. This is how Google Maps can give you driving directions in milliseconds across a road network with hundreds of millions of intersections.</p>
+
+<h2>The Algorithm in Action: A Worked Example</h2>
+
+<p>Let's trace through a tiny example to see these ideas in motion.</p>
+
+<p>Imagine five towns arranged roughly in a pentagon: Ashford, Brighton, Canterbury, Dover, and Eastbourne. The roads between them have various lengths:</p>
+
+<ul>
+<li>Ashford to Brighton: 7 miles</li>
+<li>Ashford to Canterbury: 9 miles</li>
+<li>Ashford to Eastbourne: 14 miles</li>
+<li>Brighton to Canterbury: 10 miles</li>
+<li>Brighton to Dover: 15 miles</li>
+<li>Canterbury to Dover: 11 miles</li>
+<li>Canterbury to Eastbourne: 2 miles</li>
+<li>Dover to Eastbourne: 6 miles</li>
+</ul>
+
+<p>We want to find the shortest path from Ashford to every other town.</p>
+
+<p>We start at Ashford with distance zero. Brighton, Canterbury, Dover, and Eastbourne all begin at infinity.</p>
+
+<p>Looking at roads from Ashford: Brighton is 7 miles away, Canterbury is 9 miles, and Eastbourne is 14 miles. We update these labels. Dover remains at infinity because there's no direct road from Ashford.</p>
+
+<p>The nearest unsettled town is Brighton at 7 miles. We settle it and look at its connections. Canterbury is 7 plus 10 equals 17 miles via Brighton—but we already have it labeled as 9 miles via the direct route, so we don't update. Dover is 7 plus 15 equals 22 miles via Brighton. That's better than infinity, so Dover gets labeled 22.</p>
+
+<p>Now the nearest unsettled town is Canterbury at 9 miles. We settle it. Dover via Canterbury is 9 plus 11 equals 20 miles—better than 22, so we update Dover to 20. Eastbourne via Canterbury is 9 plus 2 equals 11 miles—better than 14, so we update Eastbourne to 11.</p>
+
+<p>Next we settle Eastbourne at 11 miles. Dover via Eastbourne is 11 plus 6 equals 17 miles—better than 20! We update Dover to 17.</p>
+
+<p>Finally, we settle Dover at 17 miles. There are no improvements to make.</p>
+
+<p>Our final distances from Ashford: Brighton 7 miles, Canterbury 9 miles, Eastbourne 11 miles, Dover 17 miles. Notice that the shortest route to Dover isn't the obvious path through Brighton. It's the less intuitive route through Canterbury and Eastbourne.</p>
+
+<h2>Beyond Simple Distances</h2>
+
+<p>The algorithm generalizes far beyond road maps. Anywhere you have a network with "costs" attached to connections, and you want to minimize total cost, Dijkstra's approach applies.</p>
+
+<p>Social networks use similar ideas to find degrees of separation between people. Recommendation systems use them to find paths through networks of similar products or content. Airline booking systems use them to find the cheapest sequence of flights. Video games use them for pathfinding, guiding characters through complex environments.</p>
+
+<p>In artificial intelligence, Dijkstra's algorithm is recognized as a special case of something called "best-first search"—a family of algorithms that explore possibilities by always looking at the most promising option first. When you add heuristics—educated guesses about how far you still have to go—you get the famous A-star algorithm, which can find paths even faster by avoiding dead ends before wasting time exploring them.</p>
+
+<h2>The Legacy of Twenty Minutes</h2>
+
+<p>Edsger Dijkstra went on to become one of the most influential computer scientists of the twentieth century. He contributed fundamental ideas to programming methodology, made important advances in concurrent computing, and was famously opinionated about how software should be written. He won the Turing Award—computer science's highest honor—in 1972.</p>
+
+<p>But that twenty-minute invention at an Amsterdam café terrace remained special to him. "Eventually, that algorithm became, to my great amazement, one of the cornerstones of my fame," he reflected.</p>
+
+<p>There's something profound in this story. A moment of idle curiosity, a willingness to think through a problem carefully without rushing to write anything down, the discipline to avoid unnecessary complexity—these qualities produced an algorithm that billions of devices use every day, more than sixty years later.</p>
+
+<p>The next time your phone tells you to turn left in 300 meters, you're benefiting from that café daydream. Every packet of data flowing through the internet to reach you, every game character navigating a dungeon, every logistics system optimizing delivery routes—all of them carry forward that twenty-minute spark of insight.</p>
+
+<p>Not bad for a coffee break.</p>
       </div>
 
       <footer class="wikipedia-footer">

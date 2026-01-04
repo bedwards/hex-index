@@ -22,7 +22,155 @@
       </header>
 
       <div class="wikipedia-content">
-        <p>Content not available.</p>
+        <p class="source-note">Based on <a href="https://en.wikipedia.org/wiki/Ergodicity">Wikipedia: Ergodicity</a></p>
+
+<h2>The Mathematics of "Eventually, Everywhere"</h2>
+
+<p>Imagine dropping a single drop of cream into your morning coffee. You don't stir it. You just wait. What happens?</p>
+
+<p>At first, the cream forms a small white cloud, suspended in the dark liquid. But if you wait long enough—perhaps an impractically long time, but still a finite time—that cream will spread throughout the entire cup. Every sip will taste the same. The cream will have visited everywhere.</p>
+
+<p>This is ergodicity in action.</p>
+
+<p>The word itself comes from the Greek "ergon" (work) and "hodos" (path), but that etymology doesn't capture what the concept really means. Ergodicity is the mathematical formalization of a simple intuition: given enough time, a system that moves randomly will eventually explore all the places it can possibly go, and it will spend time in each place proportional to how "large" that place is.</p>
+
+<h2>Why This Matters Beyond Mathematics</h2>
+
+<p>Here's why ergodicity shows up in discussions about investing, career decisions, and junior developers: it distinguishes between two fundamentally different ways of calculating averages.</p>
+
+<p>Consider a casino. The house always wins—on average. If you average the outcomes across a million gamblers playing simultaneously, the casino takes its cut. This is an "ensemble average," looking across many parallel instances at one moment in time.</p>
+
+<p>But what about a single gambler, playing repeatedly over time? This is a "time average," following one instance through many moments. For the casino, these two averages are the same. The game is ergodic.</p>
+
+<p>Now consider Russian roulette with a billion-dollar payoff for surviving. The ensemble average looks fantastic—five out of six players become billionaires! But no individual should ever play this game, because the time average for any single player eventually reaches zero. You can only die once, and then your game is over forever. Russian roulette is non-ergodic.</p>
+
+<p>This distinction explains why some strategies that look good "on average" can still ruin every individual who tries them. It's why the advice "just take more risks" can be simultaneously correct for a population and catastrophic for a person.</p>
+
+<h2>The Smoke-Filled Room</h2>
+
+<p>Let's ground this in something more tangible. Picture a room. Someone lights a cigarette in the corner. Where does the smoke go?</p>
+
+<p>Initially, the smoke hangs in a cloud near the smoker. But the molecules of smoke are jostling around randomly, bouncing off air molecules, careening this way and that. No individual smoke particle knows where it's going. There's no plan, no organization, no directive from smoke headquarters.</p>
+
+<p>Yet somehow, inevitably, the smoke fills the entire room.</p>
+
+<p>This is what physicists call diffusion, and it's ergodic. Each smoke particle, following its own random walk, will eventually visit every corner of the room. More precisely, if you wait long enough and then measure where a single particle is, you'll find it could be anywhere in the room with roughly equal probability.</p>
+
+<p>The same principle explains why a cold block of metal placed on a hot block of metal will eventually reach a uniform temperature throughout. Heat is just the random jiggling of atoms, and those jiggles spread everywhere they can reach.</p>
+
+<h2>The Formal Machinery</h2>
+
+<p>Mathematicians, being mathematicians, have developed precise language for all this. They speak of "measure-preserving dynamical systems," which sounds intimidating but captures a straightforward idea.</p>
+
+<p>You have a space—the coffee cup, the smoke-filled room, the set of all possible outcomes. You have a way of measuring the size of regions within that space—the volume of cream, the density of smoke, the probability of an outcome. And you have a rule for how the system evolves over time.</p>
+
+<p>The "measure-preserving" part means that the total amount of stuff doesn't change. The cream doesn't evaporate. The smoke particles don't disappear. If you start with a cupful of coffee-and-cream, you end with a cupful of coffee-and-cream. What changes is how that stuff is distributed.</p>
+
+<p>Think of bread dough. When you knead it, you're not adding or removing any dough. You're just redistributing it—stretching, folding, squashing. Mathematicians actually use "the baker's map" as a canonical example of an ergodic transformation. You roll the dough out to twice its length, cut it in half, and stack the pieces. Repeat this enough times and any speck of flour will have traveled throughout the entire loaf.</p>
+
+<h2>When Ergodicity Breaks Down</h2>
+
+<p>Not everything is ergodic. Some systems get stuck.</p>
+
+<p>Consider a marble rolling in a bowl with a divider down the middle. If the marble starts on the left side, and it doesn't have enough energy to climb over the divider, it will spend eternity on the left side. The right side might as well not exist. The marble's time average will never match the ensemble average that includes trajectories on both sides.</p>
+
+<p>This is what mathematicians call a "decomposable" system. The phase space—the set of all possible states—breaks into isolated regions that don't communicate with each other. Water running downhill is another example. Once it's flowed down, it doesn't flow back up. The lake at the bottom might be well-mixed (ergodic within itself), but the system as a whole isn't ergodic.</p>
+
+<p>The ergodic decomposition theorem tells us something beautiful: any system that doesn't lose stuff forever (a "conservative" system) can be broken into ergodic components. Even if the whole system isn't ergodic, you can carve it into pieces that are.</p>
+
+<h2>Mixing: Ergodicity's Intense Cousin</h2>
+
+<p>Ergodicity says that a system will eventually visit everywhere. Mixing says something stronger: that any two regions will eventually intermingle.</p>
+
+<p>Here's the distinction. An ergodic system might spend eons on the left side of the room, then eons on the right side, then eons on the left again. Eventually it visits everywhere, but it takes scenic routes and extended stays. A mixing system can't do this. If you start with cream on the left and coffee on the right, a mixing system guarantees that cream will infiltrate the coffee and coffee will infiltrate the cream—and they'll keep infiltrating until they're completely homogenized.</p>
+
+<p>Anyone who has tried to fold a thick batter knows that mixing isn't automatic. Some systems mix easily; some resist fiercely. The difference matters for everything from industrial chemical processing to understanding how galaxies evolve.</p>
+
+<h2>The Coin-Flip Universe</h2>
+
+<p>Here's where ergodicity gets wonderfully abstract. The "space" we're studying doesn't have to be a physical room or a cup of coffee. It can be the space of all possible sequences of events.</p>
+
+<p>Consider flipping a fair coin, forever. Each flip is independent. Heads or tails, half and half, world without end.</p>
+
+<p>What's the "space" here? It's the set of all possible infinite sequences of coin flips. That's an enormous space—uncountably infinite, in fact. Yet we can still define a sensible notion of volume (probability) on this space.</p>
+
+<p>What fraction of all possible sequences start with heads? Half. What fraction have heads in the seventh position? Half. What fraction have heads in positions 3, 7, and 42? One-eighth.</p>
+
+<p>These are called "cylinder sets"—sets defined by specifying what happens at particular positions while ignoring everything else. From these building blocks, mathematicians construct the entire architecture of probability theory.</p>
+
+<p>The time evolution here is "the shift map": you look at the sequence, throw away the first flip, and slide everything else down by one position. What was the second flip becomes the first. What was the third becomes the second. And so on forever.</p>
+
+<p>This system is ergodic. In fact, it's the prototype of ergodic systems, the one that probability textbooks build everything else from.</p>
+
+<h2>The Law of Large Numbers, Revisited</h2>
+
+<p>The law of large numbers says that if you flip a fair coin many times, the fraction of heads converges to one-half. Everyone learns this in introductory probability. Fewer people learn why it's true.</p>
+
+<p>Ergodic theory provides the deepest answer. The Birkhoff ergodic theorem—named after George Birkhoff, who proved it in 1931—says that time averages equal space averages for ergodic systems.</p>
+
+<p>What does that mean concretely? Take any sequence of coin flips. Count the heads in the first N flips, divide by N, and watch what happens as N grows. The Birkhoff theorem guarantees this ratio approaches one-half—not for some sequences, not for most sequences, but for almost every sequence. The exceptions form a set of measure zero, a set so thin it has no volume at all.</p>
+
+<p>This is the mathematical bedrock beneath statistical reasoning. When we say "this event has probability one-half," we're really saying something about the long-run frequency of that event in almost every possible timeline.</p>
+
+<h2>The Boltzmann Legacy</h2>
+
+<p>Ergodicity was born from a crisis in nineteenth-century physics. Ludwig Boltzmann was trying to understand why heat flows from hot objects to cold ones, why a gas fills its container uniformly, why—in general—systems tend toward equilibrium.</p>
+
+<p>His insight was radical. A gas isn't a continuous fluid; it's a vast swarm of tiny particles, each following Newton's laws. If you could track every particle—every position, every velocity—you'd have complete information about the gas. But there are so many particles (roughly 10 to the 23rd power in a breath of air) that tracking them individually is hopeless. You need statistical methods.</p>
+
+<p>Boltzmann hypothesized that the gas would, over time, explore all possible configurations consistent with its total energy. Every microstate—every specific arrangement of positions and velocities—would be visited eventually, and each would be visited equally often. This is the "ergodic hypothesis," and it became the foundation of statistical mechanics.</p>
+
+<p>It turned out that the ergodic hypothesis isn't quite true in general. Some systems aren't ergodic. But the ones that matter most for thermodynamics usually are, or are close enough. And the mathematical framework built to study Boltzmann's hypothesis became ergodic theory proper.</p>
+
+<h2>Billiards and Chaos</h2>
+
+<p>One of the most elegant examples of ergodicity comes from billiards—not the game with pockets, but an idealized version where a ball bounces forever inside a frictionless enclosure.</p>
+
+<p>If the table is rectangular, the system isn't ergodic. A ball launched at a slight angle will trace out a regular pattern, eventually retracing its steps. It won't visit most of the table.</p>
+
+<p>But make the table a stadium shape—a rectangle with semicircular ends—and something remarkable happens. Now the system is not just ergodic but mixing. Nearby trajectories diverge exponentially. A tiny change in the initial angle produces a completely different long-term path. This is chaos in its purest mathematical form, and it's intimately connected to ergodicity.</p>
+
+<p>The Sinai billiard goes further: place a circular obstacle in the center of a square table. Now every trajectory becomes chaotic. Yakov Sinai proved this system is ergodic in 1970, earning him lasting fame in mathematical circles (and eventually an Abel Prize).</p>
+
+<p>These billiard systems aren't just mathematical curiosities. They model how atoms move in metals, how electrons scatter in semiconductors, how stars orbit in galaxies. The abstract geometry of bouncing balls illuminates the physical world.</p>
+
+<h2>Hyperbolic Geometry and the Roots of Randomness</h2>
+
+<p>Why is chaos so common? Why do so many systems exhibit this ergodic wandering?</p>
+
+<p>One deep answer involves hyperbolic geometry—the geometry of spaces that curve like a saddle rather than a sphere.</p>
+
+<p>In hyperbolic space, paths that start out parallel diverge exponentially. Two hikers walking "parallel" on a hyperbolic surface will find themselves farther and farther apart, even if neither turns. This divergence is built into the fabric of the space itself.</p>
+
+<p>When a system moves through hyperbolic geometry, its trajectories inherit this divergence. Nearby starting points lead to dramatically different futures. And when the space is also finite—when there's only so far you can go before wrapping back around—those diverging trajectories eventually cover everything.</p>
+
+<p>This explains why ergodicity appears wherever hyperbolic geometry lurks: in the motion of particles on curved surfaces, in the stretching and folding of chaotic flows, in the number-theoretic dance of continued fractions.</p>
+
+<h2>The Connection to Junior Developers</h2>
+
+<p>Why would an article about hiring junior developers reference ergodicity?</p>
+
+<p>Because hiring is a gamble, and gambles can be ergodic or non-ergodic.</p>
+
+<p>Consider a company that hires a hundred junior developers across its divisions. Some will fail. Some will succeed. On average, the investment pays off—juniors become seniors, learn the codebase, bring fresh perspectives. This is the ensemble view.</p>
+
+<p>Now consider a tiny startup that hires exactly one junior developer. If that person doesn't work out, there's no averaging. There's no "on average." There's just a failed bet and a company that might not survive it.</p>
+
+<p>The ensemble average (hiring juniors is good) and the time average (this particular hiring decision could destroy us) can diverge. Understanding which situation you're in—and whether your strategy depends on a kind of averaging that might not apply to you—is exactly what ergodicity is about.</p>
+
+<p>This is why investors diversify, why insurance exists, why the same bet can be smart for a casino and stupid for a gambler. Ergodicity isn't just abstract mathematics. It's the hidden variable behind which strategies actually work for the entities that try them.</p>
+
+<h2>The Ergodic View of Life</h2>
+
+<p>There's something almost philosophical in ergodicity. It says that a system exploring randomly will eventually visit everywhere it can go. The randomness doesn't prevent completeness—it ensures it. Given enough time, every possibility is not just possible but inevitable.</p>
+
+<p>This is why smoke fills rooms. Why cream disperses in coffee. Why heat spreads. Why galaxies evolve. The universe, in many of its aspects, is an ergodic process wandering through the space of its possibilities.</p>
+
+<p>But life, evolution, and human experience are often non-ergodic. They have irreversibilities. Extinction is forever. Death is final. Some doors, once closed, never reopen.</p>
+
+<p>Understanding which systems are ergodic and which aren't—understanding when "on average" actually applies to you—might be one of the most practically important insights that higher mathematics has to offer.</p>
+
+<p>The cream in your coffee will eventually mix. Your career, your company, your species might not get that luxury. The mathematics of "eventually, everywhere" is also, by negation, the mathematics of "never again."</p>
       </div>
 
       <footer class="wikipedia-footer">

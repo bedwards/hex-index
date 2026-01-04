@@ -22,7 +22,127 @@
       </header>
 
       <div class="wikipedia-content">
-        <p>Content not available.</p>
+        <p class="source-note">Based on <a href="https://en.wikipedia.org/wiki/7_nm_process">Wikipedia: 7 nm process</a></p>
+
+<p>Here's a puzzle that will make you question everything you thought you knew about technology marketing: what does "7 nanometers" actually mean when a chip company says they've built a "7nm processor"?</p>
+
+<p>The answer is: absolutely nothing specific.</p>
+
+<p>This isn't an exaggeration or a cynical take. Since at least 1997, the numbers in chip manufacturing process names have stopped referring to any actual physical dimension on the chip. Not the gate length. Not the metal pitch. Not any measurement you could make with an electron microscope. The "7nm" label is essentially a brand name, like calling a hotel "five stars" when there's no universal standard for what that means.</p>
+
+<h2>The Great Naming Divergence</h2>
+
+<p>To understand how we got here, you need to understand how chip manufacturing used to work. In the early days of semiconductor fabrication, when engineers said they were working on a "1 micron process," they meant it literally. The smallest features on the chip—typically the gate length of the transistors—measured about one micrometer, or one millionth of a meter.</p>
+
+<p>This neat correspondence held for decades. Each new "node" roughly halved the previous dimensions, following the famous prediction by Intel co-founder Gordon Moore that transistor density would double approximately every two years. The 500nm node gave way to 350nm, then 250nm, 180nm, 130nm, 90nm, 65nm, 45nm, 32nm, 22nm.</p>
+
+<p>But somewhere along the way, the measurements stopped shrinking uniformly.</p>
+
+<p>New lithography processes no longer reduced all features on a chip by the same ratio. Some dimensions got smaller faster than others. Some barely shrank at all. The gate length might decrease while the metal pitch—the spacing between the tiny wires connecting transistors—stayed stubbornly large. Engineers faced a choice: which dimension should define the node name?</p>
+
+<p>They chose marketing.</p>
+
+<p>The International Technology Roadmap for Semiconductors, the industry body that once tried to standardize these things, provided insufficient guidance. Different foundries—the specialized factories that manufacture chips—started using the same numbers to mean different things. Intel's "10nm" process, for instance, achieved roughly the same transistor density as what Taiwan Semiconductor Manufacturing Company (TSMC) called "7nm." Intel eventually threw up its hands and rebranded their "10nm Enhanced SuperFin" process as "Intel 7," essentially admitting that the numbers had become arbitrary.</p>
+
+<h2>What Actually Matters: Transistor Density</h2>
+
+<p>If the nanometer numbers don't mean anything, what does? Transistor density—how many transistors you can pack into a square millimeter of silicon.</p>
+
+<p>By this measure, TSMC's N7 process and Samsung's 7LPP process both achieve roughly what Intel's "10nm Enhanced SuperFin" achieves. They're all approximately equivalent despite their different names. The 2021 International Roadmap for Devices and Systems, which succeeded the original roadmap, published standardized dimensions for what a "7nm node" should mean, but this was essentially a retrospective document. TSMC had already started volume production of chips they called "7nm" back in 2016, manufacturing 256-megabit memory chips (Static Random Access Memory, or SRAM) that squeezed into remarkably tiny cell areas.</p>
+
+<p>The practical upshot? When Apple announced the A12 Bionic chip in September 2018—the first mainstream "7nm" mobile processor for mass-market consumer devices—they weren't really telling you anything about how the chip was made. They were telling you it was faster and more efficient than last year's chip, which is what consumers actually care about.</p>
+
+<h2>The Race That Wasn't Quite a Race</h2>
+
+<p>The story of the first "7nm" chips has a peculiar footnote. Huawei actually announced their Kirin 980 processor before Apple announced the A12 Bionic—on August 31, 2018, versus Apple's September 12 announcement. But Apple got their chip into consumers' hands first, when the iPhone XS shipped before the Huawei Mate 20.</p>
+
+<p>Both chips came from the same factory: TSMC.</p>
+
+<p>This is one of the stranger aspects of the modern semiconductor industry. Apple and Huawei are fierce competitors in the smartphone market, but they're both customers of the same Taiwanese manufacturing company. TSMC doesn't design chips; they just make them, with extraordinary precision, for whoever can afford their services and meet their volume commitments.</p>
+
+<p>The same pattern played out across the industry. Advanced Micro Devices (AMD) launched their "Rome" server processors in 2019, cramming up to 64 computing cores onto TSMC's N7 process. Qualcomm's Snapdragon 855, which powered countless Android phones, came from TSMC. MediaTek's 5G chips, Samsung's Exynos processors, even IBM's Power10—all manufactured by TSMC or, in some cases, Samsung's competing foundry business.</p>
+
+<h2>The Lithography Revolution</h2>
+
+<p>How do you actually make features this small? A human hair is roughly 80,000 to 100,000 nanometers wide. We're talking about carving patterns that are ten thousand times finer than that.</p>
+
+<p>The answer involves light, lenses, and an almost absurd amount of engineering ingenuity.</p>
+
+<p>Traditional chip manufacturing uses photolithography: you shine light through a mask (like a very sophisticated stencil) onto a silicon wafer coated with light-sensitive material. Where the light hits, the coating changes chemically, allowing you to etch patterns into the silicon. The problem is that light has a wavelength, and you can't easily create features much smaller than that wavelength.</p>
+
+<p>For years, the industry used deep ultraviolet (DUV) light with a wavelength of 193 nanometers. To make features smaller than 193nm, engineers developed increasingly clever tricks. One approach, called pitch splitting, involves using two separate masks for features that are too close together. You expose the wafer once, shift everything slightly, then expose it again. The features from both exposures interleave like the teeth of two combs.</p>
+
+<p>Another technique, self-aligned patterning, uses the physics of thin-film deposition to create spacers—narrow ridges that form naturally along the edges of existing features. These spacers can be much narrower than what lithography alone could achieve. You can even do this twice in succession, a process called self-aligned quadruple patterning (SAQP), to get features four times finer than your original pattern.</p>
+
+<p>But these multipatterning tricks have limits. Each additional exposure takes time. Each mask must align precisely with the previous ones; even tiny misalignments—"overlay errors" in the jargon—create defects. The complexity spirals.</p>
+
+<h2>Enter Extreme Ultraviolet</h2>
+
+<p>The semiconductor industry spent decades developing an alternative: extreme ultraviolet (EUV) lithography. Where DUV light has a wavelength of 193 nanometers, EUV light has a wavelength of just 13.5 nanometers. In principle, this should allow much finer features with fewer patterning steps.</p>
+
+<p>In practice, EUV is extraordinarily difficult.</p>
+
+<p>EUV light is absorbed by almost everything, including air and glass. Traditional lenses don't work; the light would never make it through. Instead, EUV systems use multilayer mirrors in a vacuum chamber, bouncing the light through a series of precisely curved reflective surfaces. The light source itself involves blasting tiny droplets of molten tin with a powerful laser, creating a plasma that emits EUV radiation.</p>
+
+<p>Only one company in the world makes EUV lithography machines: ASML, a Dutch firm that spent over two decades and tens of billions of dollars developing the technology. Their machines cost over $150 million each and require multiple Boeing 747 cargo planes to deliver. When Samsung announced they were using EUV for their "7nm" process (called 7LPP), ASML was their sole supplier.</p>
+
+<p>The "7nm" generation sits at an interesting transition point. TSMC's original N7 process used conventional DUV immersion lithography—immersion meaning the wafer sits in water to bend light more tightly—with extensive multipatterning. Their N7+ variant, which followed, began incorporating EUV for some critical layers. The trade-offs were complex: immersion tools were faster, but EUV could pattern some layers more simply.</p>
+
+<p>EUV also introduced new problems. Because the mask is no longer flat (it's a 3D reflective structure), some features end up in the "shadow" of others. Two identical bar-shaped features might not focus identically, one appearing different from the other depending on where you look. Small random variations—"stochastic printing failures"—could cause some features to simply not print at all, leaving holes where contacts should be or bridges where separate lines should exist.</p>
+
+<h2>The FinFET Revolution</h2>
+
+<p>The "7nm" node is built on a transistor design called FinFET, short for "fin field-effect transistor." To understand why this matters, you need to understand what a transistor does and why traditional designs stopped scaling.</p>
+
+<p>A transistor is essentially a switch. Apply a voltage to the "gate," and current flows between the "source" and "drain." Remove the voltage, and the current stops. Computers work by flipping millions (now billions) of these switches in precise patterns.</p>
+
+<p>In traditional planar transistors, the gate sits on top of a flat channel, like a lid on a box. As transistors shrank, this design ran into trouble. The gate couldn't control the channel effectively anymore; current would leak through even when the transistor was supposed to be off, wasting power and generating heat.</p>
+
+<p>FinFETs solve this by standing the channel on edge, like a fin rising from the silicon surface. The gate wraps around three sides of this fin instead of just sitting on top. This gives the gate much better control over the channel, reducing leakage and allowing further scaling. Intel introduced the first commercial FinFETs at their 22nm node in 2012, and every advanced process since has used some variant of the design.</p>
+
+<p>The fin dimensions are critical to performance, which is why chip makers use self-aligned quadruple patterning to define them—the most precise patterning technique available. Everything else in the chip can tolerate slightly looser tolerances, but the fins must be exact.</p>
+
+<h2>The Business of Shrinking</h2>
+
+<p>Not everyone made it to "7nm."</p>
+
+<p>In August 2018, GlobalFoundries—then the second-largest independent foundry after TSMC—announced they were abandoning development of "7nm" chips entirely. The cost was simply too high. They would focus on older, more established processes where they could still compete.</p>
+
+<p>This was a watershed moment. Advanced chip manufacturing had become so expensive that even large, well-funded companies couldn't afford to stay at the cutting edge. The number of organizations capable of building the most advanced semiconductors had shrunk to essentially three: TSMC, Samsung, and Intel (the latter primarily for their own chips rather than as a foundry service).</p>
+
+<p>The economics explain why. A single EUV lithography machine costs over $150 million. A cutting-edge fabrication plant—a "fab"—requires tens of billions of dollars to construct. Intel's Fab 42 in Chandler, Arizona, announced in 2017, represented an investment of roughly $7 billion. And the equipment becomes obsolete within years, requiring continuous reinvestment just to stay current.</p>
+
+<p>Only companies with enormous volumes of chip production can amortize these costs. TSMC succeeds because they manufacture for Apple, AMD, Nvidia, Qualcomm, and dozens of other major chip designers. Samsung leverages their own massive smartphone and memory businesses. Intel has historically sold enough processors to justify their own fabs, though they've recently opened up to manufacturing chips for others.</p>
+
+<h2>The Numbers Game Continues</h2>
+
+<p>The naming confusion didn't end at "7nm." TSMC announced a "6nm" process (N6) in 2019, which was essentially a refined version of their "7nm" technology with more EUV layers. It was IP-compatible with N7—meaning chip designers could port their designs without major changes—but offered modest improvements in density and efficiency.</p>
+
+<p>Meanwhile, TSMC also announced "5nm," "4nm," and "3nm" processes, each supposedly smaller than the last, though the relationship between these numbers and physical reality grew ever more tenuous. Intel, after their rebranding, announced "Intel 4" and "Intel 3" as successors to "Intel 7," attempting to bring some order to the chaos by at least using consistent arbitrary numbers.</p>
+
+<p>The lesson is that process node names are marketing, not engineering specifications. When you read that a new phone has a "7nm chip," what you should understand is that it uses transistor technology from a certain generation, one that enabled the powerful mobile processors that emerged around 2018-2020. The actual manufacturing involves dozens of different patterning techniques, multiple lithography technologies, and dimensions that vary wildly across different parts of the chip.</p>
+
+<h2>What's Actually Inside Your Phone</h2>
+
+<p>Consider the Apple A12 Bionic, that first mainstream "7nm" mobile processor. It contained 6.9 billion transistors—roughly a thousand times more than the Pentium processor from 1993. Those transistors were organized into a neural engine for machine learning, graphics processing units for rendering your photos and videos, and high-performance computing cores for running applications.</p>
+
+<p>The chip measured about 83 square millimeters—roughly the size of a small fingernail. Into that space, TSMC packed the processing power that would have required an entire room of equipment a few decades earlier. The "7nm" label, meaningless as it is technically, represented a genuine milestone in miniaturization and efficiency.</p>
+
+<p>By 2020, "7nm" manufacturing accounted for 36% of TSMC's revenue—over $10 billion worth of chips flowing from their fabs in Taiwan to devices around the world. The technology had moved from laboratory demonstrations to economic backbone in less than five years.</p>
+
+<h2>Looking Forward, Looking Back</h2>
+
+<p>The story of "7nm" is really two stories intertwined.</p>
+
+<p>The first is a story of marketing overtaking meaning. What began as a straightforward description—the smallest features on a chip measured 7 nanometers—became a brand name disconnected from physical reality. This has caused genuine confusion and arguably some deception, as different companies used the same numbers to describe meaningfully different technologies.</p>
+
+<p>The second is a story of remarkable engineering achievement. Regardless of what we call it, the manufacturing technology that emerged in the late 2010s represents one of humanity's most precise industrial processes. We learned to manipulate matter at scales where individual atoms become relevant, using light that most materials absorb, in machines so complex that only one company in the world can build them.</p>
+
+<p>The "7nm" node sits at a fascinating transition point in this history. It's the generation where EUV lithography finally moved from research curiosity to production reality after decades of development. It's when the consolidation of advanced manufacturing accelerated, leaving only a handful of companies capable of cutting-edge fabrication. And it's when the gap between what the marketing names suggested and what they actually meant became impossible to ignore.</p>
+
+<p>The researchers who demonstrated 6nm and 5nm transistors in laboratories back in the early 2000s—teams at IBM and NEC pushing the boundaries of what seemed possible—might be bemused to see their achievements reduced to brand names. But their work lives on in every smartphone, laptop, and server humming away with billions of transistors packed into spaces smaller than a postage stamp.</p>
+
+<p>Seven nanometers may not mean what it says. But the technology it represents is real, and it's everywhere.</p>
       </div>
 
       <footer class="wikipedia-footer">

@@ -22,7 +22,135 @@
       </header>
 
       <div class="wikipedia-content">
-        <p>Content not available.</p>
+        <p class="source-note">Based on <a href="https://en.wikipedia.org/wiki/Trusted_computing_base">Wikipedia: Trusted computing base</a></p>
+
+<h2>The Tiny Fortress That Guards Everything</h2>
+
+<p>Here's a strange truth about computer security: the most secure systems aren't the ones with the most protection. They're the ones that need to trust the least amount of code.</p>
+
+<p>Think about it this way. Every line of software you rely on is a potential betrayal waiting to happen. A bug here, a vulnerability there—any of them could be the crack that lets attackers through. So if you want a truly secure system, you need to shrink the amount of code you have to trust down to the absolute minimum.</p>
+
+<p>This minimal, essential core is called the Trusted Computing Base, or TCB. It's the foundation on which all your security guarantees rest. Get the TCB wrong, and nothing else matters. Get it right, and you can build remarkable things on top of it.</p>
+
+<h2>What Exactly Is a Trusted Computing Base?</h2>
+
+<p>The trusted computing base is the complete set of hardware, firmware, and software that a system's security depends upon. If anything in the TCB has a bug or vulnerability, the security of your entire system could collapse. It's not a firewall or an antivirus program—it's deeper than that. It's the kernel of the operating system, certain critical system utilities, and the hardware mechanisms that enforce memory protection.</p>
+
+<p>Everything outside the TCB? That code can misbehave, but it shouldn't be able to exceed its permissions. If your web browser gets compromised, that's bad—but if your browser sits outside the TCB, the damage should be contained. The browser can't suddenly give itself root access or read memory belonging to other programs.</p>
+
+<p>But here's the catch: the TCB itself cannot be protected by anything else. It has to protect itself. It's turtles all the way down, except at some point you hit bedrock—and that bedrock is the TCB.</p>
+
+<h2>The Orange Book: Where This All Comes From</h2>
+
+<p>The term "trusted computing base" traces back to work by John Rushby, who defined it as the combination of the operating system kernel and what he called "trusted processes"—programs that are deliberately allowed to break the normal access control rules. Later, a landmark paper by Butler Lampson and his colleagues on authentication in distributed systems offered their own definition.</p>
+
+<p>But the most influential treatment came from a document officially called the "Trusted Computer System Evaluation Criteria," published by the United States Department of Defense in 1985. Everyone just calls it the Orange Book, because of its distinctive cover color.</p>
+
+<p>The Orange Book provided the formal framework that security engineers still reference today. It defined the TCB as the totality of protection mechanisms within a computer system—including hardware, firmware, and software—that together enforce a unified security policy. The key insight was that whether something belongs in the TCB isn't about what it is, but about what it does. If a piece of code or hardware was designed to be part of the mechanism that provides security, it's part of the TCB.</p>
+
+<h2>The Relativity Problem</h2>
+
+<p>Here's where things get philosophically interesting. The boundaries of the TCB depend entirely on what you're trying to protect and from whom.</p>
+
+<p>Consider a web server. From the operating system's perspective, a web server is just another application. It's not part of the kernel, not part of the OS's trusted computing base. If an attacker exploits a buffer overflow in your web server, the operating system kernel hasn't been compromised.</p>
+
+<p>But zoom out. If that web server hosts a multi-user application—say, an online banking system—then from the bank's perspective, the web server absolutely is part of their trusted computing base. If an attacker takes over the web server, they can impersonate users, steal credentials, transfer money. The fact that the underlying Linux kernel is still pristine offers no comfort to the bank's customers.</p>
+
+<p>This is why security evaluations always start by defining what's called the "target of evaluation." Before you can assess security, you have to decide what you're actually talking about. What system? What threats? What security properties do you care about? Draw the boundaries wrong, and your entire analysis becomes meaningless.</p>
+
+<h2>No TCB, No Security</h2>
+
+<p>Some systems have no trusted computing base at all. They don't try to provide their own security—they rely entirely on external measures. Think of a computer sitting in a locked vault with no network connection. The machine itself might be running completely insecure software, but it doesn't matter because physical security and isolation do all the work.</p>
+
+<p>But the moment you want a computer to enforce security properties on its own—to keep secrets, to separate users, to resist network attacks—you need a TCB. There's no escaping it.</p>
+
+<p>The reason comes down to the fundamental nature of computers themselves. A general-purpose computer, what computer scientists call a Von Neumann machine, can do anything. It can execute any computation. Without special provisions that limit what's possible, the computer could be programmed to do anything an attacker wants—leak passwords, send secret emails to adversaries, delete everything.</p>
+
+<p>The TCB is precisely those "special provisions." It's the constraints that turn a general-purpose machine into something that actually refuses to do certain things, even when asked.</p>
+
+<h2>The Bootstrap Problem: Guarding the Guards</h2>
+
+<p>The software that makes up the trusted computing base faces a peculiar challenge: it must protect itself from tampering. This might sound obvious, but it's actually quite tricky.</p>
+
+<p>In a Von Neumann architecture—which describes almost every modern computer—programs and data live in the same memory. Machine code is just another kind of data. Any program can, in principle, read and overwrite any other program. So how do you prevent malicious code from simply rewriting the TCB?</p>
+
+<p>The answer involves hardware. Modern processors include a component called the Memory Management Unit, or MMU. The MMU sits between the processor and memory, checking every memory access against a set of permissions. The operating system programs the MMU to create protected regions—memory that application code simply cannot write to, or even read.</p>
+
+<p>The kernel lives in protected memory. Applications run in what's called "user mode," where the MMU blocks access to anything sensitive. When an application needs to do something privileged—open a file, send network traffic, allocate more memory—it has to ask the kernel through a controlled interface called a system call. The kernel runs in "supervisor mode," where these restrictions don't apply.</p>
+
+<p>This creates the hierarchical security model that modern operating systems depend on. But notice what we've done: we've made the MMU part of the trusted computing base, along with the code that programs it. The TCB can never be smaller than whatever enforces the fundamental memory protections.</p>
+
+<h2>The Trust Problem: Faith Without Proof</h2>
+
+<p>Here's an uncomfortable truth that security engineers have to live with: we call it the "trusted" computing base, but that doesn't mean it's trustworthy.</p>
+
+<p>The word "trusted" here is descriptive, not evaluative. The TCB is trusted because we have no choice but to trust it. Everything else depends on it. But whether that trust is actually warranted—whether the TCB is actually free of bugs—is a separate question entirely.</p>
+
+<p>Real-world operating systems have security-critical bugs discovered in them constantly. The Linux kernel has had thousands of vulnerabilities patched over the years. Windows, macOS, Android, iOS—all the same story. Every one of these bugs was a gap between trust and trustworthiness, a place where the foundation wasn't as solid as we assumed.</p>
+
+<p>For most systems, we accept this. We patch what we find, we hope for the best, we accept a certain level of risk. But for truly critical applications—systems that control nuclear weapons, or protect the nation's most sensitive secrets—hope isn't good enough.</p>
+
+<h2>seL4: Closing the Gap</h2>
+
+<p>Is it possible to actually prove that a piece of software is secure? To mathematically demonstrate the absence of bugs?</p>
+
+<p>For decades, the answer was essentially no—not for anything practical. Formal verification, the process of proving software correct through mathematical techniques, was theoretically possible but prohibitively expensive. You might formally verify a toy program, but a real operating system? Impossible.</p>
+
+<p>Then in 2009, researchers at NICTA, an Australian research lab, did something remarkable. They formally verified seL4, a microkernel—which is a minimal kernel that provides only the most basic services, like memory protection and communication between processes.</p>
+
+<p>Let me be clear about what "formally verified" means here. The team didn't just test seL4 extensively. They didn't just audit the code carefully. They constructed a mathematical proof demonstrating that the actual C code implementing seL4 correctly implements its specification. Every possible execution of the code behaves according to the specification. There are no bugs in the code—not because they haven't been found yet, but because they provably don't exist.</p>
+
+<p>This made seL4 the first operating system kernel in history to close the gap between trust and trustworthiness. Assuming the proof itself is correct—which can be mechanically checked by computers—seL4 actually is as secure as we need to trust it to be.</p>
+
+<p>The verification effort took roughly eleven person-years of work. This is far more than writing the kernel itself took. But for applications where security failures are unacceptable, it's worth it.</p>
+
+<h2>The Economics of Small</h2>
+
+<p>The seL4 story illuminates a crucial economic reality: verifying the TCB is expensive, and the cost scales with size.</p>
+
+<p>Whether you're doing formal verification or manual code review, each additional line of code costs time and money to examine. More importantly, complexity doesn't scale linearly. A system twice as large isn't twice as hard to verify—it might be four times as hard, or ten times, because the interactions between components multiply.</p>
+
+<p>This creates a powerful incentive to keep the TCB as small as possible. Every feature you add to the kernel is a feature that must be verified. Every device driver that runs in kernel space is more code you have to trust.</p>
+
+<p>This economic argument is one of the main reasons microkernel advocates have been pushing their architecture for decades. A monolithic kernel like Linux runs device drivers, file systems, and networking protocols in kernel space, making all of that code part of the TCB. A microkernel runs only the bare minimum in the privileged layer—maybe 10,000 lines of code instead of millions—and pushes everything else out to user space where bugs can't compromise the whole system.</p>
+
+<p>The counterargument is that microkernels have historically been slower, because all those user-space components have to communicate through the kernel, adding overhead. But if you care about security above all else, that might be a trade-off worth making. And modern microkernels like seL4 have gotten remarkably efficient.</p>
+
+<h2>The Layers of Trust</h2>
+
+<p>There's a pattern in computer security that keeps recurring: each layer of a system treats the layers below it as axiomatically trustworthy. Your web application trusts the web server. The web server trusts the operating system. The operating system trusts the hypervisor (if it's running in a virtual machine). The hypervisor trusts the hardware.</p>
+
+<p>This is both a simplifying assumption and a profound vulnerability. Each layer is essentially betting that everything beneath it is perfect. That's a lot of faith.</p>
+
+<p>This is why the concept of "layer zero" resonates so deeply with security professionals. In cybersecurity, you eventually hit a layer that has to be trusted without proof—your trusted computing base. The integrity of everything above depends on that foundation being solid.</p>
+
+<p>And this is why some of the most sophisticated attacks target the lowest levels. A compromised firmware update, a malicious hardware implant, a bug in the hypervisor—these are devastating precisely because they undermine the foundation that everything else assumes is sound.</p>
+
+<h2>Practical Applications</h2>
+
+<p>Different operating systems handle the trusted computing base concept differently. IBM's AIX operating system, for example, actually includes the TCB as an explicit, optional component that you can enable during installation. When enabled, AIX maintains strict controls over which files and programs are part of the trusted base, and provides tools to verify their integrity.</p>
+
+<p>Most other operating systems don't make the TCB quite so explicit, but the concept still applies. Every operating system has some set of components that are absolutely critical for security, and security engineers need to know what those are.</p>
+
+<p>For programming languages designed with security in mind, the TCB extends to the language runtime and standard library. Java, for instance, has elaborate security mechanisms built into the virtual machine—and all of those mechanisms are part of the TCB for any Java application. If there's a bug in the Java virtual machine's security model, every Java application running on that VM is potentially vulnerable.</p>
+
+<h2>Trust Anchors and the Hardware Root</h2>
+
+<p>In recent years, the concept of a "trust anchor" has become increasingly important. A trust anchor is typically a piece of hardware that provides a fixed starting point for trust—something that can't be modified by software at all.</p>
+
+<p>Trusted Platform Modules, or TPMs, are a common example. These are dedicated security chips that can store cryptographic keys and verify that the boot process hasn't been tampered with. The idea is that even if an attacker completely owns your software, they can't compromise the hardware trust anchor, so you can always detect that something is wrong.</p>
+
+<p>Modern phones use similar ideas. Apple's Secure Enclave, Android's hardware-backed keystore—these are attempts to create trust anchors at the hardware level, components that stay secure even if the operating system itself is compromised.</p>
+
+<h2>The Eternal Vigilance</h2>
+
+<p>The trusted computing base isn't a problem you solve once and forget about. It's a commitment to eternal vigilance.</p>
+
+<p>Every time you add a feature to the kernel, you're expanding the TCB. Every time you install a kernel module or driver from a third party, you're trusting them with your entire system. Every time a security update patches a kernel vulnerability, you're reminded that your trust was, in fact, misplaced—the TCB had a bug.</p>
+
+<p>The best we can do is keep the TCB small, examine it thoroughly, and maintain healthy skepticism about everything outside it. In the end, computer security is about managing uncertainty, and the trusted computing base is where we acknowledge that we have to start somewhere. We have to trust something.</p>
+
+<p>The question isn't whether to have a trusted computing base—there's no alternative. The question is how small you can make it, how carefully you can verify it, and how clearly you understand where your faith actually rests.</p>
       </div>
 
       <footer class="wikipedia-footer">

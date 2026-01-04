@@ -22,7 +22,113 @@
       </header>
 
       <div class="wikipedia-content">
-        <p>Content not available.</p>
+        <p class="source-note">Based on <a href="https://en.wikipedia.org/wiki/Coding_conventions">Wikipedia: Coding conventions</a></p>
+
+<p>Here's a number that should make you pause: somewhere between forty and eighty percent of every dollar spent on a piece of software goes not to building it, but to maintaining it afterward. That's not a typo. The glamorous work of creating something new is dwarfed by the unglamorous work of keeping it alive, fixing its bugs, and adapting it to new requirements. And here's the uncomfortable truth that follows from this: the person maintaining that code is almost never the person who wrote it.</p>
+
+<p>This is why programmers care so deeply about something that sounds almost comically mundane: coding conventions.</p>
+
+<h2>What Conventions Actually Are</h2>
+
+<p>Coding conventions are agreements about how to write code. Not what the code does—compilers handle that—but how it looks, how it's organized, and how humans can read it. These conventions cover everything from how you indent your lines to what you name your variables to how you organize your files into folders.</p>
+
+<p>The key word there is "humans." Your computer doesn't care if you name a variable <em>x</em> or <em>customerAccountBalance</em>. It will execute both with equal indifference. But the person reading your code six months from now—who might be you, having forgotten everything about why you wrote it that way—cares enormously.</p>
+
+<p>Think of it like handwriting. Two people might write the same sentence, and both would communicate the same meaning. But one might be a pleasure to read while the other requires squinting and guesswork. Code is the same way. The instructions might work either way, but one version invites understanding while the other resists it.</p>
+
+<h2>The Problem of Other People</h2>
+
+<p>Software development has a people problem that most other engineering disciplines don't face in quite the same way. A bridge doesn't change much after it's built. But software is constantly modified, extended, patched, and rebuilt. And these modifications are done by whoever happens to be on the team at the time, not necessarily by the original architects.</p>
+
+<p>When Sun Microsystems—the company that created the Java programming language—documented their coding conventions, they put this reality front and center. Software, they noted, is rarely maintained by its original author. It passes through many hands. Each of those hands needs to understand what came before.</p>
+
+<p>This is where conventions become essential. They're not about enforcing some aesthetic preference. They're about creating a shared language within a shared language. When everyone on a team follows the same conventions, code written by one person looks like code written by any other person. This predictability makes everything faster. You don't have to decode each developer's personal style before you can understand their logic.</p>
+
+<h2>The Opposite: What Happens Without Conventions</h2>
+
+<p>Imagine walking into a library where every author had shelved their books according to their own personal system. Some arranged by color. Some by size. Some alphabetically by the third word of the title. Some by the author's birthday. Each system might be internally consistent, but finding anything would be a nightmare.</p>
+
+<p>Codebases without conventions are exactly like this. Each section reflects the preferences of whoever wrote it. Some developers prefer terse, abbreviated names. Others write out every word. Some indent with spaces, some with tabs. Some put opening braces on the same line, some on the next line. These might seem like trivial differences—and individually, they are—but multiplied across thousands of lines of code, they create chaos.</p>
+
+<p>The chaos isn't just aesthetic discomfort. It has real costs. Bugs hide more easily in inconsistent code. Reviews take longer because reviewers must constantly context-switch between styles. New team members take longer to become productive because they're essentially learning multiple dialects instead of one language.</p>
+
+<h2>The Upgrade: From Conventions to Standards</h2>
+
+<p>Sometimes conventions get promoted. When a particular set of guidelines has been designed specifically to produce high-quality, safe code—and when an organization formally adopts them as requirements rather than suggestions—they become coding standards.</p>
+
+<p>This distinction matters in certain industries. Medical devices, aviation systems, and automotive software operate under strict standards like MISRA C (Motor Industry Software Reliability Association) or CERT C (from the Computer Emergency Response Team). These aren't optional style guides. They're formal requirements that code must meet before it can be deployed in safety-critical systems.</p>
+
+<p>The difference between a convention and a standard is roughly the difference between etiquette and law. Conventions are what polite people agree to do. Standards are what you must do, with consequences if you don't.</p>
+
+<h2>Complexity: The Hidden Enemy</h2>
+
+<p>There's a deeper principle lurking beneath coding conventions, and it has to do with complexity. Complex code isn't just harder to read—it's harder to secure. Every additional twist and turn in your logic is another place for bugs to hide, another surface area for attackers to exploit.</p>
+
+<p>The most fundamental convention of all might be this: write less code.</p>
+
+<p>This sounds counterintuitive. Surely more code means more features, more capability, more value? But every line of code is a liability as well as an asset. It must be maintained. It can contain bugs. It must be understood by future developers. The best code is often the code you didn't write—the feature you realized you didn't need, the abstraction you simplified away, the clever trick you replaced with a straightforward solution.</p>
+
+<p>Experienced programmers often describe this as keeping code "physical" or "concrete." Instead of building elaborate abstract frameworks that might handle every possible future need, you write exactly what's needed now, in the most direct way possible. The code reads almost like plain instructions rather than an intricate puzzle.</p>
+
+<h2>Refactoring: Convention-Keeping as a Practice</h2>
+
+<p>Code doesn't stay well-organized by accident. It drifts. Quick fixes get added. Deadlines force compromises. Conventions that seemed clear at the start get muddied as the codebase grows.</p>
+
+<p>This is why software teams practice something called refactoring—the art of reorganizing code without changing what it does. You might rename a confusingly named variable. You might split a massive function into several smaller ones. You might move related code closer together or extract a common pattern into a reusable component.</p>
+
+<p>The key constraint is that refactoring changes nothing about behavior. Before and after, the software does exactly the same thing. What changes is the code's clarity, its conformance to conventions, its readability.</p>
+
+<p>Some development methodologies build refactoring directly into their rhythm. Agile teams, for instance, often plan for continuous refactoring—small improvements made constantly, rather than big cleanups attempted periodically. The idea is that keeping code tidy is easier than cleaning up a mess.</p>
+
+<h2>When Languages Enforce Convention</h2>
+
+<p>Some programming languages take conventions so seriously that they build them into the language itself. Python is the famous example.</p>
+
+<p>Most programming languages use symbols—curly braces, usually—to mark where blocks of code begin and end. This means indentation is purely cosmetic. You can indent however you like (or not at all), and the code will work the same way.</p>
+
+<p>Python rejected this approach. In Python, indentation is meaning. If you want code to be part of a function or loop, you indent it. Stop indenting, and you've ended that block. There are no braces to rely on. The visual structure and the logical structure are forced to match.</p>
+
+<p>This was controversial when Python was created. Some programmers found it constraining. But the result is that Python code tends to look more consistent across different projects and different developers than code in languages with more formatting freedom. The language itself enforces a convention that other languages can only recommend.</p>
+
+<p>Java takes a different approach with a more limited rule: one public class per file. Try to put two public classes in the same file, and the compiler will reject your code with an error. This isn't about indentation or naming—it's about file organization. But the effect is similar. A convention has been promoted to a rule, and the language enforces it automatically.</p>
+
+<h2>Tools That Care About Convention</h2>
+
+<p>Conventions enable something beyond human readability: they make code processable by automated tools.</p>
+
+<p>Consider documentation. Most programming languages have tools that can read special comments in your code and automatically generate documentation from them. Javadoc for Java and Doxygen for C++ are two well-known examples. But these tools only work if you write your comments in particular ways, following particular conventions. The tool looks for specific tags and formats. Deviate from the convention, and the tool produces nothing useful.</p>
+
+<p>Or consider static analysis—tools that examine code without running it, looking for potential bugs, security vulnerabilities, or style violations. These tools have grown steadily more sophisticated since they first appeared in the 1950s. Modern static analyzers can catch subtle bugs that human reviewers might miss. But they work best on code that follows predictable patterns. Unconventional code confuses them just as it confuses human readers.</p>
+
+<p>Even something as basic as counting lines of code—a crude but common way to measure project size—depends on consistent formatting. If one developer puts each statement on its own line and another chains multiple statements together, the line count stops being meaningful.</p>
+
+<h2>The Social Agreement</h2>
+
+<p>Perhaps the most important thing to understand about coding conventions is that they're fundamentally social, not technical. They're agreements between people about how to work together. The compiler doesn't enforce them. Often, nothing enforces them except team culture and code review.</p>
+
+<p>This makes them harder than technical problems in some ways. You can't fix a social disagreement by running a test. You can't automate agreement. You have to talk, negotiate, document, and then—hardest of all—consistently follow through.</p>
+
+<p>Some teams document their conventions formally in style guides that run to dozens of pages. Others rely on informal consensus and the pressure of code review. Some use automated formatters that rewrite code to match conventions automatically, removing the human element entirely. Some inherit the conventions of their programming language's culture—the Ruby way, the Pythonic way, the idiomatic Go style.</p>
+
+<p>What matters less is which conventions you choose and more that you choose something and stick to it. An unusual convention, followed consistently, beats an excellent convention followed sometimes. Consistency is the whole point.</p>
+
+<h2>A Convention About Order</h2>
+
+<p>Kent Beck—one of the most influential thinkers in software development, co-creator of extreme programming and the author of foundational books on testing and design—recently wrote about a convention he calls "canonical order." The idea is that elements within a file should always appear in the same sequence: imports, then constants, then public methods, then private methods, or whatever ordering the team agrees upon.</p>
+
+<p>This is a perfect example of a convention that costs nothing to follow but pays dividends in readability. When you open any file in a codebase that follows canonical order, you know immediately where to look for what you need. The organization is predictable. Your eyes can find things without searching.</p>
+
+<p>Beck frames this as a "tidying"—one of many small, optional improvements that make code incrementally better. It's not the kind of thing that makes or breaks a project. But multiply these small improvements across an entire codebase and an entire team's work over years, and the difference becomes substantial.</p>
+
+<h2>The Real Goal</h2>
+
+<p>Underneath all the specifics—the debates about tabs versus spaces, the rules about naming, the guidelines about file organization—there's one fundamental goal: to reduce the mental effort required to understand code.</p>
+
+<p>Programming is hard enough when you're fighting the actual problem. Coding conventions try to ensure you're not also fighting the code itself. When conventions are good and consistently followed, the code becomes almost transparent. You look through it to the logic beneath, rather than getting stuck on its surface.</p>
+
+<p>This might seem like a modest ambition. It is, in a way. But software is built on these modest ambitions stacked up. Every small reduction in friction, every tiny improvement in clarity, compounds over time. The forty to eighty percent of software cost that goes to maintenance? Good conventions can shrink that number. Not to zero—maintenance will always be substantial—but meaningfully, measurably down.</p>
+
+<p>That's why programmers who've been around long enough tend to care deeply about these seemingly trivial matters. They've seen the costs of chaos. They've inherited codebases that fought them at every turn. They've wasted days trying to understand code that could have been clear. They know that conventions aren't bureaucratic overhead. They're survival equipment.</p>
       </div>
 
       <footer class="wikipedia-footer">

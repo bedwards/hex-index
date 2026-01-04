@@ -22,7 +22,129 @@
       </header>
 
       <div class="wikipedia-content">
-        <p>Content not available.</p>
+        <p class="source-note">Based on <a href="https://en.wikipedia.org/wiki/Regression_discontinuity_design">Wikipedia: Regression discontinuity design</a></p>
+
+<p>Imagine you're a teacher who just graded a final exam. One student scored 79 percent. Another scored 81 percent. These two students are, for all practical purposes, identical in their mastery of the material. The two-point difference could easily be explained by whether one of them slept well the night before, or happened to know one particular question that the other guessed on.</p>
+
+<p>But here's the thing: if your school awards scholarships to everyone who scores 80 percent or above, these nearly-identical students face dramatically different futures. One gets money for college. The other doesn't.</p>
+
+<p>This arbitrary cutoff creates something remarkable. It creates what researchers call a natural experiment—a situation where people who are essentially the same end up in different treatment groups purely because of where they fall relative to some threshold. And this accidental gift from bureaucracy has become one of the most powerful tools in modern social science for figuring out whether policies actually work.</p>
+
+<h2>The Problem with Measuring What Works</h2>
+
+<p>Before we dive into how this technique works, we need to understand the problem it solves.</p>
+
+<p>Suppose you want to know whether scholarships help students succeed. The obvious approach is to compare students who got scholarships with students who didn't. If scholarship recipients graduate at higher rates, then scholarships must work, right?</p>
+
+<p>Wrong.</p>
+
+<p>The fundamental problem is that scholarships aren't handed out randomly. They go to students who were already performing well. So when scholarship recipients succeed later, you can't tell whether the scholarship helped them or whether they would have succeeded anyway because they were already high achievers. This is the classic correlation-versus-causation trap, and it haunts almost every attempt to measure the effects of policies in the real world.</p>
+
+<p>The gold standard solution is a randomized controlled trial—randomly assign some students to get scholarships and others not to, regardless of their merit. Then any difference in outcomes must be caused by the scholarship, since the two groups started out the same.</p>
+
+<p>But randomized trials are often impossible. You can't randomly decide which students get merit scholarships—that would defeat the entire purpose of calling them "merit" scholarships. You can't randomly assign people to be 21 years old to study the effects of legal drinking. You can't randomly make some politicians win elections by a hair and others lose by a hair to study how winning affects their future careers.</p>
+
+<p>This is where regression discontinuity design comes in. It's a clever way to extract causal knowledge from situations where randomization is impossible.</p>
+
+<h2>The Beautiful Logic of Arbitrary Cutoffs</h2>
+
+<p>The key insight is deceptively simple: when a treatment is assigned based on a cutoff, the people just above and just below that cutoff are essentially identical—except for the treatment.</p>
+
+<p>Think back to our scholarship example. A student who scored 81 percent is nearly indistinguishable from one who scored 79 percent. They probably have similar study habits, similar intelligence, similar backgrounds. The only meaningful difference is that one got a scholarship and one didn't.</p>
+
+<p>So if you compare the outcomes of students who scored just above 80 percent with students who scored just below, any systematic difference in their outcomes should be caused by the scholarship. You've essentially created a randomized experiment out of an arbitrary rule.</p>
+
+<p>Donald Thistlethwaite and Donald Campbell first developed this approach in 1960, using it to study how National Merit scholarships affected students' career plans. Their insight was that the arbitrary nature of cutoffs, usually seen as a flaw in policy design, could be transformed into a research tool.</p>
+
+<h2>Visualizing the Discontinuity</h2>
+
+<p>The technique gets its name from what you see when you graph the data.</p>
+
+<p>Picture plotting student outcomes—say, their graduation rates—against their original test scores. As test scores increase, graduation rates generally increase too. That's not surprising: better-performing students tend to keep performing better.</p>
+
+<p>But if scholarships have a real effect, you'll see something else: a sudden jump at the 80 percent cutoff. Students who scored 81 percent won't just be slightly more likely to graduate than students who scored 79 percent—they'll be noticeably more likely. That jump, that discontinuity, represents the causal effect of the scholarship.</p>
+
+<p>If there were no effect, the relationship between test scores and outcomes would be smooth, with no special jump at 80 percent. The discontinuity only appears if the treatment actually does something.</p>
+
+<h2>When Cutoffs Aren't Sharp</h2>
+
+<p>In the tidy example above, everyone above 80 percent gets the scholarship and everyone below doesn't. This is called a sharp regression discontinuity design.</p>
+
+<p>Reality is often messier.</p>
+
+<p>Perhaps teachers sometimes award "mercy passes" to students who scored 79 percent but showed exceptional effort. Perhaps students can appeal decisions or retake exams. Perhaps the scholarship committee has some discretion in borderline cases.</p>
+
+<p>When the cutoff isn't strictly enforced, you have what's called a fuzzy regression discontinuity design. The probability of treatment doesn't jump from zero to one at the cutoff—it just increases substantially.</p>
+
+<p>Fuzzy designs can still work, but they require more sophisticated statistical techniques borrowed from instrumental variable analysis. The core intuition remains the same: being just above versus just below the cutoff changes your probability of treatment, even if it doesn't perfectly determine it.</p>
+
+<h2>Where This Technique Shines</h2>
+
+<p>Regression discontinuity design has been used to study an enormous range of questions across psychology, economics, political science, and public health.</p>
+
+<p>One famous application involves studying the effects of alcohol. In the United States, the legal drinking age is 21. People who are 20 years and 364 days old can't legally buy alcohol. People who are 21 years old can. Research by Christopher Carpenter and Carlos Dobkin used this cutoff to study how legal access to alcohol affects mortality and health outcomes. They found that mortality rates jump by about 9 percent at age 21, driven largely by motor vehicle accidents. This tells us something important: the legal drinking age actually does constrain drinking, and that constraint saves lives.</p>
+
+<p>Political scientists have used election margins to study the effects of winning office. When a politician wins an election by a tiny margin—say, 50.1 percent to 49.9 percent—the winner and loser were nearly tied in support. Comparing their subsequent careers reveals the effects of actually holding office versus narrowly losing.</p>
+
+<p>Education researchers have used test score cutoffs to study the effects of being placed in gifted programs, remedial programs, or different school tracks. In each case, students near the cutoff are similar in ability, but one group receives a treatment that the other doesn't.</p>
+
+<p>The technique has even been used to study the effects of age-based policies like pension eligibility, compulsory schooling laws, and military conscription.</p>
+
+<h2>The Crucial Assumption: No Gaming</h2>
+
+<p>Regression discontinuity design rests on a critical assumption: people can't precisely manipulate which side of the cutoff they end up on.</p>
+
+<p>If the student who scored 79 percent could reliably talk their professor into rounding up to 80, the design breaks down. Now the students just below and just above the cutoff aren't comparable—the ones just above include smooth talkers who gamed their way in.</p>
+
+<p>This is why the technique works well when there's some randomness in the assignment variable. Test scores have inherent variability from day-to-day performance, grading subjectivity, and simple luck. This randomness means that where you land relative to the cutoff is partly out of your control, which preserves the comparability of students on either side.</p>
+
+<p>Researchers have developed several ways to test whether manipulation is happening. One clever approach, proposed by economist Justin McCrary, involves looking at the density of observations near the cutoff. If people are gaming the system, you'll see suspiciously few observations just below the cutoff and suspiciously many just above. If the distribution is smooth across the cutoff, that's evidence that manipulation isn't a problem.</p>
+
+<h2>Additional Sanity Checks</h2>
+
+<p>Beyond checking for manipulation, careful researchers run several other tests to verify their results.</p>
+
+<p>One involves looking at background characteristics. If students just above and just below the scholarship cutoff differ systematically in their family income, demographics, or prior academic history, something is wrong. The whole point of the design is that these groups should be identical in everything except their treatment status.</p>
+
+<p>Another check involves looking at predetermined variables—things that were fixed before the treatment was assigned. If scholarships are supposed to affect future grades, they shouldn't affect past grades. Finding a discontinuity in past grades at the scholarship cutoff would be a red flag suggesting the design is flawed.</p>
+
+<p>Researchers also look for discontinuities at other points along the assignment variable where none should exist. If you're studying the effect of legal drinking at age 21 but you also see mortality jumps at ages 20 and 22, that's worrying. It might mean something else correlated with age is driving your results.</p>
+
+<h2>The Regression Kink Design: A Sophisticated Cousin</h2>
+
+<p>Sometimes policies don't create sharp discontinuities but instead change the slope of a relationship.</p>
+
+<p>Consider student financial aid that depends on family income. The amount of aid might not jump discontinuously at some income threshold, but the rate at which aid decreases as income increases might change sharply. Below a certain income level, every additional dollar of family income might reduce aid by 30 cents. Above that level, the reduction might be 50 cents per dollar.</p>
+
+<p>This kink in the slope can be exploited similarly to a discontinuity in the level. Researchers Henrik Kleven, Claus Thustrup Kreiner, and Emmanuel Saez, among others, have developed rigorous methods for these regression kink designs.</p>
+
+<h2>What Can Go Wrong</h2>
+
+<p>Like any research method, regression discontinuity design has limitations.</p>
+
+<p>The biggest is that it only tells you about the effect of treatment for people near the cutoff. If you study scholarship effects using students who scored near 80 percent, you learn how scholarships affect borderline students. You can't necessarily generalize to how scholarships would affect students who scored 60 percent or 95 percent. This is called the local average treatment effect, and it's genuinely local—it applies to a narrow band around the cutoff.</p>
+
+<p>Another limitation involves modeling choices. To estimate the discontinuity, researchers must fit some curve through the data on either side of the cutoff. Different curve shapes can give different answers. If the true relationship between test scores and outcomes is curved in a way that happens to look like a discontinuity at 80 percent, you might mistakenly conclude that the treatment had an effect when it didn't.</p>
+
+<p>Contamination from other treatments is another concern. If something else also changes at the same cutoff, you can't tell which treatment caused the effect. If legal drinking age and legal gambling age are both 21, a mortality jump at 21 might be caused by alcohol, gambling, or both.</p>
+
+<h2>How It Compares to True Experiments</h2>
+
+<p>When researchers have been able to compare regression discontinuity studies with randomized experiments studying the same question, the results have been remarkably similar. This gives confidence that the technique, when properly implemented, produces credible causal estimates.</p>
+
+<p>The design has a major practical advantage over experiments: it doesn't require the ethical and logistical challenges of randomly assigning treatments. You don't have to decide that some deserving students arbitrarily won't get scholarships just to create a control group. The policy itself creates the comparison groups naturally.</p>
+
+<p>But the design also has a disadvantage: it only works when a cutoff exists and is at least somewhat arbitrary. Many important policy questions don't have convenient cutoffs to exploit.</p>
+
+<h2>A Window Into Causation</h2>
+
+<p>Regression discontinuity design represents something profound: the recognition that the bureaucratic messiness of real-world policy can be transformed into scientific knowledge.</p>
+
+<p>Every time an administrator draws an arbitrary line—you must be this tall to ride, you must score this high to qualify, you must be this age to participate—they inadvertently create a natural experiment. People on opposite sides of these arbitrary lines are nearly identical, yet they receive different treatments. By comparing their outcomes, we can learn whether the treatments actually matter.</p>
+
+<p>The technique has revolutionized how economists, political scientists, and policy researchers think about evidence. It's part of a broader movement toward credible causal inference that earned Joshua Angrist and Guido Imbens the Nobel Prize in Economics in 2021.</p>
+
+<p>Perhaps most importantly, regression discontinuity design reminds us that even systems designed to be meritocratic involve arbitrary cutoffs. The student who scored 79 percent may be just as capable as the one who scored 81 percent, yet their futures diverge. Whether we're evaluating policies or living under them, it's worth remembering that the lines we draw are often more arbitrary than they appear—and that this arbitrariness, ironically, can help us understand whether crossing those lines actually matters.</p>
       </div>
 
       <footer class="wikipedia-footer">

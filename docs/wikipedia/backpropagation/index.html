@@ -22,7 +22,131 @@
       </header>
 
       <div class="wikipedia-content">
-        <p>Content not available.</p>
+        <p class="source-note">Based on <a href="https://en.wikipedia.org/wiki/Backpropagation">Wikipedia: Backpropagation</a></p>
+
+<p>Every time you ask ChatGPT a question, or watch Netflix serve up an eerily perfect recommendation, or see your phone recognize your face in a fraction of a second, you're witnessing the fruits of an algorithm that learns by working backwards. It's called backpropagation, and it might be the most consequential mathematical technique you've never heard of.</p>
+
+<p>Here's the strange thing about neural networks: they learn by making mistakes. Lots of them. A neural network starts out knowing nothing—its internal parameters are essentially random noise. You show it a picture of a cat, and it might confidently declare it's looking at a submarine. The magic isn't in avoiding these errors. The magic is in what happens next.</p>
+
+<h2>The Core Insight: Blame Flows Backwards</h2>
+
+<p>Imagine you're managing a factory assembly line with dozens of workers, and defective products keep coming out at the end. How do you figure out who's responsible? You could watch every single worker and trace every single component through the entire process. But that would take forever.</p>
+
+<p>There's a smarter approach. Start at the end, where the defect appears, and work backwards. The last worker touched the product—did they cause the problem, or was it already broken when it reached them? If it was already broken, go back one more step. Keep tracing the defect upstream until you find where things went wrong.</p>
+
+<p>This is exactly what backpropagation does, except instead of factory workers, you have layers of artificial neurons, and instead of physical defects, you're tracking mathematical error.</p>
+
+<p>When a neural network makes a wrong prediction, backpropagation calculates how much each internal connection contributed to that error. It does this by propagating the error signal backwards through the network—hence the name. The connections that contributed most to the mistake get adjusted the most. The ones that were doing fine get left mostly alone.</p>
+
+<h2>Why "Backwards" Matters So Much</h2>
+
+<p>You might wonder: why not just work forwards? Calculate how each parameter affects the final output directly?</p>
+
+<p>You could do that. Mathematically, it would give you the same answer. But computationally, it would be a disaster.</p>
+
+<p>Consider a neural network with millions of parameters—which is actually quite modest by modern standards; the large language models powering today's AI assistants have billions. If you tried to calculate the influence of each parameter by working forward, you'd need to trace that parameter's effect through every subsequent layer, for every single parameter. The computation explodes exponentially.</p>
+
+<p>Working backwards is different. You calculate the error at the output once. Then you figure out how that error distributes to the previous layer—one calculation per layer, not one per parameter. The intermediate results you compute at each layer get reused for calculating all the parameters in that layer.</p>
+
+<p>This is the crucial efficiency trick. Backpropagation exploits the fact that neural networks are structured in layers, and information flows in one direction. By reversing that flow for the error signal, you can compute all the gradients—the mathematical quantities that tell you how to adjust each parameter—in roughly the same time it takes to run the network forward once.</p>
+
+<h2>The Chain Rule: Ancient Calculus Meets Modern AI</h2>
+
+<p>At its mathematical heart, backpropagation is just a clever application of something called the chain rule, a technique from calculus that dates back to the 1700s. The chain rule tells you how to find the derivative of a composite function—a function made by plugging one function into another.</p>
+
+<p>Here's a simple example. Suppose you want to know how your happiness changes when the temperature changes. But happiness doesn't depend directly on temperature. It depends on how much ice cream you eat, which depends on how hot it is. The chain rule says: multiply the rate at which happiness changes with ice cream consumption by the rate at which ice cream consumption changes with temperature. The intermediate variable—ice cream—drops out, and you get the direct relationship you wanted.</p>
+
+<p>Neural networks are just very long chains of functions plugged into each other. The input gets transformed by the first layer, then that result gets transformed by the second layer, and so on through potentially hundreds of layers until you get the final output. The chain rule lets you compute how the final error depends on parameters deep inside the network by multiplying together all the intermediate derivatives.</p>
+
+<p>What backpropagation adds is computational efficiency. Instead of mechanically applying the chain rule from scratch for each parameter, it organizes the computation so that you calculate and store intermediate results that can be reused. This transforms an intractable problem into a routine one.</p>
+
+<h2>A Walk Through the Algorithm</h2>
+
+<p>Let's trace through what actually happens when a neural network learns from a single example. Suppose you show it a handwritten digit—the number 7—and ask it to classify which digit it's seeing.</p>
+
+<p>First comes the forward pass. The pixel values of the image enter the network and get multiplied by the first layer's weights—just numbers that determine how strongly each input connects to each neuron. These weighted sums pass through an activation function, a simple nonlinear transformation that lets the network learn curved rather than just straight-line relationships. The results become the inputs to the next layer, and so on through the entire network until you reach the output layer.</p>
+
+<p>The output layer produces ten numbers, one for each possible digit. These get transformed into probabilities that should, ideally, sum to one. The network might output something like: zero probability 0.02, one probability 0.01, two probability 0.03, and so on, with seven probability hopefully close to one if the network has learned well.</p>
+
+<p>Now comes the loss calculation. We compare the network's output to the true answer. Since we know this is a seven, the ideal output would be zero probability for everything except seven, which should be one. The loss function measures how far the network's prediction is from this ideal. Common choices include cross-entropy loss, which harshly penalizes confident wrong answers, and squared error, which treats all mistakes more uniformly.</p>
+
+<p>Finally, the backward pass. Starting from the loss, we compute how much each output neuron contributed to the error. Then we propagate backwards: for each layer, we calculate how much its neurons contributed to the errors in the layer above it. Along the way, we record the gradient for each weight—the direction and magnitude of the change that would reduce the error.</p>
+
+<p>After the backward pass completes, we have a gradient for every single parameter in the network. Now we can update: each weight gets nudged slightly in the direction that reduces the error, scaled by a learning rate that controls how big the steps are.</p>
+
+<p>Repeat this process millions of times with millions of examples, and the network gradually transforms from random noise into something that can recognize handwritten digits better than most humans.</p>
+
+<h2>The Delta Notation: Errors at Every Level</h2>
+
+<p>Practitioners often use a notation that makes backpropagation's structure crystal clear. At each layer, they define something called delta—the error attributable to that layer's neurons.</p>
+
+<p>Think of delta as an assignment of blame. At the output layer, the delta is simply the derivative of the loss with respect to each output neuron. It directly measures how much each output contributed to the mistake.</p>
+
+<p>At earlier layers, delta is computed recursively. The delta at layer five depends on the delta at layer six, multiplied by the weights connecting them and by the derivative of the activation function. In other words, the blame flows backwards through the same connections that information flows forwards, just in reverse.</p>
+
+<p>Once you have the delta for a layer, computing the gradient for that layer's weights is straightforward. The gradient for a weight connecting neuron A to neuron B is just the activation of A multiplied by the delta of B. This makes intuitive sense: a weight matters more when the input it's amplifying is large and when the neuron it's feeding into made a significant error.</p>
+
+<h2>A Tangled History</h2>
+
+<p>Backpropagation has one of the most convoluted origin stories in computer science. It was discovered, forgotten, and rediscovered multiple times across different fields, each time with different names and notation.</p>
+
+<p>The core mathematical idea—what mathematicians call reverse-mode automatic differentiation—was developed by control theorists in the 1960s. They were trying to optimize rocket trajectories and industrial processes, not train neural networks. The technique sat in their literature, largely unknown to the AI community.</p>
+
+<p>In 1970, a Finnish master's student named Seppo Linnainmaa described the general method in his thesis, using it for automatic differentiation of computer programs. His work was in Finnish and remained obscure for decades.</p>
+
+<p>Paul Werbos described backpropagation for neural networks in his 1974 PhD thesis at Harvard, but the AI winter was descending, interest in neural networks was evaporating, and the work went largely unnoticed.</p>
+
+<p>The technique finally exploded into prominence in 1986, when David Rumelhart, Geoffrey Hinton, and Ronald Williams published a paper in Nature demonstrating that backpropagation could train multi-layer neural networks to solve problems that had stumped AI researchers for decades. This paper is often credited as the origin of backpropagation, though it would be more accurate to call it the discovery of backpropagation's importance.</p>
+
+<p>By that point, similar ideas had been independently developed in multiple fields: control theory, automatic differentiation, neural networks, and optimization. The 1986 paper succeeded because it combined the right technique with the right applications at the right time, when computers had finally become powerful enough to make neural networks practical.</p>
+
+<h2>What Backpropagation Is Not</h2>
+
+<p>A common confusion: backpropagation is not a learning algorithm. It's a technique for computing gradients—for figuring out which direction is downhill on the error landscape.</p>
+
+<p>The actual learning happens when you use those gradients to update the weights. The simplest approach is gradient descent: move each weight in the direction that reduces the error, by an amount proportional to the gradient. But there are many variations. Stochastic gradient descent uses random subsets of the training data rather than the full dataset. Adam, one of the most popular modern optimizers, adapts the learning rate for each parameter individually based on the history of its gradients.</p>
+
+<p>All of these optimizers use backpropagation to compute the gradients. The distinction matters because you can swap out the optimizer without changing the gradient computation, and vice versa.</p>
+
+<h2>The Biological Question</h2>
+
+<p>Does the brain use backpropagation? This question has fascinated and frustrated neuroscientists since the technique first succeeded at machine learning.</p>
+
+<p>The honest answer is: almost certainly not in its literal form. Biological neurons don't have a mechanism to send error signals backwards along their axons. Information in the brain flows forward, from dendrites to axon terminals, and there's no reverse pathway for gradients to propagate.</p>
+
+<p>But the brain clearly does something functionally similar. It learns from mistakes. It adjusts connection strengths based on outcomes. The credit assignment problem—figuring out which of millions of synapses to adjust after a reward or punishment—is the same problem backpropagation solves.</p>
+
+<p>Researchers have proposed various biologically plausible alternatives: predictive coding, where each layer tries to predict the activity of the layer below it; equilibrium propagation, which uses local information and settling dynamics; and contrastive Hebbian learning, which compares two phases of network activity. None of these have achieved the scaling success of backpropagation in artificial systems, but they suggest that nature might have found its own solutions to the credit assignment problem.</p>
+
+<h2>Beyond Simple Networks</h2>
+
+<p>Modern neural networks have grown far beyond the simple feedforward architectures that backpropagation was originally developed for. Convolutional networks share weights across spatial locations. Recurrent networks loop their output back into their input, processing sequences of arbitrary length. Transformer networks, the architecture behind large language models, use attention mechanisms that dynamically route information based on content.</p>
+
+<p>All of these still use backpropagation. The mathematics generalizes cleanly: as long as you can express your computation as a composition of differentiable operations, the chain rule applies, and gradients can flow backwards through the computation.</p>
+
+<p>The key insight is that backpropagation operates on computational graphs, not just on layer-by-layer networks. Any differentiable computation—including branches, loops, and dynamic control flow—can be differentiated by tracing which operations depended on which inputs and propagating gradients through that dependency structure.</p>
+
+<p>Modern deep learning frameworks like PyTorch and TensorFlow automate this completely. You write your model as ordinary code, and the framework records every operation into a computational graph, then automatically applies backpropagation to compute gradients. This separation of concerns—you focus on the model architecture, the framework handles the calculus—has been crucial to the field's rapid progress.</p>
+
+<h2>The Vanishing Gradient Problem</h2>
+
+<p>For decades, backpropagation had an Achilles heel: it struggled with deep networks. The gradients, as they propagated backwards through many layers, would shrink exponentially until they became negligibly small. The early layers would barely learn at all because the error signal had vanished before it reached them.</p>
+
+<p>This vanishing gradient problem was so severe that for years, the AI community believed deep neural networks were fundamentally impractical. Networks with more than a few layers simply refused to train.</p>
+
+<p>Several innovations eventually solved or mitigated this problem. The rectified linear unit, or ReLU—an activation function that simply outputs zero for negative inputs and the input unchanged for positive ones—has a gradient that doesn't shrink during backpropagation. Residual connections, which add skip connections allowing gradients to flow directly across many layers, gave the gradient an express lane. Better initialization schemes ensured that signals didn't explode or vanish in the first place.</p>
+
+<p>With these techniques, researchers discovered they could train networks with hundreds or even thousands of layers. The era of deep learning—and the AI revolution it enabled—became possible because we learned how to keep gradients from vanishing.</p>
+
+<h2>Why This Matters</h2>
+
+<p>Backpropagation is, in a sense, the fundamental enabling technology of modern artificial intelligence. Without an efficient way to compute gradients, neural networks couldn't learn. Without learning, they'd just be complicated random number generators.</p>
+
+<p>The efficiency is remarkable. Computing the gradient for every single parameter—which might number in the billions—takes only about twice as long as computing the network's output once. This is why training neural networks is practical at all. A naive approach would take time proportional to the number of parameters squared, making modern models completely intractable.</p>
+
+<p>Understanding backpropagation also illuminates what neural networks are actually doing when they learn. They're not reasoning or understanding in any conventional sense. They're adjusting millions of numerical parameters to minimize a mathematical error measure. The intelligence, such as it is, emerges from this optimization process applied at enormous scale.</p>
+
+<p>Whether this leads to genuine understanding or merely sophisticated pattern matching—whether there's any there there—remains one of the deepest questions in artificial intelligence. But whatever the answer, backpropagation will have been the mechanism that got us there, one gradient at a time, working patiently backwards through the network's mistakes.</p>
       </div>
 
       <footer class="wikipedia-footer">

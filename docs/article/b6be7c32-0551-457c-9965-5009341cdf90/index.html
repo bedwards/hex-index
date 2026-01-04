@@ -27,21 +27,6 @@
         </div>
       </header>
 
-      <div class="article-excerpt">
-        <p></p>
-        <div class="excerpt-fade"></div>
-      </div>
-
-      <div class="read-full-article">
-        <a href="https://kaitchup.substack.com/p/quantizing-olmo-3-most-efficient" class="read-button" target="_blank" rel="noopener">
-          Read full article on The Kaitchup &rarr;
-        </a>
-        <p class="copyright-note">
-          This excerpt is provided for preview purposes.
-          Full article content is available on the original publication.
-        </p>
-      </div>
-
       
       <section class="deep-dives">
         <h2>Deep Dives</h2>
@@ -74,6 +59,27 @@
         </ul>
       </section>
     
+
+      <div class="article-excerpt">
+        <article>
+    <h1>Quantizing Olmo 3: Most Efficient and Accurate Formats</h1>
+    <p class="author">By Benjamin Marie</p>
+    
+    <div class="content">
+      <div class="captioned-image-container"><figure><a target="_blank" href="https://substackcdn.com/image/fetch/$s_!-uKW!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fab1e614e-37d0-49b0-b687-adce332beb23_846x654.png" data-component-name="Image2ToDOM" rel="" class="image-link image2 is-viewable-img can-restack"><div class="image2-inset can-restack"><picture><source type="image/webp" srcset="https://substackcdn.com/image/fetch/$s_!-uKW!,w_424,c_limit,f_webp,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fab1e614e-37d0-49b0-b687-adce332beb23_846x654.png 424w, https://substackcdn.com/image/fetch/$s_!-uKW!,w_848,c_limit,f_webp,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fab1e614e-37d0-49b0-b687-adce332beb23_846x654.png 848w, https://substackcdn.com/image/fetch/$s_!-uKW!,w_1272,c_limit,f_webp,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fab1e614e-37d0-49b0-b687-adce332beb23_846x654.png 1272w, https://substackcdn.com/image/fetch/$s_!-uKW!,w_1456,c_limit,f_webp,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fab1e614e-37d0-49b0-b687-adce332beb23_846x654.png 1456w" sizes="100vw"><img src="https://substackcdn.com/image/fetch/$s_!-uKW!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fab1e614e-37d0-49b0-b687-adce332beb23_846x654.png" width="512" height="395.8014184397163" data-attrs="{&quot;src&quot;:&quot;https://substack-post-media.s3.amazonaws.com/public/images/ab1e614e-37d0-49b0-b687-adce332beb23_846x654.png&quot;,&quot;srcNoWatermark&quot;:null,&quot;fullscreen&quot;:null,&quot;imageSize&quot;:null,&quot;height&quot;:654,&quot;width&quot;:846,&quot;resizeWidth&quot;:512,&quot;bytes&quot;:149371,&quot;alt&quot;:null,&quot;title&quot;:null,&quot;type&quot;:&quot;image/png&quot;,&quot;href&quot;:null,&quot;belowTheFold&quot;:false,&quot;topImage&quot;:true,&quot;internalRedirect&quot;:&quot;https://kaitchup.substack.com/i/179809769?img=https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fab1e614e-37d0-49b0-b687-adce332beb23_846x654.png&quot;,&quot;isProcessing&quot;:false,&quot;align&quot;:null,&quot;offset&quot;:false}" alt="" srcset="https://substackcdn.com/image/fetch/$s_!-uKW!,w_424,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fab1e614e-37d0-49b0-b687-adce332beb23_846x654.png 424w, https://substackcdn.com/image/fetch/$s_!-uKW!,w_848,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fab1e614e-37d0-49b0-b687-adce332beb23_846x654.png 848w, https://substackcdn.com/image/fetch/$s_!-uKW!,w_1272,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fab1e614e-37d0-49b0-b687-adce332beb23_846x654.png 1272w, https://substackcdn.com/image/fetch/$s_!-uKW!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fab1e614e-37d0-49b0-b687-adce332beb23_846x654.png 1456w" sizes="100vw" fetchpriority="high" class="sizing-normal"></picture><div class="image-link-expand"><div class="pencraft pc-display-flex pc-gap-8 pc-reset"></div></div></div></a></figure></div><p>Olmo 3 is a standard 7B/32B decoder-only transformer. No MoE, no exotic attention, no flashy new architecture tricks. Most of the change is in the training pipeline: in the data (Dolma 3), the midtraining mix (Dolmino), the long-context stage (Longmino), and the “thinking” stack (Dolci, SFT, DPO, RL).</p><p>In this article, I briefly go through what actually changed compared to Olmo 2, and what didn’t work.</p><p>Then I move to quantization. I quantized Olmo 3 7B and 32B with several standard recipes that are practical to run on a single consumer GPU:</p><ul><li><p>gptq-w4a16-g128</p></li><li><p>fp8-dynamic</p></li><li><p>nvfp4</p></li><li><p>awq with custom mappings for Olmo 3</p></li><li><p>W8A8 (INT8) with SmoothQuant</p></li></ul><p>Finally, I look at how these variants behave on benchmarks: accuracy, PASS@k, and token efficiency, plus some notes on hardware choices (RTX 5090 vs RTX 6000) and what actually matters once you run long contexts with concurrent queries.</p><p>I used the same quantization script I released last week:</p><p data-attrs="{&quot;url&quot;:&quot;https://kaitchup.substack.com/p/notebooks&quot;,&quot;text&quot;:&quot;Get the notebook (#190)&quot;,&quot;action&quot;:null,&quot;class&quot;:null}" data-component-name="ButtonCreateButton" class="button-wrapper"><a href="https://kaitchup.substack.com/p/notebooks" rel="" class="button primary"><span>Get the notebook (#190)</span></a></p><p>I released my quantized models here:</p><ul><li><p><a href="https://huggingface.co/collections/kaitchup/quantized-olmo-3" rel="">Quantized Olmo 3</a></p></li></ul>
+    </div>
+  </article></source>
+      </div>
+
+      <div class="read-full-article">
+        <a href="https://kaitchup.substack.com/p/quantizing-olmo-3-most-efficient" class="read-button" target="_blank" rel="noopener">
+          Read full article on The Kaitchup &rarr;
+        </a>
+        <p class="copyright-note">
+          This excerpt is provided for preview purposes.
+          Full article content is available on the original publication.
+        </p>
+      </div>
     </article>
   
   </main>

@@ -22,7 +22,189 @@
       </header>
 
       <div class="wikipedia-content">
-        <p>Content not available.</p>
+        <p class="source-note">Based on <a href="https://en.wikipedia.org/wiki/Therac-25">Wikipedia: Therac-25</a></p>
+
+<h2>The Machine That Killed Its Patients</h2>
+
+<p>Between 1985 and 1987, a radiation therapy machine called the Therac-25 massively overdosed at least six cancer patients. Some received radiation hundreds of times stronger than prescribed. Three of them died from it.</p>
+
+<p>The machine didn't malfunction in any mechanical sense. Its motors ran fine. Its electron beam worked exactly as designed. The problem was software—specifically, two programming errors that had lurked undetected in the code for years.</p>
+
+<p>What makes this story particularly haunting isn't just the deaths. It's that the engineers who built the machine refused to believe patients when they said something had gone wrong. It's that the company told hospitals their machine was incapable of causing harm, even as evidence mounted. It's that the same operator made the same fatal mistake twice in three weeks, not because she was careless, but because the machine's interface practically invited the error.</p>
+
+<p>The Therac-25 has become the definitive case study in software engineering, computer ethics, and healthcare informatics. Every engineer who works on safety-critical systems learns about it. And the lessons it teaches about overconfidence, software complexity, and the dangers of removing hardware safeguards remain devastatingly relevant today.</p>
+
+<h2>How a Radiation Therapy Machine Works</h2>
+
+<p>To understand what went wrong, you need to understand what the Therac-25 was supposed to do.</p>
+
+<p>Radiation therapy treats cancer by bombarding tumors with high-energy particles. The goal is to damage the DNA of cancer cells so badly that they die, while minimizing harm to surrounding healthy tissue. It's a delicate balance. Too little radiation and the cancer survives. Too much and you destroy healthy tissue along with it.</p>
+
+<p>The Therac-25 could deliver two types of radiation. The first was a direct electron beam—a stream of electrons accelerated to tremendous speeds and aimed at the tumor. Electrons don't penetrate very deeply into tissue, so this mode worked well for cancers near the skin's surface.</p>
+
+<p>The second mode produced X-rays. To create them, the machine would fire an extremely powerful electron beam at a tungsten target. When the electrons slammed into the tungsten atoms, the collision converted their energy into X-ray photons. These photons could penetrate much deeper into the body to reach tumors buried inside.</p>
+
+<p>Here's the critical detail: the electron beam used for X-ray production was about one hundred times more powerful than the beam used for direct electron therapy. This made sense—you needed intense electron bombardment of the tungsten target to generate enough X-rays for treatment. But it also meant that if the high-power electron beam ever hit a patient directly, without the tungsten target in place to absorb it, the results would be catastrophic.</p>
+
+<h2>The Fatal Trade-off</h2>
+
+<p>The Therac-25 was the third in a series of radiation machines built by Atomic Energy of Canada Limited, often abbreviated A.E.C.L. Its predecessors, the Therac-6 and Therac-20, had been developed in partnership with a French company in the early 1970s.</p>
+
+<p>Those earlier machines relied on hardware interlocks—physical mechanisms that made certain dangerous configurations mechanically impossible. Think of it like the safety on a gun. Before the machine could fire its beam, metal plates had to physically move into position. If the tungsten target wasn't correctly placed in front of the beam path, a mechanical interlock would prevent the beam from activating. The software running those machines merely added convenience to controls that worked perfectly well on their own.</p>
+
+<p>When A.E.C.L. designed the Therac-25 in the early 1980s, they made a fateful decision. The new machine would be smaller, more versatile, more economical. Hospitals could buy one unit that did the work of two. To achieve this compact design, they removed many of the hardware interlocks and replaced them with software checks.</p>
+
+<p>This wasn't unusual for the era. Computer control was becoming standard in all kinds of machinery. Engineers trusted software. They believed they could implement the same safety checks in code that had previously been done in hardware, and that the software approach would be just as reliable.</p>
+
+<p>They were wrong.</p>
+
+<h2>A Race Against the Machine</h2>
+
+<p>The first type of bug that caused overdoses was something programmers call a race condition. It's one of the trickiest errors to find and reproduce because it depends on precise timing.</p>
+
+<p>When an operator set up a treatment, they would type in the treatment parameters on a console—things like the radiation dose, the treatment area, and the mode (electron beam or X-ray). The software processed these inputs and configured the machine accordingly.</p>
+
+<p>In X-ray mode, the machine would position a tungsten target in front of the beam path and crank the electron beam up to full power. In electron mode, it would remove the target and keep the beam at lower power. A turntable inside the machine rotated to position the correct equipment for each mode.</p>
+
+<p>The race condition worked like this: if an experienced operator typed very quickly—selecting X-ray mode first, then changing to electron mode within about eight seconds—the software would get confused. The electron beam would be set to the high-power level needed for X-ray production, but the turntable wouldn't have time to move the tungsten target into position. The safety check that was supposed to prevent this had a timing flaw that allowed a fast operator to slip through.</p>
+
+<p>The result: a beam one hundred times more powerful than intended, fired directly at the patient with nothing to absorb it.</p>
+
+<p>The second bug was related but distinct. During what was called "field light" mode—when the treatment area was illuminated with visible light so technicians could aim correctly—the software could erroneously activate the electron beam. There was no target in place during this mode. There was no beam scanner active. There wasn't even a radiation dosimeter measuring output because no radiation was supposed to be possible.</p>
+
+<h2>What the Patients Experienced</h2>
+
+<p>One patient, Ray Cox, described the sensation as "an intense electric shock." It hit him so hard that he screamed and ran out of the treatment room.</p>
+
+<p>The first documented accident happened on June 3, 1985, at the Kennestone Regional Oncology Center in Marietta, Georgia. Katie Yarbrough was a sixty-one-year-old woman receiving follow-up radiation treatment after having a lump removed from her breast. She was supposed to receive a carefully measured dose to her clavicle.</p>
+
+<p>When the treatment began, she felt what she described as "a tremendous force of heat—this red-hot sensation." When the technician came to check on her, Katie told her, "You burned me."</p>
+
+<p>The technician assured her this wasn't possible.</p>
+
+<p>Over the following days, the treatment area on Katie's skin turned red. Her shoulder locked up. She developed spasms. Within two weeks, the redness had spread from her chest through to her back—a telltale sign that the radiation had passed completely through her body, which is exactly what happens with an overdose of penetrating radiation.</p>
+
+<p>The hospital staff didn't believe the Therac-25 could have caused such an injury. They treated her symptoms as complications of her cancer. It took months before a hospital physicist calculated what had actually happened: Katie had received somewhere between fifteen thousand and twenty thousand rads of radiation when she should have received two hundred. A dose of one thousand rads can be fatal.</p>
+
+<p>Katie's breast had to be surgically removed. Her arm and shoulder were permanently immobilized. She lived in constant pain for the rest of her life.</p>
+
+<h2>The Pattern Repeats</h2>
+
+<p>Less than two months after Katie Yarbrough's overdose, another accident occurred—this time in Hamilton, Ontario, Canada. A forty-year-old woman was receiving her twenty-fourth treatment for cervical cancer when the machine stopped after five seconds, displaying an error message: "H-tilt."</p>
+
+<p>The dosimeter showed that no radiation had been applied. The operator pressed the "P" key to proceed, as the machine's interface directed. The machine stopped again with the same error. She pressed proceed again. And again. Five times in total before the machine finally halted the treatment entirely.</p>
+
+<p>A technician checked the machine and found nothing wrong. They used it to treat six more patients that same day.</p>
+
+<p>The patient complained of burning and swelling. She was hospitalized four days later. The doctors suspected a radiation overdose and took the machine out of service. On November 3, 1985, she died of her cancer. Her autopsy noted that if she hadn't died, she would have needed a hip replacement because of damage from the radiation overdose. A technician estimated she had received between thirteen thousand and seventeen thousand rads.</p>
+
+<h2>The Company's Response</h2>
+
+<p>When A.E.C.L. learned of these incidents, their engineers investigated. They focused on the microswitches that reported the position of the turntable—the physical component that moved the tungsten target into place. They tested the switches extensively but couldn't replicate any failures.</p>
+
+<p>They modified the software to be more tolerant of a single switch failure and to better verify the turntable's position. After these changes, A.E.C.L. declared that the modifications represented "a five-order-of-magnitude increase in safety." Five orders of magnitude means one hundred thousand times safer.</p>
+
+<p>This was, to put it mildly, optimistic.</p>
+
+<p>In December 1985, another patient developed strange skin marks after treatment—an erythema with a parallel band pattern, like stripes burned into the skin. The hospital staff sent a letter to A.E.C.L. about the incident in January 1986.</p>
+
+<p>A.E.C.L. responded with a two-page letter explaining all the reasons why a radiation overdose was impossible on the Therac-25. The letter stated that both machine failure and operator error were not possible.</p>
+
+<p>Six months later, that patient developed chronic ulcers under her skin from tissue necrosis—her cells were dying from the inside. She required surgery and skin grafts.</p>
+
+<h2>The East Texas Cancer Center</h2>
+
+<p>The most thoroughly documented accidents happened at the East Texas Cancer Center in Tyler, Texas. This hospital had treated over five hundred patients with their Therac-25 without incident over two years.</p>
+
+<p>On March 21, 1986, a patient arrived for his ninth treatment session. He had a tumor on his back and was prescribed twenty-two million electron volts of radiation at a dose of 180 rads over an area about the size of a playing card.</p>
+
+<p>The operator—an experienced technician who had used the machine many times—entered the session data. Then she realized she'd made a typo. She had entered "X" for X-ray mode instead of "E" for electron beam. Using the cursor keys, she navigated back up the screen, changed the X to an E, and pressed Enter repeatedly to scroll down to the command box. The screen showed all parameters as "Verified" and displayed the message "Rays ready."</p>
+
+<p>She pressed "B" for Beam on.</p>
+
+<p>The machine stopped immediately, displaying "Malfunction 54." The manual described this as a "dose input 2" error, meaning the radiation delivered was either too high or too low. The dosimeter showed only 6 units delivered when it should have shown 202.</p>
+
+<p>Following standard procedure, the operator pressed "P" to proceed. The machine stopped again with the same error. The dosimeter still showed far less than the prescribed dose.</p>
+
+<p>Here's what the operator couldn't know: the surveillance camera in the treatment room was offline that day, and the intercom had broken. She couldn't see or hear the patient.</p>
+
+<p>What the patient experienced was very different from what the machine reported. With the first dose, he felt an electric shock course through his body. He heard a loud crackle from the machine. This was his ninth treatment session—he knew immediately that something was wrong. He started to get up from the table to call for help.</p>
+
+<p>At that exact moment, the operator pressed "P" to continue.</p>
+
+<p>The second dose hit him like lightning. It felt, he said later, as if his hand had been torn off. He staggered to the door and pounded on it until the operator opened it.</p>
+
+<p>A physician was called. They observed intense redness in the treatment area and suspected an electric shock. The patient was sent home. The hospital physicist checked the machine, found it calibrated correctly, and allowed it to continue treating patients throughout the day.</p>
+
+<p>No one realized what had actually happened. The patient had received somewhere between 16,500 and 25,000 rads of radiation—delivered in less than one second, concentrated in an area about the size of a fingertip. The crackling sound had been the machine's ionization chambers becoming saturated with radiation, which had the perverse effect of causing them to report a very low dose.</p>
+
+<p>Over the following weeks, the patient's left arm became paralyzed. He developed nausea and vomiting. He was eventually hospitalized with radiation-induced myelitis—damage to his spinal cord. His legs became paralyzed. His diaphragm stopped working properly. His vocal cords failed.</p>
+
+<p>He died five months after the overdose.</p>
+
+<h2>The Same Mistake, Three Weeks Later</h2>
+
+<p>A.E.C.L. engineers spent weeks trying to reproduce the "Malfunction 54" error. They checked the machine's grounding to rule out electrical shock. They found nothing wrong. On April 7, 1986, they put the machine back into service.</p>
+
+<p>Four days later, on April 11, 1986, another patient arrived for electron treatment of skin cancer on his face. The prescription called for ten million electron volts over an area about the size of a playing card.</p>
+
+<p>The operator was the same experienced technician from the March incident.</p>
+
+<p>She filled in the treatment data and realized—again—that she had typed "X" instead of "E" for the treatment mode. She corrected the error, pressed Enter to scroll down, saw "Beam ready," and pressed "P" to proceed.</p>
+
+<p>The machine made a loud noise, audible through the intercom. Error 54 appeared on the screen.</p>
+
+<p>The operator entered the room. The patient described a burning sensation on his face.</p>
+
+<p>He died less than three weeks later. The autopsy showed severe radiation damage to his right temporal lobe and brain stem.</p>
+
+<h2>Finding the Bug</h2>
+
+<p>After the second Tyler accident, the investigation intensified. This time, engineers finally managed to reproduce the error in a testing environment.</p>
+
+<p>The race condition worked like this: when an operator changed from X-ray mode to electron mode, the software needed to update multiple internal variables and reconfigure the hardware. But if the operator made the change quickly enough—within about eight seconds—and then pressed Enter to proceed, the software would only partially complete the reconfiguration.</p>
+
+<p>Specifically, the variable that controlled beam power would remain set to the high level needed for X-ray production, while the turntable would move to the electron-therapy position, which didn't include the tungsten target. The software check that was supposed to prevent this scenario had a one-byte counter that would roll over from 255 back to zero. If the operator happened to press Enter at exactly the moment the counter was at zero, the check would be skipped.</p>
+
+<p>This was not a far-fetched scenario. A skilled operator, working efficiently with a familiar machine, might easily develop a rhythm of keystrokes that hit this precise timing. The same operator triggered it twice in three weeks—not because she was doing anything wrong, but because she was doing her job competently and quickly.</p>
+
+<h2>Why the Bugs Weren't Caught Earlier</h2>
+
+<p>Several factors combined to let these deadly bugs survive undetected for years.</p>
+
+<p>The software for the Therac-25 was written by a single programmer over several years, using PDP-11 assembly language—a low-level programming language that gives tremendous control over the hardware but is notoriously difficult to get right. When the accidents were investigated, lawyers discovered something remarkable: they couldn't identify the programmer or learn anything about his qualifications and experience. He had left A.E.C.L. in 1986, and the company apparently had no records about who had written the software controlling their radiation therapy machines.</p>
+
+<p>Much of the code was inherited from the earlier Therac-6 and Therac-20 machines. This might seem like a good thing—why reinvent the wheel? But the earlier machines had hardware interlocks backing up the software. Code that was safe enough when it only had to work correctly most of the time became deadly when it was the only thing standing between patients and a lethal radiation beam.</p>
+
+<p>The race condition was almost impossible to reproduce during testing because it depended on precise timing. Unless testers happened to type at exactly the right speed and hit Enter at exactly the right moment, the bug would never manifest. And even when it did manifest, the machine would display a cryptic error message that seemed routine—operators had been trained to simply press "P" to proceed through such errors.</p>
+
+<h2>The Lessons</h2>
+
+<p>The Therac-25 disasters taught the software engineering field several lessons that remain relevant decades later.</p>
+
+<p>First, software cannot simply replace hardware safety interlocks in critical systems. Hardware interlocks are inherently simpler—a metal plate either blocks the beam path or it doesn't. Software involves millions of possible states, timing dependencies, and subtle interactions that are nearly impossible to fully analyze. The decision to remove hardware safeties and rely entirely on software was, in retrospect, a catastrophic error in judgment.</p>
+
+<p>Second, reusing code from different contexts is dangerous. The Therac-6 and Therac-20 software was written for machines with backup systems. Transplanting that code into a machine without those backups changed its safety requirements completely, but the code wasn't re-evaluated for the new context.</p>
+
+<p>Third, error messages matter. "Malfunction 54" with a cryptic description in the manual led operators to treat errors as routine nuisances rather than potential emergencies. The interface essentially trained operators to ignore warning signs.</p>
+
+<p>Fourth, testing for safety-critical systems requires methodical, systematic analysis of all possible states and transitions—not just the typical use cases. Race conditions and timing-dependent bugs won't appear in normal testing. They require specialized techniques to uncover.</p>
+
+<p>Fifth—and perhaps most importantly—when users report problems, believe them. Multiple patients said the machine had burned them. Multiple operators noticed strange behavior. But A.E.C.L. engineers dismissed these reports because their testing couldn't reproduce the problems and because they believed their safety analysis was complete.</p>
+
+<p>The company wrote letters explaining why their machine couldn't possibly cause harm, even as patients were dying from harm it had caused.</p>
+
+<h2>The Aftermath</h2>
+
+<p>After the accidents came to light, A.E.C.L. dissolved its medical division in 1988. A company called Theratronics International took over maintenance of the installed machines. Software was rewritten, hardware interlocks were added back, and procedures were changed.</p>
+
+<p>The Therac-25 became the subject of academic papers, textbooks, and countless ethics courses. Every generation of software engineers learns about it. The hope is that by understanding how these accidents happened—not just the technical failures but the organizational and psychological factors—future engineers will avoid similar mistakes.</p>
+
+<p>But the deeper lesson may be about humility. The A.E.C.L. engineers were not stupid or careless. They were professionals who believed they had built a safe machine. Their confidence was based on their understanding of their own systems. But their understanding was incomplete. Software systems are complex enough that no one can hold the entire state space in their head. Race conditions, timing bugs, and emergent behaviors can lurk undetected for years, waiting for exactly the right conditions to manifest.</p>
+
+<p>The Therac-25 killed patients not despite being carefully engineered, but because its engineers were confident enough in their engineering to remove the crude-but-reliable hardware safeguards that had protected patients for decades. Sometimes the old ways are safer, even when they seem inefficient. Sometimes the right amount of redundancy is the amount that seems excessive.</p>
+
+<p>In the end, the machine worked exactly as its software instructed it to. The tragedy is that the software wasn't worthy of the trust placed in it—and neither, it turned out, were the engineers who wrote it.</p>
       </div>
 
       <footer class="wikipedia-footer">

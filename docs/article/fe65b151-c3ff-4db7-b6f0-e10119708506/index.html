@@ -27,9 +27,15 @@
         </div>
       </header>
 
+      
+
       <div class="article-excerpt">
-        <p></p>
-        <div class="excerpt-fade"></div>
+        <p>Quantization is a common way to shrink large language models (LLMs). In practice, it’s a form of compression that reduces parameter precision, typically from 16-bit (BF16/FP16) to lower-precision formats like 8-bit or 4-bit. Most deployments apply this via post-training quantization (PTQ).</p><p>On very large models, PTQ often preserves downstream accuracy remarkably well. But on smaller models, those with only a few billion parameters, or even sub-billion, PTQ can cause substantial accuracy degradation.</p><p>An alternative is quantization-aware training (QAT), which trains the model to be robust to quantization effects. QAT is usually expensive, and on bigger models I rarely find the gains worth the cost. For small models, though, it can make a difference without spending too much compute.</p><p>Unsloth now supports QAT, letting us train models to be quantization-aware while adapting them to our task and data. Thanks to Unsloth’s efficiency, this is probably the most affordable way to fine-tune a model that remains robust under quantization. In this article, I put Unsloth’s QAT to the test on a deliberately hard setting: English→French translation with a very small model, Gemma 3 270M. In earlier work, <a href="https://kaitchup.substack.com/p/gemma-3-270m-can-tiny-models-learn">I had good success fine-tuning this model for translation</a>, but as we’ll see, introducing quantization through PTQ can make things fragile. Can QAT limit the damage?</p><p>I evaluate two QAT schemes available in Unsloth for this setup, INT4 and INT8-INT4, comparing final accuracy against PTQ and costs. I use full fine-tuning (not LoRA), since the model is already quite small.</p><p>Here’s the notebook I used to run these Unsloth QAT experiments:</p><h2>Quantization-Aware Training: <code>int4</code>, <code>fp8-int4</code>, <code>fp8-fp8</code>, and <code>int8-int4</code></h2>
+      <p>
+          <a href="https://kaitchup.substack.com/p/unsloths-quantization-aware-training">
+              Read more
+          </a>
+      </p>
       </div>
 
       <div class="read-full-article">
@@ -41,8 +47,6 @@
           Full article content is available on the original publication.
         </p>
       </div>
-
-      
     </article>
   
   </main>

@@ -22,7 +22,125 @@
       </header>
 
       <div class="wikipedia-content">
-        <p>Content not available.</p>
+        <p class="source-note">Based on <a href="https://en.wikipedia.org/wiki/Message_passing">Wikipedia: Message passing</a></p>
+
+<p>In 1976, a young computer scientist named Alan Kay made a bold claim that would reshape how we think about software. The inventor of Smalltalk—one of the first truly object-oriented programming languages—argued that everyone had been focusing on the wrong thing. Objects, he said, weren't the revolutionary idea. The real breakthrough was something far simpler: message passing.</p>
+
+<p>What's message passing? Imagine you're in a large office building, and you need someone in accounting to run some numbers for you. You have two choices. You could walk down there, sit at their desk, and do the calculation yourself using their tools. Or you could send them a memo asking for the result and trust them to figure out the best way to get it done.</p>
+
+<p>That second approach—sending a request and letting someone else handle the details—is message passing in a nutshell.</p>
+
+<h2>Why Not Just Call Things by Name?</h2>
+
+<p>Traditional programming works like the first approach. When you want to run a piece of code, you call it directly by name. "Hey, calculateTax function, here are some numbers, give me a result." It's direct. It's efficient. And for decades, it was the only way anyone thought to do things.</p>
+
+<p>But this directness creates a problem. Your code needs to know exactly which function to call, which means it needs to know implementation details it probably shouldn't care about. If the tax calculation changes—maybe you're now dealing with a different country's tax laws—you have to hunt down every place that calls the old function and update it.</p>
+
+<p>Message passing flips this around. Instead of saying "call this specific function," you say "here's what I need done." The receiving object figures out which code to run. This might sound like a small distinction, but it unlocks two powerful capabilities: encapsulation and distribution.</p>
+
+<h2>The Shape of the Problem</h2>
+
+<p>One of the earliest and most elegant demonstrations of message passing came from computer graphics. Imagine you're writing a program that needs to calculate the area of various shapes. Triangles, rectangles, ellipses, circles—each has its own formula.</p>
+
+<p>In traditional programming, you'd write something like this: "If the shape is a triangle, use this formula. If it's a rectangle, use that formula. If it's an ellipse, use yet another formula." Your code becomes a sprawling decision tree, and every time someone invents a new shape, you have to add another branch.</p>
+
+<p>With message passing, you just ask: "Shape, what's your area?"</p>
+
+<p>The shape—whatever kind it happens to be—figures out the rest. A circle knows the formula for a circle. A triangle knows its own formula. Your code doesn't need to care about the specifics. It just sends a message and trusts the recipient to handle it appropriately.</p>
+
+<p>This is encapsulation: the idea that software components should be able to request services from each other without knowing or caring how those services work internally. It's the difference between asking a chef for a meal and demanding to know exactly how they'll prepare each ingredient.</p>
+
+<h2>Across the Wire</h2>
+
+<p>Encapsulation is powerful, but message passing's second trick might be even more transformative. It lets computers talk to each other.</p>
+
+<p>When your web browser loads a page, it doesn't reach into some distant server and directly execute code there. Instead, it sends a message—a request—and the server sends a message back. The URL you type into your browser is, at its heart, a message. It identifies what you want without exposing anything about how the server is organized internally.</p>
+
+<p>This is distributed message passing, and it's the foundation of the modern internet. Every time you check your email, stream a video, or post to social media, billions of messages are flying between computers that might be running different operating systems, different programming languages, located in different countries, and maintained by different organizations.</p>
+
+<p>The messaging layer handles all the messy details: converting data between different formats, routing requests across networks, handling timeouts and retries. Your code just sends a message and waits for a response.</p>
+
+<p>Or does it wait?</p>
+
+<h2>The Waiting Game</h2>
+
+<p>Here's where things get interesting. When you send a message, you face a fundamental choice: do you wait for a response, or do you carry on with your life?</p>
+
+<p>Synchronous message passing means waiting. You send your request, then sit there until the response comes back. This is like making a phone call—you're engaged in real-time conversation, and you can't do much else until the call ends.</p>
+
+<p>This works great when both parties are available and responsive. But imagine a busy office with a hundred computers all sending emails to each other using synchronous messaging. If just one person turns off their computer to go to lunch, every computer trying to reach them freezes. Those frozen computers can't respond to messages from other computers, which then freeze too. One absent worker could cascade into a complete office-wide lockup.</p>
+
+<p>Asynchronous message passing solves this by not waiting. You send your message to a queue—think of it as a mailbox—and immediately get back to whatever else you were doing. When the recipient is ready, they pick up the message, process it, and drop their response in your mailbox for you to collect later.</p>
+
+<p>This approach powers much of the software infrastructure you use daily. When you post something to social media, you're not waiting synchronously for the post to propagate to all your followers' feeds. The system accepts your post, queues it up, and handles distribution in the background while you scroll through your timeline.</p>
+
+<h2>The Buffer Problem</h2>
+
+<p>Asynchronous messaging sounds ideal, but it introduces its own headaches. That queue where messages wait? It's not infinite.</p>
+
+<p>What happens when the queue fills up? You have two unpleasant options. You could block the sender—"sorry, your mailbox is full, please wait"—but this brings back all the freezing problems we tried to avoid. Or you could drop new messages—"sorry, message discarded"—but now communication becomes unreliable. Did your message arrive? Who knows!</p>
+
+<p>This is a genuine engineering challenge with no perfect solution. Different systems make different tradeoffs depending on whether they prioritize reliability, speed, or resource efficiency.</p>
+
+<p>There's an elegant twist here: you can build synchronous communication on top of asynchronous systems using something called a synchronizer. The sender simply waits for an acknowledgment message before sending anything else. And you can go the other way too—many modern operating system kernels provide only synchronous messaging, and asynchronous behavior gets built on top using helper threads that manage the waiting for you.</p>
+
+<h2>The Overhead Question</h2>
+
+<p>Message passing isn't free. When you call a function directly, arguments can be passed through the processor's registers—tiny, blazingly fast storage locations built into the chip itself. It takes essentially no time and no extra memory.</p>
+
+<p>Message passing requires copying data. Every argument, every piece of information the recipient needs, must be packaged up into a message and transmitted. For small pieces of data, this overhead is negligible. But what if you're passing a megabyte of image data? Or a hundred megabytes of video? All that copying and transmitting adds up.</p>
+
+<p>And you can't just pass a memory address saying "the data is over here, go look at it yourself." That works fine when sender and receiver live in the same program, but distributed systems run on separate computers with completely separate memory. An address that means something on your laptop means nothing on a server in Singapore.</p>
+
+<p>This is why high-performance systems often use a mix of strategies. Message passing for coordination and communication between distant components, direct function calls for tight inner loops where every nanosecond counts.</p>
+
+<h2>State and Time</h2>
+
+<p>There's a subtle but profound difference between message-passing systems and traditional object-oriented programs. In a typical object, you expect things to stay put between method calls. If you set a user's name and then ask for it back, you expect to get the same name.</p>
+
+<p>A message handler doesn't make that promise. It might be receiving messages from dozens, hundreds, or millions of different senders. Between the moment you send a message and the moment you send another, any number of other messages might have arrived and changed the system's state.</p>
+
+<p>This makes message-based systems "volatile" in the technical sense—you can never assume things are the same as when you last looked. It's like the difference between a private notebook that only you write in versus a shared whiteboard in a busy office. The notebook stays how you left it. The whiteboard might have changed completely while you were at lunch.</p>
+
+<p>This volatility isn't a bug; it's a feature. It's what allows message-passing systems to handle concurrency—multiple things happening at once—in a principled way. Each message is a discrete event that gets handled one at a time, avoiding the tangled mess of shared memory and conflicting updates that plague other approaches to concurrent programming.</p>
+
+<h2>The Mathematical Foundations</h2>
+
+<p>Two formal mathematical models underpin message passing theory. The Actor model, developed by Carl Hewitt in 1973, treats everything as an "actor" that can only do three things: send messages to other actors, create new actors, and decide how to handle the next message it receives. There's no global state, no shared memory, just actors sending messages to each other in a dance of computation.</p>
+
+<p>The Pi calculus, developed by Robin Milner in the late 1980s, takes a different approach, focusing on how channels—the pathways through which messages flow—can be created, shared, and communicated. It's particularly good at modeling systems where the network of communication itself changes over time.</p>
+
+<p>These might sound abstract, but they've had enormous practical impact. The programming language Erlang, originally developed by Ericsson for telephone switches, is built entirely around the Actor model. Its descendants power much of today's telecommunications infrastructure and have influenced languages from Elixir to Rust to Go.</p>
+
+<h2>A Partial List of Message-Passers</h2>
+
+<p>The history of distributed computing is littered with systems that tried to make message passing practical and scalable. Remote Procedure Call, or RPC, emerged in the 1980s as one of the first standardized ways for Unix systems to talk to each other. The Common Object Request Broker Architecture—mercifully abbreviated as CORBA—attempted to create a universal standard in the 1990s, achieving widespread adoption and equally widespread frustration with its complexity.</p>
+
+<p>Java Remote Method Invocation brought distributed objects to the Java ecosystem. Microsoft responded with the Distributed Component Object Model, usually called DCOM. The web services era gave us the Simple Object Access Protocol, or SOAP, which was neither simple nor really about objects. Today, most web services use REST or increasingly gRPC, a modern descendant of the original RPC ideas.</p>
+
+<p>On individual computers, systems like D-Bus handle communication between applications on Linux desktops. Apple's OpenBinder evolved into what became the Android operating system's inter-process communication layer. Real-time operating systems like QNX Neutrino are built entirely around message passing, achieving the kind of reliability required for everything from nuclear power plant controls to car dashboards.</p>
+
+<h2>The Languages That Took It Seriously</h2>
+
+<p>Some programming languages treat message passing as a central organizing principle rather than just a feature. Smalltalk, the language that kicked this all off, is perhaps the purest example—literally everything in Smalltalk is an object that responds to messages, including numbers, classes, and even control flow constructs like if-statements.</p>
+
+<p>Erlang built its entire concurrency model around message passing between lightweight processes. A single Erlang system can run millions of these processes, each with its own isolated memory, communicating only through messages. When the phone system needs to stay up during a software update, Erlang's approach to message passing makes that possible.</p>
+
+<p>Go, developed at Google, provides "channels" as a built-in language feature for message passing between concurrent goroutines. The language's designers explicitly adopted the philosophy that you should "share memory by communicating" rather than "communicate by sharing memory."</p>
+
+<p>Objective-C, the language that built the iPhone, uses a message-passing syntax so explicit that method calls literally look like you're sending messages: [object doSomethingWith: parameter]. This syntax was inherited from Smalltalk and remains one of the language's most distinctive features.</p>
+
+<h2>Kay's Unfinished Revolution</h2>
+
+<p>Back to Alan Kay and his provocative claim. What did he mean when he said message passing was more important than objects?</p>
+
+<p>His argument was that objects are just an implementation detail—a way of organizing code and data. What really matters is the protocol: the messages that components can send and receive. If you get the messaging right, you can swap out implementations freely. If you get it wrong, you're stuck with rigid, brittle systems regardless of how elegantly your objects are designed.</p>
+
+<p>This insight has only grown more relevant. Modern distributed systems rarely share code or even programming languages. They're held together entirely by the messages they exchange. API design—the art of defining what messages a system accepts and returns—has become one of the most critical skills in software engineering.</p>
+
+<p>The web itself is perhaps the ultimate vindication of Kay's vision. Billions of devices, running software written in hundreds of languages, maintained by millions of people who will never meet each other, all working together through nothing more than carefully designed message protocols. HTTP requests and responses. JSON payloads. REST APIs.</p>
+
+<p>Just messages, all the way down.</p>
       </div>
 
       <footer class="wikipedia-footer">

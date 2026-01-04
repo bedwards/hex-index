@@ -22,7 +22,179 @@
       </header>
 
       <div class="wikipedia-content">
-        <p>Content not available.</p>
+        <p class="source-note">Based on <a href="https://en.wikipedia.org/wiki/Unmanned_surface_vehicle">Wikipedia: Unmanned surface vehicle</a></p>
+
+<h2>Robot Ships Are Already Here</h2>
+
+<p>In September 2021, a saildrone—an autonomous sailing vessel about the size of a surfboard standing on end—did something no research vessel had ever done before. It sailed directly into the eye of Hurricane Sam, a Category 4 storm with winds exceeding 120 miles per hour and waves cresting at fifty feet. The drone captured video footage from inside the maelstrom while transmitting atmospheric and ocean data back to scientists at the National Oceanic and Atmospheric Administration. No human crew was endangered. No ship was risked.</p>
+
+<p>This is the world of unmanned surface vehicles, or USVs—boats and ships that operate on water without anyone on board.</p>
+
+<p>The technology ranges from small craft you could lift with one hand to vessels longer than a city bus. Some are piloted remotely by operators on shore or on nearby ships. Others navigate entirely on their own, making decisions about where to go and how to avoid obstacles without any human input at all. These fully independent versions are called autonomous surface vehicles, or ASVs.</p>
+
+<p>The distinction matters. A remote-controlled boat is like a video game—someone is always at the controls, just from a distance. An autonomous vessel is more like a self-driving car for the ocean. You tell it where you want it to go, and it figures out the rest.</p>
+
+<h2>Ancient Concept, Modern Execution</h2>
+
+<p>The idea of sending unmanned vessels to do dangerous work isn't new. Fire ships—boats loaded with combustibles, set ablaze, and aimed at enemy fleets—were used in ancient naval warfare. The concept is simple: why risk your sailors when you can risk a boat?</p>
+
+<p>Modern USVs emerged from this same logic. During World War I, Germany developed remote-controlled FL-boats to attack British warships. These were among the first powered unmanned surface craft, steered by radio signals from a distance. The technology was crude but the concept was proven.</p>
+
+<p>By World War II, the United States Navy was using remote-controlled boats for two purposes: as target drones for gunnery practice and for minesweeping. Both tasks were dangerous. Target boats got shot at—that was the point. Minesweepers sailed into waters seeded with explosives. Using unmanned vessels meant that when things went wrong (and they often did), only equipment was lost.</p>
+
+<p>For decades, that's roughly where the technology stayed. USVs remained niche military tools, limited by the communication and navigation systems of their era. You could steer a boat by radio, but only if you could see it. You could program a simple course, but the vessel couldn't adapt to changing conditions or avoid unexpected obstacles.</p>
+
+<p>The twenty-first century changed everything.</p>
+
+<h2>The Autonomy Revolution</h2>
+
+<p>Three technological advances converged to transform USVs from remote-controlled toys into genuine autonomous platforms.</p>
+
+<p>The first was GPS. The Global Positioning System, developed by the United States military and made freely available to civilians in the 1980s and 1990s, gave vessels the ability to know exactly where they were on Earth at any moment. Before GPS, navigation required human skill—reading charts, taking star sightings, interpreting landmarks. With GPS, a computer could do it.</p>
+
+<p>The second was computing power. The processors that once filled rooms now fit in your pocket. Modern USVs carry computers capable of processing sensor data, making navigation decisions, and controlling propulsion systems in real time. They can analyze radar returns, interpret camera feeds, and respond to changing conditions faster than any human crew.</p>
+
+<p>The third was communication technology. Satellite links, cellular networks, and long-range radio systems now allow operators to monitor and control vessels from thousands of miles away. When direct control isn't needed, these same systems let autonomous vessels report their status and receive updated instructions.</p>
+
+<p>The result? On January 17, 2022, a ferry called Soleil completed the first fully autonomous sea voyage by ship. Built by Mitsubishi Heavy Industries, the vessel traveled 240 kilometers from Shinmoji in northern Kyushu to the Iyonada Sea in just seven hours, reaching speeds of 26 knots. No one steered. No one stood watch. The ship navigated, avoided other traffic, and arrived at its destination entirely on its own.</p>
+
+<p>Seven months later, the cargo ship MV Mikage went further. Over two days, it sailed 161 nautical miles from Tsuruga to Sakai—and then docked itself. Autonomous docking is one of the hardest problems in robotic navigation, requiring the vessel to precisely control its position in confined waters while accounting for wind, current, and the movements of everything around it. The Mikage managed it without human intervention.</p>
+
+<h2>How Do You Steer a Robot Boat?</h2>
+
+<p>Understanding USV technology requires understanding a fundamental challenge: boats don't stop easily.</p>
+
+<p>A car has brakes. Press the pedal and you stop. A boat has momentum. Cut the engine and you keep moving, sometimes for hundreds of meters. Reverse the propeller and you slow down, but not quickly, and not in a straight line. Wind pushes you sideways. Current drags you along. Waves toss you around.</p>
+
+<p>Human sailors learn to anticipate all of this. They start their turns early, knowing the boat will keep swinging. They approach docks at angles, accounting for wind. They constantly adjust, using small corrections to maintain control.</p>
+
+<p>Programming a computer to do this is remarkably difficult.</p>
+
+<p>The propulsion systems on USVs vary enormously based on size. Small vessels—those under a meter in length—typically use electric motors controlled by pulse-width modulation, or PWM. This is the same technology that controls the motors in hobby drones and radio-controlled cars. The computer sends rapid pulses of electricity to the motor, varying the width of each pulse to control speed. It's simple and effective for small craft.</p>
+
+<p>Larger vessels get complicated quickly. They might use serial bus connections, where the control computer sends commands as coded text or binary data through a cable. They might use analog interfaces—old-fashioned electrical signals where voltage corresponds to throttle position. They might use CANbus protocols, a communication standard borrowed from the automotive industry, where engines and controls exchange data over a shared network.</p>
+
+<p>Here's the problem: most of these systems were designed for human operators, and they have built-in dead zones.</p>
+
+<p>Think about pushing a car's gas pedal. The first tiny bit of movement does nothing. The pedal has some play before it actually starts adding fuel. Marine throttle systems have similar behavior, with a wide dead band around the neutral position. This makes sense for human operators—it prevents accidental engagement and gives the crew clear tactile feedback about when the engine will respond.</p>
+
+<p>For an autonomous control system trying to make precise, gradual speed changes, that dead band is a nightmare. The computer commands a tiny bit of forward thrust. Nothing happens. It commands a bit more. Still nothing. Then suddenly the dead band ends and the vessel lurches forward with much more force than intended.</p>
+
+<p>Internal combustion engines add another complication: gearboxes. Marine engines typically spin in one direction, with a transmission that engages forward or reverse gears. Switching from forward to reverse involves a mechanical engagement—clutch plates coming together, gears meshing. There's an inevitable clunk and a sudden change in thrust. Smooth, gradual transitions from moving forward to moving backward are physically impossible.</p>
+
+<p>Waterjets are the exception. These propulsion systems work like the jets on a personal watercraft, directing a stream of water to push the boat forward. Reversing is accomplished by redirecting that stream, which can happen smoothly without any mechanical engagement. For autonomous vessels requiring precise low-speed maneuvering, waterjets offer significant advantages.</p>
+
+<h2>Oceanography's Perfect Tool</h2>
+
+<p>Scientists who study the ocean face a fundamental problem: the ocean is vast, expensive to visit, and hostile to human presence.</p>
+
+<p>Traditional oceanographic research relies on research vessels—ships staffed by crews of scientists and sailors who sail out, collect data, and return home. These expeditions are enormously expensive. A modern research vessel costs tens of millions of dollars to build and millions more per year to operate. Crew salaries, fuel, maintenance, port fees—the costs add up quickly. As a result, most of the ocean remains understudied. Scientists can only afford to visit a tiny fraction of the waters they want to investigate.</p>
+
+<p>Weather buoys offer a cheaper alternative. These floating platforms carry instruments that measure temperature, wind, wave height, and other conditions. They transmit their data via satellite. But buoys just drift or sit anchored in one place. They can tell you what's happening at their location, but they can't investigate anything interesting that develops elsewhere.</p>
+
+<p>USVs split the difference. They're far cheaper than crewed research vessels—often by orders of magnitude—but they can move, following events or surveying large areas that would take buoys forever to cover.</p>
+
+<p>The most interesting oceanographic USVs don't even need fuel.</p>
+
+<p>Saildrones use wind for propulsion, just like traditional sailboats, but without any crew to tend the sails. Their tall, wing-like sails are rigid rather than fabric, automatically adjusting to the wind. Solar panels generate electricity for their instruments and communication systems. They can stay at sea for months, crossing entire oceans on nothing but renewable energy.</p>
+
+<p>Wave gliders take a different approach. These USVs look like surfboards towing underwater wings. As waves pass underneath, the surface float rises and falls. The underwater wings convert that motion into forward thrust. It's slow—maybe a knot or two—but it never stops. Wave gliders have crossed the Pacific Ocean, traveling thousands of miles on nothing but wave energy.</p>
+
+<p>Both types of renewable-powered USV carry sophisticated instruments: sensors measuring water temperature, salinity, acidity, and chlorophyll levels. They can monitor fish populations using sonar, track marine mammals by listening for their calls, and measure atmospheric conditions at the ocean surface—data crucial for weather forecasting and climate research.</p>
+
+<p>In January 2019, a small fleet of saildrones attempted something remarkable: the first autonomous circumnavigation of Antarctica. These waters are among the most hostile on Earth, with powerful storms, massive waves, and floating ice. One saildrone completed the mission, traveling 12,500 miles over seven months while collecting data that would have been nearly impossible to gather any other way.</p>
+
+<h2>Mapping the Seafloor</h2>
+
+<p>Commercial hydrographic survey—mapping the shape of the ocean floor—has become one of the most successful applications for USV technology.</p>
+
+<p>Why does anyone need to map the seafloor? Several reasons. Ships need charts showing water depth to avoid running aground. Companies laying underwater cables and pipelines need to know what's on the bottom. Engineers planning offshore wind farms need detailed surveys of potential sites. Scientists studying ocean geology need accurate maps of underwater features.</p>
+
+<p>Traditional surveys use ships equipped with multibeam sonar, which sends sound waves toward the bottom and measures how long they take to bounce back. The ship sails back and forth in a pattern called "mowing the lawn," systematically covering the survey area strip by strip. It works, but it's slow and expensive.</p>
+
+<p>USVs make excellent survey platforms. They're smaller than traditional survey ships, requiring less crew and less fuel. They can work in shallower water where larger vessels can't go. And crucially, they can work alongside crewed vessels as "force multipliers."</p>
+
+<p>In a survey conducted in the Bering Sea off Alaska, a traditional survey vessel worked alongside an ASV Global C-Worker 5, a 5-meter autonomous surface vehicle. The USV collected 2,275 nautical miles of survey data—44 percent of the project total. This parallel approach saved 25 days of ship time, a substantial cost reduction.</p>
+
+<p>In 2020, the British USV Maxlimer went even further, completing an uncrewed survey of 1,000 square kilometers of Atlantic seafloor west of the English Channel. No mothership. No support vessels. Just a robot boat methodically mapping the ocean bottom.</p>
+
+<h2>The Military Dimension</h2>
+
+<p>Militaries have never stopped being interested in unmanned surface vessels. The applications have simply expanded far beyond target drones and minesweeping.</p>
+
+<p>Modern military USVs serve as scouts, sailing ahead of naval formations to search for submarines, collect intelligence, and monitor enemy movements. They serve as weapons platforms, carrying missiles and guns that can engage targets without risking human crews. They serve as decoys, multiplying the apparent size of a fleet and complicating enemy targeting decisions.</p>
+
+<p>In 2016, the Defense Advanced Research Projects Agency, better known as DARPA, launched Sea Hunter, an anti-submarine warfare USV prototype. At 132 feet long, Sea Hunter is large enough to operate in heavy seas and stay at sea for months at a time. Its mission: hunting submarines. Modern submarines are nearly silent, making them extremely difficult to detect. But detection requires patience—listening for faint sounds over long periods. USVs can provide that patience without requiring crews to spend months at sea.</p>
+
+<p>Turkey has aggressively developed armed USVs. The ULAQ, developed by a consortium of Turkish defense companies, carries anti-tank missiles and precision-guided rockets. It can be launched from combat ships and controlled from mobile vehicles, command centers, or other platforms. In May 2021, it successfully completed its first firing tests. Turkey's first armed USV to enter official naval service was the Marlin, commissioned in January 2024.</p>
+
+<p>The United States Navy is building medium unmanned surface vessels, or MUSVs, displacing around 500 tons—comparable to small warships. These vessels will conduct intelligence, surveillance, reconnaissance, and electronic warfare missions. The first prototypes are being built by L3Harris Technologies with Swiftships as the shipbuilder.</p>
+
+<p>Perhaps most significantly, the U.S. Navy has begun fielding the Global Autonomous Reconnaissance Craft, or GARC—small 16-foot USVs designed for mass production. The Navy aims to produce 32 units per month, with over $160 million already committed to the program. Operated by dedicated Unmanned Surface Vessel Squadrons, these craft represent a new approach to naval force structure: cheap, numerous, and expendable robots supplementing expensive, scarce, and irreplaceable crewed warships.</p>
+
+<h2>The Ukraine Laboratory</h2>
+
+<p>The Russian invasion of Ukraine in 2022 turned the Black Sea into a testing ground for USV warfare.</p>
+
+<p>Ukraine, facing a Russian navy that vastly outguns its own forces, turned to asymmetric tactics. Among these were explosive-laden USVs—essentially modern versions of those ancient fire ships, packed with hundreds of kilograms of explosives and guided toward Russian targets.</p>
+
+<p>On October 29, 2022, Ukrainian forces launched a coordinated attack on the Sevastopol Naval Base, Russia's primary Black Sea fleet headquarters. According to the Russian Defense Ministry, seven USVs participated, supported by eight aerial drones. The attack demonstrated that even a navy without traditional warships could threaten an enemy's most secure anchorages.</p>
+
+<p>The Crimean Bridge, connecting Russian-occupied Crimea to the Russian mainland, has been targeted multiple times. A theory advanced by the BBC suggested that a USV was involved in an October 2022 explosion on the bridge. After further explosions in July 2023, Russia's Anti-Terrorist Committee explicitly blamed Ukrainian unmanned surface vehicles.</p>
+
+<p>Russia has responded with its own USV development. In December 2023, Russia unveiled the "Oduvanchik" (Russian for "Dandelion"), described as a kamikaze USV capable of carrying up to 600 kilograms of explosives. Russian sources claim it has a range of 200 kilometers and a top speed of 80 kilometers per hour.</p>
+
+<p>The United States sent unspecified "uncrewed coastal defense vessels" to Ukraine in April 2022 as part of a security assistance package. The exact capabilities of these vessels remain classified.</p>
+
+<h2>Water Quality and Environmental Monitoring</h2>
+
+<p>Rising concerns about water pollution have created a new market for small, affordable USVs.</p>
+
+<p>Traditional water quality monitoring is labor-intensive. Someone has to go out in a boat, collect samples from specific locations, and bring them back to a laboratory for analysis. This produces snapshots—you know what the water was like at that particular place and time—but it misses the dynamic, constantly changing nature of real water systems.</p>
+
+<p>USVs can collect data continuously as they cruise through a waterway. They can carry sensors measuring temperature, dissolved oxygen, acidity, turbidity, and the presence of specific pollutants. Some can collect physical samples—scooping up water or filtering out microplastics—for later laboratory analysis.</p>
+
+<p>The availability of inexpensive, off-the-shelf sensors and components has enabled a proliferation of small, low-cost USVs designed specifically for environmental monitoring. These aren't sophisticated military or oceanographic platforms. They're practical tools for environmental agencies, water utilities, and research institutions that need to understand what's happening in rivers, lakes, harbors, and coastal waters.</p>
+
+<p>New regulations have accelerated this trend. As governments impose stricter monitoring requirements on water quality, the demand for scalable, affordable monitoring technologies has grown. Robots that can patrol waterways continuously, collecting data that would have been impossible to gather with traditional methods, suddenly make economic sense.</p>
+
+<h2>The Regulatory Challenge</h2>
+
+<p>Maritime law evolved over centuries to govern ships operated by human crews. USVs don't fit neatly into that framework.</p>
+
+<p>International maritime regulations assume that vessels have people aboard who can take immediate action in emergencies, render assistance to ships in distress, and exercise judgment in ambiguous situations. What does it mean to "stand watch" on an unmanned vessel? Who is legally responsible when an autonomous ship makes a navigation error? If a USV encounters a sinking boat, is it obligated to attempt rescue—and how would it even do so?</p>
+
+<p>The regulatory environment is changing rapidly as USV technology matures and deployments become more common. In the United Kingdom, the Maritime Autonomous Surface Ship Code of Practice, developed by an industry working group and published in 2020, provides guidance for USV operations. Contributors included the Maritime & Coastguard Agency, defense contractors, survey companies, research institutions, and the makers of various USV systems.</p>
+
+<p>Similar regulatory efforts are underway in other maritime nations. The International Maritime Organization, the United Nations agency responsible for shipping safety, has been working on guidelines for maritime autonomous surface ships since 2017. But international consensus moves slowly, and the technology is advancing faster than regulators can keep up.</p>
+
+<h2>The Engineering Challenge</h2>
+
+<p>Building a USV is substantially more complex than building a conventional boat of the same size.</p>
+
+<p>Traditional boat builders can rely on human operators to bridge the gaps between systems. If the engine's tachometer isn't perfectly calibrated, the helmsman compensates. If the autopilot drifts slightly off course, the navigator corrects it. If something breaks, the crew figures out a workaround or calls for help.</p>
+
+<p>USVs have no such backup. Every system must work reliably, interface correctly with every other system, and provide the autonomy platform with accurate information about its status. The decisions that a human crew would make intuitively—how to respond to an unexpected reading, whether a slight anomaly is cause for concern—must be programmed explicitly.</p>
+
+<p>Propulsion control systems designed for crewed vessels often don't report status information back to the control system. A throttle lever moves, an engine responds, and the helmsman observes the result. For autonomous control, the system needs feedback: actual RPM, power delivered, thrust achieved. This data may come from existing sensors or may require adding new instrumentation.</p>
+
+<p>Safety becomes more complex without a crew to intervene. Even a small propeller can cause injury or damage. The control system must be designed with safety in mind—but "safety" for an unmanned vessel means something different than it does when people are aboard. The priorities shift from protecting crew to protecting bystanders, other vessels, and the environment.</p>
+
+<p>Handover protocols present particular challenges for "optionally manned" vessels—those designed to operate either with or without crew. When a human takes control, the system must transition smoothly. When the human hands control back to the autonomy system, that transition must be equally smooth. The dead bands and detents that help human operators feel what the controls are doing must be preserved for manned operation but compensated for during autonomous operation.</p>
+
+<h2>What Comes Next</h2>
+
+<p>The trajectory seems clear: more USVs, in more applications, with greater autonomy.</p>
+
+<p>Commercial shipping companies are already testing autonomous cargo vessels on short routes. The economic logic is compelling—crew costs represent a significant portion of shipping expenses, and autonomous operations could reduce those costs while also eliminating human error, which causes most maritime accidents.</p>
+
+<p>Passenger ferries are being tested. The same autonomy systems that can guide a cargo ship from port to port can, in principle, carry passengers. The regulatory and liability questions are more complex when human lives are at stake, but pilot programs are underway.</p>
+
+<p>Defense applications will continue expanding. The strategic advantages of cheap, numerous, expendable platforms over expensive, scarce, irreplaceable crewed ships are hard to ignore. Navies that learn to integrate USVs effectively into their force structures will have significant advantages over those that don't.</p>
+
+<p>Environmental monitoring will become increasingly automated. As climate change accelerates and water quality concerns intensify, the demand for continuous, comprehensive monitoring will grow. USVs are uniquely suited to provide it.</p>
+
+<p>The ocean remains Earth's last great frontier—vast, hostile, and largely unexplored. For most of human history, exploring it required putting people in harm's way. That's changing. The robot ships are here, and they're just getting started.</p>
       </div>
 
       <footer class="wikipedia-footer">

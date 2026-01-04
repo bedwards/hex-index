@@ -27,9 +27,10 @@
         </div>
       </header>
 
+      
+
       <div class="article-excerpt">
-        <p></p>
-        <div class="excerpt-fade"></div>
+        <p>Welcome to Import AI, a newsletter about AI research. Import AI runs on lattes, ramen, and feedback from readers. If you’d like to support this, please subscribe.</p><p><strong>HeteroScale: What ByteDance's industrial-scale AI looks like:<br></strong><em>…Hyperscalers will optimize LLMs in the same ways databases were in the early 2000s…<br></em>ByteDance Seed has published details on HeteroScale, software it uses to eke out more efficiency from clusters consisting of more than 10,000 distinct GPUs. HeteroScale is interesting because it is a symptom of the internet-scale infrastructure which ByteDance operates and it gives us a sense of what AI systems look like when they're running at industrial scale.<br><br><strong>What is HeteroScale?</strong> HeteroScale is software for running LLMs at scale - and in particular, for efficiently trading off against the prefill and decode stages. Prefill is where you suck all the context (conversation history) into an LLM, and Decode is when you run predictions on that context. Prefill and Decode have very different computational needs, so being smart about what hardware you allocate P versus D to matters a lot for your system efficiency which ultimately dictates your profit margins.<br>   "P/D disaggregation separates the compute-intensive prefill phase from the memory-bound decode phase, allowing for independent optimization," ByteDance writes. HeteroScale "intelligently places different service roles on the most suitable hardware types, honoring network affinity and P/D balance simultaneously…. HeteroScale is designed to address the unique challenges of autoscaling P/D disaggregated LLM services. The system consists of three main layers: autoscaling layer with policy engine, federated pre-scheduling layer and sub-cluster scheduling layer."<br><br><strong>It works very well:</strong> "it consistently delivers substantial performance benefits, saving hundreds of thousands of GPU-hours daily while boosting average GPU utilization by 26.6 percentage points and SM activity by 9.2 percentage points". SM is short for Streaming Multiprocessor activity, and is basically a measure of how much of the compute of the GPU you're utilizing, whereas broader GPU utilization also includes things like memory and network bandwidth.<br>   HeteroScale supports services which "collectively process trillions of prefill tokens and generate hundreds of billions of decode tokens" every day.<br>   <strong>Hardware - lots of NVIDIA</strong>: As is common, ByteDance says relatively little about its hardware, beyond noting it has deployed HeteroScale on clusters with more than 10,000 GPUs in them, and these GPU types include the NVIDIA H20 and L20 with high-speed RDMA interconnects.<br><br><strong>Why this matters - efficiency as a path to scale:</strong> Papers ...</p>
       </div>
 
       <div class="read-full-article">
@@ -41,8 +42,6 @@
           Full article content is available on the original publication.
         </p>
       </div>
-
-      
     </article>
   
   </main>

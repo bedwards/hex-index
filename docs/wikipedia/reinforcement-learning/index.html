@@ -22,7 +22,179 @@
       </header>
 
       <div class="wikipedia-content">
-        <p>Content not available.</p>
+        <p class="source-note">Based on <a href="https://en.wikipedia.org/wiki/Reinforcement_learning">Wikipedia: Reinforcement learning</a></p>
+
+<p>Imagine teaching a dog to fetch. You don't hand it a manual on aerodynamics and canine biomechanics. You throw the ball, and when the dog brings it back, you give it a treat. The dog has no idea why fetching produces treats—it just learns that this particular sequence of actions leads to something good. Do it enough times, and you've got a dog that fetches reliably.</p>
+
+<p>This is the essence of reinforcement learning.</p>
+
+<p>It's how AlphaGo defeated the world champion at Go, a game so complex that there are more possible board positions than atoms in the observable universe. It's how robots learn to walk without anyone programming the precise sequence of motor commands. And it might be the key to creating artificial intelligence that can genuinely learn from experience rather than being told exactly what to do.</p>
+
+<h2>The Three Tribes of Machine Learning</h2>
+
+<p>To understand what makes reinforcement learning special, you need to know its two siblings.</p>
+
+<p>Supervised learning is like studying for an exam with an answer key. You're shown thousands of photos labeled "cat" or "dog," and you learn to recognize the patterns. The answers are right there—you just need to figure out the rules that connect the inputs to the outputs.</p>
+
+<p>Unsupervised learning is more like being dropped in a foreign country and trying to figure out the social customs by observation. No one tells you what's correct. You're just looking for patterns in the chaos—groupings, structures, regularities that might be meaningful.</p>
+
+<p>Reinforcement learning is different from both. It's learning by doing, with consequences.</p>
+
+<p>There's no answer key. No one shows you the "correct" action for each situation. Instead, you take actions in the world, and the world responds. Sometimes with rewards. Sometimes with penalties. Often with nothing at all. Your job is to figure out which actions, over time, lead to the best outcomes.</p>
+
+<h2>The Exploration-Exploitation Dilemma</h2>
+
+<p>Here's where things get philosophically interesting.</p>
+
+<p>Say you've discovered a restaurant you love. The food is reliable, the service is good, and you know exactly what to order. Do you keep going there forever? Or do you try new restaurants, knowing that most will probably disappoint you, but one might become your new favorite?</p>
+
+<p>This is the exploration-exploitation dilemma, and it haunts every reinforcement learning system ever built.</p>
+
+<p>Exploitation means using what you already know works. It's safe. It's efficient. But it might mean you never discover something better.</p>
+
+<p>Exploration means trying new things, gathering more information about the world. It's risky. You might waste time and resources on actions that turn out to be worthless. But you might also stumble onto something extraordinary.</p>
+
+<p>The optimal balance between these two strategies is one of the deepest problems in reinforcement learning. Too much exploitation, and your system gets stuck doing something mediocre because it never discovered the better option. Too much exploration, and it wastes resources constantly trying new things instead of capitalizing on what it's learned.</p>
+
+<h2>The World as a Markov Decision Process</h2>
+
+<p>To make reinforcement learning mathematically tractable, researchers typically model the world using something called a Markov Decision Process, usually abbreviated as MDP. The name comes from Andrey Markov, a Russian mathematician who studied chains of dependent events in the early twentieth century.</p>
+
+<p>The core idea is deceptively simple. At any moment, the world is in some state. The agent—the thing doing the learning—takes an action. This causes the world to transition to a new state, and the agent receives a reward. Then the cycle repeats.</p>
+
+<p>The "Markov" part means that the future depends only on the present, not on the history of how you got there. In chess, for example, it doesn't matter whether you reached a particular board position through a brilliant sacrifice or a series of blunders. What matters is the position you're in now and what moves are available.</p>
+
+<p>An MDP has four components: states, actions, transition probabilities, and rewards.</p>
+
+<p>States are the possible situations the world can be in. In a video game, a state might be everything visible on the screen—the position of the player, the locations of enemies, the remaining health, the score.</p>
+
+<p>Actions are the choices available to the agent. Move left. Jump. Fire. Do nothing.</p>
+
+<p>Transition probabilities describe how likely you are to end up in each possible next state, given your current state and chosen action. In a deterministic world, these probabilities are either zero or one—you know exactly what will happen. In a stochastic world, there's randomness involved. You might take the same action in the same state and end up in different places.</p>
+
+<p>Rewards are the signals that tell the agent how well it's doing. These can be immediate—you get points right now for collecting a coin—or delayed—you only find out whether you won or lost at the end of the game.</p>
+
+<h2>The Goal: Learning a Policy</h2>
+
+<p>What the agent is trying to learn is a policy—a mapping from states to actions. Given that you're in this situation, what should you do?</p>
+
+<p>A policy can be deterministic: in state X, always take action Y. Or it can be stochastic: in state X, take action Y with some probability and action Z with some other probability.</p>
+
+<p>The optimal policy is the one that maximizes the expected cumulative reward over time. Not just the immediate reward—the total reward you expect to collect, potentially discounted to account for the fact that rewards now are usually worth more than rewards later.</p>
+
+<p>This is crucial. A reinforcement learning agent doesn't just chase immediate gratification. It reasons about long-term consequences. Sometimes the best action right now produces a negative immediate reward but sets you up for much larger rewards in the future. A chess player might sacrifice a queen—a devastating short-term loss—to achieve checkmate three moves later.</p>
+
+<h2>The Value Function: How Good Is This State?</h2>
+
+<p>To reason about long-term consequences, agents typically maintain a value function. This estimates how "good" it is to be in a particular state—not in terms of immediate reward, but in terms of expected future rewards if you follow a given policy from that state onward.</p>
+
+<p>Think of it as a map of promise. Some states are goldmines—you're well-positioned for future success. Others are dead ends. The value function helps the agent understand which is which.</p>
+
+<p>There's also the action-value function, sometimes called the Q-function. Instead of asking "how good is this state?" it asks "how good is taking this action in this state?" This is often more directly useful for deciding what to do.</p>
+
+<h2>The Difference from Classical Planning</h2>
+
+<p>Reinforcement learning shares territory with classical dynamic programming—a set of algorithms for solving optimization problems by breaking them into smaller subproblems. Both deal with sequential decision-making. Both can be modeled as Markov Decision Processes.</p>
+
+<p>The key difference is knowledge.</p>
+
+<p>Classical dynamic programming assumes you have a perfect model of the world. You know all the states, all the transition probabilities, all the rewards. Given this complete knowledge, you can compute the optimal policy directly, without ever actually interacting with the environment.</p>
+
+<p>Reinforcement learning makes no such assumption. The agent might have an imperfect model, or no model at all. It learns through interaction—trying things, observing results, updating its understanding. This makes it applicable to problems where the dynamics of the world are too complex to model or simply unknown.</p>
+
+<h2>Epsilon-Greedy: A Simple Approach to Exploration</h2>
+
+<p>Remember the exploration-exploitation dilemma? One of the simplest solutions is called epsilon-greedy.</p>
+
+<p>The idea is straightforward. Pick a small number—call it epsilon—between zero and one. Maybe 0.1, meaning ten percent.</p>
+
+<p>Now, at each step, flip a weighted coin. Ninety percent of the time, exploit: choose the action you currently believe is best. Ten percent of the time, explore: choose a random action.</p>
+
+<p>It's not sophisticated. It doesn't account for how uncertain you are about different actions, or how much you might learn from exploring in particular directions. But it works surprisingly well as a baseline, and it's simple enough that almost anyone can implement it.</p>
+
+<p>More sophisticated exploration strategies exist—Upper Confidence Bounds, Thompson Sampling, curiosity-driven approaches—but epsilon-greedy remains a workhorse of the field precisely because of its simplicity.</p>
+
+<h2>The Biological Connection</h2>
+
+<p>There's something deeply intuitive about reinforcement learning, and that's not a coincidence. It mirrors how biological organisms appear to learn.</p>
+
+<p>Your brain is hardwired to interpret certain signals as rewards and punishments. Pain is negative. Pleasure is positive. Hunger signals that you should seek food. Satiation signals that you've succeeded. These built-in reinforcement signals shape behavior over time, even in organisms far simpler than humans.</p>
+
+<p>Neuroscientists have found that dopamine neurons in the brain encode something remarkably similar to a "reward prediction error"—the difference between expected and received rewards. This is exactly what many reinforcement learning algorithms compute and use to update their value estimates.</p>
+
+<p>Whether this is convergent evolution—both biological brains and artificial systems discovering the same mathematical truths about learning—or evidence that we're uncovering something fundamental about intelligence itself is an open question.</p>
+
+<h2>From Games to the Real World</h2>
+
+<p>Reinforcement learning has achieved its most spectacular successes in games. Backgammon, chess, Go, Atari video games, StarCraft, poker. These domains are perfect testbeds: the rules are known, the reward signal is clear (win or lose), and you can simulate millions of games to generate training experience.</p>
+
+<p>But the real promise lies beyond games.</p>
+
+<p>Robot control is a natural fit. How should a robotic arm move to pick up an object? You could try to program the exact sequence of motor commands, accounting for every possible starting position and object shape. Or you could let the robot try things, observe whether it succeeded, and learn from experience.</p>
+
+<p>Autonomous vehicles use reinforcement learning to make decisions in complex traffic scenarios. Energy systems use it to optimize power storage and distribution. Recommendation systems use it to learn which content to show users.</p>
+
+<p>The challenge in these real-world applications is that exploration can be expensive or dangerous. You can't let a self-driving car crash repeatedly while it learns what not to do. This has driven interest in techniques like simulation—training in virtual environments before deploying in the real world—and safe reinforcement learning, which tries to bound how badly an exploring agent can mess up.</p>
+
+<h2>Partial Observability: The Fog of War</h2>
+
+<p>The standard Markov Decision Process framework assumes the agent can observe the true state of the world. But what if it can't?</p>
+
+<p>In many real situations, you're operating with incomplete information. A poker player can't see the other players' cards. A robot's sensors might be noisy or have blind spots. A trading algorithm can't observe the intentions of other market participants.</p>
+
+<p>This is called partial observability, and it transforms the problem fundamentally. The agent can no longer simply look at the current state and decide what to do. It must maintain beliefs—probability distributions over what the true state might be—and update those beliefs as new information arrives.</p>
+
+<p>The formal framework for this is called a Partially Observable Markov Decision Process, or POMDP. It's significantly harder to solve than a standard MDP, but it's also more realistic for many real-world problems.</p>
+
+<h2>The Challenge of Scale</h2>
+
+<p>The elegant mathematics of reinforcement learning runs into brutal computational reality when the state space is large.</p>
+
+<p>A game of Go has roughly 10 to the power of 170 possible board positions. You cannot enumerate them. You cannot store a value for each one. You cannot even hope to visit more than a vanishingly small fraction during training.</p>
+
+<p>This is where function approximation enters the picture. Instead of storing values for each state explicitly, you train a function—often a neural network—to estimate values for states it has never seen, based on patterns learned from states it has seen.</p>
+
+<p>This combination of reinforcement learning with deep neural networks has been transformative. Deep reinforcement learning, as it's called, is what enabled AlphaGo's victory. The neural network learned to recognize patterns in board positions and estimate their value, guiding the search toward promising moves without having to evaluate every possibility.</p>
+
+<p>But function approximation introduces its own challenges. The function might generalize poorly to states that differ from its training experience. It might be overconfident in its estimates. The interaction between learning the function and learning the policy can become unstable. These problems are active areas of research.</p>
+
+<h2>The Regret Formulation</h2>
+
+<p>There's another way to think about what a reinforcement learning agent is trying to do: minimize regret.</p>
+
+<p>Regret is the difference between the reward you actually collected and the reward you would have collected if you had followed the optimal policy from the start. It's a measure of how much your learning cost you.</p>
+
+<p>An agent that explores too much accumulates regret by taking suboptimal actions while it's learning. An agent that explores too little accumulates regret by failing to discover better options. The goal is to keep cumulative regret as low as possible.</p>
+
+<p>This formulation is particularly important in applications where exploration is costly—medical treatments, financial decisions, any situation where you can't just reset and try again.</p>
+
+<h2>Multi-Agent Systems and Game Theory</h2>
+
+<p>Most reinforcement learning research focuses on a single agent learning in an environment. But what happens when multiple learning agents interact?</p>
+
+<p>This is where reinforcement learning meets game theory. The optimal policy for one agent now depends on what the other agents are doing. And their optimal policies depend on what you're doing. The situation becomes strategic in a deep sense.</p>
+
+<p>Multi-agent reinforcement learning is increasingly important as we deploy learning systems that interact with each other—trading algorithms, recommendation systems, autonomous vehicles. The dynamics can be complex and sometimes surprising. Agents might learn to cooperate, or to compete, or to engage in behavior that no human designer intended.</p>
+
+<h2>The Connection to AI Research</h2>
+
+<p>For researchers interested in artificial intelligence more broadly, reinforcement learning holds a special appeal. It's the only one of the three machine learning paradigms that directly addresses the problem of learning to act in the world.</p>
+
+<p>Supervised learning can teach a system to recognize objects or translate text, but it doesn't tell you what to do with that knowledge. Unsupervised learning can find structure in data, but it doesn't tell you which structures matter for achieving goals.</p>
+
+<p>Reinforcement learning, in contrast, is fundamentally about goal-directed behavior. An agent is trying to achieve something—maximize reward—and must figure out how to act to achieve it. This seems closer to what we mean by intelligence than pattern recognition alone.</p>
+
+<p>Some researchers believe that reinforcement learning, or something like it, will be essential to creating truly general artificial intelligence. Others are more skeptical, pointing to the sample inefficiency of current methods—the millions of trials needed to learn what humans pick up in minutes—as evidence that something important is missing.</p>
+
+<h2>Where We Are Now</h2>
+
+<p>Reinforcement learning today is a field of striking contrasts.</p>
+
+<p>On one hand, the theoretical foundations are elegant and deep, connecting to optimal control theory, dynamic programming, statistics, and game theory. The practical successes in game-playing have been genuinely remarkable, achieving superhuman performance in domains that seemed intractable just years ago.</p>
+
+<p>On the other hand, real-world applications remain challenging. Sample efficiency is poor—systems often need orders of magnitude more experience than humans to learn comparable behaviors. Reward design is tricky—it's hard to specify exactly what you want, and systems are notorious for finding unexpected ways to maximize the reward you specified rather than the behavior you intended. Stability and reliability are ongoing concerns.</p>
+
+<p>The field is advancing rapidly, driven by both academic research and substantial industrial investment. The techniques that seem cutting-edge today will likely look primitive in five years. But the core ideas—learning from interaction, balancing exploration and exploitation, reasoning about long-term consequences—those are likely to remain central to how we build systems that learn to act intelligently in the world.</p>
       </div>
 
       <footer class="wikipedia-footer">

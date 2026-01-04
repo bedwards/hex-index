@@ -5,19 +5,22 @@
 
 import type { Pool } from 'pg';
 import { staticReadingLayout } from '../templates.js';
-import { writeFile, extractExcerpt, escapeHtml, formatDate } from '../utils.js';
+import { writeFile, extractHtmlExcerpt, escapeHtml, formatDate } from '../utils.js';
 import { join } from 'path';
 import { readFile } from 'fs/promises';
 
 /**
  * Load article content from filesystem
+ * Content paths are relative to library/ directory
  */
 async function loadArticleContent(contentPath: string | null): Promise<string> {
   if (!contentPath) {
     return '';
   }
   try {
-    return await readFile(contentPath, 'utf-8');
+    // Content paths are relative to library/ directory
+    const fullPath = join(process.cwd(), 'library', contentPath);
+    return await readFile(fullPath, 'utf-8');
   } catch {
     return '';
   }
@@ -87,6 +90,7 @@ async function getLinkedWikipedia(
 
 /**
  * Generate article excerpt page HTML
+ * Layout order: Title/byline → Deep Dives → Excerpt → Link to original
  */
 function generateArticlePage(
   article: ArticleRow,
@@ -96,7 +100,7 @@ function generateArticlePage(
   const date = formatDate(article.published_at);
   const pathToRoot = '../../';
 
-  // Deep dives section if Wikipedia links exist
+  // Deep dives section if Wikipedia links exist - shown FIRST after header
   let deepDivesHtml = '';
   if (wikipediaLinks.length > 0) {
     const linkItems = wikipediaLinks
@@ -140,9 +144,10 @@ function generateArticlePage(
         </div>
       </header>
 
+      ${deepDivesHtml}
+
       <div class="article-excerpt">
-        <p>${escapeHtml(excerpt)}</p>
-        <div class="excerpt-fade"></div>
+        ${excerpt}
       </div>
 
       <div class="read-full-article">
@@ -154,8 +159,6 @@ function generateArticlePage(
           Full article content is available on the original publication.
         </p>
       </div>
-
-      ${deepDivesHtml}
     </article>
   `;
 
@@ -174,7 +177,8 @@ export async function generateArticlePages(
 
   for (const article of articles) {
     const content = await loadArticleContent(article.content_path);
-    const excerpt = extractExcerpt(content, 200);
+    // Use HTML excerpt to preserve formatting, 400 words for fair use
+    const excerpt = extractHtmlExcerpt(content, 400);
     const wikipediaLinks = await getLinkedWikipedia(pool, article.id);
 
     const html = generateArticlePage(article, excerpt, wikipediaLinks);

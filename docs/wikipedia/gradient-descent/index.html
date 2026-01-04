@@ -22,7 +22,123 @@
       </header>
 
       <div class="wikipedia-content">
-        <p>Content not available.</p>
+        <p class="source-note">Based on <a href="https://en.wikipedia.org/wiki/Gradient_descent">Wikipedia: Gradient descent</a></p>
+
+<p>Imagine you're lost in the mountains. A thick fog has rolled in, so dense you can barely see your own feet. You need to get down to the valley below, but you have no map, no GPS, and no idea which direction leads to safety. What do you do?</p>
+
+<p>You feel the ground beneath you.</p>
+
+<p>You find the direction where the slope drops most steeply, and you take a step that way. Then you feel the ground again, find the steepest descent, and take another step. Repeat this process enough times, and eventually—hopefully—you'll reach the bottom.</p>
+
+<p>This simple survival strategy is exactly how computers learn. It's called gradient descent, and it's the engine that powers virtually every artificial intelligence system you've ever encountered. When your phone recognizes your face, when Netflix recommends your next show, when ChatGPT crafts a response to your question—they're all using descendants of this mountain-hiking algorithm.</p>
+
+<h2>The Oldest Trick in the Optimization Book</h2>
+
+<p>The idea didn't emerge from Silicon Valley or a modern AI lab. It traces back to 1847, when the French mathematician Augustin-Louis Cauchy first proposed it as a method for solving optimization problems. Cauchy was working on finding minimum values of mathematical functions, not training neural networks—those wouldn't exist for another century. Sixty years later, the French mathematician Jacques Hadamard independently rediscovered essentially the same approach.</p>
+
+<p>But here's what makes this piece of mathematical history so remarkable: the same technique that Cauchy sketched out in the mid-nineteenth century, refined and studied by the mathematician Haskell Curry in 1944, is fundamentally what powers the deep learning revolution today. The scale has changed by many orders of magnitude. The basic idea hasn't changed at all.</p>
+
+<h2>What Gradient Actually Means</h2>
+
+<p>Before we can understand gradient descent, we need to understand what a gradient is. And to understand that, we need to think about slopes.</p>
+
+<p>When you learned calculus, you probably encountered derivatives—they tell you how quickly a function is changing at any given point. If you have a simple curve on a graph, the derivative at any point tells you the slope of the curve at that spot. Positive slope means the function is increasing. Negative slope means it's decreasing. Zero slope means you've hit either a peak, a valley, or a flat region.</p>
+
+<p>But what happens when your function depends on more than one variable? What if you're not walking along a one-dimensional curve, but traversing a complex multi-dimensional landscape?</p>
+
+<p>This is where the gradient comes in. The gradient is essentially a collection of partial derivatives—one for each variable your function depends on. If your function takes two inputs, the gradient gives you two numbers. If it takes a billion inputs (as many machine learning models do), the gradient gives you a billion numbers.</p>
+
+<p>Together, these numbers form a vector that points in the direction of steepest increase. Think of it as an arrow telling you: "This way lies the highest ground." If you want to find the lowest point instead—which is usually what we want when training AI—you simply flip that arrow around and walk the opposite direction.</p>
+
+<h2>The Algorithm in Plain English</h2>
+
+<p>Here's how gradient descent actually works, stripped of all mathematical notation:</p>
+
+<p>First, you start somewhere. It doesn't really matter where—pick any random point in your landscape of possibilities. This is your initial guess.</p>
+
+<p>Second, you calculate the gradient at your current location. This tells you which direction is "uphill."</p>
+
+<p>Third, you take a step in the opposite direction—downhill. But you don't take just any step. You scale your step by something called the learning rate, often written with the Greek letter eta. This controls how big each step is.</p>
+
+<p>Fourth, you repeat. Calculate the gradient at your new position, take another step downhill, and keep going until you reach a point where the ground is essentially flat—where the gradient is zero or close to it.</p>
+
+<p>That's it. That's the whole algorithm.</p>
+
+<h2>The Learning Rate: Walking Versus Leaping</h2>
+
+<p>The learning rate might sound like a minor technical detail, but it's actually one of the most critical choices in the entire process. Get it wrong, and everything falls apart.</p>
+
+<p>If your learning rate is too small, you'll eventually reach the bottom—but it might take forever. Imagine taking millimeter-sized steps down a mountain. You'd get there eventually, but you'd die of old age first. In computational terms, training would be so slow as to be useless.</p>
+
+<p>If your learning rate is too large, you have the opposite problem. You'll overshoot the minimum and end up on the other side of the valley. Then you'll overshoot again coming back. Instead of converging to the lowest point, you'll bounce back and forth, potentially getting worse and worse. In the worst case, you might leap entirely out of the valley and end up somewhere completely different—or even diverge to infinity.</p>
+
+<p>Finding the right learning rate is more art than science. Researchers have developed many sophisticated techniques to adapt the learning rate during training, but the fundamental tension remains: too cautious and you're slow, too aggressive and you're unstable.</p>
+
+<h2>The Problem with Local Minima</h2>
+
+<p>Remember our fog-bound hiker? There's a crucial problem with the feel-the-ground strategy: you might find a valley that isn't actually the lowest point.</p>
+
+<p>Imagine a mountain range with multiple valleys at different elevations. If you start on the slopes above a high-altitude lake basin, gradient descent will dutifully lead you down to that lake. You'll reach a point where every direction leads upward. From your perspective, you've found the minimum. Mission accomplished.</p>
+
+<p>Except it isn't. Somewhere else in the mountain range is a much deeper valley—the true lowest point, the global minimum. But you're stuck in a local minimum, a point that's lower than its immediate surroundings but not the lowest overall.</p>
+
+<p>For certain well-behaved functions called convex functions, this isn't a problem. A convex function is like a perfect bowl: there's only one minimum, and it's the global one. No matter where you start, gradient descent will find it.</p>
+
+<p>But most interesting problems in machine learning involve functions that are emphatically not convex. They're more like rugged mountain ranges with countless peaks, valleys, ridges, and saddle points. The loss landscape of a modern neural network has been described as looking like a crumpled piece of paper in billions of dimensions.</p>
+
+<p>Surprisingly, this turns out to be less catastrophic than you might expect. In very high-dimensional spaces, true local minima—valleys that are lower than their surroundings in every direction—become increasingly rare. Most of the places where the gradient is zero are saddle points: lower than their surroundings in some directions, higher in others. And gradient descent, with enough noise and the right techniques, can usually escape saddle points and keep descending.</p>
+
+<h2>Stochastic Gradient Descent: The Power of Imperfection</h2>
+
+<p>There's a variant of gradient descent that sounds like it should be worse but is actually often better: stochastic gradient descent, often abbreviated as SGD.</p>
+
+<p>In standard gradient descent, you calculate the gradient using all of your training data. If you have a million examples, you process all million before taking a single step. This gives you a very accurate estimate of the true gradient.</p>
+
+<p>In stochastic gradient descent, you calculate the gradient using just one randomly selected example, or a small random batch of examples. This gives you a noisy, imprecise estimate of the true gradient. Your steps are no longer in exactly the right direction—they're approximately right, with some random wobble.</p>
+
+<p>Why would anyone prefer the noisy version?</p>
+
+<p>Two reasons. First, it's much faster. Processing a million examples to take one step is expensive. Processing a hundred examples to take ten thousand steps can get you farther in the same amount of time.</p>
+
+<p>Second—and this is the surprising part—the noise actually helps. Remember the problem of getting stuck in local minima? The random wobble in stochastic gradient descent can jostle you out of shallow valleys that would trap standard gradient descent. The imperfection is a feature, not a bug.</p>
+
+<p>Stochastic gradient descent, despite being one of the simplest optimization algorithms conceivable, remains the workhorse of modern deep learning. The massive neural networks behind large language models and image generators are all trained using variations of this approach.</p>
+
+<h2>Beyond the Basics: Momentum and Adaptive Methods</h2>
+
+<p>Researchers have developed numerous enhancements to basic gradient descent, but they all share the same fundamental intuition.</p>
+
+<p>One popular improvement is momentum. Think of a ball rolling down a hill: it accumulates velocity as it descends, which helps it power through small bumps and oscillations. Gradient descent with momentum keeps a running average of recent gradients and uses that to inform the current step. This smooths out the trajectory and often leads to faster convergence.</p>
+
+<p>Another family of improvements involves adaptive learning rates—algorithms like Adam, RMSprop, and Adagrad that adjust the learning rate separately for each parameter based on how that parameter has been behaving. Parameters that have been changing a lot get smaller learning rates; parameters that have been relatively stable get larger ones. This can dramatically improve training on problems where different parameters operate at different scales.</p>
+
+<h2>Why This Matters for Machine Learning</h2>
+
+<p>Modern machine learning is, at its core, an optimization problem. You have a model with millions or billions of adjustable parameters. You have data showing what outputs the model should produce for various inputs. You define a loss function that measures how wrong the model's predictions are.</p>
+
+<p>Training the model means finding parameter values that minimize the loss function. And gradient descent is how you do it.</p>
+
+<p>The loss landscape of a neural network is unfathomably complex—a surface in a space with potentially billions of dimensions. No human could navigate it. No simple geometric intuition applies. But gradient descent doesn't need intuition. It just needs to know which way is down from wherever it currently stands.</p>
+
+<p>Step by step, sample by sample, the algorithm descends through this incomprehensible landscape. It has no global view, no master plan. It simply keeps walking downhill.</p>
+
+<p>And somehow, remarkably, this works. It works well enough to train systems that can write poetry, generate photorealistic images, translate between languages, and beat world champions at games that were thought to require human creativity.</p>
+
+<h2>The Unreasonable Effectiveness of Walking Downhill</h2>
+
+<p>There's something almost embarrassing about gradient descent. All the hype about artificial intelligence, all the breathless coverage of machine learning breakthroughs, and at the heart of it all is an algorithm that could be explained to a lost hiker: find the steepest slope, walk that way, repeat.</p>
+
+<p>Of course, the devil is in the details. Computing gradients efficiently for complex functions requires clever mathematics, most notably the backpropagation algorithm. Handling billions of parameters requires specialized hardware. Choosing architectures, learning rates, and regularization techniques requires extensive expertise and experimentation.</p>
+
+<p>But the core insight—that you can find minima by repeatedly taking small steps in the direction of steepest descent—that hasn't changed since Cauchy proposed it nearly two centuries ago.</p>
+
+<p>The difference is scale. Cauchy was optimizing functions of a few variables by hand. Today's systems optimize functions of billions of variables using clusters of specialized processors running for weeks on end. The principle is identical. The magnitude is almost incomprehensibly different.</p>
+
+<p>There's a lesson here about the relationship between simple ideas and complex outcomes. Gradient descent is not sophisticated. It's not clever. It's certainly not creative. It's just relentless. Given enough data, enough parameters, and enough iterations, this humble algorithm can discover patterns and capabilities that surprise even its creators.</p>
+
+<p>The next time an AI system does something that seems miraculous—generates a painting in a style you love, answers a question you thought required understanding, writes code that actually works—remember the lost hiker in the fog. Somewhere deep in the machine, an algorithm is doing the same thing that hiker would do.</p>
+
+<p>It's feeling for the steepest slope. And it's taking one more step downhill.</p>
       </div>
 
       <footer class="wikipedia-footer">

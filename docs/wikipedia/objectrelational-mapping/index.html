@@ -22,7 +22,113 @@
       </header>
 
       <div class="wikipedia-content">
-        <p>Content not available.</p>
+        <p class="source-note">Based on <a href="https://en.wikipedia.org/wiki/Object%E2%80%93relational_mapping">Wikipedia: Object–relational mapping</a></p>
+
+<h2>The Translator Between Two Worlds</h2>
+
+<p>Here's a problem that has haunted software developers for decades: the way we think about data in our programs is fundamentally different from the way databases store it. And yet, nearly every useful application needs both.</p>
+
+<p>Object-Relational Mapping, or ORM, is the bridge between these two worlds. It's a technique that automatically translates data back and forth between the neat rows and columns of a relational database and the rich, interconnected objects that live in your program's memory.</p>
+
+<p>To understand why this matters, you need to understand the tension it resolves.</p>
+
+<h2>Two Ways of Seeing Data</h2>
+
+<p>Imagine you're building an address book application. In the real world, a person is a coherent whole—they have a name, phone numbers, addresses, maybe an email or two. When you think about "Sarah Chen," you don't think of her as separate pieces scattered across different locations. She's one entity.</p>
+
+<p>Object-oriented programming embraces this intuition. In languages like Python, Java, or C#, you'd create a "Person object" that bundles everything together. Sarah's name, her three phone numbers, her work and home addresses—all accessible through a single reference. You could write methods like "get preferred phone number" or "get home address" that know how to navigate this little universe of data. The object is self-contained, portable, and intuitive.</p>
+
+<p>But databases see things differently.</p>
+
+<p>Relational databases, the kind that use SQL (Structured Query Language), organize data into tables. Each table is a grid: rows represent individual records, columns represent attributes. There might be a People table with names and IDs, a PhoneNumbers table linking phone numbers to person IDs, and an Addresses table doing the same for addresses.</p>
+
+<p>Sarah Chen isn't one thing in a relational database. She's a row in the People table, plus two rows in PhoneNumbers, plus three rows in Addresses, all connected by matching ID numbers. To reconstruct "Sarah Chen" as a complete person, you need to query multiple tables and stitch the pieces together.</p>
+
+<p>This isn't a design flaw. It's a different philosophy with its own strengths—particularly around data integrity, storage efficiency, and the ability to ask questions the original designers never anticipated.</p>
+
+<h2>The Impedance Mismatch</h2>
+
+<p>Software engineers call this tension the "object-relational impedance mismatch." The term borrows from electrical engineering, where impedance mismatch causes signal loss when connecting incompatible components. Here, the mismatch causes something similar: friction, complexity, and lost developer productivity.</p>
+
+<p>The differences run deeper than just structure. Consider a few:</p>
+
+<ul>
+<li><strong>Lifecycle management:</strong> Objects in your program come and go as your code runs. They're created, used, and eventually cleaned up automatically through garbage collection—a process where the programming language periodically identifies unused objects and reclaims their memory. Database rows, by contrast, persist until explicitly deleted. They require deliberate INSERT and DELETE commands.</li>
+
+<li><strong>References:</strong> When one object needs to point to another, it simply holds a reference—essentially a memory address. Database tables use foreign keys instead, which are special columns containing ID values that match records in other tables. Joining this data back together requires explicit queries.</li>
+
+<li><strong>Inheritance:</strong> Object-oriented languages let you define hierarchies. An Employee might inherit properties from a Person. A Manager might inherit from Employee. Relational databases have no native concept of inheritance. You have to simulate it through clever table design.</li>
+
+<li><strong>Concurrency:</strong> Objects live in your program's memory, controlled entirely by that single process. Database records are shared resources. Multiple applications might try to modify the same row simultaneously, requiring locking mechanisms, conflict resolution, and retry logic.</li>
+</ul>
+
+<p>Without help, developers must write tedious "glue code" to handle all of this translation. Every time you load data from the database, you write queries, iterate through results, and manually construct objects. Every time you save changes, you decompose objects back into INSERT and UPDATE statements. It's error-prone, repetitive, and boring.</p>
+
+<p>This is where ORM earns its keep.</p>
+
+<h2>What ORM Actually Does</h2>
+
+<p>An ORM library handles the translation automatically. You define your objects—the Person, PhoneNumber, and Address classes—along with some configuration that maps them to database tables. The ORM takes it from there.</p>
+
+<p>Want to find all people named Chen? Instead of writing raw SQL, you might write something like:</p>
+
+<p><code>repository.find(person => person.lastName == "Chen")</code></p>
+
+<p>The ORM converts this into the appropriate SQL query, executes it, and returns fully-formed Person objects with their phone numbers and addresses already attached. You work with familiar objects in your programming language; the database complexity happens behind the scenes.</p>
+
+<p>Saving works the same way in reverse. Modify an object's properties, call a save method, and the ORM figures out which database rows need updating. If you added a new phone number to Sarah's record, it generates the right INSERT statement. If you changed her home address, it generates an UPDATE.</p>
+
+<p>The objects are now "persistent"—they maintain their identity across program runs, surviving in the database between sessions.</p>
+
+<h2>The Tradeoff</h2>
+
+<p>Like most abstractions in computing, ORM involves a tradeoff.</p>
+
+<p>The benefit is obvious: dramatically less code. Studies and industry experience consistently show that ORM reduces the amount of data access code developers need to write. The code that remains is often more readable and maintainable because it works with familiar language constructs instead of SQL strings scattered throughout the application.</p>
+
+<p>The cost is less obvious but real: abstraction hides complexity.</p>
+
+<p>When something goes wrong—when a query runs slowly, when data gets corrupted, when the database connection pool is exhausted—the high level of abstraction can make debugging difficult. You're working with Person objects, but the actual problem might be deep in the SQL the ORM generated, or in the way it's managing database connections, or in subtle timing issues with its caching layer.</p>
+
+<p>Skilled developers learn to peek behind the curtain. They enable query logging to see what SQL the ORM actually produces. They learn the ORM's mental model well enough to predict its behavior. They know when to bypass the abstraction entirely and write raw SQL for performance-critical operations.</p>
+
+<p>Most ORMs acknowledge this reality by providing escape hatches. Django's ORM, for instance—one of the most popular ORMs in the Python ecosystem—lets you drop down to raw SQL queries when the abstraction doesn't fit your needs.</p>
+
+<h2>The Roads Not Taken</h2>
+
+<p>ORM isn't the only solution to the impedance mismatch. Understanding the alternatives illuminates what ORM actually provides.</p>
+
+<p>One approach eliminates the mismatch by eliminating relational databases entirely. Object-oriented database management systems (OODBMS) store objects directly, preserving their structure and relationships without translation. You save your Person object, and it stays a Person object in storage. No mapping required.</p>
+
+<p>This sounds ideal, but OODBMS never achieved mainstream adoption. One reason: relational databases excel at ad-hoc queries. Need to find everyone who lives in a particular zip code and has more than two phone numbers? In a relational database with proper indexing, that's a straightforward SQL query. In an object database, such questions might require reading through objects one by one—or building complex indices that replicate what relational databases provide naturally.</p>
+
+<p>Document-oriented databases offer another alternative. Rather than enforcing rigid table structures, they store semi-structured documents—often in formats like JSON or XML. MongoDB, CouchDB, and similar systems let you store your Person as a single document containing nested phone numbers and addresses. No "shredding" the object across multiple tables.</p>
+
+<p>The equivalent of ORM for document databases is called an ODM—an Object-Document Mapper. Same concept, different target.</p>
+
+<p>Yet another approach skips object-oriented mapping entirely. The Data Access Object (DAO) pattern wraps database operations in simple objects that don't try to hide SQL—they just organize it. You still write queries, but through a clean interface that separates database concerns from the rest of your application.</p>
+
+<h2>The Connection to Reddit's Migration</h2>
+
+<p>When engineering teams migrate systems between programming languages—as Reddit did moving from Python to Go—ORM becomes particularly relevant.</p>
+
+<p>Different languages have different ORM ecosystems. Python has SQLAlchemy and Django's ORM. Java has Hibernate. Go has GORM and Ent. Each has its own conventions, strengths, and quirks.</p>
+
+<p>During a migration, teams face choices. Do you replicate the same ORM patterns in the new language? Do you use this as an opportunity to rethink data access entirely? If the old system's ORM abstraction was hiding complexity that caused problems, the migration is a chance to address it. If the abstraction was working well, you'll want equivalent capabilities in the new stack.</p>
+
+<p>The fundamental challenge—bridging objects and relational data—remains constant across languages. Only the tools change.</p>
+
+<h2>A Peculiar Kind of Magic</h2>
+
+<p>There's something almost philosophical about ORM. It mediates between two legitimate but incompatible ways of organizing information. Neither approach is wrong. Objects match how we naturally think about entities in the world. Tables match how we efficiently store and query large amounts of data.</p>
+
+<p>The need for translation is inevitable once you've chosen to use both paradigms. ORM doesn't eliminate the impedance mismatch—it can't. What it does is automate the translation and hide the complexity, letting developers work at a higher level of abstraction most of the time.</p>
+
+<p>Whether that tradeoff makes sense depends on your situation. For typical business applications where developer productivity matters more than squeezing every ounce of database performance, ORM is often the right choice. For systems where you need fine-grained control over every query—high-frequency trading systems, perhaps, or applications with unusual data access patterns—the abstraction may cost more than it saves.</p>
+
+<p>Most modern web applications land somewhere in between, using ORM for the common cases and dropping to raw SQL for the exceptions. That pragmatic middle ground reflects a mature understanding of what ORM is: not magic, but a useful tool with clear strengths and well-understood limitations.</p>
+
+<p>The next time you save a form and it persists across sessions, remember: somewhere beneath the surface, an ORM might be quietly translating your familiar objects into the foreign language of tables, rows, and keys—and back again.</p>
       </div>
 
       <footer class="wikipedia-footer">

@@ -22,7 +22,169 @@
       </header>
 
       <div class="wikipedia-content">
-        <p>Content not available.</p>
+        I have the source content provided in the prompt. Let me write the rewritten article directly.
+
+<p class="source-note">Based on <a href="https://en.wikipedia.org/wiki/Rust_(programming_language)">Wikipedia: Rust (programming language)</a></p>
+
+<h2>The Broken Elevator That Changed Software</h2>
+
+<p>In 2006, a software developer named Graydon Hoare walked up several flights of stairs to his apartment. Again. The elevator was broken. Again. The culprit? A software crash.</p>
+
+<p>This mundane frustration sparked something extraordinary. Hoare began designing a new programming language in his spare time, one that would make it nearly impossible to write the kind of buggy code that stranded him in stairwells. He named it Rust, after a group of fungi known for being, as he put it, "over-engineered for survival."</p>
+
+<p>That elevator incident led to what many consider the most significant new systems programming language in decades—one now endorsed by the White House for national cybersecurity, used by Amazon, Google, Microsoft, and Mozilla, and beloved by developers who've spent years wrestling with crashes, security holes, and mysterious bugs in older languages.</p>
+
+<h2>The Promise: Memory Safety Without the Tax</h2>
+
+<p>To understand why Rust matters, you need to understand a tradeoff that has defined programming for half a century.</p>
+
+<p>On one side, you have languages like C and C++. They're blindingly fast. They let you manipulate computer memory directly, squeezing every ounce of performance from your hardware. Operating systems, game engines, web browsers—the foundational software running your computer is almost certainly written in these languages.</p>
+
+<p>But there's a catch. Direct memory access is like giving a surgeon a scalpel with no safety guard. In skilled hands, it's powerful. In tired or distracted hands—and all programmers get tired and distracted—it's dangerous. Memory bugs in C and C++ cause buffer overflows, use-after-free errors, and null pointer dereferences. These aren't just crashes. They're security vulnerabilities that hackers exploit to steal data, take over systems, and cause billions of dollars in damage annually.</p>
+
+<p>On the other side, you have languages like Java, Python, and JavaScript. They use something called a garbage collector—an automatic system that manages memory for you. It's like having a robot clean up after your surgery. Safer, yes. But the robot takes time. It pauses your program unpredictably. For many applications, this is fine. For a video game rendering sixty frames per second, or a trading system executing thousands of transactions per millisecond, those pauses are unacceptable.</p>
+
+<p>Rust breaks this tradeoff.</p>
+
+<p>It achieves the performance of C and C++ with the safety of garbage-collected languages. No garbage collector. No unpredictable pauses. But also no buffer overflows, no use-after-free bugs, no null pointer crashes. At least, not from the Rust code itself.</p>
+
+<p>How? Through a concept called the borrow checker.</p>
+
+<h2>The Borrow Checker: A Strict Librarian</h2>
+
+<p>Imagine a library with unusual rules. Every book can only be checked out by one person at a time. While you have a book, nobody else can even look at it. When you're done, you must return it—you can't just abandon it somewhere.</p>
+
+<p>This is essentially how Rust manages memory. Every piece of data has exactly one "owner." When you want to share data with another part of your program, you can either transfer ownership permanently, or you can "borrow" the data temporarily. The borrow checker—part of the Rust compiler—enforces these rules at compile time, before your program ever runs.</p>
+
+<p>If you try to use data after you've given it away, the compiler refuses to build your program. If you try to modify data while something else is reading it, the compiler refuses. If you try to create a reference to data that might not exist anymore, the compiler refuses.</p>
+
+<p>This is strict. Frustratingly strict, at times. Experienced programmers often describe their first weeks with Rust as "fighting the borrow checker." Code patterns that work fine in other languages simply won't compile.</p>
+
+<p>But here's the thing: the borrow checker is usually right.</p>
+
+<p>Those patterns that won't compile? They're often the same patterns that cause mysterious crashes, data corruption, and security vulnerabilities in other languages. The compiler isn't being pedantic. It's catching bugs that would otherwise haunt you in production, at two in the morning, when your phone buzzes with alerts about systems going down.</p>
+
+<h2>From Personal Project to Global Foundation</h2>
+
+<p>For three years, Rust existed only in Hoare's spare time. He didn't even tell his colleagues at Mozilla about it. Then, around 2009, a small group at Mozilla discovered the project and became intrigued.</p>
+
+<p>Mozilla, the organization behind Firefox, had a problem. Web browsers are massive, complex pieces of software that must be both blazingly fast and completely secure. Firefox was written largely in C++, and like all large C++ codebases, it accumulated security vulnerabilities. Every few weeks, Mozilla would release patches for memory safety bugs. This was expensive, embarrassing, and potentially dangerous for the hundreds of millions of people using Firefox.</p>
+
+<p>Brendan Eich—the creator of JavaScript—saw Rust's potential. Mozilla officially sponsored the project, assigning full-time engineers to work alongside Hoare. They commandeered a conference room and dubbed it "the nerd cave," complete with a sign on the door.</p>
+
+<p>The early years were turbulent. Rust had started as an OCaml program—OCaml being a functional programming language favored by academics. By 2010, the team had rewritten the compiler in Rust itself, a process called "bootstrapping" that's a rite of passage for new programming languages. The language changed dramatically from version to version. Features were added, then removed. An entire garbage collector was built, then deleted.</p>
+
+<p>One early reviewer noted that while Rust was "widely viewed as a remarkably elegant language," adoption suffered because it "radically changed from version to version." Programmers were hesitant to invest in learning something that might be completely different next month.</p>
+
+<p>In 2013, Hoare stepped down from leading the project. What followed was an experiment in federated governance. Rather than a single "benevolent dictator for life" (a common model in open source), Rust evolved under a core team of initially six people, with dozens of contributors across specialized teams. A formal "Request for Comments" process was established in 2014, allowing the community to propose and debate language changes. By 2016, over 1,600 such proposals had been submitted.</p>
+
+<p>Rust 1.0 arrived on May 15, 2015—nine years after that broken elevator. It was the first "stable" release, meaning Mozilla promised not to break existing code in future updates. The flood of adoption began.</p>
+
+<h2>Servo: The Proving Ground</h2>
+
+<p>Alongside Rust, Mozilla had been building something called Servo—an experimental web browser engine written entirely in Rust. Samsung partnered with Mozilla on this effort, seeing potential for future mobile devices.</p>
+
+<p>Servo served as Rust's proving ground. New Rust features were tested on real browser code. When Servo developers struggled with something, that feedback shaped the language. The collaboration was unusually tight; the two teams worked almost as one.</p>
+
+<p>In 2016, pieces of Servo began shipping inside Firefox. First, a small component. Then more. By Firefox 57, released in September 2017, substantial portions of the browser's rendering engine were Rust code—part of an overhaul called "Project Quantum" that made Firefox dramatically faster.</p>
+
+<p>The Servo project demonstrated that Rust could handle the most demanding software engineering challenges. A web browser must parse untrusted input from anywhere on the internet, render complex graphics at high frame rates, and never crash or expose user data. Rust delivered.</p>
+
+<h2>Industry Adoption: From Startups to the White House</h2>
+
+<p>Mozilla wasn't alone for long. Samsung had engineers working on Rust early on. Facebook (now Meta) and Dropbox adopted it for internal projects. Amazon Web Services began using Rust in 2020, with engineers citing not just performance and safety, but something harder to quantify: the language was pleasant to work in.</p>
+
+<p>Amazon developers also cited research by Portuguese scientists showing that Rust code consumed less energy than equivalent code in Java. In an era of massive data centers and climate concerns, this efficiency matters.</p>
+
+<p>Then came 2020, and near-disaster.</p>
+
+<p>The COVID-19 pandemic forced Mozilla into restructuring. In August, the organization laid off 250 of its 1,000 employees—including the entire Servo team. The development community watched anxiously. Would Rust survive without its primary sponsor?</p>
+
+<p>Within a week, the Rust Core Team announced plans for an independent foundation. On February 8, 2021, the Rust Foundation was established with five founding members: Amazon Web Services, Google, Huawei, Microsoft, and Mozilla. The language that began as one developer's side project was now backed by some of the largest technology companies on Earth.</p>
+
+<p>Google announced Rust support for Android development in April 2021. The message was clear: in a world where phones hold our banking information, medical records, and private messages, memory-safe languages weren't optional—they were essential.</p>
+
+<p>The most striking endorsement came in February 2024, when the White House Office of the National Cyber Director released a 19-page report urging software development to move away from C and C++ toward memory-safe alternatives. Rust was prominently listed alongside languages like Go, Swift, and Java. The federal government was essentially telling American industry: stop writing code that hackers can exploit.</p>
+
+<h2>The Syntax: Familiar but Different</h2>
+
+<p>If you've seen C, C++, or Java code, Rust will look vaguely familiar. Functions start with the keyword "fn." Code blocks are wrapped in curly braces. Statements end with semicolons. Here's the traditional first program every programmer writes:</p>
+
+<p>fn main() {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;println!("Hello, World!");<br>
+}</p>
+
+<p>The exclamation mark after "println" indicates it's a macro—a code generation tool—rather than a regular function. But the broad strokes are recognizable.</p>
+
+<p>The differences emerge quickly. Variables in Rust are immutable by default. If you write "let x = 5," you cannot later change x to something else. If you want a variable you can modify, you must explicitly say so with "let mut x = 5." This catches an entire category of bugs where code accidentally modifies data it shouldn't.</p>
+
+<p>Rust also supports "variable shadowing," where you can declare a new variable with the same name as an old one. This sounds confusing, but it's actually useful. You can transform data through a series of steps without inventing new names at each stage. A string becomes its length, still called "data." The old version simply ceases to exist.</p>
+
+<h2>Types: The Compiler Knows Everything</h2>
+
+<p>Rust is statically typed, meaning the compiler knows the type of every variable before the program runs. This contrasts with dynamically typed languages like Python or JavaScript, where you can put any kind of value in any variable and find out at runtime if it was a mistake.</p>
+
+<p>But Rust doesn't require you to write types everywhere. Its type inference figures out most types from context. You write "let x = 5" and the compiler knows x is an integer. You write "let name = String::from("Alice")" and the compiler knows name is a String.</p>
+
+<p>When you do specify types, the names are logical. i32 is a 32-bit signed integer. u8 is an 8-bit unsigned integer—what other languages might call a "byte." f64 is a 64-bit floating-point number. The "i" stands for integer (signed), "u" for unsigned, "f" for float. The number is the bit width.</p>
+
+<p>There's also a special type called "unit," written as (). It represents nothing—not even a zero or a null, but the complete absence of a value. Functions that don't return anything return (). This is different from C's "void," which means "no type at all." Unit is a real type with exactly one possible value. This distinction matters for Rust's type system to work consistently.</p>
+
+<h2>Ownership: The Heart of Rust</h2>
+
+<p>We touched on the borrow checker earlier, but let's go deeper. Ownership is Rust's central innovation, the thing that makes everything else possible.</p>
+
+<p>Every value in Rust has exactly one owner—a variable that "holds" it. When that variable goes out of scope (for instance, when a function ends), the value is automatically cleaned up. This is deterministic. You know exactly when cleanup happens. No garbage collector running at unpredictable times.</p>
+
+<p>If you assign a value to another variable, ownership transfers. The original variable becomes invalid. Try to use it, and the compiler rejects your code. This prevents a nasty class of bugs where two parts of a program both think they own a piece of memory, leading to corruption when one frees it while the other is still using it.</p>
+
+<p>But what if you want to share data without transferring ownership? That's where borrowing comes in. You can create a reference to a value using the ampersand symbol. A reference lets you access the value without owning it. The catch: the original value cannot be modified or disposed of while references exist, and you cannot modify the value through a reference unless it's a mutable reference—of which you can only have one at a time.</p>
+
+<p>These rules eliminate data races, a class of bug where multiple parts of a program read and write shared data simultaneously, producing unpredictable results. In concurrent programming—code that does multiple things at once—data races are among the hardest bugs to find and fix. Rust makes them impossible to compile in the first place.</p>
+
+<h2>The Trade-offs</h2>
+
+<p>Rust is not perfect. No technology is. The language's strictness, while preventing bugs, also makes certain patterns difficult or impossible.</p>
+
+<p>Linked lists, for example—a basic data structure taught in every computer science program—are notoriously tricky to implement in safe Rust. The ownership rules don't mesh well with the pointer-heavy nature of such structures. Rust programmers often reach for built-in data structures or use "unsafe" blocks where they promise the compiler they know what they're doing.</p>
+
+<p>The learning curve is steep. Developers accustomed to other languages frequently spend their first weeks or months being rejected by the borrow checker. Error messages have improved enormously over the years, and the Rust compiler now offers suggestions for fixing problems, but frustration is common.</p>
+
+<p>Compile times can be slow, particularly for large projects. The extensive checking the compiler performs takes time. Projects with hundreds of thousands of lines of Rust can take minutes to build, which breaks the flow of rapid iteration that developers in scripting languages enjoy.</p>
+
+<p>And Rust is young. The ecosystem of libraries—called "crates"—is vibrant but not as comprehensive as what exists for languages with 30-year head starts. Sometimes you need a feature, and no quality crate exists. You write it yourself or wait for someone else to.</p>
+
+<h2>The Community and Its Growing Pains</h2>
+
+<p>Rust's community is famous for its welcoming, helpful culture. A code of conduct was established early. The phrase "Rust is a language empowering everyone to build reliable and efficient software" reflects an egalitarian ethos.</p>
+
+<p>But growth brings conflict. In November 2021, Rust's Moderation Team—responsible for enforcing the code of conduct—resigned en masse. Their resignation letter accused the Core Team of placing "themselves unaccountable to anyone but themselves." It was a rare public airing of internal strife in a community known for cooperation.</p>
+
+<p>The incident led to governance reforms. A new leadership structure was proposed and debated. Open source projects, particularly successful ones, face a recurring challenge: early informal governance doesn't scale. Rust is navigating this passage from scrappy project to institutional permanence.</p>
+
+<p>In 2023, the Rust Foundation stirred controversy with a draft trademark policy that many felt was overly restrictive about using the Rust name and logo. Community backlash was swift and pointed. The foundation revised its approach. Growing pains continue.</p>
+
+<h2>What Rust Is and Isn't</h2>
+
+<p>Rust is not a replacement for every language. It's not trying to be. Its sweet spot is systems programming: operating systems, browsers, game engines, databases, embedded devices. Places where you need both speed and safety. Places where bugs have severe consequences.</p>
+
+<p>For a quick script to rename some files? Python is probably easier. For a web application where development speed matters more than execution speed? JavaScript or Ruby might serve better. For a data science project? Python's ecosystem is vastly richer.</p>
+
+<p>But when you need to squeeze every cycle out of your hardware while guaranteeing your code won't crash or be exploited—that's Rust territory. It's not a coincidence that cloud infrastructure, cryptocurrency platforms, and security-critical applications have been early adopters.</p>
+
+<h2>The Influences and the Future</h2>
+
+<p>Hoare described Rust as "technology from the past come to save the future from itself." He cited dozens of influences: CLU from 1975, Mesa from 1977, Erlang from 1986, Newsqueak from 1988. Academic languages, experimental languages, languages that pioneered ideas but never achieved mainstream adoption.</p>
+
+<p>Manish Goregaokar, an early Rust developer, echoed this: Rust is built on "mostly decades-old research." The ownership model resembles concepts from linear type theory. The trait system draws from Haskell's type classes. Pattern matching comes from the ML family of languages.</p>
+
+<p>What Rust did was package these ideas in a form that working programmers could actually use. Not a research paper. Not a language confined to universities. A practical tool for building real software, blessed by Mozilla's resources and later by industry giants.</p>
+
+<p>The language continues to evolve. New features arrive on a regular release cycle. The async/await syntax for concurrent programming was a major addition. Generic Associated Types—a feature from type theory—landed after years of work. The community debates and refines through the RFC process.</p>
+
+<p>Whether Rust becomes as ubiquitous as C, or remains a specialized tool for demanding applications, it has already changed the conversation. Memory safety is no longer an optional luxury. The White House says so. Major companies say so. And a generation of programmers who learned to stop fighting the borrow checker and start trusting it say so.</p>
+
+<p>It all started with a broken elevator and a programmer who decided there had to be a better way.</p>
       </div>
 
       <footer class="wikipedia-footer">

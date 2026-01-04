@@ -22,7 +22,129 @@
       </header>
 
       <div class="wikipedia-content">
-        <p>Content not available.</p>
+        <p class="source-note">Based on <a href="https://en.wikipedia.org/wiki/Model_Context_Protocol">Wikipedia: Model Context Protocol</a></p>
+
+<h2>The Universal Translator for Artificial Intelligence</h2>
+
+<p>In November 2024, two developers at Anthropic quietly released something that would reshape how artificial intelligence systems talk to the rest of the digital world. David Soria Parra and Justin Spahr-Summers created the Model Context Protocol, and within months, the fiercest rivals in AI—companies that rarely agree on anything—rushed to adopt it.</p>
+
+<p>That's the real story here. Not the technical specification itself, but what it represents: a rare moment when an entire industry collectively decided that cooperation beats competition.</p>
+
+<h2>The Problem That Wouldn't Go Away</h2>
+
+<p>Imagine you're building an AI assistant. You want it to read your Google Drive documents, check your Slack messages, and look up information in your company's database. Sounds straightforward enough.</p>
+
+<p>Here's the catch: each of those systems speaks its own language. Google Drive has one way of authenticating and requesting files. Slack has a completely different approach. Your database expects SQL queries in a particular format. So you build three separate connectors. Then you want to add GitHub access. That's four connectors. Email? Five.</p>
+
+<p>This is what Anthropic called the "N times M" problem. If you have N different AI systems and M different data sources, you potentially need N multiplied by M custom integrations. The math gets ugly fast.</p>
+
+<p>Companies had tried to solve this before. In 2023, OpenAI introduced what they called "function calling"—a way for their language models to request that external code run on their behalf. They also built a plugin framework for ChatGPT. These approaches worked, but they were vendor-specific. A connector built for OpenAI's system wouldn't work with Anthropic's Claude or Google's Gemini.</p>
+
+<p>The industry was rebuilding the same wheel over and over, in slightly different shapes.</p>
+
+<h2>What the Protocol Actually Does</h2>
+
+<p>The Model Context Protocol establishes a common language. Think of it like a universal power adapter, but for AI systems instead of electronics. Any AI that speaks the protocol can connect to any data source that speaks the protocol, without custom translation layers in between.</p>
+
+<p>The protocol handles three fundamental operations. First, it lets AI systems read files and data from external sources. Second, it allows them to execute functions—performing actions in connected systems rather than just reading from them. Third, it manages contextual prompts, ensuring the AI understands not just what data it's receiving, but what that data means in context.</p>
+
+<p>Under the hood, the Model Context Protocol borrows ideas from an older, well-tested approach called the Language Server Protocol. That protocol, usually abbreviated LSP, solved a similar problem for code editors. Before LSP, every code editor needed custom support for every programming language. After LSP, a single language server could work with any compatible editor.</p>
+
+<p>The Model Context Protocol uses a messaging format called JSON-RPC 2.0 for communication. JSON, short for JavaScript Object Notation, is simply a way of structuring data that both humans and machines can read. RPC stands for Remote Procedure Call—a method for one program to ask another program to do something. The "2.0" indicates the second major version of this standard.</p>
+
+<p>Messages can travel over two channels. The first is called "standard input/output," or stdio—the most basic way programs communicate on a computer, dating back to the earliest days of Unix. The second is HTTP, the same protocol your web browser uses, optionally enhanced with something called Server-Sent Events that allows the connection to push updates in real time.</p>
+
+<h2>The Architecture of Connection</h2>
+
+<p>The protocol creates two roles: servers and clients. An MCP server exposes data or capabilities. An MCP client—typically an AI application—connects to servers to access those capabilities.</p>
+
+<p>Consider a practical example. A developer wants their AI coding assistant to understand their current project. They set up an MCP server that can read files from their codebase, execute tests, and query their project management system. The AI coding assistant acts as the client, connecting to this server whenever it needs project context.</p>
+
+<p>Anthropic seeded the ecosystem by releasing reference server implementations for popular services. They built servers for Google Drive, Slack, GitHub, Git version control, PostgreSQL databases, Puppeteer (a tool for controlling web browsers programmatically), and Stripe (the payment processing platform). These weren't just demonstrations—they were production-ready starting points that developers could use immediately or customize for their needs.</p>
+
+<p>The company also released software development kits, collections of pre-built code that simplify building new servers and clients. These SDKs exist for Python, TypeScript, C#, and Java, covering the languages most commonly used in enterprise software development.</p>
+
+<h2>Who Adopted It, and How Fast</h2>
+
+<p>The speed of adoption tells you everything about how desperately the industry needed this standard.</p>
+
+<p>In March 2025, just four months after the initial announcement, OpenAI officially adopted the Model Context Protocol. This wasn't a casual endorsement. OpenAI integrated the standard across their entire product line: the ChatGPT desktop application, their Agents SDK for developers building autonomous AI systems, and their Responses API for programmatic access.</p>
+
+<p>Think about that for a moment. OpenAI and Anthropic are direct competitors in one of the most valuable technology markets in history. They're racing to build the most capable AI systems. Yet OpenAI looked at a protocol created by their rival and said: this is better than building our own thing.</p>
+
+<p>Google followed in April 2025. Demis Hassabis, the CEO of Google DeepMind—the research lab behind the Gemini family of AI models—confirmed that upcoming Gemini models and their supporting infrastructure would support the protocol.</p>
+
+<p>The toolmakers moved even faster. Replit, a platform for writing and running code in the browser, integrated MCP support. Sourcegraph, which provides code search and intelligence across large codebases, adopted it. Zed, a new code editor designed for speed, built the protocol into their AI features.</p>
+
+<p>Microsoft wove MCP into their Semantic Kernel framework and Azure OpenAI service. Cloudflare, the company that routes and protects a significant portion of internet traffic, enabled developers to deploy MCP servers on their global network.</p>
+
+<h2>From Company Project to Industry Foundation</h2>
+
+<p>In December 2025, Anthropic took a step that cemented the protocol's status as a true industry standard rather than a single company's project. They donated the Model Context Protocol to the Agentic AI Foundation, a new organization established under the Linux Foundation specifically to govern standards for AI agents.</p>
+
+<p>The founding members of this foundation read like a who's who of the technology industry: Anthropic, Block (the financial services company formerly known as Square), and OpenAI as co-founders, with Google, Microsoft, Amazon Web Services, Cloudflare, and Bloomberg providing additional support.</p>
+
+<p>This governance structure matters. When a protocol is controlled by a single company, other companies are reluctant to build on it—what if the controlling company changes the rules to favor themselves? By placing MCP under neutral foundation governance, Anthropic removed that concern. The protocol now belongs to the industry, not to any single player.</p>
+
+<h2>What People Are Actually Building</h2>
+
+<p>The most visible application of the Model Context Protocol is in software development. Modern coding increasingly involves AI assistants that suggest code, explain errors, and help debug problems. These assistants work better when they understand context—not just the single file you're editing, but the structure of your entire project, your testing patterns, your deployment configuration.</p>
+
+<p>MCP lets these assistants reach into that context in a standardized way. The AI can query your project's structure, read related files, even run your test suite to check whether its suggestions actually work.</p>
+
+<p>Another application area is natural language database access. Products like AI2SQL use the protocol to bridge the gap between plain English questions and structured database queries. A user can ask "how many customers signed up last month?" and the system translates that into the appropriate SQL query, executes it, and returns the results in human-readable form.</p>
+
+<p>The protocol also enables what the AI industry calls "agentic" workflows—systems where the AI doesn't just respond to questions but takes actions autonomously. An AI agent might monitor your email, identify messages requiring action, draft responses, update your task management system, and schedule follow-up meetings, all by connecting to different services through MCP servers.</p>
+
+<h2>The Security Conversation Nobody Wanted to Have</h2>
+
+<p>In April 2025, security researchers published findings that cast a shadow over the protocol's rapid adoption. They identified multiple classes of vulnerabilities in how MCP was being implemented and used.</p>
+
+<p>The first concern was prompt injection. This attack technique involves crafting input that tricks an AI system into ignoring its instructions and following the attacker's commands instead. When an AI has MCP access to external systems, a successful prompt injection could potentially let an attacker read files, execute code, or exfiltrate data through the AI's connections.</p>
+
+<p>The second issue involved tool permissions. Individual MCP tools might seem harmless in isolation, but combining them could enable attacks. A tool that reads files and a tool that sends HTTP requests might each be safe on their own, but together they could let an attacker extract sensitive documents to an external server.</p>
+
+<p>The third vulnerability was what researchers called "lookalike tools"—malicious MCP servers that present themselves as legitimate services but silently intercept or modify data passing through them. If a user connects to what they think is their company's Slack server but is actually a malicious imposter, the attacker gains access to all messages flowing through that connection.</p>
+
+<p>These aren't theoretical concerns. They reflect fundamental tensions in AI system design. The more capable you make an AI agent—the more systems it can access, the more actions it can take—the more damage it can do if compromised or misbehaving. The Model Context Protocol made AI agents more capable, which simultaneously made their potential failure modes more severe.</p>
+
+<h2>Context: Why It Matters So Much</h2>
+
+<p>The word "context" appears in the protocol's name, and that's not an accident. Context is perhaps the single most important factor in how well AI systems perform.</p>
+
+<p>Large language models like GPT-4 or Claude are trained on vast quantities of text. They develop sophisticated statistical models of language and knowledge. But they're fundamentally limited by what they can see at the moment they're generating a response. That visible information is their context.</p>
+
+<p>Early versions of these models had extremely limited context windows—perhaps a few thousand words. Modern models can handle much more, sometimes the equivalent of a short book. But even that isn't enough when you're trying to work with a codebase containing thousands of files, or a business with years of accumulated documents and communications.</p>
+
+<p>The Model Context Protocol addresses this by making context retrieval dynamic. Instead of trying to stuff everything into the model's limited window, the AI can reach out and grab exactly the information it needs for the current task. It's the difference between a student who must memorize an entire textbook versus one who can look things up as needed during an open-book exam.</p>
+
+<h2>Comparisons and Alternatives</h2>
+
+<p>Tech journalists have compared MCP to OpenAPI, another specification that standardizes how software systems describe their interfaces. OpenAPI (sometimes called Swagger, its original name) lets developers create machine-readable descriptions of web APIs. Those descriptions then enable automatic generation of documentation, client code, and testing tools.</p>
+
+<p>The comparison is apt but incomplete. OpenAPI describes how to interact with an API—what endpoints exist, what parameters they accept, what responses they return. The Model Context Protocol goes further by specifying how AI systems specifically should interact with external resources, including handling the unique requirements of context management and tool execution that AI agents need.</p>
+
+<p>Another point of comparison is LangChain, a popular framework for building applications with large language models. LangChain provides tools for connecting AI models to external data and systems, but it's a framework rather than a protocol. You build applications using LangChain; you build interoperability standards using protocols like MCP. The two can work together, with LangChain applications using MCP for standardized external connections.</p>
+
+<h2>The Bigger Picture</h2>
+
+<p>What's happening with the Model Context Protocol reflects a pattern seen repeatedly in technology history. A new capability emerges—in this case, AI systems capable enough to usefully interact with external tools. Early implementations are fragmented, with each vendor building proprietary solutions. Eventually, the friction of fragmentation becomes unbearable, and the industry converges on a standard.</p>
+
+<p>We saw this with HTML for web pages, with HTTP for web communication, with USB for physical device connections, with WiFi for wireless networking. Each of these standards emerged from a period of competing proprietary approaches and eventually unified the industry around a common way of doing things.</p>
+
+<p>The Model Context Protocol appears to be that unifying standard for AI system integration. Its rapid adoption by major players, combined with its donation to neutral foundation governance, suggests it will become the default way AI systems connect to external resources.</p>
+
+<p>That has implications beyond technical convenience. As AI systems become more capable and more integrated into business operations, the question of how they access data and take actions becomes increasingly important. A standardized protocol makes it possible to develop standardized security practices, auditing tools, and governance frameworks. It's harder to secure a thousand proprietary integrations than one well-understood standard.</p>
+
+<h2>What Comes Next</h2>
+
+<p>The community around MCP is actively developing new design patterns for how to use the protocol effectively. One pattern called "Code Mode" optimizes the protocol for software development workflows. Another called "Progressive Discovery" lets AI systems gradually learn what capabilities are available rather than needing complete information upfront.</p>
+
+<p>The security concerns identified by researchers will drive improvements. The advantage of an open standard is that vulnerabilities become visible to the entire community, and fixes benefit everyone. Proprietary systems hide their security problems; open protocols expose them to scrutiny and improvement.</p>
+
+<p>Perhaps most significantly, the existence of a standard enables a new ecosystem of specialized MCP servers. Companies with unique data sources or capabilities can build servers that any MCP-compatible AI can use, without needing relationships with individual AI vendors. This could dramatically expand what AI systems can do by making the long tail of specialized data and tools accessible.</p>
+
+<p>The Model Context Protocol began as an engineering solution to an integration problem. It has become something larger: the plumbing through which AI systems will connect to the digital world. Like all good plumbing, most people will never think about it. But it will be there, quietly enabling the AI capabilities that come to seem ordinary.</p>
       </div>
 
       <footer class="wikipedia-footer">

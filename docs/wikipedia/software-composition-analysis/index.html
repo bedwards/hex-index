@@ -22,7 +22,99 @@
       </header>
 
       <div class="wikipedia-content">
-        <p>Content not available.</p>
+        <p class="source-note">Based on <a href="https://en.wikipedia.org/wiki/Software_composition_analysis">Wikipedia: Software composition analysis</a></p>
+
+<p>Imagine building a house where ninety percent of the materials come from other people's demolished buildings. You grab a door frame here, some plumbing there, electrical wiring from a third source. The house goes up faster and costs less. But do you know if that wiring meets current safety codes? Was that plumbing recalled last year for lead contamination? Does the original builder still hold a patent that means you owe them royalties?</p>
+
+<p>This is essentially how modern software gets built.</p>
+
+<h2>The Open Source Revolution and Its Hidden Costs</h2>
+
+<p>Since the late nineteen-nineties, programmers have increasingly assembled applications from pre-built components rather than writing everything from scratch. These components, called open-source software, are shared freely by developers around the world. The practice exploded after the Open Source Initiative launched in February nineteen ninety-eight, and today it's rare to find any commercial application that doesn't rely heavily on these shared building blocks.</p>
+
+<p>The benefits are obvious. Why spend six months building a date-picker widget when someone has already built one that works? Why write your own encryption library when security experts have already created battle-tested versions? Companies can move faster, get products to market sooner, and focus their engineering talent on what makes their product unique rather than reinventing wheels.</p>
+
+<p>But those borrowed components carry baggage.</p>
+
+<p>Five categories of risk, specifically. First, there's version control: when the original authors update their component, will it still work with your code, or will it break everything? Second, security vulnerabilities: the component you're using might contain flaws that hackers can exploit, tracked in databases as Common Vulnerabilities and Exposures, or CVEs for short. Third, licensing requirements: some open-source licenses demand that you share your own code publicly if you use theirs, which can be a nasty surprise for companies building proprietary products. Fourth, compatibility: will this component play nicely with the rest of your codebase? And fifth, support: what happens when the original maintainer abandons the project, leaving you with obsolete code that nobody updates anymore?</p>
+
+<h2>From Spreadsheets to Sophisticated Scanners</h2>
+
+<p>In the early days, organizations tried tracking their open-source components with spreadsheets. Developers would manually log each component they used, its version, its license type. As you might imagine, this worked about as well as tracking a library's entire collection with handwritten index cards. Components got missed. Versions went unrecorded. The spreadsheets grew stale within weeks.</p>
+
+<p>The solution that emerged in the early two-thousands was Software Composition Analysis, usually abbreviated to SCA. These are specialized tools that automatically scan your codebase and identify every open-source component hiding within it.</p>
+
+<p>Think of it like a food inspector with a spectrometer. You hand them a processed food product, and they can tell you exactly which ingredients went into it, where each one came from, and whether any of them have been recalled.</p>
+
+<p>The way these tools work is methodical. An engine scans your source code along with all the associated files needed to compile your application. It identifies each open-source component and its specific version, building a catalog. This catalog then gets compared against several databases: the National Vulnerability Database, which tracks known security flaws; various licensing databases; and historical records of component versions from repositories like GitHub, Maven for Java packages, PyPi for Python, and NuGet for the Microsoft ecosystem.</p>
+
+<p>The output often takes the form of a Software Bill of Materials, or SBOM. This is essentially an ingredients list for your software, detailing every third-party component, its version, its license, and any known issues. The United States government now requires these for software sold to federal agencies, recognizing that you can't secure what you can't see.</p>
+
+<h2>The False Positive Problem</h2>
+
+<p>Early SCA tools had a frustrating limitation. They'd flag every component with a known vulnerability, regardless of whether that vulnerability actually affected your application. It's like a car recall that applies to a defective airbag sensor, but the tool alarms even for cars that don't have airbags.</p>
+
+<p>If a library contains a hundred functions but your code only uses three of them, and the vulnerability sits in one of the ninety-seven functions you never touch, is that really a problem for you? Traditional SCA tools couldn't answer that question. They'd generate reports with hundreds of warnings, many of which were essentially noise. Developers grew frustrated, and some started ignoring the warnings entirely, defeating the whole purpose.</p>
+
+<p>The breakthrough came from a technique called vulnerable method analysis. Instead of just detecting that a vulnerable library exists in your codebase, advanced tools now trace the actual execution paths through your code. They build what's called a call graph, mapping which functions call which other functions, from the entry points of your application all the way down to the specific vulnerable code in third-party libraries.</p>
+
+<p>If there's no path from your code to the vulnerable function, the tool can tell you the vulnerability is present but not reachable. It exists in code you're technically shipping, but code that can never actually execute. This dramatically reduces false positives, letting developers focus on vulnerabilities that actually matter.</p>
+
+<p>This approach was pioneered between twenty-fifteen and twenty-seventeen at a company called SourceClear, under the leadership of a researcher named Asankhaya Sharma. The technique has since become standard in more sophisticated SCA products.</p>
+
+<h2>Teaching Machines to Find Vulnerabilities</h2>
+
+<p>Here's a troubling fact about the security vulnerability databases that SCA tools rely on: they're largely maintained by humans. Security researchers discover vulnerabilities, write them up, and submit them to databases like the National Vulnerability Database. This process can take months. A vulnerability might be silently fixed in a library update, or discussed in a mailing list, long before it gets an official CVE entry.</p>
+
+<p>This gap creates a window of exposure. Your SCA tool gives you a clean bill of health because no vulnerabilities are listed, but in reality, you're running code with a known flaw that just hasn't been cataloged yet.</p>
+
+<p>Machine learning offers a partial solution. Modern systems can train on historical data to recognize the patterns of vulnerability-related activity: certain keywords in commit messages, certain types of bug reports, certain discussions on mailing lists. The models learn to flag suspicious items for human review before they make it into official databases.</p>
+
+<p>Natural language processing takes this further. By analyzing the text of commit messages and bug reports, these systems can identify security-related issues that developers might not have publicly disclosed as vulnerabilities. A commit message saying "fixed edge case in input parsing" might not scream "security vulnerability," but trained models can recognize the patterns that suggest otherwise.</p>
+
+<p>These automated systems aren't perfect. They still require human oversight. But they help close the gap between when vulnerabilities are quietly fixed and when they're officially documented.</p>
+
+<h2>The Compatibility Puzzle</h2>
+
+<p>So your SCA tool tells you that a library you're using has a critical vulnerability. The obvious solution is to update to a newer, patched version. But software dependencies are notoriously brittle. Update one library, and suddenly your application won't compile because the new version changed its interface in subtle ways.</p>
+
+<p>This creates a painful dilemma. You can either live with a known security vulnerability or risk breaking your application by updating. Many teams, facing deadline pressure, choose to defer updates. The vulnerabilities accumulate.</p>
+
+<p>Advanced static analysis techniques now help address this. Before recommending an update, sophisticated SCA tools can analyze whether the new version would introduce incompatibilities. They examine the interfaces your code uses and compare them against what the new version provides. If there's a mismatch, the tool can warn you upfront rather than letting you discover it through a broken build.</p>
+
+<p>Some tools go further, attempting automated remediation. If the incompatibility is simple enough, the tool might automatically adjust your code to work with the newer library version. This integration with continuous integration and continuous delivery pipelines, often abbreviated as CI/CD, means updates can flow through more smoothly.</p>
+
+<h2>Who Actually Uses This?</h2>
+
+<p>Different people in an organization care about different aspects of SCA findings. Security teams focus on the vulnerability reports, tracking which applications have unpatched flaws and prioritizing remediation. Legal and compliance teams scrutinize the licensing information, making sure the company isn't accidentally violating intellectual property requirements.</p>
+
+<p>At the executive level, the Chief Information Security Officer, or CISO, typically owns the security risk piece. The Chief Information Officer and Chief Technology Officer care about the operational implications, how easily these tools integrate into development workflows without slowing teams down. Legal counsel and intellectual property officers worry about the licensing exposure.</p>
+
+<p>For developers, the most valuable SCA implementations integrate directly into their development environment. As they add a new component, they get immediate feedback about its security status and licensing requirements. They don't have to context-switch to a separate tool or wait for a weekly scan to complete.</p>
+
+<p>Organizations also use SCA during mergers and acquisitions. Before buying a company, the acquiring firm wants to know what's lurking in the target's codebase. Are they sitting on a mountain of unpatched vulnerabilities? Are they using components with licensing terms that could cause legal problems? Technology due diligence increasingly includes a thorough SCA scan.</p>
+
+<h2>Strengths and Persistent Weaknesses</h2>
+
+<p>The greatest strength of SCA tools is their automation. Developers don't have to do extra work when incorporating open-source components. The scanning happens automatically, catching direct dependencies and also indirect ones, the components that your components depend on, recursively down the tree. Modern applications might have hundreds of these transitive dependencies, far too many for any human to track manually.</p>
+
+<p>The advances in vulnerable method analysis and machine learning have addressed many early criticisms about false positives and incomplete vulnerability databases. The tools are genuinely more accurate than they were a decade ago.</p>
+
+<p>But weaknesses remain. Deployment can be complex and labor-intensive, sometimes taking months to get fully operational in a large organization. Each vendor maintains their own proprietary database of components and vulnerabilities, and the coverage varies dramatically between products. What one tool catches, another might miss entirely.</p>
+
+<p>The connection to the National Vulnerability Database creates another limitation. Official CVE entries often lag months behind the actual discovery of vulnerabilities. If your SCA tool only checks against official entries, you're flying partially blind.</p>
+
+<p>Many tools also fall short on actionable guidance. They'll tell you that you have a problem, but not how to fix it. When licensing issues arise, they might flag that you're using a component with a copyleft license, but not explain what that actually means for your situation or what your options are.</p>
+
+<h2>The Bigger Picture</h2>
+
+<p>Software Composition Analysis sits within a broader landscape of security practices. It complements traditional security testing, which looks for vulnerabilities in your own code rather than borrowed components. It intersects with static program analysis, the general practice of examining code without running it to find potential problems.</p>
+
+<p>The rise of SCA reflects a fundamental truth about modern software development: we're all standing on each other's shoulders. The collaborative nature of open source has accelerated innovation tremendously. But it's also created a web of interdependencies that nobody fully understands.</p>
+
+<p>When a critical vulnerability was discovered in Log4j, a widely used Java logging library, in late twenty twenty-one, organizations around the world scrambled to figure out whether they were affected. Many didn't know they were using Log4j at all. It was buried three or four levels deep in their dependency trees, pulled in by a component that was pulled in by another component. The companies with mature SCA practices could answer the question in hours. Others spent weeks in uncertainty.</p>
+
+<p>This is ultimately what SCA is about: visibility. You can't secure what you can't see. You can't manage risk you don't know you're taking. The borrowed materials in your software house might be perfectly safe, or they might be slowly poisoning everyone inside. Software Composition Analysis gives you a way to find out.</p>
       </div>
 
       <footer class="wikipedia-footer">

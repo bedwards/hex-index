@@ -22,7 +22,119 @@
       </header>
 
       <div class="wikipedia-content">
-        <p>Content not available.</p>
+        <p class="source-note">Based on <a href="https://en.wikipedia.org/wiki/Signalling_System_No._7">Wikipedia: Signalling System No. 7</a></p>
+
+<p>Here's a strange truth about your phone: the system that routes your calls was designed in the 1970s and has security holes so large that virtually anyone with the right tools can track your location, intercept your text messages, and listen to your conversations. This isn't a theoretical vulnerability. It's been demonstrated repeatedly, exploited by governments and criminals alike, and yet it remains the backbone of global telecommunications.</p>
+
+<p>The system is called Signalling System Number Seven, or SS7 for short.</p>
+
+<h2>The Problem SS7 Was Built to Solve</h2>
+
+<p>To understand why we're stuck with this aging infrastructure, you need to understand what came before it. In the early days of telephony, when you placed a long-distance call, the phone network used special tones sent over the same wires that would carry your voice. These tones told the switches along the way where to route your call and how to bill it.</p>
+
+<p>This approach had a name: in-band signaling. "In-band" because the control signals traveled in the same channel as your conversation—the same "band" of audio frequencies.</p>
+
+<p>It also had a fatal flaw.</p>
+
+<p>Since the signaling tones were just sounds within the normal audio range, anyone who could generate those exact tones could control the phone network. In the late 1960s and 1970s, a subculture of "phone phreakers" discovered this vulnerability. The most famous was John Draper, who earned the nickname "Captain Crunch" after discovering that a toy whistle from a box of Cap'n Crunch cereal produced a perfect 2600-hertz tone—the exact frequency the phone network used to signal a free trunk line.</p>
+
+<p>With simple devices called "blue boxes" that could generate these tones electronically, phreakers could make free long-distance calls, route themselves through multiple exchanges for anonymity, or even tap into international lines. Steve Jobs and Steve Wozniak famously sold blue boxes as teenagers, just a few years before founding Apple.</p>
+
+<p>The phone companies needed a solution that would keep the control signals completely separate from the voice channels. They needed out-of-band signaling.</p>
+
+<h2>A Separate Network for Control</h2>
+
+<p>SS7 was Bell System's answer, developed in the early 1970s and standardized internationally by the late 1980s. The core idea was elegant: create an entirely separate network just for signaling. Your voice would travel one path; the instructions for routing that voice would travel another path entirely, on dedicated links that ordinary callers could never access.</p>
+
+<p>This approach offered more than just security against phone phreakers. It was also dramatically more efficient.</p>
+
+<p>Consider what happens when you call someone who's on another call. With the old in-band system, your call would travel hop by hop across the network, occupying voice circuits the entire way, only to discover at the final switch that the line was busy. All those circuits were wasted during the setup attempt.</p>
+
+<p>With SS7, signaling messages race ahead on the separate network, checking that each segment is available before any voice circuit is seized. If the person you're calling is busy, you hear a busy signal immediately, and no voice channels are consumed at all. For long-distance calls traversing many switches, this represented enormous savings.</p>
+
+<p>The signaling network also enabled services that were previously impossible. Caller ID, call waiting, call forwarding, voicemail notification—all of these depend on the ability to send information about a call separately from the call itself. The Short Message Service, better known as SMS or text messaging, was designed to use the SS7 signaling channels, which is why text messages are limited in length: they were originally designed to fit in the spare capacity of signaling packets.</p>
+
+<h2>How the Network Fits Together</h2>
+
+<p>The SS7 network has three types of nodes, each identified by a unique number called a signaling point code.</p>
+
+<p>Service Switching Points, or SSPs, are the telephone switches that handle actual calls. When you pick up your phone and dial a number, your local SSP generates SS7 signaling messages to set up the call.</p>
+
+<p>Signal Transfer Points, or STPs, are the routers of the SS7 world. They receive signaling messages and forward them toward their destination, but they don't process the content of those messages. In North America, most SS7 traffic flows through STPs, a configuration called quasi-associated signaling. In Europe, switches more often signal directly to each other without intermediary STPs—a configuration called associated signaling.</p>
+
+<p>Service Control Points, or SCPs, are databases that provide intelligence to the network. When you dial a toll-free number, for instance, an SCP looks up which actual phone number should receive that call. When a mobile phone moves to a new area, an SCP records its location. When you try to port your phone number to a new carrier, SCPs coordinate the transfer.</p>
+
+<p>These nodes communicate over dedicated links running at either 56 or 64 kilobits per second for standard links, or at 1.5 megabits per second in North America and 2 megabits per second in Europe for high-speed links. Multiple links between the same two points can be bundled together for additional capacity, forming what's called a link set.</p>
+
+<h2>The Protocol Stack</h2>
+
+<p>SS7 is actually a family of protocols organized in layers, somewhat similar to how the Internet's protocols are structured.</p>
+
+<p>At the bottom is the Message Transfer Part, or MTP, which handles the basic task of moving signaling messages reliably from one point to another. MTP is divided into three levels. Level 1 defines the physical electrical characteristics of the links. Level 2 handles error detection and correction to ensure messages aren't corrupted in transit. Level 3 provides routing, figuring out which path a message should take through the network.</p>
+
+<p>Above MTP sits the Signaling Connection Control Part, or SCCP. While MTP can only address messages to signaling points—that is, to specific nodes—SCCP adds the ability to address messages to particular functions within those nodes. It also provides either connectionless service, where each message is independent, or connection-oriented service, where an ongoing dialogue can be maintained between two applications.</p>
+
+<p>The upper layers of SS7 are called User Parts, and they implement specific applications. The Telephone User Part, or TUP, was designed for basic voice calls and was widely deployed in Europe. The Integrated Services Digital Network User Part, commonly called ISUP and pronounced "eye-sup," is more capable and became the dominant protocol for voice call setup worldwide. When you place a phone call today, ISUP messages are almost certainly involved in setting it up, maintaining it, and tearing it down when you hang up.</p>
+
+<p>The Transaction Capabilities Application Part, or TCAP, provides a framework for database queries and other transactions that aren't directly tied to individual calls. This is what powers features like toll-free number translation, local number portability, and mobile phone location tracking.</p>
+
+<h2>Mobile Phones and Their Special Needs</h2>
+
+<p>When cellular networks emerged in the 1980s, they needed capabilities that the original SS7 couldn't provide. A mobile phone, by definition, moves around. The network needs to know where it is so incoming calls can reach it.</p>
+
+<p>This requirement led to the Mobile Application Part, or MAP, built on top of TCAP. When your phone connects to a cell tower, it registers its location with a database called the Home Location Register, or HLR. When someone calls your number, the network queries the HLR to find out where you currently are, then routes the call accordingly.</p>
+
+<p>The Base Station Subsystem Application Part, or BSSAP, handles communication between the mobile switching center—the brain of a cellular network—and the base stations that actually communicate with phones over the air. When you're in a call and move from one cell to another, BSSAP coordinates the handover so you don't notice the switch.</p>
+
+<p>All of this works remarkably well technically. But it was designed in an era when the only entities with access to the SS7 network were large, trusted telephone companies. That assumption has not aged well.</p>
+
+<h2>The Security Problem</h2>
+
+<p>SS7 was built with essentially no authentication or encryption. Any message that enters the SS7 network is trusted and processed without question. This made sense in the 1970s and 1980s, when the only way to inject messages into the network was to be a telephone company with expensive equipment and physical access to dedicated links.</p>
+
+<p>That world no longer exists.</p>
+
+<p>Today, many companies have legitimate access to portions of the SS7 network. Mobile virtual network operators, text messaging aggregators, and roaming hubs all connect to SS7 to provide their services. The barriers to entry have dropped. Equipment has become cheaper. And the internet now provides gateways into what was once an entirely separate network.</p>
+
+<p>In 2008, researchers began publishing details of what was possible for anyone with SS7 access. The findings were alarming.</p>
+
+<p>Location tracking is trivially easy. By sending the right queries to a mobile network's HLR, an attacker can determine which cell tower a phone is connected to—effectively tracking someone's location to within a few hundred meters in cities, or a few kilometers in rural areas. Studies have shown this works about 70 percent of the time against targets worldwide.</p>
+
+<p>Call interception is also possible. An attacker can instruct the network to forward a target's calls through their own equipment before routing them to the intended destination. The caller and recipient have no indication that anything unusual is happening.</p>
+
+<p>Text messages can be intercepted as well, which has particularly concerning implications for security. Many services use SMS for two-factor authentication, sending verification codes by text message. An attacker who can intercept these messages can take over bank accounts, email accounts, and other sensitive services.</p>
+
+<p>Even more sophisticated attacks are possible. Researchers have demonstrated ways to request temporary encryption keys from carriers, potentially allowing the decryption of recorded calls. There's evidence that these techniques have been used to deliver spyware to target phones.</p>
+
+<p>In 2016, the largest mobile operator in Norway, Telenor, experienced a dramatic demonstration of SS7's fragility. Unusual signaling from another European operator caused 30 percent of Telenor's network to become unstable. Whether this was an attack, a misconfiguration, or simply unusual but legitimate traffic, the incident showed how vulnerable even major carriers are to disruption.</p>
+
+<h2>Why We Can't Simply Replace It</h2>
+
+<p>Given these well-documented vulnerabilities, why haven't we replaced SS7 with something more secure?</p>
+
+<p>The answer is the same reason we haven't replaced many legacy systems: it works, it's everywhere, and the cost of replacement is staggering.</p>
+
+<p>SS7 is the plumbing of the global telephone network. Nearly every phone switch, every cellular network, every international gateway depends on it. Replacing it would require coordinated action by thousands of carriers in hundreds of countries, all of whom would need to agree on a new standard and then spend billions of dollars on new equipment.</p>
+
+<p>There are partial solutions. The Internet Engineering Task Force has defined a protocol suite called SIGTRAN—signaling transport—that carries SS7 messages over internet protocol networks instead of dedicated links. This doesn't fix the underlying security problems of SS7 itself, but it does allow signaling traffic to take advantage of modern network infrastructure.</p>
+
+<p>Newer cellular standards like 4G LTE and 5G use a completely different signaling system called Diameter. But even these modern networks often need to interwork with older systems, and when they do, they're exposed to the same vulnerabilities.</p>
+
+<p>Individual carriers can implement filtering and monitoring to detect suspicious SS7 activity. Some have done so. But the effectiveness varies widely, and many carriers in developing countries have neither the resources nor the expertise to implement robust defenses.</p>
+
+<h2>Living with the Risk</h2>
+
+<p>The practical implications of SS7 vulnerabilities depend on who you are and who might want to target you.</p>
+
+<p>For ordinary people, the risk is relatively low. Exploiting SS7 requires specialized knowledge and access that most criminals don't have. You're far more likely to be victimized by a phishing email or a data breach than by an SS7 attack.</p>
+
+<p>For people who might be targets of sophisticated adversaries—journalists, activists, government officials, business executives—the calculus is different. State intelligence agencies have well-documented access to SS7. So do some criminal organizations. If you're the kind of person who worries about government surveillance or corporate espionage, you should assume that your phone's location can be tracked and that your calls and texts can be intercepted.</p>
+
+<p>There are countermeasures. Using end-to-end encrypted messaging apps like Signal protects the content of your messages even if SS7 is compromised. Using authenticator apps instead of SMS for two-factor authentication eliminates that attack vector. Some security-focused apps can detect certain SS7 attacks and warn users.</p>
+
+<p>But the fundamental vulnerability remains. Fifty years after its development, a system designed for a world of trusted telephone monopolies continues to carry the signaling traffic that makes global telecommunications work. Its flaws are well understood and actively exploited. And despite periodic outrage when the problems are publicized, the economic and logistical challenges of replacing it have proven insurmountable.</p>
+
+<p>SS7 is a reminder that infrastructure tends to outlast its assumptions. The phone phreakers are long gone, but the solution built to stop them created new problems that may persist for decades more.</p>
       </div>
 
       <footer class="wikipedia-footer">

@@ -22,7 +22,153 @@
       </header>
 
       <div class="wikipedia-content">
-        <p>Content not available.</p>
+        <p class="source-note">Based on <a href="https://en.wikipedia.org/wiki/Test-driven_development">Wikipedia: Test-driven development</a></p>
+
+<h2>The Ancient Wisdom of Writing Tests First</h2>
+
+<p>Here's a programming technique so old that when Kent Beck introduced it to the software world in the late 1990s, older programmers would often respond: "Of course. How else could you program?"</p>
+
+<p>Beck himself doesn't claim to have invented test-driven development. He says he "rediscovered" it. The original description, he explains, appeared in an ancient programming manual that instructed developers to manually type out the expected output before writing any code, then keep programming until the actual output matched what they'd written down. It's a beautifully simple idea that somehow got lost for decades before Beck brought it back.</p>
+
+<p>Test-driven development, usually shortened to TDD, flips the conventional approach to writing software on its head. Instead of building something and then checking if it works, you first describe exactly what "working" means, watch that description fail because nothing exists yet, and only then write the minimum code needed to make it pass. Then you clean up your work and repeat the whole cycle with another small piece of functionality.</p>
+
+<p>It sounds almost backwards. Why would you write a test for code that doesn't exist?</p>
+
+<p>That's precisely the point.</p>
+
+<h2>The Red-Green-Refactor Rhythm</h2>
+
+<p>Practitioners of TDD describe their workflow using colors. Red means failure. Green means success. The mantra goes: red, green, refactor. Over and over, in tight little loops.</p>
+
+<p>First, you write a test that describes what you want your code to do. You run it. It fails—of course it fails, there's no code to make it pass. Your testing tool probably shows this failure in red. That's the red phase, and it's essential. If your test doesn't fail initially, something is wrong with your test. Maybe you wrote it incorrectly, or maybe the functionality already exists. Either way, a test that passes before you've written anything isn't actually testing what you think it's testing.</p>
+
+<p>Next comes green. You write just enough code—and no more—to make that failing test pass. Not elegant code. Not complete code. Just whatever minimal thing will turn red to green. This discipline prevents you from building features nobody asked for or writing code that isn't actually tested.</p>
+
+<p>Finally, refactor. Now that you have working code backed by a passing test, you can improve the code's structure without fear. Change how it's organized. Remove duplication. Make it readable. Your test acts as a safety net—if your refactoring breaks something, the test will catch it immediately.</p>
+
+<p>Then you start over with another tiny test.</p>
+
+<h2>Why Bother With This Ritual?</h2>
+
+<p>The traditional approach to testing comes at the end. You build something, maybe for days or weeks, and then you write tests to verify it works. Or more often, you build something, intend to write tests later, and then never quite get around to it because there's always another feature waiting.</p>
+
+<p>TDD makes testing unavoidable by weaving it into the act of creation itself. Every piece of functionality gets a test because you literally cannot write the functionality without writing the test first. There's no "we'll add tests later" because later never comes.</p>
+
+<p>But the benefits go deeper than just ensuring test coverage.</p>
+
+<p>When you write tests first, you're forced to think about how your code will be used before you think about how to implement it. You're designing the interface—the contract between your code and everything that calls it—before you build the internals. This tends to produce cleaner, more usable designs because you experience your own code as a user would.</p>
+
+<p>Consider debugging. When something breaks in a large codebase, finding the source of the problem can consume hours or even days. With TDD, you work in such small increments that when a test fails, you know the problem must be in the tiny bit of code you just wrote. There's simply not much code to search through.</p>
+
+<p>There's also a psychological dimension. Each tiny cycle of red-green-refactor gives you a small hit of accomplishment. You set a goal, you achieved it, your tests prove it. This constant positive reinforcement builds what Beck calls "confidence" in your code. You're not hoping it works. You have evidence.</p>
+
+<h2>The Architecture of a Good Test</h2>
+
+<p>Not all tests are created equal. A well-structured test follows a pattern that experienced practitioners can recognize at a glance: setup, execution, validation, cleanup.</p>
+
+<p>In the setup phase, you arrange everything the test needs. If you're testing a shopping cart, you might create a cart and add some items to it. You're putting the thing you're testing—sometimes called the unit under test—into a known, predictable state.</p>
+
+<p>Execution is usually the simplest part. You trigger the behavior you want to test. Call a function. Click a button. Send a request. Something happens.</p>
+
+<p>Validation is where you check the results. Did the shopping cart calculate the correct total? Did the function return what you expected? Did the right data get saved? This is the actual assertion, the moment of truth.</p>
+
+<p>Cleanup restores everything to a neutral state so the next test can run without any contamination from this one. Tests should be independent. Running them in a different order shouldn't change whether they pass or fail.</p>
+
+<h2>What TDD Tests Actually Test</h2>
+
+<p>TDD operates primarily at the unit level, meaning it tests small pieces of code in isolation. A unit might be a single function, a class, or a small module—the exact definition varies by programmer and programming language.</p>
+
+<p>These unit tests need to run fast. Really fast. You might run them dozens of times in an hour as you work through your red-green-refactor cycles. If each test takes several seconds, the rhythm breaks down. So TDD tests avoid anything slow: network connections, database queries, reading from disk. They test pure logic in isolation.</p>
+
+<p>But real software doesn't exist in isolation. It connects to databases, calls external services, sends emails. How do you test code that depends on these slow, unpredictable external systems?</p>
+
+<p>The answer involves something called test doubles—fake versions of external dependencies that you control completely. Instead of actually sending an email during a test, you might use a test double that simply records that an email would have been sent, with what content, to which address. Your test can then verify the right email would go out without actually sending anything.</p>
+
+<p>Of course, test doubles don't prove your code actually works with real external systems. You still need integration tests that verify the real connections work. But those slower tests live separately from your fast unit tests, run less frequently, and aren't part of the tight TDD cycle.</p>
+
+<h2>The Dark Side: Tests Gone Wrong</h2>
+
+<p>Like any technique, TDD can be done badly. Certain patterns of test construction lead to tests that are worse than useless—they're actively harmful, giving false confidence or creating maintenance nightmares.</p>
+
+<p>Tests that depend on each other form one common trap. If test B assumes test A ran first and left certain data in place, you've created a brittle chain. Reorder the tests and everything breaks. Refactor the early test and watch failures cascade through tests that have no actual bugs.</p>
+
+<p>Testing implementation details rather than behavior creates another kind of brittleness. If your test verifies that a specific internal method gets called three times with specific arguments, you've locked yourself into that implementation. Any refactoring, even one that improves the code while keeping the same behavior, will break the test.</p>
+
+<p>Slow tests undermine the entire TDD rhythm. A test suite that takes ten minutes to run won't get run frequently. Developers will start skipping it, running only the tests they think are relevant, and eventually ignoring test failures as "probably just a flaky test."</p>
+
+<p>Perhaps the subtlest trap is the "all-knowing oracle"—a test that checks everything about the system's state rather than just what's relevant to the behavior being tested. These over-eager tests fail for reasons that have nothing to do with what they're supposedly testing, demanding investigation into false alarms.</p>
+
+<h2>Beyond Development: Test-Driven Work</h2>
+
+<p>Interestingly, the principles of TDD have escaped the world of software entirely. Teams building physical products and delivering services have adopted what they call "test-driven work," applying the same philosophy with different vocabulary.</p>
+
+<p>Instead of "add a test," they "add a check." Instead of "write some code," they "do the work." The concept remains identical: define what success looks like before you start, verify your work against that definition, clean up, repeat.</p>
+
+<p>Quality control checks in manufacturing work this way. Before building a part, define exactly how you'll measure whether it meets specifications. Then build the part. Then verify it against your predefined checks. It's the same red-green-refactor cycle, just with physical materials instead of software.</p>
+
+<h2>TDD's Philosophical Cousins</h2>
+
+<p>Test-driven development isn't alone in the landscape of test-first methodologies. It has siblings and cousins that operate at different levels of abstraction.</p>
+
+<p>Acceptance test-driven development, or ATDD, zooms out from the code level to the feature level. Where TDD asks "does this function work correctly," ATDD asks "does this feature satisfy the customer's requirements." ATDD tests are written in collaboration with customers or their representatives, defining what the software should do in terms that non-programmers can understand and verify.</p>
+
+<p>While TDD is primarily a developer's tool for writing correct code, ATDD is fundamentally a communication tool. It creates a shared, unambiguous definition of "done" that everyone can understand. When the acceptance tests pass, the customer can see directly that their requirements have been met.</p>
+
+<p>Behavior-driven development, or BDD, bridges these two approaches. It borrows TDD's practice of writing tests first but focuses on describing behavior in natural language that all stakeholders can read. Tools like Cucumber allow teams to write specifications in plain English—"Given a customer has items in their cart, when they proceed to checkout, then they should see a payment form"—which then get translated into executable tests.</p>
+
+<h2>The Connection to Evaluating Language Models</h2>
+
+<p>If you're working with large language models, you might recognize something familiar in all this. Language models are fundamentally non-deterministic—ask the same question twice and you might get different answers. This makes traditional testing approaches unreliable.</p>
+
+<p>The solution that practitioners have developed looks remarkably like TDD. Before deploying a language model solution, you define evaluations—specific criteria for what constitutes acceptable output. You run your model against these evaluations. You adjust your prompts or fine-tuning until the evaluations pass. Then you add more evaluations for edge cases and repeat.</p>
+
+<p>It's the same philosophy: define success first, then build until you achieve it. The difference is that instead of testing deterministic code, you're testing probabilistic responses. Instead of checking exact outputs, you might check whether outputs fall within acceptable ranges or meet certain quality thresholds.</p>
+
+<p>The uncertainty inherent in language models actually makes this approach more important, not less. When you can't guarantee consistent outputs, having clear, predefined criteria for success becomes essential.</p>
+
+<h2>Building Systems That Support TDD</h2>
+
+<p>Test-driven development works best when the architecture of your software supports it. Complex systems require thoughtful design to remain testable.</p>
+
+<p>High cohesion helps—when each piece of your system does one thing well, testing that one thing is straightforward. Low coupling helps even more—when components don't depend heavily on each other, you can test each one in isolation without dragging half the system along.</p>
+
+<p>Published interfaces provide clear boundaries for testing. When a component exposes a well-defined contract, your tests can verify that contract without needing to know about the component's internal implementation. This separation makes both the code and the tests more maintainable.</p>
+
+<p>As systems grow larger, the benefits of TDD compound. In a complex system with many interacting components, a bug in one place can manifest as strange behavior somewhere entirely different. The more complex the interactions, the harder it is to track down the source of problems. TDD's emphasis on isolated, well-tested units helps contain this complexity—each piece works correctly on its own, so integration problems become easier to identify.</p>
+
+<p>But there's a warning here too. As the number of tests grows, the test code itself becomes a complex system that needs maintenance. Tests are software, and they deserve the same care as production code. Poorly organized, hard-to-read, or duplicative test code will eventually become a burden that erodes the benefits TDD promised.</p>
+
+<h2>The Simplicity Principles</h2>
+
+<p>TDD aligns naturally with certain programming philosophies, particularly two principles that go by memorable acronyms.</p>
+
+<p>KISS stands for "keep it simple, stupid"—a reminder that the simplest solution is usually the best one. Because TDD forces you to write only enough code to make a test pass, it naturally discourages over-engineering. You can't add complexity that isn't tested, and you can't write tests for features nobody asked for.</p>
+
+<p>YAGNI stands for "you aren't gonna need it." This principle warns against building features or flexibility for hypothetical future requirements. TDD embodies this by keeping you focused on the specific behavior described in your current test. You might think you'll need a more general solution later, but later isn't now. Write the simplest thing that works.</p>
+
+<p>Kent Beck even suggests a principle he calls "fake it till you make it." Your initial implementation might be embarrassingly simple—maybe even hardcoded to return exactly what the test expects. That's fine. As you add more tests requiring more sophisticated behavior, the code will evolve to support them. But you don't build that sophistication until tests demand it.</p>
+
+<h2>The Confidence Question</h2>
+
+<p>Perhaps the deepest benefit of TDD is psychological. Software development is full of uncertainty. Will this change break something elsewhere? Is this code doing what I think it's doing? Am I building what was actually requested?</p>
+
+<p>A comprehensive test suite answers these questions concretely. Yes, this change works—the tests prove it. Yes, this code does what you think—you wrote the expectation before the implementation. Yes, you're building what was requested—the tests describe the requirements.</p>
+
+<p>This confidence changes how you work. Refactoring becomes routine rather than terrifying. You can improve code structure freely because your tests will catch any mistakes. You can hand code to another developer knowing they can modify it without fear—the tests protect them too.</p>
+
+<p>When Beck says TDD "inspires confidence," he means something specific. Not the false confidence of assuming your code works. The earned confidence of having proof.</p>
+
+<h2>Learning to Think in Tests</h2>
+
+<p>For developers trained in the traditional approach—write code first, test later—TDD requires rewiring your thinking. It feels unnatural at first, like writing the ending of a story before you've figured out the beginning.</p>
+
+<p>The shift is from thinking about implementation to thinking about behavior. Instead of "how do I build this," you start with "how will I know when this works." Instead of writing code and hoping it's correct, you define correctness first and write code to achieve it.</p>
+
+<p>There's a moment in learning TDD when it clicks. You realize that the test isn't just checking your code—it's designing your code. The need to write a test forces you to answer fundamental questions: What is this function called? What parameters does it take? What does it return? What happens when things go wrong? By the time you've written the test, you've made all the important design decisions. The implementation almost writes itself.</p>
+
+<p>Not everyone loves TDD. Some developers find the discipline constraining. Others work on systems where the feedback loop is inherently slow, making the tight red-green-refactor cycle impractical. But even its critics tend to acknowledge the value of thinking about testing early, writing testable code, and maintaining comprehensive test coverage.</p>
+
+<p>And for those who embrace it fully, TDD becomes less a technique and more a philosophy—a way of approaching problems by first defining precisely what success looks like, then methodically achieving it, one small step at a time.</p>
       </div>
 
       <footer class="wikipedia-footer">

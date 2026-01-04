@@ -28,7 +28,8 @@ export function formatDate(dateStr: string | null): string {
 
 /**
  * Extract plain text excerpt from HTML content
- * Returns approximately the first 200 words for copyright compliance
+ * Returns approximately the first N words for copyright compliance
+ * Used for listings/cards where we need plain text
  */
 export function extractExcerpt(htmlContent: string, wordLimit: number = 200): string {
   // Strip HTML tags
@@ -69,6 +70,111 @@ export function extractExcerpt(htmlContent: string, wordLimit: number = 200): st
   }
 
   return excerpt;
+}
+
+/**
+ * Extract HTML excerpt preserving paragraph structure
+ * Returns approximately the first N words with HTML formatting intact
+ * Used for article pages where we want rich formatting
+ */
+export function extractHtmlExcerpt(htmlContent: string, wordLimit: number = 400): string {
+  // Remove wrapper elements, scripts, styles, and other non-content elements
+  const cleaned = htmlContent
+    // Remove doctype and html/head/body wrappers
+    .replace(/<!DOCTYPE[^>]*>/gi, '')
+    .replace(/<html[^>]*>/gi, '')
+    .replace(/<\/html>/gi, '')
+    .replace(/<head[^>]*>[\s\S]*?<\/head>/gi, '')
+    .replace(/<body[^>]*>/gi, '')
+    .replace(/<\/body>/gi, '')
+    // Remove scripts and styles
+    .replace(/<script[^>]*>[\s\S]*?<\/script>/gi, '')
+    .replace(/<style[^>]*>[\s\S]*?<\/style>/gi, '')
+    // Remove navigation and other structural elements
+    .replace(/<nav[^>]*>[\s\S]*?<\/nav>/gi, '')
+    .replace(/<header[^>]*>[\s\S]*?<\/header>/gi, '')
+    .replace(/<footer[^>]*>[\s\S]*?<\/footer>/gi, '')
+    .replace(/<aside[^>]*>[\s\S]*?<\/aside>/gi, '')
+    // Remove SVG elements (icons, buttons)
+    .replace(/<svg[^>]*>[\s\S]*?<\/svg>/gi, '')
+    .replace(/<button[^>]*>[\s\S]*?<\/button>/gi, '')
+    // Remove comments
+    .replace(/<!--[\s\S]*?-->/g, '')
+    .trim();
+
+  // Count words to find where to truncate
+  let wordCount = 0;
+  let result = '';
+  let inTag = false;
+  let currentWord = '';
+
+  for (const char of cleaned) {
+
+    if (char === '<') {
+      inTag = true;
+      if (currentWord.trim()) {
+        wordCount++;
+        currentWord = '';
+      }
+      result += char;
+    } else if (char === '>') {
+      inTag = false;
+      result += char;
+    } else if (inTag) {
+      result += char;
+    } else if (/\s/.test(char)) {
+      if (currentWord.trim()) {
+        wordCount++;
+        currentWord = '';
+      }
+      result += char;
+      if (wordCount >= wordLimit) {
+        break;
+      }
+    } else {
+      currentWord += char;
+      result += char;
+    }
+  }
+
+  // Close any unclosed tags
+  const openTags: string[] = [];
+  const tagPattern = /<\/?([a-zA-Z][a-zA-Z0-9]*)[^>]*>/g;
+  let match;
+  while ((match = tagPattern.exec(result)) !== null) {
+    const fullMatch = match[0];
+    const tagName = match[1].toLowerCase();
+    // Skip self-closing and void elements
+    if (fullMatch.endsWith('/>') || ['br', 'hr', 'img', 'input', 'meta', 'link'].includes(tagName)) {
+      continue;
+    }
+    if (fullMatch.startsWith('</')) {
+      const idx = openTags.lastIndexOf(tagName);
+      if (idx !== -1) {
+        openTags.splice(idx, 1);
+      }
+    } else {
+      openTags.push(tagName);
+    }
+  }
+
+  // Close remaining open tags in reverse order
+  for (let i = openTags.length - 1; i >= 0; i--) {
+    result += `</${openTags[i]}>`;
+  }
+
+  // Add ellipsis if we truncated
+  if (wordCount >= wordLimit) {
+    // Try to add ellipsis before the last closing tag
+    const lastClosingTag = result.lastIndexOf('</');
+    if (lastClosingTag > 0) {
+      result = result.substring(0, lastClosingTag) + '...' + result.substring(lastClosingTag);
+    } else {
+      result += '...';
+    }
+  }
+
+  return result.trim();
 }
 
 /**

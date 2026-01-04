@@ -27,9 +27,17 @@
         </div>
       </header>
 
+      
+
       <div class="article-excerpt">
-        <p></p>
-        <div class="excerpt-fade"></div>
+        <article>
+    <h1>Advanced LoRA Fine-Tuning: How to Pick LoRA, QLoRA, DoRA, PiSSA, OLoRA, EVA, and LoftQ for LLMs</h1>
+    <p class="author">By Benjamin Marie</p>
+    
+    <div class="content">
+      <div class="captioned-image-container"><figure><a target="_blank" href="https://substackcdn.com/image/fetch/$s_!uxYX!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F875180c9-f202-420f-8ac3-2810df4278eb_579x658.png" data-component-name="Image2ToDOM" rel="" class="image-link image2 is-viewable-img can-restack"><div class="image2-inset can-restack"><picture><source type="image/webp" srcset="https://substackcdn.com/image/fetch/$s_!uxYX!,w_424,c_limit,f_webp,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F875180c9-f202-420f-8ac3-2810df4278eb_579x658.png 424w, https://substackcdn.com/image/fetch/$s_!uxYX!,w_848,c_limit,f_webp,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F875180c9-f202-420f-8ac3-2810df4278eb_579x658.png 848w, https://substackcdn.com/image/fetch/$s_!uxYX!,w_1272,c_limit,f_webp,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F875180c9-f202-420f-8ac3-2810df4278eb_579x658.png 1272w, https://substackcdn.com/image/fetch/$s_!uxYX!,w_1456,c_limit,f_webp,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F875180c9-f202-420f-8ac3-2810df4278eb_579x658.png 1456w" sizes="100vw"><img src="https://substackcdn.com/image/fetch/$s_!uxYX!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F875180c9-f202-420f-8ac3-2810df4278eb_579x658.png" width="579" height="658" data-attrs="{&quot;src&quot;:&quot;https://substack-post-media.s3.amazonaws.com/public/images/875180c9-f202-420f-8ac3-2810df4278eb_579x658.png&quot;,&quot;srcNoWatermark&quot;:null,&quot;fullscreen&quot;:null,&quot;imageSize&quot;:null,&quot;height&quot;:658,&quot;width&quot;:579,&quot;resizeWidth&quot;:null,&quot;bytes&quot;:643970,&quot;alt&quot;:null,&quot;title&quot;:null,&quot;type&quot;:&quot;image/png&quot;,&quot;href&quot;:null,&quot;belowTheFold&quot;:false,&quot;topImage&quot;:true,&quot;internalRedirect&quot;:&quot;https://kaitchup.substack.com/i/175116639?img=https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F875180c9-f202-420f-8ac3-2810df4278eb_579x658.png&quot;,&quot;isProcessing&quot;:false,&quot;align&quot;:null,&quot;offset&quot;:false}" alt="" srcset="https://substackcdn.com/image/fetch/$s_!uxYX!,w_424,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F875180c9-f202-420f-8ac3-2810df4278eb_579x658.png 424w, https://substackcdn.com/image/fetch/$s_!uxYX!,w_848,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F875180c9-f202-420f-8ac3-2810df4278eb_579x658.png 848w, https://substackcdn.com/image/fetch/$s_!uxYX!,w_1272,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F875180c9-f202-420f-8ac3-2810df4278eb_579x658.png 1272w, https://substackcdn.com/image/fetch/$s_!uxYX!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F875180c9-f202-420f-8ac3-2810df4278eb_579x658.png 1456w" sizes="100vw" fetchpriority="high" class="sizing-normal"></picture><div class="image-link-expand"><div class="pencraft pc-display-flex pc-gap-8 pc-reset"></div></div></div></a><figcaption class="image-caption">Image generated with ChatGPT</figcaption></figure></div><p>When it’s done well, LoRA can match full fine-tuning while using a fraction of the memory.</p><p>It was introduced in 2021, when open LLMs were scarce and relatively small. Today, we have plenty of models, from a few hundred million to hundreds of billions of parameters. On these larger models, LoRA (or one of its variants) is often the only practical way to fine-tune without spending $10k+.</p><p>Originally, LoRA was meant to train small adapters on top of the attention blocks of LLMs. Since then, the community has proposed many optimizations and extensions, including techniques that work with quantized models.</p><p>In this article, we’ll look at the most useful, modern approaches to LoRA for adapting LLMs to your task and budget. We’ll review (Q)DoRA, (Q)LoRA, PiSSA, EVA, OLoRA, and LoftQ, compare their performance (with and without a quantized base model, when that’s relevant), and discuss when to pick each method. All of them are implemented in Hugging Face TRL.</p><p>You can find my notebook showing how to use these techniques here:</p><p data-attrs="{&quot;url&quot;:&quot;https://kaitchup.substack.com/p/notebooks&quot;,&quot;text&quot;:&quot;Get the notebook (#187)&quot;,&quot;action&quot;:null,&quot;class&quot;:null}" data-component-name="ButtonCreateButton" class="button-wrapper"><a href="https://kaitchup.substack.com/p/notebooks" rel="" class="button primary"><span>Get the notebook (#187)</span></a></p>
+    </div>
+  </article></source>
       </div>
 
       <div class="read-full-article">
@@ -41,8 +49,6 @@
           Full article content is available on the original publication.
         </p>
       </div>
-
-      
     </article>
   
   </main>

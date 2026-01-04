@@ -68,10 +68,13 @@ async function getRelatedArticles(
 
 /**
  * Read Wikipedia content from filesystem
+ * Content paths are relative to library/ directory
  */
 async function readWikipediaContent(contentPath: string): Promise<string> {
   try {
-    return await readFile(contentPath, 'utf-8');
+    // Content paths are relative to library/ directory
+    const fullPath = join(process.cwd(), 'library', contentPath);
+    return await readFile(fullPath, 'utf-8');
   } catch {
     console.warn(`  Warning: Could not read content at ${contentPath}`);
     return '<p>Content not available.</p>';

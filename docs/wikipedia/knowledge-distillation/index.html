@@ -22,7 +22,151 @@
       </header>
 
       <div class="wikipedia-content">
-        <p>Content not available.</p>
+        <p class="source-note">Based on <a href="https://en.wikipedia.org/wiki/Knowledge_distillation">Wikipedia: Knowledge distillation</a></p>
+
+<h2>Teaching Small Minds to Think Like Giants</h2>
+
+<p>Here's a puzzle that haunted machine learning researchers for years: you can build a massive neural network that recognizes faces, translates languages, or predicts which ads you'll click on with remarkable accuracy. But that network might have hundreds of billions of parameters. It might require a data center to run. So what do you do when you need that same intelligence on a smartphone?</p>
+
+<p>You could try to train a smaller network from scratch. But smaller networks learn worse. They don't have enough capacity to capture all the subtle patterns in the data.</p>
+
+<p>Or you could do something clever. You could have the small network learn from the big one.</p>
+
+<p>This is knowledge distillation—the art of transferring what a large model knows into a smaller model that can actually run on real-world hardware. It's how companies like Meta deploy sophisticated ad prediction models to billions of users. It's why your phone can run speech recognition without sending audio to the cloud. And it involves a beautiful insight about what neural networks actually "know."</p>
+
+<h2>What Big Models Know That Small Ones Don't</h2>
+
+<p>When you train a neural network to classify images, something interesting happens in its final layer. The network doesn't just say "this is a cat" with absolute certainty. It produces a probability distribution across all possible classes. For a cat picture, it might say: 90% cat, 5% dog, 3% tiger, 1% fox, and trace amounts for everything else.</p>
+
+<p>Those secondary probabilities matter enormously.</p>
+
+<p>Think about what the network is really saying. It's not just identifying a cat—it's telling you that cats and dogs share some visual features. That cats and tigers are related. That this particular cat, with its pointed ears and sleek coat, bears some resemblance to a fox. The network has learned the structure of the visual world, not just a lookup table.</p>
+
+<p>This is what researchers call "soft labels" or "soft targets." The hard label is just "cat." The soft label is the entire probability distribution: a nuanced expression of how the network sees the relationships between concepts.</p>
+
+<p>When you train a small network from scratch using only hard labels, it has to rediscover all these relationships on its own. With limited capacity, it often can't. But when you train it to match the soft labels of a larger network, you're handing it a map of the conceptual landscape. You're teaching it not just what to say, but how to think.</p>
+
+<h2>The Temperature Trick</h2>
+
+<p>There's a technical detail that makes knowledge distillation work much better, and it's worth understanding because it reveals something deep about how neural networks express uncertainty.</p>
+
+<p>Neural networks produce raw scores called logits before converting them to probabilities. A network might produce logits of 10 for "cat," 3 for "dog," and -5 for "airplane." To turn these into probabilities, you apply something called a softmax function, which essentially exponentiates the scores and normalizes them so they sum to one.</p>
+
+<p>The problem is that exponentiation makes big differences even bigger. A logit difference of 7 points between "cat" and "dog" becomes a probability ratio of about 1100 to 1. The soft label becomes almost as hard as the hard label. All that nuanced information about the relationships between categories? Most of it gets washed out.</p>
+
+<p>The solution is to add a "temperature" parameter. Higher temperatures make the probability distribution softer, preserving more of the information encoded in the logits. It's like turning down the contrast on an image—suddenly you can see details in the shadows that were invisible before.</p>
+
+<p>In practice, researchers typically train the student network with a high temperature (somewhere between 2 and 20) to transfer knowledge, then switch back to temperature 1 for the final model. The student learns the teacher's way of thinking at high temperature, then sharpens its predictions for actual use.</p>
+
+<h2>Why It Works: A Deeper Look</h2>
+
+<p>Knowledge distillation succeeds for several reinforcing reasons.</p>
+
+<p>First, there's the obvious benefit of information density. A soft label contains vastly more information than a hard label. With 1000 categories, a hard label provides about 10 bits of information (log base 2 of 1000). A soft label can provide much more, because each probability value carries information about the input.</p>
+
+<p>Second, soft labels provide regularization. When a student network tries to match soft probabilities rather than hard ones, it can't get away with memorizing the training data. It has to learn something general enough to reproduce the teacher's uncertainty. This prevents overfitting.</p>
+
+<p>Third, there's gradient smoothing. This is subtle but important. When training with hard labels, the gradient (the signal that tells the network how to update its parameters) can be noisy and inconsistent between different training examples. Soft labels produce smoother gradients, which allows you to use higher learning rates and train faster.</p>
+
+<p>And fourth, perhaps most importantly, there's curriculum compression. The large model has already done the hard work of figuring out what matters in the data. The small model doesn't need to navigate the entire landscape of possible hypotheses—it can take a more direct path by following the teacher's guidance.</p>
+
+<h2>The Teacher-Student Configuration</h2>
+
+<p>Researchers often call this setup the "teacher-student" configuration, and the metaphor is apt. The teacher (the large model) has mastered the subject through extensive study. The student (the small model) learns much faster by listening to the teacher's explanations rather than reading all the original textbooks.</p>
+
+<p>But here's where it gets interesting: what makes a good teacher?</p>
+
+<p>Sometimes the best teacher isn't just a single large model, but an ensemble—a committee of models that each learned slightly different things. When you average their predictions, you get soft labels that capture multiple valid perspectives on the data. The student learns not just one way of thinking, but a synthesis of several.</p>
+
+<p>Other times, the best teacher is actually a model that was trained on different data than what you're using for distillation. The dataset used to transfer knowledge (called the "transfer set") doesn't need to be the original training data. In fact, using different data can sometimes produce better students, because it forces the teacher to express knowledge that generalizes beyond its training examples.</p>
+
+<p>There's even a technique called self-distillation, where a model learns from itself. You train a network, then use it as a teacher for a fresh copy of the same architecture. Surprisingly, this often improves performance. The self-taught student learns to smooth out the quirks and inconsistencies in its own knowledge.</p>
+
+<h2>Reverse Knowledge Distillation</h2>
+
+<p>Most knowledge flows from large models to small ones. But there's a less common technique that runs in the opposite direction: reverse knowledge distillation, where a smaller model teaches a larger one.</p>
+
+<p>This sounds paradoxical. What could a small model know that a large one doesn't?</p>
+
+<p>The answer lies in different kinds of knowledge. A small model trained on specialized data might capture nuances that a large general-purpose model misses. Or a small model might have learned to avoid certain failure modes through careful training, and can pass those lessons to a larger model being fine-tuned for a specific task.</p>
+
+<p>Reverse distillation is particularly useful in ensemble learning, where you want all models in your committee to benefit from each other's strengths, regardless of their sizes.</p>
+
+<h2>Distillation vs. Compression: A Crucial Distinction</h2>
+
+<p>Knowledge distillation is sometimes confused with model compression, but they're fundamentally different approaches to the same problem.</p>
+
+<p>Model compression shrinks a model directly. You might quantize its parameters from 32-bit floating point numbers down to 8 bits or even binary values. You might prune connections, removing parameters that seem unimportant. You might restructure the architecture to use fewer operations. The model gets smaller, but it's still recognizably the same model—just expressed more compactly.</p>
+
+<p>Knowledge distillation creates an entirely new model. The student can have a completely different architecture than the teacher. It might use different layer types, different connectivity patterns, different everything. What transfers is the knowledge, not the structure.</p>
+
+<p>This distinction matters enormously in practice. Compression techniques typically preserve maybe 10-50% of the original model size while trying to maintain accuracy. Distillation can create student models that are 1% or even 0.1% the size of the teacher, at the cost of some accuracy—a tradeoff that's often worthwhile for deployment on phones or embedded devices.</p>
+
+<p>The mathematical relationship between these techniques is actually quite elegant. Under certain assumptions, matching soft labels at high temperature is equivalent to matching the raw logits directly, which is exactly what model compression does. Distillation and compression sit on a continuum rather than being entirely separate methods.</p>
+
+<h2>The Pruning Alternative: Optimal Brain Damage</h2>
+
+<p>Before knowledge distillation became popular, researchers explored another approach to creating smaller models: just delete the parts that don't matter.</p>
+
+<p>In 1989, Yann LeCun and colleagues introduced "Optimal Brain Damage"—a method for identifying which parameters in a neural network can be removed with minimal impact on performance. The key insight was to approximate how much the loss function would increase if each parameter were set to zero. Parameters with low "saliency" could be pruned away.</p>
+
+<p>The algorithm is beautifully simple: train a large network to convergence, compute the saliency of each parameter using second-order derivatives, delete the low-saliency ones, and repeat. You can often remove 90% or more of a network's parameters with minimal degradation.</p>
+
+<p>But pruning has limitations. You're stuck with the original architecture, just with holes in it. The remaining parameters weren't optimized to work without their pruned neighbors. And computing second-order derivatives is expensive.</p>
+
+<p>Knowledge distillation sidesteps these issues by starting fresh with an architecture designed to be small. The student model is lean from birth, not surgically reduced from something larger.</p>
+
+<h2>A Brief History of Shrinking Neural Networks</h2>
+
+<p>The idea of making neural networks smaller is almost as old as neural networks themselves.</p>
+
+<p>In 1965—yes, 1965, during the height of the Cold War—two Soviet researchers named Alexey Ivakhnenko and Valentin Lapa developed deep networks trained layer by layer. They used a validation set to identify and prune superfluous hidden units. This was decades before the deep learning revolution we associate with the 2010s.</p>
+
+<p>Through the 1980s and 1990s, researchers developed various pruning and compression techniques. "Biased weight decay" pushed parameters toward zero during training, making pruning easier. "Optimal Brain Damage" and its successor "Optimal Brain Surgeon" used sophisticated mathematics to identify cuttable connections.</p>
+
+<p>The direct lineage of knowledge distillation traces back to a 1991 paper by Jürgen Schmidhuber on sequence prediction with recurrent neural networks. His approach used two networks: an "automatizer" that predicted sequences, and a "chunker" that predicted the automatizer's errors. The automatizer learned to predict the chunker's internal states, eventually absorbing its knowledge and rendering the chunker unnecessary.</p>
+
+<p>Through the 1990s, physicists studying the "statistical mechanics" of neural networks analyzed teacher-student configurations, laying theoretical groundwork for understanding knowledge transfer.</p>
+
+<p>In 2006, the term "model compression" was coined for the specific technique of training smaller models on pseudo-data labeled by larger ensembles, matching logits rather than hard labels.</p>
+
+<p>But the modern era of knowledge distillation began with a 2015 preprint by Geoffrey Hinton and colleagues at Google. They crystallized the framework, introduced the temperature trick, and demonstrated impressive results on image classification. The paper was titled simply "Distilling the Knowledge in a Neural Network."</p>
+
+<p>Since then, knowledge distillation has become a standard technique across machine learning. It's been applied to object detection, speech recognition, machine translation, and now—as the Meta research demonstrates—to advertising prediction systems serving billions of users.</p>
+
+<h2>Behavioral Cloning: A Cousin Technique</h2>
+
+<p>Knowledge distillation has an interesting connection to robotics and reinforcement learning through a technique called behavioral cloning.</p>
+
+<p>In behavioral cloning, you don't try to transfer a model's internal knowledge—you just copy its behavior. You record what actions an expert takes in various situations, then train a new agent to mimic those actions. The expert might be a human demonstrator or a computationally expensive planning algorithm.</p>
+
+<p>The relationship to knowledge distillation is clear: both techniques involve a student learning to imitate a teacher. But behavioral cloning focuses on actions in sequential decision-making tasks, while knowledge distillation typically deals with classification or regression. Behavioral cloning is about what to do; knowledge distillation is about what to predict.</p>
+
+<p>The two approaches can be combined. If you have a large reinforcement learning agent that's too expensive to deploy, you might distill its policy into a smaller network—using both the behavioral trajectory (what actions it takes) and the soft predictions (its confidence about different actions) as teaching signals.</p>
+
+<h2>What This Means for the Future</h2>
+
+<p>Knowledge distillation matters more every year. As foundation models grow larger—GPT-4, Claude, Gemini—the gap between what's possible in the lab and what's deployable on devices widens. Distillation is one of the key bridges across that gap.</p>
+
+<p>Consider what Meta faces with advertising models. They need to score potentially hundreds of millions of ad candidates per second, predicting which ones each user will engage with. Even a small improvement in prediction accuracy translates to billions of dollars in value. But the model has to run fast enough to meet latency requirements, and efficiently enough to run on their infrastructure economically.</p>
+
+<p>Knowledge distillation lets them have both: train the largest, most accurate model they can in the lab, then distill its knowledge into something practical for deployment.</p>
+
+<p>The same pattern appears everywhere. Apple distills Siri models to run on-device for privacy. Google distills search ranking models for lower latency. Healthcare companies distill diagnostic models to run on hospital equipment that can't phone home to the cloud.</p>
+
+<p>And increasingly, knowledge distillation is how open-source AI projects catch up with closed ones. When a large language model demonstrates new capabilities, researchers can sometimes distill those capabilities into smaller open models—democratizing access to AI capabilities that would otherwise require massive computational resources.</p>
+
+<p>The implications are profound. As distillation techniques improve, the advantage of having more computing power diminishes. The key resource becomes not raw compute, but the knowledge encoded in models—and knowledge, once distilled, can be copied and distributed infinitely.</p>
+
+<h2>The Essence of the Technique</h2>
+
+<p>Knowledge distillation rests on a beautiful insight: neural networks know more than they say. Their soft predictions encode a rich understanding of how concepts relate to each other, information that would be lost if we only looked at their final answers.</p>
+
+<p>By training student networks to match these soft predictions rather than hard labels, we can transfer knowledge from models too large to deploy to models small enough to be useful. The student doesn't just learn what the teacher concludes—it learns how the teacher thinks.</p>
+
+<p>It's a form of intellectual compression. Just as a great textbook distills years of research into something a student can absorb in a semester, knowledge distillation compresses the wisdom of massive neural networks into forms that can run on your phone, in your car, or in any device where intelligence needs to be fast, efficient, and local.</p>
+
+<p>The large model labors to understand the world. The small model inherits that understanding and carries it forward. Giants standing on the shoulders of giants, all the way down.</p>
       </div>
 
       <footer class="wikipedia-footer">

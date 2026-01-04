@@ -22,7 +22,111 @@
       </header>
 
       <div class="wikipedia-content">
-        <p>Content not available.</p>
+        <p class="source-note">Based on <a href="https://en.wikipedia.org/wiki/CAN_bus">Wikipedia: CAN bus</a></p>
+
+<p>Your car is having thousands of conversations right now, and you can't hear any of them.</p>
+
+<p>While you're focused on the road, tiny computers throughout your vehicle are chattering away—the engine asking the transmission what gear it's in, the airbag sensors reporting to the safety module, the parking sensors whispering to the brakes. All of this happens on a hidden nervous system called the Controller Area Network, or CAN bus. It's the protocol that lets a modern vehicle's seventy or so electronic brains work together as one.</p>
+
+<p>And it started because car wiring was becoming an absolute nightmare.</p>
+
+<h2>The Wiring Problem</h2>
+
+<p>Picture a car from the early 1980s. Every switch, sensor, and actuator needed its own dedicated wire running to wherever it needed to go. Want the dashboard to show the engine temperature? Run a wire from the engine to the gauge. Want the door lock to know when you've pressed the central locking button? Run wires from every door to the main switch. Now multiply this by hundreds of functions.</p>
+
+<p>The result was a wiring harness that looked like spaghetti and weighed more than some passengers. It was expensive to manufacture, difficult to assemble, prone to failure, and a diagnostic nightmare when something went wrong.</p>
+
+<p>In 1983, engineers at Robert Bosch GmbH—the German company famous for spark plugs, power tools, and seemingly half of everything mechanical in your car—started working on a better approach. What if, instead of running separate wires for every signal, you could run just two wires throughout the entire car and have all the electronic modules share them?</p>
+
+<p>This is the fundamental idea behind a bus network. The word "bus" here doesn't refer to the vehicle—it comes from the Latin "omnibus," meaning "for all." A bus is a shared communication line that carries messages for everyone connected to it.</p>
+
+<h2>How It Actually Works</h2>
+
+<p>Imagine a party line telephone from the old days, where multiple households shared the same wire. Anyone could pick up and listen, but if two people tried to talk at once, you'd get a garbled mess. CAN bus solves this problem with an elegant system called arbitration.</p>
+
+<p>Every message on a CAN bus comes with an identifier—think of it as an address tag. When two devices try to send messages at the same time, their identifiers essentially compete. The lower number wins. But here's the clever part: the losing device doesn't just get cut off. It automatically detects that it lost, backs off, and waits its turn. No collision, no data corruption, no central controller needed to manage traffic.</p>
+
+<p>This happens in microseconds, over and over, all day long.</p>
+
+<p>The priority system is baked into the identifier numbers. Safety-critical messages—"the airbag needs to deploy NOW"—get low identifier numbers, ensuring they always win the arbitration and get through immediately. Less urgent messages like "the outside temperature is 72 degrees" get higher numbers and patiently wait their turn.</p>
+
+<h2>Two Wires, One Clever Trick</h2>
+
+<p>CAN bus uses something called differential signaling, and understanding it explains why the protocol is so remarkably reliable in the electrically noisy environment of an automobile.</p>
+
+<p>The bus has two wires, called CAN-High and CAN-Low. To send a "1," the system raises the voltage on CAN-High and lowers it on CAN-Low. To send a "0," both wires sit at the same voltage. The receiver doesn't care about the absolute voltage on either wire—it only looks at the difference between them.</p>
+
+<p>Why does this matter? Because electrical interference from the engine, alternator, ignition system, and all those other noisy components tends to affect both wires equally. If a spark plug creates a voltage spike, it hits both CAN-High and CAN-Low at the same time. The difference between them stays the same, so the interference effectively cancels out.</p>
+
+<p>It's like trying to have a conversation in a loud room. If you and your friend both raise your voices by the same amount, you can still hear each other perfectly well. The ambient noise affects you both equally, so the relative difference—the actual information—comes through clearly.</p>
+
+<h2>A Brief History of Talking Cars</h2>
+
+<p>Bosch officially unveiled CAN at the Society of Automotive Engineers conference in Detroit in 1986. Intel produced the first CAN controller chips in 1987, with Philips following shortly after. But it took a few more years for the technology to reach production vehicles.</p>
+
+<p>The honor of first goes to the 1991 Mercedes-Benz W140—the S-Class that represented the pinnacle of German automotive engineering at the time. This was a car so advanced it had automatic closing doors and could parallel park itself (sort of). All those complex features needed a sophisticated way to communicate, and CAN bus delivered.</p>
+
+<p>By 1996, the United States mandated the On-Board Diagnostics II (OBD-II) standard for all cars and light trucks, with CAN bus as one of the allowed communication protocols. Europe followed with similar requirements. Today, CAN bus is virtually universal in automotive applications.</p>
+
+<h2>The Standards Jungle</h2>
+
+<p>Like most successful technologies, CAN bus accumulated layers of specifications and standards over time. Bosch released CAN 2.0 in 1991, splitting it into two parts. CAN 2.0A uses an 11-bit identifier, allowing for 2,048 unique message types. CAN 2.0B uses a 29-bit identifier, allowing for over 500 million unique message types—overkill for a car, but useful in complex industrial systems.</p>
+
+<p>The International Organization for Standardization (ISO) got involved in 1993 with ISO 11898, which formalized the protocol. The standard got split into multiple parts: one for the data link layer (the rules about how messages are formatted and transmitted) and others for the physical layer (the actual electrical specifications for the wires).</p>
+
+<p>In 2012, Bosch introduced CAN FD, where "FD" stands for Flexible Data-Rate. This was a response to modern vehicles needing to move more data more quickly. CAN FD can transmit data at higher speeds and with larger payloads—up to 64 bytes per message instead of the original 8 bytes—while remaining backward compatible with older CAN devices on the same network.</p>
+
+<p>The newest standard, CAN XL, pushes even further: up to 2,048 bytes per message and data rates up to 20 megabits per second. This starts to approach Ethernet territory, which is exactly the point—it's designed to bridge the gap between traditional CAN networks and the high-bandwidth demands of modern vehicle computing.</p>
+
+<h2>What Your Car Is Really Saying</h2>
+
+<p>Consider what happens when you stop at a red light in a modern car with auto start-stop. The engine shuts off to save fuel. But how does the car know it's safe to do so?</p>
+
+<p>The answer involves a cascade of CAN bus messages. Speed sensors report the car isn't moving. The steering angle sensor confirms you're not mid-turn. The climate control system reports whether the air conditioning is demanding power. The battery management system confirms there's enough charge to restart. The transmission control reports it's in the right gear. Only when all these conditions are satisfied—verified through dozens of CAN messages flying back and forth—does the engine management system decide to shut down.</p>
+
+<p>Then you lift your foot off the brake, and another flurry of messages coordinates the restart, all in the fraction of a second before you'd notice any delay.</p>
+
+<p>Modern parking systems work similarly. When you shift into reverse, the transmission control unit broadcasts this on the CAN bus. The parking sensor module wakes up and starts pinging. The body control module tilts the passenger mirror down so you can see the curb. If there's a rain sensor on the windshield, it might trigger the rear wiper to clear the back window. If you get too close to an obstacle, the parking sensors send urgent messages that can even trigger the brake system—brake-by-wire, controlled through CAN bus messages.</p>
+
+<p>None of these features required new wiring. They're all just software reading existing sensors and sending commands through the shared network.</p>
+
+<h2>Beyond the Automobile</h2>
+
+<p>CAN bus turned out to be useful far beyond cars. The same properties that make it work in an automobile—noise immunity, reliability, simplicity—apply to many other environments.</p>
+
+<p>Three-dimensional printers adopted CAN bus because stepper motors (the motors that precisely position the print head) generate tremendous electrical noise. Ground loops and voltage spikes that would corrupt other communication protocols barely affect CAN. The Duet3D controller family uses CAN FD specifically because of the higher bandwidth needed for rapid, precise movements.</p>
+
+<p>Shimano's DI2 electronic gear shifting system for high-end bicycles runs on CAN bus. So do some electric bicycle motors. Model railroad enthusiasts use it for sensor feedback in digital control systems. Johns Hopkins University's advanced prosthetic limb uses CAN to coordinate the dozens of motors in its artificial hand and arm.</p>
+
+<p>FIRST Robotics Competition teams—high school students building sophisticated robots—commonly use CAN bus to connect their robot's various motor controllers and sensors. The CueScript teleprompter system runs CAN over coaxial cable. Shearwater Research implemented it as "DiveCAN" for underwater diving computers.</p>
+
+<p>The protocol is so robust that it works in environments from the ocean floor to manufacturing plants to autonomous vehicles.</p>
+
+<h2>The Speed Hierarchy</h2>
+
+<p>Not everything in a vehicle needs the same communication speed. The engine and transmission need to exchange information in milliseconds—lives depend on it. But the system that remembers your seat position? That can take its time.</p>
+
+<p>This led to a hierarchy of networks in modern vehicles. High-speed CAN runs at up to one megabit per second for critical powertrain and safety systems. Low-speed CAN runs at 125 kilobits per second or less for body electronics—things like windows, mirrors, and locks. It's slower but more fault-tolerant; communication can continue even if one of the two wires breaks.</p>
+
+<p>For truly non-critical systems like interior lighting or seat motors, manufacturers often use the Local Interconnect Network (LIN), an even simpler and cheaper protocol designed to complement CAN rather than replace it. Your air conditioning controls probably run on LIN. The complexity scales with the criticality.</p>
+
+<h2>The Physical Reality</h2>
+
+<p>The CAN bus specification is remarkably silent on mechanical details. It specifies the electrical characteristics—voltage levels, timing, impedance—but says nothing about what the connectors should look like or what color the wires should be. This was intentional, allowing flexibility, but it created interoperability challenges.</p>
+
+<p>A de facto standard emerged around 9-pin D-sub connectors, the kind you might remember from old computer serial ports. Pin 2 carries CAN-Low, pin 7 carries CAN-High, pin 3 is ground, and pin 9 carries power. But "de facto" isn't "official," and automotive manufacturers often use their own proprietary connectors anyway.</p>
+
+<p>The bus requires termination resistors at each end—typically 120 ohms—to prevent signal reflections that would corrupt data. Without proper termination, messages bounce back along the wires like echoes and interfere with new transmissions. Getting this right is crucial for reliable operation.</p>
+
+<h2>Why This Matters for Electric Vehicles</h2>
+
+<p>If you're reading about Rivian's autonomy systems, CAN bus is fundamental to understanding how their vehicles work. Every sensor reading that feeds the autonomous driving system—every camera frame, lidar point, radar return—needs to get to the processing computers somehow. Every command to the motors, brakes, and steering needs to get out.</p>
+
+<p>Electric vehicles actually simplify some things (no traditional transmission to communicate with, no complex internal combustion engine management) but add new complexities. Battery management systems need constant monitoring and communication. Regenerative braking requires coordination between the electric motors and the traditional braking system. High-voltage safety interlocks need to communicate instantly if something goes wrong.</p>
+
+<p>Modern vehicles are moving toward hybrid architectures that combine CAN bus for traditional automotive systems with Ethernet for high-bandwidth sensors like cameras. CAN XL is designed specifically to bridge this gap, carrying Ethernet frames over CAN-style networks while maintaining the deterministic, collision-free communication that makes CAN reliable for real-time control.</p>
+
+<p>The thousands of conversations happening in your car are getting more sophisticated every year. They're what make features like adaptive cruise control, lane keeping assist, and eventually full autonomy possible. Two wires, a clever protocol, and a lot of engineering elegance, all talking while you drive.</p>
       </div>
 
       <footer class="wikipedia-footer">

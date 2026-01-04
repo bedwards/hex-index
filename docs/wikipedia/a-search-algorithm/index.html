@@ -22,7 +22,121 @@
       </header>
 
       <div class="wikipedia-content">
-        <p>Content not available.</p>
+        <p class="source-note">Based on <a href="https://en.wikipedia.org/wiki/A*_search_algorithm">Wikipedia: A* search algorithm</a></p>
+
+<h2>The Algorithm That Teaches Computers to Navigate</h2>
+
+<p>In 1968, three researchers at the Stanford Research Institute were trying to teach a robot named Shakey how to find its way around a room. The solution they invented would go on to power everything from video game characters dodging obstacles to GPS systems routing you through city traffic. They called it A-star, written as A*, and it remains one of the most elegant solutions to a deceptively simple question: how do you find the best path from here to there?</p>
+
+<p>The answer turns out to involve a clever trick of combining what you know with what you can guess.</p>
+
+<h2>The Problem of Getting From A to B</h2>
+
+<p>Imagine you're standing in a maze. You want to reach the exit, but you can't see the whole maze from where you're standing. At every intersection, you have to make a choice. Go left? Go right? Straight ahead? Each choice costs you something—time, energy, distance traveled.</p>
+
+<p>A naive approach would be to try every possible path systematically. Start at the beginning, explore every branch, keep track of which routes you've tried, and eventually you'll find the exit. This is called brute force search, and it works. The problem is that it works terribly. In a maze with just twenty intersections, each offering three choices, you might have to explore over three billion possible paths.</p>
+
+<p>A smarter approach, invented by the Dutch computer scientist Edsger Dijkstra in 1956, was to be greedy about the immediate costs. At each step, always expand the path that has cost you the least so far. This guarantees you'll find the shortest path eventually. But Dijkstra's algorithm has a limitation: it doesn't look ahead. It explores outward like ripples on a pond, expanding in all directions equally, even if the goal is clearly to your east and you're currently heading west.</p>
+
+<p>This is where A-star makes its breakthrough. What if, in addition to tracking how far you've come, you also made an educated guess about how far you have left to go?</p>
+
+<h2>The Genius of the Heuristic</h2>
+
+<p>The heart of A-star is something called a heuristic function, and understanding it requires stepping back to think about what makes a guess useful.</p>
+
+<p>A heuristic, in this context, is simply an estimate. When you're navigating to a destination, the straight-line distance between your current position and your goal is a heuristic. You know you can't possibly get there any faster than if you could fly in a straight line, ignoring all obstacles. That straight line represents the optimistic best case.</p>
+
+<p>Here's the key insight: as long as your estimate is optimistic—meaning it never overestimates the actual cost—you're guaranteed to find the optimal path. If your heuristic claims you're five miles from the goal, the real distance might be five miles, or it might be twenty miles because of a mountain range in the way. But it can never be less than five miles.</p>
+
+<p>This property is called admissibility. An admissible heuristic is like a friend who always underestimates how long tasks will take. They might be wrong, but they're consistently wrong in the same direction. You can rely on that consistency.</p>
+
+<p>A-star combines two pieces of information for each potential path. First, the actual cost to reach the current point, usually called g of n. Second, the estimated cost from the current point to the goal, called h of n. The algorithm always expands whichever path has the lowest combined score.</p>
+
+<p>This is why A-star is so much faster than Dijkstra's algorithm in practice. Dijkstra treats all directions as equally promising. A-star knows that paths heading toward the goal are probably better, even if they've cost a bit more so far. It's the difference between a search party spreading out in all directions versus one that has a general sense of where to look.</p>
+
+<h2>How the Search Actually Works</h2>
+
+<p>Picture the algorithm as maintaining two lists. The first is called the open set or frontier—these are paths you're still considering. The second is the closed set—paths you've fully explored and don't need to revisit.</p>
+
+<p>You start with just the beginning node in your open set. Then you repeat a simple loop. Pull out the most promising path from the open set. If it reaches the goal, you're done. If not, look at all the neighbors you could visit next, calculate their costs and estimates, and add them to the open set. Mark the current node as closed so you don't explore it again. Repeat until you find the goal or run out of options.</p>
+
+<p>The magic happens in how you choose the "most promising" path. By always picking the one with the lowest combined actual-plus-estimated cost, you explore paths that balance two competing concerns. You don't want to go too far down a cheap-but-wrong path. You also don't want to jump straight toward the goal if there's a much cheaper route that curves around.</p>
+
+<p>In practice, this means A-star often finds the answer while exploring only a tiny fraction of the possible paths. In the maze example with billions of possibilities, A-star might examine only a few hundred nodes before finding the optimal solution.</p>
+
+<h2>The Shakey Connection</h2>
+
+<p>The robot that inspired A-star was a remarkable machine for its time. Shakey, named for its tendency to shake as it moved, was the first robot that could reason about its own actions. It had a television camera for eyes, bump sensors to detect obstacles, and wheels that let it navigate through a world of blocks and wedges arranged in connected rooms.</p>
+
+<p>The team building Shakey needed an algorithm for path planning. Nils Nilsson initially proposed using something called Graph Traverser, which relied purely on the heuristic estimate—how far you seem to be from the goal, ignoring how far you've already traveled. This doesn't work well. Imagine you're ten steps from the goal, but you've already taken a thousand steps through a circuitous route. Graph Traverser would still consider you just as promising as someone who's ten steps from the goal after traveling only fifteen steps.</p>
+
+<p>Bertram Raphael suggested the crucial fix: add the two numbers together. Peter Hart then developed the mathematical framework proving why this approach works, introducing the concepts of admissibility and consistency that let us reason rigorously about when the algorithm finds optimal paths.</p>
+
+<p>The name A-star came about because the team had tried several variations on the basic approach, labeling them A1, A2, and so on. The version that finally worked well enough to publish was, in a sense, the starred or highlighted version—the one that made it.</p>
+
+<h2>Consistency: A Stronger Guarantee</h2>
+
+<p>Admissibility guarantees you'll find the optimal path, but there's an even stronger property called consistency that makes A-star more efficient.</p>
+
+<p>A consistent heuristic satisfies a kind of triangle inequality. If you're at point A, and you estimate the distance to the goal as ten, then move to point B at a cost of three, your new estimate can't suddenly jump to fifteen. In mathematical terms, your estimate at A must be less than or equal to the cost of reaching B plus your estimate from B.</p>
+
+<p>Why does this matter? With a consistent heuristic, once you've found the best path to any node, you never need to reconsider it. The first time you expand a node, you've already found the optimal way to reach it. This means each node gets processed exactly once.</p>
+
+<p>Without consistency—if you only have admissibility—you might discover a better path to a node you've already expanded. You'd have to process it again. In pathological cases, this can happen exponentially many times. The algorithm still finds the right answer, but it wastes enormous effort getting there.</p>
+
+<p>Fortunately, many natural heuristics are consistent. Straight-line distance in a geographic context is consistent because of basic geometry: going from A to B and then toward the goal can't be shorter than going directly from A toward the goal, if we're measuring straight lines.</p>
+
+<h2>The Trade-Off That Makes It Work</h2>
+
+<p>Every algorithm involves trade-offs, and A-star is no exception. Its advantage over simpler approaches is dramatic in the average case. Its disadvantage is memory.</p>
+
+<p>A-star needs to keep track of all the paths it's exploring and all the nodes it has visited. In a large graph with many possible branches, this can consume enormous amounts of memory. The technical term for this is space complexity, and A-star's worst case is exponential in the depth of the solution.</p>
+
+<p>For a concrete example, imagine searching for a route across an entire country's road network. You might have millions of intersections, each connected to several others. A-star would need to store information about huge numbers of partial paths as it explores.</p>
+
+<p>This is why specialized routing algorithms for navigation systems don't use plain A-star. They preprocess the road network, identifying major highways and creating hierarchical shortcuts. When you ask for directions, the algorithm can often skip over large portions of the graph because it has already computed that certain highways are essentially always the best choice for long-distance travel.</p>
+
+<p>But for smaller problems—navigating a robot through a room, finding paths in a video game level, solving puzzles—A-star remains the gold standard. It's simple to implement, provably correct, and typically very fast.</p>
+
+<h2>Choosing the Right Heuristic</h2>
+
+<p>The quality of A-star's performance depends heavily on how good your heuristic is. A perfect heuristic—one that always gives the exact remaining cost—would let A-star find the answer instantly, examining only nodes on the optimal path. A terrible heuristic that always returns zero degrades A-star into Dijkstra's algorithm, exploring outward blindly.</p>
+
+<p>For navigation on a map, straight-line distance works well. It's always admissible because you can't travel faster than a straight line, and it's consistent because of basic geometry.</p>
+
+<p>For grid-based games where you can only move in four directions—up, down, left, right—the best heuristic is something called Manhattan distance or taxicab distance. Imagine a taxi navigating city blocks: it can only travel along the streets, never diagonally through buildings. The Manhattan distance is just the sum of the horizontal and vertical distances. If you're at coordinates three, five and the goal is at coordinates seven, two, the Manhattan distance is four plus three, which equals seven.</p>
+
+<p>For games allowing eight-directional movement including diagonals, you'd use Chebyshev distance instead. This accounts for the fact that moving diagonally covers ground in both directions at once.</p>
+
+<p>The art of using A-star well is finding a heuristic that's as close to the true cost as possible while still being admissible. Underestimate too much, and you explore unnecessary paths. Overestimate at all, and you might miss the optimal solution.</p>
+
+<h2>Connections to Dijkstra and Beyond</h2>
+
+<p>A-star and Dijkstra's algorithm are really points on a spectrum. Dijkstra can be understood as A-star with a heuristic that always returns zero. Since zero is always less than or equal to the true remaining cost, it's admissible—just not very informative.</p>
+
+<p>Going the other direction, you could imagine heuristics that overestimate the remaining cost. This would make A-star faster by more aggressively pruning paths, but at the cost of optimality. You might find a solution quickly, but it might not be the best one. This trade-off is used in some practical applications where "good enough" beats "optimal but slow."</p>
+
+<p>Depth-first search, the most basic graph exploration algorithm, can also be expressed as a variant of A-star. You assign heuristic values based on when you discovered each node, with earlier discoveries getting higher values. This pushes the algorithm to explore deeply before backing up—exactly what depth-first search does. Of course, this isn't a useful way to actually implement depth-first search. It's more of a mathematical curiosity showing how these algorithms relate.</p>
+
+<h2>Why A-Star Still Matters</h2>
+
+<p>More than fifty years after its invention, A-star remains fundamental to computer science. Video games use it constantly: every time an enemy character chases you through a dungeon, or your strategy game moves armies across terrain, A-star or one of its descendants is likely running behind the scenes.</p>
+
+<p>Robotics still relies on A-star for path planning, though often in three-dimensional space rather than two. A robotic arm figuring out how to move from one configuration to another is solving a path-finding problem, just in a space defined by joint angles rather than physical coordinates.</p>
+
+<p>Puzzle solvers use A-star for games like the fifteen puzzle, where you slide numbered tiles around to put them in order. The state space—all possible arrangements of tiles—forms a graph, and the goal is to find the shortest sequence of moves from the scrambled starting position to the solved position.</p>
+
+<p>Even artificial intelligence research builds on A-star's foundations. The idea of combining actual cost with estimated cost to guide search appears throughout machine learning and automated planning systems.</p>
+
+<h2>The Elegant Core</h2>
+
+<p>What makes A-star beautiful is how much it accomplishes with such a simple idea. You have two numbers: what you know and what you guess. You add them. You always explore the most promising option. That's essentially the whole algorithm.</p>
+
+<p>The proofs of correctness and optimality are elegant too. If your estimate never overestimates, you can't accidentally skip the optimal path. If your estimate is consistent, you never waste time reconsidering nodes you've already handled. The mathematics fits together like interlocking puzzle pieces.</p>
+
+<p>Peter Hart, Nils Nilsson, and Bertram Raphael solved a fundamental problem and did so in a way that's still taught in every undergraduate algorithms course today. Their robot Shakey eventually made it into the Robot Hall of Fame. The algorithm they invented for navigating Shakey through a cluttered room turned out to be general enough to navigate almost anything through almost anywhere.</p>
+
+<p>The next time your phone suggests a route through traffic, or a character in a game finds its way around obstacles, or a puzzle solver works out the minimum moves to reach a solution, you're watching A-star at work—still making educated guesses after all these years, and still getting them right.</p>
       </div>
 
       <footer class="wikipedia-footer">

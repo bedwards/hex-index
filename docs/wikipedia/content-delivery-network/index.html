@@ -22,7 +22,146 @@
       </header>
 
       <div class="wikipedia-content">
-        <p>Content not available.</p>
+        <p class="source-note">Based on <a href="https://en.wikipedia.org/wiki/Content_delivery_network">Wikipedia: Content delivery network</a></p>
+
+<h2>The Invisible Infrastructure That Makes the Internet Actually Work</h2>
+
+<p>When sixty million people simultaneously tune in to watch a cricket match on Disney Hotstar, something remarkable happens behind the scenes. The video doesn't travel from a single server in California to every viewer in India. That would be like trying to water a garden in Mumbai by running a single hose from San Francisco. Instead, copies of that video stream are waiting on servers scattered across the globe, each one ready to serve viewers in its neighborhood. This is the work of content delivery networks, and they've quietly become the plumbing that makes the modern internet possible.</p>
+
+<p>The idea is deceptively simple: put copies of content closer to the people who want it.</p>
+
+<p>But the execution? That's where it gets interesting.</p>
+
+<h2>The Problem That Started It All</h2>
+
+<p>In the late 1990s, the internet had a physics problem. Data packets traveling from a server in New York to a user in Tokyo had to traverse thousands of miles of cable, hop through dozens of routers, and navigate the chaotic landscape of interconnected networks. Each hop added latency. Each overloaded router dropped packets. And when a website became popular, its single server would buckle under the load.</p>
+
+<p>The internet was designed according to something called the end-to-end principle. This philosophy keeps the core network simple and stupid—it just moves packets from point A to point B—while pushing all the intelligence to the edges. Your computer and the server you're connecting to do all the thinking. The network in between is just a dumb pipe.</p>
+
+<p>This design worked beautifully for its original purpose: a resilient network that could route around damage. But it wasn't optimized for delivering the same cat video to millions of people simultaneously.</p>
+
+<p>Content delivery networks emerged as a clever hack around this limitation. They layer an intelligent overlay on top of the dumb pipe, placing servers at strategic points around the globe and directing your requests to whichever copy of the content can reach you fastest.</p>
+
+<h2>How the Magic Actually Works</h2>
+
+<p>Picture a content delivery network as a franchise operation for data. The original content lives on what's called an origin server—this is the McDonald's corporate headquarters, if you will. But you don't drive to headquarters when you want a burger. You go to your local franchise. Similarly, CDNs maintain thousands of edge servers around the world, each one a local franchise serving cached copies of popular content.</p>
+
+<p>When you click play on a Netflix video, you're not connecting to Netflix's origin server. You're connecting to an edge server that might be in a data center just a few miles from your house. That server has a copy of the video waiting for you.</p>
+
+<p>But here's where it gets clever. The CDN has to decide which edge server should handle your request. This decision happens in milliseconds, and it considers factors like:</p>
+
+<ul>
+<li>Geographic proximity—which server is physically closest to you</li>
+<li>Network topology—which server has the fewest network hops between you and it</li>
+<li>Server load—which server has capacity to spare</li>
+<li>Network conditions—which paths are congested right now</li>
+</ul>
+
+<p>The algorithms doing this routing are remarkably sophisticated. Some CDNs use a technique called anycast, where multiple servers share the same IP address and the network's routing protocols naturally send your request to the nearest one. Others manipulate DNS responses to point you toward optimal servers. Still others use real-time probing to measure network conditions and adjust routing on the fly.</p>
+
+<h2>The Economics of Being Everywhere</h2>
+
+<p>Running a global content delivery network requires an unusual business model. CDN companies pay internet service providers and telecommunications carriers to host their servers in data centers around the world. These locations are called points of presence, or PoPs, and the major CDN providers operate thousands of them.</p>
+
+<p>Akamai, one of the oldest and largest CDN providers, operates over 350,000 servers in more than 135 countries. Cloudflare claims to have data centers in over 300 cities worldwide. This geographic footprint is their competitive advantage—the more PoPs you have, the closer you can get to end users, and the better performance you can deliver.</p>
+
+<p>Content owners pay CDN providers for this service. When Disney wants to stream video to millions of concurrent users, they're paying Akamai or Cloudflare or Amazon CloudFront to cache and deliver that content. The pricing typically depends on bandwidth consumed and the geographic regions covered.</p>
+
+<p>This creates an interesting economic ecosystem. Content providers pay CDNs. CDNs pay ISPs for hosting. ISPs provide the last mile connection to users. And users pay ISPs for internet access. Money flows through the system in one direction while data flows in another.</p>
+
+<h2>Caching: The Art of Predicting What You'll Want</h2>
+
+<p>At the heart of every CDN is a cache—a temporary storage system that holds copies of content that's likely to be requested again. Caching works because human behavior is predictable. If one person watches a popular video, thousands more will probably want to watch it too.</p>
+
+<p>There are two main approaches to filling a cache. Pull caching waits for a user to request something, fetches it from the origin server, serves it to the user, and then keeps a copy for future requests. The first person to request a piece of content experiences the full latency of fetching it from origin, but everyone after them gets the cached copy.</p>
+
+<p>Push caching takes a more proactive approach. Content owners upload material to the CDN ahead of time, pre-positioning it at edge servers before anyone requests it. This is essential for live events—you can't wait for the first viewer to request the live stream before caching it.</p>
+
+<p>Modern CDNs use sophisticated algorithms to decide what to cache and what to evict when space runs low. Popular content stays cached. Rarely-requested content gets purged to make room. Some CDNs even use machine learning to predict what's likely to become popular and pre-fetch it accordingly.</p>
+
+<h2>When Telecom Companies Became CDNs</h2>
+
+<p>Something interesting happened as video streaming exploded in the 2010s. Telecommunications companies—the same ISPs that CDNs were paying to host their servers—started building their own content delivery networks.</p>
+
+<p>The logic was compelling. Telcos already own the physical infrastructure: the fiber optic cables, the last-mile connections to homes, the data centers throughout their networks. Why pay Akamai to deliver content when you could cache it yourself, even closer to the customer?</p>
+
+<p>This practice is called deep caching, and it places content servers not just in major data centers, but deep within the telecom network itself. Instead of streaming a video from an edge server in a city data center, deep caching might serve it from equipment at your local neighborhood exchange. The content travels mere blocks instead of miles.</p>
+
+<p>Telco CDNs have a natural cost advantage too. Traditional CDN providers have to lease bandwidth from telecoms, building that cost into their prices. Telcos delivering content over their own networks avoid that markup entirely.</p>
+
+<p>In 2011, a group of telecommunications providers formed something called the Operator Carrier Exchange to interconnect their networks and compete more directly with traditional CDNs. This federation approach lets smaller telcos band together to offer coverage that rivals the global footprint of companies like Akamai.</p>
+
+<h2>The Dark Side: Privacy and Security Concerns</h2>
+
+<p>There's a troubling aspect to content delivery networks that doesn't get discussed enough. When a CDN delivers content to you, it can see exactly what you're requesting and from where. This creates a detailed picture of your browsing behavior—which websites you visit, what videos you watch, when you're online.</p>
+
+<p>Some CDN providers monetize this data, selling analytics and user behavior information alongside their delivery services. The scripts that CDNs inject into web pages to optimize delivery can also serve as tracking mechanisms.</p>
+
+<p>This has real legal consequences. In 2021, a German court ruled that a university website using a CDN violated the European Union's General Data Protection Regulation, commonly known as GDPR. The problem? The CDN transmitted users' IP addresses to servers in countries with weaker privacy protections. The mere act of using a CDN became a privacy violation.</p>
+
+<p>Security presents another concern. Because CDNs serve JavaScript and other executable code to millions of websites, they're attractive targets for attackers. If someone can compromise a CDN and inject malicious code, that code could spread to every website using that CDN. It's like poisoning the water supply instead of individual wells.</p>
+
+<p>The web development community responded with something called Subresource Integrity. This technique lets website authors specify a cryptographic hash of the JavaScript they expect to receive from a CDN. If the actual code doesn't match the hash, the browser refuses to execute it. It's a check against both CDN compromise and man-in-the-middle attacks.</p>
+
+<h2>The DNS Geolocation Problem</h2>
+
+<p>Here's a puzzle that plagued CDNs for years: how do you know where a user is located?</p>
+
+<p>The traditional answer was to look at the user's DNS resolver. When your browser wants to visit a website, it first asks a DNS server to translate the domain name into an IP address. CDNs would return different IP addresses based on where that DNS query came from, directing users to nearby edge servers.</p>
+
+<p>This worked well enough when everyone used their internet provider's DNS servers. But then people started using public DNS services like Google Public DNS or Cloudflare's 1.1.1.1 for better performance and privacy.</p>
+
+<p>Suddenly the CDN's geolocation system broke down. A user in Mumbai might be using a public DNS resolver hosted in Singapore. The CDN would see a Singapore IP address and route that user to a Singapore edge server—even though there was a perfectly good Mumbai server much closer. The user's perceived distance from the DNS resolver could be a thousand miles or more.</p>
+
+<p>The solution, adopted in 2011, is a protocol extension with the unwieldy name of EDNS Client Subnet. This modification passes a portion of the user's actual IP address along with the DNS query, letting CDNs route based on where the user really is rather than where their DNS resolver is. It dramatically improved performance for users of public DNS services.</p>
+
+<p>But nothing is free. EDNS Client Subnet reduces privacy by revealing more information about users' locations. It also makes DNS caching less effective—instead of caching a single response for a domain, resolvers now need to cache different responses for different user subnets. The DNS infrastructure got more complex to make CDNs work better.</p>
+
+<h2>Peer-to-Peer: The Road Not Taken</h2>
+
+<p>There's an alternative architecture for content delivery that never quite went mainstream: peer-to-peer networks. Instead of centralized edge servers, P2P systems let users share content directly with each other. When you download a file via BitTorrent, you're downloading pieces from dozens or hundreds of other users who already have those pieces.</p>
+
+<p>P2P has a beautiful property that traditional CDNs lack: it gets more efficient as more users join. Each new user adds capacity to the network. With a traditional CDN, more users mean more load on the edge servers. With P2P, more users mean more potential sources for content.</p>
+
+<p>Some content delivery systems blend both approaches. Users download primarily from CDN edge servers but also share content with nearby peers, offloading some of the CDN's burden. Blockchain-based systems have even emerged that pay users cryptocurrency tokens for contributing their bandwidth and storage to the network.</p>
+
+<p>But P2P content delivery has drawbacks that have limited its adoption. It requires special software on users' devices. It works poorly for live streaming, where content is being generated in real-time. And it introduces quality-of-service uncertainties—you might get fast downloads from well-connected peers or slow downloads from peers on congested networks.</p>
+
+<p>For high-stakes content delivery like live sports streaming to millions of concurrent viewers, the predictability of traditional CDNs wins out.</p>
+
+<h2>Building Your Own CDN</h2>
+
+<p>For companies with enough traffic and technical expertise, building a private CDN can make economic sense. Instead of paying Akamai by the gigabyte, they operate their own edge servers at strategic points of presence.</p>
+
+<p>Netflix is the canonical example. Their Open Connect program places Netflix-owned servers inside ISP networks around the world. These aren't CDN servers in the traditional sense—they only serve Netflix content. But they function the same way, caching popular titles close to viewers.</p>
+
+<p>The economics can be compelling. At Netflix's scale, delivering content through a commercial CDN would cost billions per year. By running their own infrastructure, they reduce costs dramatically and gain complete control over the viewer experience.</p>
+
+<p>Private CDNs can be as simple as a few caching servers or as complex as a global network rivaling the commercial providers. Many companies deploy them within their corporate networks—sometimes called enterprise CDNs—to efficiently distribute internal content like training videos or software updates to employees worldwide.</p>
+
+<h2>The Multi-CDN Future</h2>
+
+<p>No single CDN can guarantee perfect performance everywhere all the time. Edge servers go down. Network paths get congested. Entire regions might experience issues while others work fine.</p>
+
+<p>This has led to the rise of multi-CDN strategies, where content providers distribute their traffic across multiple CDN providers simultaneously. If Akamai is having problems in Asia, route traffic there through Cloudflare instead. If Fastly offers better prices in Europe, use them for European traffic.</p>
+
+<p>The technical challenge is deciding, in real-time, which CDN should handle each request. Some systems make this decision on the server side, choosing a CDN before the request even reaches the user. Others let the client's browser or app decide, testing multiple CDNs and picking the fastest one. Still others use dedicated CDN switching services that monitor performance across providers and route traffic accordingly.</p>
+
+<p>The Streaming Video Technology Alliance has developed an Open Caching specification to standardize how content providers interact with multiple CDNs. The goal is to let content owners see every CDN provider through the same set of programming interfaces, making it easy to add or switch providers without custom integration work.</p>
+
+<h2>What Content Delivery Networks Have Become</h2>
+
+<p>CDNs started as a solution to a simple problem: how do you deliver content quickly across a global network? But they've evolved into something far more comprehensive.</p>
+
+<p>Modern CDN providers offer protection against distributed denial-of-service attacks, absorbing malicious traffic at their edge servers before it can overwhelm origin servers. They provide web application firewalls that filter out hacking attempts. They offer analytics about user behavior and content performance. They optimize images and compress files on the fly. They terminate TLS connections at the edge, reducing the cryptographic burden on origin servers.</p>
+
+<p>The line between CDN and cloud platform has blurred considerably. Cloudflare lets you run code on their edge servers, processing requests before they ever reach your origin. Amazon CloudFront integrates deeply with AWS services. What started as glorified caching has become a programmable layer at the edge of the internet.</p>
+
+<p>And the scale has become staggering. CDNs now deliver the majority of internet traffic. When you watch a video, load a website, or download an app update, chances are the content is coming from a CDN edge server rather than the original source. The cached copy is the default; the origin is the fallback.</p>
+
+<p>This infrastructure is invisible by design. When a CDN works perfectly—as it usually does—you never notice it. The video starts instantly. The page loads quickly. The download completes without interruption. It's only when things break that we become aware of the vast network of servers working behind the scenes to make the internet feel fast and reliable.</p>
+
+<p>That invisibility is perhaps the greatest achievement of content delivery networks. They've transformed the fundamental physics of the internet—data still can't travel faster than light through fiber—but they've made that constraint irrelevant by putting copies of everything close enough that it doesn't matter anymore.</p>
       </div>
 
       <footer class="wikipedia-footer">

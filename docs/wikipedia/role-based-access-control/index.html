@@ -22,7 +22,133 @@
       </header>
 
       <div class="wikipedia-content">
-        <p>Content not available.</p>
+        <p class="source-note">Based on <a href="https://en.wikipedia.org/wiki/Role-based_access_control">Wikipedia: Role-based access control</a></p>
+
+<h2>The Bouncer at the Digital Door</h2>
+
+<p>Imagine you're running a hospital. The surgeon needs access to operating room schedules and patient medical histories. The billing clerk needs to see insurance information and payment records. The janitor needs to unlock supply closets and know which rooms need cleaning. Now here's the question that keeps security professionals up at night: how do you make sure the janitor can't accidentally—or intentionally—peek at someone's medical records?</p>
+
+<p>This is the fundamental problem that role-based access control solves. And it's elegant in its simplicity.</p>
+
+<p>Instead of assigning permissions to individual people—which becomes a nightmare when you have thousands of employees—you assign permissions to roles. "Surgeon" gets one set of access rights. "Billing Clerk" gets another. "Janitor" gets a third. Then you simply assign each person to their appropriate role. When Dr. Smith joins the hospital, you don't need to configure dozens of individual permissions. You just say "Dr. Smith is a surgeon" and the system knows exactly what she should and shouldn't be able to access.</p>
+
+<h2>Why This Matters More Than You Think</h2>
+
+<p>Role-based access control—often shortened to RBAC, pronounced "are-back"—might sound like dry technical plumbing. But it's actually one of the most consequential ideas in computer security, and it governs access to nearly every digital system you interact with.</p>
+
+<p>When you log into your company's email, RBAC decides what folders you can see. When you access your bank account online, RBAC determines whether you can just view your balance or also transfer funds. When a Facebook employee sits down at their desk at Meta's data warehouses—as explored in the article about how Meta uses AI agents for security—RBAC is the invisible hand deciding what data they can touch.</p>
+
+<p>The National Institute of Standards and Technology, the U.S. agency that sets technical standards for the federal government, conducted a study showing that RBAC addresses the access control needs of most commercial and government organizations. It's not just popular because it's secure. It's popular because it actually works at scale.</p>
+
+<h2>The Three Sacred Rules</h2>
+
+<p>RBAC operates on three fundamental principles that work together like interlocking gears in a lock:</p>
+
+<p><strong>First, role assignment.</strong> You can only do something if you've been assigned a role that allows it. No role, no access. Period. This seems obvious, but it's the foundation everything else builds on.</p>
+
+<p><strong>Second, role authorization.</strong> You can only take on roles that someone has explicitly authorized you to have. Just because the "System Administrator" role exists doesn't mean you can claim it. Someone with authority has to grant it to you. This prevents people from simply declaring themselves kings of the digital castle.</p>
+
+<p><strong>Third, permission authorization.</strong> Even with an authorized role, you can only exercise permissions that role actually includes. A role called "Marketing Intern" might exist and you might be legitimately assigned to it, but that doesn't mean it comes with the ability to delete the company's customer database.</p>
+
+<p>These three rules create what security experts call "defense in depth." An attacker—or a confused employee—would need to break all three to cause serious damage.</p>
+
+<h2>The Beautiful Hierarchy</h2>
+
+<p>Here's where RBAC gets clever. Roles can inherit from other roles, creating a hierarchy that mirrors how organizations actually work.</p>
+
+<p>Consider a hospital again. You might have a role called "Staff Member" with basic permissions—badge access to the building, ability to use the cafeteria, access to the employee portal. Then "Medical Staff" inherits everything from Staff Member but adds access to patient areas. "Doctor" inherits from Medical Staff and adds the ability to prescribe medications and order tests. "Chief of Surgery" inherits from Doctor and adds administrative powers over the surgical department.</p>
+
+<p>This hierarchy means you don't need to redundantly define the same permissions over and over. When you update what "Staff Member" can do, everyone above them in the hierarchy automatically gets that change. It's permission management that actually scales.</p>
+
+<p>The official NIST standard, adopted in 2004 by the American National Standards Institute, recognizes three levels of RBAC sophistication. Core RBAC handles the basics. Hierarchical RBAC adds this inheritance structure. Constrained RBAC adds something called separation of duties, which we'll get to in a moment.</p>
+
+<h2>The Problem of Too Much Power</h2>
+
+<p>Separation of duties sounds bureaucratic, but it prevents catastrophe.</p>
+
+<p>Think about what happens when someone creates a new user account in a bank's computer system. That's a sensitive operation—you're potentially giving someone the keys to move money around. Now, what if the same person who creates the account also approves it? They could create a fake employee, approve their own creation, and suddenly there's a ghost in the system with real access to real money.</p>
+
+<p>Separation of duties prevents this by making certain combinations of roles impossible. The person who creates accounts cannot be the person who approves accounts. The person who writes checks cannot be the person who signs them. The developer who writes code cannot be the only person who deploys it to production.</p>
+
+<p>This principle is ancient. It's why banks have always required two signatures on large transactions. It's why nuclear launch requires two officers with two keys. RBAC just formalizes it for the digital age.</p>
+
+<p>There's a more subtle application too: no person should hold a role that audits or reviews another role they also hold. You can't be the accountant and the auditor who checks the accountant's work. The fox cannot guard the henhouse.</p>
+
+<h2>What Came Before</h2>
+
+<p>RBAC wasn't the first attempt at controlling access to computer systems. Understanding its predecessors helps illuminate why it became so dominant.</p>
+
+<p>Before RBAC, there were two main approaches. The first was Mandatory Access Control, or MAC. Developed primarily for military applications, MAC assigns security clearances to both users and data. Top Secret data can only be accessed by users with Top Secret clearance. It's rigid, hierarchical, and designed to prevent information from flowing downward—from higher classification levels to lower ones. The famous Bell-LaPadula model, developed in the 1970s for the U.S. Department of Defense, was the canonical MAC system. It enforced the principle that you can read documents at your level or below, but you can only write to your level or above. This prevents someone with Secret clearance from copying Top Secret information into a Secret document that lower-clearance people could read.</p>
+
+<p>The second approach was Discretionary Access Control, or DAC. This is what most personal computers use. The owner of a file decides who can access it. When you right-click a file on your computer and set sharing permissions, that's DAC in action. It's flexible but chaotic at scale because every owner makes independent decisions.</p>
+
+<p>RBAC emerged in the 1990s as a third way. Research demonstrated that it didn't fit neatly into either the MAC or DAC category. It was something new. And crucially, it could actually simulate both MAC and DAC when needed, while offering capabilities neither could provide. RBAC proved to be what mathematicians call a superset—it contained everything the others could do, plus more.</p>
+
+<h2>The Difference From Access Control Lists</h2>
+
+<p>You might be wondering how RBAC differs from simply listing who can access what. After all, most people's mental model of permissions involves something like "Alice can read File X, Bob can read and write File X, Charlie can't access it at all."</p>
+
+<p>That mental model describes an Access Control List, commonly called an ACL, pronounced "ackle." An ACL is essentially a spreadsheet attached to each resource, listing every person and what they're allowed to do with that specific resource.</p>
+
+<p>ACLs work fine for simple situations. But they have a fundamental problem: they define permissions at the resource level, not the operation level.</p>
+
+<p>Consider this scenario. An ACL can say "Alice has write access to the customer database." But it can't easily express "Alice can create new customer records but cannot delete existing ones." Both are technically "write" operations, but they're very different in practice.</p>
+
+<p>RBAC flips the model. Instead of attaching permission lists to resources, it attaches permission lists to roles, and those permissions describe operations. "Sales Representative can create customer records and update contact information." "Sales Manager can do everything Sales Representative can do, plus delete customers and generate reports." "Database Administrator can modify the structure of tables but cannot see the actual customer data inside them."</p>
+
+<p>This operational focus is why RBAC excels at separation of duties. You can easily say "no role can include both the create-account operation and the approve-account operation." Expressing that constraint in pure ACLs would require checking every single resource's access list for conflicting combinations—a combinatorial nightmare.</p>
+
+<p>That said, researchers have shown that a minimal version of RBAC is mathematically equivalent to ACLs that use groups instead of individual users. The systems can express the same things; RBAC is just a more natural way to think about organizational permissions.</p>
+
+<h2>The Children of RBAC</h2>
+
+<p>RBAC has spawned successors that address its limitations.</p>
+
+<p>Attribute-Based Access Control, or ABAC, adds nuance. Where RBAC asks "what is your role?", ABAC asks "what are your attributes?" A decision might depend not just on whether you're a doctor, but on whether you're a doctor who is currently on shift, who has a specific specialty, who is physically located in the hospital, and who is accessing records for a patient currently under your care. ABAC can express policies like "dermatologists can only access patient records during business hours when they're in the dermatology wing." Try expressing that with pure roles.</p>
+
+<p>Relationship-Based Access Control, or ReBAC, takes a different approach. It cares about the connections between entities. Think about social media: who can see your post doesn't depend on their role, but on their relationship to you. Friends can see it. Friends of friends might see it. Strangers cannot. ReBAC makes these relationship-based decisions first-class concepts in the security model. This proves particularly valuable in collaborative applications where permissions are inherently about connections between people and content.</p>
+
+<p>Context-Based Access Control, or CBAC, looks at the circumstances of the request itself. Where is it coming from? What network? What time? What's the nature of the connection? RBAC explicitly doesn't consider this context—a doctor is a doctor regardless of whether they're accessing the system from the hospital or a coffee shop. CBAC fills that gap.</p>
+
+<h2>The Dark Side: Role Explosion</h2>
+
+<p>RBAC has a weakness that becomes acute in large organizations.</p>
+
+<p>Imagine a company with fifty departments, ten job levels, and three regional divisions. In principle, you might need a distinct role for every combination: "Level-3 Engineer in Marketing, East Coast" might have different permissions than "Level-3 Engineer in Marketing, West Coast" or "Level-3 Engineer in Sales, East Coast."</p>
+
+<p>Fifty times ten times three equals fifteen hundred roles. And that's a simplified example.</p>
+
+<p>This phenomenon, grimly called "role explosion," can make RBAC systems harder to manage than the problems they were designed to solve. Security administrators find themselves maintaining thousands of roles, many differing by only one or two permissions. The hierarchy becomes a tangled web rather than a clean tree. Nobody can quite remember what the "Senior-Associate-Regional-Deputy-Assistant-Manager" role is actually supposed to do.</p>
+
+<p>This is precisely where ABAC becomes attractive. Instead of fifteen hundred roles, you have a handful of attributes—department, level, region—and policies that combine them dynamically. The complexity moves from the role structure into the policy engine, which can be more tractable.</p>
+
+<h2>A Newer Wrinkle: Encryption Key Chaos</h2>
+
+<p>Here's a fascinating security problem that emerged as RBAC became ubiquitous. Many systems encrypt data and tie the encryption keys to access controls. If you have the right role, you get the key to decrypt the data. Simple enough.</p>
+
+<p>But what happens when roles change dynamically? Users get promoted, transferred, temporarily reassigned. Their access levels shift. Now the encryption keys need to shift too. And in systems where multiple users share data—especially in cloud and virtualized environments—this constant key shuffling creates instability.</p>
+
+<p>The technical term is "RBAC interference," and it's a relatively recent area of security research. The problem isn't that RBAC itself is broken, but that its interaction with encryption systems wasn't fully thought through when organizations bolted the two together. Some newer approaches to key sharing in dynamic environments have shown promise in addressing this, but it remains an active area of work.</p>
+
+<h2>The Economic Case</h2>
+
+<p>In 2010, the Research Triangle Institute—a nonprofit research organization in North Carolina—prepared a study for NIST analyzing whether RBAC actually saves money for organizations that adopt it.</p>
+
+<p>The answer was decisively yes.</p>
+
+<p>The benefits came from three sources. First, reduced employee downtime. When someone's access is managed through roles, getting a new employee productive doesn't require configuring dozens of individual permissions. Assign them to their role and they're ready to work. Second, more efficient provisioning. IT departments spend less time manually managing access rights and can handle more users with fewer staff. Third, better policy administration. When you need to change what a class of employee can do—say, giving all customer service representatives access to a new tool—you change one role instead of hundreds of individual accounts.</p>
+
+<p>These benefits compound in large organizations. A company with ten employees might not notice. A company with ten thousand will save millions.</p>
+
+<h2>The Foundation of Digital Trust</h2>
+
+<p>Role-based access control has become so fundamental to how computer systems work that most people never think about it. Like plumbing or electrical wiring, it's infrastructure that matters most when it fails.</p>
+
+<p>When you hear about data breaches, they often involve RBAC failures of one kind or another. Employees with too much access. Roles that weren't properly constrained. Separations of duty that existed on paper but weren't enforced in code. The 2013 Target breach, which exposed 40 million credit card numbers, began when attackers compromised a vendor with access to Target's network—access that should have been more limited. The 2020 SolarWinds attack succeeded partly because it exploited trust relationships between systems and roles.</p>
+
+<p>RBAC isn't perfect. It can't stop every attack. Role explosion makes it hard to manage at scale. Its successors address limitations it can't. But for nearly thirty years, it has been the workhorse of computer security, the default answer to "who should be able to do what?"</p>
+
+<p>The next time you log into a system and can access exactly what you need—no more, no less—take a moment to appreciate the invisible architecture making that possible. Somewhere, a role with your name on it is defining your digital identity, granting you exactly the powers you've been authorized to wield, and quietly preventing you from becoming a threat you never intended to be.</p>
       </div>
 
       <footer class="wikipedia-footer">

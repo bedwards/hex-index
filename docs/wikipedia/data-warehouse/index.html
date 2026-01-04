@@ -22,7 +22,135 @@
       </header>
 
       <div class="wikipedia-content">
-        <p>Content not available.</p>
+        <p class="source-note">Based on <a href="https://en.wikipedia.org/wiki/Data_warehouse">Wikipedia: Data warehouse</a></p>
+
+<p>In 1988, two IBM researchers published a paper that would quietly reshape how corporations understand themselves. Barry Devlin and Paul Murphy introduced something they called the "business data warehouse"—a concept that seems almost quaint now, but at the time represented a radical shift in thinking about corporate data. Before their paper, companies were drowning in information that couldn't talk to each other.</p>
+
+<p>Imagine running a major retailer in 1985. Your sales team has one database. Marketing has another. Finance keeps its own records. Each department spent enormous effort gathering the same customer information independently, cleaning it up, and storing it in incompatible formats. When the chief executive asked a simple question—"How are we actually doing?"—the answer required weeks of manual reconciliation and often produced contradictory results.</p>
+
+<p>The data warehouse was designed to solve this chaos.</p>
+
+<h2>What Exactly Is a Data Warehouse?</h2>
+
+<p>At its core, a data warehouse is a central repository where an organization stores all its important data in one place, organized specifically for analysis rather than for running day-to-day operations. Think of it as the difference between a working kitchen and a food library. Your operational databases are like the kitchen—optimized for speed, for quickly grabbing ingredients and plating dishes. The data warehouse is the library next door, where every recipe ever made is catalogued, cross-referenced, and preserved for study.</p>
+
+<p>This distinction matters more than it might seem.</p>
+
+<p>When a customer buys something online, the transaction database needs to record that purchase in milliseconds. It stores just enough information to complete the sale and move on. The data warehouse, by contrast, wants to remember that purchase forever, connect it to every other purchase that customer ever made, compare it against purchases by similar customers, and link it to marketing campaigns that might have influenced the decision.</p>
+
+<p>These are fundamentally different jobs requiring fundamentally different architectures.</p>
+
+<h2>The Two Philosophies of Data Storage</h2>
+
+<p>Operational databases follow strict rules called normalization—essentially, they break information into the smallest possible pieces and store each piece exactly once. This prevents contradictions. If a customer changes their address, you update it in one place, and everywhere that references that customer automatically sees the new address.</p>
+
+<p>The downside? A single business transaction might touch dozens or even hundreds of tiny tables. That's fine for recording the transaction quickly, but terrible for analysis. Asking "what were our total sales last quarter by region and product category?" might require joining together fifty tables—a computationally expensive operation that could slow down the entire system.</p>
+
+<p>Data warehouses flip this logic on its head. They deliberately denormalize data, storing redundant copies of information in structures called star schemas. The center of the star contains "facts"—typically numeric measurements like sales amounts or quantities. Radiating outward are "dimensions"—the contextual information that describes those facts, like which product was sold, which store sold it, which customer bought it, and when.</p>
+
+<p>This structure seems wasteful. The same product name might be stored millions of times alongside every sale. But it makes analytical queries blazingly fast. Ask that same question about quarterly sales by region and product, and the database can answer almost instantly without performing any complex joins.</p>
+
+<h2>OLTP Versus OLAP: A Tale of Two Workloads</h2>
+
+<p>The industry developed shorthand for these two approaches. Online Transaction Processing, or OLTP, describes the operational world—high volumes of small, fast transactions constantly updating the database. A busy retail system might process thousands of transactions per second, each one touching a tiny fraction of the data.</p>
+
+<p>Online Analytical Processing, or OLAP, describes the warehouse world—relatively few queries, but each one potentially scanning millions or billions of records to produce aggregate insights. An analyst might run a handful of queries per day, but each query might take minutes and examine the entire history of the company.</p>
+
+<p>These workloads are so different that they benefit from entirely different database technologies. OLTP systems typically use row-oriented databases, which store all the information about a single record together on disk. When you need to quickly retrieve or update one customer's information, everything is in one place.</p>
+
+<p>OLAP systems increasingly use column-oriented databases instead. These store all the values for a single column together—all the prices in one place, all the quantities in another, all the dates in a third. This seems counterintuitive until you realize what analytical queries actually do. When calculating total sales, you only need the price and quantity columns. A column-oriented database can ignore everything else, dramatically reducing the amount of data it needs to read.</p>
+
+<h2>Extract, Transform, Load: Moving Data Into the Warehouse</h2>
+
+<p>Data doesn't magically appear in a warehouse. Getting it there requires a process traditionally called Extract, Transform, Load—ETL for short.</p>
+
+<p>Extraction pulls data from source systems. This sounds simple but rarely is. Source systems speak different languages, use different formats, update at different times, and often weren't designed to share their data with anyone. A company might need to extract from Oracle databases, SAP systems, legacy mainframes, Excel spreadsheets, and cloud applications—all with different structures and access methods.</p>
+
+<p>Transformation is where the real work happens. Raw data from operational systems is messy. Customer names are spelled inconsistently. Addresses use different formats. Product codes changed three times over the past decade. Currency conversions need to be applied. Business rules need to be enforced. This stage cleans, standardizes, and reshapes the data into the warehouse's expected format.</p>
+
+<p>Loading finally moves the transformed data into the warehouse. This typically happens in batches—nightly, weekly, or at whatever interval balances freshness against system load. Most warehouses maintain historical data, so loading usually means adding new records rather than replacing old ones.</p>
+
+<p>A newer approach called ELT—Extract, Load, Transform—reverses the middle steps. Data gets loaded into the warehouse raw, and transformations happen inside the warehouse using its powerful processing capabilities. This approach has gained popularity as data warehouses have become more computationally capable and as organizations want to preserve raw data for future analysis they haven't yet imagined.</p>
+
+<h2>Data Marts: Smaller, Focused Warehouses</h2>
+
+<p>Not everyone needs the entire corporate data warehouse. A marketing team might only care about customer and campaign data. Finance cares about transactions and accounts. Building and maintaining access to the full warehouse for every team is expensive and often unnecessary.</p>
+
+<p>Data marts emerged as a solution—smaller, subject-specific warehouses focused on particular departments or business functions. A sales data mart might contain only the data relevant to sales analysis, organized specifically for the questions salespeople typically ask.</p>
+
+<p>Data marts can be built three ways. Dependent data marts draw their data from a central warehouse, ensuring consistency across the organization. Independent data marts pull directly from source systems, offering more autonomy but risking inconsistency when different departments define metrics differently. Hybrid data marts combine both approaches.</p>
+
+<p>The relationship between data marts and data warehouses sparked one of the longest-running debates in the field.</p>
+
+<h2>The Inmon-Kimball Debate</h2>
+
+<p>Two figures dominated data warehousing thinking through the 1990s, and their competing philosophies still shape how organizations build these systems today.</p>
+
+<p>Bill Inmon, often called the father of data warehousing, advocated a top-down approach. Build the enterprise data warehouse first, he argued, using proper normalization techniques. Create a single source of truth for the entire organization. Then derive data marts from this foundation as needed. His 1992 book "Building the Data Warehouse" became the field's foundational text.</p>
+
+<p>Ralph Kimball took the opposite view. Start with data marts, he counseled. Build small, focused warehouses that deliver immediate value to specific business areas. Connect them through shared dimensions—what he called a "data bus"—to gradually create an integrated enterprise view. His 1996 book "The Data Warehouse Toolkit" championed this bottom-up approach and popularized the dimensional modeling techniques that remain standard practice.</p>
+
+<p>Both men were right, depending on circumstances.</p>
+
+<p>Inmon's approach requires significant upfront investment and organizational commitment but produces cleaner, more consistent results. Kimball's approach delivers faster wins and allows organizations to learn as they go but risks creating incompatible silos if not managed carefully.</p>
+
+<p>Most modern implementations blend both philosophies pragmatically.</p>
+
+<h2>A Brief History of an Industry</h2>
+
+<p>The conceptual foundations predate the term itself. In the 1960s, researchers at General Mills and Dartmouth College developed the ideas of dimensions and facts while studying how to analyze retail data. By the 1970s, companies like ACNielsen were building what we would now recognize as data marts for retail sales analysis.</p>
+
+<p>The technology evolved in parallel. In 1975, Sperry Univac introduced MAPPER, a database management and reporting system featuring one of the world's first fourth-generation programming languages. It was explicitly designed for building "information centers"—a term that captures the same intent as data warehouse without the terminology.</p>
+
+<p>Teradata's 1983 database computer, the DBC/1012, was specifically designed for decision support workloads. It pioneered many techniques that data warehouses still use, including massive parallel processing to handle analytical queries at scale.</p>
+
+<p>By the 1990s, the industry had coalesced. The Devlin and Murphy paper gave the field its name. Inmon and Kimball gave it competing methodologies. Red Brick Systems (founded by Kimball himself) and Prism Solutions (founded by Inmon) gave it specialized software. The Data Warehousing Institute, founded in 1995, gave it a professional community.</p>
+
+<p>The 2000s brought new modeling approaches. Dan Linstedt's Data Vault modeling, conceived in 1990 but released publicly in 2000, offered an alternative designed for long-term historical storage with strong emphasis on auditability. Anchor modeling, formalized in 2008, provided yet another approach optimized for handling change over time.</p>
+
+<h2>The Benefits of Centralizing Data</h2>
+
+<p>Why go through all this trouble? The benefits compound over time.</p>
+
+<p>Integration is perhaps the most fundamental. Organizations generate data across dozens or hundreds of systems that were never designed to work together. The warehouse provides a single place where all this information coexists in compatible formats, enabling analyses that span organizational boundaries.</p>
+
+<p>Historical preservation matters more than most organizations initially realize. Operational systems typically purge old data to maintain performance. The warehouse preserves it, enabling trend analysis over years or decades. This historical record becomes increasingly valuable as machine learning and predictive analytics demand longer time series.</p>
+
+<p>Data quality improves almost as a side effect. The transformation process forces organizations to confront inconsistencies—the fact that "IBM," "I.B.M.," and "International Business Machines" are all the same company, or that last year's product codes don't match this year's. Fixing these issues once in the warehouse fixes them for all downstream analysis.</p>
+
+<p>Performance isolation protects operational systems. Without a warehouse, analysts running complex queries against production databases can slow down the systems that run the business. The warehouse provides a dedicated environment for analytical workloads, ensuring that curiosity doesn't crash commerce.</p>
+
+<h2>From Warehouses to the Modern Data Stack</h2>
+
+<p>The classic data warehouse assumed that organizations knew what questions they wanted to ask before building the system. You designed your dimensions, defined your facts, and built ETL processes to populate them. Adding new types of analysis meant modifying the warehouse design.</p>
+
+<p>The explosion of data volume and variety in the 2010s strained this model. Organizations wanted to analyze clickstreams, social media sentiment, sensor data, log files—data that didn't fit neatly into predefined schemas and arrived too fast for traditional batch processing.</p>
+
+<p>This pressure birthed a new architecture sometimes called the "data lake." Instead of transforming data before loading, organizations dumped everything into massive storage systems (often built on Hadoop) and applied structure only when querying. This preserved flexibility at the cost of governance and often created what critics called "data swamps"—vast repositories of disorganized information that nobody could actually use.</p>
+
+<p>The modern data stack attempts to combine the best of both worlds. Cloud data warehouses like Snowflake, Google BigQuery, and Amazon Redshift offer the structure and query performance of traditional warehouses with the scalability and flexibility of data lakes. They separate storage from computation, allowing organizations to keep vast amounts of data affordably while spinning up processing power only when needed.</p>
+
+<p>Meanwhile, the lines between OLTP and OLAP continue to blur. Real-time analytics now expects warehouse queries to return in seconds rather than hours. Some systems attempt to serve both transactional and analytical workloads simultaneously—an architectural approach called HTAP, for Hybrid Transactional/Analytical Processing.</p>
+
+<h2>The Human Side of Data Warehousing</h2>
+
+<p>Technology is perhaps the easier half of data warehousing. The harder half is organizational.</p>
+
+<p>Someone has to decide what "revenue" means when marketing counts it differently than finance. Someone has to resolve whether the European subsidiary's customer records should be merged with headquarters or kept separate. Someone has to choose which historical data to preserve and which to discard.</p>
+
+<p>These decisions require governance—defined processes for making and enforcing data standards across an organization. They require metadata management—documentation of what each data element means, where it came from, and how it should be used. They require change management—ways to evolve the warehouse as business needs shift without breaking existing reports and analyses.</p>
+
+<p>The most technically elegant warehouse fails if the organization doesn't trust it. And trust requires transparency about data lineage, timeliness, and quality—information about information that is itself a significant undertaking to maintain.</p>
+
+<h2>Why This Still Matters</h2>
+
+<p>Data warehousing might seem like a solved problem, a mature technology category that hasn't fundamentally changed since the 1990s. In some ways, that's true. The core concepts—central repositories, dimensional modeling, ETL processes—remain remarkably stable.</p>
+
+<p>But the problems data warehousing solves have only grown more pressing. Organizations generate more data than ever. The sources of that data continue multiplying. The expectation of data-driven decision making has spread from the executive suite to every corner of the organization. Machine learning models demand clean, integrated historical data at scales that dwarf what 1990s analysts imagined.</p>
+
+<p>The implementation details keep evolving—cloud versus on-premise, batch versus streaming, SQL versus newer query paradigms—but the fundamental insight remains. Organizations need a single place where their data comes together, cleaned and organized for analysis. They need a system that preserves history even as operational systems forget. They need a foundation on which to build understanding of their business.</p>
+
+<p>Devlin and Murphy's 1988 insight hasn't changed. Only the scale of the chaos, and the power of the tools to tame it.</p>
       </div>
 
       <footer class="wikipedia-footer">

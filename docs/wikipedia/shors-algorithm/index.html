@@ -22,7 +22,101 @@
       </header>
 
       <div class="wikipedia-content">
-        <p>Content not available.</p>
+        <p class="source-note">Based on <a href="https://en.wikipedia.org/wiki/Shor%27s_algorithm">Wikipedia: Shor's algorithm</a></p>
+
+<p>In 1994, a mathematician named Peter Shor figured out how to break the internet.</p>
+
+<p>That's not quite how he would have described it at the time. What Shor actually discovered was a way for a hypothetical machine—a quantum computer—to find the prime factors of large numbers exponentially faster than any known method. But since the security of nearly every encrypted message, every online bank transaction, every secure website depends on the difficulty of factoring large numbers, the implications were immediate and alarming.</p>
+
+<p>Shor's algorithm remains one of the most consequential discoveries in the history of computer science. It's the reason governments are pouring billions into quantum computing research. It's why cryptographers have spent the last three decades racing to develop new encryption methods. And it's a beautiful piece of mathematics that reveals something profound about the nature of computation itself.</p>
+
+<h2>The Problem That Protects Your Secrets</h2>
+
+<p>Before we can understand why Shor's algorithm matters, we need to understand what it attacks.</p>
+
+<p>When you send your credit card number to Amazon, or log into your email, or access your bank account, that information travels across networks that anyone could theoretically intercept. What keeps it safe is encryption—specifically, a type called public-key cryptography.</p>
+
+<p>The most famous public-key system is RSA, named after its inventors Rivest, Shamir, and Adleman. Here's the core idea: take two very large prime numbers and multiply them together. Multiplying is easy—a pocket calculator can do it. But going backwards, starting with the product and figuring out what the original primes were, is spectacularly hard.</p>
+
+<p>How hard? The largest number ever factored by conventional computers using the best known algorithms had 250 digits. That took the equivalent of 2,700 years of computing time spread across many machines. The numbers used in real RSA encryption typically have 600 digits or more. At that scale, factoring would take longer than the age of the universe.</p>
+
+<p>This asymmetry—easy to multiply, effectively impossible to factor—is what makes the whole system work. Your bank can publish a number derived from two secret primes (the "public key"), and anyone can use it to encrypt messages that only the bank can decrypt. As long as nobody can factor that public number to discover the secret primes, your data stays safe.</p>
+
+<h2>Enter the Quantum World</h2>
+
+<p>Classical computers—the kind in your laptop or phone—process information as bits, each one either a zero or a one. A quantum computer uses qubits, which exploit a strange property of quantum mechanics: they can be zero and one simultaneously, a state called superposition.</p>
+
+<p>This isn't just a curiosity. It means a quantum computer can, in a sense, explore many possibilities at once. A classical computer trying to factor a large number must essentially try different possibilities one by one, or use clever mathematical shortcuts that still grow prohibitively slow as numbers get larger. A quantum computer running Shor's algorithm does something different. It creates a superposition of many calculations simultaneously, then uses another quantum phenomenon called interference to amplify the correct answer while canceling out the wrong ones.</p>
+
+<p>The speedup is dramatic. Where classical algorithms take sub-exponential time—meaning the time grows faster than any polynomial but slower than a true exponential—Shor's algorithm runs in polynomial time. In practical terms, a calculation that would take billions of years on a classical computer could theoretically take hours or minutes on a sufficiently powerful quantum machine.</p>
+
+<h2>How the Algorithm Actually Works</h2>
+
+<p>Shor's algorithm is genuinely clever, and understanding its basic strategy reveals something beautiful about the connection between number theory and quantum mechanics.</p>
+
+<p>The algorithm doesn't try to find factors directly. Instead, it transforms the factoring problem into a different problem: finding the period of a function. This might seem like an odd detour, but period-finding turns out to be something quantum computers are naturally good at.</p>
+
+<p>Here's the setup. Say you want to factor some large odd number N. You pick a random number, call it a, that's smaller than N. Now consider what happens when you raise a to higher and higher powers, taking the remainder when you divide by N each time.</p>
+
+<p>Something interesting occurs: eventually, you get back to where you started. If you compute a, then a squared, then a cubed, and so on—always taking the remainder after dividing by N—you'll eventually hit a power where the result equals 1. At that point, the sequence repeats. The number of steps before this repetition is called the "order" of a with respect to N.</p>
+
+<p>Why does finding this period help with factoring? Here's where number theory enters. If you know the order r, and r happens to be even, you can use it to find factors of N. The mathematics involves the fact that if a raised to the power r equals 1 (modulo N), then a raised to the power r/2, when you add and subtract 1 from it, gives you two numbers whose greatest common divisor with N often reveals a factor.</p>
+
+<p>This might sound convoluted, but the key insight is that finding periods is exactly what quantum computers excel at. The quantum part of Shor's algorithm creates a superposition of all possible powers of a, then applies a quantum operation called the Quantum Fourier Transform to extract the period. It's as if the quantum computer simultaneously computes thousands or millions of powers and then interferes them against each other to reveal the hidden pattern.</p>
+
+<h2>The Classical Part Still Matters</h2>
+
+<p>One detail that often gets lost in popular descriptions: Shor's algorithm isn't purely quantum. It's a hybrid that uses a classical computer for several steps.</p>
+
+<p>First, the classical computer checks whether N is even (trivially factorable), or a prime power (factorable by other efficient methods). It picks the random number a and checks whether a and N share any common factors, which would give us an answer immediately. Only when these easy cases fail does the quantum subroutine kick in.</p>
+
+<p>After the quantum computer finds the period, classical computation takes over again. The algorithm calculates greatest common divisors—something classical computers do extremely efficiently using a 2,300-year-old method called Euclid's algorithm—to extract the actual factors from the period.</p>
+
+<p>Sometimes the algorithm fails. If the period turns out to be odd, or if certain other unlucky conditions hold, you don't get a useful factor and must start over with a different random choice of a. But the probability of success is high enough that a few attempts typically suffice.</p>
+
+<h2>The Threat to Cryptography</h2>
+
+<p>When Shor published his algorithm, cryptographers felt a chill.</p>
+
+<p>RSA wasn't the only system in danger. Shor's algorithm, or variations of it, can also break other widely-used cryptographic protocols. The Diffie-Hellman key exchange, which allows two parties to establish a shared secret over an insecure channel, relies on a problem called the discrete logarithm—and Shor's algorithm solves that too. Elliptic curve cryptography, which uses smaller keys than RSA for equivalent security, falls to a related quantum attack.</p>
+
+<p>These aren't obscure academic systems. They protect virtually all secure communication on the internet. Your browser uses them. Your bank uses them. Government and military systems use them. If a sufficiently powerful quantum computer existed, all of this would become transparent to anyone with access to such a machine.</p>
+
+<p>This threat has driven two parallel responses. The first is a race to build fault-tolerant quantum computers, motivated partly by the code-breaking potential. The second is a race to develop and deploy new cryptographic systems that quantum computers cannot break—collectively called post-quantum cryptography.</p>
+
+<h2>The Gap Between Theory and Reality</h2>
+
+<p>If Shor's algorithm is so dangerous, why hasn't encryption collapsed?</p>
+
+<p>The short answer: we can't build quantum computers powerful enough to run it. Not yet.</p>
+
+<p>To factor the kind of numbers used in real cryptography, you'd need a quantum computer with millions of qubits. As of 2025, the largest quantum computers have only a few thousand, and most of those are needed just to correct errors.</p>
+
+<p>Quantum computers are extraordinarily fragile. Qubits lose their quantum properties when they interact with the environment—a phenomenon called decoherence. To run a long algorithm reliably, you need error correction, which requires many physical qubits to represent each logical qubit that actually performs computation. The overhead is enormous.</p>
+
+<p>Laboratory demonstrations of Shor's algorithm have been modest affairs. In 2001, an IBM team used a quantum computer with seven qubits to factor 15 into 3 times 5—a calculation any child could do in their head. In 2012, researchers factored 21. These demonstrations proved the concept works but came nowhere close to threatening real cryptography.</p>
+
+<p>Worse, many of these demonstrations cheated slightly. They used advance knowledge of the answer to simplify the circuits, or made other optimizations that wouldn't apply to genuinely unknown numbers. Some implementations were so simplified they were effectively equivalent to flipping coins.</p>
+
+<h2>What This Means for the Future</h2>
+
+<p>The experts disagree about timelines. Some believe cryptographically relevant quantum computers are decades away. Others think the 2030s might see the first real threats. The uncertainty itself is a problem: encrypted data intercepted today could be stored and decrypted later when quantum computers mature. This "harvest now, decrypt later" attack means sensitive information with long-term value is already at risk.</p>
+
+<p>Organizations are responding. The United States National Institute of Standards and Technology has spent years evaluating post-quantum cryptographic algorithms, and has begun standardizing several that resist both classical and quantum attacks. Major technology companies are starting to deploy these new systems.</p>
+
+<p>But the transition won't be easy. Cryptographic systems are embedded everywhere, often in hardware that can't be updated. Changing them requires coordinated effort across the entire technology ecosystem. It's the most significant cryptographic migration in history.</p>
+
+<h2>The Deeper Significance</h2>
+
+<p>Beyond the practical implications, Shor's algorithm represents something philosophically interesting about the nature of computation.</p>
+
+<p>For decades, computer scientists believed that no computer could factor large numbers quickly—that the problem was inherently, fundamentally hard. Shor showed that this "hardness" was contingent on the type of computer being used. On a classical machine, factoring is hard. On a quantum machine, it isn't.</p>
+
+<p>This raises a question that remains open: what other problems that seem intractable might yield to quantum approaches? Shor's algorithm is one of very few quantum algorithms known to provide dramatic speedups for practical problems. Finding more such algorithms is an active area of research.</p>
+
+<p>The algorithm also demonstrated that quantum computers aren't just faster classical computers. They compute differently, exploiting phenomena like superposition and interference that have no classical analog. Understanding what this different style of computation can and cannot do remains one of the great open questions in computer science.</p>
+
+<p>Peter Shor, working at Bell Labs in 1994, couldn't have known exactly how his discovery would ripple outward. But three decades later, his algorithm continues to shape how we think about computation, security, and the future of technology. It's a reminder that pure mathematics, pursued for its own sake, sometimes changes everything.</p>
       </div>
 
       <footer class="wikipedia-footer">

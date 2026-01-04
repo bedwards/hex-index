@@ -22,7 +22,75 @@
       </header>
 
       <div class="wikipedia-content">
-        <p>Content not available.</p>
+        <p class="source-note">Based on <a href="https://en.wikipedia.org/wiki/Serializer/deserializer">Wikipedia: SerDes</a></p>
+
+<p>Every chip has a problem: it needs to talk to the outside world, but it only has so many pins.</p>
+
+<p>Think of pins as the doorways through which data enters and exits a microchip. More doorways mean more data can flow simultaneously, but doorways cost money, take up space, and create engineering headaches. This fundamental constraint—limited input/output connections—has shaped the entire architecture of modern computing. And the solution that emerged is elegant in its simplicity: instead of sending many bits of data through many doors at once, send them single-file through fewer doors, just really, really fast.</p>
+
+<p>This is the job of a SerDes, which stands for Serializer/Deserializer. It's pronounced "sir-deez," and once you understand what it does, you'll start seeing it everywhere—in the cables connecting your monitor, in the fiber optic lines carrying internet traffic across oceans, in the connections between chips inside a data center server.</p>
+
+<h2>The Basic Magic Trick</h2>
+
+<p>Imagine you have eight friends who all want to walk through a doorway at the same time. That requires a very wide doorway. But what if they formed a single-file line and sprinted through one after another? A narrow doorway works fine—you just need everyone to move quickly.</p>
+
+<p>That's serialization. You take parallel data—multiple bits arriving simultaneously on multiple wires—and convert it into serial data: a single stream of bits racing through one wire, or sometimes a pair of wires working together. On the receiving end, deserialization does the opposite: it catches that sprint of bits and spreads them back out into their original parallel form.</p>
+
+<p>A SerDes contains two functional blocks working in opposite directions. The Parallel In Serial Out block (called a PISO, pronounced "pie-so") takes the wide, slow data and squeezes it into a narrow, fast stream. The Serial In Parallel Out block (a SIPO, "sigh-po") catches that fast stream and fans it back out.</p>
+
+<p>The speed multiplication is significant. If your parallel interface runs at 100 megahertz and you're serializing 10 parallel lines, your serial output runs at 1 gigahertz. You've traded width for speed, doors for velocity.</p>
+
+<h2>The Clock Problem</h2>
+
+<p>Here's where things get interesting. When data arrives in parallel, there's typically a clock signal traveling alongside it—a steady beat that tells the receiver "now... now... now..." so it knows exactly when to read each bit. This clock keeps everything synchronized.</p>
+
+<p>But when you serialize data, that clock relationship becomes complicated. The serial bits are flying by so fast that even tiny timing variations—measured in trillionths of a second—can cause errors. This timing variation is called jitter, and managing it is one of the central challenges in SerDes design.</p>
+
+<p>Different SerDes architectures handle this clock problem in different ways, and the choice of architecture has profound implications for how fast and how reliably data can travel.</p>
+
+<h2>Four Flavors of SerDes</h2>
+
+<p><strong>Parallel clock SerDes</strong> is the straightforward approach. You send the data stream through one set of wires and a reference clock through another. The receiver uses that clock to know when to sample the incoming bits. It works, but it demands extremely precise timing—jitter tolerance of just 5 to 10 picoseconds. A picosecond is one trillionth of a second. Light travels only about a third of a millimeter in that time.</p>
+
+<p><strong>Embedded clock SerDes</strong> takes a different approach: it weaves the clock directly into the data stream. Before sending any data bits, it transmits one cycle of clock signal, creating a predictable rising edge that marks the beginning of each data burst. Because the clock is explicitly present in the stream, the timing requirements relax dramatically—jitter tolerance expands to 80 or even 120 picoseconds, and the receiver's reference clock can drift by as much as 5 percent from the transmitter's clock without causing errors.</p>
+
+<p><strong>8b/10b SerDes</strong> uses something clever. Instead of explicitly embedding a clock, it encodes the data in a way that guarantees frequent signal transitions. Every byte of data (8 bits) gets mapped to a 10-bit code before transmission. These codes are carefully chosen so that the signal can never stay high or low for too long—there will always be enough transitions for the receiver to extract timing information from the data itself. This is called clock recovery: the receiver watches the transitions and reconstructs the clock from the patterns it sees.</p>
+
+<p>The 8b/10b scheme has a cost: you're sending 10 bits to convey 8 bits of actual information, which means 20 percent of your bandwidth is overhead. But you gain something valuable: framing. Special control codes mark the boundaries of data packets, so the receiver knows where one chunk of information ends and the next begins.</p>
+
+<p><strong>Bit interleaved SerDes</strong> takes yet another approach. Instead of converting parallel to serial at a single stage, it weaves together multiple slower serial streams into one faster super-stream. The receiver then separates them back out. Think of it as braiding—multiple strands become one rope, then unbraided at the destination.</p>
+
+<h2>The Evolution of Speed</h2>
+
+<p>The Optical Internetworking Forum, an industry consortium, has published standards for SerDes electrical interfaces across six generations of increasing speed: 3.125, 6, 10, 28, 56, and 112 gigabits per second. They've announced work on 224 gigabits per second.</p>
+
+<p>To put that in perspective: 112 gigabits per second means 112 billion ones and zeros flying past a single point every second. At that speed, the time between individual bits is about 9 picoseconds. The electrical signals are changing so fast that the wires themselves start behaving like tiny antennas and transmission lines rather than simple conductors. Quantum effects and electromagnetic interference become serious engineering challenges.</p>
+
+<p>These standards matter because they enable interoperability. When you plug a cable into a switch at a data center, the SerDes on the switch and the SerDes on the other device need to speak the same language. The OIF standards have been adopted or adapted by virtually every high-speed networking specification: Ethernet at gigabit and 10-gigabit speeds, InfiniBand for high-performance computing clusters, Fibre Channel for storage networks, and many others.</p>
+
+<h2>Why 8b/10b Became 64b/66b</h2>
+
+<p>The 8b/10b encoding scheme dominated networking for years, built into the original Gigabit Ethernet specification. But that 20 percent overhead started to hurt as speeds increased. At 10 gigabits per second, you're wasting 2 gigabits per second on encoding overhead.</p>
+
+<p>The 10 Gigabit Ethernet specification introduced 64b/66b encoding instead. Rather than mapping 8 bits to 10, it maps 64 bits to 66—an overhead of just over 3 percent. This scheme uses a scrambler, a mathematical transformation that statistically guarantees enough signal transitions for clock recovery without needing the rigid structure of 8b/10b codes. Two framing bits at the start of each 66-bit block mark the boundaries.</p>
+
+<p>The transmit side of a 10 Gigabit Ethernet SerDes is a cascade of transformations: first the 64b/66b encoder adds the framing bits and scrambles the data, then a gearbox converts the 66-bit blocks into a 16-bit interface, and finally another serializer collapses that 16-bit stream into a single serial signal. Each stage is doing its own conversion between parallel and serial, trading width for speed.</p>
+
+<h2>The Connection to Co-Packaged Optics</h2>
+
+<p>SerDes technology sits at the heart of the co-packaged optics revolution now arriving in data centers. When electrical SerDes push bits at 112 or 224 gigabits per second, the signals degrade rapidly over distance—even a few inches of copper trace on a circuit board introduces losses and distortions that require significant power to overcome. Co-packaged optics brings optical transceivers directly onto the same package as the networking chip, minimizing the distance those electrical signals must travel before being converted to light.</p>
+
+<p>The SerDes is the boundary between the digital world inside the chip—where data exists as voltage levels in transistors—and the analog world of high-speed signaling. Every improvement in SerDes technology pushes that boundary, enabling more data to flow through fewer physical connections. The pin count stays manageable. The power consumption stays reasonable. And the bandwidth keeps doubling.</p>
+
+<h2>The Shift Register at the Core</h2>
+
+<p>At the heart of every SerDes is a simple circuit called a shift register. Picture a row of boxes, each holding one bit. On every clock tick, each bit shifts one position to the right, and a new bit enters from the left. If you load all the boxes at once with parallel data and then clock them out one at a time, you've built a serializer. If you clock bits in one at a time and then read all the boxes at once, you've built a deserializer.</p>
+
+<p>The sophistication of modern SerDes lies not in this basic mechanism but in everything surrounding it: the phase-locked loops that multiply clock frequencies, the double-buffered registers that prevent data corruption when crossing between clock domains, the encoding schemes that guarantee clock recovery, the equalization circuits that compensate for signal degradation, and the error correction that catches the bits that slip through anyway.</p>
+
+<p>A modern high-speed SerDes is one of the most precisely engineered circuits humans have ever created. It operates at the edge of what physics allows, squeezing every possible bit through every possible nanosecond. And it does this so reliably that we never think about it—we just expect our networks to carry more data every year, and somehow they do.</p>
+
+<p>That "somehow" is SerDes, quietly serializing and deserializing at the speed of light's slower cousin: electricity.</p>
       </div>
 
       <footer class="wikipedia-footer">

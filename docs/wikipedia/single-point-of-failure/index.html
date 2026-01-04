@@ -22,7 +22,141 @@
       </header>
 
       <div class="wikipedia-content">
-        <p>Content not available.</p>
+        <p class="source-note">Based on <a href="https://en.wikipedia.org/wiki/Single_point_of_failure">Wikipedia: Single point of failure</a></p>
+
+<p>In January 2016, a single bridge in northern Ontario broke Canada in half.</p>
+
+<p>The Nipigon River Bridge, spanning a relatively modest waterway along the Trans-Canada Highway, suffered a partial structural failure. Not a complete collapse—just enough damage to close the road. But here's what made it catastrophic: there was no other route. For several days, you literally could not drive between Eastern and Western Canada. An entire nation's road network, severed by one piece of infrastructure.</p>
+
+<p>This is what engineers call a single point of failure, often abbreviated as SPOF. It's a component that, if it fails, takes down the entire system with it. No backup. No workaround. No plan B. Just... broken.</p>
+
+<h2>The Uncomfortable Truth About Complex Systems</h2>
+
+<p>We build our world on hidden assumptions. We assume the power will stay on. We assume our phone will connect to the internet. We assume the bridge we're driving over won't suddenly close. Most of the time, these assumptions hold. But when they don't, we discover just how fragile our carefully constructed systems really are.</p>
+
+<p>The concept of a single point of failure forces us to confront an uncomfortable question: what happens when the one thing we never thought would break, breaks?</p>
+
+<p>Consider the small business owner who runs a tree care company. They have one wood chipper. If that chipper fails mid-job, they can't finish the work. They might have to cancel upcoming appointments. Their entire business grinds to a halt because of a single machine.</p>
+
+<p>Now, this owner has options. They could keep spare parts on hand for quick repairs. They could invest in a second chipper as a backup. They could even maintain enough equipment to fully replace every piece of machinery at a job site in case of multiple simultaneous failures. Each level of preparation costs more money and requires more planning, but each level also reduces the risk of catastrophic disruption.</p>
+
+<p>This is the fundamental trade-off at the heart of all system design: redundancy costs resources, but single points of failure cost everything when they fail.</p>
+
+<h2>How the Internet Learned to Survive</h2>
+
+<p>The internet was built to have no single point of failure. This wasn't an accident—it was the entire point.</p>
+
+<p>In the 1960s, researchers Paul Baran and Donald Davies independently developed a concept called packet switching. Instead of sending a message along a single dedicated line (like a phone call), packet switching breaks information into small pieces and sends each piece along whatever route happens to be available. If one path is blocked or destroyed, the packets simply find another way.</p>
+
+<p>This design emerged from Cold War paranoia. Military planners wanted communication networks that could survive a nuclear attack. The solution was to build networks with so many interconnected paths that no single failure—or even many failures—could bring down the whole system.</p>
+
+<p>The ARPANET, which evolved into the modern internet, embodied this principle. Data "routes around" damage, flowing through whichever connections remain functional. This is why you can still access websites even when undersea cables are cut or entire data centers go offline. The system was designed from the ground up to keep working when pieces of it fail.</p>
+
+<p>And yet, the internet still has single points of failure. They just exist at a different level.</p>
+
+<h2>The Cloudflare Paradox</h2>
+
+<p>Modern web infrastructure has evolved in an interesting direction. To handle the massive scale of global internet traffic, companies have built vast networks of servers distributed around the world. These content delivery networks, or CDNs, sit between websites and their users, speeding up access and protecting against attacks.</p>
+
+<p>Cloudflare is one of the largest. They serve a significant portion of global web traffic. When Cloudflare has a bad day, a substantial chunk of the internet has a bad day too.</p>
+
+<p>This creates a paradox. CDNs exist partly to add redundancy and reliability. A website using Cloudflare doesn't rely on a single server in a single location—it's replicated across the globe. But if Cloudflare itself experiences a widespread outage, all of those redundant copies become unreachable simultaneously.</p>
+
+<p>We've eliminated many small single points of failure by consolidating onto larger, more reliable platforms. In doing so, we've created new single points of failure that are bigger and affect more people when they fail. Some researchers argue that moving to cloud computing doesn't eliminate single points of failure so much as relocate them—and potentially make them more attractive targets for attackers.</p>
+
+<h2>The Data Center Problem</h2>
+
+<p>Walk into a modern data center and you'll see redundancy everywhere. Servers have multiple power supplies drawing from different circuits. Hard drives are mirrored so data exists in multiple places simultaneously. Network connections come from multiple providers through multiple physical paths. If any single component fails, the others pick up the load.</p>
+
+<p>But the data center itself is still a single location. If the building floods, catches fire, or loses connectivity entirely, all that internal redundancy doesn't help.</p>
+
+<p>The solution is replication at the site level. Critical operations maintain duplicate data centers, sometimes on different continents. If one site becomes unavailable, traffic can flow to another. This is the foundation of disaster recovery planning—the recognition that any single location, no matter how fortified, represents a potential point of failure.</p>
+
+<p>This gets expensive quickly. Running one data center is hard. Running two that can seamlessly take over for each other is more than twice as hard. Running three or four approaches the realm of only the largest organizations. Cloud computing has democratized access to this level of redundancy—but at the cost of depending on the cloud provider itself.</p>
+
+<h2>When Software Becomes the Bottleneck</h2>
+
+<p>Single points of failure aren't always physical things. They can be logical—patterns in code that limit what a system can do.</p>
+
+<p>Software engineers call these bottlenecks. Imagine a program that needs to perform ten independent calculations. A well-designed program might run all ten simultaneously, using the parallel processing power of modern computers. A poorly designed one might run them one after another, taking ten times as long.</p>
+
+<p>The bottleneck is the narrowest part of the pipe. It doesn't matter how fast the rest of your system runs if one component can't keep up. Finding and eliminating these bottlenecks is a major part of performance optimization. Specialized tools called profilers help engineers identify "hot spots"—sections of code that execute most frequently and therefore have the most impact on overall speed.</p>
+
+<p>The same principle applies to organizations. A company might have brilliant engineers, excellent products, and strong customer demand. But if every decision has to go through one overworked executive, that person becomes a bottleneck. The entire organization can only move as fast as that single point of failure allows.</p>
+
+<h2>The Human Factor</h2>
+
+<p>Here's the uncomfortable truth that computer security professionals have learned: the most consistent single point of failure in any system is human beings.</p>
+
+<p>You can build the most sophisticated security architecture imaginable. Multiple layers of encryption. Air-gapped networks. Biometric authentication. None of it matters if someone clicks on a phishing email and enters their password into a fake login page.</p>
+
+<p>User error accounts for a staggering proportion of security breaches. Sometimes it's accidental—an operator who misconfigures a setting without realizing the implications. Sometimes it's the result of manipulation—a carefully crafted attack that tricks someone into bypassing their own security measures.</p>
+
+<p>This is why security professionals talk about "defense in depth." If you assume any single protection will eventually fail, you layer multiple protections so that breaking through one doesn't give access to everything. You design systems that can survive human error because human error is inevitable.</p>
+
+<h2>The Whistleblower's Dilemma</h2>
+
+<p>Edward Snowden, the former National Security Agency contractor who leaked classified documents about government surveillance programs, described himself as a "single point of failure" in the intelligence apparatus. He was the sole repository of certain information. When he chose to make that information public, there was no way to stop him.</p>
+
+<p>This reveals an interesting tension. Organizations often centralize sensitive information precisely because spreading it around creates security risks. But centralization creates its own risk—the risk that the single person with access will act against the organization's interests.</p>
+
+<p>Intelligence agencies struggle with this constantly. They need to share information so analysts can connect dots and identify threats. But every person who has access to information is a potential point of failure, whether through malice, manipulation, or mistake.</p>
+
+<h2>Life and Death Reliability</h2>
+
+<p>Some systems absolutely cannot fail. Life support equipment in hospitals. Aircraft control systems. Nuclear reactor safety mechanisms. For these applications, single points of failure aren't just undesirable—they're unacceptable.</p>
+
+<p>Engineers address this through extreme redundancy and what's called "fail-safe" design. Fail-safe means that when a component does fail, it fails in a way that keeps the overall system safe rather than dangerous.</p>
+
+<p>Helicopter pilots have a dark nickname for a particular nut in their aircraft. They call it the "Jesus nut"—the main rotor-retaining nut that holds the rotor blades to the helicopter. If this single nut fails, the rotor separates from the aircraft. There is no backup. There is no redundancy. The only option is to make this component so reliable that failure is vanishingly unlikely.</p>
+
+<p>Similar thinking applies to dead man's switches—devices that must be actively held in position to keep a dangerous system running. If the operator becomes incapacitated, their grip releases, and the system automatically shuts down. The human operator is a single point of failure, so the system is designed to fail safe when that failure occurs.</p>
+
+<h2>Series and Parallel</h2>
+
+<p>Electrical engineers think about this in terms of circuit design. In a series circuit, components are connected one after another in a single path. Current flows through each component in turn. If any one component fails, the entire circuit stops working. A string of old Christmas lights worked this way—one burned-out bulb meant the whole string went dark.</p>
+
+<p>In a parallel circuit, components are connected along multiple independent paths. Current can flow through any of them. If one path fails, current continues through the others. Modern Christmas lights use this approach—you can have several dead bulbs and the rest still illuminate.</p>
+
+<p>Real systems often combine both approaches. Your home electrical system uses parallel circuits so that a tripped breaker in the kitchen doesn't kill the lights in the bedroom. But each individual outlet is still a series connection—if the wires to that outlet are damaged, that specific outlet stops working.</p>
+
+<p>The art of reliable system design is figuring out where to use series connections (simpler, cheaper, adequate when the component is reliable enough) and where to use parallel connections (more complex, more expensive, necessary when failure is unacceptable).</p>
+
+<h2>Lusser's Law and Cascading Failures</h2>
+
+<p>There's a mathematical relationship that makes single points of failure so dangerous. It's called Lusser's law, named after Robert Lusser, a German engineer who worked on rocket development.</p>
+
+<p>The law states that the overall reliability of a series system equals the product of the reliability of each individual component. If you have three components in series, each with 90% reliability, your system reliability isn't 90%—it's 0.9 × 0.9 × 0.9, which equals about 73%.</p>
+
+<p>Add more components, and reliability drops further. A series system with ten components, each 90% reliable, has an overall reliability of only about 35%. This is why long chains of dependencies are so dangerous. Each link adds another opportunity for failure.</p>
+
+<p>When failures do occur in tightly coupled systems, they often cascade. The failure of one component stresses others, which then fail themselves, which stress still more components. What started as a single failure becomes a systemic collapse. The 2003 Northeast blackout started with overgrown trees touching power lines in Ohio and cascaded into the largest power outage in North American history, affecting 55 million people.</p>
+
+<h2>The Myth of Perfect Redundancy</h2>
+
+<p>You might think the solution is obvious: just add redundancy everywhere. Have two of everything. Three of everything. Make failure impossible.</p>
+
+<p>It's not that simple.</p>
+
+<p>First, redundancy costs money. Sometimes a lot of money. The tree care company owner could buy a backup wood chipper, but that's a significant capital investment sitting idle most of the time. They could maintain spare parts, which is cheaper but doesn't help if the failure is something they didn't anticipate.</p>
+
+<p>Second, redundant systems add complexity. Now you need mechanisms to detect failures and switch to backups. You need to keep the backups functional and synchronized. You need to test the failover process regularly. Each of these adds potential failure modes of its own.</p>
+
+<p>Third, and most insidiously, redundant systems can create a false sense of security. "We have backups" becomes an excuse not to address underlying reliability issues. When the backup is finally needed and doesn't work—because it was never properly tested, or fell out of sync, or has dependencies on the same underlying system—the failure is even more catastrophic because no one expected it.</p>
+
+<h2>Living with Single Points of Failure</h2>
+
+<p>The goal isn't to eliminate all single points of failure. That's often impossible and always expensive. The goal is to understand where they are, assess the risk they represent, and make conscious decisions about how to address them.</p>
+
+<p>Sometimes the right answer is to add redundancy. Sometimes it's to improve the reliability of the single component. Sometimes it's to accept the risk because the cost of mitigation exceeds the expected cost of failure. Sometimes it's to change the design so that failure of one component doesn't bring down the whole system.</p>
+
+<p>The first step is always awareness. You can't manage risks you haven't identified. This is why engineers spend so much time on failure mode analysis—systematically examining each component of a system and asking "what happens if this fails?"</p>
+
+<p>The Nipigon River Bridge has been repaired. But the underlying vulnerability remains. There's still no alternate route. The Trans-Canada Highway still depends on that single crossing. The Canadian government has discussed building a backup route, but it would cost billions and take years to complete.</p>
+
+<p>In the meantime, a single bridge in northern Ontario remains a single point of failure for an entire nation's road network. Everyone knows it. The question is whether the cost of redundancy is worth the protection it would provide against a failure that might never happen again.</p>
+
+<p>That's the calculation we make, explicitly or implicitly, every time we build a system. And sometimes, when the bridge breaks, we discover that we calculated wrong.</p>
       </div>
 
       <footer class="wikipedia-footer">

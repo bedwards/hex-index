@@ -22,7 +22,131 @@
       </header>
 
       <div class="wikipedia-content">
-        <p>Content not available.</p>
+        <p class="source-note">Based on <a href="https://en.wikipedia.org/wiki/Sora_(text-to-video_model)">Wikipedia: Sora (text-to-video model)</a></p>
+
+<h2>The Machine That Dreams in Moving Pictures</h2>
+
+<p>Type a sentence. Get a video. That's the promise, and increasingly the reality, of text-to-video artificial intelligence. And nobody has captured the public imagination quite like Sora, OpenAI's entry into this strange new field where you can conjure moving images from words alone.</p>
+
+<p>The name comes from the Japanese word for sky—chosen by its creators to evoke limitless creative potential. Whether that potential is thrilling or terrifying depends largely on who you ask.</p>
+
+<h2>What Sora Actually Does</h2>
+
+<p>At its core, Sora takes a text prompt—a description of something you want to see—and generates a video clip that attempts to match that description. You might type "an SUV driving down a mountain road at sunset" and receive a few seconds of footage showing exactly that, even though no camera ever filmed it.</p>
+
+<p>The technology can also extend existing short videos, essentially imagining what might happen next in a scene and rendering that continuation. It's like having a visual imagination that produces not just mental images, but actual playable video files.</p>
+
+<p>OpenAI first showed off Sora's capabilities in February 2024, releasing sample clips that included everything from snowy walks through Tokyo to fake historical footage of the California Gold Rush. The demonstrations were cherry-picked—the company's best work, not necessarily typical output—but they were undeniably impressive. A "short fluffy monster" materialized next to a flickering candle. Wolves appeared to roam through digital landscapes.</p>
+
+<p>Those wolves also seemed to multiply spontaneously and merge into each other in confusing ways, which hints at Sora's limitations. The model struggles with physics. It has trouble with cause and effect. It sometimes can't tell left from right. These aren't small problems when you're trying to generate coherent video.</p>
+
+<h2>How the Technology Works</h2>
+
+<p>Understanding Sora requires understanding a few key concepts, but they're less intimidating than they sound.</p>
+
+<p>Sora is what's called a diffusion transformer. Let's break that down.</p>
+
+<p>Diffusion models work by learning to remove noise from images. During training, the model sees countless examples of images with varying amounts of static added to them, and learns to predict what the clean image should look like. When generating new content, it starts with pure noise and gradually removes that noise, step by step, until a coherent image emerges. It's like starting with television static and slowly tuning in a channel, except the "channel" never existed before.</p>
+
+<p>A transformer is an architecture—a way of organizing the artificial neural network—that's particularly good at understanding relationships between different parts of an input. The same basic approach powers large language models like the ones that generate text. Transformers excel at understanding context: how one word relates to another in a sentence, or how one patch of an image relates to another patch.</p>
+
+<p>Sora combines these approaches. It works in what's called "latent space"—a compressed mathematical representation of video—denoising three-dimensional "patches" of this compressed data and then expanding the result back into watchable video.</p>
+
+<p>The model builds on DALL-E 3, OpenAI's text-to-image generator. But video is vastly more complex than still images. A single image is one frozen moment. Video is thousands of such moments that must flow coherently from one to the next, maintaining consistent physics, lighting, and object permanence throughout.</p>
+
+<h2>The Training Data Question</h2>
+
+<p>Every machine learning model learns from examples. Sora learned from videos—lots of them.</p>
+
+<p>OpenAI says it used both publicly available videos and copyrighted content that was licensed for training purposes. The company hasn't revealed exactly how many videos went into the training set or where they all came from. This opacity is typical of major AI labs, but it raises significant questions.</p>
+
+<p>By default, Sora generates content that may include elements derived from copyrighted material. Copyright holders who don't want their work used must actively contact OpenAI and request to be excluded—the burden is on creators to opt out rather than on OpenAI to seek permission.</p>
+
+<p>This approach has drawn sharp criticism. The chairman of the Motion Picture Association of America publicly condemned OpenAI's copyright policies when Sora 2 launched. Japan's Content Overseas Distribution Association—representing companies including the legendary animation house Studio Ghibli and game developer Square Enix—formally demanded that OpenAI stop using their members' copyrighted content.</p>
+
+<p>In a move that illustrates just how complicated this landscape has become, The Walt Disney Company announced in December 2025 that it would invest one billion dollars in OpenAI. The deal allows Sora 2 users to generate content featuring over two hundred Disney-owned characters, spanning Disney Animation, Pixar, Marvel Studios, and Star Wars properties. Where some see copyright violation, Disney apparently sees business opportunity.</p>
+
+<h2>The Watermark Problem</h2>
+
+<p>OpenAI knew from the start that generated video could be used for deception. To address this, Sora places a visible, moving watermark on all generated videos. The idea is simple: make it obvious that the content is artificial.</p>
+
+<p>The execution proved less simple. Just seven days after Sora 2's release in late September 2025, third-party programs that could remove the mandatory watermark had already become widely available. The watermark, designed to be a protective measure, turned out to be merely a speed bump.</p>
+
+<p>The videos also contain C2PA metadata—essentially a digital certificate embedded in the file indicating that the content was AI-generated. But metadata can be stripped, and the average person encountering a video on social media has no practical way to check for such certificates anyway.</p>
+
+<h2>The Social Network Angle</h2>
+
+<p>Here's where Sora takes an unexpected turn. With the launch of Sora 2 in September 2025, OpenAI didn't just release improved video generation—it launched a social media app.</p>
+
+<p>The app looks remarkably like TikTok. Users can generate videos and share them. They can scroll through feeds of AI-generated content. The resemblance was so obvious that critics quickly dubbed it "SlopTok," combining a reference to TikTok with "AI slop"—the somewhat derisive term that's emerged for low-quality, mass-produced AI content flooding the internet.</p>
+
+<p>The New York Times called Sora 2's launch "jaw-dropping (for better and worse)" and characterized the app as "a social network in disguise"—the kind of product companies like Meta and X have been trying to build, a way to bring AI content generation to mass audiences with built-in sharing mechanics.</p>
+
+<p>This pivot matters. OpenAI isn't just building a tool for creators and businesses. It's building a platform for distributing AI-generated video to millions of casual users. The implications for what people see and believe online are profound.</p>
+
+<h2>The Competition</h2>
+
+<p>Sora didn't emerge from nowhere. Several other companies have built text-to-video generators, and the field is advancing rapidly.</p>
+
+<p>Meta, the company behind Facebook and Instagram, created Make-A-Video. Runway, a startup focused on creative AI tools, developed Gen-2. Google built Veo 3 and VideoPoet. A company called Luma AI created Dream Machine. Each has different strengths and limitations; none has achieved truly photorealistic, physically accurate video generation.</p>
+
+<p>The race between these companies isn't just about quality—it's about speed, cost, accessibility, and the business models built around them. Sora's integration with ChatGPT and its social media features represent one strategy. Competitors are pursuing their own approaches.</p>
+
+<h2>The Deepfake Problem</h2>
+
+<p>Within days of Sora 2's launch, users were generating videos of copyrighted characters doing things their owners never authorized.</p>
+
+<p>But characters are just intellectual property. People are something else entirely.</p>
+
+<p>Various estates of deceased celebrities have threatened legal action against OpenAI over deepfake videos—AI-generated footage showing people who have passed away doing and saying things they never did or said. Family members of the late comedians Robin Williams and George Carlin publicly urged OpenAI to take action against what they called "hurtful videos" and to restrict deepfakes of their loved ones.</p>
+
+<p>OpenAI responded by restricting users from generating videos of certain figures, including Martin Luther King Jr., and by giving estates the ability to opt out on behalf of those they represent. But this is a reactive approach—waiting until families complain before taking action.</p>
+
+<p>The deeper issue isn't just about famous people. As these tools become more accessible and more capable, anyone's likeness could potentially be used to generate convincing fake video. The technology doesn't care whether you're a celebrity or an ordinary person.</p>
+
+<h2>The Protest</h2>
+
+<p>Before Sora 2's public launch, OpenAI had given access to a group of artists and testers to help develop the product. In November 2024, some of these testers leaked an API key—essentially a password that allowed access to Sora—on Hugging Face, a platform for sharing AI models and tools.</p>
+
+<p>They accompanied the leak with a manifesto. Their complaint: that Sora was being used for "art washing"—giving a patina of creative legitimacy to a technology that many artists view as built on their work without consent or compensation. OpenAI revoked all access within three hours and pushed back, stating that "hundreds of artists" had shaped Sora's development and that participation was voluntary.</p>
+
+<p>This tension—between AI companies that see artists as collaborators and artists who see themselves as unwilling training data—shows no sign of resolution. It underlies almost every controversy about generative AI.</p>
+
+<h2>The Hollywood Response</h2>
+
+<p>Filmmaker Tyler Perry had been planning an eight-hundred-million-dollar expansion of his Atlanta studio complex. After seeing what Sora could do, he put those plans on hold.</p>
+
+<p>Perry's concern is straightforward: if AI can generate realistic video from text descriptions, what does that mean for traditional filmmaking? Not the top tier of blockbusters and prestige productions, perhaps, but the vast middle and lower tiers of video content—commercials, corporate videos, stock footage, certain kinds of visual effects?</p>
+
+<p>Some observers argue these fears are overblown. Steven Levy, writing in Wired, opined that "it will be a very long time, if ever, before text-to-video threatens actual filmmaking." He found Sora's preview clips "impressive" but "not perfect," noting that the technology shows "an emergent grasp of cinematic grammar" but still falls short of genuine filmmaking.</p>
+
+<p>Others are less sanguine. The technology is improving rapidly. What looks limited today might look transformative in a year or two.</p>
+
+<h2>The Misinformation Concern</h2>
+
+<p>American academic Oren Etzioni expressed concerns about Sora's ability to create online disinformation for political campaigns. This worry has followed every advance in generative AI—first text, then images, now video.</p>
+
+<p>Video carries particular weight. "Seeing is believing" has been a human heuristic for millennia. We evolved to trust our eyes. Now we live in an era where what our eyes show us might have been conjured from a text prompt minutes earlier.</p>
+
+<p>Levy called Sora's potential "a misinformation train wreck." The New York Times expressed similar concerns about Sora 2, worrying about its potential use for promoting misinformation, disinformation, and scams.</p>
+
+<p>The safeguards are limited. OpenAI restricts certain prompts—no sexual content, no violence, no hateful imagery, no celebrity likenesses (in theory), no existing intellectual property (sometimes). But these restrictions can be circumvented. The watermark can be removed. And as the technology proliferates to competitors with different policies, even OpenAI's rules become just one set among many.</p>
+
+<h2>What the Researchers Found</h2>
+
+<p>Some of Sora's capabilities surprised even its creators.</p>
+
+<p>Tim Brooks, one of the researchers who built Sora, noted that the model figured out how to create three-dimensional graphics from its training data alone—it wasn't explicitly taught 3D rendering, but learned something approximating it from watching enough video. Bill Peebles, another researcher, pointed out that Sora automatically creates different camera angles without being prompted to do so, suggesting the model has internalized something about how cinematography works.</p>
+
+<p>These emergent capabilities—skills that arise from training without being explicitly programmed—are both exciting and unsettling. They suggest the model is developing something like an understanding of visual space and cinematic conventions. They also mean we don't fully know what else might emerge as these models grow more powerful.</p>
+
+<h2>The Cultural Response</h2>
+
+<p>When South Park dedicates an episode to mocking something, that something has arrived in the cultural mainstream. The episode "Sora Not Sorry" satirizes AI deepfake videos and the copyright issues surrounding generative AI. The title itself is a play on the non-apology "sorry not sorry," suggesting the show's creators view OpenAI's stance toward criticism as more defensive than genuinely remorseful.</p>
+
+<p>The cultural conversation about AI video generation has barely begun. We're still in the phase of figuring out what questions to ask, let alone what answers might be appropriate. Is this technology primarily a tool for creators or a threat to them? Does it democratize video production or devalue it? Is the ability to generate any video you can describe a creative liberation or an epistemic nightmare?</p>
+
+<p>The technology doesn't care about these debates. It will continue improving. The sky, as Sora's Japanese namesake suggests, may indeed be the limit—though whether that's a promise or a warning depends entirely on what we do with it.</p>
       </div>
 
       <footer class="wikipedia-footer">

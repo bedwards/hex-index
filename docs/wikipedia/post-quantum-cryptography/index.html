@@ -22,7 +22,153 @@
       </header>
 
       <div class="wikipedia-content">
-        <p>Content not available.</p>
+        <p class="source-note">Based on <a href="https://en.wikipedia.org/wiki/Post-quantum_cryptography">Wikipedia: Post-quantum cryptography</a></p>
+
+<p>Somewhere in the world right now, someone is recording your encrypted internet traffic. They can't read it—not yet. But they're saving it, waiting for the day when quantum computers become powerful enough to crack the encryption that keeps your messages, financial transactions, and medical records private. Security researchers call this "harvest now, decrypt later," and it's not science fiction. It's happening today.</p>
+
+<p>This is why cryptographers aren't waiting for quantum computers to arrive. They're racing to build new encryption systems that even quantum machines can't break.</p>
+
+<h2>The Quantum Threat</h2>
+
+<p>To understand why quantum computers are such a big deal for cryptography, you need to understand how most of today's encryption actually works.</p>
+
+<p>When you connect to your bank's website, your computer and the bank's server perform a kind of digital handshake. They need to agree on a secret key to encrypt your session, but here's the problem: they've never met before, and anyone could be listening to their conversation. How do you agree on a secret when someone's eavesdropping?</p>
+
+<p>The clever solution, invented in the 1970s, relies on mathematical problems that are easy to perform in one direction but practically impossible to reverse. The most famous of these is factoring large numbers. If I give you two prime numbers—say, 17 and 23—you can multiply them together in your head: 391. But if I just give you 391 and ask you to find the original primes, you'd have to start guessing and checking. With numbers hundreds of digits long, even the fastest supercomputers would take longer than the age of the universe to find the answer.</p>
+
+<p>This asymmetry is the foundation of RSA encryption, named after its inventors Rivest, Shamir, and Adleman. It's also the foundation of elliptic curve cryptography and several other systems that secure nearly all internet traffic today.</p>
+
+<p>And it's all about to become obsolete.</p>
+
+<h2>Shor's Algorithm: The Code-Breaker</h2>
+
+<p>In 1994, mathematician Peter Shor discovered something remarkable. He showed that a quantum computer—a machine that exploits the strange properties of quantum mechanics—could factor large numbers exponentially faster than any classical computer. What would take a conventional computer billions of years could potentially be done in hours or days on a sufficiently powerful quantum machine.</p>
+
+<p>The key word there is "sufficiently powerful." As of 2025, quantum computers are still relatively primitive. The largest ones have a few thousand quantum bits, or qubits, and they're incredibly error-prone. To break RSA encryption with a 2048-bit key, you'd need a quantum computer with millions of stable, error-corrected qubits. We're not there yet.</p>
+
+<p>But we're getting closer every year. And this is where things get uncomfortable.</p>
+
+<h2>The Migration Problem</h2>
+
+<p>Imagine you're a government agency with classified documents that need to remain secret for fifty years. Or a hospital with patient records that must stay private for decades. Or a company with trade secrets worth protecting for the foreseeable future. You can't wait until quantum computers are powerful enough to break your encryption to start thinking about this problem.</p>
+
+<p>A Canadian cryptographer named Michele Mosca developed a theorem to help organizations think through the timing. It works like this: take three numbers.</p>
+
+<p>First, how many years will your data need to remain confidential? Call this X.</p>
+
+<p>Second, how many years until a large-scale quantum computer exists? Call this Y.</p>
+
+<p>Third, how many years will it take to migrate your systems to quantum-resistant encryption? Call this Z.</p>
+
+<p>If X plus Z is greater than Y, you have a problem. You need to start migrating now.</p>
+
+<p>Here's the uncomfortable truth: for sensitive data with long confidentiality requirements, that calculation often suggests the migration should have started years ago. Cryptographic transitions are notoriously slow. The internet is still running protocols that were designed in the 1990s. Replacing them takes time—sometimes a decade or more.</p>
+
+<h2>What Quantum Computers Can't Break</h2>
+
+<p>Before we dive into the new cryptographic systems being developed, there's some good news. Not all encryption is vulnerable to quantum attack.</p>
+
+<p>The systems we've been discussing—RSA, elliptic curve cryptography, and similar schemes—are called <em>public-key</em> or <em>asymmetric</em> cryptography. They're designed to solve the key exchange problem: how do two parties who've never met agree on a shared secret?</p>
+
+<p>But there's another category called <em>symmetric</em> cryptography, where both parties already share a secret key. The Advanced Encryption Standard, or AES, is the most common example. When you and your bank have already agreed on a key during the handshake, AES is what actually encrypts your data.</p>
+
+<p>Symmetric encryption faces a different quantum threat. There's an algorithm called Grover's algorithm that can speed up brute-force attacks, but only quadratically—not exponentially like Shor's algorithm. This means that doubling your key size effectively neutralizes the quantum advantage. If you're using AES with 256-bit keys, you're probably fine.</p>
+
+<p>The real problem is the public-key infrastructure that lets strangers establish those shared keys in the first place. That's what needs to be replaced.</p>
+
+<h2>Six Paths Forward</h2>
+
+<p>For the past two decades, researchers have been developing new public-key cryptographic systems that appear resistant to quantum attacks. These fall into six main categories, each based on different mathematical foundations.</p>
+
+<h3>Lattice-Based Cryptography</h3>
+
+<p>Picture a grid of points extending infinitely in all directions—that's a lattice. Now imagine trying to find the shortest path from the origin to any point in the lattice. In two dimensions, this is trivial. But as you add more dimensions—hundreds or thousands of them—the problem becomes extraordinarily difficult. Even quantum computers seem unable to solve it efficiently.</p>
+
+<p>Lattice-based cryptography builds encryption and digital signatures from these high-dimensional lattice problems. One variant, called Learning With Errors (abbreviated L.W.E.), adds a twist: instead of exact calculations, you introduce small random errors, making the underlying lattice problem even harder to solve.</p>
+
+<p>These schemes have a beautiful property: cryptographers have proven that breaking them is at least as hard as solving certain lattice problems that are known to be computationally intractable. This kind of "security reduction" is the gold standard in cryptography—it means the encryption is only as weak as a problem mathematicians have studied intensively for decades.</p>
+
+<p>In 2024, the United States National Institute of Standards and Technology (often just called NIST) released its first post-quantum cryptography standards. Two of the three winning algorithms—CRYSTALS-Kyber for key exchange and CRYSTALS-Dilithium for digital signatures—are lattice-based. After years of public competition and scrutiny, the cryptographic community has placed its biggest bet on lattices.</p>
+
+<h3>Hash-Based Signatures</h3>
+
+<p>Sometimes the oldest ideas are the best. Hash-based signatures were invented in the late 1970s by Ralph Merkle, long before anyone was thinking about quantum computers. They fell out of fashion because they have an awkward limitation: you can only sign a finite number of messages with each key pair.</p>
+
+<p>But they have a tremendous advantage: their security depends only on the security of the underlying hash function, nothing more. A hash function is a one-way function that takes any input and produces a fixed-size output—like a digital fingerprint. If the hash function is secure, the signature scheme is secure. No fancy mathematics required.</p>
+
+<p>SPHINCS+, another algorithm standardized by NIST in 2024, is a hash-based signature scheme. It's designed to be "stateless," meaning it works around the limitation on signature counts, though at the cost of larger signatures.</p>
+
+<p>Hash-based signatures represent a kind of insurance policy. Even if lattice-based schemes turn out to have unexpected weaknesses, hash-based alternatives provide a fallback that depends on simpler, better-understood primitives.</p>
+
+<h3>Code-Based Cryptography</h3>
+
+<p>Error-correcting codes have been essential to digital communication since the 1940s. They're why you can scratch a CD and still play the music, or why data can traverse noisy satellite links without corruption. These codes add redundancy to messages in clever ways that allow receivers to detect and fix errors.</p>
+
+<p>In 1978, a researcher named Robert McEliece had an intriguing idea: what if the structure of the error-correcting code itself was a secret? Someone who knows the code can decode messages efficiently. Someone who doesn't faces a problem that appears computationally intractable—even for quantum computers.</p>
+
+<p>The McEliece cryptosystem has withstood over forty years of cryptanalytic attacks, which gives cryptographers considerable confidence in its security. The downside is practical: the public keys are enormous. While a typical RSA key might be a few thousand bits, McEliece keys can run to hundreds of thousands or even millions of bits. That's a serious barrier for many applications.</p>
+
+<p>In 2025, NIST announced plans to standardize another code-based algorithm called HQC (Hamiltonian Quasi-Cyclic), which achieves better efficiency by using more structured codes—though this structure introduces some security tradeoffs compared to the original McEliece approach.</p>
+
+<h3>Multivariate Cryptography</h3>
+
+<p>Imagine a system of polynomial equations in multiple variables. Solving such systems is generally very hard—it's an NP-hard problem, meaning no efficient algorithm is known even for quantum computers. Multivariate cryptographic schemes try to build security from this difficulty.</p>
+
+<p>The results have been mixed. Many proposed encryption schemes based on multivariate polynomials have been broken. But some signature schemes have held up better. Rainbow, one of the most studied multivariate signature schemes, survived years of analysis and was a finalist in the NIST competition.</p>
+
+<p>Then, in 2022, it was broken. Researchers found a clever attack that didn't apply to all multivariate schemes, but it definitively eliminated Rainbow as a candidate for standardization. This serves as a sobering reminder: surviving years of scrutiny doesn't guarantee a scheme is secure. Cryptography is littered with systems that looked solid until someone found the right angle of attack.</p>
+
+<h3>Isogeny-Based Cryptography</h3>
+
+<p>This is perhaps the most exotic approach. Elliptic curves—the mathematics underlying today's most efficient public-key cryptography—have a rich structure that mathematicians have studied for over a century. Isogenies are special mappings between elliptic curves that preserve this structure.</p>
+
+<p>Isogeny-based cryptography builds encryption and key exchange from the difficulty of finding the specific isogeny connecting two given curves. The appeal is that keys can be relatively small—comparable to today's elliptic curve keys—while potentially resisting quantum attacks.</p>
+
+<p>This approach suffered a spectacular setback in 2022. A scheme called SIKE (Supersingular Isogeny Key Encapsulation), which had made it to the final round of the NIST competition, was completely broken by a clever mathematical attack. The silver lining: the attack was specific to SIKE's particular construction. Other isogeny-based schemes, like CSIDH (pronounced "sea-side") and a signature scheme called SQIsign, use different structures and weren't affected.</p>
+
+<p>Research continues, but isogeny-based cryptography is now viewed with more caution. It remains an active area of development rather than something ready for standardization.</p>
+
+<h3>Symmetric-Key Extensions</h3>
+
+<p>The final approach isn't really post-quantum cryptography at all—it's a way to sidestep the problem entirely. Remember that symmetric encryption like AES is already quantum-resistant. The vulnerability is in the public-key layer that establishes shared secrets.</p>
+
+<p>Some researchers advocate for systems like Kerberos, which was developed at the Massachusetts Institute of Technology in the 1980s. Kerberos uses a trusted central server to distribute symmetric keys, avoiding public-key cryptography altogether. It's already widely deployed in corporate networks and could be extended for broader use.</p>
+
+<p>This approach has obvious limitations—you need that trusted central authority—but for many enterprise environments, it offers immediate quantum resistance without waiting for new standards to mature.</p>
+
+<h2>The Practical Challenges</h2>
+
+<p>Even if we agree that post-quantum cryptography is necessary, deploying it is another matter entirely. The new algorithms come with significant practical tradeoffs.</p>
+
+<p>Consider key sizes. A typical RSA public key is 2,048 or 4,096 bits—small enough to fit comfortably in network packets and certificates. Lattice-based keys are larger: CRYSTALS-Kyber keys run around 6,000 to 12,000 bits depending on the security level. That's manageable. But McEliece keys? Nearly a megabyte for the classic Goppa code version. That's a serious problem for many applications.</p>
+
+<p>Signatures vary too. CRYSTALS-Dilithium signatures are a few thousand bytes—larger than today's elliptic curve signatures but still practical. SPHINCS+ signatures can be tens of thousands of bytes. For applications that need to store or transmit many signatures, this adds up quickly.</p>
+
+<p>Then there's computational efficiency. The new algorithms generally require more processing power than their predecessors, which matters for resource-constrained devices like smartcards, IoT sensors, and mobile phones.</p>
+
+<p>Finally, there's the question of confidence. RSA has been studied intensively for nearly fifty years. The new post-quantum schemes have been scrutinized for far less time. While the NIST competition helped build confidence, the Rainbow and SIKE breaks remind us that unexpected attacks can emerge even late in the standardization process.</p>
+
+<h2>The Transition Begins</h2>
+
+<p>Despite these challenges, the transition to post-quantum cryptography is underway. NIST's 2024 standards—CRYSTALS-Kyber (now officially called ML-KEM, for Module-Lattice Key Encapsulation Mechanism), CRYSTALS-Dilithium (ML-DSA), and SPHINCS+ (SLH-DSA)—represent the starting gun for widespread adoption.</p>
+
+<p>Major technology companies are already deploying these algorithms. Google has been experimenting with post-quantum key exchange in Chrome since 2016. Apple, Signal, and others have announced plans for hybrid approaches that combine classical and post-quantum cryptography—if either scheme is broken, the other still provides protection.</p>
+
+<p>Government agencies are moving too. The U.S. National Security Agency has mandated timelines for transitioning national security systems. The European Union's cybersecurity agency has issued guidance. The pressure is building.</p>
+
+<h2>What This Means For You</h2>
+
+<p>If you're not a cryptographer or security engineer, what should you take away from all this?</p>
+
+<p>First, the encryption protecting your communications today will eventually be broken. The question isn't whether, but when. The "harvest now, decrypt later" threat means data you transmit today could be readable by adversaries years from now.</p>
+
+<p>Second, the cryptographic community is responding. The standardization of new post-quantum algorithms is a major milestone. The transition will take years—probably a decade or more for complete adoption—but it's happening.</p>
+
+<p>Third, there's inherent uncertainty in any new cryptographic system. The breaks of Rainbow and SIKE show that even extensively studied schemes can fall. The community's approach is to hedge bets: multiple schemes based on different mathematical foundations, hybrid deployments that don't put all eggs in one basket.</p>
+
+<p>Fourth, and perhaps most importantly, the story of post-quantum cryptography illustrates something profound about security in the digital age. The mathematics that keeps your data private exists in a constant evolutionary race with the mathematics that could expose it. Today's unbreakable is tomorrow's obsolete. The only defense is perpetual vigilance and adaptation.</p>
+
+<p>Quantum computers powerful enough to break RSA might arrive in ten years. Or twenty. Or thirty. The honest answer is that nobody knows. But the cryptographic community has learned, painfully, that waiting until a threat materializes is waiting too long. The time to prepare for quantum attack is now—while the lock still holds.</p>
       </div>
 
       <footer class="wikipedia-footer">

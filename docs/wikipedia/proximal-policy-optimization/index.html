@@ -22,7 +22,135 @@
       </header>
 
       <div class="wikipedia-content">
-        <p>Content not available.</p>
+        <p class="source-note">Based on <a href="https://en.wikipedia.org/wiki/Proximal_policy_optimization">Wikipedia: Proximal policy optimization</a></p>
+
+<p>In 2019, a team of artificial intelligence agents defeated the reigning world champions at Dota 2, one of the most complex competitive video games ever created. The game requires coordinating five players across hour-long matches involving thousands of possible actions per second. The AI system that accomplished this feat—OpenAI Five—learned to play through a training method called Proximal Policy Optimization, or PPO for short.</p>
+
+<p>This wasn't a fluke. PPO has quietly become one of the most important algorithms in modern artificial intelligence, powering everything from robotic arms learning to grasp objects to the systems that help large language models become more helpful and less harmful. If you've interacted with a modern AI assistant, there's a good chance PPO played a role in shaping its behavior.</p>
+
+<p>But what exactly is PPO, and why has it become so dominant?</p>
+
+<h2>The Problem of Learning Through Trial and Error</h2>
+
+<p>To understand PPO, we first need to understand reinforcement learning—the broader field it belongs to. Unlike traditional programming where humans write explicit rules, reinforcement learning lets an AI figure out what to do through trial and error. The AI takes actions in some environment, receives rewards or penalties based on outcomes, and gradually learns which actions lead to better results.</p>
+
+<p>Think of teaching a dog new tricks. You don't explain the physics of sitting or the philosophy of fetch. Instead, you let the dog try things, and when it does something right, you give it a treat. Over time, the dog learns to associate certain behaviors with rewards.</p>
+
+<p>Reinforcement learning works similarly, but with a crucial difference: the "dog" is a mathematical function called a policy, and the "treats" are numerical reward signals. The policy maps situations to actions—given what I observe right now, what should I do? The goal of reinforcement learning is to find a policy that maximizes total rewards over time.</p>
+
+<h2>The Stability Problem</h2>
+
+<p>Here's where things get tricky.</p>
+
+<p>When you update a policy based on what you've learned, you're changing the very thing that determines what experiences you'll have next. It's like trying to renovate a house while living in it—every change affects your ability to make the next change.</p>
+
+<p>Early approaches to deep reinforcement learning, like the Deep Q-Network (often abbreviated as DQN), struggled with this instability. Training could be going well, and then suddenly the AI would forget everything it learned and perform terribly. The policy updates were too aggressive, too unpredictable.</p>
+
+<p>In 2015, researchers at the University of California, Berkeley proposed a solution called Trust Region Policy Optimization, or TRPO. The key insight was elegant: don't change the policy too much at once. Specifically, TRPO measured how different the new policy was from the old policy using something called KL divergence—a mathematical way of quantifying how much two probability distributions differ from each other.</p>
+
+<p>KL divergence, named after mathematicians Solomon Kullback and Richard Leibler, essentially asks: if I expect the world to behave according to one distribution, how surprised will I be if it actually behaves according to another? A KL divergence of zero means the distributions are identical. Larger values mean they're more different.</p>
+
+<p>TRPO worked by explicitly constraining updates so the KL divergence between old and new policies stayed below a threshold. This created a "trust region"—a zone of safe changes where you could be confident the update wouldn't catastrophically break your policy.</p>
+
+<p>The results were impressive. TRPO was much more stable than previous methods.</p>
+
+<p>But it had a problem.</p>
+
+<h2>The Computational Cost of Caution</h2>
+
+<p>To enforce the trust region constraint, TRPO needed to compute something called the Hessian matrix. Without diving too deep into the mathematics, the Hessian captures information about the curvature of a function—not just which direction is uphill, but how the steepness changes as you move around.</p>
+
+<p>For small policies, computing the Hessian is manageable. But modern neural networks can have millions or even billions of parameters. The Hessian for such a network would be astronomically large—a matrix with potentially trillions of entries. Computing it exactly is simply not feasible.</p>
+
+<p>TRPO used clever tricks to approximate the Hessian without computing it fully, employing an algorithm called conjugate gradient descent. But even these approximations were computationally expensive and added significant complexity to the training process.</p>
+
+<p>Researchers wanted the stability benefits of TRPO without its computational burden.</p>
+
+<h2>Enter PPO: A Simpler Path to Stability</h2>
+
+<p>In 2017, a team at OpenAI published a paper proposing Proximal Policy Optimization. The core idea was almost embarrassingly simple: instead of using complicated mathematics to enforce a trust region, just clip the updates.</p>
+
+<p>What does clipping mean here? Imagine you're adjusting a dial that controls how much you change the policy. TRPO computed exactly how far you could safely turn the dial using sophisticated second-order optimization. PPO just said: don't turn the dial more than a fixed amount, regardless of what the math says.</p>
+
+<p>More precisely, PPO looks at the ratio between the new policy's probability of taking an action and the old policy's probability. If this ratio gets too far from 1—meaning the new policy is behaving very differently from the old one—PPO clips the ratio to stay within bounds. A typical choice is to clip at 0.8 and 1.2, meaning the new policy can be at most 20 percent more or less likely to take any given action.</p>
+
+<p>This is a blunt instrument compared to TRPO's precise mathematical constraints. But it works remarkably well in practice.</p>
+
+<h2>Why Simpler Often Wins</h2>
+
+<p>PPO's success illustrates a recurring theme in machine learning: simpler methods often outperform more sophisticated ones, not despite their simplicity but because of it.</p>
+
+<p>TRPO's trust region constraint was theoretically elegant—it guaranteed that updates would improve performance under certain assumptions. But those assumptions don't always hold in practice. Real neural networks are messy. Training data is noisy. The theoretical guarantees often don't translate into practical benefits.</p>
+
+<p>Meanwhile, PPO's crude clipping mechanism is robust to these messiness. It doesn't make strong assumptions about the shape of the optimization landscape. It just prevents the policy from changing too dramatically, which turns out to be the key requirement for stable training.</p>
+
+<p>PPO also had practical advantages. The code was simpler to implement and debug. It required less memory since there was no need to store Hessian information. It could be parallelized more easily across multiple computers. These engineering considerations matter enormously when training AI systems at scale.</p>
+
+<h2>The Two Flavors of PPO</h2>
+
+<p>PPO actually comes in two variants, both proposed in the same original paper.</p>
+
+<p>The first variant, called PPO-Clip, is the one I've been describing—it clips the probability ratio directly. This is the more popular version and the one most people mean when they say "PPO."</p>
+
+<p>The second variant, called PPO-Penalty, takes a different approach. Instead of clipping, it adds a penalty term to the objective function based on the KL divergence between old and new policies. If the policies diverge too much, this penalty becomes large, discouraging the optimizer from straying too far.</p>
+
+<p>PPO-Penalty is closer in spirit to TRPO—it explicitly penalizes large KL divergences rather than just clipping probability ratios. But it's still simpler than TRPO because it doesn't require computing the Hessian. The KL divergence penalty is just added to the loss function and handled by standard gradient descent.</p>
+
+<p>Interestingly, the two variants perform similarly in most situations, suggesting that the precise mechanism for constraining updates matters less than the fact that updates are constrained at all.</p>
+
+<h2>The Value Function: Learning to Predict Success</h2>
+
+<p>So far I've focused on the policy—the function that decides what actions to take. But PPO, like most modern reinforcement learning algorithms, also trains a second function called the value function.</p>
+
+<p>The value function estimates how good a situation is—not what action to take, but how much total reward you can expect to accumulate from this point forward if you follow your current policy. If the policy answers "what should I do?", the value function answers "how well am I doing?"</p>
+
+<p>Why is this useful? Because it helps the algorithm learn more efficiently.</p>
+
+<p>Suppose your AI is playing a video game and scores 100 points. Is that good or bad? It depends on context. If the AI was in a terrible position and managed to salvage 100 points, that's impressive—the actions leading there were probably good. If the AI was in a fantastic position and only managed 100 points, that's disappointing—something went wrong.</p>
+
+<p>The value function provides this context. By predicting expected rewards, it creates a baseline against which actual performance can be measured. The difference between actual rewards and predicted rewards—called the advantage—tells the algorithm which actions were better or worse than expected.</p>
+
+<p>This advantage signal is what PPO uses to update the policy. Actions with positive advantages (better than expected) become more likely. Actions with negative advantages (worse than expected) become less likely. The value function makes this feedback signal much more informative than raw rewards alone.</p>
+
+<h2>PPO and Large Language Models</h2>
+
+<p>Perhaps the most consequential application of PPO in recent years has been in training large language models to be more helpful, harmless, and honest—a process often called Reinforcement Learning from Human Feedback, or RLHF.</p>
+
+<p>Here's how it works. First, you train a language model the traditional way, having it predict the next word in vast amounts of text from the internet. This gives you a model that can write fluently but doesn't necessarily know what kind of responses are helpful or appropriate.</p>
+
+<p>Next, you collect human preferences. You show people pairs of responses from the model and ask which one is better. From these preferences, you train a reward model—a system that can predict how much humans would prefer any given response.</p>
+
+<p>Finally, you use PPO to fine-tune the language model to maximize the reward model's scores. The language model's outputs become the "actions," the reward model's scores become the "rewards," and PPO handles the optimization.</p>
+
+<p>The trust region aspect of PPO is crucial here. Without it, the language model might learn to exploit the reward model, finding strange outputs that get high scores but aren't actually what humans want. By preventing the policy from changing too quickly, PPO helps the model improve gradually while staying close to reasonable behavior.</p>
+
+<h2>Why PPO Became the Default</h2>
+
+<p>By 2018, OpenAI had adopted PPO as their default reinforcement learning algorithm. It wasn't because PPO was theoretically optimal or had the best results on every benchmark. It was because PPO was good enough across a wide range of problems while being significantly easier to use than alternatives.</p>
+
+<p>This matters more than it might seem. In research, you often want to try many different ideas quickly. An algorithm that's 5 percent better but takes twice as long to implement and debug is often worse than a simpler alternative. PPO's simplicity meant researchers could focus on their actual research questions rather than wrestling with training stability.</p>
+
+<p>PPO also scaled well. Training AI systems on modern hardware often involves distributing computation across dozens or hundreds of GPUs. PPO's architecture—collecting batches of experience, computing updates, then repeating—parallelized naturally across these resources.</p>
+
+<h2>Limitations and Alternatives</h2>
+
+<p>For all its success, PPO isn't perfect.</p>
+
+<p>One limitation is sample efficiency. PPO is an "on-policy" algorithm, meaning it can only learn from experience generated by its current policy. Once you've updated the policy, all your old experience becomes stale and must be thrown away. This contrasts with "off-policy" algorithms like Soft Actor-Critic that can reuse old experience, potentially learning more from less data.</p>
+
+<p>Another limitation is exploration. PPO updates tend to be conservative, which helps with stability but can make it slow to discover novel strategies. In environments where you need to try many different approaches to find something that works, PPO's cautious nature can be a hindrance.</p>
+
+<p>More recently, algorithms like Group Relative Policy Optimization (GRPO) have emerged as alternatives for training large language models. GRPO modifies how the baseline for advantage computation is calculated, comparing each response to other responses in the same batch rather than using a learned value function. Some researchers have found this works better for language model training, though PPO remains widely used.</p>
+
+<h2>The Broader Lesson</h2>
+
+<p>The story of PPO offers a broader lesson about progress in artificial intelligence.</p>
+
+<p>Complex mathematical elegance doesn't always translate into practical utility. TRPO's careful enforcement of trust regions was theoretically beautiful but computationally expensive. PPO's crude clipping was theoretically dubious—it doesn't actually guarantee anything about KL divergence—but worked wonderfully in practice.</p>
+
+<p>Sometimes, good enough is good enough. PPO isn't the optimal algorithm for any particular problem. But it's reasonably good across many problems, easy to implement, and robust to the countless things that can go wrong in real-world machine learning. These practical virtues matter enormously when you're trying to push the boundaries of what AI can do.</p>
+
+<p>The robots learning to walk, the game-playing AI systems defeating human champions, the language models becoming more helpful and less harmful—many of these achievements rest on the simple foundation of clipping a probability ratio. In a field often enamored with complexity, PPO stands as a reminder that simplicity has its own kind of power.</p>
       </div>
 
       <footer class="wikipedia-footer">

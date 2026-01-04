@@ -22,7 +22,161 @@
       </header>
 
       <div class="wikipedia-content">
-        <p>Content not available.</p>
+        <p class="source-note">Based on <a href="https://en.wikipedia.org/wiki/Influence_diagram">Wikipedia: Influence diagram</a></p>
+
+<p>Imagine you're planning a vacation. Should you go to the beach or the mountains? Your decision depends on the weather forecast, but the forecast isn't the weather itself—it's just a hint, an imperfect signal about what might actually happen. And what you really care about is whether you'll have a good time, which depends on the actual weather, not the prediction.</p>
+
+<p>This seemingly simple scenario contains a profound insight about how decisions work. There's information you can observe, information you can't, choices you must make, and outcomes you care about. All of these elements connect in specific ways. Miss one connection, and you might pay for a weather report that tells you nothing useful. Miss another, and you might ignore crucial information entirely.</p>
+
+<p>This is the problem that influence diagrams solve.</p>
+
+<h2>A Visual Language for Decisions</h2>
+
+<p>An influence diagram is a way of drawing decisions. Not the kind of flowchart that shows you what to do step by step, but something deeper—a map of what depends on what, what you know, what you don't know, and what you're trying to achieve.</p>
+
+<p>The idea emerged in the mid-1970s from a community called decision analysts. These were people who made a living helping organizations think through complex choices: whether to drill for oil, how to treat a patient, when to launch a product. They needed a tool that could capture the messy reality of real decisions without drowning in complexity.</p>
+
+<p>Before influence diagrams, the standard tool was the decision tree. You've probably seen one. It looks like a branching diagram where each fork represents either a choice or an uncertain outcome. The problem with decision trees is that they explode. Every new variable you add potentially doubles the number of branches. A decision with five uncertain factors and three possible choices can easily produce a tree with hundreds or thousands of endpoints. The diagram becomes so large that it obscures the very relationships it's meant to reveal.</p>
+
+<p>Influence diagrams take a different approach. Instead of spelling out every possible path, they show only the connections that matter. The result is compact, readable, and—crucially—captures exactly the same mathematical information as the sprawling tree it replaces.</p>
+
+<h2>The Building Blocks</h2>
+
+<p>An influence diagram uses just three types of nodes. Think of them as three different kinds of actors in your decision drama.</p>
+
+<p><strong>Decision nodes</strong> represent choices you control. These are drawn as rectangles. In the vacation example, your decision node might be labeled "Vacation Destination" with options like beach, mountains, or staying home.</p>
+
+<p><strong>Chance nodes</strong> represent uncertainties—things that will happen regardless of your choice, but whose outcomes you don't control and may not know. These appear as ovals. The actual weather is a chance node. So is the weather forecast, which is itself uncertain (forecasters get it wrong sometimes).</p>
+
+<p><strong>Value nodes</strong> represent what you care about, drawn as hexagons or rounded rectangles depending on who's drawing the diagram. Your vacation satisfaction is a value node. This is where you encode your preferences: how much you enjoy sunny beaches versus rainy mountains versus a cozy weekend at home.</p>
+
+<p>There's also a special subtype: the deterministic node. This represents something that's completely determined by other factors—no randomness involved. If you're calculating your total trip cost from hotel price plus airfare plus food, that sum is deterministic. Once you know the inputs, you know the output with certainty.</p>
+
+<h2>How the Arrows Work</h2>
+
+<p>The real power of influence diagrams lies in the arrows connecting these nodes. But here's what's subtle: the arrows mean different things depending on what they connect.</p>
+
+<p>An arrow into a <em>chance node</em> means probabilistic influence. If an arrow runs from "Weather Forecast" to "Weather Condition," it means that knowing the forecast changes your beliefs about what the weather will be. More precisely, it means these two things are statistically related—they're not independent. This is the language of probability theory, specifically something called a Bayesian network, which we'll get to shortly.</p>
+
+<p>An arrow into a <em>decision node</em> means information. It tells you what you'll know when you make that decision. An arrow from "Weather Forecast" to "Vacation Decision" means you'll see the forecast before choosing your destination. No arrow? Then you're deciding blind.</p>
+
+<p>An arrow into a <em>value node</em> means relevance to your outcome. The things pointing to your satisfaction node are the things that actually affect how happy you'll be.</p>
+
+<p>Here's the key insight: what's <em>not</em> connected is just as important as what is. If there's no arrow between two nodes, you're making a claim about independence. You're saying that once you know certain other things, learning one of these nodes tells you nothing new about the other.</p>
+
+<h2>The Vacation Example Unpacked</h2>
+
+<p>Let's return to that vacation scenario and trace through what the diagram is actually saying.</p>
+
+<p>You have a decision to make: where to vacation. There's an uncertain weather condition that will actually occur. There's a weather forecast that provides a signal about that condition. And there's your satisfaction, which depends on both where you go and what the weather turns out to be.</p>
+
+<p>The diagram captures several crucial facts:</p>
+
+<p>First, the forecast influences your beliefs about the weather, but it doesn't determine the weather. The arrow from forecast to weather condition captures this probabilistic relationship. A sunny forecast makes sunny weather more likely, but storms still happen.</p>
+
+<p>Second, you see the forecast before deciding, but you don't see the actual weather. The arrow from forecast to your decision means you have that information available. The absence of an arrow from weather condition to your decision means you don't.</p>
+
+<p>Third, your satisfaction depends on both your choice and the actual weather—not on the forecast. This is important. The forecast is only valuable because it tells you something about the weather. If you already knew the weather, the forecast would be worthless.</p>
+
+<h2>The Value of Information</h2>
+
+<p>This vacation diagram illustrates one of the most powerful concepts in decision analysis: the value of information.</p>
+
+<p>Consider three scenarios:</p>
+
+<p><strong>Scenario one:</strong> You have a crystal ball that shows you the actual future weather before you decide. This is perfect information. You always make the optimal choice because you face no uncertainty.</p>
+
+<p><strong>Scenario two:</strong> You have access to a weather forecast before deciding. The forecast is imperfect—sometimes wrong—but it's correlated with the actual weather. This gives you a probabilistic edge.</p>
+
+<p><strong>Scenario three:</strong> You must decide with no information at all. You flip a coin, essentially, choosing without any signal about what the weather will be.</p>
+
+<p>Scenario one is obviously best. Scenario three is obviously worst. The interesting question is: how much is it worth to move from scenario three to scenario two? How much should you pay for that imperfect weather forecast?</p>
+
+<p>This isn't an abstract philosophical question. It has a precise numerical answer. You can calculate the expected satisfaction in each scenario and compare them. The difference is the value of that information.</p>
+
+<p>The applications are enormous. In medicine, this framework tells you how much a diagnostic test is worth. The test doesn't tell you whether the patient has cancer—only a biopsy or time will reveal that. But the test provides a signal that changes your beliefs and therefore might change what treatment you recommend. How much should a hospital pay for that test? It depends on how strongly the test results correlate with actual disease, how much treatments differ, and how much outcomes matter.</p>
+
+<p>Insurance underwriting, oil exploration, product development, legal strategy—anywhere you face uncertainty and can acquire partial information, the value of information framework applies.</p>
+
+<h2>The Connection to Bayesian Networks</h2>
+
+<p>Influence diagrams are actually a generalization of something called a Bayesian network, named after the Reverend Thomas Bayes, an eighteenth-century Presbyterian minister who developed a mathematical theorem about how to update beliefs when you learn new evidence.</p>
+
+<p>A Bayesian network is an influence diagram with no decision nodes and no value nodes—only chance nodes. It represents a collection of uncertain variables and the probabilistic relationships between them. These networks are extraordinarily useful for reasoning under uncertainty. Given some observations, what can you infer about things you haven't observed?</p>
+
+<p>The artificial intelligence community became deeply interested in Bayesian networks in the 1980s and developed sophisticated algorithms for computing inferences in large networks. These algorithms—with names like belief propagation and variable elimination—let you take a network with thousands of nodes and still compute answers in reasonable time.</p>
+
+<p>Influence diagrams inherit all this mathematical machinery. You can use the same algorithms, with some modifications, to not just reason about uncertainty but to find optimal decisions. What action maximizes your expected value, given what you know?</p>
+
+<p>The technical criterion is called maximum expected utility. Utility is the decision theorist's word for satisfaction or value—a way of encoding preferences numerically. Expected utility is what you get, on average, across all the uncertain outcomes weighted by their probabilities. The optimal decision is the one that maximizes this quantity.</p>
+
+<h2>Teams and Games</h2>
+
+<p>One of the quiet strengths of influence diagrams is how naturally they handle multiple decision makers.</p>
+
+<p>In a team setting, different people might have access to different information when they make their choices. The marketing department knows customer feedback. The engineering department knows technical constraints. Each makes decisions based on what they see, but the outcomes affect everyone.</p>
+
+<p>An influence diagram can represent this explicitly. Different decision nodes can have different information arrows pointing to them. The analysis then computes not just individual optimal strategies but team-optimal strategies—choices that work well together even when each team member can only see part of the picture.</p>
+
+<p>Push this further and you get game theory. In a game, different players have different objectives—not just different information. Extensions of influence diagrams called multi-agent influence diagrams can represent strategic situations where players are trying to outthink each other. What should you do, knowing that your opponent is also analyzing the situation and will respond optimally to whatever they expect you to do?</p>
+
+<p>These extended diagrams serve as an alternative to the traditional game tree, with the same advantages that influence diagrams have over decision trees: compactness and clarity about what depends on what.</p>
+
+<h2>Well-Formed Diagrams</h2>
+
+<p>Not every diagram that looks like an influence diagram is mathematically coherent. There's a hierarchy of specification.</p>
+
+<p>At the first level, you just have structure: what nodes exist and what connects to what. This captures the qualitative story of dependence and independence.</p>
+
+<p>At the second level, you specify functions: for each chance node, what's the probability distribution over its outcomes given its parents? For each decision node, what are the available options? For each value node, how do the inputs combine to determine your satisfaction?</p>
+
+<p>At the third level, you fill in the numbers: specific probabilities, specific utility values.</p>
+
+<p>A diagram that's complete at all three levels is called a well-formed influence diagram. Only well-formed diagrams can actually be solved to yield optimal decisions. The structure gives you insight; the full specification gives you answers.</p>
+
+<h2>Solving the Diagram</h2>
+
+<p>How do you actually compute the optimal decision from a well-formed diagram?</p>
+
+<p>The classical approach uses two operations: reversal and removal.</p>
+
+<p>Reversal changes the direction of an arrow between two chance nodes while preserving all probabilistic relationships. It's like looking at the same joint probability distribution from a different angle. If you know how likely a forecast is given different weathers, you can reverse this to compute how likely different weathers are given a forecast. This is exactly Bayes' theorem in action.</p>
+
+<p>Removal eliminates a node from the diagram once it's no longer needed—once its information has been absorbed into other nodes. Decision nodes get removed after you've computed the optimal choice. Chance nodes get removed after you've summed over all their possible outcomes.</p>
+
+<p>By carefully applying reversals and removals in the right order, you can reduce any well-formed influence diagram to a single number: the expected value of acting optimally. Along the way, you extract the optimal decision rule—what to do in each possible information state.</p>
+
+<p>Modern computational approaches often use more efficient algorithms borrowed from the Bayesian network literature. These can handle much larger problems than the classical reversal-removal approach.</p>
+
+<h2>Relevance Diagrams</h2>
+
+<p>When an influence diagram contains only chance nodes—no decisions, no values—it's sometimes called a relevance diagram instead. This is just a Bayesian network under a different name, emphasizing a particular interpretation.</p>
+
+<p>The word "relevance" captures something intuitive about what the arrows mean. An arrow from A to B says that A is relevant to B. But here's an interesting philosophical point: relevance is symmetric. If knowing A changes your beliefs about B, then knowing B also changes your beliefs about A. The arrow has a direction for mathematical reasons—to specify how the joint probability factorizes—but the underlying relationship of relevance runs both ways.</p>
+
+<p>This symmetry is why Bayesian networks are so powerful for inference. You can observe any set of nodes and update your beliefs about any other set. The arrows define the structure, but information can flow in any direction.</p>
+
+<h2>From Diagrams to Decisions</h2>
+
+<p>The real gift of influence diagrams isn't the mathematics—though the mathematics is elegant and powerful. The real gift is forcing you to think clearly about your decision.</p>
+
+<p>Drawing the diagram requires answering hard questions. What are you actually trying to achieve? What are the uncertainties that matter? What will you know when you decide, and what won't you know? How do different factors combine to affect your outcome?</p>
+
+<p>Many bad decisions stem from confusion about these questions. People optimize the wrong thing. They ignore crucial uncertainties or treat correlated events as independent. They imagine they have information they don't actually have, or fail to use information that's available to them.</p>
+
+<p>The diagram makes all these assumptions explicit. You can argue about whether an arrow should be there or not. You can debate whether two uncertainties are really independent. These are productive arguments—they reveal the true sources of disagreement.</p>
+
+<p>And once the diagram is drawn and agreed upon, the mathematics takes over. The optimal decision isn't a matter of opinion. It follows from the structure, the probabilities, and the preferences. You might disagree about the inputs, but given agreed inputs, the output is determined.</p>
+
+<h2>A Tool for Clear Thinking</h2>
+
+<p>Influence diagrams emerged from the very practical world of decision analysis—consultants helping companies make better choices about oil wells and product launches. But they connect to deep ideas in probability theory, artificial intelligence, and game theory.</p>
+
+<p>At their heart, they're about making the structure of a decision visible. What do you know? What don't you know? What can you choose? What do you care about? How does it all fit together?</p>
+
+<p>These questions matter whether you're planning a vacation or planning a medical trial, whether you're an individual or a team, whether you face a single choice or a strategic game. The diagram doesn't make the decision for you—but it shows you what the decision actually is.</p>
+
+<p>And sometimes, that clarity is exactly what you need.</p>
       </div>
 
       <footer class="wikipedia-footer">

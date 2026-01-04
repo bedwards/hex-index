@@ -22,7 +22,207 @@
       </header>
 
       <div class="wikipedia-content">
-        <p>Content not available.</p>
+        <p class="source-note">Based on <a href="https://en.wikipedia.org/wiki/Genome-wide_association_study">Wikipedia: Genome-wide association study</a></p>
+
+<h2>The Search for Needles in a Three-Billion-Letter Haystack</h2>
+
+<p>Here's a puzzle that haunted geneticists for decades: identical twins raised apart often end up remarkably similar—similar heights, similar personalities, even similar quirks. Studies showed that traits like depression are about 40% inherited. Intelligence runs in families. Heart disease clusters in bloodlines. The genetic influence seemed undeniable.</p>
+
+<p>But when scientists went looking for the actual genes responsible? They came up almost empty-handed.</p>
+
+<p>The genes they found could only explain a fraction of what twin studies predicted. If height was supposed to be 80% genetic, where were all the height genes? This gap became known as "missing heritability," and it sparked one of genetics' most heated debates. The solution—or at least, our best current approach—came from a technique that sounds almost brute-force in its simplicity: instead of guessing which genes might matter, why not check them all?</p>
+
+<p>This is the genome-wide association study, or GWAS. And it transformed how we understand human disease.</p>
+
+<h2>The Old Way: Families and Guesswork</h2>
+
+<p>Before GWAS, geneticists primarily hunted for disease genes through family studies. They'd find families where a disease appeared across generations, track who got sick and who didn't, and try to identify which chunk of DNA traveled with the illness. This worked brilliantly for what we call single-gene disorders—conditions where one broken gene causes the problem.</p>
+
+<p>Huntington's disease. Cystic fibrosis. Sickle cell anemia. These yielded to family linkage studies because the inheritance pattern was clean. One gene, one disease.</p>
+
+<p>But most conditions that kill us aren't like that. Heart disease, diabetes, cancer, depression—these emerge from subtle interactions between dozens or hundreds of genetic variants, each contributing a small nudge toward risk. Family studies kept producing results that other researchers couldn't replicate. A gene linked to heart disease in one study would show no effect in the next.</p>
+
+<p>The problem was statistical power. When each genetic variant contributes only a tiny amount to disease risk, you need massive numbers of people to reliably detect the effect. Family studies couldn't provide those numbers.</p>
+
+<p>A different approach was needed.</p>
+
+<h2>Comparing Genomes at Scale</h2>
+
+<p>The core idea behind GWAS is almost childishly simple: take a large group of people with a disease and a large group of people without it. Read millions of genetic markers from each person. Then check, marker by marker, whether any particular genetic variant shows up more often in the sick group than the healthy group.</p>
+
+<p>That's it. No need to guess which genes might be involved. No need to understand the biology in advance. Just compare and count.</p>
+
+<p>The genetic markers most commonly used are called single-nucleotide polymorphisms, or SNPs (pronounced "snips"). Your genome contains about three billion base pairs—the famous letters A, T, G, and C that encode your genetic instructions. At millions of locations throughout your genome, humans vary: some people have an A where others have a G, or a T where others have a C. These single-letter variations are SNPs.</p>
+
+<p>Most SNPs do nothing obvious. They're genetic noise, variations that accumulated over evolutionary time without affecting survival or reproduction. But some sit in or near genes that matter, and a different letter can mean a different level of risk for disease.</p>
+
+<h2>The Technological Foundation</h2>
+
+<p>GWAS only became possible when three technologies matured simultaneously.</p>
+
+<p>First, we needed SNP arrays—silicon chips that could read hundreds of thousands or millions of genetic variants from a single DNA sample quickly and cheaply. Before these existed, reading even a few genes was laborious work. SNP arrays made million-variant scans routine.</p>
+
+<p>Second, we needed maps showing where human genetic variation actually exists. The International HapMap Project, launched in 2003, catalogued millions of common SNPs across different human populations. This provided researchers with a reference guide: here are the variants worth checking.</p>
+
+<p>The HapMap also revealed something crucial about how human genetic variation is organized. Our chromosomes don't recombine randomly during reproduction. Instead, they break and reshuffle at certain preferred locations, leaving stretches of DNA that tend to travel together through generations. These stretches are called haplotype blocks. If you know one SNP within a block, you can often predict all the others. This means you don't need to test every single variant—testing a representative subset can capture most of the genetic variation.</p>
+
+<p>Third, we needed biobanks: large repositories of DNA samples from thousands or millions of people, linked to information about their health, diseases, and traits. Collecting biological samples is expensive and time-consuming. Biobanks concentrated this effort, making samples available to researchers worldwide.</p>
+
+<h2>Case-Control Studies: The Basic Design</h2>
+
+<p>The most common GWAS design compares cases to controls. Cases have the disease you're studying. Controls don't. Both groups get genotyped at the same million-plus SNPs.</p>
+
+<p>For each SNP, you calculate what's called an odds ratio. Imagine a simple scenario: you're looking at a SNP where people can have either a T or a C at that position. You count how many people in your case group have T, and how many have C. You do the same for your control group.</p>
+
+<p>If T shows up in 60% of cases but only 40% of controls, that's interesting. You're seeing T more often in sick people than in healthy people. The odds ratio quantifies this disproportion. An odds ratio of 1 means no association—the variant appears equally in both groups. An odds ratio of 2 means people with that variant are twice as likely to be cases as controls.</p>
+
+<p>But here's where GWAS gets tricky.</p>
+
+<h2>The Multiple Testing Problem</h2>
+
+<p>When you test one million SNPs, some will appear associated with disease purely by chance. If you use the standard scientific threshold of p less than 0.05—meaning there's only a 5% probability of seeing this result if there were no real effect—you'd expect about 50,000 false positives in a million-SNP study.</p>
+
+<p>That's unacceptable.</p>
+
+<p>GWAS researchers therefore use a much stricter threshold: typically p less than 5×10⁻⁸. Written out, that's 0.00000005. This threshold accounts for the massive number of tests being run simultaneously. Only results exceeding this bar are considered "genome-wide significant."</p>
+
+<p>The visualization of choice for GWAS results is the Manhattan plot, named for its resemblance to a city skyline. The horizontal axis shows position along the genome, marching through all 23 chromosome pairs. The vertical axis shows negative log-transformed p-values—a mathematical transformation that makes small p-values appear as tall peaks. Most SNPs cluster near the bottom, showing no association. But at certain locations, clusters of points spike upward like skyscrapers, marking regions where genetic variation genuinely associates with disease risk.</p>
+
+<h2>The First Successes</h2>
+
+<p>The technology came together in the early 2000s. The first successful GWAS, published in 2002, examined myocardial infarction—heart attacks. But the study that proved the approach could discover genuinely new biology came in 2005.</p>
+
+<p>Researchers studying age-related macular degeneration—the leading cause of blindness in older adults—compared 96 patients to 50 healthy controls. Even with these small numbers, two SNPs emerged with strikingly altered frequencies between groups. Both sat within or near a gene encoding complement factor H, a protein involved in immune responses.</p>
+
+<p>This was completely unexpected. Nobody had suspected the complement system—an ancient part of our innate immunity—played a role in macular degeneration. The finding opened entirely new avenues for understanding the disease and potentially treating it. Suddenly, researchers who had spent careers studying eye diseases were reading papers about immunology.</p>
+
+<p>The 2007 Wellcome Trust Case Control Consortium study scaled things up dramatically. It examined 14,000 patients across seven diseases: coronary heart disease, type 1 diabetes, type 2 diabetes, rheumatoid arthritis, Crohn's disease, bipolar disorder, and hypertension. The study shared 3,000 healthy controls across all disease comparisons, an efficient design that became a model for future work.</p>
+
+<p>Genes tumbled out. Some confirmed existing hypotheses. Others pointed to completely unexpected biology.</p>
+
+<h2>The Scale-Up</h2>
+
+<p>Since those early studies, two trends have defined the field.</p>
+
+<p>The first is explosive growth in sample size. Those initial studies used hundreds or thousands of participants. By 2018, GWAS routinely enrolled millions. One study of educational attainment—attempting to identify genetic variants associated with years of schooling completed—included 1.1 million people. A follow-up in 2022 reached 3 million. A study of insomnia analyzed 1.3 million participants.</p>
+
+<p>Why the constant push for larger numbers? Because most individual genetic variants have tiny effects. The median odds ratio for disease-associated SNPs is about 1.33. That means carrying the risk variant increases your odds of disease by about a third—meaningful in aggregate across a population, but nearly invisible in any individual. To reliably detect such small effects above statistical noise, you need enormous sample sizes.</p>
+
+<p>The second trend is toward increasingly specific phenotypes. Rather than studying "heart disease" as a single entity, researchers now run GWAS on blood lipid levels, inflammatory markers, cardiac imaging measurements, and dozens of other intermediate traits. These narrower phenotypes are often closer to the actual biological mechanisms, making the genetic signals easier to interpret.</p>
+
+<h2>The Disappointment at the Heart of GWAS</h2>
+
+<p>Despite thousands of successful GWAS and tens of thousands of discovered associations, a fundamental disappointment persists: the discovered variants still don't explain as much heritability as twin studies predict.</p>
+
+<p>Take height. Twin studies suggest height is about 80% heritable. GWAS has found thousands of height-associated variants. Combined, they explain perhaps 40-50% of height variation. Where's the rest?</p>
+
+<p>Several explanations compete. Some researchers argue that rare variants—genetic changes found in only a small fraction of the population—contribute substantially but are missed by standard GWAS designs, which focus on common variants. Others point to structural variations like deletions and duplications, which SNP arrays miss. Still others suggest that some genetic effects only appear in certain environments, or that gene-gene interactions create effects invisible when variants are analyzed one at a time.</p>
+
+<p>There's also the sobering possibility that the original twin-study estimates were inflated by assumptions that don't quite hold in the real world.</p>
+
+<p>The debate continues.</p>
+
+<h2>Confounders and Population Structure</h2>
+
+<p>GWAS confronts a subtle trap that has ruined many studies: population stratification.</p>
+
+<p>Imagine you're studying chopstick usage and find a genetic variant that seems strongly associated with skilled chopstick handling. Before you write up your Nobel Prize acceptance speech, consider: that variant might simply be more common in East Asian populations, where chopstick usage is also more common. You haven't found a chopstick gene. You've found a marker of ancestry that correlates with a cultural practice.</p>
+
+<p>This same confounding haunts disease studies. Many genetic variants differ in frequency across populations with different geographic origins. If your case group happens to include more people of one ancestry than your control group, genetic variants common in that ancestry will appear spuriously associated with disease.</p>
+
+<p>Modern GWAS control for population stratification using sophisticated statistical methods. Principal components analysis extracts the major axes of genetic variation in a sample, which largely correspond to ancestry. Including these components as covariates in the statistical model adjusts for ancestry differences between cases and controls. Without such corrections, GWAS would produce thousands of false positives—genetic variants associated with ancestry, not disease.</p>
+
+<h2>From Association to Mechanism</h2>
+
+<p>GWAS finds associations. It does not, by itself, explain mechanisms.</p>
+
+<p>When a SNP lights up as associated with disease, what does that actually tell you? Often, frustratingly little. The SNP itself usually isn't the causal variant. It's merely correlated with the actual functional change through that haplotype block structure mentioned earlier. The causal variant might be nearby, but "nearby" in genomic terms can mean thousands of DNA letters away.</p>
+
+<p>Worse, most GWAS hits fall outside genes entirely. They sit in the vast stretches of non-coding DNA that make up most of our genome—regions once dismissed as "junk" but now understood to contain regulatory elements that control when and where genes turn on and off. A risk variant might not change a protein. It might change how much of that protein gets made, or in which tissues, or at what times.</p>
+
+<p>Connecting GWAS hits to actual biology requires follow-up work. Researchers examine expression quantitative trait loci—eQTLs—to ask whether disease-associated variants also correlate with gene expression levels in relevant tissues. They use gene editing in cell lines and animal models to test whether specific variants actually cause functional changes. They integrate GWAS results with other genomic data to build networks of interacting genes.</p>
+
+<p>This downstream work is where the real mechanistic insights emerge.</p>
+
+<h2>A Success Story: Hepatitis C Treatment</h2>
+
+<p>Sometimes GWAS results translate directly into better medicine.</p>
+
+<p>Hepatitis C virus infection, before recent antiviral breakthroughs, was treated with interferon-based regimens that worked for some patients but failed for many others. Predicting who would respond was largely guesswork.</p>
+
+<p>A GWAS examining treatment response found that variants near the IL28B gene—which encodes interferon lambda 3, a signaling molecule in antiviral immunity—strongly predicted whether patients would clear the virus with interferon therapy. The same variants also predicted whether infected people would naturally clear the virus without treatment.</p>
+
+<p>This finding immediately changed clinical practice. Doctors could genotype patients before starting treatment to help predict outcomes. More importantly, it pointed researchers toward the biology of viral clearance, contributing to the eventual development of the direct-acting antiviral drugs that now cure hepatitis C in most patients.</p>
+
+<h2>The SORT1 Story</h2>
+
+<p>Another example shows how GWAS can illuminate disease mechanisms.</p>
+
+<p>A strong GWAS signal for cardiovascular disease pointed to a region near the SORT1 gene, which encodes a protein called sortilin. Expression studies showed that the risk variants affected how much sortilin got made in the liver. But what did sortilin do?</p>
+
+<p>Follow-up experiments using RNA interference—a technique that lets researchers knock down specific genes—showed that reducing sortilin levels in liver cells decreased their secretion of very low-density lipoproteins, the precursors to "bad" LDL cholesterol. Mice lacking sortilin had lower LDL levels. The genetic variants that increased cardiovascular risk in humans were doing so by ramping up sortilin activity and thus increasing circulating lipoproteins.</p>
+
+<p>This mechanism would have been nearly impossible to discover without GWAS pointing toward SORT1. The finding opened new potential drug targets for cholesterol management.</p>
+
+<h2>Polygenic Risk Scores</h2>
+
+<p>One emerging application of GWAS data is the polygenic risk score: a single number summarizing your genetic risk for a disease based on all known associated variants.</p>
+
+<p>The concept is straightforward. A GWAS identifies, say, 500 SNPs associated with coronary heart disease. For each SNP, you know the risk allele and the odds ratio. You can walk through someone's genome, count up their risk alleles, weight them by effect size, and produce a combined score.</p>
+
+<p>People with high polygenic risk scores for heart disease really do develop heart disease more often. For some conditions, the top few percent of polygenic risk scores identify individuals whose risk approaches that of people with rare high-impact mutations—the kind that get people referred to genetic counselors.</p>
+
+<p>But polygenic scores remain controversial. The effects are probabilistic, not deterministic. Someone with a high score might never develop disease. Someone with a low score might get unlucky. And because the underlying GWAS were mostly conducted in European-ancestry populations, the scores transfer poorly to other populations—a serious equity concern.</p>
+
+<p>Whether polygenic scores should enter routine clinical care remains actively debated.</p>
+
+<h2>The Epistasis Challenge</h2>
+
+<p>Standard GWAS analyzes each SNP independently. But genes don't act in isolation. The effect of one variant might depend on what variants you carry at other locations—a phenomenon called epistasis, or gene-gene interaction.</p>
+
+<p>Testing for epistasis in GWAS is computationally daunting. If you're testing one million SNPs independently, you're running one million statistical tests. If you want to test all pairwise interactions, you're running nearly 500 billion tests. The multiple testing burden becomes crushing. The statistical power to detect any but the strongest interactions evaporates.</p>
+
+<p>Most epistatic effects, if they exist, remain hidden in GWAS data. Some researchers have developed clever algorithms to search for interactions without exhaustively testing all pairs, but the field is still immature. A recent breakthrough mapped epistatic interactions in the plant Arabidopsis thaliana—the fruit fly of the plant world—but scaling this to humans remains challenging.</p>
+
+<h2>Imputation: Reading Between the Lines</h2>
+
+<p>A clever technique called imputation dramatically increases GWAS power without additional genotyping.</p>
+
+<p>Here's the insight: those haplotype blocks mean that nearby variants are correlated. If you know someone's genotype at certain marker SNPs, you can often infer their genotypes at other variants in the same haplotype block—variants that weren't directly measured.</p>
+
+<p>Imputation methods use reference panels of deeply sequenced genomes—like those from the 1000 Genomes Project—to fill in the gaps. If a reference individual shares the same haplotype block as your study participant based on the typed markers, their other variants in that block probably match too.</p>
+
+<p>This allows GWAS to test millions of additional variants beyond those directly typed on the genotyping array. It also enables meta-analysis across studies that used different arrays, since imputation can bring everyone to a common set of variants. Without imputation, modern large-scale GWAS would be far less powerful.</p>
+
+<h2>GWAS by Proxy</h2>
+
+<p>A variant called GWAS by proxy (GWAX) addresses a practical problem: for many diseases, collecting DNA from affected individuals is difficult. Alzheimer's patients may be too impaired to consent. People with diseases that kill quickly may die before enrollment.</p>
+
+<p>GWAX uses first-degree relatives instead. If your parent had Alzheimer's disease, you carry roughly half their genome. You're not a case yourself (yet), but you're a partial case—on average, half a case. Statistical methods can account for this dilution and still extract genetic signal.</p>
+
+<p>The UK Biobank, a massive British biobank with genetic and health data on half a million people, includes parental disease history. This has enabled GWAX studies of conditions where direct case collection would have been impractical.</p>
+
+<h2>Where We Stand</h2>
+
+<p>By 2017, over 3,000 GWAS had examined more than 1,800 diseases and traits. The GWAS Catalog—a curated database of published associations—now contains tens of thousands of entries. We know more about the genetic architecture of human disease than at any point in history.</p>
+
+<p>And yet.</p>
+
+<p>Most individual associations explain tiny fractions of disease risk. The median odds ratio of 1.33 means that carrying a risk variant increases your disease odds by about a third. That's not nothing, but it's far from destiny. Having ten such variants doesn't make disease inevitable. It just nudges the probabilities.</p>
+
+<p>The clinical utility of most GWAS findings remains limited. You can't yet walk into a doctor's office, get genotyped, and receive a reliable prediction of your disease future. The hepatitis C and cardiovascular examples are successes, but many GWAS hits haven't translated into new drugs or diagnostics.</p>
+
+<p>Still, the value of GWAS may lie less in direct clinical application than in biological discovery. Finding that complement factor H matters for macular degeneration opened research directions that weren't conceivable before. The SORT1 story revealed mechanisms of lipid metabolism that decades of traditional research had missed. GWAS gives us starting points for understanding disease biology, even when the individual genetic effects are small.</p>
+
+<h2>The Road Ahead</h2>
+
+<p>Future GWAS will continue scaling up. Sample sizes in the millions are becoming routine. Genotyping arrays are giving way to whole-genome sequencing, which captures rare variants and structural changes that arrays miss. Diverse populations are finally getting adequate representation, addressing a long-standing bias toward European ancestry.</p>
+
+<p>Integration with other data types—gene expression, protein levels, metabolites, epigenetic marks—will help connect GWAS hits to mechanisms. Machine learning methods may extract predictive signal from combinations of variants in ways that traditional statistics miss.</p>
+
+<p>The missing heritability may yet be found, variant by variant, study by study, in the three-billion-letter haystack of the human genome.</p>
+
+<p>Whether that knowledge will transform medicine or remain largely academic is a question the next decade will answer.</p>
       </div>
 
       <footer class="wikipedia-footer">

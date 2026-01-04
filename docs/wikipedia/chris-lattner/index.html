@@ -22,7 +22,109 @@
       </header>
 
       <div class="wikipedia-content">
-        <p>Content not available.</p>
+        <p class="source-note">Based on <a href="https://en.wikipedia.org/wiki/Chris_Lattner">Wikipedia: Chris Lattner</a></p>
+
+<p>In 2010, a software engineer at Apple started a secret project. Working nights and weekends, he began designing a new programming language from scratch. Four years later, when Apple unveiled Swift at its annual developer conference, the tech world was stunned. The language was elegant, modern, and immediately practical. Within a day, the very app announcing the conference was running Swift code.</p>
+
+<p>That engineer was Chris Lattner. And Swift wasn't even his most influential creation.</p>
+
+<h2>The Infrastructure Beneath Everything</h2>
+
+<p>Before we can understand what makes Lattner remarkable, we need to understand what a compiler does. When you write code in a programming language like C or Python, your computer can't actually read it. Computers only understand machine code—streams of ones and zeros that tell the processor exactly what to do. A compiler is the translator that converts human-readable code into machine instructions.</p>
+
+<p>For decades, compilers were monolithic beasts. Each one was built from the ground up for a specific language and a specific type of computer chip. If you wanted to support a new language, you built a new compiler. New chip architecture? Another compiler. The duplication was staggering.</p>
+
+<p>Lattner saw a better way.</p>
+
+<p>In 2000, as a graduate student at the University of Illinois at Urbana-Champaign, he began designing something called LLVM. The name originally stood for Low Level Virtual Machine, though today it's just a brand. The concept was revolutionary: instead of building complete compilers from scratch, you could build them in modular pieces.</p>
+
+<p>Think of it like LEGO blocks for compiler construction. The front end handles parsing your source code. The middle layer optimizes it. The back end generates machine code for whatever processor you're targeting. Each piece can be mixed and matched. Want to add a new programming language? Just build a new front end and plug it into the existing optimization and code generation infrastructure.</p>
+
+<p>This wasn't just an academic exercise. LLVM's architecture made it dramatically easier to build new programming languages and to generate highly optimized code. Today, LLVM powers an astonishing range of software: Apple's entire development toolchain, Google's Chrome browser, the Rust programming language, and countless others.</p>
+
+<h2>From Graduate Student to Apple's Compiler Architect</h2>
+
+<p>Lattner's path to building fundamental infrastructure started early. He learned to program in high school using BASIC, the beginner-friendly language that introduced millions to coding in the 1980s and 1990s. But he didn't stop there. He dove into machine language programming—writing code that directly manipulates computer memory and processor registers. First Pascal, then Assembly, then C and C++.</p>
+
+<p>He earned his bachelor's degree in computer science from the University of Portland in 2000. While still in Oregon, he worked on DYNIX/ptx, an operating system built by Sequent Computer Systems for servers with multiple processors. This was demanding, low-level work—the kind that forces you to understand how computers actually function at their most fundamental level.</p>
+
+<p>Graduate school at Illinois came next. Working with professor Vikram Adve, Lattner developed LLVM into a serious research tool. His 2002 master's thesis introduced the infrastructure. His 2005 doctoral dissertation used it to tackle a notoriously difficult problem: optimizing programs that heavily use pointers—those memory addresses that let programs dynamically access data.</p>
+
+<p>Apple noticed.</p>
+
+<p>In 2005, Apple hired Lattner to turn LLVM from a research project into production-quality software. The timing was fortuitous. Apple's development tools were aging, and the company needed modern compiler infrastructure to power its rapidly evolving platforms.</p>
+
+<p>Lattner delivered spectacularly. He didn't just improve LLVM; he built an entire ecosystem around it. He created Clang, a new compiler for the C family of languages—C, C++, and Objective-C—that offered better error messages and faster compilation than the alternatives. He contributed to LLDB, a debugger that helps programmers find and fix bugs. He worked on libc++, a new implementation of the C++ standard library.</p>
+
+<p>Along the way, he made fundamental contributions to Objective-C, Apple's primary programming language at the time. He helped design blocks—a way to treat chunks of code as first-class objects that can be passed around like data. He drove the development of Automatic Reference Counting, which eliminated an entire class of memory management bugs. He created Objective-C literals, a cleaner syntax for common operations.</p>
+
+<h2>Building Swift in Secret</h2>
+
+<p>By 2010, Lattner was running Apple's compiler teams. He had revolutionized the company's development infrastructure. But he wasn't satisfied.</p>
+
+<p>Objective-C had deep roots stretching back to the 1980s. It was powerful but showing its age. The syntax was verbose. Certain categories of bugs remained too easy to write. Lattner believed Apple's developers deserved something better.</p>
+
+<p>So he started building it.</p>
+
+<p>Swift emerged from years of careful design work. Lattner wanted a language that was safe—one that would catch more bugs at compile time, before the program ever runs. He wanted it to be expressive, letting programmers write less code to accomplish more. And critically, he wanted it to coexist peacefully with Objective-C. Apple had millions of lines of Objective-C code. Any replacement had to be gradual.</p>
+
+<p>When Swift debuted at Apple's Worldwide Developers Conference in June 2014, it immediately became one of the most discussed new languages in years. The WWDC companion app—updated and pushed to attendees that same day—was the first publicly released Swift application. Within months, developers around the world were building iOS and macOS apps with it.</p>
+
+<p>The language incorporated ideas from across the programming world. It borrowed type inference from the functional programming tradition, eliminating the need to explicitly declare variable types in most situations. It took pattern matching from languages like Scala and Haskell. Its approach to optional values—a type-safe way to represent data that might or might not exist—drew on techniques that had proven successful in other modern languages.</p>
+
+<p>Apple later open-sourced Swift, making it available for anyone to use and contribute to. Lattner co-founded the LLVM Foundation in 2015 with his wife Tanya Lattner, who became its president and chief operating officer, providing organizational support for the open-source projects he had created.</p>
+
+<h2>Recognition and Restlessness</h2>
+
+<p>The programming community recognized Lattner's contributions with its highest honors. In 2010, the Association for Computing Machinery's Special Interest Group on Programming Languages awarded him its inaugural Programming Languages Software Award for LLVM. The citation noted that his "talent as a compiler architect, together with his programming skills, technical vision, and leadership ability were crucial to the success of LLVM."</p>
+
+<p>Three years later, the ACM gave him its Software System Award, reserved for those who develop software systems with "lasting influence." He stood alongside computing luminaries who had created Unix, TCP/IP, and the World Wide Web.</p>
+
+<p>But Lattner was ready for new challenges.</p>
+
+<p>In January 2017, after twelve years at Apple, he announced his departure. He had risen to Senior Director and Architect of the Developer Tools Department, overseeing Xcode, Instruments, and all the compiler teams. He handed leadership of the Swift project to Ted Kremenek. Then he did something unexpected.</p>
+
+<p>He joined Tesla.</p>
+
+<h2>A Brief Detour Through Self-Driving Cars</h2>
+
+<p>Tesla's Autopilot team was wrestling with an incredibly complex software challenge: teaching cars to drive themselves. The company was transitioning to new custom hardware, and they needed someone who understood both software and silicon at a deep level.</p>
+
+<p>Lattner became Vice President of Autopilot Software. But the role lasted only five months, from late January to mid-June of 2017. The exact reasons for his brief tenure remain private, but the timelines and demands of autonomous vehicle development are notoriously brutal.</p>
+
+<p>He moved to Google.</p>
+
+<h2>Building the Next Generation of Compilers</h2>
+
+<p>At Google, Lattner took on TensorFlow infrastructure. TensorFlow is one of the most widely used frameworks for machine learning—the technology that powers everything from image recognition to language translation. But machine learning software has a problem: it runs on an increasingly diverse zoo of hardware. Graphics processing units from NVIDIA. Custom chips from Google called Tensor Processing Units. Specialized accelerators from dozens of startups.</p>
+
+<p>Each type of hardware has different strengths. Each requires different optimizations. The software landscape was fragmenting into incompatible pieces.</p>
+
+<p>Lattner's solution was MLIR, which stands for Multi-Level Intermediate Representation. If LLVM provided reusable building blocks for traditional compilers, MLIR extends that philosophy to the world of machine learning and specialized hardware. It gives compiler builders a common framework for representing and transforming code, making it easier to target new kinds of processors without starting from scratch.</p>
+
+<p>The project was ambitious, but Lattner stayed at Google for less than three years. In January 2020, he joined SiFive, a startup building processors based on RISC-V—an open-source instruction set architecture challenging the dominance of proprietary designs from companies like Intel and ARM.</p>
+
+<p>As President of Platform Engineering, Lattner led the technical teams building SiFive's products. But he wasn't done building new things.</p>
+
+<h2>Mojo and the Future of AI Programming</h2>
+
+<p>In 2022, Lattner co-founded Modular AI with a radical premise: the infrastructure for artificial intelligence development is a mess, and it doesn't have to be.</p>
+
+<p>Programming AI systems today typically means writing Python code that calls out to specialized libraries written in C++ or CUDA—NVIDIA's proprietary language for programming their graphics chips. This creates a two-language problem. Python is easy to write but slow. The fast code is hard to modify. Developers constantly bounce between languages, and performance optimization requires specialized expertise.</p>
+
+<p>Modular's answer is Mojo, a new programming language that Lattner designed to be a superset of Python. Code written in ordinary Python runs unchanged. But Mojo adds features—careful memory management, explicit parallelism, direct hardware access—that let the same language generate code as fast as CUDA. The promise is one language for the entire AI stack, from high-level model design to low-level hardware optimization.</p>
+
+<p>Whether Mojo succeeds remains to be seen. But Lattner's track record suggests skeptics should pay attention. LLVM was dismissed as an academic curiosity before it became fundamental infrastructure. Swift was greeted with skepticism before it became one of the most loved programming languages in developer surveys.</p>
+
+<h2>A Career of Compound Impact</h2>
+
+<p>What makes Lattner unusual isn't just his technical brilliance—the programming world has no shortage of gifted engineers. It's the compounding nature of his contributions.</p>
+
+<p>LLVM made it easier to build programming languages. So more programming languages got built. Clang improved the experience of programming in C and C++. So more people chose those languages. Swift made iOS development safer and more pleasant. So more apps got built for Apple's platforms.</p>
+
+<p>Each layer enables the next. Each project expands what's possible for millions of other programmers.</p>
+
+<p>At 46, Lattner shows no signs of slowing down. The AI revolution is generating unprecedented demand for better programming tools. If history is any guide, whatever Lattner builds next will shape how developers work for decades to come.</p>
       </div>
 
       <footer class="wikipedia-footer">

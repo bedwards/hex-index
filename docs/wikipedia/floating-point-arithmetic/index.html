@@ -22,7 +22,91 @@
       </header>
 
       <div class="wikipedia-content">
-        <p>Content not available.</p>
+        <p class="source-note">Based on <a href="https://en.wikipedia.org/wiki/Floating-point_arithmetic">Wikipedia: Floating-point arithmetic</a></p>
+
+<h2>The Beautiful Lie Your Computer Tells You</h2>
+
+<p>Here's something that might unsettle you: your computer cannot represent the number one-third. Not approximately. Not "close enough." It literally cannot store 0.333... with perfect accuracy, no matter how much memory you throw at the problem.</p>
+
+<p>This isn't a bug. It's a fundamental feature of how computers handle numbers that aren't whole—and understanding it reveals one of the most elegant compromises in all of computing.</p>
+
+<p>When you type 12.345 into a spreadsheet, your computer doesn't store those exact digits. Instead, it performs a kind of mathematical sleight of hand, breaking that number into two pieces: a string of significant digits (called the significand) and an exponent that tells it where the decimal point belongs. Think of it like scientific notation, the system you learned in school where you'd write Jupiter's moon Io's orbital period as 1.528535047 times ten to the fifth power instead of 152,853.5047 seconds.</p>
+
+<p>The "floating" in floating-point refers to that decimal point's freedom to drift left or right, guided by the exponent. It's not pinned down like in your checkbook register. It floats.</p>
+
+<h2>Why This Matters</h2>
+
+<p>The beauty of this system lies in its range. With the same fixed number of digits, you can represent the distance between galaxies or the distance between protons in an atom. The numbers aren't evenly spaced—the gap between representable values grows larger as the numbers themselves grow larger—but that's actually fine for most purposes. We rarely need to distinguish between 10,000,000,000,000,000.1 and 10,000,000,000,000,000.2.</p>
+
+<p>The tradeoff is precision. When you add 12.345 and 1.0001, the true answer is 13.3451—but if your floating-point system only keeps five significant digits, it has to round. Maybe you get 13.345. Close enough? Usually. But not always.</p>
+
+<h2>The Base Changes Everything</h2>
+
+<p>Most floating-point systems use base two—binary—because that's what computer hardware speaks natively. Some use base ten, which we call decimal floating point, because it matches how humans naturally think about numbers. There have been more exotic systems too: base sixteen (hexadecimal), base eight (octal), even base 256.</p>
+
+<p>The choice of base determines which fractions can be represented exactly.</p>
+
+<p>Consider one-fifth. In decimal, it's a clean 0.2—two tenths, no repeating decimals, no approximation needed. But in binary? One-fifth becomes an infinite repeating pattern: 0.00110011001100110011... forever. Your computer can't store infinity, so it truncates, and suddenly one-fifth isn't exactly one-fifth anymore.</p>
+
+<p>This is why financial software often uses decimal floating point. When you're counting dollars and cents, you really do need 0.20 to mean exactly twenty cents, not 0.19999999999999998.</p>
+
+<p>Meanwhile, one-third can't be represented exactly in either binary or decimal. But switch to base three? Suddenly it's trivial: 0.1 in ternary. The fractions that misbehave depend entirely on your number base and its prime factors.</p>
+
+<h2>How Pi Gets Stored</h2>
+
+<p>Let's get concrete. In the most common format—32-bit single precision, as defined by the Institute of Electrical and Electronics Engineers (IEEE) standard 754—you get 24 binary digits to work with.</p>
+
+<p>Pi's true binary expansion begins: 11001001 00001111 11011010 10100010...</p>
+
+<p>But we only have room for 24 bits. So we look at bit 25—the "round bit"—and if it's a 1 (which it is for pi), we round up. The final stored value represents approximately 3.1415927.</p>
+
+<p>Not pi. An approximation of pi. But close enough that for almost every calculation you'll ever perform, you won't notice the difference.</p>
+
+<h2>The Hidden Bit Trick</h2>
+
+<p>Here's a clever optimization that emerged from the design of binary floating-point: normalization.</p>
+
+<p>When you write a number in scientific notation, you put exactly one non-zero digit before the decimal point. The number 0.00042 becomes 4.2 times ten to the negative fourth. In binary, there's only one non-zero digit available: 1. So the leading digit of a normalized binary number is always 1.</p>
+
+<p>If it's always 1, why store it?</p>
+
+<p>You don't have to. This convention—called the hidden bit, implicit bit, or leading bit convention—lets you squeeze one extra bit of precision out of your format without using any additional storage. It's free precision, a gift from the mathematics of binary representation.</p>
+
+<h2>Before the Standard</h2>
+
+<p>For decades, every computer manufacturer invented their own floating-point format. IBM did things one way. DEC did them another. Cray supercomputers had their own approach optimized for raw speed. Programs that worked perfectly on one machine would produce subtly different results on another—or sometimes wildly different results, when edge cases collided with incompatible rounding rules.</p>
+
+<p>In 1985, the IEEE 754 standard changed everything. It specified exactly how floating-point numbers should be encoded, how rounding should work, and how special cases (like division by zero or the square root of a negative number) should be handled. By the 1990s, essentially every general-purpose computer followed this standard.</p>
+
+<p>This quiet standardization was a triumph of engineering diplomacy. Your laptop, your phone, the servers running this website—they all agree on what 3.14159 means, bit for bit.</p>
+
+<h2>Hardware Versus Software</h2>
+
+<p>Floating-point arithmetic can happen in software—calculating everything step by step using integer operations—or in dedicated hardware called a Floating-Point Unit (FPU). Old-timers might remember when FPUs were sold separately as "math coprocessors," expensive add-on chips that sat alongside your main processor.</p>
+
+<p>Today, FPUs are built into virtually every processor. The speed of floating-point calculations, measured in FLOPS (Floating-Point Operations Per Second), is one of the key metrics for comparing supercomputers. The fastest machines on earth can perform quintillions of floating-point operations every second.</p>
+
+<p>But embedded systems—the tiny computers in your thermostat or your car's tire pressure sensor—sometimes still skip the FPU to save cost and power. For these, software floating-point (called "softfloat") does the job, trading speed for economy.</p>
+
+<h2>The Alternative That Didn't Win</h2>
+
+<p>Floating-point isn't the only way to represent non-integer numbers. Fixed-point arithmetic pins the decimal point at a specific location—say, always six digits from the right. The number 00012345 would mean 0001.2345, always and forever.</p>
+
+<p>Fixed-point is simpler. The hardware is cheaper. You can use ordinary integer operations with just a little bookkeeping. For applications where the range of values is known in advance—certain audio processing, some graphics operations—fixed-point still thrives.</p>
+
+<p>But for general-purpose computing, where you might need to handle astronomical distances in one calculation and subatomic scales in the next, the dynamic range of floating-point proved irresistible. The decimal point needed to float.</p>
+
+<h2>Living With Imperfection</h2>
+
+<p>Every floating-point number is actually a rational number—it can be expressed as one integer divided by another. The number 1.45 times ten to the third power is really 145,000 divided by 100. Clean.</p>
+
+<p>But the real numbers—the full continuous spectrum that includes irrational values like pi and the square root of two—cannot be captured in any finite representation. Floating-point gives us a vast but countable set of approximations, scattered more densely around zero and spreading thinner as magnitudes grow.</p>
+
+<p>When you perform a calculation whose true result falls between two representable numbers, the computer rounds. Add enough rounded operations together, and errors can accumulate. This is why numerical analysis—the study of how to structure calculations to minimize accumulated error—remains an active field of mathematics and computer science.</p>
+
+<p>The remarkable thing isn't that floating-point has limitations. It's that despite those limitations, we use it to design aircraft, predict weather, simulate nuclear physics, and render photorealistic graphics. The approximation, carefully managed, is good enough.</p>
+
+<p>Your computer is lying to you about every decimal number you've ever asked it to store. But it's a useful lie, told in a consistent way, enabling calculations that would be impossible otherwise. Sometimes the most practical solution isn't perfect truth—it's a well-designed approximation that knows its own limits.</p>
       </div>
 
       <footer class="wikipedia-footer">

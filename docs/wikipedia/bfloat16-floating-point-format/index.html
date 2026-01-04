@@ -22,7 +22,119 @@
       </header>
 
       <div class="wikipedia-content">
-        <p>Content not available.</p>
+        <p class="source-note">Based on <a href="https://en.wikipedia.org/wiki/Bfloat16_floating-point_format">Wikipedia: bfloat16 floating-point format</a></p>
+
+<h2>The Number Format That Powers Modern AI</h2>
+
+<p>Here's a curious fact about the artificial intelligence revolution: much of it runs on deliberately imprecise math. The neural networks behind ChatGPT, image generators, and voice assistants don't need perfect calculations. They need fast ones. And a little-known number format called bfloat16 makes that possible.</p>
+
+<p>The name stands for "brain floating point," and it was invented by Google Brain, the company's artificial intelligence research division. It's a brilliant hack that asks a simple question: what if we kept the range of numbers a computer can handle, but sacrificed some precision? The answer turns out to be transformative for machine learning.</p>
+
+<h2>What Floating Point Actually Means</h2>
+
+<p>Before we dive into bfloat16, we need to understand the problem it solves. Computers store numbers in binary—ones and zeros. But representing the full range of numbers humans care about, from tiny fractions to astronomical values, is surprisingly tricky.</p>
+
+<p>The solution, developed decades ago, is called floating point. Think of scientific notation: you might write 6,022,000,000,000,000,000,000,000 as 6.022 × 10²³. The "6.022" part is called the significand (sometimes called the mantissa), and the "23" is the exponent. The decimal point "floats" depending on the exponent—hence the name.</p>
+
+<p>Computers do the same thing, but in binary instead of decimal. A standard 32-bit floating point number dedicates one bit to the sign (positive or negative), eight bits to the exponent, and twenty-three bits to the significand. This allows representation of numbers from incredibly tiny (around 10⁻³⁸) to astronomically large (around 10³⁸), with about seven decimal digits of precision.</p>
+
+<h2>The Machine Learning Trade-Off</h2>
+
+<p>Here's where things get interesting. Neural networks perform billions of mathematical operations during training and inference. Each operation on a 32-bit number takes time and energy. Memory bandwidth—the speed at which data moves between storage and processor—becomes a critical bottleneck.</p>
+
+<p>But neural networks have a peculiar property: they're remarkably tolerant of imprecision. A neuron doesn't care whether an input is 0.7823456 or 0.78. The network will learn roughly the same patterns either way. This tolerance comes from the statistical nature of machine learning—you're looking for trends across millions of parameters, not exact calculations.</p>
+
+<p>This realization opened a door. What if we used smaller numbers?</p>
+
+<h2>The Half-Precision Experiment</h2>
+
+<p>The obvious first attempt was half-precision floating point, a 16-bit format defined by the IEEE 754 standard (the bible of computer number formats). Half-precision uses one sign bit, five exponent bits, and ten significand bits.</p>
+
+<p>The problem? Those five exponent bits dramatically shrink the range of representable numbers. Half-precision maxes out around 65,504 and can't represent numbers smaller than about 0.00006. Neural network weights and gradients routinely exceed these bounds, causing overflow (numbers too large) or underflow (numbers too small). Training became unstable.</p>
+
+<h2>Google's Clever Solution</h2>
+
+<p>Google Brain's insight was elegant: keep the exponent, shrink the significand.</p>
+
+<p>Bfloat16 uses one sign bit, eight exponent bits (same as 32-bit float), and only seven significand bits (plus an implicit leading bit, for eight total bits of precision). This maintains the full range of 32-bit floating point—from about 10⁻³⁸ to 10³⁸—while cutting precision from about seven decimal digits to roughly two or three.</p>
+
+<p>The trade-off is perfect for machine learning. You can still represent the tiny gradients that drive learning and the large activation values that accumulate in deep networks. You just can't represent them as precisely. For neural networks, this turns out to be fine.</p>
+
+<h2>The Conversion Trick</h2>
+
+<p>Bfloat16 has another advantage that makes it especially practical: converting to and from standard 32-bit floats is almost free.</p>
+
+<p>Because bfloat16 uses the same exponent format as 32-bit float, conversion is essentially just chopping off (or adding) bits. To convert a 32-bit float to bfloat16, you truncate the last sixteen bits of the significand. To convert back, you pad with sixteen zeros. No complex math required.</p>
+
+<p>This matters enormously in mixed-precision training, where some operations use bfloat16 for speed while critical accumulations use 32-bit float for accuracy. The conversions happen constantly, so making them cheap pays huge dividends.</p>
+
+<p>Compare this to half-precision float, where conversion requires actually recalculating the exponent and potentially handling range errors. Bfloat16's design makes it a drop-in replacement rather than a separate numerical ecosystem.</p>
+
+<h2>The Rounding Controversy</h2>
+
+<p>When you truncate bits, you're making a choice about rounding. Early bfloat16 implementations simply chopped off the extra precision—mathematically, this is "round toward zero." Your numbers get slightly smaller in magnitude than they should be.</p>
+
+<p>As bfloat16 matured, different chip makers adopted different rounding strategies. Google's Tensor Processing Units (TPUs) use "round to nearest even," the standard approach where you round to the closest representable value, breaking ties by rounding to the even option. NVIDIA chips do the same. ARM, interestingly, uses "round to odd," a less common strategy that avoids some subtle numerical issues.</p>
+
+<p>These differences are usually invisible to users, but they can occasionally cause neural networks trained on one platform to behave slightly differently on another. The AI community has largely accepted this as an acceptable trade-off for the performance gains.</p>
+
+<h2>The Hardware Revolution</h2>
+
+<p>Bfloat16 started as a software format but quickly moved into silicon. Today, native bfloat16 support exists in an remarkable range of hardware:</p>
+
+<ul>
+<li>Google's TPUs, where the format was born</li>
+<li>NVIDIA GPUs, the workhorses of AI training</li>
+<li>Intel's Xeon processors, through AVX-512 extensions</li>
+<li>AMD's Zen processors and Instinct accelerators</li>
+<li>Apple's M2 chips and later (including A15 and subsequent phone processors)</li>
+<li>Amazon's custom Inferentia and Trainium chips</li>
+<li>ARM's v8.6 architecture, which means countless mobile devices</li>
+</ul>
+
+<p>This widespread adoption happened remarkably fast. Bfloat16 went from a Google-internal experiment to an industry standard in just a few years, driven by the insatiable demand for machine learning performance.</p>
+
+<h2>Special Values: Infinity and Not-a-Number</h2>
+
+<p>Like all IEEE 754-derived formats, bfloat16 reserves certain bit patterns for special values. When all eight exponent bits are set to one and the significand is zero, the value represents infinity (positive or negative, depending on the sign bit). When all exponent bits are one and the significand is non-zero, the value is "Not a Number," or NaN.</p>
+
+<p>NaN deserves explanation because it's genuinely strange. It represents the result of undefined mathematical operations: zero divided by zero, the square root of a negative number, infinity minus infinity. Any arithmetic operation involving NaN produces NaN—it's contagious. This allows errors to propagate through calculations rather than crashing programs.</p>
+
+<p>Interestingly, as of late 2018, no one had found a use for "signaling NaNs" in bfloat16. These are NaN values that trigger an exception when used, as opposed to "quiet NaNs" that simply propagate. In machine learning, apparently, people prefer their numerical errors silent.</p>
+
+<h2>What Bfloat16 Cannot Do</h2>
+
+<p>Bfloat16 excels at machine learning, but it's genuinely terrible at some things. Integer calculations, for instance, are a disaster. With only eight bits of precision, bfloat16 can't exactly represent most integers above 256. Adding 1 to 300 might give you 300 again, because the precision isn't fine enough to distinguish between them.</p>
+
+<p>Financial calculations? Absolutely not. Scientific simulations requiring high precision? No. Anything where you need exact answers rather than statistical patterns? Bfloat16 will let you down.</p>
+
+<p>This isn't a flaw—it's the design. Bfloat16 trades precision for speed in domains where precision doesn't matter much. Using it elsewhere would be like using a chainsaw to perform surgery: wrong tool, wrong job.</p>
+
+<h2>The Precision-Range Trade-Off Visualized</h2>
+
+<p>Consider what bfloat16 can and can't represent. The maximum positive finite value is about 3.39 × 10³⁸, nearly identical to 32-bit float's maximum of 3.40 × 10³⁸. The minimum positive normal value is about 1.18 × 10⁻³⁸, again matching 32-bit float.</p>
+
+<p>But within that range, bfloat16 is coarse. Between 1 and 2, for instance, bfloat16 can represent only 128 distinct values (2⁷ significand combinations). Standard 32-bit float can represent over eight million values in the same range (2²³ combinations). Half-precision float falls in between, with 1,024 values (2¹⁰ combinations).</p>
+
+<p>For neural network weights, which cluster around small values and don't need to be distinguished too finely, this coarseness is acceptable. For calculating your bank balance, it would be catastrophic.</p>
+
+<h2>The Legal Dimension</h2>
+
+<p>Bfloat16's story has an unexpected chapter: litigation. Google has faced lawsuits related to its use of bfloat16 in TPUs, though the details and outcomes are beyond our scope here. The existence of such lawsuits reflects how valuable this numerical format has become—worth fighting over in court.</p>
+
+<h2>The Broader Landscape</h2>
+
+<p>Bfloat16 isn't the only reduced-precision format vying for machine learning dominance. Half-precision (FP16) remains popular, especially with careful scaling to avoid overflow. There's also TF32 (TensorFloat-32), another format that prioritizes range over precision. And research continues into even more exotic formats, including 8-bit floats and dynamic-precision schemes.</p>
+
+<p>The trend is clear: machine learning is pushing computer arithmetic in directions the original IEEE 754 designers never anticipated. The precise, portable calculations that make banking and engineering reliable are overkill for statistical models. A new generation of "good enough" number formats is emerging to meet AI's appetite for speed.</p>
+
+<h2>Why This Matters</h2>
+
+<p>Bfloat16 is, at its core, an embodiment of a powerful idea: imprecision can be a feature, not a bug. By understanding what machine learning actually needs—range without precision—engineers created a format that makes AI training faster, cheaper, and more accessible.</p>
+
+<p>Every time you use an AI assistant, generate an image, or get a recommendation, there's a decent chance bfloat16 is involved somewhere in the computation. It's the unsung hero of the AI revolution: a deliberately imprecise number format that makes precise prediction possible.</p>
+
+<p>The next time someone tells you that computers are perfectly precise, you can smile and think of bfloat16. Sometimes, being approximately right very quickly is better than being exactly right slowly. The machines have learned this lesson. Perhaps we can too.</p>
       </div>
 
       <footer class="wikipedia-footer">

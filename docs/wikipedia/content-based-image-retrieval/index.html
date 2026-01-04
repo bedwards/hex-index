@@ -22,7 +22,129 @@
       </header>
 
       <div class="wikipedia-content">
-        <p>Content not available.</p>
+        <p class="source-note">Based on <a href="https://en.wikipedia.org/wiki/Content-based_image_retrieval">Wikipedia: Content-based image retrieval</a></p>
+
+<p>Imagine you have a photograph of a sunset you took years ago—golden light spilling across a lake, silhouettes of pine trees along the shore. You want to find more images like it in your massive photo library. You could search for "sunset" or "lake," but that assumes you tagged those photos correctly when you saved them. Most of us didn't. And even if you did, the words "sunset" and "lake" don't capture what made that particular image special—the way the colors blended, the specific shapes against the sky.</p>
+
+<p>This is the problem that content-based image retrieval, or CBIR, tries to solve.</p>
+
+<h2>The Fundamental Shift: From Words to Pixels</h2>
+
+<p>For most of computing history, finding images meant searching through words attached to images. Someone would look at a photograph of a cat and type "cat, orange, sitting, couch" into a database. Later, you could search for "orange cat" and find it. This approach is called concept-based or keyword-based image retrieval.</p>
+
+<p>It works, but it has serious problems.</p>
+
+<p>First, someone has to actually do the tagging. For a personal photo library, that someone is you—and most of us have thousands of untagged images. For something like surveillance footage or satellite imagery, manual tagging becomes impossible. Cameras generate images faster than humans could ever annotate them.</p>
+
+<p>Second, words are imprecise. You might tag a photo as showing a "car," but I might search for "vehicle" or "automobile." The image exists in the database, but my search terms don't match your tags. We call this the vocabulary problem, and it plagues all text-based systems.</p>
+
+<p>Third, and perhaps most interestingly, some visual qualities are almost impossible to put into words. How do you describe a texture? You might try "rough" or "bumpy," but those words don't capture whether you mean the roughness of tree bark, sandpaper, or a crumbling brick wall.</p>
+
+<p>Content-based image retrieval takes a completely different approach. Instead of searching through descriptions, it analyzes the actual pixels that make up an image—the colors, patterns, shapes, and textures—and compares them mathematically to other images.</p>
+
+<h2>A Brief History of Looking at Pictures</h2>
+
+<p>The term "content-based image retrieval" emerged in 1992, coined by Toshikazu Kato, an engineer at Japan's Electrotechnical Laboratory. Kato was experimenting with systems that could automatically retrieve images based on their visual properties—the colors and shapes actually present in the picture, not words someone had written about it.</p>
+
+<p>But the breakthrough that brought CBIR into practical existence came from IBM. Their system, called Query By Image Content, or QBIC (pronounced "cubic"), was the first commercial implementation of these ideas. Before QBIC, databases could store images as binary large objects, essentially treating photographs as blobs of data to be retrieved whole. QBIC made it possible to search inside those blobs.</p>
+
+<p>The timing wasn't coincidental. The early 1990s saw an explosion in digital imaging. Scanners became affordable. Digital cameras began appearing. The World Wide Web was emerging. Suddenly, the world was filling with digital images—and no one could find anything.</p>
+
+<h2>How Computers See</h2>
+
+<p>To understand how content-based retrieval works, you need to understand how computers represent images. A digital photograph is essentially a grid of tiny colored squares called pixels. Each pixel has a color value, typically described as a combination of red, green, and blue intensities. A typical smartphone photo might contain twelve million of these pixels.</p>
+
+<p>When a CBIR system analyzes an image, it extracts features—measurable properties that can be compared mathematically. The three most fundamental features are color, texture, and shape.</p>
+
+<h3>Color: The Most Reliable Feature</h3>
+
+<p>Color analysis begins with something called a histogram. Imagine sorting all twelve million pixels in a photograph into buckets based on their color. You'd end up with a chart showing what proportion of the image is red, what proportion is blue, how much is yellow, and so on. Two sunset photographs might have similar histograms—lots of oranges and reds and purples—even if the specific scenes are completely different.</p>
+
+<p>This makes color the most reliable feature for CBIR. It doesn't matter if one image is larger than another, or if one is rotated. The overall distribution of colors remains comparable. A beach scene will tend toward blues and tans regardless of whether the camera was held horizontally or vertically.</p>
+
+<p>More sophisticated systems go beyond simple histograms. They might divide the image into regions and analyze color distributions separately—perhaps noticing that blues dominate the top half of the image while greens dominate the bottom. This spatial awareness helps distinguish between an image of a blue sky over a green field and an image of a green parakeet against a blue wall.</p>
+
+<h3>Texture: The Hard Problem</h3>
+
+<p>Texture is where things get complicated. Humans instantly recognize textures—we know wood grain when we see it, we can identify knitted fabric at a glance—but teaching computers to understand texture remains an active research challenge.</p>
+
+<p>The basic approach treats texture as patterns in brightness variation. Systems look at pairs of pixels and measure how their brightness relates. Is there high contrast between neighboring pixels? That suggests a coarse texture. Do brightness levels change gradually across regions? That indicates smoothness. Do patterns repeat at regular intervals? That might indicate something woven or tiled.</p>
+
+<p>Researchers have developed various mathematical tools for this analysis. Co-occurrence matrices track how often particular pairs of brightness values appear next to each other. Wavelet transforms decompose images at multiple scales, revealing patterns that repeat at different sizes. Laws texture energy measures look for specific small patterns—spots, edges, ripples—and count how frequently they occur.</p>
+
+<p>But even with these tools, texture remains difficult. The challenge lies in classification—in associating detected patterns with meaningful categories like "silky" or "rough" or "furry." A computer can measure that two textures have similar statistical properties without understanding that one is carpet and another is grass.</p>
+
+<h3>Shape: Finding Objects</h3>
+
+<p>Shape analysis in CBIR doesn't refer to the shape of the photograph itself—whether it's square or rectangular. Instead, it means identifying the shapes of objects within the image.</p>
+
+<p>Before a system can analyze shapes, it typically needs to separate objects from their backgrounds, a process called segmentation. Edge detection algorithms look for sharp changes in color or brightness that might indicate the boundary between two objects. Once boundaries are identified, the system can extract shape information.</p>
+
+<p>Shape descriptors—the mathematical representations of what a shape looks like—need to be robust. The same coffee mug looks different depending on whether it's close to the camera or far away, rotated at an angle, or viewed from above. A good shape descriptor should recognize these as the same mug despite the differences. Mathematical techniques like Fourier transforms and moment invariants help create descriptions that remain stable across translation, rotation, and scaling.</p>
+
+<h2>The Distance Between Pictures</h2>
+
+<p>Once a CBIR system has extracted features from images, it needs a way to compare them. This is where image distance measures come in.</p>
+
+<p>Think of each image as a point in an abstract space. The dimensions of this space correspond to features—percentage of red, coarseness of texture, roundness of detected shapes, and hundreds more. Two very similar images would be close together in this space. Completely different images would be far apart.</p>
+
+<p>A distance of zero means identical images, at least according to the features being measured. Larger distances indicate greater dissimilarity. When you search for images similar to a query image, the system calculates the distance from the query to every image in the database, then returns the closest matches.</p>
+
+<p>The mathematical details vary widely. Some systems use Euclidean distance, the straight-line measurement we learn in geometry class. Others use more sophisticated measures that weight certain features more heavily or handle specific types of data better. The choice of distance measure significantly affects what the system considers "similar."</p>
+
+<h2>Query By Example</h2>
+
+<p>One of the most intuitive ways to use a CBIR system is query by example. You give the system an image, and it finds similar ones.</p>
+
+<p>The example might be a photograph you already have—perhaps you want to find all your other photos from the same location. Or you might select an image from the database as a starting point, then refine from there. Some systems even let users draw rough sketches—scribbles of color in approximate positions—as queries. You might draw a blue band across the top and green along the bottom to find landscape photographs.</p>
+
+<p>This approach sidesteps the vocabulary problem entirely. You don't need to figure out how to describe what you're looking for in words. You just show the system what you want.</p>
+
+<h2>The Semantic Gap</h2>
+
+<p>There's a fundamental challenge in content-based image retrieval that researchers call the semantic gap. It's the difference between what computers can easily extract from images—colors, textures, patterns of pixels—and what humans actually care about when searching for images.</p>
+
+<p>Consider searching for "pictures of Abraham Lincoln." A human immediately understands this request. We have a mental model of Lincoln's distinctive features—his height, his beard, his characteristic expressions. We'd recognize him in a formal portrait, a candid photograph, or even a rough sketch.</p>
+
+<p>A CBIR system sees none of this. It sees distributions of light and dark pixels. It might detect that Lincoln photographs tend to be black and white, that they often show a figure against a plain background, that there's typically a dark region where his hair and beard appear. But connecting those low-level features to the high-level concept "Abraham Lincoln" requires something more.</p>
+
+<p>This is why many practical CBIR systems rely on relevance feedback. The system makes its best guess, showing you images it considers similar to your query. You mark some as relevant and others as irrelevant. The system learns from your feedback and tries again. Over several rounds, it zeros in on what you actually want—even if it never truly understands why those particular images satisfy you.</p>
+
+<h2>Where Content-Based Retrieval Lives Today</h2>
+
+<p>CBIR technology has found its way into applications you might not immediately recognize.</p>
+
+<p>Medical imaging is a natural fit. Radiologists comparing a suspicious X-ray to known cases of particular conditions are essentially performing content-based retrieval. Automated systems can surface similar cases from databases of thousands of images, helping doctors make diagnoses.</p>
+
+<p>Law enforcement uses CBIR for facial recognition and fingerprint matching. These are specialized forms of content-based retrieval where the "content" being analyzed is very specific—the geometry of a face, the patterns of ridges and whorls on a fingertip.</p>
+
+<p>Art historians and museum curators use these systems to find connections between artworks, identifying paintings with similar color palettes or compositional structures that might reveal influences or workshop practices.</p>
+
+<p>Perhaps most visibly, consumer photo services have incorporated CBIR into their products. When your phone groups similar images together, or when you can search your photos by drawing a rough sketch, content-based retrieval is at work.</p>
+
+<h2>The Modern Frontier: Neural Networks and Their Vulnerabilities</h2>
+
+<p>Recent years have seen a dramatic shift in how CBIR systems work. Traditional approaches relied on hand-designed features—color histograms, texture measures, shape descriptors carefully engineered by researchers. Modern systems increasingly use neural networks that learn to extract features directly from data.</p>
+
+<p>These deep learning approaches have achieved remarkable accuracy. A neural network trained on millions of labeled images develops sophisticated internal representations—features that no human engineer would have thought to design. These learned features often capture semantic information that traditional approaches missed.</p>
+
+<p>But neural network-based systems have introduced a new problem: adversarial vulnerability.</p>
+
+<p>Researchers have discovered that tiny, nearly invisible modifications to images can dramatically change how neural networks classify them. An image that clearly shows a panda, to human eyes, might be confidently identified as a gibbon by a neural network after adding a carefully calculated pattern of noise imperceptible to people.</p>
+
+<p>These adversarial attacks work against retrieval systems too. Small perturbations to a query image can dramatically alter which images the system considers similar. More troublingly, these attacks can be designed to work even without access to the specific neural network being attacked—so-called black-box attacks that transfer between different systems.</p>
+
+<p>Defenses exist. The Madry defense, named after researcher Aleksander Madry at the Massachusetts Institute of Technology, trains neural networks to resist adversarial perturbations. But the arms race between attacks and defenses continues, and robust adversarial resistance remains an open problem.</p>
+
+<h2>The Problem Remains Largely Unsolved</h2>
+
+<p>It might seem surprising that after three decades of research, content-based image retrieval is still described by researchers as "largely unsolved." We have systems that work, after all. You can search your photos, find similar images, even ask questions about visual content.</p>
+
+<p>But the semantic gap stubbornly persists. Computers can match pixels with remarkable precision while still fundamentally misunderstanding what makes two images meaningfully similar to humans. The photograph of a sunset that started this essay—a computer might find dozens of images with matching color distributions, but miss the one photograph that actually captures the same emotional quality, the same feeling of being in that moment.</p>
+
+<p>Perhaps that gap is inevitable. Perhaps the meaning we find in images is too personal, too contextual, too human to reduce to mathematics. Or perhaps a future system will finally bridge the divide.</p>
+
+<p>For now, content-based image retrieval remains a fascinating intersection of computer science and human perception—a reminder that seeing is not the same as understanding, whether for machines or for us.</p>
       </div>
 
       <footer class="wikipedia-footer">

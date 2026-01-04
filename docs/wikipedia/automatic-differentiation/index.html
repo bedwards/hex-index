@@ -22,7 +22,117 @@
       </header>
 
       <div class="wikipedia-content">
-        <p>Content not available.</p>
+        <p class="source-note">Based on <a href="https://en.wikipedia.org/wiki/Automatic_differentiation">Wikipedia: Automatic differentiation</a></p>
+
+<p>Every neural network you've ever used learned through a mathematical trick that seems almost like cheating. When you ask a machine learning model to recognize a cat in a photo, it adjusts millions of tiny numerical weights based on how wrong its guess was. But here's the puzzle: how does it know which weights to change, and by how much?</p>
+
+<p>The answer involves computing derivatives—the mathematical tool that tells you how sensitive an output is to changes in an input. And not just one derivative, but often millions of them, all computed in roughly the same time it takes to run the original calculation once. This feat would be impossible with the calculus you learned in school. It requires something called automatic differentiation.</p>
+
+<h2>The Problem with Old-School Derivatives</h2>
+
+<p>You might think there are only two ways to compute a derivative. The first is symbolic differentiation—the pencil-and-paper method from calculus class. Given a formula like the sine of x squared, you apply rules to get a new formula: two x times the cosine of x squared. Computers can do this too, manipulating algebraic expressions to produce exact derivative formulas.</p>
+
+<p>But symbolic differentiation has a dirty secret. As formulas get more complex, their derivatives often get exponentially longer. A computer program that computes a function through a thousand intermediate steps doesn't have a nice closed-form formula. Converting it into one can be impractical or impossible.</p>
+
+<p>The second approach is numerical differentiation using finite differences. To estimate how sensitive a function is to small changes in x, you simply compute the function at x, then at x plus a tiny amount epsilon, subtract the two results, and divide by epsilon. This approximates the slope at that point.</p>
+
+<p>Simple and universal, but deeply flawed.</p>
+
+<p>Pick epsilon too large, and your approximation is crude. Pick it too small, and floating-point arithmetic betrays you. Computers store numbers with finite precision, so when you subtract two nearly-identical values, the meaningful digits cancel out, leaving mostly rounding errors. This cancellation problem makes numerical differentiation unreliable for serious applications.</p>
+
+<p>There's another issue. If your function has a million input variables—as neural networks routinely do—you need to compute the function a million times, once for each input you're wiggling. That's prohibitively slow.</p>
+
+<h2>A Third Way That Seems Impossible</h2>
+
+<p>Automatic differentiation sidesteps both problems. It computes derivatives that are exact (no approximation errors) and fast (roughly the cost of computing the function once, regardless of how many inputs you have).</p>
+
+<p>How can this possibly work?</p>
+
+<p>The key insight is that every computer program, no matter how elaborate, ultimately breaks down into a sequence of elementary operations. Addition. Multiplication. Taking a sine or an exponential. Each of these tiny steps has a known, exact derivative. And the chain rule from calculus tells us how to combine them.</p>
+
+<p>The chain rule says that when you compose functions—feeding the output of one into the input of another—you multiply their derivatives. If y depends on w, and w depends on x, then the sensitivity of y to x equals the sensitivity of y to w, multiplied by the sensitivity of w to x.</p>
+
+<p>Automatic differentiation applies this rule systematically to every elementary operation in a computation. No formula manipulation. No finite differences. Just bookkeeping.</p>
+
+<h2>Forward Mode: Following a Ripple</h2>
+
+<p>Imagine dropping a pebble into a pond and watching the ripple spread outward. Forward mode automatic differentiation works similarly. It tracks how a small change in one input variable ripples through the entire computation, affecting each intermediate value along the way.</p>
+
+<p>Here's the process. You pick one input variable and ask: if I nudge this input by a tiny amount, how does that nudge propagate forward through each step of the calculation?</p>
+
+<p>At every step, you compute two things. First, the actual numerical value. Second, the derivative of that value with respect to your chosen input. These twin computations march forward together through the program.</p>
+
+<p>When you add two numbers, you add their derivatives. When you multiply two numbers, you apply the product rule. When you take a sine, you multiply by the cosine. Each elementary operation has a simple local rule.</p>
+
+<p>By the time you reach the final output, you've accumulated the complete derivative with respect to that one input—exactly, with no approximation error, and with only a constant overhead compared to just computing the function's value.</p>
+
+<p>The catch? If you have a million inputs and want the derivative with respect to each one, you need a million forward passes. That's still expensive.</p>
+
+<h2>Reverse Mode: The Backpropagation Miracle</h2>
+
+<p>Now imagine something stranger. Instead of watching a ripple spread outward from a dropped pebble, imagine watching a video played backward—the ripples converging inward toward the point where the pebble will be lifted out.</p>
+
+<p>Reverse mode automatic differentiation runs the computation forward first, storing all intermediate values. Then it runs a second pass backward, computing how sensitive the final output is to each intermediate value, working from the end toward the beginning.</p>
+
+<p>This might seem like an arbitrary reversal, but it has a magical property. In a single backward pass, you compute the derivative of one output with respect to every single input simultaneously.</p>
+
+<p>For a function with a million inputs producing a single output, forward mode needs a million passes. Reverse mode needs just one forward pass and one backward pass. The savings are astronomical.</p>
+
+<p>This is why reverse mode is the workhorse of deep learning. Training a neural network means computing how sensitive the final error is to each of millions of weights. Reverse mode—which machine learning practitioners call backpropagation—does this in roughly twice the time of a single evaluation. Without it, modern AI would be computationally impossible.</p>
+
+<h2>The Technical Heart: Dual Numbers and Tapes</h2>
+
+<p>Forward mode has an elegant algebraic interpretation using something called dual numbers. Just as complex numbers extend real numbers by adding an imaginary unit i where i squared equals negative one, dual numbers add a new element epsilon where epsilon squared equals zero (but epsilon itself isn't zero).</p>
+
+<p>Every dual number has the form a plus b times epsilon. When you compute with dual numbers, the "real part" a carries the function value, while the "dual part" b automatically accumulates the derivative. The arithmetic rules of dual numbers precisely encode the derivative rules of calculus. It's as if differentiation happens for free, merely by changing the number system.</p>
+
+<p>Reverse mode is messier. During the forward pass, the computation is recorded onto a structure sometimes called a tape or a computational graph. This tape remembers every operation and every intermediate value. The backward pass then replays this tape in reverse, accumulating derivatives as it goes.</p>
+
+<p>The memory cost can be substantial. If your forward computation stores a billion intermediate values, your tape needs to remember them all. Various clever tricks exist to reduce this memory burden—checkpointing, recomputation, and others—but the fundamental tradeoff between time and memory remains.</p>
+
+<h2>Why This Changed Everything</h2>
+
+<p>Before automatic differentiation became widespread in machine learning, researchers often derived gradient formulas by hand. For each new neural network architecture, someone had to work through the calculus, simplify the expressions, and implement the result. This was tedious, error-prone, and a serious bottleneck on innovation.</p>
+
+<p>Modern deep learning frameworks like TensorFlow and PyTorch have automatic differentiation built into their core. You define your computation, and gradients appear as if by magic. Want to try a weird new activation function? Just write the forward code; the backward pass generates itself. Want to experiment with an exotic architecture? Same story.</p>
+
+<p>This isn't just convenient. It's transformative. The pace of machine learning research accelerated dramatically once researchers could iterate freely without manual derivative calculations blocking their path.</p>
+
+<h2>Beyond Machine Learning</h2>
+
+<p>Automatic differentiation existed long before the deep learning revolution, and its applications extend far beyond training neural networks.</p>
+
+<p>Sensitivity analysis in engineering asks how sensitive an output—say, the stress in a bridge—is to each input parameter. Automatic differentiation provides exact answers efficiently.</p>
+
+<p>Optimization algorithms need gradients to know which direction improves the objective. Automatic differentiation supplies these gradients for virtually any computable function.</p>
+
+<p>Scientific computing often involves solving differential equations numerically. Many advanced methods require computing Jacobians—matrices of partial derivatives—and automatic differentiation does this reliably where finite differences would introduce unacceptable errors.</p>
+
+<p>Computer graphics uses automatic differentiation for tasks like finding how a rendered image changes as you move virtual objects. Robotics uses it for motion planning and control.</p>
+
+<h2>The Subtle Art of Getting It Right</h2>
+
+<p>Implementing automatic differentiation correctly is surprisingly tricky. The mathematics is straightforward, but the software engineering requires care.</p>
+
+<p>Consider control flow. A program that runs different code depending on the input values—if statements, loops with variable iteration counts—creates different computational graphs for different inputs. Reverse mode must handle this gracefully, building the tape dynamically as the program executes.</p>
+
+<p>Consider numerical stability. Even though automatic differentiation is exact in principle, computers use finite precision. Certain computations that are mathematically equivalent can have vastly different numerical properties. A well-implemented autodiff system pays attention to these issues.</p>
+
+<p>Consider efficiency. Naive implementations can waste memory storing unnecessary intermediate values or waste time recomputing things redundantly. Real systems use sophisticated graph optimizations, memory management, and parallelization strategies.</p>
+
+<h2>Higher Derivatives and Exotic Variants</h2>
+
+<p>Nothing stops you from applying automatic differentiation to a function that is itself the result of automatic differentiation. Differentiate once, you get first derivatives. Differentiate the first derivative code, you get second derivatives—the Hessian matrix that describes curvature.</p>
+
+<p>This works cleanly in principle, though the computational cost grows. For optimization problems, second-derivative information can dramatically speed up convergence, making this capability valuable despite its cost.</p>
+
+<p>Researchers have also developed variants like source-to-source automatic differentiation, which transforms your program's source code into new source code that computes derivatives. This can enable aggressive optimizations impossible with runtime approaches, at the cost of greater complexity.</p>
+
+<h2>The Unexpected Depth</h2>
+
+<p>What starts as a practical trick—mechanically applying the chain rule—opens into a rich mathematical landscape. Automatic differentiation connects to differential geometry, category theory, and the foundations of programming languages. The seemingly simple question of "how do we compute derivatives of programs" touches deep issues about the relationship between computation and mathematics.</p>
+
+<p>But you don't need to understand any of that to use it. Modern tools have made automatic differentiation accessible to anyone who can write a function. You specify what to compute. The machinery figures out how to differentiate it. And behind that apparent simplicity lies one of the most practically important ideas in computational mathematics—a technique that made modern artificial intelligence possible.</p>
       </div>
 
       <footer class="wikipedia-footer">

@@ -22,7 +22,107 @@
       </header>
 
       <div class="wikipedia-content">
-        <p>Content not available.</p>
+        <p class="source-note">Based on <a href="https://en.wikipedia.org/wiki/High_Bandwidth_Memory">Wikipedia: High Bandwidth Memory</a></p>
+
+<p>Your smartphone has more memory bandwidth than a supercomputer from the 1990s. But for the artificial intelligence systems reshaping our world, even that isn't enough. Not by a long shot.</p>
+
+<p>The bottleneck isn't processing power anymore. It's how fast you can feed data to the processors. This is the problem that High Bandwidth Memory, or HBM, was invented to solve—and understanding it reveals why your next AI assistant will be dramatically smarter than today's.</p>
+
+<h2>The Problem Nobody Talks About</h2>
+
+<p>Imagine a factory with the world's fastest assembly line, but the loading dock can only accept one truck at a time. It doesn't matter how fast your machines work if they're constantly waiting for parts.</p>
+
+<p>This is exactly what happened to graphics processors in the early 2010s. Engineers at AMD watched their chips grow more powerful year after year, yet real-world performance gains were increasingly disappointing. The culprit? Memory bandwidth—the rate at which data could flow between the processor and its memory.</p>
+
+<p>Traditional memory connects to processors through a relatively narrow pathway, like a two-lane road connecting a massive warehouse to a busy factory. The solution that emerged from AMD's labs starting in 2008 was elegantly simple in concept, though fiendishly complex in execution: stack the memory chips directly on top of each other, right next to the processor, and connect them with thousands of tiny wires running vertically through the silicon.</p>
+
+<h2>Building Skyscrapers Out of Silicon</h2>
+
+<p>Think of conventional computer memory as a single-story warehouse. When you need more capacity, you build more warehouses spread across a large area. Data has to travel horizontally to reach them all, and the more warehouses you add, the longer those horizontal journeys become.</p>
+
+<p>High Bandwidth Memory takes a different approach. Instead of spreading out, it builds up. Multiple memory chips—anywhere from four to sixteen layers—are stacked vertically like floors in a skyscraper. But here's the clever part: instead of using elevators (slow), the building uses thousands of tiny tubes running straight through every floor.</p>
+
+<p>These tubes are called through-silicon vias, or TSVs. Each one is a microscopic channel drilled through the silicon wafer itself, filled with metal to conduct electricity. A single HBM stack contains thousands of these vertical connections, creating what amounts to a massively parallel communication highway between all the memory layers.</p>
+
+<p>The result is a memory bus that's absurdly wide by conventional standards. Where traditional graphics memory uses 32 bits of width per chip, HBM uses 1,024 bits—thirty-two times wider. It's the difference between a two-lane road and a sixty-four-lane superhighway.</p>
+
+<h2>Closer Is Faster</h2>
+
+<p>There's another advantage to stacking memory vertically, and it has to do with one of the fundamental constraints of physics: the speed of light.</p>
+
+<p>Electrical signals travel fast, but they don't travel instantly. Every millimeter of wire adds delay. In conventional designs, memory chips might sit centimeters away from the processor—an eternity in computing terms. High Bandwidth Memory sits right next to the processor, often connected through a special silicon chip called an interposer that acts as a bridge between them.</p>
+
+<p>This proximity matters enormously. Shorter wires mean lower latency, which means the processor spends less time waiting for data. Shorter wires also mean lower power consumption, since pushing electrons through wire costs energy that increases with distance.</p>
+
+<p>The numbers are striking. A high-end graphics card using HBM might consume half the power of an equivalent card using traditional memory, while delivering substantially more bandwidth. For data centers running thousands of processors around the clock, this translates into millions of dollars in electricity savings.</p>
+
+<h2>The Generations: A Brief History of Getting Faster</h2>
+
+<p>The first HBM chips arrived in 2013, manufactured by SK Hynix in South Korea. Two years later, AMD released the first graphics cards using the technology—the Radeon R9 Fury series. These cards looked almost comically small compared to their competitors, yet matched or exceeded their performance.</p>
+
+<p>But the memory industry doesn't stand still.</p>
+
+<p>HBM2 arrived in 2016, doubling the transfer rate and memory capacity. Samsung and SK Hynix raced to manufacture it, with Nvidia incorporating it into their Tesla P100 accelerator—a chip designed specifically for artificial intelligence workloads. The AI revolution was beginning to devour bandwidth.</p>
+
+<p>HBM2E followed in 2019, pushing transfer rates even higher. Samsung's "Flashbolt" version could move 410 gigabytes per second from a single stack. To put that in perspective, you could transfer the entire contents of a typical laptop's hard drive in about one second.</p>
+
+<p>Then came HBM3 in 2022, and with it came a fundamental architectural change. Instead of eight wide channels, HBM3 uses sixteen narrower ones. The total width stays the same—1,024 bits—but the doubled channel count allows for more flexible, efficient operation. A single HBM3 stack can deliver over 800 gigabytes per second.</p>
+
+<p>The latest generation, HBM3E, pushes past the terabyte barrier. One terabyte per second from a stack of memory chips smaller than a postage stamp.</p>
+
+<h2>Why AI Changed Everything</h2>
+
+<p>For years, HBM remained a niche technology. It was expensive to manufacture—all that precision stacking and thousands of microscopic vias don't come cheap. Most applications simply didn't need that much bandwidth.</p>
+
+<p>Artificial intelligence changed the calculus entirely.</p>
+
+<p>Training a modern large language model involves moving staggering amounts of data. The model's parameters—billions or even trillions of numbers—must flow constantly between memory and processor. Every forward pass, every backward pass, every gradient update. The faster this data moves, the faster training proceeds, and in AI, training speed translates directly into competitive advantage.</p>
+
+<p>Nvidia's H100 processor, the workhorse of modern AI training, uses five HBM3 stacks providing 80 gigabytes of capacity and three terabytes per second of bandwidth. The successor chips push even further. Demand has been so intense that SK Hynix and Samsung struggle to manufacture HBM fast enough, despite running their factories around the clock.</p>
+
+<p>This is why the memory interface technology in your AI accelerator matters more than ever before. When OpenAI or Google or Anthropic trains their next model, the speed of that training depends critically on HBM.</p>
+
+<h2>The Manufacturing Challenge</h2>
+
+<p>Building HBM is extraordinarily difficult. Each memory die must be thinned to just 30 micrometers—roughly one-third the thickness of a human hair—before being stacked. The through-silicon vias must align perfectly across all layers. Any defect in any layer ruins the entire stack.</p>
+
+<p>The stacking process itself uses microscopic bumps of solder, called microbumps, to connect each layer to the next. A single HBM stack might contain over 5,000 of these connections, each one smaller than a grain of pollen. Every bump must bond correctly. Every via must conduct cleanly.</p>
+
+<p>This is why only three companies in the world manufacture HBM at scale: SK Hynix, Samsung, and Micron. The capital investment required to build an HBM manufacturing line runs into billions of dollars. The expertise required to achieve acceptable yields took years to develop.</p>
+
+<p>TSMC, the Taiwanese semiconductor giant, produces the base dies and interposers that HBM stacks sit upon. This creates an intricate supply chain where memory from Korean manufacturers meets interposers from Taiwan meets processors from various chip designers, all assembled into final products by specialist packaging companies.</p>
+
+<h2>What Comes Next</h2>
+
+<p>HBM4, officially standardized in April 2025, doubles the interface width again—from 1,024 bits to 2,048 bits. A single stack can now deliver two terabytes per second. The specification supports up to 64 gigabytes per stack, using sixteen layers of memory dies.</p>
+
+<p>But raw bandwidth isn't the only frontier.</p>
+
+<p>Samsung has announced HBM with processing-in-memory, a technology that embeds simple AI processing units directly inside the memory chips themselves. Instead of moving all data to a central processor, some computations happen right where the data lives. The company claims this can double system performance while cutting energy consumption by 70 percent.</p>
+
+<p>This represents a philosophical shift in computer architecture. For decades, we've treated memory as purely passive—a place to store data that processors fetch, manipulate, and return. Processing-in-memory blurs that boundary, distributing intelligence throughout the system.</p>
+
+<h2>The Wider Implications</h2>
+
+<p>Understanding HBM helps explain many puzzling aspects of the AI landscape.</p>
+
+<p>Why are AI chips so expensive? Partly because HBM is expensive, and modern AI accelerators require enormous amounts of it. Nvidia's highest-end chips use hundreds of gigabytes of HBM worth thousands of dollars.</p>
+
+<p>Why is there an AI chip shortage? Partly because HBM manufacturing capacity can't expand fast enough. You can design a new chip relatively quickly, but building a new HBM factory takes years.</p>
+
+<p>Why do companies invest billions in custom AI chips? Partly to optimize the interface between processing and memory. Every watt saved on memory access is a watt available for computation. Every nanosecond of latency reduced is a nanosecond of faster training.</p>
+
+<p>The humble memory interface—invisible to users, unglamorous compared to headline processor speeds—has become one of the most critical technologies in the AI era. The companies that master it hold keys to capabilities that don't exist yet.</p>
+
+<h2>A Technology Born from Constraints</h2>
+
+<p>High Bandwidth Memory emerged from a simple observation: we were running out of room to go wider, so we had to go taller. The two-dimensional approach to connecting memory and processors had hit its limits. The only way forward was up.</p>
+
+<p>It's a reminder that revolutionary technologies often come from working around constraints rather than ignoring them. The physics of signal propagation forced AMD's engineers to rethink the fundamental geometry of memory systems. The result transformed what was possible in high-performance computing.</p>
+
+<p>The next time you hear about a breakthrough in artificial intelligence—a model that reasons better, generates more realistic images, or understands language more deeply—remember that somewhere in the stack, probably literally stacked, there's HBM making it possible. Thousands of microscopic vias carrying billions of bits per second, feeding data to processors that would otherwise sit idle, waiting.</p>
+
+<p>In computing, as in life, the connections between things matter as much as the things themselves.</p>
       </div>
 
       <footer class="wikipedia-footer">

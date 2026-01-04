@@ -22,7 +22,155 @@
       </header>
 
       <div class="wikipedia-content">
-        <p>Content not available.</p>
+        <p class="source-note">Based on <a href="https://en.wikipedia.org/wiki/Perceptron">Wikipedia: Perceptron</a></p>
+
+<h2>The Machine That Learned to See</h2>
+
+<p>In the summer of 1960, the United States Navy unveiled a machine that could look at a photograph and learn to recognize what was in it. The press conference made extraordinary claims. The New York Times reported that this device was "the embryo of an electronic computer that the Navy expects will be able to walk, talk, see, write, reproduce itself and be conscious of its existence."</p>
+
+<p>The machine was called the Mark I Perceptron. It would become one of the most influential—and eventually one of the most controversial—inventions in the history of artificial intelligence.</p>
+
+<p>But to understand what made this room-sized apparatus so revolutionary, we need to step back and ask a deceptively simple question: How does a machine learn anything at all?</p>
+
+<h2>The Idea of an Artificial Neuron</h2>
+
+<p>Your brain contains roughly 86 billion neurons, each one a tiny biological processor connected to thousands of others. When you recognize your mother's face, or catch a ball, or read these words, vast networks of neurons are firing in coordinated patterns. For centuries, this seemed utterly beyond the reach of machines.</p>
+
+<p>Then in 1943, two researchers—Warren McCulloch, a neurophysiologist, and Walter Pitts, a mathematical prodigy who was still a teenager—published a paper with the unwieldy title "A Logical Calculus of the Ideas Immanent in Nervous Activity." Their insight was elegant: individual neurons could be modeled as simple logical devices. Each neuron takes inputs, combines them, and produces an output. If you could build artificial neurons and connect them together, perhaps you could build artificial intelligence.</p>
+
+<p>This was the spark. But sparks need fuel.</p>
+
+<h2>Frank Rosenblatt's Vision</h2>
+
+<p>Frank Rosenblatt was a psychologist at the Cornell Aeronautical Laboratory, intensely interested in how biological brains perceive the world. In 1957, he began experimenting with a new kind of artificial neural network, which he called the perceptron.</p>
+
+<p>The name comes from "perception"—and perception was exactly what Rosenblatt wanted to understand. How does a brain look at a messy, noisy image and somehow extract meaning from it? How do you recognize the letter A whether it's printed in Times New Roman, scrawled in crayon, or projected at an angle on a screen?</p>
+
+<p>Rosenblatt's perceptron was designed to learn these kinds of visual distinctions. Not by being programmed with explicit rules, but by being shown examples and adjusting itself until it got the right answers.</p>
+
+<p>This was radical. In 1957, most people thought that if you wanted a computer to do something, you had to tell it exactly how to do it, step by painstaking step. Rosenblatt proposed a machine that would figure things out on its own.</p>
+
+<h2>How a Perceptron Works</h2>
+
+<p>At its heart, a perceptron is almost absurdly simple. It takes a bunch of numbers as input, multiplies each number by a weight, adds everything up, and then makes a decision: yes or no, one or zero, this category or that category.</p>
+
+<p>Think of it like a panel of judges scoring a performance. Each judge (each input) gives a score. But some judges' opinions matter more than others—these are the weights. You multiply each score by how much that judge's opinion counts, add up the weighted scores, and if the total exceeds some threshold, the performer advances. If not, they're eliminated.</p>
+
+<p>The magic happens in how those weights get set.</p>
+
+<p>You don't program the weights. You train them. You show the perceptron an example—say, an image of the letter A—and tell it the correct answer. If it gets the answer wrong, you adjust the weights slightly so that it's more likely to get that example right next time. Then you show it another example. And another. Thousands of examples.</p>
+
+<p>Gradually, the weights settle into values that allow the perceptron to classify new examples it has never seen before.</p>
+
+<p>This is learning. A machine that learns from experience.</p>
+
+<h2>The Mark I Perceptron</h2>
+
+<p>Rosenblatt first simulated his perceptron on an IBM 704, one of the first mass-produced computers. But he wanted to build the real thing—a physical machine dedicated to this new kind of computing.</p>
+
+<p>He secured funding from the United States Office of Naval Research and the Rome Air Development Center. The project was designated "Project PARA," which stood for Perceiving and Recognition Automata. The result was the Mark I Perceptron, a custom-built machine that became operational in 1960.</p>
+
+<p>The Mark I was impressive hardware for its time. It had three layers:</p>
+
+<ul>
+<li>An input layer of 400 photocells arranged in a 20-by-20 grid, called the "sensory units" or input retina. This was the machine's eye.</li>
+<li>A hidden layer of 512 perceptrons, called "association units." These did the actual computation.</li>
+<li>An output layer of eight perceptrons, called "response units," which produced the final classification.</li>
+</ul>
+
+<p>The connections between the input layer and the hidden layer were deliberately random. Rosenblatt insisted on this. He believed that the human retina was randomly connected to the visual cortex, and he wanted his machine to mirror biological reality. The random connections were implemented using a plugboard—a physical panel where wires could be arranged to create different connection patterns.</p>
+
+<p>The adjustable weights were implemented with electric motors turning potentiometers. When the machine learned, motors physically rotated knobs to change resistance values. Learning was literally mechanical.</p>
+
+<h2>The Promise and the Controversy</h2>
+
+<p>The 1960 press conference where the Mark I was unveiled became legendary—and not entirely for the right reasons.</p>
+
+<p>Rosenblatt was a charismatic speaker with a genuine talent for exciting an audience. Perhaps too much talent. His claims about what perceptrons might eventually accomplish struck many researchers as wildly overblown. The idea that this machine was somehow an embryonic consciousness that would eventually "walk, talk, see, write, reproduce itself and be conscious of its existence" was, to put it mildly, a stretch.</p>
+
+<p>This created a backlash within the small community of artificial intelligence researchers. Some felt that Rosenblatt was overselling a limited technology and creating unrealistic expectations that would inevitably lead to disappointment.</p>
+
+<p>They weren't entirely wrong.</p>
+
+<h2>The Limitations</h2>
+
+<p>The fundamental limitation of a single-layer perceptron is something mathematicians call linear separability.</p>
+
+<p>Imagine you have a sheet of paper with red dots and blue dots scattered across it. A perceptron draws a single straight line on that paper and says: everything on this side is red, everything on that side is blue. If your dots happen to be arranged so that one straight line can separate the reds from the blues, the perceptron will learn to find that line.</p>
+
+<p>But what if the dots are arranged differently? What if the red dots form a ring around the blue dots? No single straight line can separate them. A single-layer perceptron is mathematically incapable of solving this problem.</p>
+
+<p>The most famous example is the XOR function. XOR—which stands for "exclusive or"—outputs true when exactly one of its inputs is true, but not both. If you plot XOR as dots on a plane, the pattern that results cannot be divided by a single straight line.</p>
+
+<p>In 1969, Marvin Minsky and Seymour Papert published a book titled simply "Perceptrons." It was a rigorous mathematical analysis that proved, among other things, that single-layer perceptrons could never learn the XOR function.</p>
+
+<p>This book had an enormous impact—perhaps more than its authors intended.</p>
+
+<h2>The AI Winter</h2>
+
+<p>Here's what actually happened with the Minsky and Papert book: They demonstrated clear limitations of single-layer perceptrons. They did not claim that multi-layer perceptrons had the same limitations. In fact, both Minsky and Papert knew perfectly well that adding more layers solved the XOR problem.</p>
+
+<p>But that nuance got lost.</p>
+
+<p>The perception that spread through the research community—and more importantly, through funding agencies—was that neural networks were a dead end. Why invest in a technology that can't even learn a simple logical function?</p>
+
+<p>Funding for neural network research dried up. The field entered what historians now call the "AI winter." For nearly a decade, serious researchers avoided neural networks as a career-ending topic.</p>
+
+<p>Meanwhile, the logical AI approach favored by researchers like Herbert Simon and Allen Newell—which focused on symbolic reasoning and explicit rules rather than learning from examples—became the dominant paradigm. This approach was championed by J.C.R. Licklider, who headed the Information Processing Techniques Office at the Advanced Research Projects Agency (ARPA), the powerful defense research organization that would later create the internet.</p>
+
+<h2>Rosenblatt's Final Years</h2>
+
+<p>Frank Rosenblatt didn't give up on perceptrons, even as funding dwindled.</p>
+
+<p>In 1962, he published "Principles of Neurodynamics," a comprehensive book describing his experiments with many variants of the perceptron. He explored architectures that seem remarkably prescient today: networks with connections between units in the same layer, networks with connections running backwards from later layers to earlier ones, networks with four layers where the last two have adjustable weights. He even experimented with processing sequential data by incorporating time delays, and with analyzing audio instead of images.</p>
+
+<p>His last major project was Tobermory, a speech recognition system built between 1961 and 1967. It occupied an entire room and contained 12,000 adjustable weights implemented with toroidal magnetic cores.</p>
+
+<p>By the time Tobermory was completed, simulation on general-purpose digital computers had become faster than purpose-built perceptron machines. The hardware approach was obsolete.</p>
+
+<p>In 1971, Frank Rosenblatt died in a boating accident on his forty-third birthday. He never saw the revival of the ideas he championed.</p>
+
+<h2>The Resurrection</h2>
+
+<p>Neural network research didn't stay dead.</p>
+
+<p>In the 1980s, researchers discovered—or in some cases rediscovered—techniques that made multi-layer neural networks practical. The key innovation was backpropagation, an algorithm for efficiently computing how to adjust weights throughout multiple layers to improve performance.</p>
+
+<p>With backpropagation, networks could learn to draw not just one straight line, but complex curved boundaries. They could learn XOR. They could learn far more sophisticated tasks.</p>
+
+<p>The machines that Rosenblatt dreamed of finally became possible. And they kept getting better.</p>
+
+<p>Today, the descendants of the perceptron are everywhere. When your phone recognizes your face, it's using a neural network. When you ask a voice assistant a question, neural networks convert your speech to text and generate the response. When you read a translation of a foreign webpage, neural networks did the translating.</p>
+
+<p>The large language models that power modern AI systems—the technology behind systems that can write essays, answer questions, and carry on conversations—are built from artificial neurons that are direct descendants of Rosenblatt's perceptrons. The principles are the same: inputs multiplied by weights, summed together, passed through an activation function. The scale is incomprehensibly larger, with billions or hundreds of billions of parameters instead of hundreds, but the conceptual DNA is unmistakable.</p>
+
+<h2>The Information Capacity of a Perceptron</h2>
+
+<p>There's a beautiful mathematical result about perceptrons that's worth knowing. It comes from the information theorist Thomas Cover, who asked a simple question: How much can a single perceptron learn?</p>
+
+<p>The answer is surprisingly precise. A perceptron with K inputs has an information capacity of 2K bits.</p>
+
+<p>What does this mean? Imagine you have a perceptron that takes inputs from ten sensors. According to Cover's theorem, that perceptron can perfectly distinguish at most about 20 random patterns—roughly twice as many patterns as it has inputs. Try to teach it more than that, and it will start making mistakes.</p>
+
+<p>This mathematical ceiling explains why single-layer perceptrons plateau. They simply don't have enough capacity to learn complex tasks. But stack multiple layers together, and the capacity multiplies in ways that can tackle remarkably sophisticated problems.</p>
+
+<h2>Where the Hardware Lives Now</h2>
+
+<p>The original Mark I Perceptron was shipped from Cornell to the Smithsonian Institution in 1967, under a government transfer administered by the Office of Naval Research. You can still see it today at the National Museum of American History—a relic from the earliest days of machine learning, with its plugboard of random connections and its motor-driven potentiometers.</p>
+
+<p>It's a reminder that every revolution starts somewhere. The idea that machines could learn from examples rather than explicit programming—an idea that seemed either revolutionary or crackpot in 1960, depending on who you asked—has become the foundation of modern artificial intelligence.</p>
+
+<h2>What the Perceptron Teaches Us</h2>
+
+<p>The story of the perceptron is partly about technology, but it's also about the sociology of science. Good ideas can be prematurely abandoned when critics point out limitations, even if those limitations can be overcome. Charismatic overpromotion can trigger backlash that hurts legitimate research. Funding decisions shape what's possible in ways that aren't always rational.</p>
+
+<p>And sometimes, ideas that seem dead are merely dormant.</p>
+
+<p>Rosenblatt's core insight—that machines can learn to recognize patterns by adjusting weights based on examples—turned out to be one of the most important ideas of the twentieth century. It just took a few decades for the rest of the world to catch up.</p>
+
+<p>The Mark I Perceptron never did learn to walk, talk, or become conscious of its existence. But its descendants have learned to recognize faces, understand speech, translate languages, play games at superhuman levels, and generate remarkably coherent text.</p>
+
+<p>Frank Rosenblatt was wrong about the timeline. He wasn't wrong about the destination.</p>
       </div>
 
       <footer class="wikipedia-footer">

@@ -22,7 +22,127 @@
       </header>
 
       <div class="wikipedia-content">
-        <p>Content not available.</p>
+        <p class="source-note">Based on <a href="https://en.wikipedia.org/wiki/Technical_debt">Wikipedia: Technical debt</a></p>
+
+<p>Every programmer has felt it. You're working on a codebase, and something that should take an hour takes a week. You trace through function after function, each one a maze of special cases and workarounds. The original developers aren't available to ask. The documentation, if it exists, describes a system that no longer resembles what you're looking at.</p>
+
+<p>You've just paid interest on technical debt.</p>
+
+<h2>The Metaphor That Changed How We Talk About Code</h2>
+
+<p>In 1992, a programmer named Ward Cunningham needed to explain something to his boss. He was working on a financial product, and he knew the code needed restructuring. But how do you explain to a non-technical person why you need to spend time rewriting code that already works?</p>
+
+<p>Cunningham had recently read a book called <em>Metaphors We Live By</em>, which explores how the analogies we use shape our thinking. Inspired, he reached for a concept his boss would understand intimately: debt.</p>
+
+<blockquote>Shipping first time code is like going into debt. A little debt speeds development so long as it is paid back promptly with a rewrite. The danger occurs when the debt is not repaid. Every minute spent on not-quite-right code counts as interest on that debt. Entire engineering organizations can be brought to a stand-still under the debt load of an unconsolidated implementation.</blockquote>
+
+<p>The metaphor stuck. It gave teams a shared language for something they'd always felt but struggled to articulate.</p>
+
+<h2>What Technical Debt Actually Is</h2>
+
+<p>Think of it this way. When you take out a mortgage, you're making a trade: you get a house now, but you commit to payments that extend years into the future. The house is worth it. But if you keep taking out loans without paying them back, eventually the interest payments consume your entire income. You can't afford to do anything else.</p>
+
+<p>Technical debt works similarly, but with a crucial difference.</p>
+
+<p>When you borrow money, you sign papers. You know exactly how much you owe and what the interest rate is. Technical debt sneaks up on you. It accumulates in the dark corners of your codebase, in the quick fixes that were supposed to be temporary, in the architectural decisions made under deadline pressure, in the documentation that was never written.</p>
+
+<p>Most technical debt is incurred without anyone consciously deciding to take it on. It's a side effect of the universal business pressure to ship faster and cheaper. You only realize how much debt you've accumulated when you try to change something and discover that what should be simple has become impossibly hard.</p>
+
+<h2>The Many Forms of Debt</h2>
+
+<p>Technical debt isn't monolithic. It comes in different varieties, each with its own characteristics.</p>
+
+<p>Some debt is <em>deliberate and prudent</em>. A startup building a proof of concept might knowingly write code that won't scale, because they need to test whether anyone wants their product before investing in robust infrastructure. This is like taking out a business loan with a clear repayment plan. You know what you're trading and why.</p>
+
+<p>Other debt is <em>deliberate but reckless</em>. "We don't have time to write tests" or "we'll clean this up later" are phrases that echo through software teams everywhere. The debt is knowingly incurred, but without a realistic plan for repayment. Later rarely comes. The cleanup never happens.</p>
+
+<p>Then there's <em>inadvertent debt</em>. Sometimes developers simply don't know a better way to solve a problem. They're not cutting corners; they're doing their best with their current knowledge. Only later, as the team learns more, does the suboptimal nature of the solution become apparent. You can't avoid this kind of debt entirely. Learning is part of building software.</p>
+
+<p>Finally, there's debt that's <em>invisible</em> until something changes. The code was perfectly adequate for its original purpose. But requirements shifted, the product evolved, and now the old design is a straitjacket constraining what's possible.</p>
+
+<h2>How Interest Compounds</h2>
+
+<p>The most insidious aspect of technical debt is how it compounds.</p>
+
+<p>Imagine a function that's a little too long, a little too complicated. It works, so nobody touches it. Then someone needs to add a feature, and they add another special case to the already-complex function. Then another. And another. Each change makes the next change harder. The function becomes a black hole of complexity, pulling in more and more special cases because nobody dares restructure it.</p>
+
+<p>This pattern repeats across the entire codebase. Complex code begets more complex code. Workarounds breed workarounds. The interest payments grow.</p>
+
+<p>And here's where it gets really painful: technical debt makes estimation nearly impossible. When code is clean and well-structured, experienced developers can predict how long changes will take. When code is tangled with debt, every estimate becomes a guess. You think a feature will take two days, but you don't discover until you're deep in the implementation that it requires untangling three years of accumulated shortcuts.</p>
+
+<p>Teams start missing deadlines. Not because they're bad at their jobs, but because the codebase has become unpredictable. Stress increases. The best developers—the ones with options—start looking for other jobs. The people who leave take institutional knowledge with them, making the remaining code even harder to understand. More debt accumulates. More developers leave.</p>
+
+<p>This is how entire engineering organizations can grind to a halt.</p>
+
+<h2>Before Cunningham: Lehman's Law</h2>
+
+<p>The phenomenon Cunningham named wasn't new. Twelve years earlier, in 1980, a computer scientist named Manny Lehman had observed the same pattern and described it with different language.</p>
+
+<p>Lehman studied how software evolves over time, and he formulated several "laws" based on his observations. One of them captures the essence of technical debt:</p>
+
+<blockquote>As an evolving program is continually changed, its complexity, reflecting deteriorating structure, increases unless work is done to maintain or reduce it.</blockquote>
+
+<p>In other words, software naturally decays. Like a garden that becomes overgrown without tending, or a house that deteriorates without maintenance, code doesn't stay in its original state. Every change, no matter how well-intentioned, adds to the system's complexity. Without deliberate effort to fight entropy, systems become unmaintainable.</p>
+
+<p>Lehman used an architectural metaphor—he talked about deteriorating structure. Cunningham's debt metaphor proved more powerful because it connected to something business people viscerally understood: money. When you tell a manager "we have deteriorating structure," their eyes glaze over. When you tell them "we're drowning in debt and the interest payments are killing our velocity," they lean forward.</p>
+
+<h2>The Hidden Costs</h2>
+
+<p>When teams calculate the cost of technical debt, they usually think about developer time. How many extra hours does it take to implement features in messy code versus clean code? This is the most visible cost, but it's far from the only one.</p>
+
+<p>Consider onboarding. When a new developer joins a team, they need to learn the codebase. Clean code with clear patterns can be understood in weeks. Debt-ridden code takes months. Every new hire is less productive for longer. Some never fully understand the system before they leave.</p>
+
+<p>Consider tools and infrastructure. Sometimes teams acquire expensive tooling specifically to manage or work around technical debt—monitoring systems to catch the bugs that slip through, elaborate deployment pipelines to handle the fragility of the code, debugging tools for the problems that shouldn't exist in the first place.</p>
+
+<p>Consider opportunity costs. Every sprint spent paying down debt is a sprint not spent building features users want. Every feature delayed because the codebase is too fragile to change safely is a feature your competitors might ship first. Market windows close. Customer patience runs out.</p>
+
+<p>Consider production incidents. Debt-laden code is brittle code. It breaks in unexpected ways. Outages cost money directly, but they also damage customer trust and team morale. Developers who spend their nights firefighting burn out faster.</p>
+
+<p>Consider legal exposure. If your service-level agreements promise 99.9% uptime, but your technical debt causes outages that push you below that threshold, you're not just dealing with unhappy customers. You're dealing with contractual breaches and potential lawsuits.</p>
+
+<p>The simple developer-hours calculation misses all of this. It's like calculating the cost of smoking by looking only at the price of cigarettes.</p>
+
+<h2>When Debt Makes Sense</h2>
+
+<p>All of this might make technical debt sound purely negative, something to be avoided at all costs. But that's not quite right either.</p>
+
+<p>Sometimes debt is the correct choice.</p>
+
+<p>Imagine you're building a startup. You have six months of runway and a hypothesis about what customers want. You could spend three months building a beautifully architected system, or you could spend one month building something rough but functional and put it in front of users immediately.</p>
+
+<p>If your hypothesis is wrong—and most startup hypotheses are wrong—the beautiful architecture was wasted effort. You'd have been better off learning faster and iterating. The quick and dirty approach let you test three ideas in the time the careful approach let you test one.</p>
+
+<p>Similarly, if you're building something that won't need to exist for long, investing in long-term maintainability is waste. A one-time data migration script doesn't need unit tests. A prototype for a trade show doesn't need clean architecture. If the code will be thrown away, incurring debt is free.</p>
+
+<p>The tricky part is that temporary solutions have a way of becoming permanent. The prototype gets shipped to customers because the demo went well. The migration script becomes the basis for regular operations. The "just this once" exception becomes standard practice.</p>
+
+<h2>What the Future Might Do</h2>
+
+<p>Here's something interesting that the debt metaphor doesn't quite capture: the future is uncertain in ways that can make debt calculations wrong in either direction.</p>
+
+<p>Sometimes a system dies before its debt comes due. If your product gets shut down, if your company pivots, if the whole technology stack becomes obsolete—the debt never has to be repaid. The quick decisions were just quick decisions, not debt at all.</p>
+
+<p>Sometimes new tools emerge that make old debt cheaper to address. What would have taken a team of developers months to refactor might be done in days with new automated tools. The interest rate on old debt can drop unexpectedly.</p>
+
+<p>And sometimes the future makes both the quick solution and the careful solution obsolete. If a new framework or paradigm emerges that invalidates your entire architecture, it doesn't matter whether your code was clean or messy. You're rewriting it either way.</p>
+
+<p>This uncertainty doesn't mean you should ignore debt. But it does mean that obsessing over theoretical future costs can be as much of a mistake as ignoring them entirely. The best teams develop judgment about which debts are likely to come due and which might not.</p>
+
+<h2>Living With Debt</h2>
+
+<p>So what do you do?</p>
+
+<p>First, acknowledge that some debt is inevitable. No codebase is perfectly clean. No team has infinite time to do everything right. The goal isn't zero debt; it's managed debt, debt you understand and consciously choose to carry.</p>
+
+<p>Second, make debt visible. Track it. Document it. When you cut a corner, leave a comment explaining what the right solution would have been and why you didn't implement it. When you incur debt, create a ticket to pay it back later. Make the interest payments tangible in sprint planning.</p>
+
+<p>Third, pay down debt regularly. Not all at once—that's rarely practical—but continuously. Every sprint, reserve some capacity for refactoring. Fix the thing that's been annoying everyone. Improve the test coverage on the module that keeps breaking. Steady, consistent payments keep debt from spiraling out of control.</p>
+
+<p>Fourth, be strategic about where you tolerate debt. Core systems that change frequently need to be clean. Edge cases that rarely get touched can be messier. Don't waste precious cleanup time on code that nobody needs to modify.</p>
+
+<p>And finally, remember that the goal isn't beautiful code for its own sake. The goal is sustainable delivery of value to users. Technical debt matters because it slows that delivery. But gold-plating code that's already clean enough is its own kind of waste, just one that feels more virtuous.</p>
+
+<p>Ward Cunningham gave us a powerful metaphor three decades ago. Like all metaphors, it illuminates some truths while obscuring others. The best engineers learn when to lean on the metaphor and when to look past it, developing an intuition for the real trade-offs hiding behind the simple word "debt."</p>
       </div>
 
       <footer class="wikipedia-footer">

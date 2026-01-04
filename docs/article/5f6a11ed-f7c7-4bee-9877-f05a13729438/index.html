@@ -27,21 +27,6 @@
         </div>
       </header>
 
-      <div class="article-excerpt">
-        <p></p>
-        <div class="excerpt-fade"></div>
-      </div>
-
-      <div class="read-full-article">
-        <a href="https://newsletter.pragmaticengineer.com/p/evals" class="read-button" target="_blank" rel="noopener">
-          Read full article on The Pragmatic Engineer &rarr;
-        </a>
-        <p class="copyright-note">
-          This excerpt is provided for preview purposes.
-          Full article content is available on the original publication.
-        </p>
-      </div>
-
       
       <section class="deep-dives">
         <h2>Deep Dives</h2>
@@ -74,6 +59,20 @@
         </ul>
       </section>
     
+
+      <div class="article-excerpt">
+        <p>One word that keeps cropping up when I talk with software engineers who build large language model (LLM)-based solutions is “<strong>evals</strong>”. They use evaluations to verify that LLM solutions work well enough because LLMs are non-deterministic, meaning there’s no guarantee they’ll provide the same answer to the same question twice. This makes it more complicated to verify that things work according to spec than it does with other software, for which automated tests are available.</p><p>Evals feel like they are becoming a core part of the AI engineering toolset. And because they are also becoming part of CI/CD pipelines, we, software engineers, should understand them better — especially because we might need to use them sooner rather than later! So, what do good evals look like, and how should this non-deterministic-testing space be approached?</p><p>For directions, I turned to an expert on the topic, <a href="https://hamel.dev/">Hamel Husain</a>. He’s worked as a Machine Learning engineer at companies including Airbnb and GitHub, and teaches the online course <a href="https://maven.com/parlance-labs/evals?promoCode=gergley-49">AI Evals For Engineers &amp; PMs</a> — the upcoming cohort <a href="https://maven.com/parlance-labs/evals?promoCode=gergley-49">starts in January</a>. Hamel is currently writing a book, <a href="https://www.oreilly.com/library/view/evals-for-ai/9798341660717/">Evals for AI Engineers</a>, to be published by O’Reilly next year.</p><p>In today’s issue, we cover:</p><ol><li><p><strong>Vibe-check development trap. </strong>An agent appears to work well, but as soon as it is modified, it can’t be established that it’s working correctly.</p></li><li><p><strong>Core workflow: error analysis</strong>. Error analysis has been a key part of machine learning for decades and is useful for building LLM applications.</p></li><li><p><strong>Building evals: the right tools for the job. </strong>Use code-based evals for deterministic failures, and an LLM-as-judge for subjective cases.</p></li><li><p><strong>Building an LLM-as-judge. </strong>Avoid your LLM judge memorizing answers by partitioning your data and measuring how well the judge generalizes to unfamiliar data.</p></li><li><p><strong>Align the judge, keep trust. </strong>The LLM judge’s expertise needs to be validated against human expertise. Consider metrics like True Positive Rate (TPR) and True Negative Rate (TNR).</p></li><li><p><strong>Evals in practice: from CI/CD to production monitoring. </strong>Use evals in the CI/CD pipeline, but use production data to continuously validate that they work as expected, too.</p></li><li><p><strong>Flywheel of improvement. </strong>Analyze → measure → Improve → automate → start again</p></li></ol><p>With that, it’s over to Hamel:</p><div><hr></div><h2>1. Vibe-check development trap</h2><p>Organizations are embedding LLMs into applications from customer service to content creation. Yet, unlike traditional software, LLM pipelines don’t produce deterministic outputs; their responses are often subjective ...</p>
+      </div>
+
+      <div class="read-full-article">
+        <a href="https://newsletter.pragmaticengineer.com/p/evals" class="read-button" target="_blank" rel="noopener">
+          Read full article on The Pragmatic Engineer &rarr;
+        </a>
+        <p class="copyright-note">
+          This excerpt is provided for preview purposes.
+          Full article content is available on the original publication.
+        </p>
+      </div>
     </article>
   
   </main>

@@ -22,7 +22,122 @@
       </header>
 
       <div class="wikipedia-content">
-        <p>Content not available.</p>
+        The rewritten article has been prepared. Here's the complete HTML content:
+
+```html
+<p class="source-note">Based on <a href="https://en.wikipedia.org/wiki/Dynamic_random-access_memory">Wikipedia: Dynamic random-access memory</a></p>
+
+<h2>The Leaky Bucket That Powers Your Computer</h2>
+
+<p>Every fraction of a second, the memory in your computer is forgetting everything it knows. And every fraction of a second, it remembers again.</p>
+
+<p>This sounds like a design flaw. It is, in a way. But this fundamental limitation—the tendency of electrical charge to leak away from tiny storage cells—has shaped the entire architecture of modern computing. The memory technology we call Dynamic Random Access Memory, or DRAM, is built around a constant battle against the laws of physics. Your computer's memory is perpetually refreshing itself, rewriting its own contents thousands of times per second just to avoid losing everything.</p>
+
+<p>This is not some exotic edge case. DRAM is the main memory in virtually every computer, phone, tablet, and game console on Earth. When people casually refer to their computer having "16 gigs of RAM," they're talking about DRAM. It stores the programs you're running, the documents you're editing, the browser tabs you have open. And all of it exists in a state of controlled decay, maintained only through relentless electronic intervention.</p>
+
+<h2>How a Single Transistor Changed Everything</h2>
+
+<p>The story of DRAM is really the story of radical simplification. In 1966, a researcher named Robert Dennard at IBM's Thomas J. Watson Research Center was working on memory technology and growing frustrated with the existing approach. The dominant design at the time, called Static Random Access Memory (SRAM), required six transistors for every single bit of data. Six transistors just to remember whether something was a one or a zero.</p>
+
+<p>Dennard had an insight while studying the characteristics of metal-oxide-semiconductor technology, commonly abbreviated as MOS. He realized that these MOS components could form tiny capacitors—essentially microscopic buckets that could hold electrical charge. A charged bucket could represent a one. An empty bucket could represent a zero. And you only needed one transistor to control whether charge flowed into or out of the bucket.</p>
+
+<p>One transistor and one capacitor per bit, compared to six transistors. This was a dramatic reduction in complexity and cost.</p>
+
+<p>There was just one problem. Capacitors leak.</p>
+
+<h2>The Refresh Cycle: Fighting Physics Every Millisecond</h2>
+
+<p>A capacitor stores charge the way a bucket stores water. But unlike a real bucket, these microscopic capacitors have walls that are somewhat porous to electrons. The charge gradually seeps away, like water slowly evaporating from a container. Leave a DRAM cell alone for a fraction of a second, and the information it held is gone.</p>
+
+<p>The solution is beautifully brute-force: read the data before it fades, then write it back again at full strength. This process, called refreshing, happens constantly. Industry standards typically require that every single row of memory cells be refreshed at least once every 64 milliseconds. For a memory chip with eight thousand rows, that means refreshing about one row every eight microseconds, continuously, for as long as the computer is running.</p>
+
+<p>This is where the "dynamic" in Dynamic RAM comes from. The memory is in constant motion, perpetually rewriting itself. Static RAM, by contrast, holds its data without refresh—but pays for this stability with those extra transistors, making it more expensive and less dense.</p>
+
+<p>The refresh requirement creates an interesting engineering constraint. Every refresh cycle takes time and power. The memory controller—the circuit that manages DRAM—must carefully schedule refreshes to minimize interference with actual read and write operations. It's like trying to maintain a library's collection while patrons are actively checking out and returning books, and you have to physically touch every book on every shelf every minute just to prevent them from vanishing.</p>
+
+<h2>Reading and Writing: A Dance of Voltages</h2>
+
+<p>Understanding how DRAM actually stores and retrieves data reveals an elegantly orchestrated process. The memory cells are arranged in a grid, with rows and columns, like a giant spreadsheet with millions of cells.</p>
+
+<p>Each row is connected by a wire called a word line. Each column has two bit lines, which carry the actual data. Between the columns sit sense amplifiers—circuits that can detect incredibly small differences in voltage and amplify them into clear signals.</p>
+
+<p>Reading a single bit works like this. First, the bit lines are "precharged" to exactly halfway between the voltages representing zero and one. Then the word line for the desired row is activated, connecting all the storage capacitors in that row to their respective bit lines. If a capacitor was charged, it pushes the voltage on its bit line slightly higher. If it was empty, it pulls the voltage slightly lower.</p>
+
+<p>These voltage differences are tiny—perhaps a tenth of a volt. The sense amplifiers detect this minuscule difference and amplify it, pushing the bit lines to full high or full low voltage. This amplification process is what makes the stored values readable.</p>
+
+<p>Here's the elegant part: this same amplification process also refreshes the data. The sense amplifier drives current back down the bit line, recharging the storage capacitor if it was charged, or keeping it empty if it was empty. Reading automatically refreshes. Every time you access a row of memory, you're also maintaining it.</p>
+
+<p>Writing works similarly, except the sense amplifier is briefly forced to the desired state, which then charges or discharges the storage capacitor accordingly.</p>
+
+<h2>The Halving Trick That Enabled Modern Memory</h2>
+
+<p>By 1973, DRAM chips had a capacity problem. Not too little capacity—too many address lines. Every time you double the memory size, you need another wire to address it. Chips were running out of physical pins.</p>
+
+<p>A engineer named Robert Proebsting at Mostek came up with a radical solution for their four-kilobit DRAM chip, the MK4096. Instead of having separate pins for row addresses and column addresses, he used the same pins for both. The memory controller would send the row address first, then the column address, over the same wires. This "multiplexed addressing" cut the required address pins roughly in half.</p>
+
+<p>This might seem like a minor optimization, but it was transformative. With fewer pins, the chip could fit in a smaller, cheaper package. As memory densities grew from thousands to millions to billions of bits, this addressing scheme became essential. Every doubling of memory that would have required an additional pin now shared pins with other address bits.</p>
+
+<p>The MK4096 and its successors dominated the market. By 1976, Mostek held over 75 percent of the worldwide DRAM market. The address multiplexing innovation became standard across the industry.</p>
+
+<h2>The Geopolitics of Memory</h2>
+
+<p>The history of DRAM is also a history of international competition and industrial policy. American companies pioneered the technology in the late 1960s and dominated the market in the early 1970s. But Japanese manufacturers invested heavily and, by the early 1980s, had overtaken their American competitors.</p>
+
+<p>The shift was dramatic and contentious. By 1985, Japanese companies manufactured over 60 percent of the 64-kilobit DRAM chips used in computers worldwide. American semiconductor companies accused Japanese firms of "dumping"—selling chips below cost to drive competitors out of business. Prices for 64-kilobit chips crashed from three dollars and fifty cents to as low as thirty-five cents within eighteen months.</p>
+
+<p>The U.S. Commerce Department ruled in favor of the dumping complaint in December 1985. Intel, which had been one of the original DRAM manufacturers—their 1103 chip from 1970 was the first commercially successful DRAM—exited the business entirely. Gordon Moore, Intel's co-founder, made the decision to focus on microprocessors instead. In retrospect, this pivot shaped Intel's identity as a processor company rather than a memory company.</p>
+
+<p>Japanese dominance continued through the 1980s and 1990s. Then Korean manufacturers, particularly Samsung, rose to challenge them. Samsung developed synchronous DRAM, which coordinates memory operations with a clock signal for better performance, and released the first commercial SDRAM chip in 1992. They followed with the first double data rate SDRAM in 1998, which transfers data on both the rising and falling edges of the clock signal, effectively doubling bandwidth.</p>
+
+<p>By 2018, the DRAM market had consolidated to just three major manufacturers: Samsung Electronics of South Korea, SK Hynix also of South Korea, and Micron Technology of the United States. This tight oligopoly has led to concerns about price coordination. In 2017, DRAM prices jumped 47 percent—the largest annual increase in thirty years.</p>
+
+<h2>DRAM Versus Its Alternatives</h2>
+
+<p>Understanding DRAM becomes clearer when you compare it to related technologies.</p>
+
+<p>Static RAM, or SRAM, uses a different approach. Instead of a capacitor that gradually loses charge, SRAM uses a circuit of multiple transistors configured as a "latch"—a stable state that holds its value indefinitely without refresh. This makes SRAM faster to access and eliminates the power consumed by refresh cycles. But SRAM requires four to six transistors per bit compared to DRAM's one transistor and one capacitor. This makes SRAM chips less dense and more expensive per bit. SRAM is typically used for small, fast caches inside processors, while DRAM serves as the larger main memory.</p>
+
+<p>Flash memory represents another alternative with completely different tradeoffs. Flash stores data by trapping electrons in a special insulating layer, where they remain even when power is removed. This makes flash "non-volatile"—your USB drive doesn't forget its contents when you unplug it. But flash is slower than DRAM for random access and wears out after a certain number of write cycles. Flash serves as storage, the modern equivalent of hard drives, while DRAM serves as working memory.</p>
+
+<p>DRAM is "volatile"—remove power and the data is lost almost immediately. But "almost immediately" is not quite "instantly." Under certain conditions, DRAM can retain readable data for several minutes without refresh. This phenomenon, called data remanence, has security implications. A technique called a "cold boot attack" exploits this by quickly freezing memory chips and transferring them to another system to extract sensitive data like encryption keys.</p>
+
+<h2>The Wartime Precursor</h2>
+
+<p>The fundamental concept of dynamic memory—storing bits as charge in capacitors and periodically refreshing them—predates modern integrated circuits. During World War II, the British codebreaking operation at Bletchley Park built a cryptanalytic machine codenamed Aquarius that used dynamic memory.</p>
+
+<p>The machine read paper tape, and the characters needed to be remembered temporarily for processing. The designers built a memory using banks of capacitors, charged to represent ones and uncharged to represent zeros. Because the charge gradually leaked away, periodic pulses were applied to "top up" the charged capacitors. The terminology used at the time—"dynamic store"—directly anticipates the modern term.</p>
+
+<p>This was years before transistors were practical, so the Aquarius machine used vacuum tubes and discrete components. But the core principle was identical to modern DRAM: store data as charge, accept that charge leaks, and compensate through periodic refresh.</p>
+
+<h2>Stacking Higher: The Future of Memory Density</h2>
+
+<p>As the demand for memory bandwidth and capacity has grown, manufacturers have developed techniques to stack memory chips vertically. High Bandwidth Memory, abbreviated HBM, stacks multiple DRAM dies on top of each other and connects them through thousands of tiny vertical pathways called through-silicon vias. This creates a short, wide data path between the stacked memory and the processor.</p>
+
+<p>HBM is used in high-performance applications like graphics cards and supercomputers. The fastest supercomputers on the exascale—machines capable of a billion billion calculations per second—use stacked memory technologies. Nvidia incorporates HBM in its high-end graphics processors, as does AMD.</p>
+
+<p>The stacking approach represents a shift in thinking. For decades, progress came from shrinking individual components. Now, with physical limits approaching, progress increasingly comes from building upward rather than shrinking further.</p>
+
+<h2>The Controller's Burden</h2>
+
+<p>Modern DRAM rarely operates alone. A memory controller manages the complex timing and refresh requirements, translating simple read and write requests from the processor into the intricate choreography of row activations, column accesses, and periodic refreshes that the DRAM requires.</p>
+
+<p>The controller must know numerous parameters about the specific DRAM chips it manages: how long to wait after activating a row before reading, how long to wait between successive activations, how frequently to refresh. Different manufacturers and different memory grades have different timing requirements. These parameters are typically stored in a small chip on the memory module called the Serial Presence Detect, or SPD, chip. When a computer boots, the memory controller reads these parameters and configures itself accordingly.</p>
+
+<p>Getting these parameters wrong can cause data corruption or crashes. Getting them right, but suboptimally, leaves performance on the table. Enthusiasts sometimes manually tune memory timings for better performance, though this requires careful testing to ensure stability.</p>
+
+<h2>Power and the Mobile Challenge</h2>
+
+<p>The constant refresh cycle consumes power even when the memory is not actively being accessed. For mobile devices running on battery, this represents a significant drain. Various power-saving techniques have been developed: lowering the refresh rate when the device is idle, partially refreshing memory, or putting portions of memory into lower-power states.</p>
+
+<p>Low-power DRAM variants, commonly called LPDDR, are specifically designed for mobile applications. They operate at lower voltages and include additional power management features. Your smartphone almost certainly uses LPDDR rather than the standard DDR found in desktop computers.</p>
+
+<h2>The Leaky Bucket Remains</h2>
+
+<p>Despite decades of advancement, the fundamental characteristic of DRAM remains unchanged since Dennard's 1966 insight: a tiny capacitor, inevitably leaking, constantly refreshed. The capacitors have shrunk from early chips holding thousands of bits to modern chips holding billions. The refresh circuits have grown more sophisticated. The data transfer interfaces have evolved through multiple generations of increasingly faster standards. But the core concept persists.</p>
+
+<p>This persistence reflects a deep truth about engineering tradeoffs. DRAM's weakness—the need for constant refresh—enables its strength: extreme density and low cost. The refresh requirement adds complexity and consumes power, but it allows each bit to be stored with minimal hardware. For applications where capacity and cost matter more than absolute speed, this tradeoff has proven remarkably durable.</p>
+
+<p>Every time you open an application, browse a website, or play a game, you're relying on billions of tiny capacitors that are perpetually forgetting and being reminded. The dynamic memory in your device is never at rest, never stable, always in motion. And somehow, from this constant cycle of decay and restoration, stable computing emerges.</p>
       </div>
 
       <footer class="wikipedia-footer">

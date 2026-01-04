@@ -22,7 +22,123 @@
       </header>
 
       <div class="wikipedia-content">
-        <p>Content not available.</p>
+        <p class="source-note">Based on <a href="https://en.wikipedia.org/wiki/Remote_procedure_call">Wikipedia: Remote procedure call</a></p>
+
+<h2>The Illusion That Changed Computing</h2>
+
+<p>Here's one of the most audacious lies in the history of software engineering: what if we could make programmers believe that calling a function on a computer thousands of miles away works exactly like calling a function on their own machine?</p>
+
+<p>That's the core promise of the Remote Procedure Call, or RPC. It's an elaborate magic trick that has shaped nearly every networked application you've ever used, from the file system on your computer to the search engine that brought you to this page.</p>
+
+<p>The brilliance of RPC lies not in its technical sophistication, but in its conceptual audacity. When you write code, you call functions all the time. You might write something like <em>calculateTax(income)</em>, and your program jumps to wherever that function lives, does some math, and returns the answer. Simple enough. But what if that function lived on a completely different computer? What if it was running in a data center on the other side of the planet?</p>
+
+<p>The RPC model says: you shouldn't have to care. Write your code the same way. We'll handle the rest.</p>
+
+<h2>The Beautiful Lie and Its Ugly Truth</h2>
+
+<p>Of course, this is a lie. A useful lie, but a lie nonetheless.</p>
+
+<p>When you call a local function, it executes in nanoseconds. When you call a remote function, even under ideal conditions, you're looking at milliseconds—that's a difference of roughly a million-fold. Your local function calls don't fail because someone tripped over a cable in a data center in Virginia. Remote calls can.</p>
+
+<p>This distinction matters enormously. Bruce Jay Nelson, who coined the term "remote procedure call" in 1981, understood this tension. The goal was never to perfectly hide the network—that would be impossible. The goal was to make the network <em>almost</em> invisible while leaving enough clues for programmers to handle the inevitable failures.</p>
+
+<p>Computer scientists call this "location transparency," and it's a spectrum rather than a binary state. Early RPC systems tried to be completely transparent, pretending the network didn't exist. Modern systems take a more pragmatic approach: they make the common case simple while ensuring the error cases are handleable.</p>
+
+<h2>How the Magic Trick Works</h2>
+
+<p>Let's peek behind the curtain. When your code makes what looks like a simple function call to a remote server, an intricate dance unfolds.</p>
+
+<p>First, something called a "client stub" intercepts your call. Think of the stub as a stand-in, a body double for the real function. Your code hands its parameters to this stub, believing it's talking to the actual function. The stub has other plans.</p>
+
+<p>It takes those parameters and "marshals" them—a fancy word for packing them into a format that can travel across a network. Your nice, structured data gets flattened into a stream of bytes. This is harder than it sounds. Numbers might be stored differently on different computers. Text encodings vary. The stub has to translate everything into a universal language.</p>
+
+<p>Then those bytes travel across the network. They might hop through a dozen routers, cross undersea cables, bounce off satellites. Eventually, they arrive at the server.</p>
+
+<p>On the server side, another stub performs the reverse operation. It "unmarshals" the bytes back into usable data, calls the actual function, and sends the result back through the same pipeline in reverse.</p>
+
+<p>The whole journey might take fifty milliseconds. To a human, that's instantaneous. To a computer, it's an eternity—time enough to execute millions of local instructions.</p>
+
+<h2>A History Written in Network Cables</h2>
+
+<p>The story of RPC is the story of distributed computing itself.</p>
+
+<p>The conceptual roots stretch back to the late 1960s, when researchers first grappled with how multiple computers might work together. The RC 4000 multiprogramming system, developed in Denmark, pioneered a request-response pattern for communication between processes. This wasn't quite RPC yet, but it planted the seeds.</p>
+
+<p>By the 1970s, the ARPANET—the precursor to the internet—was connecting universities and research labs across the United States. Researchers began sketching proposals for treating network operations as procedure calls. In 1978, the Danish computer scientist Per Brinch Hansen proposed "Distributed Processes," a programming language built around what he called "external requests" between programs.</p>
+
+<p>The first practical implementations arrived in 1982. Brian Randell and his colleagues at Newcastle University created the "Newcastle Connection," linking Unix machines across a network. Almost simultaneously, Andrew Birrell and Bruce Nelson at Xerox's legendary Palo Alto Research Center developed a system called Lupine.</p>
+
+<p>Lupine was particularly influential. It could automatically generate the stub code that made RPC work, sparing programmers from writing tedious translation logic by hand. Xerox commercialized these ideas under the name "Courier" in 1981.</p>
+
+<p>But the technology that brought RPC to the masses came from Sun Microsystems. Sun's RPC, released in the mid-1980s, became the foundation for the Network File System, commonly known as NFS. Suddenly, files on a remote server appeared in your file browser just like local files. The illusion was complete—and millions of users had no idea they were using RPC every time they opened a document.</p>
+
+<h2>The Object-Oriented Detour</h2>
+
+<p>The 1990s brought a philosophical shift in software development. Object-oriented programming was ascendant, and with it came a new question: if RPC worked for functions, could it work for objects?</p>
+
+<p>Enter Remote Method Invocation, or RMI. Instead of calling remote functions, you could call methods on remote objects. The object lived on a server somewhere, but your code treated it like a local object, calling its methods and getting results.</p>
+
+<p>The Common Object Request Broker Architecture—mercifully shortened to CORBA—emerged in 1991 as an industry standard for this approach. It was ambitious, comprehensive, and spectacularly complicated. CORBA tried to solve every distributed computing problem simultaneously, resulting in specifications that ran to thousands of pages.</p>
+
+<p>Java Remote Method Invocation, released by Sun Microsystems in 1997, offered a simpler alternative for programmers working in Java. It made remote objects feel natural within Java's syntax, though it only worked if both ends were running Java.</p>
+
+<p>These technologies dominated corporate software development through the 1990s. If you worked in enterprise computing during that era, you probably wrestled with CORBA's labyrinthine complexity or Java RMI's quirks.</p>
+
+<h2>The Web Changes Everything</h2>
+
+<p>Then came the internet boom, and everything changed.</p>
+
+<p>The web operated on a fundamentally different philosophy. Instead of tight integration between systems, it favored loose coupling. Instead of binary protocols optimized for machines, it used text formats that humans could read and debug. Instead of complex type systems, it embraced simplicity.</p>
+
+<p>XML-RPC appeared in 1998, using the Extensible Markup Language to encode procedure calls. You could read an XML-RPC message in a text editor. You could debug it by printing it out. It wasn't efficient, but it was understandable.</p>
+
+<p>SOAP—the Simple Object Access Protocol, though there was nothing particularly simple about it—evolved from XML-RPC. It added more features, more structure, more complexity. Major corporations built their integration strategies around SOAP.</p>
+
+<p>Meanwhile, a guerrilla movement was brewing. Programmers tired of XML's verbosity started using JSON—JavaScript Object Notation—instead. JSON-RPC stripped away the ceremony, offering a minimal protocol that did exactly what RPC was supposed to do: call remote procedures. No more, no less.</p>
+
+<h2>The Modern Landscape</h2>
+
+<p>Today's RPC technologies reflect lessons learned across five decades of distributed computing.</p>
+
+<p>Protocol Buffers, developed internally at Google and released to the public in 2008, finally solved the efficiency problem. Instead of human-readable text formats, Protocol Buffers use a compact binary encoding. Messages shrink dramatically. Parsing speeds up by orders of magnitude. And unlike earlier binary formats, Protocol Buffers are carefully designed to evolve—you can add new fields without breaking old code.</p>
+
+<p>In 2015, Google open-sourced gRPC, a complete RPC framework built on Protocol Buffers and HTTP/2. The "g" officially stands for something different with each release—"good," "green," "glossy"—but everyone knows it really means Google.</p>
+
+<p>gRPC embraces the reality that networks fail. It includes sophisticated error handling, automatic retries, and deadline propagation—if you give a request ten seconds to complete, that deadline follows it through every service it touches. It supports streaming, allowing servers to push data continuously instead of responding once. It generates client code in dozens of programming languages from a single definition.</p>
+
+<p>Apache Thrift, originally developed at Facebook, offers similar capabilities with a different design philosophy. Where gRPC opinonates heavily about protocol choices, Thrift allows more flexibility. You can swap out transport layers and serialization formats without rewriting your service definitions.</p>
+
+<h2>The Idempotency Problem</h2>
+
+<p>One challenge has vexed RPC designers from the beginning: what happens when a call fails partway through?</p>
+
+<p>Imagine you're transferring money between bank accounts. Your code calls a remote function to move one hundred dollars from checking to savings. The function executes successfully on the server. The money moves. Then, before the confirmation reaches you, the network hiccups. Your code sees an error.</p>
+
+<p>What do you do? Did the transfer happen or not? If you retry, will you move another hundred dollars? This is the nightmare scenario that keeps distributed systems engineers awake at night.</p>
+
+<p>Some operations are "idempotent"—doing them twice produces the same result as doing them once. Setting a user's name to "Alice" is idempotent; whether you do it once or ten times, the name is "Alice." These operations are safe to retry.</p>
+
+<p>But adding money to an account? Sending an email? Launching a missile? These are emphatically not idempotent. Careful design is required to handle failures safely, often involving transaction identifiers, two-phase commits, or other complexity that the simple RPC abstraction can't hide.</p>
+
+<h2>RPC in Your Daily Life</h2>
+
+<p>You use RPC constantly without knowing it.</p>
+
+<p>When your phone syncs with cloud storage, RPC calls shuttle data back and forth. When you stream a video, RPCs negotiate quality settings and fetch chunks of content. When you make a credit card purchase, RPCs connect the point-of-sale terminal to payment processors to banks and back.</p>
+
+<p>Modern applications—especially the "microservices" architecture popular in tech companies—are essentially constellations of services communicating through RPC. A single request to load your social media feed might trigger hundreds of internal RPC calls: fetching your friend list, retrieving posts, checking permissions, loading images, ranking content, logging analytics.</p>
+
+<p>The Model Context Protocol that's reshaping how artificial intelligence systems work? It's essentially RPC for AI, allowing language models to call functions in the outside world—querying databases, controlling applications, accessing current information.</p>
+
+<h2>The Abstraction That Wouldn't Die</h2>
+
+<p>RPC has been declared obsolete roughly once per decade since its invention. REST will replace it. Message queues will replace it. Event-driven architectures will replace it. GraphQL will replace it.</p>
+
+<p>And yet RPC persists, evolving with each generation of technology while maintaining its essential character. The reason is simple: calling functions is how programmers think. It's the most natural abstraction for expressing "I want this computer to do something."</p>
+
+<p>The implementations change. The wire formats change. The error handling grows more sophisticated. But the core idea—writing code as if distance doesn't exist, then handling the cases where it does—remains as relevant today as when Bruce Nelson named it four decades ago.</p>
+
+<p>It's still a beautiful lie. But it's a lie that built the networked world.</p>
       </div>
 
       <footer class="wikipedia-footer">

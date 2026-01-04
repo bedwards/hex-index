@@ -46,15 +46,17 @@ export function staticLayout(
 </head>
 <body>
   <header class="site-header">
-    <nav>
+    <nav class="container">
       <a href="${pathToRoot}index.html" class="logo">Hex Index</a>
     </nav>
   </header>
-  <main>
+  <main class="container">
     ${content}
   </main>
   <footer class="site-footer">
-    <p>A curated reading library</p>
+    <div class="container">
+      <p>A curated reading library</p>
+    </div>
   </footer>
 </body>
 </html>`;

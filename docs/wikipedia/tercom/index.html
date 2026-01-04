@@ -22,7 +22,151 @@
       </header>
 
       <div class="wikipedia-content">
-        <p>Content not available.</p>
+        <p class="source-note">Based on <a href="https://en.wikipedia.org/wiki/Terrain_contour_matching">Wikipedia: TERCOM</a></p>
+
+<h2>How Cruise Missiles See Without Eyes</h2>
+
+<p>Imagine you're blindfolded in a car, but you can feel every bump in the road. If someone gave you a detailed map of all the potholes and speed bumps on your route, you could figure out exactly where you are just by counting bumps. That, in essence, is how a cruise missile navigates using TERCOM—Terrain Contour Matching.</p>
+
+<p>It's an elegantly simple idea that transformed modern warfare.</p>
+
+<p>A cruise missile flying with TERCOM doesn't need to see landmarks or receive signals from satellites. It carries a radar altimeter—a device that constantly measures the distance between the missile and the ground below. As the missile flies, the ground rises and falls: over hills, across valleys, through plains. The altimeter records this undulating profile like a seismograph tracing an earthquake.</p>
+
+<p>Stored in the missile's memory is a pre-recorded map of what the terrain should look like along its planned route. Not a visual map, but a topographical one—a series of altitude measurements. The missile's computer constantly compares what it's actually measuring against what it should be measuring. When the two match up, the missile knows exactly where it is. When they don't match, it adjusts course.</p>
+
+<h2>The Ancestor: Reading Terrain on Film</h2>
+
+<p>The roots of this technology stretch back to the early Cold War. In 1952, the United States Air Force began experimenting with something called ATRAN—Automatic Terrain Recognition And Navigation—developed by Goodyear Aircraft Corporation. Yes, the tire company. During World War II and the Cold War, Goodyear's aircraft division was a major defense contractor, building everything from blimps to guided missiles.</p>
+
+<p>ATRAN worked differently from modern TERCOM, and understanding the difference reveals how much computing power has changed warfare.</p>
+
+<p>To program an ATRAN missile, you first had to fly the entire route in an aircraft equipped with a sideways-looking radar. This radar scanned the terrain ahead at a fixed angle, measuring the distance to various landforms. The returning radar signals varied in strength depending on what they bounced off—hills, valleys, buildings, forests—creating a pattern of stronger and weaker signals. Engineers captured this pattern by shining a light whose brightness matched the signal strength onto 35 millimeter film, advancing the film frame by frame to create a continuous record of the route.</p>
+
+<p>That film strip was the missile's map.</p>
+
+<p>Inside the missile, an identical radar system generated the same kind of signal during flight. Meanwhile, a photocell scanned the pre-recorded film. Simple electronics compared where the brightness changed sharply on the film versus where the live radar signal changed sharply. The difference between these two signals told the autopilot how far left or right the missile had drifted from its intended path.</p>
+
+<p>It was analog computing at its finest—no digital processors, just light, film, and electrical signals dancing together to guide a weapon across hundreds of miles.</p>
+
+<h2>Why Not Just Use Inertial Navigation?</h2>
+
+<p>Before TERCOM, missiles relied primarily on inertial navigation systems, often abbreviated INS. An inertial system uses gyroscopes and accelerometers to track every movement the missile makes from its launch point. If you know exactly where you started and can measure every turn, every acceleration, every change in direction, you can mathematically calculate where you must be now.</p>
+
+<p>The problem is drift.</p>
+
+<p>Every measurement contains tiny errors. Gyroscopes aren't perfectly stable. Accelerometers aren't perfectly accurate. These errors accumulate over time. A missile flying for an hour might find itself hundreds of meters off course—perhaps even kilometers. For a nuclear weapon, this might be acceptable. For a conventional warhead trying to hit a specific building, it's useless.</p>
+
+<p>TERCOM solves the drift problem by providing constant reality checks. Instead of dead reckoning from a single starting point, the missile repeatedly confirms its actual position against the terrain below. It's the difference between navigating with only a compass and speedometer versus having periodic GPS fixes. The longer the flight, the more valuable TERCOM becomes, because inertial errors keep growing while TERCOM errors don't.</p>
+
+<p>There's another advantage. A missile that knows exactly where it is can fly much lower.</p>
+
+<h3>Hugging the Earth</h3>
+
+<p>Radar works by line of sight. A radar station can only detect objects it can "see"—anything below the horizon is invisible. The Earth curves. Hills and mountains block signals. A missile flying at fifty meters altitude might be invisible to a radar station just thirty kilometers away if there's a ridge in between.</p>
+
+<p>But flying that low is dangerous. Crash into a hill you didn't know was there, and your mission ends abruptly. Inertial navigation simply isn't accurate enough for terrain-hugging flight over long distances. TERCOM is. By knowing exactly where it is, a TERCOM-equipped missile can thread through valleys, pop over ridgelines at the last moment, and generally stay below the radar horizon for most of its journey.</p>
+
+<p>This combination—extreme accuracy plus extreme low flight—made cruise missiles into the stealthy weapons they are today.</p>
+
+<h2>The Digital Revolution</h2>
+
+<p>Modern TERCOM bears little resemblance to the film-and-photocell systems of the 1950s. The principle is identical, but the implementation leverages decades of advances in computing.</p>
+
+<p>Today's TERCOM maps are digital grids. Imagine the terrain divided into squares—each square stores a single number representing the average altitude of the ground in that area. Larger squares mean less data to store but coarser resolution. Smaller squares capture terrain detail more precisely but demand more memory. Military planners choose the resolution based on what the mission requires.</p>
+
+<p>The missile's radar altimeter takes continuous measurements during flight, but the computer doesn't use every single reading. Instead, it "gates" the measurements—collecting readings over a period of time and averaging them into a single data point. This smooths out noise from momentary readings that might be thrown off by trees, buildings, or other small features.</p>
+
+<p>As these averaged measurements accumulate, they form a strip of altitude data. The computer slides this strip across the stored map, looking for where the pattern of altitude changes matches. It's like sliding a puzzle piece around until it clicks into place. When the patterns align, the missile knows its position and heading.</p>
+
+<p>The beauty of this approach is that absolute altitude doesn't matter—only the changes in altitude from one measurement to the next. The missile might not know it's flying at exactly 847 meters above sea level, but it knows it just descended 23 meters, then climbed 15, then descended 8. That signature of ups and downs is what identifies its location.</p>
+
+<h3>Memory Constraints and Clever Workarounds</h3>
+
+<p>In the 1970s and 1980s, when TERCOM-equipped cruise missiles like the Tomahawk first entered service, memory was precious. A modern smartphone has more storage capacity than all the computers that existed in 1975 combined. Missile designers couldn't possibly store terrain maps for an entire continent.</p>
+
+<p>So they cheated, intelligently.</p>
+
+<p>Instead of continuous terrain coverage, early TERCOM missiles stored only patches—small sections of detailed terrain data at key waypoints along the route. During the cruise phase, the missile relied on its inertial navigation system, accumulating drift errors as it flew. Periodically, it would pass over one of its stored terrain patches, take a TERCOM fix, correct its position, and reset the inertial system's errors to zero. Then it would fly on with fresh inertial guidance until the next patch.</p>
+
+<p>This hybrid approach—TERCOM patches correcting inertial drift—became known as TAINS, for TERCOM-Aided Inertial Navigation System. It was elegant engineering that squeezed maximum capability from limited technology.</p>
+
+<p>The tradeoff was flexibility. Because the missile only had terrain data for its pre-planned route, it couldn't be redirected in flight. Launch it from an unexpected location, or let it drift too far off course before the first terrain patch, and it would never find its map references. It would fly blind, guided only by its drifting inertial system, and miss its target by potentially embarrassing margins.</p>
+
+<p>This was a sharp contrast to modern satellite navigation systems like the Global Positioning System (GPS), which can guide a weapon to any location from any starting point without pre-recorded terrain data. But satellite navigation has its own vulnerability, which we'll return to shortly.</p>
+
+<h2>Adding Vision: DSMAC</h2>
+
+<p>TERCOM tells a missile where it is by feeling the terrain's shape. DSMAC tells a missile where it is by seeing what the terrain looks like.</p>
+
+<p>DSMAC—Digitized Scene Mapping Area Correlator—equips a missile with a camera and the intelligence to interpret what it sees. Developed in the 1980s, DSMAC represented an early form of what we now call computer vision or artificial intelligence.</p>
+
+<p>Here's how it worked on the Tomahawk Block II missiles used in the 1991 Gulf War.</p>
+
+<p>Before the mission, intelligence analysts would take satellite photographs of the target area and its surroundings. Large mainframe computers processed these images, calculating what they would look like from low altitude—simulating the view a missile would have during its approach. The computers generated "contrast maps" that emphasized edges and boundaries rather than subtle shading, making the images easier to compare despite variations in lighting, weather, or season.</p>
+
+<p>The missile carried these processed reference images in its memory. During the terminal phase of flight—the final approach to the target—it activated a downward-looking camera. Its onboard computer performed the same contrast-mapping process on the live imagery, then compared the result against the stored references.</p>
+
+<p>This comparison wasn't simple. The real world doesn't hold still for missile attacks. Seasons change. Snow covers fields in winter that were bare in summer. Construction projects reshape terrain. Vehicles move. Shadows shift with the sun's position. The DSMAC system had to be smart enough to filter out these differences and recognize the underlying terrain despite the changes.</p>
+
+<p>When it worked, it worked spectacularly well. During the Gulf War, DSMAC-equipped Tomahawks achieved accuracy that exceeded GPS-guided weapons of the era. They could identify specific buildings, not just coordinate points. They could fly down streets and turn at intersections.</p>
+
+<h3>Radar Vision</h3>
+
+<p>A variant approach equipped missiles like the Pershing II ballistic missile with active radar for terminal guidance. Instead of a camera comparing visual images, these missiles used radar to build a topographic picture of the target area, which they compared against radar imagery from satellites or reconnaissance aircraft.</p>
+
+<p>This radar-based scene matching worked in any weather and at night—conditions that would blind an optical camera. The technology was called DCU, for Digitized Correlator Unit, and it gave ballistic missiles—which fall on their targets from high altitude at tremendous speed—a precision previously associated only with slow, low-flying cruise missiles.</p>
+
+<h2>The Satellite Vulnerability</h2>
+
+<p>GPS changed everything about precision weapons. A GPS receiver the size of a deck of cards can determine its location anywhere on Earth to within a few meters. It's cheap, reliable, and requires no pre-mission reconnaissance. Any target, any launch point, any route—just plug in the coordinates and go.</p>
+
+<p>Small wonder that GPS guidance largely displaced TERCOM and DSMAC in many applications during the 1990s and 2000s.</p>
+
+<p>But GPS has an Achilles heel: it depends on satellites.</p>
+
+<p>The GPS system consists of roughly thirty satellites orbiting about 20,200 kilometers above Earth. A GPS receiver works by picking up signals from multiple satellites simultaneously and calculating its position based on the timing differences between those signals. The signals are weak—they've traveled twenty thousand kilometers through space—and they're predictable, following published specifications that anyone can study.</p>
+
+<p>A technologically sophisticated adversary has options. They can attempt to destroy or disable the satellites themselves. They can jam the GPS signals with powerful transmitters that drown out the weak satellite signals. They can "spoof" the system by broadcasting fake GPS signals that trick receivers into calculating the wrong position. Russia has demonstrated all these capabilities during the Ukraine war, with Ukrainian forces reporting widespread GPS disruption.</p>
+
+<p>TERCOM and DSMAC don't care about satellites. They navigate by reading the Earth itself, which is considerably harder for an adversary to jam, spoof, or destroy. A modern cruise missile designed for high-intensity conflict therefore typically carries all three systems: GPS for convenience and flexibility, TERCOM for resilience against GPS jamming, and DSMAC for pinpoint terminal accuracy.</p>
+
+<p>This layered approach explains why TERCOM, a technology with roots in the 1950s, remains relevant in an age of satellite navigation and artificial intelligence. Against an enemy who can't threaten GPS—a terrorist group, a minor regional power—GPS-only guidance is simpler and cheaper. Against a peer adversary with sophisticated electronic warfare capabilities, TERCOM and DSMAC provide the insurance policy that ensures the missile still finds its target.</p>
+
+<h2>A Global Inventory</h2>
+
+<p>The list of cruise missiles employing TERCOM reads like a catalog of Cold War anxiety and its aftermath.</p>
+
+<p>The United States pioneered the technology with the AGM-86 Air-Launched Cruise Missile and the AGM-129 Advanced Cruise Missile, both designed to deliver nuclear warheads. The BGM-109 Tomahawk, perhaps the most famous cruise missile in the world, has used TERCOM since its introduction in the 1980s, evolving through multiple variants with increasingly sophisticated guidance.</p>
+
+<p>The Soviet Union responded with the Kh-55 Granat, which NATO called the AS-15 Kent. Its descendants—the Kh-555 and Kh-101—almost certainly incorporate TERCOM, though Russian secrecy makes confirmation difficult. These missiles have appeared extensively in the ongoing war in Ukraine.</p>
+
+<p>China developed its own TERCOM-equipped weapons: the DH-10 land-attack cruise missile, the C-602 anti-ship and land attack missile, and the HongNiao series. Pakistan fields the Babur and Ra'ad cruise missiles. South Korea has the Hyunmoo III. Turkey developed the SOM air-launched cruise missile. Norway and the broader Western alliance benefit from the Naval Strike Missile.</p>
+
+<p>Even the Franco-British Storm Shadow—extensively used by Ukraine against Russian targets—employs TERCOM as part of its guidance package.</p>
+
+<p>The technology spread because it works, because it's relatively simple to implement once you have the terrain data, and because it provides a hedge against the electronic warfare capabilities that any serious military force now possesses.</p>
+
+<h2>The Map Behind the Map</h2>
+
+<p>None of this would work without one crucial ingredient: detailed terrain data for the target area.</p>
+
+<p>Early TERCOM systems required aircraft to fly the route in advance, an obviously dangerous proposition over enemy territory. Satellites changed this equation. Radar mapping satellites can survey terrain from orbit, building digital elevation models of the entire planet. The American Space Shuttle flew dedicated radar mapping missions. Commercial satellites now provide elevation data accurate enough for many military applications.</p>
+
+<p>But satellites have limits. Some terrain features are too small to resolve from orbit. Dense vegetation can obscure the actual ground level. Urban areas present particular challenges, with buildings of varying heights creating a cluttered radar return. For the highest-precision terminal guidance, military planners often still prefer data gathered by low-flying reconnaissance aircraft or drones.</p>
+
+<p>This creates an interesting intelligence dimension. The terrain maps a country possesses reveal where it's prepared to strike. If a nation's military has high-resolution terrain data for your capital city, you might reasonably conclude they've considered cruise missile strikes on your capital city. The maps themselves become strategic indicators.</p>
+
+<h2>Reading the Bumps in the Dark</h2>
+
+<p>There's something philosophically fascinating about TERCOM. It represents a completely different way of perceiving the world.</p>
+
+<p>Humans navigate primarily by vision. We recognize landmarks. We read signs. We build mental maps of places based on what they look like. GPS navigation extends this paradigm—the satellite tells us coordinates, and we visualize our position on a map.</p>
+
+<p>TERCOM discards vision entirely. A TERCOM-guided missile navigates through a world of pure altitude variation, a one-dimensional profile of ups and downs. It never "sees" a mountain—it just measures a sudden increase in ground elevation followed by a decrease. It never "sees" a river valley—it just notes a dip in the terrain profile. The missile's world is a long ribbon of altitude measurements, and somewhere in that ribbon is the path to the target.</p>
+
+<p>It's navigation by touch, in a sense. Or navigation by rhythm—the rhythm of the terrain's rise and fall.</p>
+
+<p>Seventy years after its invention, this elegant idea continues to guide missiles through contested skies, immune to jamming, independent of satellites, reading the ancient contours of the Earth itself.</p>
       </div>
 
       <footer class="wikipedia-footer">

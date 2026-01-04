@@ -22,7 +22,127 @@
       </header>
 
       <div class="wikipedia-content">
-        <p>Content not available.</p>
+        <p class="source-note">Based on <a href="https://en.wikipedia.org/wiki/Quantization_(signal_processing)">Wikipedia: Quantization (signal processing)</a></p>
+
+<h2>The Unavoidable Lie at the Heart of Digital Audio</h2>
+
+<p>Every digital photograph you've ever taken is a lie. Every song on your phone, every podcast episode, every voice memo—all of them are elaborate approximations of reality. The process responsible for this universal deception has a technical name: quantization. And understanding it reveals something profound about the fundamental tradeoffs we make whenever we try to capture the continuous, messy analog world in the clean, discrete language of computers.</p>
+
+<p>Here's the core problem. The real world doesn't come in neat steps. Sound waves flow smoothly through the air, with an infinite number of possible pressure values at any given moment. Light intensity varies continuously across a scene. But computers can only work with specific, countable numbers. They need to store values as combinations of ones and zeros, which means they need to pick from a finite menu of options.</p>
+
+<p>Quantization is the process of forcing reality into those boxes.</p>
+
+<h2>Rounding: The Simplest Quantizer</h2>
+
+<p>You've been doing quantization since elementary school, even if you never called it that. When you round 3.7 to 4, you're quantizing. You're taking a value from an infinite set of possibilities (all the real numbers) and mapping it to a much smaller set (the integers). The number 3.7 becomes 4. So does 3.8, 3.9, 4.1, 4.2, and 4.4999999. They all collapse into the same output.</p>
+
+<p>This collapsing is what makes quantization both useful and problematic. Useful because you end up with simpler, more manageable numbers. Problematic because you've lost information permanently. Once you've rounded 3.7 to 4, you can never recover the original value. Was it 3.71? 3.99? 4.49? All you know is that it was somewhere in the neighborhood of 4.</p>
+
+<p>The difference between what you started with and what you ended up with—that gap between 3.7 and 4—is called quantization error. Engineers also call it quantization noise or quantization distortion, depending on the context and how annoyed they are by it at any given moment.</p>
+
+<h2>The Staircase Function</h2>
+
+<p>Imagine graphing a quantizer's behavior. On the horizontal axis, you have all possible input values—a smooth, continuous line of real numbers. On the vertical axis, you have the outputs. But unlike the inputs, the outputs can only take on certain discrete values. If you were to draw what happens, you'd get something that looks remarkably like a staircase.</p>
+
+<p>The input value climbs smoothly upward, but the output jumps in steps. It stays flat at one level, then suddenly hops to the next, stays flat again, hops again. Each horizontal section of the staircase is called a tread. Each vertical jump is called a riser. This staircase metaphor turns out to be useful for categorizing different types of quantizers.</p>
+
+<p>A mid-tread quantizer has one of its output values sitting exactly at zero. Picture a staircase where one of the flat treads passes right through the center point. When your input is close to zero, the output is exactly zero. This seems natural for many applications—if something is approximately nothing, you might want to call it nothing.</p>
+
+<p>A mid-riser quantizer is different. It has one of its transition points—one of those vertical jumps—sitting exactly at zero. The output never actually equals zero; instead, it jumps from some small negative value to some small positive value as the input crosses the zero line. Think of it as a staircase where zero falls right in the middle of a riser rather than in the middle of a tread.</p>
+
+<p>Why would anyone want a quantizer that can't output zero? Sometimes you need to preserve the sign of a signal even when its magnitude is tiny. A mid-riser quantizer guarantees that positive inputs always produce positive outputs and negative inputs always produce negative outputs, right down to the smallest detectable level.</p>
+
+<h2>The Step Size Problem</h2>
+
+<p>The distance between adjacent output levels—how tall each step in the staircase is—has a name too. Engineers call it the step size, often represented by the Greek letter delta. A quantizer with a step size of one is just ordinary rounding to the nearest integer. A step size of 0.1 would round to the nearest tenth. A step size of 10 would round to the nearest ten.</p>
+
+<p>The step size determines how much error you can accumulate. With a step size of one, your rounding error is never worse than half a unit in either direction. You might be off by 0.499, but never by more than 0.5. Make the step size smaller, and your maximum error shrinks proportionally. Make it larger, and your approximation becomes cruder.</p>
+
+<p>Here's where things get mathematically elegant. If you assume that the quantization error is roughly equally likely to be any value within the range of plus or minus half a step, you can calculate the average error you'll see. Not the average of the error values themselves—that would be zero, since positive and negative errors cancel out—but the average of the squared errors, which captures the overall magnitude of the inaccuracy.</p>
+
+<p>That average turns out to be exactly one-twelfth of the step size squared. If your step size is delta, your mean squared error is delta squared divided by twelve. This formula comes up constantly in digital signal processing because it lets engineers predict exactly how much distortion a given quantization scheme will introduce.</p>
+
+<h2>Bits and Decibels</h2>
+
+<p>In digital systems, step sizes usually come in powers of two because computers think in binary. An 8-bit system can represent 256 distinct values (two to the eighth power). A 16-bit system handles 65,536 values. Each additional bit doubles the number of available levels, which cuts the step size in half.</p>
+
+<p>Remember that formula about the mean squared error being proportional to the step size squared? When you halve the step size, you quarter the error. In the logarithmic units that audio engineers prefer—decibels—quartering something works out to a reduction of about 6 decibels.</p>
+
+<p>This gives rise to a famous rule of thumb: each additional bit of resolution in a digital audio system improves the signal-to-noise ratio by roughly 6 decibels. A 16-bit system has about 48 decibels more dynamic range than an 8-bit system (eight additional bits times six decibels per bit). This is why CD-quality audio, which uses 16-bit samples, sounds dramatically cleaner than old 8-bit video game music. It's not just more levels—it's exponentially more levels, with exponentially less noise.</p>
+
+<p>Modern high-resolution audio often uses 24-bit samples, providing about 144 decibels of theoretical dynamic range. That's vastly more than human hearing can perceive, which spans only about 120 decibels from the threshold of hearing to the threshold of pain. The extra headroom isn't for playback—it's for recording and processing, where you want room to adjust levels without introducing audible quantization noise.</p>
+
+<h2>The Two-Stage View</h2>
+
+<p>Engineers find it helpful to think of quantization as happening in two distinct phases. First, there's the classification stage, sometimes called forward quantization. This is where you figure out which bin your input value falls into. You're not yet producing an output value; you're just assigning an index number, a label that says "this input belongs to category 47" or "this input belongs to category 12."</p>
+
+<p>Then there's the reconstruction stage, also called inverse quantization. This is where you convert that index back into an actual output value. You look up what value category 47 is supposed to represent, and you emit that value.</p>
+
+<p>Why bother separating these stages conceptually? Because they often happen in different places physically. When you compress an audio file, the encoder performs the classification stage, converting continuous audio samples into a series of index numbers. Those index numbers get stored or transmitted. Later, a decoder performs the reconstruction stage, converting the indices back into audio samples for playback.</p>
+
+<p>The indices are much more compact than the original samples—that's the whole point of compression. And the reconstruction stage can be extremely simple, perhaps just a lookup table that maps each possible index to its corresponding output value. All the interesting decisions happen during classification.</p>
+
+<h2>The Dead Zone</h2>
+
+<p>Some quantizers have a special region around zero where small inputs produce exactly zero output. This region is called the dead zone or deadband. It's like a noise gate in audio processing—signals below a certain threshold get silenced entirely.</p>
+
+<p>Dead zones are particularly useful for compression algorithms. Much of the data in typical signals represents small fluctuations around zero—minor variations that don't carry much meaningful information. By quantizing all of these tiny values to exactly zero, you can represent them extremely efficiently. A long run of zeros compresses beautifully.</p>
+
+<p>The width of the dead zone can be adjusted independently from the step size used elsewhere. Make it wider, and you're more aggressive about zeroing out small values. Make it narrower, and you preserve more subtle detail. The optimal choice depends on what you're quantizing and how much distortion you can tolerate.</p>
+
+<h2>When the Model Breaks Down</h2>
+
+<p>Engineers love to model quantization error as random noise—specifically, as white noise that's statistically independent of the original signal. This model is wonderfully convenient because the mathematics of random noise is well understood. You can treat quantization error as just another noise source, add it to your system's noise budget, and move on with your analysis.</p>
+
+<p>But this model has limits.</p>
+
+<p>The quantization error isn't actually random. It's completely determined by the input signal. Pass the same input through the same quantizer, and you'll get exactly the same error every time. For signals that vary smoothly and randomly, this deterministic error happens to behave statistically like random noise. But for signals with regular patterns, the error inherits those patterns.</p>
+
+<p>Consider a pure sine wave. A sine wave is the simplest possible oscillating signal—it's mathematically perfect and entirely predictable. When you quantize a sine wave, the error also becomes periodic, repeating with the same frequency as the original wave. Instead of random hiss, you get harmonics and distortion products. Instead of diffuse noise spread across all frequencies, you get concentrated spikes at specific frequencies related to the original signal.</p>
+
+<p>This correlated error can be audible in ways that random noise isn't. The human ear is remarkably tolerant of broadband hiss—we filter it out almost unconsciously. But we're quite sensitive to tonal artifacts, especially harmonically related tones. A little bit of correlated quantization error can sound much worse than a larger amount of random noise.</p>
+
+<h2>Dithering: Adding Noise on Purpose</h2>
+
+<p>The solution to correlated quantization error is delightfully counterintuitive: you add noise to the signal before quantizing it.</p>
+
+<p>This technique is called dithering, and it works by breaking up the correlation between the signal and the error. The added noise jiggles each sample slightly before it gets rounded. Instead of repeatedly rounding in the same direction (which creates those periodic error patterns), the quantizer rounds randomly in different directions, producing error that's genuinely random.</p>
+
+<p>Yes, you've increased the total amount of noise. But you've converted tonal, musical, objectionable distortion into diffuse, inoffensive hiss. It's a trade-off that almost always sounds better.</p>
+
+<p>Dithering is one of those techniques that seems like it shouldn't work until you understand what's really going on. You're not reducing error; you're randomizing it. You're trading structured imperfection for unstructured imperfection. And because human perception is much more bothered by structure than by randomness, the perceived quality improves even though the measured error increases.</p>
+
+<h2>Lossy Compression and Rate-Distortion Theory</h2>
+
+<p>Quantization sits at the heart of every lossy compression algorithm. When you save a photograph as a JPEG, quantization throws away detail. When you encode audio as an MP3 or AAC file, quantization discards subtle variations. When video streaming adapts to your network bandwidth, quantization controls how much information gets sacrificed.</p>
+
+<p>The field of rate-distortion theory studies exactly this tradeoff. Given a limited amount of data you can transmit or store (the rate), how much distortion must you accept? Conversely, given a maximum acceptable distortion, what's the minimum rate you need?</p>
+
+<p>The answer always involves quantization. Coarser quantization—larger step sizes, fewer output levels—produces more distortion but requires fewer bits to represent. Finer quantization preserves more detail but demands more storage or bandwidth. The art of compression is choosing quantization parameters that minimize perceptible distortion while staying within your bit budget.</p>
+
+<p>Modern codecs get remarkably clever about this. They quantize aggressively in parts of the signal that humans can't perceive well, preserving bits for the parts that matter most. Audio codecs exploit the fact that quiet sounds become inaudible when loud sounds are present nearby in frequency. Video codecs exploit the fact that the eye has poor resolution for color compared to brightness. Image codecs exploit the fact that fine texture becomes invisible in peripheral vision.</p>
+
+<p>All of these tricks ultimately come down to quantization—deciding which aspects of the signal get preserved carefully and which get rounded roughly.</p>
+
+<h2>From Scalars to Vectors</h2>
+
+<p>Everything discussed so far has involved quantizing one number at a time—scalar quantization. But there's a more powerful technique called vector quantization that processes multiple values together.</p>
+
+<p>Imagine you need to quantize pairs of numbers—coordinates in a two-dimensional space. With scalar quantization, you'd round each coordinate independently. But with vector quantization, you'd treat the pair as a single point and round it to the nearest point in a predefined set of reference points, called a codebook.</p>
+
+<p>Vector quantization can be dramatically more efficient than scalar quantization. It exploits correlations between the values being quantized. If certain combinations of coordinates are common while others are rare, you can place more codebook points in the common regions and fewer in the rare regions. Scalar quantization can't do this—it treats each dimension independently, blind to patterns in how the dimensions relate.</p>
+
+<p>The tradeoff is complexity. A scalar quantizer just needs to know the step size and maybe a few thresholds. A vector quantizer needs to store an entire codebook and search through it for each input. In high dimensions, this becomes impractical unless clever algorithms speed up the search.</p>
+
+<h2>The Fundamental Tension</h2>
+
+<p>Quantization embodies a tension that runs through all of digital signal processing: the conflict between the continuous reality we experience and the discrete representations our machines require.</p>
+
+<p>We want to capture everything—every infinitesimal variation in a sound wave, every subtle gradation in a photograph, every microscopic fluctuation in a sensor reading. But we can't. Storage is finite. Bandwidth is limited. Processing time is bounded. We must choose what to keep and what to discard.</p>
+
+<p>Quantization is where that choice gets made. It's the point of no return, where infinite possibility collapses into finite representation. Done well, it's invisible—the quantized signal sounds, looks, and feels like the original. Done poorly, it introduces artifacts that call attention to themselves, reminders that what we're experiencing is a copy, not the real thing.</p>
+
+<p>The engineers who design quantization schemes are, in a sense, deciding what matters. They're building models of human perception into mathematical formulas, encoding assumptions about what we'll notice and what we'll ignore. When they get it right, we never think about quantization at all. We just enjoy our music, our videos, our photographs, blissfully unaware of the compromises being made behind the scenes to fit infinity into a finite box.</p>
       </div>
 
       <footer class="wikipedia-footer">

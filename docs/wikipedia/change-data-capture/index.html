@@ -22,7 +22,161 @@
       </header>
 
       <div class="wikipedia-content">
-        <p>Content not available.</p>
+        <p class="source-note">Based on <a href="https://en.wikipedia.org/wiki/Change_data_capture">Wikipedia: Change data capture</a></p>
+
+<h2>The Detective Work of Data: How Databases Track What Changed</h2>
+
+<p>Every second, millions of database rows are being modified across the world. Someone updates their shipping address. A bank processes a wire transfer. A warehouse marks an item as shipped. The change happens, and then—what? How does the rest of the system know something is different?</p>
+
+<p>This is the problem that Change Data Capture solves. And if you've ever wondered how Reddit managed to migrate its comments system from Python to Go without losing a single reply, the answer involves exactly this kind of detective work.</p>
+
+<h2>What Change Data Capture Actually Does</h2>
+
+<p>Change Data Capture—usually shortened to CDC—is a set of techniques for figuring out which data changed since the last time you looked. Think of it like a security camera for your database. Instead of recording video footage, it records the "deltas"—the differences between what was there before and what's there now.</p>
+
+<p>Why does this matter? Because the alternative is terrible.</p>
+
+<p>Imagine you have a database with fifty million customer records, and you need to synchronize it with another system every night. Without CDC, you'd have to compare all fifty million records, one by one, to figure out which ones changed. With CDC, you simply ask: "What's different since midnight?" and get back only the ten thousand records that actually changed.</p>
+
+<p>The difference in performance is staggering. The difference in your electricity bill is even more so.</p>
+
+<h2>The Birth of CDC: Data Warehouses and the Need for History</h2>
+
+<p>Change Data Capture emerged from the world of data warehousing. A data warehouse is essentially a historical archive of business data—a place where companies store not just current information, but snapshots of what that information looked like over time.</p>
+
+<p>Think about why this matters. If you're analyzing sales trends, you don't just need to know that a product currently costs forty-nine dollars. You need to know it cost fifty-nine dollars last month, forty-four dollars during the holiday sale, and sixty-two dollars when it first launched. Capturing and preserving the state of data across time is the core function of a data warehouse.</p>
+
+<p>But CDC isn't limited to warehouses anymore. Any system that needs to react to changes—notification services, search indexes, cache invalidation systems, data replication pipelines—can benefit from knowing what changed without having to scan everything.</p>
+
+<h2>The Simplest Approach: Timestamps</h2>
+
+<p>The most straightforward CDC technique is embarrassingly simple: add a column to your table that records when each row was last modified.</p>
+
+<p>You've probably seen these columns before. They go by names like LAST_UPDATE, LAST_MODIFIED, or UPDATED_AT. Every time someone changes a row, the timestamp gets updated. When you want to find changes, you ask: "Show me everything modified after six o'clock yesterday."</p>
+
+<p>This approach has the advantage of being obvious. A junior developer can understand it in thirty seconds. But it has subtle problems.</p>
+
+<p>What if two different systems modify the same row at nearly the same time? What if your clock drifts? What if you need to capture changes at a finer granularity than your timestamp precision allows? And here's a tricky one: what if a row gets modified, then modified again to its original value? The timestamp says it changed, but the data is back where it started.</p>
+
+<p>Timestamps work well for many use cases, but they're not bulletproof.</p>
+
+<h2>Version Numbers: A Different Kind of Clock</h2>
+
+<p>Instead of tracking when something changed, you can track how many times it changed. This is the version number approach.</p>
+
+<p>Each table—or sometimes a group of related tables—maintains a current version number stored in a separate reference table. When you capture changes, you grab everything marked with the latest version. After the capture completes, you increment the version number for the next round.</p>
+
+<p>There's an important distinction here that trips people up. This table-level versioning is different from row-level versioning used for optimistic locking.</p>
+
+<p>Optimistic locking is a technique where each row has its own independent version counter. When you want to update a row, you read its current version, make your changes, and then attempt to save—but only if nobody else incremented the version while you were working. It's a way to prevent two people from accidentally overwriting each other's changes.</p>
+
+<p>But you can't use row-level versions for CDC. Why not? Because to find all changes, you'd need to know the "starting" version of every single row. If your table has fifty million rows, you'd need to maintain fifty million version numbers just to detect changes. That defeats the entire purpose.</p>
+
+<h2>Status Flags: The Human Element</h2>
+
+<p>Sometimes data changes but isn't ready to be propagated. Maybe it needs human review first. Maybe it's flagged for quality control. Maybe it's part of a batch that shouldn't go live until approval.</p>
+
+<p>This is where status flags come in. A simple boolean column—HAS_CHANGED or READY_FOR_SYNC—lets you mark rows that have been modified but add an extra gate before they flow downstream.</p>
+
+<p>Status flags can supplement timestamps or version numbers. A query might say: "Give me all rows modified since yesterday where the status is APPROVED." This combination provides much finer control over what gets captured and when.</p>
+
+<h2>The Power of Three</h2>
+
+<p>Experienced database designers often use all three techniques together: timestamps, versions, and status flags. This isn't redundancy—each element serves a distinct purpose.</p>
+
+<p>Consider this query: "Capture all data for version 2.1 that changed between June 1st and July 1st, 2005, where the status indicates it's ready for production."</p>
+
+<p>The version narrows you to a specific release. The timestamps narrow you to a specific time window. The status ensures only reviewed, approved changes flow through. You couldn't express this with any single technique alone.</p>
+
+<h2>Triggers: Teaching the Database to Report on Itself</h2>
+
+<p>All the methods we've discussed so far are passive. They record that something changed, and then you come along later to ask about it. But what if the database could actively notify other systems the moment a change happens?</p>
+
+<p>This is what database triggers enable.</p>
+
+<p>A trigger is a piece of code that fires automatically when something happens to a table—an insert, update, or delete. You can configure triggers to write entries to a separate queue table, creating a log of everything that happened.</p>
+
+<p>Picture an Accounts table at a bank. Every time a transaction hits this table, a trigger fires and writes a record to a queue table with columns like: ID, TableName, RowId, Timestamp, Operation. A sample entry might look like: 1, Accounts, 76, 2008-11-02 00:15, Update.</p>
+
+<p>Now other systems can "replay" this queue. They read entries in order and apply the same changes to their own copies of the data. This is how many real-time replication systems work.</p>
+
+<p>More sophisticated implementations log not just the fact that something changed, but the actual before-and-after values. This allows downstream systems to apply changes without needing to query the source database at all.</p>
+
+<h2>Reading the Transaction Log: Going Straight to the Source</h2>
+
+<p>Every modern database maintains a transaction log—a sequential record of every write operation. The database uses this log for crash recovery: if the power goes out mid-transaction, the log allows the database to figure out what was committed and what wasn't.</p>
+
+<p>This log is, quite literally, a perfect record of every change. If you could read it, you'd have the ultimate CDC solution.</p>
+
+<p>The catch? Transaction logs are proprietary, poorly documented, and change between database versions.</p>
+
+<p>Unlike Structured Query Language, which is standardized across databases, there's no standard for transaction logs. Oracle's log looks nothing like PostgreSQL's, which looks nothing like MySQL's. Each vendor treats the log format as an internal implementation detail, not a public interface.</p>
+
+<p>Some databases have started offering programmatic access to their logs—Oracle, IBM's DB2, Microsoft SQL Server. But even with official interfaces, challenges remain.</p>
+
+<p>First, databases regularly archive old log files. Your CDC system needs to coordinate with this archival process, or it might try to read a file that's already been moved to cold storage.</p>
+
+<p>Second, logs often store data in physical formats optimized for recovery, not human readability. You might get raw byte differences rather than nice clean row changes. Translating these into something useful requires intimate knowledge of the database's internal storage format.</p>
+
+<p>Third, logs contain uncommitted changes. If a transaction writes data and then rolls back, both the write and the rollback appear in the log. Your CDC system needs to be smart enough to ignore changes that were ultimately undone.</p>
+
+<p>Fourth, when the database schema changes—a column is added, a table is renamed—the log format might change too. Your CDC system needs to handle these transitions gracefully.</p>
+
+<p>Despite these challenges, transaction log-based CDC has compelling advantages. It has minimal impact on database performance because you're reading logs, not querying tables. It requires no changes to application code. It captures changes with very low latency. And critically, it preserves transactional integrity—you see changes in the exact order they were committed, grouped by transaction.</p>
+
+<h2>Push Versus Pull: Who Initiates the Transfer?</h2>
+
+<p>Once you've identified what changed, you need to move that information somewhere. There are two basic models for this.</p>
+
+<p>In the push model, the source system takes the initiative. It packages up the changes and delivers them downstream. Each system in the pipeline receives data, processes it, creates its own subset, and pushes it to the next system.</p>
+
+<p>In the pull model, the target takes the initiative. It sends a request to the source asking for changes since a certain point. The source responds with the relevant data, and the target then passes it along to the next system.</p>
+
+<p>Push tends to have lower latency because changes flow immediately. Pull gives more control to the consumer, who can request data at their own pace. Most real-world systems use a combination of both, depending on the specific requirements of each integration point.</p>
+
+<h2>The Noise Problem</h2>
+
+<p>Here's a subtle issue that causes real headaches: metadata changes that don't represent actual data changes.</p>
+
+<p>Some systems track who last viewed a record, even if they didn't modify it. Every time someone opens a customer profile, the LAST_VIEWED_BY column updates. From the CDC system's perspective, this looks like a change. But it's not meaningful change—it's noise.</p>
+
+<p>If your CDC pipeline treats every touched row as a changed row, you'll flood downstream systems with false signals. You'll replicate data that doesn't need replicating. You'll trigger processing that produces no useful result.</p>
+
+<p>Careful data modeling can prevent this. Keep audit metadata separate from business data. Use different tables, or at least make sure your CDC queries can distinguish between meaningful changes and incidental touches.</p>
+
+<h2>CDC Versus Slowly Changing Dimensions</h2>
+
+<p>If you've worked with data warehouses, you might wonder how CDC relates to Slowly Changing Dimensions—a technique with the wonderfully bureaucratic abbreviation SCD.</p>
+
+<p>Both techniques deal with tracking changes over time, but they serve different purposes.</p>
+
+<p>Slowly Changing Dimensions are about maintaining history in the target system. When a customer's address changes, what happens to their old address? In SCD Type 1, you simply overwrite it—the old address is lost. In SCD Type 2, you keep both versions, with timestamps or flags indicating which was current when. In SCD Type 3, you keep only the previous and current values, not the full history.</p>
+
+<p>CDC, by contrast, is about efficiently detecting and transmitting changes. It tells you what changed. SCD tells you what to do with that information once it arrives.</p>
+
+<p>In practice, CDC often feeds into SCD processes. The CDC mechanism detects that a customer address changed. The SCD logic then decides whether to overwrite the old value, keep it as history, or handle it some other way.</p>
+
+<h2>Why This Matters for System Migrations</h2>
+
+<p>Return to that Reddit migration mentioned at the beginning. When you're moving a live system from one technology to another, you can't just flip a switch. You need to run both systems in parallel. You need to keep them synchronized. You need to verify they produce identical results before cutting over.</p>
+
+<p>CDC makes this possible.</p>
+
+<p>You set up a CDC pipeline from the old system to the new one. Every comment posted in the Python system gets captured and replicated to the Go system. Every edit, every deletion flows through. The new system stays in sync without any changes to how users interact with the old system.</p>
+
+<p>Once you're confident the new system is handling everything correctly, you can gradually shift traffic. First read traffic, then write traffic. If something goes wrong, you can fall back. The CDC pipeline means both systems have the same data, so users won't notice the transition.</p>
+
+<p>This pattern—dual-running with CDC synchronization—is how most large-scale migrations happen. It's not glamorous. It's not the kind of thing that makes headlines. But it's the infrastructure that lets billion-dollar systems evolve without downtime.</p>
+
+<h2>The Trade-offs</h2>
+
+<p>No CDC approach is perfect. Timestamps are simple but imprecise. Version numbers work well but require schema changes. Triggers capture changes in real-time but add overhead to every write operation. Transaction logs are comprehensive but vendor-specific and complex to implement.</p>
+
+<p>Real systems often combine multiple approaches. Triggers might handle high-priority real-time notifications while a nightly batch process uses timestamps to catch anything that slipped through. Transaction log parsing might feed the primary replication pipeline while status flags gate what actually goes to production.</p>
+
+<p>The right solution depends on your specific requirements. How much latency can you tolerate? How much impact on the source system is acceptable? Do you need transactional consistency or is eventual consistency good enough? How many downstream systems need the changes?</p>
+
+<p>Change Data Capture isn't a single technique—it's a family of patterns for solving a fundamental problem in distributed systems. The database changed. Now everyone else needs to know.</p>
       </div>
 
       <footer class="wikipedia-footer">

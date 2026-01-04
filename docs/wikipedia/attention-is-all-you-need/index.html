@@ -22,7 +22,123 @@
       </header>
 
       <div class="wikipedia-content">
-        <p>Content not available.</p>
+        <p class="source-note">Based on <a href="https://en.wikipedia.org/wiki/Attention_Is_All_You_Need">Wikipedia: Attention Is All You Need</a></p>
+
+<p>Eight researchers at Google wrote a paper in 2017 that changed everything. The paper's title was a Beatles reference—"Attention Is All You Need," a play on "All You Need Is Love"—and one of the authors, Jakob Uszkoreit, picked the name "Transformer" simply because he liked how it sounded. An early design document even featured illustrations of Optimus Prime and other characters from the Transformers franchise.</p>
+
+<p>The whimsy belied the revolution they were about to unleash.</p>
+
+<p>As of 2025, that paper has been cited more than 173,000 times, making it one of the ten most-cited research papers of the 21st century. Every author has since left Google to join other companies or start their own. The architecture they introduced—the Transformer—now forms the foundation of virtually every large language model you've heard of: GPT, Claude, Gemini, Llama, and countless others.</p>
+
+<h2>The Problem They Were Trying to Solve</h2>
+
+<p>To understand why this paper mattered, you need to understand what came before it.</p>
+
+<p>For decades, the dominant approach to processing sequences of text was something called a recurrent neural network, or RNN. The idea behind an RNN is intuitive: you process text one word at a time, building up an understanding as you go. Each word you read updates your mental state, which then influences how you interpret the next word.</p>
+
+<p>This mirrors how humans read. You start at the beginning of a sentence and work your way to the end, accumulating meaning as you go.</p>
+
+<p>The problem? It's painfully slow.</p>
+
+<p>Because you have to process words one after another, you can't take advantage of modern graphics processing units (GPUs), which are designed to perform thousands of calculations simultaneously. It's like having an assembly line with a thousand workers, but only allowing one worker to do anything at a time while the other 999 stand idle.</p>
+
+<p>There was another problem too. By the time an RNN reached the end of a long sentence, it had often "forgotten" what was at the beginning. Information from early words would fade as new words kept updating the model's state. Researchers came up with clever solutions like Long Short-Term Memory networks (LSTMs, introduced in 1995), which used specialized mechanisms to preserve important information over longer stretches. But even LSTMs struggled with truly long passages, and they still processed text sequentially—one word at a time.</p>
+
+<h2>The Attention Mechanism: A Brief Detour</h2>
+
+<p>Before the Transformer, researchers had already developed something called an "attention mechanism." The idea, introduced in 2014, was elegant: instead of forcing the model to compress everything it had read into a single state vector, why not let it look back at all the words it had processed and decide which ones were most relevant right now?</p>
+
+<p>Think of it like reading with a highlighter. As you're trying to understand a sentence, you can glance back at the important words you've already read rather than trying to hold everything in your head at once.</p>
+
+<p>This attention mechanism dramatically improved translation systems. When translating a sentence from English to French, for example, the model could "attend to" different English words while generating each French word, rather than trying to squeeze the entire English sentence into a fixed-size representation.</p>
+
+<p>But these early attention mechanisms were still bolted onto recurrent neural networks. They helped, but they didn't solve the fundamental problem of sequential processing.</p>
+
+<h2>The Radical Hypothesis</h2>
+
+<p>Jakob Uszkoreit had a hunch that seemed almost crazy at the time: what if you could get rid of the recurrence entirely? What if attention alone was enough?</p>
+
+<p>This was controversial. Even his father, Hans Uszkoreit—a well-known computational linguist—was skeptical. The conventional wisdom held that you needed some kind of sequential processing to handle language. After all, word order matters. "The dog bit the man" means something very different from "The man bit the dog."</p>
+
+<p>But Uszkoreit and his seven co-authors—Ashish Vaswani, Noam Shazeer, Niki Parmar, Llion Jones, Aidan Gomez, Łukasz Kaiser, and Illia Polosukhin—pushed forward anyway. (All eight were listed as "equal contributors" on the paper, with the author order randomized.)</p>
+
+<p>Their solution was the Transformer architecture, and its key insight was this: instead of processing words one at a time, process them all at once. Every word in the input can "attend to" every other word simultaneously. The model learns which words are most relevant to each other, and it does this in parallel across the entire sequence.</p>
+
+<h2>How Self-Attention Actually Works</h2>
+
+<p>Imagine you're reading the sentence: "The animal didn't cross the street because it was too tired."</p>
+
+<p>What does "it" refer to? The animal or the street? As a human, you instantly know it means the animal—streets don't get tired. But how would a computer figure this out?</p>
+
+<p>In a Transformer, each word gets transformed into three different representations, playfully called Query, Key, and Value. Think of it like a library system. The Query is what you're looking for. The Key is how each book is labeled. The Value is the actual content of the book.</p>
+
+<p>When the model is trying to understand the word "it," it generates a Query that essentially asks: "What am I referring to?" Every other word in the sentence has a Key that describes what it is. The model compares the Query against all the Keys to figure out which words are most relevant. Then it pulls in information from the Values of those relevant words.</p>
+
+<p>The magic happens because this process runs in parallel for every word in the sentence, and it can run across thousands of GPU cores simultaneously. No more waiting for each word to be processed before moving to the next.</p>
+
+<h2>Multi-Head Attention: Looking at Language from Multiple Angles</h2>
+
+<p>A single attention mechanism captures one kind of relationship between words. But language is complex. You might want to track grammatical relationships, semantic similarities, positional dependencies, and more—all at the same time.</p>
+
+<p>The Transformer solution is to run multiple attention mechanisms in parallel, each with its own learned parameters. These are called "attention heads." Each head can learn to focus on different types of relationships. One head might learn to connect pronouns with their referents. Another might learn to link verbs with their subjects. A third might focus on adjective-noun pairs.</p>
+
+<p>After all the heads have done their work, their outputs are combined and transformed into a single representation that captures all these different perspectives.</p>
+
+<h2>The Position Problem</h2>
+
+<p>There's an obvious issue with processing all words in parallel: if everything happens at once, how does the model know word order? In an RNN, position is implicit—the model processes the first word first, the second word second, and so on. But in a Transformer, there's no inherent notion of sequence.</p>
+
+<p>The authors solved this with positional encodings. Before feeding words into the model, they add special signals that encode each word's position using sine and cosine waves of different frequencies.</p>
+
+<p>Why sine and cosine? The paper offers a hint: these functions allow the model to "extrapolate to sequence lengths longer than the ones encountered during training." Because trigonometric functions are periodic and have nice mathematical properties, the positional encodings generalize well to sequences of different lengths.</p>
+
+<p>This is admittedly one of the more technical aspects of the paper, but the intuition is that words at different positions get slightly different "flavors" added to them, and the model learns to use these flavors to understand sequence order.</p>
+
+<h2>The Results Were Dramatic</h2>
+
+<p>The team tested their Transformer on machine translation, translating between English and German. The results exceeded everything that came before—and the model trained faster because it could leverage parallel processing on GPUs.</p>
+
+<p>But perhaps more importantly, the team quickly realized they had stumbled onto something bigger than translation. They tried the Transformer on generating Wikipedia articles, on parsing sentences into grammatical structures, on answering questions. It worked remarkably well on all of them.</p>
+
+<p>They had created a general-purpose language model.</p>
+
+<h2>The Trade-offs</h2>
+
+<p>The Transformer isn't a free lunch. Because every word attends to every other word, the computational cost grows quadratically with sequence length. If you double the length of your input, you quadruple the computation required. This is why large language models have "context windows"—limits on how much text they can process at once. Processing an entire novel in one go would be prohibitively expensive.</p>
+
+<p>Researchers have since developed various techniques to mitigate this, from sparse attention patterns that don't connect every word to every other word, to newer architectures that reduce the quadratic scaling. But the fundamental trade-off remains: the parallelizability that makes Transformers fast comes at the cost of increased computation for long sequences.</p>
+
+<h2>Why This Paper Sparked an AI Revolution</h2>
+
+<p>The Transformer architecture solved a critical bottleneck. For years, researchers had known that neural networks could do amazing things with language—if only they could be scaled up. But scaling up was impractical when you had to process text one word at a time.</p>
+
+<p>The Transformer removed that barrier. Suddenly, you could throw vast amounts of parallel computing power at the problem. You could train on enormous datasets. You could build models with billions of parameters.</p>
+
+<p>Within two years, OpenAI had introduced GPT-2, a Transformer-based model with 1.5 billion parameters that could generate remarkably coherent text. A year later came GPT-3 with 175 billion parameters. Then GPT-4. Claude. Gemini. The floodgates had opened.</p>
+
+<p>The authors of "Attention Is All You Need" foresaw some of this. They wrote about the potential for their technique to handle "question answering and what is now known as multimodal generative AI"—systems that can work with text, images, and other types of data simultaneously.</p>
+
+<p>What they probably didn't foresee was just how completely their architecture would dominate. The Transformer didn't just improve on existing approaches; it became the standard. Today, if you're building a state-of-the-art language model, you're almost certainly building on top of the ideas in this paper.</p>
+
+<h2>The Diaspora</h2>
+
+<p>After the paper was published, all eight authors left Google. This fact has become a minor legend in the tech world. They didn't leave in protest or under duress—they left because the ideas they had developed were too valuable to keep within one company.</p>
+
+<p>Noam Shazeer co-founded Character.AI before returning to Google to help build Gemini. Aidan Gomez co-founded Cohere. Illia Polosukhin co-founded Near Protocol. The Transformer paper didn't just create a new architecture; it seeded an entire ecosystem of AI companies.</p>
+
+<p>The name they gave their internal team? Team Transformer. The playful spirit that led them to name their architecture after a toy franchise had produced one of the most consequential technical papers of the century.</p>
+
+<h2>A Note on What Came Before</h2>
+
+<p>Scientific breakthroughs rarely emerge from nowhere, and the Transformer is no exception. The attention mechanism it relies on was introduced in 2014 by Dzmitry Bahdanau and colleagues. The concept of neural networks with "fast weights" that could dynamically adjust based on input dates back to the early 1990s. Sequence-to-sequence models, which translate one sequence into another, were developed in 2014 by multiple research groups working in parallel.</p>
+
+<p>Even Google's own translation system had been revolutionized just a year before, in 2016, when Google Translate switched from statistical methods to a neural approach using LSTMs. That system, which took nine months to develop, outperformed a statistical approach that had taken ten years to build.</p>
+
+<p>The Transformer paper took the next leap: ditching recurrence entirely in favor of pure attention. It was a synthesis of many previous ideas, executed with elegance and validated with compelling results.</p>
+
+<p>Sometimes in science, the right ideas come together at the right time, and someone has the clarity to see how they fit. Eight researchers at Google had that clarity in 2017, and they changed the course of artificial intelligence.</p>
+
+<p>All they needed was attention.</p>
       </div>
 
       <footer class="wikipedia-footer">

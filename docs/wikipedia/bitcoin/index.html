@@ -22,7 +22,151 @@
       </header>
 
       <div class="wikipedia-content">
-        <p>Content not available.</p>
+        <p class="source-note">Based on <a href="https://en.wikipedia.org/wiki/Bitcoin">Wikipedia: Bitcoin</a></p>
+
+<p>On January 3rd, 2009, someone embedded a newspaper headline into a block of computer code. "The Times 03/Jan/2009 Chancellor on brink of second bailout for banks." It was a timestamp, a declaration, and perhaps a manifesto rolled into one. The mysterious creator of Bitcoin was announcing that this new form of money had arrived precisely as the old financial system was failing.</p>
+
+<p>That creator went by the name Satoshi Nakamoto. No one knows who Nakamoto actually is—whether a man, a woman, or a group of people working together. What we do know is that before vanishing from the internet in 2010, Nakamoto had mined approximately one million bitcoins and handed control of the project to others. At Bitcoin's peak prices, that stash would be worth tens of billions of dollars. It has never been touched.</p>
+
+<h2>The Problem Bitcoin Solved</h2>
+
+<p>To understand why Bitcoin matters, you need to understand a problem that had frustrated computer scientists for decades: how do you create digital money that can't be copied?</p>
+
+<p>Physical cash has built-in scarcity. If I hand you a twenty-dollar bill, I no longer have that bill. But digital files are infinitely copyable. An MP3 of a song can be duplicated millions of times at essentially zero cost. So how do you create a digital token that behaves like physical cash—that can only be in one place at one time?</p>
+
+<p>The obvious solution is to have a central authority keep track of who owns what. Your bank does this. When you send money through Venmo or PayPal, a company's computer updates a database saying you have less money and someone else has more. This works, but it requires trusting that central authority not to cheat, freeze your account, or simply go bankrupt.</p>
+
+<p>For decades, cryptographers and cypherpunks—a loose community of privacy advocates and technologists—tried to create digital money without central control. In the 1980s, David Chaum invented something called ecash, but it still required a company to operate the system. In 1997, Adam Back created Hashcash, a clever system that required computers to solve mathematical puzzles before sending emails (making spam economically impractical), but it had no way to prevent people from spending the same digital token twice.</p>
+
+<p>Two proposals in 1998 came tantalizingly close. Wei Dai described something called b-money, and Nick Szabo proposed bit gold. Both imagined decentralized digital currencies where computers across a network would collectively maintain records of who owned what. But both systems had a fatal flaw: they were vulnerable to what's called a Sybil attack, named after a famous case study of a woman with multiple personality disorder. In these systems, a bad actor could simply create thousands of fake identities and overwhelm the network with fraudulent votes about which transactions were valid.</p>
+
+<h2>The Elegant Solution</h2>
+
+<p>Nakamoto's breakthrough was combining existing ideas in a new way. According to computer scientist Arvind Narayanan, every individual component of Bitcoin had been described in earlier academic papers. The innovation was how they fit together.</p>
+
+<p>Here's how it works, explained from first principles.</p>
+
+<p>Imagine a global notebook that records every transaction ever made. "Alice sent 5 bitcoins to Bob." "Bob sent 3 bitcoins to Carol." Anyone can read this notebook, and thousands of computers around the world maintain identical copies. This notebook is called the blockchain.</p>
+
+<p>But who gets to write in the notebook? In a centralized system, a bank decides. In Bitcoin, that job goes to whoever can solve a mathematical puzzle first.</p>
+
+<p>Every ten minutes, approximately, computers around the world compete to solve a puzzle. The puzzle itself is simple to describe but extraordinarily hard to solve. Imagine you have a function—a mathematical meat grinder—that takes any input and produces a seemingly random output. The puzzle is: find an input that produces an output starting with a certain number of zeros.</p>
+
+<p>There's no shortcut. You simply have to guess and check, billions of times per second, until you stumble upon an answer. The first computer to find a valid solution gets to write the next page—called a block—in the global notebook. As a reward, that computer's owner receives newly created bitcoins.</p>
+
+<p>This process is called mining, and it's where Bitcoin gets its environmental controversy. But it also solves the Sybil attack problem brilliantly. Creating fake identities is cheap. Running millions of computers to guess and check mathematical puzzles is not. To attack Bitcoin, you would need to control more computational power than all the honest participants combined—an astronomically expensive proposition.</p>
+
+<h2>Digital Signatures and Ownership</h2>
+
+<p>There's still a crucial question: how does the network know that Alice actually authorized her transaction, rather than someone impersonating her?</p>
+
+<p>The answer involves cryptographic signatures—one of the most elegant inventions in all of computer science.</p>
+
+<p>When you create a Bitcoin account, your computer generates two mathematically linked numbers. One is called your private key, which you keep absolutely secret. The other is your public key, which you share freely—it becomes your Bitcoin address, like an email address for money.</p>
+
+<p>Here's the magic: using your private key, you can create a signature that anyone can verify using only your public key, but no one can forge without knowing your private key. It's like a wax seal that anyone can inspect but only you can create.</p>
+
+<p>When Alice wants to send bitcoins to Bob, she broadcasts a message to the network: "I, Alice, am sending 5 bitcoins to Bob's address." She signs this message with her private key. Every computer in the network can verify the signature is genuine using only her public address. No one needs to know her private key, and no one can fake her authorization.</p>
+
+<p>The mathematics behind this involves elliptic curves—a branch of abstract algebra with surprising applications. The essential property is that certain operations are easy to compute in one direction but practically impossible to reverse. Multiplying two large prime numbers together is easy; factoring the result back into those primes is computationally intractable. Bitcoin's cryptography relies on similar mathematical one-way streets.</p>
+
+<h2>Lost Forever</h2>
+
+<p>This elegant design has a harsh corollary: if you lose your private key, your bitcoins are gone forever. There's no bank to call, no password reset, no customer service.</p>
+
+<p>In 2013, a man named James Howells accidentally threw away a hard drive containing the private keys to 7,500 bitcoins. At the time, they were worth about $7.5 million. At Bitcoin's peak, they exceeded $500 million. The hard drive sits somewhere in a Welsh landfill. Howells has spent years trying to get permission to excavate it. The local council has refused.</p>
+
+<p>Estimates suggest that around 20% of all bitcoins ever created are effectively lost—their owners died without passing on their keys, or forgot their passwords, or suffered hardware failures. These bitcoins still exist on the blockchain, visible to everyone, spendable by no one. They're like treasure at the bottom of the ocean: technically there, practically inaccessible.</p>
+
+<p>This permanence cuts both ways. By December 2017, approximately 980,000 bitcoins had been stolen from cryptocurrency exchanges through hacking. Unlike a credit card theft, there's no reversing these transactions. The thieves' wallets are visible on the public blockchain—everyone can watch the stolen funds move—but without the cooperation of exchanges where thieves might try to cash out, the coins are irrecoverable.</p>
+
+<h2>From Pizza to a Trillion Dollars</h2>
+
+<p>On May 22nd, 2010, a programmer named Laszlo Hanyecz made history by paying 10,000 bitcoins for two Papa John's pizzas. This was the first known commercial transaction using Bitcoin. At the time, it seemed like a reasonable deal—a few dollars worth of weird internet money for some hot food.</p>
+
+<p>Those pizzas would later represent, at peak prices, roughly $700 million.</p>
+
+<p>May 22nd is now celebrated annually as Bitcoin Pizza Day, a reminder of both how far the currency has come and how uncertain its early days were. Hanyecz has said he doesn't regret the purchase. Someone had to start using Bitcoin for real transactions, or it would have remained just an interesting experiment.</p>
+
+<p>The path from pizza to institutional acceptance was neither straight nor smooth.</p>
+
+<p>Bitcoin's first major use case was less savory than pizza. In February 2011, a dark web marketplace called Silk Road launched, exclusively accepting Bitcoin as payment. Over its 30 months of operation, approximately 9.9 million bitcoins changed hands on the site—roughly $214 million worth at the time. Silk Road sold drugs, forged documents, and other illegal goods. Its founder, Ross Ulbricht, was eventually arrested and sentenced to life in prison. When the FBI shut down the site in October 2013, they seized about 30,000 bitcoins.</p>
+
+<p>This association with criminality haunted Bitcoin's reputation for years. China banned financial institutions from handling Bitcoin in December 2013, causing the price to crash. Regulators worldwide struggled to categorize this new thing: Was it a currency? A commodity? A security? A gambling token?</p>
+
+<h2>The Scaling Wars</h2>
+
+<p>As Bitcoin grew, a technical debate emerged that would fracture its community.</p>
+
+<p>Bitcoin's original design limited each block to one megabyte of data. With transactions averaging a few hundred bytes, this meant the network could process only about seven transactions per second. Visa, by comparison, handles thousands per second.</p>
+
+<p>What should be done?</p>
+
+<p>One faction wanted to simply increase the block size—bigger blocks, more transactions. This seemed straightforward but required changing Bitcoin's fundamental rules, and there was no central authority to decree such changes. Any modification needed the network's computers to voluntarily upgrade their software.</p>
+
+<p>Another faction argued that larger blocks would centralize the network. Running a Bitcoin node—verifying all transactions yourself rather than trusting others—requires downloading the entire blockchain. At the time, this was already hundreds of gigabytes. Make blocks bigger, and soon only large data centers could participate, defeating the decentralized ethos.</p>
+
+<p>This faction proposed a clever workaround called the Lightning Network. Instead of recording every coffee purchase on the blockchain, users would open "payment channels" with each other, settling batches of transactions later. Think of it like running a tab at a bar rather than paying for each drink individually.</p>
+
+<p>In August 2017, a software upgrade called SegWit (short for Segregated Witness) was activated, enabling the Lightning Network approach. Those who disagreed split off, creating Bitcoin Cash—one of many "forks" where dissenters copy Bitcoin's code and transaction history but change the rules going forward. It was like a contentious divorce, with both sides claiming to represent the true spirit of Nakamoto's vision.</p>
+
+<h2>Institutional Acceptance</h2>
+
+<p>For years, mainstream financial institutions treated Bitcoin with a mixture of curiosity and contempt. JPMorgan CEO Jamie Dimon called it a "fraud" in 2017. Warren Buffett compared it to "rat poison squared."</p>
+
+<p>Then something shifted.</p>
+
+<p>In 2020, MicroStrategy, a business intelligence company, announced it was converting $250 million of its corporate treasury into Bitcoin. Not a small experiment—a quarter of a billion dollars. Square, the payments company, added $50 million. MassMutual, a 170-year-old insurance company, invested $100 million. PayPal began allowing American customers to buy and hold Bitcoin.</p>
+
+<p>In February 2021, Bitcoin's total market value exceeded $1 trillion for the first time. To put that in perspective, that's larger than the market capitalization of Facebook or Tesla at the time.</p>
+
+<p>El Salvador made the most dramatic move. In September 2021, it became the first country to adopt Bitcoin as legal tender alongside the US dollar. Citizens could pay taxes in Bitcoin. Businesses were required to accept it. The government built infrastructure including Bitcoin ATMs and a digital wallet called Chivo.</p>
+
+<p>The experiment proved controversial. The International Monetary Fund pressured El Salvador to reverse course. The price volatility that makes Bitcoin attractive to speculators makes it challenging as everyday money—imagine your salary being worth 30% less by the time you pay rent. By January 2025, El Salvador quietly walked back the mandate, removing obligations for businesses to accept Bitcoin. Many analysts consider the legal tender experiment effectively over, though the government maintains it technically remains an option.</p>
+
+<h2>The Environmental Question</h2>
+
+<p>Bitcoin mining consumes enormous amounts of electricity. The exact figure is hard to pin down because mining operations are distributed globally, often seeking cheap power in remote locations. Estimates have placed Bitcoin's annual electricity consumption somewhere between that of Argentina and that of Poland.</p>
+
+<p>Critics argue this is unconscionable—burning through power comparable to a medium-sized country for what they view as speculative gambling tokens. The carbon footprint, particularly when mining relies on coal or natural gas, adds to climate change.</p>
+
+<p>Defenders offer several counterarguments. Much mining occurs in locations with surplus renewable energy that would otherwise be wasted—hydroelectric dams during wet seasons, for instance. Mining operations are flexible; they can turn on when power is abundant and cheap, then turn off during peak demand. Some see them as a mechanism to fund renewable energy development by providing guaranteed buyers for excess capacity.</p>
+
+<p>The debate remains unresolved. What's clear is that Bitcoin's security model—proof of work—is fundamentally tied to energy expenditure. The difficulty of the mathematical puzzles adjusts automatically to match how much computing power is pointed at the network. More miners mean harder puzzles, which means more energy consumed. It's not a bug; it's the core mechanism that makes the system secure.</p>
+
+<h2>Twenty-One Million</h2>
+
+<p>One of Bitcoin's most distinctive features is its fixed supply. Only 21 million bitcoins will ever exist.</p>
+
+<p>New bitcoins enter circulation as mining rewards. Initially, each new block created 50 new bitcoins. Every 210,000 blocks—roughly every four years—this reward halves. By around 2140, the last new bitcoin will be mined, and miners will sustain themselves purely through transaction fees.</p>
+
+<p>This predictable scarcity is, for many proponents, Bitcoin's killer feature. Traditional currencies can be printed at will by central banks—a power sometimes used responsibly to manage economic crises, sometimes abused to fund government spending at the expense of savers. Bitcoin's supply schedule is written in code that no one can alter without consensus from the entire network.</p>
+
+<p>Critics see this rigidity as a fatal flaw. Modern economies need elastic money supplies to respond to crises. The Federal Reserve's ability to inject liquidity during the 2008 financial crisis and the COVID-19 pandemic, whatever its downsides, likely prevented depressions. A Bitcoin-based economy would have no such safety valve.</p>
+
+<p>The smallest unit of Bitcoin is called a satoshi, after its creator—one hundred millionth of a bitcoin. There are 100,000 satoshis in a millibitcoin, and 100 million satoshis in a whole bitcoin. If Bitcoin ever became the world's primary currency, most transactions would be denominated in satoshis rather than whole bitcoins, just as we typically deal in cents rather than hundreds of dollars.</p>
+
+<h2>The Current Moment</h2>
+
+<p>In January 2024, the US Securities and Exchange Commission approved the first spot Bitcoin exchange-traded funds—financial products that hold actual bitcoins and trade on stock exchanges. This was a watershed moment. For the first time, ordinary investors could gain exposure to Bitcoin through their existing brokerage accounts, without managing cryptographic keys or navigating cryptocurrency exchanges.</p>
+
+<p>BlackRock, the world's largest asset manager with over $10 trillion under management, launched one of these ETFs. By December 2024, BlackRock was recommending that investors allocate up to 2% of their portfolios to Bitcoin. This from a company that manages money for pension funds and endowments worldwide.</p>
+
+<p>That same month, Bitcoin's price crossed $100,000 for the first time. President-elect Donald Trump had promised to make America "the crypto capital of the planet" and to establish a government stockpile of Bitcoin. In March 2025, Trump signed an executive order creating a strategic Bitcoin reserve. Several US states, including Texas and New Hampshire, followed with their own reserves. Even the Czech National Bank made a small purchase.</p>
+
+<p>Research from 2023 estimated that about 82 million people worldwide held Bitcoin—roughly 1% of the global population. Most keep their holdings on exchanges rather than managing their own keys, trusting companies to secure their wealth much as people trust banks. Whether this represents Bitcoin's maturation into a mainstream asset or a betrayal of its decentralized ideals depends on whom you ask.</p>
+
+<h2>What Bitcoin Is and Isn't</h2>
+
+<p>Sixteen years after that first block with its embedded newspaper headline, Bitcoin remains difficult to categorize.</p>
+
+<p>It's not quite money in the traditional sense. Its price volatility—swings of 20% or 30% in weeks—makes it poorly suited for everyday transactions. You can't easily pay rent in something that might be worth dramatically more or less by the time your landlord deposits it.</p>
+
+<p>It's not quite gold either, though the comparison is often made. Gold has thousands of years of history as a store of value and industrial uses as a physical commodity. Bitcoin exists only as entries in a distributed database, valuable purely because people agree it's valuable—though, defenders note, the same is true of dollars since the abandonment of the gold standard.</p>
+
+<p>What Bitcoin definitively is: the first successful solution to the double-spending problem in a decentralized system. For over 30 years, the best minds in cryptography and computer science tried and failed to create digital cash that didn't require a trusted third party. Nakamoto succeeded.</p>
+
+<p>Whether that technical achievement translates into lasting value—as a store of wealth, a medium of exchange, or something else entirely—remains perhaps the largest open question in modern finance. The debate continues. The network keeps running. Somewhere in a Welsh landfill, those 7,500 bitcoins wait, patient and inaccessible.</p>
       </div>
 
       <footer class="wikipedia-footer">

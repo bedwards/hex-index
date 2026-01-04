@@ -22,7 +22,149 @@
       </header>
 
       <div class="wikipedia-content">
-        <p>Content not available.</p>
+        <p class="source-note">Based on <a href="https://en.wikipedia.org/wiki/Static_application_security_testing">Wikipedia: Static application security testing</a></p>
+
+<p>Here's a startling fact about software security: fixing a vulnerability in production costs one hundred times more than catching it during development. That's not a typo. The same bug that takes an hour to fix while you're writing code might consume weeks of emergency response, customer notifications, and reputation repair once it's running in the real world.</p>
+
+<p>This economic reality explains why the software industry has become obsessed with something called Static Application Security Testing, or SAST. It's the practice of finding security holes by reading code before that code ever runs.</p>
+
+<h2>The Ancient Art of Reading Code</h2>
+
+<p>Examining programs by studying their source code is almost as old as programming itself. Early computer scientists would pore over their punch cards and printouts, looking for logical errors before precious computing time was consumed running faulty programs.</p>
+
+<p>But applying this technique specifically to security? That's surprisingly recent.</p>
+
+<p>The catalyst was the web. In the late 1990s, web applications exploded in complexity. Developers started integrating JavaScript and Flash, creating interactive experiences that also created entirely new categories of vulnerability. The watershed moment came in 1998 with the first public discussion of SQL injection—a technique where attackers slip malicious database commands into web forms. Suddenly, a bug in your code didn't just crash your program. It could expose every customer's credit card number.</p>
+
+<p>Security researchers realized they needed tools that could systematically scan codebases for these dangerous patterns before attackers found them first.</p>
+
+<h2>White Box versus Black Box</h2>
+
+<p>To understand SAST, you need to understand its philosophical opposite: Dynamic Application Security Testing, or DAST.</p>
+
+<p>Imagine you're trying to find weaknesses in a house. DAST is like being a burglar. You walk around the outside, try the doors and windows, peer through the mail slot, maybe rattle the locks. You can only test what you can reach from outside, and you have no idea what's behind the walls.</p>
+
+<p>SAST is like being the building inspector with the complete architectural blueprints. You can see exactly how every wall was framed, where every wire runs, which load-bearing beams might be undersized. You examine the structure itself rather than just probing its surfaces.</p>
+
+<p>The industry calls DAST "black-box testing" because you can't see inside. SAST is "white-box testing" because everything is transparent.</p>
+
+<p>Each approach catches different problems. DAST excels at finding issues in how a running application actually behaves—configuration mistakes, authentication bypasses, problems that only emerge when all the pieces interact. SAST catches problems in the code's logic itself, the kind of flaws that exist even before the first line executes.</p>
+
+<p>Studies suggest that SAST tools can detect roughly half of the security vulnerabilities present in tested applications. That might sound disappointing until you realize that catching fifty percent of your bugs before deployment is enormously valuable given that hundred-to-one cost ratio.</p>
+
+<h2>How Machines Read Code</h2>
+
+<p>When a SAST tool analyzes your program, it doesn't run the code. Instead, it reads the source text and builds a mathematical model of what the program would do.</p>
+
+<p>The first step is parsing—converting raw text into a structured representation called an Abstract Syntax Tree. Think of this as a family tree for your code, where each branch represents a function, loop, or condition, and the relationships between branches show how control flows from one part of the program to another.</p>
+
+<p>With this tree in hand, the tool can trace how data moves through your application. Where does user input enter the system? What transformations does it undergo? Does it ever reach a dangerous destination—like a database query or a system command—without being properly sanitized first?</p>
+
+<p>This analysis can happen at different levels of sophistication.</p>
+
+<p>At the function level, tools examine individual sequences of instructions. They might check whether a single function properly validates its inputs before using them.</p>
+
+<p>At the file or class level, analysis expands to understand how objects and modules interact within a single source file. The tool can track data flowing between methods of the same class.</p>
+
+<p>At the application level, the tool attempts to understand your entire program—or even a group of interconnected programs—as a unified system. This is the most powerful form of analysis because vulnerabilities often span multiple components. An input might enter through one service, pass through three others, and finally reach a dangerous operation in a fifth. Only application-level analysis can trace that complete journey.</p>
+
+<h2>The Rise of Componentization</h2>
+
+<p>Modern software development looks nothing like it did in the 1990s. Back then, a program was typically a monolithic block of code written by a small team. Today, applications are assembled from hundreds or thousands of components—some written in-house, many pulled from open-source libraries, others consumed as services over the network.</p>
+
+<p>This componentization happened because businesses demanded faster delivery. Breaking applications into smaller pieces let different teams work in parallel. It let developers reuse proven solutions rather than reinventing them. But it also created a security nightmare.</p>
+
+<p>When your application depends on a library, which depends on another library, which depends on ten more libraries, how do you know whether any of those components contains a vulnerability? When data flows through a dozen microservices before producing a response, how do you ensure it's properly sanitized at every step?</p>
+
+<p>SAST tools evolved to handle this complexity. They learned to follow data across component boundaries, to understand that a value entering Service A might eventually be used dangerously in Service F, and to validate that proper security checks exist somewhere along that chain.</p>
+
+<h2>The Web Application Explosion</h2>
+
+<p>The scale of the security problem became undeniable in the 2010s. Verizon's 2016 Data Breach Report found that forty percent of all data breaches exploited web application vulnerabilities. Four out of ten times that someone's data was stolen, the attack came through a website.</p>
+
+<p>But external attackers weren't the only concern. The Clearswift Insider Threat Index reported in 2015 that ninety-two percent of surveyed organizations had experienced IT or security incidents in the previous year. Even more striking: seventy-four percent of those breaches originated from insiders.</p>
+
+<p>Security researcher Lee Hadlington identified three categories of insider threats. Malicious insiders deliberately abuse their access for personal gain or to harm the organization. Accidental insiders make mistakes—they misconfigure a server, send data to the wrong recipient, or fall for phishing attacks. Unintentional insiders unknowingly create vulnerabilities through carelessness or ignorance of security best practices.</p>
+
+<p>SAST tools help with all three categories. They catch malicious code that an insider might try to smuggle into the codebase. They identify accidental vulnerabilities before careless mistakes reach production. They educate developers about security by explaining why certain patterns are dangerous.</p>
+
+<h2>Mobile Changes Everything</h2>
+
+<p>Just as organizations started getting a handle on web application security, smartphones arrived and reshuffled the deck entirely.</p>
+
+<p>Mobile applications presented unique challenges. They ran on devices the organization didn't control. They stored sensitive data locally on phones that might be lost or stolen. They communicated over networks that might be compromised. And the explosive growth of the app ecosystem meant that companies were shipping mobile code faster than they could secure it.</p>
+
+<p>The mobile revolution reinforced a lesson the industry was already learning: security had to shift earlier in the development process. You couldn't wait until an application was finished to start thinking about vulnerabilities. By then, the architecture was set, the deadlines were pressing, and the cost of changes had multiplied.</p>
+
+<h2>Integrating Into the Pipeline</h2>
+
+<p>Modern software development uses something called Continuous Integration and Continuous Deployment—CI/CD for short. The idea is that code changes flow through an automated pipeline. When a developer commits code, tests run automatically. If everything passes, the code might deploy to production within minutes or hours.</p>
+
+<p>SAST tools have integrated into this pipeline. They scan every code change as it's submitted. If critical vulnerabilities are detected, the pipeline stops automatically. The code never reaches production. The developer gets immediate feedback about what went wrong and how to fix it.</p>
+
+<p>This immediacy is one of SAST's greatest advantages over other security testing approaches. Dynamic testing requires a running application, which means you need a testing environment configured and deployed. Interactive testing requires human security experts to probe the application manually. SAST just reads the code—it can run the moment a developer saves a file.</p>
+
+<p>That fast feedback loop matters psychologically as well as practically. A developer who learns about a vulnerability thirty seconds after introducing it can fix it while the code is still fresh in their mind. A developer who learns about the same vulnerability three weeks later, after the code has shipped and a security audit has flagged it, might barely remember writing that function.</p>
+
+<h2>The Complete Picture</h2>
+
+<p>SAST tools also provide something dynamic testing cannot: complete coverage.</p>
+
+<p>When you test a running application dynamically, you can only test the code paths you actually exercise. If you forget to click a particular button, or if a feature is only triggered by a rare combination of inputs, the dynamic test might miss it entirely. Configuration files that define security settings might never be examined at all.</p>
+
+<p>Static analysis reads everything. Every line of source code. Every configuration file. Every conditional branch, whether it's commonly executed or handles an edge case that occurs once a year. If a vulnerability exists anywhere in the codebase, static analysis at least has the opportunity to find it.</p>
+
+<p>This thoroughness extends beyond pure security. Many SAST tools have evolved to assess software quality more broadly—architectural patterns, code maintainability, performance anti-patterns. Security researchers have found a strong correlation between code quality and code security. Programs that are poorly structured, hard to understand, and difficult to maintain tend also to be riddled with vulnerabilities. The same practices that make code readable and maintainable—clear naming, small functions, limited complexity—also make it easier to reason about security properties.</p>
+
+<h2>The False Positive Problem</h2>
+
+<p>If SAST tools are so powerful, why isn't every security vulnerability caught before deployment?</p>
+
+<p>The uncomfortable answer involves something called false positives—warnings about problems that don't actually exist.</p>
+
+<p>Static analysis is fundamentally limited by the halting problem, a mathematical principle that says no algorithm can perfectly predict what an arbitrary program will do. SAST tools must make conservative assumptions. When they're uncertain whether something is dangerous, they err on the side of warning.</p>
+
+<p>The result is noise. A SAST scan of a large application might produce hundreds or thousands of warnings. Many of these will be false alarms—the tool flagged something that looks suspicious but is actually fine when you understand the context. A developer reviewing these results must investigate each warning to separate the real vulnerabilities from the phantom ones.</p>
+
+<p>This creates a trust problem. After wading through dozens of false positives, developers start to assume that SAST warnings are probably wrong. They stop investigating carefully. And that's when real vulnerabilities slip through.</p>
+
+<p>The problem is particularly acute in agile development environments, where teams focus on shipping features quickly. When you're trying to deliver a new capability by Friday, stopping to investigate five hundred security warnings feels like an unaffordable distraction. Teams using agile methodologies often struggle to integrate SAST effectively because the tool's output conflicts with their workflow's velocity.</p>
+
+<h2>The Usability Challenge</h2>
+
+<p>Research into developer attitudes toward SAST tools reveals a paradox. Developers generally support the idea of automated security testing. They want their code to be secure. But they often find actual SAST tools frustrating to use.</p>
+
+<p>The problem goes beyond false positives. Many SAST tools produce lengthy, technical output that requires security expertise to interpret. A warning that says "potential tainted data flow from source X through path Y to sink Z" might be technically precise, but it assumes the developer knows what "tainted data," "sources," and "sinks" mean in a security context.</p>
+
+<p>The tools also struggle with context. A particular code pattern might be dangerous in one situation and perfectly safe in another. Human security experts make these contextual judgments automatically, but automated tools often cannot.</p>
+
+<h2>The Security Testing Trinity</h2>
+
+<p>Security professionals have concluded that no single testing approach suffices. Modern security programs use a combination of three techniques.</p>
+
+<p>SAST examines source code before execution, catching vulnerabilities early but producing false positives and missing runtime issues.</p>
+
+<p>DAST probes running applications from outside, finding configuration problems and integration issues but unable to examine code directly.</p>
+
+<p>Interactive Application Security Testing, or IAST, combines both approaches. It instruments the running application to monitor internal behavior while also exercising it externally. This hybrid approach can correlate external attacks with internal code paths, reducing false positives while maintaining broad coverage.</p>
+
+<p>Together, these three techniques provide overlapping layers of defense. Vulnerabilities that slip past one approach might be caught by another. The security industry calls this "defense in depth"—the principle that multiple imperfect defenses are stronger than any single perfect one.</p>
+
+<h2>The Economics of Early Detection</h2>
+
+<p>We return to where we started: the staggering cost differential between early and late vulnerability detection.</p>
+
+<p>Those numbers—ten times more expensive in testing, one hundred times more expensive in production—aren't arbitrary. They reflect the cascading complexity of fixing problems in live systems.</p>
+
+<p>When you fix a vulnerability during development, you change some code, run your tests, and commit. The total cost is measured in minutes or hours of a single developer's time.</p>
+
+<p>When you fix the same vulnerability during testing, you've already integrated that code with other components. Changing it might break those integrations. You need to retest not just your fix but everything that touches it. Multiple developers might need to coordinate. Documentation might need updating. The cost is measured in days.</p>
+
+<p>When you fix a vulnerability in production, everything escalates. You might need an emergency response team. You might need to notify customers that their data was potentially exposed. Legal might get involved. Public relations might get involved. Regulators might get involved. Competitors might point to your breach in their sales pitches. The cost is measured in weeks, reputations, and sometimes careers.</p>
+
+<p>SAST tools aren't perfect. They miss half of vulnerabilities and flag many non-issues. But the economics still favor their use overwhelmingly. Even imperfect early detection beats perfect late detection, because the cost of fixing problems grows so dramatically over time.</p>
+
+<p>The lesson extends beyond software security. In almost any system—mechanical, biological, social—problems are easier to address when they're small and contained than after they've propagated and entangled with everything else. Engineers learned this lesson building bridges. Doctors learned it treating diseases. Software developers are still learning it, one breach at a time.</p>
       </div>
 
       <footer class="wikipedia-footer">

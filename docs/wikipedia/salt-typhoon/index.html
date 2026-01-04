@@ -22,7 +22,137 @@
       </header>
 
       <div class="wikipedia-content">
-        <p>Content not available.</p>
+        <p class="source-note">Based on <a href="https://en.wikipedia.org/wiki/Salt_Typhoon">Wikipedia: Salt Typhoon</a></p>
+
+<p>Someone has been listening to your phone calls. Not the National Security Agency—at least, not this time. A Chinese espionage operation has spent years burrowing deep into the infrastructure that carries American telecommunications, accessing the calls and messages of over a million users. The targets included presidential candidates, government officials, and anyone else whose conversations might prove useful to Beijing.</p>
+
+<p>This is the story of Salt Typhoon.</p>
+
+<h2>The Name Behind the Storm</h2>
+
+<p>The name itself tells you something about how cybersecurity works. Microsoft coined "Salt Typhoon" as part of their naming convention for threat actors—digital adversaries who conduct sustained hacking operations. The "Typhoon" suffix indicates a China-linked group. Other security companies have their own names for the same hackers: Trend Micro calls them "Earth Estrie," Kaspersky Lab dubbed them "Ghost Emperor," and ESET went with "FamousSparrow." They're all describing the same organization.</p>
+
+<p>Understanding this naming chaos matters because it reveals something fundamental about cybersecurity: there's no central authority. Each company sees fragments of attacks through their own customers and products, like blind people touching different parts of an elephant. They name what they find, and only later do researchers realize they've been tracking the same adversary all along.</p>
+
+<h2>Who Runs Salt Typhoon?</h2>
+
+<p>The consensus among Western intelligence agencies is clear: Salt Typhoon operates under China's Ministry of State Security, known by its initials MSS. Think of the MSS as China's version of both the Central Intelligence Agency and the Federal Bureau of Investigation combined—it handles foreign espionage while also serving as the country's secret police.</p>
+
+<p>The Chinese embassy in New Zealand, responding to allegations about Salt Typhoon, called the accusations "unfounded and irresponsible smears and slanders." This denial follows a well-established diplomatic script. Governments rarely admit to espionage operations, even when the evidence is overwhelming. The United States, for its part, has never acknowledged many of its own cyber operations that have been exposed over the years.</p>
+
+<p>What makes Salt Typhoon distinctive is its apparent structure. According to research from Trend Micro, the group operates with "a clear division of labor." Different teams target different regions and industries. This isn't a handful of hackers in a basement—it's an organized operation with specialization, suggesting significant state resources behind it.</p>
+
+<p>Terry Dunlap, a former analyst at the National Security Agency, described Salt Typhoon as "a component of China's 100 year strategy." That phrase deserves unpacking. Chinese strategic thinking often operates on timeframes that make Western quarterly-earnings-focused planning look myopic. The "100 year strategy" refers to long-term Chinese ambitions for global influence, with technology and information dominance playing central roles.</p>
+
+<h2>The Telecommunications Breach</h2>
+
+<p>In September 2024, reports emerged about what would prove to be one of the most severe cyberattacks on American infrastructure in history.</p>
+
+<p>Salt Typhoon had penetrated the systems of at least nine major American telecommunications companies. The confirmed victims read like a directory of American telecom: Verizon, AT&T, T-Mobile, Spectrum, Lumen, Consolidated Communications, and Windstream. These aren't minor players—they collectively carry a massive portion of American phone calls, text messages, and internet traffic.</p>
+
+<p>The attackers targeted what network engineers call "core network components"—the central nervous system of telecommunications infrastructure. They compromised routers manufactured by Cisco, devices that route enormous portions of internet traffic. By controlling these routers, the hackers gained access to data flowing through the networks rather than having to breach individual users or companies.</p>
+
+<p>This is the digital equivalent of tapping into a water main rather than individual household pipes. The scale is incomprehensible.</p>
+
+<p>By the time the breach was discovered, American officials estimated it had been ongoing for one to two years. The operation had compromised targets in several dozen countries across Europe and the Indo-Pacific region. More than 200 companies and organizations across 80 countries eventually made the victim list.</p>
+
+<h2>What They Were After</h2>
+
+<p>Here's where the story gets chilling.</p>
+
+<p>In October 2024, American officials revealed that Salt Typhoon had compromised systems used to fulfill something called CALEA requests. The Communications Assistance for Law Enforcement Act requires telecommunications companies to build wiretapping capabilities into their systems. When a court authorizes the FBI or another agency to monitor someone's communications, the telecom company uses these CALEA systems to provide access.</p>
+
+<p>Salt Typhoon broke into the very systems designed for lawful wiretapping.</p>
+
+<p>Think about what this means. The Chinese hackers could potentially see who American law enforcement was investigating. They could identify which suspected spies, criminals, or terrorists had attracted official attention. For a foreign intelligence service, this is the holy grail—a window into your adversary's counterintelligence operations.</p>
+
+<p>Anne Neuberger, the deputy national security advisor, confirmed that a "large number" of the people whose data was directly accessed were "government targets of interest." The hackers weren't just casting a wide net; they were fishing in very specific waters.</p>
+
+<h2>The Metadata Trove</h2>
+
+<p>Beyond the wiretapping systems, Salt Typhoon accessed metadata from over a million users—most concentrated in the Washington, D.C., metropolitan area.</p>
+
+<p>Metadata deserves explanation because people often dismiss it. "They didn't listen to my calls, they just got metadata." But metadata can be more revealing than content. It includes the date and time of your calls, who you called, how long you talked, your IP address, and your location.</p>
+
+<p>From metadata, analysts can map your social network. They can determine who you talk to frequently, who you never call, when you started talking to someone new, and when relationships ended. They can track your movements. They can identify patterns—like the government employee who suddenly starts calling a known Russian intelligence officer's number.</p>
+
+<p>For counterintelligence purposes, metadata is extraordinarily valuable. You don't need to listen to every conversation to identify suspicious relationships.</p>
+
+<p>In some cases, however, Salt Typhoon did get audio. The hackers obtained actual recordings of phone calls made by high-profile individuals, including staff from Kamala Harris's 2024 presidential campaign and phones belonging to Donald Trump and JD Vance. The sitting president and vice president's communications were compromised by a foreign intelligence service.</p>
+
+<h2>The Technical Arsenal</h2>
+
+<p>How do you break into some of the most heavily defended networks on Earth?</p>
+
+<p>Salt Typhoon employed sophisticated techniques, beginning with a Windows kernel-mode rootkit that Kaspersky Lab named "Demodex." A rootkit is malicious software designed to hide itself and provide ongoing access to a compromised system. "Kernel-mode" means it operates at the deepest level of the operating system, making it extraordinarily difficult to detect. The name comes from Demodex mites—microscopic parasites that live in human hair follicles, essentially invisible yet always present.</p>
+
+<p>For initial access, the group exploited known vulnerabilities in network security equipment: firewalls, routers, and Virtual Private Network products. These devices sit at the boundaries of networks, intended to protect against intrusion. But like castle walls, they only work when properly maintained. Many organizations fail to patch known vulnerabilities, leaving doors open.</p>
+
+<p>Once inside, Salt Typhoon demonstrated what security researchers call "persistence"—the ability to maintain access even as defenders try to remove them. Their techniques included modifying access-control lists to add their own IP addresses, essentially giving themselves permanent keys to the building.</p>
+
+<p>They exposed network services like Secure Shell (SSH), Remote Desktop Protocol (RDP), and File Transfer Protocol (FTP) on both standard and non-standard ports. Running services on unexpected ports helps evade security monitoring, which often focuses on standard ports.</p>
+
+<p>One particularly clever technique involved Cisco networking devices. These devices can run something called Guest Shell—a Linux container environment intended for legitimate management tasks. Salt Typhoon ran commands inside these containers, where their activities wouldn't normally be monitored. It's like hiding in plain sight, using a manufacturer-intended feature for malicious purposes.</p>
+
+<p>The group also created network tunnels using protocols like Generic Routing Encapsulation (GRE) and IPsec. These tunnels let them move data out of compromised networks while appearing as normal encrypted traffic. To relay commands from their command-and-control servers, they used open-source multi-hop pivoting tools, bouncing their traffic through multiple intermediaries to obscure its origin.</p>
+
+<h2>The Corporate Connections</h2>
+
+<p>Salt Typhoon doesn't operate in isolation. According to American intelligence, several Chinese companies provide cyber services that support the group's operations:</p>
+
+<ul>
+<li>Sichuan Juxinhe Network Technology Co. Ltd.</li>
+<li>Beijing Huanyu Tianqiong Information Technology Co., Ltd.</li>
+<li>Sichuan Zhixin Ruijie Network Technology Co., Ltd.</li>
+</ul>
+
+<p>On January 17, 2025, the United States Department of the Treasury announced sanctions against Sichuan Juxinhe, specifically accusing the company of "direct involvement with Salt Typhoon" and responsibility for breaching American telecommunications and internet service providers.</p>
+
+<p>This corporate-government nexus reflects something important about Chinese cyber operations. Unlike the stereotypical image of lone hackers, China has developed an ecosystem where private companies, university researchers, and government agencies collaborate on offensive cyber capabilities. Some of these companies may be fronts; others may be legitimate businesses that also take government contracts. The lines blur intentionally.</p>
+
+<h2>The American Response</h2>
+
+<p>The United States government's response to Salt Typhoon has been marked by bureaucratic turbulence.</p>
+
+<p>In March 2025, the House Committee on Homeland Security requested documents about the federal government's response to the hacking. Congress wanted to understand both the breach and the response—reasonable given the magnitude of what had occurred.</p>
+
+<p>But the investigation hit an unexpected obstacle. The second Trump administration fired all members of the Cyber Safety Review Board before it could complete its investigation of the Salt Typhoon intrusion. The Cyber Safety Review Board, modeled on the National Transportation Safety Board that investigates plane crashes, was designed to conduct post-mortems of major cyber incidents. Its elimination during an active investigation raised questions about priorities.</p>
+
+<p>The FBI, for its part, announced a ten million dollar bounty for information on individuals associated with Salt Typhoon in April 2025. This bounty approach has proven effective against ransomware gangs and other cybercriminals, though its utility against state-sponsored hackers with government protection remains unclear.</p>
+
+<p>In June 2025, the Department of Homeland Security published a report with an ominous title: "Salt Typhoon: Data Theft Likely Signals Expanded Targeting." The report revealed that the group had compromised the network of a state Army National Guard unit, suggesting the hackers were broadening their focus beyond telecommunications.</p>
+
+<h2>The Global Picture</h2>
+
+<p>Salt Typhoon isn't just an American problem.</p>
+
+<p>According to Slovak cybersecurity firm ESET, the group has previously targeted hotels and government agencies worldwide. Hotels may seem like unusual targets for a sophisticated espionage operation, but they make perfect sense when you consider that government officials, business executives, and diplomats stay in them during travel—and often conduct sensitive communications from hotel networks.</p>
+
+<p>In February 2025, an unnamed Canadian telecommunications company was breached. In June 2025, Viasat, an American satellite communications company, was named as a victim. By August 2025, the FBI stated that Salt Typhoon had penetrated at least 200 companies across 80 countries.</p>
+
+<p>In November 2025, Mike Burgess, the director-general of the Australian Security Intelligence Organisation (ASIO), publicly warned that hackers linked to the Chinese government and military had attempted to access Australia's critical infrastructure, including telecommunications networks. Burgess specifically named both Salt Typhoon and another Chinese hacking group called Volt Typhoon, warning that similar probing had occurred in Australia.</p>
+
+<p>Volt Typhoon, Salt Typhoon's sibling group, focuses on different targets. While Salt Typhoon emphasizes counterintelligence and data theft, Volt Typhoon has reportedly pre-positioned itself in critical infrastructure systems—power grids, water systems, transportation networks—for potential sabotage in a future conflict. The two groups represent different elements of a comprehensive cyber strategy: intelligence gathering and potential wartime disruption.</p>
+
+<h2>What Makes Salt Typhoon Different</h2>
+
+<p>According to reporting in The New York Times, Salt Typhoon stands out among Chinese hacking groups for its primary focus on counterintelligence targets. Most cyber espionage operations focus on stealing technology, military secrets, or business information. Salt Typhoon's interest in understanding who American law enforcement and intelligence agencies are investigating suggests a defensive motivation—protecting Chinese assets and operations in the United States by knowing who might be under surveillance.</p>
+
+<p>This counterintelligence focus represents sophisticated strategic thinking. Knowing what your adversary knows about you is often more valuable than stealing their secrets. If you know which of your operatives are under investigation, you can extract them, feed disinformation, or adjust your operations to avoid detection.</p>
+
+<p>The group's technical sophistication, operational security, and strategic patience mark it as a top-tier threat actor. Its anti-forensic techniques—methods designed to frustrate investigators trying to understand what happened—demonstrate awareness of how Western cybersecurity companies and intelligence agencies operate.</p>
+
+<h2>The Ongoing Threat</h2>
+
+<p>As of late 2025, Salt Typhoon remains active. Telecommunications companies are working to remove the group from their networks, but this process is complicated and time-consuming. The attackers embedded themselves deeply, and determining exactly what they accessed requires painstaking forensic work.</p>
+
+<p>The broader lesson extends beyond this specific group. Modern societies have built critical infrastructure—telecommunications, power, water, transportation—on digital foundations. These systems were often designed for efficiency and cost rather than security. They're managed by companies focused on quarterly profits, patched by understaffed IT departments, and defended against adversaries with nation-state resources.</p>
+
+<p>Salt Typhoon exploited this asymmetry. A well-resourced, patient attacker with government backing went up against commercial networks designed to move data cheaply, not securely. The outcome was predictable.</p>
+
+<p>The 100-year strategy Terry Dunlap mentioned continues. Salt Typhoon is not a campaign that will end—it's a capability that will persist, evolve, and find new targets. The question isn't whether Chinese cyber operations will continue but whether American defenses can keep pace.</p>
+
+<p>In the meantime, those calls you made to Washington, D.C.? Someone may have been listening.</p>
       </div>
 
       <footer class="wikipedia-footer">

@@ -22,7 +22,109 @@
       </header>
 
       <div class="wikipedia-content">
-        <p>Content not available.</p>
+        <p class="source-note">Based on <a href="https://en.wikipedia.org/wiki/Diffusion_model">Wikipedia: Diffusion model</a></p>
+
+<p>Imagine you could watch a drop of ink dissolve in water, then run the film backwards. The ink would magically reassemble itself from the murky cloud, coalescing into that perfect drop. This seemingly impossible reversal is exactly what diffusion models do—except instead of ink and water, they work with images and noise. And this simple idea has revolutionized how computers create pictures, from the stunning artwork of DALL-E to the photorealistic generations of Stable Diffusion.</p>
+
+<h2>The Destruction That Creates</h2>
+
+<p>Here's a counterintuitive truth: to teach a machine how to create images, you first teach it how to destroy them.</p>
+
+<p>The process works like this. Take any photograph—say, a picture of a cat. Now add a tiny bit of static, like the snow on an old television set. The cat is still clearly visible, just slightly fuzzy. Add a bit more static. And more. Keep going, step by step, until after hundreds or thousands of steps, the original cat has completely vanished into pure random noise. What you're left with looks like the static between channels—no trace of whiskers, fur, or curious eyes remains.</p>
+
+<p>This gradual destruction is called the forward diffusion process, named after the physical phenomenon of diffusion where particles spread out from regions of high concentration to low concentration, like perfume dispersing through a room. In thermodynamics, this is the inexorable march toward equilibrium, toward maximum entropy, toward the heat death of order.</p>
+
+<p>But here's the clever bit: if you carefully record exactly how much noise you added at each step, you can train a neural network to predict that noise. And if you can predict the noise, you can subtract it. Which means you can run the whole process backwards.</p>
+
+<h2>Learning to See Through the Static</h2>
+
+<p>The neural network at the heart of a diffusion model—often called the "backbone"—has a peculiar job. Show it a noisy image, and it must guess what noise was added. Not the original image itself, mind you, but the specific pattern of random static that was layered on top.</p>
+
+<p>This is like being shown a photograph that someone has sneezed on and being asked: "What did that sneeze look like?" It sounds absurd, but with enough examples, patterns emerge. The network learns that certain configurations of noise, when removed, tend to reveal edges. Others reveal textures. Others reveal the characteristic curves of a human face.</p>
+
+<p>The backbone architecture is typically either a U-Net or a transformer. A U-Net, named for its U-shaped structure, was originally designed for medical image segmentation—finding tumors in scans, that sort of thing. It excels at understanding images at multiple scales simultaneously, seeing both the forest and the trees. Transformers, the architecture behind large language models like GPT, have more recently been adapted for this task, bringing their remarkable ability to attend to relationships between distant parts of the input.</p>
+
+<h2>The Random Walk Home</h2>
+
+<p>Once trained, the model can generate entirely new images. You start with pure noise—random static with no meaning whatsoever. Then you ask the model: "What noise do you see here?" It makes its prediction, and you subtract that predicted noise. What remains is slightly less noisy, slightly more structured.</p>
+
+<p>Repeat this hundreds of times.</p>
+
+<p>With each step, structure emerges from chaos. What began as meaningless static gradually takes shape. First, vague blobs of color. Then recognizable forms. Finally, a coherent image that never existed before—a cat that was never photographed, a landscape that exists nowhere on Earth, a face belonging to no one.</p>
+
+<p>This process is mathematically equivalent to a random walk with drift. Imagine a drunk person trying to walk home from a bar. They take random stumbling steps, but there's a slight bias toward home. Given enough time, they'll get there, not in a straight line, but through a meandering path that eventually converges on the destination. The diffusion model's "home" is the space of plausible images, and each denoising step is a stumble in approximately the right direction.</p>
+
+<h2>The Thermodynamics Connection</h2>
+
+<p>The original 2015 paper that introduced diffusion models drew heavily from non-equilibrium thermodynamics—the physics of systems that aren't at rest. This isn't just an analogy; it's the actual mathematical foundation.</p>
+
+<p>Consider a cloud of particles in a potential well, like marbles in a bowl. Left alone, the marbles will settle at the bottom—that's equilibrium. But what if you started with the marbles arranged in some particular pattern on one side of the bowl? They would gradually disperse, rolling around randomly while also sliding downhill, until eventually they spread out according to the Maxwell-Boltzmann distribution, the equilibrium state that maximizes entropy.</p>
+
+<p>The key insight is that pure gradient descent—simply rolling downhill—isn't enough. If every marble just rolled straight down, they'd all pile up at the exact bottom of the bowl. You need randomness to spread them out into a proper distribution. This is why the forward process adds noise rather than just transforming images deterministically. The randomness is essential.</p>
+
+<p>And here's what makes diffusion models special: the equilibrium distribution they aim for is simply a Gaussian—a bell curve generalized to many dimensions. The Gaussian distribution is special because it's the maximum entropy distribution given a fixed mean and variance. It's the most "random" a distribution can be while still having those properties. It's also trivially easy to sample from: computers can generate Gaussian random numbers all day long.</p>
+
+<h2>The 2020 Breakthrough</h2>
+
+<p>Diffusion models languished in relative obscurity for five years after their introduction. The original method worked, but it was slow and the results weren't competitive with other approaches like Generative Adversarial Networks (GANs), which pitted two neural networks against each other in a creative arms race.</p>
+
+<p>Then in 2020, a paper introduced Denoising Diffusion Probabilistic Models, or DDPMs, and everything changed. The key innovation was using variational inference more effectively—a statistical technique for approximating complex probability distributions with simpler ones that are easier to work with.</p>
+
+<p>The mathematics involves a noise schedule: a sequence of numbers that control how much noise is added at each step. These numbers are carefully chosen so that no matter what image you start with (as long as it has reasonable statistical properties), the final result after all the noise additions will be indistinguishable from pure Gaussian noise.</p>
+
+<p>The paper also introduced a simpler training objective. Instead of trying to model the full probability distribution at each step (computationally expensive), the network just predicts the noise. This seemingly minor simplification made training more stable and the results dramatically better.</p>
+
+<h2>Guiding Generation with Text</h2>
+
+<p>A diffusion model trained on random internet images will generate random images—interesting, but not particularly useful. The commercial breakthrough came from conditioning: guiding the generation process with additional input, typically text.</p>
+
+<p>Systems like DALL-E and Stable Diffusion combine diffusion models with text encoders—neural networks that convert words into numerical representations. During generation, the denoising network doesn't just predict what noise to remove; it predicts what noise to remove given the text prompt "a cat wearing a top hat in the style of Van Gogh."</p>
+
+<p>This is accomplished through cross-attention, a mechanism that allows the image generation process to "look at" the text at every step. The network learns associations: that "cat" should produce pointy ears and whiskers, that "Van Gogh" should produce swirling brushstrokes, that "top hat" should produce a certain shape in approximately the right location.</p>
+
+<p>The results can be uncanny. These systems have never seen a cat in a top hat painted by Van Gogh (Van Gogh, as far as we know, never painted such a scene). But they've learned the components separately and can combine them in novel ways—a form of creativity, or at least a very good imitation of it.</p>
+
+<h2>Beyond Pictures</h2>
+
+<p>While images remain the primary application, the diffusion framework is remarkably general. Anything that can be represented as numbers in a high-dimensional space can, in principle, be generated by diffusion.</p>
+
+<p>Video generation applies the same principles across time, generating not just images but sequences of images that flow naturally from one to the next. This is exponentially more challenging because the model must maintain consistency—a person walking shouldn't suddenly change clothes between frames.</p>
+
+<p>Audio generation treats sound as a one-dimensional signal rather than a two-dimensional image, but the principle remains identical. Add noise to audio, train a network to predict and remove that noise, and you can generate speech, music, or any other sound.</p>
+
+<p>Perhaps surprisingly, diffusion models have even been applied to text generation. While large language models typically generate text token by token (word by word), diffusion-based text generation corrupts and reconstructs entire sequences, potentially capturing different kinds of long-range dependencies.</p>
+
+<p>Reinforcement learning—training agents to take actions in environments—has also benefited. Here, diffusion models can generate trajectories: sequences of states and actions that lead to good outcomes. Rather than planning one step at a time, the model imagines entire successful episodes and works backward to figure out how to achieve them.</p>
+
+<h2>The Latent Space Shortcut</h2>
+
+<p>Working directly with images is computationally expensive. A 512 by 512 pixel image contains over 750,000 numbers (three color channels times all those pixels). Running a neural network on such large inputs hundreds of times per generated image is slow.</p>
+
+<p>The solution is to work in latent space—a compressed representation of images. First, train a separate network (an autoencoder) to compress images into a much smaller representation and decompress them back. Then apply the diffusion process in this compressed space.</p>
+
+<p>Stable Diffusion, one of the most widely-used image generators, works this way. The latent representation is only a fraction of the original image size, making the diffusion process much faster. The quality loss from compression is minimal because the autoencoder is trained specifically to preserve the information that matters for image quality.</p>
+
+<p>This is called Latent Diffusion, and it represents a pragmatic engineering compromise. The mathematical purity of working directly on images is sacrificed for practical speed, but the results remain excellent.</p>
+
+<h2>Why Diffusion Won</h2>
+
+<p>Before diffusion models, Generative Adversarial Networks dominated image generation. GANs work by training two networks simultaneously: a generator that creates fake images and a discriminator that tries to distinguish fake from real. It's an adversarial game that, when it works, produces stunningly realistic images.</p>
+
+<p>But GANs are notoriously difficult to train. The two networks must remain in delicate balance—if the discriminator becomes too good, the generator can't learn; if the generator becomes too good too fast, it might collapse to producing only a few types of images that happen to fool the discriminator. Training often fails entirely, and even when it succeeds, there's no reliable way to know how well the model covers the full distribution of possible images.</p>
+
+<p>Diffusion models have none of these training instabilities. The training objective is straightforward: predict the noise. There's no adversarial game, no delicate balance to maintain. The loss function decreases steadily during training, providing clear feedback that learning is happening. And the mathematical framework provides theoretical guarantees about coverage—given enough capacity and training, the model will learn the full distribution.</p>
+
+<p>The trade-off is speed. GANs generate images in a single forward pass of the network. Diffusion models require hundreds of iterative steps. But clever engineering has reduced this gap significantly, with newer techniques requiring only dozens of steps, and the training stability and quality advantages have proven decisive.</p>
+
+<h2>The Creative Machine</h2>
+
+<p>There's something philosophically fascinating about diffusion models. They create by erasing. They generate novelty by learning to undo destruction. They start with chaos and impose order, step by painstaking step.</p>
+
+<p>This mirrors certain artistic practices. Michelangelo supposedly said that he saw the angel in the marble and carved until he set it free. A diffusion model sees the image in the noise and denoises until it emerges. Of course, Michelangelo had a vision before he started; the diffusion model discovers its vision as it goes, guided only by statistical patterns learned from millions of examples.</p>
+
+<p>Whether this constitutes creativity or merely sophisticated pattern matching is a question that says as much about how we define creativity as it does about the technology. What's undeniable is that these systems produce images that human artists never imagined, combinations that no one requested, visions that emerged from the intersection of training data and mathematical procedures.</p>
+
+<p>The ink drop un-dissolves. The noise becomes a cat. And somewhere in the process, something that looks very much like imagination occurs.</p>
       </div>
 
       <footer class="wikipedia-footer">

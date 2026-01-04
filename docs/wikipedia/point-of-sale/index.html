@@ -22,7 +22,127 @@
       </header>
 
       <div class="wikipedia-content">
-        <p>Content not available.</p>
+        <p class="source-note">Based on <a href="https://en.wikipedia.org/wiki/Point_of_sale">Wikipedia: Point of sale</a></p>
+
+<h2>The Machine That Knows What You're Buying</h2>
+
+<p>Every time you tap your credit card at a coffee shop or watch a cashier scan your groceries, you're interacting with one of the most quietly sophisticated pieces of technology in modern commerce. The point of sale system—that terminal sitting on the counter—has become so ubiquitous that we barely notice it anymore. But behind that simple beep lies a fascinating history of innovation, a surprising amount of computational complexity, and a story that stretches from McDonald's drive-throughs in the 1970s to the touchscreen tablet at your local fish market today.</p>
+
+<p>The term "point of sale" refers to the exact moment and place where a retail transaction happens. It's when the merchant figures out what you owe, you hand over payment, and you walk away with your purchase. Simple enough, right?</p>
+
+<p>Not even close.</p>
+
+<h2>More Than Just a Cash Register</h2>
+
+<p>What looks like a straightforward exchange actually involves a remarkable cascade of calculations and data management. When a cashier scans an item, the system must instantly look up the price, check if any discounts apply, verify if you're a loyalty member who deserves special treatment, calculate taxes based on your jurisdiction, update the store's inventory, and record the transaction for later analysis. All of this happens in the fraction of a second between the beep and the total appearing on screen.</p>
+
+<p>Modern point of sale systems have evolved far beyond their original purpose. The industry often calls them "retail management systems," which is arguably more accurate since they handle everything from tracking inventory to managing supplier relationships, creating purchase orders, and generating detailed sales reports. Some systems can even connect multiple store locations, allowing a headquarters to monitor stock levels and sales patterns across an entire chain in real time.</p>
+
+<p>One of the most practical advantages? No more price tags. When every product has a barcode linked to its price in the system, changing costs becomes a matter of updating a database rather than sending employees through the aisles with a pricing gun. This might seem like a minor convenience until you consider that a typical supermarket stocks tens of thousands of items, any of which might need a price adjustment on short notice.</p>
+
+<h2>The McDonald's Connection</h2>
+
+<p>The story of modern point of sale systems has an unexpected protagonist: the Big Mac.</p>
+
+<p>In 1974, a company called William Brobeck and Associates built one of the first microprocessor-controlled cash register systems specifically for McDonald's restaurants. This was cutting-edge technology at the time—the system used the Intel 8008 chip, a primitive ancestor of the processors that would eventually power the first IBM personal computers.</p>
+
+<p>What made this McDonald's system revolutionary wasn't just the technology inside. It was designed around how actual restaurant workers needed to work. Each station displayed the complete customer order on screen—say, two vanilla shakes, one large fries, and three Big Macs. Workers could press a button labeled "Grill" to start working on another order while the first customer was still digging for their wallet. When someone was ready to pay, hitting the "Total" button calculated the bill including the correct sales tax for whatever state or county the restaurant happened to be in.</p>
+
+<p>The system even had built-in redundancy. Two interconnected computers ran the operation, so if one failed, the other could handle the entire store. Important data was stored in triplicate. This level of reliability engineering—the kind usually reserved for industrial or military applications—found its way into fast food restaurants because the cost of system failure during a lunch rush was simply too high.</p>
+
+<h2>The Graphical Revolution</h2>
+
+<p>For about a decade after those early systems, point of sale terminals remained clunky affairs with limited displays and cryptic interfaces that required extensive training to operate. Then came 1986.</p>
+
+<p>That year, a developer named Gene Mosher introduced something that would eventually transform the industry: the first graphical point of sale software with a touchscreen interface. He demonstrated it at Comdex, the massive computer trade show in Las Vegas, running on an Atari 520ST—a computer that most people associate with video games rather than business applications.</p>
+
+<p>The interface used what programmers call "widgets"—visual elements on screen that users could tap to perform actions. Instead of memorizing codes or navigating text menus, employees could simply touch a button that said "hamburger" or "coffee." Restaurant owners could configure these buttons themselves without needing to understand programming. It was, in many ways, the ancestor of every tablet-based checkout system you encounter today.</p>
+
+<p>Around the same time, IBM introduced its own line of point of sale hardware running specialized operating systems designed for the demands of retail environments. These machines needed to run continuously, handle multiple users simultaneously, and recover gracefully from errors—requirements quite different from the word processors and spreadsheets that personal computers were typically used for.</p>
+
+<h2>The Hidden Complexity</h2>
+
+<p>Here's something that might surprise you: point of sale systems are considered some of the most complex software in commercial use. This isn't because ringing up a purchase is inherently difficult. It's because different businesses have wildly different needs, and a system designed to handle all of them becomes extraordinarily intricate.</p>
+
+<p>Consider a simple discount. Seems straightforward—take a percentage off the price. But what if the discount only applies to certain products? What if a customer is a loyalty member who gets an additional discount? What if there's a "buy two, get one free" promotion that interacts with the loyalty discount? What if the customer has store credit from a previous return that they want to apply? What if the store rounds prices differently for cash versus card payments?</p>
+
+<p>Each of these scenarios requires specific programming, and every possible combination must work correctly. When real money is changing hands, there's no room for calculation errors.</p>
+
+<p>The database challenges are equally daunting. Every transaction requires multiple reads and writes to the database—checking the price, verifying discounts, looking up the customer, updating inventory, recording the sale, generating the receipt number. A busy supermarket might process hundreds of these transactions simultaneously across dozens of checkout lanes. The database must respond instantly because customers aren't going to wait patiently while the system thinks.</p>
+
+<p>Even Microsoft's professional-grade SQL Server database has been known to freeze entirely under the load of a busy retail operation, displaying timeout errors while cashiers and customers stare at frozen screens. This is why point of sale developers spend enormous amounts of time testing, optimizing, and planning for edge cases that might never occur—but would be catastrophic if they did.</p>
+
+<h2>Beyond the Checkout Counter</h2>
+
+<p>While we typically think of point of sale systems in retail contexts—supermarkets, clothing stores, restaurants—the technology has spread into surprisingly diverse territory.</p>
+
+<p>Healthcare facilities use point of sale systems to manage patient billing and track services rendered. Movie theaters and sports arenas use them to sell tickets and concessions. Equipment repair shops track jobs and parts through point of sale software. Property leasing companies manage rental agreements with these systems. Each industry has its own peculiar requirements that push the software in different directions.</p>
+
+<p>A spa or wellness center, for instance, needs something quite different from a grocery store. Yes, they both need to process payments. But the spa also needs to schedule appointments, track which services each client has received over time, note individual preferences and requirements, and manage the availability of treatment rooms and staff. The point of sale system becomes less about the moment of sale and more about orchestrating the entire customer relationship.</p>
+
+<p>Restaurants have their own elaborate needs. The system must handle splitting bills when friends want to pay separately, combining bills when a business dinner goes on one card, adding service charges for large parties, sending orders to the kitchen in the right sequence, managing tables and takeout orders simultaneously, and allowing servers to put orders on hold while customers are still deciding. A system designed for retail would fail immediately in a busy restaurant environment.</p>
+
+<h2>The Inventory Connection</h2>
+
+<p>One of the more underappreciated capabilities of modern point of sale systems is their role in inventory management. Every sale automatically decrements the inventory count for that item. This seems obvious, but the implications are profound.</p>
+
+<p>Store managers can see in real time which products are selling and which are sitting on shelves. When stock runs low, the system can automatically generate purchase orders to suppliers. Sophisticated systems can track products using methods like FIFO (First In, First Out) and LIFO (Last In, First Out)—accounting terms that matter enormously for tax purposes and for businesses dealing with perishable goods.</p>
+
+<p>Speaking of perishables, some point of sale systems can track expiration dates and alert staff when products are approaching their sell-by dates. For a grocery store or restaurant, this capability can mean the difference between selling food at a discount and throwing it away at a loss.</p>
+
+<p>The inventory function also eliminates one of retail's oldest problems: the mysterious shrinkage of stock. When every item is tracked from receipt to sale, discrepancies become visible. If the system shows fifty units in stock but only forty-five are on the shelf, something has gone wrong—whether theft, damage, or simple miscounting. This visibility alone has saved retailers enormous sums.</p>
+
+<h2>The Reliability Problem</h2>
+
+<p>For all their sophistication, point of sale systems face a fundamental challenge: they must work. Not most of the time. All of the time.</p>
+
+<p>A website can occasionally be slow or display an error message. Users will grumble and try again. But a point of sale system that fails at a checkout counter creates an immediate crisis. Customers are standing there, money in hand, watching. Other customers are waiting in line. The business is losing sales with every passing minute.</p>
+
+<p>This pressure for absolute reliability creates its own complications. Software updates, which might fix bugs or add features, also risk introducing new problems. Many businesses delay updating their point of sale systems simply because the working system they have, imperfect as it might be, is preferable to the uncertainty of change.</p>
+
+<p>A striking example occurred when Microsoft released updates to Windows that broke compatibility with Microsoft Access, a database system that many point of sale applications relied upon. Suddenly, businesses that had been running smoothly found their systems malfunctioning. Microsoft offered no quick fix. Many companies were forced to roll back their operating systems to older versions—essentially choosing obsolete software over modern software that didn't work with their critical business systems.</p>
+
+<h2>The Human Element</h2>
+
+<p>Technology aside, point of sale systems ultimately need to be used by people—often people who haven't been extensively trained, who are working quickly under pressure, and who may not be particularly comfortable with computers.</p>
+
+<p>This human factor drove much of the innovation in the 1990s. Touchscreens became standard, replacing the cramped numeric keypads and cryptic codes of earlier systems. Displays grew larger and clearer. Interface designers began thinking carefully about how to minimize the time and effort required to complete common tasks.</p>
+
+<p>The tradeoffs were interesting. Experienced cashiers could actually work faster with the old-style mechanical keys—muscle memory allowed them to ring up items without even looking at the terminal. But touchscreen systems were dramatically easier to learn, which mattered increasingly as retail employment became more transient. A system that takes weeks to master isn't practical when employee turnover means training new staff constantly.</p>
+
+<p>Ergonomics became a consideration too. Cashiers at high-volume stores might process thousands of transactions in a single shift. Small inefficiencies in the interface—an extra tap here, an awkward reach there—multiply into real physical strain over time. The best modern systems are designed not just for functional efficiency but for sustainable use over long hours.</p>
+
+<h2>The Current Landscape</h2>
+
+<p>Today's point of sale market has fragmented into countless specialized solutions. Square and similar services have made it possible for even tiny businesses to accept card payments with minimal equipment. At the other extreme, enterprise systems costing hundreds of thousands of dollars manage retail operations across global chains.</p>
+
+<p>Cloud-based systems have changed the economics of point of sale. Instead of buying expensive hardware and software upfront, businesses can often subscribe to services that run on tablets or smartphones. This has democratized access to sophisticated retail technology—the same loyalty programs and inventory tracking that once required major investment are now available to small shops for monthly subscription fees.</p>
+
+<p>But complexity remains. Despite decades of development, truly off-the-shelf point of sale solutions are rare. Most businesses find that some customization is required to match their specific workflows and needs. This customization takes time and expertise, and it introduces risk—every modification is a potential source of bugs.</p>
+
+<p>The result is a peculiar industry where systems are simultaneously more capable and more frustrating than ever. Modern point of sale software can do remarkable things: connect to accounting systems, integrate with e-commerce platforms, analyze sales patterns with sophisticated algorithms, and coordinate operations across continents. Yet basic functionality can still feel unreliable, interface designs can still frustrate users, and the gap between marketing promises and daily reality can still yawn wide.</p>
+
+<h2>What's Actually Happening When You Check Out</h2>
+
+<p>Next time you're standing at a counter watching a cashier scan your items, consider the invisible cascade of operations happening with each beep.</p>
+
+<p>The scanner reads the barcode, which is really just a numeric product code rendered as a pattern of lines. This code is sent to the point of sale software, which queries its database to find the matching product. The system retrieves not just the price but potentially dozens of associated attributes: department, tax category, current promotions, supplier information, weight or quantity requirements, age restrictions, and more.</p>
+
+<p>If you've provided a loyalty card or phone number, the system has pulled up your customer profile and is checking whether you qualify for any special discounts or earn extra points for this purchase. If there's a promotion running, the software is calculating whether your basket qualifies and adjusting prices accordingly.</p>
+
+<p>When you pay, another set of operations begins. If you're using a card, the terminal communicates with payment processors to verify the transaction—a process involving multiple parties and security protocols, completed in seconds. Meanwhile, the point of sale system is updating inventory counts, recording the transaction details, and potentially triggering reorder processes if stock has fallen below threshold levels.</p>
+
+<p>The receipt that prints out (or gets emailed to you) is generated from all this data, formatted according to legal requirements that vary by jurisdiction. In some places, receipts must include specific tax information. In others, they must display certain consumer rights notices. The point of sale system handles these variations automatically based on store location.</p>
+
+<p>All of this happens in the few seconds between the last beep and when you walk away with your purchase. It's a remarkable feat of engineering, made more remarkable by how completely invisible it is when everything works correctly.</p>
+
+<h2>The Future at the Counter</h2>
+
+<p>Point of sale technology continues to evolve. Computer vision systems are beginning to identify products without barcodes—useful for produce and other items that resist standardized labeling. Mobile payment methods proliferate, each requiring integration with existing systems. The line between physical and online retail blurs as point of sale systems must track purchases that begin on a phone and complete in a store, or vice versa.</p>
+
+<p>Some retailers are experimenting with checkout-free stores where sensors and cameras track what customers take from shelves, charging them automatically as they leave. These "just walk out" systems represent perhaps the ultimate evolution of point of sale—a point of sale without any visible point at all.</p>
+
+<p>But for most of us, the familiar ritual will continue: scanning, totaling, paying, receipt. Behind that simple interaction, an intricate system hums along, the product of fifty years of technological development aimed at one goal: making the moment of purchase as quick and accurate as possible. It's not glamorous technology. It's not the kind of thing that gets headlines or venture capital buzz. But it's the technology that makes modern retail possible, one beep at a time.</p>
       </div>
 
       <footer class="wikipedia-footer">
