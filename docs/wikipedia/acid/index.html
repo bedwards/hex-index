@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ACID - Hex Index</title>
+  <link rel="stylesheet" href="../../styles.css">
+</head>
+<body class="reading-mode">
+  <header class="reading-header">
+    <a href="../../index.html" class="back-link">&larr; Back to Library</a>
+  </header>
+  <main class="reading-content">
+    
+    <article class="wikipedia-page">
+      <header class="wikipedia-header">
+        <div class="type-badge">Wikipedia Deep Dive</div>
+        <h1>ACID</h1>
+        <div class="article-meta">
+          <span class="read-time">10 min read</span>
+        </div>
+      </header>
+
+      <div class="wikipedia-content">
+        <p class="source-note">Based on <a href="https://en.wikipedia.org/wiki/ACID">Wikipedia: ACID</a></p>
+
+<p>Imagine transferring money between bank accounts. You click "send," and for a brief moment, your database has to do something miraculous: subtract money from one account, add it to another, and ensure that if anything goes wrong—a power failure, a network hiccup, a cosmic ray flipping a bit in memory—either the whole transfer completes successfully or none of it happens at all. You never want to see money vanish into the void, and you definitely don't want it to magically duplicate.</p>
+
+<p>This is the fundamental problem that ACID solves.</p>
+
+<p>ACID stands for Atomicity, Consistency, Isolation, and Durability—four properties that database transactions must guarantee to keep your data safe despite chaos. The acronym was coined in 1983 by Andreas Reuter and Theo Härder, building on earlier foundational work by Jim Gray, one of the pioneers of database systems. Gray had already identified three of these properties (atomicity, consistency, and durability) when characterizing what a transaction should be, but Reuter and Härder added isolation and packaged them all into a memorable acronym that would shape database design for decades.</p>
+
+<p>Interestingly, ACID databases had been around for a decade before anyone gave them that name. IBM's Information Management System supported ACID transactions as early as 1973, even though the term wouldn't exist for another ten years.</p>
+
+<h2>The Chemical Metaphor</h2>
+
+<p>The chemistry-inspired naming wasn't accidental. ACID databases have a conceptual opposite called BASE, which stands for Basically Available, Soft state, and Eventually consistent. Just like acids and bases in chemistry, these represent opposite approaches to a fundamental trade-off.</p>
+
+<p>ACID databases prioritize consistency over availability. If any part of a transaction fails, the entire thing fails—no compromises. BASE databases, on the other hand, prioritize availability over immediate consistency. They'll let you access potentially inconsistent data temporarily, then sort things out later. You can't really have both at once, a limitation formalized in the CAP theorem.</p>
+
+<p>Traditional SQL databases like MySQL, PostgreSQL, and Amazon Redshift are built on the ACID model. NoSQL databases like DynamoDB and MongoDB typically use BASE architecture, though some NoSQL systems have started adopting certain ACID characteristics as they've matured.</p>
+
+<h2>Atomicity: All or Nothing</h2>
+
+<p>Atomicity means that a transaction is indivisible—it either happens completely or not at all. The word comes from "atom," the Greek concept of something that cannot be divided (even though we later discovered atoms can indeed be split, but that's a different story).</p>
+
+<p>Think of a transaction as composed of multiple statements or operations. Atomicity guarantees that if any single statement fails, the entire transaction fails and the database remains unchanged. This prevents the nightmare scenario where your database updates only partially complete, leaving your data in an inconsistent state that's worse than if you'd never attempted the update at all.</p>
+
+<p>An atomic system must guarantee this property in every situation: power failures, software errors, hardware crashes, anything. No matter what catastrophe strikes, the transaction cannot be observed halfway through. At one moment it hasn't happened yet; at the next moment it has happened completely (or been canceled entirely).</p>
+
+<p>Consider that bank transfer again. It consists of two operations: withdrawing money from account A and depositing it into account B. Without atomicity, you might successfully withdraw from A, then have the system crash before depositing into B. Money would simply disappear. Atomicity prevents this by treating both operations as a single unit that succeeds or fails together.</p>
+
+<h2>Consistency: Following the Rules</h2>
+
+<p>Consistency ensures that a transaction can only bring the database from one valid state to another valid state. Any data written must be valid according to all defined rules—constraints, cascades, triggers, and any combination of these.</p>
+
+<p>This is a broader concept than it might first appear. Let's use a simple example: imagine a database table with two columns, A and B, where a rule requires that A plus B must always equal one hundred.</p>
+
+<p>Before a transaction begins, we know this rule holds: A plus B equals one hundred. Now suppose a transaction tries to subtract ten from A without changing B. The operation on A succeeds (atomicity is satisfied—the single operation completed), but now A plus B equals ninety. The validation check catches this inconsistency, and the entire transaction must be rolled back. The database refuses to enter an invalid state.</p>
+
+<p>This works for all kinds of constraints. Data type constraints, for instance: if A and B must be integers, trying to enter 13.5 for A will cause the transaction to fail or trigger an alert. Referential integrity constraints prevent you from deleting a row in one table if another table refers to it via a foreign key. Consistency means the database enforces all these rules automatically, preventing corruption by illegal transactions.</p>
+
+<h2>Isolation: Orderly Concurrency</h2>
+
+<p>Transactions often execute concurrently—multiple users reading and writing to the same tables simultaneously. Isolation ensures that concurrent execution leaves the database in the same state it would have reached if those transactions had executed one after another, sequentially.</p>
+
+<p>This is where things get tricky.</p>
+
+<p>Imagine two transactions running at the same time. T1 transfers ten dollars from account A to account B. T2 transfers twenty dollars from B to A. Each transaction involves two operations: subtracting from one account and adding to the other.</p>
+
+<p>If these transactions execute sequentially—T1 completes, then T2 begins—everything works fine. T2 just has to wait until T1 finishes. If T1 fails halfway through, its effects are eliminated, and T2 sees only valid data.</p>
+
+<p>But what if they interleave? Suppose T1 subtracts ten from A, then T2 subtracts twenty from B and adds twenty to A, then T1 tries to add ten to B. Now if T1 fails at that last step, we have a problem. By the time T1 fails, T2 has already modified A. We can't restore A to its pre-transaction value without creating an invalid database state.</p>
+
+<p>This is called a write-write contention—two transactions attempting to write to the same data field. The typical solution is to revert to the last known good state, cancel the failed transaction, and restart the interrupted transaction from that good state.</p>
+
+<p>Isolation is the main goal of concurrency control. Depending on the isolation level used (databases typically offer several), the effects of an incomplete transaction might not be visible to other transactions at all, preventing these kinds of conflicts.</p>
+
+<h2>Durability: Persistence Through Catastrophe</h2>
+
+<p>Durability guarantees that once a transaction has been committed, it remains committed even if the system immediately fails. Completed transactions are recorded in non-volatile memory—storage that persists through power outages and crashes.</p>
+
+<p>Imagine a transaction that transfers ten dollars from A to B. It removes ten from A, adds ten to B, and tells the user the transaction succeeded. But the changes are still queued in the disk buffer, waiting to be written to disk. Then the power fails. Without durability, those changes are lost, even though the user believes they've persisted.</p>
+
+<p>Durability prevents this betrayal of user expectations.</p>
+
+<h2>Implementation: How Databases Pull This Off</h2>
+
+<p>Guaranteeing these four properties requires sophisticated techniques. Two families of approaches dominate: write-ahead logging and shadow paging.</p>
+
+<p>In write-ahead logging, before changing the database, the system writes the prospective change to a persistent log. If the system crashes, it can replay the log to return to a consistent state. This log becomes a record of what should have happened, allowing recovery even from catastrophic failures.</p>
+
+<p>In shadow paging, updates are applied to a partial copy of the database. Only when the transaction commits successfully does this new copy become the active database. If the transaction fails, the shadow copy is simply discarded, leaving the original untouched.</p>
+
+<p>Both approaches require acquiring locks on all information to be updated, and depending on the isolation level, possibly on all data that may be read as well.</p>
+
+<h2>Locking: The Traditional Approach</h2>
+
+<p>Many databases rely on locking to provide ACID capabilities. When a transaction accesses data, it marks that data so the database management system knows not to allow other transactions to modify it until the first transaction succeeds or fails.</p>
+
+<p>Locks must be acquired before processing data, including data that's only read, not modified. Non-trivial transactions typically require a large number of locks, creating substantial overhead and blocking other transactions from proceeding.</p>
+
+<p>If user A is reading a row that user B wants to modify, user B must wait. Two-phase locking—acquiring all necessary locks before performing any work, then releasing them all at the end—is often used to guarantee full isolation.</p>
+
+<p>The downside? Performance. Lots of waiting. Lots of transactions blocking each other.</p>
+
+<h2>Multiversion Concurrency Control: A Clever Alternative</h2>
+
+<p>An alternative to locking is multiversion concurrency control. Instead of blocking readers when writers need access, the database provides each reading transaction with the prior, unmodified version of data that's being modified by another active transaction.</p>
+
+<p>This allows readers to operate without acquiring locks. Writers don't block readers, and readers don't block writers. When user A's transaction requests data that user B is modifying, the database simply provides A with the version of that data that existed when B started. User A gets a consistent view of the database even while other users are changing it.</p>
+
+<p>One implementation of this approach is called snapshot isolation. It relaxes the isolation property slightly (hence "snapshot" rather than perfect isolation) but dramatically improves performance for many workloads.</p>
+
+<h2>Distributed Transactions: ACID Gets Harder</h2>
+
+<p>Guaranteeing ACID properties becomes significantly more complex in distributed transactions across multiple database nodes, where no single node is responsible for all the data affecting a transaction.</p>
+
+<p>Network connections might fail. One node might successfully complete its part of the transaction, then be required to roll back because another node failed. The coordination problem becomes substantial.</p>
+
+<p>The two-phase commit protocol (not to be confused with two-phase locking) provides atomicity for distributed transactions. In the first phase, one node—the coordinator—asks all the other nodes (the participants) if they're prepared to commit. Only when all reply affirmatively does the coordinator, in the second phase, formalize the transaction.</p>
+
+<p>This ensures that each participant agrees on whether the transaction should commit or not, maintaining atomicity even across network boundaries and multiple independent systems.</p>
+
+<h2>Why This Still Matters</h2>
+
+<p>ACID properties have influenced database development for over fifty years. Every time you swipe a credit card, check your bank balance, book a flight, or make an online purchase, ACID transactions are working behind the scenes to ensure your data remains consistent and your money doesn't vanish into the digital void.</p>
+
+<p>The rise of NoSQL and BASE systems hasn't made ACID obsolete—it's simply made the trade-offs explicit. Some applications need eventual consistency and can tolerate temporary data conflicts in exchange for higher availability and performance. Others need the iron-clad guarantees that ACID provides.</p>
+
+<p>Understanding these four properties—atomicity, consistency, isolation, and durability—means understanding the fundamental promises that databases make to us, and the sophisticated machinery required to keep those promises even when everything is going wrong.</p>
+      </div>
+
+      <footer class="wikipedia-footer">
+        <p class="source-link">
+          <a href="https://en.wikipedia.org/wiki/ACID" target="_blank" rel="noopener">
+            View original Wikipedia article &rarr;
+          </a>
+        </p>
+        <p class="rewrite-note">
+          This article has been rewritten from Wikipedia source material for enjoyable reading.
+          Content may have been condensed, restructured, or simplified.
+        </p>
+      </footer>
+
+      
+      <section class="related-articles">
+        <h2>Related Articles</h2>
+        <p class="related-intro">This deep dive was written in connection with these articles:</p>
+        <ul class="related-list">
+          
+      <li class="related-article-item">
+        <a href="../../article/1198015a-27be-43a5-a4c8-ee5f4a09006e/index.html">
+          <strong>How AI Transformed Database Debugging at Databricks</strong>
+        </a>
+        <span class="article-meta">
+          by Alex Xu in ByteByteGo Newsletter
+        </span>
+      </li>
+        </ul>
+      </section>
+    
+    </article>
+  
+  </main>
+</body>
+</html>

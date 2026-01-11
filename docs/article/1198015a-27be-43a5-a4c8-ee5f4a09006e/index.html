@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>How AI Transformed Database Debugging at Databricks - Hex Index</title>
+  <link rel="stylesheet" href="../../styles.css">
+</head>
+<body class="reading-mode">
+  <header class="reading-header">
+    <a href="../../index.html" class="back-link">&larr; Back to Library</a>
+  </header>
+  <main class="reading-content">
+    
+    <article class="article-page">
+      <header class="article-header">
+        <h1>How AI Transformed Database Debugging at Databricks</h1>
+        <div class="article-meta">
+          <span class="author">By Alex Xu</span>
+          <span class="separator">&middot;</span>
+          <a href="../../publication/bytebytego/index.html" class="publication">
+            ByteByteGo Newsletter
+          </a>
+          <span class="separator">&middot;</span><time>Jan 6, 2026</time>
+          <span class="separator">&middot;</span>
+          <span class="read-time">12 min read</span>
+        </div>
+      </header>
+
+      
+      <section class="deep-dives">
+        <h2>Deep Dives</h2>
+        <p class="deep-dives-intro">Explore related topics with these Wikipedia articles, rewritten for enjoyable reading:</p>
+        <ul class="deep-dive-list">
+          
+      <li class="deep-dive-item">
+        <a href="../../wikipedia/acid/index.html">
+          <strong>ACID</strong>
+          <span class="read-time">10 min read</span>
+        </a>
+        <p class="topic-summary">The article discusses OLTP instances and database transactions. Understanding ACID properties (Atomicity, Consistency, Isolation, Durability) is fundamental to why database debugging is complex, especially when dealing with deadlocks and transaction states mentioned in the InnoDB status checks.</p>
+      </li>
+        </ul>
+      </section>
+    
+
+      <div class="article-excerpt">
+        <h2><a href="https://bit.ly/You_010626">New Year, New Metrics: Evaluating AI Search in the Agentic Era (Sponsored)</a></h2><div class="captioned-image-container"><figure><a class="image-link image2 is-viewable-img" target="_blank" href="https://bit.ly/You_010626" data-component-name="Image2ToDOM"><div class="image2-inset"><picture><source type="image/webp" srcset="https://substackcdn.com/image/fetch/$s_!8ZPR!,w_424,c_limit,f_webp,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F3e07ebdc-da60-480c-874b-162a215a186b_1600x840.png 424w, https://substackcdn.com/image/fetch/$s_!8ZPR!,w_848,c_limit,f_webp,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F3e07ebdc-da60-480c-874b-162a215a186b_1600x840.png 848w, https://substackcdn.com/image/fetch/$s_!8ZPR!,w_1272,c_limit,f_webp,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F3e07ebdc-da60-480c-874b-162a215a186b_1600x840.png 1272w, https://substackcdn.com/image/fetch/$s_!8ZPR!,w_1456,c_limit,f_webp,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F3e07ebdc-da60-480c-874b-162a215a186b_1600x840.png 1456w" sizes="100vw"><img src="https://substackcdn.com/image/fetch/$s_!8ZPR!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F3e07ebdc-da60-480c-874b-162a215a186b_1600x840.png" width="1456" height="764" data-attrs="{&quot;src&quot;:&quot;https://substack-post-media.s3.amazonaws.com/public/images/3e07ebdc-da60-480c-874b-162a215a186b_1600x840.png&quot;,&quot;srcNoWatermark&quot;:null,&quot;fullscreen&quot;:null,&quot;imageSize&quot;:null,&quot;height&quot;:764,&quot;width&quot;:1456,&quot;resizeWidth&quot;:null,&quot;bytes&quot;:1432342,&quot;alt&quot;:null,&quot;title&quot;:null,&quot;type&quot;:&quot;image/png&quot;,&quot;href&quot;:&quot;https://bit.ly/You_010626&quot;,&quot;belowTheFold&quot;:false,&quot;topImage&quot;:true,&quot;internalRedirect&quot;:&quot;https://blog.bytebytego.com/i/183299050?img=https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F3e07ebdc-da60-480c-874b-162a215a186b_1600x840.png&quot;,&quot;isProcessing&quot;:false,&quot;align&quot;:null,&quot;offset&quot;:false}" class="sizing-normal" alt="" srcset="https://substackcdn.com/image/fetch/$s_!8ZPR!,w_424,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F3e07ebdc-da60-480c-874b-162a215a186b_1600x840.png 424w, https://substackcdn.com/image/fetch/$s_!8ZPR!,w_848,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F3e07ebdc-da60-480c-874b-162a215a186b_1600x840.png 848w, https://substackcdn.com/image/fetch/$s_!8ZPR!,w_1272,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F3e07ebdc-da60-480c-874b-162a215a186b_1600x840.png 1272w, https://substackcdn.com/image/fetch/$s_!8ZPR!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F3e07ebdc-da60-480c-874b-162a215a186b_1600x840.png 1456w" sizes="100vw" fetchpriority="high"></picture><div class="image-link-expand"><div class="pencraft pc-display-flex pc-gap-8 pc-reset"></div></div></div></a></figure></div><p>Most teams pick a search provider by running a few test queries and hoping for the best – a recipe for hallucinations and unpredictable failures. <a href="https://bit.ly/You_010626">This technical guide</a> from <a href="https://bit.ly/You_010626">You.com</a> gives you access to an exact framework to evaluate AI search and retrieval.</p><p><strong>What you’ll get:</strong></p><ul><li><p>A four-phase framework for evaluating AI search</p></li><li><p>How to build a golden set of queries that predicts real-world performance</p></li><li><p>Metrics and code for measuring accuracy</p></li></ul><p>Go from “looks good” to proven quality. </p><div><hr></div><p><em>Disclaimer: The details in this post have been derived from the details shared online by the Databricks Engineering Team. All credit for the technical details goes to the Databricks Engineering Team.  The links to the original articles and sources are present in the references section at the end of the post. We’ve attempted to analyze the details and provide our input about them. If you find any inaccuracies or omissions, please leave a comment, and we will do our best to fix them.</em></p><p>Databricks is a cloud platform that helps companies manage all their data in one place. It combines the best features of data warehouses and data lakes into a lakehouse architecture, which means you can store and work with any type of data.</p><p>Recently, Databricks built an internal AI-powered agentic platform that reduced database debugging time by up to 90% across thousands of OLTP instances spanning hundreds of regions on multiple cloud platforms.</p><p>The AI agent interprets, executes, and debugs by retrieving key metrics and logs and automatically correlating signals. It makes the life of Databricks engineers easy. They can now ask questions about the health of their services in natural language without needing to reach out to on-call engineers in storage teams.</p><p>The great part was that this platform evolved from a hackathon project into a company-wide tool that unifies metrics, tooling, and expertise for managing databases at scale. In this article, we will look at how the Databricks engineering team built this platform and the challenges faced along the way.</p><h2>The Pre-AI Workflow and Pain Points</h2><p>In the pre-AI workflow, Databricks engineers had to manually jump between multiple tools whenever they had to debug a database problem. Here’s how the workflow ran:</p><ul><li><p>Engineers would first open Grafana to examine performance metrics and charts that showed how the database was behaving over time.</p></li><li><p>Next, they would switch </p></li></ul>...</source>
+      </div>
+
+      <div class="read-full-article">
+        <a href="https://blog.bytebytego.com/p/how-ai-transformed-database-debugging" class="read-button" target="_blank" rel="noopener">
+          Read full article on ByteByteGo Newsletter &rarr;
+        </a>
+        <p class="copyright-note">
+          This excerpt is provided for preview purposes.
+          Full article content is available on the original publication.
+        </p>
+      </div>
+    </article>
+  
+  </main>
+</body>
+</html>

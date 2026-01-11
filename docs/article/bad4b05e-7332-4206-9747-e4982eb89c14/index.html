@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>OpenAI CLIP: The Model That Learnt Zero-Shot Image Recognition Using Text - Hex Index</title>
+  <link rel="stylesheet" href="../../styles.css">
+</head>
+<body class="reading-mode">
+  <header class="reading-header">
+    <a href="../../index.html" class="back-link">&larr; Back to Library</a>
+  </header>
+  <main class="reading-content">
+    
+    <article class="article-page">
+      <header class="article-header">
+        <h1>OpenAI CLIP: The Model That Learnt Zero-Shot Image Recognition Using Text</h1>
+        <div class="article-meta">
+          <span class="author">By Alex Xu</span>
+          <span class="separator">&middot;</span>
+          <a href="../../publication/bytebytego/index.html" class="publication">
+            ByteByteGo Newsletter
+          </a>
+          <span class="separator">&middot;</span><time>Dec 29, 2025</time>
+          <span class="separator">&middot;</span>
+          <span class="read-time">10 min read</span>
+        </div>
+      </header>
+
+      
+      <section class="deep-dives">
+        <h2>Deep Dives</h2>
+        <p class="deep-dives-intro">Explore related topics with these Wikipedia articles, rewritten for enjoyable reading:</p>
+        <ul class="deep-dive-list">
+          
+      <li class="deep-dive-item">
+        <a href="../../wikipedia/imagenet/index.html">
+          <strong>ImageNet</strong>
+          <span class="read-time">13 min read</span>
+        </a>
+        <p class="topic-summary">The article extensively discusses ImageNet as the traditional approach CLIP moved away from, mentioning its 25,000 workers labeling 14 million images and specific accuracy metrics (76% dropping to 37% on sketches). Understanding ImageNet&#039;s history, creation, and impact on computer vision provides crucial context for appreciating CLIP&#039;s innovation.</p>
+      </li>
+
+      <li class="deep-dive-item">
+        <a href="../../wikipedia/backpropagation/index.html">
+          <strong>Backpropagation</strong>
+          <span class="read-time">13 min read</span>
+        </a>
+        <p class="topic-summary">The article describes backpropagation as &#039;the fundamental learning mechanism in neural networks&#039; and explains how it enables CLIP&#039;s training. Most readers understand neural networks at a high level but don&#039;t know the mathematical details of how weights actually update during training.</p>
+      </li>
+
+      <li class="deep-dive-item">
+        <a href="../../wikipedia/embedding/index.html">
+          <strong>Embedding</strong>
+          <span class="read-time">10 min read</span>
+        </a>
+        <p class="topic-summary">Embeddings are central to CLIP&#039;s architecture - the article explains how both image and text encoders produce vectors in the same dimensional space for comparison. Understanding vector embeddings, their mathematical properties, and why they enable semantic similarity comparisons is foundational to grasping CLIP&#039;s innovation.</p>
+      </li>
+        </ul>
+      </section>
+    
+
+      <div class="article-excerpt">
+        <h2><a href="https://bit.ly/You_122925">If Your API Isn’t Fresh, Your Agents Aren’t Either. (Sponsored)</a></h2><div class="captioned-image-container"><figure><a class="image-link image2 is-viewable-img" target="_blank" href="https://bit.ly/You_122925" data-component-name="Image2ToDOM"><div class="image2-inset"><picture><source type="image/webp" srcset="https://substackcdn.com/image/fetch/$s_!QpiC!,w_424,c_limit,f_webp,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F55b56b76-103c-47c1-83e4-d67c2a50ab05_1600x840.jpeg 424w, https://substackcdn.com/image/fetch/$s_!QpiC!,w_848,c_limit,f_webp,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F55b56b76-103c-47c1-83e4-d67c2a50ab05_1600x840.jpeg 848w, https://substackcdn.com/image/fetch/$s_!QpiC!,w_1272,c_limit,f_webp,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F55b56b76-103c-47c1-83e4-d67c2a50ab05_1600x840.jpeg 1272w, https://substackcdn.com/image/fetch/$s_!QpiC!,w_1456,c_limit,f_webp,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F55b56b76-103c-47c1-83e4-d67c2a50ab05_1600x840.jpeg 1456w" sizes="100vw"><img src="https://substackcdn.com/image/fetch/$s_!QpiC!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F55b56b76-103c-47c1-83e4-d67c2a50ab05_1600x840.jpeg" width="1456" height="764" data-attrs="{&quot;src&quot;:&quot;https://substack-post-media.s3.amazonaws.com/public/images/55b56b76-103c-47c1-83e4-d67c2a50ab05_1600x840.jpeg&quot;,&quot;srcNoWatermark&quot;:null,&quot;fullscreen&quot;:null,&quot;imageSize&quot;:null,&quot;height&quot;:764,&quot;width&quot;:1456,&quot;resizeWidth&quot;:null,&quot;bytes&quot;:null,&quot;alt&quot;:null,&quot;title&quot;:null,&quot;type&quot;:null,&quot;href&quot;:&quot;https://bit.ly/You_122925&quot;,&quot;belowTheFold&quot;:false,&quot;topImage&quot;:true,&quot;internalRedirect&quot;:null,&quot;isProcessing&quot;:false,&quot;align&quot;:null,&quot;offset&quot;:false}" class="sizing-normal" alt="" srcset="https://substackcdn.com/image/fetch/$s_!QpiC!,w_424,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F55b56b76-103c-47c1-83e4-d67c2a50ab05_1600x840.jpeg 424w, https://substackcdn.com/image/fetch/$s_!QpiC!,w_848,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F55b56b76-103c-47c1-83e4-d67c2a50ab05_1600x840.jpeg 848w, https://substackcdn.com/image/fetch/$s_!QpiC!,w_1272,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F55b56b76-103c-47c1-83e4-d67c2a50ab05_1600x840.jpeg 1272w, https://substackcdn.com/image/fetch/$s_!QpiC!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F55b56b76-103c-47c1-83e4-d67c2a50ab05_1600x840.jpeg 1456w" sizes="100vw" fetchpriority="high"></picture><div class="image-link-expand"><div class="pencraft pc-display-flex pc-gap-8 pc-reset"></div></div></div></a></figure></div><p>In the agentic era, outdated retrieval breaks workflows. This <a href="https://bit.ly/You_122925">API Benchmark Report from You.com</a> shows how each major search API performs to reveal which can best answer real-world, time-sensitive queries.</p><p>What’s inside:</p><ul><li><p>Head-to-head benchmarks comparing You.com, Google SerpAPI, Exa, and Tavily across accuracy, latency, and cost</p></li><li><p>Critical performance data to identify which APIs best handle time-sensitive queries</p></li><li><p>A data-driven analysis of the Latency vs. Accuracy trade-off to help you select the best retrieval layer for enterprise agents</p></li></ul><p>Curious who performed best? </p><div><hr></div><p><em>Disclaimer: The details in this post have been derived from the details shared online by the OpenAI Engineering Team. All credit for the technical details goes to the OpenAI Engineering Team.  The links to the original articles and sources are present in the references section at the end of the post. We’ve attempted to analyze the details and provide our input about them. If you find any inaccuracies or omissions, please leave a comment, and we will do our best to fix them.</em></p><p>Imagine teaching a computer to recognize objects not by showing it millions of labeled photos, but by letting it browse the internet and learn from how people naturally describe images. That’s exactly what OpenAI’s CLIP does, and it represents a fundamental shift in how we teach machines to understand visual content.</p><p>CLIP (Contrastive Language-Image Pre-training) is a neural network that connects vision and language. Released in January 2021, it can classify images into any categories you want without being specifically trained for that task. Just tell it what you’re looking for in plain English, and it can recognize it. This “zero-shot” capability makes CLIP different from almost every computer vision system that came before it.</p><p>In this article, we will look at how CLIP works and the problems it tries to solve.</p><h1>The Problem CLIP Solves</h1><p>Traditional computer vision followed a rigid formula. If you want a model to distinguish cats from dogs, you need thousands of labeled photos. For different car models, you need another expensive dataset. For reference, ImageNet, one of the most famous image datasets, required over 25,000 workers to label 14 million images.</p><p>This approach created three major problems:</p><ul><li><p>First, datasets were expensive and time-consuming to build.</p></li><li><p>Second, models became narrow specialists. An ImageNet model could recognize 1,000 categories, but adapting it to new tasks required collecting more data and retraining.</p></li><li><p>Third, </p></li></ul>...</source>
+      </div>
+
+      <div class="read-full-article">
+        <a href="https://blog.bytebytego.com/p/openai-clip-the-model-that-learnt" class="read-button" target="_blank" rel="noopener">
+          Read full article on ByteByteGo Newsletter &rarr;
+        </a>
+        <p class="copyright-note">
+          This excerpt is provided for preview purposes.
+          Full article content is available on the original publication.
+        </p>
+      </div>
+    </article>
+  
+  </main>
+</body>
+</html>

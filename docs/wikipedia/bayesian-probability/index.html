@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bayesian probability - Hex Index</title>
+  <link rel="stylesheet" href="../../styles.css">
+</head>
+<body class="reading-mode">
+  <header class="reading-header">
+    <a href="../../index.html" class="back-link">&larr; Back to Library</a>
+  </header>
+  <main class="reading-content">
+    
+    <article class="wikipedia-page">
+      <header class="wikipedia-header">
+        <div class="type-badge">Wikipedia Deep Dive</div>
+        <h1>Bayesian probability</h1>
+        <div class="article-meta">
+          <span class="read-time">12 min read</span>
+        </div>
+      </header>
+
+      <div class="wikipedia-content">
+        <p class="source-note">Based on <a href="https://en.wikipedia.org/wiki/Bayesian_probability">Wikipedia: Bayesian probability</a></p>
+
+<p>Imagine you're a detective investigating a crime. You start with a hunch—maybe thirty percent sure the butler did it. Then you find a muddy footprint that matches the butler's shoes. Your confidence jumps to seventy percent. Later, you discover the butler has an airtight alibi. Your certainty collapses back to near zero.</p>
+
+<p>This is Bayesian thinking in action.</p>
+
+<p>Most of us learned in school that probability means how often something happens—flip a fair coin a thousand times and you'll get about five hundred heads. But there's another way to think about probability entirely: not as frequency, but as a measure of your uncertainty. This is Bayesian probability, and it's revolutionizing everything from medical diagnosis to machine learning to how we understand rational thought itself.</p>
+
+<h2>Probability as a State of Mind</h2>
+
+<p>The key insight is simple but profound: probability isn't just about coins and dice. It's about what you know and what you don't know.</p>
+
+<p>When a weather forecaster says there's a forty percent chance of rain tomorrow, they're not claiming that tomorrow will happen ten times and it'll rain in four of those parallel universes. They're expressing their uncertainty given current atmospheric data, historical patterns, and the limitations of weather models. That forty percent is a state of knowledge.</p>
+
+<p>This interpretation of probability is named after Thomas Bayes, an eighteenth-century English minister and mathematician who never published his most famous insight during his lifetime. After his death in 1761, a friend found his notes and published them as "An Essay Towards Solving a Problem in the Doctrine of Chances." Bayes had figured out something remarkable: a mathematical formula for updating your beliefs in light of new evidence.</p>
+
+<p>The real hero of this story, though, is Pierre-Simon Laplace, the French mathematician who lived from 1749 to 1827. Laplace took Bayes' special case and generalized it into the powerful theorem we use today. He applied it to celestial mechanics (predicting planetary orbits), medical statistics, reliability engineering, and even jurisprudence. For over a century, this approach was called "inverse probability" because it works backwards—from observations to causes, from effects to their origins.</p>
+
+<h2>Two Flavors of Bayesianism</h2>
+
+<p>Not all Bayesians agree on what probability really means. The field split into two camps, and the divide matters.</p>
+
+<p><strong>Objectivists</strong> see probability as an extension of logic. Just as two plus two equals four for everyone, they argue that two people with identical information should assign identical probabilities to any hypothesis. The probability isn't in your head—it's determined by the evidence itself. Given the same data, even a robot following the rules should reach the same conclusion you do. This view was championed by Harold Jeffreys, whose 1939 book Theory of Probability helped revive Bayesian thinking after decades of dormancy.</p>
+
+<p><strong>Subjectivists</strong> embrace the personal nature of probability. Your probability assignments reflect your individual beliefs, shaped by your unique experiences and knowledge. Two rational people can look at the same evidence and reasonably disagree. What matters isn't that everyone agrees, but that each person updates their beliefs consistently and coherently. This view was developed by Bruno de Finetti, Frank Ramsey, and Leonard Savage in the mid-twentieth century.</p>
+
+<p>The main difference shows up in how they construct the "prior probability"—your starting point before seeing any evidence. Objectivists believe there's often a single correct prior determined by the problem structure. Subjectivists insist your prior is inherently personal, though they agree you must update it according to Bayes' rule once evidence arrives.</p>
+
+<h2>How Bayesian Updating Works</h2>
+
+<p>The Bayesian approach follows a simple cycle.</p>
+
+<p>First, you start with a <em>prior probability</em>—your initial belief about a hypothesis before seeing new data. Maybe you think there's a twenty percent chance your headache is caused by dehydration.</p>
+
+<p>Then evidence arrives. You remember you only drank one glass of water today, and it's been hot outside. This evidence is more likely if you're dehydrated than if you're not.</p>
+
+<p>Now you apply Bayes' theorem, a mathematical formula that tells you exactly how to update your belief. The result is your <em>posterior probability</em>—your new belief after accounting for the evidence. Maybe now you're sixty percent sure it's dehydration.</p>
+
+<p>Here's the elegant part: your posterior probability becomes your next prior. If more evidence arrives—say, drinking water makes your headache vanish—you update again. Bayesian reasoning is sequential. Each piece of evidence refines your beliefs, step by step, forever.</p>
+
+<p>This contrasts sharply with traditional "frequentist" statistics, where a hypothesis is simply declared true or false based on whether it passes a significance test. In the Bayesian view, you never achieve certainty—only degrees of belief that shift with evidence.</p>
+
+<h2>Why Should We Believe This Works?</h2>
+
+<p>Mathematics is full of elegant ideas that don't correspond to reality. Why should we think Bayesian probability is the right way to reason under uncertainty?</p>
+
+<p>Several arguments have been proposed, each capturing something important.</p>
+
+<h3>Cox's Axioms</h3>
+
+<p>In the 1940s, physicist Richard Cox asked: what rules must any system of plausible reasoning follow? He proposed a few seemingly innocent requirements—like if you become more confident in A, you should become less confident in "not A"—and showed that these axioms force you to use probability theory, specifically in the Bayesian way. If you want to reason consistently about uncertainty, Cox argued, you have no choice but to be Bayesian.</p>
+
+<p>Critics note that Cox assumed differentiability, meaning probabilities change smoothly rather than jumping around discontinuously. In some logical systems, this assumption fails. But Cox's result remains influential.</p>
+
+<h3>The Dutch Book Argument</h3>
+
+<p>Bruno de Finetti offered a more pragmatic justification rooted in betting.</p>
+
+<p>Imagine you assign probabilities to various events, and a clever bookmaker offers you bets at odds matching your stated probabilities. If your probabilities are internally inconsistent—they don't follow the rules of probability theory—the bookmaker can construct a "Dutch book": a collection of bets that guarantees you lose money no matter what happens.</p>
+
+<p>A simple example: suppose you say the probability of rain tomorrow is sixty percent and the probability of no rain is fifty percent. These don't add to one hundred percent. A bookmaker can offer you carefully crafted bets on both outcomes that ensure you lose money whether it rains or not. You're being incoherent.</p>
+
+<p>The Dutch book argument shows that to avoid guaranteed loss, your probabilities must obey probability theory's axioms. And to avoid dynamic Dutch books—sequential bets over time—you must update using Bayes' rule.</p>
+
+<p>Philosopher Ian Hacking pointed out a subtlety: the original Dutch book argument doesn't uniquely specify Bayesian updating. Other updating rules might also avoid Dutch books. But combined with additional assumptions, the Bayesian approach emerges as the natural choice.</p>
+
+<h3>Decision Theory</h3>
+
+<p>Statistician Abraham Wald proved something remarkable in the mid-twentieth century: every "admissible" statistical procedure—one that can't be uniformly improved upon—is either a Bayesian procedure or a limit of Bayesian procedures. Conversely, every Bayesian procedure is admissible.</p>
+
+<p>This means if you want to make optimal decisions under uncertainty, you should be Bayesian. It's not just philosophically appealing—it's mathematically optimal.</p>
+
+<p>Later work by Frank Ramsey, John von Neumann, Leonard Savage, and Johann Pfanzagl connected Bayesian probability to expected utility theory, showing how rational agents facing uncertainty should behave. The probability distribution becomes a core component of rationality itself.</p>
+
+<h2>The Objectivity Problem</h2>
+
+<p>Here's the practical challenge: where do priors come from?</p>
+
+<p>If you're an expert cardiologist diagnosing a patient, your priors come from years of training and experience. That's an "informed prior," and it's uncontroversial.</p>
+
+<p>But what if you're tackling a genuinely novel problem where no one has relevant expertise? Or you're doing science, where personal opinions shouldn't matter? You need an "objective" or "uninformative" prior—one that represents pure ignorance without sneaking in hidden assumptions.</p>
+
+<p>This turns out to be fiendishly difficult.</p>
+
+<p>Laplace proposed the "principle of insufficient reason": if you have no reason to favor one possibility over another, assign them equal probabilities. Sounds fair. But equal in what space? If you're estimating the speed of a car, should you assign equal probability to each possible speed, or equal probability to each possible momentum, or equal probability to each possible kinetic energy? These give different answers, and there's no obviously right choice.</p>
+
+<p>Over the past century, statisticians have developed several methods for constructing objective priors:</p>
+
+<p><strong>Maximum entropy</strong> priors choose the probability distribution that is maximally uncertain given whatever constraints you do know. This was championed by Edwin Thompson Jaynes, who saw it as the principled way to represent ignorance.</p>
+
+<p><strong>Transformation group analysis</strong> exploits symmetries. If the problem looks the same after certain transformations—like shifting all measurements by a constant—your prior should respect that symmetry.</p>
+
+<p><strong>Reference analysis</strong>, developed by José-Miguel Bernardo and James Berger, constructs priors that maximize the expected information gained from data. The idea is to let the data speak as loudly as possible, minimizing the influence of the prior.</p>
+
+<p>Each method works beautifully for certain problems and struggles with others. The quest for "the universal objective prior" continues. Many practicing Bayesians, even subjectivists who philosophically embrace personal probability, use these methods simply because science demands some way to proceed when genuine prior knowledge is absent.</p>
+
+<h2>The Computational Revolution</h2>
+
+<p>For most of the twentieth century, Bayesian methods were mathematically elegant but computationally impractical. Calculating posterior probabilities required integrals that couldn't be solved by hand except in simple cases.</p>
+
+<p>Everything changed in the 1980s with the rediscovery and development of Markov chain Monte Carlo methods—clever algorithms that let computers approximate Bayesian calculations even in hideously complex problems. Suddenly, Bayesian analysis became feasible for real-world data.</p>
+
+<p>The explosion of computational power coincided with growing interest in messy, high-dimensional problems where traditional statistics struggled. Machine learning, in particular, embraced Bayesian methods. Today, algorithms that learn from data—from spam filters to recommendation systems to large language models—often have Bayesian reasoning at their core.</p>
+
+<p>Frequentist statistics still dominates undergraduate education and remains powerful for many applications. But Bayesian methods are now mainstream, widely taught, and increasingly the default choice for cutting-edge research.</p>
+
+<h2>Testing Bayesian Probability</h2>
+
+<p>Can Bayesian probabilities be tested experimentally? Philosopher Charles Sanders Peirce insisted that scientific claims must be falsifiable—there must be some observation that could prove them wrong.</p>
+
+<p>Subjective probabilities seem troublingly immune to testing. If you claim there's a seventy percent chance the butler is guilty, and then it turns out the butler is innocent, were you wrong? Not necessarily—improbable things happen sometimes. How could we ever prove your probability assignment was irrational?</p>
+
+<p>Frank Ramsey and Bruno de Finetti developed experimental procedures for testing probability judgments. The "Ramsey test" involves offering people carefully designed bets and observing their choices. If someone's betting behavior is inconsistent with any coherent probability distribution, they're being irrational in a detectable way.</p>
+
+<p>This work, refined over decades by experimental psychologists, shows that Bayesian probabilities can be objectively studied. Different people make different probability judgments—these are genuinely "personal"—but those judgments can be measured, tested for coherence, and compared against outcomes. This satisfied Peirce's pragmatic criterion for scientific meaningfulness, later popularized by Karl Popper as falsifiability.</p>
+
+<p>Modern studies use randomization, blinding, and careful experimental design to investigate how people actually reason about uncertainty. The findings are humbling: humans are often terrible intuitive Bayesians, falling into systematic biases and fallacies. But the research also reveals that with training, we can improve our probabilistic reasoning. The Bayesian framework provides the standard against which to measure rationality.</p>
+
+<h2>What Makes Bayesian Reasoning Different</h2>
+
+<p>The Bayesian approach makes several moves that distinguish it from other statistical frameworks.</p>
+
+<p>It treats <em>all</em> uncertainty using probability, not just randomness from repeated trials. The true mass of an electron isn't random—there's a fixed fact of the matter—but our knowledge is uncertain. Bayesians assign probabilities to hypotheses about that fixed fact.</p>
+
+<p>It embraces sequential learning. Each analysis builds on what came before. Yesterday's posterior is today's prior. This mirrors how science actually works—each study refines our understanding incrementally.</p>
+
+<p>It distinguishes between two types of uncertainty: <em>aleatory</em> uncertainty (irreducible randomness, like a coin flip) and <em>epistemic</em> uncertainty (lack of knowledge, like not knowing how a coin is biased). Both get modeled probabilistically, but they play different roles.</p>
+
+<p>And crucially, it forces you to be explicit about your assumptions. Your prior probability is right there in the open, visible and criticizable. Traditional statistics hides assumptions in the choice of test procedures and significance levels. Bayesian analysis puts them front and center, which makes the reasoning more transparent and often more honest.</p>
+
+<h2>The Bayesian Revolution</h2>
+
+<p>Today, Bayesian probability is everywhere, often invisibly.</p>
+
+<p>Your email spam filter uses Bayesian reasoning to classify messages. Your phone's autocorrect predicts what you meant to type using Bayesian language models. Medical diagnostic systems weigh symptoms and test results Bayesianly. Climate scientists combine observations with physical models using Bayesian data assimilation. Particle physicists discovered the Higgs boson by accumulating Bayesian evidence across millions of collisions.</p>
+
+<p>The word "Bayesian" itself is surprisingly recent—coined only in the 1950s, with "Bayesianism" following in the 1960s. For two centuries, these ideas developed under different names. Now the term is ubiquitous.</p>
+
+<p>What Thomas Bayes glimpsed in his eighteenth-century parlor—a way to reason backwards from effects to causes, from evidence to belief—has become one of the most powerful frameworks humans have ever developed for thinking clearly under uncertainty. It's not just a statistical technique. It's a lens for seeing how knowledge grows, how science progresses, and how rational minds should work.</p>
+
+<p>The detective updates their theory about the butler. The doctor revises their diagnosis when new test results arrive. The scientist adjusts their confidence in a hypothesis as experiments accumulate. All are performing the same fundamental operation: Bayesian updating.</p>
+
+<p>And that's the deepest insight: learning itself is Bayesian.</p>
+      </div>
+
+      <footer class="wikipedia-footer">
+        <p class="source-link">
+          <a href="https://en.wikipedia.org/wiki/Bayesian_probability" target="_blank" rel="noopener">
+            View original Wikipedia article &rarr;
+          </a>
+        </p>
+        <p class="rewrite-note">
+          This article has been rewritten from Wikipedia source material for enjoyable reading.
+          Content may have been condensed, restructured, or simplified.
+        </p>
+      </footer>
+
+      
+      <section class="related-articles">
+        <h2>Related Articles</h2>
+        <p class="related-intro">This deep dive was written in connection with these articles:</p>
+        <ul class="related-list">
+          
+      <li class="related-article-item">
+        <a href="../../article/9dc524b3-ca65-4d03-9059-9362a2ecb69d/index.html">
+          <strong>Bentham&#039;s Bulldog 2025 In Review</strong>
+        </a>
+        <span class="article-meta">
+          by Bentham&#039;s Bulldog in 
+        </span>
+      </li>
+        </ul>
+      </section>
+    
+    </article>
+  
+  </main>
+</body>
+</html>

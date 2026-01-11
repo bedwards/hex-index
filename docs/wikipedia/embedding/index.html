@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Embedding - Hex Index</title>
+  <link rel="stylesheet" href="../../styles.css">
+</head>
+<body class="reading-mode">
+  <header class="reading-header">
+    <a href="../../index.html" class="back-link">&larr; Back to Library</a>
+  </header>
+  <main class="reading-content">
+    
+    <article class="wikipedia-page">
+      <header class="wikipedia-header">
+        <div class="type-badge">Wikipedia Deep Dive</div>
+        <h1>Embedding</h1>
+        <div class="article-meta">
+          <span class="read-time">10 min read</span>
+        </div>
+      </header>
+
+      <div class="wikipedia-content">
+        <p class="source-note">Based on <a href="https://en.wikipedia.org/wiki/Embedding">Wikipedia: Embedding</a></p>
+
+<p>Imagine you have a box of crayons. Now imagine taking that box and placing it inside your art supply drawer. The crayons are still crayons—they haven't changed—but now they live within something bigger. That's embedding, mathematically speaking. It's about taking one mathematical object and fitting it perfectly inside another, preserving everything that makes the first object what it is.</p>
+
+<p>This idea pervades modern mathematics, from the abstract heights of pure algebra down to the concrete geometry of surfaces in space. And if you're working with machine learning models that turn images into numbers—like OpenAI's CLIP model—you're using embeddings whether you realize it or not.</p>
+
+<h2>The Core Idea: Structure-Preserving Injection</h2>
+
+<p>An embedding is a special kind of function. Let's call our function f, and say it takes every element from some mathematical structure X and maps it to another structure Y. For f to be an embedding, two things must be true.</p>
+
+<p>First, f must be injective. That means no two different elements in X can map to the same element in Y. Think of it like assigning employee identification numbers: if two different employees get the same ID number, chaos ensues. Injectivity prevents that.</p>
+
+<p>Second, f must be structure-preserving. This is where things get interesting, because "structure" means different things in different contexts. If you're embedding one group into another, the function must preserve the group operation. If you're embedding one topological space into another, it must preserve which sets are open. The mathematical structure you're working with dictates what "structure-preserving" means.</p>
+
+<p>Mathematicians often write embeddings with a hooked arrow: f: X ↪ Y. That little hook is a visual reminder that X is being "caught" inside Y, remaining intact.</p>
+
+<h2>Canonical Embeddings: The Natural Fits</h2>
+
+<p>Some embeddings feel so natural that we barely notice them. Consider the natural numbers: 1, 2, 3, and so on. These sit inside the integers, which include negative numbers and zero. The integers sit inside the rational numbers (fractions). The rationals sit inside the real numbers (including irrational numbers like π). And the reals sit inside the complex numbers (which add imaginary components).</p>
+
+<p>Each of these is a canonical embedding. The word "canonical" here means something like "the obvious way to do it." When we write the number 3, we might mean the natural number 3, or the integer 3, or the rational number 3/1, or the real number 3.0, or the complex number 3 + 0i. Mathematicians freely identify these because the embedding is so natural.</p>
+
+<p>But embeddings aren't always unique. Given two mathematical structures, there might be multiple different ways to embed one into the other. The canonical embedding is just the one that feels most natural or most useful for the work at hand.</p>
+
+<h2>Topological Embeddings: When Spaces Fit Inside Spaces</h2>
+
+<p>Topology studies the properties of spaces that persist under continuous deformations—stretching and bending, but not tearing or gluing. A topological embedding takes one space X and maps it into another space Y in a way that preserves these topological properties.</p>
+
+<p>Technically, a topological embedding is a continuous injective map f from X to Y such that f gives you a homeomorphism between X and its image f(X) inside Y. A homeomorphism is essentially a continuous function with a continuous inverse—it means two spaces have the same topological structure.</p>
+
+<p>Let's make this concrete. Imagine embedding a circle into three-dimensional space. You could place it flat in a plane, or you could stretch it into an ellipse, or you could even tie it into a trefoil knot. Each of these is a topological embedding because the circle itself doesn't change its intrinsic structure. It remains a one-dimensional loop.</p>
+
+<p>What wouldn't work? Pinching the circle so two points touch. That would fail the injectivity requirement. Or imagine cutting the circle and gluing the ends to a wall—that wouldn't be continuous in the right way.</p>
+
+<p>Every topological embedding is injective and continuous, but the converse isn't quite true. An injective continuous map is an embedding if it's also either open (meaning it sends open sets to open sets) or closed (meaning it sends closed sets to closed sets). But some embeddings are neither open nor closed, which happens when the image isn't an open set or a closed set in the target space.</p>
+
+<h2>Local Versus Global Injectivity</h2>
+
+<p>Sometimes a function isn't injective overall, but it is injective in small neighborhoods. This is called being locally injective. Imagine wrapping a string around a cylinder. Globally, the function isn't injective because the string crosses over itself. But if you zoom in on any small piece of the string, that piece only hits the cylinder once.</p>
+
+<p>A local embedding is a function where every point in the domain has some neighborhood such that the restriction of the function to that neighborhood is an embedding. This distinction turns out to be crucial in differential topology.</p>
+
+<h2>Smooth Embeddings: When Manifolds Fit Together</h2>
+
+<p>A manifold is a space that looks locally like Euclidean space—like how the surface of the Earth looks flat when you're standing on it, even though globally it's a sphere. Differential topology studies smooth manifolds and smooth maps between them.</p>
+
+<p>A smooth map f from manifold M to manifold N is called an immersion if its derivative is injective everywhere. Think of the derivative as capturing how the function behaves infinitesimally—it's the best linear approximation at each point. An immersion means the function doesn't collapse any directions; it's locally injective in a smooth sense.</p>
+
+<p>A smooth embedding is an immersion that's also a topological embedding. In other words, it's locally injective and globally injective, and it preserves the topological structure. The image of a smooth embedding is automatically a submanifold of the target space.</p>
+
+<p>Here's a key fact: an immersion is precisely a local embedding. Around any point, you can find a neighborhood such that the restriction of the immersion to that neighborhood is a smooth embedding. And when the domain manifold is compact (closed and bounded), an injective immersion is automatically a smooth embedding.</p>
+
+<h2>The Whitney Embedding Theorem: How Much Space Do You Need?</h2>
+
+<p>One of the most beautiful questions in differential topology is this: if you have an m-dimensional smooth manifold M, what's the smallest dimension n such that you can smoothly embed M into n-dimensional Euclidean space?</p>
+
+<p>The Whitney embedding theorem answers this. It says that n equals 2m is always sufficient, and this is the best possible linear bound. For instance, any two-dimensional surface can be embedded in four-dimensional space. Any three-dimensional manifold fits in six-dimensional space.</p>
+
+<p>Why 2m and not something smaller? Consider the real projective space of dimension m, where m is a power of two. This space genuinely requires all 2m dimensions for an embedding. You can't do better.</p>
+
+<p>But here's a twist: the theorem only applies to embeddings, not immersions. The two-dimensional real projective plane can be immersed in three-dimensional space. There's a famous example called Boy's surface, which shows this explicitly. Boy's surface has self-intersections, which is why it's an immersion but not an embedding. The Roman surface is another famous example, but it fails even to be an immersion because it contains cross-caps—points where the surface pinches in a way that collapses the derivative.</p>
+
+<h2>Proper Embeddings: Respecting Boundaries</h2>
+
+<p>When manifolds have boundaries—like a disk, which has a circular edge—we want embeddings that respect those boundaries. A proper embedding is one where the boundary of X maps exactly to the intersection of the image of X with the boundary of Y. Additionally, the image must be transverse to the boundary, meaning it doesn't just graze the boundary tangentially.</p>
+
+<p>Imagine embedding a disk into a ball. A proper embedding would map the circular edge of the disk to somewhere on the spherical boundary of the ball, and the disk's interior would lie in the ball's interior. The disk wouldn't just touch the sphere at a single point or slide along it.</p>
+
+<h2>Isometric Embeddings: Preserving Distance</h2>
+
+<p>Riemannian geometry equips manifolds with a notion of distance and angle via a metric tensor. An isometric embedding is a smooth embedding that preserves this metric. If you embed manifold M into manifold N isometrically, then distances measured along M are exactly the same as distances measured in N.</p>
+
+<p>Formally, if g is the metric on M and h is the metric on N, an isometric embedding f: M → N satisfies g = f*h, where f*h denotes the pullback of h by f. In concrete terms, for any two tangent vectors v and w at a point in M, the metric pairing g(v, w) equals the metric pairing h(df(v), df(w)) in N.</p>
+
+<p>An isometric immersion is the same idea but allows local self-intersections. The Nash embedding theorem is the landmark result here: it says that any Riemannian manifold can be isometrically embedded into Euclidean space of sufficiently high dimension. This was a major achievement because it shows that abstract Riemannian manifolds aren't just formal constructions—they can be realized as honest geometric surfaces in ordinary Euclidean space.</p>
+
+<h2>Embeddings in Algebra: Fields and Homomorphisms</h2>
+
+<p>In algebra, embeddings show up when we map one algebraic structure into another while preserving the algebraic operations. For an algebraic category C, an embedding between two C-structures X and Y is simply an injective C-morphism.</p>
+
+<p>Field theory provides a clean example. A field is a set where you can add, subtract, multiply, and divide (except by zero), and these operations satisfy familiar rules. An embedding of field E into field F is a ring homomorphism σ: E → F.</p>
+
+<p>Why is this automatically injective? The kernel of σ—the elements that map to zero—forms an ideal of E. But fields have a special property: their only ideals are the zero ideal and the whole field itself. Since σ maps the multiplicative identity 1 in E to the multiplicative identity 1 in F, the kernel can't be the whole field. Therefore, the kernel is zero, so σ is injective.</p>
+
+<p>This means E is isomorphic to the subfield σ(E) inside F. We're embedding E into F as a subfield, preserving all the algebraic structure.</p>
+
+<h2>Embeddings in Model Theory and Universal Algebra</h2>
+
+<p>In logic and universal algebra, structures are built from a signature σ, which specifies a collection of constants, functions, and relations. A σ-structure is a set equipped with interpretations of these symbols. An embedding between two σ-structures A and B is a map h: A → B that preserves all the structure specified by σ.</p>
+
+<p>This abstraction covers an enormous range of mathematical objects: groups, rings, fields, graphs, lattices, and more. The embedding concept unifies them all: take one structure, map it into another, preserve everything that matters, don't collapse distinct elements.</p>
+
+<h2>Why Embeddings Matter</h2>
+
+<p>Embeddings let us understand complicated objects by seeing how they fit into simpler or more familiar ones. The natural numbers are abstract, but once we embed them into the integers, we can subtract. The integers are abstract, but embedded in the rationals, we can divide. Each embedding opens up new operations while preserving old ones.</p>
+
+<p>In topology, embeddings let us ask whether one space can live inside another without tearing or pinching. In differential geometry, they let us visualize abstract manifolds as concrete surfaces in Euclidean space. In algebra, they reveal hidden substructures and relationships between fields, rings, and groups.</p>
+
+<p>And in machine learning—particularly in models like CLIP—embeddings take high-dimensional data like images or text and map them into vector spaces where distances capture semantic similarity. These aren't the same formal embeddings we've discussed here, but the spirit is similar: take something complex, fit it into a structured space, preserve what matters.</p>
+
+<p>Embeddings are everywhere, once you know to look for them. They're the mathematical formalization of a simple idea: sometimes the best way to understand something is to see where it fits.</p>
+      </div>
+
+      <footer class="wikipedia-footer">
+        <p class="source-link">
+          <a href="https://en.wikipedia.org/wiki/Embedding" target="_blank" rel="noopener">
+            View original Wikipedia article &rarr;
+          </a>
+        </p>
+        <p class="rewrite-note">
+          This article has been rewritten from Wikipedia source material for enjoyable reading.
+          Content may have been condensed, restructured, or simplified.
+        </p>
+      </footer>
+
+      
+      <section class="related-articles">
+        <h2>Related Articles</h2>
+        <p class="related-intro">This deep dive was written in connection with these articles:</p>
+        <ul class="related-list">
+          
+      <li class="related-article-item">
+        <a href="../../article/bad4b05e-7332-4206-9747-e4982eb89c14/index.html">
+          <strong>OpenAI CLIP: The Model That Learnt Zero-Shot Image Recognition Using Text</strong>
+        </a>
+        <span class="article-meta">
+          by Alex Xu in ByteByteGo Newsletter
+        </span>
+      </li>
+        </ul>
+      </section>
+    
+    </article>
+  
+  </main>
+</body>
+</html>

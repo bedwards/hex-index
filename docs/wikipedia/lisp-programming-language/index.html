@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lisp (programming language) - Hex Index</title>
+  <link rel="stylesheet" href="../../styles.css">
+</head>
+<body class="reading-mode">
+  <header class="reading-header">
+    <a href="../../index.html" class="back-link">&larr; Back to Library</a>
+  </header>
+  <main class="reading-content">
+    
+    <article class="wikipedia-page">
+      <header class="wikipedia-header">
+        <div class="type-badge">Wikipedia Deep Dive</div>
+        <h1>Lisp (programming language)</h1>
+        <div class="article-meta">
+          <span class="read-time">13 min read</span>
+        </div>
+      </header>
+
+      <div class="wikipedia-content">
+        <p class="source-note">Based on <a href="https://en.wikipedia.org/wiki/Lisp_(programming_language)">Wikipedia: Lisp (programming language)</a></p>
+
+<p>Imagine a programming language where code and data are the same thing. Where programs can write other programs. Where parentheses nest like Russian dolls, and the syntax is so minimal that the entire language can be defined on a single page.</p>
+
+<p>That's Lisp.</p>
+
+<p>Created in 1958, Lisp is the second-oldest high-level programming language still in widespread use—only Fortran is older. But unlike Fortran, which evolved to handle number crunching and scientific computing, Lisp was born from a radical idea: what if we could write programs the way mathematicians write equations?</p>
+
+<h2>The Language That Treats Code as Data</h2>
+
+<p>Lisp's name comes from "List Processor," and that tells you almost everything. In Lisp, everything is a list. Your data structures? Lists. Your program code? Also lists. This might sound like a limitation, but it's actually a superpower.</p>
+
+<p>Consider how most programming languages work. You write code in one format, the compiler reads it, transforms it into something else, and eventually your computer executes it. Code and data live in separate worlds.</p>
+
+<p>Lisp collapses that distinction entirely.</p>
+
+<p>In Lisp, a function call looks like this: <code>(add 2 3)</code>. That's a list with three elements—the function name "add" followed by two arguments. But it's also executable code. And because it's just a list, other Lisp code can manipulate it before it runs. You can write programs that rewrite programs. You can create entirely new syntax on the fly.</p>
+
+<p>This interchangeability—code as data, data as code—gives Lisp its distinctive fully-parenthesized appearance. Every operation, every function call, every control structure wraps itself in parentheses. To outsiders, Lisp code looks like an explosion at a punctuation factory. To Lisp programmers, those parentheses are the key to unlimited flexibility.</p>
+
+<h2>John McCarthy and the Birth of AI's First Language</h2>
+
+<p>The story begins at MIT in 1958, where a young computer scientist named John McCarthy was thinking about artificial intelligence. He wanted to create a language that could express complex logical operations and manipulate symbols—not just numbers—with elegance and power.</p>
+
+<p>McCarthy was inspired by Alonzo Church's lambda calculus, a mathematical system for expressing computation through function abstraction. But he needed something practical, something that could run on the IBM 704 computer sitting in MIT's basement.</p>
+
+<p>He initially designed a notation using brackets and traditional mathematical syntax, which he called M-expressions. For example, getting the first element from a pair might look like: <code>car[cons[A,B]]</code>. Clean. Readable. Familiar to mathematicians.</p>
+
+<p>But McCarthy's student Steve Russell had other ideas.</p>
+
+<p>Russell looked at the <em>eval</em> function McCarthy had written—a theoretical description of how Lisp expressions should be evaluated—and realized something McCarthy hadn't: this could actually be implemented in machine code. McCarthy was flabbergasted. As he later recalled: "I said to him, ho, ho, you're confusing theory with practice, this eval is intended for reading, not for computing. But he went ahead and did it."</p>
+
+<p>The result was a working Lisp interpreter running on punched cards.</p>
+
+<p>And here's the twist: once programmers had a working interpreter, they abandoned McCarthy's clean M-expression syntax entirely. They just used S-expressions—the parenthesized lists that were supposed to be the internal representation. It was uglier, sure, but it was simpler and more uniform. The parentheses won.</p>
+
+<h2>Car, Cdr, and the Ghost of the IBM 704</h2>
+
+<p>Some of Lisp's strangest features are fossils from hardware that stopped running decades ago.</p>
+
+<p>Take the functions <code>car</code> and <code>cdr</code> (pronounced "car" and "could-er"). These are Lisp's most fundamental operations. If you have a list, <code>car</code> gives you the first element. <code>cdr</code> gives you everything else. Simple enough.</p>
+
+<p>But why those names?</p>
+
+<p>They stand for "Contents of the Address part of Register" and "Contents of the Decrement part of Register"—references to specific hardware registers on the IBM 704. That computer stored data in 36-bit words that could be split into an address part and a decrement part. Lisp's fundamental list structure mapped perfectly onto this hardware quirk.</p>
+
+<p>The IBM 704 was retired in the early 1960s. Yet every Lisp dialect since—Common Lisp, Scheme, Clojure, Racket—still uses <code>car</code> and <code>cdr</code>. It's like if modern English still used Anglo-Saxon grammatical cases because that's how the first dictionary organized things.</p>
+
+<h2>The Self-Hosting Miracle of 1962</h2>
+
+<p>Four years after Lisp's creation, Tim Hart and Mike Levin at MIT accomplished something remarkable: they wrote a Lisp compiler in Lisp itself.</p>
+
+<p>This is called "self-hosting," and it's a rite of passage for programming languages. But the elegance of Hart and Levin's approach was stunning. You could compile their compiler by simply running it through a Lisp interpreter. The interpreter would read the compiler's code, execute it, and produce machine code that ran forty times faster than the interpreted version.</p>
+
+<p>Even more radical: their compiler introduced incremental compilation. You could mix compiled functions and interpreted functions in the same program. Write some experimental code, run it interpreted to test it, then compile just the slow parts. No rebuilding the entire program from scratch.</p>
+
+<p>This was 1962. Most languages wouldn't achieve this kind of interactive development workflow for another two decades.</p>
+
+<h2>Garbage Collection: Memory You Don't Have to Manage</h2>
+
+<p>Another Lisp innovation: automatic garbage collection. A MIT graduate student named Daniel Edwards developed routines that automatically reclaimed memory from objects your program was no longer using.</p>
+
+<p>Today, garbage collection is everywhere—Python, Java, JavaScript, Go, Ruby. We take it for granted. But in the early 1960s, programmers manually allocated and freed every byte of memory. Forget to free something? Memory leak. Free something too early? Crash.</p>
+
+<p>Lisp programmers didn't worry about that. They created lists and data structures freely, and Edwards' garbage collector quietly cleaned up behind them.</p>
+
+<h2>The AI Winter and the Lisp Machine Era</h2>
+
+<p>Throughout the 1960s and 1970s, Lisp became synonymous with artificial intelligence research. When you wanted to build an expert system or a natural language processor or a symbolic reasoning engine, you used Lisp.</p>
+
+<p>The most famous example: SHRDLU, a program that could manipulate virtual blocks in response to English commands. "Pick up the red pyramid." "Put it on the blue cube." SHRDLU understood references, pronouns, context. It felt magical in 1970.</p>
+
+<p>As AI research spawned commercial ventures in the 1980s, companies built specialized computers designed to run Lisp and nothing else. These "Lisp Machines" had hardware support for Lisp's data structures and garbage collection. They were expensive, powerful, and represented a bet that Lisp would dominate the future of computing.</p>
+
+<p>That bet failed.</p>
+
+<p>When the AI bubble burst in the late 1980s—a period called the "AI winter"—companies that had invested millions in Lisp machines went bankrupt. Lisp became associated with overhyped promises and expensive failures. The language that had pioneered so many ideas retreated to academia and niche applications.</p>
+
+<h2>The Dialect Wars and the Birth of Common Lisp</h2>
+
+<p>Part of Lisp's problem was fragmentation. As the language spread through the 1960s and 1970s, different research labs and companies created their own variants.</p>
+
+<p>There was MacLisp at MIT. InterLisp at BBN Technologies on the West Coast. ZetaLisp on the Lisp Machines. Franz Lisp at Berkeley. Scheme, a minimalist reimagining that stripped Lisp down to its essence. Each had different syntax for common operations, different standard libraries, different semantics.</p>
+
+<p>In the 1980s, a massive effort began to unify these dialects into a single standard language: Common Lisp. The goal was compatibility—code written for one implementation should run on another. The process took years and involved bitter debates over design decisions.</p>
+
+<p>The result, standardized by ANSI in 1994, was a comprehensive language with a huge specification. Common Lisp included object-oriented programming, powerful macro systems, exception handling, and a massive standard library. It was everything and the kitchen sink.</p>
+
+<p>Some loved it. Others felt it had lost Lisp's essential simplicity. The Scheme community went the opposite direction, maintaining a minimal core language and letting implementations add features as libraries.</p>
+
+<h2>What Made Lisp Revolutionary</h2>
+
+<p>To understand Lisp's influence, consider what it pioneered:</p>
+
+<p><strong>Tree data structures</strong>: Lisp's nested lists were the first practical implementation of tree structures in a programming language. Today, XML, JSON, and every Abstract Syntax Tree in every compiler descends from this idea.</p>
+
+<p><strong>Conditionals</strong>: The if-then-else construct that's now universal? Lisp had it from the beginning, and it was novel enough that McCarthy felt the need to explain it carefully in his papers.</p>
+
+<p><strong>Recursion</strong>: Most early programming languages expected you to use loops. Lisp embraced recursive function calls—functions that call themselves—as a natural way to process nested data structures.</p>
+
+<p><strong>Higher-order functions</strong>: Functions that take other functions as arguments, or return new functions as results. This idea, borrowed from lambda calculus, is now central to modern JavaScript, Python, and functional programming everywhere.</p>
+
+<p><strong>Dynamic typing</strong>: Variables in Lisp don't have fixed types. A variable can hold a number, then a string, then a function. The same flexibility (and the same tradeoffs) appears in Python, Ruby, and JavaScript.</p>
+
+<p><strong>The Read-Eval-Print Loop (REPL)</strong>: Type an expression, see the result immediately. This interactive development style is now standard in Python, Ruby, JavaScript, and dozens of other languages. Lisp invented it.</p>
+
+<p><strong>Macros</strong>: Not simple text substitution like C's preprocessor, but code that rewrites code before execution. Lisp macros let you extend the language itself, creating new control structures and syntax that look like built-in features.</p>
+
+<h2>The Modern Lisp Renaissance</h2>
+
+<p>After the AI winter, Lisp nearly faded into obscurity. By the mid-1990s, it seemed like a historical curiosity—important, influential, but obsolete.</p>
+
+<p>Then something unexpected happened.</p>
+
+<p>In the early 2000s, essays by programmers like Paul Graham sparked renewed interest. Graham argued that Lisp's flexibility gave programmers superpowers. He claimed his startup, Viaweb, had succeeded partly because Lisp let them develop features faster than competitors using conventional languages.</p>
+
+<p>New programmers discovered Lisp and wrote blog posts with titles like "Lisp: The Eye-Opening Experience." They described feeling liberated from the constraints of other languages. Online communities grew. New implementations appeared.</p>
+
+<p>In 2007, a programmer named Rich Hickey released Clojure, a Lisp dialect that runs on the Java Virtual Machine. Clojure brought Lisp's ideas into the world of enterprise Java development, with a focus on concurrent programming and immutable data structures. It gained serious traction.</p>
+
+<p>As of 2010, there were eleven actively maintained Common Lisp implementations. The Scheme community maintained over twenty implementations. New infrastructure appeared: CLiki (a wiki for Common Lisp resources), Quicklisp (a library manager), Planet Lisp (aggregating Lisp blogs), regular conferences and meetups.</p>
+
+<p>In 2008, the Association for Computing Machinery held a celebration: "Fifty Years of Lisp." The language wasn't just alive—it was thriving again.</p>
+
+<h2>Lisp in the Wild Today</h2>
+
+<p>Modern Lisp appears in unexpected places.</p>
+
+<p>Emacs, one of the most powerful text editors ever created, uses Emacs Lisp for configuration and extensions. Millions of programmers who would never call themselves Lisp programmers customize Emacs with Lisp code.</p>
+
+<p>Clojure powers backend services at companies like Netflix, Amazon, and Walmart. Its focus on immutability—data structures that never change after creation—makes concurrent programming safer and more predictable.</p>
+
+<p>Racket, a Scheme dialect, is used both for education and for building domain-specific languages. It's a "programmable programming language"—you can reshape it into whatever language you need.</p>
+
+<p>AutoCAD, the dominant computer-aided design software, uses AutoLISP for scripting and customization. Naughty Dog used a Lisp dialect called GOAL (Game Oriented Assembly Lisp) to develop the entire Jak and Daxter series of video games.</p>
+
+<p>Even languages that don't look like Lisp borrow its ideas. Julia, a modern language for scientific computing, has its parser implemented in Femtolisp, a Scheme dialect. Ruby's blocks, Python's lambda functions, JavaScript's first-class functions—all descendants of ideas Lisp pioneered.</p>
+
+<h2>The Parentheses: Why They Matter</h2>
+
+<p>Newcomers to Lisp often fixate on the parentheses. All those nested parentheses make code look alien, even frightening.</p>
+
+<p>But here's what experienced Lisp programmers understand: the parentheses aren't just syntax. They're the price of homoiconicity—the property that code and data share the same structure.</p>
+
+<p>In most languages, syntax is complex because it has to distinguish different kinds of statements. Function definitions look different from function calls. Control structures look different from expressions. The parser has to understand dozens of special cases.</p>
+
+<p>Lisp has almost no syntax. A list is a list. <code>(add 2 3)</code> has exactly the same structure as <code>(list 2 3)</code>. The first element determines what happens, and the rest are arguments. That's it.</p>
+
+<p>This uniformity means Lisp code can easily manipulate other Lisp code. Your program can read a data file containing function definitions, modify those definitions on the fly, and execute the modified code. You can write macros that rearrange code before it runs. You can generate entire programs programmatically.</p>
+
+<p>The parentheses are the visual representation of the tree structure underneath. Once you learn to read them—and editors help by color-coding matching pairs and auto-indenting—they become invisible. You stop seeing parentheses and start seeing structure.</p>
+
+<h2>Common Lisp vs. Scheme: Two Philosophies</h2>
+
+<p>The Lisp family split into two major branches with opposing design philosophies.</p>
+
+<p>Common Lisp embraces maximalism. It has a huge standard library, multiple ways to do the same thing, special syntax for common patterns, and backwards compatibility with decades of legacy code. The language specification is over a thousand pages. Common Lisp gives you every tool you might need, built-in.</p>
+
+<p>Scheme embraces minimalism. The original Scheme specification fit on a few dozen pages. It provides a tiny core of essential features and expects implementations to add libraries for everything else. Scheme forces you to understand fundamentals because there's nowhere to hide behind convenience functions.</p>
+
+<p>Neither approach is wrong—they optimize for different goals. Common Lisp optimizes for getting real work done in industry. Scheme optimizes for understanding and elegance.</p>
+
+<p>The divide mirrors a fundamental tension in software engineering: comprehensive batteries-included frameworks versus minimal composable tools. Django versus Flask. React versus Preact. Emacs versus Vim.</p>
+
+<h2>The Ideas That Wouldn't Die</h2>
+
+<p>Even if Lisp itself eventually fades, its ideas will survive.</p>
+
+<p>When you write a list comprehension in Python, you're using an idea Lisp pioneered. When you pass a callback function in JavaScript, that's higher-order functions from Lisp. When Rust automatically frees memory without a garbage collector, that's building on decades of research that started with Lisp's automatic memory management.</p>
+
+<p>Every modern language with a REPL—and that's most of them now—owes that interactive development style to Lisp. Every language with first-class functions, with macros (even limited ones like Rust's), with symbolic computation, draws from the well Lisp dug in 1958.</p>
+
+<p>The language itself may remain niche. But the ideas keep spreading, like seeds from a dandelion, sprouting in new forms across the programming landscape.</p>
+
+<p>That's the ultimate legacy: not the parentheses or the exotic syntax, but the proof that code and data don't have to be separate. That programs can write programs. That simplicity and power can coexist. That thinking differently about programming is possible.</p>
+
+<p>John McCarthy wanted to create a practical mathematical notation for expressing computation. He succeeded beyond anyone's expectations. Sixty-seven years later, we're still discovering what his creation makes possible.</p>
+      </div>
+
+      <footer class="wikipedia-footer">
+        <p class="source-link">
+          <a href="https://en.wikipedia.org/wiki/Lisp_(programming_language)" target="_blank" rel="noopener">
+            View original Wikipedia article &rarr;
+          </a>
+        </p>
+        <p class="rewrite-note">
+          This article has been rewritten from Wikipedia source material for enjoyable reading.
+          Content may have been condensed, restructured, or simplified.
+        </p>
+      </footer>
+
+      
+      <section class="related-articles">
+        <h2>Related Articles</h2>
+        <p class="related-intro">This deep dive was written in connection with these articles:</p>
+        <ul class="related-list">
+          
+      <li class="related-article-item">
+        <a href="../../article/11f66e1b-63e4-464b-bbfd-ea1fabd71be8/index.html">
+          <strong>When AI writes almost all code, what happens to software engineering?</strong>
+        </a>
+        <span class="article-meta">
+          by Gergely Orosz in The Pragmatic Engineer
+        </span>
+      </li>
+        </ul>
+      </section>
+    
+    </article>
+  
+  </main>
+</body>
+</html>

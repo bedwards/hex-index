@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Import AI 439: AI kernels; decentralized training; and universal representations  - Hex Index</title>
+  <link rel="stylesheet" href="../../styles.css">
+</head>
+<body class="reading-mode">
+  <header class="reading-header">
+    <a href="../../index.html" class="back-link">&larr; Back to Library</a>
+  </header>
+  <main class="reading-content">
+    
+    <article class="article-page">
+      <header class="article-header">
+        <h1>Import AI 439: AI kernels; decentralized training; and universal representations </h1>
+        <div class="article-meta">
+          <span class="author">By Jack Clark</span>
+          <span class="separator">&middot;</span>
+          <a href="../../publication/importai/index.html" class="publication">
+            Import AI
+          </a>
+          <span class="separator">&middot;</span><time>Jan 5, 2026</time>
+          <span class="separator">&middot;</span>
+          <span class="read-time">12 min read</span>
+        </div>
+      </header>
+
+      
+      <section class="deep-dives">
+        <h2>Deep Dives</h2>
+        <p class="deep-dives-intro">Explore related topics with these Wikipedia articles, rewritten for enjoyable reading:</p>
+        <ul class="deep-dive-list">
+          
+      <li class="deep-dive-item">
+        <a href="../../wikipedia/kernel-operating-system/index.html">
+          <strong>Kernel (operating system)</strong>
+          <span class="read-time">16 min read</span>
+        </a>
+        <p class="topic-summary">The article extensively discusses &#039;kernel&#039; optimization and generation but assumes reader familiarity. Understanding what kernels actually are—low-level software that interfaces between hardware and applications—is essential context for appreciating Facebook&#039;s automated kernel generation achievement.</p>
+      </li>
+
+      <li class="deep-dive-item">
+        <a href="../../wikipedia/foldinghome/index.html">
+          <strong>Folding@home</strong>
+          <span class="read-time">18 min read</span>
+        </a>
+        <p class="topic-summary">Explicitly mentioned as a historical precedent for decentralized computing that achieved massive scale. The article uses it as a comparison point for potential growth of decentralized AI training, making its history and technical approach directly relevant.</p>
+      </li>
+
+      <li class="deep-dive-item">
+        <a href="../../wikipedia/graphics-processing-unit/index.html">
+          <strong>Graphics processing unit</strong>
+          <span class="read-time">15 min read</span>
+        </a>
+        <p class="topic-summary">The article references NVIDIA GPUs, AMD GPUs, and custom MTIA chips as the hardware targets for kernel optimization. Understanding GPU architecture, parallel processing capabilities, and why they became central to AI training provides crucial technical context for the optimization challenges discussed.</p>
+      </li>
+        </ul>
+      </section>
+    
+
+      <div class="article-excerpt">
+        <p>Welcome to Import AI, a newsletter about AI research. Import AI runs on arXiv and feedback from readers. If you’d like to support this, please subscribe.</p><p><strong>Facebook uses GPT, Claude, and Llama to write its own kernels:<br></strong><em>…LLM-driven infrastructure optimization at the hyperscale…<br></em>Facebook researchers have published details on KernelEvolve, a software system which uses AI to automate the design of new kernels to optimize AI models for serving ads on the company’s network of web platforms. KernelEvolve is a neat example of how AI systems have got good enough to automate and speed up parts of AI development - here, the design of kernels to optimize inference of hundreds of different models running on multiple chip architectures.<br><br><strong>What KernelEvolve is:</strong> The software is “designed to take kernel specifications as input and automate the process of kernel generation and optimization for recommendation model across heterogeneous hardware architectures through multiple programming abstractions, including Triton, CuTe DSL, and low-level hardware diagnostic languages, spanning the full hardware-software optimization stack”.<br><br><strong>How it works</strong>: The core of the software is a system to take in a user request (e.g, “Generate a Triton kernel for MTIA v3”) which then goes through a mixture of internal (Llama, CWM) and external (GPT, Claude) language models, which then produce candidate kernels that get evaluated through a variety of tools and, if they’re good, are added to an external knowledge database which then gets used to further improve future prompts.<br><br><strong>It works well:</strong> By using this software, Facebook says it has cut the development time of new kernels “from weeks to hours”, and in production tests has yielded kernels on par with hand-designed ones, and in some cases has delivered performance improves of up to 17 times above existing PyTorch baselines. Kernels built using this software have been deployed across NVIDIA GPUs, AMD GPUs, and Meta’s own custom MTIA chips.<br>    “KernelEvolve achieves substantial speedups spanning LLM inference workloads (Llama-3.1-8B: Vanilla Attention 4.6×, SDPA-MLP 3.3×), convolutional transformers (conv1d: 6.5×, conv2d: 4.7×), memory-bound data preprocessing operators critical for model enablement (MapId: 4.1×, MBDT: 9.3×, Batch Event Truncate: 9.8×), compute-intensive fusion kernels in ranking models (WuKong Optimized FM: 4.0×, InterFormer PFFN: 2.5×), MTIA-specific optimizations (RMSNorm 2D backward: 17×), and retrieval operations (Sparse Inverted Index: 1.25×)”, Facebook writes.<br><br><strong>Saturates KernelBench:</strong> “We validate KernelEvolve on the publicly-available KernelBench suite, achieving 100% pass rate on all 250 problems across three difficulty levels, and 160 PyTorch ...</p>
+      </div>
+
+      <div class="read-full-article">
+        <a href="https://importai.substack.com/p/import-ai-439-ai-kernels-decentralized" class="read-button" target="_blank" rel="noopener">
+          Read full article on Import AI &rarr;
+        </a>
+        <p class="copyright-note">
+          This excerpt is provided for preview purposes.
+          Full article content is available on the original publication.
+        </p>
+      </div>
+    </article>
+  
+  </main>
+</body>
+</html>

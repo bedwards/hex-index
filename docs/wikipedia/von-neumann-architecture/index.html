@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Von Neumann architecture - Hex Index</title>
+  <link rel="stylesheet" href="../../styles.css">
+</head>
+<body class="reading-mode">
+  <header class="reading-header">
+    <a href="../../index.html" class="back-link">&larr; Back to Library</a>
+  </header>
+  <main class="reading-content">
+    
+    <article class="wikipedia-page">
+      <header class="wikipedia-header">
+        <div class="type-badge">Wikipedia Deep Dive</div>
+        <h1>Von Neumann architecture</h1>
+        <div class="article-meta">
+          <span class="read-time">10 min read</span>
+        </div>
+      </header>
+
+      <div class="wikipedia-content">
+        <p class="source-note">Based on <a href="https://en.wikipedia.org/wiki/Von_Neumann_architecture">Wikipedia: Von Neumann architecture</a></p>
+
+<p>Every time you check your email, scroll through social media, or ask an AI a question, you're using a machine built on an idea from 1945. That idea—storing both instructions and data in the same memory—seems obvious now. But it changed everything.</p>
+
+<p>Before this breakthrough, computers were more like elaborate calculators. You programmed them by physically rewiring them, flipping switches, plugging cables into different sockets. Want to run a different calculation? Rebuild the machine. It could take three weeks just to set up and debug a program on ENIAC, one of the earliest electronic computers.</p>
+
+<p>The innovation that freed us from this nightmare is called the von Neumann architecture, named after the brilliant mathematician John von Neumann. But the name itself is controversial, and the story of who actually invented it reveals how messy scientific credit can be.</p>
+
+<h2>The Controversial Origin Story</h2>
+
+<p>In 1945, John von Neumann wrote a document called "First Draft of a Report on the EDVAC." EDVAC stood for Electronic Discrete Variable Automatic Computer. The report described a computer made of what von Neumann called "organs"—a central arithmetic unit to do math, a central control unit to sequence operations, memory to store data and instructions, and input and output mechanisms.</p>
+
+<p>The revolutionary part was that memory. Instructions and data would live in the same place.</p>
+
+<p>But here's where it gets messy. Von Neumann wrote this document while working with J. Presper Eckert and John Mauchly at the University of Pennsylvania's Moore School of Electrical Engineering. Eckert and Mauchly had already done extensive design work on stored-program concepts. They claimed they'd had the idea for stored programs long before discussing it with von Neumann.</p>
+
+<p>To make matters worse, when von Neumann's colleague Herman Goldstine circulated the draft, it bore only von Neumann's name—much to the consternation of Eckert and Mauchly. The paper spread across America and Europe, influencing the next generation of computer designs. And von Neumann's name stuck to the architecture.</p>
+
+<p>Even von Neumann himself apparently didn't claim credit for the fundamental concept. His colleague Stan Frankel later said that von Neumann was well aware of the foundational importance of Alan Turing's 1936 paper on computable numbers. Frankel recalled: "Many people have acclaimed von Neumann as the 'father of the computer' but I am sure that he would never have made that mistake himself. He might well be called the midwife, perhaps, but he firmly emphasized to me, and to others I am sure, that the fundamental conception is owing to Turing."</p>
+
+<h2>What Makes It Different</h2>
+
+<p>To understand what made this architecture revolutionary, you need to see what came before.</p>
+
+<p>The earliest computing machines had fixed programs. Think of a desk calculator. It can add, subtract, multiply, and divide. That's it. You can't make it run a word processor or play a game. The program is literally built into the hardware. If you want it to do something different, you have to rewire it, restructure it, or redesign it entirely.</p>
+
+<p>The earliest computers weren't really "programmed" so much as "designed" for particular tasks. Reprogramming meant flowcharts, paper notes, detailed engineering designs, and then the arduous process of physically rewiring and rebuilding the machine.</p>
+
+<p>A stored-program computer changed the game completely. It includes, by design, an instruction set—a vocabulary of operations it can perform. And it can store in memory a set of instructions, a program, that details the computation. Data and instructions use the same underlying mechanism. They're just different patterns of bits in the same memory.</p>
+
+<p>This seemingly simple idea had profound consequences.</p>
+
+<h2>Programs That Write Programs</h2>
+
+<p>When instructions are just data, you can manipulate them like data. A program can modify its own instructions while it's running. This is called self-modifying code.</p>
+
+<p>One early motivation for this was practical: programs needed to increment or modify the address portion of instructions, which operators had to do manually in earlier designs. Imagine having to hand-edit every memory address in your code. Self-modifying code automated this tedious work.</p>
+
+<p>But the deeper implication was more radical. If instructions are data, then programs can operate on other programs. This makes assemblers possible—programs that translate human-readable assembly language into machine code. It makes compilers possible—programs that translate high-level languages like Python or JavaScript into machine code. It makes linkers and loaders and all the other automated programming tools possible.</p>
+
+<p>It makes "programs that write programs" possible. A sophisticated self-hosting computing ecosystem flourished around von Neumann architecture machines. Some programming languages, like LISP, provide abstract, machine-independent ways to manipulate executable code at runtime. Others, like Java, use runtime information to tune just-in-time compilation, optimizing code as it runs based on actual usage patterns.</p>
+
+<h2>The Von Neumann Bottleneck</h2>
+
+<p>This elegant architecture has a fundamental limitation, though. Instructions and data share the same memory, and they typically travel to the processor on the same bus—the pathway that carries information between components.</p>
+
+<p>That means an instruction fetch and a data operation can't happen at the same time. The processor has to fetch an instruction, decode it, then fetch the data it needs, then execute. Fetch, decode, fetch, execute. One step at a time.</p>
+
+<p>This is called the von Neumann bottleneck, and it often limits the performance of systems built this way. The processor sits idle waiting for data to arrive from memory. As processors got faster and faster, the bottleneck got worse. The processor can execute instructions far faster than it can fetch them from memory.</p>
+
+<p>Modern computers address this with caches—small, fast memory sitting between the processor and main memory. The caches closest to the processor often separate instructions and data, so instruction fetches and data operations can use separate buses. This is called a split-cache architecture. So most modern computers are technically a hybrid, using von Neumann architecture for the main memory but Harvard architecture—with separate instruction and data pathways—for the caches.</p>
+
+<p>The Harvard architecture, named after the Harvard Mark I computer, has completely separate sets of address and data buses for instructions and data. It's more complex, but it avoids the bottleneck. Many embedded systems and digital signal processors use pure Harvard architecture.</p>
+
+<h2>The Turing Connection</h2>
+
+<p>The mathematician Alan Turing deserves more credit in this story than he usually gets. In 1936, Turing wrote a paper called "On Computable Numbers, with an Application to the Entscheidungsproblem." The Entscheidungsproblem, German for "decision problem," was a challenge in mathematical logic: is there a general algorithm to determine whether any given mathematical statement is provable?</p>
+
+<p>To explore this question, Turing described a hypothetical machine, now called a Universal Turing Machine. This imaginary device had an infinite store of memory that contained both instructions and data. It could read and write symbols on an infinite tape, and it could modify its behavior based on what it read. Turing proved that this simple machine could compute anything that's computable.</p>
+
+<p>John von Neumann met Turing in 1935 when von Neumann was a visiting professor at Cambridge, and again in 1936 to 1937 when Turing was doing his PhD at the Institute for Advanced Study in Princeton. Whether von Neumann knew about Turing's 1936 paper at that exact time isn't clear. But by 1943 or 1944, von Neumann was definitely well aware of its fundamental importance.</p>
+
+<p>In Germany, Konrad Zuse also anticipated in two 1936 patent applications that machine instructions could be stored in the same storage used for data. The idea was in the air.</p>
+
+<h2>From Theory to Hardware</h2>
+
+<p>The race to build the first practical stored-program computer involved researchers across the world.</p>
+
+<p>J. Presper Eckert and John Mauchly were developing the ENIAC at the Moore School of Electrical Engineering at the University of Pennsylvania. In December 1943, they wrote about the stored-program concept. In January 1944, while planning a new machine called EDVAC, Eckert wrote that they would store data and programs in a new addressable memory device called a mercury delay-line memory. This was the first time someone proposed actually constructing a practical stored-program machine.</p>
+
+<p>Von Neumann got involved because of the Manhattan Project. Building an atomic bomb required enormous amounts of calculation, which drew him to the ENIAC project in the summer of 1944. He joined the ongoing discussions about EDVAC's design and wrote up the now-famous "First Draft" based on Eckert and Mauchly's work.</p>
+
+<p>Meanwhile, Alan Turing was producing his own report, "Proposed Electronic Calculator," describing in engineering and programming detail a machine he called the Automatic Computing Engine, or ACE. He presented this to the executive committee of the British National Physical Laboratory on February 19, 1946.</p>
+
+<p>Turing knew from his wartime work at Bletchley Park—where he helped break Nazi codes using early computing machines—that what he proposed was feasible. But the secrecy surrounding Colossus, the code-breaking computer, was maintained for decades. He couldn't say what he knew.</p>
+
+<p>Both von Neumann's and Turing's papers described stored-program computers. But von Neumann's paper achieved greater circulation, and the architecture became known as the von Neumann architecture, despite the controversial attribution.</p>
+
+<h2>The Explosion of Machines</h2>
+
+<p>The First Draft inspired universities and corporations around the world to build their own computers. A partial list gives you a sense of the global explosion:</p>
+
+<p>The Manchester Baby, built at Victoria University of Manchester in England, made its first successful run of a stored program on June 21, 1948. EDSAC at the University of Cambridge became the first practical stored-program electronic computer in May 1949. The Manchester Mark 1 followed in June 1949.</p>
+
+<p>Australia built CSIRAC in November 1949. The Soviet Union built MESM in Kiev in November 1950. The United States built EDVAC itself at Aberdeen Proving Ground in 1951, the IAS machine at the Institute for Advanced Study in 1951, and a stream of others: ORDVAC, MANIAC, ILLIAC, AVIDAC, ORACLE.</p>
+
+<p>Sweden built BESK in 1953. The RAND Corporation built JOHNNIAC in January 1954. Denmark built DASK in 1955. Israel built WEIZAC at the Weizmann Institute of Science in 1955. Germany built PERM in Munich in 1956. Australia built SILLIAC in Sydney in 1956.</p>
+
+<p>Most of these machines had incompatible instruction sets. Each was a unique design. Only ILLIAC and ORDVAC could run the same programs.</p>
+
+<p>But they all shared the fundamental architecture: memory holding both instructions and data, a control unit sequencing operations, an arithmetic unit performing calculations, and input and output mechanisms connecting to the outside world.</p>
+
+<h2>Why It Still Matters</h2>
+
+<p>Nearly eighty years later, the von Neumann architecture still dominates computing. Your laptop, your phone, the servers running the websites you visit—they're all von Neumann machines, even if they use tricks like split caches to work around the bottleneck.</p>
+
+<p>The elegance of the design is its simplicity. You don't need separate mechanisms for instructions and data. You don't need to physically rewire the machine to change what it does. You just load a different program into memory.</p>
+
+<p>That simplicity enabled the software revolution. Because programs are data, we could build operating systems to manage multiple programs, compilers to translate high-level languages, debuggers to inspect running code, and eventually the vast ecosystem of software that defines modern computing.</p>
+
+<p>The Google Tensor Processing Unit you might have read about—a specialized chip for machine learning—is built on the same fundamental principle. Instructions and data in memory. Fetch, decode, execute. The implementation details have changed dramatically. The speeds are incomprehensibly faster. But the core idea John von Neumann described in 1945, building on work by Eckert, Mauchly, Turing, and others, remains the foundation.</p>
+
+<p>The controversy over who deserves credit hasn't been resolved. Historians still debate the contributions of von Neumann, Eckert, Mauchly, Turing, and Zuse. But the architecture itself—whatever we call it—endures as one of the most important inventions of the twentieth century.</p>
+
+<p>Next time you run a program, any program, remember that you're witnessing the echo of an idea that freed computation from the physical constraints of hardware. Instructions became data. Data became instructions. And everything changed.</p>
+      </div>
+
+      <footer class="wikipedia-footer">
+        <p class="source-link">
+          <a href="https://en.wikipedia.org/wiki/Von_Neumann_architecture" target="_blank" rel="noopener">
+            View original Wikipedia article &rarr;
+          </a>
+        </p>
+        <p class="rewrite-note">
+          This article has been rewritten from Wikipedia source material for enjoyable reading.
+          Content may have been condensed, restructured, or simplified.
+        </p>
+      </footer>
+
+      
+      <section class="related-articles">
+        <h2>Related Articles</h2>
+        <p class="related-intro">This deep dive was written in connection with these articles:</p>
+        <ul class="related-list">
+          
+      <li class="related-article-item">
+        <a href="../../article/9da8d422-91bb-4750-9195-e6b2c38c7022/index.html">
+          <strong>How Google’s Tensor Processing Unit (TPU) Works?</strong>
+        </a>
+        <span class="article-meta">
+          by Alex Xu in ByteByteGo Newsletter
+        </span>
+      </li>
+        </ul>
+      </section>
+    
+    </article>
+  
+  </main>
+</body>
+</html>

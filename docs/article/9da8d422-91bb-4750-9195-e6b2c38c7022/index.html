@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>How Google’s Tensor Processing Unit (TPU) Works? - Hex Index</title>
+  <link rel="stylesheet" href="../../styles.css">
+</head>
+<body class="reading-mode">
+  <header class="reading-header">
+    <a href="../../index.html" class="back-link">&larr; Back to Library</a>
+  </header>
+  <main class="reading-content">
+    
+    <article class="article-page">
+      <header class="article-header">
+        <h1>How Google’s Tensor Processing Unit (TPU) Works?</h1>
+        <div class="article-meta">
+          <span class="author">By Alex Xu</span>
+          <span class="separator">&middot;</span>
+          <a href="../../publication/bytebytego/index.html" class="publication">
+            ByteByteGo Newsletter
+          </a>
+          <span class="separator">&middot;</span><time>Jan 5, 2026</time>
+          <span class="separator">&middot;</span>
+          <span class="read-time">13 min read</span>
+        </div>
+      </header>
+
+      
+      <section class="deep-dives">
+        <h2>Deep Dives</h2>
+        <p class="deep-dives-intro">Explore related topics with these Wikipedia articles, rewritten for enjoyable reading:</p>
+        <ul class="deep-dive-list">
+          
+      <li class="deep-dive-item">
+        <a href="../../wikipedia/systolic-array/index.html">
+          <strong>Systolic array</strong>
+          <span class="read-time">10 min read</span>
+        </a>
+        <p class="topic-summary">Central architecture of TPU explained in detail in the article. Readers likely know general computing but not this specialized parallel computing architecture invented in 1978 by H.T. Kung.</p>
+      </li>
+
+      <li class="deep-dive-item">
+        <a href="../../wikipedia/von-neumann-architecture/index.html">
+          <strong>Von Neumann architecture</strong>
+          <span class="read-time">10 min read</span>
+        </a>
+        <p class="topic-summary">Article contrasts TPU design against this fundamental computer architecture and explains the &#039;Von Neumann bottleneck&#039; as a key motivation for TPU development.</p>
+      </li>
+
+      <li class="deep-dive-item">
+        <a href="../../wikipedia/alphago-versus-lee-sedol/index.html">
+          <strong>AlphaGo versus Lee Sedol</strong>
+          <span class="read-time">14 min read</span>
+        </a>
+        <p class="topic-summary">Article opens with this historic 2016 match as the public debut moment for TPU technology. The match details and cultural significance provide rich context beyond the brief mention.</p>
+      </li>
+        </ul>
+      </section>
+    
+
+      <div class="article-excerpt">
+        <h2><a href="https://bit.ly/Datadog_010526">4 Key Insights for Scaling LLM Applications (Sponsored)</a></h2><div class="captioned-image-container"><figure><a class="image-link image2 is-viewable-img" target="_blank" href="https://bit.ly/Datadog_010526" data-component-name="Image2ToDOM"><div class="image2-inset"><picture><source type="image/webp" srcset="https://substackcdn.com/image/fetch/$s_!jG_w!,w_424,c_limit,f_webp,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F16300a55-a95d-4382-aa9e-d82d9e6db5d6_1500x900.png 424w, https://substackcdn.com/image/fetch/$s_!jG_w!,w_848,c_limit,f_webp,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F16300a55-a95d-4382-aa9e-d82d9e6db5d6_1500x900.png 848w, https://substackcdn.com/image/fetch/$s_!jG_w!,w_1272,c_limit,f_webp,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F16300a55-a95d-4382-aa9e-d82d9e6db5d6_1500x900.png 1272w, https://substackcdn.com/image/fetch/$s_!jG_w!,w_1456,c_limit,f_webp,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F16300a55-a95d-4382-aa9e-d82d9e6db5d6_1500x900.png 1456w" sizes="100vw"><img src="https://substackcdn.com/image/fetch/$s_!jG_w!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F16300a55-a95d-4382-aa9e-d82d9e6db5d6_1500x900.png" width="1456" height="874" data-attrs="{&quot;src&quot;:&quot;https://substack-post-media.s3.amazonaws.com/public/images/16300a55-a95d-4382-aa9e-d82d9e6db5d6_1500x900.png&quot;,&quot;srcNoWatermark&quot;:null,&quot;fullscreen&quot;:null,&quot;imageSize&quot;:null,&quot;height&quot;:874,&quot;width&quot;:1456,&quot;resizeWidth&quot;:null,&quot;bytes&quot;:188952,&quot;alt&quot;:null,&quot;title&quot;:null,&quot;type&quot;:&quot;image/png&quot;,&quot;href&quot;:&quot;https://bit.ly/Datadog_010526&quot;,&quot;belowTheFold&quot;:false,&quot;topImage&quot;:true,&quot;internalRedirect&quot;:&quot;https://blog.bytebytego.com/i/183291950?img=https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F16300a55-a95d-4382-aa9e-d82d9e6db5d6_1500x900.png&quot;,&quot;isProcessing&quot;:false,&quot;align&quot;:null,&quot;offset&quot;:false}" class="sizing-normal" alt="" srcset="https://substackcdn.com/image/fetch/$s_!jG_w!,w_424,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F16300a55-a95d-4382-aa9e-d82d9e6db5d6_1500x900.png 424w, https://substackcdn.com/image/fetch/$s_!jG_w!,w_848,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F16300a55-a95d-4382-aa9e-d82d9e6db5d6_1500x900.png 848w, https://substackcdn.com/image/fetch/$s_!jG_w!,w_1272,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F16300a55-a95d-4382-aa9e-d82d9e6db5d6_1500x900.png 1272w, https://substackcdn.com/image/fetch/$s_!jG_w!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F16300a55-a95d-4382-aa9e-d82d9e6db5d6_1500x900.png 1456w" sizes="100vw" fetchpriority="high"></picture><div class="image-link-expand"><div class="pencraft pc-display-flex pc-gap-8 pc-reset"></div></div></div></a></figure></div><p>LLM workflows can be complex, opaque, and difficult to secure. Get the latest ebook from Datadog for practical strategies to monitor, troubleshoot, and protect your LLM applications in production. You’ll get key insights into how to overcome the challenges of deploying LLMs securely and at scale, from debugging multi-step workflows to detecting prompt injection attacks.</p><div><hr></div><p><em>Disclaimer: The details in this post have been derived from the details shared online by the Google Engineering Team. All credit for the technical details goes to the Google Engineering Team.  The links to the original articles and sources are present in the references section at the end of the post. We’ve attempted to analyze the details and provide our input about them. If you find any inaccuracies or omissions, please leave a comment, and we will do our best to fix them</em></p><p>When DeepMind’s AlphaGo defeated Go world champion Lee Sedol in March 2016, the world witnessed a big moment in artificial intelligence. The match was powered by hardware Google had been running in production for over a year, but had never publicly acknowledged.</p><p>The Tensor Processing Unit, or TPU, represented something more profound than just another fast chip. It marked a fundamental shift in computing philosophy: sometimes doing less means achieving more.</p><p>Ever since then, Google’s TPU family has evolved through seven generations since 2015, scaling from single-chip processing image recognition queries to 9216-chip supercomputers training the largest language models in existence. In this article, we look at why Google built custom silicon, and how it works, revealing the physical constraints and engineering trade-offs they had to make.</p><h2>The Need for TPU</h2><p>In 2013, Google’s infrastructure team ran a calculation. If Android users adopted voice search at the scale Google anticipated, using it for just three minutes per day, the computational demand would require doubling the company’s entire global data center footprint.</p><p>This was a problem with no obvious solution at the time. Building more data centers filled with traditional processors was economically unfeasible. More critically, Moore’s Law has been slowing for years. For decades, the semiconductor industry had relied on the observation that transistor density doubles roughly every two years, delivering regular performance improvements without architectural changes. However, by 2013, this trend was weakening. Google couldn’t simply wait for Intel’s next generation of CPUs to solve its problem.</p><p>The root cause of this situation </p>...</source>
+      </div>
+
+      <div class="read-full-article">
+        <a href="https://blog.bytebytego.com/p/how-googles-tensor-processing-unit" class="read-button" target="_blank" rel="noopener">
+          Read full article on ByteByteGo Newsletter &rarr;
+        </a>
+        <p class="copyright-note">
+          This excerpt is provided for preview purposes.
+          Full article content is available on the original publication.
+        </p>
+      </div>
+    </article>
+  
+  </main>
+</body>
+</html>

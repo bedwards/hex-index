@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ImageNet - Hex Index</title>
+  <link rel="stylesheet" href="../../styles.css">
+</head>
+<body class="reading-mode">
+  <header class="reading-header">
+    <a href="../../index.html" class="back-link">&larr; Back to Library</a>
+  </header>
+  <main class="reading-content">
+    
+    <article class="wikipedia-page">
+      <header class="wikipedia-header">
+        <div class="type-badge">Wikipedia Deep Dive</div>
+        <h1>ImageNet</h1>
+        <div class="article-meta">
+          <span class="read-time">13 min read</span>
+        </div>
+      </header>
+
+      <div class="wikipedia-content">
+        <p class="source-note">Based on <a href="https://en.wikipedia.org/wiki/ImageNet">Wikipedia: ImageNet</a></p>
+
+<p>In 2012, a computer program shocked the artificial intelligence community by correctly identifying objects in photographs with an accuracy no one thought possible. The program, called AlexNet, won an image recognition competition by a margin so wide that researchers across the technology industry suddenly stopped what they were doing and paid attention.</p>
+
+<p>But AlexNet didn't win because of some algorithmic breakthrough that no one had thought of before. It won because of data.</p>
+
+<p>Specifically, it won because of ImageNet: a database containing more than 14 million images, each carefully labeled by human workers to indicate what objects appeared in them. This wasn't just a collection of random photos. It was a systematic attempt to capture the visual diversity of the world, organized into more than 20,000 categories ranging from "balloon" to "strawberry" to 120 different breeds of dogs.</p>
+
+<h2>The Vision Behind the Database</h2>
+
+<p>The story begins in 2006 with Fei-Fei Li, an AI researcher who noticed something troubling about her field. Everyone was obsessing over models and algorithms, constantly tweaking mathematical formulas to squeeze out marginal improvements. But hardly anyone was thinking about the data those algorithms learned from.</p>
+
+<p>Li had a different idea. What if the bottleneck wasn't the algorithms at all? What if computers failed to recognize objects in images not because the math was wrong, but because they simply hadn't seen enough examples?</p>
+
+<p>She was inspired by a striking estimate from 1987: the average human can recognize roughly 30,000 different kinds of objects. If you wanted to teach a computer to see like a human, you'd need to show it at least that many categories, with hundreds or thousands of examples of each.</p>
+
+<p>The scale was staggering.</p>
+
+<p>In 2007, Li met with Christiane Fellbaum, a Princeton professor who had helped create WordNet. WordNet is a database that organizes the English language into concepts, grouping synonyms together into what linguists call "synonym sets" or "synsets." For example, "kitty" and "young cat" would be in the same synset. WordNet contained roughly 22,000 nouns that could represent countable, visually identifiable objects.</p>
+
+<p>Perfect.</p>
+
+<h2>Building the Dataset</h2>
+
+<p>Li was an assistant professor at Princeton at the time. She assembled a team of researchers and set an audacious goal: collect images for all those categories, verify each image multiple times, and create the largest visual database ever built for computer vision research.</p>
+
+<p>The original plan was even more ambitious: 10,000 images per category, for 40,000 categories, totaling 400 million images. Each image would be verified by three different people. The team calculated that humans can classify at most two images per second. At that rate, completing the project would require 19 human-years of continuous labor without rest.</p>
+
+<p>Obviously, they needed help.</p>
+
+<p>Enter Amazon Mechanical Turk, a platform where anyone could sign up to perform small tasks for small amounts of money. Starting in July 2008, Li's team began posting images and asking workers to identify what they showed. The labeling process continued until April 2010. During that time, 49,000 workers from 167 countries filtered and labeled over 160 million candidate images.</p>
+
+<p>By 2012, ImageNet had become the world's largest academic user of Mechanical Turk. The average worker could identify 50 images per minute.</p>
+
+<p>The budget allowed for each of the final 14 million images to be labeled three times, ensuring accuracy. This wasn't a quick crowdsourcing project. It was a massive distributed effort to teach computers what things look like.</p>
+
+<h2>How the Images Were Organized</h2>
+
+<p>ImageNet's categories came from WordNet, but not all of WordNet. Out of more than 100,000 synsets in WordNet 3.0—most of which are nouns—ImageNet filtered down to 21,841 synsets representing things you could actually see and photograph.</p>
+
+<p>Each synset got a unique identifier called a "WordNet ID" or "wnid." For example, the synset "dog, domestic dog, Canis familiaris" has the wnid "n02084071." The "n" indicates it's a noun. The number is a unique offset that distinguishes it from every other concept.</p>
+
+<p>The categories were arranged in a hierarchy, from broad to specific. Level 1 might be "mammal." Level 9 might be "German shepherd." This structure mirrored how we naturally think about objects: a German shepherd is a type of dog, which is a type of mammal, which is a type of animal.</p>
+
+<p>To find images for each category, the team scraped online image search engines: Google, Yahoo, Flickr, and others. They didn't just search in English. They used synonyms in multiple languages. For "German shepherd," they also searched for "German police dog," "Alsatian," "ovejero alemán," "pastore tedesco," and "德国牧羊犬."</p>
+
+<p>The images varied wildly in resolution. In the 2012 version of ImageNet, images in the "fish" category ranged from 4288 by 2848 pixels down to just 75 by 56. Before feeding these into machine learning algorithms, researchers typically preprocessed them into a standard size and adjusted the pixel values to fall within a consistent range.</p>
+
+<h2>More Than Just Labels</h2>
+
+<p>ImageNet wasn't just a collection of images with single-word labels. For about 3,000 popular categories, the team added bounding boxes: rectangles drawn around objects to show exactly where they appeared in the image. This allowed algorithms not just to say "there's a dog in this photo," but to point to exactly where the dog was.</p>
+
+<p>For some categories, they added attributes: color, pattern, shape, and texture. An image might be tagged as "furry," "striped," "round," or "metallic." These attributes gave algorithms more nuanced information to learn from.</p>
+
+<p>Some images even came with dense SIFT features, a type of computer vision data designed for a technique called "bag of visual words." This approach, popular before deep learning, tried to recognize objects by breaking them down into small visual patches.</p>
+
+<h2>The Competition That Changed Everything</h2>
+
+<p>In 2009, Alex Berg suggested that ImageNet should host a competition focused on object localization: not just identifying what's in an image, but pinpointing where it is. Li approached the organizers of the PASCAL Visual Object Classes contest, a smaller competition that had been running since 2005 with just 20 categories and about 20,000 images.</p>
+
+<p>The result was the ImageNet Large Scale Visual Recognition Challenge, or ILSVRC, which began in 2010. Unlike the full ImageNet database with its 20,000-plus categories, ILSVRC used a "trimmed" list of 1,000 classes. Still, this was 50 times larger than PASCAL.</p>
+
+<p>The first competition in 2010 attracted 11 teams. The winner used a linear support vector machine, or SVM, a type of algorithm that draws boundaries between different categories in high-dimensional space. It achieved 71.8% accuracy when allowed five guesses per image—what researchers call "top-5 accuracy."</p>
+
+<p>That meant it got the right answer within its top five guesses about seven times out of ten. Not great.</p>
+
+<p>The 2011 competition saw fewer teams, with another SVM winning at 74.2% top-5 accuracy. The approach relied on Fisher vectors, a mathematical technique for representing images as collections of visual features.</p>
+
+<p>And then came 2012.</p>
+
+<h2>The AlexNet Moment</h2>
+
+<p>On September 30, 2012, a convolutional neural network called AlexNet achieved 84.7% top-5 accuracy in the ImageNet challenge. That was more than 10 percentage points better than the second-place entry, which still used the old SVM approach.</p>
+
+<p>It wasn't just a win. It was a landslide.</p>
+
+<p>Convolutional neural networks, or CNNs, weren't new. Researchers had been experimenting with them for decades. What made AlexNet different was that it was trained on graphics processing units—GPUs—the same chips designed to render video game graphics. GPUs could perform the massive parallel computations needed to train deep neural networks in days instead of months.</p>
+
+<p>According to <em>The Economist</em>, "Suddenly people started to pay attention, not just within the AI community but across the technology industry as a whole."</p>
+
+<p>This was the beginning of the deep learning revolution.</p>
+
+<h2>The Race to Surpass Humans</h2>
+
+<p>After AlexNet, progress accelerated rapidly. By 2013, most top entries were using convolutional neural networks. The winning classification entry came from Clarifai, an ensemble of multiple CNNs working together.</p>
+
+<p>In 2014, more than 50 institutions competed. Google's GoogLeNet won the classification task. Oxford's VGGNet won localization. Top-5 accuracy was creeping above 90%.</p>
+
+<p>But how good were humans at this task?</p>
+
+<p>Andrej Karpathy, a prominent AI researcher, decided to find out in 2014. He sat down and tried to classify ImageNet images himself. With concentrated effort, he estimated he could reach about 5.1% error rate—meaning 94.9% top-5 accuracy. About ten people from his lab achieved 87% to 88% accuracy with less effort. The estimated human ceiling, with maximum effort, was about 97.6% accuracy.</p>
+
+<p>In 2015, Microsoft's ResNet exceeded human performance on the ImageNet challenge. It was a very deep convolutional neural network with over 100 layers—far deeper than previous architectures. It achieved 96.43% top-5 accuracy, which meant just 3.57% of its answers were wrong.</p>
+
+<p>Computers could now recognize objects in images better than people.</p>
+
+<p>Or could they?</p>
+
+<h2>The Limits of the Challenge</h2>
+
+<p>Olga Russakovsky, one of the challenge's organizers, pointed out an important caveat in 2015. The ILSVRC only tested 1,000 categories. Humans can recognize far more than that. Humans also understand context in ways that algorithms don't. If you show a person a picture of a German shepherd wearing a birthday hat at a party, they understand the scene, the social context, the purpose of the gathering. An ImageNet-trained algorithm just sees a dog and maybe a hat.</p>
+
+<p>Still, the progress was undeniable. By 2017, 29 of 38 competing teams had greater than 95% accuracy. The winning entry that year was the Squeeze-and-Excitation Network, or SENet, which achieved 97.749% top-5 accuracy—just 2.251% error.</p>
+
+<p>The organizers announced that 2017 would be the last competition. The benchmark had been solved. There was no longer a meaningful challenge to pursue. They talked about organizing a new competition focused on 3D images, but it never materialized.</p>
+
+<h2>The Hidden Problems</h2>
+
+<p>As ImageNet became the standard benchmark for computer vision, researchers began to notice problems with the dataset itself.</p>
+
+<p>A careful study estimated that over 6% of labels in the ImageNet validation set were wrong. Another study found that around 10% of ImageNet contained ambiguous or erroneous labels. When human annotators were shown a state-of-the-art model's prediction alongside the original ImageNet label, they often preferred the model's answer.</p>
+
+<p>This suggested something remarkable and troubling: ImageNet had been saturated. Models had learned to perform better than the labels themselves were accurate. They were being penalized for giving answers that were actually more correct than the "ground truth."</p>
+
+<p>There were also concerns about bias. A 2019 study examined the multiple layers of taxonomy, object classes, and labeling in ImageNet and WordNet. It found that bias was deeply embedded in the classification approach itself. What categories we choose to include, how we organize them, and what language we use to describe them all reflect cultural assumptions.</p>
+
+<p>One particularly troubling area was the "person" subtree of WordNet. In the version ImageNet used, there were 2,832 synsets for classifying people. Between 2018 and 2020, ImageNet's team conducted extensive filtering and found that 1,593 of those synsets were "potentially offensive." Of the remaining 1,239, they deemed 1,081 not really "visual." Only 158 remained, and of those, just 139 contained more than 100 images.</p>
+
+<p>In 2021, ImageNet was updated. They removed 2,702 categories in the "person" subtree to prevent "problematic behaviors" in trained models. Only 130 person-related synsets remained. They also blurred out faces appearing in the 997 non-person categories. Out of all 1.4 million images in ImageNet, they found that 243,198 images—17%—contained at least one face, totaling over 562,000 faces. Remarkably, training models on the face-blurred dataset caused minimal loss in performance.</p>
+
+<h2>Variations and Subsets</h2>
+
+<p>Over time, researchers created multiple versions and subsets of ImageNet for different purposes.</p>
+
+<p>The full original dataset became known as ImageNet-21K, containing 14,197,122 images divided into 21,841 classes. Some papers rounded up and called it ImageNet-22K. This version was released in Fall 2011. It had no official train-validation-test split, and some classes contained only one to ten samples while others had thousands.</p>
+
+<p>The most widely used subset was ImageNet-1K, the version used in the ILSVRC competitions from 2012 to 2017. It contained 1,281,167 training images, 50,000 validation images, and 100,000 test images across exactly 1,000 categories. Unlike ImageNet-21K, every category in ImageNet-1K was a "leaf category"—meaning it had no subcategories below it. You'd find "German shepherd" but not the broader category "dog."</p>
+
+<p>Researchers also created adversarial versions. ImageNet-C, constructed in 2019, was a perturbed version designed to test how robust models were to image corruptions. ImageNetV2, released around the same time, contained three new test sets with 10,000 images each, collected using the same methodology as the original to see if models generalized beyond the specific images they'd been benchmarked on.</p>
+
+<p>ImageNet-21K-P was a cleaned and filtered subset with 12,358,688 images from 11,221 categories, all resized to 224 by 224 pixels for consistency.</p>
+
+<h2>The Legacy</h2>
+
+<p>ImageNet didn't just provide data. It changed how researchers thought about artificial intelligence.</p>
+
+<p>Before ImageNet, the conventional wisdom was that better algorithms were the key to progress. ImageNet demonstrated that better data mattered just as much, if not more. AlexNet's architecture "combined pieces that were all there before," as researchers noted. The dramatic improvement came from having enough data to train on and enough compute power to process it.</p>
+
+<p>This insight rippled across the entire field. Today's large language models, image generators, and multimodal AI systems all follow the same principle: massive datasets enable capabilities that clever algorithms alone cannot achieve.</p>
+
+<p>There's an irony in one of the criticisms leveled at WordNet's influence on ImageNet. Because WordNet was designed by linguists to capture the structure of language, its categories could be somewhat... academic. As one critic put it: "Most people are more interested in Lady Gaga or the iPod Mini than in this rare kind of diplodocus."</p>
+
+<p>They had a point. ImageNet categorized the world the way a dictionary does: comprehensive, hierarchical, systematic. But that's not how most people think about images. We care about what's interesting, what's relevant to our lives, what tells a story.</p>
+
+<p>Still, ImageNet accomplished exactly what Fei-Fei Li set out to do in 2006. It democratized computer vision research by providing a shared benchmark that anyone could use. It proved that data, not just algorithms, was a bottleneck worth addressing. And it enabled the 2012 breakthrough that kicked off the modern AI boom.</p>
+
+<p>The database itself is freely available. The annotations—which images contain which objects—can be downloaded directly from ImageNet. The actual images aren't owned by ImageNet; they're third-party image URLs. But the structure, the labels, the careful organization: that's the legacy.</p>
+
+<p>Fourteen million images. Forty-nine thousand workers. Twenty-one thousand categories. And one insight that changed everything: if you want machines to see, first you have to show them the world.</p>
+      </div>
+
+      <footer class="wikipedia-footer">
+        <p class="source-link">
+          <a href="https://en.wikipedia.org/wiki/ImageNet" target="_blank" rel="noopener">
+            View original Wikipedia article &rarr;
+          </a>
+        </p>
+        <p class="rewrite-note">
+          This article has been rewritten from Wikipedia source material for enjoyable reading.
+          Content may have been condensed, restructured, or simplified.
+        </p>
+      </footer>
+
+      
+      <section class="related-articles">
+        <h2>Related Articles</h2>
+        <p class="related-intro">This deep dive was written in connection with these articles:</p>
+        <ul class="related-list">
+          
+      <li class="related-article-item">
+        <a href="../../article/bad4b05e-7332-4206-9747-e4982eb89c14/index.html">
+          <strong>OpenAI CLIP: The Model That Learnt Zero-Shot Image Recognition Using Text</strong>
+        </a>
+        <span class="article-meta">
+          by Alex Xu in ByteByteGo Newsletter
+        </span>
+      </li>
+        </ul>
+      </section>
+    
+    </article>
+  
+  </main>
+</body>
+</html>
