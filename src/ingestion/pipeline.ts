@@ -38,8 +38,22 @@ export async function processArticle(
   const libraryConfig: LibraryConfig = { baseDir: options.libraryDir };
   const articleSlug = slugify(item.title);
 
-  // Check if article already exists in filesystem
-  if (articleExists(source.slug, articleSlug, libraryConfig)) {
+  // Check if article already exists
+  // With DB: must exist in BOTH filesystem AND database to skip
+  // Without DB: only check filesystem (legacy behavior for tests)
+  const existsInFilesystem = articleExists(source.slug, articleSlug, libraryConfig);
+
+  if (options.db) {
+    const existsInDb = await getArticleByUrl(options.db, item.url);
+    if (existsInFilesystem && existsInDb) {
+      return {
+        item,
+        skipped: true,
+        skipReason: 'already exists',
+      };
+    }
+  } else if (existsInFilesystem) {
+    // No DB - filesystem-only check (legacy behavior)
     return {
       item,
       skipped: true,

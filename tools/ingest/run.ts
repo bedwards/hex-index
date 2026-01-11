@@ -83,15 +83,26 @@ async function main(): Promise<void> {
     process.exit(0);
   }
 
-  // Connect to database if DATABASE_URL is set
-  let db: Pool | undefined;
-  if (process.env.DATABASE_URL) {
-    db = new Pool({ connectionString: process.env.DATABASE_URL });
+  // Connect to database - REQUIRED for ingestion
+  if (!process.env.DATABASE_URL) {
+    console.error('Error: DATABASE_URL is required. Set it in .env or environment.');
+    console.error('Ingestion requires a database to ensure articles are properly stored.');
+    process.exit(1);
+  }
+
+  const db = new Pool({ connectionString: process.env.DATABASE_URL });
+
+  // Verify database connection before proceeding
+  try {
+    await db.query('SELECT 1');
     if (values.verbose) {
       console.info('Connected to database');
     }
-  } else if (values.verbose) {
-    console.info('No DATABASE_URL - storing to filesystem only');
+  } catch (err) {
+    console.error('Error: Cannot connect to database. Is Docker running?');
+    console.error(`  Run: npm run db:up`);
+    console.error(`  Details: ${err instanceof Error ? err.message : String(err)}`);
+    process.exit(1);
   }
 
   // Build options
