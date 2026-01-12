@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Median - Hex Index</title>
+  <link rel="stylesheet" href="../../styles.css">
+</head>
+<body class="reading-mode">
+  <header class="reading-header">
+    <a href="../../index.html" class="back-link">&larr; Back to Library</a>
+  </header>
+  <main class="reading-content">
+    
+    <article class="wikipedia-page">
+      <header class="wikipedia-header">
+        <div class="type-badge">Wikipedia Deep Dive</div>
+        <h1>Median</h1>
+        <div class="article-meta">
+          <span class="read-time">12 min read</span>
+        </div>
+      </header>
+
+      <div class="wikipedia-content">
+        <p class="source-note">Based on <a href="https://en.wikipedia.org/wiki/Median">Wikipedia: Median</a></p>
+
+<h2>The Number That Ignores Billionaires</h2>
+
+<p>Imagine you're at a party with nine friends, and you want to know how wealthy the typical person in the room is. Everyone shares their net worth: most of you have somewhere between fifty thousand and two hundred thousand dollars. Then Jeff Bezos walks in.</p>
+
+<p>Suddenly, the average wealth in the room shoots into the billions. But has anything meaningful changed about the financial situation of you and your original nine friends? Not at all.</p>
+
+<p>This is why the median exists.</p>
+
+<p>The median is the value that sits exactly in the middle when you line up all your numbers from smallest to largest. Half the values fall below it, half above it. And here's the beautiful thing: it doesn't care how extreme the outliers are. Bezos could have a trillion dollars or a quadrillion—the median stays put, faithfully reporting what the middle of your group actually looks like.</p>
+
+<h2>How to Find the Middle</h2>
+
+<p>Finding a median is refreshingly simple. Take your numbers, sort them, and pick the one in the center.</p>
+
+<p>Say you have seven test scores: 1, 2, 3, 6, 7, 8, 9. Line them up (already done), and count to the middle. The fourth value is 6. That's your median.</p>
+
+<p>But what if you have an even number of values? Here's where a small wrinkle appears. With eight numbers—1, 2, 3, 4, 5, 6, 8, 9—there's no single middle value. You've got 4 and 5 sharing the center position. The convention is to take their average: 4.5 becomes your median.</p>
+
+<p>This might feel like cheating, inventing a number that wasn't in your original set. But it's a reasonable compromise when no true middle exists.</p>
+
+<h2>Why Economists Love It (And You Should Too)</h2>
+
+<p>When politicians and economists talk about "median household income," they're making a deliberate choice. They could report the mean—add up all incomes and divide by the number of households. But the mean has a fatal flaw in a world of extreme inequality.</p>
+
+<p>Think about it this way: if a hedge fund manager earning fifty million dollars moves into a small town of a thousand families earning fifty thousand each, the town's average income jumps by nearly fifty thousand dollars. Headlines could trumpet the town's newfound prosperity. But the thousand original families are no better off. The median, by contrast, barely budges—it might shift from fifty thousand to fifty thousand and fifty dollars, accurately reflecting that almost nothing changed for the typical resident.</p>
+
+<p>This resilience to outliers is called "robustness" in statistics. The median is what statisticians call a robust measure of central tendency. It tells you where the center of your data actually lives, not where a few extreme values drag the average.</p>
+
+<h2>The Mean Isn't Always Misleading</h2>
+
+<p>Before you conclude that the mean is useless and the median should reign supreme, consider when averages work perfectly well.</p>
+
+<p>If you're measuring something like the heights of adult women in Sweden, you'll find the data clusters nicely around a central value. A few people are shorter, a few are taller, but extreme outliers are rare. The mean and median will be nearly identical. In these symmetric distributions, use whichever you prefer—they're telling you the same story.</p>
+
+<p>The median becomes essential when distributions are skewed. Income is skewed right—a long tail of high earners stretches the mean upward. Home prices are skewed right. Time to complete tasks is often skewed right (most people finish quickly, but some take forever). Whenever you see that asymmetric bulge in the data, reach for the median.</p>
+
+<h2>What the Median Can't Tell You</h2>
+
+<p>The median has blind spots. It only cares about position, not magnitude.</p>
+
+<p>Consider two datasets. In the first, you have: 1, 2, 3, 4, 5. In the second: 1, 2, 3, 4, 5,000,000. Both have a median of 3. The median shrugs at that five million lurking at the end. Sometimes that's exactly what you want—you're trying to understand typical values, and that extreme case is an anomaly. But sometimes that extreme case matters enormously, and ignoring it would be dangerous.</p>
+
+<p>The median also doesn't tell you anything about spread. Two datasets could have identical medians but wildly different distributions. One might cluster tightly around the middle; another might sprawl across a huge range. You'll need other tools—like the interquartile range or the median absolute deviation—to capture that.</p>
+
+<h2>The Median in the Wild</h2>
+
+<p>Beyond economics, the median pops up everywhere.</p>
+
+<p>In medicine, survival times are often reported as medians. "The median survival time for this cancer is eighteen months" means half the patients lived longer, half shorter. Why not use the mean? Because survival times are notoriously skewed. A few long-term survivors—people who beat the odds and lived decades—would inflate the mean dramatically, giving false hope. The median keeps expectations realistic.</p>
+
+<p>In psychology experiments measuring reaction times, researchers typically report medians. Occasionally a subject gets distracted and takes several seconds to respond when most responses come in under half a second. Those slow outliers would wreck the mean. The median tells you what a typical response looks like.</p>
+
+<p>Real estate listings often show median home prices for a neighborhood. A single mansion could triple the mean price and make a modest area look unaffordable. The median reflects what a typical buyer would actually pay.</p>
+
+<h2>The Mathematical Elegance Beneath</h2>
+
+<p>There's a deeper reason the median works so well, and it involves a beautiful mathematical property.</p>
+
+<p>The median minimizes the sum of absolute deviations. In plain terms: if you need to pick a single number that's as close as possible to all your data points—measuring "close" as the total distance traveled—you should pick the median.</p>
+
+<p>This differs from the mean, which minimizes the sum of squared deviations. Squaring has the effect of punishing large errors much more severely than small ones. A point that's ten units away contributes one hundred to the squared error, while a point two units away contributes only four. This makes the mean highly sensitive to outliers—those extreme values rack up enormous squared penalties, dragging the mean toward them.</p>
+
+<p>With absolute deviations, distance is just distance. Ten units is ten, two is two. Outliers get no special treatment. The median finds the point where total distance is smallest, without letting any single data point dominate the calculation.</p>
+
+<h2>When Multiple Medians Exist</h2>
+
+<p>Here's a quirk that surprises people: sometimes there isn't a unique median.</p>
+
+<p>Imagine a dataset: 1, 2, 7, 8. What's the middle? The convention says average the two middle values, giving 4.5. But think about what the median means conceptually—a value where half the data falls below and half above. Any number between 2 and 7 satisfies that criterion. You could call 3 the median, or 5, or 4.5. They all work.</p>
+
+<p>Mathematicians handle this by either picking the conventional midpoint (the arithmetic mean of the two middle values) or acknowledging that the median is an interval, not a point. In practice, people usually go with the convention. But it's worth knowing that the tidy single-number answer glosses over genuine ambiguity.</p>
+
+<h2>Medians for Non-Numeric Data</h2>
+
+<p>The median has a superpower that the mean lacks: it works on ranked data that isn't truly numeric.</p>
+
+<p>Think about letter grades. You can't calculate a mean of A, B, C, D, F in any meaningful way—what's the average of B and D? But you can find a median. Line up the grades, find the middle one. If a class has grades A, A, B, C, C, C, D, D, F, the median is C (the fifth value in a nine-item list).</p>
+
+<p>This extends to any ordinal scale—rankings where you know the order but the intervals between ranks aren't necessarily equal. Customer satisfaction surveys (very unhappy, unhappy, neutral, happy, very happy), pain scales in medicine (no pain, mild, moderate, severe, excruciating), even rankings of restaurants or movies. Anywhere you have order without meaningful numerical distances, the median remains sensible while the mean falls apart.</p>
+
+<h2>The Geometric Median: Beyond One Dimension</h2>
+
+<p>Everything we've discussed assumes your data lives on a number line. But what if you're dealing with points in two-dimensional space, or three, or twenty?</p>
+
+<p>This is where the geometric median comes in. It's the point that minimizes total distance to all other points, extending the one-dimensional concept into higher dimensions. Unlike the ordinary median, there's no simple formula—you typically need iterative algorithms to find it.</p>
+
+<p>The geometric median matters in practical applications like facility location. If you're placing a warehouse to serve multiple cities, you want to minimize total shipping distance. The geometric median of the cities' locations gives you the optimal spot.</p>
+
+<h2>How Median Relates to Percentiles</h2>
+
+<p>The median is actually a special case of a broader family called percentiles.</p>
+
+<p>A percentile tells you what value falls at a certain position in your data. The 25th percentile (also called the first quartile) has 25% of data below it. The 75th percentile (third quartile) has 75% below. The median is simply the 50th percentile—right in the middle.</p>
+
+<p>Percentiles give you a richer picture of your data than any single summary statistic. Report the median along with the 25th and 75th percentiles, and you've communicated where the middle half of your data lives. Add the 10th and 90th, and you've captured most of the meaningful spread.</p>
+
+<p>This is why box plots are so useful in statistics. They visualize the median, the quartiles, and the extremes all at once, showing the shape of your distribution without hiding behind a single average.</p>
+
+<h2>Estimating Population Medians from Samples</h2>
+
+<p>In practice, you rarely have complete data. You take a sample and try to estimate characteristics of the larger population.</p>
+
+<p>The sample median is a natural estimate for the population median, and it has good properties. It's consistent—as your sample grows, your estimate converges to the true value. It's robust—a few contaminated data points won't ruin it.</p>
+
+<p>But the sample median isn't always the most efficient estimator. If you know your data comes from a normal distribution (that classic bell curve), the sample mean actually gives you a more precise estimate of the center than the sample median. The sample median has about 64% of the efficiency of the mean for normal data.</p>
+
+<p>However—and this is crucial—the real world rarely provides pristine normal distributions. Data gets contaminated. Outliers sneak in. Heavy-tailed distributions lurk where you expected thin ones. In these realistic scenarios, the sample median often outperforms the mean. It sacrifices some efficiency in ideal conditions to gain massive protection against realistic imperfections.</p>
+
+<h2>The Inequality Between Mean and Median</h2>
+
+<p>Can the mean and median diverge arbitrarily, or are they tethered together?</p>
+
+<p>There's an elegant mathematical result: if a distribution has finite variance (a technical condition that roughly means the data doesn't spread infinitely), then the distance between the mean and median is bounded by one standard deviation.</p>
+
+<p>The standard deviation measures spread—how far typical values stray from the mean. Saying the mean and median must fall within one standard deviation of each other means they can differ, but not without limit. Highly skewed distributions push them apart, but only so far.</p>
+
+<p>This bound doesn't hold without the finite variance assumption. The Cauchy distribution—a fat-tailed beast used in physics and occasionally in finance—has no mean at all (the integral doesn't converge), though it does have a perfectly well-defined median.</p>
+
+<h2>Medians of Famous Distributions</h2>
+
+<p>Different probability distributions have medians with neat closed-form expressions.</p>
+
+<p>For a normal distribution—the bell curve defined by a mean and variance—the median equals the mean. In fact, mean, median, and mode (the most common value) all coincide for a normal distribution. Perfect symmetry does that.</p>
+
+<p>For a uniform distribution, where every value in some interval is equally likely, the median is simply the midpoint of the interval. This too equals the mean, reflecting the distribution's symmetry.</p>
+
+<p>The exponential distribution, which models waiting times for random events, has median equal to the natural logarithm of 2 divided by the rate parameter. Roughly 0.693 divided by how often events happen. Unlike the normal case, the mean and median differ here—the exponential distribution is skewed right, so the mean gets pulled above the median.</p>
+
+<h2>What Makes a Good Summary Statistic?</h2>
+
+<p>The choice between mean and median reflects a deeper question: what do you want your summary statistic to do?</p>
+
+<p>If you care about totals—"how much money does this group have collectively?"—you need the mean. Multiply the mean by the count to get the total. The median can't help you there.</p>
+
+<p>If you care about typical cases—"what can a normal person in this group expect?"—the median often serves better. It's anchored in the middle of actual data points, not pulled away by extremes.</p>
+
+<p>If you need mathematical convenience for further analysis, the mean has nicer properties. The mean of a sum is the sum of the means. No such rule exists for medians.</p>
+
+<p>If you need robustness to errors and outliers, the median wins. A single corrupted data point can utterly destroy a mean while leaving the median nearly untouched.</p>
+
+<p>The honest answer is that neither is universally "better." They answer different questions. Understanding when to use each—and when to report both—marks a major step up in statistical sophistication.</p>
+
+<h2>The Vibecession Connection</h2>
+
+<p>Why does any of this matter for understanding economic sentiment?</p>
+
+<p>When economists report that GDP is growing or unemployment is falling, they're often using means and aggregates. But when people feel like the economy is leaving them behind, they're living their own median experience.</p>
+
+<p>If gains accrue primarily to the top—if the wealthy get wealthier while typical wages stagnate—you can have GDP growth that doesn't budge the median income. The aggregate numbers look great. The median reality tells a different story.</p>
+
+<p>This gap between mean economic indicators and median lived experience helps explain why vibes can diverge from data. The data isn't lying. It's just measuring something different from what most people experience.</p>
+
+<p>Understanding the median helps you see through this. Whenever someone cites an average, ask yourself: is this skewed? Are there outliers? Would the median tell a different story? These questions are your defense against statistics that are technically true but experientially misleading.</p>
+
+<p>The median won't solve the vibecession. But it gives you better tools for understanding why people's feelings and the headline numbers can point in opposite directions—and which one might better reflect your own reality.</p>
+      </div>
+
+      <footer class="wikipedia-footer">
+        <p class="source-link">
+          <a href="https://en.wikipedia.org/wiki/Median" target="_blank" rel="noopener">
+            View original Wikipedia article &rarr;
+          </a>
+        </p>
+        <p class="rewrite-note">
+          This article has been rewritten from Wikipedia source material for enjoyable reading.
+          Content may have been condensed, restructured, or simplified.
+        </p>
+      </footer>
+
+      
+      <section class="related-articles">
+        <h2>Related Articles</h2>
+        <p class="related-intro">This deep dive was written in connection with these articles:</p>
+        <ul class="related-list">
+          
+      <li class="related-article-item">
+        <a href="../../article/4c2d9bc5-a034-4763-a8c8-0193ab6c65d8/index.html">
+          <strong>Vibecession: Much More Than You Wanted To Know</strong>
+        </a>
+        <span class="article-meta">
+          by Scott Alexander in Astral Codex Ten
+        </span>
+      </li>
+        </ul>
+      </section>
+    
+    </article>
+  
+  </main>
+</body>
+</html>

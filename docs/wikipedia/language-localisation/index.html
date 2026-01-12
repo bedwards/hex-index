@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Language localisation - Hex Index</title>
+  <link rel="stylesheet" href="../../styles.css">
+</head>
+<body class="reading-mode">
+  <header class="reading-header">
+    <a href="../../index.html" class="back-link">&larr; Back to Library</a>
+  </header>
+  <main class="reading-content">
+    
+    <article class="wikipedia-page">
+      <header class="wikipedia-header">
+        <div class="type-badge">Wikipedia Deep Dive</div>
+        <h1>Language localisation</h1>
+        <div class="article-meta">
+          <span class="read-time">12 min read</span>
+        </div>
+      </header>
+
+      <div class="wikipedia-content">
+        <p class="source-note">Based on <a href="https://en.wikipedia.org/wiki/Language_localisation">Wikipedia: Language localisation</a></p>
+
+<p>When Microsoft released Windows 95 in Japan, they faced an unexpected problem. The software worked perfectly, but users found the interface unsettling. The issue wasn't the translation—it was the fonts. The original Roman characters had been converted to Japanese, but the typeface felt cold and mechanical to Japanese readers, who expected warmer, more flowing letterforms. Microsoft had translated the words but missed the culture.</p>
+
+<p>This is the heart of what professionals call localisation: the art of making something feel native to a place, not just comprehensible.</p>
+
+<h2>Beyond Translation</h2>
+
+<p>Translation converts words from one language to another. Localisation converts an entire experience.</p>
+
+<p>Consider a simple date: 12/01/2024. In the United States, that's December 1st. In most of Europe, it's January 12th. In Japan, it would typically appear as 2024年1月12日. A translator might render the words around a date perfectly, yet leave users confused about when something actually happens. A localiser catches this. They also catch the fact that while Americans write their addresses starting with street number and ending with country, Japanese addresses begin with the largest geographic unit and work down to the specific building. They notice that red means good fortune in China but can signal danger or debt in Western contexts. They understand that a thumbs-up gesture, cheerful in most Western countries, carries offensive connotations in parts of the Middle East.</p>
+
+<p>The industry has developed a shorthand for these processes. Localisation becomes "L10N"—the letter L, followed by the number 10 (representing the ten letters between L and N in the word "localisation"), then the letter N. Its counterpart, internationalisation, follows the same pattern: "i18n." These numeronyms emerged from programmers who grew tired of typing out such lengthy terms in their code comments.</p>
+
+<h2>The Two Phases of Going Global</h2>
+
+<p>Companies that want their products to work across cultures face a choice. They can build something for one market and retrofit it for others, or they can plan for global distribution from the start. The second approach, while requiring more upfront thinking, almost always proves cheaper in the long run.</p>
+
+<p>The first phase is internationalisation. This is architectural work. Engineers design systems that can gracefully accommodate multiple languages and cultural conventions without requiring fundamental restructuring. They separate the text that users see from the underlying code. They build date and currency fields that can display in any format. They ensure layouts can expand—German words often run 30% longer than their English equivalents—or contract for languages like Chinese. They make space for right-to-left text, since Arabic and Hebrew read in the opposite direction from English.</p>
+
+<p>A well-internationalised product is like a well-designed house with modular furniture. The structure remains solid while the contents can be swapped and rearranged.</p>
+
+<p>The second phase is localisation itself: the actual adaptation for specific markets. This is where the linguistic, cultural, physical, and technical work happens. Translators convert the text. Cultural consultants review imagery and color choices. Designers adjust layouts. Engineers implement local payment systems, address formats, and regulatory requirements. Quality assurance teams—often native speakers in the target region—test everything to ensure nothing feels foreign or awkward.</p>
+
+<h2>The Subtle Art of Cultural Adaptation</h2>
+
+<p>Video games offer some of the most dramatic examples of localisation challenges. When Nintendo brought the role-playing game "EarthBound" to Western markets in 1995, the localisation team didn't just translate dialogue—they rewrote jokes, changed cultural references, and even altered a scene involving a drink from what appeared to be alcohol to something clearly non-alcoholic, anticipating different sensitivities in the American market.</p>
+
+<p>More recently, game companies have faced decisions about how to handle content that might be acceptable in some markets but problematic in others. Violence may need toning down for German releases. Religious imagery might require removal for Middle Eastern distribution. What reads as playful humor in one culture might come across as offensive in another.</p>
+
+<p>Websites present their own challenges. Imagine a German company opening a major office in Russia and needing a Russian-language website. The products and services might be identical, but elements from the German site could prove problematic—certain color combinations, nationalistic imagery, or even the positioning of elements on the page. Russian web design conventions differ from German ones. Russian users have different expectations about how forms should work, how much text should appear on a page, and how navigation should be structured.</p>
+
+<p>This extends beyond the visible. The date January 7th carries little significance in most Western calendars, but it's Christmas in the Russian Orthodox tradition. An email marketing campaign scheduled without this knowledge might arrive at the wrong moment entirely.</p>
+
+<h2>Japan: A Fascinating Case Study</h2>
+
+<p>Japan presents an interesting puzzle for localisation professionals. The country has one of the most linguistically homogeneous populations on Earth—over 99% speak Japanese as their primary language. You might think this would simplify matters. You would be wrong.</p>
+
+<p>Japan officially recognizes eleven languages. Beyond Japanese, there's Ainu (the indigenous language of Japan's northernmost regions), multiple Ryukyuan languages spoken in Okinawa and surrounding islands, and various signed languages. Then there are the languages spoken by immigrant and transient populations—Korean, Chinese, Portuguese (from Japan's significant Brazilian-Japanese community), and others.</p>
+
+<p>But even within Japanese, the complexity multiplies. The language has multiple writing systems: hiragana and katakana (two phonetic scripts with distinct uses), kanji (Chinese characters adapted for Japanese), and romaji (Roman letters). Formal and informal registers differ substantially—so much so that software localized for business use might feel strange in a consumer context, even though both use Japanese.</p>
+
+<p>Regional dialects can be mutually unintelligible. Osaka-ben (the Osaka dialect) differs markedly from Tokyo standard, and both differ from the dialects of rural Tohoku. A product localized for Tokyo might feel distant to users in Osaka, even if they can understand it perfectly well.</p>
+
+<h2>The Technology Behind Modern Localisation</h2>
+
+<p>The industry has evolved dramatically from its origins in manual translation. Today, several interlocking technologies power professional localisation efforts.</p>
+
+<p>Translation Memory systems store every sentence a human translator has ever approved. When a similar sentence appears in new content, the system retrieves the previous translation as a starting point. This ensures consistency—if your company translated "Shopping Cart" as "Warenkorb" in German last year, it should remain "Warenkorb" this year, not suddenly become "Einkaufswagen." It also speeds work considerably, since translators aren't constantly recreating work they've done before.</p>
+
+<p>Computer-Assisted Translation tools (often called CAT tools) provide translators with an integrated workspace. They display the source text alongside the translation area, suggest matches from translation memory, highlight terminology that has approved translations, and flag potential errors. Think of them as sophisticated word processors designed specifically for translation work.</p>
+
+<p>Machine Translation has advanced remarkably in recent years. Systems like Google Translate and DeepL can produce rough drafts that human translators then refine—a process called post-editing. For some content types, particularly technical documentation with consistent terminology, machine translation with light human review can be nearly as good as fully human translation at a fraction of the cost. For creative content, marketing copy, or anything requiring cultural nuance, machines still struggle.</p>
+
+<p>Translation Management Systems coordinate everything else. They track which content needs translation, assign work to translators, manage deadlines, collect completed work, and generate reports. For a large company with content in dozens of languages, these systems become essential. Without them, the sheer logistics of managing hundreds of translators, millions of words, and constant updates would overwhelm any organization.</p>
+
+<h2>The Language of Language Codes</h2>
+
+<p>Every localized product needs a way to identify which version is which. The industry has developed standardized codes for this purpose, though—in typical fashion—there are competing standards.</p>
+
+<p>The International Organization for Standardization (known by its French acronym ISO) defines two main systems. ISO 639-1 uses two-letter codes: "en" for English, "de" for German (from "Deutsch"), "ja" for Japanese. ISO 639-2 uses three-letter codes for the same languages: "eng," "deu," "jpn." The three-letter system covers more languages—some with only a few thousand speakers—while the two-letter system handles the most common ones.</p>
+
+<p>But language alone often isn't enough. English as spoken in the United States differs from English in the United Kingdom, Australia, or India. German in Germany, Austria, and Switzerland each has its own conventions. So codes typically combine a language identifier with a country identifier: "en-US" for American English, "en-GB" for British English, "de-AT" for Austrian German, "de-CH" for Swiss German.</p>
+
+<p>Sometimes this still isn't granular enough. Serbian can be written in both Cyrillic and Latin scripts. Chinese uses traditional characters in Taiwan and Hong Kong but simplified characters in mainland China. Extended codes can capture these distinctions: "sr-Latn" for Serbian in Latin script, "zh-Hans" for simplified Chinese, "zh-Hant" for traditional.</p>
+
+<p>These codes appear everywhere in software development. Web pages declare their language in HTML tags so browsers can display text correctly and screen readers can pronounce it properly. Software installers check system language settings to determine which version to install. Content management systems use them to organize multilingual content libraries.</p>
+
+<h2>The Evolution of an Industry</h2>
+
+<p>Localisation as a distinct profession barely existed before the 1980s. Software companies handled translation on an ad hoc basis, often asking bilingual engineers to translate documentation in their spare time. The results were predictably inconsistent.</p>
+
+<p>As international software markets grew, companies began establishing dedicated localisation teams. These early groups combined linguistic skills with technical knowledge—translators who could also manipulate software resource files and understand character encoding issues. The work remained heavily manual, with translators working in word processors and engineers manually integrating their work into software builds.</p>
+
+<p>The 1990s brought the first generation of purpose-built tools. Translation memory systems emerged, initially as expensive solutions affordable only to large corporations. Desktop publishing advanced, making it possible to produce localized manuals without completely redesigning layouts for each language. The internet began creating demand for multilingual websites.</p>
+
+<p>A professional ecosystem developed. Project managers specialised in coordinating complex multilingual projects. Localisation engineers focused on the technical aspects—extracting translatable content from software, reintegrating translations, solving character encoding problems. Quality assurance specialists developed testing methodologies for localized products.</p>
+
+<p>The Localization Industry Standards Association (LISA) formed in 1990 and spent two decades developing best practices and technical standards. Though LISA dissolved in 2011, its frameworks and terminology remain influential.</p>
+
+<p>Today, the industry has stratified into specializations that would have seemed fantastical to early practitioners. There are game localisation specialists who understand the unique challenges of interactive entertainment. There are medical and legal translation specialists with deep domain expertise. There are transcreation professionals—a portmanteau of "translation" and "creation"—who adapt marketing content so creatively that the result might share almost no words with the original while perfectly capturing its intent and impact.</p>
+
+<h2>The Human Element in an Automated Age</h2>
+
+<p>Machine translation has improved so dramatically that it raises an obvious question: will human translators become obsolete?</p>
+
+<p>The evidence suggests a more nuanced evolution. Machine translation excels at content that is consistent, technical, and voluminous—software strings, product specifications, user manuals. For this content, the industry has shifted toward human post-editing of machine output rather than human translation from scratch. Translators increasingly function as editors and quality controllers.</p>
+
+<p>But machines struggle with precisely the elements that make localisation different from translation. Cultural nuance. Humor. Emotional resonance. The awareness that a particular turn of phrase, perfectly acceptable in the source language, carries unfortunate connotations in the target culture. The judgment to know when a translation should be literal and when it needs creative reimagining.</p>
+
+<p>Consider a global marketing campaign. The original English slogan might be clever, playing on words or cultural references familiar to American audiences. A machine could translate each word accurately and produce something meaningless or, worse, accidentally offensive in German or Japanese. A human localiser might discard the original concept entirely and create something new that achieves the same marketing objective through culture-specific means.</p>
+
+<p>This is why senior roles in the industry have evolved away from pure translation toward strategic functions. Directors of International Product and Heads of Globalization think about which markets to enter, how to position products across cultures, and how localisation fits into broader business objectives. They're not translating words; they're translating entire business strategies.</p>
+
+<h2>The Continuing Challenge</h2>
+
+<p>Localisation is never finished. Every time source content updates, localized versions must update too. Every new feature requires translation. Every market expansion requires new localisation efforts. Companies that thought of localisation as a one-time project quickly discover it's an ongoing process requiring sustained attention and investment.</p>
+
+<p>This creates interesting dynamics. A streamlined globalisation process—one that internationalises content effectively from the start and maintains efficient localisation workflows—pays dividends across every product update and market expansion. An ad hoc approach accumulates technical and linguistic debt that grows more expensive over time.</p>
+
+<p>The companies that do localisation well share certain characteristics. They think about international markets during product design, not afterward. They build systems that separate content from code. They establish terminology databases and style guides that ensure consistency across languages and products. They invest in relationships with translators who understand their brand voice. And they test thoroughly, knowing that localisation bugs—a truncated button label, a culturally inappropriate image, a confusingly formatted date—can undermine user trust as effectively as technical bugs.</p>
+
+<p>In an increasingly connected world, the ability to make products feel native across cultures isn't merely a nice-to-have. For companies with global ambitions, it's essential infrastructure—as fundamental as the servers that host their services or the code that powers their applications. The art of localisation, despite all its technological tools, ultimately remains an exercise in empathy: understanding how people in different places see the world, and meeting them where they are.</p>
+      </div>
+
+      <footer class="wikipedia-footer">
+        <p class="source-link">
+          <a href="https://en.wikipedia.org/wiki/Language_localisation" target="_blank" rel="noopener">
+            View original Wikipedia article &rarr;
+          </a>
+        </p>
+        <p class="rewrite-note">
+          This article has been rewritten from Wikipedia source material for enjoyable reading.
+          Content may have been condensed, restructured, or simplified.
+        </p>
+      </footer>
+
+      
+      <section class="related-articles">
+        <h2>Related Articles</h2>
+        <p class="related-intro">This deep dive was written in connection with these articles:</p>
+        <ul class="related-list">
+          
+      <li class="related-article-item">
+        <a href="../../article/fe5ff284-cf72-45a8-8018-899013e0442e/index.html">
+          <strong>How human translators are coping with competition from powerful AI</strong>
+        </a>
+        <span class="article-meta">
+          by Timothy B. Lee in Full Stack Economics
+        </span>
+      </li>
+        </ul>
+      </section>
+    
+    </article>
+  
+  </main>
+</body>
+</html>

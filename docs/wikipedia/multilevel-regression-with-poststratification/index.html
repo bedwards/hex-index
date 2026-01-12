@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Multilevel regression with poststratification - Hex Index</title>
+  <link rel="stylesheet" href="../../styles.css">
+</head>
+<body class="reading-mode">
+  <header class="reading-header">
+    <a href="../../index.html" class="back-link">&larr; Back to Library</a>
+  </header>
+  <main class="reading-content">
+    
+    <article class="wikipedia-page">
+      <header class="wikipedia-header">
+        <div class="type-badge">Wikipedia Deep Dive</div>
+        <h1>Multilevel regression with poststratification</h1>
+        <div class="article-meta">
+          <span class="read-time">9 min read</span>
+        </div>
+      </header>
+
+      <div class="wikipedia-content">
+        <p class="source-note">Based on <a href="https://en.wikipedia.org/wiki/Multilevel_regression_with_poststratification">Wikipedia: Multilevel regression with poststratification</a></p>
+
+<h2>The Xbox Gamers Who Predicted a Presidential Election</h2>
+
+<p>In 2012, a team of researchers decided to do something that seemed almost absurd: predict the outcome of the United States presidential election using surveys of Xbox gamers. Their sample was wildly unrepresentative of American voters. Sixty-five percent of their respondents were between eighteen and twenty-nine years old, compared to just nineteen percent of the actual electorate. Ninety-three percent were male, while men made up only forty-seven percent of voters.</p>
+
+<p>By any conventional polling standard, this data was useless. Hopelessly biased. The kind of sample a Statistics 101 professor would use as an example of what not to do.</p>
+
+<p>Yet the researchers got it right. Their predictions matched those of traditional polls using massive, carefully balanced samples. How? Through a statistical technique with the unwieldy name of multilevel regression with poststratification, which practitioners mercifully abbreviate to MRP and pronounce "Mister P."</p>
+
+<h2>The Problem MRP Solves</h2>
+
+<p>Political polling faces a fundamental tension. National surveys are relatively straightforward—call enough people across the country, weight your sample appropriately, and you can get a reasonable picture of public opinion. But what if you want to know what voters in Wyoming think? Or in a specific congressional district? Or among young Hispanic women in rural areas?</p>
+
+<p>The traditional approach would be to survey enough people in each specific area or demographic slice you care about. This gets expensive fast. The United States has 435 congressional districts. Polling each one with a sample large enough to produce reliable estimates would cost a fortune and take months.</p>
+
+<p>Even worse, small-area surveys produce what statisticians delicately call "noisy estimates." When you're working with a sample of fifty people from a single district, random variation can easily swamp the true signal. Your estimate might bounce around wildly from one survey to the next, not because opinions changed but because of the luck of who happened to answer your calls.</p>
+
+<p>MRP offers an elegant solution. Instead of asking "What do people in District X think?" directly, it asks a more tractable question: "What kinds of people live in District X, and what do those kinds of people tend to think?"</p>
+
+<h2>The Two-Step Dance</h2>
+
+<p>MRP works in two distinct phases, each lending half its name to the technique.</p>
+
+<p>The first step is multilevel regression. You build a statistical model that predicts individual opinions based on personal characteristics—age, education, race, income, and so forth. Crucially, this model also accounts for where people live, allowing the relationship between demographics and opinions to vary by geography. Someone's political views might be shaped differently by being college-educated in rural Alabama versus urban Massachusetts.</p>
+
+<p>The "multilevel" part refers to this hierarchical structure. Individuals are nested within demographic cells, which are nested within geographic areas. The model learns patterns at each level simultaneously, borrowing strength across the data. If you have very few college-educated young women in your sample from Montana, the model doesn't just throw up its hands. Instead, it uses information about how college-educated young women behave nationally, adjusted for what makes Montana distinctive.</p>
+
+<p>This borrowing of information is the key insight. Sparse data in any particular cell gets smoothed by the broader patterns, reducing the noise that would plague a naive approach.</p>
+
+<p>The second step is poststratification—the process that gives MRP its ending. Once you've estimated what each type of person thinks, you combine these estimates using census data that tells you how many of each type actually exist in your target population.</p>
+
+<p>Think of it as weighted averaging. If you want to estimate opinion in a congressional district, you figure out: how many young white men with college degrees live there? How many older Black women without degrees? You multiply each group's estimated opinion by that group's share of the population, then add everything up.</p>
+
+<h2>Cells and Weighting</h2>
+
+<p>The population gets divided into what practitioners call "cells"—every possible combination of the demographic attributes you're tracking. If you're using four age groups, two sexes, five education levels, and four racial categories, that gives you four times two times five times four, or 160 cells.</p>
+
+<p>Each cell represents a specific demographic type: say, white women aged 30-44 with a graduate degree. The multilevel regression gives you an estimate for what people in that cell believe. The poststratification tells you how many people in your target geography actually belong to that cell.</p>
+
+<p>The magic happens when you have census data—or reasonably good estimates—for the composition of any geographic area you care about. The Census Bureau can tell you how many people of each demographic type live in each congressional district. So even if your national survey included only two respondents from a particular district, you can still produce an estimate for that district by combining your model's predictions for each cell with the census counts.</p>
+
+<h2>A Brief History</h2>
+
+<p>The technique traces its origins to work by Andrew Gelman and Thomas Little in 1997, though it built on earlier ideas about small-area estimation developed by Robert Fay and James Herriot, and separately by Roderick Little. The initial applications were fairly technical—improving estimates in government surveys, that sort of thing.</p>
+
+<p>The political science applications came later. David Park, Andrew Gelman, and Joseph Bafumi extended the method in papers published in 2004 and 2006. Then in 2009, Jeffrey Lax and Justin Phillips proposed using MRP to estimate state-level public opinion across the American states—a problem that had long frustrated political scientists trying to understand how state policies relate to what state residents actually want.</p>
+
+<p>Christopher Warshaw and Jonathan Rodden pushed the technique further in 2012, applying it to estimate opinion at the congressional district level. This opened up questions about representation that had previously been nearly impossible to study empirically. Do members of Congress actually reflect their constituents' views? With MRP, researchers could finally attempt rigorous answers.</p>
+
+<p>The Xbox study from that same year demonstrated something important: MRP could rescue badly biased data. The technique doesn't require your sample to look like the population. It just requires that you can model how opinions vary across the demographic groups you observe and that you know the population composition of your target geography.</p>
+
+<h2>From Academia to Election Night</h2>
+
+<p>MRP made the leap from academic journals to mainstream election coverage during the 2017 United Kingdom general election. The polling firm YouGov used the technique to estimate vote intention in each of Britain's 650 parliamentary constituencies. Most pollsters predicted a comfortable Conservative majority. YouGov's MRP model suggested something different: a hung parliament, with no party winning an outright majority.</p>
+
+<p>YouGov was right. Their model correctly predicted the winner in 93 percent of constituencies. The traditional polls had missed badly. MRP had arrived as a serious forecasting tool.</p>
+
+<p>By the 2019 and 2024 UK elections, other major pollsters had developed their own MRP models. Survation and Ipsos joined YouGov in publishing constituency-level estimates. The technique had become standard equipment for election forecasting in Britain, where the first-past-the-post electoral system makes seat-by-seat predictions particularly valuable.</p>
+
+<h2>Why It Works (And When It Doesn't)</h2>
+
+<p>MRP succeeds because demographic characteristics really do predict political opinions to a meaningful degree. Knowing someone's age, education, race, and location tells you something about how they're likely to vote. Not everything—individual humans remain wonderfully unpredictable—but enough to make the statistical machinery work.</p>
+
+<p>The technique also benefits from having excellent auxiliary data. Census counts are among the most reliable numbers governments produce. When you poststratify to census targets, you're anchoring your estimates to something solid.</p>
+
+<p>But MRP has limitations. The model assumes that the relationship between demographics and opinions is similar across different geographic areas, or at least that the variation follows predictable patterns. If political opinions in some region depend heavily on factors you haven't measured—local economic conditions, the personality of a particular candidate, a regional political culture that defies demographic decomposition—the model may struggle.</p>
+
+<p>Timing matters too. MRP works best for predicting elections when applied relatively close to the actual voting date, after nominations have closed and voters have begun paying attention. Early estimates can miss late-breaking shifts in opinion.</p>
+
+<h2>Beyond the Basics</h2>
+
+<p>Researchers continue extending MRP in various directions. The multilevel regression component can be replaced with more flexible approaches—nonparametric regression methods or machine learning techniques that might capture complex patterns traditional regression models miss.</p>
+
+<p>The poststratification step can also be generalized. Standard MRP requires knowing population counts from a census. But what if you want to poststratify on variables the census doesn't measure—like smartphone ownership or gym membership? Recent work allows for "estimated poststratification targets," where the population composition itself comes from models rather than counts.</p>
+
+<p>The technique has also spread beyond political science. Epidemiologists use MRP to estimate disease prevalence in small geographic areas. Market researchers apply it to understand consumer preferences across regions. Anywhere you want small-area estimates but can only afford large-area surveys, MRP offers a path forward.</p>
+
+<h2>The Deeper Lesson</h2>
+
+<p>MRP illustrates a principle that runs through much of modern statistics: you can often do more with limited data than intuition suggests, provided you're willing to make assumptions and bring in additional information.</p>
+
+<p>The Xbox study is the extreme case. That sample was biased in ways that should have made it worthless. But the researchers had two things going for them: a model that could describe how opinions vary across demographic types, and census data telling them what the population actually looked like. With those pieces, they could transform garbage-in into insight-out.</p>
+
+<p>This isn't magic. It's mathematics. And it requires that your assumptions actually hold—that demographics really do predict opinions in the way your model specifies, that the census data accurately describes your target population, that there aren't unmeasured factors driving opinions in ways that vary systematically across geography.</p>
+
+<p>When those assumptions fail, MRP can fail too. But when they hold, the technique accomplishes something remarkable: it lets researchers peer into populations they've barely sampled, extracting signal from what would otherwise be noise.</p>
+
+<p>The next time you see a news story reporting what voters in your state or district think, there's a good chance MRP played a role. The estimates might trace their lineage back to a national survey that included only a handful of your neighbors. But thanks to a clever combination of modeling and weighting, that's often enough.</p>
+      </div>
+
+      <footer class="wikipedia-footer">
+        <p class="source-link">
+          <a href="https://en.wikipedia.org/wiki/Multilevel_regression_with_poststratification" target="_blank" rel="noopener">
+            View original Wikipedia article &rarr;
+          </a>
+        </p>
+        <p class="rewrite-note">
+          This article has been rewritten from Wikipedia source material for enjoyable reading.
+          Content may have been condensed, restructured, or simplified.
+        </p>
+      </footer>
+
+      
+      <section class="related-articles">
+        <h2>Related Articles</h2>
+        <p class="related-intro">This deep dive was written in connection with these articles:</p>
+        <ul class="related-list">
+          
+      <li class="related-article-item">
+        <a href="../../article/418b8650-cc57-490a-8447-7e84f47af432/index.html">
+          <strong>What voters in every state think about Trump and prices</strong>
+        </a>
+        <span class="article-meta">
+          by G. Elliott Morris in G. Elliott Morris
+        </span>
+      </li>
+        </ul>
+      </section>
+    
+    </article>
+  
+  </main>
+</body>
+</html>
