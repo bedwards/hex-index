@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Inter-rater reliability - Hex Index</title>
+  <link rel="stylesheet" href="../../styles.css">
+</head>
+<body class="reading-mode">
+  <header class="reading-header">
+    <a href="../../index.html" class="back-link">&larr; Back to Library</a>
+  </header>
+  <main class="reading-content">
+    
+    <article class="wikipedia-page">
+      <header class="wikipedia-header">
+        <div class="type-badge">Wikipedia Deep Dive</div>
+        <h1>Inter-rater reliability</h1>
+        <div class="article-meta">
+          <span class="read-time">11 min read</span>
+        </div>
+      </header>
+
+      <div class="wikipedia-content">
+        <p class="source-note">Based on <a href="https://en.wikipedia.org/wiki/Inter-rater_reliability">Wikipedia: Inter-rater reliability</a></p>
+
+<h2>The Problem of Agreement</h2>
+
+<p>Here's a question that sounds simple but isn't: how do you know if two people looking at the same thing actually see the same thing?</p>
+
+<p>This matters more than you might think. When a panel of doctors reviews the same X-ray, do they reach the same diagnosis? When teachers grade the same essay, do they give it the same score? When researchers code interview transcripts, do they categorize the responses the same way? The answer, disturbingly often, is no. And if experts can't agree on what they're observing, then their observations aren't particularly useful.</p>
+
+<p>This is the domain of inter-rater reliability—a set of statistical tools designed to measure, quantify, and ultimately improve the degree to which independent observers agree when they rate, code, or assess the same phenomenon. The field goes by many names: inter-rater agreement, inter-observer reliability, inter-coder reliability. They all circle the same fundamental problem.</p>
+
+<h2>Why Chance Agreement Poisons Everything</h2>
+
+<p>The simplest approach to measuring agreement is to just calculate how often raters agree. If two doctors diagnose the same condition 80 percent of the time, that seems pretty good, right?</p>
+
+<p>Not necessarily.</p>
+
+<p>Imagine a scenario where doctors are classifying tumors as either benign or malignant. If 90 percent of tumors in a given population happen to be benign, two doctors could achieve extremely high agreement simply by classifying everything as benign. They'd agree 81 percent of the time purely by chance—both guessing "benign" at random would produce that result. Their actual diagnostic skill might contribute almost nothing to their apparent agreement.</p>
+
+<p>This is the poison of chance agreement. When you have only two or three categories to choose from, random agreement becomes disturbingly common. Two people flipping coins would agree half the time. The fewer categories available, the worse this problem becomes.</p>
+
+<p>A good reliability measure needs to do two things. First, it should hover near zero when agreement is purely due to chance. Second, it should increase as genuine agreement improves. The first goal is relatively easy to achieve. The second, surprisingly, is not. Many well-known statistical measures accomplish the first goal while failing, to varying degrees, at the second.</p>
+
+<h2>Enter Kappa: Correcting for Chance</h2>
+
+<p>In 1960, a statistician named Jacob Cohen proposed an elegant solution. His kappa statistic compares the observed agreement between raters against the agreement you'd expect by pure chance. If raters agree exactly as often as chance would predict, kappa equals zero. If they agree perfectly, kappa equals one. If they systematically disagree—rating things as opposites—kappa goes negative.</p>
+
+<p>Cohen's kappa works for two raters. Joseph Fleiss later extended the approach to handle any fixed number of raters, creating what's now called Fleiss' kappa. Both versions share a crucial insight: raw agreement percentages are meaningless without accounting for how much agreement you'd expect from random guessing.</p>
+
+<p>But the original kappa statistics had their own limitations. They treat categories as purely nominal—as if "strongly agree," "agree," "neutral," "disagree," and "strongly disagree" are just five unrelated labels rather than points on an ordered scale. A rater who marks "agree" when the correct answer is "strongly agree" gets the same penalty as one who marks "strongly disagree." That seems wrong. Partial credit should matter.</p>
+
+<p>Later versions addressed this by incorporating ordinal information—recognizing that being close to the right answer is better than being far from it. These extensions eventually converged with a different family of statistics called intra-class correlations, creating a unified framework for measuring reliability across different types of measurement scales.</p>
+
+<h3>The Fifty Percent Problem</h3>
+
+<p>Kappa has a mathematical quirk that catches many researchers off guard. The statistic can only reach its highest values when two conditions are met: agreement must be good, and the base rate of the target condition must be near fifty percent.</p>
+
+<p>This creates paradoxical situations. If you're screening for a rare disease that affects only one percent of patients, even excellent diagnostic agreement will produce a modest kappa value. The math penalizes situations where the thing being measured is uncommon. This isn't a bug in the calculation—it reflects a genuine statistical reality about the difficulty of demonstrating reliable agreement when events are rare. But it means researchers need to interpret kappa values carefully, considering the prevalence of whatever they're measuring.</p>
+
+<h2>Correlation: A Different Lens</h2>
+
+<p>When raters assign numerical scores rather than placing things into categories, correlation coefficients offer an alternative approach. You've probably encountered Pearson's correlation coefficient—the standard measure of how strongly two variables move together. Spearman's rho and Kendall's tau are close cousins that work with ranked data.</p>
+
+<p>With two raters, you simply calculate the correlation between their scores. With more raters, you can compute correlations for every possible pair and average them.</p>
+
+<p>But correlation has a blind spot. If one rater consistently scores everything ten points higher than another, their correlation will be perfect—they agree completely about which performances are better and worse. Yet their actual scores disagree substantially. Whether this matters depends on what you're trying to measure. If you care only about ranking, correlation works fine. If you care about the actual scores themselves, you need something more.</p>
+
+<h2>The Intra-Class Correlation: Getting Specific About Variance</h2>
+
+<p>The intra-class correlation coefficient, usually abbreviated as ICC, takes a more sophisticated approach. Instead of just asking whether raters' scores move together, it asks a specific question: of all the variation in the scores, how much comes from genuine differences between the things being rated versus differences between the raters themselves?</p>
+
+<p>Think of it this way. If you have ten essays rated by five teachers, the scores will vary. Some of that variation exists because some essays really are better than others. But some exists because Teacher A is a harsh grader while Teacher B is generous, or because Teacher C had a headache on Tuesday when she graded half the stack.</p>
+
+<p>ICC tries to separate these sources of variation. A high ICC means most of the variation reflects real differences between essays—the raters are measuring something consistent. A low ICC means rater idiosyncrasies are swamping the signal.</p>
+
+<p>ICC values range from zero to one, though some older definitions allowed negative values. The statistic improves on simpler correlation measures by accounting for systematic differences between raters, not just whether their scores rise and fall together.</p>
+
+<h2>Bland and Altman: The Visual Approach</h2>
+
+<p>Sometimes the most illuminating analysis is visual. In 1986, J. Martin Bland and Douglas Altman introduced a plotting method that's become a standard tool for comparing measurement methods.</p>
+
+<p>The approach is straightforward. Take two raters' measurements of the same items. For each item, calculate the difference between the two ratings and plot it on the vertical axis. On the horizontal axis, plot the average of the two ratings. Add horizontal lines showing the mean difference (the bias) and the limits of agreement (typically the mean plus or minus about two standard deviations).</p>
+
+<p>The resulting plot reveals patterns that summary statistics might hide. Maybe two raters agree closely when measuring small things but diverge on large ones—the plot will show this as a fan-shaped pattern. Maybe one rater systematically rates higher than the other—the mean difference line will sit above or below zero. Maybe agreement is good in general but a few outliers show dramatic disagreement—they'll stand out as isolated points beyond the limits of agreement.</p>
+
+<p>This visual approach embodies an important principle: no single number fully captures agreement. The relationship between raters often depends on what they're measuring, and that dependency matters.</p>
+
+<h2>Krippendorff's Alpha: The Swiss Army Knife</h2>
+
+<p>Klaus Krippendorff, a communications researcher, developed a statistic designed to be as versatile as possible. His alpha can handle any number of raters, works with nominal, ordinal, interval, or ratio measurements, gracefully accommodates missing data, and adjusts for small sample sizes.</p>
+
+<p>This flexibility made it particularly popular in content analysis—the field where researchers code texts for themes, sentiments, or other qualities. When analyzing interview transcripts or news articles, you often have coders who miss some items, measurements that might be categorical or continuous depending on the variable, and sample sizes that aren't always large. Krippendorff's alpha handles all of this in a unified framework.</p>
+
+<p>The statistic has since spread beyond content analysis into psychometrics, observational studies, computational linguistics, and any domain where the messiness of real-world data intersects with the need for reliable measurement.</p>
+
+<h2>When Multiple Raters Make Sense</h2>
+
+<p>Not every measurement task needs multiple raters. Counting customers entering a store is unambiguous—one person can do it reliably. But many important measurements involve inherent ambiguity, and that's exactly when multiple raters become essential.</p>
+
+<p>Consider evaluating a physician's bedside manner. What does "good" even mean? Different observers might weight warmth versus efficiency differently. They might disagree about whether a particular joke was appropriate or awkward. The concept itself is fuzzy enough that no single rater's judgment can be fully trusted.</p>
+
+<p>Or consider a jury evaluating witness credibility. Each juror brings different life experiences, different intuitions about body language, different weights on verbal versus nonverbal cues. The disagreement between jurors isn't noise to be eliminated—it's information about the genuine uncertainty inherent in the judgment.</p>
+
+<p>In situations like these, inter-rater reliability statistics serve two purposes. They quantify how much observers agree, giving us a sense of whether the measurement is even meaningful. And they push us to understand why observers disagree, often revealing that the construct we're trying to measure is more complex than we initially realized.</p>
+
+<h2>The Problem of Rater Drift</h2>
+
+<p>Even well-trained raters don't stay perfectly calibrated. Over time, their standards drift. Maybe early enthusiasm gives way to fatigue-induced generosity. Maybe exposure to many mediocre examples recalibrates their sense of "average." Maybe they unconsciously learn what the study designers expect and bias their ratings accordingly.</p>
+
+<p>This phenomenon—experimenter's bias when it pushes ratings toward expected values, or simply rater drift when it moves them in any direction—is why inter-rater reliability isn't a one-time measurement. Good practice involves periodic checks and retraining throughout a study, ensuring raters stay calibrated to the original guidelines rather than evolving their own divergent standards.</p>
+
+<p>Clear, specific guidelines help. Vague instructions like "rate the quality of the response" invite drift; detailed rubrics with examples anchor raters to a common standard. But even the best guidelines can't eliminate drift entirely. Human judgment is inherently variable, and managing that variability requires ongoing attention.</p>
+
+<h2>The Connection to Machine Learning Evaluation</h2>
+
+<p>If you're wondering what any of this has to do with evaluating large language models, the connection is direct and important.</p>
+
+<p>When researchers evaluate AI outputs—rating whether responses are helpful, accurate, safe, or well-written—they face exactly the problems inter-rater reliability statistics were designed to address. Human evaluators disagree. Their disagreements may reflect genuine ambiguity in the task, differences in their backgrounds, or drift in their standards over time. Raw agreement percentages are misleading because they don't account for chance agreement or the difficulty of the task.</p>
+
+<p>Every tool developed over decades of work in psychology, medicine, and content analysis applies directly. Kappa, ICC, Krippendorff's alpha—all of them help quantify whether human evaluations of AI systems are reliable enough to trust.</p>
+
+<p>And if human evaluators can't agree, that's not necessarily a failure. It might reveal that the evaluation criteria are too vague, that the task is inherently subjective, or that different values lead to legitimately different assessments. Understanding why evaluators disagree is often more valuable than just knowing that they do.</p>
+
+<h2>The Deeper Lesson</h2>
+
+<p>Inter-rater reliability might seem like a dry statistical topic, but it encodes a profound truth: measurement is hard. Not hard in the sense of requiring expensive equipment or sophisticated techniques, but hard in the sense that even highly trained experts looking at the same thing often see different things.</p>
+
+<p>This has implications beyond statistics. It suggests humility about any evaluation based on human judgment. It argues for transparency about how much evaluators agreed and why they disagreed. It demands that we treat agreement rates not as definitive numbers but as one input into understanding whether our measurements mean anything at all.</p>
+
+<p>The next time you see a claim that "experts rated X as Y," ask the reliability question. How much did those experts actually agree? How much of their agreement was due to chance? What did they disagree about, and why? The answers often matter more than the headline conclusion.</p>
+      </div>
+
+      <footer class="wikipedia-footer">
+        <p class="source-link">
+          <a href="https://en.wikipedia.org/wiki/Inter-rater_reliability" target="_blank" rel="noopener">
+            View original Wikipedia article &rarr;
+          </a>
+        </p>
+        <p class="rewrite-note">
+          This article has been rewritten from Wikipedia source material for enjoyable reading.
+          Content may have been condensed, restructured, or simplified.
+        </p>
+      </footer>
+
+      
+      <section class="related-articles">
+        <h2>Related Articles</h2>
+        <p class="related-intro">This deep dive was written in connection with these articles:</p>
+        <ul class="related-list">
+          
+      <li class="related-article-item">
+        <a href="../../article/59b70069-d844-4148-a5d9-bd7851b97633/index.html">
+          <strong>A Guide to LLM Evals</strong>
+        </a>
+        <span class="article-meta">
+          by Alex Xu in ByteByteGo Newsletter
+        </span>
+      </li>
+        </ul>
+      </section>
+    
+    </article>
+  
+  </main>
+</body>
+</html>

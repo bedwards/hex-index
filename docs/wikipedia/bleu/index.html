@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BLEU - Hex Index</title>
+  <link rel="stylesheet" href="../../styles.css">
+</head>
+<body class="reading-mode">
+  <header class="reading-header">
+    <a href="../../index.html" class="back-link">&larr; Back to Library</a>
+  </header>
+  <main class="reading-content">
+    
+    <article class="wikipedia-page">
+      <header class="wikipedia-header">
+        <div class="type-badge">Wikipedia Deep Dive</div>
+        <h1>BLEU</h1>
+        <div class="article-meta">
+          <span class="read-time">12 min read</span>
+        </div>
+      </header>
+
+      <div class="wikipedia-content">
+        I've written the rewritten Wikipedia article about BLEU. Here's the content:
+
+---
+
+<p class="source-note">Based on <a href="https://en.wikipedia.org/wiki/BLEU">Wikipedia: BLEU</a></p>
+
+<h2>The Algorithm That Taught Machines to Grade Themselves</h2>
+
+<p>In 2001, a team at IBM faced a peculiar problem. Machine translation had existed for decades, but nobody had figured out a good way to measure whether one translation system was actually better than another. Human evaluators could do it, of course, but hiring linguists to read thousands of translated sentences was expensive and slow. What if you could automate the grading itself?</p>
+
+<p>Their solution was an algorithm called BLEU, which stands for Bilingual Evaluation Understudy. The name is a bit of wordplay: an understudy is someone who learns a role by watching the star performer, ready to step in when needed. BLEU learns what good translation looks like by studying examples from human experts, then steps in to do the evaluation automatically.</p>
+
+<p>The core insight behind BLEU is almost comically simple. If a machine translation contains the same words and phrases as a professional human translation, it's probably pretty good. If it doesn't, it's probably not. That's essentially the whole idea.</p>
+
+<h2>Why This Matters Beyond Translation</h2>
+
+<p>You might wonder why an algorithm from 2001 for evaluating machine translation deserves attention today. The answer is that BLEU became the grandfather of evaluation metrics for all kinds of AI text generation. When researchers today evaluate large language models, chatbots, or text summarization systems, they often use metrics that descend directly from BLEU or react against its limitations.</p>
+
+<p>Understanding BLEU means understanding the fundamental tension in AI evaluation: how do you measure something as subjective and complex as language quality with cold, objective numbers?</p>
+
+<h2>How BLEU Actually Works</h2>
+
+<p>Imagine you're a language teacher grading student translations. You have the original text in French, and you've collected several excellent translations from professional translators to use as answer keys. Now a student hands in their attempt.</p>
+
+<p>One way to grade it would be to read the whole thing, consider the meaning, evaluate the style, and assign a holistic score. That's what human evaluators do. It's accurate but slow.</p>
+
+<p>BLEU takes a different approach. It doesn't try to understand meaning at all. Instead, it simply counts how many words and phrases from the student's translation also appear in the reference translations. More matches mean a higher score.</p>
+
+<p>This counting happens at multiple levels. First, BLEU counts individual words. If the student wrote "the" and the reference also contains "the," that's a match. But single words aren't very informative. The word "the" appears in almost every English sentence.</p>
+
+<p>So BLEU also counts pairs of consecutive words, called bigrams. If the student wrote "the cat" and the reference contains "the cat," that's a bigram match. Then it counts sequences of three words, called trigrams. And four words, called four-grams.</p>
+
+<p>These sequences of consecutive words are collectively called n-grams, where n represents the length. A unigram is one word, a bigram is two, a trigram is three, and so on. BLEU typically uses n-grams from one through four.</p>
+
+<h2>The Clever Part: Preventing Cheating</h2>
+
+<p>Here's where BLEU gets interesting. A naive version of this approach would be easy to game. Suppose the reference translation is "The cat sat on the mat." A terrible machine translation could simply output "the the the the the the" and score perfectly on unigram matching, since every single word appears in the reference.</p>
+
+<p>BLEU prevents this cheating with a mechanism called clipping. Each word in the candidate translation can only count as a match as many times as it appears in the reference. If "the" appears twice in the reference, then at most two instances of "the" in the candidate can count as matches, even if the candidate contains fifty of them.</p>
+
+<p>This clipping happens separately for each n-gram length. For bigrams, if "the cat" appears once in the reference, only one "the cat" from the candidate counts, no matter how many times it repeats that phrase.</p>
+
+<h2>The Brevity Penalty: No Credit for Being Laconic</h2>
+
+<p>There's another way to cheat the system. You could output just a single word that you're confident appears in the reference. If the reference is a long, complex sentence and your translation is just "the," you'd technically have a 100% match rate for unigrams: every word you produced appears in the reference.</p>
+
+<p>To combat this, BLEU includes a brevity penalty. If your translation is shorter than the reference, your score gets multiplied by a penalty factor that decreases as your translation gets shorter. The penalty kicks in hard once your candidate is substantially shorter than the reference, driving the score toward zero for absurdly brief outputs.</p>
+
+<p>The flip side is interesting: BLEU doesn't penalize translations that are longer than the reference. This asymmetry exists because the n-gram precision naturally handles verbosity. If you add extra words that don't appear in the reference, those words simply don't contribute matches, diluting your precision score automatically.</p>
+
+<h2>The Final Score: A Geometric Mean</h2>
+
+<p>BLEU's final score combines the precision measurements at each n-gram level using a geometric mean. In plain terms, a geometric mean multiplies all the values together and then takes the appropriate root. For four values, you'd multiply them and take the fourth root.</p>
+
+<p>Why a geometric mean rather than a regular average? Because a geometric mean is unforgiving of zeros. If your translation has no four-gram matches at all, that zero propagates through and devastates your final score, even if your unigram precision was excellent. This encourages translations that perform reasonably well across all n-gram levels rather than excelling at one while failing at others.</p>
+
+<p>The resulting BLEU score falls between zero and one, though in practice people often multiply by 100 to report it as a percentage. A score of zero means no n-grams matched at all. A score of one would mean the candidate is identical to one of the references, which almost never happens even for professional human translations, because there are many valid ways to translate any sentence.</p>
+
+<h2>What BLEU Actually Measures (and What It Doesn't)</h2>
+
+<p>BLEU measures adequacy in a very specific sense: whether the translation uses similar words and phrases to a reference translation. Researchers at IBM found that this correlates reasonably well with human judgments of translation quality, at least when you aggregate scores across many sentences.</p>
+
+<p>But BLEU is completely blind to certain aspects of language that humans care deeply about. It doesn't measure whether a translation is grammatically correct. It doesn't measure whether the translation actually conveys the right meaning. It doesn't measure fluency, naturalness, or style.</p>
+
+<p>Consider a concrete example. The reference translation might be "The quick brown fox jumped over the lazy dog." A candidate translation of "dog lazy the over jumped fox brown quick the" would score reasonably well on unigrams, since every word appears in the reference. The bigram, trigram, and four-gram scores would be terrible, but the unigram score alone might make it look acceptable.</p>
+
+<p>More subtly, BLEU can't recognize valid paraphrases. If the reference says "The doctor treated the patient" and the candidate says "The physician healed the sick person," BLEU sees almost no matches, even though the meaning is preserved perfectly. This becomes a serious limitation when evaluating modern language models that excel at creative paraphrasing.</p>
+
+<h2>Multiple References: Acknowledging Linguistic Diversity</h2>
+
+<p>One clever aspect of BLEU is its support for multiple reference translations. Language is inherently diverse. Any sentence can be translated correctly in many different ways, and no single reference captures all valid possibilities.</p>
+
+<p>When BLEU has access to multiple references, a candidate translation can match against any of them. If one reference says "The man walked" and another says "The guy strolled," a candidate using either "man" or "guy" can get credit. This flexibility significantly improves BLEU's ability to recognize valid translations that happen to differ from any single reference.</p>
+
+<p>The practical implication is that BLEU scores increase when you add more reference translations. This isn't a flaw; it reflects a genuine truth about language. More references provide a more complete picture of the space of valid translations, allowing BLEU to give appropriate credit to a wider range of good outputs.</p>
+
+<h2>The Statistical Foundation</h2>
+
+<p>BLEU was one of the first metrics to demonstrate strong correlation with human judgments of translation quality, and this correlation held across many language pairs and domains. The original 2002 paper by Kishore Papineni and colleagues showed that BLEU rankings of different translation systems matched human rankings with remarkable consistency.</p>
+
+<p>This correlation operates at the corpus level, meaning when you aggregate BLEU scores across hundreds or thousands of sentences. At the level of individual sentences, BLEU scores can be quite noisy and unreliable. A single sentence might get a low BLEU score despite being an excellent translation, simply because it paraphrased the reference in valid but unrecognized ways.</p>
+
+<p>This distinction between sentence-level and corpus-level reliability matters enormously in practice. You can trust BLEU to tell you that System A generally produces better translations than System B across a large test set. You cannot trust BLEU to tell you that Translation A of a specific sentence is better than Translation B of that same sentence.</p>
+
+<h2>The Legacy: Spawning a Field</h2>
+
+<p>BLEU's impact extended far beyond its original purpose. It demonstrated that automatic evaluation metrics for language could work, opening a floodgate of research into better alternatives.</p>
+
+<p>METEOR, introduced in 2005, addressed some of BLEU's limitations by incorporating synonyms, stemming, and word order. ROUGE, developed for summarization evaluation, applies similar n-gram matching ideas but focuses on recall rather than precision: how much of the reference content appears in the candidate, rather than how much of the candidate content appears in the reference.</p>
+
+<p>More recent metrics like BERTScore use neural networks to compute semantic similarity between words, finally addressing BLEU's inability to recognize valid paraphrases. These learned metrics can understand that "physician" and "doctor" are similar, even though they share no characters.</p>
+
+<p>Yet BLEU persists. It's simple, fast, interpretable, and reproducible. It requires no trained models or GPU computation. Anyone can implement it in an afternoon, and everyone gets the same answer for the same inputs. These practical virtues keep BLEU in widespread use even as more sophisticated alternatives exist.</p>
+
+<h2>The Deeper Lesson</h2>
+
+<p>BLEU embodies a broader truth about measuring complex phenomena. Sometimes a crude proxy, applied consistently and at scale, provides more actionable information than a sophisticated measure that's too expensive to apply broadly.</p>
+
+<p>Human evaluation remains the gold standard for assessing translation quality. No automatic metric can fully capture what makes a translation good. But human evaluation costs money, takes time, and introduces its own inconsistencies. Different human evaluators disagree with each other, sometimes substantially.</p>
+
+<p>BLEU offered a different bargain: a metric that's worse at judging any single translation but can be applied instantly to millions of translations, enabling rapid iteration on machine translation systems. The field advanced faster because researchers could get feedback in seconds rather than waiting weeks for human evaluation results.</p>
+
+<p>This tradeoff between measurement quality and measurement speed appears throughout artificial intelligence research. BLEU was one of the first successful demonstrations that embracing this tradeoff, rather than holding out for perfect measurement, could accelerate practical progress.</p>
+
+<h2>Criticisms and Limitations</h2>
+
+<p>Over the years, researchers have identified serious problems with BLEU that the original paper didn't fully address.</p>
+
+<p>The most fundamental criticism is that BLEU doesn't actually measure meaning. Two sentences with completely different meanings can have similar BLEU scores if they happen to share vocabulary. This becomes especially problematic for evaluating modern language models, which excel at producing fluent text that may subtly miss the point.</p>
+
+<p>BLEU's reliance on exact word matching also creates problems across languages. In English, word boundaries are usually clear and words are relatively short. In languages like German, with its long compound words, or Chinese, where word segmentation itself is ambiguous, BLEU's behavior becomes less predictable and less meaningful.</p>
+
+<p>The metric also doesn't handle legitimate variation in sentence structure well. Some translations are better because they restructure the sentence for greater clarity in the target language. BLEU may penalize these improvements because the restructured sentence matches fewer n-grams from references that preserved the source structure.</p>
+
+<p>Perhaps most damning, researchers have shown that BLEU scores can be gamed by systems that learn to produce BLEU-optimal outputs rather than human-optimal outputs. When you optimize directly for any metric, you eventually start exploiting its blind spots rather than genuinely improving on what it tries to measure.</p>
+
+<h2>The Lasting Influence</h2>
+
+<p>Despite its limitations, BLEU fundamentally changed how the field approaches evaluation. Before BLEU, there was no standard way to compare machine translation systems. After BLEU, shared benchmarks and reproducible evaluation became the norm.</p>
+
+<p>This standardization enabled the rapid progress in machine translation over the following two decades. Researchers could build on each other's work because they were all measuring success the same way. The metric's simplicity meant that results were reproducible across different research groups, fostering the collaborative accumulation of knowledge that drives scientific progress.</p>
+
+<p>BLEU also established a template for evaluation metrics in other areas of natural language processing. When researchers tackle new problems like text summarization, dialogue systems, or image captioning, they often start by adapting BLEU's approach: find some way to compare candidate outputs to reference outputs using n-gram overlap or its derivatives.</p>
+
+<p>The algorithm that taught machines to grade themselves ultimately taught the field how to measure progress at all. Whatever limitations BLEU has, and there are many, its role in enabling systematic evaluation of language technology deserves recognition. Sometimes the most important breakthrough isn't a better answer but a better way to know when you've found one.</p>
+      </div>
+
+      <footer class="wikipedia-footer">
+        <p class="source-link">
+          <a href="https://en.wikipedia.org/wiki/BLEU" target="_blank" rel="noopener">
+            View original Wikipedia article &rarr;
+          </a>
+        </p>
+        <p class="rewrite-note">
+          This article has been rewritten from Wikipedia source material for enjoyable reading.
+          Content may have been condensed, restructured, or simplified.
+        </p>
+      </footer>
+
+      
+      <section class="related-articles">
+        <h2>Related Articles</h2>
+        <p class="related-intro">This deep dive was written in connection with these articles:</p>
+        <ul class="related-list">
+          
+      <li class="related-article-item">
+        <a href="../../article/59b70069-d844-4148-a5d9-bd7851b97633/index.html">
+          <strong>A Guide to LLM Evals</strong>
+        </a>
+        <span class="article-meta">
+          by Alex Xu in ByteByteGo Newsletter
+        </span>
+      </li>
+        </ul>
+      </section>
+    
+    </article>
+  
+  </main>
+</body>
+</html>
