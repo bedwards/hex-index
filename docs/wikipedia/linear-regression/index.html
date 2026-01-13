@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Linear regression - Hex Index</title>
+  <link rel="stylesheet" href="../../styles.css">
+</head>
+<body class="reading-mode">
+  <header class="reading-header">
+    <a href="../../index.html" class="back-link">&larr; Back to Library</a>
+  </header>
+  <main class="reading-content">
+    
+    <article class="wikipedia-page">
+      <header class="wikipedia-header">
+        <div class="type-badge">Wikipedia Deep Dive</div>
+        <h1>Linear regression</h1>
+        <div class="article-meta">
+          <span class="read-time">12 min read</span>
+        </div>
+      </header>
+
+      <div class="wikipedia-content">
+        <p class="source-note">Based on <a href="https://en.wikipedia.org/wiki/Linear_regression">Wikipedia: Linear regression</a></p>
+
+<p>Imagine tossing a ball into the air and measuring its height at different moments. You know physics governs its path, but your measurements are imperfect—your stopwatch isn't precise, your ruler has limitations, wind gusts intervene. Somewhere beneath all that noise lies a true relationship between time and height. Linear regression is the mathematical detective that finds it.</p>
+
+<p>This technique sits at the foundation of nearly everything we call data science today. It's the first serious statistical method ever developed, dating back to the early 1800s, and it remains one of the most widely used. Machine learning, for all its neural networks and deep learning glamour, still relies heavily on linear regression for countless applications. Understanding it means understanding how we extract signal from noise, pattern from chaos.</p>
+
+<h2>The Core Idea</h2>
+
+<p>At its heart, linear regression answers a deceptively simple question: given some input values, what output should we expect?</p>
+
+<p>Consider predicting house prices. You might suspect that square footage matters. A larger house probably costs more than a smaller one. But how much more? Is each additional square foot worth a hundred dollars? A thousand? Linear regression examines your data and calculates the most reasonable answer.</p>
+
+<p>The "linear" part means we're assuming a straight-line relationship. If you graph square footage against price and the points roughly follow a diagonal line, linear regression finds the best line to draw through them. Not a curve. Not a zigzag. A line.</p>
+
+<p>This might sound limiting. After all, the world is full of curved relationships and complex interactions. But here's the twist: linear regression is far more flexible than it first appears. While the relationship must be linear in the parameters we're estimating, the input variables can be transformed in all sorts of ways. We can include squared terms, logarithms, or products of different variables. A physicist studying that ball tossed in the air uses time squared as one of the inputs, capturing the parabolic arc of gravity while still using linear regression to estimate the coefficients.</p>
+
+<h2>Simple Versus Multiple Regression</h2>
+
+<p>When you have just one input variable predicting an output, statisticians call it simple linear regression. One explanatory variable, one dependent variable, one relationship to estimate.</p>
+
+<p>But life rarely offers such simplicity.</p>
+
+<p>House prices depend on more than square footage. The number of bedrooms matters. So does the neighborhood, the age of the roof, the quality of local schools. When you incorporate multiple input variables simultaneously, you're doing multiple linear regression. Same fundamental technique, just more dimensions.</p>
+
+<p>This distinction often confuses newcomers to statistics. There's also something called multivariate linear regression, which sounds similar but differs in an important way. Multiple regression has multiple inputs predicting a single output. Multivariate regression predicts multiple outputs at once—perhaps both the sale price and the time a house will spend on the market. The terminology is admittedly confusing, but the concepts diverge significantly in practice.</p>
+
+<h2>What Makes It Linear</h2>
+
+<p>The word "linear" in linear regression doesn't mean the relationship between your inputs and outputs must be a straight line. It means the relationship must be linear in the parameters you're estimating.</p>
+
+<p>Let me unpack that.</p>
+
+<p>Consider our ball tossed into the air. Its height at any moment depends on how fast it was thrown initially and how strongly gravity pulls it down. The equation involves time squared—definitely not a straight line when you graph height against time. Yet this is still linear regression because each parameter we're estimating (initial velocity and gravitational pull) appears only once, not squared or cubed or in some more complicated form.</p>
+
+<p>Think of it this way: if you could multiply each parameter by some constant and add them together to get your prediction, you're in linear territory. The inputs can be transformed however you like before they enter the equation. The parameters themselves must remain untransformed.</p>
+
+<h2>The Vocabulary of Regression</h2>
+
+<p>Every field develops its own vocabulary, and statistics has created an unusually thick jungle of synonyms for regression concepts. Understanding this vocabulary helps when reading technical papers or collaborating with researchers from different disciplines.</p>
+
+<p>The thing you're trying to predict goes by many names: dependent variable, response variable, target variable, outcome variable, or regressand. These all mean the same thing—the output you care about estimating.</p>
+
+<p>The inputs you use for prediction also have multiple aliases: independent variables, explanatory variables, predictor variables, features, covariates, or regressors. Same concept, different traditions.</p>
+
+<p>Why so many terms? Different fields developed regression independently. Economists prefer "dependent" and "independent" variables. Experimental scientists often use "response" and "predictor." Machine learning practitioners typically say "target" and "features." When you encounter these terms, recognize them as pointing to the same underlying ideas.</p>
+
+<h2>The Error Term: Embracing Imperfection</h2>
+
+<p>No model perfectly captures reality. Linear regression acknowledges this explicitly through what's called the error term—the gap between what the model predicts and what actually happens.</p>
+
+<p>This isn't a flaw in the method. It's an honest admission of how the world works.</p>
+
+<p>The error term captures everything your model doesn't account for. Maybe house prices depend on factors you didn't measure, like whether a famous person once lived there or how nice the neighbors are. Maybe your measurements contain mistakes. Maybe there's genuine randomness in the system. All of this ends up in the error term.</p>
+
+<p>Understanding the error term proves crucial for knowing what conclusions you can draw. If your errors are purely random—equally likely to be positive or negative, with no pattern—your model's estimates are probably trustworthy. If your errors show suspicious patterns, something has gone wrong. Perhaps you've left out an important variable, or perhaps the relationship isn't actually linear.</p>
+
+<h2>Finding the Best Line: Least Squares</h2>
+
+<p>Given a cloud of data points, infinitely many lines could pass through them. How do we pick the best one?</p>
+
+<p>The most common approach, called least squares, makes a clever choice. For each data point, measure how far the line misses it vertically. Square these distances to make them all positive and to penalize big misses more than small ones. Add up all these squared distances. The best line is the one that makes this total as small as possible.</p>
+
+<p>Why square the distances? Partly for mathematical convenience—squaring produces smooth calculations that yield exact formulas for the best line. Partly because squaring punishes large errors heavily. A prediction that misses by ten units contributes a hundred to the total, while ten predictions that each miss by one unit contribute only ten combined. Least squares naturally emphasizes getting the big picture right, even if some individual predictions suffer.</p>
+
+<p>This squared penalty has a downside, though. Outliers—data points far from the general pattern—can hijack the entire analysis. A single extreme measurement can drag the line dramatically toward itself, distorting predictions for all the normal cases. When outliers contaminate your data, alternative methods like least absolute deviations (which uses the actual distances rather than their squares) may serve better.</p>
+
+<h2>The Intercept: Where the Line Crosses Zero</h2>
+
+<p>Most linear regression models include what's called an intercept—the predicted value when all input variables equal zero.</p>
+
+<p>Sometimes the intercept has a meaningful interpretation. If you're predicting exam scores from hours studied, the intercept represents the expected score for someone who didn't study at all. If you're predicting weight from height, the intercept represents the predicted weight at zero height, which makes no practical sense but helps the mathematics work correctly.</p>
+
+<p>Statisticians almost always include an intercept, even when theory suggests it should be zero. The math works better with it present, and most analysis techniques assume it exists. Omitting the intercept can produce misleading results and break standard statistical tests.</p>
+
+<h2>Interpreting the Coefficients</h2>
+
+<p>Each input variable in a linear regression has an associated coefficient—a number telling you how much the prediction changes when that input increases by one unit, holding everything else constant.</p>
+
+<p>That last phrase, "holding everything else constant," matters enormously.</p>
+
+<p>Consider predicting income from both education level and years of work experience. The coefficient for education tells you how much additional income to expect from more education for people with the same experience. The coefficient for experience tells you how much additional income to expect from more experience for people with the same education. Each coefficient isolates its variable's unique contribution, separating it from the effects of other variables in the model.</p>
+
+<p>This interpretation can mislead if applied carelessly. The coefficient doesn't necessarily indicate causation—it doesn't prove that increasing education causes higher income. Correlation differs from causation, and linear regression by itself cannot distinguish them. The coefficient also depends on what other variables you've included. Add a new variable, and the existing coefficients may shift dramatically.</p>
+
+<h2>Two Uses: Prediction and Explanation</h2>
+
+<p>Linear regression serves two distinct purposes, and confusing them causes endless trouble.</p>
+
+<p>The first purpose is prediction. Given new input values, what output should we expect? A real estate company might build a regression model to estimate what price a house will fetch, using historical sales data to train the model. They don't particularly care why certain features affect price—they just want accurate predictions.</p>
+
+<p>The second purpose is explanation. What factors actually influence the outcome, and how strongly? A researcher might use regression to understand whether a new teaching method improves test scores while controlling for differences in student backgrounds. Here the goal isn't predicting any particular student's score but understanding the causal mechanism.</p>
+
+<p>The same mathematical technique serves both purposes, but the interpretation differs radically. Predictive models can include variables with no causal relationship to the outcome as long as they improve accuracy. Explanatory models must be designed carefully to isolate causal effects, often requiring additional assumptions or experimental designs that go beyond regression itself.</p>
+
+<h2>Assumptions Behind the Method</h2>
+
+<p>Linear regression works best when certain conditions hold. Violating these assumptions doesn't necessarily destroy the analysis, but it can bias your results or inflate your uncertainty.</p>
+
+<p>First, the relationship should actually be approximately linear. If the true pattern curves significantly, a straight line will systematically miss in predictable ways. You can often detect this by plotting the data or examining the residuals—the differences between actual and predicted values. Curved patterns in residuals suggest nonlinearity.</p>
+
+<p>Second, the errors should be independent of one another. If knowing one observation's error tells you something about another's, the usual statistical formulas break down. This commonly occurs with time series data, where today's error might resemble yesterday's.</p>
+
+<p>Third, the errors should have constant variability across all predictions. If some ranges of input values produce wildly varying outputs while others produce consistent ones, standard statistical tests become unreliable.</p>
+
+<p>Fourth, for many statistical tests to be valid, the errors should follow a normal distribution—the familiar bell curve. This assumption matters most when making precise probability statements about your coefficients.</p>
+
+<p>Statisticians have developed numerous techniques to check these assumptions and alternatives to use when they fail. The basic method remains robust to moderate violations, but severe departures require more sophisticated approaches.</p>
+
+<h2>Where Linear Regression Meets Machine Learning</h2>
+
+<p>If you've encountered machine learning, you've encountered linear regression, even if it wore a different name.</p>
+
+<p>Machine learning practitioners classify linear regression as a supervised learning algorithm. "Supervised" means the training data includes both inputs and the correct outputs—you're supervising the algorithm by showing it the right answers during training. The algorithm learns to map inputs to outputs, then applies that mapping to new cases.</p>
+
+<p>In this context, the regression coefficients become "weights" or "parameters," the inputs become "features," and the process of finding the best coefficients becomes "training" or "fitting" the model. The underlying mathematics remains identical.</p>
+
+<p>More sophisticated machine learning methods can be viewed as elaborations on linear regression. Logistic regression adapts the technique for classification problems. Neural networks stack many linear regression-like operations together with nonlinear transformations between them. Understanding linear regression deeply provides a foundation for understanding almost everything else in machine learning.</p>
+
+<h2>Regularization: Preventing Overfitting</h2>
+
+<p>A danger lurks when models become too flexible: they start fitting noise rather than signal. A model might perfectly predict every data point in your training set while making terrible predictions on new data. This phenomenon, called overfitting, plagues complex models everywhere.</p>
+
+<p>Linear regression with many input variables can overfit, especially when some variables don't genuinely matter. The model assigns them coefficients anyway, essentially memorizing random patterns that won't generalize.</p>
+
+<p>Regularization techniques combat this by adding penalties for large coefficients. Ridge regression penalizes the sum of squared coefficients, pushing them toward zero. Lasso (least absolute shrinkage and selection operator) penalizes the sum of absolute coefficients, which can push some coefficients exactly to zero—effectively removing those variables from the model.</p>
+
+<p>These techniques represent a trade-off. By accepting slightly worse fit to your training data, you often achieve much better predictions on new data. The penalty terms force the model to find simpler explanations, which tend to generalize better than complex ones.</p>
+
+<h2>A Method That Endures</h2>
+
+<p>Linear regression has survived over two centuries of statistical innovation for good reason. It's interpretable—you can explain what each coefficient means. It's computationally efficient—even enormous datasets yield to its calculations. It's well understood—generations of statisticians have mapped its properties and limitations. And it works remarkably well for an astonishing range of problems.</p>
+
+<p>The technique continues evolving. Researchers develop new variants, new diagnostic methods, new ways to handle problematic data. Machine learning practitioners integrate it with other approaches in ensemble methods. Causality researchers use it as a building block for more sophisticated causal inference.</p>
+
+<p>But at its core, linear regression remains what it always was: a way to draw the best straight line through a cloud of points, extract signal from noise, and find the relationship hiding in your data. When you next see a trend line in a chart or a prediction from a model, there's a good chance linear regression made it possible.</p>
+      </div>
+
+      <footer class="wikipedia-footer">
+        <p class="source-link">
+          <a href="https://en.wikipedia.org/wiki/Linear_regression" target="_blank" rel="noopener">
+            View original Wikipedia article &rarr;
+          </a>
+        </p>
+        <p class="rewrite-note">
+          This article has been rewritten from Wikipedia source material for enjoyable reading.
+          Content may have been condensed, restructured, or simplified.
+        </p>
+      </footer>
+
+      
+      <section class="related-articles">
+        <h2>Related Articles</h2>
+        <p class="related-intro">This deep dive was written in connection with these articles:</p>
+        <ul class="related-list">
+          
+      <li class="related-article-item">
+        <a href="../../article/290e5969-c450-42b9-b646-219a6d74fafd/index.html">
+          <strong>The Anatomy of the Least Squares Method, Part Three</strong>
+        </a>
+        <span class="article-meta">
+          by Tivadar Danka in The Palindrome
+        </span>
+      </li>
+        </ul>
+      </section>
+    
+    </article>
+  
+  </main>
+</body>
+</html>

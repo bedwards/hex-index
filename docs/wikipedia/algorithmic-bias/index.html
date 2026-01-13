@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Algorithmic bias - Hex Index</title>
+  <link rel="stylesheet" href="../../styles.css">
+</head>
+<body class="reading-mode">
+  <header class="reading-header">
+    <a href="../../index.html" class="back-link">&larr; Back to Library</a>
+  </header>
+  <main class="reading-content">
+    
+    <article class="wikipedia-page">
+      <header class="wikipedia-header">
+        <div class="type-badge">Wikipedia Deep Dive</div>
+        <h1>Algorithmic bias</h1>
+        <div class="article-meta">
+          <span class="read-time">12 min read</span>
+        </div>
+      </header>
+
+      <div class="wikipedia-content">
+        I've written the rewritten article. Here's the complete HTML output:
+
+```html
+<p class="source-note">Based on <a href="https://en.wikipedia.org/wiki/Algorithmic_bias">Wikipedia: Algorithmic bias</a></p>
+
+<p>In 1982, St. George's Hospital Medical School in London made what seemed like a sensible decision. The admissions office was overwhelmed with applications, so they created a computer program to help screen candidates. The program worked exactly as intended, faithfully replicating the patterns it found in historical admissions data. There was just one problem: those patterns included systematically rejecting women and applicants with "foreign-sounding names." For four years, the algorithm denied entry to as many as sixty qualified candidates annually, automating discrimination with the efficiency only a computer can provide.</p>
+
+<p>This is algorithmic bias in its purest form. Not a bug, but a feature—just not one anyone asked for.</p>
+
+<h2>When Machines Learn Our Worst Habits</h2>
+
+<p>Algorithms are, at their core, just lists of instructions. They tell a computer how to read data, process it, and spit out an answer. Think of a recipe: follow these steps in this order, and you'll get a cake. Follow a search algorithm's steps, and you'll get a ranked list of web pages.</p>
+
+<p>The trouble starts when we forget that humans write these recipes. Every decision about what data to collect, how to categorize it, which factors matter most—all of it flows from human judgment. And human judgment, as we know, isn't exactly neutral.</p>
+
+<p>Bias can sneak in at every stage. When assembling a dataset, someone decides what counts and what doesn't. When programming the algorithm, someone chooses which variables to prioritize. When the algorithm runs on real-world data, it inherits whatever prejudices that data contains. A hiring algorithm trained on a decade of resumes from a male-dominated industry will learn, quite logically, that being male correlates with getting hired. The algorithm isn't sexist in any conscious sense. It's just very, very good at pattern recognition—including patterns we'd rather it didn't notice.</p>
+
+<h2>The Face Recognition Problem</h2>
+
+<p>In 2018, researchers Joy Buolamwini and Timnit Gebru published a study that should have stopped everyone in their tracks. They tested commercial facial recognition systems from major tech companies and found staggering disparities. When identifying lighter-skinned men, these systems made mistakes less than one percent of the time. When identifying darker-skinned women, error rates soared to thirty-five percent.</p>
+
+<p>That's not a small discrepancy. That's a system that works brilliantly for some people and barely works at all for others.</p>
+
+<p>The cause wasn't mysterious malice embedded in the code. It was something more mundane: the training data. These systems learned to recognize faces by studying millions of photographs, but those photographs skewed heavily toward lighter-skinned individuals. The algorithm got really good at the faces it saw most often, and struggled with the ones it rarely encountered. Garbage in, garbage out—except in this case, "garbage" means "insufficient representation of entire demographic groups."</p>
+
+<p>The real-world consequences have been severe. Multiple Black men in the United States have been wrongfully arrested after facial recognition systems matched them to surveillance footage of crimes they didn't commit. Robert Williams was detained in front of his family in Detroit after an algorithm confused him with a shoplifter. Nijeer Parks spent ten days in jail in New Jersey for a crime committed in a town he'd never visited. These aren't hypothetical risks. They're documented harms.</p>
+
+<h2>The Illusion of Objectivity</h2>
+
+<p>Here's the insidious part: we tend to trust algorithms more than we trust people. There's even a name for this phenomenon—automation bias. When a computer tells us something, we're inclined to believe it. Computers don't have agendas, we think. They don't play favorites. They just calculate.</p>
+
+<p>This faith can be dangerous. Writer Clay Shirky coined the term "algorithmic authority" to describe how we treat computational outputs as more reliable than human judgment, even when we have no idea how the computer reached its conclusion. A judge might scrutinize a human parole officer's recommendation, but a "risk assessment score" generated by software can feel like objective truth. The numbers look so precise. The process seems so rigorous.</p>
+
+<p>Meanwhile, the algorithm might be weighing factors that would strike any reasonable person as irrelevant or unfair. Zip code as a proxy for race. Employment history as a reflection of discrimination someone already faced. The veneer of mathematical precision hides a tangle of assumptions, shortcuts, and inherited prejudices.</p>
+
+<p>Joseph Weizenbaum, one of the pioneers of artificial intelligence, warned about this back in 1976. He compared blind trust in algorithms to a tourist who navigates to his hotel room by flipping a coin at every intersection—left on heads, right on tails. If he happens to arrive safely, that doesn't mean the method was sound. Success doesn't validate the process, and the tourist has no understanding of why he ended up where he did.</p>
+
+<h2>The Problem with "Fair" Algorithms</h2>
+
+<p>You might think the solution is simple: just make the algorithms fair. Remove the bias. Program them to treat everyone equally.</p>
+
+<p>It turns out this is extraordinarily difficult, partly because there's no single definition of fairness that everyone agrees on.</p>
+
+<p>Consider a loan algorithm. One definition of fairness says it should approve loans at equal rates across racial groups. Another says it should have equal accuracy—the same false positive and false negative rates for everyone. A third says it should be calibrated, meaning that when it predicts someone has a seventy percent chance of repaying a loan, seventy percent of people in that category should actually repay it, regardless of their demographic group.</p>
+
+<p>Here's the kicker: mathematically, you often can't satisfy all these definitions simultaneously. Improving fairness by one measure can worsen it by another. This isn't a failure of engineering; it's a fundamental constraint that reflects genuine trade-offs about what we value.</p>
+
+<p>And even when we design a fair algorithm, there's no guarantee it will produce fair outcomes. Researchers have documented a phenomenon they call "selective adherence." Human decision-makers accept algorithmic recommendations that match their existing beliefs and ignore ones that don't. A prejudiced hiring manager will embrace the algorithm's rejections of minority candidates while overriding its recommendations to hire them. The algorithm becomes cover for discrimination rather than a check against it.</p>
+
+<h2>Weapons of Math Destruction</h2>
+
+<p>In 2016, data scientist Cathy O'Neil published a book with the memorable title "Weapons of Math Destruction." Her central argument was that algorithms don't just reflect existing inequalities—they amplify them.</p>
+
+<p>Take predictive policing. An algorithm analyzes past arrest data and recommends where to deploy officers. But past arrests aren't a neutral record of where crime occurred; they're a record of where police previously looked for crime. If a neighborhood was over-policed historically, it will show high arrest rates, which will direct more police there, which will generate more arrests, which will reinforce the algorithm's predictions. The system creates a feedback loop that justifies its own biases.</p>
+
+<p>Similar dynamics play out in credit scoring, hiring, education, and beyond. An algorithm that penalizes applicants for attending certain schools may just be penalizing poverty. One that considers neighborhood in evaluating risk may be encoding racial segregation. These systems inherit the sins of the past and project them into the future, often with a false aura of scientific legitimacy.</p>
+
+<p>O'Neil's point wasn't that algorithms are inherently evil. It was that opacity makes them dangerous. When a human makes a biased decision, you can challenge them, appeal to their better judgment, catch them in inconsistency. When an algorithm makes a biased decision, you often can't even find out why. The companies that build these systems typically treat their algorithms as trade secrets, refusing to disclose how they work.</p>
+
+<h2>The British Nationality Act Problem</h2>
+
+<p>Some algorithmic biases are accidental. Others are faithful reproductions of biases that already exist in law and policy.</p>
+
+<p>When the British Parliament passed the British Nationality Act of 1981, it included a provision that strikes modern readers as archaic: a man was considered the father only of his legitimate children, while a woman was the mother of all her children regardless of legitimacy. This was the law of the land.</p>
+
+<p>When programmers built the British Nationality Act Program to automate citizenship evaluations, they encoded this rule precisely. The algorithm discriminated against illegitimate children of British fathers because the law did. The computer was doing exactly what it was told.</p>
+
+<p>This example illuminates a crucial point: algorithms can inscribe biases into systems in ways that are remarkably persistent. If the law eventually changed but nobody updated the software, the algorithmic version of the rule would continue applying long after the original policy was repealed. Code, as the saying goes, is law—sometimes quite literally.</p>
+
+<h2>The Difficulty of Detection</h2>
+
+<p>Finding algorithmic bias is harder than it might seem. Start with the fact that many algorithms are proprietary. Companies guard their algorithms as competitive advantages, and even when regulators demand access, understanding what they actually do requires specialized expertise.</p>
+
+<p>Then there's the sheer complexity. A modern machine learning system might incorporate millions of parameters, none of which individually appears discriminatory. The bias emerges from their interaction in ways that even the system's designers may not fully understand. Ask an engineer why the algorithm rejected a particular applicant, and they might genuinely not know.</p>
+
+<p>Algorithms also change. They're updated, retrained, A/B tested. The version that existed when you filed your discrimination complaint may not be the version running today. And many services don't use a single algorithm at all but rather a complex ecosystem of interacting programs, data feeds, and decision trees. Even on a single website, different users might encounter different algorithmic treatments based on their history, location, device, or factors known only to the platform.</p>
+
+<p>This makes accountability extraordinarily difficult. Traditional anti-discrimination law imagines discrete decisions made by identifiable actors. Algorithmic discrimination is often diffuse, emergent, and plausibly deniable.</p>
+
+<h2>What Is Being Done</h2>
+
+<p>Awareness of these problems has grown dramatically in recent years. In 2016, researchers from Microsoft and Google created a working group with a name that reads like an academic mission statement: Fairness, Accountability, and Transparency in Machine Learning. This evolved into an annual conference, FAccT, that brings together computer scientists, lawyers, sociologists, and ethicists to grapple with these questions.</p>
+
+<p>The European Union has moved toward regulation. The General Data Protection Regulation, or GDPR, which took effect in 2018, includes provisions about automated decision-making, though how they apply in practice remains contested. More directly on point is the Artificial Intelligence Act, proposed in 2021 and approved in 2024, which creates a risk-based framework for regulating AI systems. High-risk applications like hiring and criminal justice face stricter requirements.</p>
+
+<p>In the United States, the National Institute of Standards and Technology—known as NIST—published an AI Risk Management Framework in 2023, followed by a 2024 profile specifically addressing generative AI. These documents provide practical guidance for organizations trying to identify and mitigate bias in their systems.</p>
+
+<p>Some have proposed more creative solutions. One idea from Google involves community groups that monitor algorithmic outputs and vote to restrict results they deem harmful. This crowdsources oversight, though it raises its own questions about who gets to decide what counts as harmful.</p>
+
+<p>Critics note that many fairness initiatives are funded by the same corporations whose algorithms are under scrutiny. This creates an obvious conflict of interest. Can an industry-funded research group really serve as an independent watchdog?</p>
+
+<h2>The Deeper Question</h2>
+
+<p>Ultimately, algorithmic bias forces us to confront questions that aren't really about algorithms at all. What does fairness mean? Whose definition should prevail? How do we balance efficiency against equity? When is discrimination justified, if ever?</p>
+
+<p>These are ancient questions, but they take on new urgency when answers are encoded in software that makes millions of decisions per second, often without human review. The scale of algorithmic decision-making is unprecedented, and so are the stakes.</p>
+
+<p>There's also a question of responsibility. When an algorithm produces a discriminatory outcome, who's to blame? The programmer who wrote it? The company that deployed it? The users who fed it biased data? The society that generated that data in the first place? Everyone, and therefore no one?</p>
+
+<p>Sociologist Scott Lash has described algorithms as a new form of "generative power"—virtual means that produce actual ends. In the past, human behavior generated data that could be collected and studied. Increasingly, powerful algorithms shape and constrain human behavior itself. They don't just observe patterns; they create them.</p>
+
+<h2>The Path Forward</h2>
+
+<p>There are no easy answers, but a few principles seem clear.</p>
+
+<p>Transparency matters. Algorithms that make consequential decisions about people's lives shouldn't be black boxes. Even if companies can't reveal every detail of their systems, they should be able to explain, in general terms, how decisions are made and what factors are considered.</p>
+
+<p>Testing matters. Before deploying an algorithm at scale, it should be evaluated for disparate impact across demographic groups. The Buolamwini-Gebru study succeeded because it methodically tested facial recognition systems in a way the companies hadn't bothered to do themselves. We should expect such testing as a matter of course.</p>
+
+<p>Humility matters. Algorithms are tools, not oracles. They should inform human judgment, not replace it. And humans should be accountable for the decisions they make, whether or not an algorithm was involved.</p>
+
+<p>Finally, diversity matters. If the teams building these systems included more women, more people of color, more perspectives from outside the narrow demographics of Silicon Valley, they might notice problems earlier. The faces that weren't in the training data might have been if different people had been in the room.</p>
+
+<p>The St. George's Hospital algorithm ran for four years before anyone caught it. Four years of qualified candidates turned away because a computer had learned to discriminate. The program was eventually exposed not by an internal audit or an ethics review, but by investigative reporting.</p>
+
+<p>The bias wasn't subtle. The outcomes weren't ambiguous. But no one was looking, so no one saw.</p>
+
+<p>That's perhaps the most important lesson of all. Algorithms don't police themselves. They do exactly what we tell them to do, whether or not that's what we meant. The responsibility for what they become is, and always has been, ours.</p>
+      </div>
+
+      <footer class="wikipedia-footer">
+        <p class="source-link">
+          <a href="https://en.wikipedia.org/wiki/Algorithmic_bias" target="_blank" rel="noopener">
+            View original Wikipedia article &rarr;
+          </a>
+        </p>
+        <p class="rewrite-note">
+          This article has been rewritten from Wikipedia source material for enjoyable reading.
+          Content may have been condensed, restructured, or simplified.
+        </p>
+      </footer>
+
+      
+      <section class="related-articles">
+        <h2>Related Articles</h2>
+        <p class="related-intro">This deep dive was written in connection with these articles:</p>
+        <ul class="related-list">
+          
+      <li class="related-article-item">
+        <a href="../../article/f713f6c2-3856-4980-a804-c45371eccc4a/index.html">
+          <strong>Best of #econtwitter - Week of October 26, 2025: paper summaries</strong>
+        </a>
+        <span class="article-meta">
+          by An Economist in Best of Econtwitter
+        </span>
+      </li>
+        </ul>
+      </section>
+    
+    </article>
+  
+  </main>
+</body>
+</html>

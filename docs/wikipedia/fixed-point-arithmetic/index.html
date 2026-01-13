@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fixed-point arithmetic - Hex Index</title>
+  <link rel="stylesheet" href="../../styles.css">
+</head>
+<body class="reading-mode">
+  <header class="reading-header">
+    <a href="../../index.html" class="back-link">&larr; Back to Library</a>
+  </header>
+  <main class="reading-content">
+    
+    <article class="wikipedia-page">
+      <header class="wikipedia-header">
+        <div class="type-badge">Wikipedia Deep Dive</div>
+        <h1>Fixed-point arithmetic</h1>
+        <div class="article-meta">
+          <span class="read-time">12 min read</span>
+        </div>
+      </header>
+
+      <div class="wikipedia-content">
+        I've written the rewritten Wikipedia article. Here's the complete content:
+
+---
+
+<p class="source-note">Based on <a href="https://en.wikipedia.org/wiki/Fixed-point_arithmetic">Wikipedia: Fixed-point arithmetic</a></p>
+
+<h2>The Elegant Lie at the Heart of Your Calculator</h2>
+
+<p>Here's something that might surprise you: computers can't actually do math with fractions. Not really. When your phone calculates that a twenty percent tip on a forty-seven dollar meal is nine dollars and forty cents, it's performing an elaborate trick—pretending that integers are something they're not.</p>
+
+<p>This trick has a name: fixed-point arithmetic. And understanding it reveals something profound about how we've built our entire digital infrastructure on a foundation of carefully managed illusions.</p>
+
+<h2>The Core Idea: Lying with Integers</h2>
+
+<p>Imagine you need to track dollar amounts, but your calculator can only handle whole numbers. No decimal points allowed. What do you do?</p>
+
+<p>Simple: you work in cents instead of dollars. Instead of storing "one dollar and twenty-three cents" as the number 1.23, you store it as the integer 123. You've made an implicit agreement with yourself that every number you see should be mentally divided by 100 to get its real value.</p>
+
+<p>That's fixed-point arithmetic in its entirety. You store integers, but you and the computer share a secret understanding about where the decimal point really belongs. The "fixed point" in the name refers to the fact that this imaginary decimal point stays in the same place for all your numbers—it doesn't float around depending on the magnitude of the value.</p>
+
+<p>The number you divide by is called the scaling factor. For dollars and cents, it's 100. For millimeters stored as integers, it's 1000 (since there are 1000 millimeters in a meter). The scaling factor can be anything, but powers of ten and powers of two are by far the most common choices.</p>
+
+<h2>Why Not Just Use Floating-Point?</h2>
+
+<p>Modern computers have something called a Floating-Point Unit, or FPU—specialized hardware that handles fractional numbers directly. It's what lets your computer smoothly calculate things like square roots and trigonometric functions. So why would anyone bother with the fixed-point workaround?</p>
+
+<p>Three reasons: speed, precision, and predictability.</p>
+
+<p>Speed first. Floating-point operations require complex hardware. The FPU in your laptop is essentially a specialized mini-computer within your computer, with its own registers, its own logic gates, its own power consumption. For many embedded systems—the tiny computers inside your microwave, your car's engine controller, your digital thermostat—adding an FPU would double or triple the chip cost and power requirements. Fixed-point arithmetic uses the same simple integer operations the processor already needs for counting and indexing, so it comes essentially for free.</p>
+
+<p>Precision is more subtle. Floating-point numbers can represent an enormous range of values, from the mass of an electron to the distance across the observable universe. But they achieve this flexibility by constantly adjusting where the decimal point sits, and this adjustment consumes bits. If you know your values will always fall within a limited range—say, audio samples between negative one and positive one—you can use those "wasted" bits for actual precision instead. A thirty-two-bit fixed-point number representing values between zero and one has less error than the equivalent thirty-two-bit floating-point number. The difference can matter for high-fidelity audio processing.</p>
+
+<p>Predictability might be the most important advantage. When you add two fixed-point numbers, you get an exact result (assuming no overflow). When you add two floating-point numbers, you might get a tiny rounding error. These errors usually don't matter, but they accumulate. And worse, they accumulate differently on different hardware. Before the Institute of Electrical and Electronics Engineers (IEEE) standardized floating-point arithmetic in 1985, the same program could produce different results on different computers. Financial applications, in particular, couldn't tolerate this ambiguity. When calculating interest payments or tax withholdings, the law often specifies exactly how rounding must occur, down to the last fraction of a cent.</p>
+
+<h2>The Binary Version: Where Things Get Interesting</h2>
+
+<p>Working in powers of ten makes intuitive sense for humans—it's how we learn arithmetic in school. But computers think in powers of two. Binary fixed-point arithmetic uses scaling factors like 2, 4, 8, 16, 256, or 65536 instead of 10, 100, or 1000.</p>
+
+<p>Why does this matter? Because multiplying or dividing by a power of two is trivially fast for a computer. To divide by 256, you just shift all the bits eight positions to the right. It's a single machine instruction that takes a single clock cycle. Dividing by 100, on the other hand, requires actual division—a much slower operation.</p>
+
+<p>This speed advantage made binary fixed-point the standard for real-time computing from the late 1960s through the 1980s. Flight simulators, nuclear power plant controllers, radar systems—anything that needed to crunch numbers fast used binary scaling. The programmers would specify that a particular variable represented "Q15" format, meaning fifteen bits after the binary point, or "Q7.8" format, meaning seven bits for the integer part and eight bits for the fractional part.</p>
+
+<p>The notation varies, but the idea remains constant: everyone involved agrees on where the invisible decimal point lives.</p>
+
+<h2>The Representation Problem: 0.1 Is Impossible</h2>
+
+<p>Here's a curious fact that trips up programmers constantly: the decimal number 0.1 cannot be exactly represented in binary.</p>
+
+<p>In decimal, one-tenth is clean and simple: 0.1. But in binary, it's a repeating fraction that goes on forever: 0.0001100110011001100110011... (the pattern 0011 repeats infinitely). No matter how many binary digits you use, you can only approximate it.</p>
+
+<p>This isn't a flaw in computer design. It's a fundamental mathematical fact. Just as one-third cannot be exactly represented in decimal (0.333...), one-tenth cannot be exactly represented in binary. Different number bases have different "blind spots."</p>
+
+<p>Fixed-point arithmetic doesn't escape this limitation. If you're using binary fixed-point, you still can't represent 0.1 exactly. But if you're using decimal fixed-point—storing cents as integers, effectively—then 0.01 is exactly representable, because your scaling factor aligns with the decimal system.</p>
+
+<p>This is why financial software almost universally uses decimal fixed-point. The open-source accounting application GnuCash famously switched from floating-point to fixed-point arithmetic in version 1.6, specifically because floating-point couldn't reliably handle the rounding rules that financial regulations demand.</p>
+
+<h2>The Arithmetic: How Operations Actually Work</h2>
+
+<p>Addition and subtraction in fixed-point are blissfully simple. If two numbers share the same scaling factor, you just add or subtract the underlying integers. The result has the same scaling factor, no conversion needed.</p>
+
+<p>If your dollar amounts are stored as cents (scaling factor of 100), then adding $1.23 and $4.56 means adding 123 and 456 to get 579, which represents $5.79. Exact. No rounding error. No surprises.</p>
+
+<p>Multiplication is more interesting. When you multiply two fixed-point numbers, the scaling factors multiply too. If you multiply a number scaled by 1/100 with another number scaled by 1/100, your result is scaled by 1/10000.</p>
+
+<p>Consider multiplying 0.123 (stored as 123 with scaling factor 1/1000) by 2.5 (stored as 25 with scaling factor 1/10). The integer multiplication gives you 123 times 25, which equals 3075. The combined scaling factor is 1/1000 times 1/10, which equals 1/10000. So 3075 with scaling factor 1/10000 represents 0.3075. Perfect precision.</p>
+
+<p>The catch? Your result now has a different scaling factor than your inputs. If you want to store it in a variable with the original scaling factor, you need to rescale—which typically means dividing, which can introduce rounding error. In binary, you can avoid actual division by using bit shifts, but you still face the rounding question.</p>
+
+<p>Division presents the inverse challenge. Dividing 123 by 25 gives you 4 with a remainder of 23. If you wanted 4.92, you've lost precision. The standard workaround is to pre-scale the dividend: multiply 123 by your desired scaling factor (say, 100) to get 12300, then divide by 25 to get 492, which represents 4.92. But this requires knowing your precision requirements in advance and planning accordingly.</p>
+
+<h2>The Rounding Question</h2>
+
+<p>Whenever you rescale or divide, you face a choice: what do you do with the leftover bits?</p>
+
+<p>The simplest approach is truncation—just throw them away. This is what happens when you use integer division or right-shift in most programming languages. It's fast, but it introduces a systematic bias toward smaller values.</p>
+
+<p>Better is rounding. The most common method is round-half-up: if the discarded portion is at least half the scaling factor, round the kept portion up by one. In binary, this is elegantly simple: before shifting right by n bits, add 2^(n-1) to the value. The addition handles the rounding automatically.</p>
+
+<p>For applications where bias matters—statistical calculations, audio processing—round-half-to-even (also called banker's rounding) is preferred. When the discarded portion is exactly half, you round to the nearest even number. This eliminates the slight upward bias of round-half-up over many operations.</p>
+
+<p>These rounding considerations are one of the main reasons fixed-point programming is considered harder than floating-point. The programmer must think explicitly about precision at every step, while floating-point handles rounding automatically (if imperfectly).</p>
+
+<h2>Overflow: The Silent Disaster</h2>
+
+<p>Fixed-point's most dangerous failure mode is overflow. If you're storing cents in a sixteen-bit signed integer, your maximum value is 32767 cents, or $327.67. Try to store $400.00 and you'll get garbage—or worse, a negative number that looks plausible.</p>
+
+<p>Floating-point has overflow too, but it's much harder to trigger because the dynamic range is enormous. A thirty-two-bit float can represent values up to about 3.4 times 10 to the power of 38. Fixed-point programmers must carefully analyze the possible ranges of every variable and intermediate calculation to ensure overflow never occurs.</p>
+
+<p>This analysis is tedious but tractable. In some ways, it's a feature rather than a bug—it forces the programmer to understand the numerical behavior of their algorithm in detail. Many subtle bugs in floating-point code stem from programmers not understanding the precision limits of their calculations.</p>
+
+<h2>Where Fixed-Point Lives Today</h2>
+
+<p>Despite the ubiquity of floating-point hardware in modern processors, fixed-point arithmetic remains essential in several domains.</p>
+
+<p>Digital Signal Processing (DSP) is perhaps the largest. Audio codecs, image compression (including the JPEG format), video processing, telecommunications—all rely heavily on fixed-point. The reasons are the same as they've always been: speed, power efficiency, and predictable precision. When your algorithm runs millions of times per second on a device powered by a small battery, every watt matters.</p>
+
+<p>Field-Programmable Gate Arrays (FPGAs)—chips that can be reconfigured to implement custom digital circuits—almost exclusively use fixed-point. Implementing floating-point in an FPGA requires roughly ten times as many logic gates as fixed-point, which translates directly to cost, power consumption, and heat.</p>
+
+<p>Embedded systems continue to favor fixed-point for cost reasons. The tiny processor in your smoke detector or your garage door opener doesn't need floating-point capability, and removing that capability makes the chip cheaper.</p>
+
+<p>And financial applications still use decimal fixed-point, for all the precision and regulatory reasons discussed earlier. When dealing with money, the ability to guarantee exact arithmetic is worth the extra programming effort.</p>
+
+<h2>The Connection to Quantization</h2>
+
+<p>If you've encountered the term "quantization" in the context of machine learning, you've met fixed-point's modern incarnation. When researchers compress a neural network by converting its parameters from thirty-two-bit floating-point to eight-bit integers, they're essentially converting to fixed-point representation.</p>
+
+<p>The tradeoffs are identical. You gain speed and memory efficiency; you lose precision. The art lies in choosing scaling factors that preserve the information that matters while discarding what doesn't. For large neural networks, the precision loss is often negligible. For smaller models, it can be devastating.</p>
+
+<p>This is why "quantization-aware training" has become important—training the model while simulating the precision loss, so it learns to be robust to the approximations it will face in deployment. The technique is direct descendant of the careful numerical analysis that fixed-point programmers have practiced for sixty years.</p>
+
+<h2>A Technology That Refuses to Die</h2>
+
+<p>Fixed-point arithmetic predates electronic computers entirely. Mechanical calculators—the desktop machines that accountants used before electronic calculators existed—were inherently fixed-point devices. They could only work with numbers having a fixed number of decimal places.</p>
+
+<p>When electronic computers arrived, fixed-point was the only option. The first floating-point hardware didn't appear until the 1950s, and it remained a luxury feature for decades. The Intel 8086 processor, which defined the architecture still used in most desktop computers today, had no floating-point capability when it launched in 1978. You had to buy a separate coprocessor chip, the 8087, if you wanted fast floating-point math.</p>
+
+<p>Even today, the Intel 486SX (the budget version of the 486 processor from 1991) and the early Pentium chips had floating-point as an optional or flawed feature. An entire generation of video games was written using fixed-point arithmetic because the target hardware couldn't do anything else.</p>
+
+<p>The persistence of fixed-point is a reminder that there's rarely a single "best" way to solve a problem in computing. Floating-point is more convenient for programmers, but fixed-point is faster, more predictable, and more frugal with both bits and watts. Different contexts demand different tradeoffs.</p>
+
+<p>The next time you're frustrated that your programming language can't represent 0.1 + 0.2 exactly (spoiler: it equals 0.30000000000000004 in most languages), remember that this isn't a bug in your computer. It's the cost of the flexibility that floating-point provides. And somewhere, a programmer working on a satellite or a hearing aid or a financial trading system is using fixed-point instead, accepting less flexibility in exchange for the precision that matters for their problem.</p>
+
+<p>Both approaches are lies, in a sense—ways of pretending that finite machines can handle infinite mathematical objects. The craft of numerical computing lies in choosing which lies to tell.</p>
+      </div>
+
+      <footer class="wikipedia-footer">
+        <p class="source-link">
+          <a href="https://en.wikipedia.org/wiki/Fixed-point_arithmetic" target="_blank" rel="noopener">
+            View original Wikipedia article &rarr;
+          </a>
+        </p>
+        <p class="rewrite-note">
+          This article has been rewritten from Wikipedia source material for enjoyable reading.
+          Content may have been condensed, restructured, or simplified.
+        </p>
+      </footer>
+
+      
+      <section class="related-articles">
+        <h2>Related Articles</h2>
+        <p class="related-intro">This deep dive was written in connection with these articles:</p>
+        <ul class="related-list">
+          
+      <li class="related-article-item">
+        <a href="../../article/fe65b151-c3ff-4db7-b6f0-e10119708506/index.html">
+          <strong>Unsloth&#039;s Quantization-Aware Training (QAT) vs Post-Training Quantization (PTQ) for Small Models</strong>
+        </a>
+        <span class="article-meta">
+          by Various in The Kaitchup
+        </span>
+      </li>
+        </ul>
+      </section>
+    
+    </article>
+  
+  </main>
+</body>
+</html>

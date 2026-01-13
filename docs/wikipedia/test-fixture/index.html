@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Test fixture - Hex Index</title>
+  <link rel="stylesheet" href="../../styles.css">
+</head>
+<body class="reading-mode">
+  <header class="reading-header">
+    <a href="../../index.html" class="back-link">&larr; Back to Library</a>
+  </header>
+  <main class="reading-content">
+    
+    <article class="wikipedia-page">
+      <header class="wikipedia-header">
+        <div class="type-badge">Wikipedia Deep Dive</div>
+        <h1>Test fixture</h1>
+        <div class="article-meta">
+          <span class="read-time">11 min read</span>
+        </div>
+      </header>
+
+      <div class="wikipedia-content">
+        <p class="source-note">Based on <a href="https://en.wikipedia.org/wiki/Test_fixture">Wikipedia: Test fixture</a></p>
+
+<p>Every test tells a lie. Or at least, every test has the potential to lie if it doesn't start from exactly the same place each time you run it.</p>
+
+<p>Imagine you're a scientist trying to replicate an experiment. You walk into the lab, but someone's been there before you—beakers are half-full, the temperature's been changed, there's an unlabeled substance in one of the petri dishes. How would you even begin? You wouldn't. You'd clean everything up, reset the equipment, and start fresh.</p>
+
+<p>That's what a test fixture does. It's the controlled starting point that makes testing meaningful.</p>
+
+<h2>The Core Problem Fixtures Solve</h2>
+
+<p>When you test something—whether it's a circuit board, a piece of software, or the tensile strength of a rope—you need two things: a way to hold the thing being tested in place, and a known starting state so your results actually mean something.</p>
+
+<p>Without these, you're not testing. You're just poking around and hoping for the best.</p>
+
+<p>The term "test fixture" spans a surprisingly wide range of domains. In electronics manufacturing, it's a physical device that holds circuit boards in place while probes check their connections. In software development, it's the carefully prepared data and system state that exists before your test code runs. In materials testing, it's a clamp or grip that holds your specimen while a machine tries to pull it apart.</p>
+
+<p>Different contexts, same fundamental purpose: creating repeatability.</p>
+
+<h2>Physical Fixtures: The Bed of Nails and Beyond</h2>
+
+<p>Let's start with the physical world, where fixtures are tangible objects you can hold in your hands.</p>
+
+<p>In electronics testing, one of the most evocatively named devices is the "bed of nails" tester. Picture a board covered with hundreds of spring-loaded pins—the "nails"—each positioned to make contact with a specific test point on a circuit board. When the board is pressed down onto this bed, each pin simultaneously connects to its designated point, allowing the testing equipment to send signals through the circuit and verify that everything's wired correctly.</p>
+
+<p>It's elegant in its brutality. Rather than carefully connecting probes one at a time, you just push the board onto several hundred sharp metal points and let physics do the work.</p>
+
+<p>Electronics fixtures come in several flavors. In-Circuit Test fixtures, often abbreviated as ICT fixtures, examine each component on a printed circuit board individually. They're looking for assembly defects—a missing resistor here, a short circuit there, a capacitor soldered in backwards. Functional test fixtures take a different approach: they simulate real-world conditions and test whether the entire board actually does what it's supposed to do.</p>
+
+<p>Think of the difference this way: an In-Circuit Test is like checking that every ingredient in a recipe is present and measured correctly. A functional test is like actually tasting the cake.</p>
+
+<p>There's also a distinction based on automation. Inline fixtures are designed for high-volume manufacturing, sitting directly in the production line and testing boards automatically as they pass by. Standard fixtures require an operator to manually load each board—slower, but more practical for smaller production runs or specialized testing scenarios.</p>
+
+<h2>Software Fixtures: The Art of Controlled Beginnings</h2>
+
+<p>In software, fixtures are less about physical apparatus and more about controlled state. Before you can test whether your login function works correctly, you need a database with known users in it. Before you can test your shopping cart, you need products with known prices. Before you can test your email system, you need... well, you get the idea.</p>
+
+<p>The Ruby on Rails web framework popularized a particular approach to software fixtures: storing test data in YAML files. YAML is a human-readable format for structured data—imagine a very organized to-do list that computers can also understand. Before each test runs, Rails loads this predetermined data into the database, ensuring every test starts from exactly the same point.</p>
+
+<p>Here's why this matters. Let's say you're testing a feature that calculates a user's average purchase amount. If Test A creates three purchases of $100 each and then Test B runs, calculating an average based on whatever's in the database, Test B might get $100 (correct), or it might get some completely different number if it's also seeing the purchases from Test A (wrong and confusing).</p>
+
+<p>Fixtures prevent this chaos by guaranteeing a clean slate.</p>
+
+<h2>Three Ways to Set Up Your Fixtures</h2>
+
+<p>Software developers have settled on three general strategies for creating test fixtures, each with its own personality.</p>
+
+<p><strong>Inline setup</strong> is the most straightforward approach. You create the fixture right there in the test method itself. Test needs three users? Create three users at the top of the test. Need a product with a specific price? Create it right there. This approach is wonderfully explicit—you can read a test from top to bottom and understand exactly what's happening. But it leads to repetition. If ten tests all need the same three users, you're writing the same setup code ten times.</p>
+
+<p><strong>Delegate setup</strong> extracts that repeated code into helper methods. Instead of creating three users in each test, you call a method named something like <em>createStandardUsers()</em> whenever you need them. The duplication disappears, but now readers have to jump between files to understand what's being set up.</p>
+
+<p><strong>Implicit setup</strong> takes delegation further by establishing a single setup method that runs automatically before every test in a group. You don't call the helper—the testing framework calls it for you. This can be incredibly convenient when many tests share the same foundation, but it introduces a subtle danger: tests can become dependent on fixtures they don't actually use, making the code harder to understand and maintain.</p>
+
+<h2>The Dangers of Fixture Abuse</h2>
+
+<p>Test fixtures, like most powerful tools, can be misused.</p>
+
+<p>The most insidious problem is the test that modifies its fixture. Imagine Test A runs successfully, but in the process, it deletes one of the users from the database. Now Test B runs, expecting that user to exist, and fails—not because there's anything wrong with the feature being tested, but because Test A left the system in an unexpected state.</p>
+
+<p>These are called "unsafe" tests, and they're particularly nasty because they make test order matter. Run the tests in one order, everything passes. Run them in a different order, things fail mysteriously. This is the opposite of what tests are supposed to provide: deterministic, reliable feedback about whether your software works.</p>
+
+<p>Another anti-pattern is the overly general fixture. This happens when teams create massive, kitchen-sink fixtures that contain data for every possible test scenario. Individual tests end up wading through irrelevant data, and it becomes nearly impossible to understand what any given test actually depends on. When something breaks, good luck figuring out which of the 200 fixture records is relevant.</p>
+
+<p>There's also the problem of setup that exceeds need. A test that checks whether usernames are case-insensitive shouldn't need to set up the entire payment processing system. But with inline setup, it's tempting to copy and paste elaborate setup routines even when you only need a fraction of what they create.</p>
+
+<h2>The Four Phases of a Well-Structured Test</h2>
+
+<p>Testing frameworks have converged on a four-phase structure that makes the role of fixtures clear:</p>
+
+<p><strong>Setup</strong> is where fixtures live. This is when you create the known state your test requires—the users, the data, the system configuration.</p>
+
+<p><strong>Exercise</strong> is the action being tested. You call the function, submit the form, or trigger the behavior you're trying to verify.</p>
+
+<p><strong>Verify</strong> is where you check whether the expected outcome actually occurred. Did the function return the right value? Did the database update correctly? Is the error message what you expected?</p>
+
+<p><strong>Teardown</strong> returns the system to its original state. This is the cleanup phase that prevents one test from polluting the next.</p>
+
+<p>Most testing frameworks formalize this with <em>setUp()</em> and <em>tearDown()</em> methods that run automatically before and after each test. The fixture goes in <em>setUp()</em>; the cleanup goes in <em>tearDown()</em>. The test itself handles exercise and verify.</p>
+
+<h2>Gripping the Physical World</h2>
+
+<p>Back in the physical realm, fixtures for materials testing face a completely different challenge: how do you hold something firmly enough to test it without the grip itself affecting the results?</p>
+
+<p>This turns out to be a surprisingly deep problem. If you're testing the tensile strength of a rope, you need to grip both ends firmly while a machine tries to pull them apart. But if your grip damages the rope—crushing fibers, creating stress concentrations—you're not measuring the rope's actual strength. You're measuring how much abuse your grip inflicted.</p>
+
+<p>Different materials demand different solutions. Wedge grips use a clever self-tightening mechanism: as the testing machine pulls harder, the wedge drives deeper, gripping more tightly. This works beautifully for many materials but can crush soft specimens. Pincer grips use spring-loaded jaws, gentler but limited in force. Pneumatic and hydraulic fixtures bring compressed air or fluid pressure into the equation, enabling both precise control and tremendous clamping force—some hydraulic systems can grip with 700 kilonewtons of force, enough to hold a specimen under loads that would lift several locomotives.</p>
+
+<p>For specific applications, fixtures become wonderfully specialized. Button head grips let technicians quickly attach and detach standardized test specimens. Temperature chamber fixtures must work reliably in extreme cold or heat. Textile grips must hold fabric without tearing it. Each test standard—and there are thousands—often specifies exactly what kind of fixture is acceptable.</p>
+
+<p>The influence of the fixture on results is significant enough that it's an ongoing area of research. The same material, tested with different fixtures, can yield different measurements. Standardization bodies work constantly to specify fixtures precisely enough that tests run in different labs will produce comparable results.</p>
+
+<h2>The Unifying Principle</h2>
+
+<p>Whether you're testing software, circuit boards, or steel cables, the underlying principle remains constant: controlled conditions produce meaningful results.</p>
+
+<p>A test fixture is fundamentally a declaration of known starting conditions. It says: "When this test runs, here is exactly what exists. Here is the state of the world. Any changes you observe after the test executes must have been caused by the thing being tested."</p>
+
+<p>Without that declaration, without that controlled starting point, testing becomes guesswork. Your results could reflect actual behavior, or they could reflect some quirk of whatever state happened to exist when you ran the test. You have no way to know.</p>
+
+<p>This is why the four-phase structure exists. This is why teardown matters. This is why modifying fixtures is considered dangerous. Everything in the testing discipline flows from this single insight: to observe cause and effect clearly, you must control the starting conditions absolutely.</p>
+
+<h2>Fixtures and the Illusion of Independence</h2>
+
+<p>Here's a subtle point that trips up many developers: tests should be isolated from each other, but that doesn't mean they can't share fixtures.</p>
+
+<p>Isolation means that the result of Test A shouldn't depend on whether Test B ran first. It means you could run your tests in any order—or run just one test in isolation—and get the same results. This is essential for debugging, for confidence, for sanity.</p>
+
+<p>But isolation doesn't mean every test needs to create its own unique fixture from scratch. Multiple tests can share the same fixture setup, as long as each test either leaves the fixture unchanged or the fixture gets reset before the next test runs.</p>
+
+<p>This distinction matters because fixture setup can be expensive. Creating database records, spinning up test servers, initializing complex object graphs—these operations take time. If you can share setup across tests without compromising isolation, your test suite runs faster. But if sharing fixtures means tests start affecting each other's results, you've traded speed for correctness. That's never a good trade.</p>
+
+<h2>Test Harnesses: The Bigger Picture</h2>
+
+<p>Fixtures don't exist in isolation. They're part of a larger ecosystem called a test harness—the complete apparatus for running tests systematically.</p>
+
+<p>A test harness handles the logistics: which tests to run, in what order, how to report results, how to handle failures. Part of its job is managing fixtures—creating them before tests, tearing them down after, ensuring each test gets the controlled environment it needs.</p>
+
+<p>Modern testing frameworks like xUnit (a family of frameworks including JUnit for Java, NUnit for .NET, and pytest for Python) have standardized much of this machinery. They provide hooks for setup and teardown, mechanisms for organizing tests into groups that share fixtures, and assertion libraries for verifying outcomes.</p>
+
+<p>The framework handles the plumbing. You provide the fixtures and the test logic.</p>
+
+<h2>The Deeper Truth</h2>
+
+<p>Testing is fundamentally about creating reliable knowledge. We run tests not because we enjoy the process, but because we want to know—really know, not just hope—that our software works, that our circuits are connected correctly, that our materials will hold under stress.</p>
+
+<p>Fixtures are the foundation of that reliability. They transform testing from a haphazard poke-and-hope exercise into a disciplined practice that produces trustworthy results.</p>
+
+<p>Every time you set up a clean database state before testing, every time you clamp a specimen into standardized grips, every time you press a circuit board onto a bed of nails, you're making an implicit promise: "This test means something. The results I'm about to get reflect reality, not random noise."</p>
+
+<p>That promise depends entirely on starting from a known state. That's what fixtures provide. That's why they matter.</p>
+      </div>
+
+      <footer class="wikipedia-footer">
+        <p class="source-link">
+          <a href="https://en.wikipedia.org/wiki/Test_fixture" target="_blank" rel="noopener">
+            View original Wikipedia article &rarr;
+          </a>
+        </p>
+        <p class="rewrite-note">
+          This article has been rewritten from Wikipedia source material for enjoyable reading.
+          Content may have been condensed, restructured, or simplified.
+        </p>
+      </footer>
+
+      
+      <section class="related-articles">
+        <h2>Related Articles</h2>
+        <p class="related-intro">This deep dive was written in connection with these articles:</p>
+        <ul class="related-list">
+          
+      <li class="related-article-item">
+        <a href="../../article/22a89a73-c9aa-4045-8517-24694e0cf503/index.html">
+          <strong>Composable Tests</strong>
+        </a>
+        <span class="article-meta">
+          by Kent Beck in Software Design: Tidy First?
+        </span>
+      </li>
+        </ul>
+      </section>
+    
+    </article>
+  
+  </main>
+</body>
+</html>

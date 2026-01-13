@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Least squares - Hex Index</title>
+  <link rel="stylesheet" href="../../styles.css">
+</head>
+<body class="reading-mode">
+  <header class="reading-header">
+    <a href="../../index.html" class="back-link">&larr; Back to Library</a>
+  </header>
+  <main class="reading-content">
+    
+    <article class="wikipedia-page">
+      <header class="wikipedia-header">
+        <div class="type-badge">Wikipedia Deep Dive</div>
+        <h1>Least squares</h1>
+        <div class="article-meta">
+          <span class="read-time">11 min read</span>
+        </div>
+      </header>
+
+      <div class="wikipedia-content">
+        <p class="source-note">Based on <a href="https://en.wikipedia.org/wiki/Least_squares">Wikipedia: Least squares</a></p>
+
+<p>In January 1801, an Italian astronomer named Giuseppe Piazzi spotted something new in the night sky. He had discovered Ceres, the first asteroid ever found, and he managed to track its path across the heavens for forty days before it disappeared into the Sun's glare. Astronomers across Europe faced a tantalizing puzzle: where would this celestial wanderer reappear months later, on the other side of its orbit? The equations describing planetary motion were notoriously complicated, the observations frustratingly sparse. Most predictions failed.</p>
+
+<p>But one succeeded spectacularly.</p>
+
+<p>A twenty-four-year-old German mathematician named Carl Friedrich Gauss applied a technique he had been developing in secret for years. When Ceres emerged from behind the Sun, Hungarian astronomer Franz Xaver von Zach pointed his telescope exactly where Gauss had predicted—and there it was. The method that made this triumph possible was called least squares, and it would go on to become one of the most important mathematical tools ever devised.</p>
+
+<h2>The Problem of Imperfect Observations</h2>
+
+<p>Every measurement contains error. Point a telescope at a star, and your reading will be slightly off due to atmospheric turbulence, imperfections in your instrument, fatigue, or simple human fallibility. Measure something ten times, and you'll get ten slightly different answers.</p>
+
+<p>This posed a serious problem for eighteenth-century scientists. If you're trying to determine the exact shape of the Earth, or predict where a planet will be next month, or calculate the trajectory of a cannonball, which measurement should you trust? The obvious answer—take the average—had been used since at least Isaac Newton's time. But what if your observations were taken under different conditions? What if some measurements were more reliable than others? What if you were trying to fit a curve through scattered data points rather than estimate a single number?</p>
+
+<p>These questions drove mathematicians and astronomers to develop increasingly sophisticated techniques throughout the 1700s. The breakthrough came when someone thought to ask: what does it mean for a model to "best fit" a set of observations?</p>
+
+<h2>Squaring the Differences</h2>
+
+<p>The key insight behind least squares is almost embarrassingly simple once you see it.</p>
+
+<p>Suppose you have a collection of data points—measurements of some phenomenon—and you want to find the best straight line that describes them. Each point will deviate from your proposed line by some amount. These deviations are called residuals: the differences between what you actually observed and what your model predicts.</p>
+
+<p>Now, you could try to minimize the sum of these residuals directly. But this runs into an immediate problem: positive and negative errors would cancel each other out. A line that passes wildly above half your points and equally wildly below the other half would appear just as good as a line that hugs them closely.</p>
+
+<p>You could take absolute values instead, ignoring whether errors are positive or negative and just summing their magnitudes. Pierre-Simon Laplace tried this approach in the 1780s. It works, but the mathematics becomes awkward. Functions involving absolute values have sharp corners that make calculus difficult to apply.</p>
+
+<p>The elegant solution is to square each residual before summing. Squaring accomplishes several things at once: it makes all errors positive, it penalizes large errors more severely than small ones, and it produces smooth curves that yield nicely to differentiation. The "best" model becomes the one that minimizes this sum of squared residuals.</p>
+
+<h2>A Priority Dispute</h2>
+
+<p>The first clear published description of the method appeared in 1805, when Adrien-Marie Legendre included it in a work on determining the orbits of comets. He called it the "method of least squares" and demonstrated it by analyzing measurements of the Earth's shape—the same data Laplace had been wrestling with.</p>
+
+<p>Within a decade, the technique had spread across Europe with remarkable speed. Astronomers and surveyors in France, Italy, and Prussia adopted it as a standard tool. For a new mathematical method, this was an extraordinarily rapid acceptance.</p>
+
+<p>Then, in 1809, Gauss published his work on celestial mechanics and dropped a bombshell: he claimed to have been using least squares since 1795, more than a decade before Legendre's publication. This sparked a bitter priority dispute that would smolder for years.</p>
+
+<p>Whatever the truth of Gauss's claims, he undeniably went further than Legendre in one crucial respect. Legendre had presented least squares as a practical technique, an algebraic recipe for fitting lines to data. Gauss connected it to probability theory itself.</p>
+
+<h2>The Bell Curve Emerges</h2>
+
+<p>Gauss asked a profound question: if the least squares method gives us the arithmetic mean as our best estimate for a simple average, what must be true about how errors are distributed?</p>
+
+<p>Working backward from the desired result, he discovered something remarkable. For the arithmetic mean to be optimal—the estimate that minimizes squared error—measurement errors must follow a specific probability distribution. This distribution, shaped like a bell curve, peaks at zero (since errors are equally likely to be positive or negative) and tapers off symmetrically on both sides. Small errors are common; large errors are rare.</p>
+
+<p>Today we call this the normal distribution or Gaussian distribution, honoring its discoverer. It turns out to describe an astonishing range of phenomena: heights of people in a population, velocities of gas molecules, IQ scores, manufacturing tolerances. The central limit theorem, proved by Laplace in 1810 shortly after he learned of Gauss's work, explains why: whenever you add together many small random effects, the result tends toward a normal distribution regardless of how the individual effects are distributed.</p>
+
+<p>This connection transformed least squares from a clever computational trick into a method with deep theoretical justification. If your measurement errors are normally distributed—and the central limit theorem suggests they often will be—then least squares gives you the best possible estimate.</p>
+
+<h2>Linear and Nonlinear Problems</h2>
+
+<p>Least squares problems come in two flavors, depending on how your model relates to its adjustable parameters.</p>
+
+<p>In a linear least squares problem, the model is a linear combination of its parameters. The simplest example is fitting a straight line, where you're trying to find the best values for the slope and intercept. Despite the name, the model itself need not be a straight line—fitting a parabola is also a linear least squares problem because the predicted value is a linear combination of the parameters (the coefficients of the polynomial), even though the relationship between the input variable and the output is curved.</p>
+
+<p>Linear least squares problems have a beautiful property: they can be solved exactly with algebra. You set up a system of equations, solve them, and get the unique optimal answer. No iteration required, no searching through possibilities, just a straightforward calculation.</p>
+
+<p>Nonlinear least squares is harder. If your model involves parameters in more complicated ways—say, as exponents or inside trigonometric functions—there's generally no formula for the optimal solution. Instead, you must search for it iteratively: start with a guess, see how well it fits, adjust the parameters to improve the fit, and repeat until you converge on a good answer. Each iteration typically involves approximating the nonlinear problem as a linear one, solving that, and using the result to refine your guess.</p>
+
+<h2>Reading the Residuals</h2>
+
+<p>One of the most useful aspects of least squares is that it tells you not just the best fit, but how well your model matches reality.</p>
+
+<p>After fitting a model, you can examine the residuals—the differences between your observations and your predictions. If your model is appropriate, these residuals should look like random noise, fluctuating unpredictably around zero with no systematic pattern.</p>
+
+<p>But if the residuals show structure, something is wrong. Suppose you fit a straight line to data that actually follows a curve. The residuals won't be random; they'll form a pattern, perhaps bulging above zero in the middle and dipping below at the ends. This is your signal to try a more flexible model, perhaps adding a squared term to capture the curvature.</p>
+
+<p>Residual analysis is a bit like a diagnostic test for your assumptions. Random scatter means your model is capturing the essential relationship. Systematic patterns mean you're missing something.</p>
+
+<h2>Prediction Versus Truth</h2>
+
+<p>There's a subtle philosophical distinction in how least squares can be used, and it matters more than you might think.</p>
+
+<p>Sometimes you want a model purely for prediction. You don't particularly care whether it represents underlying reality; you just want it to make accurate forecasts. In this case, you're implicitly assuming that future observations will be subject to the same kinds of measurement error as the data you used for fitting. Least squares is logically consistent for this purpose: it minimizes exactly the kind of error you expect to encounter.</p>
+
+<p>But sometimes you want to uncover a "true" relationship—to understand the actual mechanism connecting your variables. This is trickier. Standard least squares assumes that all the error lives in your dependent variable, the thing you're measuring. If your independent variable (the thing you're controlling or assuming you know precisely) also has measurement error, the standard approach can give biased estimates.</p>
+
+<p>Imagine measuring how a plant's height depends on how much water you give it. If you can control water precisely but height measurements are noisy, ordinary least squares works fine. But if you're also uncertain about exactly how much water each plant received, you need more sophisticated methods—techniques that account for errors in both variables simultaneously.</p>
+
+<h2>The Mathematical Mechanics</h2>
+
+<p>How does one actually find the least squares solution? The key is calculus.</p>
+
+<p>The sum of squared residuals is a function of your model parameters. When you change the parameters, the predicted values change, the residuals change, and therefore the sum of squared residuals changes. You want to find the parameter values that make this sum as small as possible.</p>
+
+<p>At a minimum, the function is flat—its slope is zero in every direction. Mathematically, this means all the partial derivatives must vanish. If your model has three parameters, you get three equations (one for each partial derivative) that must all equal zero simultaneously. Solving this system of equations gives you the optimal parameters.</p>
+
+<p>For linear models, these equations—called the normal equations—can be solved directly. For nonlinear models, you can't solve them analytically, but you can use the gradient (the vector of partial derivatives) to guide your search. The gradient points uphill, so moving in the opposite direction takes you downhill toward lower error. This is the essence of gradient descent, one of the foundational algorithms of machine learning.</p>
+
+<h2>A Theorem of Optimality</h2>
+
+<p>In 1822, Gauss proved something remarkable. Under certain conditions—when errors have zero mean, equal variance, and are uncorrelated with each other—the least squares estimator is the best you can do among all unbiased linear estimators.</p>
+
+<p>"Best" here has a precise meaning: lowest variance. Among all the formulas that combine your data linearly and are unbiased (meaning they don't systematically over- or underestimate), the least squares formula gives estimates that fluctuate the least from sample to sample.</p>
+
+<p>This result, later generalized and now known as the Gauss-Markov theorem, provides powerful theoretical backing for the method. It doesn't just work in practice; it's provably optimal under specified assumptions.</p>
+
+<p>Of course, if those assumptions are violated—if errors have different variances, or are correlated, or follow non-normal distributions—the optimality guarantee doesn't apply. This has led to many extensions: weighted least squares for errors with unequal variances, generalized least squares for correlated errors, robust methods that resist the influence of outliers.</p>
+
+<h2>From Asteroids to Everything</h2>
+
+<p>The story of Ceres—the discovery, the disappearance, the triumphant prediction—illustrates why least squares became so important so quickly. Here was a method that could extract reliable conclusions from imperfect data, that connected practical computation to theoretical probability, and that worked.</p>
+
+<p>Today, least squares is everywhere. It underlies linear regression, the workhorse of statistics. It powers the training of neural networks, where gradient descent minimizes squared prediction error across millions of parameters. It calibrates instruments, fits trends, filters noise. Every time you draw a trendline through a scatter plot, you're implicitly invoking the method.</p>
+
+<p>The idea is simple enough to explain to a curious teenager: find the model that makes the squared errors as small as possible. But its consequences are profound. It gives us a rigorous, principled way to learn from imperfect observations—to see signal through noise, pattern through randomness, truth through error.</p>
+
+<p>Two centuries after Gauss tracked down a wandering asteroid, we're still using his method to make sense of an uncertain world.</p>
+      </div>
+
+      <footer class="wikipedia-footer">
+        <p class="source-link">
+          <a href="https://en.wikipedia.org/wiki/Least_squares" target="_blank" rel="noopener">
+            View original Wikipedia article &rarr;
+          </a>
+        </p>
+        <p class="rewrite-note">
+          This article has been rewritten from Wikipedia source material for enjoyable reading.
+          Content may have been condensed, restructured, or simplified.
+        </p>
+      </footer>
+
+      
+      <section class="related-articles">
+        <h2>Related Articles</h2>
+        <p class="related-intro">This deep dive was written in connection with these articles:</p>
+        <ul class="related-list">
+          
+      <li class="related-article-item">
+        <a href="../../article/290e5969-c450-42b9-b646-219a6d74fafd/index.html">
+          <strong>The Anatomy of the Least Squares Method, Part Three</strong>
+        </a>
+        <span class="article-meta">
+          by Tivadar Danka in The Palindrome
+        </span>
+      </li>
+        </ul>
+      </section>
+    
+    </article>
+  
+  </main>
+</body>
+</html>
