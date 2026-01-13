@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LaTeX - Hex Index</title>
+  <link rel="stylesheet" href="../../styles.css">
+</head>
+<body class="reading-mode">
+  <header class="reading-header">
+    <a href="../../index.html" class="back-link">&larr; Back to Library</a>
+  </header>
+  <main class="reading-content">
+    
+    <article class="wikipedia-page">
+      <header class="wikipedia-header">
+        <div class="type-badge">Wikipedia Deep Dive</div>
+        <h1>LaTeX</h1>
+        <div class="article-meta">
+          <span class="read-time">11 min read</span>
+        </div>
+      </header>
+
+      <div class="wikipedia-content">
+        <p class="source-note">Based on <a href="https://en.wikipedia.org/wiki/LaTeX">Wikipedia: LaTeX</a></p>
+
+<p>In 1984, a computer scientist at Stanford Research Institute accidentally created one of the most important pieces of software in academia. Leslie Lamport was just trying to write some macros for his own documents. With a little extra effort, he thought, he could make something others might use too. He had no idea he was laying the foundation for how millions of scientists, mathematicians, and scholars would write for the next four decades.</p>
+
+<p>The software was LaTeX—pronounced "lah-tech" or "lay-tech," rhyming with "blech" or with Bertolt Brecht's name. Never "lay-tecks," though language being what it is, some people say it anyway.</p>
+
+<h2>The Problem LaTeX Solved</h2>
+
+<p>To understand why LaTeX matters, you need to understand what came before it. In the late 1970s, a legendary computer scientist named Donald Knuth grew so frustrated with how his mathematics books were being typeset that he spent nearly a decade creating his own typesetting system called TeX. The name comes from the Greek word τέχνη (techne), meaning skill, art, or technique—the same root as "technology." Knuth insisted it should be pronounced with a guttural "ch" sound, like in the Scottish word "loch" or the German "Bach."</p>
+
+<p>TeX was revolutionary. It could render mathematical equations with extraordinary beauty and precision. But it was also extraordinarily complex—a low-level system where authors had to specify every detail of formatting.</p>
+
+<p>This is where Lamport came in. He built LaTeX as a layer on top of TeX, providing what programmers call "high-level abstractions." Instead of worrying about the exact spacing around a chapter heading, an author could simply write <code>\chapter{Introduction}</code> and let the system handle the details.</p>
+
+<h2>Separating Content from Presentation</h2>
+
+<p>LaTeX embodies a philosophy that has become central to modern computing: the separation of content from presentation. When you write a LaTeX document, you don't tell the system "make this text 14-point bold and put 12 points of space below it." Instead, you say "this is a section heading" and let a style definition somewhere else determine what section headings look like.</p>
+
+<p>This might sound familiar if you've used Cascading Style Sheets on the web. CSS works on exactly the same principle—you mark up your content semantically (this is a heading, this is a quote, this is emphasized text) and define the visual appearance separately. LaTeX was doing this in the 1980s, more than a decade before CSS existed.</p>
+
+<p>The benefits are profound. Change a single line in your style definition, and every section heading in a 500-page document updates automatically. Submit the same document to different academic journals, each with their own formatting requirements, simply by swapping out the style file. Focus entirely on what you're saying without constantly being distracted by how it looks.</p>
+
+<h2>How It Actually Works</h2>
+
+<p>Working with LaTeX feels more like programming than word processing. You create a plain text file—something like <code>thesis.tex</code>—and fill it with a mixture of your actual content and special commands that describe the document's structure.</p>
+
+<p>A simple document might begin with <code>\documentclass{article}</code>, then <code>\begin{document}</code>, followed by your title, author, and sections marked with commands like <code>\section{Introduction}</code>. You don't see the final result while you're typing. Instead, you write your document, then "compile" it—just like compiling a computer program—and the system produces a beautifully formatted output file, typically a PDF.</p>
+
+<p>This write-compile-preview cycle is fundamentally different from What-You-See-Is-What-You-Get word processors like Microsoft Word or Google Docs. In those programs, you see something very close to the final result as you type. In LaTeX, you're working with the source code of your document.</p>
+
+<p>Modern LaTeX editors have softened this distinction considerably. Many now show a live preview beside your source code, updating in real time as you type. Some online editors blur the line even further, letting you click on elements in the preview to edit them directly. But the underlying philosophy remains: content and formatting are logically separate, even when they're displayed side by side.</p>
+
+<h2>Mathematics: Where LaTeX Shines</h2>
+
+<p>LaTeX has become so dominant in mathematics and physics that it's hard to find a scientific paper in these fields that wasn't written with it. The reason is simple: nothing else comes close for typesetting complex equations.</p>
+
+<p>Consider trying to write a paper on quantum mechanics in Microsoft Word. You'd spend more time wrestling with the equation editor than thinking about physics. In LaTeX, you simply type a line of code, and out comes Schrödinger's equation, rendered with the same elegance you'd see in a professional physics textbook.</p>
+
+<p>The mathematical notation is so clean and expressive that it has leaked beyond LaTeX itself. When mathematicians communicate online—in forums, chat rooms, or even emails—they often write LaTeX notation directly, trusting that their correspondents will understand the symbols even without seeing them rendered.</p>
+
+<p>Tools like MathJax and KaTeX have made it possible to display LaTeX mathematics directly in web browsers. Wikipedia uses this technology to render all its mathematical formulas. Khan Academy built KaTeX specifically because they needed something fast enough to render equations in real time as students typed.</p>
+
+<h2>The Ecosystem</h2>
+
+<p>One of LaTeX's greatest strengths is its extensibility. The base system handles common document types well, but thousands of add-on packages extend its capabilities into specialized domains.</p>
+
+<p>Writing chemistry? The Chemfig package lets you draw molecular structures. Creating presentation slides? Beamer gives you PowerPoint-like capabilities with LaTeX's typographic quality. Need to include intricate diagrams? TikZ provides a complete graphics programming language. Writing in Arabic, Chinese, or Devanagari? There are packages for that too.</p>
+
+<p>This extensibility comes from LaTeX's foundation as a macro language. At its core, everything in LaTeX—every command, every environment—is ultimately defined in terms of simpler commands. Users can define their own macros, building up higher and higher levels of abstraction. A physicist writing many papers might define a shortcut command for frequently used equations.</p>
+
+<h2>The Output Pipeline</h2>
+
+<p>When you compile a LaTeX document, several things can happen behind the scenes. The traditional output format was something called DVI (Device Independent), which would then be converted to PostScript for printing. But since around 2000, most LaTeX users have worked with a variant called pdfLaTeX, which outputs directly to PDF.</p>
+
+<p>More recent developments have addressed some of LaTeX's historical limitations. The original TeX system was designed in an era before Unicode—the universal standard for representing text in any language. This made working with non-Latin scripts awkward at best. XeLaTeX and LuaLaTeX are modern extensions that fully support Unicode and can use any font installed on your computer, not just the traditional TeX fonts.</p>
+
+<p>LuaLaTeX goes even further, embedding a complete scripting language called Lua inside the typesetting engine. This lets sophisticated users program complex behaviors that would be impossible with LaTeX's macro system alone.</p>
+
+<h2>Beyond PDF: Converting to Other Formats</h2>
+
+<p>Not everyone wants a PDF. Sometimes you need HTML for a website, ePub for an e-reader, or Word format for a collaborator who refuses to learn LaTeX. A small industry of conversion tools has grown up to address this need.</p>
+
+<p>Pandoc has become particularly influential here. Describing itself as a "universal document converter," Pandoc can transform LaTeX documents into dozens of formats: HTML, ePub, Word documents, OpenDocument files, even MediaWiki markup for Wikipedia editing. It's become an essential tool for academics who write in LaTeX but need to submit to publishers requiring other formats.</p>
+
+<p>Other tools focus on specific output formats. LaTeXML, developed at the National Institute of Standards and Technology, specializes in converting LaTeX to XML-based formats and produces particularly high-quality HTML5 with proper mathematical markup. HeVeA (a pun on "heavy" and the French word for "Hevea," the rubber tree) takes a different approach, written in a language called OCaml and targeting HTML5 specifically.</p>
+
+<h2>The License and Community</h2>
+
+<p>LaTeX is free software—you can download and use it without paying anyone. But its license, called the LaTeX Project Public License (LPPL), has an interesting quirk that has caused some controversy in the free software community.</p>
+
+<p>The license requires that if you modify a LaTeX file and distribute your modifications, you must give your version a different filename. You can't just edit, say, <code>article.cls</code> and distribute your modified version under the same name.</p>
+
+<p>This might seem like an odd restriction, but it exists to prevent a particular kind of chaos. In LaTeX, documents depend on style files, which depend on packages, which depend on other packages. If people could silently modify shared files, a document that worked perfectly on one computer might produce garbage on another, with no obvious indication of what went wrong. The filename requirement ensures that incompatible versions can't masquerade as each other.</p>
+
+<p>This restriction makes the LPPL incompatible with the GNU General Public License (GPL), the most famous free software license. Some free software purists object to this. The practical impact, however, is minimal—LaTeX remains freely available on every major operating system.</p>
+
+<h2>The Long Road to LaTeX3</h2>
+
+<p>The LaTeX we use today is technically called LaTeX2e, released in 1994. It replaced an earlier version called LaTeX 2.09. Even as LaTeX2e was being released, a team was already working on a more ambitious successor called LaTeX3.</p>
+
+<p>That project has had one of the longest development timelines in software history. Started in 1989, LaTeX3 was originally planned as a completely separate system with a cleaner syntax, better hyperlink support, a new user interface, and modern font handling. Decades passed. LaTeX2e kept getting incremental updates while LaTeX3 remained perpetually "in development."</p>
+
+<p>Eventually, the LaTeX team changed their approach. Rather than releasing LaTeX3 as a separate system, they began integrating its features into LaTeX2e. Since 2018, many LaTeX3 capabilities have become available as a programming layer within the existing system. The dream of a clean break never materialized, but the incremental improvements continue.</p>
+
+<h2>Alternatives and Competitors</h2>
+
+<p>LaTeX isn't the only option for sophisticated document preparation. Several alternatives offer different tradeoffs.</p>
+
+<p>LyX provides a visual interface on top of LaTeX. You see something closer to What-You-See-Is-What-You-Get editing, but behind the scenes, LyX generates LaTeX code. This gives you LaTeX's typographic quality with a more familiar editing experience, though purists sometimes sniff at the loss of direct control.</p>
+
+<p>TeXmacs (unrelated to LaTeX despite the similar name) takes a different approach entirely. It's a WYSIWYG editor with its own typesetting engine, offering similar capabilities to LaTeX but with a completely different underlying technology. Some users find it more intuitive; others miss the LaTeX ecosystem.</p>
+
+<p>Commercial implementations of TeX also exist, offering extras like additional typefaces and technical support. For most users, though, the free distributions—MiKTeX on Windows, MacTeX on macOS, TeX Live on Linux—are more than sufficient.</p>
+
+<h2>Where LaTeX Lives Today</h2>
+
+<p>Walk into any mathematics or physics department at any university in the world, and you'll find LaTeX. It's how students write their theses, how professors write their papers, how journals publish their articles. In these fields, knowing LaTeX is as fundamental as knowing how to use email.</p>
+
+<p>But LaTeX has spread far beyond its mathematical origins. Linguists appreciate its ability to handle complex multilingual documents—mixing Arabic with Greek with Chinese in ways that would crash a typical word processor. Philosophers use it. Some law journals require it. Computer scientists adopted it early and never left.</p>
+
+<p>The system's longevity is remarkable. Software from the 1980s rarely survives in active use, yet LaTeX documents written decades ago still compile perfectly today. A physicist can take a paper written in 1990 and produce a beautiful PDF in 2024. Try opening a 1990 Word document in modern Microsoft Office and see what happens.</p>
+
+<h2>An Accidental Revolution</h2>
+
+<p>Remember Leslie Lamport, tinkering with macros at Stanford Research Institute? When an editor at Addison-Wesley convinced him to write a user manual, Lamport was skeptical that anyone would pay money for it.</p>
+
+<p>That manual sold hundreds of thousands of copies. The software it described went on to shape how an entire civilization communicates its most complex ideas.</p>
+
+<p>In 1989, at a meeting at Stanford, Lamport handed maintenance of LaTeX over to Frank Mittelbach and his collaborators. The torch passed to a new generation of stewards, who have maintained and developed it ever since. Mittelbach, Chris Rowley, and Rainer Schöpf became the LaTeX3 team, inheriting responsibility for software that millions depend on but few outside academia have heard of.</p>
+
+<p>LaTeX remains what it has always been: a tool for people who care deeply about how their documents look and who are willing to invest some effort to get there. It rewards that investment with output of extraordinary quality—documents that look like they were prepared by professional typesetters, because in a sense they were. The typesetter just happens to be a piece of software written by a computer scientist who thought his colleagues might find it useful.</p>
+      </div>
+
+      <footer class="wikipedia-footer">
+        <p class="source-link">
+          <a href="https://en.wikipedia.org/wiki/LaTeX" target="_blank" rel="noopener">
+            View original Wikipedia article &rarr;
+          </a>
+        </p>
+        <p class="rewrite-note">
+          This article has been rewritten from Wikipedia source material for enjoyable reading.
+          Content may have been condensed, restructured, or simplified.
+        </p>
+      </footer>
+
+      
+      <section class="related-articles">
+        <h2>Related Articles</h2>
+        <p class="related-intro">This deep dive was written in connection with these articles:</p>
+        <ul class="related-list">
+          
+      <li class="related-article-item">
+        <a href="../../article/025301b0-e059-46ca-99a8-65a2f64eda1f/index.html">
+          <strong> The Software Engineer’s Guidebook: a recap</strong>
+        </a>
+        <span class="article-meta">
+          by Gergely Orosz in The Pragmatic Engineer
+        </span>
+      </li>
+        </ul>
+      </section>
+    
+    </article>
+  
+  </main>
+</body>
+</html>

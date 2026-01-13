@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Web crawler - Hex Index</title>
+  <link rel="stylesheet" href="../../styles.css">
+</head>
+<body class="reading-mode">
+  <header class="reading-header">
+    <a href="../../index.html" class="back-link">&larr; Back to Library</a>
+  </header>
+  <main class="reading-content">
+    
+    <article class="wikipedia-page">
+      <header class="wikipedia-header">
+        <div class="type-badge">Wikipedia Deep Dive</div>
+        <h1>Web crawler</h1>
+        <div class="article-meta">
+          <span class="read-time">11 min read</span>
+        </div>
+      </header>
+
+      <div class="wikipedia-content">
+        The directory already exists or I need to write to an existing location. Let me output the rewritten article directly:
+
+```html
+<p class="source-note">Based on <a href="https://en.wikipedia.org/wiki/Web_crawler">Wikipedia: Web crawler</a></p>
+
+<p>Imagine trying to create a phone book for the entire world, except the world keeps adding new buildings, tearing down old ones, and renaming streets every single minute. That is essentially the impossible task that web crawlers attempt to accomplish every day.</p>
+
+<p>In 1999, even the best search engines could only index about sixteen percent of the web. Today, search engines deliver relevant results in milliseconds. The difference? Decades of refinement in how these automated explorers navigate the digital wilderness.</p>
+
+<h2>What Exactly Is a Web Crawler?</h2>
+
+<p>A web crawler is a piece of software that systematically visits websites, reads their content, and follows their links to discover new pages. Think of it as a very dedicated librarian who not only reads every book in the library but also visits every library mentioned in every book, reads all of those books, and keeps going forever.</p>
+
+<p>The metaphors people use for these programs reveal how we think about them. Some call them spiders, spinning webs of connections between pages. Others call them ants, methodically marching through the digital terrain. The academic community sometimes calls them automatic indexers, which is accurate but considerably less charming.</p>
+
+<p>The crawler begins with a list of addresses to visit, called seeds. From those initial pages, it extracts every link it can find and adds them to its to-do list, which goes by the wonderfully evocative name of the crawl frontier. Then it visits those pages, finds more links, adds them to the frontier, and continues this process indefinitely.</p>
+
+<h2>The Fundamental Challenge: Infinity on a Budget</h2>
+
+<p>Here is the core problem. The web is incomprehensibly large and constantly changing. A crawler can only visit so many pages in a given time. Bandwidth costs money. Server capacity has limits. So every crawler must answer a deceptively simple question: which pages should I visit next?</p>
+
+<p>This turns out to be one of the most interesting problems in computer science.</p>
+
+<p>Consider a modest online photo gallery that lets users sort images four different ways, choose from three thumbnail sizes, pick between two file formats, and toggle user comments on or off. Those simple options create forty-eight different URLs that all show essentially the same content. A naive crawler would dutifully visit all forty-eight, wasting time and storage on redundant information.</p>
+
+<p>Now multiply that by millions of websites, each with their own quirks and dynamic content generation, and you begin to see why crawling the web efficiently is genuinely difficult.</p>
+
+<h2>The Four Policies That Govern Crawler Behavior</h2>
+
+<p>Every serious web crawler operates according to four interconnected policies. Understanding these policies reveals how the internet actually gets indexed.</p>
+
+<p><strong>The selection policy</strong> determines which pages deserve to be downloaded. Not all pages are equally valuable. A thoughtful crawler prioritizes pages that are likely to be important, popular, or frequently updated. The tricky part is making these judgments with incomplete information, since you cannot know how important a page is until you have read it, but you cannot read it until you decide it is important enough to download.</p>
+
+<p><strong>The re-visit policy</strong> determines how often to check pages for changes. A news website might update every few minutes. A corporate about-us page might not change for years. Visiting both at the same frequency wastes resources on the static page and misses updates on the dynamic one.</p>
+
+<p><strong>The politeness policy</strong> prevents crawlers from overwhelming the websites they visit. A crawler that requests pages too aggressively can effectively launch a denial-of-service attack on a small website. Most crawlers deliberately slow themselves down and space out their requests to be good citizens of the web.</p>
+
+<p><strong>The parallelization policy</strong> coordinates multiple crawlers working together. Large search engines run thousands of crawlers simultaneously, and they need to avoid duplicating each other's work or overwhelming the same servers.</p>
+
+<h2>How Do You Measure What Matters?</h2>
+
+<p>Researchers have spent decades trying to answer a deceptively simple question: how do you measure the importance of a web page before you have read it?</p>
+
+<p>One elegant approach came from a researcher named Abiteboul, who developed an algorithm called OPIC, which stands for On-line Page Importance Computation. The idea is beautifully simple. Every page starts with a fixed amount of imaginary money. When you crawl a page, you distribute its money equally to all the pages it links to. Pages that receive money from many sources accumulate wealth, signaling their importance.</p>
+
+<p>This is conceptually similar to PageRank, the algorithm that made Google famous, but it runs much faster because it only requires a single pass through the data rather than iterative calculations.</p>
+
+<p>Early research by Junghoo Cho at Stanford compared different strategies on a relatively small crawl of 180,000 pages. The study found that if you want to discover high-quality pages early in your crawl, a partial PageRank calculation works best, followed by breadth-first crawling, followed by counting how many pages link to each target.</p>
+
+<p>Marc Najork and Janet Wiener later validated part of this on a much larger scale, crawling 328 million pages. They found that breadth-first crawling naturally tends to find important pages early, even without explicit quality calculations. Their explanation was intuitive: the most important pages have many links pointing to them from many different websites, so those links will be discovered quickly no matter where you start.</p>
+
+<h2>The Art of Not Wasting Time</h2>
+
+<p>Crawlers employ numerous tricks to avoid wasting resources on redundant or irrelevant content.</p>
+
+<p>URL normalization is one fundamental technique. The addresses example.com/page and example.com/PAGE might point to the same content, depending on how the server handles capitalization. Similarly, example.com/folder/page and example.com/folder/../folder/page are technically different URLs but reference identical locations. Good crawlers canonicalize URLs into a standard format to avoid downloading the same page multiple times under different names.</p>
+
+<p>Some crawlers specifically avoid URLs containing question marks, since these often indicate dynamically generated pages that might trap the crawler in infinite loops. Imagine a calendar application that generates a new URL for every day in history. A crawler that follows the next and previous links could spend eternity downloading calendar pages.</p>
+
+<p>The path-ascending crawler takes the opposite approach. Given a deep URL like example.com/a/b/c/page.html, it will also try to crawl example.com/a/b/c/, example.com/a/b/, and example.com/a/. Research has shown this technique effectively discovers isolated resources that might not be linked from anywhere else on a site.</p>
+
+<h2>Focused Crawlers: Specialists in a World of Generalists</h2>
+
+<p>Not all crawlers try to index everything. Focused crawlers, also called topical crawlers, deliberately limit themselves to pages about specific subjects.</p>
+
+<p>Academic crawlers are a prime example. The CiteSeerX search engine operates a crawler specifically designed to find scholarly papers. Since most academic work is published as PDF files, this crawler prioritizes those formats while largely ignoring the cat videos and shopping pages that dominate the general web.</p>
+
+<p>The challenge with focused crawling is prediction. You want to download pages relevant to your topic, but you cannot know if a page is relevant until you download it. Researchers have developed clever workarounds. One approach examines the anchor text of links, the clickable words that lead to other pages. If a link says click here for our research publications, the target page is probably academic even before you visit it.</p>
+
+<p>More sophisticated approaches use the content of already-visited pages to predict the relevance of unvisited ones. If you have crawled ten pages about machine learning and they all link to a certain URL, that URL is probably also about machine learning.</p>
+
+<p>Semantic focused crawlers take this further by building ontologies, formal representations of concepts and their relationships within a domain. These crawlers do not just find pages about a topic; they actually learn and refine their understanding of the topic as they crawl.</p>
+
+<h2>The Freshness Problem</h2>
+
+<p>The web changes constantly. By the time a crawler finishes visiting a billion pages, many of them have already changed. Some have been deleted entirely. How do you keep your index from going stale?</p>
+
+<p>Researchers measure this problem using two related concepts.</p>
+
+<p>Freshness is a binary measure. Either your local copy matches the current version of the page, or it does not. Freshness is one or zero, current or outdated.</p>
+
+<p>Age measures how outdated your copy is. A page that changed five minutes ago has lower age than a page that changed five days ago. Both are stale, but one is much more stale than the other.</p>
+
+<p>Interestingly, these two measures lead to different crawling strategies. If you optimize for freshness, you want to re-visit all pages frequently enough that most of your copies are current. If you optimize for age, you might focus more on quickly catching up with pages that have been outdated for a long time.</p>
+
+<p>Researchers have modeled this problem using queueing theory, the same mathematics used to optimize checkout lines and telephone networks. In this model, the crawler is like a single server handling multiple queues, where each website is a queue and page changes are customers arriving to be served. The switch-over time between serving different queues corresponds to the time between requests to the same website.</p>
+
+<h2>Politeness: The Ethics of Automated Visiting</h2>
+
+<p>Web crawlers are uninvited guests. They consume bandwidth, server resources, and storage on systems they do not own. A crawler that visits too aggressively can slow down or crash a website, affecting real human visitors.</p>
+
+<p>The robots.txt file emerged as a standard for hosts to communicate their preferences to crawlers. A website can use this simple text file to request that crawlers avoid certain directories, limit their request frequency, or stay away entirely. Most legitimate crawlers honor these requests, though nothing technically prevents a rude crawler from ignoring them.</p>
+
+<p>The politeness problem becomes more acute as crawlers scale up. A single crawler making requests once per second is barely noticeable. A thousand crawlers each making requests once per second is a serious burden. The parallelization policy must balance thoroughness against resource consumption.</p>
+
+<h2>The Surprising Connection to AI Agents</h2>
+
+<p>Web crawlers were among the first large-scale autonomous software agents deployed on the internet. They operate continuously without human supervision, make their own decisions about what to do next, and must handle unexpected situations gracefully.</p>
+
+<p>Many of the challenges faced by modern AI agents echo problems that crawler designers solved decades ago. How do you prioritize tasks with limited resources? How do you explore an unknown environment efficiently? How do you balance exploitation of known good options against exploration of potentially better ones? How do you operate as a good citizen in a shared environment?</p>
+
+<p>The emergence of AI agents that actively browse the web, rather than just indexing it, has renewed interest in crawler technology. An AI assistant that can search the web for you faces many of the same challenges as a search engine crawler, plus additional complications around interpreting and acting on the information it finds.</p>
+
+<h2>The Numbers That Humble You</h2>
+
+<p>A 2009 study found that even the largest search engines only indexed between forty and seventy percent of the indexable web. This is an improvement from 1999, when the best engines covered only sixteen percent, but it remains a humbling number. The majority of the web remains unindexed, invisible to search.</p>
+
+<p>Part of this is the deep web, content that exists behind login screens or paywalls and cannot be crawled without credentials. Part of it is the dynamic web, content generated on demand that never exists as a stable page to be indexed. And part of it is simply the problem of scale. The web grows faster than any crawler can follow.</p>
+
+<p>When you type a query into a search engine and receive relevant results in a fraction of a second, you are benefiting from one of the most impressive engineering achievements of the internet age. Thousands of crawlers working around the clock, visiting billions of pages, applying sophisticated algorithms to determine importance and freshness, all to maintain a partial but useful map of an incomprehensibly large and constantly changing digital territory.</p>
+
+<h2>The Ongoing Challenge</h2>
+
+<p>As researchers Edwards, McCurley, and Tomlin noted in their influential work, the fundamental constraint has not changed since the early days of web crawling. Bandwidth is neither infinite nor free. Crawling the web in a scalable and efficient way remains essential if we want to maintain any reasonable measure of quality or freshness in our indexes.</p>
+
+<p>The web crawler is a reminder that even seemingly simple tasks, like visiting every page on the internet, can turn out to be profound technical challenges. The solutions developed for these challenges have influenced everything from social network analysis to recommendation systems to the emerging field of autonomous AI agents.</p>
+
+<p>Next time you search for something and find it instantly, spare a thought for the tireless digital spiders that made it possible.</p>
+      </div>
+
+      <footer class="wikipedia-footer">
+        <p class="source-link">
+          <a href="https://en.wikipedia.org/wiki/Web_crawler" target="_blank" rel="noopener">
+            View original Wikipedia article &rarr;
+          </a>
+        </p>
+        <p class="rewrite-note">
+          This article has been rewritten from Wikipedia source material for enjoyable reading.
+          Content may have been condensed, restructured, or simplified.
+        </p>
+      </footer>
+
+      
+      <section class="related-articles">
+        <h2>Related Articles</h2>
+        <p class="related-intro">This deep dive was written in connection with these articles:</p>
+        <ul class="related-list">
+          
+      <li class="related-article-item">
+        <a href="../../article/a745bf9a-706c-4e32-a68e-14a804f72554/index.html">
+          <strong>EXCLUSIVE: Parag Agrawal’s Parallel Web Systems Raises $100 Million to Help AI Agents Search the Web</strong>
+        </a>
+        <span class="article-meta">
+          by Eric Newcomer in Newcomer
+        </span>
+      </li>
+        </ul>
+      </section>
+    
+    </article>
+  
+  </main>
+</body>
+</html>

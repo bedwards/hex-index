@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Polygenic score - Hex Index</title>
+  <link rel="stylesheet" href="../../styles.css">
+</head>
+<body class="reading-mode">
+  <header class="reading-header">
+    <a href="../../index.html" class="back-link">&larr; Back to Library</a>
+  </header>
+  <main class="reading-content">
+    
+    <article class="wikipedia-page">
+      <header class="wikipedia-header">
+        <div class="type-badge">Wikipedia Deep Dive</div>
+        <h1>Polygenic score</h1>
+        <div class="article-meta">
+          <span class="read-time">12 min read</span>
+        </div>
+      </header>
+
+      <div class="wikipedia-content">
+        <p class="source-note">Based on <a href="https://en.wikipedia.org/wiki/Polygenic_score">Wikipedia: Polygenic score</a></p>
+
+<p>Imagine you could read the future in someone's DNA—not with certainty, but with probability. Not a single gene declaring destiny, but thousands of tiny genetic whispers combining into something like a weather forecast for your health. This is the promise and the peril of the polygenic score.</p>
+
+<h2>The End of Single-Gene Thinking</h2>
+
+<p>For decades, genetics lived in a world of simple stories. One gene causes cystic fibrosis. Another causes Huntington's disease. These monogenic conditions—diseases caused by a single genetic mutation—were the low-hanging fruit of genetic medicine. Find the broken gene, understand the disease.</p>
+
+<p>But most of what makes us who we are doesn't work that way.</p>
+
+<p>Height isn't controlled by one gene. Neither is intelligence, or heart disease risk, or your likelihood of developing type 2 diabetes. These traits emerge from the combined influence of thousands of genetic variants, each contributing a tiny nudge in one direction or another. It's like asking who won an election—no single voter decided the outcome, but somehow all those individual choices added up to a result.</p>
+
+<p>A polygenic score attempts to capture this collective genetic influence in a single number. Think of it as a genetic credit score, except instead of predicting whether you'll pay your bills, it predicts something about your biology. In the context of disease, researchers call it a polygenic risk score, often abbreviated PRS. The concept is elegant: survey someone's genome for thousands of relevant genetic variants, weight each one by how strongly it influences the trait in question, and sum it all up.</p>
+
+<h2>Where the Idea Came From</h2>
+
+<p>Humans weren't the first beneficiaries of polygenic thinking. Animal and plant breeders got there first, which makes sense when you consider their incentives. A dairy farmer doesn't care about elegant genetic theory—she cares about which bull will sire cows that produce the most milk. Breeders developed methods for calculating what they called "breeding value," combining information from multiple genetic markers to predict an animal's worth for reproduction.</p>
+
+<p>The approach worked remarkably well. Modern livestock breeding and crop improvement rely heavily on these polygenic methods, selecting for dozens of desirable traits simultaneously. Your Thanksgiving turkey is larger and meatier than its ancestors partly because of this mathematics.</p>
+
+<p>The translation to human genetics came later. Researchers proposed using similar scores to identify people at high risk for disease around 2007, but the first real breakthrough came in 2009. A team studying schizophrenia constructed what they called a "polygenic score"—the first use of that exact term—by combining information from a genome-wide association study. Their score could explain about 3 percent of the variation in schizophrenia risk.</p>
+
+<p>Three percent might sound underwhelming. But it was proof of concept. The door was open.</p>
+
+<h2>How You Build a Score</h2>
+
+<p>The raw material for constructing polygenic scores comes from genome-wide association studies, commonly abbreviated GWAS (pronounced "gee-wass"). These massive research projects compare the genomes of thousands or hundreds of thousands of people, looking for genetic variants that appear more frequently in people with a particular trait or disease.</p>
+
+<p>The human genome contains about three billion base pairs—the individual chemical letters that spell out our genetic code. Scattered throughout this vast text are millions of single-nucleotide polymorphisms, or SNPs (pronounced "snips"), positions where different people carry different genetic letters. Most SNPs don't seem to matter much. But some correlate with traits or diseases, either because they directly influence biology or because they sit near genes that do.</p>
+
+<p>A genome-wide association study systematically tests each SNP for association with the trait of interest. Does this particular variant appear more often in people with heart disease? What about this one? And this one? The result is a catalog of associations, each with an estimated effect size (how much the variant influences the trait) and a p-value (how confident researchers are that the association isn't just statistical noise).</p>
+
+<p>From this catalog, you build a score. The simplest approach takes SNPs that pass some significance threshold and weights each one by its effect size. If you carry two copies of a risk-increasing variant, you get twice the weight. Add up all the contributions and you have your polygenic score.</p>
+
+<p>In mathematical notation, it looks like this: sum up, across all included SNPs, the number of risk alleles you carry multiplied by each allele's weight. Simple arithmetic, applied at enormous scale.</p>
+
+<h2>The Art of Choosing What to Include</h2>
+
+<p>But which SNPs do you include? This turns out to be surprisingly tricky.</p>
+
+<p>The naive approach would be to include every SNP that shows any association with your trait. But SNPs aren't independent of each other. Genetic variants that sit physically close together on a chromosome tend to be inherited together—a phenomenon called linkage disequilibrium. If you include two SNPs that are almost always inherited as a pair, you're essentially counting the same genetic information twice, which inflates your score and distorts your predictions.</p>
+
+<p>Researchers developed methods to handle this. The simplest, called "pruning and thresholding," removes SNPs that are too correlated with each other (that's the pruning) and only includes SNPs with associations strong enough to meet some statistical threshold (that's the thresholding). It's crude but effective.</p>
+
+<p>More sophisticated approaches use what statisticians call penalized regression. These methods essentially punish the model for making extreme predictions, shrinking effect sizes toward zero and producing more conservative estimates. One popular tool called PRS-CS takes this approach.</p>
+
+<p>Bayesian methods offer another path forward. Named after the eighteenth-century mathematician Thomas Bayes, these approaches incorporate prior knowledge about genetics—how many variants typically affect a trait, how their effects are usually distributed—and update that knowledge based on the data. A method called LDpred explicitly models linkage disequilibrium, producing scores that account for the non-independence of genetic variants.</p>
+
+<p>The field keeps innovating. Researchers have found ways to incorporate data from multiple ancestral populations, improving predictions by borrowing information across groups. Others have built in knowledge about which parts of the genome are most likely to influence biology. The methods are still evolving.</p>
+
+<h2>What the Scores Can Actually Do</h2>
+
+<p>Here's where expectations meet reality.</p>
+
+<p>For most traits and diseases, polygenic scores cannot make definitive predictions. They won't tell you with certainty whether you'll develop heart disease or breast cancer or schizophrenia. What they can do is estimate relative risk—how your likelihood compares to the population average.</p>
+
+<p>Researchers often evaluate these scores using a metric called area under the ROC curve, abbreviated AUC. An AUC of 0.5 means the score is no better than flipping a coin. An AUC of 1.0 would mean perfect prediction. Real-world polygenic scores fall somewhere in between:</p>
+
+<ul>
+<li>Coronary heart disease: around 0.64</li>
+<li>Breast cancer: around 0.63</li>
+<li>Hypothyroidism: around 0.71</li>
+<li>Schizophrenia: around 0.71</li>
+</ul>
+
+<p>These numbers improve substantially—often reaching 0.78 or 0.80—when you combine genetic information with other factors like age and sex. The score isn't meant to work alone.</p>
+
+<p>Perhaps more importantly, even a score with modest average performance can be highly valuable at the extremes. Someone in the top 1 percent for cardiovascular risk has a lifetime risk exceeding 10 percent, comparable to people carrying rare single-gene variants that doctors already track carefully. The polygenic score identifies a much larger group of high-risk individuals who would otherwise go unnoticed.</p>
+
+<h2>The Ancestry Problem</h2>
+
+<p>Now for an uncomfortable truth: these scores work much better for some people than others.</p>
+
+<p>The vast majority of genome-wide association studies have been conducted in populations of European ancestry. This isn't because European genomes are easier to study—it's a consequence of where research funding has historically flowed and which populations have been easiest to recruit. The result is a systematic bias that pervades the field.</p>
+
+<p>Polygenic scores derived from European-ancestry data predict traits less accurately in people of African, Asian, or other ancestries. Sometimes much less accurately. A score that performs impressively in a British population might barely outperform chance in a Nigerian one.</p>
+
+<p>The reasons are complex. Different populations have different patterns of linkage disequilibrium—the SNPs that travel together in Europeans don't necessarily travel together in East Asians. Effect sizes can vary across populations. And some genetic variants are common in one group but rare or absent in another.</p>
+
+<p>There's a silver lining: some causal variants do appear shared across ancestry groups for traits like body mass index, type 2 diabetes, and schizophrenia. The underlying biology overlaps even when the statistical associations don't transfer perfectly. Researchers increasingly recognize that building more diverse biobanks—large databases of genetic and health information from people of all backgrounds—is essential for making polygenic scores work for everyone.</p>
+
+<h2>From Laboratory to Clinic</h2>
+
+<p>The obvious application for disease-related polygenic scores is medicine. If you could identify people at elevated genetic risk for heart disease or diabetes or cancer, you could intervene earlier, screen more aggressively, or adjust lifestyle recommendations.</p>
+
+<p>A landmark study on cardiovascular disease demonstrated this potential vividly. Individuals in the highest-risk tier for polygenic score had lifetime cardiovascular risk comparable to carriers of known rare genetic variants—the kind that already change clinical management. Suddenly, the polygenic approach could identify many more people who might benefit from aggressive prevention.</p>
+
+<p>Similar stories have emerged for obesity, diabetes, breast cancer, prostate cancer, Alzheimer's disease, and various psychiatric conditions. In each case, polygenic scores stratify risk in ways that might guide medical decisions.</p>
+
+<p>But as of the early 2020s, mainstream medicine has been cautious. Most health systems haven't incorporated polygenic scores into routine care, though research trials are underway around the world. The gap has been filled partly by direct-to-consumer genetic testing companies, which offer polygenic risk reports to customers willing to pay.</p>
+
+<p>One key advantage of polygenic scores deserves emphasis: your genetic liability doesn't change over your lifetime. Unlike blood pressure or cholesterol, which fluctuate with age and behavior, your polygenic score is fixed from conception. Identify someone at high genetic risk in childhood, and you have decades to intervene.</p>
+
+<p>But this cuts both ways. A high polygenic score for alcoholism matters much less if you never drink. Genes establish predisposition, not destiny. Environmental factors modulate genetic risk in ways that scores alone cannot capture.</p>
+
+<h2>The Embryo Selection Controversy</h2>
+
+<p>Perhaps no application of polygenic scores generates more heated debate than embryo selection.</p>
+
+<p>During in vitro fertilization, multiple embryos are often created. For decades, clinics have tested embryos for chromosomal abnormalities and certain single-gene diseases, implanting only those that pass screening. Millions of embryos undergo genetic testing each year worldwide.</p>
+
+<p>Starting around 2019, some clinics began offering polygenic score testing for embryos—evaluating not just whether an embryo carries a specific disease-causing mutation, but estimating its polygenic risk for complex conditions like heart disease or even its predicted height or cognitive potential.</p>
+
+<p>Critics raise several concerns. The predictive power of polygenic scores, already modest in adults, may be even less reliable when applied to embryos. Selecting for one trait might inadvertently select against others in unpredictable ways. And fundamental ethical questions arise: Should parents choose embryos based on predicted intelligence? Does this constitute a new form of eugenics?</p>
+
+<p>Defenders counter that parents already make choices to benefit their future children's health and capabilities—this is simply doing so with better information. If polygenic selection can reduce the burden of disease, the argument goes, it would be ethically questionable <em>not</em> to offer it.</p>
+
+<p>The debate remains active in both scientific and ethical circles.</p>
+
+<h2>The Data Engine</h2>
+
+<p>All of this progress depends on an unglamorous foundation: massive databases.</p>
+
+<p>Polygenic scores improve as more data becomes available for training. The relationship is predictable—larger genome-wide association studies yield more precise effect size estimates, which produce better-performing scores. Eventually, performance plateaus as you approach the heritability limit: the theoretical ceiling on how much genetics can predict, given that non-genetic factors also matter.</p>
+
+<p>Modern biobanks—repositories containing genetic and health information from hundreds of thousands of participants—have turbocharged the field. The UK Biobank alone contains data from half a million people. Similar efforts exist in Finland, Japan, and increasingly around the world. Each expansion of these databases translates directly into improved polygenic prediction.</p>
+
+<p>Different traits require different amounts of data to reach their prediction ceiling. Some genetic architectures are complex, with thousands of tiny effects scattered across the genome. Others are simpler. The sample size needed to maximize prediction for hypothyroidism differs from what's needed for hypertension or type 2 diabetes.</p>
+
+<h2>What Polygenic Scores Are Not</h2>
+
+<p>It helps to be clear about limitations.</p>
+
+<p>Polygenic scores are not diagnoses. A high risk score doesn't mean you have or will definitely develop a disease. A low score doesn't guarantee you won't. The scores estimate probability, not certainty.</p>
+
+<p>They are not stable across populations. A score validated in one ancestry group may perform poorly in another. This isn't a fixable calibration issue—it reflects real differences in genetic architecture across human populations.</p>
+
+<p>They are not purely genetic in their implications. A polygenic score for education, for instance, reflects not just cognitive biology but also the social and economic circumstances that correlate with genetics. Genes influence behavior, behavior influences environment, and environment influences outcomes. Disentangling these threads is fiendishly difficult.</p>
+
+<p>And they are not the whole story. Even traits with strong genetic components are influenced by factors no polygenic score can capture. Diet matters for heart disease. Trauma matters for psychiatric conditions. Social support matters for almost everything.</p>
+
+<h2>The Road Ahead</h2>
+
+<p>Despite these caveats, polygenic scores represent a genuine advance in our ability to read biological fate in genetic data. They've been recognized as a major breakthrough by organizations like the American Heart Association. They're enabling new kinds of research into how genes and environment interact. And they're raising questions—scientific, medical, ethical—that will occupy researchers and society for decades.</p>
+
+<p>The future likely holds scores that work better across all ancestry groups, as more diverse biobanks come online. Methods will continue to improve, squeezing more predictive power from existing data. Clinical applications will mature, with clearer guidelines about when and how to use genetic risk information.</p>
+
+<p>What won't change is the fundamental insight: complex traits emerge from the interplay of many genetic factors, each small but together consequential. The polygenic score is our attempt to listen to that chorus of genetic whispers and hear something meaningful in the noise.</p>
+      </div>
+
+      <footer class="wikipedia-footer">
+        <p class="source-link">
+          <a href="https://en.wikipedia.org/wiki/Polygenic_score" target="_blank" rel="noopener">
+            View original Wikipedia article &rarr;
+          </a>
+        </p>
+        <p class="rewrite-note">
+          This article has been rewritten from Wikipedia source material for enjoyable reading.
+          Content may have been condensed, restructured, or simplified.
+        </p>
+      </footer>
+
+      
+      <section class="related-articles">
+        <h2>Related Articles</h2>
+        <p class="related-intro">This deep dive was written in connection with these articles:</p>
+        <ul class="related-list">
+          
+      <li class="related-article-item">
+        <a href="../../article/9955ad9a-c4e7-46f4-b068-74f7ca17bbf0/index.html">
+          <strong>Alex Young: IQ, disease and statistical genomics</strong>
+        </a>
+        <span class="article-meta">
+          by Razib Khan in Unsupervised Learning
+        </span>
+      </li>
+        </ul>
+      </section>
+    
+    </article>
+  
+  </main>
+</body>
+</html>

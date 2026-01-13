@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Brier score - Hex Index</title>
+  <link rel="stylesheet" href="../../styles.css">
+</head>
+<body class="reading-mode">
+  <header class="reading-header">
+    <a href="../../index.html" class="back-link">&larr; Back to Library</a>
+  </header>
+  <main class="reading-content">
+    
+    <article class="wikipedia-page">
+      <header class="wikipedia-header">
+        <div class="type-badge">Wikipedia Deep Dive</div>
+        <h1>Brier score</h1>
+        <div class="article-meta">
+          <span class="read-time">9 min read</span>
+        </div>
+      </header>
+
+      <div class="wikipedia-content">
+        The rewritten article content is complete. Here is the HTML output:
+
+```html
+<p class="source-note">Based on <a href="https://en.wikipedia.org/wiki/Brier_score">Wikipedia: Brier score</a></p>
+
+<p>Here's a question that haunts anyone who makes predictions: If a forecaster says there's a 70% chance of rain and it doesn't rain, were they wrong?</p>
+
+<p>Not necessarily. And that single insight—that probability predictions require a completely different standard of evaluation than yes-or-no guesses—is what makes the Brier score so valuable. Named after meteorologist Glenn W. Brier, who proposed it in 1950, this deceptively simple metric has become the gold standard for measuring how good someone actually is at forecasting.</p>
+
+<h2>The Problem with Judging Probabilities</h2>
+
+<p>Imagine two weather forecasters. Alice says there's a 90% chance of sunshine tomorrow. Bob says there's a 55% chance. The sun comes out. Who was better?</p>
+
+<p>Your first instinct might be to say Alice—she was more confident and she was right! But this reasoning has a fatal flaw. If Bob consistently says 55% for days that actually turn out sunny 55% of the time, he's perfectly calibrated. If Alice always says 90% but sunshine only happens 70% of the time when she makes that prediction, she's overconfident and systematically misleading people who trust her forecasts.</p>
+
+<p>The Brier score cuts through this confusion by measuring something precise: the average squared difference between your predicted probabilities and what actually happened.</p>
+
+<h2>The Math That Matters</h2>
+
+<p>The calculation is elegantly simple. For any prediction, take your forecasted probability, subtract the actual outcome (coded as 1 if the event happened, 0 if it didn't), and square the result. Do this for all your predictions and take the average.</p>
+
+<p>A perfect Brier score is zero. The worst possible score is one.</p>
+
+<p>Let's work through a weather example. You predict there's a 70% chance of rain. If it rains, your score for that prediction is (0.70 - 1)² = 0.09—not bad. But if it doesn't rain, your score jumps to (0.70 - 0)² = 0.49—substantially worse. The asymmetry is intuitive: if you said rain was likely and it didn't happen, you should be penalized more than if you said rain was likely and it did happen.</p>
+
+<p>Here's a telling case: predicting 50% always gives you a score of 0.25, regardless of what happens. This is the score of pure ignorance—the "I have no idea" baseline that any serious forecaster should beat.</p>
+
+<p>Predict with 100% confidence and you're making a high-stakes bet. Get it right, and your score is a perfect zero. Get it wrong, and you receive the maximum penalty of one. The Brier score brutally punishes overconfidence.</p>
+
+<h2>Why Squaring Makes All the Difference</h2>
+
+<p>Why square the differences? Why not just take the absolute value?</p>
+
+<p>Squaring does something mathematically crucial: it makes the Brier score what statisticians call a "strictly proper scoring rule." This technical term has a very practical meaning—you cannot game the system. If you're trying to minimize your Brier score, your best strategy is always to report your true beliefs. There's no clever manipulation where reporting something other than your genuine probability estimate improves your expected score.</p>
+
+<p>This property is far from obvious, and many seemingly reasonable scoring methods don't have it. Some metrics can be gamed by systematically over- or under-stating your confidence. The Brier score's mathematical structure eliminates these perverse incentives entirely.</p>
+
+<h2>Decomposing What Makes a Good Forecaster</h2>
+
+<p>In 1973, a statistician named Murphy showed that the Brier score can be broken down into three independent components. This decomposition reveals the distinct skills that separate good forecasters from bad ones.</p>
+
+<p><strong>Reliability</strong> measures calibration—when you say 70%, does the thing happen 70% of the time? A reliability score of zero means perfect calibration. Interestingly, this term is named opposite to its colloquial meaning: low reliability in the formula means high reliability in the everyday sense.</p>
+
+<p><strong>Resolution</strong> captures discrimination—can you tell the difference between situations where the event is likely versus unlikely? A forecaster who always predicts the base rate (say, "30% chance of rain" every single day if it historically rains 30% of days) has zero resolution. Even if they're technically calibrated, they're not providing any useful information about which specific days will be rainy. Resolution measures how much your forecasts vary and how appropriately that variation tracks with reality.</p>
+
+<p><strong>Uncertainty</strong> quantifies the inherent unpredictability in what you're forecasting. If an event happens 50% of the time, it's maximally uncertain, and even a perfect forecaster would have some Brier score just from this baseline randomness. If an event almost always or almost never happens, uncertainty is low.</p>
+
+<p>Your Brier score equals Reliability minus Resolution plus Uncertainty. Since you want a low score, you want low reliability (well-calibrated), high resolution (good discrimination), and you can't do anything about uncertainty.</p>
+
+<h2>The Skill Score: Measuring Improvement</h2>
+
+<p>Raw Brier scores are hard to interpret in isolation. Is 0.15 good? Depends entirely on what you're predicting.</p>
+
+<p>The Brier Skill Score solves this by comparing your performance to a baseline—typically the "climate" forecast, which just predicts the historical base rate every time. The formula converts your raw score into a percentage improvement over this naïve approach.</p>
+
+<p>A skill score of zero means you're no better than always guessing the historical average. A score of 100% means you're predicting perfectly. Negative scores mean you're somehow doing worse than the no-skill baseline—a humbling result that forces forecasters to confront when their models are actively harmful.</p>
+
+<p>There's a beautiful parallel to statistics here. The Brier Skill Score relates to the raw Brier score exactly the way that R-squared (the coefficient of determination) relates to mean squared error in regression. Both transform a raw error metric into an intuitive percentage of explained variation.</p>
+
+<h2>Where the Brier Score Falls Short</h2>
+
+<p>No metric is perfect, and the Brier score has important limitations.</p>
+
+<p>First, it struggles with rare events. If something happens only 1% of the time, predicting 1% probability constantly gives you an excellent Brier score of approximately 0.01—but you're providing almost no discrimination between the 1 time in 100 when it happens versus the 99 times it doesn't. Research by statistician David Wilks found that you need over 1,000 samples to properly evaluate high-skill forecasts of rare events.</p>
+
+<p>Second, and more subtly, the Brier score doesn't guarantee that correct predictions always beat incorrect ones. This seems like it should be a basic requirement! But consider a three-category prediction where you assign 60% to category A, 30% to B, and 10% to C. If the answer is C, your Brier score is actually worse than someone who assigned equal 33% probability to each category—even though you correctly identified B and C as less likely than the clueless forecaster did.</p>
+
+<p>This limitation led researchers Ahmadian and colleagues in 2024 to propose the Penalized Brier Score, which adds a fixed penalty whenever your most-likely category isn't the one that actually occurred. This ensures that being "correct" in the sense of your top prediction matching reality always helps your score.</p>
+
+<h2>Binary Versus Multi-Category Predictions</h2>
+
+<p>The simple Brier formula—squared difference between probability and outcome—works perfectly for binary predictions. Rain or no rain. Win or lose. True or false.</p>
+
+<p>But many real forecasting problems have multiple possible outcomes. Will the temperature be cold, normal, or warm? Which of five candidates will win an election? Brier's original 1950 formulation handles these cases by summing the squared differences across all categories. You're penalized for probability mass assigned to categories that didn't happen, and rewarded for probability mass assigned to the one that did.</p>
+
+<p>One important note: the original multi-category formula gives scores double those of the modern binary formula. A perfect binary Brier score is 0 and worst is 1, but in Brier's original multi-category version, the range is 0 to 2. This historical quirk occasionally causes confusion when comparing results across different implementations.</p>
+
+<p>The Brier score is not appropriate for ordinal predictions—things like rating satisfaction on a 1-5 scale or predicting whether something is small, medium, or large. For ordinal outcomes, predicting "large" when the answer was "medium" should be penalized less than predicting "small." The Brier score treats all wrong categories equally, which loses important information about how close you were to being right.</p>
+
+<h2>From Weather to Everything</h2>
+
+<p>Glenn Brier developed his score for meteorology, where evaluating probability forecasts is an everyday necessity. Weather prediction was arguably the first field where probabilistic forecasting became standard practice—nobody expects meteorologists to be certain, so they needed tools to measure uncertain predictions.</p>
+
+<p>But the score has spread far beyond weather. Machine learning researchers use it to evaluate probabilistic classifiers. Medical researchers apply it to diagnostic prediction models. Financial analysts assess probability estimates of market movements. Political forecasting tournaments like those on Metaculus and Good Judgment use Brier scores to rank forecasters and combine their predictions.</p>
+
+<p>The score's appeal is its universality. Whenever someone assigns probabilities to discrete outcomes, the Brier score provides a fair, manipulation-resistant way to keep track of who's actually good at it.</p>
+
+<h2>Calibration and the Art of Knowing What You Don't Know</h2>
+
+<p>Perhaps the deepest insight from studying Brier scores is that forecasting skill has two distinct components, and most people are much better at one than the other.</p>
+
+<p>The first component is knowledge—understanding enough about a situation to know which outcomes are more likely. The second is calibration—understanding the limits of your own understanding well enough to assign appropriate confidence levels.</p>
+
+<p>Many intelligent, knowledgeable people are terribly calibrated. They know a lot, so they assume they know more than they do. Their 70% predictions come true only 50% of the time. Their 90% predictions happen perhaps 70% of the time. They're consistently overconfident, and the Brier score exposes this mercilessly.</p>
+
+<p>Calibration turns out to be a trainable skill. Studies have found that people who receive feedback on their probability predictions—in the form of Brier scores or calibration curves—gradually learn to temper their overconfidence. The score serves not just as an evaluation metric but as a teaching tool.</p>
+
+<p>For anyone who wants to think more clearly about an uncertain world, the Brier score offers a concrete practice: make predictions, assign probabilities, track outcomes, and compute your score. The number that comes out is a measure of how well your mental models match reality. Lower is better. Perfect is zero. And the gap between where you are and zero is a map of everything you have left to learn.</p>
+      </div>
+
+      <footer class="wikipedia-footer">
+        <p class="source-link">
+          <a href="https://en.wikipedia.org/wiki/Brier_score" target="_blank" rel="noopener">
+            View original Wikipedia article &rarr;
+          </a>
+        </p>
+        <p class="rewrite-note">
+          This article has been rewritten from Wikipedia source material for enjoyable reading.
+          Content may have been condensed, restructured, or simplified.
+        </p>
+      </footer>
+
+      
+      <section class="related-articles">
+        <h2>Related Articles</h2>
+        <p class="related-intro">This deep dive was written in connection with these articles:</p>
+        <ul class="related-list">
+          
+      <li class="related-article-item">
+        <a href="../../article/00647956-3e40-4897-85c8-c4bab42bf046/index.html">
+          <strong>Suggest Questions For Metaculus/ACX Forecasting Contest</strong>
+        </a>
+        <span class="article-meta">
+          by Scott Alexander in Astral Codex Ten
+        </span>
+      </li>
+        </ul>
+      </section>
+    
+    </article>
+  
+  </main>
+</body>
+</html>
