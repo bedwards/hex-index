@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Multiple patterning - Hex Index</title>
+  <link rel="stylesheet" href="../../styles.css">
+</head>
+<body class="reading-mode">
+  <header class="reading-header">
+    <a href="../../index.html" class="back-link">&larr; Back to Library</a>
+  </header>
+  <main class="reading-content">
+    
+    <article class="wikipedia-page">
+      <header class="wikipedia-header">
+        <div class="type-badge">Wikipedia Deep Dive</div>
+        <h1>Multiple patterning</h1>
+        <div class="article-meta">
+          <span class="read-time">14 min read</span>
+        </div>
+      </header>
+
+      <div class="wikipedia-content">
+        I see that I need permission to create this directory. Let me output the HTML content directly for you:
+
+```html
+<p class="source-note">Based on <a href="https://en.wikipedia.org/wiki/Multiple_patterning">Wikipedia: Multiple patterning</a></p>
+
+<p>Making computer chips is like trying to write the entire Encyclopedia Britannica on a grain of rice—and then doing it billions of times over, with each letter perfectly formed and positioned. The problem is that light itself has become too blurry for the job.</p>
+
+<p>This is where multiple patterning comes in, one of the most ingenious workarounds in all of engineering. When you can't make a stencil fine enough to paint the patterns you need, you paint part of the pattern, let it dry, then come back and paint between the lines.</p>
+
+<h2>The Fundamental Problem</h2>
+
+<p>Computer chips are manufactured using photolithography, a process that works much like developing photographs in a darkroom. Light shines through a mask—essentially a very sophisticated stencil—and creates patterns on a silicon wafer coated with a light-sensitive material called photoresist. Wherever the light hits, the chemical properties change, and after washing, you're left with a pattern that can be etched into the chip.</p>
+
+<p>The catch is that light can only be focused so precisely. This isn't a matter of building better lenses or using more expensive equipment. It's physics. Light is a wave, and waves spread out. When you try to project two lines very close together, the light from each line bleeds into the other, and your sharp lines become an indistinct blur.</p>
+
+<p>Think of it like this: if you shine two flashlights at a wall and bring them closer and closer together, at some point you can no longer see two separate circles of light—just one bright blob. The same thing happens at the microscopic scale, except the "flashlights" are beams of carefully controlled light, and the distance between them has shrunk to billionths of a meter.</p>
+
+<p>For any optical system, there's a fundamental limit to how close together two features can be and still be distinguished from each other. This limit depends on the wavelength of light being used and a property called numerical aperture, which describes how much light the lens system can gather. When the pitch—the distance from the center of one feature to the center of the next—drops below this resolution limit, single-exposure lithography simply cannot produce the pattern.</p>
+
+<h2>The Double Patterning Solution</h2>
+
+<p>In 1983, two researchers named D.C. Flanders and N.N. Efremow demonstrated something remarkably simple: if you can't print two adjacent features in one shot, print every other feature first, then come back and print the ones in between.</p>
+
+<p>This is double patterning in its most basic form.</p>
+
+<p>Imagine you need to print a picket fence with slats spaced one inch apart, but your printer can only reliably produce slats two inches apart. No problem—print every other slat in your first pass, shift your paper over by one inch, and print again. Now you have slats one inch apart, even though each individual printing pass only handled the two-inch spacing.</p>
+
+<p>The semiconductor industry calls this approach "LELE"—Litho-Etch-Litho-Etch. You expose the first pattern, etch it into the underlying material, apply fresh photoresist, expose the second pattern, and etch again. The final result is a composite of both patterns, with twice the feature density that either individual exposure could achieve.</p>
+
+<p>This technique was adopted for manufacturing chips at the 20-nanometer and 14-nanometer technology nodes. The additional cost of extra exposures was accepted because only a handful of critical layers in each chip design actually needed this treatment—the layers where features were packed tightest.</p>
+
+<h2>Why It's More Complicated Than It Sounds</h2>
+
+<p>The conceptual simplicity of "print, etch, print again" masks enormous practical difficulties.</p>
+
+<p>The biggest challenge is alignment. When you expose the second pattern, it must line up precisely with the first. If the alignment is off by even a few nanometers, the features won't be evenly spaced. This creates what engineers call "edge placement errors"—the final features end up in slightly wrong positions, which can cause the chip to malfunction.</p>
+
+<p>Modern chip manufacturing requires alignment accuracy measured in single-digit nanometers. To put this in perspective, a human hair is about 80,000 nanometers wide. The alignment tolerance for advanced multiple patterning is roughly one ten-thousandth of that.</p>
+
+<p>There's also the question of what happens to the patterns themselves during processing. Each time you expose, develop, and etch, there are slight variations. The photoresist doesn't develop perfectly uniformly. The etching removes material at slightly different rates depending on local conditions. These variations accumulate, and when you're trying to create features only a few dozen atoms wide, even tiny imperfections become significant.</p>
+
+<h2>Sidewall Spacers: A Cleverer Approach</h2>
+
+<p>Because of the alignment challenges with LELE, the industry developed a more elegant technique called self-aligned double patterning, or SADP. Instead of relying on precise alignment between two separate exposures, this method creates its own alignment automatically.</p>
+
+<p>Here's how it works. You start by creating a set of lines using conventional lithography—let's say these lines are spaced 80 nanometers apart. Now you deposit a thin film over everything. This film coats the tops and sides of your lines uniformly. Then you etch downward, removing the film from all horizontal surfaces while leaving it on the vertical sidewalls of your original lines.</p>
+
+<p>What remains are spacers—thin films clinging to each side of your original features like bookends.</p>
+
+<p>Now for the clever part: you remove the original lines, leaving only the spacers behind. Since there were two spacers for every original line (one on each side), you've just doubled your pattern density. Features that were 80 nanometers apart are now 40 nanometers apart, and you never had to align two separate exposures. The spacing is built in—it's determined by the thickness of the deposited film, which can be controlled with atomic precision.</p>
+
+<p>Gurtej Singh Sandhu at Micron Technology pioneered this approach during the 2000s, and it led to the development of 30-nanometer class flash memory. The technique has since become essential for memory chips worldwide.</p>
+
+<h2>Going Beyond Double</h2>
+
+<p>If double patterning doubles your feature density, what happens if you do it twice?</p>
+
+<p>You get quadruple patterning.</p>
+
+<p>Self-aligned quadruple patterning (SAQP) applies the sidewall spacer technique twice in succession. Start with lines at your lithographic limit, form spacers to double the density, then use those new features as the starting point for another round of spacer formation. Each iteration halves the pitch.</p>
+
+<p>With immersion lithography capable of printing features at around 76 nanometers minimum pitch, double patterning brings you to 38 nanometers. Quadruple patterning reaches 19 nanometers. This is how some of the most advanced memory chips in the world are manufactured today.</p>
+
+<p>The math suggests you could keep going—octuple patterning, sixteen-fold patterning—but each iteration adds complexity, cost, and opportunities for errors to accumulate. There are practical limits to how many times you can run through the process.</p>
+
+<h2>The Line-Cutting Problem</h2>
+
+<p>Here's something counterintuitive: even when you can print lines at your target pitch, you might still need multiple patterning.</p>
+
+<p>The issue is that real chip patterns aren't just infinite parallel lines. They need to turn corners. They need to end. They need breaks and gaps. And all of these deviations from simple stripes cause problems.</p>
+
+<p>When light interferes to create a pattern of parallel lines, it does so because the spacing matches a particular arrangement of light waves—constructive interference where you want bright spots, destructive interference where you want dark. But line ends and corners don't fit this neat pattern. The light doesn't simply stop at the edge of a feature; it diffracts and spreads, rounding corners and pulling back line tips.</p>
+
+<p>Intel discovered this at their 45-nanometer technology node, with a gate pitch of 160 nanometers. They could print the lines themselves just fine, but getting crisp line endings required a separate mask exposure dedicated solely to cutting the lines where needed. This "cut mask" approach has become standard practice.</p>
+
+<p>The line cut shapes themselves present challenges. Because they're small features, they too suffer from rounding effects. If your cut isn't precise, you might leave a bridge of material connecting two features that should be separate, or cut too deeply and sever a line that should remain continuous.</p>
+
+<h2>The Illumination Incompatibility Problem</h2>
+
+<p>There's yet another reason multiple patterning becomes necessary, and it's perhaps the most subtle.</p>
+
+<p>To print features near the resolution limit, lithography systems use specialized illumination arrangements. For horizontal lines, you want light coming from above and below—what's called North-South dipole illumination. For vertical lines, you need light from left and right—East-West dipole illumination.</p>
+
+<p>The problem arises when your chip design contains both horizontal and vertical features at tight pitches. If you use illumination optimized for horizontal lines, the vertical lines come out poorly. Use illumination optimized for vertical lines, and the horizontal ones suffer. There's no single illumination that works well for both.</p>
+
+<p>The solution is to print horizontal and vertical features in separate exposures, each with its optimized illumination.</p>
+
+<p>This situation extends to more complex patterns. A regular grid of holes requires one type of illumination. The same grid rotated 45 degrees—creating a checkerboard pattern—requires a completely different illumination. A triangular or hexagonal arrangement of holes requires yet another approach. If your chip design incorporates multiple such patterns, you may need separate exposures for each.</p>
+
+<p>Dynamic random-access memory (DRAM) chips routinely face this challenge. The regular memory array uses one illumination condition, while the peripheral circuits—the logic that controls reading and writing—need something different. These must be exposed separately even when the individual feature sizes wouldn't otherwise require multiple patterning.</p>
+
+<h2>The Rise of Extreme Ultraviolet</h2>
+
+<p>Multiple patterning was originally developed as a way to extend the life of existing lithography equipment. The wavelength of light used in advanced photolithography has been stuck at 193 nanometers for over two decades—an eternity in an industry that once saw regular wavelength reductions.</p>
+
+<p>The next major wavelength jump is to extreme ultraviolet (EUV) lithography, which uses light at 13.5 nanometers—more than fourteen times shorter than the previous generation. This should allow much finer features without multiple patterning.</p>
+
+<p>Except it doesn't, entirely.</p>
+
+<p>EUV introduces its own challenges. The light is so energetic that very few photons strike each region of the chip, leading to statistical noise—what engineers call stochastic effects. A region might receive slightly more or fewer photons than expected purely by chance, leading to random variations in feature shape. At very fine pitches, this randomness becomes significant enough to cause defects.</p>
+
+<p>Consequently, even EUV requires double patterning for the most aggressive features. At the technology node targeted for seven nanometers, with metal lines 18 nanometers wide, the physics of EUV single patterning isn't sufficient to achieve line-end gaps smaller than about 25 nanometers. A second cut exposure remains necessary.</p>
+
+<p>Multiple patterning didn't disappear with EUV. It just moved to finer features.</p>
+
+<h2>The Memory Connection</h2>
+
+<p>Multiple patterning found its first large-scale application in memory chips, and memory has continued to drive its development.</p>
+
+<p>Flash memory—the kind in your phone and solid-state drives—stores data by trapping electrons in tiny floating gates. The smaller you can make these gates, the more data you can store in the same chip area. Memory manufacturers have been among the most aggressive adopters of multiple patterning because their highly regular, repetitive patterns are ideally suited to the technique.</p>
+
+<p>DRAM faces different challenges. Its memory cells contain both very dense storage arrays and complex peripheral logic. The array might use dipole illumination for maximum density while the periphery needs annular illumination for its different pattern requirements. Multiple patterning in DRAM often arises from these illumination incompatibilities rather than pure pitch limitations.</p>
+
+<p>DRAM also uses a characteristic "brick pattern" for defining active regions—rectangular shapes staggered like bricks in a wall. This pattern inherently contains two different pitches: the narrow spacing between adjacent bricks and the wider spacing where bricks end and gaps appear. When the narrow pitch drops below a certain threshold, these two pitches cannot be imaged simultaneously with any illumination. Selective etching combined with self-aligned patterning becomes the only practical solution.</p>
+
+<h2>The Pitch Walking Problem</h2>
+
+<p>Self-aligned patterning has its own failure modes. The most troublesome is called pitch walking.</p>
+
+<p>Remember that spacer patterning doubles density by creating two features—one on each side—for every original line. In theory, these two features are perfectly symmetric. In practice, the original line might be slightly too wide or too narrow, or the spacers might not form identically on both sides.</p>
+
+<p>When you remove the original material, you're left with spacers at positions that depend on where that original line was. If the original line was offset or mis-sized, the spacers end up at the wrong positions. The result is alternating pitches—tight spacing followed by loose spacing followed by tight spacing—rather than the uniform pitch you wanted.</p>
+
+<p>After multiple rounds of patterning, these errors can compound. A slight variation in the first step propagates through subsequent steps, potentially amplified each time.</p>
+
+<p>Managing pitch walking has become a major focus of process development. Every step must be controlled with extraordinary precision, and metrology—the science of measurement—has become as critical as the patterning itself.</p>
+
+<h2>Why It Matters for the Future</h2>
+
+<p>The trajectory of computing power has depended on continually shrinking transistors. More transistors in the same area means more capability for the same cost. This relentless shrinking has continued for over fifty years.</p>
+
+<p>Multiple patterning has been essential to keeping this progression going. Without it, the industry would have hit fundamental limits years ago. The technique has allowed manufacturers to continue using proven lithography systems while pushing feature sizes far beyond what any single exposure could achieve.</p>
+
+<p>But multiple patterning adds cost. Each additional exposure requires time, materials, and meticulous quality control. Each additional processing step introduces opportunities for defects. At some point, the cost of continuing to add patterning steps exceeds the benefit of smaller features.</p>
+
+<p>This economic reality is one reason why leading chip manufacturers have invested billions in EUV lithography. Even though EUV doesn't eliminate multiple patterning entirely, it reduces the number of steps required. A process that might need quadruple patterning with older equipment might only need double patterning with EUV.</p>
+
+<p>Looking forward, researchers are exploring various ways to reduce multiple patterning requirements. Self-aligned techniques continue to improve. New photoresist materials aim to reduce the stochastic effects that plague EUV. Novel illumination approaches try to maximize the range of features that can be printed in a single exposure.</p>
+
+<p>Yet for the foreseeable future, multiple patterning remains indispensable. It represents one of the most remarkable examples of engineering ingenuity—not a breakthrough that makes something newly possible, but a collection of clever techniques that keep squeezing capability from existing approaches, pushing physical limits one careful step at a time.</p>
+
+<h2>The Broader Lesson</h2>
+
+<p>Multiple patterning is fundamentally about working around constraints that cannot be directly overcome. Light diffracts. Waves interfere. Physics imposes hard limits.</p>
+
+<p>Rather than waiting for revolutionary new technology—which in the case of EUV took decades to commercialize—engineers developed incremental workarounds. Print half the pattern, then the other half. Use one exposure for horizontal features and another for vertical. Let chemistry create precision that optics cannot achieve directly.</p>
+
+<p>This approach exemplifies a pattern seen throughout engineering history. When a fundamental limit is reached, innovation often comes not from breaking through the limit but from finding clever ways around it. The semiconductor industry's multiple patterning era demonstrates that remarkable progress can continue even when the most obvious path forward is blocked.</p>
+
+<p>The chips powering the device you're using to read this were almost certainly manufactured using some form of multiple patterning. Behind every app, every search result, every video stream lies this intricate dance of light, chemistry, and physics—a dance performed billions of times on each chip, with nanometer precision, to create the computing infrastructure of modern life.</p>
+```
+
+The article is ready. I couldn't write it directly to the file system because the directory creation was blocked by security permissions. You can create the directory `docs/wikipedia/multiple-patterning/` and save the HTML content above to `index.html` within it.
+      </div>
+
+      <footer class="wikipedia-footer">
+        <p class="source-link">
+          <a href="https://en.wikipedia.org/wiki/Multiple_patterning" target="_blank" rel="noopener">
+            View original Wikipedia article &rarr;
+          </a>
+        </p>
+        <p class="rewrite-note">
+          This article has been rewritten from Wikipedia source material for enjoyable reading.
+          Content may have been condensed, restructured, or simplified.
+        </p>
+      </footer>
+
+      
+      <section class="related-articles">
+        <h2>Related Articles</h2>
+        <p class="related-intro">This deep dive was written in connection with these articles:</p>
+        <ul class="related-list">
+          
+      <li class="related-article-item">
+        <a href="../../article/9016a7db-36ae-4e9c-be34-3d152bd2bcf0/index.html">
+          <strong>How to Kill 2 Monopolies with 1 Tool</strong>
+        </a>
+        <span class="article-meta">
+          by Dylan Patel in SemiAnalysis
+        </span>
+      </li>
+        </ul>
+      </section>
+    
+    </article>
+  
+  </main>
+</body>
+</html>

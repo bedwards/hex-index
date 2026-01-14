@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AlphaFold - Hex Index</title>
+  <link rel="stylesheet" href="../../styles.css">
+</head>
+<body class="reading-mode">
+  <header class="reading-header">
+    <a href="../../index.html" class="back-link">&larr; Back to Library</a>
+  </header>
+  <main class="reading-content">
+    
+    <article class="wikipedia-page">
+      <header class="wikipedia-header">
+        <div class="type-badge">Wikipedia Deep Dive</div>
+        <h1>AlphaFold</h1>
+        <div class="article-meta">
+          <span class="read-time">14 min read</span>
+        </div>
+      </header>
+
+      <div class="wikipedia-content">
+        <p class="source-note">Based on <a href="https://en.wikipedia.org/wiki/AlphaFold">Wikipedia: AlphaFold</a></p>
+
+<p>In December 2020, the field of structural biology experienced something close to a collective gasp. An artificial intelligence system had just achieved what researchers had been struggling toward for half a century: it could look at a string of amino acids—the chemical building blocks of proteins—and predict, with near-experimental accuracy, how that chain would twist and fold into its final three-dimensional shape. The system was called AlphaFold, and within four years, its creators would win the Nobel Prize.</p>
+
+<p>Why does this matter? Because shape is everything in biology.</p>
+
+<h2>The Folding Problem</h2>
+
+<p>Proteins are the workhorses of living cells. They're not just passive structural materials—they're molecular machines that catalyze chemical reactions, carry signals, fight infections, and perform thousands of other tasks. And a protein's function depends almost entirely on its shape.</p>
+
+<p>Think of a protein like a key. The amino acid sequence—the order of the twenty different types of amino acids strung together—is like the pattern of ridges and valleys cut into the key's blade. But a key sitting in a drawer is useless. What matters is how those ridges interact with the pins inside a lock. For proteins, the "lock" is another molecule, and the interaction depends on the protein's three-dimensional structure.</p>
+
+<p>The challenge is that proteins don't come pre-folded. When a cell manufactures a protein, it produces a long, floppy chain of amino acids. That chain then spontaneously crumples and twists into a specific shape—usually within milliseconds. This happens because certain amino acids attract or repel each other, some prefer to be near water while others hide from it, and the whole chain settles into whatever arrangement minimizes its energy.</p>
+
+<p>The physicist Richard Feynman once noted that everything in nature is just atoms following simple rules. The protein folding problem is a perfect example: we know exactly what the rules are. We understand the physics of chemical bonds, the thermodynamics of water, the electrostatics of charged amino acids. In principle, you could calculate how any protein would fold by just simulating all the atoms and waiting for them to find their lowest energy state.</p>
+
+<p>In practice, this is computationally impossible.</p>
+
+<h2>Why Computers Couldn't Crack It</h2>
+
+<p>A typical protein contains hundreds of amino acids, and each amino acid can rotate around multiple bonds. The number of possible configurations for even a small protein is astronomical—far more than the number of atoms in the universe. In the early 1960s, the molecular biologist Cyrus Levinthal pointed out that if a protein randomly sampled every possible configuration, even at a rate of trillions per second, it would take longer than the age of the universe to find the right one.</p>
+
+<p>Yet proteins fold in milliseconds. This apparent paradox, known as Levinthal's paradox, suggested that proteins must take shortcuts—following specific pathways to their final structure rather than searching randomly. But understanding these pathways proved extraordinarily difficult.</p>
+
+<p>For decades, the only reliable way to determine a protein's structure was to do it experimentally. Scientists would grow crystals of the protein, blast them with X-rays, and use the diffraction patterns to work backward to the atomic positions. This technique, called X-ray crystallography, is painstaking work. Some proteins resist crystallization entirely. Others take years of patient effort to crack. A related technique called cryo-electron microscopy can handle larger protein complexes by flash-freezing them and imaging with electron beams. Nuclear magnetic resonance spectroscopy offers yet another approach, using magnetic fields to probe atomic environments.</p>
+
+<p>These experimental methods have given us the structures of about 170,000 proteins over the past sixty years—a monumental achievement representing countless PhD theses and Nobel Prizes. But there are over 200 million known proteins across all forms of life. At the rate experiments were going, it would take thousands of years to characterize them all.</p>
+
+<h2>Enter the Machines</h2>
+
+<p>DeepMind is an artificial intelligence company that Google acquired in 2014 for approximately 500 million dollars. The company had made headlines by creating systems that could play video games at superhuman levels, learning entirely from trial and error. In 2016, their program AlphaGo defeated the world champion at Go, an ancient board game so complex that experts had predicted computers wouldn't master it for another decade.</p>
+
+<p>After Go, DeepMind's leadership looked for problems where their AI techniques might create genuine scientific impact. Protein structure prediction was an obvious candidate. It was a well-defined problem with clear success metrics, abundant training data, and enormous practical importance. If they could solve it, they would accelerate drug discovery, disease research, and our basic understanding of life.</p>
+
+<p>The scientific community had been trying to predict protein structures computationally since the 1980s. To measure progress, researchers established a competition called the Critical Assessment of Structure Prediction, or CASP. Every two years, organizers would release the amino acid sequences of proteins whose structures had been experimentally determined but not yet published. Teams around the world would submit their best predictions, which would then be scored against the hidden experimental answers.</p>
+
+<p>For twenty years, progress had been glacial. On CASP's hundred-point global distance test—a measure of how closely a predicted structure matches the true one—the best methods scored around 40 for the hardest proteins. Anything above 90 was considered essentially solved.</p>
+
+<p>In 2018, AlphaFold entered CASP for the first time. It won decisively.</p>
+
+<h2>The First Victory</h2>
+
+<p>AlphaFold 1 didn't just beat the competition; it achieved scores that would have seemed impossible a few years earlier. For the most difficult protein targets—those with no similar known structures to use as templates—it achieved a median score of 58.9, compared to 52.5 for the second-place team. It gave the best prediction for 25 out of 43 proteins in the hardest category.</p>
+
+<p>What made AlphaFold different was its approach to using evolutionary information. When you look at the same protein across different species, you notice something interesting: certain amino acids tend to change together. If position 42 mutates from one amino acid to another, position 187 often mutates as well. These correlated changes suggest that those positions are physically close to each other in the folded structure—if they weren't interacting, there would be no evolutionary pressure for them to change in tandem.</p>
+
+<p>Scientists had been exploiting these correlations for years, building "contact maps" that predicted which amino acids sat near each other. AlphaFold 1 went further. Instead of just predicting contacts, it estimated probability distributions for the actual distances between amino acid pairs. It then used neural networks—the same type of machine learning systems that recognize faces in photographs—to refine these distance estimates and convert them into full three-dimensional structures.</p>
+
+<p>DeepMind trained the system on the 170,000 protein structures that experimentalists had painstakingly determined over decades. All that human effort became the curriculum for a machine that could learn patterns no human could consciously articulate.</p>
+
+<p>But AlphaFold 1 was just the beginning.</p>
+
+<h2>The Breakthrough</h2>
+
+<p>In November 2020, AlphaFold 2 competed in CASP14. The results were stunning. The program achieved a median score of 92.4 across all targets. For context, this is approximately the accuracy of experimental techniques themselves—the "noise floor" below which different experiments on the same protein start to disagree with each other.</p>
+
+<p>AlphaFold 2 made the best prediction for 88 out of 97 targets. On the most difficult proteins, it achieved a median score of 87. It correctly predicted structures that had stumped experimental teams for a decade.</p>
+
+<p>The structural biology community was stunned. Venki Ramakrishnan, a Nobel laureate who had spent his career determining protein structures experimentally, called it "a stunning advance on the protein folding problem," adding that "it has occurred decades before many people in the field would have predicted."</p>
+
+<p>What had changed between 2018 and 2020? Almost everything.</p>
+
+<h2>How AlphaFold 2 Works</h2>
+
+<p>The original AlphaFold used separate components: one module to predict distances, another to convert distances into structures, another to apply physical constraints. AlphaFold 2 replaced this piecemeal approach with an integrated system that could be trained end-to-end, meaning it could learn all its components simultaneously rather than optimizing each separately.</p>
+
+<p>At the heart of AlphaFold 2 is a type of neural network called a transformer. Transformers had revolutionized natural language processing—they're the technology behind systems that can translate languages, answer questions, and generate human-like text. Their key innovation is something called the "attention mechanism," which allows the network to learn which parts of its input are relevant to which parts of its output.</p>
+
+<p>In AlphaFold 2, transformers learn relationships between every pair of amino acids in a protein. The system maintains two arrays of information: one tracking relationships between amino acid positions and the sequences in a large alignment of related proteins, and another tracking relationships between pairs of amino acid positions in the protein being predicted. These arrays are iteratively refined, with information flowing back and forth between them.</p>
+
+<p>One researcher described the process as similar to assembling a jigsaw puzzle: first connecting pieces in small clumps, then searching for ways to join the clumps into a larger whole. The attention mechanism learns to focus on the amino acids that matter for predicting each structural feature, filtering out the noise.</p>
+
+<p>The system also uses a clever training trick called recycling. Instead of predicting the structure in one shot, it makes an initial guess, then feeds that guess back in as additional input and tries again. Each iteration refines the prediction. In one example DeepMind presented, the first iteration achieved a rough topology with many physically impossible bond angles; by the eighth iteration, these violations had essentially disappeared.</p>
+
+<h2>The Database</h2>
+
+<p>Winning CASP was impressive, but DeepMind had a bigger goal: making these predictions available to everyone.</p>
+
+<p>In July 2021, the company published the AlphaFold 2 paper in Nature and released the source code as open-source software. More importantly, they launched the AlphaFold Protein Structure Database in partnership with the European Bioinformatics Institute. The database initially contained predicted structures for nearly every protein in the human body—about 20,000 proteins. By the end of 2022, it had expanded to include predictions for almost every known protein across all species: over 200 million structures.</p>
+
+<p>To put this in perspective: in sixty years, experimental techniques had determined 170,000 structures. AlphaFold predicted 200 million in about eighteen months.</p>
+
+<p>The database has been widely used. As of late 2025, the original AlphaFold 2 paper has been cited nearly 43,000 times—an extraordinary number that reflects how fundamentally the tool has changed how biologists work. Researchers studying diseases can now instantly access predicted structures for proteins they're investigating, instead of spending years trying to crystallize them.</p>
+
+<h2>The Next Generation</h2>
+
+<p>AlphaFold 2 had one significant limitation: it could only predict single protein chains. But proteins rarely work alone. In living cells, they bind to other proteins, to DNA and RNA, to small molecules and metal ions. Understanding these complexes is crucial for drug development, since most drugs work by binding to proteins and disrupting their interactions.</p>
+
+<p>In October 2021, DeepMind released AlphaFold-Multimer, an update that could predict protein complexes—multiple protein chains interacting with each other. The company reported success about 70 percent of the time at accurately predicting protein-protein interactions.</p>
+
+<p>Then in May 2024, AlphaFold 3 arrived. This version could predict not just protein complexes, but their interactions with DNA, RNA, and various small molecules. It showed at least a 50 percent improvement in accuracy for predicting how proteins interact with other types of molecules compared to previous methods.</p>
+
+<p>AlphaFold 3 introduced a new deep learning architecture called the Pairformer, inspired by the transformer but simplified. More dramatically, it incorporated a diffusion model for generating final structures. Diffusion models had recently revolutionized image generation—they're the technology behind systems that can create photorealistic images from text descriptions. AlphaFold 3 applies similar principles to molecular structures: starting from a random cloud of atoms and iteratively refining their positions until a coherent structure emerges.</p>
+
+<h2>What It Hasn't Solved</h2>
+
+<p>For all its achievements, AlphaFold has not actually "solved" the protein folding problem in the deepest sense.</p>
+
+<p>It's important to distinguish between two related but different questions. The first is: given an amino acid sequence, what is the final folded structure? This is the structure prediction problem, and AlphaFold has essentially solved it for most proteins. The second is: how does the folding process actually happen? What pathway does the protein chain follow as it crumples from a floppy string into its final shape? What are the physical rules that govern this process?</p>
+
+<p>AlphaFold doesn't answer the second question. It's a remarkably powerful prediction machine, but it doesn't reveal the underlying mechanism. It's like having a system that can tell you what someone will look like as an adult from their baby photo, without understanding anything about human development.</p>
+
+<p>Some researchers have also noted that AlphaFold's predictions aren't always accurate enough for certain applications. About a third of its predictions at CASP14 fell short of the accuracy needed for detailed biochemical work. The system struggles with proteins that adopt multiple shapes depending on their environment, with regions that are inherently flexible, and with unusual structural features it hasn't seen in training data.</p>
+
+<p>There's a broader philosophical point here too. AlphaFold succeeds because it learned patterns from the 170,000 structures that experimentalists determined over decades. Without that painstaking experimental work—all those crystallography labs, all those late nights coaxing proteins to form crystals—there would have been nothing for the AI to learn from. The machine learning revolution in biology is built on a foundation of traditional science.</p>
+
+<h2>Recognition</h2>
+
+<p>In October 2024, Demis Hassabis and John Jumper of Google DeepMind received the Nobel Prize in Chemistry for their work on AlphaFold. They shared the prize with David Baker of the University of Washington, who had pioneered computational methods for designing entirely new proteins that don't exist in nature.</p>
+
+<p>The Nobel committee's decision was notable for several reasons. It recognized work that was only four years old—an unusually short time for the traditionally conservative prize. It honored a technological achievement as much as a scientific discovery. And it gave equal recognition to AI-based structure prediction and the related field of protein design, suggesting that the committee saw these as complementary approaches to the same fundamental challenge.</p>
+
+<p>Hassabis and Jumper had already collected the Breakthrough Prize in Life Sciences and the Albert Lasker Award for Basic Medical Research in 2023, both prestigious honors that often precede Nobel recognition. But the Nobel itself confirmed what the scientific community already knew: AlphaFold had fundamentally changed the field.</p>
+
+<h2>What Comes Next</h2>
+
+<p>The immediate impact of AlphaFold has been to democratize structural biology. Researchers who previously couldn't afford years of crystallography work can now get predicted structures instantly. Drug companies are using AlphaFold predictions to identify targets and design molecules that might bind to them. Scientists studying genetic diseases can see immediately how mutations might disrupt protein structure and function.</p>
+
+<p>But perhaps the deeper impact is what AlphaFold represents for science more broadly. It demonstrated that machine learning, trained on carefully accumulated human knowledge, can solve problems that had resisted direct attack for decades. The implications extend far beyond proteins.</p>
+
+<p>DeepMind has already applied similar approaches to other scientific challenges. Their GNoME system predicted millions of new stable materials. Their AlphaGeometry system can solve International Mathematical Olympiad geometry problems. The pattern is clear: wherever there's abundant training data and a well-defined prediction task, these methods might work.</p>
+
+<p>Of course, most important scientific questions aren't like this. They don't come with 170,000 solved examples to learn from. The hardest problems in science require generating entirely new knowledge, not just learning patterns from existing data. AlphaFold's creators would be the first to acknowledge this limitation.</p>
+
+<p>Still, AlphaFold has given biology a powerful new tool. Sixty years of experimental work became the curriculum for a machine that can now do in seconds what used to take years. That machine can't tell us how proteins fold, but it can tell us what they fold into—and for many purposes, that's exactly what we need.</p>
+
+<p>The proteins themselves, of course, don't care. They fold the same way they always have, following rules written into the physics of atoms three billion years before any human tried to understand them. We're just getting better at reading the language.</p>
+      </div>
+
+      <footer class="wikipedia-footer">
+        <p class="source-link">
+          <a href="https://en.wikipedia.org/wiki/AlphaFold" target="_blank" rel="noopener">
+            View original Wikipedia article &rarr;
+          </a>
+        </p>
+        <p class="rewrite-note">
+          This article has been rewritten from Wikipedia source material for enjoyable reading.
+          Content may have been condensed, restructured, or simplified.
+        </p>
+      </footer>
+
+      
+      <section class="related-articles">
+        <h2>Related Articles</h2>
+        <p class="related-intro">This deep dive was written in connection with these articles:</p>
+        <ul class="related-list">
+          
+      <li class="related-article-item">
+        <a href="../../article/407ee72b-ef5b-40ab-99f0-962e4db081a3/index.html">
+          <strong>Will AI solve medicine?</strong>
+        </a>
+        <span class="article-meta">
+          by Various in Works in Progress
+        </span>
+      </li>
+        </ul>
+      </section>
+    
+    </article>
+  
+  </main>
+</body>
+</html>

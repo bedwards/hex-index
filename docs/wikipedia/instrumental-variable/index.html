@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Instrumental variable - Hex Index</title>
+  <link rel="stylesheet" href="../../styles.css">
+</head>
+<body class="reading-mode">
+  <header class="reading-header">
+    <a href="../../index.html" class="back-link">&larr; Back to Library</a>
+  </header>
+  <main class="reading-content">
+    
+    <article class="wikipedia-page">
+      <header class="wikipedia-header">
+        <div class="type-badge">Wikipedia Deep Dive</div>
+        <h1>Instrumental variable</h1>
+        <div class="article-meta">
+          <span class="read-time">13 min read</span>
+        </div>
+      </header>
+
+      <div class="wikipedia-content">
+        I've written the rewritten article. Here it is:
+
+---
+
+<p class="source-note">Based on <a href="https://en.wikipedia.org/wiki/Instrumental_variables_estimation">Wikipedia: Instrumental variable</a></p>
+
+<p>Here's a puzzle that has kept economists and epidemiologists awake at night: How do you prove that smoking causes poor health when you can't ethically force people to smoke? You can observe that smokers tend to be less healthy than non-smokers, but that correlation might be misleading. Perhaps depression causes both smoking and poor health. Perhaps people who are already unwell turn to cigarettes for stress relief. The arrow of causation could point in any direction, or there might be hidden forces pushing both variables around simultaneously.</p>
+
+<p>This is where instrumental variables come in—one of the cleverest statistical tricks ever devised for extracting causal knowledge from messy observational data.</p>
+
+<h2>The Core Problem: Correlation Isn't Causation (But We Need Causation)</h2>
+
+<p>Standard statistical techniques like ordinary least squares regression have a dirty secret: they assume that the things you're measuring aren't tangled up with hidden factors you haven't measured. In the jargon, they assume your explanatory variables are "exogenous"—determined outside the system you're studying, not contaminated by the same forces that affect your outcome.</p>
+
+<p>But real-world data almost never works this way.</p>
+
+<p>Consider studying how education affects earnings. People with more education tend to earn more, but is that because education itself increases productivity? Or because the same underlying traits—intelligence, family wealth, ambition—that lead to more education also lead independently to higher earnings? If it's the latter, giving someone more education wouldn't actually change their earnings much. The regression would be telling you a story about correlation, not causation.</p>
+
+<p>This problem has three main sources. First, reverse causation: maybe high earnings allow people to pursue more education, not the other way around. Second, omitted variables: something you haven't measured (like innate ability) affects both education and earnings. Third, measurement error: your data on education might be imprecise in ways that systematically relate to earnings.</p>
+
+<p>When any of these problems exist, statisticians say the explanatory variable is "endogenous"—it's determined inside the system, entangled with unobserved factors. And when you have endogeneity, ordinary regression gives you biased answers. Not slightly wrong answers. Fundamentally misleading answers.</p>
+
+<h2>The Brilliant Workaround</h2>
+
+<p>An instrumental variable is a kind of back door into causation. The logic is beautifully indirect.</p>
+
+<p>Suppose you want to know whether X causes Y, but X is contaminated by hidden factors that also affect Y. If you can find a third variable Z that affects X but has no direct effect on Y—and isn't correlated with those hidden confounders—then you can use Z to isolate the causal effect of X on Y.</p>
+
+<p>Think of it this way: Z pushes X around, but Z has no other connection to Y except through X. So if you see that changes in Z are associated with changes in Y, that association must be flowing through X. You've found a clean channel of variation in X that isn't contaminated by the confounders.</p>
+
+<p>The smoking example makes this concrete. Tobacco taxes vary across different states and over time. Higher taxes increase cigarette prices, which reduces smoking. But tobacco taxes probably don't affect health through any channel except smoking—governments don't set tobacco taxes based on the current health of their citizens, and there's no reason taxes would directly influence health outcomes.</p>
+
+<p>So tobacco taxes become an instrument. If states with higher tobacco taxes have healthier populations, and we know those taxes only affect health by reducing smoking, then we've found evidence that smoking itself causes poor health.</p>
+
+<h2>Two Rules for a Valid Instrument</h2>
+
+<p>For an instrument to work, it must satisfy two conditions, and both must hold simultaneously.</p>
+
+<p>First, relevance: the instrument must actually be correlated with the problematic explanatory variable. If tobacco taxes didn't affect smoking rates, they'd be useless as an instrument. When this correlation is strong, statisticians say the instrument has a "strong first stage." When it's weak, everything falls apart—your estimates become wildly imprecise and potentially misleading.</p>
+
+<p>Second, the exclusion restriction: the instrument must affect the outcome only through its effect on the explanatory variable. If tobacco taxes somehow affected health through some other pathway—say, if high-tax states also happened to have better healthcare systems, and taxes were set based on healthcare quality—then the instrument would be invalid. The whole logic depends on the instrument having no independent path to the outcome.</p>
+
+<p>The catch? The exclusion restriction can never be tested directly from the data. You have to argue for it on theoretical grounds. This is what makes instrumental variable research part science, part persuasion. The researcher must convince you that their instrument really does satisfy these conditions.</p>
+
+<h2>The Butter Problem: Where It All Began</h2>
+
+<p>The first documented use of instrumental variables appeared in 1928, in a book by Philip G. Wright about the market for vegetable and animal oils. Wright was trying to do something that sounds simple: estimate the supply and demand curves for butter.</p>
+
+<p>Economics textbooks show supply and demand curves as neat intersecting lines, but Wright faced a problem when he looked at actual data. He had observations on butter prices and quantities sold across different times and places. But each observation reflected a point where supply and demand happened to intersect under particular market conditions. The data didn't trace out either curve—it formed a scattered cloud.</p>
+
+<p>The fundamental difficulty was that price affected both supply and demand simultaneously. High prices encouraged farmers to produce more butter (moving along the supply curve) while discouraging consumers from buying (moving along the demand curve). The observed data was a jumble of both effects.</p>
+
+<p>Wright's insight was that he needed something that shifted only one curve. After considerable thought, he settled on rainfall. Rainfall affected grass production, which affected how much milk cows produced, which affected butter supply. But rainfall didn't affect how much butter people wanted to buy—consumers don't check the weather before deciding how much to spread on their toast.</p>
+
+<p>By using rainfall as an instrument, Wright could isolate movements along the demand curve. When rainfall increased supply, prices fell and quantity increased. The relationship between these rainfall-induced price changes and quantity changes traced out the demand curve.</p>
+
+<h2>From Butter to Formal Theory</h2>
+
+<p>Wright's practical insight lay dormant for nearly two decades before Norwegian statistician Olav Reiersøl gave the method its name and formal mathematical foundation in his 1945 dissertation. Reiersøl was working on a related problem called errors-in-variables models—situations where your measurements of key variables are contaminated by noise—and realized that Wright's technique addressed this problem elegantly.</p>
+
+<p>The formal machinery developed over the following decades. In 2000, the computer scientist and philosopher Judea Pearl provided rigorous definitions using the language of causal graphs and counterfactuals. His work clarified exactly what assumptions you need for instrumental variables to work and gave researchers visual tools to check whether proposed instruments were valid.</p>
+
+<h2>The Tutoring Example: Seeing Instruments Visually</h2>
+
+<p>Suppose a university wants to know whether its tutoring program improves student grades. The obvious approach—comparing GPAs of students who attend tutoring with those who don't—suffers from severe selection bias. Students who seek out tutoring might be either more motivated (which would independently improve their grades) or more struggling (which would independently lower their grades). The tutoring variable is hopelessly entangled with unobserved student characteristics.</p>
+
+<p>Now suppose the university assigns students to dormitories randomly. Some dorms happen to be close to the tutoring center; others are far away. Proximity to the tutoring center affects whether students attend—it's easier to go when you live nearby—but proximity itself shouldn't directly affect grades. Students aren't assigned to nearby dorms because they're better or worse students.</p>
+
+<p>This makes proximity a candidate instrument. It's relevant (proximity affects tutoring attendance) and plausibly satisfies the exclusion restriction (proximity only affects grades through its effect on tutoring attendance, not directly).</p>
+
+<p>But there's a wrinkle. What if students who live closer to the tutoring center also live closer to the library? And what if library hours affect grades independently of tutoring? Then proximity would have two channels to grades—through tutoring and through library use—violating the exclusion restriction.</p>
+
+<p>The solution is to include library hours as a control variable. Conditional on library hours, proximity affects grades only through tutoring. The instrument becomes valid once you account for this additional pathway.</p>
+
+<p>This kind of reasoning—tracing out paths and looking for violations of the exclusion restriction—is what makes instrumental variable research both intellectually demanding and deeply satisfying when done well.</p>
+
+<h2>How the Estimation Actually Works</h2>
+
+<p>The intuition behind instrumental variable estimation is elegant. In ordinary regression, you're essentially asking: "When X changes, how much does Y change?" But when X is endogenous, some of its variation is contaminated by confounders, so this question gives misleading answers.</p>
+
+<p>With an instrument Z, you instead ask: "When Z changes, how much does X change? And when Z changes, how much does Y change?" By taking the ratio of these two relationships, you isolate the part of X's variation that comes from Z—the clean, uncontaminated variation—and see how Y responds to that specific part.</p>
+
+<p>The most common estimation approach is called two-stage least squares, which does exactly what its name suggests. In the first stage, you regress X on Z to predict how much of X is explained by the instrument. In the second stage, you regress Y on these predicted values of X. Because the predicted values contain only the Z-driven variation in X, the second-stage coefficient captures the causal effect of X on Y, free from confounding.</p>
+
+<p>The mathematics ensure that if your instrument is valid—relevant and satisfying the exclusion restriction—this procedure will give you consistent estimates. As your sample grows larger, your estimates converge to the true causal effect.</p>
+
+<h2>Beyond the Linear Case</h2>
+
+<p>The original formulation of instrumental variables assumed linear relationships: Y equals some constant plus beta times X plus an error term. But causal relationships in the real world are rarely so tidy.</p>
+
+<p>Pearl's 2000 work extended instrumental variable logic to arbitrary functional relationships using the framework of causal graphs. The core insight remains the same: find a variable that affects your treatment but has no independent path to your outcome. But the mathematics become more sophisticated, involving concepts like d-separation (a graphical criterion for determining whether two variables are statistically independent given certain other variables) and counterfactuals (asking what Y would have been if X had taken some specific value).</p>
+
+<p>The graphical approach offers a practical benefit: researchers can draw diagrams representing their assumptions about how variables relate, then visually inspect whether proposed instruments are valid. Arrows represent causal effects. Bidirectional arcs represent confounding by unobserved factors. An instrument is valid if there's no path from the instrument to the outcome that doesn't pass through the treatment—once you've blocked all other pathways by conditioning on appropriate variables.</p>
+
+<h2>The Art of Finding Instruments</h2>
+
+<p>The hardest part of instrumental variable research is finding good instruments. The data cannot tell you whether an instrument is valid—validity depends on assumptions about the causal structure that generated the data. You have to think hard about your subject matter.</p>
+
+<p>Geography has been a rich source of instruments. Distance to markets, climate variations, and historical boundaries can create quasi-random variation in treatments of interest. Policy discontinuities work similarly: when a law changes at a specific date or applies only to people above a certain age, researchers can use proximity to these cutoffs as instruments.</p>
+
+<p>But every instrument requires a story. Why does this variable affect the treatment? Why doesn't it affect the outcome directly? The exclusion restriction is always a leap of faith, though some leaps are more plausible than others.</p>
+
+<p>This has led to a cottage industry of criticism in applied economics, with researchers scrutinizing each other's instruments and identifying potential violations of the exclusion restriction. The debate over whether draft lottery numbers provide a valid instrument for military service (used to study how military service affects later earnings) filled journals for years.</p>
+
+<h2>Weak Instruments and Statistical Disasters</h2>
+
+<p>What happens when your instrument is only weakly correlated with the treatment? The mathematics turn treacherous.</p>
+
+<p>With a weak first stage, instrumental variable estimates become extremely imprecise. Standard errors balloon. More insidiously, the estimates become biased in the same direction as ordinary regression—exactly what you were trying to avoid. In small samples, weak instruments can actually make things worse than just running a naive regression.</p>
+
+<p>Statisticians have developed diagnostic tests for instrument strength. The rule of thumb is that the first-stage F-statistic should exceed 10, though this threshold is debated. When instruments are weak, researchers can turn to alternative estimation methods designed to be more robust, or they can acknowledge the limitation and present bounds on the causal effect rather than point estimates.</p>
+
+<h2>The Broader Landscape of Causal Inference</h2>
+
+<p>Instrumental variables sit within a larger toolkit for extracting causal knowledge from observational data. Randomized controlled trials remain the gold standard—random assignment breaks the link between treatment and confounders by design. But randomization isn't always ethical, feasible, or affordable.</p>
+
+<p>Alternative approaches include regression discontinuity designs (exploiting sharp cutoffs in treatment assignment), difference-in-differences (comparing changes over time in treated versus untreated groups), and propensity score methods (attempting to match treated and untreated units on observable characteristics). Each method requires different assumptions and works in different contexts.</p>
+
+<p>What makes instrumental variables special is their ability to handle confounding by unobserved factors—variables you haven't measured and maybe can't measure. The exclusion restriction gives you purchase on these hidden confounders, at the cost of requiring you to find something that affects treatment in a very particular way.</p>
+
+<h2>A Tool for Honest Inquiry</h2>
+
+<p>Instrumental variables force researchers to be explicit about their assumptions. You can't just throw data into a regression and hope the answer is causal. You have to articulate a story: here's my instrument, here's why it affects the treatment, here's why it doesn't affect the outcome except through the treatment. That story might be wrong, but at least it's on the table for scrutiny.</p>
+
+<p>This transparency has made instrumental variables central to what's sometimes called the "credibility revolution" in economics—a movement toward more careful, more skeptical, more convincing causal inference. The best instrumental variable papers don't just present estimates; they walk you through the threats to validity, the alternative explanations, the reasons to believe or doubt the exclusion restriction.</p>
+
+<p>Nearly a century after Philip Wright used rainfall to understand the butter market, his clever detour around confounding remains one of the most powerful tools we have for learning about cause and effect in a world where true experiments are often impossible.</p>
+      </div>
+
+      <footer class="wikipedia-footer">
+        <p class="source-link">
+          <a href="https://en.wikipedia.org/wiki/Instrumental_variables_estimation" target="_blank" rel="noopener">
+            View original Wikipedia article &rarr;
+          </a>
+        </p>
+        <p class="rewrite-note">
+          This article has been rewritten from Wikipedia source material for enjoyable reading.
+          Content may have been condensed, restructured, or simplified.
+        </p>
+      </footer>
+
+      
+      <section class="related-articles">
+        <h2>Related Articles</h2>
+        <p class="related-intro">This deep dive was written in connection with these articles:</p>
+        <ul class="related-list">
+          
+      <li class="related-article-item">
+        <a href="../../article/115ff41c-4b4e-4328-a9aa-f02401f2fb89/index.html">
+          <strong>Best of #econtwitter - Week of October 12, 2025: paper summaries</strong>
+        </a>
+        <span class="article-meta">
+          by An Economist in Best of Econtwitter
+        </span>
+      </li>
+        </ul>
+      </section>
+    
+    </article>
+  
+  </main>
+</body>
+</html>

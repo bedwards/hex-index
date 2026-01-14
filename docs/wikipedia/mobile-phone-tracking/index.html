@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mobile phone tracking - Hex Index</title>
+  <link rel="stylesheet" href="../../styles.css">
+</head>
+<body class="reading-mode">
+  <header class="reading-header">
+    <a href="../../index.html" class="back-link">&larr; Back to Library</a>
+  </header>
+  <main class="reading-content">
+    
+    <article class="wikipedia-page">
+      <header class="wikipedia-header">
+        <div class="type-badge">Wikipedia Deep Dive</div>
+        <h1>Mobile phone tracking</h1>
+        <div class="article-meta">
+          <span class="read-time">11 min read</span>
+        </div>
+      </header>
+
+      <div class="wikipedia-content">
+        I've written the rewritten Wikipedia article. Here's the HTML content:
+
+```html
+<p class="source-note">Based on <a href="https://en.wikipedia.org/wiki/Mobile_phone_tracking">Wikipedia: Mobile phone tracking</a></p>
+
+<p>In January 2019, a young woman named Olivia Ambrose was kidnapped in Boston. The police found her because her sister opened an app on her phone. The app showed Olivia's iPhone moving through the city, then stopping at an apartment building. Officers went to that address and rescued her.</p>
+
+<p>This is the double-edged nature of mobile phone tracking. The same technology that helped save Olivia Ambrose is the same technology that allowed the Chinese government to locate protesters during the Beijing demonstrations of 2022. Your phone is constantly broadcasting its location, and that signal can be a lifeline or a leash, depending on who's listening.</p>
+
+<h2>The Phone That Never Stops Talking</h2>
+
+<p>Here's something most people don't realize: your phone is talking to cell towers even when you're not using it. Even when it's just sitting in your pocket, screen dark, seemingly inert.</p>
+
+<p>This isn't a bug or a feature you forgot to turn off. It's how cellular networks fundamentally work. Your phone needs to maintain a constant whisper of communication with nearby cell towers so that when someone calls or texts you, the network knows where to route that call. Think of it like a hotel check-in system. The hotel needs to know which room you're in so they can connect phone calls to your room. Your phone is constantly checking in with the cellular network, saying "I'm here, I'm here, I'm here."</p>
+
+<p>This idle signal, this constant whisper, is enough to track you. No phone call needed. No internet browsing required. Just the phone existing and doing what phones do.</p>
+
+<h2>Three Ways to Find a Phone</h2>
+
+<p>Modern smartphones use a combination of technologies to determine location, often switching between them depending on circumstances. Understanding each method reveals something about the tradeoffs between accuracy, battery life, and who has access to your data.</p>
+
+<h3>Satellites in the Sky</h3>
+
+<p>The Global Positioning System, or GPS, is the most accurate method of locating a phone outdoors. The American military launched these satellites during the Cold War for precision weapons targeting, then opened the system to civilian use in the 1980s. Today, GPS is joined by Russia's GLONASS system, Europe's Galileo constellation, and China's BeiDou network. Your phone likely listens to all of them.</p>
+
+<p>The technology works through precise timing. Each satellite broadcasts a signal that includes the exact time it was sent. Your phone receives these signals from multiple satellites and measures the tiny differences in arrival time. Since the signals travel at the speed of light, those timing differences reveal how far you are from each satellite. With signals from at least four satellites, the phone can calculate your position within a few meters.</p>
+
+<p>The weakness? Satellites are far away, and their signals are weak. Buildings, dense foliage, even heavy cloud cover can block them. This is why your phone's map app sometimes struggles in downtown areas surrounded by skyscrapers, a phenomenon engineers call "urban canyons."</p>
+
+<h3>The Map Made of Wireless Networks</h3>
+
+<p>When GPS fails, your phone has another trick. It listens for WiFi signals.</p>
+
+<p>Every wireless router broadcasts a unique identifier called a BSSID, essentially a digital fingerprint. Companies like Google and Apple have spent years driving cars through cities and collecting these fingerprints along with their GPS coordinates. When your phone can't see satellites, it scans for nearby WiFi networks and looks up their identifiers in this massive crowdsourced database. If it recognizes three or four networks, it can triangulate your position.</p>
+
+<p>This is why your phone asks you to turn on WiFi for "improved location accuracy" even when you're not planning to connect to any network. It's not trying to get online. It's listening to the electronic chatter of cafes, offices, and homes to figure out where you are.</p>
+
+<p>The system is surprisingly accurate indoors, often within ten meters. It's also constantly updating. Your phone doesn't just read from this database; it writes to it. Every time your phone has a good GPS fix and also sees WiFi networks, it reports those observations back to improve the map for everyone else.</p>
+
+<h3>The Cell Towers Know</h3>
+
+<p>The oldest tracking method doesn't require any special hardware on your phone at all. It just requires the phone to be a phone.</p>
+
+<p>Cell towers record which phones connect to them. In a dense urban area, you might be within range of a dozen towers simultaneously. The network measures your signal strength at each one. Stronger signals mean you're closer. By comparing signal strengths across multiple towers, a technique called multilateration, the network can estimate your position.</p>
+
+<p>This method is imprecise. In rural areas where towers might be many kilometers apart, the estimate could be off by a kilometer or more. In cities, it might narrow your location to a few hundred meters. But it has one crucial property: the phone company can do it without your knowledge or cooperation. Your phone doesn't calculate anything. The network infrastructure does all the work.</p>
+
+<h2>The Economics of Location</h2>
+
+<p>Understanding these technologies explains how the modern "gig economy" became possible.</p>
+
+<p>When you order food through a delivery app, the service needs to know where drivers are, where you are, and how to route between them. The phone in the driver's pocket becomes a GPS tracking unit. The app constantly uploads location data over the cellular network to central servers that coordinate everything.</p>
+
+<p>Ride-hailing services like Uber and Lyft depend entirely on this infrastructure. When you request a ride, the app shows you nearby drivers, estimates arrival times, calculates routes, and determines pricing, all based on continuous location streaming from thousands of phones.</p>
+
+<p>This creates an interesting dependency on cellular networks. When telecommunications companies began shutting down older 3G networks to free up radio spectrum for newer technology, entire fleets of delivery and ride-hailing vehicles suddenly needed hardware upgrades. A phone that couldn't connect to 4G or 5G networks was useless as a tracking device, even if it could still technically make phone calls.</p>
+
+<h2>The Privacy Problem</h2>
+
+<p>In 2012, a German politician named Malte Spitz sued his mobile carrier, Deutsche Telekom, demanding to see all the data they had collected about him. The company handed over a spreadsheet with 35,830 rows.</p>
+
+<p>Each row was a moment in time when his phone had connected to a cell tower. Six months of his life, reduced to coordinates and timestamps.</p>
+
+<p>Spitz partnered with a German newspaper to turn this data into an interactive visualization. Users could watch him move through his days in fast-forward: sleeping at home, commuting to work, traveling for business, visiting friends. The data revealed when he was at the gym, when he worked late, when he took detours.</p>
+
+<blockquote>"This is six months of my life," Spitz said in a TED talk about the experience. "You can see where I am, when I sleep at night, what I'm doing."</blockquote>
+
+<p>He concluded with a call to action that sounds almost quaint a decade later: "Technology consumers are the key to challenging privacy norms in today's society. We have to fight for self-determination in the digital age."</p>
+
+<h2>What the Law Says</h2>
+
+<p>Different countries approach location privacy very differently.</p>
+
+<p>In Europe, most nations have constitutional guarantees protecting the secrecy of correspondence, a concept dating back to physical mail. Courts have extended this protection to location data, reasoning that where you go is as revealing as what you write. German data protection law at the time of Spitz's lawsuit required carriers to retain this data for six months, but also gave citizens the right to request it.</p>
+
+<p>The United States takes a more patchwork approach. The Fourth Amendment to the Constitution protects citizens against "unreasonable searches and seizures," but for decades, courts struggled with how to apply this eighteenth-century language to twenty-first-century technology.</p>
+
+<p>The question came to a head in 2017 with a case called Carpenter v. United States. Timothy Carpenter had been convicted of robbery partly based on months of cell phone location records that police obtained without a warrant. The government argued that since the phone company collected this data as a routine business practice, Carpenter had no reasonable expectation of privacy in it.</p>
+
+<p>The Supreme Court disagreed. In a landmark decision, the justices ruled that accessing historical cell phone location data constitutes a search under the Fourth Amendment. Police need a warrant based on probable cause before they can obtain it. Chief Justice John Roberts, writing for the majority, noted that such records provide "an intimate window into a person's life, revealing not only his particular movements, but through them his familial, political, professional, religious, and sexual associations."</p>
+
+<p>The ruling established that seven days of location data is "unquestionably enough" to require a warrant, but left open questions about shorter time periods. It also only applies to police investigations. It says nothing about what phone companies themselves can do with the data, or what they can sell to advertisers, data brokers, or anyone else willing to pay.</p>
+
+<h2>Tracking at Scale</h2>
+
+<p>Individual tracking is concerning enough. Mass tracking raises different questions entirely.</p>
+
+<p>The Chinese government has experimented with using cell phone data to understand commuting patterns in Beijing. By aggregating millions of data points, planners can see how people flow through the city, which transportation routes are overcrowded, where new infrastructure might be needed. In theory, this data can be collected in privacy-preserving ways, analyzing patterns without identifying individuals.</p>
+
+<p>In practice, the same infrastructure enables surveillance. During the 2022 protests in Beijing against COVID lockdown policies, location data helped authorities identify and locate demonstrators. The technology that optimizes traffic flow can also optimize crowd control.</p>
+
+<h2>The Phone as Witness</h2>
+
+<p>Location tracking has created a new kind of evidence. Phones testify now.</p>
+
+<p>In criminal cases, cell phone records can place a suspect at the scene of a crime, or provide an alibi proving they were elsewhere. In civil disputes, location data might reveal a cheating spouse or an employee claiming to work when they were actually at the beach. Insurance companies can request location data to verify or dispute claims.</p>
+
+<p>The applications people choose to install multiply these effects. Dating apps like Grindr show users nearby, which has been exploited by criminals to target victims. Fitness apps record running routes, which has inadvertently revealed the locations of secret military bases when soldiers forgot to turn off tracking during their morning jogs. Navigation apps remember everywhere you've ever asked for directions.</p>
+
+<p>Even apps that don't obviously need location access often request it anyway. The data is valuable. Advertisers will pay to know that you regularly visit a gym, or never do. That you frequent a certain restaurant chain, or a competitor. That you cross into a different county for work, making you a target for political ads in two jurisdictions instead of one.</p>
+
+<h2>The Phones in the Flowerbeds</h2>
+
+<p>The criminals have adapted too.</p>
+
+<p>In London, phone thieves have developed a curious habit. After snatching a device, they don't immediately take it home or to a fence. Instead, they bury it in a flowerbed or hide it in a public place. They wait. If no one comes looking, if no police show up guided by a "Find My Phone" app, they retrieve it later and sell it.</p>
+
+<p>It's a strange kind of countermeasure: criminals using the expected surveillance against itself. They assume the phone will scream its location to anyone who asks. So they give it a temporary grave, let it shout into the dirt for a while, then dig it up when the coast is clear.</p>
+
+<p>This is where we are now. The tracking technology has become so ubiquitous, so expected, that even street criminals factor it into their operations. The phone in your pocket is a beacon, continuously broadcasting your coordinates to satellites, cell towers, WiFi routers, and whatever apps you've given permission to listen.</p>
+
+<p>Whether that's reassuring or terrifying probably depends on whether you're the one doing the tracking or the one being tracked. For Olivia Ambrose, that beacon was a rescue signal. For protesters in Beijing, it was a trap. For London's phone thieves, it's an obstacle to work around, a technical problem with a surprisingly pastoral solution.</p>
+
+<p>The technology doesn't care which it is. It just keeps talking, even when you're not.</p>
+```
+
+The essay transforms the encyclopedic Wikipedia content into a narrative that opens with a compelling rescue story, explains the technical concepts from first principles (how GPS timing works, why WiFi improves location accuracy, how cell tower multilateration functions), and ties it all back to the London phone thieves story from the related Substack article. The writing varies paragraph and sentence length for better audio listening, spells out acronyms, and builds understanding progressively rather than assuming prior knowledge.
+      </div>
+
+      <footer class="wikipedia-footer">
+        <p class="source-link">
+          <a href="https://en.wikipedia.org/wiki/Mobile_phone_tracking" target="_blank" rel="noopener">
+            View original Wikipedia article &rarr;
+          </a>
+        </p>
+        <p class="rewrite-note">
+          This article has been rewritten from Wikipedia source material for enjoyable reading.
+          Content may have been condensed, restructured, or simplified.
+        </p>
+      </footer>
+
+      
+      <section class="related-articles">
+        <h2>Related Articles</h2>
+        <p class="related-intro">This deep dive was written in connection with these articles:</p>
+        <ul class="related-list">
+          
+      <li class="related-article-item">
+        <a href="../../article/cd9fef3f-c8d5-455e-b36a-9622cd1ace77/index.html">
+          <strong>London&#039;s thieves are burying phones in flowerbeds</strong>
+        </a>
+        <span class="article-meta">
+          by Michael Macleod in London Centric
+        </span>
+      </li>
+        </ul>
+      </section>
+    
+    </article>
+  
+  </main>
+</body>
+</html>
