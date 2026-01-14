@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bayesian inference - Hex Index</title>
+  <link rel="stylesheet" href="../../styles.css">
+</head>
+<body class="reading-mode">
+  <header class="reading-header">
+    <a href="../../index.html" class="back-link">&larr; Back to Library</a>
+  </header>
+  <main class="reading-content">
+    
+    <article class="wikipedia-page">
+      <header class="wikipedia-header">
+        <div class="type-badge">Wikipedia Deep Dive</div>
+        <h1>Bayesian inference</h1>
+        <div class="article-meta">
+          <span class="read-time">19 min read</span>
+        </div>
+      </header>
+
+      <div class="wikipedia-content">
+        <p class="source-note">Based on <a href="https://en.wikipedia.org/wiki/Bayesian_inference">Wikipedia: Bayesian inference</a></p>
+
+<p>Imagine you're a doctor. A patient walks in with a cough. Before you run any tests, you already have some sense of what might be wrong—maybe it's a cold, maybe allergies, maybe something more serious. Then you order a chest X-ray. The results come back, and now your beliefs shift. The cold seems less likely. Something else rises to the top of your mental list.</p>
+
+<p>This process—starting with beliefs, gathering evidence, updating those beliefs—is what Bayesian inference formalizes mathematically. It's named after Thomas Bayes, an 18th-century Presbyterian minister who, somewhat improbably, developed one of the most important ideas in the history of statistics and never published it himself. The work appeared posthumously, and the world has been grappling with its implications ever since.</p>
+
+<h2>The Core Idea: Beliefs That Learn</h2>
+
+<p>Here's the central insight of Bayesian thinking: probability isn't just about how often things happen in the long run. It's about how confident you are in something being true, given what you know right now.</p>
+
+<p>This might sound obvious, but it was actually quite controversial when Bayes first proposed it. The dominant view in statistics at the time—and for much of the 20th century—was that probability should only refer to frequencies. How often does this coin land heads? What percentage of patients with these symptoms have pneumonia? These were considered legitimate probability questions.</p>
+
+<p>But asking "What's the probability that this particular patient has pneumonia?" was seen as problematic. Either she has it or she doesn't. There's no frequency involved. It's a one-time event.</p>
+
+<p>Bayesian inference says: we can still assign a probability to that. It just represents our degree of belief, our uncertainty about the truth. And crucially, that degree of belief should update rationally when we get new information.</p>
+
+<h2>The Theorem Itself</h2>
+
+<p>At the heart of Bayesian inference sits a deceptively simple formula. Let me walk you through it in plain English before we look at the mathematics.</p>
+
+<p>You have a hypothesis—something you want to know the truth about. Maybe it's "this email is spam" or "the defendant committed the crime" or "this drug works better than placebo." You start with some initial belief about how likely this hypothesis is. This is called your prior probability.</p>
+
+<p>Then you observe some evidence. In light of that evidence, you want to update your belief. The updated belief is called the posterior probability—posterior meaning "after," as in after seeing the evidence.</p>
+
+<p>Bayes' theorem tells you exactly how to do this update. The formula looks like this:</p>
+
+<p>The probability of your hypothesis being true, given the evidence, equals the probability of seeing that evidence if your hypothesis were true, multiplied by your prior belief in the hypothesis, all divided by the overall probability of seeing that evidence.</p>
+
+<p>Let's unpack each piece.</p>
+
+<h3>The Prior: What You Believed Before</h3>
+
+<p>The prior probability represents your state of knowledge before you see the new evidence. Where does it come from? This is one of the most debated aspects of Bayesian inference.</p>
+
+<p>Sometimes you have solid data. If you're a doctor and you know that 5% of patients with a cough have pneumonia, that's a reasonable prior. Sometimes you have to make educated guesses. Sometimes you deliberately choose a "flat" or "uninformative" prior that says "I really have no idea" and lets the evidence do most of the work.</p>
+
+<p>Critics of Bayesian methods have long complained that priors are subjective—different people might start with different priors and therefore reach different conclusions. Bayesians respond that this is actually a feature, not a bug. It forces you to be explicit about your assumptions. And as evidence accumulates, people with different priors will eventually converge on similar posteriors. The data overwhelms the starting point.</p>
+
+<h3>The Likelihood: How Well the Evidence Fits</h3>
+
+<p>This is the probability of observing your evidence if your hypothesis were true. It measures compatibility between the hypothesis and what you actually saw.</p>
+
+<p>Think about a medical test. If a patient has the disease, what's the probability the test comes back positive? That's the likelihood. A good test has high likelihood—it almost always gives positive results for people who are actually sick.</p>
+
+<p>Note the direction here. The likelihood isn't "how probable is the disease given a positive test." It's the reverse: "how probable is a positive test given the disease." These are different questions, and confusing them is one of the most common errors in probabilistic reasoning.</p>
+
+<h3>The Marginal Likelihood: A Normalizing Factor</h3>
+
+<p>The denominator of Bayes' theorem is the overall probability of seeing the evidence you saw, regardless of which hypothesis is true. It's the same for all hypotheses you're comparing, so it mainly serves to ensure your final probabilities add up to 100%.</p>
+
+<p>In practice, you often don't need to calculate this directly. If you're comparing two hypotheses, you can look at the ratio of their posteriors, and the denominator cancels out.</p>
+
+<h2>A Concrete Example: The Medical Test</h2>
+
+<p>Abstract formulas become clearer with specific numbers. Let's work through a classic example that reveals how Bayesian reasoning can produce counterintuitive results.</p>
+
+<p>Suppose there's a rare disease that affects 1 in 1,000 people. A test for this disease is quite accurate: it correctly identifies 99% of people who have the disease (a 99% true positive rate) and correctly identifies 95% of people who don't have it (a 95% true negative rate, meaning a 5% false positive rate).</p>
+
+<p>You take the test. It comes back positive.</p>
+
+<p>Quick—what's the probability you actually have the disease?</p>
+
+<p>Most people guess something high, maybe 95% or 99%. The test is accurate, after all.</p>
+
+<p>But the Bayesian calculation tells a different story.</p>
+
+<p>Let's work through it. Your prior probability of having the disease is 0.001, or 0.1%. Out of every 1,000 people, one has the disease. The likelihood—the probability of testing positive if you have the disease—is 0.99. So far so good.</p>
+
+<p>But we need the denominator: the overall probability of testing positive. This can happen two ways. You can have the disease and test positive (probability 0.001 times 0.99). Or you can not have the disease but still test positive due to a false positive (probability 0.999 times 0.05).</p>
+
+<p>Add these up: (0.001 × 0.99) + (0.999 × 0.05) = 0.00099 + 0.04995 = 0.05094.</p>
+
+<p>Now apply Bayes' theorem. The posterior probability equals (0.001 × 0.99) / 0.05094, which works out to about 0.019, or roughly 2%.</p>
+
+<p>Two percent.</p>
+
+<p>Despite testing positive on a 99% accurate test, there's only about a 2% chance you actually have the disease.</p>
+
+<p>How can this be? The key is the base rate—that 1 in 1,000 prior. Because the disease is so rare, the small percentage of false positives among the vast majority of healthy people vastly outnumbers the true positives among the tiny minority of sick people. If you tested 1,000 random people, about 1 would have the disease and test positive, but about 50 healthy people would also test positive. You'd be one of 51 people with positive tests, and only 1 of those 51 actually has the disease.</p>
+
+<p>This example is famous because it exposes a systematic flaw in human reasoning. We focus on the test's accuracy and neglect the base rate. Bayesian inference forces us to account for both.</p>
+
+<h2>Sequential Updating: Learning Bit by Bit</h2>
+
+<p>One of the most powerful features of Bayesian inference is how naturally it handles sequential learning. You observe evidence, update your beliefs, then use your posterior as the new prior when the next piece of evidence arrives.</p>
+
+<p>This is exactly how scientific knowledge accumulates—or at least how it should. Each experiment adds to what we knew before. We don't start from scratch every time. We build on prior work.</p>
+
+<p>The mathematics works out elegantly. If you observe two pieces of evidence in sequence, the final posterior is the same as if you had observed both at once. The order doesn't matter. Bayesian updating is consistent.</p>
+
+<p>This consistency matters because real-world learning is messy. You might get information in dribs and drabs, out of order, with gaps and delays. Bayesian inference handles all of this gracefully. Each piece of evidence does its work, updating your beliefs in a mathematically rigorous way.</p>
+
+<h2>Applications Everywhere</h2>
+
+<p>Bayesian inference has spread far beyond academic statistics. It now touches nearly every field where people need to reason under uncertainty.</p>
+
+<p>Spam filters were one of the early consumer-facing success stories. Your email provider uses Bayesian methods to classify incoming messages. Words like "lottery" and "Nigerian prince" shift the probability toward spam; messages from addresses you've corresponded with before shift it toward legitimate. The system learns from your feedback—when you mark something as spam or rescue something from your junk folder, you're providing evidence that updates the model.</p>
+
+<p>Medical diagnosis is a natural fit. Doctors implicitly do something like Bayesian reasoning all the time—considering how likely different diseases are given a patient's symptoms, test results, and medical history. Formal Bayesian systems can help make this reasoning more systematic and catch errors that human intuition misses.</p>
+
+<p>Machine learning, the field that has transformed technology in recent years, is deeply Bayesian. Many of the most powerful algorithms can be understood as approximating Bayesian inference. When a system recognizes your face or transcribes your speech, it's computing posterior probabilities over possible interpretations of the data.</p>
+
+<p>Courtrooms present an interesting case. Some legal scholars have argued that Bayesian reasoning should be standard in weighing evidence. Others worry that juries might misunderstand the numbers or that explicit probabilities could create false precision. The debate continues, but Bayesian thinking has influenced how many legal experts think about evidence.</p>
+
+<h2>The Frequentist Alternative</h2>
+
+<p>To appreciate what Bayesian inference is, it helps to understand what it's not. The main alternative is called frequentist statistics, and for most of the 20th century, it dominated.</p>
+
+<p>Frequentists don't talk about the probability of hypotheses being true. Instead, they calculate the probability of observing data as extreme as what they saw, assuming some null hypothesis is true. This is the famous p-value. If the p-value is small enough—conventionally below 0.05—they reject the null hypothesis.</p>
+
+<p>This might sound similar to Bayesian inference, but the logic is actually quite different. A frequentist never directly answers the question "how probable is my hypothesis?" They instead ask "how surprising would my data be if the hypothesis were false?"</p>
+
+<p>The distinction matters in practice. P-values are notoriously misinterpreted, even by professional scientists. A p-value of 0.05 does not mean there's a 5% chance your hypothesis is wrong. It means that if your hypothesis were wrong, there's a 5% chance of seeing data this extreme. These are different statements, and confusing them leads to bad science.</p>
+
+<p>Bayesian inference avoids this confusion by directly computing the probability of interest. But it requires that prior probability, which frequentists see as impermissibly subjective.</p>
+
+<p>The debate between these camps has been called "statistics' oldest controversy." In recent decades, the tides have shifted somewhat toward Bayesian methods, especially in complex applications where frequentist techniques become unwieldy. But both approaches have their place, and many practicing statisticians use both depending on the problem.</p>
+
+<h2>Beyond Bayes: Alternative Updating Rules</h2>
+
+<p>Bayesian updating is the best-known way to revise beliefs in light of evidence, but it's not the only logically consistent approach. This might seem surprising—if Bayes' theorem is mathematically correct, how could there be alternatives?</p>
+
+<p>The answer lies in the assumptions underlying the theorem. Bayes' rule assumes you receive evidence as a simple, unambiguous input. But what if your evidence itself is uncertain? What if you're only partially sure about what you observed?</p>
+
+<p>The philosopher Richard Jeffrey developed an alternative approach for exactly this situation. Jeffrey's rule allows you to update beliefs when your evidence comes in the form of a probability shift on some proposition, rather than as certain knowledge. It includes Bayesian updating as a special case but is more general.</p>
+
+<p>There are also Dutch book arguments—betting scenarios designed to show that certain ways of reasoning lead to guaranteed losses. Traditional Dutch book arguments establish the axioms of probability theory, but as the philosopher Ian Hacking pointed out, they don't uniquely require Bayesian updating. Other consistent rules exist.</p>
+
+<p>This matters philosophically. It means Bayesianism is a choice, not a logical necessity. There are reasons to think it's a good choice—simplicity, elegance, consistency across sequences of updates—but it's not the only rational option.</p>
+
+<h2>Computational Challenges</h2>
+
+<p>For all its theoretical elegance, Bayesian inference faces serious practical obstacles. The mathematics can become intractable very quickly.</p>
+
+<p>The problem is that denominator—the marginal likelihood. In simple cases with just two or three hypotheses, it's easy to compute. But in realistic applications, you might have millions of possible hypotheses, or a continuous space of infinitely many hypotheses. Calculating the denominator requires summing or integrating over all of them.</p>
+
+<p>For decades, this limited Bayesian methods to simple problems. Then came computational techniques that changed everything.</p>
+
+<p>Markov Chain Monte Carlo, or MCMC, is the most important of these. The "Monte Carlo" part refers to random sampling—like rolling dice in a casino. The "Markov Chain" part refers to a particular kind of random process where each step depends only on the current state, not on the entire history.</p>
+
+<p>MCMC works by constructing a random walk through the space of possible hypotheses. The walk is cleverly designed so that it spends time in each region proportional to the posterior probability of that region. Run the walk long enough, and you get a representative sample from the posterior distribution, even if you could never calculate it directly.</p>
+
+<p>This was revolutionary. Problems that seemed impossible became merely difficult. Modern Bayesian analysis often involves letting a computer run MCMC simulations for hours or days, gradually building up a picture of the posterior distribution.</p>
+
+<h2>Conjugate Priors: When the Math Works Out</h2>
+
+<p>Despite the need for computational methods in general, some special cases remain mathematically tractable. These involve conjugate priors—prior distributions that, when combined with a particular likelihood function, produce a posterior distribution of the same form.</p>
+
+<p>Here's what that means concretely. Suppose you're modeling a coin flip, and you want to estimate the probability of heads. A natural prior for a probability is something called a beta distribution—it's a flexible family of curves defined on the interval from zero to one. If you observe some flips and compute the likelihood, the resulting posterior turns out to be another beta distribution with updated parameters.</p>
+
+<p>This is enormously convenient. You don't need MCMC. You don't need numerical integration. You just plug in the data and out comes the answer in closed form. As you observe more flips, you update the parameters, and the beta distribution narrows around the true probability.</p>
+
+<p>Different likelihoods have different conjugate priors. For counting data, the Poisson distribution pairs with a gamma prior. For normally distributed data, a normal prior works. Statisticians have catalogued many such pairs.</p>
+
+<p>The catch is that conjugate priors don't always represent your actual beliefs. Sometimes they're chosen for mathematical convenience rather than because they accurately capture prior knowledge. This is a common criticism: in practice, Bayesians often select priors based on what makes the computation tractable rather than on genuine prior information.</p>
+
+<h2>Objectivity and Subjectivity</h2>
+
+<p>The question of where priors come from leads to a deeper philosophical divide within Bayesian thinking itself.</p>
+
+<p>Subjective Bayesians embrace the personal nature of prior probabilities. Different people can have different priors based on their different backgrounds and experiences. This is honest, they argue—it acknowledges that we don't all start from the same place. And the updating process ensures that with enough evidence, we'll converge on the truth anyway.</p>
+
+<p>Objective Bayesians seek prior distributions that represent ignorance or that treat all possibilities fairly. The idea is to minimize the influence of subjective choice and let the data speak for itself. Various mathematical principles have been proposed for deriving such priors—maximum entropy, reference priors, and others.</p>
+
+<p>Neither camp has definitively won the argument. Subjective Bayesianism faces the criticism that it makes scientific conclusions depend on who's doing the analysis. Objective Bayesianism faces the criticism that true ignorance is hard to define and that supposedly objective priors sometimes produce counterintuitive results.</p>
+
+<p>In practice, most working Bayesians are pragmatists. They choose priors that seem reasonable for the problem at hand, check how sensitive their conclusions are to the prior choice, and interpret results with appropriate humility.</p>
+
+<h2>Model Comparison and Model Averaging</h2>
+
+<p>So far we've discussed inference within a model—given that some model is true, what do we believe about its parameters? But Bayesian inference can also help us choose between models.</p>
+
+<p>The key quantity is called the marginal likelihood or model evidence—that denominator we've been mentioning. It measures how well a model predicted the observed data, averaged over all possible parameter values weighted by their priors.</p>
+
+<p>This naturally penalizes complexity. A highly flexible model might be able to fit the data well after seeing it, but a simpler model that predicted the data accurately in advance will have higher marginal likelihood. Bayesian model comparison automatically implements a version of Occam's razor, preferring simpler explanations when they suffice.</p>
+
+<p>You can also average across models rather than choosing just one. Each model gets a posterior probability, and your final predictions are weighted averages of each model's predictions. This can provide more robust results than committing to a single model.</p>
+
+<h2>Where Bayesian Reasoning Goes Wrong</h2>
+
+<p>For all its power, Bayesian inference has limitations and failure modes worth understanding.</p>
+
+<p>Garbage in, garbage out. If your model is fundamentally wrong—if the true data-generating process isn't anywhere in the space of hypotheses you're considering—no amount of sophisticated updating will lead you to the truth. Bayesian inference tells you the best hypothesis among those you're considering. It can't tell you that you should be considering something else entirely.</p>
+
+<p>Prior sensitivity can be a real problem. In some situations, especially with limited data, conclusions depend heavily on the choice of prior. Two analysts with different priors might reach opposite conclusions from the same evidence. When this happens, the honest response is to acknowledge the uncertainty, not to pretend that one's own prior is correct.</p>
+
+<p>Computational approximations introduce errors. Real-world Bayesian analyses rarely compute exact posteriors. They rely on MCMC samples, variational approximations, or other numerical techniques. These can fail in subtle ways—chains might not converge, approximations might miss important regions of parameter space. Checking these issues requires expertise and care.</p>
+
+<p>The framework also assumes you can specify likelihoods—that you know the probability of observing the data given each hypothesis. In reality, this is often approximate at best. Models are simplifications. True data-generating processes are messier than any mathematical specification. Bayesian inference inherits whatever errors are in the model specification.</p>
+
+<h2>The Philosophical Stakes</h2>
+
+<p>Debates about Bayesian inference connect to deeper questions about the nature of probability, knowledge, and rationality.</p>
+
+<p>What does it mean to say that a scientific theory is probably true? Frequentists would say this question doesn't make sense—the theory is either true or false, and probability applies only to repeatable events. Bayesians say the question makes perfect sense—probability represents our uncertainty, and we're uncertain about which theories are true.</p>
+
+<p>How should rational agents update their beliefs? Bayesian inference provides a candidate answer, but it assumes that beliefs can be represented as precise numerical probabilities and that agents have the computational power to update them correctly. Real humans have vague beliefs and limited cognitive capacity. Does that make us irrational, or does it mean the Bayesian ideal is an inappropriate standard?</p>
+
+<p>These questions have occupied philosophers for centuries and remain active areas of research. Bayesian inference doesn't settle them, but it provides a precise framework for thinking about them.</p>
+
+<h2>A Way of Thinking</h2>
+
+<p>Beyond the technical details, Bayesian inference offers a mental model that many people find valuable even in everyday reasoning.</p>
+
+<p>Think probabilistically. Don't ask whether something is true or false—ask how confident you should be. Acknowledge uncertainty explicitly.</p>
+
+<p>Start with base rates. Before getting excited about evidence, ask how likely the hypothesis was in the first place. That rare disease example shows how badly things can go wrong when you neglect priors.</p>
+
+<p>Update incrementally. Each piece of evidence shifts your beliefs. Big shifts require strong evidence. If your conclusion changes dramatically based on one data point, either the evidence is extraordinary or your prior was too confident.</p>
+
+<p>Consider alternatives. Bayesian inference naturally handles multiple competing hypotheses. Evidence that supports one hypothesis is evidence against its competitors. Thinking about what you'd expect to see under different hypotheses sharpens your reasoning.</p>
+
+<p>Separate the direction of conditioning. The probability of A given B is not the same as the probability of B given A. This is one of the most common reasoning errors people make, and keeping the distinction clear prevents many mistakes.</p>
+
+<p>These habits of thought are valuable regardless of whether you ever compute a Bayesian posterior. The framework provides a normative standard—a description of ideal reasoning—that can guide even rough intuitive judgments.</p>
+
+<h2>The Ongoing Story</h2>
+
+<p>Bayesian inference continues to evolve. New computational techniques make it applicable to larger and more complex problems. Machine learning systems increasingly incorporate Bayesian ideas. Debates about foundations continue in philosophy and statistics departments.</p>
+
+<p>Perhaps most importantly, Bayesian thinking has escaped the academy. The idea that you should have explicit beliefs, update them when you see evidence, and quantify your uncertainty has spread into business, medicine, policy, and everyday conversation. The phrase "update your priors" has become almost a cliché in certain circles.</p>
+
+<p>Thomas Bayes died in 1761, long before computers, before modern statistics, before anyone knew how influential his idea would become. The theorem that bears his name started as an obscure mathematical curiosity. It became a battleground in a century-long methodological war. Now it powers the algorithms that shape our digital lives and offers a framework for reasoning that many consider the closest thing we have to a general theory of learning from experience.</p>
+
+<p>The core insight remains as relevant as ever: what you believe after seeing evidence should depend on what you believed before, what you saw, and how likely that observation would have been under different hypotheses. Simple to state. Profound in its implications. And still, after nearly three centuries, not fully understood.</p>
+      </div>
+
+      <footer class="wikipedia-footer">
+        <p class="source-link">
+          <a href="https://en.wikipedia.org/wiki/Bayesian_inference" target="_blank" rel="noopener">
+            View original Wikipedia article &rarr;
+          </a>
+        </p>
+        <p class="rewrite-note">
+          This article has been rewritten from Wikipedia source material for enjoyable reading.
+          Content may have been condensed, restructured, or simplified.
+        </p>
+      </footer>
+
+      
+      <section class="related-articles">
+        <h2>Related Articles</h2>
+        <p class="related-intro">This deep dive was written in connection with these articles:</p>
+        <ul class="related-list">
+          
+      <li class="related-article-item">
+        <a href="../../article/daee8b2e-a9a9-4346-8081-296b39e89f69/index.html">
+          <strong>Hidden Open Thread 406.5</strong>
+        </a>
+        <span class="article-meta">
+          by Scott Alexander in Astral Codex Ten
+        </span>
+      </li>
+        </ul>
+      </section>
+    
+    </article>
+  
+  </main>
+</body>
+</html>

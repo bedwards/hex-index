@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Digital signal processing - Hex Index</title>
+  <link rel="stylesheet" href="../../styles.css">
+</head>
+<body class="reading-mode">
+  <header class="reading-header">
+    <a href="../../index.html" class="back-link">&larr; Back to Library</a>
+  </header>
+  <main class="reading-content">
+    
+    <article class="wikipedia-page">
+      <header class="wikipedia-header">
+        <div class="type-badge">Wikipedia Deep Dive</div>
+        <h1>Digital signal processing</h1>
+        <div class="article-meta">
+          <span class="read-time">11 min read</span>
+        </div>
+      </header>
+
+      <div class="wikipedia-content">
+        The rewritten article is complete. Here it is:
+
+```html
+<p class="source-note">Based on <a href="https://en.wikipedia.org/wiki/Digital_signal_processing">Wikipedia: Digital signal processing</a></p>
+
+<p>Every time you talk to your phone, every time Spotify streams a song to your earbuds, every time a doctor examines your MRI scan—digital signal processing is working behind the scenes. It's the mathematical wizardry that lets machines understand and manipulate the continuous, messy world we live in.</p>
+
+<p>Here's the fundamental problem: reality is analog. Sound waves flow smoothly through the air. Light varies continuously across a photograph. Your heartbeat rises and falls in gentle curves. But computers speak only in numbers—specifically, in ones and zeros. Digital signal processing, or DSP, is the bridge between these two worlds.</p>
+
+<h2>The Art of Sampling Reality</h2>
+
+<p>Imagine trying to describe a song to someone who can only understand numbers. You might measure how loud the music is at specific moments—say, a thousand times per second—and write down each measurement. That's essentially what an analog-to-digital converter does, and it's the first step in any digital signal processing chain.</p>
+
+<p>This process happens in two stages with wonderfully descriptive names: discretization and quantization.</p>
+
+<p>Discretization means chopping continuous time into tiny slices. Instead of trying to capture every infinitesimal moment of a sound wave, you measure it at regular intervals—perhaps 44,100 times per second, which happens to be the sampling rate of a CD. Each slice becomes a single measurement.</p>
+
+<p>Quantization is trickier. When you measure the amplitude of a sound wave at any given moment, you get a precise value—maybe 0.847362 volts. But computers prefer tidy integers. So that measurement gets rounded to the nearest value from a predetermined set. If you're using 16-bit audio, you have 65,536 possible values to choose from. Close enough to capture nuance, but fundamentally an approximation.</p>
+
+<p>This is where things get interesting.</p>
+
+<h2>The Theorem That Makes It All Work</h2>
+
+<p>In the 1940s, Claude Shannon and Harry Nyquist proved something remarkable: if you sample a signal at least twice as fast as its highest frequency component, you can perfectly reconstruct the original. Not approximately. Perfectly.</p>
+
+<p>Think about that for a moment. You take a continuous sound wave, reduce it to a series of isolated measurements, and yet you lose nothing. It's like taking snapshots of a bouncing ball and being able to recreate its exact trajectory between photos.</p>
+
+<p>The catch? You must sample fast enough. Human hearing tops out around 20,000 cycles per second, which is why CDs sample at 44,100 hertz—just over twice the maximum frequency we can perceive. Sample too slowly, and you get aliasing: phantom frequencies that weren't in the original signal, appearing like ghosts in your data.</p>
+
+<p>To prevent aliasing, engineers typically place an anti-aliasing filter before the analog-to-digital converter. This filter blocks any frequencies higher than half the sampling rate, ensuring that only capturable frequencies make it through. It's a bit like putting a speed limit on the data before it enters the digital realm.</p>
+
+<h2>The Domains of Signal Processing</h2>
+
+<p>Once you've captured a signal as numbers, you can analyze it in different ways. DSP engineers typically work in one of four domains, each offering a different perspective on the same underlying data.</p>
+
+<p>The time domain is the most intuitive. It's simply how the signal varies over time—the familiar waveform you see on an oscilloscope or in audio editing software. When you look at a recording and see the volume rising and falling, you're viewing time-domain data.</p>
+
+<p>But time-domain analysis has limitations. If someone plays two piano notes simultaneously, the resulting waveform is a complex jumble. Good luck figuring out which notes were played just by staring at the squiggly line.</p>
+
+<p>Enter the frequency domain.</p>
+
+<p>The Fourier transform, named after the nineteenth-century French mathematician Jean-Baptiste Joseph Fourier, performs what feels like mathematical magic. It takes a time-domain signal and decomposes it into its constituent frequencies. That messy piano chord? The Fourier transform reveals the exact frequencies present—the C and the G, say—and how loud each one is.</p>
+
+<p>Fourier's insight, which he developed while studying heat flow, was that any signal can be expressed as a sum of sine waves at different frequencies. A pure tone is a single sine wave. A complex sound is many sine waves added together. The transform separates them back out.</p>
+
+<p>The spatial domain works similarly to the time domain but applies to images instead of sounds. Instead of asking "how does the signal change over time?" you ask "how does it change across space?" Each pixel in a photograph has a value; spatial analysis examines patterns in how those values vary.</p>
+
+<p>Finally, wavelet analysis offers a hybrid approach. Traditional Fourier transforms tell you which frequencies are present but not when they occur. Wavelets can capture both frequency and timing information simultaneously, though there's a fundamental tradeoff: the more precisely you pin down frequency, the less precisely you can specify when that frequency occurred, and vice versa. This is actually a form of the uncertainty principle, the same concept that governs quantum mechanics.</p>
+
+<h2>Filtering: The Heart of Signal Processing</h2>
+
+<p>Once you understand a signal's components, you can modify them. This is filtering, and it's perhaps the most common operation in all of DSP.</p>
+
+<p>Noise reduction is a classic example. Suppose you've recorded a podcast, but there's an annoying hum from a faulty light fixture. If you analyze the recording in the frequency domain, you'll find that hum clustered around 60 hertz (the frequency of alternating current in American electrical systems). A filter can surgically remove those frequencies while leaving the rest of the audio intact.</p>
+
+<p>Filters come in two fundamental varieties: finite impulse response and infinite impulse response, or FIR and IIR for short.</p>
+
+<p>A finite impulse response filter makes its decisions based only on the current input and a fixed number of previous inputs. If you fed it a single brief pulse, its output would ring for a while and then fall silent—hence "finite impulse response." These filters are inherently stable. They can't spiral out of control.</p>
+
+<p>Infinite impulse response filters, by contrast, incorporate feedback. They look not just at past inputs but also at their own past outputs. This feedback can theoretically ring forever after a single impulse, hence the name. IIR filters are more efficient—they can achieve the same effect with fewer calculations—but they're trickier to design. That feedback loop can become unstable, causing the output to grow without bound or oscillate wildly.</p>
+
+<p>Engineers use a mathematical tool called the Z-transform to analyze these stability issues. It's analogous to the Laplace transform used for analog circuits, providing a framework for understanding how digital filters behave over time.</p>
+
+<h2>Beyond Basic Filtering</h2>
+
+<p>The frequency domain enables operations that would be nearly impossible in the time domain. Consider the cepstrum, a peculiar transform whose name is "spectrum" with the first four letters reversed.</p>
+
+<p>To compute a cepstrum, you take a signal, apply the Fourier transform, take the logarithm of the result, and then apply another Fourier transform. This double transformation emphasizes the harmonic structure of sounds—the pattern of overtones that gives different instruments their distinctive characters. It's particularly useful in speech analysis, where it helps separate the pitch of someone's voice from the resonances of their vocal tract.</p>
+
+<p>Autoregressive methods take yet another approach. Instead of decomposing a signal into frequencies, they model each sample as a weighted combination of previous samples. The weights, called autoregression coefficients, capture the signal's underlying structure. These methods can achieve better frequency resolution than Fourier analysis, especially for short signals.</p>
+
+<p>Prony's method, developed by the French engineer Gaspard de Prony in 1795 (he was trying to understand the expansion of gases), can estimate not just the frequencies present in a signal but also their phases, amplitudes, and decay rates. It models signals as sums of decaying exponentials, which turns out to be a remarkably flexible representation.</p>
+
+<h2>The Hardware That Makes It Happen</h2>
+
+<p>You can run DSP algorithms on any computer, but speed often matters. When you're processing audio in real time, or tracking dozens of targets on a radar screen, you can't afford to wait.</p>
+
+<p>General-purpose microprocessors handle DSP adequately for many applications. Your laptop processes audio for video calls without breaking a sweat. But specialized hardware can be dramatically faster and more power-efficient.</p>
+
+<p>Digital signal processors are chips designed specifically for this work. They excel at the multiply-and-accumulate operations that dominate DSP algorithms. Qualcomm's Hexagon processors, found in smartphones, are a prominent example—they handle everything from voice recognition to image processing to wireless communications.</p>
+
+<p>Field-programmable gate arrays, or FPGAs, offer another option. These are chips whose internal wiring can be reconfigured, allowing engineers to implement custom circuits for specific algorithms. They're more flexible than dedicated processors but harder to program, requiring expertise in hardware description languages rather than traditional software.</p>
+
+<p>For the highest-volume products or the most demanding applications, companies design application-specific integrated circuits, or ASICs. These are custom chips optimized for a single purpose. An ASIC for decoding video, for instance, might be ten times more power-efficient than running the same algorithm on a general-purpose processor.</p>
+
+<p>Graphics processing units have also found a role in signal processing. Originally designed to render video game graphics, GPUs excel at parallel computation—performing the same operation on thousands of data points simultaneously. Many DSP algorithms, like the Fast Fourier Transform, can be parallelized extensively, making GPUs an attractive option for offline processing.</p>
+
+<h2>The Applications Are Everywhere</h2>
+
+<p>Digital signal processing permeates modern technology so thoroughly that listing applications feels almost absurd. It's like listing places where electricity is used.</p>
+
+<p>Your smartphone alone employs DSP in dozens of ways. Speech coding compresses your voice for transmission over cellular networks. Noise cancellation in your earbuds uses DSP to generate anti-sound. The camera app applies sophisticated image processing to your photos. Even the touchscreen uses signal processing to interpret your finger movements.</p>
+
+<p>Medical imaging would be impossible without DSP. Computed tomography—the CT scan—captures X-rays from many angles and uses signal processing to reconstruct a three-dimensional image of your insides. Magnetic resonance imaging analyzes radio frequency signals emitted by hydrogen atoms in your body. Ultrasound interprets the echoes of high-frequency sound waves.</p>
+
+<p>Radar and sonar are fundamentally signal processing problems. They transmit a known signal, receive its reflection, and extract information about distant objects—their range, speed, and direction. Modern radar systems process signals from hundreds or thousands of antenna elements simultaneously, synthesizing beams that can track multiple targets with remarkable precision.</p>
+
+<p>Audio production has been transformed. Equalizers that boost bass or cut harsh frequencies are digital filters. Reverb effects simulate the acoustics of concert halls through convolution, a mathematical operation that's the foundation of filtering. Pitch correction—the software that keeps pop singers on key—analyzes the frequency content of vocals in real time and shifts it as needed.</p>
+
+<p>Even your hearing aid, if you wear one, is a sophisticated signal processor. Since 1996, digital hearing aids have used DSP to automatically adjust their response, enhance speech frequencies, reduce background noise, and adapt to different listening environments. The processing happens so fast you don't notice any delay.</p>
+
+<h2>The Mathematics Made Practical</h2>
+
+<p>What makes digital signal processing possible—and what distinguishes it from analog signal processing—is the determinism of digital computation. When you manipulate analog signals with electronic circuits, component tolerances and temperature variations introduce unpredictable errors. When you manipulate numbers in a computer, the results are exactly reproducible.</p>
+
+<p>This precision enables error detection and correction. If you transmit data digitally, you can encode it with redundancy that allows the receiver to detect and fix transmission errors. Analog signals, once corrupted by noise, are corrupted forever.</p>
+
+<p>Compression becomes possible, too. Once a signal is digital, you can analyze its structure and represent it more efficiently. A CD holds about 700 megabytes of data. The same music, compressed to MP3 format using psychoacoustic models that discard sounds humans can't hear, might take only 70 megabytes—a tenfold reduction with minimal perceptible quality loss.</p>
+
+<p>The theoretical foundations of DSP typically assume perfect sampling—no quantization error, no noise in the conversion process. Real systems introduce these imperfections, but engineers design around them. By using enough bits of precision and sampling at sufficiently high rates, the gap between theory and practice becomes negligible.</p>
+
+<p>The output of signal processing often feeds back into the analog world. A digital-to-analog converter reverses the initial sampling process, reconstructing a continuous signal from discrete samples. The mathematics guarantees that if the Nyquist criterion was satisfied during sampling, the reconstruction can be perfect. In practice, it's close enough that only the most discerning audiophiles claim to hear the difference.</p>
+
+<h2>The Ongoing Revolution</h2>
+
+<p>Digital signal processing continues to evolve. Machine learning has introduced entirely new approaches to problems that traditional DSP solved through careful mathematical modeling. Instead of designing filters by hand, engineers now train neural networks to learn optimal processing strategies from data.</p>
+
+<p>But the fundamentals remain. Signals must still be sampled. The Nyquist theorem still holds. Frequency analysis still illuminates structure that's invisible in the time domain. The mathematical tools developed over the past century—the Fourier transform, convolution, the Z-transform—remain as relevant as ever.</p>
+
+<p>Every digital device you own owes its capabilities, in part, to the elegant mathematics and clever engineering of signal processing. It's the invisible layer that connects our analog reality to the digital systems that increasingly define modern life.</p>
+      </div>
+
+      <footer class="wikipedia-footer">
+        <p class="source-link">
+          <a href="https://en.wikipedia.org/wiki/Digital_signal_processing" target="_blank" rel="noopener">
+            View original Wikipedia article &rarr;
+          </a>
+        </p>
+        <p class="rewrite-note">
+          This article has been rewritten from Wikipedia source material for enjoyable reading.
+          Content may have been condensed, restructured, or simplified.
+        </p>
+      </footer>
+
+      
+      <section class="related-articles">
+        <h2>Related Articles</h2>
+        <p class="related-intro">This deep dive was written in connection with these articles:</p>
+        <ul class="related-list">
+          
+      <li class="related-article-item">
+        <a href="../../article/1d9545a0-ad61-49b9-a960-c61d9af62233/index.html">
+          <strong>Qualcomm&#039;s Hexagon AI Accelerators</strong>
+        </a>
+        <span class="article-meta">
+          by Babbage in The Chip Letter
+        </span>
+      </li>
+        </ul>
+      </section>
+    
+    </article>
+  
+  </main>
+</body>
+</html>

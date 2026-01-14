@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Integrated development environment - Hex Index</title>
+  <link rel="stylesheet" href="../../styles.css">
+</head>
+<body class="reading-mode">
+  <header class="reading-header">
+    <a href="../../index.html" class="back-link">&larr; Back to Library</a>
+  </header>
+  <main class="reading-content">
+    
+    <article class="wikipedia-page">
+      <header class="wikipedia-header">
+        <div class="type-badge">Wikipedia Deep Dive</div>
+        <h1>Integrated development environment</h1>
+        <div class="article-meta">
+          <span class="read-time">10 min read</span>
+        </div>
+      </header>
+
+      <div class="wikipedia-content">
+        I need permission to write the file. Here's the rewritten article as HTML:
+
+```html
+<p class="source-note">Based on <a href="https://en.wikipedia.org/wiki/Integrated_development_environment">Wikipedia: Integrated development environment</a></p>
+
+<p>In 1995, the German technology magazine Computerwoche published an observation that seems almost quaint today: developers were resistant to using integrated development environments because such tools would "fence in their creativity." The magazine worried that these all-in-one programming environments might constrain the artistic souls of coders everywhere.</p>
+
+<p>Three decades later, the descendants of those same tools have become so central to software development that the most popular ones are searched for hundreds of millions of times each year. Visual Studio, Visual Studio Code, and Eclipse dominate the landscape, and a new generation of artificially intelligent coding assistants is transforming what these environments can do. The creativity fence, it turns out, became more of a launchpad.</p>
+
+<h2>What exactly is an integrated development environment?</h2>
+
+<p>The name itself tells most of the story. An integrated development environment, commonly known by its acronym IDE, combines several tools that programmers need into a single, unified application. Think of it as a workshop where all your power tools are mounted on the same workbench, connected to the same power source, and designed to work together seamlessly.</p>
+
+<p>Without an IDE, a programmer might write code in one application, compile it (translate it from human-readable instructions into something a computer can execute) using another program run from a command line, track bugs with a third tool, and manage different versions of their code with yet another. Each tool works independently. Each has its own interface, its own quirks, its own learning curve.</p>
+
+<p>An IDE brings all of these capabilities under one roof. At minimum, a modern IDE handles four essential tasks: editing source code, controlling different versions of that code, automating the build process that turns code into working software, and helping developers find and fix bugs through a process called debugging.</p>
+
+<p>But most IDEs go far beyond this baseline. They might include a compiler, which transforms source code into executable programs. They often integrate with version control systems like Git that track every change made to a codebase over time. Many provide specialized features for building graphical user interfaces, those windows and buttons and menus that users interact with. Some offer sophisticated tools for working with object-oriented programming, a style of software development that organizes code around reusable building blocks called objects and classes.</p>
+
+<h2>Before windows, there were windows</h2>
+
+<p>It is tempting to think that IDEs began with the era of graphical computing. After all, when most people picture a development environment today, they imagine windows filled with colorful code, dropdown menus, and clickable buttons arranged across a monitor.</p>
+
+<p>But the history reaches back further than that. The very first language created with an IDE was BASIC, developed at Dartmouth College in the 1960s. This was an era when many programmers submitted their code on physical punch cards and then waited, sometimes for hours or days, for results. The Dartmouth Time-Sharing System changed that. For the first time, programmers could sit at a terminal and interact with their code in real time, editing and running it immediately.</p>
+
+<p>That early Dartmouth environment did not look anything like today's IDEs. It was entirely text-based and command-driven, with no menus or mouse. But it integrated editing, file management, compilation, debugging, and execution into a single coherent experience. The essential concept of the IDE was already there.</p>
+
+<p>Then came Maestro I.</p>
+
+<p>Built by a Munich company called Softlab, Maestro I is considered the world's first true integrated development environment for professional software creation. During the 1970s and 1980s, it was installed for twenty-two thousand programmers across the globe. In West Germany alone, six thousand installations were running by 1989. The company arguably led the world in development tools during those decades.</p>
+
+<p>Today, one of the last surviving Maestro I systems sits in the Museum of Information Technology in Arlington, Texas, a reminder of how quickly the tools of software creation evolve and become obsolete.</p>
+
+<h2>The graphical revolution and Turbo Pascal</h2>
+
+<p>Before Microsoft Windows became ubiquitous, before the X Window System brought graphical interfaces to Unix, developers still wanted more than command lines. Borland's Turbo Pascal answered that call with an elegant solution: a full-screen, text-based user interface that ran on DOS.</p>
+
+<p>Turbo Pascal proved that you did not need a graphical operating system to provide a graphical experience. Using carefully arranged text characters, it created menus, windows, and dialog boxes that looked almost like modern graphics. Developers could navigate with keyboard shortcuts, see their code highlighted in different colors, and access powerful features without typing arcane commands.</p>
+
+<p>The Mac platform embraced IDEs early and enthusiastically. Starting in the mid-1980s with tools like Macintosh Programmer's Workshop, THINK Pascal, and THINK C, Apple developers enjoyed sophisticated integrated environments. This tradition continues today with Xcode, Apple's native IDE that remains the standard tool for building applications across all Apple platforms.</p>
+
+<h2>The Unix resistance</h2>
+
+<p>Not everyone embraced the IDE revolution. In Unix and Linux communities, a different philosophy took hold, one that persists to this day.</p>
+
+<p>The Unix tradition favors small, sharp tools that each do one thing well. Need to edit text? Use Vim or Emacs, text editors that have been refined over decades. Need to compile code? Invoke GCC, the GNU Compiler Collection, from the command line. Need to track down bugs? Fire up GDB, the GNU Debugger. Need to orchestrate complex build processes? Write a makefile that the make utility can execute.</p>
+
+<p>These tools do not share a common interface. They do not automatically know about each other. But they can be combined in endlessly flexible ways through shell scripts and pipelines. For many developers, this flexibility outweighs the convenience of an IDE.</p>
+
+<p>Consider the developers who build PostgreSQL, one of the world's most respected database systems. Even when building PostgreSQL for Windows using Microsoft's Visual C++ compiler, they rely on Perl scripts rather than Visual Studio's built-in features. They prefer the explicit control of writing their own build logic over the point-and-click configuration offered by an IDE.</p>
+
+<p>Some Linux tools attempt to bridge these worlds. Geany provides a graphical interface while still respecting the Unix philosophy of underlying command-line tools. Data Display Debugger wraps text-based debuggers in a visual skin. These hybrids acknowledge that different developers have different preferences.</p>
+
+<h2>The plugin paradigm</h2>
+
+<p>One of the most influential innovations in IDE history was the plugin architecture. Rather than trying to build every possible feature into a single monolithic program, what if an IDE could be extended by independent developers?</p>
+
+<p>Softbench pioneered this concept, creating one of the first IDEs that supported external plugins. But Eclipse took the idea to its logical extreme. At its core, Eclipse is not really an IDE at all. It is a platform, a foundation upon which plugins can build IDE experiences.</p>
+
+<p>This architecture proved wildly successful. Different communities built Eclipse plugins tailored to their specific needs. Java developers, C++ programmers, Python enthusiasts, and web developers could all use Eclipse, each with plugins customized for their particular language and workflow. The base application provided common services; the plugins provided specialized functionality.</p>
+
+<p>The same extensibility philosophy now runs through Visual Studio Code, Microsoft's lightweight but powerful editor that has become the most popular development environment in the world. Its marketplace offers thousands of extensions that transform a simple text editor into a full-featured IDE for virtually any programming language or framework.</p>
+
+<h2>Into the cloud</h2>
+
+<p>For decades, IDEs lived on individual computers. You installed them, configured them, customized them, and they became deeply personal tools shaped by your preferences and workflows. Your IDE setup was as individual as your desk arrangement.</p>
+
+<p>Cloud-based IDEs challenge this model. A web IDE or online IDE runs entirely in a browser. There is nothing to install. Your development environment exists on a server somewhere, accessible from any computer with an internet connection.</p>
+
+<p>The appeal is obvious. Switch computers and your environment follows you. No more spending hours configuring a new machine. No more "it works on my computer" debugging sessions when collaborating with teammates. Everyone works in identical environments.</p>
+
+<p>These cloud IDEs typically sacrifice some features compared to their desktop counterparts. The most sophisticated debugging tools, the most responsive autocompletion, the deepest integration with local file systems—these remain easier to provide in native applications. But for many development tasks, the tradeoffs are worthwhile.</p>
+
+<h2>Coding from your pocket</h2>
+
+<p>The miniaturization of computing has pushed IDEs into an even more surprising territory: smartphones and tablets. Mobile-based IDEs now allow developers to write, debug, and deploy code directly from devices that fit in a pocket.</p>
+
+<p>These environments face obvious challenges. Typing code on a touchscreen keyboard is tedious. Small screens make it difficult to see enough context. The processing power of even the most advanced phones cannot match a desktop workstation.</p>
+
+<p>Yet mobile IDEs have found their niche. For quick fixes, for reviewing code during a commute, for learning to program without a computer, they provide capabilities that seemed impossible just a few years ago. The IDE has escaped the desk entirely.</p>
+
+<h2>The agents are arriving</h2>
+
+<p>The most dramatic transformation in the history of development environments is happening right now. Artificial intelligence is not just assisting programmers—it is beginning to replace some of what they do.</p>
+
+<p>A new category has emerged: the Agentic Development Environment, or ADE. The term reflects a shift from tools that suggest and assist to tools that act independently. These AI agents do not just offer code completions. They explain code, analyze bugs, suggest solutions, plan implementations, and then execute those plans.</p>
+
+<p>The distinction matters. Traditional IDE features like syntax highlighting and autocomplete are reactive. They respond to what you type. Agentic tools are proactive. They anticipate what you need. They can examine an entire codebase, identify patterns, and propose changes that span dozens of files.</p>
+
+<p>Some of these agents arrive as plugins for existing IDEs. GitHub Copilot, Cline, and Continue integrate into Visual Studio Code, adding AI capabilities to a familiar environment. Others are built into new editors from the ground up. Cursor and Windsurf are designed around AI from their foundations. Google has entered the space with a tool called Antigravity. JetBrains, maker of popular IDEs for Java, Python, and other languages, recently cancelled its Fleet editor in favor of JetBrains Air, an agentic environment based on that foundation.</p>
+
+<p>Even editors that built their reputation on speed and simplicity are evolving. Zed Editor, designed for performance above all else, now offers optional AI integration.</p>
+
+<p>The concerns from 1995 about fencing in creativity look different in this context. If an AI agent can write substantial portions of your code, what happens to the craft of programming? If the tool not only suggests what to type next but actively plans and implements features, where does the human developer fit?</p>
+
+<p>These questions remain open. What seems certain is that the integrated development environment—that mundane-sounding category of software born from the desire to combine a text editor with a compiler—has become one of the most consequential battlegrounds in modern technology. The tools that programmers use to build software are themselves being rebuilt by artificial intelligence.</p>
+
+<p>Whether that counts as creative liberation or creative constraint probably depends on which programmer you ask.</p>
+      </div>
+
+      <footer class="wikipedia-footer">
+        <p class="source-link">
+          <a href="https://en.wikipedia.org/wiki/Integrated_development_environment" target="_blank" rel="noopener">
+            View original Wikipedia article &rarr;
+          </a>
+        </p>
+        <p class="rewrite-note">
+          This article has been rewritten from Wikipedia source material for enjoyable reading.
+          Content may have been condensed, restructured, or simplified.
+        </p>
+      </footer>
+
+      
+      <section class="related-articles">
+        <h2>Related Articles</h2>
+        <p class="related-intro">This deep dive was written in connection with these articles:</p>
+        <ul class="related-list">
+          
+      <li class="related-article-item">
+        <a href="../../article/00e9b72d-91f4-434e-a8c0-c2ef03c8aae5/index.html">
+          <strong>The Pulse #152: Cursor and GitHub double down on agents</strong>
+        </a>
+        <span class="article-meta">
+          by Gergely Orosz in The Pragmatic Engineer
+        </span>
+      </li>
+        </ul>
+      </section>
+    
+    </article>
+  
+  </main>
+</body>
+</html>

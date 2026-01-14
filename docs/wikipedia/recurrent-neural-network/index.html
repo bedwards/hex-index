@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Recurrent neural network - Hex Index</title>
+  <link rel="stylesheet" href="../../styles.css">
+</head>
+<body class="reading-mode">
+  <header class="reading-header">
+    <a href="../../index.html" class="back-link">&larr; Back to Library</a>
+  </header>
+  <main class="reading-content">
+    
+    <article class="wikipedia-page">
+      <header class="wikipedia-header">
+        <div class="type-badge">Wikipedia Deep Dive</div>
+        <h1>Recurrent neural network</h1>
+        <div class="article-meta">
+          <span class="read-time">14 min read</span>
+        </div>
+      </header>
+
+      <div class="wikipedia-content">
+        <p class="source-note">Based on <a href="https://en.wikipedia.org/wiki/Recurrent_neural_network">Wikipedia: Recurrent neural network</a></p>
+
+<p>In 1901, the Spanish neuroscientist Santiago Ramón y Cajal was peering through his microscope at slices of brain tissue when he noticed something peculiar in the cerebellar cortex. The nerve fibers weren't just running in one direction like wires in a circuit. They looped back on themselves, forming what he called "recurrent semicircles." The brain, it turned out, was talking to itself.</p>
+
+<p>This discovery would eventually help birth one of the most important ideas in artificial intelligence: the recurrent neural network, or RNN. These are the machines that learned to read, to listen, to translate, and to remember.</p>
+
+<h2>The Problem with Forgetting</h2>
+
+<p>To understand why recurrent neural networks matter, you first need to understand what came before them. The earliest artificial neural networks were feedforward networks—they processed information in one direction, like water flowing downhill. Data went in, got transformed, and came out the other side. Simple. Clean. And fundamentally limited.</p>
+
+<p>Feedforward networks treat every input as if it exists in isolation. They're like a person who forgets each word of a sentence immediately after hearing it. "The cat sat on the..." On the what? A feedforward network doesn't know, because it has no memory of what came before.</p>
+
+<p>But language, speech, music, stock prices, weather patterns—nearly everything interesting in the world unfolds over time. The meaning of "right" depends entirely on whether you just heard "turn" or "civil." The significance of today's temperature depends on yesterday's. Context is everything, and context requires memory.</p>
+
+<p>Recurrent neural networks solved this by doing something radical: they gave neural networks the ability to remember.</p>
+
+<h2>How Memory Works in Machines</h2>
+
+<p>The key innovation is almost embarrassingly simple in concept. Instead of information flowing only forward through the network, some of it loops back. The output of a neuron at one moment becomes part of the input at the next moment. The network develops what engineers call a "hidden state"—a kind of internal memory that gets updated with each new piece of information.</p>
+
+<p>Think of it like reading a novel. You don't start fresh at every word. You carry forward a running understanding of the plot, the characters, the tone. When you encounter the word "bank," you know from context whether it means a financial institution or the edge of a river. Your brain has been accumulating evidence, updating its interpretation, building a model.</p>
+
+<p>An RNN does something similar. At each step, it takes in a new input—perhaps a word, or a frame of audio, or a stock price—and combines it with its memory of everything that came before. Then it produces an output and updates its memory for the next step.</p>
+
+<p>This feedback loop is what makes RNNs "recurrent." Information recurs, cycles back, influences future processing. The network can learn patterns that span time.</p>
+
+<h2>Roots in Brains and Magnets</h2>
+
+<p>The history of recurrent neural networks is a story of two disciplines slowly discovering they were working on the same problem.</p>
+
+<p>Neuroscientists had been finding loops in brains for decades. After Cajal's discovery of recurrent semicircles, the Spanish neuroanatomist Rafael Lorente de Nó found "recurrent, reciprocal connections" in 1933 and proposed that these excitatory loops might explain how the vestibulo-ocular reflex works—that's the remarkable ability of your eyes to stay fixed on a target even as your head moves.</p>
+
+<p>By the 1940s, feedback in the brain had become a hot topic. The psychologist Donald Hebb proposed that "reverberating circuits"—loops of neurons that keep activating each other—might explain short-term memory. Warren McCulloch and Walter Pitts, in their famous 1943 paper that launched the field of computational neuroscience, explicitly considered networks containing cycles. They noted that the current activity of such networks could be affected by activity "indefinitely far in the past." They were interested in closed loops as possible explanations for conditions like epilepsy.</p>
+
+<p>Meanwhile, physicists were developing mathematical tools for understanding magnets.</p>
+
+<p>In the 1920s, Wilhelm Lenz and his student Ernst Ising created a simple model of how magnetic materials work. Imagine a grid of tiny magnets, each pointing either up or down. Each magnet tries to align with its neighbors. The Ising model, as it came to be known, became a foundational tool in statistical mechanics—the physics of large systems governed by probability.</p>
+
+<p>In 1963, a physicist named Roy Glauber added time to the Ising model. Instead of just looking at magnets at equilibrium, he studied how they evolve, flipping one by one, gradually settling into stable configurations. This might seem far removed from artificial intelligence, but the mathematics turned out to be surprisingly relevant.</p>
+
+<p>The connection was made explicit by John Hopfield in 1982. Hopfield realized that a network of artificial neurons with recurrent connections behaves mathematically like a system of magnets. Just as magnets settle into stable configurations, a recurrent neural network can settle into stable patterns of activity. These stable patterns could serve as memories.</p>
+
+<p>Hopfield's network wasn't just inspired by physics—it was physics, applied to cognition. This cross-pollination between statistical mechanics and neuroscience would prove enormously fruitful.</p>
+
+<h2>The Vanishing Gradient Problem</h2>
+
+<p>Early recurrent networks had a critical flaw. They could remember, but only for short periods.</p>
+
+<p>The problem was mathematical. Neural networks learn through a process called backpropagation, where errors at the output are traced backward through the network, adjusting each connection along the way. In a recurrent network, this means tracing errors not just through layers of neurons, but through time itself. An error at step one hundred needs to send feedback all the way back to step one.</p>
+
+<p>But here's the catch: at each step backward, the error signal gets multiplied by certain factors. If those factors are less than one, the signal shrinks. Multiply something by 0.9 a hundred times and you get something close to zero. The error signal vanishes before it reaches the early steps. The network can't learn from distant past events because the gradient—the mathematical signal that guides learning—has vanished.</p>
+
+<p>This is called the vanishing gradient problem, and for years it seemed insurmountable. Recurrent networks could learn short-term patterns but struggled with anything requiring long-range memory. They might learn that "the" often precedes a noun, but they couldn't learn that a pronoun at the end of a paragraph should match a noun introduced at the beginning.</p>
+
+<h2>The LSTM Revolution</h2>
+
+<p>The solution came in 1997 from two German researchers, Sepp Hochreiter and Jürgen Schmidhuber. They invented a new architecture called Long Short-Term Memory, universally abbreviated as LSTM.</p>
+
+<p>The key insight was to give the network explicit control over its memory. Instead of information flowing through the network and gradually fading away, an LSTM has gates—mechanisms that can actively decide what to remember, what to forget, and what to output.</p>
+
+<p>Imagine you're reading a mystery novel and trying to keep track of clues. Not every sentence matters equally. You want to remember that the butler had muddy shoes, but you can probably forget what color the curtains were. An LSTM works similarly. It has an "input gate" that controls what new information gets written to memory, a "forget gate" that controls what old information gets erased, and an "output gate" that controls what gets retrieved from memory at any given moment.</p>
+
+<p>These gates are themselves learned from data. The network figures out, through training, what kinds of information are worth preserving for long periods and what can be safely discarded. A network trained on language might learn to remember the subject of a sentence until it encounters the verb, then forget the subject details but remember the overall meaning.</p>
+
+<p>The result is that error signals can flow backward through an LSTM network without vanishing. The network can learn dependencies that span hundreds or even thousands of steps. It was a breakthrough.</p>
+
+<h2>Bidirectional Networks</h2>
+
+<p>Standard recurrent networks have another limitation: they can only look backward in time. When processing a sentence, they see "The cat sat on the..." but not what comes after. This is fine for some applications—you can't look into the future when transcribing live speech—but limiting for others.</p>
+
+<p>Consider this sentence: "The bank was steep and covered in wildflowers." You don't know "bank" means a riverbank until you reach "steep" and "wildflowers." A forward-only network would have to guess at "bank" and might guess wrong.</p>
+
+<p>Bidirectional recurrent neural networks, or BRNNs, solve this by running two networks simultaneously—one forward, one backward. The forward network processes the sequence from beginning to end; the backward network processes it from end to beginning. Then the outputs are combined. At each position, the network has context from both directions.</p>
+
+<p>This architecture is particularly powerful for tasks where you have the entire input available at once, like translating a complete sentence or labeling parts of speech. You can't use it for real-time processing, but for batch processing, it's extraordinarily effective.</p>
+
+<p>Combine bidirectional processing with LSTM, and you get bidirectional LSTM—the architecture that would dominate sequence processing for nearly a decade.</p>
+
+<h2>The Speech Recognition Revolution</h2>
+
+<p>Around 2006, bidirectional LSTMs began revolutionizing speech recognition.</p>
+
+<p>Speech is difficult for computers because sounds blur together. When you say "recognize speech," it sounds almost identical to "wreck a nice beach." The difference is context. LSTMs, with their ability to remember distant information and process in both directions, proved far better at disambiguation than the hidden Markov models that had dominated speech recognition for decades.</p>
+
+<p>The improvements were dramatic. LSTMs broke records in large-vocabulary speech recognition, improved text-to-speech synthesis, and powered Google's voice search. If you've ever dictated a text message on your phone, you've benefited from this technology.</p>
+
+<p>The success extended to machine translation. In 2014, researchers at Google and elsewhere introduced the sequence-to-sequence architecture, commonly called seq2seq. The idea was elegant: use one LSTM to read a sentence in the source language, encoding its meaning into a fixed-length vector, then use another LSTM to decode that vector into a sentence in the target language.</p>
+
+<p>This encoder-decoder approach became the state of the art in machine translation. It also planted the seeds for what would come next.</p>
+
+<h2>Attention and the Rise of Transformers</h2>
+
+<p>Sequence-to-sequence models had a limitation: they tried to compress an entire sentence into a single vector. For short sentences, this worked fine. For longer ones, information got lost. Translating a long sentence meant squeezing too much meaning through too small a bottleneck.</p>
+
+<p>The solution was attention. Instead of compressing everything into one vector, attention mechanisms allow the decoder to look back at the entire input sequence, focusing on different parts as needed. When translating a word, the network can attend to the most relevant words in the source sentence, even if they appeared far away.</p>
+
+<p>Attention mechanisms were initially developed to augment recurrent networks. But researchers soon realized that attention was so powerful, you might not need recurrence at all.</p>
+
+<p>In 2017, a team at Google published a paper with the provocative title "Attention Is All You Need." They introduced the Transformer architecture, which replaced recurrence entirely with attention mechanisms. Transformers process all positions of a sequence simultaneously rather than step by step, making them highly parallelizable and thus much faster to train.</p>
+
+<p>Transformers turned out to be extraordinarily effective. They're the architecture behind GPT, BERT, and virtually all modern large language models. For most natural language processing tasks, they've largely replaced LSTMs.</p>
+
+<h2>Where RNNs Still Matter</h2>
+
+<p>Does this mean recurrent neural networks are obsolete? Not quite.</p>
+
+<p>Transformers' power comes at a cost. Their attention mechanism requires comparing every position to every other position, which scales quadratically with sequence length. A sequence of 1,000 elements requires a million comparisons. For very long sequences, this becomes prohibitively expensive.</p>
+
+<p>RNNs scale linearly. Processing a sequence of 1,000 elements takes only about twice as long as processing 500. For applications involving very long sequences—like processing entire books or analyzing hours of audio—RNNs can be more practical.</p>
+
+<p>RNNs also excel at real-time processing. Because they process information step by step, they can begin producing output before they've seen the entire input. This matters for applications like live captioning or real-time translation, where waiting for the complete input isn't an option.</p>
+
+<p>And RNNs are more memory-efficient. A Transformer needs to store attention weights for the entire sequence; an RNN only needs to store its hidden state. On memory-constrained devices—smartphones, embedded systems, sensors—this can be the deciding factor.</p>
+
+<h2>Gated Recurrent Units</h2>
+
+<p>After LSTM became the standard, researchers looked for simpler alternatives. The gated recurrent unit, or GRU, emerged in 2014 as a streamlined version.</p>
+
+<p>GRUs combine LSTM's forget and input gates into a single "update gate" and make other simplifications. The result is fewer parameters to learn and faster computation, while retaining much of LSTM's ability to handle long-range dependencies.</p>
+
+<p>In practice, LSTMs and GRUs often achieve similar performance, with the choice depending on the specific application and dataset. GRUs train faster; LSTMs are sometimes more expressive. Both remain widely used.</p>
+
+<h2>Stacking Networks</h2>
+
+<p>A single layer of recurrence captures patterns at one level of abstraction. Stack multiple layers, and you can capture hierarchies of patterns.</p>
+
+<p>In a stacked or deep RNN, the output of one recurrent layer feeds into the next. The first layer might learn to recognize phonemes from audio; the second might learn syllables; the third might learn words. Each layer operates at a different level of abstraction, building more complex representations from simpler ones.</p>
+
+<p>The speech recognition systems and translation systems that broke records in the 2010s typically used deep LSTMs with multiple layers. Depth, it turned out, matters as much for recurrent networks as for feedforward ones.</p>
+
+<h2>The Broader Legacy</h2>
+
+<p>Even as Transformers have come to dominate many applications, the ideas that emerged from recurrent neural network research remain foundational.</p>
+
+<p>The concept of gates—learned mechanisms that control information flow—appears in many modern architectures. The encoder-decoder framework developed for sequence-to-sequence learning is now standard across machine learning. Attention mechanisms, which were developed to improve RNNs, are now the basis of the most powerful language models.</p>
+
+<p>And the deep connection between neural networks and statistical physics, first made explicit by Hopfield's work on recurrent networks, continues to inform our understanding of how these systems work.</p>
+
+<p>Recurrent neural networks taught machines to remember. In doing so, they taught us something about memory itself—that it's not just a passive recording, but an active process of deciding what matters, what to keep, and what to let go.</p>
+
+<h2>A Note on Names</h2>
+
+<p>The terminology in this field can be confusing. "Recurrent" just means "looping back"—anatomists used the word long before computer scientists did. An RNN is recurrent because information recurs, cycling through the network over time.</p>
+
+<p>LSTM stands for Long Short-Term Memory, which sounds almost contradictory. The idea is that the network has both long-term memory (the cell state, which can persist indefinitely) and short-term memory (the hidden state, which changes more rapidly). The architecture mediates between these two timescales.</p>
+
+<p>GRU stands for Gated Recurrent Unit. The "gated" part refers to the gates that control information flow—think of them like valves that can be opened or closed to control what passes through.</p>
+
+<p>Transformer, despite the dramatic name, simply refers to a network that transforms sequences using attention mechanisms. The name stuck, and now every major language model uses some variant of the Transformer architecture.</p>
+
+<h2>What Came Before and What Came After</h2>
+
+<p>Before RNNs, processing sequences meant treating time as just another input dimension, or using hand-crafted features designed by domain experts, or employing statistical models like hidden Markov models that made strong assumptions about how sequences work.</p>
+
+<p>RNNs offered something different: a general-purpose architecture that could learn temporal patterns from data, without requiring researchers to specify in advance what those patterns should look like. Give the network enough examples, and it would figure out what mattered.</p>
+
+<p>This philosophy—learning from data rather than engineering by hand—has driven the deep learning revolution. RNNs were among the first architectures to demonstrate convincingly that neural networks could handle complex, structured, sequential data. They showed that the brain's solution—feedback loops that create memory—could work in silicon too.</p>
+
+<p>Transformers may have superseded RNNs for many tasks, but they emerged from the same lineage. The sequence-to-sequence framework, the encoder-decoder architecture, the attention mechanism—all were developed in the context of recurrent networks and then adapted for a new architecture.</p>
+
+<p>The story of recurrent neural networks is, in a sense, a story about how ideas evolve. Neuroscientists studying the brain noticed loops. Physicists studying magnets developed mathematical tools. Computer scientists combined both to create machines that remember. And then those machines helped us understand something new about minds—artificial and biological alike.</p>
+      </div>
+
+      <footer class="wikipedia-footer">
+        <p class="source-link">
+          <a href="https://en.wikipedia.org/wiki/Recurrent_neural_network" target="_blank" rel="noopener">
+            View original Wikipedia article &rarr;
+          </a>
+        </p>
+        <p class="rewrite-note">
+          This article has been rewritten from Wikipedia source material for enjoyable reading.
+          Content may have been condensed, restructured, or simplified.
+        </p>
+      </footer>
+
+      
+      <section class="related-articles">
+        <h2>Related Articles</h2>
+        <p class="related-intro">This deep dive was written in connection with these articles:</p>
+        <ul class="related-list">
+          
+      <li class="related-article-item">
+        <a href="../../article/599dafe2-ad5e-4c1a-a7b9-a4e0199563fe/index.html">
+          <strong>Deep Learning Weekly: Issue 429</strong>
+        </a>
+        <span class="article-meta">
+          by Various in Deep Learning Weekly
+        </span>
+      </li>
+        </ul>
+      </section>
+    
+    </article>
+  
+  </main>
+</body>
+</html>

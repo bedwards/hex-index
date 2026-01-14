@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>InfiniBand - Hex Index</title>
+  <link rel="stylesheet" href="../../styles.css">
+</head>
+<body class="reading-mode">
+  <header class="reading-header">
+    <a href="../../index.html" class="back-link">&larr; Back to Library</a>
+  </header>
+  <main class="reading-content">
+    
+    <article class="wikipedia-page">
+      <header class="wikipedia-header">
+        <div class="type-badge">Wikipedia Deep Dive</div>
+        <h1>InfiniBand</h1>
+        <div class="article-meta">
+          <span class="read-time">11 min read</span>
+        </div>
+      </header>
+
+      <div class="wikipedia-content">
+        <p class="source-note">Based on <a href="https://en.wikipedia.org/wiki/InfiniBand">Wikipedia: InfiniBand</a></p>
+
+<h2>The Hidden Plumbing of Artificial Intelligence</h2>
+
+<p>When we talk about the artificial intelligence revolution, we tend to focus on the flashy parts: the graphics processing units, the massive data centers, the neural networks with billions of parameters. But there's a quieter story happening inside those data centers, one about how all those powerful chips actually talk to each other. That story is InfiniBand.</p>
+
+<p>Think of it this way: you could have the fastest computers ever built, but if they can't exchange information quickly enough, they become a traffic jam. InfiniBand is the express highway that prevents that jam.</p>
+
+<h2>What InfiniBand Actually Does</h2>
+
+<p>InfiniBand is a networking standard designed for one purpose: moving enormous amounts of data between computers with almost no delay. The technical term for that delay is latency, and reducing it matters enormously when thousands of processors need to coordinate on a single calculation.</p>
+
+<p>Your home network uses Ethernet, the same basic technology that has connected computers since the 1970s. Ethernet is versatile and cheap, but it was designed for general-purpose networking—sending emails, loading web pages, streaming video. InfiniBand was designed specifically for the brutal demands of supercomputing, where processors need to share results millions of times per second.</p>
+
+<p>The difference is like comparing a city bus system to a Formula One pit crew. Both move things around, but one is optimized for raw speed and precision.</p>
+
+<h2>A Brief History of Going Faster</h2>
+
+<p>InfiniBand emerged from corporate warfare. In the late 1990s, computer engineers realized they had a problem: processors were getting faster and faster, but the connections between them weren't keeping pace. The metaphor they used was "bottleneck"—like pouring water through a funnel, no matter how much water you have, it can only flow as fast as the narrowest point allows.</p>
+
+<p>Two rival camps formed to solve this problem. One group, led by Intel with support from Sun Microsystems and Dell, developed something called Next Generation Input/Output. The other group, backed by Compaq, IBM, and Hewlett-Packard, created Future I/O. Both were trying to replace the aging Peripheral Component Interconnect bus—the internal highway that moved data between a computer's processor and its various components.</p>
+
+<p>In 1999, these rivals did something unusual in the tech industry: they merged their efforts. The InfiniBand Trade Association was born, bringing together hardware giants and software companies like Microsoft. The first official specification arrived in 2000, promising to replace not just the internal connections in computers but also the Ethernet cables connecting machines and the Fiber Channel links connecting storage systems.</p>
+
+<p>It was an ambitious vision. Perhaps too ambitious.</p>
+
+<h2>The Dot-Com Crash and the Survivor</h2>
+
+<p>The early 2000s were unkind to ambitious technology ventures. When the dot-com bubble burst, companies became cautious about investing in revolutionary new standards. By 2002, Intel announced it would focus on developing PCI Express instead—an incremental improvement to existing technology rather than a wholesale replacement. Microsoft abandoned InfiniBand development to extend Ethernet. The grand vision narrowed.</p>
+
+<p>But InfiniBand didn't die. It found its niche in the one market willing to pay premium prices for premium performance: supercomputers.</p>
+
+<p>In 2003, Virginia Tech built a supercomputer called System X that ranked among the three most powerful computers on Earth. It used InfiniBand to connect its processors. The academic and scientific computing community had discovered a tool that made their work dramatically faster, and they weren't going to give it up just because the mainstream market had lost interest.</p>
+
+<h2>The Rise of Mellanox</h2>
+
+<p>A company called Mellanox had been founded in 1999 to build the original Next Generation Input/Output technology. When the industry merged around InfiniBand, Mellanox pivoted. By 2001, they were shipping InfiniBand products at ten gigabits per second—remarkably fast for the era.</p>
+
+<p>Over the next two decades, Mellanox would become synonymous with InfiniBand. Through a series of acquisitions and the exit of competitors, they achieved something rare in technology: near-monopoly status in a critical infrastructure market.</p>
+
+<p>This consolidation wasn't always organic. Cisco, the networking giant, saw InfiniBand as a threat to its Ethernet business. According to industry observers, Cisco pursued a "buy to kill" strategy, acquiring InfiniBand switching companies like Topspin and then shutting them down. The goal was to eliminate competition to Ethernet rather than to develop InfiniBand products.</p>
+
+<p>By 2010, Mellanox had merged with Voltaire, another InfiniBand vendor. Intel acquired the InfiniBand division of QLogic in 2012, but eventually exited the market. This left Mellanox as essentially the only independent supplier.</p>
+
+<p>Then, in 2019, Nvidia acquired Mellanox for seven billion dollars.</p>
+
+<h2>Why Nvidia Wanted the Plumbing</h2>
+
+<p>On the surface, Nvidia's acquisition seems puzzling. Nvidia makes graphics processing units—the chips that have become essential for training artificial intelligence models. Why would they want a networking company?</p>
+
+<p>The answer lies in understanding how modern AI systems work. Training a large language model requires distributing calculations across thousands of GPUs simultaneously. Those GPUs need to constantly share intermediate results with each other. The faster they can share, the faster the training completes.</p>
+
+<p>When you're spending millions of dollars on a training run that might take weeks, shaving even ten percent off that time represents enormous value. InfiniBand provides that edge.</p>
+
+<p>By owning Mellanox, Nvidia controls both the processing power and the communication links in modern AI data centers. It's like owning both the engines and the transmission system in a fleet of racing cars.</p>
+
+<h2>How Fast Is Fast?</h2>
+
+<p>InfiniBand speeds have increased dramatically over the years, following a naming convention that started sensibly and became increasingly arbitrary.</p>
+
+<p>The original speeds were called Single Data Rate, Double Data Rate, and Quad Data Rate—abbreviated SDR, DDR, and QDR. This made intuitive sense: each generation doubled or quadrupled the throughput. But as speeds continued climbing, the industry ran out of obvious names. They settled on three-letter codes that no longer corresponded to any obvious pattern: FDR for "Fourteen Data Rate" (actually delivering about fifty-six gigabits per second), EDR for "Enhanced Data Rate," HDR for "High Data Rate," and most recently NDR for "Next Data Rate."</p>
+
+<p>The current generation, NDR, delivers four hundred gigabits per second over a single connection. To put that in perspective: four hundred gigabits per second means you could transfer the entire contents of a typical laptop's hard drive in less than a second. Modern data centers use thousands of these connections simultaneously.</p>
+
+<h2>The Secret Sauce: Remote Direct Memory Access</h2>
+
+<p>Raw speed isn't InfiniBand's only advantage. The technology also provides something called Remote Direct Memory Access, or RDMA.</p>
+
+<p>Normally, when one computer wants to send data to another, the process involves multiple layers of software. The application asks the operating system to send data. The operating system copies the data to a network buffer. The network hardware sends the data. On the receiving end, the network hardware receives the data, copies it to a buffer, notifies the operating system, and the operating system eventually makes it available to the application.</p>
+
+<p>All that copying and notification takes time and consumes processor cycles. RDMA eliminates most of it. With RDMA, one computer can read from or write to another computer's memory directly, without involving either computer's processor in the transfer. The hardware handles everything.</p>
+
+<p>This matters enormously for AI workloads. When GPUs are working on a training run, you want them spending their time on mathematics, not waiting for data or managing network traffic. RDMA lets the networking happen almost invisibly in the background.</p>
+
+<h2>The Physical Reality</h2>
+
+<p>InfiniBand connections use a specific type of cable and connector. The most common connector is called QSFP, which stands for Quad Small Form-factor Pluggable. The "quad" refers to the fact that these connectors bundle four individual lanes together, multiplying the bandwidth.</p>
+
+<p>For short distances—up to about ten meters—InfiniBand can run over copper cables. For longer distances, it uses fiber optic cables, which can extend up to ten kilometers. Modern data centers typically use a mix: copper for connections within a single rack of equipment, and fiber for connections between racks or between buildings.</p>
+
+<p>The newest generation, NDR, has introduced a larger connector called OSFP (Octal Small Form-factor Pluggable) that bundles even more lanes together. The naming continues to be somewhat misleading—despite the "octal" prefix suggesting eight lanes, the connectors are used in various configurations that don't necessarily involve eight of anything.</p>
+
+<h2>The Competition</h2>
+
+<p>InfiniBand isn't the only option for connecting computers in data centers. Its main competitors are Ethernet, Fiber Channel, and Intel's Omni-Path.</p>
+
+<p>Ethernet is everywhere. It's the technology that connects most computers to most networks. Over the years, Ethernet has gotten much faster—modern standards reach one hundred gigabits per second and beyond. Ethernet's advantage is ubiquity: the equipment is cheaper, more engineers understand it, and it integrates easily with the broader internet.</p>
+
+<p>Fiber Channel is specialized for storage networks, connecting computers to disk arrays and storage systems. It offers good performance but lacks InfiniBand's extremely low latency.</p>
+
+<p>Intel's Omni-Path was a direct competitor to InfiniBand, designed specifically for supercomputing. Intel launched it in 2015 but essentially abandoned development in 2019—the same year Nvidia acquired Mellanox. Some industry observers suspect Intel saw the writing on the wall and decided it couldn't compete with an integrated Nvidia-Mellanox offering.</p>
+
+<h2>The Software Layer</h2>
+
+<p>Hardware is only part of the story. To use InfiniBand, computers need software that knows how to talk to the hardware.</p>
+
+<p>Unusually for a networking standard, InfiniBand doesn't define a specific application programming interface. Instead, it defines a set of "verbs"—abstract operations like "open device" or "post send." Each vendor implements these verbs in their own way, which theoretically could create compatibility problems.</p>
+
+<p>In practice, the industry coalesced around a single implementation: the Open Fabrics Enterprise Distribution, developed by the OpenFabrics Alliance. This software stack runs on Linux, FreeBSD, Windows, and several other operating systems. Because virtually everyone uses the same software, the theoretical flexibility in the standard hasn't caused significant fragmentation.</p>
+
+<p>Linux kernel support for InfiniBand was integrated in 2005, version 2.6.11. This early adoption helped establish InfiniBand as the default choice for Linux-based supercomputers.</p>
+
+<h2>InfiniBand Today</h2>
+
+<p>Between 2014 and 2016, InfiniBand was the most common interconnect technology in the TOP500 list—the ranking of the world's most powerful supercomputers. Since then, high-speed Ethernet has regained some ground, particularly in systems where cost matters more than absolute peak performance.</p>
+
+<p>But in the specific domain of AI training, InfiniBand remains dominant. The largest clusters built by companies like Meta, Google, and OpenAI rely on InfiniBand to connect thousands of GPUs. When you hear about systems with tens of thousands of GPUs working in concert, InfiniBand is almost certainly the invisible infrastructure making that coordination possible.</p>
+
+<p>The irony is striking. InfiniBand was originally envisioned as a replacement for everything—internal computer connections, Ethernet, storage networks. That vision failed. But in failing to become everything, InfiniBand became essential for something: the most demanding computational workloads humanity has ever attempted.</p>
+
+<h2>The Monopoly Question</h2>
+
+<p>Nvidia's control of both GPUs and InfiniBand networking creates an interesting market dynamic. If you want to build a large-scale AI training system, you probably need Nvidia GPUs. And if you're using Nvidia GPUs at scale, you probably need InfiniBand networking. And if you need InfiniBand networking, you're buying from Nvidia.</p>
+
+<p>This vertical integration has advantages—Nvidia can optimize their GPUs and networking hardware to work together seamlessly. But it also raises concerns about competition. Some in the industry worry that Nvidia's dominance makes it difficult for alternatives to emerge.</p>
+
+<p>Oracle, the database giant, reportedly considered engineering its own InfiniBand hardware in 2016. Nothing came of it. The technical barriers to entry are formidable, and the market may not be large enough to justify the investment for a company that isn't already in the semiconductor business.</p>
+
+<h2>Looking Forward</h2>
+
+<p>The future of InfiniBand is tied to the future of large-scale computing. As AI models continue growing, the demands on interconnect technology will only increase. The next generation of InfiniBand, whatever it's called, will need to deliver even higher bandwidth and lower latency.</p>
+
+<p>At the same time, alternative technologies continue developing. Ultra Ethernet, a new standard specifically designed for AI workloads, aims to bring Ethernet's cost advantages to the high-performance computing market. Whether it can match InfiniBand's performance remains to be seen.</p>
+
+<p>For now, InfiniBand occupies a peculiar position in the technology landscape: invisible to most people, essential to the systems that generate the AI capabilities everyone talks about. The next time you interact with a large language model, remember that somewhere, data is flowing through InfiniBand connections at speeds measured in hundreds of billions of bits per second, enabling the mathematics that makes the magic work.</p>
+
+<p>The plumbing matters.</p>
+      </div>
+
+      <footer class="wikipedia-footer">
+        <p class="source-link">
+          <a href="https://en.wikipedia.org/wiki/InfiniBand" target="_blank" rel="noopener">
+            View original Wikipedia article &rarr;
+          </a>
+        </p>
+        <p class="rewrite-note">
+          This article has been rewritten from Wikipedia source material for enjoyable reading.
+          Content may have been condensed, restructured, or simplified.
+        </p>
+      </footer>
+
+      
+      <section class="related-articles">
+        <h2>Related Articles</h2>
+        <p class="related-intro">This deep dive was written in connection with these articles:</p>
+        <ul class="related-list">
+          
+      <li class="related-article-item">
+        <a href="../../article/0fd987ac-c36d-4e77-a84c-3cd1ea1c2223/index.html">
+          <strong>ClusterMAX™ 2.0: The Industry Standard GPU Cloud Rating System</strong>
+        </a>
+        <span class="article-meta">
+          by Dylan Patel in SemiAnalysis
+        </span>
+      </li>
+        </ul>
+      </section>
+    
+    </article>
+  
+  </main>
+</body>
+</html>

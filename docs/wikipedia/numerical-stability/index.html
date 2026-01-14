@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Numerical stability - Hex Index</title>
+  <link rel="stylesheet" href="../../styles.css">
+</head>
+<body class="reading-mode">
+  <header class="reading-header">
+    <a href="../../index.html" class="back-link">&larr; Back to Library</a>
+  </header>
+  <main class="reading-content">
+    
+    <article class="wikipedia-page">
+      <header class="wikipedia-header">
+        <div class="type-badge">Wikipedia Deep Dive</div>
+        <h1>Numerical stability</h1>
+        <div class="article-meta">
+          <span class="read-time">11 min read</span>
+        </div>
+      </header>
+
+      <div class="wikipedia-content">
+        The rewritten article is ready. Here is the HTML content for the Numerical Stability Wikipedia article:
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Numerical Stability - Hex Index</title>
+    <link rel="stylesheet" href="../../style.css">
+</head>
+<body>
+    <nav class="breadcrumb">
+        <a href="../../">Home</a> &rsaquo; <span>Numerical Stability</span>
+    </nav>
+
+    <main>
+        <article>
+            <h1>Numerical Stability</h1>
+
+            <p class="source-note">Based on <a href="https://en.wikipedia.org/wiki/Numerical_stability">Wikipedia: Numerical stability</a></p>
+
+<p>Imagine you're trying to calculate something simple—say, the square root of two. You start with a reasonable guess, maybe 1.4, and then you use a formula to refine that guess, getting closer and closer to the true answer with each iteration. This is how most numerical algorithms work. But here's the unsettling truth: depending on which formula you choose, your calculation might steadily march toward the correct answer, or it might spiral off into numerical oblivion, giving you results that are catastrophically wrong.</p>
+
+<p>This is the domain of numerical stability, one of the most consequential yet least appreciated ideas in computational mathematics. When your bank calculates compound interest, when a weather model predicts tomorrow's forecast, when an AI system fine-tunes its parameters during training—all of these processes depend on algorithms that perform millions of small calculations. And each of those calculations carries tiny errors. The question numerical stability asks is: do those errors stay tiny, or do they grow into monsters?</p>
+
+<h2>The Hidden World of Computational Errors</h2>
+
+<p>To understand numerical stability, you first need to understand that computers lie. Not maliciously, but structurally. When you type the number one-third into a computer using typical floating-point representation, the computer stores something like 0.33333333333333331, not the actual value. This isn't a bug—it's an inevitable consequence of representing infinite precision with finite bits.</p>
+
+<p>These tiny discrepancies are called round-off errors, and they're everywhere in computation. Every time your computer adds, subtracts, multiplies, or divides two numbers, the result might need to be rounded to fit into the computer's representation. Most of the time, these errors are so minuscule that they don't matter. But "most of the time" isn't always.</p>
+
+<p>The dangerous cases are when errors accumulate. Picture a snowball rolling down a hill, picking up more snow with each rotation. In a numerically unstable algorithm, round-off errors work the same way—each calculation amplifies the errors from previous calculations, until the final result bears no resemblance to the true answer.</p>
+
+<p>A numerically stable algorithm, by contrast, acts more like a self-correcting mechanism. Errors might creep in, but they don't compound. They might even damp out, like ripples fading across a pond.</p>
+
+<h2>Forward, Backward, and the Space Between</h2>
+
+<p>Mathematicians have developed precise vocabulary to describe what goes wrong (or right) in numerical calculations. The concepts of forward error and backward error are central to this framework.</p>
+
+<p>Suppose you're trying to compute some function f of an input x to get an output y. You run your algorithm and get a result we'll call y-star. The forward error is simply the difference between what you got and what you should have gotten: y-star minus y. It's the most intuitive measure of error—how far is your answer from the right one?</p>
+
+<p>Backward error is more subtle and, in many ways, more useful. Instead of asking "how wrong is my answer?", backward error asks "what input would have given me this answer if the computation had been exact?" If your algorithm returns y-star, the backward error is the smallest change to your input x that would make y-star the correct output. In other words, backward error tells you: your algorithm didn't solve the exact problem you gave it, but it did solve a nearby problem exactly. How nearby?</p>
+
+<p>This reframing is surprisingly powerful. Many algorithms that look terrible from a forward error perspective look quite good from a backward error perspective. If the backward error is small—comparable to the inherent uncertainty in your input data—then the algorithm has, in a meaningful sense, done its job perfectly. It solved a problem that's indistinguishable from the one you asked about, given the precision of your inputs.</p>
+
+<p>An algorithm is called backward stable if it achieves small backward error for all inputs. This is generally considered the gold standard for numerical linear algebra algorithms. If an algorithm is backward stable, you can trust that whatever answer it gives you is the exact answer to a problem very close to the one you intended to solve.</p>
+
+<h2>The Condition Number: When Problems Fight Back</h2>
+
+<p>Here's a crucial insight: sometimes the algorithm isn't the problem. Sometimes the problem itself is the problem.</p>
+
+<p>Consider the task of finding where two nearly parallel lines intersect. Tiny changes in the angle of either line can cause the intersection point to jump dramatically. This isn't a computational artifact—it's inherent to the geometry of the situation. No algorithm, no matter how clever, can make this problem behave well.</p>
+
+<p>Mathematicians capture this inherent sensitivity using a quantity called the condition number. A high condition number means the problem is ill-conditioned: small changes in the input cause large changes in the output. A low condition number means the problem is well-conditioned: the output changes smoothly and proportionally with the input.</p>
+
+<p>The condition number links forward and backward error through a beautiful relationship: the forward error can never be larger than the condition number times the backward error. This means a backward stable algorithm will give accurate results on well-conditioned problems, but even a perfect algorithm will struggle with ill-conditioned problems.</p>
+
+<p>This explains why numerical analysts care so much about both algorithm design and problem formulation. Sometimes the right move isn't to find a better algorithm—it's to reformulate the problem into a better-conditioned form.</p>
+
+<h2>A Tale of Two Square Root Algorithms</h2>
+
+<p>The abstract theory becomes vivid through concrete example. Let's return to computing the square root of two, approximately 1.41421.</p>
+
+<p>The Babylonian method, discovered over four thousand years ago, uses a simple iteration: take your current guess, add two divided by your guess, then divide the whole thing by two. Starting with an initial guess of 1.4, the Babylonian method produces: 1.4, then 1.4142857, then 1.4142136, then 1.4142136—converging to the correct answer within just a few steps.</p>
+
+<p>Now consider a different method, which we might call Method X: take your current guess squared, subtract two, square that result, and add your original guess. Starting with 1.4, this produces: 1.4, then 1.4016, then 1.40176, then continuing to creep slowly toward the answer. But start with 1.42 instead, and watch what happens: the sequence explodes, diverging rapidly away from the true answer.</p>
+
+<p>Both methods are mathematically valid—they both approach the square root of two in the limit of exact arithmetic. But the Babylonian method is numerically stable: it converges quickly regardless of your starting point, and small perturbations in the initial guess don't derail the calculation. Method X is numerically unstable: it's exquisitely sensitive to initial conditions, and floating-point errors compound disastrously.</p>
+
+<p>The Babylonians didn't know about numerical stability theory, but they knew good mathematics when they saw it. Their method has survived four millennia precisely because it works.</p>
+
+<h2>When Subtraction Becomes Dangerous</h2>
+
+<p>One particularly treacherous source of numerical instability is catastrophic cancellation, which occurs when you subtract two nearly equal numbers.</p>
+
+<p>Here's how it works. Suppose you're computing on a machine that keeps only four significant decimal digits. You want to calculate the square root of 501 minus the square root of 500. The true values are approximately 22.383 and 22.361, with a difference of about 0.02237. But on your four-digit machine, both square roots get rounded to 22.38. When you subtract them, you get zero—completely wrong.</p>
+
+<p>The mathematically equivalent expression, one divided by the sum of the two square roots, yields approximately 0.02236 on the same machine—much closer to the true answer. Both formulas compute the same thing in exact arithmetic, but one is numerically stable and the other is numerically unstable.</p>
+
+<p>This is why numerical analysts sometimes rewrite formulas that look perfectly fine on paper. The algebraically obvious approach may be computationally catastrophic.</p>
+
+<h2>Stability in Different Worlds</h2>
+
+<p>The definitions I've described so far come primarily from numerical linear algebra—the field concerned with solving systems of equations, computing eigenvalues, and manipulating matrices. But numerical stability wears different faces in different computational domains.</p>
+
+<p>In ordinary differential equations—the mathematics of systems that evolve through time—stability takes on a more dynamic character. Here, the concern is whether small perturbations in initial conditions grow boundlessly as time progresses. This connects to the mathematical theory of dynamical systems and even to chaos theory, where we find systems so sensitive to initial conditions that prediction becomes fundamentally impossible beyond short time horizons.</p>
+
+<p>A particularly important concept in this domain is A-stability, which describes whether a numerical method can handle stiff equations. A stiff equation has components that evolve on vastly different timescales—some changing rapidly, others slowly. Solving such equations requires methods that remain stable even when taking relatively large time steps, or else the computation becomes prohibitively expensive.</p>
+
+<p>In partial differential equations—the mathematics of systems that vary in both space and time, like fluid flows or heat diffusion—stability has yet another meaning. Here, an algorithm is stable if the total variation in the solution remains bounded as the computational grid becomes finer. The landmark Lax equivalence theorem states that for linear problems, a consistent stable method will converge to the true solution. This theorem transformed numerical analysis from an art into something closer to a science.</p>
+
+<p>Sometimes stability is achieved deliberately through numerical diffusion, the intentional introduction of small smoothing effects that prevent errors from accumulating. Think of it as adding a tiny amount of friction to the mathematical machinery to keep things from spinning out of control.</p>
+
+<h2>Why This Matters Now More Than Ever</h2>
+
+<p>You might wonder why anyone should care about these mathematical subtleties in an age of powerful computers. If a calculation seems wrong, can't we just use more precision?</p>
+
+<p>The answer is: sometimes yes, but often no. More precision costs computational resources—memory, time, energy. When you're training a large language model or running a climate simulation or processing financial transactions at scale, these costs multiply rapidly. The difference between a stable and unstable algorithm can be the difference between a calculation that finishes in hours and one that would take millennia.</p>
+
+<p>This is especially relevant to modern machine learning, where the relationship between numerical precision and model performance has become a subject of intense research. The field has discovered that many neural network calculations can be performed using half-precision (16-bit) floating-point numbers instead of the traditional single-precision (32-bit) or double-precision (64-bit) formats, with dramatic savings in memory and computation time. But this only works if the algorithms are numerically stable at reduced precision.</p>
+
+<p>Two competing 16-bit formats have emerged: FP16 and BF16. FP16 offers more precision within its limited dynamic range, while BF16 sacrifices precision for a wider range of representable values. The choice between them isn't just a hardware decision—it's a question of which numerical stability properties matter most for the problem at hand. Reinforcement learning algorithms, with their feedback loops and accumulated rewards, pose particular challenges for numerical stability at reduced precision.</p>
+
+<h2>The Uncomfortable Truth</h2>
+
+<p>There's something philosophically unsettling about numerical stability. It reveals that mathematical truth and computational truth are not the same thing.</p>
+
+<p>On paper, two formulas might be identical—provably equivalent through algebraic manipulation. But on a computer, one formula might give accurate results while the other produces garbage. The computer isn't doing the mathematics we think it's doing. It's doing something else, something constrained by finite representations and inexact operations, and whether that something else converges to the right answer depends on subtle structural properties of the algorithm.</p>
+
+<p>This is why numerical analysis exists as a discipline distinct from pure mathematics. Pure mathematicians ask whether a solution exists and what properties it has. Numerical analysts ask whether we can actually compute that solution, and whether the thing we compute bears any relationship to the thing we wanted.</p>
+
+<p>The good news is that four millennia of human ingenuity, from Babylonian scribes to modern computer scientists, have given us a rich toolkit of stable algorithms for a vast range of problems. The bad news is that whenever we venture into new computational territory—larger scales, lower precision, novel architectures—we must confront numerical stability anew.</p>
+
+<p>The algorithms that run our world are not just logical constructs. They are physical processes, subject to the limitations of their physical substrate. Numerical stability is the art of building mathematical machinery that works not just in the ideal realm of pure mathematics, but in the messy, approximate, finite world where actual computation takes place.</p>
+
+        </article>
+    </main>
+
+    <footer>
+        <p><a href="../../">← Back to Hex Index</a></p>
+    </footer>
+</body>
+</html>
+      </div>
+
+      <footer class="wikipedia-footer">
+        <p class="source-link">
+          <a href="https://en.wikipedia.org/wiki/Numerical_stability" target="_blank" rel="noopener">
+            View original Wikipedia article &rarr;
+          </a>
+        </p>
+        <p class="rewrite-note">
+          This article has been rewritten from Wikipedia source material for enjoyable reading.
+          Content may have been condensed, restructured, or simplified.
+        </p>
+      </footer>
+
+      
+      <section class="related-articles">
+        <h2>Related Articles</h2>
+        <p class="related-intro">This deep dive was written in connection with these articles:</p>
+        <ul class="related-list">
+          
+      <li class="related-article-item">
+        <a href="../../article/092ad10c-b7f6-48e9-837f-68f7b1f83ed5/index.html">
+          <strong>BF16 vs FP16 for Reinforcement Learning: Where Are We?</strong>
+        </a>
+        <span class="article-meta">
+          by Various in The Kaitchup
+        </span>
+      </li>
+        </ul>
+      </section>
+    
+    </article>
+  
+  </main>
+</body>
+</html>

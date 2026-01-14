@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Slurm Workload Manager - Hex Index</title>
+  <link rel="stylesheet" href="../../styles.css">
+</head>
+<body class="reading-mode">
+  <header class="reading-header">
+    <a href="../../index.html" class="back-link">&larr; Back to Library</a>
+  </header>
+  <main class="reading-content">
+    
+    <article class="wikipedia-page">
+      <header class="wikipedia-header">
+        <div class="type-badge">Wikipedia Deep Dive</div>
+        <h1>Slurm Workload Manager</h1>
+        <div class="article-meta">
+          <span class="read-time">12 min read</span>
+        </div>
+      </header>
+
+      <div class="wikipedia-content">
+        I see the issue - I need permission to write the file. Let me output the HTML content directly so you can save it.
+
+<p class="source-note">Based on <a href="https://en.wikipedia.org/wiki/Slurm_Workload_Manager">Wikipedia: Slurm Workload Manager</a></p>
+
+<h2>The Traffic Controller for the World's Most Powerful Computers</h2>
+
+<p>Imagine you have a thousand people who all want to use the same office printer at the exact same moment. Now imagine that printer is actually a billion-dollar supercomputer, those people are scientists running climate simulations and artificial intelligence training jobs, and instead of waiting five minutes for their printout, they might wait days or weeks. That's the problem Slurm was built to solve.</p>
+
+<p>Slurm—which stands for Simple Linux Utility for Resource Management, though the name is also a deliberate nod to the fictional soda from the animated television series Futurama—runs on roughly sixty percent of the world's five hundred most powerful supercomputers. It's the invisible traffic controller that decides who gets to use what computing resources, when they get to use them, and for how long.</p>
+
+<p>And it's completely free.</p>
+
+<h2>What Supercomputers Actually Do All Day</h2>
+
+<p>A supercomputer isn't like your laptop, where you open an application and it immediately runs. These machines are shared resources, sometimes with thousands of researchers and engineers all competing for time on the same hardware. Each user submits "jobs"—computational tasks that might take anywhere from a few minutes to several months to complete.</p>
+
+<p>These jobs have wildly different requirements. One scientist might need access to a thousand processors working in perfect coordination to simulate the folding of a protein molecule. Another might need just sixteen processors but with access to specialized graphics processing units, the same chips that power video games, for training a machine learning model. A third might have a job that could run on almost any available hardware but doesn't need to start immediately.</p>
+
+<p>Slurm's job is to take all these competing demands and orchestrate them into something resembling order.</p>
+
+<h2>The Three Essential Functions</h2>
+
+<p>At its core, Slurm does three things.</p>
+
+<p>First, it allocates resources. When a user submits a job, Slurm carves out a piece of the supercomputer for that user's exclusive use. This might mean reserving specific compute nodes—individual servers within the larger system—for a set duration. The user can then do their work without worrying about interference from other users' programs.</p>
+
+<p>Second, it provides the machinery for actually running jobs. Once resources are allocated, Slurm handles the mechanics of starting the computational work, monitoring its progress, and cleaning up when it finishes. For parallel jobs—where the same computation runs simultaneously across many processors that need to communicate with each other—this coordination is surprisingly complex. A technique called Message Passing Interface, or MPI, allows different parts of a parallel program to send data back and forth, and Slurm needs to make sure all the pieces are properly connected.</p>
+
+<p>Third, it manages the queue. When demand exceeds supply—which is almost always the case on popular supercomputing systems—Slurm decides which jobs run now and which jobs wait. This is where things get interesting.</p>
+
+<h2>The Art of Fair Scheduling</h2>
+
+<p>How do you decide who gets priority when everyone's work seems important?</p>
+
+<p>Simple first-come-first-served queuing doesn't work well for supercomputers. A user who submits a massive job early in the day shouldn't necessarily block everyone else's small jobs for the next week. Similarly, some research groups may have contributed more funding to the computing center than others—shouldn't they get proportionally more access?</p>
+
+<p>Slurm implements what's called fair-share scheduling with hierarchical bank accounts. Think of it like a family budget, but for computation. A university might allocate a certain amount of computing time to each department. Departments might further subdivide their allocation among research groups. Research groups divide among individual users. Everyone gets a share, and the system tracks how much of that share each entity has actually consumed.</p>
+
+<p>Users who have used less than their fair share get priority over users who have been hogging the machine. This self-corrects over time: heavy users naturally rise in priority again once their recent usage decreases relative to their allocation.</p>
+
+<p>The system also supports preemption. A high-priority job can kick a lower-priority job off the machine, which then gets requeued to run later. This is risky—the interrupted job might lose its progress—but some workloads are critical enough to justify it.</p>
+
+<h2>Fitting Tasks to Topology</h2>
+
+<p>Here's a detail that reveals how sophisticated this software really is: Slurm cares about the physical layout of the supercomputer.</p>
+
+<p>Modern supercomputers aren't just thousands of identical processors jumbled together. They have structure. Processors are organized into sockets, sockets into nodes, nodes into racks, and racks into rows. The network that connects everything has its own topology—perhaps organized as a "fat tree," where traffic flows up toward central switches and back down, like water through a branching river delta.</p>
+
+<p>Why does this matter? Because in parallel computing, processors need to talk to each other constantly. If two processors that need to communicate frequently are on opposite sides of the machine, their messages have to travel through many network switches, adding delay and consuming bandwidth. If they're on the same node, they can communicate almost instantly through shared memory.</p>
+
+<p>Slurm uses a best-fit algorithm that considers these topological constraints. It tries to place related tasks close together in the physical network, using mathematical techniques based on something called a Hilbert curve—a fractal pattern that provides a way to map multi-dimensional space onto a single dimension while preserving locality. Tasks that are near each other on the Hilbert curve tend to be near each other in physical space.</p>
+
+<p>This attention to physical reality is part of what makes Slurm effective at truly massive scale.</p>
+
+<h2>A History Rooted in the National Laboratories</h2>
+
+<p>Slurm's development began around 2002, emerging from a collaboration between Lawrence Livermore National Laboratory, a company called Linux NetworX, Hewlett-Packard, and the French technology company Groupe Bull. The initial inspiration came from a closed-source resource manager called Quadrics RMS, and Slurm deliberately borrowed similar syntax to make migration easier for existing users.</p>
+
+<p>The first release was, by today's standards, quite simple. But over two decades of continuous development—with contributions from over 250 people around the world—it evolved into what the computing world calls a "sophisticated batch scheduler." That understated phrase conceals enormous complexity.</p>
+
+<p>In 2010, the primary developers founded a company called SchedMD to provide professional support and drive continued development. This is a common pattern in the open-source world: the software is free, but companies pay for expert help installing, configuring, and troubleshooting their deployments. Additional commercial support comes from Bull, Cray (the famous supercomputer manufacturer now owned by Hewlett Packard Enterprise), and others.</p>
+
+<h2>The Architecture: Simple Enough to Explain</h2>
+
+<p>Despite its sophisticated capabilities, Slurm's basic architecture is remarkably clean.</p>
+
+<p>At the center sits a control daemon called slurmctld, running on a dedicated management node. This is the brain of the operation—it keeps track of all resources, maintains the job queue, and makes scheduling decisions. For reliability, you can run a backup control daemon on a second node that takes over if the primary fails.</p>
+
+<p>Out on the computing nodes themselves, each machine runs a daemon called slurmd. These are the workers, waiting for instructions from the controller. When slurmctld tells a slurmd to run a job, it executes the requested work and reports back status information.</p>
+
+<p>Users interact with the system through command-line tools, typically connecting to the control node via SSH, the Secure Shell protocol that provides encrypted remote access to Unix-like systems. The most important commands are refreshingly straightforward:</p>
+
+<ul>
+<li><strong>sbatch</strong> submits a batch job—a script that runs without user interaction and writes its output to files for later review</li>
+<li><strong>srun</strong> launches an interactive job, where the user can watch the output in real-time and provide input</li>
+<li><strong>squeue</strong> shows what's currently in the queue</li>
+<li><strong>scancel</strong> removes a job from the queue</li>
+</ul>
+
+<p>Most production work happens through sbatch. A researcher writes a script that describes what software to run and what resources it needs, submits it, and comes back later—perhaps hours or days later—to check the results. The srun command is typically used for debugging and development, where immediate feedback is valuable.</p>
+
+<h2>Extreme Scale, Extreme Performance</h2>
+
+<p>Slurm's scalability is genuinely impressive. It has successfully managed IBM Sequoia, a supercomputer with 100,000 compute nodes and 1.5 million processor cores that was once the world's most powerful computer. It can handle up to a thousand job submissions per second and start up to six hundred jobs per second.</p>
+
+<p>These numbers matter because modern supercomputing workloads increasingly involve many small jobs rather than a few large ones. Machine learning training, in particular, often involves running thousands of experiments with slightly different parameters to find optimal configurations. A job scheduler that can't keep up with this volume becomes a bottleneck that wastes expensive hardware.</p>
+
+<p>The system has also been deployed on Tianhe-2, a Chinese supercomputer that combines 32,000 Intel Xeon processors with 48,000 Intel Xeon Phi accelerators, totaling 3.1 million processing cores. Managing hardware at this scale—keeping track of which nodes are healthy, which jobs are running where, and which resources are available for new work—requires careful engineering.</p>
+
+<h2>The Modular Philosophy</h2>
+
+<p>One of Slurm's design principles is modularity. The core system is relatively lean, but it supports about a hundred optional plugins that add functionality for specific use cases.</p>
+
+<p>In its simplest configuration—perhaps for a small research cluster with a few dozen nodes—Slurm can be installed and running in minutes. But for a major computing center that needs to track usage by project, enforce resource limits, integrate with authentication systems, and generate accounting reports, the configuration can become quite elaborate.</p>
+
+<p>Some notable capabilities enabled by plugins:</p>
+
+<p><strong>Power management.</strong> When nodes are idle, Slurm can power them down to save electricity. Given that a large supercomputer might consume tens of megawatts—enough to power a small city—this adds up quickly.</p>
+
+<p><strong>Power accounting.</strong> Beyond just tracking processor time, Slurm can meter the actual electricity consumed by each job. This matters for facilities that charge users based on the resources they consume.</p>
+
+<p><strong>Graphics processing unit support.</strong> Modern AI workloads live or die by their access to GPUs. Slurm can track these as "generic resources" and match jobs that need GPUs with nodes that have them available.</p>
+
+<p><strong>Job profiling.</strong> For performance-conscious users, Slurm can periodically sample each running task's CPU usage, memory consumption, network activity, and file system access. This data helps researchers identify bottlenecks in their code.</p>
+
+<p><strong>Burst buffers.</strong> Scientific computing increasingly relies on fast intermediate storage—solid-state drives that sit between main memory and the parallel file system. Slurm can manage access to these buffers, ensuring that jobs that need high-speed storage get it.</p>
+
+<h2>The Linux Requirement</h2>
+
+<p>Modern versions of Slurm run only on Linux. This wasn't always the case—older versions supported various BSD operating systems like FreeBSD and NetBSD—but the software now depends on cgroups, a Linux-specific feature that allows limiting and monitoring the resource usage of groups of processes.</p>
+
+<p>Cgroups are essential for containerization technologies like Docker and for enforcing resource limits on individual jobs. If a job tries to use more memory than it was allocated, cgroups can kill it before it destabilizes the whole node. This enforcement is critical when thousands of users share the same hardware.</p>
+
+<p>Organizations running supercomputers on operating systems other than Linux—admittedly a small minority—need to look elsewhere for job scheduling.</p>
+
+<h2>The Connection to GPU Clouds</h2>
+
+<p>Slurm's relevance extends beyond traditional supercomputing centers. The explosion of artificial intelligence has created a new category of infrastructure providers: companies that rent access to clusters of powerful graphics processing units for training and running AI models.</p>
+
+<p>These "neoclouds," as some analysts call them, face the same fundamental scheduling problems that national laboratories faced decades ago. Users submit jobs that need certain GPU configurations for certain durations. Some jobs are urgent; others can wait. Resources must be allocated fairly among customers who pay different rates.</p>
+
+<p>Many of these modern AI infrastructure providers run Slurm—or systems inspired by it—underneath their user-facing interfaces. When you rent GPUs from a cloud provider and submit a training job, there's a reasonable chance that Slurm or something very like it is deciding when and where that job runs.</p>
+
+<p>The principles that emerged from managing billion-dollar supercomputers at national laboratories have become essential infrastructure for the AI economy.</p>
+
+<h2>Why It Matters</h2>
+
+<p>Slurm represents an interesting category of software: infrastructure that most people never see or think about, but that enables enormous amounts of scientific and commercial work.</p>
+
+<p>Climate scientists modeling future weather patterns, physicists simulating particle collisions, biologists analyzing genomic data, engineers testing vehicle designs in virtual wind tunnels, and machine learning researchers training the next generation of AI systems—all of them depend on job schedulers to make efficient use of shared computing resources.</p>
+
+<p>The fact that the dominant solution in this space is open-source, freely available, and maintained by a global community is notable. Commercial alternatives exist, but Slurm has won on merit: it's powerful enough for the largest supercomputers, simple enough to install on a small cluster, and flexible enough to accommodate diverse requirements through its plugin architecture.</p>
+
+<p>It's also a reminder that some of the most important software isn't glamorous. There's no flashy user interface, no consumer-facing product, no celebrity founders. Just a complicated piece of infrastructure, refined over two decades, that makes the computational work of modern science possible.</p>
+
+<p>The next time you read about a breakthrough in climate modeling or drug discovery that relied on supercomputer simulations, there's a good chance Slurm was quietly running in the background, deciding which jobs ran when, making sure resources were used fairly, and keeping the whole operation from descending into chaos.</p>
+
+<p>Someone has to be the traffic controller. Slurm has been doing it longer and better than almost anyone else.</p>
+      </div>
+
+      <footer class="wikipedia-footer">
+        <p class="source-link">
+          <a href="https://en.wikipedia.org/wiki/Slurm_Workload_Manager" target="_blank" rel="noopener">
+            View original Wikipedia article &rarr;
+          </a>
+        </p>
+        <p class="rewrite-note">
+          This article has been rewritten from Wikipedia source material for enjoyable reading.
+          Content may have been condensed, restructured, or simplified.
+        </p>
+      </footer>
+
+      
+      <section class="related-articles">
+        <h2>Related Articles</h2>
+        <p class="related-intro">This deep dive was written in connection with these articles:</p>
+        <ul class="related-list">
+          
+      <li class="related-article-item">
+        <a href="../../article/0fd987ac-c36d-4e77-a84c-3cd1ea1c2223/index.html">
+          <strong>ClusterMAX™ 2.0: The Industry Standard GPU Cloud Rating System</strong>
+        </a>
+        <span class="article-meta">
+          by Dylan Patel in SemiAnalysis
+        </span>
+      </li>
+        </ul>
+      </section>
+    
+    </article>
+  
+  </main>
+</body>
+</html>

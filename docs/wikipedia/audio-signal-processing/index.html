@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Audio signal processing - Hex Index</title>
+  <link rel="stylesheet" href="../../styles.css">
+</head>
+<body class="reading-mode">
+  <header class="reading-header">
+    <a href="../../index.html" class="back-link">&larr; Back to Library</a>
+  </header>
+  <main class="reading-content">
+    
+    <article class="wikipedia-page">
+      <header class="wikipedia-header">
+        <div class="type-badge">Wikipedia Deep Dive</div>
+        <h1>Audio signal processing</h1>
+        <div class="article-meta">
+          <span class="read-time">13 min read</span>
+        </div>
+      </header>
+
+      <div class="wikipedia-content">
+        <p class="source-note">Based on <a href="https://en.wikipedia.org/wiki/Audio_signal_processing">Wikipedia: Audio signal processing</a></p>
+
+<p>In 1957, a researcher named Max Mathews sat at a computer the size of a room and did something no human had ever done before: he made a machine sing. The sounds were crude, barely recognizable as music, but they represented a fundamental shift in how we could create and manipulate sound. No longer were we limited to capturing vibrations from the physical world. We could conjure audio from nothing but mathematics.</p>
+
+<p>That moment at Bell Labs marked the birth of computer music, but it was really just one milestone in a century-long journey to master the electronic manipulation of sound. Audio signal processing—the science and art of transforming audio through electronic means—had been evolving since the earliest days of the telephone, and it continues to shape nearly every sound you hear through speakers or headphones today.</p>
+
+<h2>Sound as Electricity</h2>
+
+<p>To understand audio signal processing, you first need to understand what we're actually processing. Sound in the real world consists of pressure waves traveling through air—regions where air molecules are squeezed together (compressions) alternating with regions where they're spread apart (rarefactions). When these waves hit your eardrum, they cause it to vibrate, and your brain interprets those vibrations as sound.</p>
+
+<p>An audio signal is simply an electrical representation of those pressure waves. A microphone converts the mechanical energy of sound waves into electrical current or voltage that rises and falls in the same pattern as the original sound. This electrical signal can then be amplified, filtered, stored, transmitted, and manipulated in countless ways before being converted back into sound waves by a speaker.</p>
+
+<p>The energy in these signals is typically measured in decibels, a logarithmic scale that matches how human hearing actually works. A sound that measures ten decibels higher doesn't seem ten times louder to your ears—it seems roughly twice as loud. This quirk of human perception turns out to be crucial for processing audio in ways that sound natural.</p>
+
+<h2>Two Worlds: Analog and Digital</h2>
+
+<p>Audio signals come in two fundamental flavors, and understanding the difference between them is essential to grasping how modern audio technology works.</p>
+
+<p>An analog signal is continuous. Picture a smooth, flowing wave—at any instant, the voltage can be at any value along that curve. When you manipulate an analog signal, you're physically altering electrical properties: changing voltages, filtering out certain frequencies through the properties of capacitors and inductors, amplifying the signal's strength. The output is still a smooth, continuous wave.</p>
+
+<p>A digital signal, by contrast, represents sound as a sequence of numbers. Imagine taking thousands of snapshots of that smooth wave every second, measuring its height at each instant, and writing down those measurements as binary numbers—ones and zeros. That's essentially what analog-to-digital conversion does. The smooth curve becomes a staircase of discrete values.</p>
+
+<p>This might seem like a step backward. Why throw away the smooth continuity of analog? The answer lies in what you can do with those numbers once you have them.</p>
+
+<h2>The Digital Revolution</h2>
+
+<p>When audio exists as numbers, you can perform mathematical operations on it. Add a constant to every sample and you've changed the volume. Average together multiple samples and you've smoothed out high frequencies. Run the numbers through complex algorithms and you can remove noise, compress the data for efficient storage, or transform the sound in ways that would be nearly impossible with analog circuits.</p>
+
+<p>Digital processing also offers perfect reproducibility. Copy an analog tape and you get a slightly degraded duplicate; copy a digital file and you get an exact clone. Store a digital recording and play it back decades later—assuming your storage medium survives—and you'll hear precisely what was originally captured.</p>
+
+<p>The theoretical foundations for digital audio were laid at Bell Labs in the mid-twentieth century. Claude Shannon, often called the father of information theory, and Harry Nyquist developed the mathematics that make digital audio possible. Their work on sampling theory established a crucial principle: to accurately capture a sound, you need to take samples at a rate at least twice as high as the highest frequency you want to preserve.</p>
+
+<p>Human hearing tops out at around twenty thousand cycles per second (or hertz) for young people with excellent hearing. This is why CD-quality audio samples at 44,100 times per second—just over twice that upper limit, with a little margin for safety. It's also why the digital audio standard called pulse-code modulation, or PCM, samples at rates like 44.1 or 48 kilohertz.</p>
+
+<h2>Shrinking Audio: The Compression Story</h2>
+
+<p>Raw digital audio takes up enormous amounts of storage space. A single minute of CD-quality stereo audio requires about ten megabytes. In an era when a hard drive might hold just a few megabytes, and transmitting data over networks was painfully slow, this presented a serious problem.</p>
+
+<p>The solution came through increasingly sophisticated compression techniques, developed over decades by researchers around the world. The story of audio compression is really a story of figuring out what information you can throw away without listeners noticing.</p>
+
+<p>In 1950, C. Chapin Cutler at Bell Labs developed differential pulse-code modulation, or DPCM. The insight was simple but powerful: instead of storing the absolute value of each sample, store the difference from the previous sample. Since consecutive samples in audio are usually similar, these differences tend to be small numbers that require fewer bits to represent.</p>
+
+<p>Sixteen years later, researchers in Japan took this further. Fumitada Itakura at Nagoya University and Shuzo Saito at Nippon Telegraph and Telephone developed linear predictive coding, or LPC. Rather than just looking at the previous sample, LPC builds a mathematical model that predicts what the next sample should be based on recent patterns, then stores only the prediction errors. This technique became foundational for speech coding and remains central to how your phone compresses voice calls.</p>
+
+<p>Bell Labs continued pushing boundaries. In 1973, researchers there created adaptive DPCM, which adjusts its compression strategy on the fly based on the characteristics of the audio. Then in 1974, a team including Nasir Ahmed developed coding based on the discrete cosine transform, or DCT—a mathematical technique for breaking down signals into component frequencies.</p>
+
+<p>The final major breakthrough came in 1987, when researchers at the University of Surrey created the modified discrete cosine transform, or MDCT. This technique is the beating heart of virtually every modern audio codec. When you listen to MP3s, stream music through services like Spotify, or watch videos with Advanced Audio Coding (AAC) soundtracks, you're hearing audio reconstructed from MDCT-compressed data.</p>
+
+<h2>Processing in Practice</h2>
+
+<p>Audio signal processing isn't just about storing and transmitting sound efficiently. It's used to enhance, transform, and create audio in countless ways.</p>
+
+<p>Broadcasting provides a clear example. When a radio station sends audio to a transmitter, it passes through sophisticated processors that prevent the signal from distorting, compensate for quirks in the transmission equipment, and optimize the overall loudness. Without this processing, radio would sound harsh, inconsistent, and prone to cutting out.</p>
+
+<p>Active noise cancellation represents one of the more elegant applications of signal processing. Those noise-canceling headphones you might own work by capturing ambient sound with microphones, then generating a signal that's the exact mirror image of that noise. When the original noise and the inverted signal combine in your ear canal, they cancel each other out through destructive interference. It's like adding negative one to positive one and getting zero—except with sound waves.</p>
+
+<p>This technique only works well for consistent, low-frequency sounds like airplane engine drone or air conditioning hum. Sudden, sharp noises happen too fast for the system to analyze and counteract. But for the kinds of steady background noise that make long flights exhausting, active noise cancellation can be remarkably effective.</p>
+
+<h2>Creating Sound from Nothing</h2>
+
+<p>Audio synthesis—generating sound electronically rather than recording it—opened up entirely new sonic possibilities. A synthesizer creates audio through various techniques: generating basic waveforms like sine waves, square waves, and sawtooth waves, then filtering and combining them; modeling the physics of real instruments; or playing back and manipulating recorded samples.</p>
+
+<p>The synthesizers that emerged from the 1960s onward didn't just imitate existing instruments—they created sounds that had never existed before. The electronic music that dominated the 1970s and 1980s, from Kraftwerk to Depeche Mode, was only possible because of audio synthesis. Every video game beep and bloops, every ringtone, every digital assistant voice traces its lineage back to Max Mathews making a computer sing in 1957.</p>
+
+<p>Speech synthesis represents a particularly challenging application. The human voice is extraordinarily complex, varying not just in pitch and loudness but in timbre, rhythm, and countless subtle characteristics that distinguish one person's voice from another's. Early speech synthesizers sounded robotic and unnatural. Modern systems, trained on vast amounts of recorded speech using machine learning techniques, can produce voices nearly indistinguishable from human speakers.</p>
+
+<h2>Effects: Shaping the Sound</h2>
+
+<p>Audio effects alter sound in ways that can be subtle or dramatic. Walk into any recording studio or observe a musician's pedalboard, and you'll encounter a menagerie of processing tools that have become integral to modern music.</p>
+
+<p>Distortion deliberately overloads a signal, clipping off the peaks of the waveform and adding harmonics that weren't in the original sound. This might seem like damage, but controlled distortion gives electric guitars the aggressive edge that defines blues and rock music. Without distortion, Jimi Hendrix would have sounded very different.</p>
+
+<p>Dynamic effects like compressors reduce the gap between the quietest and loudest parts of a performance. A singer might whisper one moment and belt the next; a compressor automatically turns down the loud parts and turns up the quiet ones, making the overall level more consistent. Compression is everywhere in recorded music—it's a major reason why modern recordings sound punchy and present compared to early recordings.</p>
+
+<p>Filters selectively boost or cut certain frequencies. A wah-wah pedal sweeps a resonant peak across the frequency spectrum, creating that distinctive "wah" sound. A graphic equalizer lets you adjust specific frequency bands independently—boosting the bass, cutting harsh midrange frequencies, adding sparkle to the highs.</p>
+
+<p>Modulation effects create movement and richness. A chorus effect duplicates the signal, slightly detunes one copy, and combines them, simulating the natural variations when multiple singers or instruments play together. Flangers and phasers create swooshing, sweeping sounds by combining a signal with a delayed copy of itself.</p>
+
+<p>Time-based effects manipulate when sound arrives. Delay creates distinct echoes—repeat the signal at regular intervals and you get a rhythmic echo effect. Reverb simulates the complex reflections that occur when sound bounces around a physical space. A small room creates tight, quick reflections; a cathedral creates long, diffuse ones. Through reverb, a recording made in a small studio can sound like it was captured in a concert hall.</p>
+
+<h2>The Analog Question</h2>
+
+<p>Given all the advantages of digital processing—precision, flexibility, reproducibility—you might wonder why anyone still uses analog. Yet many musicians and audio engineers insist that analog equipment sounds better, particularly for music production.</p>
+
+<p>The preference isn't purely nostalgic. Analog circuits often introduce subtle nonlinearities—they don't respond in perfectly predictable ways. When you push an analog compressor hard, it might add harmonic distortion that happens to sound pleasing. When you run a signal through analog tape, the magnetic medium introduces saturation that softens transients and adds warmth.</p>
+
+<p>These imperfections are extremely difficult to replicate digitally. You can program a digital filter to do almost anything, but precisely modeling the complex, nonlinear behavior of analog components requires enormous computational effort. Many digital plugins try to emulate classic analog gear, with varying degrees of success.</p>
+
+<p>The result is that modern studios often combine both approaches. Recording and editing typically happen digitally for convenience and flexibility. But the signal might pass through analog hardware at key stages—a vintage compressor here, a tube preamplifier there—to add character that pure digital processing struggles to match.</p>
+
+<h2>Machines That Listen</h2>
+
+<p>Audio signal processing increasingly involves machines not just manipulating sound, but understanding it. Computer audition—also called machine listening—is the field of teaching computers to interpret audio the way humans do.</p>
+
+<p>This encompasses a remarkable range of applications. Researchers have developed systems that can identify speakers by their voice, transcribe speech to text, recognize music, detect machinery about to fail from subtle changes in the sounds it makes, and even locate people moving through buildings by the noises they generate.</p>
+
+<p>Paris Smaragdis, an engineer interviewed by Technology Review, described systems that "use sound to locate people moving through rooms, monitor machinery for impending breakdowns, or activate traffic cameras to record accidents." These applications require machines to do something that seems effortless for humans but is computationally challenging: extract meaningful information from the cacophony of sounds in the real world.</p>
+
+<p>Computer audition draws on multiple disciplines. Signal processing provides the tools to transform raw audio into useful representations. Auditory modeling tries to replicate how human hearing works—how we separate simultaneous sounds, focus attention on important signals, and make sense of complex acoustic scenes. Pattern recognition and machine learning enable systems to categorize and respond to sounds they've been trained on.</p>
+
+<p>The field takes inspiration from human audition in part because human hearing remains far superior to any artificial system. We can understand speech in noisy environments, follow a single conversation in a crowded room, and instantly recognize thousands of different sounds. Replicating these abilities in machines remains an active area of research.</p>
+
+<h2>The Sound of the Future</h2>
+
+<p>From the crackling voices on early telephone lines to artificially intelligent systems that can compose music and clone voices, audio signal processing has transformed our relationship with sound. We take for granted technologies that would have seemed like science fiction just decades ago: crystal-clear phone calls bounced off satellites, music libraries that fit in our pockets, noise-canceling headphones that create bubbles of silence in noisy airports.</p>
+
+<p>The principles remain constant even as the implementations grow more sophisticated. Sound waves become electrical signals become numbers. Those numbers are manipulated according to mathematical rules—some simple, some staggeringly complex. The results are converted back to electricity, then to speaker vibrations, then to pressure waves in air. At the end of this chain, sound reaches your ears, and you hear music, or speech, or the warning beep of a machine, transformed and enhanced by processing you'll never notice.</p>
+
+<p>Max Mathews, making a computer sing in 1957, could hardly have imagined where his work would lead. But he understood that once sound became data, the possibilities were limited only by our imagination and our ability to describe what we wanted in mathematical terms. That insight continues to drive audio signal processing forward, shaping the soundtrack of modern life.</p>
+      </div>
+
+      <footer class="wikipedia-footer">
+        <p class="source-link">
+          <a href="https://en.wikipedia.org/wiki/Audio_signal_processing" target="_blank" rel="noopener">
+            View original Wikipedia article &rarr;
+          </a>
+        </p>
+        <p class="rewrite-note">
+          This article has been rewritten from Wikipedia source material for enjoyable reading.
+          Content may have been condensed, restructured, or simplified.
+        </p>
+      </footer>
+
+      
+      <section class="related-articles">
+        <h2>Related Articles</h2>
+        <p class="related-intro">This deep dive was written in connection with these articles:</p>
+        <ul class="related-list">
+          
+      <li class="related-article-item">
+        <a href="../../article/1d9545a0-ad61-49b9-a960-c61d9af62233/index.html">
+          <strong>Qualcomm&#039;s Hexagon AI Accelerators</strong>
+        </a>
+        <span class="article-meta">
+          by Babbage in The Chip Letter
+        </span>
+      </li>
+        </ul>
+      </section>
+    
+    </article>
+  
+  </main>
+</body>
+</html>
