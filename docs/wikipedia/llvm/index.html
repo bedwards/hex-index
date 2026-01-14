@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LLVM - Hex Index</title>
+  <link rel="stylesheet" href="../../styles.css">
+</head>
+<body class="reading-mode">
+  <header class="reading-header">
+    <a href="../../index.html" class="back-link">&larr; Back to Library</a>
+  </header>
+  <main class="reading-content">
+    
+    <article class="wikipedia-page">
+      <header class="wikipedia-header">
+        <div class="type-badge">Wikipedia Deep Dive</div>
+        <h1>LLVM</h1>
+        <div class="article-meta">
+          <span class="read-time">13 min read</span>
+        </div>
+      </header>
+
+      <div class="wikipedia-content">
+        <p class="source-note">Based on <a href="https://en.wikipedia.org/wiki/LLVM">Wikipedia: LLVM</a></p>
+
+<p>In 2000, a graduate student at the University of Illinois had an audacious idea: what if we could build a compiler that worked like Lego blocks? Snap together a frontend for any programming language, connect it to a backend for any processor, and watch them work together seamlessly. That student was Chris Lattner, and the project he started would fundamentally reshape how we build software for everything from iPhones to supercomputers.</p>
+
+<p>LLVM began as an academic research project, but it has since become the invisible backbone of modern computing. When you write code in Swift, Rust, or Julia, LLVM is there. When you play games on a PlayStation, LLVM compiled that code. When Apple releases a new chip, LLVM helps software run on it. It is one of those rare pieces of infrastructure that touches billions of devices while remaining almost entirely unknown to the people who depend on it.</p>
+
+<h2>The Name That Outgrew Its Meaning</h2>
+
+<p>LLVM originally stood for Low Level Virtual Machine. This made sense at the time. Lattner and his advisor Vikram Adve were exploring dynamic compilation techniques, and the name captured their focus on low-level code manipulation.</p>
+
+<p>But projects evolve. By 2011, LLVM had grown into something far larger than what anyone would call a virtual machine. The name had become, as the project's own documentation admits, "confusing and inappropriate." So the developers made an unusual choice: they declared that LLVM is no longer an acronym. It is simply LLVM, a brand without an expansion, the way IBM stopped being International Business Machines and KFC stopped being Kentucky Fried Chicken.</p>
+
+<h2>The Brilliant Trick at the Heart of LLVM</h2>
+
+<p>To understand why LLVM matters, you need to understand a problem that plagued compiler developers for decades.</p>
+
+<p>A compiler translates code written by humans into instructions that machines can execute. If you want to support five programming languages on four different processors, you need twenty different translators. Add a new language? Four more translators. Add a new processor? Five more translators. The combinations multiply mercilessly.</p>
+
+<p>LLVM's solution is elegant: create a universal translator in the middle. Every programming language compiles down to a single intermediate representation, a sort of idealized assembly language that does not belong to any real processor. Then separate backends translate this intermediate representation into actual machine code for specific chips.</p>
+
+<p>Now supporting five languages on four processors requires only nine components: five frontends and four backends. Add a new language, and you only need one new frontend. Add a new processor, and you only need one new backend. Every language automatically works on every platform.</p>
+
+<p>This intermediate representation, which everyone calls IR, is the secret sauce. It is designed to be simple enough for analysis and optimization, but rich enough to capture the meaning of complex programs. Think of it as a carefully chosen lingua franca that loses nothing in translation.</p>
+
+<h2>What the Intermediate Representation Actually Looks Like</h2>
+
+<p>LLVM's IR sits somewhere between human-readable source code and incomprehensible machine code. It uses something called static single assignment form, which sounds intimidating but encapsulates a simple idea: every variable gets assigned exactly once and then never changes.</p>
+
+<p>Why would you want this? Consider tracking where values come from in a program. If a variable can be reassigned anywhere, you have to trace through the entire program to understand its possible values at any point. But if each variable is assigned once and frozen, the analysis becomes trivial. You just look at where it was defined.</p>
+
+<p>The IR also uses an infinite number of virtual registers instead of trying to map onto a specific processor's limited set of real registers. A real Intel processor might have sixteen general-purpose registers. LLVM's IR pretends you have unlimited registers named things like %0, %1, %2, and so on. Later, the backend figures out how to pack all these virtual registers into the real ones available on the target machine.</p>
+
+<p>This abstraction is powerful. It means the same IR can target a smartphone's ARM chip, a laptop's Intel processor, or a graphics card's parallel architecture without changing the optimization logic.</p>
+
+<h2>From Academia to Apple</h2>
+
+<p>For five years, LLVM lived the quiet life of a research project. Papers were published. Dissertations were written. The project attracted interest from compiler enthusiasts but remained obscure to the broader world.</p>
+
+<p>Then Apple came calling.</p>
+
+<p>In 2005, Apple hired Chris Lattner and formed a team to work on LLVM. The company had a problem: the GNU Compiler Collection, which everyone calls GCC, had served as the foundation for Apple's development tools, but its architecture made it difficult to integrate with modern development environments. GCC was built as a monolithic batch processor, not as a set of reusable libraries.</p>
+
+<p>LLVM's modular design was exactly what Apple needed. By 2011, LLVM had become an integral part of Xcode, Apple's development environment for building Mac and iOS applications. Every app on every iPhone and iPad runs through LLVM.</p>
+
+<h2>Clang: The Frontend That Changed Everything</h2>
+
+<p>Having a great backend was not enough. Apple also needed a modern frontend, the part of the compiler that reads and understands source code. In 2006, Lattner started building one.</p>
+
+<p>He called it Clang, a name that captures both its purpose as a C-language compiler and the sharp, metallic sound of something hitting a hard surface. Clang was designed from the ground up to be modular, to produce excellent error messages, and to support the kind of deep code analysis that powers features like autocompletion and refactoring in development environments.</p>
+
+<p>The combination of Clang and LLVM is often written as Clang/LLVM, though many people just say Clang and mean the whole stack. This pairing has become one of the most important compiler systems in the world, rivaling the venerable GCC that has been the default on Unix systems for decades.</p>
+
+<h2>The Battle with GCC</h2>
+
+<p>For years, GCC was the undisputed champion of open-source compilers. It supported more platforms, generated faster code, and had decades of optimization work baked into its codebase.</p>
+
+<p>When LLVM emerged as a competitor, the performance gap was real. In 2011, benchmarks showed that programs compiled with GCC ran about ten percent faster than those compiled with LLVM. For performance-critical code, that difference mattered.</p>
+
+<p>But LLVM caught up faster than anyone expected. By 2013, the two compilers were producing code of roughly equal performance. Today, depending on the specific benchmark and the specific optimizations enabled, either compiler might win. The competition has been good for both projects, pushing each to improve.</p>
+
+<p>The difference now lies elsewhere. LLVM's modular architecture makes it easier to embed in other tools. Its permissive licensing makes it more attractive to companies that want to build commercial products. And its code quality and documentation have attracted a generation of compiler developers who find it more approachable than GCC's sprawling, decades-old codebase.</p>
+
+<h2>A Tower of Languages</h2>
+
+<p>The list of programming languages that compile through LLVM reads like a who's who of modern software development.</p>
+
+<p>Swift, Apple's language for building apps, was designed from day one to target LLVM. Rust, the systems programming language beloved for its memory safety guarantees, uses LLVM as its backend. Julia, the darling of scientific computing, generates LLVM IR and relies on its optimization passes for high performance. Kotlin, which has become the primary language for Android development, can target LLVM for native compilation.</p>
+
+<p>But the list extends far beyond these well-known names. Fortran, the granddaddy of scientific computing languages dating back to 1957, has an LLVM-based compiler called Flang. Haskell, the purely functional language favored by academics and fintech firms, can compile through LLVM and sees significant speedups when it does. Even PostgreSQL, the popular database system, uses LLVM to accelerate query execution by compiling SQL statements into machine code at runtime.</p>
+
+<p>This diversity exists because LLVM made it economically feasible to create new languages. Before LLVM, building a competitive compiler meant years of work on code generation and optimization. Now you can focus on the unique features of your language and let LLVM handle the hard parts.</p>
+
+<h2>Just-in-Time Magic</h2>
+
+<p>Most compilers work ahead of time. You write code, compile it, and later run the resulting executable. But LLVM also supports just-in-time compilation, where code is generated and optimized while the program is running.</p>
+
+<p>This capability enables some remarkable tricks.</p>
+
+<p>Consider a program with many configuration options. Most of these options are set once when the program starts and never change. A traditional compiler cannot take advantage of this because it does not know what values the options will have. But a just-in-time compiler can look at the actual runtime configuration and strip out all the code paths that will never be taken.</p>
+
+<p>Apple used this technique in the graphics system of Mac OS X Leopard, released in 2007. OpenGL, the graphics programming interface, has a vast number of optional features. Any particular graphics card supports only some of them. Rather than checking at runtime which features are available, Apple's system compiles specialized graphics code on the fly, tailored to the specific capabilities of the installed hardware.</p>
+
+<p>On high-end graphics cards, the generated code is thin and fast, passing commands directly to the hardware. On low-end cards, LLVM compiles fallback routines that run on the main processor to emulate features the graphics card cannot handle natively. The same source code automatically adapts to radically different hardware configurations.</p>
+
+<h2>Beyond the Compiler</h2>
+
+<p>LLVM has grown into an umbrella project encompassing far more than just a compiler backend.</p>
+
+<p>The LLVM Machine Code framework, known as MC, handles the low-level translation of instructions between different formats. It can assemble human-readable assembly language into binary machine code, disassemble binary code back into readable form, and manipulate machine code in sophisticated ways. Before MC existed, LLVM relied on external tools for these tasks.</p>
+
+<p>The lld linker addresses another piece of the toolchain. A linker combines multiple compiled object files into a single executable. For years, LLVM users depended on the system linker or the GNU linker. Now lld provides a fast, integrated alternative that supports link-time optimization, allowing the compiler to optimize across the boundaries between separately compiled files.</p>
+
+<p>The libc++ project provides a complete implementation of the C++ standard library. The llvm-libc project aims to do the same for the C standard library. These libraries ensure that the entire toolchain, from source code to running program, can be built from LLVM components.</p>
+
+<h2>The Target Menagerie</h2>
+
+<p>LLVM can generate code for an impressive range of processors.</p>
+
+<p>The obvious ones are there: x86 and x86-64 for desktop and laptop computers, ARM for smartphones and tablets, and the various ARM derivatives that power everything from Raspberry Pis to Apple's M-series chips.</p>
+
+<p>But the list gets more exotic. LLVM targets IBM's z/Architecture, the instruction set of mainframe computers that still process a remarkable fraction of the world's business transactions. It targets Nvidia graphics processors, enabling general-purpose computation on GPU hardware. It even targets WebAssembly, the portable binary format that lets code run in web browsers at near-native speed.</p>
+
+<p>Some backends have come and gone. LLVM once supported the Cell processor that powered the PlayStation 3, but that hardware is now obsolete and the backend has been removed. The same fate befell backends for DEC Alpha processors, MicroBlaze soft processors, and various other architectures that no longer justify the maintenance burden.</p>
+
+<h2>The Fork in Every Road</h2>
+
+<p>LLVM's permissive licensing has led to a proliferation of customized versions.</p>
+
+<p>Apple maintains its own fork optimized for their platforms and integrated with Xcode. AMD has built their optimizing C and C++ compiler on LLVM. Intel has adopted LLVM for their next-generation compilers. Sony uses LLVM for PlayStation development. Nvidia uses it for their CUDA compiler.</p>
+
+<p>The LLVM documentation explicitly acknowledges this fragmentation, warning developers not to rely on version numbers when checking for features. The LLVM version 15 from Apple might have different capabilities than version 15 from the mainline project or version 15 from AMD.</p>
+
+<p>This diversity is both a strength and a challenge. The permissive license has brought resources and contributions from major corporations. But it has also created a landscape where "LLVM" means slightly different things in different contexts.</p>
+
+<h2>The People Behind the Project</h2>
+
+<p>In 2012, the Association for Computing Machinery awarded its Software System Award to Vikram Adve, Chris Lattner, and Evan Cheng for designing and implementing LLVM. This award recognizes software systems that have had lasting influence, and previous recipients include Unix, the World Wide Web, and Java.</p>
+
+<p>The LLVM Foundation was established to provide organizational structure and governance. Tanya Lattner, a compiler engineer who had worked on LLVM at Apple, became president in 2014 and continues to lead the organization.</p>
+
+<p>Chris Lattner, meanwhile, has moved on to new challenges. After leaving Apple, he worked at Tesla on autonomous driving software, then at Google on artificial intelligence infrastructure. Most recently, he founded Modular, a company building high-performance AI infrastructure, where he created Mojo, a new programming language designed for AI development. Mojo, naturally, compiles through LLVM.</p>
+
+<h2>MLIR: The Next Layer Up</h2>
+
+<p>Even as LLVM has matured, its creators have recognized limitations in its design.</p>
+
+<p>The intermediate representation works beautifully for traditional compiled languages, but machine learning frameworks operate at a different level of abstraction. They manipulate tensors and neural network layers, concepts that map poorly onto LLVM's register-and-instruction model.</p>
+
+<p>Enter MLIR, which stands for Multi-Level Intermediate Representation. Where LLVM provides a single IR at one level of abstraction, MLIR supports a hierarchy of representations connected by well-defined lowering rules. A machine learning compiler can start with high-level tensor operations, progressively lower them through various intermediate forms, and eventually reach LLVM IR for final code generation.</p>
+
+<p>MLIR uses a plugin architecture called Dialects, allowing different domains to define their own operations and types. There are dialects for tensor algebra, for polyhedral loop optimization, for GPU programming, and for dozens of other domains. Each dialect can be combined with others and eventually lowered to something LLVM understands.</p>
+
+<h2>The Invisible Foundation</h2>
+
+<p>Most people will never know that LLVM exists, and that is exactly as it should be.</p>
+
+<p>When you tap an app on your phone, you do not think about the compiler that translated the developer's Swift code into the machine instructions running on your processor. When you browse the web, you do not think about the WebAssembly runtime executing code that LLVM compiled. When you run a Python script that calls into a Julia library for numerical computation, you do not think about the just-in-time compiler that optimized those inner loops.</p>
+
+<p>But LLVM is there, in all of these places and countless more. It is there when researchers train neural networks and when game developers squeeze every last frame out of a console. It is there in data centers and embedded systems, in research labs and production deployments.</p>
+
+<p>Twenty-five years ago, a graduate student wondered if there was a better way to build compilers. The answer he found has become one of the most consequential pieces of software infrastructure in the world, a foundation on which much of modern computing quietly rests.</p>
+      </div>
+
+      <footer class="wikipedia-footer">
+        <p class="source-link">
+          <a href="https://en.wikipedia.org/wiki/LLVM" target="_blank" rel="noopener">
+            View original Wikipedia article &rarr;
+          </a>
+        </p>
+        <p class="rewrite-note">
+          This article has been rewritten from Wikipedia source material for enjoyable reading.
+          Content may have been condensed, restructured, or simplified.
+        </p>
+      </footer>
+
+      
+      <section class="related-articles">
+        <h2>Related Articles</h2>
+        <p class="related-intro">This deep dive was written in connection with these articles:</p>
+        <ul class="related-list">
+          
+      <li class="related-article-item">
+        <a href="../../article/28784deb-f83a-4854-bc2a-5d92ac0db175/index.html">
+          <strong>From Swift to Mojo and high-performance AI Engineering with Chris Lattner</strong>
+        </a>
+        <span class="article-meta">
+          by Gergely Orosz in The Pragmatic Engineer
+        </span>
+      </li>
+        </ul>
+      </section>
+    
+    </article>
+  
+  </main>
+</body>
+</html>

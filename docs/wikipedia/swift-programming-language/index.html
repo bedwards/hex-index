@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Swift (programming language) - Hex Index</title>
+  <link rel="stylesheet" href="../../styles.css">
+</head>
+<body class="reading-mode">
+  <header class="reading-header">
+    <a href="../../index.html" class="back-link">&larr; Back to Library</a>
+  </header>
+  <main class="reading-content">
+    
+    <article class="wikipedia-page">
+      <header class="wikipedia-header">
+        <div class="type-badge">Wikipedia Deep Dive</div>
+        <h1>Swift (programming language)</h1>
+        <div class="article-meta">
+          <span class="read-time">12 min read</span>
+        </div>
+      </header>
+
+      <div class="wikipedia-content">
+        <p class="source-note">Based on <a href="https://en.wikipedia.org/wiki/Swift_(programming_language)">Wikipedia: Swift (programming language)</a></p>
+
+<p>In 2010, a programmer named Chris Lattner started working on a secret project at Apple. His mission was audacious: replace Objective-C, the programming language that had powered Apple devices for over three decades. The result would become Swift, a language that burst onto the scene in 2014 and quickly became one of the most loved programming languages in the world.</p>
+
+<p>But here's what makes this story fascinating. Lattner didn't just build another programming language. He created a kind of greatest hits compilation of computer science, borrowing the best ideas from languages as diverse as Rust, Haskell, Ruby, Python, and even an obscure 1970s language called CLU. The goal was simple: make programming safer and more enjoyable without sacrificing speed.</p>
+
+<h2>The Problem Swift Was Built to Solve</h2>
+
+<p>Objective-C had a serious problem. Actually, it had several.</p>
+
+<p>The language dated back to the early 1980s, which in technology terms is ancient history. When Objective-C was designed, personal computers were exotic novelties. The internet didn't exist. Programmers wrote code on terminals connected to room-sized mainframes. The language reflected that era's assumptions and limitations.</p>
+
+<p>One particular problem plagued Objective-C developers constantly: null pointer dereferencing. That's a technical phrase for what happens when your program tries to use something that doesn't exist. Imagine reaching into a box to grab a tool, but the box is empty. In Objective-C, this kind of error could crash your entire application, often in ways that were incredibly difficult to diagnose.</p>
+
+<p>Another headache was something programmers call the "pyramid of doom." This happens when you have to check multiple conditions before doing something. Each check requires indenting your code further to the right, creating a shape that looks like a pyramid turned on its side. It makes code hard to read and even harder to maintain.</p>
+
+<p>Swift tackled both problems head-on.</p>
+
+<h2>Optionals: Making Nothing into Something</h2>
+
+<p>Swift introduced a concept called optionals that fundamentally changed how programmers think about missing values. The idea is deceptively simple: instead of letting any variable potentially be empty, Swift forces you to explicitly declare which values might be absent.</p>
+
+<p>Think of it like the difference between a package delivery that might or might not arrive versus a delivery that's guaranteed. In Objective-C, any variable could secretly be empty, like a package that might show up or might not. In Swift, you have to clearly mark which variables are "maybe" deliveries.</p>
+
+<p>This seemingly small change has enormous consequences. The Swift compiler—the program that translates your code into something a computer can run—can check whether you've handled all the "maybe" cases before your app ever runs. Entire categories of bugs simply become impossible.</p>
+
+<p>When you want to use an optional value, you have to explicitly "unwrap" it, like opening a package to see if anything's inside. Swift gives you several ways to do this safely, and if you try to unwrap something that turns out to be empty, the language forces you to handle that situation gracefully instead of crashing.</p>
+
+<h2>Protocol-Oriented Programming: A New Way of Thinking</h2>
+
+<p>Apple claims Swift represents a genuine paradigm shift in programming, something they call "protocol-oriented programming." That's a bold claim—paradigm shifts are rare in computing. But Swift's approach to protocols does represent something genuinely different.</p>
+
+<p>In traditional object-oriented programming, you build hierarchies. A Dog is a type of Animal. A Labrador is a type of Dog. Everything inherits characteristics from its parent, like a family tree. This works reasonably well until you realize that not everything fits neatly into hierarchies. A flying squirrel can fly, but so can a bird. Should they both inherit from some "flying thing" class? What about bats? What about airplanes?</p>
+
+<p>Swift's protocols let you define capabilities separately from hierarchies. Instead of saying "a Dog is an Animal," you can say "anything that can bark, fetch, and wag its tail counts as dog-like for our purposes." A robot dog could implement those protocols just as easily as a biological one. This flexibility makes code more reusable and systems more adaptable.</p>
+
+<p>What makes Swift's approach special is protocol extensions. You can add new capabilities to a protocol, and every type that uses that protocol automatically gains those capabilities. It's like upgrading a certification standard and having everyone who holds that certification instantly gain the new skills.</p>
+
+<h2>The Journey from Secret Project to Open Source</h2>
+
+<p>Swift's public debut came at Apple's Worldwide Developers Conference in June 2014. The announcement caught the developer community by surprise. Apple had kept the project completely secret during its four years of development.</p>
+
+<p>The first publicly available app written in Swift was, appropriately enough, the WWDC app itself. Apple released a beta version to developers that same day, along with a free 500-page manual explaining the language. That manual, "The Swift Programming Language," remains available on Apple's bookstore and is still one of the best introductions to the language.</p>
+
+<p>But the most significant moment in Swift's history came on December 3, 2015, when Apple did something unprecedented: they open-sourced the entire language. The Swift compiler, standard libraries, debugger, and package manager all became freely available under the Apache 2.0 license. Anyone could now read the source code, suggest improvements, or even build their own version.</p>
+
+<p>This decision transformed Swift from an Apple technology into a community project. The source code lives on GitHub, where thousands of developers have contributed improvements. IBM, Google, and other major technology companies have invested in Swift development. The language now runs on Linux, Windows, and even Android, far beyond its Apple origins.</p>
+
+<h2>Modern Concurrency: Solving the Hardest Problem</h2>
+
+<p>Concurrent programming—making software do multiple things at once—is notoriously difficult. Imagine trying to coordinate a hundred chefs working in the same kitchen simultaneously. They need to share ingredients, equipment, and space without colliding. One wrong move and you have chaos.</p>
+
+<p>Traditional approaches to concurrency involve "locks," which are like temporary reservations on shared resources. A chef grabs a knife, locks it so no one else can use it, does their cutting, then unlocks it for the next person. This works but leads to constant coordination overhead and subtle bugs when programmers forget to unlock things or lock them in the wrong order.</p>
+
+<p>Swift 5.5, released in 2021, introduced a different approach borrowed from academic computer science: the actor model. Actors are like individual workers who own their own equipment and communicate only through messages. Instead of chefs sharing a kitchen, imagine each chef has their own private station. They send dishes to each other when ready but never reach into someone else's workspace.</p>
+
+<p>Swift's actors automatically protect their internal state from conflicting access. Combined with the new async/await syntax—a way of writing code that waits for things to happen without blocking everything else—Swift now makes concurrent programming dramatically safer. Version 5.10, released in 2024, achieved "full data isolation," meaning the compiler can mathematically prove that certain kinds of concurrency bugs called "data races" are impossible in your code.</p>
+
+<h2>Speed Without Sacrifice</h2>
+
+<p>Many programming languages force a tradeoff between safety and speed. Languages that protect programmers from errors often run slowly because of all that extra checking. Languages that run fast often let programmers shoot themselves in the foot.</p>
+
+<p>Swift refuses this compromise. The language uses LLVM—Low Level Virtual Machine, despite the confusing name it's actually a compiler framework—to translate Swift code into highly optimized machine instructions. LLVM was created by Chris Lattner himself, years before he started Swift, giving him intimate knowledge of how to make Swift code run efficiently.</p>
+
+<p>Swift manages memory automatically, meaning programmers don't have to manually allocate and free computer memory like they do in C or C++. But instead of using garbage collection—a technique where the computer periodically pauses to clean up unused memory—Swift uses something called Automatic Reference Counting. The compiler inserts memory management code at exactly the right places, avoiding the unpredictable pauses that garbage collection can cause.</p>
+
+<p>The result is a language where safety features have essentially zero runtime cost. The compiler does all the checking before your program ever runs. By the time your code executes, it's just pure, fast machine instructions.</p>
+
+<h2>Learning Swift: Playgrounds and Beyond</h2>
+
+<p>Apple clearly wants Swift to be accessible to beginners. In 2016, they released Swift Playgrounds, an iPad app that teaches programming through a three-dimensional video game–like interface. You write code to guide a character through puzzles, getting immediate visual feedback on whether your solution works.</p>
+
+<p>This reflects a philosophy embedded in Swift's design. Error messages try to be helpful rather than cryptic. The syntax avoids unnecessary ceremony. Many features have "syntactic sugar"—ways of writing common patterns more concisely—that make code easier to read and write.</p>
+
+<p>For example, Swift's trailing closure syntax lets you write callback functions—blocks of code that run later—after the function call instead of buried inside parentheses. It's a small thing, but it makes common patterns significantly more readable.</p>
+
+<h2>The Bridge to the Past</h2>
+
+<p>Despite all its innovations, Swift had to work with existing Apple code. Decades of Objective-C software couldn't simply be thrown away. Apple's frameworks—Cocoa for macOS and Cocoa Touch for iOS—represented millions of hours of development work.</p>
+
+<p>Swift solved this through remarkable interoperability. On Apple platforms, Swift can call Objective-C code directly, and Objective-C can call Swift. The two languages can coexist in the same project, even the same file. You can even mix in C and C++ code. This means developers can adopt Swift gradually, rewriting parts of their applications over time rather than starting from scratch.</p>
+
+<p>The technical achievement here shouldn't be understated. Making a modern language interoperate seamlessly with a 1980s language while maintaining both safety guarantees and performance is extraordinarily difficult. Swift does it so smoothly that many developers barely think about it.</p>
+
+<h2>SwiftUI: A New Way to Build Interfaces</h2>
+
+<p>In 2019, Apple announced SwiftUI, a framework for building user interfaces that represents Swift's philosophy applied to visual design. Instead of describing how to construct an interface step by step, you declare what the interface should look like, and SwiftUI figures out how to make it happen.</p>
+
+<p>This declarative approach has deep roots in functional programming, a style that treats programs more like mathematical equations than step-by-step instructions. SwiftUI views are simple Swift structs—lightweight data containers—that describe what should appear on screen. When your data changes, SwiftUI automatically updates only the parts of the interface that need to change.</p>
+
+<p>SwiftUI works across all Apple platforms: iPhone, iPad, Mac, Apple Watch, and Apple TV. Write your interface once, and it adapts to each device's capabilities and conventions. It's not quite "write once, run anywhere"—different devices need different designs—but it's remarkably close.</p>
+
+<h2>Beyond Apple: Swift's Growing Ecosystem</h2>
+
+<p>While Swift began as an Apple language, it has increasingly become platform-independent. Official downloads exist for various Linux distributions including Ubuntu, CentOS, and Amazon Linux. Windows support has matured significantly. There's even experimental support for WebAssembly, which lets Swift code run in web browsers.</p>
+
+<p>In October 2025, the Swift Android workgroup announced a preview release of the official Swift SDK for Android, marking a significant milestone in Swift's expansion beyond Apple's ecosystem. Developers can now potentially share code between iOS and Android apps, a holy grail that mobile developers have sought for years.</p>
+
+<p>Server-side Swift has also emerged as a growing niche. Frameworks like Vapor let developers write web applications and APIs in Swift, using the same language for both client and server code. For teams already invested in Swift, this eliminates the need to maintain expertise in multiple languages.</p>
+
+<h2>Chris Lattner's Legacy</h2>
+
+<p>In January 2017, Chris Lattner left Apple for Tesla Motors. The announcement shocked the Swift community—Lattner had been the language's guiding vision for seven years. Ted Kremenek, a longtime Swift team member, took over as project lead.</p>
+
+<p>But Lattner's influence extends far beyond Swift. He created LLVM, the compiler framework that powers not just Swift but Rust, Julia, and countless other languages. He later worked at Google Brain on machine learning compilers before co-founding Modular, a company building AI infrastructure. His latest creation, Mojo, is a new programming language designed specifically for artificial intelligence workloads—carrying forward many ideas from Swift while pushing into new territory.</p>
+
+<p>The podcast episode this article accompanies features Lattner discussing his journey from Swift to Mojo and his vision for high-performance AI engineering. It's a fascinating look at how one person's ideas can shape the tools millions of programmers use daily.</p>
+
+<h2>What Makes Swift Special</h2>
+
+<p>Programming languages are rarely revolutionary. Most successful languages iterate on existing ideas, making small improvements rather than dramatic leaps. Swift is unusual because it genuinely changed how millions of people write code.</p>
+
+<p>The language proved that safety and speed aren't mutually exclusive. It demonstrated that modern language design—optionals, protocol extensions, value types, actor-based concurrency—could be packaged in a way that felt natural rather than academic. It showed that a major technology company could open-source a core technology and benefit from community collaboration.</p>
+
+<p>Swift has won "Most Loved Programming Language" in Stack Overflow's developer surveys, a testament to how programmers actually feel about using it. That emotional response matters. Programming is a creative act, and tools that feel good to use lead to better software.</p>
+
+<p>Today, Swift powers millions of apps on Apple's platforms and increasingly on other systems too. It's taught in universities and bootcamps. It's the first programming language many people learn. From Chris Lattner's quiet beginning in 2010 to a global open-source community, Swift has become one of the defining programming languages of its generation.</p>
+      </div>
+
+      <footer class="wikipedia-footer">
+        <p class="source-link">
+          <a href="https://en.wikipedia.org/wiki/Swift_(programming_language)" target="_blank" rel="noopener">
+            View original Wikipedia article &rarr;
+          </a>
+        </p>
+        <p class="rewrite-note">
+          This article has been rewritten from Wikipedia source material for enjoyable reading.
+          Content may have been condensed, restructured, or simplified.
+        </p>
+      </footer>
+
+      
+      <section class="related-articles">
+        <h2>Related Articles</h2>
+        <p class="related-intro">This deep dive was written in connection with these articles:</p>
+        <ul class="related-list">
+          
+      <li class="related-article-item">
+        <a href="../../article/28784deb-f83a-4854-bc2a-5d92ac0db175/index.html">
+          <strong>From Swift to Mojo and high-performance AI Engineering with Chris Lattner</strong>
+        </a>
+        <span class="article-meta">
+          by Gergely Orosz in The Pragmatic Engineer
+        </span>
+      </li>
+        </ul>
+      </section>
+    
+    </article>
+  
+  </main>
+</body>
+</html>

@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>OpenStreetMap - Hex Index</title>
+  <link rel="stylesheet" href="../../styles.css">
+</head>
+<body class="reading-mode">
+  <header class="reading-header">
+    <a href="../../index.html" class="back-link">&larr; Back to Library</a>
+  </header>
+  <main class="reading-content">
+    
+    <article class="wikipedia-page">
+      <header class="wikipedia-header">
+        <div class="type-badge">Wikipedia Deep Dive</div>
+        <h1>OpenStreetMap</h1>
+        <div class="article-meta">
+          <span class="read-time">17 min read</span>
+        </div>
+      </header>
+
+      <div class="wikipedia-content">
+        Here is the rewritten OpenStreetMap article:
+
+```html
+<p class="source-note">Based on <a href="https://en.wikipedia.org/wiki/OpenStreetMap">Wikipedia: OpenStreetMap</a></p>
+
+<h2>The Map That Anyone Can Edit</h2>
+
+<p>In December 2004, a twenty-something university student cycled around Regent's Park in London with a GPS unit strapped to his bike. When he got home, he uploaded the track to a website he'd built. That single squiggly line—one street, recorded by one person—was the first contribution to what would become the largest collaborative mapping project in human history.</p>
+
+<p>Steve Coast, the cyclist, was frustrated. The United Kingdom had excellent maps. The Ordnance Survey, the country's national mapping agency, had been meticulously documenting every road, trail, and footpath since 1791. There was just one problem: they wouldn't share.</p>
+
+<p>The Ordnance Survey was funded by taxpayers, yet it charged substantial fees for access to its data. Want to build an app that shows people where they are? Pay up. Want to create a map for your neighborhood newsletter? Pay up. The data existed, it was accurate, and it sat locked behind copyright and licensing restrictions that made it effectively useless for anyone who couldn't afford commercial terms.</p>
+
+<p>Coast had a radical idea. What if people just made their own map?</p>
+
+<h2>The Wikipedia of Maps</h2>
+
+<p>OpenStreetMap—OSM to its users—works on a simple principle that mirrors Wikipedia. Anyone can edit. Anyone can add. Anyone can correct mistakes. And anyone can use the resulting data for free.</p>
+
+<p>This wasn't an obvious approach in 2004. Cartography had always been the domain of experts with expensive equipment, formal training, and institutional backing. The idea that random volunteers could collectively create something as complex and precise as a map seemed absurd.</p>
+
+<p>It turned out to work remarkably well.</p>
+
+<p>By July 2007, just three years after that first bike ride, nine thousand people had registered accounts. The project had already received a donation of complete road data for the Netherlands, plus major roads in India and China, from a commercial navigation company called Automotive Navigation Data. In October of that year, OpenStreetMap imported the entire road network of the United States from TIGER, the Census Bureau's geographic database.</p>
+
+<p>The project had critical mass.</p>
+
+<h2>How It Actually Works</h2>
+
+<p>If you've ever used Wikipedia, the mechanics will feel familiar. You create an account, find something that's wrong or missing, and fix it. The difference is that instead of editing text about the French Revolution, you're editing the geometry of the world.</p>
+
+<p>OSM's data model is elegant in its simplicity. Everything boils down to three types of objects.</p>
+
+<p>A <em>node</em> is a single point with a latitude and longitude. It might represent a mountain peak, a fire hydrant, or the corner of a building. Standalone nodes typically mark points of interest—a café, a bench, a historic marker.</p>
+
+<p>A <em>way</em> is an ordered list of nodes connected together. Draw a line between points A, B, and C, and you have a way. If that way forms a closed loop (A to B to C and back to A), it can represent an area like a park or a parking lot. Most ways represent linear features: streets, rivers, hiking trails, power lines.</p>
+
+<p>A <em>relation</em> groups nodes, ways, and other relations together to represent complex things. A bus route that spans dozens of different streets? That's a relation. A lake with an island in the middle (essentially a polygon with a hole)? Also a relation. The boundary of a country that shares segments with neighboring countries? Relation.</p>
+
+<p>This structure differs fundamentally from traditional geographic information systems, which organize data into rigid layers—one layer for roads, another for buildings, another for land use. OSM lets everything intermingle. A single node might simultaneously represent a street corner, a fire hydrant, and a point where a city boundary changes direction. This flexibility enables remarkably rich data, though it can make the database challenging to work with.</p>
+
+<h2>The Tag Folksonomy</h2>
+
+<p>How does OSM know that a particular way represents a highway rather than a river? Through tags—simple key-value pairs attached to any object.</p>
+
+<p>A residential street might carry the tag <code>highway=residential</code>. Add <code>name=Main Street</code> and <code>surface=asphalt</code> and <code>maxspeed=25 mph</code> and you've built up a rich description. A café might have <code>amenity=cafe</code> plus <code>cuisine=coffee</code> plus <code>opening_hours=Mo-Fr 07:00-18:00</code>.</p>
+
+<p>Here's where it gets interesting: nobody controls what tags you can use.</p>
+
+<p>The OSM community maintains a wiki with recommended tagging schemes. There's a formal proposal process where mappers can suggest new tags and vote on whether to adopt them. But none of this is enforced. You can tag a feature however you want. If your tagging scheme is useful, others will adopt it. If it's idiosyncratic, your data will just sit there, understood only by you.</p>
+
+<p>The result is a folksonomy—a taxonomy that emerges from folk usage rather than top-down classification. As of 2017, OSM contained over 89 million distinct tag combinations. This organic growth means the database can describe virtually anything, from wheelchair accessibility to the species of trees lining a street to whether a particular crosswalk has tactile paving for the visually impaired.</p>
+
+<p>It also means the data can be inconsistent, contradictory, and sometimes just plain weird. Welcome to collaborative mapping.</p>
+
+<h2>Data Quality: Better Than You'd Expect</h2>
+
+<p>The obvious question is whether volunteer-created maps can compete with professional cartography. The answer, perhaps surprisingly, is often yes.</p>
+
+<p>A 2011 study compared OSM data for Germany against TomTom, the commercial navigation company. For car navigation specifically, TomTom had 9% more information. But for the street network as a whole, including minor roads and paths that cars don't travel, OSM had 27% more detail. The volunteers had out-mapped the professionals in coverage, even if they lagged slightly in the specific data that car navigation requires.</p>
+
+<p>That same year, TriMet—the transit agency serving Portland, Oregon—ran their own comparison. They found that OSM street data, when fed through routing software, produced better results than the official government geographic data maintained by local agencies. The open-source volunteers had created more accurate maps than the bureaucrats whose literal job was making maps.</p>
+
+<p>A more recent study, published in 2024, examined coverage of the European high-voltage electrical grid. OSM proved more detailed and up-to-date than the official data published by the European Network of Transmission System Operators for Electricity. Volunteers with cameras and GPS units had documented the power infrastructure more accurately than the organizations that operate it.</p>
+
+<p>These results aren't universal. Data quality varies dramatically by region. Wealthy countries with active mapping communities have extraordinary coverage. Remote areas may have nothing at all. A 2021 study of shop data in two German regions found completeness of 82% to 88%—good, but not perfect. The map of London is probably more accurate than your city's official zoning records. The map of a village in rural Congo might show nothing but roads.</p>
+
+<h2>The Google Maps Moment</h2>
+
+<p>For years, OSM was a niche project beloved by open-source enthusiasts and largely ignored by everyone else. Then Google made a mistake.</p>
+
+<p>In 2012, Google Maps introduced pricing for heavy API users. Companies that had built their services atop Google's free maps suddenly faced substantial bills. The reaction was immediate and, for Google, embarrassing.</p>
+
+<p>Foursquare, the social check-in app that was huge at the time, switched to OpenStreetMap. Craigslist did the same. Apple, in the midst of a bitter rivalry with Google over mobile operating systems, terminated its mapping contract with Google and launched its own service built partly on OSM data and partly on TomTom.</p>
+
+<p>OpenStreetMap had been waiting for exactly this moment. The project offered something Google couldn't match: true ownership of your own infrastructure. If you build on Google Maps, Google controls your destiny. If you build on OSM, you download the data, run it on your own servers, and owe nothing to anyone.</p>
+
+<p>By 2025, OSM's corporate sponsors include TomTom, Microsoft, Esri (the dominant GIS software company), and Meta. The scrappy volunteer project had become essential infrastructure for some of the world's largest technology companies.</p>
+
+<h2>The Licensing Tangle</h2>
+
+<p>Free software and free data live and die by their licenses, and OSM's licensing history is a case study in getting it right the second time.</p>
+
+<p>The project originally used Creative Commons Attribution-ShareAlike, the same license Wikipedia uses. This worked fine for text, but maps aren't quite text. Creative Commons licenses were designed for creative works—books, music, photographs. They're awkward when applied to raw data.</p>
+
+<p>In 2012, OSM switched to the Open Database License, specifically designed for datasets. The ODbL requires attribution (you must credit OpenStreetMap) and share-alike (if you improve the data, you must share your improvements under the same terms). But it doesn't restrict what you do with the maps you create from the data. You can make a proprietary product that uses OSM data, as long as you credit the source and share back any corrections you make to the underlying database.</p>
+
+<p>This distinction matters more than it might seem. Under Creative Commons, any map made from OSM data had to be licensed under Creative Commons. Under ODbL, you can make commercial maps, restricted maps, any kind of maps—you just can't restrict the data itself.</p>
+
+<p>The license change required every contributor to agree to new terms. Some refused. Their contributions, and all subsequent edits to features they'd created, had to be deleted. Estimates suggested 3% of data might be lost globally, with some regions hit much harder. Australia faced potential losses of 16% to 76% of features depending on type.</p>
+
+<p>In the end, over 99% of data survived. But the process was painful enough that a group of dissenting mappers forked the project, creating Free Open Street Map under the original license. The fork never gained significant traction, but it demonstrates how contentious licensing can become in volunteer communities.</p>
+
+<h2>Ground Truth</h2>
+
+<p>The romantic image of OSM is someone with a GPS unit, walking every street and trail, painstakingly recording the world. This still happens. Dedicated mappers "adopt" entire towns, systematically documenting every road, business, and footpath. Mapping parties bring volunteers together to survey neighborhoods. The annual State of the Map conference celebrates this ground-level work.</p>
+
+<p>But the reality is more complex. Much of OSM's data comes from sources other than original ground surveys.</p>
+
+<p>Aerial and satellite imagery provides the backbone for mapping in most of the world. Bing, Maxar, ESRI, and Mapbox all donate access to their imagery for OSM tracing. Volunteers look at satellite photos and draw roads, buildings, and landforms on top of them. This approach is less romantic than GPS surveys but vastly more efficient. You can map an entire city from your laptop.</p>
+
+<p>Street-level photography adds another layer. Mapillary, a crowdsourced platform, provides billions of geotagged photographs that mappers can reference. These images reveal details invisible from above: shop names, house numbers, traffic signs, wheelchair ramps. Some countries have official street-view coverage that OSM can reference.</p>
+
+<p>Government data imports have populated huge swaths of the map. The TIGER import gave OSM every road in the United States in one massive batch. Geographic names came from the federal Geographic Names Information System. Water features came from the National Hydrography Dataset. The UK has contributed Ordnance Survey OpenData (the agency eventually relented and released some data under open licenses). Canada provides landcover and streets through federal geographic databases.</p>
+
+<p>Corporate telemetry adds yet another source. Amazon, with its massive fleet of delivery vehicles, contributes data collected by its drivers. Any company with vehicles on the road could theoretically do the same.</p>
+
+<p>The result is a hybrid system. Some data comes from dedicated volunteers walking every meter of a trail. Some comes from armchair mappers tracing satellite imagery from the other side of the world. Some comes from government databases. Some comes from corporate donations. The map is a collage.</p>
+
+<h2>The Tools of the Trade</h2>
+
+<p>Editing OpenStreetMap requires software, and the community has developed a robust ecosystem.</p>
+
+<p>JOSM (Java OpenStreetMap Editor) is the power tool. It's a desktop application with a steep learning curve and enormous capability. Serious mappers use JOSM for complex edits, bulk imports, and quality assurance. It looks like software designed by engineers for engineers, because it was.</p>
+
+<p>For simpler edits, the OSM website itself provides iD, a browser-based editor designed for newcomers. Click on the map, click on a feature, edit its properties. The barrier to entry is low, which is precisely the point.</p>
+
+<p>Mobile apps bring mapping to the field. You can add features while standing in front of them, using your phone's GPS to capture your exact location. StreetComplete takes an innovative approach, presenting "quests"—specific questions about nearby features. Does this restaurant have outdoor seating? What are the opening hours of this shop? Users answer questions about their immediate surroundings, contributing structured data without needing to understand the underlying tagging system.</p>
+
+<p>On the consumption side, OSM data flows into countless applications. The project publishes complete database dumps of the entire planet—every node, way, and relation on Earth—on weekly and minutely schedules. Third parties slice this data into more manageable pieces: country-by-country extracts, specific geographic formats, query-optimized versions for cloud platforms.</p>
+
+<p>From these raw materials, companies and developers build everything from turn-by-turn navigation to property assessment tools to humanitarian aid maps. The same underlying data powers consumer apps, academic research, and government infrastructure planning.</p>
+
+<h2>Humanitarian Mapping</h2>
+
+<p>Perhaps OSM's most consequential use is in disaster response and humanitarian aid.</p>
+
+<p>When an earthquake strikes Haiti or a typhoon devastates the Philippines, aid organizations need maps. They need to know where roads are, where population centers exist, where hospitals and clinics operate. Official maps for these regions are often decades out of date, if they exist at all.</p>
+
+<p>OSM enables rapid response mapping. Within hours of a disaster, volunteers around the world begin tracing satellite imagery of the affected area. Someone in London might map roads in a Nepalese village. Someone in Tokyo might add building footprints to a flooded Indonesian neighborhood. The Humanitarian OpenStreetMap Team coordinates these efforts, directing volunteers to areas of greatest need.</p>
+
+<p>This approach has become standard operating procedure for major aid organizations. The Red Cross, Doctors Without Borders, and countless others rely on OSM data for field operations. In many disaster zones, the OSM map is the only accurate map available.</p>
+
+<p>Mapathons—organized mapping events—now happen in universities, corporations, and community centers worldwide. Participants gather to map vulnerable areas before disasters strike, building baseline data that will prove critical when crisis comes. It's humanitarian work you can do in your pajamas.</p>
+
+<h2>What the Map Captures</h2>
+
+<p>OSM aims to map everything that exists in the present world. Not historical features (though they sometimes sneak in). Not future plans (though construction projects appear). Just the current state of the built and natural environment.</p>
+
+<p>The scope is breathtaking. International boundaries and hyperlocal details coexist in the same database. You can find the border between France and Germany, and you can find the bench in a specific Paris park. The highway network of the United States sits alongside the footpath through your local woods. Airports, fire hydrants, mountain peaks, barbershops, bicycle parking, public art installations—if it exists and has a physical location, someone has probably added it to OpenStreetMap.</p>
+
+<p>A 2021 study compared OSM's visual style to the Soviet Union's comprehensive military mapping program from the Cold War era. The Soviets famously created extraordinarily detailed maps of the entire world, including Western countries that never knew they were being mapped. The study found that OSM matched Soviet coverage for features like road infrastructure but gave less prominence to natural environments. Volunteers care about streets more than swamps, apparently.</p>
+
+<h2>The Governance Question</h2>
+
+<p>Who controls OpenStreetMap? The answer is complicated.</p>
+
+<p>The OpenStreetMap Foundation, registered as a non-profit in England and Wales, owns the servers and handles legal matters. It employs a small staff and depends largely on donations for funding. The Foundation doesn't control the data itself—that's managed by the community—but it sets policy for things like acceptable use and data imports.</p>
+
+<p>Major decisions theoretically involve community input through mailing lists, forums, and wiki discussions. In practice, like most open-source projects, the people who do the work have outsized influence. Active contributors and volunteer moderators shape the project's direction through countless small decisions about what to allow, what to reject, and what to encourage.</p>
+
+<p>Corporate involvement has grown substantially. Microsoft, Meta, and other tech giants employ engineers who contribute to OSM and its tools. These companies have their own interests in the project—they use OSM data in their products—and their substantial resources mean their preferences carry weight. The Foundation's highest-tier sponsors include TomTom, Microsoft, Esri, and Meta as of 2025.</p>
+
+<p>Is this corporate capture? The debate continues within the community. Some see corporate contributions as essential to the project's growth and sustainability. Others worry about the influence large companies wield over a nominally volunteer effort. The tension mirrors broader debates about corporate involvement in open-source software.</p>
+
+<h2>The Opposite of a Map</h2>
+
+<p>To understand what OpenStreetMap is, consider what it isn't.</p>
+
+<p>Google Maps is a product. Google employees and contractors collect data, process it, and present it through interfaces Google controls. You can use Google Maps, but you cannot take the underlying data and do something else with it. Google decides what the map shows, how it looks, and what features are available. The map serves Google's interests, which include showing you ads and collecting data about your movements.</p>
+
+<p>OpenStreetMap is a database. The OSM website presents one particular visualization of that database, but it's just one of thousands. Anyone can download the raw data and build their own visualization, their own routing engine, their own search system. The data serves whoever uses it, for whatever purpose they choose.</p>
+
+<p>Proprietary map providers treat their data as a competitive asset. Google Maps, Apple Maps, TomTom, HERE—all maintain massive proprietary databases that represent billions of dollars of investment. They share nothing with each other. Each builds its own version of the world from scratch.</p>
+
+<p>OSM treats map data as a commons. Everyone contributes to the same database. Everyone benefits from everyone else's work. This approach is economically inefficient in some sense—a thousand separate apps all using the same underlying data, rather than each building their own—but it means the data is free, open, and independent of any single company's business decisions.</p>
+
+<h2>The Road Ahead</h2>
+
+<p>Twenty years after Steve Coast cycled around Regent's Park, OpenStreetMap faces an interesting moment.</p>
+
+<p>The project has succeeded beyond any reasonable expectation. It has become critical infrastructure for navigation, logistics, humanitarian response, and urban planning worldwide. Major corporations depend on it. Governments reference it. Researchers analyze it. Millions of people use maps built on its data every day, usually without knowing it.</p>
+
+<p>But challenges remain. Data quality is uneven. Some regions are mapped in extraordinary detail; others are nearly blank. The volunteer base skews heavily toward wealthy, technologically connected countries. The tagging system's flexibility is both a strength and a source of endless inconsistency.</p>
+
+<p>Machine learning and computer vision are beginning to change how maps get made. Algorithms can now extract road networks from satellite imagery automatically. They can identify building footprints, estimate building heights, detect land use changes. These tools could accelerate mapping in under-documented regions—or they could centralize map production in the hands of whoever controls the algorithms.</p>
+
+<p>The meta-question is whether the volunteer model can sustain itself. OpenStreetMap depends on people caring enough to spend their free time adding data about fire hydrants and shop opening hours and hiking trail conditions. As the map becomes more complete, does the motivation to contribute decrease? Or does a more complete map attract more users who notice more gaps to fill?</p>
+
+<p>For now, the project continues. Somewhere in the world, right now, someone is walking down a street with their phone, recording what they see, preparing to add a few more features to the database that describes our planet. One node at a time, the map grows.</p>
+      </div>
+
+      <footer class="wikipedia-footer">
+        <p class="source-link">
+          <a href="https://en.wikipedia.org/wiki/OpenStreetMap" target="_blank" rel="noopener">
+            View original Wikipedia article &rarr;
+          </a>
+        </p>
+        <p class="rewrite-note">
+          This article has been rewritten from Wikipedia source material for enjoyable reading.
+          Content may have been condensed, restructured, or simplified.
+        </p>
+      </footer>
+
+      
+      <section class="related-articles">
+        <h2>Related Articles</h2>
+        <p class="related-intro">This deep dive was written in connection with these articles:</p>
+        <ul class="related-list">
+          
+      <li class="related-article-item">
+        <a href="../../article/f9302ce5-c2dc-4cc2-b4b2-f157b3942773/index.html">
+          <strong>#42: Bruges Maps for Bikes, NYC Invests in Streets, and Toronto Youth Rethink Density </strong>
+        </a>
+        <span class="article-meta">
+          by Raymond Berger in Urbanism Now
+        </span>
+      </li>
+        </ul>
+      </section>
+    
+    </article>
+  
+  </main>
+</body>
+</html>

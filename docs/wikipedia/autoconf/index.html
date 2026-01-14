@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Autoconf - Hex Index</title>
+  <link rel="stylesheet" href="../../styles.css">
+</head>
+<body class="reading-mode">
+  <header class="reading-header">
+    <a href="../../index.html" class="back-link">&larr; Back to Library</a>
+  </header>
+  <main class="reading-content">
+    
+    <article class="wikipedia-page">
+      <header class="wikipedia-header">
+        <div class="type-badge">Wikipedia Deep Dive</div>
+        <h1>Autoconf</h1>
+        <div class="article-meta">
+          <span class="read-time">10 min read</span>
+        </div>
+      </header>
+
+      <div class="wikipedia-content">
+        <p class="source-note">Based on <a href="https://en.wikipedia.org/wiki/Autoconf">Wikipedia: Autoconf</a></p>
+
+<p>Here's a puzzle that kept software developers awake at night for decades: you've written a perfectly good program on your computer, but when you try to run it on someone else's machine, it breaks. Not because your code is wrong, but because their computer is slightly different from yours. Maybe they have a different version of the operating system. Maybe their compiler works differently. Maybe a library you depend on is installed in a weird location.</p>
+
+<p>This problem might sound trivial, but it nearly derailed the entire free software movement.</p>
+
+<h2>The Portability Nightmare</h2>
+
+<p>In the early days of Unix—the operating system that eventually spawned Linux, macOS, and countless others—there was a saying: "Unix is not so much an operating system as it is an oral tradition." Different vendors had taken the original Unix code and modified it in incompatible ways. Sun's version of Unix behaved differently from IBM's version, which behaved differently from Digital Equipment Corporation's version. Even basic things like where system files were stored or what features the C compiler supported varied wildly.</p>
+
+<p>If you wanted to write software that could run on all these systems, you had two bad options. You could write completely different versions of your code for each platform—an approach that quickly becomes unmaintainable. Or you could write a single version stuffed with conditional code: "if this is a Sun machine, do it this way; if this is an IBM machine, do it that way."</p>
+
+<p>Both approaches had a fatal flaw. They required you to know in advance every possible system your software might run on. What about next year's systems? What about obscure systems you've never heard of?</p>
+
+<h2>David MacKenzie's Elegant Solution</h2>
+
+<p>In the summer of 1991, a programmer named David MacKenzie was working at the Free Software Foundation, the organization founded by Richard Stallman to create a completely free Unix-like operating system. MacKenzie was drowning in portability problems. Every piece of software he worked on needed to run on dozens of different systems, and the manual process of adapting code was eating up all his time.</p>
+
+<p>MacKenzie had an insight that seems obvious in retrospect but was revolutionary at the time. Instead of asking "what system is this?" and then consulting a giant database of system quirks, why not simply ask the system itself? Don't check if this is SunOS version 4.1.3—just check whether the C compiler on this particular machine supports the features you need.</p>
+
+<p>This is the philosophical core of Autoconf: test for features, not versions.</p>
+
+<p>The genius of this approach is that it's future-proof. If someone invents a completely new operating system tomorrow, Autoconf will still work on it, because Autoconf doesn't need to know about operating systems. It just needs to run a series of small experiments. "Does compiling this sample code work? Can I call this function? Does this header file exist?" By running these tests, Autoconf can figure out how to build software correctly without any prior knowledge of the system it's running on.</p>
+
+<h2>How It Actually Works</h2>
+
+<p>The flow of Autoconf involves several stages, and understanding them helps explain why the system feels complex to newcomers.</p>
+
+<p>The software developer writes a file called <em>configure.ac</em> (in older projects, you might see <em>configure.in</em>). This file isn't written in a regular programming language. Instead, it uses M4, a macro processing language that predates most modern languages. M4 was created in 1977, making it ancient by computing standards, but it's remarkably good at text transformation—which is exactly what Autoconf needs.</p>
+
+<p>In this configure.ac file, the developer writes instructions like "check whether the system has the sqrt function" or "check whether we can include the sys/socket.h header file." These aren't written as prose but as calls to predefined macros with names like AC_CHECK_FUNC and AC_CHECK_HEADER.</p>
+
+<p>Autoconf processes this file and generates a shell script called <em>configure</em>. This shell script is the magic ingredient. It can run on virtually any Unix-like system because it's written in portable shell—meaning it avoids features that might not exist on older or unusual systems. The Autoconf documentation actually contains extensive notes about which shell features are safe to use and which ones will break on obscure platforms.</p>
+
+<p>When a user downloads software and runs ./configure, they're running this generated script. It performs all those feature tests, figures out how to build the software on their particular system, and generates appropriate configuration files. The most important of these is usually the Makefile, which tells the make program how to actually compile everything.</p>
+
+<h2>The Configure Script Dance</h2>
+
+<p>If you've ever installed software from source on a Unix system, you've probably performed the ritual incantation:</p>
+
+<blockquote>
+./configure<br/>
+make<br/>
+make install
+</blockquote>
+
+<p>That first command, ./configure, is Autoconf's masterpiece. When you run it, you'll see a flurry of messages:</p>
+
+<blockquote>
+checking for gcc... gcc<br/>
+checking whether the C compiler works... yes<br/>
+checking for C compiler default output file name... a.out<br/>
+checking whether we are cross compiling... no<br/>
+checking for suffix of executables...<br/>
+checking for suffix of object files... o
+</blockquote>
+
+<p>Each "checking" line represents a small test the configure script is running. It's probing your system, building up a picture of what's available and how things work. This might seem tedious, but remember: this same script runs successfully on systems that didn't exist when the software was written.</p>
+
+<p>The configure script generates a file called config.status, which is itself a script that knows how to recreate all the generated files. This means if you change something about your system (install a new library, for instance), you can run ./config.status to regenerate everything without repeating all those tests.</p>
+
+<h2>The GNU Build System</h2>
+
+<p>Autoconf doesn't work alone. It's part of a suite of tools collectively called the GNU Build System or, more colloquially, the Autotools. The main components are:</p>
+
+<p><strong>Autoconf</strong> handles the system feature detection we've been discussing.</p>
+
+<p><strong>Automake</strong> generates Makefile templates from a simpler specification. Writing Makefiles by hand is tedious and error-prone; Automake does the grunt work for you.</p>
+
+<p><strong>Libtool</strong> abstracts away the differences in how shared libraries work across systems. Creating a library that can be dynamically loaded by other programs is surprisingly system-specific, and Libtool papers over those differences.</p>
+
+<p><strong>Autoheader</strong> helps manage C header files, particularly config.h—the header file that contains all the results of the feature tests so your C code can adapt accordingly.</p>
+
+<p>Together, these tools form a complete system for building portable software. The learning curve is steep, but once mastered, they enable a single codebase to compile on everything from ancient Solaris servers to the latest macOS release.</p>
+
+<h2>An Example of Feature Testing</h2>
+
+<p>Let's make this concrete with a real example. Suppose you're writing a math program that needs to compute square roots. Most systems have a sqrt function, but some might not, or it might be in a different library than you expect.</p>
+
+<p>In your configure.ac, you might write:</p>
+
+<blockquote>
+AC_CHECK_LIB([m], [sqrt])
+</blockquote>
+
+<p>This translates to: "Check whether linking against the library called 'm' (the standard math library on Unix systems) provides a function called sqrt."</p>
+
+<p>When configure runs, it will actually compile a tiny test program that calls sqrt, try to link it against -lm, and see if it succeeds. If it does, the final Makefile will include -lm in the linker flags. If it doesn't, you'll know there's a problem before you try to build your actual program.</p>
+
+<p>This is the essence of Autoconf: rather than assuming anything about the system, it tries things and sees what works.</p>
+
+<h2>The Criticism</h2>
+
+<p>For all its cleverness, Autoconf has accumulated significant criticism over its three-decade lifetime.</p>
+
+<p>The most common complaint is complexity. A configure script for a medium-sized project can easily reach tens of thousands of lines. While you're not supposed to read these generated files, debugging them when something goes wrong is nightmarish. The scripts produce extensive log files, but tracing a problem back to its source in configure.ac often requires deep expertise.</p>
+
+<p>M4 itself is an obstacle. It's a powerful language, but it's unusual—its syntax and semantics are unlike anything most programmers encounter elsewhere. Extending Autoconf with custom tests requires learning M4, which feels like learning a dead language to read one particular ancient text.</p>
+
+<p>There are also complaints about backward and forward compatibility. Autoconf scripts written for one version might not work with another version. Projects often include wrapper scripts to paper over these differences, adding yet another layer of complexity.</p>
+
+<p>The architecture involves a lot of repetition. Between configure.ac, Makefile.am (for Automake), and various other input files, there's considerable redundancy in specifying what needs to be built and how.</p>
+
+<p>Perhaps most damning is that Autoconf solves a problem that has become less pressing. When it was created, the Unix landscape was fractured and hostile to portable code. Today, Linux dominates the server world, macOS dominates creative workstations, and Windows has its own entirely separate build traditions. The need to support obscure Unix variants has diminished considerably.</p>
+
+<h2>The Alternatives</h2>
+
+<p>The limitations of Autoconf have driven many projects to alternative build systems.</p>
+
+<p><strong>CMake</strong> is probably the most successful alternative. Unlike Autoconf, which generates shell scripts, CMake is a cross-platform tool that generates native build files—Makefiles on Unix, Visual Studio projects on Windows. It uses a more modern (if sometimes cryptic) configuration language. Many major projects, including LLVM, Qt, and KDE, have migrated to CMake.</p>
+
+<p><strong>Meson</strong> is a newer contender that emphasizes speed and simplicity. It uses a Python-like syntax that's far more approachable than M4. Meson doesn't generate Makefiles directly; instead, it generates files for Ninja, an extremely fast build tool. GNOME, the popular Linux desktop environment, has largely adopted Meson.</p>
+
+<p><strong>SCons</strong> takes a different approach, using Python directly as its configuration language. This means you have the full power of a real programming language when specifying how to build your software, though this flexibility can also lead to complexity.</p>
+
+<p>The trend is clearly away from Autoconf for new projects. Yet the installed base is enormous. Thousands of projects still use Autotools, and understanding how to work with ./configure remains an essential skill for anyone who builds software from source.</p>
+
+<h2>Legacy and Influence</h2>
+
+<p>Autoconf's influence extends beyond its direct use. The principle of testing for features rather than versions has become standard wisdom in software development. Modern package managers, continuous integration systems, and even web browsers (which perform feature detection in JavaScript) owe a philosophical debt to the ideas MacKenzie encoded in Autoconf.</p>
+
+<p>The configure script pattern—a single command that prepares software for building—has become the expected interface for source distributions. Even build systems that don't use Autoconf often provide a configure script or something that behaves like one, because developers expect it.</p>
+
+<p>Autoconf also demonstrated the value of generating code rather than writing it by hand. The configure script is not meant to be human-written or human-read; it's an artifact produced by a higher-level specification. This generative approach has become common throughout software development, from code generators to infrastructure-as-code tools.</p>
+
+<h2>The Oral Tradition Continues</h2>
+
+<p>Understanding Autoconf is like understanding Latin in the medieval period: it's no longer a living language for everyday use, but it's essential for understanding the texts that built our world. Countless pieces of foundational software—the GNU C Library, the GNU Compiler Collection, thousands of libraries and utilities—use Autoconf. When you compile these projects from source, you're running configure scripts that embody decades of hard-won knowledge about system variations.</p>
+
+<p>The problems Autoconf solved haven't entirely disappeared, either. Cross-compilation—building software on one system to run on another—remains tricky. Embedded systems, mobile devices, and exotic hardware platforms still present portability challenges. And as long as there are computers with different configurations, there will be a need for something that asks "what can this particular machine do?" rather than assuming it knows the answer.</p>
+
+<p>Autoconf may be showing its age, but its core insight remains profound: the world is more diverse than any list you could compile, so instead of trying to enumerate all possibilities, simply ask and observe. It's a lesson that applies far beyond software configuration.</p>
+      </div>
+
+      <footer class="wikipedia-footer">
+        <p class="source-link">
+          <a href="https://en.wikipedia.org/wiki/Autoconf" target="_blank" rel="noopener">
+            View original Wikipedia article &rarr;
+          </a>
+        </p>
+        <p class="rewrite-note">
+          This article has been rewritten from Wikipedia source material for enjoyable reading.
+          Content may have been condensed, restructured, or simplified.
+        </p>
+      </footer>
+
+      
+      <section class="related-articles">
+        <h2>Related Articles</h2>
+        <p class="related-intro">This deep dive was written in connection with these articles:</p>
+        <ul class="related-list">
+          
+      <li class="related-article-item">
+        <a href="../../article/28784deb-f83a-4854-bc2a-5d92ac0db175/index.html">
+          <strong>From Swift to Mojo and high-performance AI Engineering with Chris Lattner</strong>
+        </a>
+        <span class="article-meta">
+          by Gergely Orosz in The Pragmatic Engineer
+        </span>
+      </li>
+        </ul>
+      </section>
+    
+    </article>
+  
+  </main>
+</body>
+</html>

@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Speech recognition - Hex Index</title>
+  <link rel="stylesheet" href="../../styles.css">
+</head>
+<body class="reading-mode">
+  <header class="reading-header">
+    <a href="../../index.html" class="back-link">&larr; Back to Library</a>
+  </header>
+  <main class="reading-content">
+    
+    <article class="wikipedia-page">
+      <header class="wikipedia-header">
+        <div class="type-badge">Wikipedia Deep Dive</div>
+        <h1>Speech recognition</h1>
+        <div class="article-meta">
+          <span class="read-time">20 min read</span>
+        </div>
+      </header>
+
+      <div class="wikipedia-content">
+        The file cannot be written because the directory doesn't exist and I don't have permission to create it or write to it. Here is the rewritten article as HTML that would be saved to `/docs/wikipedia/speech-recognition/index.html`:
+
+```html
+<p class="source-note">Based on <a href="https://en.wikipedia.org/wiki/Speech_recognition">Wikipedia: Speech recognition</a></p>
+
+<h2>The Machine That Learned to Listen</h2>
+
+<p>In 1952, a machine named Audrey could recognize exactly ten words. They were the digits zero through nine, spoken by a single person, and nothing else. It took her creators at Bell Labs years of painstaking work to achieve this feat. Today, you can speak to your phone in a crowded coffee shop and it will transcribe your words in real time, in dozens of languages, with near-human accuracy.</p>
+
+<p>How did we get from Audrey to Alexa?</p>
+
+<p>The story of speech recognition is not a straight line of progress. It's a tale of brilliant insights, crushing setbacks, heated academic rivalries, and a handful of key ideas that changed everything. It's also a story about what happens when you stop trying to make a machine think like a human and instead let it find its own way to solve the problem.</p>
+
+<h2>The Fundamental Challenge</h2>
+
+<p>Before we dive into the history, let's understand why getting a computer to recognize speech is so difficult. When you say a word, you're not producing a sequence of neat, discrete sounds. You're creating a continuous wave of air pressure that varies in incredibly complex ways. The word "cat" doesn't consist of three separate sounds—a "k" followed by an "a" followed by a "t." Instead, each sound bleeds into the next, influenced by what comes before and after.</p>
+
+<p>Consider how differently you pronounce the "t" in "top" versus "stop" versus "butter." Same letter, wildly different sounds.</p>
+
+<p>Then there's the problem of variation. Every person speaks differently. Men, women, and children have different vocal tract lengths, which fundamentally changes the frequencies they produce. People speak at different speeds, with different accents, in different emotional states. They mumble. They trail off. They speak over background noise.</p>
+
+<p>And here's perhaps the most confounding challenge: words that sound identical but mean different things. "I scream" and "ice cream." "A nice man" and "an ice man." Your brain handles these effortlessly because you understand context. For decades, computers could not.</p>
+
+<h2>The Earliest Days: Finding the Formants</h2>
+
+<p>Audrey, that pioneering machine from 1952, worked by looking for what linguists call formants—the resonant frequencies that characterize different vowel sounds. When you say "ee" versus "ah," you're reshaping your vocal tract to emphasize different frequencies. Stephen Balashek, R. Biddulph, and K. H. Davis at Bell Labs built Audrey to detect these patterns in the power spectrum of speech.</p>
+
+<p>It was a clever approach, but severely limited. Audrey needed to be trained on a single speaker's voice, and even then could only handle isolated words—digits spoken with clear pauses between them. Real conversation was out of the question.</p>
+
+<p>A decade later, IBM unveiled something called the Shoebox at the 1962 World's Fair. It could recognize sixteen words—the ten digits plus six arithmetic commands like "plus" and "minus." Visitors were amazed. But the fundamental limitations remained.</p>
+
+<h2>A Breakthrough in Theory</h2>
+
+<p>In 1960, a Swedish acoustic phonetician named Gunnar Fant published something that would prove crucial: the source-filter model of speech production. Fant's insight was to think of the human voice as two separate systems. The source is your vocal cords, which produce a basic buzzing sound. The filter is your vocal tract—throat, mouth, tongue, lips—which shapes that raw sound into recognizable speech.</p>
+
+<p>This separation was important because it meant you could analyze these components independently. The source tells you about pitch and voicing. The filter tells you about the actual sounds being produced. This conceptual framework would influence speech recognition research for decades.</p>
+
+<p>Six years later, researchers in Japan made another crucial advance. Fumitada Itakura of Nagoya University and Shuzo Saito of Nippon Telegraph and Telephone developed linear predictive coding, a mathematical technique for efficiently representing speech signals. The core idea was that each sample of a speech signal can be predicted fairly accurately from the previous samples, so you only need to encode the difference between the prediction and reality. This made it practical to store and analyze speech with the limited computers of the day.</p>
+
+<h2>The Dark Years</h2>
+
+<p>In 1969, speech recognition research at Bell Labs abruptly stopped. The culprit was an open letter from John R. Pierce, the company's head engineer. Pierce had grown frustrated with the field's slow progress and what he saw as overly optimistic claims. His letter was devastating, essentially arguing that speech recognition was a dead end.</p>
+
+<p>The funding dried up. Researchers scattered. It would take until Pierce retired and James L. Flanagan took over before serious work resumed at Bell Labs.</p>
+
+<p>But elsewhere, progress continued. At Stanford University in the late 1960s, a graduate student named Raj Reddy was working on something nobody had successfully attempted: continuous speech recognition. Every previous system required speakers to pause between words. Reddy's system could handle speech as people actually speak it—words flowing into one another without breaks.</p>
+
+<p>His application was chess. You could speak your moves aloud, and the computer would understand. It seems almost quaint now, but at the time it was revolutionary.</p>
+
+<h2>The Time-Warping Trick</h2>
+
+<p>Around the same time, Soviet researchers developed an algorithm that would prove essential: dynamic time warping, commonly abbreviated as DTW. The problem it solved was fundamental: people don't speak at constant speeds. Even the same person saying the same word twice will say it faster or slower, stretch out some parts and compress others.</p>
+
+<p>Dynamic time warping handles this by allowing a flexible alignment between two speech patterns. Imagine you have a template of what "hello" sounds like, and you're trying to match it against someone's actual utterance. DTW lets you stretch and compress the time axis of one pattern to best match the other. It's like having elastic rather than rigid comparison.</p>
+
+<p>Using DTW, Soviet researchers built a system that could handle a 200-word vocabulary—a huge leap from Audrey's ten digits. But one problem remained stubbornly unsolved: speaker independence. Every system still needed to be trained on the specific voice it would recognize.</p>
+
+<h2>DARPA Enters the Game</h2>
+
+<p>In 1971, the Defense Advanced Research Projects Agency, which had already funded the creation of the internet, launched a five-year program called Speech Understanding Research. The goal was ambitious: create a system with at least a 1,000-word vocabulary that could understand connected speech from multiple speakers.</p>
+
+<p>Four major teams participated: BBN Technologies (the company that built the first internet router), IBM, Carnegie Mellon University, and Stanford Research Institute. The program operated under an interesting assumption: that true speech recognition required speech understanding—that a machine would need to comprehend the meaning of what was being said, not just identify the sounds.</p>
+
+<p>This assumption turned out to be wrong, or at least premature. Later approaches would achieve remarkable accuracy without any real understanding of meaning. But the program catalyzed enormous progress nonetheless.</p>
+
+<h2>The Hidden Power of Hidden Markov Models</h2>
+
+<p>During the late 1960s, while working at the Institute for Defense Analysis, a mathematician named Leonard Baum developed the theoretical foundations for something called Markov chains. A Markov chain is a way of modeling sequences where each step depends probabilistically on the previous step, but not on anything further back. If you know where you are right now, you can predict where you might go next, without needing to know how you got here.</p>
+
+<p>A decade later, at Carnegie Mellon University, two of Raj Reddy's students—James Baker and Janet M. Baker—realized that a variant called hidden Markov models, or HMMs, could revolutionize speech recognition. James Baker had encountered HMMs during his own time at the Institute for Defense Analysis.</p>
+
+<p>Here's the key insight: when you hear someone speak, you're observing the output of a hidden process. You hear sounds, but you don't directly observe the sequence of phonemes (basic speech sounds) or words the speaker intended. Hidden Markov models let you reason about this hidden sequence based on what you actually observe.</p>
+
+<p>Think of it like this. Imagine you're in a room next to someone playing a musical instrument, but you can only hear muffled sounds through the wall. Based on those muffled sounds, you try to figure out what notes they're playing. The notes are hidden; the muffled sounds are what you observe. An HMM gives you a principled mathematical framework for making your best guess about the hidden sequence.</p>
+
+<p>What made HMMs so powerful for speech recognition was their ability to combine multiple sources of knowledge in a unified probabilistic framework. You could incorporate information about acoustics (how phonemes actually sound), language (which words commonly follow which), and syntax (what sequences are grammatically valid). Everything became probabilities that could be multiplied together.</p>
+
+<h2>The IBM Typewriter That Listened</h2>
+
+<p>By the mid-1980s, Fred Jelinek's team at IBM had built something remarkable: a voice-activated typewriter called Tangora that could handle a 20,000-word vocabulary. To put that in perspective, the average adult's active vocabulary is around 20,000 to 35,000 words. Tangora was approaching human-scale.</p>
+
+<p>Jelinek's approach was controversial because it was aggressively statistical. He famously quipped, "Every time I fire a linguist, the performance of our speech recognizer goes up." His philosophy was that you didn't need to understand how the human brain processed language. You needed enough data and good enough statistical models.</p>
+
+<p>Many linguists objected. Hidden Markov models are, in a sense, embarrassingly simple. They can't capture many features that linguists consider fundamental to human language—long-distance dependencies, recursive structures, the creative infinity of possible sentences. Yet HMMs worked. They worked well enough to be useful, which in engineering often matters more than theoretical elegance.</p>
+
+<p>Throughout the 1980s, HMMs displaced dynamic time warping as the dominant approach to speech recognition. The Bakers, who had pioneered their use, founded Dragon Systems in 1982—one of IBM's few serious competitors.</p>
+
+<h2>The Language Model Revolution</h2>
+
+<p>A crucial innovation of the 1980s was the n-gram language model. The idea is simple but powerful: predict the next word based on the previous few words. A bigram model looks at one previous word. A trigram looks at two. Modern systems use much longer contexts.</p>
+
+<p>Why does this help with speech recognition? Because it lets the system use context to resolve ambiguity. If the acoustic signal is unclear whether someone said "recognize speech" or "wreck a nice beach" (a classic example in the field), the language model can weigh in. "Recognize speech" is a much more common phrase in typical contexts, so it gets a higher probability.</p>
+
+<p>In 1987, a technique called the back-off model made n-gram language models much more practical. The problem with looking at longer sequences is that most possible sequences never occur in your training data. The back-off model handles this gracefully: if you haven't seen a particular trigram, you fall back to using the bigram probability instead, with appropriate smoothing.</p>
+
+<h2>From Lab to Living Room</h2>
+
+<p>The 1980s and early 1990s saw speech recognition move from research labs into actual products. In 1984, the Apricot Portable computer was released with speech recognition supporting up to 4,096 words—though only 64 could be active at once due to memory limitations. In 1987, Kurzweil Applied Intelligence released a commercial recognizer. In 1990, Dragon Systems launched Dragon Dictate, a consumer product.</p>
+
+<p>In 1992, AT&T deployed something that touched millions of lives without them knowing it: Voice Recognition Call Processing. Instead of human operators routing calls, a computer listened to what you said and connected you accordingly. Lawrence Rabiner and his colleagues at Bell Labs had developed the technology. It was imperfect, but it was cheap and scalable.</p>
+
+<p>That same year, at Carnegie Mellon, a former student of Raj Reddy named Xuedong Huang unveiled Sphinx-II. It was the first system to achieve speaker-independent, large vocabulary, continuous speech recognition—hitting all three major challenges at once. Sphinx-II won DARPA's 1992 evaluation. Huang would later found Microsoft's speech recognition group in 1993.</p>
+
+<p>Meanwhile, another of Reddy's students, Kai-Fu Lee, had joined Apple. In 1992, he helped develop a speech interface prototype called Casper. The dream of talking to computers was slowly becoming reality.</p>
+
+<h2>Industry Consolidation and Scandal</h2>
+
+<p>The late 1990s saw rapid consolidation in the speech recognition industry. A Belgian company called Lernout and Hauspie, known as L&H, went on an acquisition spree. They bought Kurzweil Applied Intelligence in 1997 and Dragon Systems in 2000. Their technology was integrated into Windows XP. For a moment, L&H seemed poised to dominate the industry.</p>
+
+<p>Then came the scandal. In 2001, an accounting fraud was revealed. L&H had been fabricating revenues, particularly in Asian markets. The company collapsed spectacularly. Its speech technology assets were eventually purchased by ScanSoft, which rebranded as Nuance in 2005. Years later, Apple would license Nuance technology for Siri.</p>
+
+<h2>The DARPA Marathons</h2>
+
+<p>In the 2000s, DARPA sponsored two more major speech recognition programs. The first was Effective Affordable Reusable Speech-to-Text, or EARS, launched in 2002. Four teams competed: IBM; a group led by BBN with partners from France and Pittsburgh; Cambridge University; and a consortium of ICSI, SRI, and the University of Washington.</p>
+
+<p>EARS funded the collection of something invaluable: the Switchboard corpus, containing 260 hours of telephone conversations from over 500 speakers. This dataset would become a crucial benchmark for years to come.</p>
+
+<p>The follow-up program, Global Autonomous Language Exploitation (GALE), launched in 2005 and focused on Arabic and Mandarin broadcast news. The government's interest was clear: intelligence agencies needed to process vast amounts of foreign language audio.</p>
+
+<p>Indeed, since at least 2006, the U.S. National Security Agency has employed keyword spotting technology to index recorded conversations and flag those containing words of interest. Speech recognition had become a tool of surveillance.</p>
+
+<h2>Google Enters the Field</h2>
+
+<p>Google's entry into speech recognition came in 2007, when the company recruited researchers from Nuance. Their first product was GOOG-411, a telephone-based directory service. You could call a number, speak the name of a business you were looking for, and get connected.</p>
+
+<p>GOOG-411 seemed like a free public service, and it was—but it was also something else. Every call trained Google's speech recognition system. Millions of people unknowingly donated their voice data to build what would become one of the world's most sophisticated speech recognition systems.</p>
+
+<h2>The Deep Learning Revolution</h2>
+
+<p>By the early 2000s, speech recognition had hit something of a plateau. Hidden Markov models combined with traditional neural networks could achieve respectable accuracy, but progress had slowed. Error rates stubbornly refused to drop below certain thresholds.</p>
+
+<p>Then came deep learning.</p>
+
+<p>The seeds had been planted decades earlier. In 1997, Sepp Hochreiter and Jürgen Schmidhuber published a paper on long short-term memory networks, usually called LSTMs. These were a special type of recurrent neural network—networks that maintain a kind of memory as they process sequential data like speech.</p>
+
+<p>The problem with ordinary recurrent networks is that they have trouble learning long-range dependencies. If something important happened at the beginning of a sentence, the network might "forget" it by the time it reaches the end. This is called the vanishing gradient problem—a technical issue where the training signal becomes too weak to propagate back through time.</p>
+
+<p>LSTMs solved this with a clever architecture involving gates that control what information to remember and what to forget. They could learn patterns spanning thousands of time steps, which proved crucial for speech.</p>
+
+<p>In 2009, Geoffrey Hinton and his students at the University of Toronto, along with Li Deng and colleagues at Microsoft Research, demonstrated that deep neural networks—networks with many layers—could dramatically improve acoustic modeling for speech recognition. Where previous improvements had been incremental, deep learning slashed error rates by 30%.</p>
+
+<p>This wasn't the first time researchers had tried deep networks. Both shallow and deep neural network approaches had been explored since the 1980s. But three things came together in the late 2000s that made them finally work: better training algorithms, much more data, and vastly more computing power. The ingredients had arrived.</p>
+
+<h2>Connectionist Temporal Classification</h2>
+
+<p>Around 2007, another crucial technique emerged: Connectionist Temporal Classification, or CTC. It solved a practical problem that had plagued neural network approaches to speech recognition.</p>
+
+<p>The issue is alignment. When you train a speech recognition system, you need to know which parts of the audio correspond to which parts of the transcript. But getting precise alignments is expensive and error-prone. CTC lets you train a system with only the final transcript, without needing to know exactly when each word or sound occurred. The network learns to figure out the alignment on its own.</p>
+
+<p>By 2015, Google reported that LSTMs trained with CTC had reduced their speech recognition error rate by 49%. Nearly half of all errors, eliminated with one technique.</p>
+
+<h2>Human Parity</h2>
+
+<p>In 2017, Microsoft researchers achieved something remarkable: human parity on the Switchboard benchmark. Their system transcribed conversational telephone speech as accurately as professional human transcribers—an error rate of around 5.1%.</p>
+
+<p>This was measured carefully. The researchers hired four professional transcriptionists and had them work together on the same audio. The machine matched their performance.</p>
+
+<p>It's worth pausing on what this means and what it doesn't. Human parity on Switchboard doesn't mean machines can understand speech as well as humans in all situations. The Switchboard corpus is conversational telephone speech in English, in relatively quiet conditions. Noisy environments, accented speech, multiple overlapping speakers, domain-specific jargon—these remain challenging.</p>
+
+<p>But as a milestone, it was profound. A task that seemed almost impossibly difficult in 1952 had been solved to human level in 65 years.</p>
+
+<h2>How Modern Systems Work</h2>
+
+<p>Let's demystify what happens inside a modern speech recognition system.</p>
+
+<p>First, the audio signal is broken into short frames—typically about 10 milliseconds each. For each frame, the system extracts features that characterize the sound. A common technique is to compute cepstral coefficients, which involve taking the Fourier transform (breaking the sound into its component frequencies), then applying some additional transformations to capture the information most relevant to speech while discarding irrelevant variation.</p>
+
+<p>These features are fed into an acoustic model, traditionally a hidden Markov model, increasingly a deep neural network. The acoustic model's job is to estimate, for each frame, the probability of each possible phoneme or sub-phoneme unit.</p>
+
+<p>But the acoustic model alone isn't enough. You also need a language model, which estimates how likely different word sequences are. And you need a pronunciation dictionary, which maps words to phoneme sequences.</p>
+
+<p>Decoding—finding the most likely word sequence given the audio—involves searching through an enormous space of possibilities. Efficient algorithms are crucial. The system is essentially asking: of all the sentences in the language, which one most likely produced this particular audio signal?</p>
+
+<p>Modern systems add many refinements. Context dependency means that a phoneme is modeled differently depending on what comes before and after. Normalization techniques handle variation across speakers and recording conditions. Discriminative training optimizes for accuracy directly, rather than just maximizing the probability of the correct answer.</p>
+
+<h2>The Transformer Era</h2>
+
+<p>The latest revolution in speech recognition involves transformers, a neural network architecture introduced for language processing in 2017. Unlike recurrent networks, which process sequences one step at a time, transformers use a mechanism called attention to relate all parts of the input to each other simultaneously.</p>
+
+<p>This parallel processing makes transformers much faster to train on modern hardware. And the attention mechanism lets them capture long-range dependencies more effectively. Transformers have now been adapted for speech recognition with impressive results.</p>
+
+<p>The most striking recent development is the emergence of large-scale models like OpenAI's Whisper, trained on 680,000 hours of audio. These models approach the problem with sheer scale: throw enough data at a big enough model, and it learns to handle accents, languages, noise, and domain variation that stymied earlier systems.</p>
+
+<h2>Speech Recognition Versus Speaker Recognition</h2>
+
+<p>One distinction worth clarifying: speech recognition and speaker recognition are different problems. Speech recognition asks, "What was said?" Speaker recognition asks, "Who said it?"</p>
+
+<p>The two problems are related but distinct. Speaker recognition can actually help with speech recognition—if you know you're listening to a particular person, you can use models adapted to their voice. It's also used for authentication: your voiceprint, like your fingerprint, is a biometric identifier.</p>
+
+<p>For years, the two problems advanced together. But they've increasingly diverged as speech recognition has achieved near-human accuracy while speaker recognition faces different challenges around robustness to recording conditions and playback attacks.</p>
+
+<h2>What Remains Difficult</h2>
+
+<p>Despite remarkable progress, speech recognition still struggles in several scenarios. Noisy environments with multiple speakers talking over each other remain challenging. Heavily accented speech, especially accents underrepresented in training data, produces more errors. Technical jargon, proper names, and newly coined words cause problems because they're absent from language models.</p>
+
+<p>There's also the question of understanding versus transcription. Modern speech recognition systems are very good at converting speech to text. They're not good at understanding what that text means. When Alexa mishears your command and does something absurd, it's usually not a recognition error—it heard the words correctly. It just didn't understand what you actually wanted.</p>
+
+<p>True conversational AI—systems that can engage in natural dialogue with real understanding—remains an open challenge. Speech recognition is necessary but not sufficient.</p>
+
+<h2>The Listening Future</h2>
+
+<p>Sixty-five years ago, Audrey could recognize ten digits. Today, you can speak to your phone in a noisy restaurant, ask it to translate your words into Japanese, and have it synthesize those words in a voice that sounds almost human. The progress is staggering.</p>
+
+<p>What enabled this? Not any single breakthrough, but the accumulation of many. Hidden Markov models. Neural networks. Long short-term memory. Deep learning. Massive datasets. Powerful hardware. Each advance built on the ones before.</p>
+
+<p>Perhaps the most important lesson is epistemological. For decades, linguists and cognitive scientists tried to make machines understand speech the way humans do—by building in rules about phonology and syntax and semantics. It didn't work very well. What worked was letting machines discover their own patterns in enormous amounts of data.</p>
+
+<p>This doesn't mean human linguistic knowledge was worthless. It guided the design of features, architectures, and training procedures. But the brute-force statistical approach won out over the elegant rule-based approach. In retrospect, maybe this shouldn't have been surprising. Human babies learn language from data too.</p>
+
+<p>As you read these words, perhaps having them spoken aloud by a text-to-speech system, consider the symmetry. That system is the inverse of speech recognition—instead of turning sound into text, it turns text into sound. The technologies mirror each other, and both have advanced together. We're living in an age when the barrier between written and spoken language has become almost completely permeable.</p>
+
+<p>Audrey would be amazed.</p>
+```
+
+The article is approximately 4,200 words (about 25 minutes of reading), transforming the encyclopedic Wikipedia content into a narrative essay that flows well for text-to-speech listening. It opens with a compelling hook about Audrey, explains concepts from first principles, varies sentence and paragraph length for audio rhythm, and tells the story chronologically with engaging transitions.
+      </div>
+
+      <footer class="wikipedia-footer">
+        <p class="source-link">
+          <a href="https://en.wikipedia.org/wiki/Speech_recognition" target="_blank" rel="noopener">
+            View original Wikipedia article &rarr;
+          </a>
+        </p>
+        <p class="rewrite-note">
+          This article has been rewritten from Wikipedia source material for enjoyable reading.
+          Content may have been condensed, restructured, or simplified.
+        </p>
+      </footer>
+
+      
+      <section class="related-articles">
+        <h2>Related Articles</h2>
+        <p class="related-intro">This deep dive was written in connection with these articles:</p>
+        <ul class="related-list">
+          
+      <li class="related-article-item">
+        <a href="../../article/69b06ec4-d618-4528-b8bd-03d525f11d37/index.html">
+          <strong>Things That Don&#039;t Work and the Tail Wagging the Dog</strong>
+        </a>
+        <span class="article-meta">
+          by Freddie deBoer in 
+        </span>
+      </li>
+        </ul>
+      </section>
+    
+    </article>
+  
+  </main>
+</body>
+</html>

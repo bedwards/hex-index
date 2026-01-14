@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vector space - Hex Index</title>
+  <link rel="stylesheet" href="../../styles.css">
+</head>
+<body class="reading-mode">
+  <header class="reading-header">
+    <a href="../../index.html" class="back-link">&larr; Back to Library</a>
+  </header>
+  <main class="reading-content">
+    
+    <article class="wikipedia-page">
+      <header class="wikipedia-header">
+        <div class="type-badge">Wikipedia Deep Dive</div>
+        <h1>Vector space</h1>
+        <div class="article-meta">
+          <span class="read-time">13 min read</span>
+        </div>
+      </header>
+
+      <div class="wikipedia-content">
+        Let me output the rewritten article directly:
+
+```html
+<p class="source-note">Based on <a href="https://en.wikipedia.org/wiki/Vector_space">Wikipedia: Vector space</a></p>
+
+<h2>The Language Mathematics Invented to Describe Direction</h2>
+
+<p>Imagine you're standing in a field, and someone tells you to walk ten meters. That instruction is useless. Ten meters in which direction? North? Toward that tree? Straight up?</p>
+
+<p>This simple observation—that quantities in the physical world often require both magnitude and direction—drove mathematicians to invent one of the most powerful structures in all of mathematics: the vector space.</p>
+
+<p>But here's what makes vector spaces truly remarkable. They started as a practical tool for describing arrows pointing in space, and ended up becoming the hidden architecture behind quantum mechanics, machine learning, economics, and virtually every corner of modern science. The same mathematical framework that lets physicists track the trajectory of a spacecraft lets search engines rank web pages and lets streaming services recommend your next show.</p>
+
+<h2>Arrows That Follow Rules</h2>
+
+<p>Let's start where vectors themselves started: with arrows.</p>
+
+<p>Picture two arrows drawn on a piece of paper, both starting from the same point. Maybe one points northeast and has a length of three centimeters, while another points east and stretches five centimeters. These arrows could represent forces acting on an object—perhaps the wind pushing in one direction while you push in another.</p>
+
+<p>Here's the beautiful insight: if you draw a parallelogram using these two arrows as adjacent sides, the diagonal of that parallelogram, starting from the same origin point, represents what happens when both forces act together. This diagonal arrow is called the sum of the two vectors.</p>
+
+<p>You can also stretch or shrink any arrow. Multiply it by two, and you get an arrow pointing the same direction but twice as long. Multiply it by negative one, and the arrow flips around to point in the opposite direction while keeping the same length.</p>
+
+<p>These two operations—adding arrows together and scaling them by numbers—are the heartbeat of vector spaces.</p>
+
+<h2>When Arrows Become Abstract</h2>
+
+<p>Here's where mathematics does what mathematics does best: it abstracts.</p>
+
+<p>Instead of thinking specifically about arrows on paper, mathematicians asked a different question. What if we forget about arrows entirely and just focus on the rules those operations follow? What if anything that behaves according to those rules counts as a vector space?</p>
+
+<p>The rules turn out to be remarkably simple. There are eight of them, and they mostly match your intuitions about how addition and multiplication should work.</p>
+
+<p>When you add vectors, the order shouldn't matter—adding arrow A to arrow B should give the same result as adding B to A. There should be a "zero vector" that acts like zero in regular addition—add it to any vector, and you get that vector back unchanged. Every vector should have an opposite that cancels it out when added together. And grouping shouldn't matter when adding three vectors—add A to B first, then add C, and you'll get the same thing as adding A to the result of B plus C.</p>
+
+<p>The rules for scaling are similarly intuitive. Scaling a vector by one leaves it unchanged. Scaling by two different numbers in sequence is the same as scaling once by their product. And scaling interacts with addition in the natural way—scaling the sum of two vectors gives the same result as scaling each one separately and then adding.</p>
+
+<p>That's it. Any mathematical structure where you can add things together and scale them by numbers, and these eight rules hold, qualifies as a vector space.</p>
+
+<h2>Numbers Are Vectors Too</h2>
+
+<p>This abstraction leads to some surprising realizations.</p>
+
+<p>Consider the ordinary real numbers—the ones you use for measuring lengths, counting money, and doing arithmetic. You can add them together. You can multiply them by other numbers. And all eight vector space rules hold perfectly.</p>
+
+<p>So the real numbers themselves form a vector space. It's one-dimensional, which makes intuitive sense: numbers live on a line, and a line has just one direction.</p>
+
+<p>What about ordered pairs of numbers, like (3, 7) or (-2.5, 4)? You can add these by adding their corresponding components: (3, 7) plus (2, 1) equals (5, 8). You can scale them by multiplying each component: 3 times (2, 4) equals (6, 12). These rules satisfy all eight axioms, giving us a two-dimensional vector space.</p>
+
+<p>This is precisely how coordinates work on a plane. Every point on graph paper corresponds to an ordered pair. The arrows we started with are just geometric representations of these number pairs—the arrow from the origin to point (3, 4) corresponds to the vector (3, 4).</p>
+
+<p>The pattern continues. Triples of numbers form a three-dimensional vector space, corresponding to points in our three-dimensional physical space. Quadruples of numbers form a four-dimensional space. And there's no mathematical reason to stop: you can have vector spaces with any number of dimensions, including infinitely many.</p>
+
+<h2>Scalars Need Not Be Real</h2>
+
+<p>I've been talking about multiplying vectors by numbers, but I've been vague about what kind of numbers. This vagueness is intentional, because the theory works with various number systems.</p>
+
+<p>The most common choices are real numbers and complex numbers. A vector space using real numbers for scaling is called a real vector space. One using complex numbers is called a complex vector space.</p>
+
+<p>But mathematicians went further. The scaling factors can come from any mathematical structure called a field—essentially, any system where you can add, subtract, multiply, and divide while following the familiar rules of arithmetic. The rational numbers form a field. So do the real numbers and the complex numbers. There are even finite fields with only a handful of elements, used extensively in cryptography and coding theory.</p>
+
+<p>This generality is part of what makes vector spaces so powerful. The same theorems apply whether you're working with real numbers, complex numbers, or something more exotic.</p>
+
+<h2>The Significance of Dimension</h2>
+
+<p>Dimension is the most important single fact about a vector space.</p>
+
+<p>In a two-dimensional space, you need exactly two numbers to specify any vector—think of the x and y coordinates on a plane. In three dimensions, you need three numbers. The dimension tells you how many independent directions exist within the space.</p>
+
+<p>Here's the profound mathematical truth: two vector spaces with the same dimension over the same field are essentially identical in their structure. Mathematicians call them isomorphic, meaning they have the same shape or form. Any theorem you prove about one applies equally to the other.</p>
+
+<p>This explains why so many seemingly different problems turn out to have the same solution. If you can translate a problem into the language of a finite-dimensional vector space, you gain access to the entire powerful toolkit of linear algebra—matrix operations, determinants, eigenvalues, and more.</p>
+
+<h2>Bases: The Coordinate Systems of Vector Spaces</h2>
+
+<p>How do you actually work with vectors in practice? Through a concept called a basis.</p>
+
+<p>A basis is a minimal collection of vectors from which you can build every other vector in the space through addition and scaling. In two-dimensional space, the vectors (1, 0) and (0, 1) form a basis—any point (x, y) is just x times (1, 0) plus y times (0, 1).</p>
+
+<p>But that's not the only basis. The vectors (1, 1) and (1, -1) also form a basis for the same space, just as valid as the first. Different bases are like different coordinate systems for the same territory—they describe the same underlying reality from different perspectives.</p>
+
+<p>Once you choose a basis, every vector can be uniquely written as a combination of basis vectors, and the multipliers in that combination are called the vector's coordinates. This translation between vectors and their coordinates is what makes computation possible. Abstract vector operations become concrete arithmetic on lists of numbers.</p>
+
+<p>For finite-dimensional spaces, bases are completely understood. The number of vectors in any basis equals the dimension. For infinite-dimensional spaces, things get philosophically interesting—proving that bases exist at all requires the axiom of choice, a somewhat controversial principle in the foundations of mathematics, and in many cases no one can actually write down what such a basis looks like.</p>
+
+<h2>Where Vectors Come From</h2>
+
+<p>The history of vector spaces weaves through centuries of mathematical innovation.</p>
+
+<p>Coordinates themselves trace back to the 1630s, when René Descartes and Pierre de Fermat independently realized that geometric curves could be described by algebraic equations relating pairs of numbers. This fusion of geometry and algebra—analytic geometry—revolutionized both fields.</p>
+
+<p>The concept of directed quantities with both magnitude and direction emerged gradually. In 1827, August Ferdinand Möbius introduced barycentric coordinates, a way of describing positions as weighted averages. In 1833, Giusto Bellavitis defined when two line segments should be considered equivalent as vectors—when they have the same length and direction.</p>
+
+<p>Complex numbers, which combine a real part and an imaginary part, can be viewed as two-dimensional vectors. William Rowan Hamilton extended this idea to quaternions, a four-dimensional number system that proved crucial for representing rotations in three-dimensional space. Edmond Laguerre, in 1867, explicitly began treating such systems using linear combinations.</p>
+
+<p>Arthur Cayley's matrix notation, introduced in 1857, provided a systematic way to organize and compute with linear transformations between vector spaces. Hermann Grassmann's work from 1844 anticipated many modern ideas, including linear independence and dimension, though his highly abstract presentation meant his contributions went underappreciated during his lifetime.</p>
+
+<p>The first completely modern treatment came from Giuseppe Peano in 1888. He gave the axioms we still use today and called vector spaces "linear systems." His framework could handle infinite dimensions, though he didn't pursue that direction himself.</p>
+
+<h2>Infinite Dimensions and Function Spaces</h2>
+
+<p>The real explosion in vector space theory came with infinite dimensions.</p>
+
+<p>Consider all functions defined on some interval. You can add two functions by adding their values at each point. You can scale a function by multiplying all its values by some number. These operations satisfy all the vector space axioms.</p>
+
+<p>But what's the dimension of such a space? Infinite. There are infinitely many "independent directions"—infinitely many fundamentally different ways a function can behave.</p>
+
+<p>Henri Lebesgue's work on integration in the early 1900s led to rigorous treatments of function spaces. Stefan Banach and David Hilbert formalized these ideas around 1920, creating the fields we now call functional analysis. Their names are attached to two of the most important types of infinite-dimensional vector spaces: Banach spaces and Hilbert spaces.</p>
+
+<p>Hilbert spaces, in particular, became the mathematical foundation of quantum mechanics. In quantum theory, the state of a physical system is represented by a vector in a Hilbert space, and physical measurements correspond to mathematical operations on those vectors. The abstract mathematics of vector spaces turned out to describe the fundamental nature of reality at its smallest scales.</p>
+
+<h2>Beyond Basic Vector Spaces</h2>
+
+<p>Pure vector spaces are just the beginning. Many important mathematical structures are vector spaces with additional features.</p>
+
+<p>Inner product spaces add a way to measure angles and lengths, generalizing the dot product you might remember from physics class. Normed spaces provide a concept of distance. Topological vector spaces allow limits and continuity to be discussed.</p>
+
+<p>Algebras are vector spaces where you can also multiply vectors together, not just add them or scale them by numbers. This includes polynomial rings, where the vectors are polynomials, and Lie algebras, named after Sophus Lie, which are fundamental to understanding symmetry in physics.</p>
+
+<p>Each additional structure constrains the space in some way while enabling new kinds of analysis. The art of mathematics often lies in recognizing which structure captures the essential features of a problem.</p>
+
+<h2>Why This Matters</h2>
+
+<p>Vector spaces are everywhere because so many things in the world combine additively and scale proportionally.</p>
+
+<p>Forces add as vectors. So do velocities. So do the displacements that describe how you move through space. Economic factors can often be modeled as vectors in high-dimensional spaces where each dimension represents some variable of interest. Digital images are vectors in spaces with one dimension for each pixel. Documents can be represented as vectors where each dimension corresponds to a word in the vocabulary.</p>
+
+<p>The techniques of linear algebra—finding bases, computing with matrices, analyzing eigenvalues—apply unchanged across all these domains. Learn the abstract theory once, and you have tools for physics, economics, computer science, engineering, and dozens of other fields.</p>
+
+<p>That's the power of mathematical abstraction. By stripping away the specific context of arrows on paper and keeping only the essential rules, mathematicians created a framework of stunning generality. Vector spaces began as a way to think about directions in physical space. They became the language in which much of modern science is written.</p>
+
+<h2>The Opposite of a Vector Space</h2>
+
+<p>What isn't a vector space? Understanding the boundaries helps clarify the concept.</p>
+
+<p>Sets where you can't meaningfully add elements aren't vector spaces. The set of all colors, for instance—what would it mean to add red to blue and get violet? (Mixing paint doesn't follow the rules; there's no additive inverse, no "anti-green" you could add to green to get nothing.)</p>
+
+<p>Sets where the rules fail aren't vector spaces either. If adding two elements could give you something outside the set, that's not a vector space. If there's no zero element, no additive inverses, or if any of the eight axioms breaks down, you have something else.</p>
+
+<p>Sometimes you have a structure that's close but not quite. A module is like a vector space but where the scalars come from a ring instead of a field—rings lack guaranteed division, so modules behave somewhat differently. An affine space is like a vector space without a distinguished origin point; you can still add vectors to points, but you can't add two points together meaningfully.</p>
+
+<p>These variations matter in advanced mathematics. But for most practical purposes, it's the vector spaces themselves—those sets with addition and scaling satisfying the eight axioms—that provide the essential framework for computational work across the sciences.</p>
+
+<h2>From Paper to Code</h2>
+
+<p>When programmers work with vectors, they're typically using arrays of numbers: lists like [3, 7, 2] that represent points in three-dimensional space. The addition is componentwise—add corresponding entries. Scaling multiplies each entry by the same factor.</p>
+
+<p>This computational perspective is exactly the coordinate representation that converts abstract vectors into concrete numbers. Choose a basis, express vectors as coordinate tuples, and the elegant abstraction becomes something a computer can manipulate.</p>
+
+<p>The eight axioms guarantee that this translation preserves structure. Any computation you perform on coordinate vectors gives results that correspond to the same operation on the abstract vectors they represent. This is why linear algebra libraries exist in every programming language—the theory guarantees the computations mean something.</p>
+
+<p>From arrows on paper in the 1600s to the tensor operations powering modern neural networks, vector spaces remain what they have always been: a mathematical framework for understanding how directed quantities combine. Simple rules, endless applications.</p>
+      </div>
+
+      <footer class="wikipedia-footer">
+        <p class="source-link">
+          <a href="https://en.wikipedia.org/wiki/Vector_space" target="_blank" rel="noopener">
+            View original Wikipedia article &rarr;
+          </a>
+        </p>
+        <p class="rewrite-note">
+          This article has been rewritten from Wikipedia source material for enjoyable reading.
+          Content may have been condensed, restructured, or simplified.
+        </p>
+      </footer>
+
+      
+      <section class="related-articles">
+        <h2>Related Articles</h2>
+        <p class="related-intro">This deep dive was written in connection with these articles:</p>
+        <ul class="related-list">
+          
+      <li class="related-article-item">
+        <a href="../../article/fe1ab582-597f-439d-81f9-c9ecf20001b2/index.html">
+          <strong>Coding on Paper</strong>
+        </a>
+        <span class="article-meta">
+          by Tivadar Danka in The Palindrome
+        </span>
+      </li>
+        </ul>
+      </section>
+    
+    </article>
+  
+  </main>
+</body>
+</html>

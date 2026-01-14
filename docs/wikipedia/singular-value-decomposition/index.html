@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Singular value decomposition - Hex Index</title>
+  <link rel="stylesheet" href="../../styles.css">
+</head>
+<body class="reading-mode">
+  <header class="reading-header">
+    <a href="../../index.html" class="back-link">&larr; Back to Library</a>
+  </header>
+  <main class="reading-content">
+    
+    <article class="wikipedia-page">
+      <header class="wikipedia-header">
+        <div class="type-badge">Wikipedia Deep Dive</div>
+        <h1>Singular value decomposition</h1>
+        <div class="article-meta">
+          <span class="read-time">8 min read</span>
+        </div>
+      </header>
+
+      <div class="wikipedia-content">
+        <p class="source-note">Based on <a href="https://en.wikipedia.org/wiki/Singular_value_decomposition">Wikipedia: Singular value decomposition</a></p>
+
+<p>Every matrix, no matter how strange or complicated, is secretly just three simple operations stacked on top of each other: a rotation, a stretch, and another rotation. That's the singular value decomposition, or SVD, and it's one of the most useful ideas in all of applied mathematics.</p>
+
+<p>Think about what a matrix actually does. When you multiply a matrix by a vector, you're transforming that vector—pushing it, pulling it, spinning it around. The SVD tells us that any such transformation, no matter how twisted or irregular it might seem, can be broken down into these three fundamental steps. First, rotate your vector. Then, stretch or squash it along the coordinate axes by different amounts. Finally, rotate it again.</p>
+
+<p>That's it. That's all any matrix can ever do.</p>
+
+<h2>Why This Matters</h2>
+
+<p>The SVD has become indispensable across an enormous range of fields. Signal processors use it to separate noise from meaningful data. Statisticians use it to find patterns hiding in massive datasets. Machine learning engineers—and this is where it connects to modern artificial intelligence—use SVD-based techniques like Low-Rank Adaptation, or LoRA, to efficiently fine-tune large language models without retraining billions of parameters from scratch.</p>
+
+<p>The reason SVD works so well for all these applications is that it reveals the essential structure of data. Those stretching factors in the middle step, called the singular values, tell you which directions matter most. Large singular values point toward the important patterns. Small ones can often be ignored entirely. This makes SVD the mathematical equivalent of squinting at a complex picture until you can see just the broad strokes.</p>
+
+<h2>The Geometry Behind the Formula</h2>
+
+<p>Let's make this concrete. Imagine you have a circle in two dimensions. If you apply some matrix transformation to every point on that circle, you'll generally end up with an ellipse. The circle gets stretched more in some directions than others.</p>
+
+<p>The SVD tells you exactly how this happens. The singular values are the lengths of the ellipse's axes—how much the circle got stretched in each principal direction. The rotation matrices tell you which directions those are.</p>
+
+<p>This geometric intuition extends to higher dimensions. In three dimensions, a sphere becomes an ellipsoid. In a hundred dimensions, a hypersphere becomes a hyperellipsoid. The singular values always tell you the lengths of the principal axes, and the rotation matrices tell you how those axes are oriented.</p>
+
+<h2>The Three Pieces</h2>
+
+<p>The decomposition writes any matrix M as the product of three matrices: U, Σ (the Greek letter Sigma), and V-transpose (or V-star for complex numbers). Let's understand what each piece does.</p>
+
+<p>The matrix V-transpose handles the first rotation. It takes your input vector and spins it around to align with special directions—the directions that will become the principal axes of that ellipse we talked about.</p>
+
+<p>The matrix Σ is diagonal, meaning it only has numbers along its main diagonal, with zeros everywhere else. These diagonal entries are the singular values. When you multiply by this matrix, each coordinate gets scaled independently. One coordinate might get stretched by a factor of ten. Another might get shrunk to one-tenth its original size. A third might become exactly zero, eliminating that dimension entirely.</p>
+
+<p>The matrix U handles the final rotation. After the scaling, it spins the result around to its final orientation.</p>
+
+<h2>What the Singular Values Tell You</h2>
+
+<p>The singular values themselves are always non-negative real numbers, and they're typically arranged in descending order—largest first. This ordering is meaningful. The largest singular value tells you the direction along which the matrix stretches things the most. The smallest tells you where it compresses things the most.</p>
+
+<p>Here's a crucial fact: the number of non-zero singular values equals the rank of the matrix. The rank is a fundamental property that tells you the effective dimensionality of the transformation. A rank-deficient matrix squashes some dimensions down to zero. The SVD shows you exactly which dimensions survive and which ones get eliminated.</p>
+
+<p>When some singular values are very small compared to others, they represent directions that barely matter. This is the mathematical foundation of data compression. If you're willing to accept a small approximation error, you can throw away the small singular values and get a much simpler matrix that behaves almost the same as the original.</p>
+
+<h2>Connections to Eigenvalues</h2>
+
+<p>If you've studied linear algebra, you might have encountered eigenvalues and eigenvectors. The SVD is related to these concepts but is more general. Eigenvalues only make sense for square matrices, and even then, the decomposition only works nicely when the matrix has certain special properties. The SVD works for any matrix whatsoever—square or rectangular, real or complex, well-behaved or pathological.</p>
+
+<p>There is a precise connection, though. The singular values of a matrix M are the square roots of the eigenvalues of M-transpose times M (or M times M-transpose). The left singular vectors in U are eigenvectors of M times M-transpose. The right singular vectors in V are eigenvectors of M-transpose times M. So the SVD is secretly powered by eigenvalue decomposition, but packaged in a form that always works.</p>
+
+<h2>The Compact Version</h2>
+
+<p>In practice, people often use a trimmed-down version called the compact SVD or reduced SVD. If a matrix has rank r, then many of its singular values are zero, and the corresponding columns of U and V don't contribute anything to the final answer. The compact SVD throws these away, keeping only the r columns that actually matter.</p>
+
+<p>This makes computations faster and storage requirements smaller, which becomes crucial when dealing with the massive matrices that appear in modern applications. When you're working with a dataset that has millions of rows and thousands of columns, every efficiency gain matters.</p>
+
+<h2>Why This Appears in Machine Learning</h2>
+
+<p>Modern large language models have parameter matrices with billions of entries. Training these models from scratch requires enormous computational resources. But often, you don't need to train from scratch. You want to take an existing model and adapt it slightly for a specific task.</p>
+
+<p>This is where SVD-inspired techniques like LoRA come in. The key insight is that the changes needed during fine-tuning often lie in a low-dimensional subspace. Instead of updating all billion parameters, you can update a much smaller number that capture the essential adaptation. LoRA approximates the weight updates using low-rank matrices—matrices that have only a few significant singular values.</p>
+
+<p>The various LoRA variants—QLoRA, DoRA, PiSSA, OLoRA, EVA, and LoftQ—each handle this low-rank approximation differently. Some quantize the weights to reduce memory usage. Others initialize the low-rank factors more cleverly. But they all share the same mathematical foundation: the singular value decomposition's insight that most of the action happens in a small number of directions.</p>
+
+<h2>Applications Beyond Machine Learning</h2>
+
+<p>The SVD appears everywhere in science and engineering. In signal processing, it helps separate meaningful signals from random noise. The signal usually has low rank—it can be described by a small number of underlying patterns—while noise is essentially full rank, spread evenly across all possible directions. The SVD lets you filter out the noise by keeping only the large singular values.</p>
+
+<p>In statistics, Principal Component Analysis (commonly called PCA) is essentially an SVD of the data matrix, centered to have zero mean. The principal components are the right singular vectors, and the amount of variance they capture is determined by the squared singular values. This lets researchers find the most important patterns in high-dimensional data.</p>
+
+<p>In control theory, the SVD reveals how well-behaved a system is. Systems with very large or very small singular values can be unstable or difficult to control. The condition number—the ratio of largest to smallest singular value—measures how sensitive a system is to small perturbations.</p>
+
+<p>Image compression algorithms use the SVD to represent images with fewer numbers. A photograph might be stored as a million pixels, but most natural images have low effective rank. The SVD can approximate the image using far fewer values, keeping only the most important singular vectors.</p>
+
+<h2>Computing the SVD</h2>
+
+<p>Finding the SVD of a matrix is not trivial, but efficient algorithms exist. The most common approach first reduces the matrix to a simpler bidiagonal form using a sequence of rotations, then iteratively refines the singular values and vectors until they converge. These algorithms have been refined over decades and are implemented in every serious numerical computing library.</p>
+
+<p>For very large matrices that don't fit in memory, randomized algorithms can approximate the SVD by randomly sampling the matrix's action. These methods trade exactness for speed and have become essential tools for working with modern datasets.</p>
+
+<h2>The Deep Simplicity</h2>
+
+<p>What makes the SVD so powerful is that it reveals something profound: linear transformations are simpler than they appear. Every matrix, regardless of its structure, is doing the same basic thing. Rotate, scale, rotate. The complexity lies only in the specific rotations and scalings, which the SVD hands to you directly.</p>
+
+<p>This is why the SVD keeps appearing in new contexts. Whenever someone encounters a new problem involving matrices—and matrices appear whenever you need to organize numbers in rows and columns, which is nearly everywhere in quantitative work—the SVD offers a way to understand what's really going on.</p>
+
+<p>The rotation matrices U and V tell you about the geometry of the transformation, which directions it treats specially. The singular values in Σ tell you about the magnitude, how strongly it acts in each direction. Together, they give you complete insight into any linear operation. That's the singular value decomposition: a mathematical X-ray that shows you the skeleton inside any matrix.</p>
+      </div>
+
+      <footer class="wikipedia-footer">
+        <p class="source-link">
+          <a href="https://en.wikipedia.org/wiki/Singular_value_decomposition" target="_blank" rel="noopener">
+            View original Wikipedia article &rarr;
+          </a>
+        </p>
+        <p class="rewrite-note">
+          This article has been rewritten from Wikipedia source material for enjoyable reading.
+          Content may have been condensed, restructured, or simplified.
+        </p>
+      </footer>
+
+      
+      <section class="related-articles">
+        <h2>Related Articles</h2>
+        <p class="related-intro">This deep dive was written in connection with these articles:</p>
+        <ul class="related-list">
+          
+      <li class="related-article-item">
+        <a href="../../article/fc1b9ee3-a659-4d90-98bf-43ec8b7a4b8f/index.html">
+          <strong>Advanced LoRA Fine-Tuning: How to Pick LoRA, QLoRA, DoRA, PiSSA, OLoRA, EVA, and LoftQ for LLMs</strong>
+        </a>
+        <span class="article-meta">
+          by Various in The Kaitchup
+        </span>
+      </li>
+        </ul>
+      </section>
+    
+    </article>
+  
+  </main>
+</body>
+</html>
