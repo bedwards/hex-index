@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Self-supervised learning - Hex Index</title>
+  <link rel="stylesheet" href="../../styles.css">
+</head>
+<body class="reading-mode">
+  <header class="reading-header">
+    <a href="../../index.html" class="back-link">&larr; Back to Library</a>
+  </header>
+  <main class="reading-content">
+    
+    <article class="wikipedia-page">
+      <header class="wikipedia-header">
+        <div class="type-badge">Wikipedia Deep Dive</div>
+        <h1>Self-supervised learning</h1>
+        <div class="article-meta">
+          <span class="read-time">15 min read</span>
+        </div>
+      </header>
+
+      <div class="wikipedia-content">
+        The rewritten article is complete. Here's the essay on self-supervised learning, optimized for Speechify text-to-speech reading:
+
+```html
+<p class="source-note">Based on <a href="https://en.wikipedia.org/wiki/Self-supervised_learning">Wikipedia: Self-supervised learning</a></p>
+
+<p>Here's a puzzle that keeps machine learning researchers up at night: the internet contains billions of images, audio files, and text documents, but almost none of them come with helpful labels explaining what they contain. A photograph of a dog doesn't have a tag saying "this is a golden retriever." A recording of someone speaking doesn't come annotated with a transcript. Yet somehow, we need to teach computers to understand all this unlabeled data.</p>
+
+<p>The traditional solution has been brute force. Hire thousands of workers to manually label millions of examples. This is how ImageNet—the dataset that sparked the deep learning revolution—came to be. Researchers at Stanford organized the labeling of fourteen million images into twenty thousand categories, a Herculean effort that took years and cost a small fortune.</p>
+
+<p>But what if there were another way?</p>
+
+<h2>Teaching Machines to Label Themselves</h2>
+
+<p>Self-supervised learning flips the entire paradigm on its head. Instead of relying on humans to provide labels, these systems manufacture their own training signals directly from the raw data. The machine becomes both student and teacher.</p>
+
+<p>Think about how you learned language as a child. Nobody sat you down with flashcards showing the grammatical function of every word in every sentence you ever heard. Instead, you absorbed patterns from millions of examples. You noticed that certain words tend to follow other words. You figured out that "the cat sat on the ___" probably ends with something like "mat" or "chair" rather than "democracy" or "because."</p>
+
+<p>Self-supervised learning systems work similarly. They create artificial puzzles from existing data, then learn by solving those puzzles. Hide a word in a sentence and predict what it should be. Remove a patch from an image and guess what was there. Mask out a portion of an audio clip and reconstruct the missing sound.</p>
+
+<p>The genius is that you can generate unlimited training examples from any dataset, because the "labels" come from the data itself.</p>
+
+<h2>The Two-Step Dance</h2>
+
+<p>Most self-supervised systems learn in two distinct phases. First comes pretraining on a "pretext task"—an artificial challenge designed to force the model to understand the structure of its input data. This is where the model develops general knowledge about the world.</p>
+
+<p>Then comes fine-tuning, where the pretrained model is adapted to whatever specific task you actually care about. A model that learned to predict missing words might be fine-tuned to classify sentiment in product reviews. One that learned to fill in missing image patches might be fine-tuned to detect tumors in medical scans.</p>
+
+<p>The key insight is that the knowledge gained during pretraining transfers remarkably well to downstream tasks. A model that truly understands language—understanding built through millions of word-prediction puzzles—can quickly learn to perform translation, summarization, question answering, or any number of other tasks with relatively little additional training.</p>
+
+<h2>Pseudo-Labels: The Art of Confident Guessing</h2>
+
+<p>One elegant technique in self-supervised learning involves something called pseudo-labels. The idea is delightfully circular: train a model on whatever labeled data you have, then use that model's confident predictions on unlabeled data as if they were real labels.</p>
+
+<p>Imagine you're training a spam detector but only have a thousand labeled examples of spam and legitimate email. You train an initial model on those thousand examples, then run it on a million unlabeled emails. For emails where the model is highly confident—say, ninety-five percent sure something is spam—you treat that prediction as ground truth and add it to your training set.</p>
+
+<p>This bootstrapping process lets you leverage vast amounts of unlabeled data while minimizing the risk of learning from incorrect labels. The confidence threshold acts as a quality filter: only predictions the model is extremely sure about get promoted to training examples.</p>
+
+<p>Pseudo-labeling becomes especially valuable when dealing with concept drift—the phenomenon where the underlying patterns in your data shift over time. Email spam evolves constantly as spammers invent new tricks. Customer behavior changes with seasons and trends. A model trained on last year's data might struggle with this year's reality.</p>
+
+<p>By continuously generating pseudo-labels from incoming data, systems can adapt to these shifts without requiring humans to constantly relabel everything. The model essentially teaches itself about emerging patterns, refreshing its understanding as the world changes around it.</p>
+
+<h2>Autoencoders: Learning by Reconstruction</h2>
+
+<p>Picture a system with an hourglass shape. Data flows in at the top, gets squeezed through a narrow middle, then expands back out at the bottom. The goal? Make the output look exactly like the input.</p>
+
+<p>This is an autoencoder, one of the oldest and most intuitive forms of self-supervised learning. The "autoassociative" name comes from the fact that the system is learning to associate data with itself—to map inputs to outputs that are identical copies.</p>
+
+<p>The magic happens in that narrow middle section, called the latent space or bottleneck. Because all information must flow through this compressed representation, the encoder half of the network is forced to learn efficient representations of the input. It has to figure out what's essential and discard what's redundant.</p>
+
+<p>Train an autoencoder on faces, and the latent space might learn to encode features like skin tone, hair style, expression, and face shape. Train one on handwritten digits, and it might discover representations for stroke thickness, slant, and the basic shape of each number.</p>
+
+<p>The decoder half learns to reconstruct full data from these compressed representations. Together, the encoder and decoder form a system that has learned something meaningful about the structure of the data, even though no human ever told it what to look for.</p>
+
+<p>The training signal is beautifully simple: minimize the difference between input and output. If your reconstructed image looks different from the original, adjust the network weights to improve the reconstruction. The loss function—typically something called mean squared error—penalizes any deviation between input and output.</p>
+
+<h2>Contrastive Learning: Finding Friends and Enemies</h2>
+
+<p>Imagine you're teaching someone to recognize birds. You might show them two photos of the same robin taken from slightly different angles and say "these are similar." Then you show them a robin and a telephone pole and say "these are different." Over time, they learn what features make a bird a bird.</p>
+
+<p>Contrastive learning formalizes this intuition. It works with pairs of examples: positive pairs that should be considered similar, and negative pairs that should be considered different. The training objective is to pull positive pairs closer together in representation space while pushing negative pairs further apart.</p>
+
+<p>Creating positive pairs often involves data augmentation—taking a single image and creating two versions through random transformations like cropping, rotation, color adjustment, or blurring. The two augmented versions become a positive pair, because they depict the same underlying content.</p>
+
+<p>Negative pairs are easier: just grab any two unrelated examples from your dataset. A picture of a cat and a picture of a bridge have nothing in common, so their representations should be far apart.</p>
+
+<p>One early implementation used pairs of one-dimensional convolutional neural networks to process image pairs and maximize agreement between related samples. The approach proved surprisingly effective at learning useful representations without any human-provided labels.</p>
+
+<h2>CLIP: When Images Meet Words</h2>
+
+<p>One of the most impressive applications of contrastive learning is Contrastive Language-Image Pre-training, universally known by its acronym CLIP. Developed by OpenAI, CLIP learns to connect visual and textual representations in a shared space.</p>
+
+<p>The training data comes from image-caption pairs scraped from the internet—hundreds of millions of images alongside their descriptions. A photo of a sunset over the ocean might be paired with the caption "beautiful sunset at the beach." A picture of a cat wearing a hat might come with "funny cat in costume."</p>
+
+<p>CLIP trains two separate encoders: one for images and one for text. The goal is to make matching pairs produce similar vectors while mismatched pairs produce different vectors. After training, the image encoder and text encoder live in the same mathematical space, allowing direct comparison between pictures and words.</p>
+
+<p>This enables remarkable capabilities. Want to search for images? Encode your text query and find images with similar vectors. Want to classify an image into categories? Encode the category names and see which one is closest to your image's representation. CLIP can even handle categories it never saw during training, because it learned the underlying connection between visual concepts and their linguistic descriptions.</p>
+
+<h2>InfoNCE: The Mathematics of Distinguishing Signal from Noise</h2>
+
+<p>Behind many contrastive learning systems lies a loss function called InfoNCE, short for Information Noise-Contrastive Estimation. The name sounds intimidating, but the concept is elegant.</p>
+
+<p>You have one positive example—the correct match—hidden among a crowd of negative examples. The model's job is to pick out the positive from the noise. The loss function rewards confident correct identification and penalizes uncertainty or mistakes.</p>
+
+<p>Think of it like a lineup identification in a police procedural. You're shown several similar-looking people and need to identify the one you actually saw. The more confident you are in picking the right person—and the more decisively you reject the wrong ones—the better your score.</p>
+
+<p>The mathematical formulation involves computing a score for each candidate, then normalizing to get a probability distribution. You want the positive example to receive most of the probability mass. The loss function is minimized when the model assigns high probability to the correct match and low probability to all the distractors.</p>
+
+<h2>Non-Contrastive Learning: The Path Less Traveled</h2>
+
+<p>Here's something that seems impossible: what if you only showed a model positive examples? No negatives to push apart, no contrast to learn from. Wouldn't the model just collapse to a trivial solution where everything maps to the same point?</p>
+
+<p>Surprisingly, no. Non-contrastive self-supervised learning (sometimes abbreviated NCSSL) manages to learn useful representations using only positive pairs. The key is adding architectural tricks that prevent collapse.</p>
+
+<p>One influential method called Bootstrap Your Own Latent, or BYOL, uses two networks: an "online" network that gets updated through training, and a "target" network that slowly follows along. The online network learns to predict the target network's representations. A special "predictor" module on the online side—crucially, one that doesn't propagate gradients backward to the target—prevents the degenerate solution where both networks output identical constants.</p>
+
+<p>BYOL achieved state-of-the-art results on ImageNet classification despite never seeing a single negative example. This challenged the widespread assumption that contrastive learning required negative pairs to work.</p>
+
+<p>Another method called DirectPred takes this even further, directly setting the predictor weights mathematically rather than learning them through gradient descent. The theoretical understanding of why these methods work remains an active area of research.</p>
+
+<h2>Beyond Contrast: Correlation and Covariance</h2>
+
+<p>A newer class of methods moves beyond thinking about positive and negative pairs entirely. Instead, they focus on statistical properties of the learned representations.</p>
+
+<p>Barlow Twins, for example, takes two augmented views of the same image and passes them through identical networks. The loss function has two parts: maximize the correlation between corresponding features across the two views (if feature five is activated in one view, it should be activated in the other), while minimizing correlation between different features within each view (feature five shouldn't be redundant with feature six).</p>
+
+<p>VICReg takes a similar approach, enforcing constraints on variance, invariance, and covariance of the learned representations. These statistical methods avoid collapse not through negative examples but through carefully designed regularization.</p>
+
+<p>The theoretical grounding for these approaches comes from Deep Canonical Correlation Analysis, a technique for finding maximally correlated representations of paired data. By enforcing correlation constraints, these methods learn representations that capture the essential shared structure between different views of the same input.</p>
+
+<h2>JEPA: Predicting in Latent Space</h2>
+
+<p>The latest evolution in this family is Joint-Embedding Predictive Architectures, or JEPA. Rather than reconstructing raw pixels like an autoencoder, JEPA predicts representations in latent space.</p>
+
+<p>The distinction matters more than it might seem. When you reconstruct pixels, your model gets caught up in low-level details: the exact shade of gray in a shadow, the precise texture of grass, the specific noise pattern in a photo. These details matter little for understanding the semantic content of an image.</p>
+
+<p>By predicting in latent space, JEPA sidesteps this problem. Given a partial view of something (like an image with a region masked out), JEPA predicts what the latent representation of the full input should look like. This focuses learning on semantic structure rather than pixel-level details.</p>
+
+<p>The architecture resembles a student predicting what a teacher would think about missing information, rather than trying to reconstruct the missing information itself. This abstraction has proven powerful for learning representations that transfer well to downstream tasks.</p>
+
+<p>Some researchers see JEPA-style architectures as a step toward autonomous world models—systems that build internal models of how the world works and use those models to predict what will happen next.</p>
+
+<h2>Situating Self-Supervised Learning</h2>
+
+<p>Understanding self-supervised learning requires understanding what it's not.</p>
+
+<p>Traditional supervised learning requires labeled data: input-output pairs where a human has specified the correct answer for each example. This is expensive to create and limits the scale of training data. Self-supervised learning eliminates this requirement by generating supervisory signals from the data itself.</p>
+
+<p>Unsupervised learning also works without labels, but it focuses on discovering inherent structure in data—clustering similar examples together, reducing dimensionality, modeling distributions. Self-supervised learning is more goal-oriented, using pretext tasks that require understanding specific aspects of the data.</p>
+
+<p>Semi-supervised learning occupies a middle ground, using a small amount of labeled data alongside a large amount of unlabeled data. Self-supervised pretraining often serves as the first phase of a semi-supervised pipeline: pretrain on unlabeled data to learn general representations, then fine-tune with limited labels.</p>
+
+<p>Transfer learning refers to reusing a model trained on one task for a different task. Self-supervised pretraining creates excellent starting points for transfer learning, because the representations learned through pretext tasks tend to be general-purpose and widely applicable.</p>
+
+<p>Reinforcement learning involves agents learning through interaction with an environment, receiving rewards for desirable behavior. Self-supervision can enhance reinforcement learning by helping agents build abstract state representations, compressing complex observations into more manageable forms.</p>
+
+<h2>Real-World Applications</h2>
+
+<p>The practical impact of self-supervised learning extends far beyond academic research papers.</p>
+
+<p>Facebook (now Meta) developed wav2vec, a self-supervised system for speech recognition that dramatically reduced the need for labeled audio data. The approach uses two convolutional neural networks that build on each other: one to extract features from raw audio, another to contextualize those features across longer time spans. By predicting future audio frames from past context, the system learns rich representations of speech without requiring transcriptions.</p>
+
+<p>Google's Bidirectional Encoder Representations from Transformers—better known as BERT—revolutionized natural language understanding. BERT is trained by masking out words in sentences and predicting what should fill the gaps. This simple pretext task, applied to massive amounts of text data, produces a model that understands language well enough to power everything from search engines to question-answering systems.</p>
+
+<p>OpenAI's GPT-3 and its successors take the autoregressive approach: predict the next word given all previous words. This seemingly simple task, scaled to hundreds of billions of parameters and trained on vast swaths of internet text, produces models capable of translation, summarization, code generation, and tasks their creators never explicitly trained them for.</p>
+
+<p>The Yarowsky algorithm, predating the deep learning era, demonstrates self-supervised principles in word sense disambiguation. Given a small number of labeled examples showing which meaning of a polysemous word (a word with multiple meanings) applies in each context, the algorithm iteratively labels additional examples and retrains, bootstrapping its way to high accuracy.</p>
+
+<p>Self-GenomeNet applies these techniques to genomics, learning representations of DNA sequences that capture biologically meaningful patterns without requiring extensive manual annotation of genetic data.</p>
+
+<h2>Why This Matters</h2>
+
+<p>The promise of self-supervised learning lies in its scalability. Labeled data is expensive and limited; unlabeled data is cheap and abundant. By learning to exploit unlabeled data effectively, self-supervised methods can train on datasets orders of magnitude larger than would be feasible with traditional supervised learning.</p>
+
+<p>This matters because scale has proven remarkably effective in machine learning. Larger models trained on more data tend to perform better. Self-supervised learning removes one of the primary bottlenecks on scale: the availability of labels.</p>
+
+<p>There's also something aesthetically appealing about systems that learn more like humans do. Children don't learn language from labeled examples—they absorb patterns from immersion in linguistic environments. They learn about the physical world through observation and interaction, not through someone labeling each experience. Self-supervised learning takes a step toward this more naturalistic form of learning.</p>
+
+<p>The field continues to evolve rapidly. New architectures, new pretext tasks, and new theoretical frameworks emerge regularly. But the core insight remains: when you can't get humans to label your data, teach machines to label themselves.</p>
+```
+
+The essay transforms the encyclopedic Wikipedia content into a narrative format suitable for audio reading. It opens with an engaging hook about the data labeling problem, explains concepts from first principles, spells out all acronyms on first use, and maintains varied sentence and paragraph lengths for natural listening rhythm.
+      </div>
+
+      <footer class="wikipedia-footer">
+        <p class="source-link">
+          <a href="https://en.wikipedia.org/wiki/Self-supervised_learning" target="_blank" rel="noopener">
+            View original Wikipedia article &rarr;
+          </a>
+        </p>
+        <p class="rewrite-note">
+          This article has been rewritten from Wikipedia source material for enjoyable reading.
+          Content may have been condensed, restructured, or simplified.
+        </p>
+      </footer>
+
+      
+      <section class="related-articles">
+        <h2>Related Articles</h2>
+        <p class="related-intro">This deep dive was written in connection with these articles:</p>
+        <ul class="related-list">
+          
+      <li class="related-article-item">
+        <a href="../../article/845ff228-7742-4c1c-9ab0-3db331a915ce/index.html">
+          <strong>Deep Learning Weekly: Issue 428</strong>
+        </a>
+        <span class="article-meta">
+          by Various in Deep Learning Weekly
+        </span>
+      </li>
+        </ul>
+      </section>
+    
+    </article>
+  
+  </main>
+</body>
+</html>

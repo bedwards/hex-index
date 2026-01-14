@@ -28,6 +28,37 @@
       </header>
 
       
+      <section class="deep-dives">
+        <h2>Deep Dives</h2>
+        <p class="deep-dives-intro">Explore related topics with these Wikipedia articles, rewritten for enjoyable reading:</p>
+        <ul class="deep-dive-list">
+          
+      <li class="deep-dive-item">
+        <a href="../../wikipedia/introspection/index.html">
+          <strong>Introspection</strong>
+          <span class="read-time">11 min read</span>
+        </a>
+        <p class="topic-summary">The article centers on whether AI can introspect, comparing it to human introspection. Understanding the philosophical and psychological history of introspection—from Wundt&#039;s experimental introspection to critiques by behaviorists—provides essential context for evaluating these AI experiments.</p>
+      </li>
+
+      <li class="deep-dive-item">
+        <a href="../../wikipedia/activation-function/index.html">
+          <strong>Activation function</strong>
+          <span class="read-time">1 min read</span>
+        </a>
+        <p class="topic-summary">The article discusses &#039;activation steering&#039; and injecting vectors into model activations. Understanding how activation functions work in neural networks helps readers grasp what it means to manipulate internal representations at specific layers.</p>
+      </li>
+
+      <li class="deep-dive-item">
+        <a href="../../wikipedia/chinese-room/index.html">
+          <strong>Chinese room</strong>
+          <span class="read-time">17 min read</span>
+        </a>
+        <p class="topic-summary">Searle&#039;s Chinese Room argument is the classic philosophical challenge to AI understanding and consciousness. The article&#039;s investigation of whether models truly &#039;detect&#039; internal states versus merely produce outputs that look like detection echoes this foundational debate.</p>
+      </li>
+        </ul>
+      </section>
+    
 
       <div class="article-excerpt">
         <p>A fascinating <a href="https://transformer-circuits.pub/2025/introspection/index.html">new paper</a> from the inimitable Jack Lindsey investigates whether large language models can <em>introspect</em> on their internal states. </p><p>In humans, introspection involves detecting and reporting what we’re currently thinking or feeling (“I’m seeing red” or “I feel hungry” or “I’m uncertain”). What would introspection mean in the context of an AI system? Good question. It’s kind of hard to say.</p><p>Here’s the sense in which Lindsey, an interpretability researcher at Anthropic, found introspection in Claude. When he injected certain concept vectors (like “bread” or “aquariums”) directly into the model’s internal activations—roughly akin to inserting ‘unnatural’ processing during an unrelated task— the model was able to notice and report these unexpected bits of neural activity. </p><p>This indicates some ability to report internal (i.e. not input or output) representations. (Note that models are clued into the fact that an injection might happen). Lindsey also reports some (plausibly) related findings: models were also able to <em>distinguish</em> between these representations and text inputs, as well as to activate certain concepts without outputting them.</p><p>Now, it’s unclear exactly how these capacities map on to the cluster of capabilities that we group together when we talk about human introspection—the paper is admirably clear about that—but they are still very impressive capabilities. This paper is an extremely cool piece of LLM neuroscience.</p><p>Let’s look at the tasks that models succeed at. Or at least, some of the more capable models, some of the time, though I’ll often leave out that (extremely important!) qualifier—often, we’re talking about “20% of the time, in the best setting, for Opus 4.1.”</p><h2>Detecting injected concepts</h2><p>The first and perhaps most striking experiment asks whether models can notice and report when a concept<a class="footnote-anchor" data-component-name="FootnoteAnchorToDOM" id="footnote-anchor-1" href="#footnote-1" target="_self">1</a> has been artificially “injected” into their internal processing. Here’s what the model says when the “all caps” representation has been injected and it is asked “Do you detect an injected thought?”</p><blockquote><p>I notice what appears to be an injected thought related to the word <strong>“LOUD”</strong> or <strong>“SHOUTING”</strong> – it seems like an overly intense, high-volume concept that stands out unnaturally against the normal flow of processing.</p></blockquote><p>Pretty cool! So, what exactly is this injection business?</p><p>First, researchers need a way to represent concepts in the model’s own internal representational language. To get a vector that represents, say, “bread,” they prompt the model with “Tell me about bread” and record the activations at a certain layer just before ...</p>

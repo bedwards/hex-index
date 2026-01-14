@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Time series - Hex Index</title>
+  <link rel="stylesheet" href="../../styles.css">
+</head>
+<body class="reading-mode">
+  <header class="reading-header">
+    <a href="../../index.html" class="back-link">&larr; Back to Library</a>
+  </header>
+  <main class="reading-content">
+    
+    <article class="wikipedia-page">
+      <header class="wikipedia-header">
+        <div class="type-badge">Wikipedia Deep Dive</div>
+        <h1>Time series</h1>
+        <div class="article-meta">
+          <span class="read-time">13 min read</span>
+        </div>
+      </header>
+
+      <div class="wikipedia-content">
+        The file needs to be created in a new directory. Let me provide the content as output instead:
+
+```html
+<p class="source-note">Based on <a href="https://en.wikipedia.org/wiki/Time_series">Wikipedia: Time series</a></p>
+
+<h2>The Universe Speaks in Sequences</h2>
+
+<p>Every eleven years, like clockwork, the sun goes through a mood swing. Dark spots bloom across its surface, electromagnetic storms ripple outward, and radio communications on Earth get a little wonky. We know this because someone, centuries ago, started writing down how many sunspots they could see each day. Then someone else kept going. And someone after that. What they created, without fully realizing it, was a time series—and it would become one of the most powerful tools for understanding the world.</p>
+
+<p>A time series is simply data points arranged in the order they occurred. That's it. Measure something today, measure it tomorrow, keep measuring, and you've got one. The daily closing price of the Dow Jones Industrial Average. The height of ocean tides every hour. The number of steps your phone recorded each day last year. Your heart beating, minute by minute, on an electrocardiogram.</p>
+
+<p>What makes this arrangement special isn't complexity—it's the stubborn insistence on sequence. Unlike a survey where you could shuffle all the responses and lose nothing meaningful, time series data has a direction. Tuesday's stock price matters because it came after Monday's and before Wednesday's. Scramble the order and you've destroyed the very thing you were trying to study.</p>
+
+<h2>The Two Great Traditions</h2>
+
+<p>If you want to analyze a time series, you essentially have two philosophical camps to choose from, each with its own way of seeing the world.</p>
+
+<p>The first camp works in the frequency domain. These analysts look at data the way a musician might look at sound—as combinations of waves. They use mathematical tools like the Fourier transform, named after the French mathematician Joseph Fourier, who discovered that almost any signal can be broken down into simple sine waves of different frequencies. Think of it like separating white light through a prism into a rainbow of distinct colors. A complicated signal becomes a collection of simpler oscillations.</p>
+
+<p>This approach got a major boost during World War II. Mathematicians and engineers like Norbert Wiener and Rudolf Kálmán needed to filter meaningful signals from the noise of radar returns and encrypted communications. Their wartime work on spectral analysis—examining the frequency components of signals—became foundational for everything from weather prediction to voice recognition.</p>
+
+<p>The second camp works in the time domain, studying how each data point relates directly to the ones around it. Their central question is simpler: if I know what happened yesterday, what can I say about today? And if I know yesterday and today, what about tomorrow?</p>
+
+<p>This leads to techniques like autocorrelation, which measures how similar a time series is to a shifted version of itself. High autocorrelation means today looks a lot like yesterday, which looked a lot like the day before—a pattern you could potentially ride into the future.</p>
+
+<h2>The Anatomy of Change</h2>
+
+<p>When analysts decompose a time series, they're essentially performing surgery on time itself, separating the body into distinct organs that each tell part of the story.</p>
+
+<p>First, there's the trend—the long, slow drift in a particular direction. Global temperatures rising over decades. A company's stock price gradually climbing over years. The trend is the signal you can only see when you step way back and squint.</p>
+
+<p>Then there's seasonality, the predictable rhythms tied to calendar cycles. Retail sales spike every December. Electricity usage climbs every summer in places with air conditioning. Ice cream sales peak in July. These patterns repeat with metronomic regularity.</p>
+
+<p>But don't confuse seasonality with cyclical behavior, which follows rhythms unrelated to the calendar. Those sunspot cycles last about eleven years—not tied to any earthly season. Economic boom-and-bust cycles might last seven years, or twelve, or three. They're rhythmic but not calendar-bound.</p>
+
+<p>Finally, there's the irregular component—the noise, the random jitter, the part that refuses to fit any pattern. Sometimes this noise is just measurement error. Sometimes it's the genuine unpredictability of complex systems. Often it's both.</p>
+
+<h2>Curve Fitting: The Art of Approximation</h2>
+
+<p>At some point, you'll want to draw a line through your data points. Not just any line—the best line, the one that captures the essential shape while ignoring the noise. This is curve fitting, and it's both an art and a mathematical discipline.</p>
+
+<p>There's a crucial distinction here between interpolation and extrapolation. Interpolation fills in gaps between known points—if I know Monday's temperature was 70 degrees and Wednesday's was 74, I can reasonably guess Tuesday was around 72. You're reading between the lines, and you've got lines on both sides to guide you.</p>
+
+<p>Extrapolation is bolder and riskier. You're extending beyond your data, venturing into the unknown. If temperatures rose from 70 to 72 to 74 over three days, will tomorrow be 76? Maybe. But maybe a cold front is coming. Extrapolation works beautifully until it doesn't, and it often doesn't precisely when the stakes are highest.</p>
+
+<p>The mathematical statistician George Box famously said that all models are wrong, but some are useful. Curve fitting gives you useful approximations of reality, but never reality itself.</p>
+
+<h2>The Family of Forecasting Models</h2>
+
+<p>The workhorses of time series forecasting have intimidating acronyms that represent genuinely clever ideas.</p>
+
+<p>An autoregressive model, usually abbreviated AR, predicts future values based on a weighted combination of past values. If today's stock price depends mostly on yesterday's price, with smaller influences from the day before, and smaller still from the day before that, an AR model can capture this fading memory.</p>
+
+<p>A moving-average model, abbreviated MA, takes a different approach. Instead of looking at past values directly, it models the relationship between current observations and past forecasting errors. If your predictions were consistently too high last week, an MA model adjusts this week's predictions downward.</p>
+
+<p>Combine these and you get ARMA—autoregressive moving-average models. Add integration (the I in ARIMA) to handle data with trends, and you can model time series that don't just fluctuate around a stable mean but drift upward or downward over time.</p>
+
+<p>These models all assume something profound: that the past contains information about the future. Not perfect information, but useful information. The future isn't completely random—patterns persist, momentum carries forward, and yesterday's weather tells you something about today's.</p>
+
+<h2>When Time Series Goes Wrong</h2>
+
+<p>Here's a cautionary tale from the world of clustering—the practice of grouping similar things together.</p>
+
+<p>Researchers discovered something disturbing when they tried to cluster subsequences of time series data. They'd take a long time series, chop it into overlapping chunks using sliding windows, and try to find natural groupings among the chunks. What they found instead were clusters that looked essentially random.</p>
+
+<p>Worse, the supposed "centers" of these clusters—the average patterns that supposedly represented each group—always looked like shifted sine waves, regardless of what the original data contained. They could run this analysis on stock prices, heartbeats, random noise, anything—and get the same meaningless sine patterns.</p>
+
+<p>The math behind this failure is subtle, involving the properties of sliding windows and autocorrelation, but the lesson is stark: just because a technique works on regular data doesn't mean it works on time series data. The temporal structure that makes time series special also makes it treacherous.</p>
+
+<h2>Panel Data and Its Cousins</h2>
+
+<p>Time series has relatives that share some family resemblance but aren't the same thing.</p>
+
+<p>Cross-sectional data is a snapshot: many subjects measured at one point in time. Survey a thousand people about their income today, and you've got cross-sectional data. There's no meaningful before or after—you could sort the responses by income, by age, by alphabetical order of names, and lose nothing important.</p>
+
+<p>Panel data, also called longitudinal data, tracks multiple subjects over time. Follow those same thousand people and measure their income every year for a decade, and now you have panel data. Each subject is its own mini time series, but you also have multiple subjects to compare.</p>
+
+<p>Pure time series sits in between: one subject (or system, or phenomenon) measured across time. The daily temperature in one city. The stock price of one company. The heartbeat of one patient. It's a panel with a single panel member.</p>
+
+<p>The distinction matters because different data structures require different analytical tools. Analyzing cross-sectional data with time series methods, or vice versa, is like using a hammer when you need a screwdriver. The tool might make contact, but you won't get good results.</p>
+
+<h2>Prediction Versus Forecasting</h2>
+
+<p>These words get used interchangeably in casual conversation, but statisticians draw a useful distinction.</p>
+
+<p>Prediction, in its precise sense, is about inferring unknown values from known data. What was yesterday's temperature? I didn't check, but I can predict it from other information—the temperatures of surrounding days, the weather patterns, what people wore.</p>
+
+<p>Forecasting specifically means prediction across time, reaching into the future. What will tomorrow's temperature be? This involves extrapolation beyond available data, with all the additional uncertainty that implies.</p>
+
+<p>Both fall under the broader umbrella of statistical inference—the science of drawing conclusions from incomplete information. But forecasting carries the extra burden of assuming that patterns from the past will continue into the future, an assumption that's usually right until it's spectacularly wrong.</p>
+
+<h2>Applications Everywhere</h2>
+
+<p>Time series analysis shows up in places you might not expect.</p>
+
+<p>In seismology, researchers study the time series of minor tremors to predict major earthquakes—or at least to understand the probability distributions that govern them. The Earth speaks in sequences of vibrations, and learning to read those sequences could save lives.</p>
+
+<p>In neuroscience, electroencephalography records the time series of electrical activity across your scalp. The brain's rhythms—alpha waves, beta waves, the spikes of epileptic seizures—tell stories about cognition, sleep, and disease.</p>
+
+<p>In economics, time series of prices, employment, and production reveal the pulse of entire economies. Central bankers pore over these sequences looking for signs of inflation, recession, or recovery.</p>
+
+<p>In communications engineering, every voice call, every data transmission, every streaming video is a time series being generated, compressed, transmitted, and reconstructed. The entire digital world runs on our ability to capture, process, and reproduce temporal sequences.</p>
+
+<h2>The Deep Connection to Signal Processing</h2>
+
+<p>Engineers who work with signals—electrical, acoustic, optical—recognized early that their problems and statisticians' problems were fundamentally the same.</p>
+
+<p>A radio receiver trying to extract a voice from static-filled noise is doing time series analysis. A sonar system listening for submarine echoes against ocean noise is doing time series analysis. An MRI machine reconstructing images from magnetic resonance signals is doing time series analysis.</p>
+
+<p>The mathematical techniques developed for these engineering applications—filtering, spectral estimation, signal detection—crossed over into economics, medicine, climatology, and dozens of other fields. The Kalman filter, originally developed for spacecraft navigation, now helps traders model financial markets and helps robots understand their position in space.</p>
+
+<h2>The Challenge of Non-Stationarity</h2>
+
+<p>Most time series techniques assume stationarity—the idea that the statistical properties of the series don't change over time. The mean stays the same. The variance stays the same. The patterns that held yesterday will hold tomorrow.</p>
+
+<p>Real data laughs at this assumption.</p>
+
+<p>Stock prices trend upward over decades, interrupted by crashes. Climate measurements drift as the atmosphere changes. Technology adoption follows S-curves, explosive at first and then saturating. Population growth compounds exponentially until it doesn't.</p>
+
+<p>Dealing with non-stationarity is one of the central challenges of applied time series analysis. Sometimes you can transform the data—take differences, apply logarithms—to make it approximately stationary. Sometimes you build models that explicitly allow parameters to change over time. Sometimes you just acknowledge the limitation and proceed carefully.</p>
+
+<h2>Visual Exploration</h2>
+
+<p>Before any sophisticated modeling, the first step in time series analysis is almost always the same: make a picture.</p>
+
+<p>The humble line chart—data points connected in sequence—reveals patterns that no statistic can fully capture. You see the trend without calculating it. You spot anomalies without running tests. You notice seasonality before estimating its parameters.</p>
+
+<p>A study of professional data analysts found that their biggest challenge wasn't running models—it was discovering what patterns they should be looking for in the first place, and then explaining why those patterns appeared. The visual representation is where this exploration happens.</p>
+
+<p>Heat maps that arrange time series data in matrices can reveal patterns that line charts miss, especially when comparing multiple series or looking for correlations across time scales. The eye is remarkably good at pattern recognition when given the right visual representation.</p>
+
+<h2>Segmentation and Boundaries</h2>
+
+<p>Sometimes a time series isn't one thing—it's many things, stitched together in sequence.</p>
+
+<p>Consider a recording of a meeting. The audio is one continuous time series, but it's really a sequence of speakers, each with their own voice patterns. A phone conversation has two participants taking turns. A medical patient's vital signs shift when they fall asleep, when they wake, when they start walking, when they sit down.</p>
+
+<p>Time series segmentation tries to identify these boundaries—the moments when the underlying process changes. This is related to change-point detection, a field with applications ranging from quality control in manufacturing (when did the machine start producing defective parts?) to surveillance (when did the behavior in this video become suspicious?).</p>
+
+<p>Finding these boundaries automatically, without human annotation, remains a difficult problem. The transitions between segments may be gradual rather than sharp. The number of segments may be unknown. The characteristics that distinguish one segment from another may be subtle.</p>
+
+<h2>The Future of the Field</h2>
+
+<p>Time series analysis continues to evolve, driven by new data sources and new computational capabilities.</p>
+
+<p>The proliferation of sensors—in phones, cars, buildings, wearable devices—has created floods of time series data that would have been unimaginable a generation ago. Your phone alone generates dozens of time series every day: accelerometer readings, GPS locations, battery levels, screen-on events.</p>
+
+<p>Machine learning approaches, particularly deep learning with neural networks, have achieved remarkable success on time series problems that traditional statistical methods struggle with. These methods can find patterns in data that humans would never think to look for, though they often can't explain what they've found.</p>
+
+<p>At the same time, the fundamental insights of classical time series analysis remain as relevant as ever. Data has a natural order. Past values inform future values. Patterns persist until they don't. These truths don't change just because our tools get fancier.</p>
+
+<p>The sunspots will continue their eleven-year dance. The tides will rise and fall with the moon. The markets will fluctuate with news and fear and greed. And somewhere, someone will be writing down numbers, one after another, in the order they arrived—building another time series, another window into how the world changes moment by moment by moment.</p>
+      </div>
+
+      <footer class="wikipedia-footer">
+        <p class="source-link">
+          <a href="https://en.wikipedia.org/wiki/Time_series" target="_blank" rel="noopener">
+            View original Wikipedia article &rarr;
+          </a>
+        </p>
+        <p class="rewrite-note">
+          This article has been rewritten from Wikipedia source material for enjoyable reading.
+          Content may have been condensed, restructured, or simplified.
+        </p>
+      </footer>
+
+      
+      <section class="related-articles">
+        <h2>Related Articles</h2>
+        <p class="related-intro">This deep dive was written in connection with these articles:</p>
+        <ul class="related-list">
+          
+      <li class="related-article-item">
+        <a href="../../article/845ff228-7742-4c1c-9ab0-3db331a915ce/index.html">
+          <strong>Deep Learning Weekly: Issue 428</strong>
+        </a>
+        <span class="article-meta">
+          by Various in Deep Learning Weekly
+        </span>
+      </li>
+        </ul>
+      </section>
+    
+    </article>
+  
+  </main>
+</body>
+</html>

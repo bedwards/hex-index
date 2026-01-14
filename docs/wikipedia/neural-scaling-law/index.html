@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Neural scaling law - Hex Index</title>
+  <link rel="stylesheet" href="../../styles.css">
+</head>
+<body class="reading-mode">
+  <header class="reading-header">
+    <a href="../../index.html" class="back-link">&larr; Back to Library</a>
+  </header>
+  <main class="reading-content">
+    
+    <article class="wikipedia-page">
+      <header class="wikipedia-header">
+        <div class="type-badge">Wikipedia Deep Dive</div>
+        <h1>Neural scaling law</h1>
+        <div class="article-meta">
+          <span class="read-time">13 min read</span>
+        </div>
+      </header>
+
+      <div class="wikipedia-content">
+        <p class="source-note">Based on <a href="https://en.wikipedia.org/wiki/Neural_scaling_law">Wikipedia: Neural scaling law</a></p>
+
+<p>Here is one of the strangest discoveries in modern computing: if you want to know how well an artificial intelligence system will perform, you can often predict it with a simple mathematical formula before you even build it. Not approximately. Not vaguely. With surprising precision.</p>
+
+<p>This discovery goes by the name "neural scaling laws," and it has transformed how the world's most advanced AI systems get designed and built. Instead of trial and error, researchers now plot curves on graphs and extrapolate into the future. They can say, with reasonable confidence, "If we train a model ten times larger on ten times more data, it will achieve roughly this level of performance." It's as if physicists had discovered a law of gravity specifically for machine learning.</p>
+
+<h2>The Four Variables That Matter</h2>
+
+<p>To understand scaling laws, you need to know about four quantities that describe any deep learning model.</p>
+
+<p>The first is <em>model size</em>, typically measured by counting parameters. A parameter is essentially a number that the model adjusts during training—think of it like a dial that can be turned to make the model behave differently. Modern large language models have parameters numbering in the hundreds of billions. That's hundreds of billions of individual dials, each one tuned through the training process.</p>
+
+<p>The second is <em>dataset size</em>, usually counted by the number of individual examples the model sees during training. For a language model, this might be measured in tokens—roughly word-sized chunks of text. A model trained on the internet might see trillions of tokens.</p>
+
+<p>The third is <em>training cost</em>, measured in compute. This is typically expressed in floating-point operations, or FLOPs—the basic mathematical calculations that computers perform. Training a frontier AI model might require something on the order of ten to the twenty-fourth power floating-point operations. That's a one followed by twenty-four zeros. It's the kind of number that stops meaning anything intuitive and becomes purely abstract.</p>
+
+<p>The fourth is <em>loss</em>, which measures how well the model performs. Lower is better. For language models, this often takes the form of something called perplexity—essentially, how surprised the model is by the next word in a text. A model with low perplexity makes good predictions. A model with high perplexity constantly gets caught off guard.</p>
+
+<p>Researchers usually abbreviate these as N, D, C, and L: parameters, data, compute, and loss.</p>
+
+<h2>The Power Law Discovery</h2>
+
+<p>The remarkable finding, confirmed across dozens of studies and many different types of AI systems, is that these four quantities relate to each other through power laws.</p>
+
+<p>A power law has a specific mathematical form. If you double one quantity, another quantity changes by a fixed multiplicative factor—not by a fixed amount, but by a fixed ratio. On a logarithmic graph, power laws show up as straight lines. And when researchers started plotting the performance of neural networks against their size, their training data, and their compute budgets, they kept finding these telltale straight lines.</p>
+
+<p>A 2017 paper established this systematically for the first time, analyzing neural networks across multiple tasks: machine translation, language modeling, image classification, and speech recognition. The researchers found that loss decreased as dataset size increased, following a relationship like L proportional to D raised to some negative power. The exponent varied by task—somewhere between 0.07 and 0.35—but the power law form held consistently.</p>
+
+<p>Something even more interesting emerged from that analysis: while changing the task could change the exponent, changing almost everything else—the architecture, the optimization algorithm, the regularization technique—only changed the proportionality constant. Two different architectures might have loss equal to 1000 times D to the negative 0.3, versus 500 times D to the negative 0.3. Different starting points, same slope on the log-log plot. The power law structure seemed to be a deep property of the learning process itself, not an artifact of any particular design choice.</p>
+
+<h2>The Chinchilla Discovery</h2>
+
+<p>In 2022, researchers at DeepMind published a paper with the memorable codename "Chinchilla" that reshaped how the entire AI industry thinks about training large language models.</p>
+
+<p>The central question they asked was simple: given a fixed computing budget, how should you divide your resources between making the model bigger and showing it more data?</p>
+
+<p>Previous practice, exemplified by OpenAI's GPT-3, had favored enormous models trained on comparatively modest amounts of data. GPT-3 had 175 billion parameters but was trained on about 300 billion tokens. The intuition was that bigger models were smarter models, and the path to better AI ran through scale.</p>
+
+<p>The Chinchilla researchers found that this intuition was wrong, or at least wasteful. By fitting scaling laws to experimental data, they determined that compute-optimal training required roughly equal scaling of parameters and data. If you were going to train a model ten times larger, you should also train it on ten times more data. The previous generation of models had been dramatically undertrained—like building an enormous factory but only running it for a single shift.</p>
+
+<p>Their model, Chinchilla, had only 70 billion parameters—less than half the size of GPT-3—but trained on 1.4 trillion tokens. Despite being smaller, it outperformed the larger model on almost every benchmark. The scaling laws had predicted exactly this outcome.</p>
+
+<h2>What Makes These Laws So Useful</h2>
+
+<p>The practical value of scaling laws lies in their predictive power. Training a large language model costs millions of dollars and takes months. Nobody wants to spend those resources only to discover the result falls short of expectations. Scaling laws let researchers run small experiments—costing thousands of dollars instead of millions—and extrapolate the results to much larger scales.</p>
+
+<p>This works because the power law relationships hold across many orders of magnitude. A study from 2020 confirmed the basic scaling relationships across models ranging from a thousand parameters to a billion parameters, and compute budgets spanning from ten to the twelfth to ten to the twenty-first floating-point operations. That's a range of a factor of a billion in both dimensions, and the straight-line relationships persisted throughout.</p>
+
+<p>When OpenAI was developing GPT-3, they explicitly used scaling laws to guide their decisions. They trained smaller models first, measured the resulting loss, and confirmed that the trajectories matched their theoretical predictions before committing to the full-scale training run. The final model landed almost exactly where the scaling curves said it would.</p>
+
+<h2>The Mystery of Smooth Progress</h2>
+
+<p>One of the most philosophically puzzling aspects of neural scaling laws is how smooth they are. Performance improves gradually and predictably as resources increase. There are no sudden jumps, no phase transitions, no moments where the model suddenly "gets it."</p>
+
+<p>This seems to conflict with the experience of actually using these models. Anyone who has worked with large language models knows they exhibit capabilities that seem to appear suddenly. A model might be unable to perform a certain task until it reaches a certain scale, at which point it can do it nearly flawlessly. Researchers call these "emergent abilities."</p>
+
+<p>But a closer look reveals that emergence and smooth scaling are compatible. The underlying loss—the probability the model assigns to correct answers—improves smoothly. What changes suddenly is whether that probability crosses some threshold that matters for the task. A model that assigns 40% probability to the correct answer fails. A model that assigns 60% probability succeeds. The jump from failure to success is discrete, but the underlying improvement is continuous.</p>
+
+<p>It's like watching water heat up. The temperature rises smoothly degree by degree. But at exactly 100 degrees Celsius, the water suddenly boils. The phase transition is sharp even though the underlying process is gradual.</p>
+
+<h2>The Limits of Scaling</h2>
+
+<p>Scaling laws describe how performance improves, but they also reveal limits. Every power law has an exponent, and the exponents in neural scaling are invariably less than one. This means you get diminishing returns. Doubling your compute doesn't double your improvement—it might only improve performance by 20% or 30%.</p>
+
+<p>Furthermore, every scaling law appears to have an irreducible floor—a level of loss that no amount of scaling can push below. This floor, often called L₀ in the equations, represents something like the inherent randomness in the task. For language modeling, it might represent the fundamental unpredictability of human text. No matter how sophisticated your model becomes, it cannot predict with certainty what word comes next in human writing, because human writers themselves haven't decided yet.</p>
+
+<p>The combination of diminishing returns and irreducible floors means that scaling eventually stops working. You can extract enormous value from the first few orders of magnitude of scale, but each subsequent doubling buys you less. Eventually the cost of further scaling exceeds the value of the improvement.</p>
+
+<p>This creates a natural question: are we near that point, or do we have decades of scaling left?</p>
+
+<h2>Test-Time Compute: A New Dimension</h2>
+
+<p>Recent research has opened up a new frontier in scaling laws by demonstrating that models can also improve by using more computation during inference—when they're actually answering questions, not just when they're being trained.</p>
+
+<p>The basic insight is that some problems benefit from "thinking longer." Instead of generating an answer immediately, a model can be prompted to reason step by step, consider multiple approaches, or even engage in something like internal deliberation. Each of these techniques uses more computation but can dramatically improve accuracy on difficult problems.</p>
+
+<p>This phenomenon goes by various names: test-time compute, inference-time scaling, or simply "chain of thought reasoning." Whatever you call it, it represents a second dimension along which models can be scaled. You can make a model more capable either by training it to be larger, or by giving it more time to think when answering each question.</p>
+
+<p>The scaling laws for test-time compute appear to follow similar power-law patterns as training-time compute, though the research is newer and the exponents are less well established. What's clear is that this represents genuine additional capability, not just a reshuffling of the same fundamental limits.</p>
+
+<h2>Why Attention Still Matters</h2>
+
+<p>Scaling laws interact in interesting ways with model architecture—the underlying design of the neural network.</p>
+
+<p>The dominant architecture for large language models is called the transformer, introduced in 2017. Transformers use a mechanism called "attention" that allows every part of the input to interact with every other part. This is computationally expensive—the cost scales quadratically with the length of the input—but it produces remarkably capable models.</p>
+
+<p>Various researchers have proposed modifications to make attention more efficient: sparse attention, linear attention, mixture-of-experts architectures that only activate some parameters for each input. These modifications can dramatically reduce compute costs.</p>
+
+<p>But the scaling laws suggest something important: architecture changes typically affect the constant factor in the power law, not the exponent. A more efficient architecture lets you start from a better baseline, but it doesn't change the slope of improvement as you scale up. Full attention models and efficient variants follow the same scaling trajectories, just offset from each other.</p>
+
+<p>This helps explain why full attention continues to dominate despite its computational cost. If you're willing to spend the compute, you eventually overtake any more efficient architecture. And the organizations building frontier models are, by definition, willing to spend the compute.</p>
+
+<h2>The Deeper Questions</h2>
+
+<p>Neural scaling laws raise profound questions that nobody has fully answered.</p>
+
+<p>Why do these laws hold at all? What is it about neural networks, or about learning, or about data, that produces these remarkably consistent power-law relationships? Physicists have developed theories for why certain physical systems exhibit power laws—self-organized criticality, for instance, or the behavior of systems near phase transitions. But we don't have a comparable theoretical framework for machine learning. The scaling laws are empirical facts awaiting theoretical explanation.</p>
+
+<p>Where do the exponents come from? Different tasks produce different exponents, but we can't predict in advance what exponent a new task will have. We just have to measure it. A deeper theory might tell us that certain kinds of tasks—problems with certain structural properties—will have certain exponents. No such theory exists yet.</p>
+
+<p>What happens when we run out of data? Scaling laws assume you can always get more training data by collecting or generating it. But for language models, there's only so much text that humans have ever written. Some estimates suggest we'll exhaust the supply of high-quality text within this decade. Does that mean scaling stops? Or do synthetic data and other techniques provide a way around the bottleneck?</p>
+
+<p>And perhaps most importantly: do scaling laws tell us anything about the ultimate limits of artificial intelligence? If performance continues improving as a power law of compute, and if compute continues growing exponentially, then at some point these systems will exceed human capability on essentially every task. The scaling laws neither confirm nor deny this possibility—they simply describe what happens in the range we've measured. Extrapolating beyond that range is hope, or fear, dressed up as mathematics.</p>
+
+<h2>The Practical Upshot</h2>
+
+<p>For all their philosophical interest, neural scaling laws have become everyday working tools for machine learning practitioners.</p>
+
+<p>Want to know if training a model twice as large will be worth the cost? The scaling laws give you an estimate. Wondering whether to invest in more data or more parameters? The scaling laws have guidance. Trying to predict what level of performance you'll achieve six months from now given projected compute growth? The scaling laws provide a framework.</p>
+
+<p>The laws don't answer every question. They don't tell you what capabilities will emerge at what scales. They don't predict whether a model will be safe to deploy or aligned with human values. They don't reveal the optimal architecture or training procedure—just how performance will change once you've made those choices.</p>
+
+<p>But within their domain, scaling laws have proven remarkably reliable. They've guided billions of dollars in investment and shaped the research agenda of the world's leading AI laboratories. They've turned machine learning from an art into something closer to engineering—not fully, but more than anyone expected.</p>
+
+<p>Perhaps the strangest thing about neural scaling laws is how ordinary they make the extraordinary seem. The idea that machines can learn from data to perform intellectual tasks that once required human intelligence—this is astonishing, philosophically momentous, potentially world-changing. But the scaling laws reduce it to a formula. Plug in the numbers, get out the performance. The mystery remains, but the predictability somehow makes it mundane.</p>
+
+<p>In physics, when a phenomenon can be described by a simple mathematical law, that usually means we're close to understanding it. Whether the same is true for neural networks—whether scaling laws are a clue to some deeper theory of learning and intelligence—remains to be seen. For now, they are what they are: surprisingly accurate rules of thumb for an increasingly consequential technology.</p>
+      </div>
+
+      <footer class="wikipedia-footer">
+        <p class="source-link">
+          <a href="https://en.wikipedia.org/wiki/Neural_scaling_law" target="_blank" rel="noopener">
+            View original Wikipedia article &rarr;
+          </a>
+        </p>
+        <p class="rewrite-note">
+          This article has been rewritten from Wikipedia source material for enjoyable reading.
+          Content may have been condensed, restructured, or simplified.
+        </p>
+      </footer>
+
+      
+      <section class="related-articles">
+        <h2>Related Articles</h2>
+        <p class="related-intro">This deep dive was written in connection with these articles:</p>
+        <ul class="related-list">
+          
+      <li class="related-article-item">
+        <a href="../../article/4b6784eb-beef-4d76-b819-948d15075b30/index.html">
+          <strong>MiniMax M2 and Kimi-Linear: Why Full Attention Still Wins</strong>
+        </a>
+        <span class="article-meta">
+          by Various in The Kaitchup
+        </span>
+      </li>
+        </ul>
+      </section>
+    
+    </article>
+  
+  </main>
+</body>
+</html>

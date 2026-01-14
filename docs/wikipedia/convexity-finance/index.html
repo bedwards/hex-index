@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Convexity (finance) - Hex Index</title>
+  <link rel="stylesheet" href="../../styles.css">
+</head>
+<body class="reading-mode">
+  <header class="reading-header">
+    <a href="../../index.html" class="back-link">&larr; Back to Library</a>
+  </header>
+  <main class="reading-content">
+    
+    <article class="wikipedia-page">
+      <header class="wikipedia-header">
+        <div class="type-badge">Wikipedia Deep Dive</div>
+        <h1>Convexity (finance)</h1>
+        <div class="article-meta">
+          <span class="read-time">13 min read</span>
+        </div>
+      </header>
+
+      <div class="wikipedia-content">
+        <p class="source-note">Based on <a href="https://en.wikipedia.org/wiki/Convexity_(finance)">Wikipedia: Convexity (finance)</a></p>
+
+<h2>The Geometry of Getting Lucky</h2>
+
+<p>Here's a strange truth about financial markets: sometimes the best strategy is to bet on chaos itself. Not on prices going up. Not on prices going down. Just on prices <em>moving</em>—in any direction whatsoever.</p>
+
+<p>This peculiar strategy works because of something called convexity, and understanding it reveals one of the deepest insights in all of finance. It explains why options have value, why bond traders obsess over interest rate sensitivity, and why some of the most sophisticated investors in the world spend their time buying instruments that seem, at first glance, to be bets on nothing at all.</p>
+
+<h2>When Straight Lines Lie to You</h2>
+
+<p>Imagine you're trying to predict how a bond's price will change when interest rates move. The obvious approach is to draw a straight line: if rates go up by one percent, the bond price drops by, say, five percent. Rates go up two percent, price drops ten percent. Simple linear relationship.</p>
+
+<p>But this straight-line approximation is a lie. A useful lie for small movements, but increasingly wrong as rates move further in either direction. The actual relationship between bond prices and interest rates isn't a straight line—it's a curve.</p>
+
+<p>This curvature is convexity.</p>
+
+<p>In mathematical terms, convexity is about what happens when you can't just multiply things by simple ratios anymore. It's the second derivative—the rate of change of the rate of change. If you remember anything from calculus, the first derivative tells you the slope of a line. The second derivative tells you how that slope itself is changing. When the second derivative isn't zero, you're dealing with curves, not lines.</p>
+
+<h3>The Hockey Stick Revelation</h3>
+
+<p>Consider a call option—the right, but not the obligation, to buy a stock at a predetermined price. If you buy a call option on a stock currently trading at one hundred dollars, with a strike price of one hundred dollars, what's your potential payoff?</p>
+
+<p>If the stock drops to fifty dollars, you simply don't exercise the option. Your loss is limited to what you paid for the option itself. If the stock rises to one hundred fifty dollars, you exercise your right to buy at one hundred and immediately pocket fifty dollars per share.</p>
+
+<p>Graph this payoff, and you get something that looks remarkably like a hockey stick lying on its side. Flat on the left (where losses are capped), then sharply rising on the right (where gains are unlimited). This hockey stick shape is curved at the kink. It's convex.</p>
+
+<p>And here's where things get interesting. The value of that option—the premium you pay for it—is essentially the price of that convexity.</p>
+
+<h2>Jensen's Inequality: The Mathematical Engine of Optionality</h2>
+
+<p>In the nineteenth century, a Danish mathematician named Johan Jensen proved something that sounds abstract but turns out to have profound practical implications. He showed that for any convex function, the average of the outputs will always be greater than or equal to the output of the average input.</p>
+
+<p>Let me translate that into English with an example.</p>
+
+<p>Suppose a stock has an equal chance of going to fifty dollars or one hundred fifty dollars, starting from one hundred. The average future price is one hundred dollars—exactly where it started. If you used a simple linear model, you'd say the option is worth nothing because, on average, the stock doesn't move.</p>
+
+<p>But look at the actual payoffs. If the stock goes to fifty, your call option is worth zero. If it goes to one hundred fifty, your option is worth fifty. The average payoff is twenty-five dollars.</p>
+
+<p>This is Jensen's inequality in action. The expected value of a convex function (the option payoff) is greater than the function of the expected value (which would be zero). The convexity creates value out of uncertainty itself.</p>
+
+<h3>Volatility as Value</h3>
+
+<p>This leads to a counterintuitive conclusion: for someone holding an option, volatility isn't just risk to be managed. It's the source of value.</p>
+
+<p>Think about it. If that stock was somehow guaranteed to stay exactly at one hundred dollars forever—zero volatility—the call option would be worthless. There would be no chance of it ever being profitable to exercise. But introduce uncertainty, make the stock wiggle around, and suddenly the option has value. More wiggling means more value.</p>
+
+<p>This is why option prices increase with expected volatility. The famous Black-Scholes equation, which revolutionized options pricing when Fischer Black and Myron Scholes published it in 1973, captures this relationship mathematically. Strip away the interest rates and the first-order effects, and the Black-Scholes equation reduces to a surprisingly elegant statement: the time value of an option equals its convexity.</p>
+
+<p>Every day that passes, an option loses a little bit of value—this is called theta decay, or time decay. But this daily loss is exactly balanced by the convexity. You're paying, day by day, for the privilege of having a curved payoff function instead of a straight one.</p>
+
+<h2>The Straddle: Buying Pure Convexity</h2>
+
+<p>Here's where traders get creative. What if you wanted to profit from volatility without taking any view on whether prices will go up or down?</p>
+
+<p>You buy a straddle.</p>
+
+<p>A straddle consists of buying both a call option and a put option at the same strike price, typically right at the current market price. The put option gives you the right to sell at that price, so it profits when prices fall. The call profits when prices rise.</p>
+
+<p>At the moment you buy a straddle, you have no directional exposure. Traders call this having zero delta—you're indifferent to small price movements in either direction. What you do have is positive convexity, measured by a quantity called gamma. You're long gamma.</p>
+
+<p>Being long gamma means you profit from movement, period. The stock shoots up? Your call becomes valuable. It crashes? Your put becomes valuable. You don't care which way it goes. You just need it to go <em>somewhere</em>.</p>
+
+<h3>The Cost of Being Long Convexity</h3>
+
+<p>But there's no free lunch in finance. If being long convexity—having positive gamma—creates value from movement, you have to pay for it somehow.</p>
+
+<p>You pay with time.</p>
+
+<p>Every day that passes without enough movement, your straddle loses value. This is negative theta. You're bleeding premium. The market is charging you rent for the privilege of having a convex payoff.</p>
+
+<p>The bet, then, becomes a race between realized and implied volatility. When you buy a straddle, you're betting that the actual volatility that materializes will exceed what the market expected when it priced the options. If prices move more than expected, you profit. If they move less than expected, you lose.</p>
+
+<p>This is the fundamental trade-off of convexity. Positive gamma gives you upside from volatility, but you pay for it through negative theta—the constant erosion of time value. Risk managers describe this as being long convexity or short convexity, and understanding which position you hold is crucial for understanding your exposure to market uncertainty.</p>
+
+<h2>Convexity in the Bond Market</h2>
+
+<p>While options traders throw around terms like gamma and theta, bond traders obsess over a closely related concept: bond convexity.</p>
+
+<p>When interest rates change, bond prices move in the opposite direction. This inverse relationship exists because a bond is essentially a promise to pay fixed amounts in the future, and those fixed amounts become more or less valuable as interest rates—the discount rate for future cash—move up or down.</p>
+
+<p>The first-order measure of this sensitivity is called duration. A bond with a duration of seven years will drop approximately seven percent in value if interest rates rise by one percentage point. But this linear approximation breaks down for large rate movements, just like a straight line eventually diverges from a curve.</p>
+
+<p>Bond convexity measures the curvature. For a typical bond, convexity is positive: the price-yield curve bows upward. This means when interest rates fall, bond prices rise <em>more</em> than duration alone would predict. And when rates rise, prices fall <em>less</em> than duration would predict.</p>
+
+<p>Positive convexity is valuable. A bond with higher convexity will outperform a bond with lower convexity if rates make big moves in either direction, while performing similarly for small moves. This is why traders will sometimes pay a premium for bonds with more convexity—they're buying insurance against rate volatility.</p>
+
+<h3>Negative Convexity and Callable Bonds</h3>
+
+<p>Not all bonds have positive convexity. Callable bonds—bonds that the issuer can redeem early—exhibit negative convexity under certain conditions.</p>
+
+<p>Consider a mortgage. Homeowners have the option to refinance when rates fall. This means when rates drop significantly, the expected cash flows from a mortgage-backed security change: people prepay their mortgages and refinance at lower rates, cutting short the income stream to bondholders.</p>
+
+<p>This creates a ceiling on how high the bond's price can go. When rates fall, the bond doesn't appreciate as much as a non-callable bond would. The price-yield curve actually bends downward at lower rates—negative convexity.</p>
+
+<p>Being short convexity means you suffer from volatility rather than benefiting from it. You've essentially sold optionality to homeowners. This is why mortgage-backed securities often trade at higher yields than similar duration Treasury bonds—the extra yield compensates investors for the embedded short option position.</p>
+
+<h2>Convexity Adjustments: When Models Need Fixing</h2>
+
+<p>Financial models are simplifications of reality. A common simplification is to assume that prices follow what mathematicians call a martingale—a random process where the expected future value equals the current value. Under this assumption, prices have no predictable drift, which simplifies many calculations enormously.</p>
+
+<p>But when prices exhibit convexity, this martingale assumption often breaks down. The expected payoff differs from the payoff of the expected price. Jensen's inequality creates a gap.</p>
+
+<p>Closing this gap requires a convexity adjustment—a correction factor that accounts for the curvature that simpler models ignore.</p>
+
+<h3>Constant Maturity Swaps</h3>
+
+<p>Consider an instrument called a Constant Maturity Swap, or CMS. In a regular interest rate swap, one party pays a fixed rate and receives a floating rate based on some short-term benchmark. In a CMS, the floating leg is instead tied to a longer-term rate, like the ten-year swap rate.</p>
+
+<p>Pricing a CMS requires knowing the expected value of future long-term rates. But here's the problem: the relationship between discount factors and interest rates is convex. Using a naive forward rate—which would be correct for a simple swap—underestimates the expected value of the CMS payments.</p>
+
+<p>The convexity adjustment for a CMS can be substantial, sometimes adding twenty or thirty basis points to the valuation. Ignoring it leads to mispricing and potential arbitrage opportunities for more sophisticated traders.</p>
+
+<h3>Eurodollar Futures and Forward Rates</h3>
+
+<p>Another classic example involves Eurodollar futures, which are contracts on future three-month interest rates. A natural question is: does the Eurodollar futures rate equal the forward rate implied by the bond market?</p>
+
+<p>It doesn't. And the reason, once again, is convexity.</p>
+
+<p>Futures contracts are marked to market daily—gains and losses are settled every day rather than at expiration. This daily settlement creates a systematic difference from forward contracts, which settle only at maturity. When rates are volatile, this difference—the convexity adjustment—can amount to several basis points per year of maturity.</p>
+
+<p>Traders who want to extract forward rates from Eurodollar futures must apply this convexity adjustment. The mathematical framework involves something called Girsanov's theorem, which allows you to transform from one probability measure to another while keeping track of how expectations change.</p>
+
+<h3>Quanto Options</h3>
+
+<p>Perhaps the most exotic application of convexity adjustments involves quanto options—options where the underlying asset is denominated in one currency, but the payout happens in another.</p>
+
+<p>Imagine an option on the Nikkei index, a Japanese stock index, that pays out in U.S. dollars. The underlying asset moves with Japanese equity markets, but your gains and losses are translated into dollars. The correlation between the Nikkei and the yen-dollar exchange rate matters enormously here.</p>
+
+<p>Under the natural pricing measure for the Nikkei (Japanese risk-neutral), the expected future index value might be one thing. But when you translate to dollars, the convexity of the currency interaction creates an adjustment. The quanto correction depends on the volatility of the exchange rate, the volatility of the underlying index, and the correlation between them.</p>
+
+<h2>The Deeper Meaning of Convexity</h2>
+
+<p>Step back from the technicalities, and convexity teaches something profound about uncertainty and value.</p>
+
+<p>In a linear world, uncertainty is just noise. It averages out. The expected outcome equals the outcome of the expected scenario. But in a convex world, uncertainty creates opportunity. The same volatility that makes planning harder also makes options valuable.</p>
+
+<p>This insight extends far beyond finance. Any situation where your payoff is curved—where you benefit disproportionately from good outcomes or are protected from bad ones—exhibits positive convexity. Having options in life, whether career flexibility, multiple skills, or financial reserves, gives you positive convexity. Uncertainty becomes your friend rather than your enemy.</p>
+
+<p>Conversely, situations with negative convexity—where you're locked into positions that suffer disproportionately from adverse moves—are dangerous. You've sold optionality. You've bet on stability. And when that stability breaks, you pay the price.</p>
+
+<p>Nassim Nicholas Taleb, the former options trader turned philosopher, has built an entire intellectual framework around this insight. He calls positions with positive convexity "antifragile"—they benefit from volatility rather than merely surviving it. Understanding convexity, in his view, is essential for navigating a world where extreme events happen more often than simple models predict.</p>
+
+<h2>Practical Implications</h2>
+
+<p>For investors, the lesson is straightforward: know your convexity profile.</p>
+
+<p>If you own a diversified portfolio of stocks, your convexity exposure depends on whether you hold options or option-like securities. A plain vanilla stock position has roughly zero convexity—it gains or loses linearly with market moves. But if you've written covered calls to generate income, you've sold convexity. You've capped your upside in exchange for immediate premium. Big moves will hurt you.</p>
+
+<p>If you own bonds, duration tells only part of the story. Two bonds with identical durations can behave very differently if one has positive convexity and the other has negative convexity. The positive convexity bond will outperform in volatile rate environments.</p>
+
+<p>For financial institutions, managing convexity is a core function. Banks with large mortgage portfolios are structurally short convexity through the prepayment option embedded in mortgages. They must hedge this exposure or accept the risk that big rate moves in either direction will hurt them.</p>
+
+<h3>The Meta-Lesson</h3>
+
+<p>Perhaps the most important takeaway is epistemic: be suspicious of linear thinking.</p>
+
+<p>The world is full of convexities hiding behind apparent linear relationships. When someone presents a simple sensitivity analysis—"if X goes up by one percent, Y goes up by two percent"—ask what happens when X moves by ten percent. Ask about the second derivative. Ask about the curvature.</p>
+
+<p>Because in finance, and in life, the interesting things usually happen at the extremes. And it's precisely at the extremes where linear approximations fail and convexity reveals itself.</p>
+      </div>
+
+      <footer class="wikipedia-footer">
+        <p class="source-link">
+          <a href="https://en.wikipedia.org/wiki/Convexity_(finance)" target="_blank" rel="noopener">
+            View original Wikipedia article &rarr;
+          </a>
+        </p>
+        <p class="rewrite-note">
+          This article has been rewritten from Wikipedia source material for enjoyable reading.
+          Content may have been condensed, restructured, or simplified.
+        </p>
+      </footer>
+
+      
+      <section class="related-articles">
+        <h2>Related Articles</h2>
+        <p class="related-intro">This deep dive was written in connection with these articles:</p>
+        <ul class="related-list">
+          
+      <li class="related-article-item">
+        <a href="../../article/1f576471-0215-48de-ace2-5c9ae9c20142/index.html">
+          <strong>Pitching Hackathon Ideas: Oxymoron</strong>
+        </a>
+        <span class="article-meta">
+          by Kent Beck in Software Design: Tidy First?
+        </span>
+      </li>
+        </ul>
+      </section>
+    
+    </article>
+  
+  </main>
+</body>
+</html>
