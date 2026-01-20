@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Real-time gross settlement - Hex Index</title>
+  <link rel="stylesheet" href="../../styles.css">
+</head>
+<body class="reading-mode">
+  <header class="reading-header">
+    <a href="../../index.html" class="back-link">&larr; Back to Library</a>
+  </header>
+  <main class="reading-content">
+    
+    <article class="wikipedia-page">
+      <header class="wikipedia-header">
+        <div class="type-badge">Wikipedia Deep Dive</div>
+        <h1>Real-time gross settlement</h1>
+        <div class="article-meta">
+          <span class="read-time">13 min read</span>
+        </div>
+      </header>
+
+      <div class="wikipedia-content">
+        I've prepared the rewritten article. Here's the HTML content for the Real-Time Gross Settlement Wikipedia article:
+
+```html
+<p class="source-note">Based on <a href="https://en.wikipedia.org/wiki/Real-time_gross_settlement">Wikipedia: Real-time gross settlement</a></p>
+
+<p>Every second of every day, trillions of dollars move between banks. Most of us never think about how this happens. We tap our phones, swipe our cards, and trust that money will appear where it needs to be. But behind that simple experience lies a question that kept central bankers awake for decades: what happens when a bank promises to pay, but then collapses before the money actually moves?</p>
+
+<p>The answer to that question changed the architecture of global finance. It's called Real-Time Gross Settlement, or RTGS—and if you've ever wondered how Brazil's Pix system can process four and a half trillion dollars in a single year, this is the infrastructure that makes it possible.</p>
+
+<h2>The Problem of Settlement Risk</h2>
+
+<p>To understand why RTGS matters, you need to understand how money used to move between banks.</p>
+
+<p>Imagine two banks that each owe each other money at the end of a business day. Bank A owes Bank B five million dollars. Bank B owes Bank A three million. Rather than moving eight million dollars back and forth, it's simpler to just calculate the difference: Bank A sends Bank B two million, and they're square. This is called net settlement—you bundle up all the day's transactions and settle the net amount at the end.</p>
+
+<p>Simple. Efficient. Dangerous.</p>
+
+<p>Here's why. If Bank A collapses at 3pm, but the netting calculation doesn't happen until 6pm, then Bank B has a problem. It has been operating all day assuming Bank A will pay. Bank B might have already promised that money to other banks. Those banks promised it to others. A single failure cascades through the system like dominoes.</p>
+
+<p>This isn't theoretical. Before RTGS systems became widespread, settlement failures could—and did—threaten the stability of entire financial systems. The gap between when a payment is promised and when it actually settles is called settlement risk, and eliminating it became the holy grail of central banking.</p>
+
+<h2>What "Real-Time" and "Gross" Actually Mean</h2>
+
+<p>RTGS solves the settlement risk problem by doing exactly what its name suggests, though the terminology deserves unpacking.</p>
+
+<p>"Gross settlement" means each transaction settles individually. No bundling. No netting. If Bank A owes Bank B five million and Bank B owes Bank A three million, those are two separate transactions that each settle independently. This is the opposite of net settlement, where transactions are combined.</p>
+
+<p>Why does gross settlement matter? Because it eliminates the interdependence that makes net settlement risky. Each transaction stands alone. If Bank A fails, it only affects the transactions that Bank A itself was party to—not a complex web of netted positions that have to be unwound.</p>
+
+<p>"Real-time" means transactions settle as they're processed, not at the end of the day. But here's an important nuance: real-time doesn't mean instantaneous. When you send a wire transfer through a system like FedWire in the United States, it's technically real-time, but it might still take hours. The wire room at your bank might need to review it. The receiving bank might have compliance checks to run.</p>
+
+<p>What "real-time" really means is that there's no scheduled waiting period. The transaction doesn't sit in a queue until 6pm for the day's netting calculation. It settles as soon as it's processed through whatever steps it needs to go through.</p>
+
+<p>And "settlement" in this context is final and irrevocable. Once the central bank adjusts the accounts, it's done. Bank A's balance goes down, Bank B's balance goes up, and there's no taking it back. This finality is crucial because it removes uncertainty. Banks can rely on settled funds immediately.</p>
+
+<h2>The Telegraph to Digital Revolution</h2>
+
+<p>The United States gets credit for launching the first true RTGS system with FedWire in 1970, though its origins go back much further.</p>
+
+<p>Before FedWire was digital, it was telegraphic. The Federal Reserve banks used to transfer funds between each other using coded telegraph messages. The concept was the same—move money between accounts without physically shipping currency—but the technology was primitive by modern standards.</p>
+
+<p>The 1970 system translated this into digital form. Banks could now transfer funds electronically, with settlements happening throughout the day rather than being batched. It wasn't perfect by modern standards, but it established the pattern that the rest of the world would follow.</p>
+
+<p>Britain and France both developed their own RTGS systems independently in 1984. The British system, called CHAPS (Clearing House Automated Payment System), was developed by the Bankers' Clearing House. France launched SAGITTAIRE. Each country built its system around its own existing processes and procedures, which meant early RTGS systems varied wildly in their technical implementation.</p>
+
+<p>This diversity wasn't a problem at first. These were national systems for national payments. But as financial markets became more global in the 1990s, the patchwork of different systems started to matter more.</p>
+
+<h2>Why Central Banks Run These Systems</h2>
+
+<p>Almost everywhere in the world, RTGS systems are operated by the central bank. This isn't an accident.</p>
+
+<p>Think about what an RTGS system actually does. It adjusts the accounts that banks hold at the central bank. When Bank A sends money to Bank B, the central bank doesn't move physical cash—it simply reduces the number in Bank A's account and increases the number in Bank B's account. The central bank is the only institution with the authority to make those adjustments.</p>
+
+<p>But there's a deeper reason for central bank operation: trust. An RTGS system is, in the words of economists, critical infrastructure. A weak payment system can "severely drag on the stability and developmental capacity of a national economy." Failures don't just cause financial losses—they undermine confidence in money itself.</p>
+
+<p>When confidence collapses, people start hoarding cash. They stop trusting electronic balances. They demand physical currency or, in extreme cases, gold. The smooth functioning of modern economies depends on people trusting that the numbers on their screens represent real value that they can actually use. Payment system failures attack that trust at its foundation.</p>
+
+<p>This is why central banks, rather than private companies, typically run these systems. The central bank has no profit motive that might conflict with stability. It has the authority to require banks to participate. And it has the balance sheet to absorb losses if something goes wrong.</p>
+
+<h2>The 1990s: RTGS Goes Global</h2>
+
+<p>By 1985, only three central banks had implemented RTGS systems. By 2005, ninety had done so. What happened?</p>
+
+<p>The 1990s saw international financial organizations—the Bank for International Settlements, the International Monetary Fund, the World Bank—start treating payment systems as essential financial infrastructure. They pushed the idea that every country needs a reliable way to settle large-value payments between banks.</p>
+
+<p>The Group of Ten countries (actually eleven major economies including the United States, Japan, Germany, and the United Kingdom) led the charge. By 1997, nearly all G-10 countries either had RTGS systems running or had plans to launch them. The message to other countries was clear: if you want to participate in global financial markets, you need this infrastructure.</p>
+
+<p>But adoption wasn't just about international pressure. Several factors made it increasingly attractive for central banks to adopt RTGS systems.</p>
+
+<p>First, competitive pressure from global markets. Banks operating internationally needed to settle transactions in multiple currencies, and countries without RTGS systems became bottlenecks.</p>
+
+<p>Second, network effects. The more countries that had RTGS systems, the more valuable it became to have one yourself. An RTGS system that can connect to other RTGS systems is far more useful than one that stands alone.</p>
+
+<p>Third, knowledge spillovers. As more central banks gained experience with RTGS systems, they shared what they learned. The learning curve for new adopters became much less steep.</p>
+
+<p>Fourth, and perhaps most practically, central banks didn't have to build these systems from scratch. A handful of specialized technology providers—companies based in the United Kingdom, Sweden, South Africa, Italy, and the United States—developed RTGS platforms that could be adapted for different countries. The ability to buy rather than build dramatically lowered the barriers to adoption.</p>
+
+<h2>How RTGS Actually Works</h2>
+
+<p>Let's trace through what happens when a large payment moves through an RTGS system.</p>
+
+<p>Say a corporation needs to pay fifty million dollars to another corporation, and their banks are Bank A and Bank B respectively. The corporation instructs Bank A to make the payment. Bank A submits the payment instruction to the RTGS system operated by the central bank.</p>
+
+<p>The system checks that Bank A has sufficient funds in its account at the central bank. If it does, the system immediately debits Bank A's account by fifty million and credits Bank B's account by the same amount. No physical money moves. The central bank simply changes numbers in its ledger.</p>
+
+<p>The settlement is immediate—as soon as the system processes the instruction. It's final—there's no reversing it. And it's gross—this transaction settled on its own, not bundled with others.</p>
+
+<p>Bank B's account now shows fifty million more. Bank B credits the receiving corporation's account. The payment is complete.</p>
+
+<p>This entire process might happen in seconds, or it might take hours if human review is required. But at no point is there a gap where the money is "in transit" in an uncertain state. Either the settlement has happened or it hasn't. There's no ambiguity.</p>
+
+<h2>The Trade-Off: Liquidity vs. Risk</h2>
+
+<p>RTGS systems eliminate settlement risk, but they create a different challenge: liquidity requirements.</p>
+
+<p>In a net settlement system, Bank A might send out a billion dollars in the morning and receive a billion dollars in the afternoon. At the end of the day, the net effect might be close to zero. Bank A doesn't need to have a billion dollars sitting in its account—it just needs enough to cover the net difference.</p>
+
+<p>In an RTGS system, Bank A needs enough funds to cover each outgoing payment at the moment it settles. If Bank A wants to send fifty million dollars at 9am, it needs fifty million dollars in its account at 9am, even if it expects to receive sixty million at 10am.</p>
+
+<p>This means banks in RTGS systems need to hold more reserves, or they need access to intraday credit from the central bank. Most RTGS systems allow banks to borrow from the central bank during the day to cover temporary shortfalls, settling up by end of day. But this creates its own complications—what happens if a bank can't repay the intraday loan?</p>
+
+<p>The consensus among central bankers is that this trade-off is worth it. Higher liquidity requirements are a known, manageable cost. Settlement risk is an unpredictable threat that can cascade through the entire financial system.</p>
+
+<h2>RTGS and Modern Payment Systems</h2>
+
+<p>When you hear about modern payment systems like Brazil's Pix, India's Unified Payments Interface, or the United Kingdom's Faster Payments, you might wonder how they relate to RTGS.</p>
+
+<p>The answer is: it's complicated, and it depends on the system.</p>
+
+<p>Traditional RTGS systems were designed for large-value payments—the kind of transactions that move between banks and major corporations. They're not really built for someone buying coffee. The per-transaction costs are too high, and the systems aren't optimized for the kind of volume that retail payments generate.</p>
+
+<p>Modern retail payment systems like Pix typically use a different architecture. They might batch small transactions and settle them through the RTGS system periodically, or they might operate their own settlement mechanisms that are backed by the RTGS system but function differently in practice.</p>
+
+<p>But the principles remain the same. The goal is still to minimize the gap between when a payment is promised and when it settles. The innovation is in making that process fast and cheap enough to work for everyday transactions, not just massive interbank transfers.</p>
+
+<p>When Pix processes 26 trillion reais in a year, it's building on infrastructure that central banks spent decades developing. The specific technology is new, but the fundamental problem it solves—how do you move money reliably between accounts?—is as old as banking itself.</p>
+
+<h2>The World Bank and Global Infrastructure</h2>
+
+<p>The World Bank has provided assistance with payment systems to over one hundred countries. This might seem like an unusual focus for a development institution, but it reflects a hard-won understanding: you can't have a functioning economy without a functioning payment system.</p>
+
+<p>Countries without reliable payment infrastructure face serious handicaps. Businesses struggle to pay suppliers and receive payments from customers. Banks can't efficiently move funds between each other. International trade becomes more expensive and risky. The cost of these frictions is real, even if it's hard to measure precisely.</p>
+
+<p>The best RTGS systems in the world now cover up to 95% of high-value transactions within their national monetary markets. That level of coverage means settlement risk has been largely eliminated for the transactions that matter most. It's one of those achievements that's invisible precisely because it works so well.</p>
+
+<h2>The Invisible Plumbing of Finance</h2>
+
+<p>Most people will never interact directly with an RTGS system. These are wholesale systems—they operate in the background, moving money between banks, not between individuals.</p>
+
+<p>But every time you make a payment that ultimately involves moving money between two different banks, you're relying on infrastructure that traces back to the ideas behind RTGS. The finality. The certainty. The elimination of settlement risk. These concepts have permeated the entire payment system, even when the specific technology differs.</p>
+
+<p>Brazil's Pix can feel instant and magical to users precisely because decades of work went into building the underlying infrastructure that makes instant settlement possible. The telegraph-to-digital evolution that started with FedWire in 1970 created the template that every country has adapted and improved upon.</p>
+
+<p>The money in your account is just a number on a screen. The entire financial system runs on the shared belief that those numbers mean something—that they represent real purchasing power you can actually use. RTGS systems are part of what makes that belief justified. They ensure that when money moves, it actually moves. No uncertainty. No gaps. No cascading failures when one link in the chain breaks.</p>
+
+<p>It's boring, technical, unglamorous work. Which is exactly what you want from the plumbing that connects the global financial system.</p>
+```
+
+The article has been rewritten as an engaging essay optimized for Speechify text-to-speech reading. It covers:
+
+- The core problem of settlement risk that RTGS solves
+- Detailed explanation of what "real-time," "gross," and "settlement" actually mean
+- Historical development from FedWire (1970) through CHAPS and SAGITTAIRE
+- Why central banks operate these systems
+- The global adoption in the 1990s and the factors driving it
+- A step-by-step walkthrough of how RTGS works
+- The liquidity vs. risk trade-off
+- Connection to modern payment systems like Brazil's Pix
+- The World Bank's role in global payment infrastructure
+
+The writing varies sentence and paragraph length for audio listening, spells out acronyms on first use, and explains concepts from first principles without assuming prior knowledge.
+      </div>
+
+      <footer class="wikipedia-footer">
+        <p class="source-link">
+          <a href="https://en.wikipedia.org/wiki/Real-time_gross_settlement" target="_blank" rel="noopener">
+            View original Wikipedia article &rarr;
+          </a>
+        </p>
+        <p class="rewrite-note">
+          This article has been rewritten from Wikipedia source material for enjoyable reading.
+          Content may have been condensed, restructured, or simplified.
+        </p>
+      </footer>
+
+      
+      <section class="related-articles">
+        <h2>Related Articles</h2>
+        <p class="related-intro">This deep dive was written in connection with these articles:</p>
+        <ul class="related-list">
+          
+      <li class="related-article-item">
+        <a href="../../article/469604a5-eb78-446d-9a5c-19296e1d9c02/index.html">
+          <strong>Brazil’s Pix Is Getting a Credit Upgrade</strong>
+        </a>
+        <span class="article-meta">
+          by Ana Paula Picasso in Emerging Markets Today
+        </span>
+      </li>
+        </ul>
+      </section>
+    
+    </article>
+  
+  </main>
+</body>
+</html>

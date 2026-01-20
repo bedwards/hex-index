@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Markov decision process - Hex Index</title>
+  <link rel="stylesheet" href="../../styles.css">
+</head>
+<body class="reading-mode">
+  <header class="reading-header">
+    <a href="../../index.html" class="back-link">&larr; Back to Library</a>
+  </header>
+  <main class="reading-content">
+    
+    <article class="wikipedia-page">
+      <header class="wikipedia-header">
+        <div class="type-badge">Wikipedia Deep Dive</div>
+        <h1>Markov decision process</h1>
+        <div class="article-meta">
+          <span class="read-time">14 min read</span>
+        </div>
+      </header>
+
+      <div class="wikipedia-content">
+        <p class="source-note">Based on <a href="https://en.wikipedia.org/wiki/Markov_decision_process">Wikipedia: Markov decision process</a></p>
+
+<p>Imagine you're a robot vacuum cleaner. You're sitting in the middle of a living room, battery at sixty percent, and you need to decide: should you head toward that dusty corner under the couch, or make your way back to the charging station? The corner promises more cleaning done, but if your battery dies before you get back to charge, you'll be stuck there uselessly until someone rescues you. Every moment, you face this kind of tradeoff—immediate reward versus long-term survival.</p>
+
+<p>This is exactly the kind of problem that Markov decision processes were invented to solve.</p>
+
+<h2>The Mathematics of Making Choices Under Uncertainty</h2>
+
+<p>A Markov decision process, often abbreviated as MDP, provides a formal mathematical framework for situations where you need to make a sequence of decisions, but you can't be entirely sure what will happen after each choice. The outcomes are probabilistic rather than certain. You might turn left and usually end up in the kitchen, but occasionally bump into a wall instead.</p>
+
+<p>The framework emerged from operations research in the 1950s, a field dedicated to applying mathematical methods to complex organizational problems. Since then, it has spread remarkably far. Ecologists use MDPs to model animal foraging behavior. Economists apply them to investment decisions. Healthcare researchers use them to optimize treatment protocols. Telecommunications engineers rely on them for network routing. And perhaps most significantly today, MDPs form the theoretical backbone of reinforcement learning—the technique behind many modern artificial intelligence systems.</p>
+
+<p>The name itself carries historical weight. "Markov" refers to Andrey Markov, a Russian mathematician who worked in the early twentieth century. Markov studied sequences of random events where the probability of what happens next depends only on the current state, not on the entire history of how you got there. This is called the Markov property, and it's a powerful simplification. The "decision process" part indicates that unlike a pure Markov chain, which simply evolves on its own, an MDP includes an agent who makes choices that influence how the system evolves.</p>
+
+<h2>The Four Essential Components</h2>
+
+<p>Every Markov decision process consists of four ingredients that work together like the parts of a machine.</p>
+
+<p>First, there's a set of states—all the different situations the system can be in. For our robot vacuum, states might include its location in the room, its battery level, and how much dirt remains in various areas. The collection of all possible states is called the state space. It can be discrete, like the squares on a chessboard, or continuous, like all possible positions in a room.</p>
+
+<p>Second, there's a set of actions—all the choices available to the decision maker. The robot might be able to move forward, turn left, turn right, or head to its charging station. Different states might offer different available actions. You can't turn left if there's a wall there.</p>
+
+<p>Third, and this is where uncertainty enters, there are transition probabilities. These describe how likely you are to end up in each possible next state, given your current state and chosen action. If the robot chooses to move forward, maybe there's a ninety percent chance it successfully advances one foot, a five percent chance it slips slightly to the left, and a five percent chance it bumps into an unexpected obstacle. These probabilities capture the fundamental unpredictability of the real world.</p>
+
+<p>Fourth, there are rewards. After each transition from one state to another, the agent receives some feedback—a number representing how good or bad that outcome was. Successfully cleaning a dusty spot might yield a reward of one point. Running out of battery in the middle of the room might yield negative ten points. The reward function encodes what we actually want the agent to accomplish.</p>
+
+<h2>The Quest for Good Policy</h2>
+
+<p>With these four components defined, the central question becomes: what should the agent do? More precisely, what strategy should it follow?</p>
+
+<p>In MDP terminology, a strategy is called a policy. A policy is simply a rule that tells the agent which action to take in each possible state. It might say "when battery is above fifty percent and there's dirt nearby, clean it; when battery drops below thirty percent, head for the charger regardless of dirt." A policy can be deterministic, always prescribing the same action for a given state, or it can be probabilistic, specifying chances of taking different actions.</p>
+
+<p>Here's a beautiful mathematical fact: once you commit to a particular policy, the decision process becomes a regular Markov chain. The agent is no longer making choices—it's just following its predetermined rule. The system evolves randomly according to fixed probabilities, and you can analyze it using the tools mathematicians developed for Markov chains over a century ago.</p>
+
+<p>But which policy should you choose? This is where optimization enters the picture.</p>
+
+<h2>Thinking About the Future</h2>
+
+<p>The goal is to find a policy that maximizes cumulative reward over time. But "over time" requires careful thought. Do you care equally about rewards you'll receive tomorrow and rewards you'll receive in ten years?</p>
+
+<p>Usually not. Most MDP formulations include a discount factor—a number between zero and one that determines how much you value future rewards compared to immediate ones. A discount factor of 0.9 means a reward received tomorrow is worth ninety percent of the same reward received today. A reward two days from now is worth 0.9 times 0.9, or eighty-one percent. A reward a hundred days from now is worth 0.9 raised to the hundredth power—vanishingly small.</p>
+
+<p>This discounting serves several purposes. Practically, it makes the mathematics work out cleanly when you're summing rewards over an infinite time horizon. Philosophically, it captures the intuition that there's genuine uncertainty about whether you'll even be around to collect distant future rewards. Your robot vacuum might break down; your company might pivot to a different product; you might retire. A bird in the hand really is worth more than two in the bush.</p>
+
+<p>A discount factor close to one produces a far-sighted agent that carefully considers long-term consequences. A discount factor close to zero produces a myopic agent focused only on immediate gratification. Neither extreme is universally correct—the right choice depends on the specific problem.</p>
+
+<p>An alternative approach, sometimes used in theoretical analysis, is to simply cap the time horizon. Instead of discounting future rewards, you declare that the agent only cares about the next hundred steps, with all rewards weighted equally. This finite-horizon formulation has different mathematical properties but addresses similar concerns about infinite sums.</p>
+
+<h2>Finding Optimal Policies</h2>
+
+<p>A policy that achieves the maximum possible expected cumulative reward is called an optimal policy. One of the most remarkable results in MDP theory is that optimal policies always exist, and for many problems, they're surprisingly simple.</p>
+
+<p>When the rewards and transitions are all deterministic—no randomness anywhere—there always exists an optimal policy that is itself deterministic. You don't need to flip coins to decide what to do; you can commit to a fixed action in each state. Even when there is randomness in the system, as long as the reward structure is deterministic, you can still find deterministic optimal policies.</p>
+
+<p>Some MDPs have multiple optimal policies that achieve the same maximum reward through different routes. This isn't a problem—any of them will do.</p>
+
+<p>For MDPs with finite state and action spaces—a limited number of possible situations and choices—there are well-established algorithms to compute optimal policies. These algorithms maintain two key pieces of information for each state: its value, representing the expected cumulative reward starting from that state and following the optimal policy forward, and the optimal action to take there.</p>
+
+<p>The algorithms work iteratively, repeatedly updating value estimates and action choices until they converge to the true optimum. The details involve clever mathematical relationships called Bellman equations, named after Richard Bellman, who founded the field of dynamic programming in the 1950s. Dynamic programming, in this context, doesn't refer to computer programming but to a mathematical technique for breaking complex optimization problems into simpler subproblems.</p>
+
+<h2>When You Can't Write Down the Probabilities</h2>
+
+<p>The elegant algorithms for solving MDPs require knowing the transition probabilities explicitly. You need to be able to say precisely: if I take action A in state S, there's a forty percent chance I end up in state S1 and a sixty percent chance I end up in state S2.</p>
+
+<p>But in many real-world situations, you don't have this information. Nobody handed you a complete probabilistic model of how robot vacuums interact with living room furniture. You might not even know all the possible states your system can occupy.</p>
+
+<p>This is where simulators become invaluable. Instead of explicit probability tables, you have a black box that you can query: give it a state and an action, and it will return a possible next state and reward. Run it many times, and you can empirically discover what the transition probabilities approximately are.</p>
+
+<p>There are different types of simulators with different capabilities. An episodic simulator starts from some initial condition and generates a complete trajectory—a sequence of states, actions, and rewards—until some termination condition is reached. A generative model is more flexible: you can query it from any state, not just states you've already visited in a trajectory. This distinction matters for algorithm design.</p>
+
+<p>These model types form a hierarchy. If you have explicit probability tables, you can easily create a generative model by sampling from those tables. If you have a generative model, you can generate episodic trajectories by stringing together single steps. Going the other direction is harder—you can try to learn approximate models from simulation data, but you'll never recover the exact probabilities.</p>
+
+<h2>The Pole-Balancing Problem</h2>
+
+<p>To make these abstractions concrete, consider a classic example from control theory: balancing a pole.</p>
+
+<p>Picture a cart that can roll left and right on a track, with a pole hinged to the top of the cart. The pole can tip forward or backward. Your job is to keep the pole upright by pushing the cart in appropriate directions. It's like balancing a broomstick on your palm, except you can only move your palm left or right, not forward or back.</p>
+
+<p>In MDP terms, the state captures everything relevant about the current situation: the angle of the pole from vertical, how fast the pole is currently rotating, the position of the cart on the track, and the cart's current velocity. Four numbers completely describe the state.</p>
+
+<p>The actions are simple: push left or push right. That's it. Just two choices at every moment.</p>
+
+<p>The transition probabilities come from the laws of physics. Given the current angle, velocity, position, and speed, plus the direction you're pushing, Newtonian mechanics tells you exactly what happens next. In this idealized version, there's no randomness—the physics is deterministic. More realistic versions might add noise to model imperfect actuators or unpredictable gusts of air.</p>
+
+<p>The reward structure encodes your goal. The simplest version gives you a reward of one for each time step the pole remains upright, and zero once it falls past some threshold angle. Your cumulative reward is simply how long you manage to keep balancing. An optimal policy keeps the pole up indefinitely.</p>
+
+<p>This seemingly simple problem turns out to be a surprisingly good testbed for reinforcement learning algorithms. It's easy to simulate, the state space is small enough to visualize, but the dynamics are rich enough to require genuine learning. Countless research papers have used pole-balancing as a benchmark.</p>
+
+<h2>Beyond Finite Problems</h2>
+
+<p>The algorithms that work elegantly for finite MDPs—those with limited numbers of states and actions—struggle when the state space becomes enormous or continuous. You can't store a value estimate for every grain of sand on a beach or every possible position of a robot arm with seventeen degrees of freedom.</p>
+
+<p>This is where function approximation enters. Instead of storing a separate value for each state, you train a function—often a neural network—to estimate values. The function generalizes from states it has seen to states it hasn't. This is precisely what modern deep reinforcement learning does: it combines the MDP framework with deep neural networks to handle problems of staggering complexity.</p>
+
+<p>The AlphaGo system that defeated world champion Go players, the agents that master Atari games from raw pixels, the algorithms that control robot hands with fluid dexterity—all of them build on the MDP foundation, extended through function approximation and clever search techniques.</p>
+
+<h2>The Deeper Significance</h2>
+
+<p>What makes the Markov decision process framework so enduring? Why has it survived largely unchanged for seventy years while spreading into so many fields?</p>
+
+<p>Part of the answer is that MDPs capture something fundamental about how agents interact with their environments. The framework naturally incorporates causality—your actions have consequences. It handles uncertainty—you can't perfectly predict outcomes. It represents goals through rewards—there's something the agent is trying to achieve. And it does all this in a mathematically precise way that admits rigorous analysis and algorithm design.</p>
+
+<p>The Markov property, far from being a limiting assumption, turns out to describe many real situations surprisingly well. Or rather, you can often engineer your state representation to make the Markov property hold. If the future depends on some aspect of history, include that aspect in your state definition. The current state of a chess game really does contain everything you need to play optimally—you don't need to know the sequence of moves that produced it.</p>
+
+<p>Another part of the answer is the elegant connection between MDPs and optimal control theory, which studies how to steer dynamical systems toward desired behaviors. MDPs are essentially optimal control problems with stochastic dynamics and discrete time. The Bellman equations that solve MDPs are closely related to the Hamilton-Jacobi-Bellman equations that solve continuous control problems. Ideas flow freely between these communities.</p>
+
+<p>Perhaps most importantly, the MDP framework is modular. You can swap out different components while keeping the overall structure. Change the reward function to change the goal. Change the transition dynamics to model a different environment. Add constraints on which actions are allowed. Introduce multiple interacting agents to study game theory. The basic framework accommodates endless variations.</p>
+
+<h2>What MDPs Leave Out</h2>
+
+<p>No framework is perfect, and MDPs make simplifying assumptions that don't always match reality.</p>
+
+<p>The biggest assumption is full observability: the agent knows exactly what state it's in. Real robots have noisy sensors. Real investors don't know the true state of the economy. Real medical patients might not accurately report their symptoms. Partially observable MDPs, or POMDPs, extend the framework to handle this, but they're significantly harder to solve.</p>
+
+<p>MDPs also assume stationary dynamics—the transition probabilities don't change over time. In reality, environments evolve. What worked last year might fail this year. Handling non-stationarity requires additional machinery.</p>
+
+<p>The reward function must be specified in advance, but in many applications, defining the right reward is the hard part. Reward engineering—crafting reward functions that actually produce desired behavior—is a dark art. Get it wrong, and your agent will find clever ways to maximize its score while completely missing the point. This reward hacking problem becomes increasingly serious as agents become more capable.</p>
+
+<p>Finally, MDPs assume the agent takes actions one at a time in discrete steps. Some problems involve continuous action over time, or multiple decisions that must be made simultaneously, or actions with varying durations. Extensions exist, but they add complexity.</p>
+
+<h2>A Framework That Keeps Giving</h2>
+
+<p>Despite these limitations, Markov decision processes remain the dominant framework for sequential decision making under uncertainty. If you want to understand how AlphaGo works, or how recommendation systems learn your preferences, or how autonomous vehicles plan their routes, or how any reinforcement learning algorithm thinks about its problem, you need to understand MDPs.</p>
+
+<p>The framework provides a common language. Researchers in ecology and robotics and finance can communicate because they're all working with states, actions, transitions, and rewards. Algorithms developed in one domain often transfer to another. Theoretical insights propagate across fields.</p>
+
+<p>And the questions the framework raises—how to balance immediate and future rewards, how to learn from experience without complete knowledge of your environment, how to translate high-level goals into moment-by-moment decisions—turn out to be exactly the questions we need to answer as we build increasingly autonomous artificial agents.</p>
+
+<p>Andrey Markov couldn't have imagined where his mathematical abstraction would lead. He was studying the statistics of vowel and consonant sequences in Russian poetry. Now his name is attached to the framework that underpins modern artificial intelligence's attempts to act intelligently in an uncertain world.</p>
+
+<p>The robot vacuum continuing to make its rounds, the game-playing AI considering its next move, the treatment-planning algorithm weighing medical options—all of them are solving Markov decision processes. They're all asking the same essential question: given where I am now, and given what I want, and given that I can't be certain what will happen, what should I do?</p>
+      </div>
+
+      <footer class="wikipedia-footer">
+        <p class="source-link">
+          <a href="https://en.wikipedia.org/wiki/Markov_decision_process" target="_blank" rel="noopener">
+            View original Wikipedia article &rarr;
+          </a>
+        </p>
+        <p class="rewrite-note">
+          This article has been rewritten from Wikipedia source material for enjoyable reading.
+          Content may have been condensed, restructured, or simplified.
+        </p>
+      </footer>
+
+      
+      <section class="related-articles">
+        <h2>Related Articles</h2>
+        <p class="related-intro">This deep dive was written in connection with these articles:</p>
+        <ul class="related-list">
+          
+      <li class="related-article-item">
+        <a href="../../article/d68ebeb6-573f-4d87-b1f3-1e23d9f3579d/index.html">
+          <strong>LLM Research Papers: The 2025 List (January to June)</strong>
+        </a>
+        <span class="article-meta">
+          by Sebastian Raschka in Ahead of AI
+        </span>
+      </li>
+        </ul>
+      </section>
+    
+    </article>
+  
+  </main>
+</body>
+</html>

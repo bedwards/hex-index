@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kolmogorov complexity - Hex Index</title>
+  <link rel="stylesheet" href="../../styles.css">
+</head>
+<body class="reading-mode">
+  <header class="reading-header">
+    <a href="../../index.html" class="back-link">&larr; Back to Library</a>
+  </header>
+  <main class="reading-content">
+    
+    <article class="wikipedia-page">
+      <header class="wikipedia-header">
+        <div class="type-badge">Wikipedia Deep Dive</div>
+        <h1>Kolmogorov complexity</h1>
+        <div class="article-meta">
+          <span class="read-time">10 min read</span>
+        </div>
+      </header>
+
+      <div class="wikipedia-content">
+        I've written the essay. Here it is:
+
+---
+
+<p class="source-note">Based on <a href="https://en.wikipedia.org/wiki/Kolmogorov_complexity">Wikipedia: Kolmogorov complexity</a></p>
+
+<p>Here is a puzzle that sounds almost childish: What makes one string of characters more complicated than another? Consider these two sequences, each exactly thirty-two characters long:</p>
+
+<p><code>abababababababababababababababab</code></p>
+
+<p><code>4c1j5b2p0cv4w1x8rx2y39umgw5q85s7</code></p>
+
+<p>You already know the first one is simpler. You can feel it. But can you prove it?</p>
+
+<p>In the 1960s, a Soviet mathematician named Andrey Kolmogorov figured out how to make this intuition mathematically precise, and in doing so, he stumbled onto one of the deepest ideas in all of computer science. The answer involves programs, paradoxes, and the fundamental limits of what any machine can know about the universe.</p>
+
+<h2>The Shortest Program That Prints Your Name</h2>
+
+<p>The key insight is this: the complexity of something is the length of the shortest computer program that can produce it.</p>
+
+<p>Think about those two strings again. To produce the first one, you could write a tiny program: "print 'ab' sixteen times." That instruction is about seventeen characters long. But to produce the second string? The shortest program is essentially just: "print '4c1j5b2p0cv4w1x8rx2y39umgw5q85s7'" — which is thirty-eight characters, longer than the string itself once you add the command around it.</p>
+
+<p>This is what we now call Kolmogorov complexity: the length of the shortest possible description of something. A simple pattern has low Kolmogorov complexity because you can describe it briefly. A random jumble has high Kolmogorov complexity because there's no way to compress it — you just have to write the whole thing out.</p>
+
+<p>The idea seems almost too simple to be profound. But watch what happens when you follow it to its logical conclusions.</p>
+
+<h2>The Programming Language Doesn't Matter (Much)</h2>
+
+<p>You might object: surely the complexity of something depends on what programming language you use? A description that's short in Python might be long in assembly code.</p>
+
+<p>Kolmogorov anticipated this objection with an elegant theorem. Yes, different languages give different complexity values. But the difference is always bounded by a constant. Here's why.</p>
+
+<p>Suppose you have a description of something in Language A. You can always convert it to Language B by writing an interpreter for Language A in Language B, and then appending your original description. The interpreter is a fixed-size program — it doesn't depend on what you're describing. So the difference between complexity in Language A and complexity in Language B is at most the size of that interpreter.</p>
+
+<p>This means that when we talk about Kolmogorov complexity, we're really talking about something inherent to the object itself, not an artifact of our notation. The absolute numbers might shift depending on your choice of language, but the relative complexity of different objects stays the same, up to that constant offset.</p>
+
+<p>Mathematicians express this by saying Kolmogorov complexity is "invariant up to an additive constant." Every equation in this field carries an implicit "plus or minus some fixed number of bytes" — a tolerance that acknowledges the arbitrariness of our description language while preserving the fundamental relationships.</p>
+
+<h2>Most Things Are Incompressible</h2>
+
+<p>Here's a fact that surprises most people when they first encounter it: almost all strings are incompressible.</p>
+
+<p>Think about all possible strings of length n. There are 2^n of them. Now think about all possible programs shorter than n bits. There are fewer than 2^n of those (actually, fewer than 2^n minus 1). Since each program produces at most one output, there simply aren't enough short programs to go around. Most strings of length n cannot have a description shorter than n.</p>
+
+<p>This is why random data doesn't compress. ZIP files work by finding patterns — repeated sequences, statistical regularities — and encoding them more efficiently. But a truly random string has no patterns to exploit. Its Kolmogorov complexity is approximately equal to its length.</p>
+
+<p>Conversely, the strings we encounter in daily life — text, images, video — are highly compressible precisely because they're not random. English text has redundancy: if you see "q," you know "u" is coming. Images have spatial correlation: nearby pixels are usually similar colors. These patterns allow compression algorithms to find short descriptions.</p>
+
+<h2>The Impossible Measurement</h2>
+
+<p>Now comes the dark twist in this story. Kolmogorov complexity is perfectly well-defined mathematically. Every string has a precise complexity value. But we can never compute it.</p>
+
+<p>Not "it's difficult to compute" or "we don't have fast enough computers." It's provably impossible. No algorithm can exist that takes a string as input and outputs its Kolmogorov complexity.</p>
+
+<p>The proof is a beautiful exercise in self-reference. Suppose such an algorithm did exist. Then consider this program:</p>
+
+<blockquote>
+<p>Search through all strings in order of length. For each string, compute its Kolmogorov complexity. When you find a string whose complexity exceeds one million bits, print it and halt.</p>
+</blockquote>
+
+<p>This program is relatively short — maybe a few thousand bits at most. But it outputs a string with complexity greater than one million. That means we've found a short description of something that, by definition, has no short description. Contradiction.</p>
+
+<p>The flaw must be in our assumption. The complexity-computing algorithm cannot exist.</p>
+
+<h2>Chaitin's Incompleteness Theorem</h2>
+
+<p>Gregory Chaitin, one of the co-discoverers of Kolmogorov complexity, pushed this impossibility result even further. He showed that any formal mathematical system can only prove complexity bounds up to a certain limit — a limit determined by the complexity of the system itself.</p>
+
+<p>Picture a proof system as a very elaborate computer program. It has axioms, inference rules, and a procedure for checking whether proofs are valid. This entire apparatus can be encoded as a program of some finite length — call it L.</p>
+
+<p>Chaitin proved that such a system cannot prove statements of the form "this string has Kolmogorov complexity greater than L + C," where C is a fixed constant. The proof is similar to the one above: if the system could prove such statements, we could use it to find strings of high complexity with a short program, creating a contradiction.</p>
+
+<p>This is a kind of incompleteness theorem, like Godel's famous result, but with a different flavor. Godel showed there are true statements that can't be proven. Chaitin showed there are complexity facts that can't be proven. In both cases, the limitation arises from self-reference — from what happens when mathematical systems try to reason about themselves.</p>
+
+<h2>Plain Versus Prefix-Free</h2>
+
+<p>There's a technical subtlety that researchers in this field care about deeply, even though it might seem like nitpicking at first glance.</p>
+
+<p>Suppose you want to describe two objects together. In the naive approach, you'd concatenate their descriptions. But here's the problem: when the decoder receives this concatenated string, how does it know where the first description ends and the second begins?</p>
+
+<p>You could include the length of the first description, but that takes extra bits. This overhead creates annoyances in the mathematics — inequalities that should be clean and simple acquire logarithmic correction terms.</p>
+
+<p>The elegant solution is to require that no valid program is a prefix of any other valid program. This is called a prefix-free code. If you've ever used Morse code, you know that each letter's encoding is designed so you can tell exactly when it ends, even without spaces between letters. Prefix-free complexity applies the same principle to program descriptions.</p>
+
+<p>With prefix-free complexity, the mathematics becomes cleaner. You can concatenate descriptions freely. Inequalities that held "up to logarithmic terms" now hold "up to a constant." This is why most modern research uses prefix-free complexity, even though plain complexity is more intuitive.</p>
+
+<h2>The Three Inventors</h2>
+
+<p>The history of Kolmogorov complexity is a case study in simultaneous discovery. Three researchers, working independently in different countries, converged on essentially the same idea within a few years of each other.</p>
+
+<p>Ray Solomonoff, an American researcher interested in artificial intelligence and inductive reasoning, published the first version in 1960. He was trying to formalize the problem of prediction: given the first part of a sequence, what comes next? His insight was that simpler explanations should be weighted more heavily, and he needed a mathematical definition of "simpler."</p>
+
+<p>Andrey Kolmogorov, already one of the twentieth century's greatest mathematicians, published his version in 1965. His interest was in defining randomness precisely. Informally, we say a sequence is random if it has no pattern. Kolmogorov made this rigorous: a sequence is random if its shortest description is approximately as long as the sequence itself.</p>
+
+<p>Gregory Chaitin, an American-Argentine mathematician, developed the theory independently while still a teenager. His 1966 paper emphasized the connections to Godel's incompleteness theorems and the fundamental limits of formal systems.</p>
+
+<p>When Kolmogorov learned of Solomonoff's earlier work, he acknowledged the priority. But history has a way of attaching names to ideas somewhat arbitrarily. The complexity measure became "Kolmogorov complexity," while Solomonoff's name became attached to the related concept of algorithmic probability — the idea of assigning probabilities to outcomes based on the length of programs that generate them.</p>
+
+<h2>What This Means for Consciousness</h2>
+
+<p>If you're reading this because of its connection to questions about consciousness and artificial intelligence, here's the link. Kolmogorov complexity gives us a rigorous way to ask: how much information is actually in something?</p>
+
+<p>A system that produces highly compressible outputs — things easily described by short programs — might be simpler than it appears. A chatbot that generates text by recombining patterns from its training data is doing something with low Kolmogorov complexity, in some sense. The outputs are predictable, compressible, describable.</p>
+
+<p>Human consciousness, whatever it is, seems to generate behavior that's harder to compress. Our responses to novel situations don't obviously reduce to simple rules. Whether this observation can be made mathematically precise, and whether it actually distinguishes conscious from unconscious systems, remains deeply contested.</p>
+
+<p>But Kolmogorov complexity at least gives us the vocabulary to ask the question precisely. It transforms "how complicated is this?" from a vague intuition into a mathematical quantity, even if that quantity turns out to be uncomputable.</p>
+
+<h2>The Deeper Pattern</h2>
+
+<p>Kolmogorov complexity connects to some of the most profound results in mathematics and computer science. It's intimately related to Turing's proof that no algorithm can decide whether an arbitrary program halts. It echoes Godel's demonstration that no sufficiently powerful formal system can prove all truths about itself. It connects to Cantor's diagonal arguments about the uncountability of real numbers.</p>
+
+<p>All of these results share a common structure: they arise when systems try to describe themselves, when the observer and the observed are somehow entangled. The limits they reveal aren't practical limitations we might overcome with faster computers or cleverer algorithms. They're structural features of mathematics and computation themselves.</p>
+
+<p>Perhaps the most striking thing about Kolmogorov complexity is that it defines something we can never actually measure. We can sometimes prove lower bounds ("this string has complexity at least n"), but we can never prove a string has low complexity with certainty — there might always be a shorter program we haven't discovered. It's a perfect definition of a quantity that exists but remains forever partly out of reach.</p>
+
+<p>And yet this uncomputable quantity turns out to be exactly the right concept for formalizing our intuitions about simplicity, randomness, and information. Sometimes the most useful ideas are the ones we can't fully grasp.</p>
+      </div>
+
+      <footer class="wikipedia-footer">
+        <p class="source-link">
+          <a href="https://en.wikipedia.org/wiki/Kolmogorov_complexity" target="_blank" rel="noopener">
+            View original Wikipedia article &rarr;
+          </a>
+        </p>
+        <p class="rewrite-note">
+          This article has been rewritten from Wikipedia source material for enjoyable reading.
+          Content may have been condensed, restructured, or simplified.
+        </p>
+      </footer>
+
+      
+      <section class="related-articles">
+        <h2>Related Articles</h2>
+        <p class="related-intro">This deep dive was written in connection with these articles:</p>
+        <ul class="related-list">
+          
+      <li class="related-article-item">
+        <a href="../../article/223eafb7-f45d-4004-b388-3102137d8314/index.html">
+          <strong>Proving (literally) that ChatGPT isn&#039;t conscious</strong>
+        </a>
+        <span class="article-meta">
+          by Erik Hoel in 
+        </span>
+      </li>
+        </ul>
+      </section>
+    
+    </article>
+  
+  </main>
+</body>
+</html>
