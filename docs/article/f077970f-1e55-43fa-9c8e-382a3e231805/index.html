@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>👀 Inside OpenAI&#039;s unit economics - Hex Index</title>
+  <link rel="stylesheet" href="../../styles.css">
+</head>
+<body class="reading-mode">
+  <header class="reading-header">
+    <a href="../../index.html" class="back-link">&larr; Back to Library</a>
+  </header>
+  <main class="reading-content">
+    
+    <article class="article-page">
+      <header class="article-header">
+        <h1>👀 Inside OpenAI&#039;s unit economics</h1>
+        <div class="article-meta">
+          <span class="author">By Azeem Azhar</span>
+          <span class="separator">&middot;</span>
+          <a href="../../publication/exponentialview/index.html" class="publication">
+            
+          </a>
+          <span class="separator">&middot;</span><time>Jan 28, 2026</time>
+          <span class="separator">&middot;</span>
+          <span class="read-time">21 min read</span>
+        </div>
+      </header>
+
+      
+
+      <div class="article-excerpt">
+        <p>AI companies are being priced into the hundreds of billions. That forces one awkward question to the front: do the unit economics actually work?</p><p>Jevons’ paradox suggests that as tokens get cheaper, demand explodes. You’ve likely felt some version of this in the last year. But as usage grows, are these models actually profitable to run?</p><p>In our collaboration with <a href="https://epoch.ai/">Epoch AI</a>, we tackle that question using OpenAI’s GPT-5 as the case study. What looks like a simple margin calculation is closer to a forensic exercise: we triangulate reported details, leaks, and Sam Altman’s own words to bracket plausible revenues and costs.</p><p>Here’s the breakdown.</p><p>— Azeem</p><div><hr></div><h2>Can AI companies become profitable?</h2><h4>Lessons from GPT-5’s economics</h4><p><em>Originally published on <a href="https://epoch.ai/gradient-updates/can-ai-companies-become-profitable">Epoch AI’s blog</a>. Analysis by <span class="mention-wrap" data-attrs="{&quot;name&quot;:&quot;Jaime Sevilla&quot;,&quot;id&quot;:22111350,&quot;type&quot;:&quot;user&quot;,&quot;url&quot;:null,&quot;photo_url&quot;:&quot;https://substackcdn.com/image/fetch/$s_!-E-h!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F4b11760e-8d38-4dcf-869e-f1452cee0371_564x564.jpeg&quot;,&quot;uuid&quot;:&quot;b5ce8663-b7ba-459b-b44a-72978a0f2f6a&quot;}" data-component-name="MentionToDOM"></span>, Exponential View’s <span class="mention-wrap" data-attrs="{&quot;name&quot;:&quot;Hannah Petrovic&quot;,&quot;id&quot;:296829881,&quot;type&quot;:&quot;user&quot;,&quot;url&quot;:null,&quot;photo_url&quot;:&quot;https://substackcdn.com/image/fetch/$s_!gwHU!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F1df07d07-1752-4012-928e-8d02ed473e94_1989x1989.jpeg&quot;,&quot;uuid&quot;:&quot;e61dcbda-83f8-46d2-8b9c-86b971096576&quot;}" data-component-name="MentionToDOM"></span>, and <span class="mention-wrap" data-attrs="{&quot;name&quot;:&quot;Anson Ho&quot;,&quot;id&quot;:327131465,&quot;type&quot;:&quot;user&quot;,&quot;url&quot;:null,&quot;photo_url&quot;:&quot;https://substackcdn.com/image/fetch/$s_!YpJm!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fc9a56c6b-d918-48a9-b335-58313d2bb76f_3097x3182.jpeg&quot;,&quot;uuid&quot;:&quot;a96ca451-9c60-4299-9c1b-f9e36776c0d6&quot;}" data-component-name="MentionToDOM"></span></em></p><p>Are AI models profitable? If you ask <a href="https://www.axios.com/2025/08/15/sam-altman-gpt5-launch-chatgpt-future">Sam Altman</a> and <a href="https://open.substack.com/pub/cheekypint/p/a-cheeky-pint-with-anthropic-ceo?r=5erk95&amp;selection=97f244b2-8e86-48a6-a4d4-ea366c90bc83&amp;utm_campaign=post-share-selection&amp;utm_medium=web&amp;aspectRatio=instagram&amp;textColor=%23ffffff&amp;bgImage=true">Dario Amodei</a>, the answer seems to be yes — it just doesn’t appear that way on the surface.</p><p>Here’s the idea: running each AI model generates enough revenue to cover its own R&amp;D costs. But that surplus gets outweighed by the costs of developing the <em>next</em> big model. So, despite making money on each model, companies can lose money each year.</p><p>This is big if true. In fast-growing tech sectors, investors typically accept losses today in exchange for big profits down the line. So if AI models are already covering their own costs, that would paint a healthy financial outlook for AI companies.</p><p>But we can’t take Altman and Amodei at their word — you’d expect CEOs to paint a rosy picture of their company’s finances. And even if they’re right, we don’t know just <em>how</em> profitable models are.</p><p>To shed light on this, we looked into a notable case study: using public reporting on OpenAI’s finances,<a class="footnote-anchor" data-component-name="FootnoteAnchorToDOM" id="footnote-anchor-1" href="#footnote-1" target="_self">1</a> we made an educated guess on the profits from running GPT-5, and whether that was enough to recoup its R&amp;D costs. Here’s what we found:</p><ul><li><p><strong>Whether OpenAI was profitable to run depends on which profit margin you’re talking about. </strong>If we subtract the cost of compute from revenue to calculate the gross margin (on an accounting basis),<a class="footnote-anchor" data-component-name="FootnoteAnchorToDOM" id="footnote-anchor-2" href="#footnote-2" target="_self">2</a> it seems to be about 50% — lower than the norm for software companies (where 60-80% is typical) but still higher than many industries.</p></li><li><p>But if you also subtract other operating costs, including salaries and marketing, <strong>then OpenAI most likely made a </strong></p></li>...</ul>
+      </div>
+
+      <div class="read-full-article">
+        <a href="https://www.exponentialview.co/p/inside-openais-unit-economics-epoch-exponentialview" class="read-button" target="_blank" rel="noopener">
+          Read full article on  &rarr;
+        </a>
+        <p class="copyright-note">
+          This excerpt is provided for preview purposes.
+          Full article content is available on the original publication.
+        </p>
+      </div>
+    </article>
+  
+  </main>
+</body>
+</html>
