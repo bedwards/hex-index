@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>A Brief Note on the Near-Absence of Pre-1500 &quot;Economic Growth&quot; - Hex Index</title>
+  <link rel="stylesheet" href="../../styles.css">
+</head>
+<body class="reading-mode">
+  <header class="reading-header">
+    <a href="../../index.html" class="back-link">&larr; Back to Library</a>
+  </header>
+  <main class="reading-content">
+    
+    <article class="article-page">
+      <header class="article-header">
+        <h1>A Brief Note on the Near-Absence of Pre-1500 &quot;Economic Growth&quot;</h1>
+        <div class="article-meta">
+          <span class="author">By Brad DeLong</span>
+          <span class="separator">&middot;</span>
+          <a href="../../publication/braddelong/index.html" class="publication">
+            DeLong&#039;s Grasping Reality
+          </a>
+          <span class="separator">&middot;</span><time>Feb 4, 2026</time>
+          <span class="separator">&middot;</span>
+          <span class="read-time">11 min read</span>
+        </div>
+      </header>
+
+      
+
+      <div class="article-excerpt">
+        <h6>&amp; some of my musings on how to teach it. The long agrarian-age<strong> Malthusian night of the trap, of the ensorcellment: thugs, patriarchs, &amp; standard-of-living stagnation, that is. For 5,000 years, from Gilgamesh to imperial-commercial age Britain, echnology advanced, empires rose, and elites feasted—while the median human stayed stuck at “barely enough”, as population growth, patriarchy, and predation turned every gain in know‑how into more bodies alarmingly close to the edge of subsistence…</strong></h6><div><hr></div><p>I continue to grope my way forward with my experimental “Econ 196” attempt to take a much more data‑sciency approach to economic history than is usual in the field. The aim is to use the modern “data science” toolkit—sampling, estimation, simulation, and counterfactual modeling, mostly via Python and Jupyter—not as an add‑on but as a central way of thinking through the long‑run trajectory of the world economy, from agrarian Malthusian regimes to industrial and post‑industrial growth. My hope is that this will give both humanists and quants a shared Royal Road into global economic history: accessible enough for students who have never coded before, but with enough analytical bite that numerate students will not be bored.</p><p>Will it succeed? I do not know.</p><p>Now I have reached the “Long Agrarian Age Malthusian Stagnation” section of the course, and so I am musing—much to myself—as to what I should do with it:</p><div><hr></div><h3>Pre-Industrial Economic Growth</h3><p>At one level, the history of pre-industrial economic growth is relatively easy to summarize: Up until at least 1500, there was essentially none—if “economic growth” is taken to be a significant sustained improvement in the material living standards of a typical human.</p><div class="captioned-image-container"><figure><a class="image-link image2 is-viewable-img" target="_blank" href="https://substackcdn.com/image/fetch/$s_!fVlB!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F39897eac-6f2b-4b3e-8d73-aa269a552f94_1536x1024.png" data-component-name="Image2ToDOM"><div class="image2-inset"><picture><source type="image/webp" srcset="https://substackcdn.com/image/fetch/$s_!fVlB!,w_424,c_limit,f_webp,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F39897eac-6f2b-4b3e-8d73-aa269a552f94_1536x1024.png 424w, https://substackcdn.com/image/fetch/$s_!fVlB!,w_848,c_limit,f_webp,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F39897eac-6f2b-4b3e-8d73-aa269a552f94_1536x1024.png 848w, https://substackcdn.com/image/fetch/$s_!fVlB!,w_1272,c_limit,f_webp,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F39897eac-6f2b-4b3e-8d73-aa269a552f94_1536x1024.png 1272w, https://substackcdn.com/image/fetch/$s_!fVlB!,w_1456,c_limit,f_webp,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F39897eac-6f2b-4b3e-8d73-aa269a552f94_1536x1024.png 1456w" sizes="100vw"><img src="https://substackcdn.com/image/fetch/$s_!fVlB!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F39897eac-6f2b-4b3e-8d73-aa269a552f94_1536x1024.png" width="1456" height="971" data-attrs="{&quot;src&quot;:&quot;https://substack-post-media.s3.amazonaws.com/public/images/39897eac-6f2b-4b3e-8d73-aa269a552f94_1536x1024.png&quot;,&quot;srcNoWatermark&quot;:null,&quot;fullscreen&quot;:null,&quot;imageSize&quot;:null,&quot;height&quot;:971,&quot;width&quot;:1456,&quot;resizeWidth&quot;:null,&quot;bytes&quot;:null,&quot;alt&quot;:null,&quot;title&quot;:null,&quot;type&quot;:null,&quot;href&quot;:null,&quot;belowTheFold&quot;:true,&quot;topImage&quot;:false,&quot;internalRedirect&quot;:null,&quot;isProcessing&quot;:false,&quot;align&quot;:null,&quot;offset&quot;:false}" class="sizing-normal" alt="" srcset="https://substackcdn.com/image/fetch/$s_!fVlB!,w_424,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F39897eac-6f2b-4b3e-8d73-aa269a552f94_1536x1024.png 424w, https://substackcdn.com/image/fetch/$s_!fVlB!,w_848,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F39897eac-6f2b-4b3e-8d73-aa269a552f94_1536x1024.png 848w, https://substackcdn.com/image/fetch/$s_!fVlB!,w_1272,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F39897eac-6f2b-4b3e-8d73-aa269a552f94_1536x1024.png 1272w, https://substackcdn.com/image/fetch/$s_!fVlB!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F39897eac-6f2b-4b3e-8d73-aa269a552f94_1536x1024.png 1456w" sizes="100vw" loading="lazy"></picture><div class="image-link-expand"><div class="pencraft pc-display-flex pc-gap-8 pc-reset"></div></div></div></a></figure></div><div><hr></div><h3>“WAIT!!!! WHAT?!?!” Explaining What I Mean by This</h3><p>Before 1500, there was technological growth. There was artistic growth. There was intellectual and conceptual growth. There was imperial growth. There was organizational growth. There was political growth—although that was not necessarily a good thing, if you understand “politics” to be mostly a matter of domination and redistribution.</p><p>But there was not, or at least there was very little, economic growth as we would term it. A typical human in 1500—hell, 1875—had a material standard of living not that much different from that of the typical human back in –3000. As far as necessities and simple conveniences are concerned, typical peasant and craftsman living standards in the age of Gilgamesh of Uruk in Mesopotamia and Narmer of Inebu‑hedj (the city that was later </p>...</source>
+      </div>
+
+      <div class="read-full-article">
+        <a href="https://braddelong.substack.com/p/a-brief-note-on-the-near-absence" class="read-button" target="_blank" rel="noopener">
+          Read full article on DeLong&#039;s Grasping Reality &rarr;
+        </a>
+        <p class="copyright-note">
+          This excerpt is provided for preview purposes.
+          Full article content is available on the original publication.
+        </p>
+      </div>
+    </article>
+  
+  </main>
+</body>
+</html>
