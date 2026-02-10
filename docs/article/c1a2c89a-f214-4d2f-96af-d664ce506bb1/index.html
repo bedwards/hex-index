@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>How LinkedIn Built a Next-Gen Service Discovery for 1000s of Services - Hex Index</title>
+  <link rel="stylesheet" href="../../styles.css">
+</head>
+<body class="reading-mode">
+  <header class="reading-header">
+    <a href="../../index.html" class="back-link">&larr; Back to Library</a>
+  </header>
+  <main class="reading-content">
+    
+    <article class="article-page">
+      <header class="article-header">
+        <h1>How LinkedIn Built a Next-Gen Service Discovery for 1000s of Services</h1>
+        <div class="article-meta">
+          <span class="author">By Alex Xu</span>
+          <span class="separator">&middot;</span>
+          <a href="../../publication/bytebytego/index.html" class="publication">
+            ByteByteGo Newsletter
+          </a>
+          <span class="separator">&middot;</span><time>Feb 10, 2026</time>
+          <span class="separator">&middot;</span>
+          <span class="read-time">15 min read</span>
+        </div>
+      </header>
+
+      
+
+      <div class="article-excerpt">
+        <h2><a href="https://bit.ly/ScyllaDB_021026">Your free ticket to Monster SCALE Summit is waiting — 50+ engineering talks on data-intensive applications (Sponsored)</a></h2><div class="captioned-image-container"><figure><a class="image-link image2 is-viewable-img" target="_blank" href="https://bit.ly/ScyllaDB_021026" data-component-name="Image2ToDOM"><div class="image2-inset"><picture><source type="image/webp" srcset="https://substackcdn.com/image/fetch/$s_!MMA9!,w_424,c_limit,f_webp,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F46405bb1-dfed-4ed7-904d-b0fe6593068c_1600x840.jpeg 424w, https://substackcdn.com/image/fetch/$s_!MMA9!,w_848,c_limit,f_webp,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F46405bb1-dfed-4ed7-904d-b0fe6593068c_1600x840.jpeg 848w, https://substackcdn.com/image/fetch/$s_!MMA9!,w_1272,c_limit,f_webp,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F46405bb1-dfed-4ed7-904d-b0fe6593068c_1600x840.jpeg 1272w, https://substackcdn.com/image/fetch/$s_!MMA9!,w_1456,c_limit,f_webp,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F46405bb1-dfed-4ed7-904d-b0fe6593068c_1600x840.jpeg 1456w" sizes="100vw"><img src="https://substackcdn.com/image/fetch/$s_!MMA9!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F46405bb1-dfed-4ed7-904d-b0fe6593068c_1600x840.jpeg" width="1456" height="764" data-attrs="{&quot;src&quot;:&quot;https://substack-post-media.s3.amazonaws.com/public/images/46405bb1-dfed-4ed7-904d-b0fe6593068c_1600x840.jpeg&quot;,&quot;srcNoWatermark&quot;:null,&quot;fullscreen&quot;:null,&quot;imageSize&quot;:null,&quot;height&quot;:764,&quot;width&quot;:1456,&quot;resizeWidth&quot;:null,&quot;bytes&quot;:1153190,&quot;alt&quot;:null,&quot;title&quot;:null,&quot;type&quot;:&quot;image/jpeg&quot;,&quot;href&quot;:&quot;https://bit.ly/ScyllaDB_021026&quot;,&quot;belowTheFold&quot;:false,&quot;topImage&quot;:true,&quot;internalRedirect&quot;:&quot;https://blog.bytebytego.com/i/187063501?img=https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F46405bb1-dfed-4ed7-904d-b0fe6593068c_1600x840.jpeg&quot;,&quot;isProcessing&quot;:false,&quot;align&quot;:null,&quot;offset&quot;:false}" class="sizing-normal" alt="" srcset="https://substackcdn.com/image/fetch/$s_!MMA9!,w_424,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F46405bb1-dfed-4ed7-904d-b0fe6593068c_1600x840.jpeg 424w, https://substackcdn.com/image/fetch/$s_!MMA9!,w_848,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F46405bb1-dfed-4ed7-904d-b0fe6593068c_1600x840.jpeg 848w, https://substackcdn.com/image/fetch/$s_!MMA9!,w_1272,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F46405bb1-dfed-4ed7-904d-b0fe6593068c_1600x840.jpeg 1272w, https://substackcdn.com/image/fetch/$s_!MMA9!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F46405bb1-dfed-4ed7-904d-b0fe6593068c_1600x840.jpeg 1456w" sizes="100vw" fetchpriority="high"></picture><div class="image-link-expand"><div class="pencraft pc-display-flex pc-gap-8 pc-reset"></div></div></div></a></figure></div><p>Monster SCALE Summit is a virtual conference all about extreme-scale engineering and data-intensive applications. Engineers from Discord, Disney, LinkedIn, Uber, Pinterest, Rivian, ClickHouse, Redis, MongoDB, ScyllaDB + more will be sharing 50+ talks on topics like:</p><ul><li><p>Distributed databases</p></li><li><p>Streaming and real-time processing</p></li><li><p>Intriguing system designs</p></li><li><p>Approaches to a massive scaling challenge</p></li><li><p>Methods for balancing latency/concurrency/throughput</p></li><li><p>Infrastructure built for unprecedented demands.</p></li></ul><p>Don’t miss this chance to connect with 20K of your peers designing, implementing, and optimizing data-intensive applications – for free, from anywhere.</p><div><hr></div><p>LinkedIn serves hundreds of millions of members worldwide, delivering fast experiences whether someone is loading their feed or sending a message. Behind the scenes, this seamless experience depends on thousands of software services working together. Service Discovery is the infrastructure system that makes this coordination possible.</p><p>Consider a modern application at scale. Instead of building one massive program, LinkedIn breaks functionality into tens of thousands of microservices. Each microservice handles a specific task like authentication, messaging, or feed generation. These services need to communicate with each other constantly, and they need to know where to find each other.</p><p>Service discovery solves this location problem. Instead of hardcoding addresses that can change as servers restart or scale, services use a directory that tracks where every service currently lives. This directory maintains IP addresses and port numbers for all active service instances.</p><p>At LinkedIn’s scale, with tens of thousands of microservices running across global data centers and handling billions of requests each day, service discovery becomes exceptionally challenging. The system must update in real time as servers scale up or down, remain highly reliable, and respond within milliseconds.</p><p>In this article, we learn how LinkedIn built and rolled out Next-Gen Service Discovery, a scalable control plane supporting app containers in multiple programming languages.</p><p><em>Disclaimer: This post is based on publicly shared details from the LinkedIn Engineering Team. Please comment if you notice any inaccuracies.</em></p><h2>Zookeeper-Based Architecture</h2><p>For the past decade, LinkedIn used Apache Zookeeper as the control plane for service discovery. Zookeeper is a coordination service that maintains a centralized registry of services.</p><p>In this architecture, Zookeeper allows server applications to register their endpoint addresses in a custom format called D2, which stands for Dynamic Discovery. The system stored the configuration about how RPC traffic should flow as D2 configs and served them </p>...</source>
+      </div>
+
+      <div class="read-full-article">
+        <a href="https://blog.bytebytego.com/p/how-linkedin-built-a-next-gen-service" class="read-button" target="_blank" rel="noopener">
+          Read full article on ByteByteGo Newsletter &rarr;
+        </a>
+        <p class="copyright-note">
+          This excerpt is provided for preview purposes.
+          Full article content is available on the original publication.
+        </p>
+      </div>
+    </article>
+  
+  </main>
+</body>
+</html>
