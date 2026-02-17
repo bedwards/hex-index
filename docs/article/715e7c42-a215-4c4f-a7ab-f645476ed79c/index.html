@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>How Codex is built - Hex Index</title>
+  <link rel="stylesheet" href="../../styles.css">
+</head>
+<body class="reading-mode">
+  <header class="reading-header">
+    <a href="../../index.html" class="back-link">&larr; Back to Library</a>
+  </header>
+  <main class="reading-content">
+    
+    <article class="article-page">
+      <header class="article-header">
+        <h1>How Codex is built</h1>
+        <div class="article-meta">
+          <span class="author">By Gergely Orosz</span>
+          <span class="separator">&middot;</span>
+          <a href="../../publication/pragmaticengineer/index.html" class="publication">
+            The Pragmatic Engineer
+          </a>
+          <span class="separator">&middot;</span><time>Feb 17, 2026</time>
+          <span class="separator">&middot;</span>
+          <span class="read-time">14 min read</span>
+        </div>
+      </header>
+
+      
+
+      <div class="article-excerpt">
+        <p>More than a million developers <a href="https://x.com/sama/status/2019219967250669741?s=20">use</a> OpenAI’s command-line coding interface every week. Named Codex, usage has increased 5x since the start of January, the team tells me. In the first week of February, OpenAI <a href="https://openai.com/index/introducing-the-codex-app/">launched</a> the Codex desktop app, a macOS application that CEO Sam Altman calls “the most loved internal product we’ve ever had”. A few days later, OpenAI <a href="https://openai.com/index/introducing-gpt-5-3-codex/">shipped</a> GPT-5.3-Codex, which they describe as the first model that helped create itself.</p><p>Personally, I’ve been warming up to Codex since doing an interview for The Pragmatic Engineer podcast <a href="https://newsletter.pragmaticengineer.com/p/the-creator-of-clawd-i-ship-code">with Peter Steinberger</a>, the creator of OpenClaw, in which he <a href="https://newsletter.pragmaticengineer.com/i/185922983/interesting-learnings-from-thow-peter-builds-software">revealed</a> that he writes all of OpenClaw with Codex, preferring longer-running agentic loops.<em> Update: on Monday, Peter <a href="https://steipete.me/posts/2026/openclaw">announced</a> he is joining OpenAI to work on building next-generation agents. It’s a major win for OpenAI and the Codex team, while OpenClaw remains independent and open source. Check out <a href="https://newsletter.pragmaticengineer.com/p/the-creator-of-clawd-i-ship-code">my podcast with Peter</a> in his first in-depth interview, around when OpenClaw (back then: Clawd) was getting massive momentum.</em></p><p>To find out how Codex was built, how teams at OpenAI use it, and what effect it’s having on software engineering practices at the ChatGPT maker, I spoke with three people at OpenAI:</p><ul><li><p><a href="https://www.linkedin.com/in/thibault-sottiaux-27195366/">Thibault Sottiaux</a> (Tibo), head of Codex.</p></li><li><p><a href="https://www.linkedin.com/in/sqmah/">Shao-Qian (SQ) Mah</a>, researcher on the Codex team who trains the models that power it.</p></li><li><p><a href="https://www.linkedin.com/in/emmaytang/">Emma Tang</a>, head of data infrastructure, who isn’t on the Codex team but whose team uses Codex heavily.</p></li></ul><p>This deep dive covers:</p><ol><li><p><strong>How it started.</strong> From an internal experiment in late 2024, to a product used by more than a million devs.</p></li><li><p><strong>Technology and architecture choices.</strong> Why Rust and open source? In-depth on how the agent loop works.</p></li><li><p><strong>How Codex builds itself.</strong> Codex itself writes more than 90% of the app’s code, the team estimates.</p></li><li><p><strong>Research. </strong>Training the next Codex model with the current one.</p></li><li><p><strong>Codex usage at OpenAI.</strong> Using it has transformed another team there.</p></li><li><p><strong>How software engineering is changing at OpenAI.</strong> According to those living through it.</p></li><li><p><strong>Next steps.</strong> GPT-5.2 step change, the capability overhang, and where Codex goes next.</p></li></ol><p>Last week’s debut Pragmatic Summit, in San Francisco, featured a fireside chat with Tibo, myself, and the audience, and featured new details about how Codex is built. Paid subscribers <a href="https://newsletter.pragmaticengineer.com/p/the-pragmatic-summit-recordings">can watch this recording now</a>. <em>Free subscribers will get access to all videos from the Pragmatic Summit in a couple of weeks.</em></p><div class="captioned-image-container"><figure><a class="image-link image2 is-viewable-img" target="_blank" href="https://substackcdn.com/image/fetch/$s_!4VEI!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F203166c0-3345-4162-9176-4f9a1cac804f_1600x1067.jpeg" data-component-name="Image2ToDOM"><div class="image2-inset"><picture><source type="image/webp" srcset="https://substackcdn.com/image/fetch/$s_!4VEI!,w_424,c_limit,f_webp,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F203166c0-3345-4162-9176-4f9a1cac804f_1600x1067.jpeg 424w, https://substackcdn.com/image/fetch/$s_!4VEI!,w_848,c_limit,f_webp,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F203166c0-3345-4162-9176-4f9a1cac804f_1600x1067.jpeg 848w, https://substackcdn.com/image/fetch/$s_!4VEI!,w_1272,c_limit,f_webp,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F203166c0-3345-4162-9176-4f9a1cac804f_1600x1067.jpeg 1272w, https://substackcdn.com/image/fetch/$s_!4VEI!,w_1456,c_limit,f_webp,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F203166c0-3345-4162-9176-4f9a1cac804f_1600x1067.jpeg 1456w" sizes="100vw"><img src="https://substackcdn.com/image/fetch/$s_!4VEI!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F203166c0-3345-4162-9176-4f9a1cac804f_1600x1067.jpeg" width="1456" height="971" data-attrs="{&quot;src&quot;:&quot;https://substack-post-media.s3.amazonaws.com/public/images/203166c0-3345-4162-9176-4f9a1cac804f_1600x1067.jpeg&quot;,&quot;srcNoWatermark&quot;:null,&quot;fullscreen&quot;:null,&quot;imageSize&quot;:null,&quot;height&quot;:971,&quot;width&quot;:1456,&quot;resizeWidth&quot;:null,&quot;bytes&quot;:null,&quot;alt&quot;:null,&quot;title&quot;:null,&quot;type&quot;:null,&quot;href&quot;:null,&quot;belowTheFold&quot;:false,&quot;topImage&quot;:true,&quot;internalRedirect&quot;:null,&quot;isProcessing&quot;:false,&quot;align&quot;:null,&quot;offset&quot;:false}" class="sizing-normal" alt="" srcset="https://substackcdn.com/image/fetch/$s_!4VEI!,w_424,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F203166c0-3345-4162-9176-4f9a1cac804f_1600x1067.jpeg 424w, https://substackcdn.com/image/fetch/$s_!4VEI!,w_848,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F203166c0-3345-4162-9176-4f9a1cac804f_1600x1067.jpeg 848w, https://substackcdn.com/image/fetch/$s_!4VEI!,w_1272,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F203166c0-3345-4162-9176-4f9a1cac804f_1600x1067.jpeg 1272w, https://substackcdn.com/image/fetch/$s_!4VEI!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F203166c0-3345-4162-9176-4f9a1cac804f_1600x1067.jpeg 1456w" sizes="100vw" fetchpriority="high"></picture><div class="image-link-expand"><div class="pencraft pc-display-flex pc-gap-8 pc-reset"></div></div></div></a><figcaption class="image-caption"><em>Tibo, Head of Codex </em></figcaption></source></figure>...</div>
+      </div>
+
+      <div class="read-full-article">
+        <a href="https://newsletter.pragmaticengineer.com/p/how-codex-is-built" class="read-button" target="_blank" rel="noopener">
+          Read full article on The Pragmatic Engineer &rarr;
+        </a>
+        <p class="copyright-note">
+          This excerpt is provided for preview purposes.
+          Full article content is available on the original publication.
+        </p>
+      </div>
+    </article>
+  
+  </main>
+</body>
+</html>
