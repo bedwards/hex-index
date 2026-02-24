@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>How Uber Reinvented Access Control for Microservices - Hex Index</title>
+  <link rel="stylesheet" href="../../styles.css">
+</head>
+<body class="reading-mode">
+  <header class="reading-header">
+    <a href="../../index.html" class="back-link">&larr; Back to Library</a>
+  </header>
+  <main class="reading-content">
+    
+    <article class="article-page">
+      <header class="article-header">
+        <h1>How Uber Reinvented Access Control for Microservices</h1>
+        <div class="article-meta">
+          <span class="author">By Alex Xu</span>
+          <span class="separator">&middot;</span>
+          <a href="../../publication/bytebytego/index.html" class="publication">
+            ByteByteGo Newsletter
+          </a>
+          <span class="separator">&middot;</span><time>Feb 24, 2026</time>
+          <span class="separator">&middot;</span>
+          <span class="read-time">11 min read</span>
+        </div>
+      </header>
+
+      
+
+      <div class="article-excerpt">
+        <h2><a href="https://go.bytebytego.com/Scylladb_022426">Don’t miss out: your free pass to Monster SCALE Summit is waiting! 50+ engineering talks on AI, databases, Rust, and more. (Sponsored)</a></h2><p><em>Monster SCALE Summit is a new virtual conference all about extreme-scale engineering and data-intensive applications.</em></p><div class="captioned-image-container"><figure><a class="image-link image2 is-viewable-img" target="_blank" href="https://go.bytebytego.com/Scylladb_022426" data-component-name="Image2ToDOM"><div class="image2-inset"><picture><source type="image/webp" srcset="https://substackcdn.com/image/fetch/$s_!xvob!,w_424,c_limit,f_webp,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F1342334d-35ac-4296-a74d-5374f357c318_1600x840.jpeg 424w, https://substackcdn.com/image/fetch/$s_!xvob!,w_848,c_limit,f_webp,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F1342334d-35ac-4296-a74d-5374f357c318_1600x840.jpeg 848w, https://substackcdn.com/image/fetch/$s_!xvob!,w_1272,c_limit,f_webp,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F1342334d-35ac-4296-a74d-5374f357c318_1600x840.jpeg 1272w, https://substackcdn.com/image/fetch/$s_!xvob!,w_1456,c_limit,f_webp,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F1342334d-35ac-4296-a74d-5374f357c318_1600x840.jpeg 1456w" sizes="100vw"><img src="https://substackcdn.com/image/fetch/$s_!xvob!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F1342334d-35ac-4296-a74d-5374f357c318_1600x840.jpeg" width="1456" height="764" data-attrs="{&quot;src&quot;:&quot;https://substack-post-media.s3.amazonaws.com/public/images/1342334d-35ac-4296-a74d-5374f357c318_1600x840.jpeg&quot;,&quot;srcNoWatermark&quot;:null,&quot;fullscreen&quot;:null,&quot;imageSize&quot;:null,&quot;height&quot;:764,&quot;width&quot;:1456,&quot;resizeWidth&quot;:null,&quot;bytes&quot;:996516,&quot;alt&quot;:null,&quot;title&quot;:null,&quot;type&quot;:&quot;image/jpeg&quot;,&quot;href&quot;:&quot;https://go.bytebytego.com/Scylladb_022426&quot;,&quot;belowTheFold&quot;:false,&quot;topImage&quot;:true,&quot;internalRedirect&quot;:&quot;https://blog.bytebytego.com/i/188655963?img=https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F1342334d-35ac-4296-a74d-5374f357c318_1600x840.jpeg&quot;,&quot;isProcessing&quot;:false,&quot;align&quot;:null,&quot;offset&quot;:false}" class="sizing-normal" alt="" srcset="https://substackcdn.com/image/fetch/$s_!xvob!,w_424,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F1342334d-35ac-4296-a74d-5374f357c318_1600x840.jpeg 424w, https://substackcdn.com/image/fetch/$s_!xvob!,w_848,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F1342334d-35ac-4296-a74d-5374f357c318_1600x840.jpeg 848w, https://substackcdn.com/image/fetch/$s_!xvob!,w_1272,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F1342334d-35ac-4296-a74d-5374f357c318_1600x840.jpeg 1272w, https://substackcdn.com/image/fetch/$s_!xvob!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F1342334d-35ac-4296-a74d-5374f357c318_1600x840.jpeg 1456w" sizes="100vw" fetchpriority="high"></picture><div class="image-link-expand"><div class="pencraft pc-display-flex pc-gap-8 pc-reset"></div></div></div></a></figure></div><p>Join us on March 11 and 12 to learn from engineers at Discord, Disney, LinkedIn, Uber, Pinterest, Rivian, ClickHouse, Redis, MongoDB, ScyllaDB and more. A few topics on the agenda:</p><ul><li><p>What Engineering Leaders Get Wrong About Scale</p></li><li><p>How Discord Automates Database Operations at Scale</p></li><li><p>Lessons from Redesigning Uber’s Risk-as-a-Service Architecture</p></li><li><p>Scaling Relational Databases at Nextdoor</p></li><li><p>How LinkedIn Powers Recommendations to Billions of Users</p></li><li><p>Powering Real-Time Vehicle Intelligence at Rivian with Apache Flink and Kafka</p></li><li><p>The Data Architecture behind Pinterest’s Ads Reporting Services</p></li></ul><p>Bonus: We have 500 free swag packs for attendees. And everyone gets 30-day access to the complete O’Reilly library &amp; learning platform.</p><div><hr></div><p>Uber’s infrastructure runs on thousands of microservices, each making authorization decisions millions of times per day. This includes every API call, database query, and message published to Kafka. To make matters more interesting, Uber needs these decisions to happen in microseconds to have the best possible user experience.</p><p>Traditional access control could not handle the complexity. For instance, you might say “service A can call service B” or “employees in the admin group can access this database.” While these rules work for small systems, they fall short when you need more control. For example, what if you need to restrict access based on the user’s location, the time of day, or relationships between different pieces of data?</p><p>Uber needed a better approach. They built an attribute-based access control system called Charter to evaluate complex conditions against attributes pulled from various sources at runtime.</p><p>In this article, we will look at how the Uber engineering team built Charter and the challenges they faced.</p><p><em>Disclaimer: This post is based on publicly shared details from the Uber Engineering Team. Please comment if you notice any inaccuracies.</em></p><h2>Understanding the Authorization Request</h2><p>Before diving into ABAC, you need to understand how Uber thinks about authorization. Every access request can be broken down into a simple question:</p><p>Can an Actor perform an Action on a Resource in a given Context?</p><p>Let’s understand each component of this statement:</p><ul><li><p>Actor represents the entity making the request. At Uber, this could be an employee, a customer, or another microservice. Uber uses the SPIFFE format to identify actors. An </p></li></ul>...</source>
+      </div>
+
+      <div class="read-full-article">
+        <a href="https://blog.bytebytego.com/p/how-uber-reinvented-access-control" class="read-button" target="_blank" rel="noopener">
+          Read full article on ByteByteGo Newsletter &rarr;
+        </a>
+        <p class="copyright-note">
+          This excerpt is provided for preview purposes.
+          Full article content is available on the original publication.
+        </p>
+      </div>
+    </article>
+  
+  </main>
+</body>
+</html>
