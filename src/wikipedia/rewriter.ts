@@ -1,50 +1,11 @@
 /**
  * Wikipedia article rewriter
  * Transforms encyclopedic content into enjoyable reading for Speechify
- * Uses one-shot Claude Code CLI invocations for rewrites
+ * Uses local Ollama for rewrites
  */
 
-import { spawn } from 'child_process';
 import { WikipediaContent } from './types.js';
-
-/**
- * Invoke Claude Code CLI with a prompt and return the response
- * Uses the user's existing Claude subscription (no API key needed)
- */
-async function invokeClaude(prompt: string): Promise<string> {
-  return new Promise((resolve, reject) => {
-    const claude = spawn('claude', ['--print'], {
-      stdio: ['pipe', 'pipe', 'pipe'],
-    });
-
-    let stdout = '';
-    let stderr = '';
-
-    claude.stdout.on('data', (data: Buffer) => {
-      stdout += data.toString();
-    });
-
-    claude.stderr.on('data', (data: Buffer) => {
-      stderr += data.toString();
-    });
-
-    claude.on('close', (code) => {
-      if (code !== 0) {
-        reject(new Error(`Claude CLI exited with code ${code}: ${stderr}`));
-        return;
-      }
-      resolve(stdout.trim());
-    });
-
-    claude.on('error', (err) => {
-      reject(new Error(`Failed to spawn claude CLI: ${err.message}`));
-    });
-
-    // Write prompt to stdin and close
-    claude.stdin.write(prompt);
-    claude.stdin.end();
-  });
-}
+import { generateText } from './ollama.js';
 
 export interface RewriteResult {
   html: string;
@@ -112,8 +73,8 @@ Start with a brief note crediting the source:
 
 Then write the essay. Do not include any explanation or commentary outside the HTML content.`;
 
-  // Spawn claude CLI to rewrite the article
-  let html = await invokeClaude(prompt);
+  // Call Ollama to rewrite the article
+  let html = await generateText(prompt, { temperature: 0.8, numPredict: 12000, timeout: 600_000 });
 
   // Clean up any markdown code blocks if present
   if (html.startsWith('```html')) {

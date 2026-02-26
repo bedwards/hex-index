@@ -1,52 +1,13 @@
 /**
  * Topic analyzer for finding Wikipedia articles related to Substack content
  * Identifies specific, educational topics worth exploring
- * Uses one-shot Claude Code CLI invocations for analysis
+ * Uses local Ollama for analysis
  */
 
 import * as cheerio from 'cheerio';
-import { spawn } from 'child_process';
 import { TopicSuggestion } from './types.js';
 import { searchWikipedia, checkWikipediaArticleLength } from './scraper.js';
-
-/**
- * Invoke Claude Code CLI with a prompt and return the response
- * Uses the user's existing Claude subscription (no API key needed)
- */
-async function invokeClaude(prompt: string): Promise<string> {
-  return new Promise((resolve, reject) => {
-    const claude = spawn('claude', ['--print'], {
-      stdio: ['pipe', 'pipe', 'pipe'],
-    });
-
-    let stdout = '';
-    let stderr = '';
-
-    claude.stdout.on('data', (data: Buffer) => {
-      stdout += data.toString();
-    });
-
-    claude.stderr.on('data', (data: Buffer) => {
-      stderr += data.toString();
-    });
-
-    claude.on('close', (code) => {
-      if (code !== 0) {
-        reject(new Error(`Claude CLI exited with code ${code}: ${stderr}`));
-        return;
-      }
-      resolve(stdout.trim());
-    });
-
-    claude.on('error', (err) => {
-      reject(new Error(`Failed to spawn claude CLI: ${err.message}`));
-    });
-
-    // Write prompt to stdin and close
-    claude.stdin.write(prompt);
-    claude.stdin.end();
-  });
-}
+import { generateText } from './ollama.js';
 
 /**
  * Extract Wikipedia links from article HTML
@@ -154,7 +115,7 @@ export async function analyzeArticleForTopics(
 
   // PRIORITY 2: Use Claude to suggest additional topics to fill remaining slots
   const remainingSlots = 3 - validatedSuggestions.length;
-  console.info(`  Need ${remainingSlots} more topics from Claude analysis`);
+  console.info(`  Need ${remainingSlots} more topics from LLM analysis`);
 
   // Extract text for analysis
   const $ = cheerio.load(articleHtml);
@@ -197,10 +158,10 @@ Respond with exactly ${remainingSlots} topics in this JSON format:
 
 Only output the JSON array, no other text.`;
 
-  // Spawn claude CLI to analyze the article
-  const responseText = await invokeClaude(prompt);
+  // Call Ollama to analyze the article
+  const responseText = await generateText(prompt, { temperature: 0.3, numPredict: 1000 });
 
-  // Parse response
+  // Parse response with retry on failure
   let suggestions: TopicSuggestion[];
   try {
     suggestions = JSON.parse(responseText) as TopicSuggestion[];
@@ -210,7 +171,22 @@ Only output the JSON array, no other text.`;
     if (jsonMatch) {
       suggestions = JSON.parse(jsonMatch[0]) as TopicSuggestion[];
     } else {
-      throw new Error('Failed to parse topic suggestions from Claude response');
+      // Retry once with stricter prompt
+      console.info('  JSON parse failed, retrying with stricter prompt...');
+      const retryText = await generateText(
+        prompt + '\n\nYou MUST output ONLY a valid JSON array. No explanation, no markdown.',
+        { temperature: 0.1, numPredict: 1000 }
+      );
+      try {
+        suggestions = JSON.parse(retryText) as TopicSuggestion[];
+      } catch {
+        const retryMatch = retryText.match(/\[[\s\S]*\]/);
+        if (retryMatch) {
+          suggestions = JSON.parse(retryMatch[0]) as TopicSuggestion[];
+        } else {
+          throw new Error('Failed to parse topic suggestions after retry');
+        }
+      }
     }
   }
 

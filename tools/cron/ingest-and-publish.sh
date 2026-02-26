@@ -26,9 +26,9 @@ fi
 echo "Running ingestion..." | tee -a "$LOG_FILE"
 npm run ingest -- --source content/comprehensive-sources-flat.json 2>&1 | tee -a "$LOG_FILE"
 
-# Enrich articles with Wikipedia deep dives
+# Enrich articles with Wikipedia deep dives (5h wallclock timeout)
 echo "Running Wikipedia enrichment..." | tee -a "$LOG_FILE"
-npm run wikipedia:retrofit -- --limit 100 2>&1 | tee -a "$LOG_FILE"
+timeout 18000 npm run wikipedia:retrofit -- --limit 100 2>&1 | tee -a "$LOG_FILE" || echo "Wikipedia enrichment timed out or failed" | tee -a "$LOG_FILE"
 
 # Generate static site
 echo "Generating static site..." | tee -a "$LOG_FILE"
