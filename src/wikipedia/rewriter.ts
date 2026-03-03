@@ -1,7 +1,9 @@
 /**
  * Wikipedia article rewriter
- * Transforms encyclopedic content into enjoyable reading for Speechify
- * Uses local Ollama for rewrites
+ * Transforms encyclopedic content into enjoyable reading
+ *
+ * Architecture: model writes prose only (plain text), script wraps in HTML.
+ * Model never produces HTML tags — script handles all formatting.
  */
 
 import { WikipediaContent } from './types.js';
@@ -13,84 +15,148 @@ export interface RewriteResult {
   estimatedReadTimeMinutes: number;
 }
 
-/**
- * Count words in text
- */
 function countWords(text: string): number {
   return text.trim().split(/\s+/).filter(w => w.length > 0).length;
 }
 
+function escapeHtml(text: string): string {
+  return text
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#039;');
+}
+
+/**
+ * Convert plain text (model output) to semantic HTML (script logic)
+ *
+ * Conventions the model is asked to follow:
+ *   - Blank line between paragraphs
+ *   - ## Heading for section breaks
+ *   - ### Subheading for subsections
+ *   - > Quote for blockquotes
+ *   - Lines starting with - or * for list items
+ */
+function textToHtml(text: string, sourceUrl: string, sourceTitle: string): string {
+  const parts: string[] = [];
+
+  // Source attribution (script generates this, not the model)
+  parts.push(`<p class="source-note">Based on <a href="${escapeHtml(sourceUrl)}">Wikipedia: ${escapeHtml(sourceTitle)}</a></p>`);
+
+  // Split into blocks on blank lines
+  const blocks = text.split(/\n\s*\n/).map(b => b.trim()).filter(Boolean);
+
+  let inList = false;
+
+  for (const block of blocks) {
+    const lines = block.split('\n');
+
+    // Check if this block is a heading
+    if (lines.length === 1 && lines[0].startsWith('## ')) {
+      if (inList) { parts.push('</ul>'); inList = false; }
+      const level = lines[0].startsWith('### ') ? 'h3' : 'h2';
+      const heading = lines[0].replace(/^#{2,3}\s+/, '');
+      parts.push(`<${level}>${escapeHtml(heading)}</${level}>`);
+      continue;
+    }
+
+    // Check if this block is a blockquote
+    if (lines.every(l => l.startsWith('> ') || l.startsWith('>'))) {
+      if (inList) { parts.push('</ul>'); inList = false; }
+      const quoteText = lines.map(l => l.replace(/^>\s?/, '')).join(' ');
+      parts.push(`<blockquote>${escapeHtml(quoteText)}</blockquote>`);
+      continue;
+    }
+
+    // Check if this block is a list
+    if (lines.every(l => /^[-*]\s/.test(l))) {
+      if (!inList) { parts.push('<ul>'); inList = true; }
+      for (const line of lines) {
+        const item = line.replace(/^[-*]\s+/, '');
+        parts.push(`<li>${escapeHtml(item)}</li>`);
+      }
+      continue;
+    }
+
+    // Regular paragraph
+    if (inList) { parts.push('</ul>'); inList = false; }
+    const paraText = lines.join(' ');
+    parts.push(`<p>${escapeHtml(paraText)}</p>`);
+  }
+
+  if (inList) { parts.push('</ul>'); }
+
+  return parts.join('\n');
+}
+
+/**
+ * Prepare Wikipedia source content for the model (script pre-processing)
+ * Trim to manageable size, keep the most important sections
+ */
+function prepareSourceText(content: WikipediaContent): string {
+  const parts: string[] = [];
+
+  // Main intro content (most important)
+  if (content.mainContent) {
+    parts.push(content.mainContent);
+  }
+
+  // Add sections until we hit ~10,000 chars
+  let totalLength = parts.join('\n\n').length;
+  for (const section of content.sections) {
+    const sectionText = `## ${section.heading}\n\n${section.content}`;
+    if (totalLength + sectionText.length > 10000) { break; }
+    parts.push(sectionText);
+    totalLength += sectionText.length;
+  }
+
+  return parts.join('\n\n');
+}
+
 /**
  * Rewrite Wikipedia content as an enjoyable essay
+ * Model writes plain text prose. Script wraps in HTML.
  */
 export async function rewriteWikipediaArticle(
   content: WikipediaContent,
   substackTitle: string,
-  substackExcerpt: string
+  _substackExcerpt: string
 ): Promise<RewriteResult> {
-  // Prepare source content
-  const sourceText = [
-    content.mainContent,
-    ...content.sections.map(s => `## ${s.heading}\n\n${s.content}`)
-  ].join('\n\n');
+  const sourceText = prepareSourceText(content);
 
-  const prompt = `You are rewriting a Wikipedia article for a personal reading library. The goal is to transform encyclopedic content into an enjoyable essay optimized for text-to-speech reading with Speechify.
+  // Model's only job: rewrite as engaging prose, plain text
+  const prompt = `Rewrite this Wikipedia article as an engaging essay for a general reader.
 
-## Source Wikipedia Article
-Title: ${content.title}
-URL: ${content.url}
-Word Count: ${content.wordCount} words (~${content.estimatedReadTime} min read)
+ARTICLE: ${content.title}
 
-## Content to Rewrite:
-${sourceText.slice(0, 15000)}
+CONTENT:
+${sourceText}
 
-## Context
-This Wikipedia article is related to a Substack article titled "${substackTitle}".
-Article excerpt: ${substackExcerpt.slice(0, 500)}
+CONTEXT: This is related to a Substack article titled "${substackTitle}".
 
-## Writing Guidelines
-1. **Don't bury the lede** - Start with the most interesting hook, not a dry definition
-2. **Vary paragraph length** - Mix short punchy paragraphs (1-2 sentences) with longer explanatory ones
-3. **Vary sentence length** - Create rhythm for audio listening; avoid monotonous patterns
-4. **Spell out acronyms** - First use: "the North Atlantic Treaty Organization (NATO)"
-5. **Avoid jargon** - If you must use a technical term, explain it immediately in plain language
-6. **Explain from first principles** - Don't assume prior knowledge; build understanding step by step
-7. **Differentiate concepts** - Explain how this differs from similar things, and what its opposite is
-8. **Add interesting connections** - Draw on your knowledge to add fascinating related facts
-9. **Flow naturally** - This is an essay, not a reference document; use transitions and narrative
-10. **Keep it substantive** - Aim for 10-30 minutes of reading material
+Guidelines:
+- Start with an interesting hook, not a dry definition
+- Explain from first principles — don't assume prior knowledge
+- Vary paragraph length — mix short punchy paragraphs with longer ones
+- Aim for 10-30 minutes of reading material
 
-## Output Format
-Return the rewritten article as clean HTML with semantic markup:
-- Use <p> for paragraphs
-- Use <h2> and <h3> for section headings (not h1)
-- Use <blockquote> for quotes
-- Use <ul>/<ol> for lists
-- Use <em> for emphasis
+Write plain text only. Use blank lines between paragraphs. Use ## before section headings. Use > before quotes. No HTML tags.`;
 
-Start with a brief note crediting the source:
-<p class="source-note">Based on <a href="${content.url}">Wikipedia: ${content.title}</a></p>
+  let text = await generateText(prompt, { temperature: 0.8, numPredict: 12000 });
 
-Then write the essay. Do not include any explanation or commentary outside the HTML content.`;
-
-  // Call Ollama to rewrite the article
-  let html = await generateText(prompt, { temperature: 0.8, numPredict: 12000, timeout: 600_000 });
-
-  // Clean up any markdown code blocks if present
-  if (html.startsWith('```html')) {
-    html = html.slice(7);
+  // Strip markdown code fences if model wraps output
+  if (text.startsWith('```')) {
+    text = text.replace(/^```\w*\n?/, '').replace(/\n?```$/, '');
   }
-  if (html.startsWith('```')) {
-    html = html.slice(3);
-  }
-  if (html.endsWith('```')) {
-    html = html.slice(0, -3);
-  }
-  html = html.trim();
+  text = text.trim();
 
-  // Count words in output
-  const textContent = html.replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ');
-  const wordCount = countWords(textContent);
+  // Script converts plain text to HTML
+  const html = textToHtml(text, content.url, content.title);
+
+  // Count words in the prose output
+  const textOnly = html.replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ');
+  const wordCount = countWords(textOnly);
   const estimatedReadTimeMinutes = Math.ceil(wordCount / 200);
 
   return {

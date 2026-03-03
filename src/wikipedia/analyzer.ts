@@ -1,7 +1,9 @@
 /**
  * Topic analyzer for finding Wikipedia articles related to Substack content
  * Identifies specific, educational topics worth exploring
- * Uses local Ollama for analysis
+ *
+ * Architecture: script handles URL resolution, validation, structure.
+ * Model only picks topic names from article context (plain text output).
  */
 
 import * as cheerio from 'cheerio';
@@ -27,19 +29,16 @@ export function extractWikipediaLinks(html: string): string[] {
 }
 
 /**
- * Extract key terms and concepts from article text
+ * Extract key terms and concepts from article text (script logic, no model)
  */
 export function extractKeyTerms(html: string): string[] {
   const $ = cheerio.load(html);
-
-  // Get text content
   const text = $('body').text();
 
   // Find capitalized phrases that might be proper nouns or concepts
   const capitalizedPattern = /\b([A-Z][a-z]+(?:\s+[A-Z][a-z]+)*)\b/g;
   const matches = text.match(capitalizedPattern) ?? [];
 
-  // Filter out common words and duplicates
   const commonWords = new Set([
     'The', 'This', 'That', 'These', 'Those', 'There', 'Their',
     'What', 'When', 'Where', 'Which', 'While', 'Who', 'Why', 'How',
@@ -59,13 +58,11 @@ export function extractKeyTerms(html: string): string[] {
     .filter(term => !commonWords.has(term))
     .filter(term => term.length > 3);
 
-  // Count occurrences
   const counts = new Map<string, number>();
   for (const term of terms) {
     counts.set(term, (counts.get(term) ?? 0) + 1);
   }
 
-  // Sort by frequency and return top terms
   return [...counts.entries()]
     .sort((a, b) => b[1] - a[1])
     .slice(0, 20)
@@ -73,8 +70,9 @@ export function extractKeyTerms(html: string): string[] {
 }
 
 /**
- * Use Claude to analyze article and suggest Wikipedia topics
- * PRIORITY: First use Wikipedia links found in the article, then Claude for remaining slots
+ * Analyze article and suggest Wikipedia topics
+ * PRIORITY 1: Wikipedia links already in the article (no model needed)
+ * PRIORITY 2: Model picks topic names, script resolves URLs
  */
 export async function analyzeArticleForTopics(
   articleHtml: string,
@@ -83,17 +81,16 @@ export async function analyzeArticleForTopics(
 ): Promise<TopicSuggestion[]> {
   const validatedSuggestions: TopicSuggestion[] = [];
 
-  // PRIORITY 1: Extract and validate Wikipedia links from the article
+  // ── PRIORITY 1: Extract and validate Wikipedia links from the article ──
   const existingLinks = extractWikipediaLinks(articleHtml);
   console.info(`  Found ${existingLinks.length} Wikipedia links in article`);
 
   for (const link of existingLinks) {
-    if (validatedSuggestions.length >= 3) {break;}
+    if (validatedSuggestions.length >= 3) { break; }
 
     const { meetsMinimum, estimatedReadTime } = await checkWikipediaArticleLength(link, 10);
 
     if (meetsMinimum || estimatedReadTime >= 5) {
-      // Extract topic from URL
       const topicMatch = link.match(/\/wiki\/([^#?]+)/);
       if (topicMatch) {
         const topic = decodeURIComponent(topicMatch[1].replace(/_/g, ' '));
@@ -108,117 +105,85 @@ export async function analyzeArticleForTopics(
     }
   }
 
-  // If we already have 3, return early
   if (validatedSuggestions.length >= 3) {
     return validatedSuggestions.slice(0, 3);
   }
 
-  // PRIORITY 2: Use Claude to suggest additional topics to fill remaining slots
+  // ── PRIORITY 2: Model picks topic names, script resolves everything else ──
   const remainingSlots = 3 - validatedSuggestions.length;
   console.info(`  Need ${remainingSlots} more topics from LLM analysis`);
 
-  // Extract text for analysis
   const $ = cheerio.load(articleHtml);
   $('.subscribe-widget, .subscription-widget, .share, .button-wrapper').remove();
-  const articleText = $('body').text().slice(0, 8000); // Limit context
+  const articleText = $('body').text().slice(0, 3000);
   const keyTerms = extractKeyTerms(articleHtml);
 
-  // Exclude already-used URLs from Claude suggestions
-  const excludeUrls = validatedSuggestions.map(s => s.wikipediaUrl);
+  const alreadyUsed = validatedSuggestions.map(s => s.topic);
 
-  const prompt = `Analyze this article and suggest ${remainingSlots} specific Wikipedia topics that would provide valuable context for the reader.
+  // Model's only job: read article context, output topic names (plain text)
+  const prompt = `You are selecting Wikipedia articles that would give readers valuable context for this article.
 
-ARTICLE TITLE: ${articleTitle}
-PUBLICATION: ${publicationName}
+ARTICLE: "${articleTitle}" from ${publicationName}
 
-ARTICLE TEXT (excerpt):
+EXCERPT:
 ${articleText}
 
-KEY TERMS DETECTED: ${keyTerms.join(', ')}
-ALREADY USING: ${excludeUrls.length > 0 ? excludeUrls.join(', ') : 'None'}
+KEY TERMS: ${keyTerms.join(', ')}
+${alreadyUsed.length > 0 ? `ALREADY SELECTED (do not repeat): ${alreadyUsed.join(', ')}` : ''}
 
-REQUIREMENTS:
-1. Topics must be SPECIFIC, not general (e.g., "Dunbar's number" not "Psychology")
-2. Topics should be educational - things the reader likely doesn't know deeply
-3. Topics should be mentioned, referenced, or directly relevant to the article
-4. Each Wikipedia article must have enough content for at least 10 minutes of reading
-5. Avoid topics the reader likely already knows well given they read this publication
-6. Prefer historical events, scientific concepts, specific people, or phenomena over broad categories
-7. DO NOT suggest topics that are already in the ALREADY USING list
+Name exactly ${remainingSlots} specific Wikipedia articles that would be most educational for someone reading this article. Pick topics that are specific (not broad categories), substantial, and directly relevant.
 
-Respond with exactly ${remainingSlots} topics in this JSON format:
-[
-  {
-    "topic": "Exact Wikipedia article title",
-    "wikipediaUrl": "https://en.wikipedia.org/wiki/Article_Title",
-    "reason": "Brief explanation of why this is relevant and educational",
-    "confidence": "high" | "medium" | "low"
-  }
-]
+Return ONLY the topic names, one per line. No numbering, no explanation, no URLs.`;
 
-Only output the JSON array, no other text.`;
+  const responseText = await generateText(prompt, { temperature: 0.3, numPredict: 200 });
 
-  // Call Ollama to analyze the article
-  const responseText = await generateText(prompt, { temperature: 0.3, numPredict: 1000 });
+  // Script parses plain-text response into topic names
+  const topicNames = responseText
+    .split('\n')
+    .map(line => line.replace(/^\d+[.)]\s*/, '').trim()) // strip numbering if model adds it
+    .filter(line => line.length > 2 && line.length < 200)
+    .filter(line => !line.startsWith('http'))               // skip URLs if model outputs them
+    .slice(0, remainingSlots + 2);                          // grab extras in case some fail validation
 
-  // Parse response with retry on failure
-  let suggestions: TopicSuggestion[];
-  try {
-    suggestions = JSON.parse(responseText) as TopicSuggestion[];
-  } catch {
-    // Try to extract JSON from response
-    const jsonMatch = responseText.match(/\[[\s\S]*\]/);
-    if (jsonMatch) {
-      suggestions = JSON.parse(jsonMatch[0]) as TopicSuggestion[];
-    } else {
-      // Retry once with stricter prompt
-      console.info('  JSON parse failed, retrying with stricter prompt...');
-      const retryText = await generateText(
-        prompt + '\n\nYou MUST output ONLY a valid JSON array. No explanation, no markdown.',
-        { temperature: 0.1, numPredict: 1000 }
-      );
-      try {
-        suggestions = JSON.parse(retryText) as TopicSuggestion[];
-      } catch {
-        const retryMatch = retryText.match(/\[[\s\S]*\]/);
-        if (retryMatch) {
-          suggestions = JSON.parse(retryMatch[0]) as TopicSuggestion[];
-        } else {
-          throw new Error('Failed to parse topic suggestions after retry');
-        }
-      }
-    }
-  }
+  console.info(`  LLM suggested: ${topicNames.join(', ')}`);
 
-  // Validate Claude's suggestions
-  for (const suggestion of suggestions) {
-    if (validatedSuggestions.length >= 3) {break;}
-    if (!suggestion.topic || !suggestion.reason) {continue;}
+  // Script resolves each topic name to a real Wikipedia URL
+  for (const topicName of topicNames) {
+    if (validatedSuggestions.length >= 3) { break; }
 
-    // If no URL provided, search for it
-    if (!suggestion.wikipediaUrl) {
-      const url = await searchWikipedia(suggestion.topic);
-      if (url) {
-        suggestion.wikipediaUrl = url;
-      } else {
-        continue;
-      }
+    // Skip if already used
+    if (alreadyUsed.some(t => t.toLowerCase() === topicName.toLowerCase())) { continue; }
+
+    // Script searches Wikipedia API for the topic
+    const url = await searchWikipedia(topicName);
+    if (!url) {
+      console.info(`    ✗ Not found on Wikipedia: ${topicName}`);
+      continue;
     }
 
-    // Skip if already in our list
-    if (excludeUrls.some(u => u === suggestion.wikipediaUrl)) {continue;}
-
-    // Check article length
-    const { meetsMinimum, estimatedReadTime } = await checkWikipediaArticleLength(
-      suggestion.wikipediaUrl,
-      10
-    );
+    // Script validates article length
+    const { meetsMinimum, estimatedReadTime } = await checkWikipediaArticleLength(url, 10);
 
     if (meetsMinimum) {
-      validatedSuggestions.push(suggestion);
+      validatedSuggestions.push({
+        topic: topicName,
+        wikipediaUrl: url,
+        reason: `Related to "${articleTitle}" (${estimatedReadTime} min read)`,
+        confidence: 'high',
+      });
+      alreadyUsed.push(topicName);
+      console.info(`    ✓ Validated: ${topicName} (${estimatedReadTime} min)`);
     } else if (estimatedReadTime >= 5) {
-      suggestion.confidence = 'low';
-      validatedSuggestions.push(suggestion);
+      validatedSuggestions.push({
+        topic: topicName,
+        wikipediaUrl: url,
+        reason: `Related to "${articleTitle}" (${estimatedReadTime} min read)`,
+        confidence: 'low',
+      });
+      alreadyUsed.push(topicName);
+      console.info(`    ~ Short but usable: ${topicName} (${estimatedReadTime} min)`);
+    } else {
+      console.info(`    ✗ Too short: ${topicName} (${estimatedReadTime} min)`);
     }
   }
 
@@ -226,7 +191,7 @@ Only output the JSON array, no other text.`;
 }
 
 /**
- * Quick analysis using just extracted links and terms (no API call)
+ * Quick analysis using just extracted links and terms (no model call)
  */
 export async function quickAnalyzeForTopics(
   articleHtml: string
@@ -238,7 +203,6 @@ export async function quickAnalyzeForTopics(
     const { meetsMinimum, estimatedReadTime } = await checkWikipediaArticleLength(link, 10);
 
     if (meetsMinimum) {
-      // Extract topic from URL
       const topicMatch = link.match(/\/wiki\/([^#?]+)/);
       if (topicMatch) {
         const topic = decodeURIComponent(topicMatch[1].replace(/_/g, ' '));
@@ -251,9 +215,7 @@ export async function quickAnalyzeForTopics(
       }
     }
 
-    if (suggestions.length >= 3) {
-      break;
-    }
+    if (suggestions.length >= 3) { break; }
   }
 
   return suggestions;

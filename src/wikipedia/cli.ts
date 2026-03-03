@@ -97,16 +97,19 @@ Commands:
         console.info(`Enriching article: ${articleId}`);
         const result = await enrichArticleWithWikipedia(pool, articleId, { force: true });
 
-        if (result.success) {
+        if (result.wikipediaArticles.length > 0) {
           console.info(`Added ${result.wikipediaArticles.length} Wikipedia articles:`);
           for (const wiki of result.wikipediaArticles) {
-            console.info(`  - ${wiki.title} (${wiki.estimatedReadTimeMinutes} min)`);
+            console.info(`  - ${wiki.title} (${wiki.estimatedReadTimeMinutes ?? '?'} min)`);
           }
-        } else {
-          console.error('Enrichment failed:');
+        }
+        if (result.errors.length > 0) {
+          console.error(`Errors (${result.errors.length}):`);
           for (const err of result.errors) {
             console.error(`  - ${err}`);
           }
+        }
+        if (!result.success) {
           process.exit(1);
         }
         break;
