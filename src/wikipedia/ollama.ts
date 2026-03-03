@@ -8,6 +8,7 @@
 
 const OLLAMA_URL = process.env.OLLAMA_URL || 'http://127.0.0.1:11434';
 const OLLAMA_MODEL = process.env.OLLAMA_MODEL || 'mistral-large:123b';
+const DEFAULT_TIMEOUT = parseInt(process.env.HEX_TASK_TIMEOUT_MS || '900000', 10);
 
 interface GenerateOptions {
   system?: string;
@@ -29,7 +30,7 @@ export async function generateText(
     system,
     temperature = 0.7,
     numPredict = 8000,
-    timeout = 900_000,
+    timeout = DEFAULT_TIMEOUT,
     retries = 2,
   } = options;
 

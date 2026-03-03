@@ -35,6 +35,7 @@ const { values } = parseArgs({
     since: { type: 'string' },
     'dry-run': { type: 'boolean', default: false },
     verbose: { type: 'boolean', short: 'v', default: false },
+    json: { type: 'boolean', default: false },
     help: { type: 'boolean', short: 'h', default: false },
   },
   allowPositionals: true,
@@ -76,6 +77,8 @@ Examples:
   npx tsx tools/ingest/run.ts --source sources.json --since 2025-01-01
 `);
 }
+
+const jsonMode = values.json ?? false;
 
 async function main(): Promise<void> {
   if (values.help) {
@@ -165,20 +168,33 @@ async function main(): Promise<void> {
   if (sources.length === 1) {
     const result = await ingestSource(sources[0], options);
 
-    console.info(`\nResults for ${result.source.name}:`);
-    console.info(`  Status: ${result.success ? 'SUCCESS' : 'FAILED'}`);
-    console.info(`  Articles processed: ${result.articlesProcessed}`);
-    console.info(`  Articles skipped: ${result.articlesSkipped}`);
-    console.info(`  Articles stored: ${result.articlesStored}`);
-    console.info(`  Errors: ${result.errors.length}`);
-    console.info(`  Duration: ${result.duration}ms`);
+    if (jsonMode) {
+      console.info(JSON.stringify({
+        source: result.source.name,
+        success: result.success,
+        articlesProcessed: result.articlesProcessed,
+        articlesSkipped: result.articlesSkipped,
+        articlesStored: result.articlesStored,
+        errorCount: result.errors.length,
+        errors: result.errors.map(e => ({ phase: e.phase, error: e.error, article: e.articleTitle })),
+        durationMs: result.duration,
+      }));
+    } else {
+      console.info(`\nResults for ${result.source.name}:`);
+      console.info(`  Status: ${result.success ? 'SUCCESS' : 'FAILED'}`);
+      console.info(`  Articles processed: ${result.articlesProcessed}`);
+      console.info(`  Articles skipped: ${result.articlesSkipped}`);
+      console.info(`  Articles stored: ${result.articlesStored}`);
+      console.info(`  Errors: ${result.errors.length}`);
+      console.info(`  Duration: ${result.duration}ms`);
 
-    if (result.errors.length > 0) {
-      console.info('\nErrors:');
-      for (const error of result.errors) {
-        console.info(`  - [${error.phase}] ${error.error}`);
-        if (error.articleTitle) {
-          console.info(`    Article: ${error.articleTitle}`);
+      if (result.errors.length > 0) {
+        console.info('\nErrors:');
+        for (const error of result.errors) {
+          console.info(`  - [${error.phase}] ${error.error}`);
+          if (error.articleTitle) {
+            console.info(`    Article: ${error.articleTitle}`);
+          }
         }
       }
     }
@@ -187,19 +203,32 @@ async function main(): Promise<void> {
   } else {
     const result = await ingestBatch(sources, options);
 
-    console.info('\n=== Batch Ingestion Results ===');
-    console.info(`Total sources: ${result.totalSources}`);
-    console.info(`Successful: ${result.successfulSources}`);
-    console.info(`Failed: ${result.failedSources}`);
-    console.info(`Total articles processed: ${result.totalArticlesProcessed}`);
-    console.info(`Total articles stored: ${result.totalArticlesStored}`);
-    console.info(`Total errors: ${result.totalErrors}`);
-    console.info(`Total duration: ${result.duration}ms`);
+    if (jsonMode) {
+      console.info(JSON.stringify({
+        totalSources: result.totalSources,
+        successfulSources: result.successfulSources,
+        failedSources: result.failedSources,
+        totalArticlesProcessed: result.totalArticlesProcessed,
+        totalArticlesStored: result.totalArticlesStored,
+        totalErrors: result.totalErrors,
+        durationMs: result.duration,
+        failedSourceNames: result.results.filter((r) => !r.success).map(r => r.source.name),
+      }));
+    } else {
+      console.info('\n=== Batch Ingestion Results ===');
+      console.info(`Total sources: ${result.totalSources}`);
+      console.info(`Successful: ${result.successfulSources}`);
+      console.info(`Failed: ${result.failedSources}`);
+      console.info(`Total articles processed: ${result.totalArticlesProcessed}`);
+      console.info(`Total articles stored: ${result.totalArticlesStored}`);
+      console.info(`Total errors: ${result.totalErrors}`);
+      console.info(`Total duration: ${result.duration}ms`);
 
-    if (result.failedSources > 0) {
-      console.info('\nFailed sources:');
-      for (const r of result.results.filter((r) => !r.success)) {
-        console.info(`  - ${r.source.name}: ${r.errors[0]?.error ?? 'Unknown error'}`);
+      if (result.failedSources > 0) {
+        console.info('\nFailed sources:');
+        for (const r of result.results.filter((r) => !r.success)) {
+          console.info(`  - ${r.source.name}: ${r.errors[0]?.error ?? 'Unknown error'}`);
+        }
       }
     }
 
