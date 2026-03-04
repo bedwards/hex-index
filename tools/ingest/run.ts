@@ -34,6 +34,7 @@ const { values } = parseArgs({
     max: { type: 'string', short: 'm' },
     since: { type: 'string' },
     'dry-run': { type: 'boolean', default: false },
+    'no-enrich': { type: 'boolean', default: false },
     verbose: { type: 'boolean', short: 'v', default: false },
     json: { type: 'boolean', default: false },
     help: { type: 'boolean', short: 'h', default: false },
@@ -59,6 +60,7 @@ Options:
   -m, --max <n>         Max articles per publication
       --since <date>    Skip articles before this date (ISO format)
       --dry-run         Don't write files, just show what would happen
+      --no-enrich       Skip Wikipedia enrichment (ingest only)
   -v, --verbose         Verbose output
   -h, --help            Show this help
 
@@ -113,6 +115,7 @@ async function main(): Promise<void> {
     libraryDir: values.library ?? './library',
     fetchDelayMs: parseInt(values.delay ?? '1000', 10),
     dryRun: values['dry-run'] ?? false,
+    enrichWithWikipedia: !(values['no-enrich'] ?? false),
     verbose: values.verbose ?? false,
     db,
   };
