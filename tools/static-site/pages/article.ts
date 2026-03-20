@@ -148,7 +148,7 @@ function generateArticlePage(
       .join('\n');
 
     deepDivesHtml = `
-      <section class="deep-dives">
+      <section id="deep-dives" class="deep-dives">
         <h2>Deep Dives</h2>
         <p class="deep-dives-intro">Explore related topics with these Wikipedia articles, rewritten for enjoyable reading:</p>
         <ul class="deep-dive-list">
@@ -163,12 +163,12 @@ function generateArticlePage(
   const authorEsc = escapeHtml(authorName);
 
   // Content section label + nav links
+  const hasDeepDives = wikipediaLinks.length > 0;
   const contentLabel = isFullRewrite
     ? `<div class="content-label">
         <span class="label-text">Adapted from <a href="${pathToRoot}publication/${article.publication_slug}/index.html">${pubName}</a></span>
         <nav class="content-nav">
-          <a href="#excerpt">Original excerpt</a>
-          <span class="separator">&middot;</span>
+          ${hasDeepDives ? `<a href="#deep-dives">Deep dives</a><span class="separator">&middot;</span>` : ''}
           <a href="${article.original_url}" target="_blank" rel="noopener">Original article &rarr;</a>
         </nav>
       </div>`
@@ -179,14 +179,19 @@ function generateArticlePage(
         </nav>
       </div>`;
 
-  // If we have a rewrite, also show the original excerpt below it
+  // If we have a rewrite, show excerpt + button together in a card at the bottom
   const excerptSection = isFullRewrite && excerptHtml
-    ? `<section id="excerpt" class="original-excerpt-section">
+    ? `<section id="excerpt" class="excerpt-card">
         <div class="content-label">
-          <span class="label-text">Original excerpt from ${pubName}</span>
+          <span class="label-text">Excerpt from the original article on ${pubName}</span>
         </div>
         <div class="article-excerpt">
           ${excerptHtml}
+        </div>
+        <div class="excerpt-card-cta">
+          <a href="${article.original_url}" class="read-button" target="_blank" rel="noopener">
+            Read the entire original on ${pubName} &rarr;
+          </a>
         </div>
       </section>`
     : '';
@@ -219,13 +224,6 @@ function generateArticlePage(
       ${deepDivesHtml}
 
       ${excerptSection}
-
-      <div class="read-full-article">
-        <a href="${article.original_url}" class="read-button" target="_blank" rel="noopener">
-          Read the original on ${pubName} &rarr;
-        </a>
-        <p class="cta-note">Adapted from the original by ${authorEsc}.</p>
-      </div>
       ` : `
       ${deepDivesHtml}
       <div class="excerpt-card">

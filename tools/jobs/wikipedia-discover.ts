@@ -170,19 +170,38 @@ Return ONLY valid JSON in this exact format, nothing else:
           // Parse LLM JSON response
           let llmTopics: TopicResult[] = [];
           try {
-            // Strip markdown code fences if present
+            // Strip markdown code fences and any residual think tags
             let cleaned = responseText.trim();
-            if (cleaned.startsWith('```')) {
-              cleaned = cleaned.replace(/^```\w*\n?/, '').replace(/\n?```$/, '');
+            cleaned = cleaned.replace(/<think>[\s\S]*?<\/think>/g, '').trim();
+            cleaned = cleaned.replace(/^```\w*\n?/, '').replace(/\n?```\s*$/, '').trim();
+            // Try to extract JSON object from the text
+            const jsonMatch = cleaned.match(/\{[\s\S]*\}/);
+            if (jsonMatch) {
+              const parsed = JSON.parse(jsonMatch[0]) as LlmResponse;
+              llmTopics = parsed.topics ?? [];
+            } else {
+              throw new Error('No JSON object found');
             }
-            const parsed = JSON.parse(cleaned) as LlmResponse;
-            llmTopics = parsed.topics ?? [];
           } catch {
             console.info(`  LLM returned invalid JSON, falling back to line parsing`);
             // Fallback: try to extract topic names from plain text
-            const lines = responseText.split('\n')
-              .map(l => l.replace(/^\d+[.)]\s*/, '').trim())
-              .filter(l => l.length > 2 && l.length < 200 && !l.startsWith('{'));
+            // Filter out think-tag residue, short lines, JSON fragments
+            const lines = responseText
+              .replace(/<think>[\s\S]*?<\/think>/g, '')
+              .split('\n')
+              .map(l => l.replace(/^```\w*/, '').replace(/^\d+[.)]\s*/, '').replace(/^[-*]\s+/, '').trim())
+              .filter(l =>
+                l.length > 3 &&
+                l.length < 150 &&
+                !l.startsWith('{') && !l.startsWith('}') &&
+                !l.startsWith('<') &&
+                !l.startsWith('The user') &&
+                !l.startsWith('Looking at') &&
+                !l.startsWith('I ') &&
+                !l.includes('```') &&
+                !l.includes('topic') &&
+                !l.includes('reason')
+              );
             llmTopics = lines.slice(0, remaining).map(t => ({ topic: t, reason: 'Related topic' }));
           }
 

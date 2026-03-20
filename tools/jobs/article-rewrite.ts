@@ -186,6 +186,8 @@ Reading Experience:
 - Remove all subscription prompts, share buttons, CTAs, "subscribe to read more" text.
 - Remove self-referential newsletter language ("as I wrote last week", "paid subscribers know").
 
+CRITICAL: Do NOT start with the article title. Begin immediately with the first sentence of content. The title is already displayed separately — repeating it looks broken.
+
 Return ONLY valid JSON: {"content": "your adapted article text here"}
 
 Write plain text only. Use blank lines between paragraphs. Use ## for section headings. Use > for blockquotes. No HTML tags.`;
