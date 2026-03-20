@@ -35,6 +35,8 @@ interface ArticleRow {
   published_at: string | null;
   estimated_read_time_minutes: number;
   content_path: string | null;
+  rewritten_content_path: string | null;
+  image_path: string | null;
   original_url: string;
 }
 
@@ -59,6 +61,8 @@ async function getAllArticles(pool: Pool): Promise<ArticleRow[]> {
       a.published_at,
       a.estimated_read_time_minutes,
       a.content_path,
+      a.rewritten_content_path,
+      a.image_path,
       a.original_url
     FROM app.articles a
     JOIN app.publications p ON a.publication_id = p.id
@@ -89,13 +93,40 @@ async function getLinkedWikipedia(
 }
 
 /**
+ * Insert a generated image into the middle of article text
+ * Places it after the 2nd paragraph as a floating illustration
+ */
+function injectImageIntoText(html: string, imageSrc: string): string {
+  const imgTag = `<figure class="inline-illustration">
+    <img src="${imageSrc}" alt="" loading="lazy" width="600" height="315">
+  </figure>`;
+
+  // Find the end of the 2nd </p> tag and insert after it
+  let count = 0;
+  const closingP = /<\/p>/gi;
+  let match: RegExpExecArray | null;
+  while ((match = closingP.exec(html)) !== null) {
+    count++;
+    if (count === 2) {
+      const insertPos = match.index + match[0].length;
+      return html.slice(0, insertPos) + '\n' + imgTag + '\n' + html.slice(insertPos);
+    }
+  }
+
+  // Fewer than 2 paragraphs — put it at the end
+  return html + '\n' + imgTag;
+}
+
+/**
  * Generate article excerpt page HTML
  * Layout order: Title/byline → Deep Dives → Excerpt → Link to original
  */
 function generateArticlePage(
   article: ArticleRow,
-  excerpt: string,
-  wikipediaLinks: WikipediaLink[]
+  contentHtml: string,
+  wikipediaLinks: WikipediaLink[],
+  isFullRewrite: boolean = false,
+  excerptHtml: string = ''
 ): string {
   const date = formatDate(article.published_at);
   const pathToRoot = '../../';
@@ -128,15 +159,51 @@ function generateArticlePage(
   }
 
   const authorName = article.author_name ?? 'Unknown';
+  const pubName = escapeHtml(article.publication_name);
+  const authorEsc = escapeHtml(authorName);
+
+  // Content section label + nav links
+  const contentLabel = isFullRewrite
+    ? `<div class="content-label">
+        <span class="label-text">Adapted from <a href="${pathToRoot}publication/${article.publication_slug}/index.html">${pubName}</a></span>
+        <nav class="content-nav">
+          <a href="#excerpt">Original excerpt</a>
+          <span class="separator">&middot;</span>
+          <a href="${article.original_url}" target="_blank" rel="noopener">Original article &rarr;</a>
+        </nav>
+      </div>`
+    : `<div class="content-label">
+        <span class="label-text">Excerpt from <a href="${pathToRoot}publication/${article.publication_slug}/index.html">${pubName}</a></span>
+        <nav class="content-nav">
+          <a href="${article.original_url}" target="_blank" rel="noopener">Read full article &rarr;</a>
+        </nav>
+      </div>`;
+
+  // If we have a rewrite, also show the original excerpt below it
+  const excerptSection = isFullRewrite && excerptHtml
+    ? `<section id="excerpt" class="original-excerpt-section">
+        <div class="content-label">
+          <span class="label-text">Original excerpt from ${pubName}</span>
+        </div>
+        <div class="article-excerpt">
+          ${article.image_path ? injectImageIntoText(excerptHtml, `${pathToRoot}${article.image_path}`) : excerptHtml}
+        </div>
+      </section>`
+    : '';
+
+  // For non-rewrite, contentHtml IS the excerpt; for rewrite, load it separately
+  const mainContent = isFullRewrite ? contentHtml : contentHtml;
+  const mainClass = isFullRewrite ? 'article-content' : 'article-excerpt';
+
   const content = `
     <article class="article-page">
       <header class="article-header">
         <h1>${escapeHtml(article.title)}</h1>
         <div class="article-meta">
-          <span class="author">By ${escapeHtml(authorName)}</span>
+          <span class="author">By ${authorEsc}</span>
           <span class="separator">&middot;</span>
           <a href="${pathToRoot}publication/${article.publication_slug}/index.html" class="publication">
-            ${escapeHtml(article.publication_name)}
+            ${pubName}
           </a>
           ${date ? `<span class="separator">&middot;</span><time>${date}</time>` : ''}
           <span class="separator">&middot;</span>
@@ -146,19 +213,25 @@ function generateArticlePage(
 
       ${deepDivesHtml}
 
-      <div class="article-excerpt">
-        ${excerpt}
+      ${contentLabel}
+
+      <div class="${mainClass}">
+        ${!isFullRewrite && article.image_path ? injectImageIntoText(mainContent, `${pathToRoot}${article.image_path}`) : mainContent}
       </div>
 
       <div class="read-full-article">
         <a href="${article.original_url}" class="read-button" target="_blank" rel="noopener">
-          Read full article on ${escapeHtml(article.publication_name)} &rarr;
+          Continue reading on ${pubName} &rarr;
         </a>
-        <p class="copyright-note">
-          This excerpt is provided for preview purposes.
-          Full article content is available on the original publication.
+        <p class="cta-note">
+          ${isFullRewrite
+            ? `This article was adapted from the original by ${authorEsc}. Read the unedited version on ${pubName}.`
+            : `This is an excerpt. The full article by ${authorEsc} is available on ${pubName}.`
+          }
         </p>
       </div>
+
+      ${excerptSection}
     </article>
   `;
 
@@ -176,12 +249,20 @@ export async function generateArticlePages(
   let pagesGenerated = 0;
 
   for (const article of articles) {
-    const content = await loadArticleContent(article.content_path);
-    // Use HTML excerpt to preserve formatting, 400 words for fair use
-    const excerpt = extractHtmlExcerpt(content, 400);
+    // If we have a rewritten version, use full content; otherwise excerpt
+    const hasRewrite = !!article.rewritten_content_path;
+    const rawContent = await loadArticleContent(article.content_path);
+    const excerpt = extractHtmlExcerpt(rawContent, 400);
+
+    let displayContent: string;
+    if (hasRewrite) {
+      displayContent = await loadArticleContent(article.rewritten_content_path);
+    } else {
+      displayContent = excerpt;
+    }
     const wikipediaLinks = await getLinkedWikipedia(pool, article.id);
 
-    const html = generateArticlePage(article, excerpt, wikipediaLinks);
+    const html = generateArticlePage(article, displayContent, wikipediaLinks, hasRewrite, hasRewrite ? excerpt : '');
     const filePath = join(outputDir, 'article', article.id, 'index.html');
 
     await writeFile(filePath, html);

@@ -19,6 +19,8 @@ import { generateHomePages } from './pages/home.js';
 import { generateArticlePages } from './pages/article.js';
 import { generateWikipediaPages } from './pages/wikipedia.js';
 import { generatePublicationPages } from './pages/publication.js';
+import { generateSearchIndex } from './pages/search-index.js';
+import { generateAboutPage } from './pages/about.js';
 import { ensureDir } from './utils.js';
 import { rm, cp } from 'fs/promises';
 import { join } from 'path';
@@ -79,6 +81,16 @@ async function main(): Promise<void> {
     const pubResult = await generatePublicationPages(pool, OUTPUT_DIR);
     console.info(`  ${pubResult.publicationsGenerated} publications, ${pubResult.pagesGenerated} pages\n`);
 
+    // Generate about page
+    console.info('Generating about page...');
+    await generateAboutPage(OUTPUT_DIR);
+    console.info('');
+
+    // Generate search index
+    console.info('Generating search index...');
+    const searchResult = await generateSearchIndex(pool, OUTPUT_DIR);
+    console.info('');
+
     // Summary
     console.info('=====================');
     console.info('Generation complete!\n');
@@ -87,6 +99,7 @@ async function main(): Promise<void> {
     console.info(`  Article pages: ${articleResult.pagesGenerated}`);
     console.info(`  Wikipedia pages: ${wikiResult.pagesGenerated}`);
     console.info(`  Publication pages: ${pubResult.pagesGenerated}`);
+    console.info(`  Search index: ${searchResult.articlesIndexed} articles`);
     console.info(`\nOutput: ${OUTPUT_DIR}`);
 
   } finally {

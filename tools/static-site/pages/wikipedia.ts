@@ -15,6 +15,7 @@ interface WikipediaRow {
   content_path: string;
   original_url: string;
   estimated_read_time_minutes: number;
+  status: string;
 }
 
 interface RelatedArticle {
@@ -36,7 +37,8 @@ async function getAllWikipediaArticles(pool: Pool): Promise<WikipediaRow[]> {
       title,
       content_path,
       original_url,
-      estimated_read_time_minutes
+      estimated_read_time_minutes,
+      COALESCE(status, 'complete') AS status
     FROM app.wikipedia_articles
     ORDER BY created_at DESC
   `);
@@ -119,19 +121,35 @@ function generateWikipediaPage(
     `;
   }
 
+  const isStub = wiki.status === 'stub';
+  const badgeText = isStub ? 'Wikipedia Deep Dive (Coming Soon)' : 'Wikipedia Deep Dive';
+  const contentBlock = isStub
+    ? `<div class="wikipedia-stub">
+        <p>This deep dive is being prepared. In the meantime, you can read the original article on Wikipedia.</p>
+        <p><a href="${wiki.original_url}" target="_blank" rel="noopener" class="read-button">
+          Read on Wikipedia &rarr;
+        </a></p>
+      </div>`
+    : `<div class="wikipedia-content">${content}</div>`;
+
+  const footerNote = isStub
+    ? ''
+    : `<p class="rewrite-note">
+        This article has been rewritten from Wikipedia source material for enjoyable reading.
+        Content may have been condensed, restructured, or simplified.
+      </p>`;
+
   const pageContent = `
     <article class="wikipedia-page">
       <header class="wikipedia-header">
-        <div class="type-badge">Wikipedia Deep Dive</div>
+        <div class="type-badge">${badgeText}</div>
         <h1>${escapeHtml(wiki.title)}</h1>
         <div class="article-meta">
           <span class="read-time">${wiki.estimated_read_time_minutes} min read</span>
         </div>
       </header>
 
-      <div class="wikipedia-content">
-        ${content}
-      </div>
+      ${contentBlock}
 
       <footer class="wikipedia-footer">
         <p class="source-link">
@@ -139,10 +157,7 @@ function generateWikipediaPage(
             View original Wikipedia article &rarr;
           </a>
         </p>
-        <p class="rewrite-note">
-          This article has been rewritten from Wikipedia source material for enjoyable reading.
-          Content may have been condensed, restructured, or simplified.
-        </p>
+        ${footerNote}
       </footer>
 
       ${relatedHtml}

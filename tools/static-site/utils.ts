@@ -100,6 +100,9 @@ export function extractHtmlExcerpt(htmlContent: string, wordLimit: number = 400)
     .replace(/<button[^>]*>[\s\S]*?<\/button>/gi, '')
     // Remove comments
     .replace(/<!--[\s\S]*?-->/g, '')
+    // Remove original images — we use our own generated illustrations
+    .replace(/<img[^>]*>/gi, '')
+    .replace(/<figure[^>]*>[\s\S]*?<\/figure>/gi, '')
     .trim();
 
   // Count words to find where to truncate

@@ -41,6 +41,7 @@ interface ArticleRow {
   published_at: string | null;
   estimated_read_time_minutes: number;
   content_path: string | null;
+  image_path: string | null;
   original_url: string;
 }
 
@@ -73,6 +74,7 @@ async function getArticlesForPage(
       a.published_at,
       a.estimated_read_time_minutes,
       a.content_path,
+      a.image_path,
       a.original_url
     FROM app.articles a
     JOIN app.publications p ON a.publication_id = p.id
@@ -93,6 +95,7 @@ async function getArticlesForPage(
       estimatedReadTimeMinutes: row.estimated_read_time_minutes,
       excerpt: extractExcerpt(content),
       url: row.original_url,
+      imagePath: row.image_path,
     });
   }
   return articles;

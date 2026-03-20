@@ -47,6 +47,7 @@ interface ArticleRow {
   published_at: string | null;
   estimated_read_time_minutes: number;
   content_path: string | null;
+  image_path: string | null;
   original_url: string;
 }
 
@@ -99,6 +100,7 @@ async function getPublicationArticles(
       published_at,
       estimated_read_time_minutes,
       content_path,
+      image_path,
       original_url
     FROM app.articles
     WHERE publication_id = $1
@@ -183,6 +185,7 @@ export async function generatePublicationPages(
           estimatedReadTimeMinutes: row.estimated_read_time_minutes,
           excerpt: extractExcerpt(content),
           url: row.original_url,
+          imagePath: row.image_path,
         });
       }
 

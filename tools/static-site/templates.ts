@@ -4,6 +4,11 @@
  */
 
 import { escapeHtml, formatDate } from './utils.js';
+import { readFileSync } from 'fs';
+import { join } from 'path';
+
+const pkg = JSON.parse(readFileSync(join(process.cwd(), 'package.json'), 'utf-8')) as { version: string };
+const VERSION = pkg.version;
 
 export interface StaticArticle {
   id: string;
@@ -15,6 +20,7 @@ export interface StaticArticle {
   estimatedReadTimeMinutes: number;
   excerpt: string;
   url: string;
+  imagePath: string | null;
 }
 
 export interface StaticWikipediaArticle {
@@ -48,16 +54,110 @@ export function staticLayout(
   <header class="site-header">
     <nav class="container">
       <a href="${pathToRoot}index.html" class="logo">Hex Index</a>
+      <a href="${pathToRoot}about/index.html" class="header-link">About</a>
+      <div class="search-wrap">
+        <input type="text" id="search" class="search-input" placeholder="Search articles..." autocomplete="off" spellcheck="false">
+      </div>
     </nav>
   </header>
   <main class="container">
-    ${content}
+    <div id="search-results" class="article-list" style="display:none"></div>
+    <div id="main-content">
+      ${content}
+    </div>
   </main>
   <footer class="site-footer">
     <div class="container">
-      <p>A curated reading library</p>
+      <p>A curated reading library &middot; v${VERSION}</p>
     </div>
   </footer>
+  <script src="https://cdn.jsdelivr.net/npm/fuse.js@7.1.0/dist/fuse.min.js"></script>
+  <script>
+  (function() {
+    var input = document.getElementById('search');
+    var results = document.getElementById('search-results');
+    var main = document.getElementById('main-content');
+    if (!input || !results || !main) return;
+
+    var fuse = null;
+    var indexLoaded = false;
+    var pathToRoot = '${pathToRoot}';
+
+    function loadIndex() {
+      if (indexLoaded) return Promise.resolve();
+      indexLoaded = true;
+      return fetch(pathToRoot + 'search-index.json')
+        .then(function(r) { return r.json(); })
+        .then(function(data) {
+          fuse = new Fuse(data, {
+            keys: [
+              { name: 't', weight: 3 },
+              { name: 'a', weight: 2 },
+              { name: 'p', weight: 1 }
+            ],
+            threshold: 0.35,
+            distance: 200,
+            minMatchCharLength: 2,
+          });
+        });
+    }
+
+    function renderResults(items) {
+      if (items.length === 0) {
+        results.innerHTML = '<p style="padding:1rem;color:var(--ink-muted)">No results</p>';
+        return;
+      }
+      results.innerHTML = items.slice(0, 30).map(function(r) {
+        var a = r.item;
+        return '<article class="article-card"><div>' +
+          '<a href="' + pathToRoot + 'article/' + a.i + '/index.html" class="article-link">' +
+          '<h2 class="article-title">' + esc(a.t) + '</h2></a>' +
+          '<div class="article-meta">' +
+          '<span class="author">' + esc(a.a) + '</span>' +
+          '<span class="separator">&middot;</span>' +
+          '<a href="' + pathToRoot + 'publication/' + a.s + '/index.html" class="publication">' + esc(a.p) + '</a>' +
+          (a.d ? '<span class="separator">&middot;</span><time>' + a.d + '</time>' : '') +
+          '<span class="separator">&middot;</span>' +
+          '<span class="read-time">' + a.r + ' min read</span>' +
+          '</div></div></article>';
+      }).join('');
+    }
+
+    function esc(s) {
+      var d = document.createElement('div');
+      d.textContent = s;
+      return d.innerHTML;
+    }
+
+    var debounce;
+    input.addEventListener('input', function() {
+      clearTimeout(debounce);
+      var q = input.value.trim();
+      if (q.length < 2) {
+        results.style.display = 'none';
+        main.style.display = '';
+        return;
+      }
+      debounce = setTimeout(function() {
+        loadIndex().then(function() {
+          if (!fuse) return;
+          var hits = fuse.search(q);
+          results.style.display = '';
+          main.style.display = 'none';
+          renderResults(hits);
+        });
+      }, 100);
+    });
+
+    input.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') {
+        input.value = '';
+        results.style.display = 'none';
+        main.style.display = '';
+      }
+    });
+  })();
+  </script>
 </body>
 </html>`;
 }
@@ -98,20 +198,27 @@ export function renderStaticArticleCard(
 ): string {
   const date = formatDate(article.publishedAt);
 
+  const thumbHtml = article.imagePath
+    ? `<img class="article-thumb" src="${pathToRoot}${article.imagePath}" alt="" loading="lazy" width="180" height="94">`
+    : '';
+
   return `<article class="article-card">
-  <a href="${pathToRoot}article/${article.id}/index.html" class="article-link">
-    <h2 class="article-title">${escapeHtml(article.title)}</h2>
-  </a>
-  <div class="article-meta">
-    <span class="author">${escapeHtml(article.author)}</span>
-    <span class="separator">&middot;</span>
-    <a href="${pathToRoot}publication/${article.publicationSlug}/index.html" class="publication">
-      ${escapeHtml(article.publicationName)}
+  <div>
+    <a href="${pathToRoot}article/${article.id}/index.html" class="article-link">
+      <h2 class="article-title">${escapeHtml(article.title)}</h2>
     </a>
-    ${date ? `<span class="separator">&middot;</span><time>${date}</time>` : ''}
-    <span class="separator">&middot;</span>
-    <span class="read-time">${article.estimatedReadTimeMinutes} min read</span>
+    <div class="article-meta">
+      <span class="author">${escapeHtml(article.author)}</span>
+      <span class="separator">&middot;</span>
+      <a href="${pathToRoot}publication/${article.publicationSlug}/index.html" class="publication">
+        ${escapeHtml(article.publicationName)}
+      </a>
+      ${date ? `<span class="separator">&middot;</span><time>${date}</time>` : ''}
+      <span class="separator">&middot;</span>
+      <span class="read-time">${article.estimatedReadTimeMinutes} min read</span>
+    </div>
   </div>
+  ${thumbHtml}
 </article>`;
 }
 

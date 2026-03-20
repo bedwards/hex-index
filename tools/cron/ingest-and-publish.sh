@@ -1,51 +1,175 @@
 #!/bin/bash
-# Automated ingestion and publishing script
-# Runs 4x daily via cron to keep the library fresh
+# Automated ingestion and publishing pipeline
+# Runs 4x daily via launchd to keep the library fresh
+#
+# Guarantees:
+#   - Only one instance runs at a time (flock)
+#   - Postgres is healthy before ingestion starts
+#   - Ollama has the model loaded before enrichment starts
+#   - Git conflicts are handled gracefully
+#   - Every step is timed and logged
+#   - Non-zero exit only on critical failures (ingestion or static gen)
 
-set -e
+set -euo pipefail
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 PROJECT_DIR="$(cd "$SCRIPT_DIR/../.." && pwd)"
+LOCK_FILE="$PROJECT_DIR/logs/ingest.lock"
 LOG_FILE="$PROJECT_DIR/logs/ingest-$(date +%Y%m%d-%H%M%S).log"
+LATEST_LOG="$PROJECT_DIR/logs/ingestion-latest.log"
+ENRICHMENT_TIMEOUT=18000  # 5 hours
+OLLAMA_URL="${OLLAMA_URL:-http://127.0.0.1:11434}"
+OLLAMA_MODEL="${OLLAMA_MODEL:-qwen3.5:122b}"
 
-# Ensure logs directory exists
 mkdir -p "$PROJECT_DIR/logs"
-
 cd "$PROJECT_DIR"
 
-echo "=== Starting ingestion at $(date) ===" | tee -a "$LOG_FILE"
+# ── Logging ──────────────────────────────────────────────────────────
+log()  { echo "[$(date '+%H:%M:%S')] $*" | tee -a "$LOG_FILE"; }
+warn() { echo "[$(date '+%H:%M:%S')] WARN: $*" | tee -a "$LOG_FILE" >&2; }
+die()  { echo "[$(date '+%H:%M:%S')] FATAL: $*" | tee -a "$LOG_FILE" >&2; exit 1; }
 
-# Ensure Docker and database are running
-if ! docker compose ps postgres | grep -q "running"; then
-    echo "Starting database..." | tee -a "$LOG_FILE"
-    docker compose up -d postgres
-    sleep 5
+step_start() {
+    STEP_NAME="$1"
+    STEP_START=$(date +%s)
+    log "── $STEP_NAME ──"
+}
+
+step_done() {
+    local elapsed=$(( $(date +%s) - STEP_START ))
+    local mins=$(( elapsed / 60 ))
+    local secs=$(( elapsed % 60 ))
+    log "── $STEP_NAME done (${mins}m ${secs}s) ──"
+}
+
+# ── Lock: only one instance at a time ────────────────────────────────
+exec 9>"$LOCK_FILE"
+if ! flock -n 9; then
+    STALE_PID=$(cat "$LOCK_FILE" 2>/dev/null || echo "unknown")
+    log "Another instance is running (PID $STALE_PID). Exiting."
+    exit 0
 fi
+echo $$ >"$LOCK_FILE"
+trap 'rm -f "$LOCK_FILE"; exec 9>&-' EXIT
 
-# Run ingestion
-echo "Running ingestion..." | tee -a "$LOG_FILE"
+RUN_START=$(date +%s)
+log "=== Ingestion pipeline starting (PID $$) ==="
+
+# ── Postgres: start and wait for healthy ─────────────────────────────
+step_start "Postgres"
+
+docker compose up -d postgres 2>&1 | tee -a "$LOG_FILE"
+
+PG_RETRIES=0
+PG_MAX=30
+until docker compose exec -T postgres pg_isready -U postgres -q 2>/dev/null; do
+    PG_RETRIES=$((PG_RETRIES + 1))
+    if [ "$PG_RETRIES" -ge "$PG_MAX" ]; then
+        die "Postgres not ready after ${PG_MAX}s"
+    fi
+    sleep 1
+done
+log "Postgres ready after ${PG_RETRIES}s"
+step_done
+
+# ── Ollama: verify model is loaded ──────────────────────────────────
+step_start "Ollama check"
+
+OLLAMA_OK=false
+for i in 1 2 3; do
+    if curl -sf "${OLLAMA_URL}/api/tags" >/dev/null 2>&1; then
+        LOADED=$(curl -sf "${OLLAMA_URL}/api/ps" | grep -o "\"$OLLAMA_MODEL\"" || true)
+        if [ -n "$LOADED" ]; then
+            OLLAMA_OK=true
+            log "Ollama running, $OLLAMA_MODEL loaded"
+            break
+        else
+            warn "Ollama running but $OLLAMA_MODEL not loaded — warming up..."
+            # Send a tiny request to force-load the model
+            curl -sf "${OLLAMA_URL}/api/chat" -d "{\"model\":\"$OLLAMA_MODEL\",\"messages\":[{\"role\":\"user\",\"content\":\"hi\"}],\"options\":{\"num_predict\":1},\"stream\":false}" >/dev/null 2>&1 || true
+            sleep 5
+        fi
+    else
+        warn "Ollama not responding (attempt $i/3)"
+        sleep 5
+    fi
+done
+
+if [ "$OLLAMA_OK" = false ]; then
+    warn "Ollama unavailable — Wikipedia enrichment will be skipped"
+fi
+step_done
+
+# ── Ingestion: fetch RSS feeds ───────────────────────────────────────
+step_start "RSS ingestion"
 npm run ingest -- --source content/comprehensive-sources-flat.json 2>&1 | tee -a "$LOG_FILE"
+step_done
 
-# Enrich articles with Wikipedia deep dives (5h wallclock timeout)
-echo "Running Wikipedia enrichment..." | tee -a "$LOG_FILE"
-timeout 18000 npm run wikipedia:retrofit -- --limit 100 2>&1 | tee -a "$LOG_FILE" || echo "Wikipedia enrichment timed out or failed" | tee -a "$LOG_FILE"
-
-# Generate static site
-echo "Generating static site..." | tee -a "$LOG_FILE"
-npm run static:generate 2>&1 | tee -a "$LOG_FILE"
-
-# Commit and push if there are changes
-if ! git diff --quiet docs/; then
-    echo "Publishing changes..." | tee -a "$LOG_FILE"
-    git add docs/
-    git commit -m "chore: automated content update $(date +%Y-%m-%d)"
-    git push
-    echo "Published successfully!" | tee -a "$LOG_FILE"
+# ── Wikipedia enrichment ─────────────────────────────────────────────
+if [ "$OLLAMA_OK" = true ]; then
+    step_start "Wikipedia enrichment (timeout ${ENRICHMENT_TIMEOUT}s)"
+    if timeout "$ENRICHMENT_TIMEOUT" npm run wikipedia:retrofit -- --limit 100 2>&1 | tee -a "$LOG_FILE"; then
+        step_done
+    else
+        EXIT_CODE=$?
+        if [ "$EXIT_CODE" -eq 124 ]; then
+            warn "Wikipedia enrichment hit ${ENRICHMENT_TIMEOUT}s timeout — partial progress saved"
+        else
+            warn "Wikipedia enrichment failed (exit $EXIT_CODE) — continuing"
+        fi
+        step_done
+    fi
 else
-    echo "No new content to publish." | tee -a "$LOG_FILE"
+    log "Skipping Wikipedia enrichment (Ollama unavailable)"
 fi
 
-echo "=== Completed at $(date) ===" | tee -a "$LOG_FILE"
+# ── Static site generation ───────────────────────────────────────────
+step_start "Static site"
+npm run static:generate 2>&1 | tee -a "$LOG_FILE"
+step_done
+
+# ── Git: commit and push with conflict handling ──────────────────────
+step_start "Publish"
+
+if git diff --quiet docs/ && git diff --quiet --cached docs/; then
+    log "No new content to publish"
+else
+    git add docs/
+
+    COMMIT_MSG="feat: auto-publish $(date +%Y-%m-%d %H:%M)"
+    git commit -m "$COMMIT_MSG" 2>&1 | tee -a "$LOG_FILE"
+
+    PUSH_RETRIES=0
+    PUSH_MAX=3
+    while [ "$PUSH_RETRIES" -lt "$PUSH_MAX" ]; do
+        if git push 2>&1 | tee -a "$LOG_FILE"; then
+            log "Pushed successfully"
+            break
+        else
+            PUSH_RETRIES=$((PUSH_RETRIES + 1))
+            if [ "$PUSH_RETRIES" -ge "$PUSH_MAX" ]; then
+                warn "Push failed after $PUSH_MAX attempts — commit is local, will retry next run"
+                break
+            fi
+            log "Push failed, pulling with rebase (attempt $PUSH_RETRIES/$PUSH_MAX)..."
+            if ! git pull --rebase 2>&1 | tee -a "$LOG_FILE"; then
+                warn "Rebase conflict — aborting rebase, commit stays local"
+                git rebase --abort 2>/dev/null || true
+                break
+            fi
+        fi
+    done
+fi
+step_done
+
+# ── Summary ──────────────────────────────────────────────────────────
+RUN_ELAPSED=$(( $(date +%s) - RUN_START ))
+RUN_MINS=$(( RUN_ELAPSED / 60 ))
+RUN_SECS=$(( RUN_ELAPSED % 60 ))
+log "=== Pipeline complete (${RUN_MINS}m ${RUN_SECS}s) ==="
+
+# Symlink latest log for easy access
+ln -sf "$LOG_FILE" "$LATEST_LOG"
 
 # Keep only last 7 days of logs
 find "$PROJECT_DIR/logs" -name "ingest-*.log" -mtime +7 -delete

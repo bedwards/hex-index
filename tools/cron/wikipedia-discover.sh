@@ -1,0 +1,101 @@
+#!/bin/bash
+# Job 2: Wikipedia topic discovery
+# Walks articles reverse-chrono, uses LLM to find 3 wikipedia topics per article,
+# scrapes raw wikipedia content, stores stubs. No rewriting.
+
+set -euo pipefail
+
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+PROJECT_DIR="$(cd "$SCRIPT_DIR/../.." && pwd)"
+LOCK_FILE="$PROJECT_DIR/logs/wiki-discover.lock"
+LOG_FILE="$PROJECT_DIR/logs/wiki-discover-$(date +%Y%m%d-%H%M%S).log"
+OLLAMA_URL="${OLLAMA_URL:-http://127.0.0.1:11434}"
+OLLAMA_MODEL="${OLLAMA_MODEL:-qwen3.5:122b}"
+
+mkdir -p "$PROJECT_DIR/logs"
+cd "$PROJECT_DIR"
+
+log()  { echo "[$(date '+%H:%M:%S')] $*" | tee -a "$LOG_FILE"; }
+warn() { echo "[$(date '+%H:%M:%S')] WARN: $*" | tee -a "$LOG_FILE" >&2; }
+die()  { echo "[$(date '+%H:%M:%S')] FATAL: $*" | tee -a "$LOG_FILE" >&2; exit 1; }
+
+step_start() { STEP_NAME="$1"; STEP_START=$(date +%s); log "── $STEP_NAME ──"; }
+step_done()  { local e=$(( $(date +%s) - STEP_START )); log "── $STEP_NAME done ($(( e/60 ))m $(( e%60 ))s) ──"; }
+
+# Per-job lock
+exec 9>"$LOCK_FILE"
+if ! flock -n 9; then log "Another wiki-discover running. Exiting."; exit 0; fi
+echo $$ >"$LOCK_FILE"
+
+# Shared LLM lock — only one LLM job at a time (jobs 2/3/4)
+LLM_LOCK="$PROJECT_DIR/logs/llm.lock"
+exec 8>"$LLM_LOCK"
+if ! flock -n 8; then log "Another LLM job running. Exiting."; exit 0; fi
+
+trap 'rm -f "$LOCK_FILE"; exec 9>&-; exec 8>&-' EXIT
+
+RUN_START=$(date +%s)
+log "=== Job 2: Wikipedia Discover (PID $$) ==="
+
+# Postgres check
+step_start "Postgres"
+PG_RETRIES=0
+until docker compose exec -T postgres pg_isready -U postgres -q 2>/dev/null; do
+    PG_RETRIES=$((PG_RETRIES + 1))
+    [ "$PG_RETRIES" -ge 30 ] && die "Postgres not ready after 30s"
+    sleep 1
+done
+log "Postgres ready (${PG_RETRIES}s)"
+step_done
+
+# Ollama check
+step_start "Ollama"
+OLLAMA_OK=false
+for i in 1 2 3; do
+    if curl -sf "${OLLAMA_URL}/api/tags" >/dev/null 2>&1; then
+        LOADED=$(curl -sf "${OLLAMA_URL}/api/ps" | grep -o "\"$OLLAMA_MODEL\"" || true)
+        if [ -n "$LOADED" ]; then
+            OLLAMA_OK=true; log "Ollama ready, $OLLAMA_MODEL loaded"; break
+        else
+            warn "Model not loaded, warming up..."
+            curl -sf "${OLLAMA_URL}/api/chat" -d "{\"model\":\"$OLLAMA_MODEL\",\"messages\":[{\"role\":\"user\",\"content\":\"hi\"}],\"options\":{\"num_predict\":1},\"stream\":false}" >/dev/null 2>&1 || true
+            sleep 10
+        fi
+    else
+        warn "Ollama not responding (attempt $i/3)"; sleep 5
+    fi
+done
+[ "$OLLAMA_OK" = false ] && die "Ollama unavailable — cannot discover topics without LLM"
+step_done
+
+# Run discovery
+step_start "Topic discovery"
+timeout 7200 npx tsx tools/jobs/wikipedia-discover.ts --limit 200 2>&1 | tee -a "$LOG_FILE" || {
+    EC=$?
+    [ "$EC" -eq 124 ] && warn "Discovery hit 4h timeout" || warn "Discovery failed (exit $EC)"
+}
+step_done
+
+# Regenerate static site with new stubs
+step_start "Static site"
+npm run static:generate 2>&1 | tee -a "$LOG_FILE"
+step_done
+
+# Push
+step_start "Publish"
+if git diff --quiet docs/ && git diff --quiet --cached docs/; then
+    log "No new content"
+else
+    git add docs/
+    git commit -m "feat: wikipedia topic discovery $(date +%Y-%m-%d\ %H:%M)" 2>&1 | tee -a "$LOG_FILE"
+    for i in 1 2 3; do
+        if git push 2>&1 | tee -a "$LOG_FILE"; then break; fi
+        git pull --rebase 2>&1 | tee -a "$LOG_FILE" || { git rebase --abort 2>/dev/null; warn "Rebase failed"; break; }
+    done
+fi
+step_done
+
+RUN_E=$(( $(date +%s) - RUN_START ))
+log "=== Job 2 complete ($(( RUN_E/60 ))m $(( RUN_E%60 ))s) ==="
+ln -sf "$LOG_FILE" "$PROJECT_DIR/logs/wiki-discover-latest.log"
+find "$PROJECT_DIR/logs" -name "wiki-discover-*.log" -not -name "wiki-discover-latest.log" -mtime +7 -delete
