@@ -330,28 +330,49 @@ main {
   margin-bottom: 1.1em;
 }
 
+/* First paragraph after a heading — slightly larger for pull-quote feel */
+.article-content h2 + p:first-letter,
+.wikipedia-content h2 + p:first-letter {
+  font-size: 1.4em;
+  font-weight: 500;
+  line-height: 1;
+}
+
 .article-content h2,
 .wikipedia-content h2 {
   font-size: var(--text-lg);
   font-weight: 600;
-  margin: var(--gap-lg) 0 0.6rem;
+  margin: var(--gap-xl) 0 0.6rem;
+  padding-top: var(--gap);
+  border-top: 1px solid var(--rule);
   letter-spacing: -0.01em;
+}
+
+/* First h2 — no top border (header already provides separation) */
+.article-content h2:first-child,
+.wikipedia-content h2:first-child {
+  border-top: none;
+  padding-top: 0;
+  margin-top: 0;
 }
 
 .article-content h3,
 .wikipedia-content h3 {
   font-size: var(--text-md);
   font-weight: 600;
-  margin: var(--gap) 0 0.5rem;
+  margin: var(--gap-lg) 0 0.5rem;
+  color: var(--ink-soft);
 }
 
 .article-content blockquote,
 .wikipedia-content blockquote {
   border-left: 3px solid var(--accent);
-  padding-left: var(--gap);
-  margin: var(--gap) 0;
+  padding: 0.6rem 0 0.6rem var(--gap);
+  margin: var(--gap-lg) 0;
   color: var(--ink-soft);
   font-style: italic;
+  background: var(--paper-warm);
+  border-radius: 0 3px 3px 0;
 }
 
 .article-content ul,
@@ -365,6 +386,11 @@ main {
 .article-content li,
 .wikipedia-content li {
   margin-bottom: 0.4em;
+}
+
+/* Paragraph spacing — slightly more air between paragraphs in long reads */
+.article-content p + p {
+  margin-top: 0.2em;
 }
 
 .article-content pre {
