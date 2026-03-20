@@ -19,12 +19,12 @@
 
   /* Type — Lexend only, tight scale */
   --font: 'Lexend', system-ui, sans-serif;
-  --text-sm: 0.835rem;
+  --text-sm: 0.85rem;
   --text-base: 0.95rem;
-  --text-md: 1.05rem;
-  --text-lg: 1.2rem;
-  --text-xl: 1.4rem;
-  --text-2xl: 1.65rem;
+  --text-md: 1.02rem;
+  --text-lg: 1.1rem;
+  --text-xl: 1.2rem;
+  --text-2xl: 1.35rem;
   --leading: 1.7;
   --leading-tight: 1.3;
 
@@ -421,7 +421,7 @@ main {
   border-radius: 2px;
 }
 
-/* Excerpt-specific */
+/* Excerpt-specific — previews should read as prose, not full articles */
 .article-excerpt {
   position: relative;
   margin-bottom: var(--gap);
@@ -429,6 +429,27 @@ main {
 }
 
 .article-excerpt p:last-child { margin-bottom: 0; }
+
+/* Suppress headings in excerpts — they're just previews */
+.article-excerpt h1,
+.article-excerpt h2,
+.article-excerpt h3,
+.article-excerpt h4,
+.article-excerpt h5,
+.article-excerpt h6 {
+  font-size: var(--text-base);
+  font-weight: 600;
+  margin: var(--gap) 0 0.4rem;
+  border: none;
+  padding: 0;
+}
+
+/* Flatten lists in excerpts */
+.article-excerpt ul,
+.article-excerpt ol {
+  margin: 0.5em 0;
+  padding-left: 1.2rem;
+}
 
 .article-excerpt em,
 .article-excerpt i,
