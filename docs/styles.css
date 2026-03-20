@@ -93,6 +93,37 @@ img { max-width: 100%; height: auto; display: block; }
 }
 .logo:hover { color: var(--accent); text-decoration: none; }
 
+.header-link {
+  font-size: var(--text-sm);
+  color: var(--ink-muted);
+  margin-left: var(--gap-lg);
+}
+.header-link:hover { color: var(--accent); }
+
+.search-wrap {
+  flex: 1;
+  max-width: 280px;
+  margin-left: auto;
+}
+
+.search-input {
+  font-family: var(--font);
+  font-size: var(--text-sm);
+  width: 100%;
+  padding: 0.4rem 0.7rem;
+  border: 1px solid var(--rule);
+  border-radius: 3px;
+  background: var(--paper);
+  color: var(--ink);
+  outline: none;
+}
+.search-input:focus {
+  border-color: var(--accent);
+}
+.search-input::placeholder {
+  color: var(--ink-muted);
+}
+
 .site-header .tagline {
   font-size: var(--text-sm);
   color: var(--ink-muted);
@@ -119,7 +150,7 @@ img { max-width: 100%; height: auto; display: block; }
 }
 
 main {
-  padding: var(--gap-lg) 0;
+  padding: var(--gap-xl) 0;
   min-height: 60vh;
 }
 
@@ -375,6 +406,19 @@ main {
 .article-content a:hover,
 .wikipedia-content a:hover {
   text-decoration-color: var(--accent);
+}
+
+/* Inline illustration — floats in article text */
+.inline-illustration {
+  margin: var(--gap) 0;
+  text-align: center;
+}
+
+.inline-illustration img {
+  width: 100%;
+  max-width: 600px;
+  height: auto;
+  border-radius: 2px;
 }
 
 /* Excerpt-specific */
@@ -671,6 +715,42 @@ main {
 .pagination-ellipsis {
   padding: 0.35rem 0.3rem;
   color: var(--ink-muted);
+}
+
+/* ── About Page ──────────────────────────────────────────────────── */
+
+.about-page {
+  max-width: var(--content-w);
+  margin: 0 auto;
+  line-height: var(--leading);
+}
+
+.about-page h1 {
+  font-size: var(--text-2xl);
+  font-weight: 600;
+  margin-bottom: var(--gap-lg);
+  letter-spacing: -0.02em;
+}
+
+.about-page h2 {
+  font-size: var(--text-lg);
+  font-weight: 600;
+  margin: var(--gap-lg) 0 0.6rem;
+}
+
+.about-page p {
+  margin-bottom: 1.1em;
+  color: var(--ink);
+}
+
+.about-page a {
+  color: var(--accent);
+  text-decoration: underline;
+  text-decoration-color: rgba(154, 52, 18, 0.25);
+  text-underline-offset: 2px;
+}
+.about-page a:hover {
+  text-decoration-color: var(--accent);
 }
 
 /* ── Source note (hidden — attribution is in header) ─────────────── */

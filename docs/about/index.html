@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About - Hex Index</title>
+  <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <nav class="container">
+      <a href="../index.html" class="logo">Hex Index</a>
+      <a href="../about/index.html" class="header-link">About</a>
+      <div class="search-wrap">
+        <input type="text" id="search" class="search-input" placeholder="Search articles..." autocomplete="off" spellcheck="false">
+      </div>
+    </nav>
+  </header>
+  <main class="container">
+    <div id="search-results" class="article-list" style="display:none"></div>
+    <div id="main-content">
+      
+    <article class="about-page">
+      <h1>About Hex Index</h1>
+
+      <p>
+        Hex Index is a curated reading library built by
+        <strong>Brian Mabry Edwards</strong> — a collection of long-form articles
+        from across the web, enriched with Wikipedia deep dives and
+        rewritten for enjoyable reading.
+      </p>
+
+      <p>
+        Every article is selected from independent publications and newsletters
+        that reward careful attention. The library favors depth over breadth:
+        pieces that take ten minutes or more to read, that explore ideas worth
+        sitting with, that benefit from context you didn't know you needed.
+      </p>
+
+      <h2>How It Works</h2>
+
+      <p>
+        The library runs on a set of automated pipelines. New articles are
+        ingested hourly from RSS feeds. For each article, the system identifies
+        related Wikipedia topics, scrapes them, and rewrites the encyclopedic
+        content as engaging essays — the kind of background reading that makes
+        a good article great. Every illustration is generated specifically for
+        its article.
+      </p>
+
+      <p>
+        The entire system is open source, built with TypeScript, PostgreSQL,
+        and a local language model running on a Mac Studio. The public site
+        you're reading is static HTML served from GitHub Pages — no database,
+        no server, no tracking.
+      </p>
+
+      <h2>About Brian</h2>
+
+      <p>
+        Brian writes about human-AI collaboration at
+        <a href="https://lluminate.substack.com" target="_blank" rel="noopener">LLuMinate</a>,
+        where he coined the term to describe "the act of writing with the assistance
+        of large language models — the spark of human intention meeting the strange
+        mirror of machine language." He explores vibe coding, rapid prototyping with
+        Claude Code, and the craft of building software at the speed of thought.
+      </p>
+
+      <p>
+        He also makes music at
+        <a href="https://jalopy.music" target="_blank" rel="noopener">jalopy.music</a>.
+      </p>
+    </article>
+  
+    </div>
+  </main>
+  <footer class="site-footer">
+    <div class="container">
+      <p>A curated reading library &middot; v0.2.0</p>
+    </div>
+  </footer>
+  <script src="https://cdn.jsdelivr.net/npm/fuse.js@7.1.0/dist/fuse.min.js"></script>
+  <script>
+  (function() {
+    var input = document.getElementById('search');
+    var results = document.getElementById('search-results');
+    var main = document.getElementById('main-content');
+    if (!input || !results || !main) return;
+
+    var fuse = null;
+    var indexLoaded = false;
+    var pathToRoot = '../';
+
+    function loadIndex() {
+      if (indexLoaded) return Promise.resolve();
+      indexLoaded = true;
+      return fetch(pathToRoot + 'search-index.json')
+        .then(function(r) { return r.json(); })
+        .then(function(data) {
+          fuse = new Fuse(data, {
+            keys: [
+              { name: 't', weight: 3 },
+              { name: 'a', weight: 2 },
+              { name: 'p', weight: 1 }
+            ],
+            threshold: 0.35,
+            distance: 200,
+            minMatchCharLength: 2,
+          });
+        });
+    }
+
+    function renderResults(items) {
+      if (items.length === 0) {
+        results.innerHTML = '<p style="padding:1rem;color:var(--ink-muted)">No results</p>';
+        return;
+      }
+      results.innerHTML = items.slice(0, 30).map(function(r) {
+        var a = r.item;
+        return '<article class="article-card"><div>' +
+          '<a href="' + pathToRoot + 'article/' + a.i + '/index.html" class="article-link">' +
+          '<h2 class="article-title">' + esc(a.t) + '</h2></a>' +
+          '<div class="article-meta">' +
+          '<span class="author">' + esc(a.a) + '</span>' +
+          '<span class="separator">&middot;</span>' +
+          '<a href="' + pathToRoot + 'publication/' + a.s + '/index.html" class="publication">' + esc(a.p) + '</a>' +
+          (a.d ? '<span class="separator">&middot;</span><time>' + a.d + '</time>' : '') +
+          '<span class="separator">&middot;</span>' +
+          '<span class="read-time">' + a.r + ' min read</span>' +
+          '</div></div></article>';
+      }).join('');
+    }
+
+    function esc(s) {
+      var d = document.createElement('div');
+      d.textContent = s;
+      return d.innerHTML;
+    }
+
+    var debounce;
+    input.addEventListener('input', function() {
+      clearTimeout(debounce);
+      var q = input.value.trim();
+      if (q.length < 2) {
+        results.style.display = 'none';
+        main.style.display = '';
+        return;
+      }
+      debounce = setTimeout(function() {
+        loadIndex().then(function() {
+          if (!fuse) return;
+          var hits = fuse.search(q);
+          results.style.display = '';
+          main.style.display = 'none';
+          renderResults(hits);
+        });
+      }, 100);
+    });
+
+    input.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') {
+        input.value = '';
+        results.style.display = 'none';
+        main.style.display = '';
+      }
+    });
+  })();
+  </script>
+</body>
+</html>
