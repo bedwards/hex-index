@@ -28,6 +28,12 @@ function escapeHtml(text: string): string {
     .replace(/'/g, '&#039;');
 }
 
+function inlineMarkdown(escaped: string): string {
+  return escaped
+    .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
+    .replace(/\*(.+?)\*/g, '<em>$1</em>');
+}
+
 /**
  * Convert plain text (model output) to semantic HTML (script logic)
  *
@@ -65,7 +71,7 @@ function textToHtml(text: string, sourceUrl: string, sourceTitle: string): strin
     if (lines.every(l => l.startsWith('> ') || l.startsWith('>'))) {
       if (inList) { parts.push('</ul>'); inList = false; }
       const quoteText = lines.map(l => l.replace(/^>\s?/, '')).join(' ');
-      parts.push(`<blockquote>${escapeHtml(quoteText)}</blockquote>`);
+      parts.push(`<blockquote>${inlineMarkdown(escapeHtml(quoteText))}</blockquote>`);
       continue;
     }
 
@@ -74,7 +80,7 @@ function textToHtml(text: string, sourceUrl: string, sourceTitle: string): strin
       if (!inList) { parts.push('<ul>'); inList = true; }
       for (const line of lines) {
         const item = line.replace(/^[-*]\s+/, '');
-        parts.push(`<li>${escapeHtml(item)}</li>`);
+        parts.push(`<li>${inlineMarkdown(escapeHtml(item))}</li>`);
       }
       continue;
     }
@@ -82,7 +88,7 @@ function textToHtml(text: string, sourceUrl: string, sourceTitle: string): strin
     // Regular paragraph
     if (inList) { parts.push('</ul>'); inList = false; }
     const paraText = lines.join(' ');
-    parts.push(`<p>${escapeHtml(paraText)}</p>`);
+    parts.push(`<p>${inlineMarkdown(escapeHtml(paraText))}</p>`);
   }
 
   if (inList) { parts.push('</ul>'); }

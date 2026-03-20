@@ -44,6 +44,13 @@ function escapeHtml(text: string): string {
     .replace(/'/g, '&#039;');
 }
 
+/** Convert inline markdown (**bold**, *italic*) to HTML after escaping */
+function inlineMarkdown(escaped: string): string {
+  return escaped
+    .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
+    .replace(/\*(.+?)\*/g, '<em>$1</em>');
+}
+
 function textToHtml(text: string, sourceUrl: string, sourceTitle: string): string {
   const parts: string[] = [];
   parts.push(`<p class="source-note">Based on <a href="${escapeHtml(sourceUrl)}">Wikipedia: ${escapeHtml(sourceTitle)}</a></p>`);
@@ -65,7 +72,7 @@ function textToHtml(text: string, sourceUrl: string, sourceTitle: string): strin
     if (lines.every(l => l.startsWith('> ') || l.startsWith('>'))) {
       if (inList) { parts.push('</ul>'); inList = false; }
       const quoteText = lines.map(l => l.replace(/^>\s?/, '')).join(' ');
-      parts.push(`<blockquote>${escapeHtml(quoteText)}</blockquote>`);
+      parts.push(`<blockquote>${inlineMarkdown(escapeHtml(quoteText))}</blockquote>`);
       continue;
     }
 
@@ -73,14 +80,14 @@ function textToHtml(text: string, sourceUrl: string, sourceTitle: string): strin
       if (!inList) { parts.push('<ul>'); inList = true; }
       for (const line of lines) {
         const item = line.replace(/^[-*]\s+/, '');
-        parts.push(`<li>${escapeHtml(item)}</li>`);
+        parts.push(`<li>${inlineMarkdown(escapeHtml(item))}</li>`);
       }
       continue;
     }
 
     if (inList) { parts.push('</ul>'); inList = false; }
     const paraText = lines.join(' ');
-    parts.push(`<p>${escapeHtml(paraText)}</p>`);
+    parts.push(`<p>${inlineMarkdown(escapeHtml(paraText))}</p>`);
   }
 
   if (inList) { parts.push('</ul>'); }
@@ -89,6 +96,44 @@ function textToHtml(text: string, sourceUrl: string, sourceTitle: string): strin
 
 function countWords(text: string): number {
   return text.trim().split(/\s+/).filter(w => w.length > 0).length;
+}
+
+/**
+ * Strip LLM preamble from generated content.
+ * Models often output "Here's the rewrite:" or "I see the structure..." before actual content.
+ * Rules:
+ *   1. Strip <think>...</think> blocks
+ *   2. If there's a "---" on its own line and the text before it is < 500 chars, chop everything before it
+ *   3. Strip common preamble patterns at the start
+ */
+function cleanPreamble(text: string): string {
+  let cleaned = text.trim();
+
+  // Strip think tags
+  cleaned = cleaned.replace(/<think>[\s\S]*?<\/think>/g, '').trim();
+
+  // Strip code fences
+  cleaned = cleaned.replace(/^```\w*\n?/, '').replace(/\n?```\s*$/, '').trim();
+
+  // If there's a --- separator and the preamble before it is short, chop it
+  const separatorMatch = cleaned.match(/^([\s\S]*?)\n---+\n([\s\S]+)$/);
+  if (separatorMatch && separatorMatch[1].length < 500) {
+    cleaned = separatorMatch[2].trim();
+  }
+
+  // Strip common LLM preamble patterns
+  const preamblePatterns = [
+    /^(?:Here(?:'s| is) (?:the |my )?(?:rewritten|rewrite|adapted|revised)[\s\S]*?:\s*\n+)/i,
+    /^(?:I (?:see|understand|notice|'ll|will|have)[\s\S]*?(?:\.|:)\s*\n+)/i,
+    /^(?:(?:Sure|OK|Okay|Certainly|Of course)[,.!]?\s*[\s\S]*?(?:\.|:)\s*\n+)/i,
+    /^(?:Let me[\s\S]*?(?:\.|:)\s*\n+)/i,
+    /^(?:The following[\s\S]*?(?:\.|:)\s*\n+)/i,
+  ];
+  for (const pattern of preamblePatterns) {
+    cleaned = cleaned.replace(pattern, '').trim();
+  }
+
+  return cleaned;
 }
 
 // ── Main ────────────────────────────────────────────────────────────
@@ -223,6 +268,7 @@ Return ONLY valid JSON: {"${stub.original_url}": "your rewritten text here"}`;
     text = responseText;
   }
 
+  text = cleanPreamble(text);
   if (text.length > 100) {
     await saveRewrite(pool, stub, text);
     console.info(`  Rewrote (single): ${stub.wiki_title}`);
