@@ -66,19 +66,10 @@ while [ "$GENERATED" -lt "$TOTAL_LIMIT" ]; do
 
     step_done
 
-    # Regenerate static site and deploy this batch
+    # Deploy this batch (shared lock)
     step_start "Deploy batch"
-    npm run static:generate 2>&1 | tee -a "$LOG_FILE"
-
-    if ! git diff --quiet docs/; then
-        git add docs/
-        git commit -m "feat: ${NEW_IMAGES} article images (batch)" 2>&1 | tee -a "$LOG_FILE"
-        for i in 1 2 3; do
-            if git push 2>&1 | tee -a "$LOG_FILE"; then break; fi
-            git pull --rebase 2>&1 | tee -a "$LOG_FILE" || { git rebase --abort 2>/dev/null; warn "Rebase failed"; break; }
-        done
-        log "Published ${NEW_IMAGES} new images"
-    fi
+    bash "$PROJECT_DIR/tools/cron/deploy.sh" "feat: ${NEW_IMAGES} article images (batch)" 2>&1 | tee -a "$LOG_FILE"
+    log "Published ${NEW_IMAGES} new images"
     step_done
 done
 

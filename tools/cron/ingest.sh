@@ -50,23 +50,9 @@ step_start "RSS ingestion"
 npm run ingest -- --source content/ingest-subscribed.json --no-enrich 2>&1 | tee -a "$LOG_FILE"
 step_done
 
-# Static site
-step_start "Static site"
-npm run static:generate 2>&1 | tee -a "$LOG_FILE"
-step_done
-
-# Git push
-step_start "Publish"
-if git diff --quiet docs/ && git diff --quiet --cached docs/; then
-    log "No new content"
-else
-    git add docs/
-    git commit -m "feat: auto-publish $(date +%Y-%m-%d\ %H:%M)" 2>&1 | tee -a "$LOG_FILE"
-    for i in 1 2 3; do
-        if git push 2>&1 | tee -a "$LOG_FILE"; then break; fi
-        git pull --rebase 2>&1 | tee -a "$LOG_FILE" || { git rebase --abort 2>/dev/null; warn "Rebase failed"; break; }
-    done
-fi
+# Deploy (shared lock — regenerate, commit, push)
+step_start "Deploy"
+bash "$PROJECT_DIR/tools/cron/deploy.sh" "feat: ingest $(date +%Y-%m-%d\ %H:%M)" 2>&1 | tee -a "$LOG_FILE"
 step_done
 
 RUN_E=$(( $(date +%s) - RUN_START ))
