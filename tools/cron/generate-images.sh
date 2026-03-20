@@ -39,31 +39,48 @@ done
 log "Postgres ready (${PG_RETRIES}s)"
 step_done
 
-# Generate images
-step_start "Image generation"
-timeout 3600 npx tsx tools/jobs/generate-images.ts --limit 200 2>&1 | tee -a "$LOG_FILE" || {
-    EC=$?
-    [ "$EC" -eq 124 ] && warn "Hit 2h timeout" || warn "Failed (exit $EC)"
-}
-step_done
+# Generate images in batches of 10, regenerate + deploy after each batch
+BATCH_SIZE=10
+TOTAL_LIMIT=200
+GENERATED=0
 
-# Static site + push
-step_start "Static site"
-npm run static:generate 2>&1 | tee -a "$LOG_FILE"
-step_done
+while [ "$GENERATED" -lt "$TOTAL_LIMIT" ]; do
+    step_start "Image batch (${GENERATED}-$(( GENERATED + BATCH_SIZE )))"
 
-step_start "Publish"
-if git diff --quiet docs/ && git diff --quiet --cached docs/; then
-    log "No new content"
-else
-    git add docs/
-    git commit -m "feat: article images $(date +%Y-%m-%d\ %H:%M)" 2>&1 | tee -a "$LOG_FILE"
-    for i in 1 2 3; do
-        if git push 2>&1 | tee -a "$LOG_FILE"; then break; fi
-        git pull --rebase 2>&1 | tee -a "$LOG_FILE" || { git rebase --abort 2>/dev/null; warn "Rebase failed"; break; }
-    done
-fi
-step_done
+    BEFORE=$(docker compose exec -T postgres psql -U postgres -d hex-index -t -c "SELECT COUNT(*) FROM app.articles WHERE image_path IS NOT NULL;" 2>/dev/null | tr -d ' ')
+
+    timeout 600 npx tsx tools/jobs/generate-images.ts --limit "$BATCH_SIZE" 2>&1 | tee -a "$LOG_FILE" || {
+        EC=$?
+        [ "$EC" -eq 124 ] && warn "Batch timed out" || warn "Batch failed (exit $EC)"
+    }
+
+    AFTER=$(docker compose exec -T postgres psql -U postgres -d hex-index -t -c "SELECT COUNT(*) FROM app.articles WHERE image_path IS NOT NULL;" 2>/dev/null | tr -d ' ')
+    NEW_IMAGES=$(( AFTER - BEFORE ))
+    GENERATED=$(( GENERATED + BATCH_SIZE ))
+
+    # If no new images were generated, we're done
+    if [ "$NEW_IMAGES" -eq 0 ]; then
+        log "No more articles need images"
+        break
+    fi
+
+    step_done
+
+    # Regenerate static site and deploy this batch
+    step_start "Deploy batch"
+    npm run static:generate 2>&1 | tee -a "$LOG_FILE"
+
+    if ! git diff --quiet docs/; then
+        git add docs/
+        git commit -m "feat: ${NEW_IMAGES} article images (batch)" 2>&1 | tee -a "$LOG_FILE"
+        for i in 1 2 3; do
+            if git push 2>&1 | tee -a "$LOG_FILE"; then break; fi
+            git pull --rebase 2>&1 | tee -a "$LOG_FILE" || { git rebase --abort 2>/dev/null; warn "Rebase failed"; break; }
+        done
+        log "Published ${NEW_IMAGES} new images"
+    fi
+    step_done
+done
 
 RUN_E=$(( $(date +%s) - RUN_START ))
 log "=== Job 5 complete ($(( RUN_E/60 ))m $(( RUN_E%60 ))s) ==="
