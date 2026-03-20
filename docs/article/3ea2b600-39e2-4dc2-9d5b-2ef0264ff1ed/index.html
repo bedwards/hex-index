@@ -27,6 +27,14 @@
         </div>
       </header>
 
+      <div class="content-label">
+        <span class="label-text">Excerpt from <a href="../../publication/sebastianraschka/index.html">Ahead of AI</a></span>
+        <nav class="content-nav">
+          <a href="https://magazine.sebastianraschka.com/p/state-of-llms-2025" target="_blank" rel="noopener">Read full article &rarr;</a>
+        </nav>
+      </div>
+
+      
       
       <section class="deep-dives">
         <h2>Deep Dives</h2>
@@ -59,15 +67,6 @@
         </ul>
       </section>
     
-
-      <div class="content-label">
-        <span class="label-text">Excerpt from <a href="../../publication/sebastianraschka/index.html">Ahead of AI</a></span>
-        <nav class="content-nav">
-          <a href="https://magazine.sebastianraschka.com/p/state-of-llms-2025" target="_blank" rel="noopener">Read full article &rarr;</a>
-        </nav>
-      </div>
-
-      
       <div class="excerpt-card">
         <div class="article-excerpt">
           <p>As 2025 comes to a close, I want to look back at some of the year’s most important developments in large language models, reflect on the limitations and open problems that remain, and share a few thoughts on what might come next.</p><p>As I tend to say every year, 2025 was a very eventful year for LLMs and AI, and this year, there was no sign of progress saturating or slowing down.</p><h1>1. The Year of Reasoning, RLVR, and GRPO</h1><p>There are many interesting topics I want to cover, but let’s start chronologically in January 2025.</p><p>​Scaling still worked, but it didn’t really change how LLMs behaved or felt in practice (the only exception to that was OpenAI’s freshly released o1, which added reasoning traces). So, when DeepSeek released their <a href="https://arxiv.org/abs/2501.12948">R1 paper</a> in January 2025, which showed that reasoning-like behavior can be developed with reinforcement learning, it was a really big deal. (Reasoning, in the context of LLMs, means that the model explains its answer, and this explanation itself often leads to improved answer accuracy.)</p><div class="captioned-image-container"></div><h2><strong>1.1 The DeepSeek Moment</strong></h2><p>DeepSeek R1 got a lot of attention for various reasons:</p><p>First, DeepSeek R1 was released as an open-weight model that performed really well and was comparable to the best proprietary models (ChatGPT, Gemini, etc.) at the time.</p><p>Second, the DeepSeek R1 paper prompted many people, especially investors and journalists, to revisit the earlier <a href="https://arxiv.org/abs/2412.19437">DeepSeek V3 paper</a> from December 2024. This then led to a revised conclusion that while training state-of-the-art models is still expensive, it may be an order of magnitude cheaper than previously assumed, with estimates closer to 5 million dollars rather than 50 or 500 million.</p><div class="captioned-image-container"></div><p>​The DeepSeek R1<a href="https://static-content.springer.com/esm/art%3A10.1038%2Fs41586-025-09422-z/MediaObjects/41586_2025_9422_MOESM1_ESM.pdf"> supplementary materials</a> estimate that training the DeepSeek R1 model on top of DeepSeek V3 costs another $294,000, which is again much lower than everyone believed.</p><div class="captioned-image-container"></div><p>Of course, there are many caveats to the 5-million-dollar estimate. For instance, it captures only the compute credit cost for the final model run, but it doesn’t factor in the researchers’ salaries and other development costs associated with hyperparameter tuning and experimentation.</p><p>Third, and most interestingly, the paper presented <em>Reinforcement Learning with Verifiable Rewards</em> (RLVR) with the GRPO algorithm as a new (or at least modified) algorithmic approach for developing so-called reasoning models and improving LLMs during post-training.</p><div class="captioned-image-container"></div><p>Up to this point, post-training methods like supervised instruction fine-tuning (SFT) and reinforcement learning with human feedback ...</p>

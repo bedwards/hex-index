@@ -27,6 +27,14 @@
         </div>
       </header>
 
+      <div class="content-label">
+        <span class="label-text">Excerpt from <a href="../../publication/decodingbio/index.html"></a></span>
+        <nav class="content-nav">
+          <a href="https://decodingbio.substack.com/p/biobyte-140-predicting-anti-cancer" target="_blank" rel="noopener">Read full article &rarr;</a>
+        </nav>
+      </div>
+
+      
       
       <section class="deep-dives">
         <h2>Deep Dives</h2>
@@ -59,15 +67,6 @@
         </ul>
       </section>
     
-
-      <div class="content-label">
-        <span class="label-text">Excerpt from <a href="../../publication/decodingbio/index.html"></a></span>
-        <nav class="content-nav">
-          <a href="https://decodingbio.substack.com/p/biobyte-140-predicting-anti-cancer" target="_blank" rel="noopener">Read full article &rarr;</a>
-        </nav>
-      </div>
-
-      
       <div class="excerpt-card">
         <div class="article-excerpt">
           <p><em>Welcome to <a href="https://www.decodingbio.com/">Decoding Bio</a>’s BioByte: each week our writing collective highlight notable news—from the latest scientific papers to the latest funding rounds—and everything in between. All in one place.</em></p><div class="captioned-image-container"></div><p>Peter van der Doort, <em>The Alchemist’s Laboratory</em> (1595) [from Heinrich Khunrath, <em>Amphitheatrum sapientiae aeternae</em>]</p><div class="captioned-image-container"></div><p><em>A Note To Our Readers: Following this post, we will be taking a short break from posting, but will be back to regular posting the first week of December. We appreciate your support and stay tuned for more coming soon, Decoders!</em> </p><h2>What we read</h2><h4>Blogs</h4><p><strong><a href="https://www.adaptyvbio.com/blog/mog-dfm/">Designer Spotlight: Navigating the multi-property maze for therapeutic peptide design</a></strong> [Adaptyv Bio, <em>Adaptyv Bio</em>, November 2025 (based on <a href="https://www.alphaxiv.org/abs/2505.07086">original paper</a> by Chen et al., <em>arXiv</em>, May 2025)]</p><p>Biomolecular design is a multi-objective puzzle – therapeutic peptides face tradeoffs on properties such as affinity, stability, solubility, and safety. Navigating to the frontiers of feasible designs is a challenging task: properties are interdependent and sequence-phenotype relationships are non-linear and epistatic, forming a complex, high-dimensional landscape to traverse. Many generative models optimize for a single score and re-train for each desired objective, yielding a slow, brittle exploration of the design space. MOG-DFM (Multi-Objective Guided Discrete Flow Matching) offers a single pre-trained DFM generator that, at sampling time, can steer token-level proposals toward any user-specified set of objectives. This unlocks the ability to produce diverse, Pareto-tuned candidate sets without retraining for every tradeoff – a compelling capability for teams exploring competing design constraints.</p><div class="captioned-image-container"></div><p>The core development is a lightweight, local guidance rule: for each candidate token change, the algorithm computes a hybrid rank (relative candidate ordering on surrogate property predictors) and directional improvement score (expected improvement on the target tradeoff), measuring how a local edit shifts the multi-objective vector. These scores re-weight the DFM token transition rates so the continuous-time Markov chain sampler preferentially proposes beneficial edits. To avoid per-token ‘myopia’ or conflicting edits across multiple properties, the authors introduce an adaptive hypercone: an angular filter that requires proposed moves to lie within a tunable cone around a target objective direction, preserving coordination across tokens while allowing exploration.</p><p>The hypercone facilitates coordinated improvements across multiple properties and surpasses classical multi-objective optimization baselines on predicted Pareto fronts (hemolysis, half-life, solubility, binding, non-fouling). In silico, MOG-DFM shifts predicted trade-offs substantially (e.g. lower predicted hemolysis and higher solubility &amp; half-life, while retaining affinity). Adaptyv provides wet-lab validation: of the 24 designed 10-mer peptides that were ...</p>

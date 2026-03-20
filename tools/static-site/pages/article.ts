@@ -209,14 +209,14 @@ function generateArticlePage(
         </div>
       </header>
 
-      ${deepDivesHtml}
-
       ${contentLabel}
 
       ${isFullRewrite ? `
       <div class="article-content">
         ${article.image_path ? injectImageIntoText(mainContent, `${pathToRoot}${article.image_path}`) : mainContent}
       </div>
+
+      ${deepDivesHtml}
 
       ${excerptSection}
 
@@ -227,6 +227,7 @@ function generateArticlePage(
         <p class="cta-note">Adapted from the original by ${authorEsc}.</p>
       </div>
       ` : `
+      ${deepDivesHtml}
       <div class="excerpt-card">
         <div class="article-excerpt">
           ${mainContent}
