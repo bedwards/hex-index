@@ -217,10 +217,11 @@ Prose Quality:
 - Explain concepts from first principles when the original assumes knowledge.
 
 Voice & Attribution:
+- CRITICAL: Convert to third person. Replace "I", "me", "my", "we" with the author's name and appropriate third-person pronouns (he/she/they). Example: "I think this policy is misguided" → "Yglesias argues this policy is misguided."
 - Preserve the author's arguments, evidence, and conclusions faithfully.
-- Preserve their distinctive voice and style — sharpen it, don't flatten it.
-- Do NOT add your own opinions, analysis, or commentary.
+- Preserve their distinctive style — sharpen it, don't flatten it.
 - Do NOT invent facts, quotes, or claims not in the original.
+- ADD light editorial counterpoints — a sentence or two where the argument is weakest or where reasonable people disagree. Frame these as "Critics might note..." or "A counterargument is..." Keep it balanced and brief. The overall stance remains the author's.
 
 Reading Experience:
 - Optimize for text-to-speech listening (Speechify). Every paragraph should sound natural read aloud.
@@ -234,8 +235,8 @@ CRITICAL FORMATTING RULES:
 - Do NOT write a preamble like "Here's the rewrite" or "I've adapted this article."
 - Use **bold** for emphasis. Use ## for section headings. Use > for blockquotes.
 
-STYLE EXAMPLE (this is the quality bar):
-"The racial justice movement has a housing problem. For two decades, activists have centered criminal justice reform as the primary front in the fight against structural racism. But the academic literature tells a different story — one where housing policy, not policing, is the deepest root of racial inequality in America."
+STYLE EXAMPLE (this is the quality bar — note third person, light critique):
+"Yglesias argues the racial justice movement has a housing problem. For two decades, activists have centered criminal justice reform as the primary front against structural racism. But the academic literature tells a different story — one where housing policy, not policing, is the deepest root of racial inequality in America. Critics might note that this framing oversimplifies; criminal justice and housing intersect in ways that resist clean separation. Still, his core point stands: the movement's strategic focus doesn't match where the research points."
 
 Output ONLY the JSON. No preamble, no explanation, no markdown fences.
 {"content": "your adapted article text here"}
