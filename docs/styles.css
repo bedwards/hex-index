@@ -1,387 +1,358 @@
-/* hex-index Reading UI - Typography-focused, Speechify-compatible */
+/* hex-index — Editorial Reading Library
+   Lexend throughout. Tight type scale. Warm newsprint palette.
+   Speechify-optimized: clean semantic DOM, no decorative noise. */
 
-/* Google Fonts - Lexend */
-@import url('https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600&display=swap');
 
-/* CSS Variables for theming */
 :root {
-  /* Colors */
-  --color-text: #1a1a1a;
-  --color-text-secondary: #666;
-  --color-text-muted: #999;
-  --color-background: #fafafa;
-  --color-surface: #fff;
-  --color-border: #e5e5e5;
-  --color-accent: #2563eb;
-  --color-accent-hover: #1d4ed8;
+  /* Palette — pure white with ink */
+  --ink: #1c1917;
+  --ink-soft: #44403c;
+  --ink-muted: #78716c;
+  --paper: #ffffff;
+  --paper-warm: #faf9f7;
+  --paper-dark: #f3f1ed;
+  --rule: #d6d0c8;
+  --accent: #9a3412;
+  --accent-hover: #7c2d12;
+  --accent-bg: rgba(154, 52, 18, 0.06);
 
-  /* Typography */
-  --font-lexend: 'Lexend', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  --font-sans: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  --font-serif: Georgia, 'Times New Roman', serif;
-  --font-mono: 'SF Mono', Monaco, 'Cascadia Code', monospace;
+  /* Type — Lexend only, tight scale */
+  --font: 'Lexend', system-ui, sans-serif;
+  --text-sm: 0.835rem;
+  --text-base: 0.95rem;
+  --text-md: 1.05rem;
+  --text-lg: 1.2rem;
+  --text-xl: 1.4rem;
+  --text-2xl: 1.65rem;
+  --leading: 1.7;
+  --leading-tight: 1.3;
 
-  /* Spacing */
-  --spacing-xs: 0.25rem;
-  --spacing-sm: 0.5rem;
-  --spacing-md: 1rem;
-  --spacing-lg: 1.5rem;
-  --spacing-xl: 2rem;
-  --spacing-2xl: 3rem;
+  /* Layout */
+  --content-w: 640px;
+  --page-w: 960px;
+  --gap: 1.25rem;
+  --gap-lg: 2rem;
+  --gap-xl: 3rem;
 
-  /* Reading optimal line length */
-  --content-width: 680px;
-  --container-width: 1200px;
+  /* Thumbnail — social preview ratio (1.91:1) */
+  --thumb-w: 180px;
+  --thumb-h: 94px;
 }
 
-/* Reset */
-*, *::before, *::after {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
+/* ── Reset ───────────────────────────────────────────────────────── */
 
-/* Base typography */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
 html {
-  font-size: 18px;
+  font-size: 17px;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
 }
 
 body {
-  font-family: var(--font-lexend);
-  line-height: 1.6;
-  color: var(--color-text);
-  background: var(--color-background);
+  font-family: var(--font);
+  font-weight: 400;
+  font-size: var(--text-base);
+  line-height: var(--leading);
+  color: var(--ink);
+  background: var(--paper);
 }
 
-/* Links */
-a {
-  color: var(--color-accent);
-  text-decoration: none;
-}
+a { color: var(--accent); text-decoration: none; }
+a:hover { color: var(--accent-hover); }
 
-a:hover {
-  color: var(--color-accent-hover);
-  text-decoration: underline;
-}
+img { max-width: 100%; height: auto; display: block; }
 
-/* Layout containers */
-.container {
-  max-width: var(--container-width);
-  margin: 0 auto;
-  padding: 0 var(--spacing-lg);
-}
+/* ── Site Header ─────────────────────────────────────────────────── */
 
-.content-width {
-  max-width: var(--content-width);
-  margin: 0 auto;
-}
-
-/* Header */
-.header {
-  background: var(--color-surface);
-  border-bottom: 1px solid var(--color-border);
-  padding: var(--spacing-md) 0;
+.site-header {
+  border-bottom: 2px solid var(--ink);
+  padding: var(--gap) 0;
+  background: var(--paper);
   position: sticky;
   top: 0;
   z-index: 100;
 }
 
-.header-inner {
+.site-header nav {
+  max-width: var(--page-w);
+  margin: 0 auto;
+  padding: 0 var(--gap);
   display: flex;
-  align-items: center;
+  align-items: baseline;
   justify-content: space-between;
 }
 
 .logo {
-  font-size: 1.25rem;
+  font-size: var(--text-lg);
   font-weight: 600;
-  color: var(--color-text);
+  color: var(--ink);
+  letter-spacing: -0.02em;
+}
+.logo:hover { color: var(--accent); text-decoration: none; }
+
+.site-header .tagline {
+  font-size: var(--text-sm);
+  color: var(--ink-muted);
+  font-weight: 300;
 }
 
-.logo:hover {
-  text-decoration: none;
-}
+/* ── Site Footer ─────────────────────────────────────────────────── */
 
-.nav {
-  display: flex;
-  gap: var(--spacing-lg);
-}
-
-.nav a {
-  color: var(--color-text-secondary);
-  font-size: 0.9rem;
-}
-
-.nav a:hover {
-  color: var(--color-text);
-}
-
-/* Search bar */
-.search-bar {
-  display: flex;
-  gap: var(--spacing-sm);
-}
-
-.search-input {
-  font-family: inherit;
-  font-size: 0.9rem;
-  padding: var(--spacing-sm) var(--spacing-md);
-  border: 1px solid var(--color-border);
-  border-radius: 4px;
-  width: 250px;
-  background: var(--color-background);
-}
-
-.search-input:focus {
-  outline: none;
-  border-color: var(--color-accent);
-}
-
-/* Search form on search page */
-.search-form {
-  display: flex;
-  gap: var(--spacing-md);
-  margin-bottom: var(--spacing-xl);
-}
-
-.search-input-large {
-  font-family: inherit;
-  font-size: 1rem;
-  padding: var(--spacing-md);
-  border: 1px solid var(--color-border);
-  border-radius: 4px;
-  flex: 1;
-  background: var(--color-surface);
-}
-
-.search-input-large:focus {
-  outline: none;
-  border-color: var(--color-accent);
-}
-
-.search-button {
-  font-family: inherit;
-  font-size: 1rem;
-  padding: var(--spacing-md) var(--spacing-lg);
-  background: var(--color-accent);
-  color: white;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-}
-
-.search-button:hover {
-  background: var(--color-accent-hover);
-}
-
-/* Back link */
-.back-link {
-  display: inline-block;
-  margin-bottom: var(--spacing-lg);
-  color: var(--color-text-secondary);
-}
-
-.back-link:hover {
-  color: var(--color-accent);
-}
-
-/* Footer */
-.footer {
-  padding: var(--spacing-xl) 0;
-  border-top: 1px solid var(--color-border);
+.site-footer {
+  border-top: 1px solid var(--rule);
+  padding: var(--gap-lg) var(--gap);
   text-align: center;
-  color: var(--color-text-muted);
-  font-size: 0.9rem;
+  color: var(--ink-muted);
+  font-size: var(--text-sm);
+  margin-top: var(--gap-xl);
 }
 
-/* Nav active state */
-.nav a.active {
-  color: var(--color-text);
-  font-weight: 500;
+/* ── Container ───────────────────────────────────────────────────── */
+
+.container {
+  max-width: var(--page-w);
+  margin: 0 auto;
+  padding: 0 var(--gap);
 }
 
-/* Main content area */
 main {
-  padding: var(--spacing-2xl) 0;
-  min-height: calc(100vh - 200px);
+  padding: var(--gap-lg) 0;
+  min-height: 60vh;
 }
 
-/* Article list */
+/* ── Article List (Home) ─────────────────────────────────────────── */
+
 .article-list {
   display: flex;
   flex-direction: column;
-  gap: var(--spacing-lg);
-  margin-top: var(--spacing-xl);
+  gap: 0;
 }
 
 .article-card {
-  background: var(--color-surface);
-  border-radius: 8px;
-  padding: var(--spacing-lg);
-  border: 1px solid var(--color-border);
-  transition: border-color 0.2s, box-shadow 0.2s;
+  display: grid;
+  grid-template-columns: 1fr var(--thumb-w);
+  gap: var(--gap);
+  align-items: start;
+  padding: var(--gap) 0;
+  border-bottom: 1px solid var(--rule);
 }
 
-.article-card:hover {
-  border-color: var(--color-accent);
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+.article-card:first-child {
+  padding-top: 0;
 }
 
-.article-card-title {
-  font-size: 1.25rem;
-  font-weight: 600;
-  margin-bottom: var(--spacing-sm);
-  line-height: 1.3;
+.article-card:last-child {
+  border-bottom: none;
 }
 
-.article-card-title a {
-  color: var(--color-text);
+/* Card without image */
+.article-card:not(:has(.article-thumb)) {
+  grid-template-columns: 1fr;
 }
 
-.article-card-title a:hover {
-  color: var(--color-accent);
+.article-card .article-link {
+  color: var(--ink);
+}
+.article-card .article-link:hover {
+  color: var(--accent);
   text-decoration: none;
 }
 
-.article-card-meta {
+.article-card .article-title {
+  font-size: var(--text-md);
+  font-weight: 500;
+  line-height: var(--leading-tight);
+  margin-bottom: 0.3rem;
+}
+
+.article-card .article-meta {
   display: flex;
   flex-wrap: wrap;
-  gap: var(--spacing-md);
-  font-size: 0.85rem;
-  color: var(--color-text-secondary);
-  margin-bottom: var(--spacing-sm);
+  align-items: baseline;
+  gap: 0;
+  font-size: var(--text-sm);
+  color: var(--ink-muted);
+  line-height: 1.4;
 }
 
-.article-card-meta a {
-  color: var(--color-text-secondary);
+.article-card .article-meta .separator {
+  margin: 0 0.4em;
+  color: var(--rule);
 }
 
-.article-card-meta a:hover {
-  color: var(--color-accent);
+.article-card .article-meta .publication {
+  color: var(--ink-soft);
+}
+.article-card .article-meta .publication:hover {
+  color: var(--accent);
 }
 
-.article-card-excerpt {
-  color: var(--color-text-secondary);
-  font-size: 0.95rem;
-  line-height: 1.5;
+.article-thumb {
+  width: var(--thumb-w);
+  height: var(--thumb-h);
+  object-fit: cover;
+  border-radius: 3px;
+  background: var(--paper-dark);
 }
 
-/* Article reader - Speechify optimized */
-.article {
-  background: var(--color-surface);
-  padding: var(--spacing-2xl) var(--spacing-lg);
-  border-radius: 8px;
-  border: 1px solid var(--color-border);
+/* Wikipedia card */
+.wikipedia-card .type-badge {
+  display: inline-block;
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--accent);
+  background: var(--accent-bg);
+  padding: 0.15em 0.5em;
+  border-radius: 2px;
 }
 
-.article-header {
-  margin-bottom: var(--spacing-2xl);
-  padding-bottom: var(--spacing-xl);
-  border-bottom: 1px solid var(--color-border);
+/* ── Section Title ───────────────────────────────────────────────── */
+
+.section-title {
+  font-size: var(--text-xl);
+  font-weight: 600;
+  margin-bottom: var(--gap-lg);
+  letter-spacing: -0.01em;
 }
 
-.article-title {
-  font-family: var(--font-serif);
-  font-size: 2.5rem;
-  font-weight: 700;
-  line-height: 1.2;
-  margin-bottom: var(--spacing-lg);
-  color: var(--color-text);
+/* ── Reading Header (Article + Wikipedia pages) ──────────────────── */
+
+.reading-mode {
+  background: var(--paper);
+}
+
+.reading-header {
+  max-width: var(--content-w);
+  margin: 0 auto;
+  padding: var(--gap) var(--gap) 0;
+}
+
+.back-link {
+  font-size: var(--text-sm);
+  color: var(--ink-muted);
+}
+.back-link:hover { color: var(--accent); }
+
+.reading-content {
+  max-width: var(--content-w);
+  margin: 0 auto;
+  padding: 0 var(--gap) var(--gap-xl);
+}
+
+/* ── Article Page ────────────────────────────────────────────────── */
+
+.article-page {
+  padding: 0;
+}
+
+.article-page .article-header {
+  margin-bottom: var(--gap-lg);
+  padding-bottom: var(--gap);
+  border-bottom: 1px solid var(--rule);
+}
+
+.article-page .article-header h1 {
+  font-size: var(--text-2xl);
+  font-weight: 600;
+  line-height: var(--leading-tight);
+  margin-bottom: 0.6rem;
+  letter-spacing: -0.02em;
 }
 
 .article-meta {
   display: flex;
   flex-wrap: wrap;
-  gap: var(--spacing-md);
-  align-items: center;
-  font-size: 0.9rem;
-  color: var(--color-text-secondary);
+  align-items: baseline;
+  gap: 0;
+  font-size: var(--text-sm);
+  color: var(--ink-muted);
 }
 
-.article-author {
-  font-weight: 500;
-  color: var(--color-text);
+.article-meta .separator {
+  margin: 0 0.4em;
+  color: var(--rule);
 }
 
-.article-publication {
-  color: var(--color-accent);
+.article-meta .author { color: var(--ink-soft); font-weight: 500; }
+.article-meta .publication { color: var(--ink-soft); }
+.article-meta .publication:hover { color: var(--accent); }
+
+/* ── Article Content (reading) ───────────────────────────────────── */
+
+.article-content,
+.article-excerpt,
+.wikipedia-content {
+  font-family: var(--font);
+  font-size: var(--text-base);
+  line-height: var(--leading);
+  color: var(--ink);
 }
 
-.article-date,
-.article-read-time {
-  color: var(--color-text-muted);
+.article-content p,
+.article-excerpt p,
+.wikipedia-content p {
+  margin-bottom: 1.1em;
 }
 
-.article-separator {
-  color: var(--color-border);
-}
-
-/* Article content - Clean DOM for Speechify */
-.article-content {
-  font-family: var(--font-serif);
-  font-size: 1.125rem;
-  line-height: 1.8;
-  color: var(--color-text);
-}
-
-.article-content p {
-  margin-bottom: var(--spacing-lg);
-}
-
-.article-content h2 {
-  font-family: var(--font-sans);
-  font-size: 1.5rem;
+.article-content h2,
+.wikipedia-content h2 {
+  font-size: var(--text-lg);
   font-weight: 600;
-  margin-top: var(--spacing-2xl);
-  margin-bottom: var(--spacing-md);
-  color: var(--color-text);
+  margin: var(--gap-lg) 0 0.6rem;
+  letter-spacing: -0.01em;
 }
 
-.article-content h3 {
-  font-family: var(--font-sans);
-  font-size: 1.25rem;
+.article-content h3,
+.wikipedia-content h3 {
+  font-size: var(--text-md);
   font-weight: 600;
-  margin-top: var(--spacing-xl);
-  margin-bottom: var(--spacing-md);
-  color: var(--color-text);
+  margin: var(--gap) 0 0.5rem;
 }
 
-.article-content blockquote {
-  border-left: 3px solid var(--color-accent);
-  padding-left: var(--spacing-lg);
-  margin: var(--spacing-lg) 0;
+.article-content blockquote,
+.wikipedia-content blockquote {
+  border-left: 3px solid var(--accent);
+  padding-left: var(--gap);
+  margin: var(--gap) 0;
+  color: var(--ink-soft);
   font-style: italic;
-  color: var(--color-text-secondary);
 }
 
 .article-content ul,
-.article-content ol {
-  margin: var(--spacing-lg) 0;
-  padding-left: var(--spacing-xl);
+.article-content ol,
+.wikipedia-content ul,
+.wikipedia-content ol {
+  margin: var(--gap) 0;
+  padding-left: 1.5rem;
 }
 
-.article-content li {
-  margin-bottom: var(--spacing-sm);
+.article-content li,
+.wikipedia-content li {
+  margin-bottom: 0.4em;
 }
 
 .article-content pre {
-  font-family: var(--font-mono);
-  font-size: 0.9rem;
-  background: var(--color-background);
-  padding: var(--spacing-lg);
-  border-radius: 4px;
+  font-family: 'SF Mono', Monaco, 'Cascadia Code', monospace;
+  font-size: var(--text-sm);
+  background: var(--paper-warm);
+  padding: var(--gap);
+  border-radius: 3px;
   overflow-x: auto;
-  margin: var(--spacing-lg) 0;
+  margin: var(--gap) 0;
+  border: 1px solid var(--rule);
 }
 
 .article-content code {
-  font-family: var(--font-mono);
-  font-size: 0.9em;
-  background: var(--color-background);
+  font-family: 'SF Mono', Monaco, 'Cascadia Code', monospace;
+  font-size: 0.88em;
+  background: var(--paper-warm);
   padding: 0.1em 0.3em;
-  border-radius: 3px;
+  border-radius: 2px;
 }
 
 .article-content pre code {
@@ -390,667 +361,31 @@ main {
 }
 
 .article-content img {
-  max-width: 100%;
-  height: auto;
-  border-radius: 4px;
-  margin: var(--spacing-lg) 0;
+  border-radius: 3px;
+  margin: var(--gap) 0;
 }
 
-.article-content a {
-  color: var(--color-accent);
+.article-content a,
+.wikipedia-content a {
+  color: var(--accent);
   text-decoration: underline;
-  text-decoration-color: rgba(37, 99, 235, 0.3);
+  text-decoration-color: rgba(154, 52, 18, 0.25);
   text-underline-offset: 2px;
 }
-
-.article-content a:hover {
-  text-decoration-color: var(--color-accent);
-}
-
-/* Article footer */
-.article-footer {
-  margin-top: var(--spacing-2xl);
-  padding-top: var(--spacing-xl);
-  border-top: 1px solid var(--color-border);
-}
-
-.article-source {
-  background: var(--color-background);
-  padding: var(--spacing-md) var(--spacing-lg);
-  border-radius: 4px;
-  font-size: 0.9rem;
-  color: var(--color-text-secondary);
-}
-
-.article-source a {
-  color: var(--color-accent);
-}
-
-/* Publication header */
-.publication-header {
-  margin-bottom: var(--spacing-2xl);
-  padding-bottom: var(--spacing-xl);
-  border-bottom: 1px solid var(--color-border);
-}
-
-.publication-name {
-  font-size: 2rem;
-  font-weight: 700;
-  margin-bottom: var(--spacing-sm);
-}
-
-.publication-author {
-  font-size: 1.1rem;
-  color: var(--color-text-secondary);
-  margin-bottom: var(--spacing-md);
-}
-
-.publication-description {
-  color: var(--color-text-secondary);
-  line-height: 1.6;
-}
-
-.publication-stats {
-  display: flex;
-  gap: var(--spacing-lg);
-  margin-top: var(--spacing-md);
-  font-size: 0.9rem;
-  color: var(--color-text-muted);
-}
-
-/* Page title */
-.page-title {
-  font-size: 1.75rem;
-  font-weight: 600;
-  margin-bottom: var(--spacing-xl);
-}
-
-/* Filters */
-.filters {
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--spacing-md);
-  margin-bottom: var(--spacing-xl);
-  padding: var(--spacing-md);
-  background: var(--color-surface);
-  border-radius: 8px;
-  border: 1px solid var(--color-border);
-}
-
-.filter-select {
-  font-family: inherit;
-  font-size: 0.9rem;
-  padding: var(--spacing-sm) var(--spacing-md);
-  border: 1px solid var(--color-border);
-  border-radius: 4px;
-  background: var(--color-background);
-  cursor: pointer;
-}
-
-.filter-select:focus {
-  outline: none;
-  border-color: var(--color-accent);
-}
-
-/* Tags */
-.tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--spacing-sm);
-}
-
-.tag {
-  display: inline-block;
-  font-size: 0.8rem;
-  padding: var(--spacing-xs) var(--spacing-sm);
-  background: var(--color-background);
-  border-radius: 4px;
-  color: var(--color-text-secondary);
-}
-
-.tag:hover {
-  background: var(--color-border);
-  text-decoration: none;
-}
-
-/* Pagination */
-.pagination {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: var(--spacing-md);
-  margin-top: var(--spacing-2xl);
-  font-size: 0.9rem;
-  color: var(--color-text-muted);
-}
-
-.pagination-links {
-  display: flex;
-  gap: var(--spacing-lg);
-}
-
-.pagination-links a {
-  padding: var(--spacing-sm) var(--spacing-md);
-  border: 1px solid var(--color-border);
-  border-radius: 4px;
-  background: var(--color-surface);
-}
-
-.pagination-links a:hover {
-  border-color: var(--color-accent);
-  text-decoration: none;
-}
-
-.pagination-btn {
-  font-family: inherit;
-  font-size: 0.9rem;
-  padding: var(--spacing-sm) var(--spacing-md);
-  border: 1px solid var(--color-border);
-  border-radius: 4px;
-  background: var(--color-surface);
-  color: var(--color-text);
-  cursor: pointer;
-  transition: border-color 0.2s;
-}
-
-.pagination-btn:hover:not(:disabled) {
-  border-color: var(--color-accent);
-}
-
-.pagination-btn:disabled {
-  opacity: 0.5;
-  cursor: not-allowed;
-}
-
-/* Loading state */
-.loading {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: var(--spacing-2xl);
-  color: var(--color-text-muted);
-}
-
-/* Error state */
-.error {
-  background: #fef2f2;
-  border: 1px solid #fecaca;
-  color: #dc2626;
-  padding: var(--spacing-lg);
-  border-radius: 8px;
-  text-align: center;
-}
-
-/* Empty state */
-.empty {
-  text-align: center;
-  padding: var(--spacing-2xl);
-  color: var(--color-text-muted);
-}
-
-/* Deep Dives (Wikipedia links) */
-.deep-dives {
-  background: var(--color-background);
-  border: 1px solid var(--color-border);
-  border-radius: 8px;
-  padding: var(--spacing-lg);
-  margin-bottom: var(--spacing-xl);
-}
-
-.deep-dives h2 {
-  font-family: var(--font-sans);
-  font-size: 1rem;
-  font-weight: 600;
-  color: var(--color-text-secondary);
-  margin-bottom: var(--spacing-md);
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-}
-
-.deep-dives-list {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  display: flex;
-  flex-direction: column;
-  gap: var(--spacing-md);
-}
-
-.deep-dive-item {
-  padding-bottom: var(--spacing-md);
-  border-bottom: 1px solid var(--color-border);
-}
-
-.deep-dive-item:last-child {
-  padding-bottom: 0;
-  border-bottom: none;
-}
-
-.deep-dive-link {
-  display: flex;
-  justify-content: space-between;
-  align-items: baseline;
-  gap: var(--spacing-md);
-  text-decoration: none;
-}
-
-.deep-dive-link:hover {
-  text-decoration: none;
-}
-
-.deep-dive-title {
-  font-weight: 500;
-  color: var(--color-accent);
-}
-
-.deep-dive-link:hover .deep-dive-title {
-  text-decoration: underline;
-}
-
-.deep-dive-meta {
-  font-size: 0.85rem;
-  color: var(--color-text-muted);
-  white-space: nowrap;
-}
-
-.deep-dive-summary {
-  font-size: 0.9rem;
-  color: var(--color-text-secondary);
-  margin-top: var(--spacing-xs);
-  line-height: 1.5;
-}
-
-/* Wikipedia article page */
-.wikipedia-article .article-type-badge {
-  display: inline-block;
-  font-size: 0.75rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  color: var(--color-accent);
-  background: rgba(37, 99, 235, 0.1);
-  padding: var(--spacing-xs) var(--spacing-sm);
-  border-radius: 4px;
-  margin-bottom: var(--spacing-md);
-}
-
-.article-source-link {
-  color: var(--color-text-secondary);
-  font-size: 0.9rem;
-}
-
-.article-source-link:hover {
-  color: var(--color-accent);
-}
-
-/* Related articles section */
-.related-articles {
-  background: var(--color-background);
-  border: 1px solid var(--color-border);
-  border-radius: 8px;
-  padding: var(--spacing-lg);
-  margin-bottom: var(--spacing-xl);
-}
-
-.related-articles h3 {
-  font-family: var(--font-sans);
-  font-size: 0.9rem;
-  font-weight: 600;
-  color: var(--color-text-secondary);
-  margin-bottom: var(--spacing-md);
-}
-
-.related-articles ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.related-articles li {
-  margin-bottom: var(--spacing-sm);
-}
-
-.related-articles a {
-  color: var(--color-text);
-  font-size: 0.95rem;
-}
-
-.related-articles a:hover {
-  color: var(--color-accent);
-}
-
-/* Source note in rewritten articles - hidden, link is in header */
-.source-note {
-  display: none;
-}
-
-/* Responsive */
-@media (max-width: 768px) {
-  html {
-    font-size: 16px;
-  }
-
-  .header-inner {
-    flex-direction: column;
-    gap: var(--spacing-md);
-  }
-
-  .search-input {
-    width: 100%;
-  }
-
-  .article-title {
-    font-size: 1.75rem;
-  }
-
-  .article-meta {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: var(--spacing-sm);
-  }
-
-  .article-separator {
-    display: none;
-  }
-}
-
-/* Reading mode - Speechify-optimized article pages */
-.reading-mode {
-  background: var(--color-surface);
-}
-
-.reading-mode .main {
-  padding-top: var(--spacing-xl);
-}
-
-.header-minimal {
-  background: transparent;
-  border-bottom: none;
-  padding: var(--spacing-sm) 0;
-}
-
-.header-minimal .header-inner {
-  justify-content: flex-start;
-}
-
-.header-minimal .logo {
-  font-size: 1rem;
-  color: var(--color-text-muted);
-}
-
-.header-minimal .logo:hover {
-  color: var(--color-accent);
-}
-
-/* Article subtitle */
-.article-subtitle {
-  font-family: var(--font-serif);
-  font-size: 1.25rem;
-  color: var(--color-text-secondary);
-  font-style: italic;
-  margin-bottom: var(--spacing-lg);
-  line-height: 1.5;
-}
-
-/* Article source link in header */
-.article-header .article-source {
-  margin-top: var(--spacing-md);
-  font-size: 0.9rem;
-}
-
-.article-header .article-source a {
-  color: var(--color-text-muted);
-}
-
-.article-header .article-source a:hover {
-  color: var(--color-accent);
-}
-
-/* Compact deep dives for reading mode */
-.reading-mode .deep-dives {
-  background: transparent;
-  border: none;
-  padding: 0;
-  margin-bottom: var(--spacing-xl);
-  padding-bottom: var(--spacing-lg);
-  border-bottom: 1px solid var(--color-border);
-}
-
-.deep-dives-label,
-.related-label {
-  font-family: var(--font-sans);
-  font-size: 0.8rem;
-  font-weight: 600;
-  color: var(--color-text-muted);
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  margin-bottom: var(--spacing-sm);
-}
-
-.reading-mode .deep-dives-list {
-  flex-direction: row;
-  flex-wrap: wrap;
-  gap: var(--spacing-md) var(--spacing-lg);
-}
-
-.reading-mode .deep-dives-list li {
-  display: flex;
-  align-items: baseline;
-  gap: var(--spacing-xs);
-}
-
-.reading-mode .deep-dives-list a {
-  font-size: 0.95rem;
-}
-
-.reading-mode .deep-dives-list .read-time {
-  font-size: 0.8rem;
-  color: var(--color-text-muted);
-}
-
-/* Related articles in reading mode */
-.reading-mode .related-articles {
-  background: transparent;
-  border: none;
-  padding: 0;
-  margin-bottom: var(--spacing-xl);
-  padding-bottom: var(--spacing-lg);
-  border-bottom: 1px solid var(--color-border);
-}
-
-.reading-mode .related-articles ul {
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--spacing-sm) var(--spacing-lg);
-}
-
-.reading-mode .related-articles li {
-  margin: 0;
-}
-
-/* Wikipedia type badge */
-.article-type-badge {
-  display: inline-block;
-  font-family: var(--font-sans);
-  font-size: 0.75rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  color: var(--color-accent);
-  margin-bottom: var(--spacing-sm);
-}
-
-/* Reading mode article styling */
-.reading-mode .article {
-  background: transparent;
-  border: none;
-  padding: 0 var(--spacing-lg);
-}
-
-.reading-mode .article-header {
-  border-bottom: none;
-  padding-bottom: var(--spacing-lg);
-}
-
-.reading-mode .article-meta {
-  display: block;
-  color: var(--color-text-secondary);
-}
-
-/* Focus styles for accessibility */
-:focus-visible {
-  outline: 2px solid var(--color-accent);
-  outline-offset: 2px;
-}
-
-/* Skip link for accessibility */
-.skip-link {
-  position: absolute;
-  top: -40px;
-  left: 0;
-  background: var(--color-accent);
-  color: white;
-  padding: var(--spacing-sm) var(--spacing-md);
-  z-index: 1000;
-  transition: top 0.3s;
-}
-
-.skip-link:focus {
-  top: 0;
-}
-
-/* ========================================
-   Static Site Styles (GitHub Pages)
-   ======================================== */
-
-/* Static site header */
-.site-header {
-  background: var(--color-surface);
-  border-bottom: 1px solid var(--color-border);
-  padding: var(--spacing-md) var(--spacing-lg);
-  position: sticky;
-  top: 0;
-  z-index: 100;
-}
-
-.site-header nav {
-  max-width: var(--container-width);
-  margin: 0 auto;
-}
-
-.site-header .logo {
-  font-size: 1.25rem;
-  font-weight: 600;
-  color: var(--color-text);
-}
-
-.site-header .logo:hover {
-  text-decoration: none;
-  color: var(--color-accent);
-}
-
-/* Static site footer */
-.site-footer {
-  padding: var(--spacing-xl) var(--spacing-lg);
-  border-top: 1px solid var(--color-border);
-  text-align: center;
-  color: var(--color-text-muted);
-  font-size: 0.9rem;
-}
-
-/* Reading header for static pages */
-.reading-header {
-  padding: var(--spacing-md) var(--spacing-lg);
-  max-width: var(--content-width);
-  margin: 0 auto;
-}
-
-.reading-content {
-  max-width: var(--content-width);
-  margin: 0 auto;
-  padding: 0 var(--spacing-lg) var(--spacing-2xl);
-}
-
-/* Section title */
-.section-title {
-  font-size: 1.75rem;
-  font-weight: 600;
-  margin-bottom: var(--spacing-xl);
-  color: var(--color-text);
-}
-
-/* Article cards - static version */
-.article-card .article-link {
-  color: var(--color-text);
-}
-
-.article-card .article-link:hover {
-  color: var(--color-accent);
-  text-decoration: none;
-}
-
-.article-card .article-title {
-  font-size: 1.25rem;
-  font-weight: 600;
-  margin-bottom: var(--spacing-sm);
-  line-height: 1.3;
-}
-
-.article-card .article-meta {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 0;
-  font-size: 0.85rem;
-  color: var(--color-text-secondary);
-}
-
-.article-card .article-meta .separator {
-  margin: 0 var(--spacing-sm);
-  color: var(--color-text-muted);
-}
-
-.article-card .article-meta .publication {
-  color: var(--color-text-secondary);
-}
-
-.article-card .article-meta .publication:hover {
-  color: var(--color-accent);
-}
-
-/* Wikipedia card badge */
-.wikipedia-card .type-badge {
-  display: inline-block;
-  font-size: 0.75rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  color: var(--color-accent);
-  background: rgba(37, 99, 235, 0.1);
-  padding: var(--spacing-xs) var(--spacing-sm);
-  border-radius: 4px;
+.article-content a:hover,
+.wikipedia-content a:hover {
+  text-decoration-color: var(--accent);
 }
 
-/* Article excerpt section - matches .wikipedia-content font settings */
+/* Excerpt-specific */
 .article-excerpt {
   position: relative;
-  font-family: var(--font-serif);
-  font-size: 1.125rem;
-  line-height: 1.8;
-  color: var(--color-text);
-  margin-bottom: var(--spacing-lg);
-  padding-bottom: var(--spacing-lg);
+  margin-bottom: var(--gap);
+  padding-bottom: var(--gap);
 }
 
-.article-excerpt p {
-  margin: 0 0 1em 0;
-}
+.article-excerpt p:last-child { margin-bottom: 0; }
 
-.article-excerpt p:last-child {
-  margin-bottom: 0;
-}
-
-/* Plain text in excerpts - no formatting */
 .article-excerpt em,
 .article-excerpt i,
 .article-excerpt strong,
@@ -1059,174 +394,75 @@ main {
   font-weight: 400;
 }
 
-/* Limit image size in excerpts */
 .article-excerpt img {
-  max-width: 512px;
-  max-height: 512px;
+  max-width: 400px;
+  max-height: 400px;
   width: auto;
   height: auto;
   object-fit: contain;
 }
 
-/* Hide figure captions and complex image containers in excerpts */
-.article-excerpt .captioned-image-container,
-.article-excerpt figure {
-  margin: 1em 0;
-}
+.article-excerpt figcaption { display: none; }
 
-.article-excerpt figcaption {
-  display: none;
-}
+/* ── Read Full Article CTA ───────────────────────────────────────── */
 
-.excerpt-fade {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 60px;
-  background: linear-gradient(to bottom, transparent, var(--color-surface));
-  pointer-events: none;
-}
-
-/* Read full article CTA */
 .read-full-article {
   text-align: center;
-  padding: var(--spacing-xl);
-  background: var(--color-background);
-  border-radius: 8px;
-  margin-bottom: var(--spacing-xl);
+  padding: var(--gap-lg);
+  background: var(--paper-warm);
+  border: 1px solid var(--rule);
+  border-radius: 4px;
+  margin-bottom: var(--gap-lg);
 }
 
 .read-button {
   display: inline-block;
-  font-family: var(--font-sans);
-  font-size: 1rem;
+  font-family: var(--font);
+  font-size: var(--text-sm);
   font-weight: 500;
-  padding: var(--spacing-md) var(--spacing-xl);
-  background: var(--color-accent);
-  color: white;
-  border-radius: 6px;
+  padding: 0.6rem 1.5rem;
+  background: var(--accent);
+  color: var(--paper);
+  border-radius: 3px;
   text-decoration: none;
-  transition: background-color 0.2s;
+  letter-spacing: 0.01em;
 }
-
 .read-button:hover {
-  background: var(--color-accent-hover);
-  color: white;
+  background: var(--accent-hover);
+  color: var(--paper);
   text-decoration: none;
 }
 
-.copyright-note {
-  margin-top: var(--spacing-md);
-  font-size: 0.85rem;
-  color: var(--color-text-muted);
+.copyright-note,
+.rewrite-note {
+  margin-top: 0.6rem;
+  font-size: var(--text-sm);
+  color: var(--ink-muted);
 }
 
-/* Article page layout */
-.article-page {
-  background: var(--color-surface);
-  padding: var(--spacing-2xl) var(--spacing-lg);
-  border-radius: 8px;
-}
+/* ── Deep Dives (Wikipedia links on article page) ────────────────── */
 
-.article-page .article-header {
-  margin-bottom: var(--spacing-xl);
-  padding-bottom: var(--spacing-lg);
-  border-bottom: 1px solid var(--color-border);
-}
-
-.article-page .article-header h1 {
-  font-family: var(--font-serif);
-  font-size: 2rem;
-  font-weight: 700;
-  line-height: 1.2;
-  margin-bottom: var(--spacing-md);
-  color: var(--color-text);
-}
-
-/* Wikipedia page layout */
-.wikipedia-page {
-  background: var(--color-surface);
-  padding: var(--spacing-2xl) var(--spacing-lg);
-  border-radius: 8px;
-}
-
-.wikipedia-header {
-  margin-bottom: var(--spacing-xl);
-  padding-bottom: var(--spacing-lg);
-  border-bottom: 1px solid var(--color-border);
-}
-
-.wikipedia-header .type-badge {
-  display: inline-block;
-  font-size: 0.75rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  color: var(--color-accent);
-  background: rgba(37, 99, 235, 0.1);
-  padding: var(--spacing-xs) var(--spacing-sm);
+.deep-dives {
+  background: var(--accent-bg);
+  border: 1px solid var(--rule);
   border-radius: 4px;
-  margin-bottom: var(--spacing-md);
+  padding: var(--gap);
+  margin-bottom: var(--gap-lg);
 }
 
-.wikipedia-header h1 {
-  font-family: var(--font-serif);
-  font-size: 2rem;
-  font-weight: 700;
-  line-height: 1.2;
-  margin-bottom: var(--spacing-md);
-  color: var(--color-text);
-}
-
-.wikipedia-content {
-  font-family: var(--font-serif);
-  font-size: 1.125rem;
-  line-height: 1.8;
-  color: var(--color-text);
-}
-
-.wikipedia-content p {
-  margin-bottom: var(--spacing-lg);
-}
-
-.wikipedia-content h2 {
-  font-family: var(--font-sans);
-  font-size: 1.5rem;
+.deep-dives h2 {
+  font-size: var(--text-sm);
   font-weight: 600;
-  margin-top: var(--spacing-2xl);
-  margin-bottom: var(--spacing-md);
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-bottom: 0.6rem;
 }
 
-.wikipedia-content h3 {
-  font-family: var(--font-sans);
-  font-size: 1.25rem;
-  font-weight: 600;
-  margin-top: var(--spacing-xl);
-  margin-bottom: var(--spacing-md);
-}
-
-.wikipedia-footer {
-  margin-top: var(--spacing-2xl);
-  padding-top: var(--spacing-lg);
-  border-top: 1px solid var(--color-border);
-}
-
-.wikipedia-footer .source-link {
-  margin-bottom: var(--spacing-md);
-}
-
-.wikipedia-footer .rewrite-note {
-  font-size: 0.85rem;
-  color: var(--color-text-muted);
-  font-style: italic;
-}
-
-/* Deep dives in static pages */
-.deep-dives .deep-dives-intro {
-  font-size: 0.9rem;
-  color: var(--color-text-secondary);
-  margin-bottom: var(--spacing-md);
+.deep-dives-intro {
+  font-size: var(--text-sm);
+  color: var(--ink-soft);
+  margin-bottom: 0.6rem;
 }
 
 .deep-dive-list {
@@ -1235,51 +471,113 @@ main {
   margin: 0;
 }
 
-.deep-dive-list .deep-dive-item {
-  padding: var(--spacing-md) 0;
-  border-bottom: 1px solid var(--color-border);
+.deep-dive-item {
+  padding: 0.5rem 0;
+  border-bottom: 1px solid var(--rule);
 }
-
-.deep-dive-list .deep-dive-item:last-child {
+.deep-dive-item:last-child {
   border-bottom: none;
   padding-bottom: 0;
 }
 
-.deep-dive-list .deep-dive-item a {
+.deep-dive-item a {
   display: flex;
   justify-content: space-between;
   align-items: baseline;
-  gap: var(--spacing-md);
+  gap: var(--gap);
+}
+.deep-dive-item a:hover { text-decoration: none; }
+.deep-dive-item a strong { color: var(--accent); }
+.deep-dive-item a:hover strong { text-decoration: underline; }
+
+.deep-dive-item .read-time {
+  font-size: var(--text-sm);
+  color: var(--ink-muted);
+  white-space: nowrap;
 }
 
-.deep-dive-list .deep-dive-item a:hover {
-  text-decoration: none;
+.deep-dive-item .topic-summary {
+  font-size: var(--text-sm);
+  color: var(--ink-soft);
+  margin-top: 0.15rem;
 }
 
-.deep-dive-list .deep-dive-item a strong {
-  color: var(--color-accent);
+/* ── Wikipedia Page ──────────────────────────────────────────────── */
+
+.wikipedia-page { padding: 0; }
+
+.wikipedia-header {
+  margin-bottom: var(--gap-lg);
+  padding-bottom: var(--gap);
+  border-bottom: 1px solid var(--rule);
 }
 
-.deep-dive-list .deep-dive-item a:hover strong {
-  text-decoration: underline;
+.wikipedia-header .type-badge {
+  display: inline-block;
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--accent);
+  background: var(--accent-bg);
+  padding: 0.15em 0.5em;
+  border-radius: 2px;
+  margin-bottom: 0.5rem;
 }
 
-.deep-dive-list .read-time {
-  font-size: 0.85rem;
-  color: var(--color-text-muted);
+.wikipedia-header h1 {
+  font-size: var(--text-2xl);
+  font-weight: 600;
+  line-height: var(--leading-tight);
+  margin-bottom: 0.5rem;
+  letter-spacing: -0.02em;
 }
 
-.deep-dive-list .topic-summary {
-  font-size: 0.9rem;
-  color: var(--color-text-secondary);
-  margin-top: var(--spacing-xs);
+.wikipedia-stub {
+  padding: var(--gap-lg);
+  text-align: center;
+  background: var(--paper-warm);
+  border: 1px solid var(--rule);
+  border-radius: 4px;
 }
 
-/* Related articles in static pages */
-.related-articles .related-intro {
-  font-size: 0.9rem;
-  color: var(--color-text-secondary);
-  margin-bottom: var(--spacing-md);
+.wikipedia-footer {
+  margin-top: var(--gap-lg);
+  padding-top: var(--gap);
+  border-top: 1px solid var(--rule);
+}
+
+.wikipedia-footer .source-link { margin-bottom: 0.5rem; }
+
+.wikipedia-footer .rewrite-note {
+  font-size: var(--text-sm);
+  color: var(--ink-muted);
+  font-style: italic;
+}
+
+/* ── Related Articles ────────────────────────────────────────────── */
+
+.related-articles {
+  background: var(--paper-warm);
+  border: 1px solid var(--rule);
+  border-radius: 4px;
+  padding: var(--gap);
+  margin-top: var(--gap-lg);
+}
+
+.related-articles h2 {
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--ink-soft);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-bottom: 0.6rem;
+}
+
+.related-intro {
+  font-size: var(--text-sm);
+  color: var(--ink-soft);
+  margin-bottom: 0.6rem;
 }
 
 .related-list {
@@ -1288,100 +586,128 @@ main {
   margin: 0;
 }
 
-.related-list .related-article-item {
-  padding: var(--spacing-sm) 0;
-}
-
-.related-list .related-article-item a {
-  color: var(--color-accent);
-}
-
-.related-list .related-article-item .article-meta {
+.related-article-item { padding: 0.3rem 0; }
+.related-article-item a { color: var(--accent); }
+.related-article-item .article-meta {
   display: block;
-  font-size: 0.85rem;
-  color: var(--color-text-muted);
-  margin-top: var(--spacing-xs);
+  font-size: var(--text-sm);
+  color: var(--ink-muted);
+  margin-top: 0.1rem;
 }
 
-/* Publication page */
+/* ── Publication Page ────────────────────────────────────────────── */
+
 .publication-page .publication-header {
-  margin-bottom: var(--spacing-xl);
-  padding-bottom: var(--spacing-lg);
-  border-bottom: 1px solid var(--color-border);
+  margin-bottom: var(--gap-lg);
+  padding-bottom: var(--gap);
+  border-bottom: 1px solid var(--rule);
 }
 
 .publication-page .publication-header h1 {
-  font-size: 2rem;
-  font-weight: 700;
-  margin-bottom: var(--spacing-sm);
+  font-size: var(--text-xl);
+  font-weight: 600;
+  margin-bottom: 0.3rem;
 }
 
 .publication-page .publication-author {
-  font-size: 1rem;
-  color: var(--color-text-secondary);
+  font-size: var(--text-base);
+  color: var(--ink-soft);
 }
 
 .publication-page .publication-url {
-  margin-top: var(--spacing-md);
+  margin-top: 0.5rem;
 }
 
-/* Static pagination */
+/* ── Pagination ──────────────────────────────────────────────────── */
+
 .pagination {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: var(--spacing-md);
-  margin-top: var(--spacing-2xl);
+  gap: 0.4rem;
+  margin-top: var(--gap-lg);
+  padding-top: var(--gap);
+  border-top: 1px solid var(--rule);
   flex-wrap: wrap;
 }
 
-.pagination-link {
-  padding: var(--spacing-sm) var(--spacing-md);
-  border: 1px solid var(--color-border);
-  border-radius: 4px;
-  background: var(--color-surface);
-  color: var(--color-accent);
+.pagination-link,
+.pagination-page {
+  font-family: var(--font);
+  font-size: var(--text-sm);
+  padding: 0.35rem 0.7rem;
+  border: 1px solid var(--rule);
+  border-radius: 2px;
+  background: var(--paper);
+  color: var(--ink-soft);
   text-decoration: none;
+  min-width: 2rem;
+  text-align: center;
 }
 
-.pagination-link:hover:not(.disabled) {
-  border-color: var(--color-accent);
+.pagination-link:hover:not(.disabled),
+.pagination-page:hover:not(.current) {
+  border-color: var(--accent);
+  color: var(--accent);
   text-decoration: none;
 }
 
 .pagination-link.disabled {
-  color: var(--color-text-muted);
-  cursor: not-allowed;
+  color: var(--rule);
+  cursor: default;
+}
+
+.pagination-page.current {
+  background: var(--ink);
+  color: var(--paper);
+  border-color: var(--ink);
 }
 
 .pagination-pages {
   display: flex;
-  gap: var(--spacing-xs);
-}
-
-.pagination-page {
-  padding: var(--spacing-sm) var(--spacing-md);
-  border: 1px solid var(--color-border);
-  border-radius: 4px;
-  background: var(--color-surface);
-  color: var(--color-text);
-  text-decoration: none;
-  min-width: 40px;
-  text-align: center;
-}
-
-.pagination-page:hover:not(.current) {
-  border-color: var(--color-accent);
-  text-decoration: none;
-}
-
-.pagination-page.current {
-  background: var(--color-accent);
-  color: white;
-  border-color: var(--color-accent);
+  gap: 0.25rem;
 }
 
 .pagination-ellipsis {
-  padding: var(--spacing-sm);
-  color: var(--color-text-muted);
+  padding: 0.35rem 0.3rem;
+  color: var(--ink-muted);
+}
+
+/* ── Source note (hidden — attribution is in header) ─────────────── */
+
+.source-note { display: none; }
+
+/* ── Focus / Accessibility ───────────────────────────────────────── */
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+/* ── Responsive ──────────────────────────────────────────────────── */
+
+@media (max-width: 640px) {
+  html { font-size: 16px; }
+
+  .article-card {
+    grid-template-columns: 1fr;
+  }
+
+  .article-thumb {
+    width: 100%;
+    height: 140px;
+    order: -1;
+  }
+
+  .article-page .article-header h1,
+  .wikipedia-header h1 {
+    font-size: var(--text-xl);
+  }
+
+  .article-meta {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.15rem;
+  }
+  .article-meta .separator { display: none; }
 }
