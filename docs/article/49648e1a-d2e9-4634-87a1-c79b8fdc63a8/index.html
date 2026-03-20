@@ -40,6 +40,8 @@
         <h2><a href="https://go.bytebytego.com/Sentry_021626">Sentry’s AI debugger fixes code wherever it breaks (Sponsored)</a></h2><div class="captioned-image-container"></div><p>🤖Most AI coding tools only see your source code. <strong>Seer, Sentry’s AI debugging agent</strong>, uses everything Sentry knows about how your code has behaved in production to debug locally, in your PR, and in production.</p><p><strong>🛠️How it works:</strong></p><ul><li><p>Seer scans &amp; analyzes issues using all Sentry’s available context.</p></li><li><p>In development, Seer debugs alongside you as you build</p></li><li><p>In review, Seer alerts you to bugs that are likely to break production, not nits</p></li><li><p>In production, Seer can find a bug’s root cause, suggest a fix, open a PR automatically, or send the fix to your preferred IDE.</p></li></ul><div><hr></div><p>OpenAI scaled PostgreSQL to handle millions of queries per second for 800 million ChatGPT users. They did it with just a single primary writer supported by read replicas.</p><p>At first glance, this should sound impossible. The common wisdom suggests that beyond a certain scale, you must shard the database or risk failure. The conventional playbook recommends embracing the complexity of splitting the data across multiple independent databases.</p><p>OpenAI’s engineering team chose a different path. They decided to see just how far they could push PostgreSQL.</p><p>Over the past year, their database load grew by more than 10X. They experienced the familiar pattern of database-related incidents: cache layer failures causing sudden read spikes, expensive queries consuming CPU, and write storms from new features. Yet through systematic optimization across every layer of their stack, they achieved five-nines availability with low double-digit millisecond latency. But the road wasn’t easy.</p><p>In this article, we will look at the challenges OpenAI faced while scaling Postgres and how the team handled the various scenarios.</p><p><em>Disclaimer: This post is based on publicly shared details from the OpenAI Engineering Team. Please comment if you notice any inaccuracies.</em></p><h2>Understanding Single-Primary Architecture</h2><p>A single-primary architecture means one database instance handles all writes, while multiple read replicas handle read queries.</p><p>See the diagram below:</p><div class="captioned-image-container"></div><p>This design creates an inherent bottleneck because writes cannot be distributed. However, for read-heavy workloads like ChatGPT, where users primarily fetch data rather than modify it, this architecture can scale effectively if properly optimized.</p><p>OpenAI avoided sharding its PostgreSQL deployment for pragmatic reasons. Sharding would require modifying hundreds of application endpoints and could take months or years to complete. Since their workload is primarily read-heavy and current optimizations provide sufficient capacity, sharding remains a future consideration rather than an immediate necessity.</p><p>So ...</p>
       </div>
 
+      
+
       <div class="read-full-article">
         <a href="https://blog.bytebytego.com/p/how-openai-scaled-to-800-million" class="read-button" target="_blank" rel="noopener">
           Continue reading on ByteByteGo Newsletter &rarr;
@@ -48,8 +50,6 @@
           This is an excerpt. The full article by Alex Xu is available on ByteByteGo Newsletter.
         </p>
       </div>
-
-      
     </article>
   
   </main>

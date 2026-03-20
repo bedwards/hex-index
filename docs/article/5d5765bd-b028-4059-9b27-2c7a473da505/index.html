@@ -55,6 +55,8 @@
         <h2><a href="https://bit.ly/Redpanda_120525">AI Meets Streaming: Build Real-Time Architectures with AWS + Redpanda (Sponsored)</a></h2><div class="captioned-image-container"></div><p><a href="https://bit.ly/Redpanda_120525">Join us live on December 11</a> for a Redpanda Tech Talk with AWS experts on how to bring Agentic and Generative AI into real-time data pipelines. Redpanda Solutions Engineer Garrett Raska and AWS Partner Solutions Architect Dr. Art Sedighi will walk through emerging AI patterns from AWS re:Invent and show how to integrate AI inference directly into streaming architectures. Learn how to build low-latency, context-aware applications, combine real-time signals with GenAI models, and architect reliable, production-ready AI workflows. If you’re exploring how AI transforms streaming systems, this session delivers the patterns you need to get started.</p><div><hr></div><p><em>Disclaimer: The details in this post have been derived from the details shared online by the DoorDash Engineering Team. All credit for the technical details goes to the DoorDash Engineering Team.  The links to the original articles and sources are present in the references section at the end of the post. We’ve attempted to analyze the details and provide our input about them. If you find any inaccuracies or omissions, please leave a comment, and we will do our best to fix them.</em></p><p>In mid-2021, DoorDash experienced a production outage that brought down the entire platform for more than two hours.</p><p>The incident started with the payment service experiencing high latency. Clients of this service interpreted the slow responses as potential failures and retried their requests. This created a retry storm where each retry added more load to an already overwhelmed service. The cascading failure spread through DoorDash’s microservices architecture as services depending on payments started timing out and failing.</p><p>See the diagram below:</p><div class="captioned-image-container"></div><p>This wasn’t an isolated incident. DoorDash had experienced a series of similar issues earlier as well. The problems may have been prompted by their transition from a monolith to a microservices architecture between 2019 and 2023.</p><p>Of course, it wasn’t that DoorDash was blind to reliability concerns. The team had already implemented several reliability features in their primary Kotlin-based services. However, not all services used Kotlin, which meant they either had to build their own mechanisms or go without. The payment service was also one of them.</p><p>The outage made one thing clear: their patchwork approach to reliability wasn’t working. The incident demonstrated that reliability features like Layer 7 metrics-aware circuit breakers and load shedding couldn’t remain the responsibility of individual application teams.</p><p>Based on this realization, the DoorDash ...</p>
       </div>
 
+      
+
       <div class="read-full-article">
         <a href="https://blog.bytebytego.com/p/how-doordash-moved-to-a-service-mesh" class="read-button" target="_blank" rel="noopener">
           Continue reading on ByteByteGo Newsletter &rarr;
@@ -63,8 +65,6 @@
           This is an excerpt. The full article by Alex Xu is available on ByteByteGo Newsletter.
         </p>
       </div>
-
-      
     </article>
   
   </main>
