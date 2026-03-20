@@ -108,9 +108,10 @@ export async function createArticle(
 ): Promise<Article> {
   const { rows } = await client.query<Article>(
     `INSERT INTO app.articles
-     (publication_id, title, slug, original_url, content_path, author_name,
+     (publication_id, title, slug, original_url, content_path, full_content_path,
+      rewritten_content_path, author_name,
       published_at, word_count, estimated_read_time_minutes, media_type, tags, metadata)
-     VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12)
+     VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14)
      RETURNING *`,
     [
       input.publication_id,
@@ -118,6 +119,8 @@ export async function createArticle(
       input.slug,
       input.original_url,
       input.content_path ?? null,
+      input.full_content_path ?? null,
+      input.rewritten_content_path ?? null,
       input.author_name ?? null,
       input.published_at ?? null,
       input.word_count ?? null,

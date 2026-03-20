@@ -186,15 +186,13 @@ function generateArticlePage(
           <span class="label-text">Original excerpt from ${pubName}</span>
         </div>
         <div class="article-excerpt">
-          ${article.image_path ? injectImageIntoText(excerptHtml, `${pathToRoot}${article.image_path}`) : excerptHtml}
+          ${excerptHtml}
         </div>
       </section>`
     : '';
 
   // For non-rewrite, contentHtml IS the excerpt; for rewrite, load it separately
   const mainContent = isFullRewrite ? contentHtml : contentHtml;
-  const mainClass = isFullRewrite ? 'article-content' : 'article-excerpt';
-
   const content = `
     <article class="article-page">
       <header class="article-header">
@@ -215,23 +213,32 @@ function generateArticlePage(
 
       ${contentLabel}
 
-      <div class="${mainClass}">
-        ${!isFullRewrite && article.image_path ? injectImageIntoText(mainContent, `${pathToRoot}${article.image_path}`) : mainContent}
-      </div>
-
-      <div class="read-full-article">
-        <a href="${article.original_url}" class="read-button" target="_blank" rel="noopener">
-          Continue reading on ${pubName} &rarr;
-        </a>
-        <p class="cta-note">
-          ${isFullRewrite
-            ? `This article was adapted from the original by ${authorEsc}. Read the unedited version on ${pubName}.`
-            : `This is an excerpt. The full article by ${authorEsc} is available on ${pubName}.`
-          }
-        </p>
+      ${isFullRewrite ? `
+      <div class="article-content">
+        ${article.image_path ? injectImageIntoText(mainContent, `${pathToRoot}${article.image_path}`) : mainContent}
       </div>
 
       ${excerptSection}
+
+      <div class="read-full-article">
+        <a href="${article.original_url}" class="read-button" target="_blank" rel="noopener">
+          Read the original on ${pubName} &rarr;
+        </a>
+        <p class="cta-note">Adapted from the original by ${authorEsc}.</p>
+      </div>
+      ` : `
+      <div class="excerpt-card">
+        <div class="article-excerpt">
+          ${mainContent}
+        </div>
+        <div class="excerpt-card-cta">
+          <a href="${article.original_url}" class="read-button" target="_blank" rel="noopener">
+            Continue reading on ${pubName} &rarr;
+          </a>
+          <p class="cta-note">The full article by ${authorEsc} is available on ${pubName}.</p>
+        </div>
+      </div>
+      `}
     </article>
   `;
 

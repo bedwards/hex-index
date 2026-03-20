@@ -15,7 +15,6 @@ import {
   createArticle,
   getArticleByUrl,
 } from '../db/queries.js';
-import { enrichArticleWithWikipedia } from '../wikipedia/pipeline.js';
 import {
   IngestionSource,
   IngestionOptions,
@@ -126,19 +125,37 @@ export async function processArticle(
       };
     }
 
+    // Store full article text separately (for future LLM rewrites, never published)
+    let fullContentPath: string | undefined;
+    if (item.contentHtml && item.contentHtml.length > 0) {
+      try {
+        const { writeFile: fsWrite, mkdir: fsMkdir } = await import('fs/promises');
+        const { join } = await import('path');
+        const fullDir = join(options.libraryDir, 'full-text', source.slug);
+        await fsMkdir(fullDir, { recursive: true });
+        const fullPath = join(fullDir, `${articleSlug}.html`);
+        await fsWrite(fullPath, item.contentHtml, 'utf-8');
+        fullContentPath = `full-text/${source.slug}/${articleSlug}.html`;
+      } catch (ftErr) {
+        if (options.verbose) {
+          console.info(`  Full text save failed: ${ftErr instanceof Error ? ftErr.message : String(ftErr)}`);
+        }
+      }
+    }
+
     // Insert into database if pool provided
-    let newArticleId: string | undefined;
     if (options.db && publicationId) {
       try {
         // Check if article already exists in DB by URL
         const existing = await getArticleByUrl(options.db, item.url);
         if (!existing) {
-          const newArticle = await createArticle(options.db, {
+          await createArticle(options.db, {
             publication_id: publicationId,
             title: item.title,
             slug: articleSlug,
             original_url: item.url,
             content_path: stored.path,
+            full_content_path: fullContentPath,
             author_name: converted.metadata.author,
             published_at: item.publishedAt,
             word_count: converted.metadata.word_count,
@@ -146,32 +163,11 @@ export async function processArticle(
             media_type: item.mediaType,
             tags: converted.metadata.tags,
           });
-          newArticleId = newArticle.id;
         }
       } catch (dbErr) {
         // Log but don't fail - filesystem storage succeeded
         if (options.verbose) {
           console.info(`  DB insert failed: ${dbErr instanceof Error ? dbErr.message : String(dbErr)}`);
-        }
-      }
-    }
-
-    // Enrich new articles with Wikipedia content
-    if (options.db && newArticleId && options.enrichWithWikipedia !== false) {
-      try {
-        if (options.verbose) {
-          console.info(`  Enriching with Wikipedia: ${item.title}`);
-        }
-        const enrichResult = await enrichArticleWithWikipedia(options.db, newArticleId);
-        if (enrichResult.success && enrichResult.wikipediaArticles.length > 0) {
-          if (options.verbose) {
-            console.info(`    Added ${enrichResult.wikipediaArticles.length} Wikipedia articles`);
-          }
-        }
-      } catch (enrichErr) {
-        // Log but don't fail - article storage succeeded
-        if (options.verbose) {
-          console.info(`  Wikipedia enrichment failed: ${enrichErr instanceof Error ? enrichErr.message : String(enrichErr)}`);
         }
       }
     }

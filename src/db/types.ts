@@ -28,6 +28,9 @@ export interface Article {
   slug: string;
   original_url: string;
   content_path: string | null;
+  full_content_path: string | null;
+  rewritten_content_path: string | null;
+  image_path: string | null;
   author_name: string | null;
   published_at: Date | null;
   word_count: number | null;
@@ -81,6 +84,8 @@ export interface CreateArticleInput {
   slug: string;
   original_url: string;
   content_path?: string;
+  full_content_path?: string;
+  rewritten_content_path?: string;
   author_name?: string;
   published_at?: Date;
   word_count?: number;

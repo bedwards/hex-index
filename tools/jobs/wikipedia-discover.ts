@@ -245,6 +245,16 @@ Return ONLY valid JSON in this exact format, nothing else:
               const rawHtml = formatContentAsHtml(content);
               await writeFile(fullPath, rawHtml, 'utf-8');
 
+              // Ensure unique slug — append hash suffix on collision
+              let finalSlug = slug;
+              const { rows: slugCheck } = await pool.query<{ id: string }>(
+                'SELECT id FROM app.wikipedia_articles WHERE slug = $1 AND original_url != $2',
+                [slug, vt.url]
+              );
+              if (slugCheck.length > 0) {
+                finalSlug = `${slug}-${vt.url.split('/').pop()?.slice(0, 20) ?? Date.now()}`;
+              }
+
               // Insert as stub
               const { rows: inserted } = await pool.query<{ id: string }>(`
                 INSERT INTO app.wikipedia_articles (
@@ -256,7 +266,7 @@ Return ONLY valid JSON in this exact format, nothing else:
                 RETURNING id
               `, [
                 content.title,
-                slug,
+                finalSlug,
                 vt.url,
                 contentPath,
                 content.wordCount,
