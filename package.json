@@ -1,6 +1,6 @@
 {
   "name": "hex-index",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "hex-index - built on claude-base",
   "type": "module",
   "bin": {
@@ -40,6 +40,11 @@
     "wikipedia:retrofit": "tsx src/wikipedia/cli.ts retrofit",
     "wikipedia:stats": "tsx src/wikipedia/cli.ts stats",
     "wikipedia:enrich": "tsx src/wikipedia/cli.ts enrich",
+    "job:ingest": "bash tools/cron/ingest.sh",
+    "job:wiki-discover": "tsx tools/jobs/wikipedia-discover.ts",
+    "job:wiki-rewrite": "tsx tools/jobs/wikipedia-rewrite.ts",
+    "job:article-rewrite": "tsx tools/jobs/article-rewrite.ts",
+    "job:generate-images": "tsx tools/jobs/generate-images.ts",
     "static:generate": "tsx tools/static-site/generate.ts",
     "static:clean": "tsx tools/static-site/generate.ts --clean",
     "static:preview": "npx serve docs",
