@@ -68,6 +68,7 @@ export async function generateText(
     options: {
       temperature,
       num_predict: numPredict,
+      top_p: 0.95,
     },
     keep_alive: -1,
     stream: false,

@@ -234,21 +234,28 @@ async function rewriteSingle(
   rawText: string,
   articleTitle: string
 ): Promise<void> {
-  const prompt = `Rewrite this Wikipedia article as an engaging essay for a general reader.
+  const prompt = `Rewrite this Wikipedia article as an engaging essay. You are a magazine editor, not an encyclopedia.
 
 ARTICLE: ${stub.wiki_title}
-CONTENT: ${rawText}
+SOURCE MATERIAL:
+${rawText}
 
-CONTEXT: Related to "${articleTitle}".
+CONTEXT: A reader just finished "${articleTitle}" and wants deeper background.
 
-Guidelines:
-- Start with an interesting hook
-- Explain from first principles
-- Vary paragraph length
-- Aim for 10-30 minutes of reading
-- Plain text only. Blank lines between paragraphs. ## for headings. > for quotes.
+STYLE GUIDE:
+- Do NOT start with "Imagine..." or any hypothetical scenario. Start with a concrete fact, anecdote, or striking claim.
+- Do NOT include a title or heading at the very start. Jump straight into prose.
+- Explain everything from first principles — assume the reader is smart but unfamiliar.
+- Vary paragraph length dramatically: a one-sentence paragraph after a dense block creates rhythm.
+- Use ## for section headings. Use > for quotes. Use **bold** for emphasis.
+- Aim for 1500-3000 words.
+- Write with authority and specificity. Cite dates, names, numbers.
 
-Return ONLY valid JSON: {"${stub.original_url}": "your rewritten text here"}`;
+BAD OPENING: "Imagine walking into a bank and being told your neighborhood is too risky..."
+GOOD OPENING: "In 1935, the federal government drew red lines around Black neighborhoods on city maps and declared them unfit for investment. The practice was called redlining, and its effects persist ninety years later."
+
+Output ONLY the JSON. No preamble, no explanation.
+{"${stub.original_url}": "your essay text here"}`;
 
   const responseText = await generateText(prompt, {
     temperature: 0.8,

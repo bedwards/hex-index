@@ -228,9 +228,17 @@ Reading Experience:
 - Remove all subscription prompts, share buttons, CTAs, "subscribe to read more" text.
 - Remove self-referential newsletter language ("as I wrote last week", "paid subscribers know").
 
-CRITICAL: Do NOT start with the article title. Begin immediately with the first sentence of content. The title is already displayed separately — repeating it looks broken.
+CRITICAL FORMATTING RULES:
+- Do NOT start with the article title. The title is displayed separately. Begin with the first sentence of content.
+- Do NOT start with "Imagine..." or any hypothetical framing device.
+- Do NOT write a preamble like "Here's the rewrite" or "I've adapted this article."
+- Use **bold** for emphasis. Use ## for section headings. Use > for blockquotes.
 
-Return ONLY valid JSON: {"content": "your adapted article text here"}
+STYLE EXAMPLE (this is the quality bar):
+"The racial justice movement has a housing problem. For two decades, activists have centered criminal justice reform as the primary front in the fight against structural racism. But the academic literature tells a different story — one where housing policy, not policing, is the deepest root of racial inequality in America."
+
+Output ONLY the JSON. No preamble, no explanation, no markdown fences.
+{"content": "your adapted article text here"}
 
 Write plain text only. Use blank lines between paragraphs. Use ## for section headings. Use > for blockquotes. No HTML tags.`;
 

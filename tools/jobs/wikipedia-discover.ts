@@ -147,7 +147,7 @@ async function main(): Promise<void> {
 
           const alreadyUsed = validatedTopics.map(t => t.topic);
 
-          const prompt = `You are selecting Wikipedia articles that would give readers context for this Substack article.
+          const prompt = `Select ${remaining} Wikipedia articles that give readers essential context for this piece. Pick specific topics — named events, people, laws, concepts — not broad categories like "Economics" or "History."
 
 ARTICLE: "${article.title}" from ${article.publication_name}
 
@@ -157,10 +157,11 @@ ${articleText}
 KEY TERMS: ${keyTerms.join(', ')}
 ${alreadyUsed.length > 0 ? `ALREADY SELECTED (do not repeat): ${alreadyUsed.join(', ')}` : ''}
 
-Return a JSON object with exactly ${remaining} Wikipedia topic suggestions. Pick topics that are specific (not broad categories), substantial, and directly relevant.
+GOOD EXAMPLE: {"topics": [{"topic": "Smoot–Hawley Tariff Act", "reason": "The article discusses trade policy history"}]}
+BAD EXAMPLE: {"topics": [{"topic": "Economics", "reason": "Related to the topic"}]}
 
-Return ONLY valid JSON in this exact format, nothing else:
-{"topics": [{"topic": "Exact Wikipedia Article Title", "reason": "One sentence why this is relevant"}]}`;
+Output ONLY the JSON object. No explanation, no preamble, no markdown fences.
+{"topics": [{"topic": "Exact Wikipedia Article Title", "reason": "One sentence"}]}`;
 
           const responseText = await generateText(prompt, {
             temperature: 0.3,
