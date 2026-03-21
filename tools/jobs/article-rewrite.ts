@@ -195,56 +195,77 @@ async function main(): Promise<void> {
         // Cap at ~15k chars to fit in context
         const textForLlm = fullText.slice(0, 15000);
 
-        const prompt = `You are a senior editor adapting this article for publication in a curated reading library. Your job is substantive editorial work — not just cleanup, but genuine improvement.
+        // Get related wikipedia topics for this article (if any)
+        let wikiContext = '';
+        try {
+          const { rows: wikiTopics } = await pool.query<{ title: string }>(`
+            SELECT w.title FROM app.article_wikipedia_links awl
+            JOIN app.wikipedia_articles w ON awl.wikipedia_id = w.id
+            WHERE awl.article_id = $1
+            ORDER BY awl.relevance_rank
+          `, [article.id]);
+          if (wikiTopics.length > 0) {
+            wikiContext = `\nRELATED BACKGROUND: This article has companion deep dives on: ${wikiTopics.map(w => w.title).join(', ')}. Weave in 1-2 brief historical or contextual references from these topics where they naturally strengthen the argument. Do not summarize them — just drop in a specific fact, date, or connection that adds depth.`;
+          }
+        } catch { /* no wiki topics available */ }
+
+        const prompt = `You are a senior editor at a curated reading library. Your readers are smart, busy people who use text-to-speech to listen to long-form articles. Your job: take this piece and make them glad they spent 15 minutes with it.
 
 TITLE: "${article.title}"
 AUTHOR: ${article.author_name ?? 'Unknown'}
 PUBLICATION: ${article.publication_name}
+${wikiContext}
 
 SOURCE TEXT:
 ${textForLlm}
 
-EDITORIAL MANDATE:
+YOUR EDITORIAL APPROACH:
 
-Structure & Organization:
-- Restructure for clarity if the original meanders. Lead with the strongest insight.
-- Add clear section breaks (## headings) where the topic shifts. Name them well.
-- Cut tangential asides that don't serve the core argument.
-- If the original buries the lede, fix it.
+1. PITCH (opening 2-3 sentences):
+Open by selling the reader on why this piece is worth their time. What is the author's most surprising or distinctive claim? What evidence do they bring that you won't find elsewhere? Why should someone care right now? This is not a summary — it's a pitch. Make the reader think "I need to hear this."
 
-Prose Quality:
-- Tighten every sentence. Cut filler words, throat-clearing, hedging.
-- Vary sentence length dramatically — follow a long analytical sentence with a short punchy one.
-- Vary paragraph length — a one-sentence paragraph after a dense block creates rhythm.
-- Replace jargon with plain language. Spell out acronyms on first use.
-- Explain concepts from first principles when the original assumes knowledge.
+2. ADAPTED BODY (the meat):
+- Convert to third person throughout. Replace "I"/"me"/"my" with the author's name and pronouns. First mention: full name. After that: last name only.
+- Restructure for clarity. Lead with the strongest insight. Cut tangents.
+- Add clear ## section headings where the topic shifts.
+- Tighten every sentence. Cut filler, hedging, throat-clearing.
+- Vary sentence AND paragraph length dramatically for rhythm.
+- Replace jargon with plain language. Spell out acronyms.
+- Remove all newsletter language ("subscribe", "paid subscribers", "as I wrote last week").
 
-Voice & Attribution:
-- CRITICAL: Convert to third person. Replace "I", "me", "my", "we" with the author's name and appropriate third-person pronouns (he/she/they). Example: "I think this policy is misguided" → "Yglesias argues this policy is misguided."
-- Preserve the author's arguments, evidence, and conclusions faithfully.
-- Preserve their distinctive style — sharpen it, don't flatten it.
-- Do NOT invent facts, quotes, or claims not in the original.
-- ADD light editorial counterpoints — a sentence or two where the argument is weakest or where reasonable people disagree. Frame these as "Critics might note..." or "A counterargument is..." Keep it balanced and brief. The overall stance remains the author's.
+3. COUNTERPOINTS (woven in, not bolted on):
+Where the argument is weakest or where reasonable people disagree, add a sentence: "Critics might note..." or "A counterargument worth considering..." Keep it brief. The overall stance remains the author's. 1-3 per article depending on length.
 
-Reading Experience:
-- Optimize for text-to-speech listening (Speechify). Every paragraph should sound natural read aloud.
-- Use clear paragraph breaks for natural speech pauses.
-- Remove all subscription prompts, share buttons, CTAs, "subscribe to read more" text.
-- Remove self-referential newsletter language ("as I wrote last week", "paid subscribers know").
+4. PULL QUOTE (one per article):
+Select the single most striking or quotable sentence from your adaptation. Format it as a blockquote (> ) between sections. This is the sentence someone would highlight or share.
 
-CRITICAL FORMATTING RULES:
-- Do NOT start with the article title. The title is displayed separately. Begin with the first sentence of content.
-- Do NOT start with "Imagine..." or any hypothetical framing device.
-- Do NOT write a preamble like "Here's the rewrite" or "I've adapted this article."
-- Use **bold** for emphasis. Use ## for section headings. Use > for blockquotes.
+5. BOTTOM LINE (final section):
+End with a ## Bottom Line section — 2-3 sentences of editorial judgment. Not a summary. A verdict: What's the strongest part of this argument? What's its biggest vulnerability? What should the reader watch for next?
 
-STYLE EXAMPLE (this is the quality bar — note third person, light critique):
-"Yglesias argues the racial justice movement has a housing problem. For two decades, activists have centered criminal justice reform as the primary front against structural racism. But the academic literature tells a different story — one where housing policy, not policing, is the deepest root of racial inequality in America. Critics might note that this framing oversimplifies; criminal justice and housing intersect in ways that resist clean separation. Still, his core point stands: the movement's strategic focus doesn't match where the research points."
+FORMATTING:
+- Do NOT start with the title. It's displayed separately.
+- Do NOT start with "Imagine..." or any hypothetical device.
+- Do NOT write meta-commentary ("Here's the rewrite", "I've adapted...").
+- Use **bold** for emphasis. ## for headings. > for pull quotes/blockquotes.
+- Plain text only. No HTML.
+
+STYLE EXAMPLE:
+"Matt Yglesias makes an argument that's been strangely absent from progressive discourse: the strongest case for zoning reform isn't economic efficiency — it's racial justice. Drawing on Rothstein's *The Color of Law* and a 1917 Supreme Court case most activists have never heard of, Yglesias builds a case that housing policy, not criminal justice, is where structural racism runs deepest.
+
+## The Forgotten Precedent
+
+The first major anti-segregation victory at the Supreme Court wasn't Brown v. Board of Education. It was Buchanan v. Warley in 1917 — a case striking down explicit racial zoning. Yglesias argues this history matters because land use policy was designed under conditions of deep racism, and the Civil Rights Act never unwound it.
+
+> Housing policy was built on racist foundations, and we never tore them up. We just stopped talking about it.
+
+Critics might note that framing housing as the *primary* driver of structural racism risks minimizing the very real harms of policing and mass incarceration. The two systems reinforce each other.
+
+## Bottom Line
+
+Yglesias's core argument is strong: the academic consensus on housing and racial inequality is clear, and the activist movement hasn't caught up. His biggest vulnerability is strategic — he admits the racial justice framing might hurt the political coalition needed to actually pass reform. That tension is unresolved, and it's the most interesting part of the piece."
 
 Output ONLY the JSON. No preamble, no explanation, no markdown fences.
-{"content": "your adapted article text here"}
-
-Write plain text only. Use blank lines between paragraphs. Use ## for section headings. Use > for blockquotes. No HTML tags.`;
+{"content": "your adapted article text here"}`;
 
         const responseText = await generateText(prompt, {
           temperature: 0.5,
