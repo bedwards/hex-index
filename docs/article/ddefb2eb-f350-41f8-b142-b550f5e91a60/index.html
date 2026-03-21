@@ -28,15 +28,46 @@
       </header>
 
       <div class="content-label">
-        <span class="label-text">Transcript excerpt from <a href="../../publication/chasehai/index.html">Chase H AI</a></span>
+        <span class="label-text">Adapted from <a href="../../publication/chasehai/index.html">Chase H AI</a></span>
         <nav class="content-nav">
-          <a href="https://www.youtube.com/watch?v=I9kO6-yPkfM" target="_blank" rel="noopener">Watch on YouTube &rarr;</a>
+          
+          <a href="https://www.youtube.com/watch?v=I9kO6-yPkfM" target="_blank" rel="noopener">Original article &rarr;</a>
         </nav>
       </div>
 
       
+      <div class="article-content">
+        <p>{&quot;output&quot;: <strong>Chase H has found the browser automation tool that actually saves money — and it&#039;s not what you&#039;d expect</strong></p>
+<p>Most developers assume the best way to automate browser tasks is through extensions or MCP servers. They&#039;re wrong. The CLI option is dramatically more efficient.</p>
+<h2>Why Playwright CLI Changes Everything</h2>
+<p>Playwright, an open-source Microsoft tool for browser automation, has a new CLI that outperforms every other method — by a massive margin.</p>
+<p>The difference comes down to tokens. A single task using the Playwright MCP server consumes about 90,000 tokens compared to the CLI. The Chrome extension is even worse because it relies on screenshots, which burn through tokens rapidly.</p>
+<p>But here&#039;s what makes the CLI special: it doesn&#039;t dump the entire accessibility tree into Claude Code like the MCP server does. Instead, it saves that tree locally and feeds Claude only the summary. This dramatically reduces token usage while maintaining full functionality.</p>
+<p>The CLI also supports headless operation — meaning browsers run invisibly in the background without dragging down system performance. And unlike the Chrome extension, Playwright CLI can spawn parallel agents that test multiple scenarios simultaneously.</p>
+<h2>How Browser Automation Actually Works</h2>
+<p>Playwright interacts with websites through what&#039;s called an accessibility tree. This is the same technology that allows blind users to navigate websites. The accessibility tree maps every element on a page — buttons, forms, navigation — into a structure that tools can programmatically interact with.</p>
+<p>When you use the MCP server, it shoves the entire accessibility tree into Claude Code for every single interaction. That&#039;s massive overhead. The CLI takes a different approach: it retrieves the same information but stores it on your local disk, then feeds only what each agent needs to complete its specific task.</p>
+<p>This is why three parallel agents running simultaneously via the CLI execute tests faster and cheaper than any other method.</p>
+<h2>Installation Is Surprisingly Simple</h2>
+<p>Getting Playwright CLI working requires three steps. First, install the Playwright CLI globally using `npm install -g play`. Second, install the browser engine with `npx playwright install chromium`. Third, add the skill to Claude Code with `playright-cli install --skills`.</p>
+<p>Alternatively, you can just hand Claude Code a GitHub repository and ask it to install everything needed.</p>
+<h2>The Real Use Case: Form Testing</h2>
+<p>The most practical application demonstrated is form submission testing. Instead of manually running through validation scenarios on your website — checking edge cases, happy paths, error messages — Claude Code spawns multiple agents that do this simultaneously.</p>
+<p>One agent might test valid name and email combinations. Another tests empty submissions. A third attacks boundary conditions like special characters or extremely long inputs. All three run in parallel without you touching a single key.</p>
+<p>The results come back with screenshots and detailed reports of what passed and failed.</p>
+<h2>Creating Reusable Skills</h2>
+<p>Once you&#039;ve refined a workflow into something repeatable, you can package it as a skill using the skill creator tool. This lets you say &quot;run form tester skill&quot; instead of describing the entire process each time.</p>
+<p>This transforms browser automation from a one-time experiment into a permanent productivity system that runs every time you push code changes.</p>
+<h2>Bottom Line</h2>
+<p>Chase H&#039;s strongest argument is concrete: the CLI dramatically reduces token costs while maintaining full functionality. The vulnerability is that most developers haven&#039;t tried it yet — they default to extensions or MCP servers because those options are more familiar. But the efficiency gap is enormous, and for anyone building CI/CD pipelines or automated testing, Playwright CLI isn&#039;t just an alternative — it&#039;s the obvious choice.}</p>
+      </div>
+
       
-      <div class="excerpt-card">
+
+      <section id="excerpt" class="excerpt-card">
+        <div class="content-label">
+          <span class="label-text">Transcript excerpt on Chase H AI</span>
+        </div>
         <div class="article-excerpt">
           <p>Okay, Claude Code, I want you to spin up three parallel sub aents. I want you to use the playwright CLI skill for each of them and I want you to test my form submission inside of my website since we just made some changes. Go. So, what you're seeing happen right now is Claude Code just spawned three sub agents.</p>
 <p>All of them are using the Playright CLI. Playright is a tool from Microsoft, totally open source, that does browser automation. And this is a huge unlock for claude code because browser automation despite the fact that we have claude in Chrome as an extension is a place that cloud code really struggles. And what you see here is one of the great use cases for browser automation.</p>
@@ -51,9 +82,8 @@
           <a href="https://www.youtube.com/watch?v=I9kO6-yPkfM" class="read-button" target="_blank" rel="noopener">
             Watch on YouTube &rarr;
           </a>
-          <p class="cta-note">Watch the full video by Chase H on YouTube.</p>
         </div>
-      </div>
+      </section>
       
     </article>
   
