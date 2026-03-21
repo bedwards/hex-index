@@ -36,6 +36,29 @@
 
       
       
+      <section id="deep-dives" class="deep-dives">
+        <h2>Deep Dives</h2>
+        <p class="deep-dives-intro">Explore related topics with these Wikipedia articles, rewritten for enjoyable reading:</p>
+        <ul class="deep-dive-list">
+          
+      <li class="deep-dive-item">
+        <a href="../../wikipedia/retrieval-augmented-generation/index.html">
+          <strong>Retrieval-augmented generation</strong>
+          <span class="read-time">8 min read</span>
+        </a>
+        <p class="topic-summary">Core technique used to build Yelp Assistant with accurate citations</p>
+      </li>
+
+      <li class="deep-dive-item">
+        <a href="../../wikipedia/semantic-search/index.html">
+          <strong>Semantic search</strong>
+          <span class="read-time">2 min read</span>
+        </a>
+        <p class="topic-summary">Method mentioned for intent-based retrieval alongside lexical search</p>
+      </li>
+        </ul>
+      </section>
+    
       <div class="excerpt-card">
         <div class="article-excerpt">
           <h2><a href="https://bit.ly/WorkOS_020926Headline">How to stop bots from abusing free trials (Sponsored)</a></h2><div class="captioned-image-container"></div><p>Free trials help AI apps grow, but <a href="https://bit.ly/WorkOS_020926Bots">bots and fake accounts exploit them</a>. They steal tokens, burn compute, and disrupt real users.</p><p>Cursor, the fast-growing AI code assistant, uses <a href="https://bit.ly/WorkOS_020926Radar">WorkOS Radar</a> to detect and stop abuse in real time. With device fingerprinting and behavioral signals, Radar blocks fraud before it reaches your app.</p><div><hr></div><p>You open an app with one specific question in mind, but the answer is usually hidden in a sea of reviews, photos, and structured facts. Modern content platforms are information-rich, though surfacing direct answers can still be a challenge. A good example is Yelp business pages. Imagine you are deciding where to go and you ask “Is the patio heated?”. The page might contain the answer in a couple of reviews, a photo caption, or an attribute field, but you still have to scan multiple sections to piece it together.</p><p>A common way to solve this is to integrate an AI assistant inside the app. The assistant retrieves the right evidence and turns it into a single direct answer with citations to the supporting snippets.</p><div class="captioned-image-container"></div><p>This article walks through what it takes to ship a production-ready AI assistant using Yelp Assistant on business pages as a concrete case study. We’ll cover the engineering challenges, architectural trade-offs, and practical lessons from the development of the Yelp Assistant.</p><p><em>Note: This article is written in collaboration with Yelp. Special thanks to the Yelp team for sharing details with us about their work and for reviewing the final article before publication.</em></p><h2><strong>High-Level System Design</strong></h2><p>To deliver answers that are both accurate and cited, we cannot rely on an LLM’s internal knowledge alone. Instead, we use Retrieval-Augmented Generation (RAG).</p><p>RAG decouples the problem into two distinct phases: retrieval and generation, supported by an offline indexing pipeline that prepares the knowledge store.</p><div class="captioned-image-container"></div><p>The development of a RAG system starts with an indexing pipeline, which builds a knowledge store from raw data offline. Upon receiving a user query, the retrieval system scans this store using both lexical search for keywords and semantic search for intent to locate the most relevant snippets. Finally, the generation phase feeds these snippets to the LLM with strict instructions to answer solely based on the provided evidence and to cite specific sources.</p><div class="captioned-image-container"></div><p>Citations are typically produced by having the model output citation markers that refer to specific snippets. For ...</p>
