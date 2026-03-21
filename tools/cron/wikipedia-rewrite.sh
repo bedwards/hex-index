@@ -69,7 +69,7 @@ done
 step_done
 
 PENDING=$(docker compose exec -T postgres psql -U postgres -d hex-index -t -c "
-    SELECT COUNT(*) FROM app.wikipedia_articles WHERE status = 'stub';
+    SELECT COUNT(*) FROM app.wikipedia_articles WHERE status = 'stub' OR rewrite_dirty = true;
 " 2>/dev/null | tr -d ' ')
 LIMIT=$(( (TIME_BUDGET - DEPLOY_OVERHEAD) / SECS_PER_ITEM ))
 [ "$LIMIT" -gt "${PENDING:-0}" ] && LIMIT="${PENDING:-0}"

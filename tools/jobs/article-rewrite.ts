@@ -152,7 +152,7 @@ async function main(): Promise<void> {
       FROM app.articles a
       JOIN app.publications p ON a.publication_id = p.id
       WHERE a.full_content_path IS NOT NULL
-        AND a.rewritten_content_path IS NULL
+        AND (a.rewritten_content_path IS NULL OR a.rewrite_dirty = true)
       ORDER BY a.published_at DESC NULLS LAST
       LIMIT $1
     `, [LIMIT]);
@@ -318,7 +318,7 @@ Output ONLY the JSON. No preamble, no explanation, no markdown fences.
 
         // Update DB
         await pool.query(
-          'UPDATE app.articles SET rewritten_content_path = $1, updated_at = NOW() WHERE id = $2',
+          'UPDATE app.articles SET rewritten_content_path = $1, rewrite_dirty = false, updated_at = NOW() WHERE id = $2',
           [rewritePath, article.id]
         );
 

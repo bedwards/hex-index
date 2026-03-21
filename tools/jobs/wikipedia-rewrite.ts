@@ -161,7 +161,7 @@ async function main(): Promise<void> {
       FROM app.wikipedia_articles w
       JOIN app.article_wikipedia_links awl ON awl.wikipedia_id = w.id
       JOIN app.articles a ON awl.article_id = a.id
-      WHERE w.status = 'stub'
+      WHERE (w.status = 'stub' OR w.rewrite_dirty = true)
       ORDER BY a.published_at DESC NULLS LAST
       LIMIT $1
     `, [LIMIT * 3]); // up to 3 stubs per article
@@ -311,6 +311,7 @@ async function saveRewrite(
         word_count = $2,
         estimated_read_time_minutes = $3,
         status = 'complete',
+        rewrite_dirty = false,
         updated_at = NOW()
     WHERE id = $4
   `, [contentPath, wordCount, readTime, stub.wiki_id]);
