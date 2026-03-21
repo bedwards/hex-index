@@ -28,15 +28,53 @@
       </header>
 
       <div class="content-label">
-        <span class="label-text">Transcript excerpt from <a href="../../publication/chasehai/index.html">Chase H AI</a></span>
+        <span class="label-text">Adapted from <a href="../../publication/chasehai/index.html">Chase H AI</a></span>
         <nav class="content-nav">
-          <a href="https://www.youtube.com/watch?v=usTeU4Uh0iM" target="_blank" rel="noopener">Watch on YouTube &rarr;</a>
+          
+          <a href="https://www.youtube.com/watch?v=usTeU4Uh0iM" target="_blank" rel="noopener">Original video &rarr;</a>
         </nav>
       </div>
 
       
+      <div class="article-content">
+        <p>The real cheat code isn&#039;t Claude Code alone — it&#039;s what happens when you pair it with an overlooked tool called NotebookLM. Chase H shows exactly how to build a free research pipeline that would otherwise cost hundreds of dollars per month.</p>
+<h2>The Demo That Proves It Works</h2>
+<p>Chase H demonstrates the workflow in action. Using Claude Code, he triggers a custom YouTube search skill to find trending videos on Claude Code skills. Then he pushes those URLs into NotebookLM — Google&#039;s free research tool — and asks it to analyze the videos for emerging trends. Within minutes, NotebookLM returns the top five Claude Code skills along with analysis of how they&#039;re being used.</p>
+<p>But the real magic happens next: Chase H asks Claude Code to generate an infographic in a handwritten blueprint style based on that analysis. The result appears automatically inside his project folder. Twenty YouTube sources got uploaded, analyzed, and transformed into a deliverable — without spending any tokens.</p>
+<p>The entire process was automated from one prompt. No manual YouTube searching. No copy-pasting links. No manually creating infographics in Canva or PowerPoint.</p>
+<h2>Why This Combo Is So Powerful</h2>
+<p>Most people use Claude Code the way most people use ChatGPT: asking it to browse the web and hoping for good results. But this combination changes the entire equation.</p>
+<p>The first advantage is cost. NotebookLM is free. When Claude Code sends analysis work to NotebookLM, it&#039;s not spending tokens on heavy reasoning — it&#039;s just passing requests back and forth. All the actual thinking happens on Google&#039;s servers, which means zero cost for the user.</p>
+<p>The second advantage is power. Replicating what NotebookLM does — scraping YouTube videos, building a RAG system (that&#039;s Retrieval-Augmented Generation), generating analysis, producing infographics and slide decks — would require significant engineering effort and money to build from scratch. Chase H has tried this with other tools like Notion, and he describes it as &quot;a gigantic pain in the butt.&quot;</p>
+<p>The third advantage is integration. Because Claude Code can directly control NotebookLM through a Python script, users get a seamless workflow where research, analysis, and deliverables all happen inside their terminal without ever leaving.</p>
+<h2>How To Set It Up (Without An API)</h2>
+<p>NotebookLM doesn&#039;t have an official public API. But Tang Ling built one anyway — the unofficial NotebookLM-Python repository on GitHub that acts as a working Python API for NotebookLM.</p>
+<p>The setup requires two parts: first, the YouTube search skill; second, the NotebookLM connection.</p>
+<p>For YouTube searching, users can either tell Claude Code to build a custom skill using YT-DLP (a Python dependency) or download Chase H&#039;s ready-made setup file from his free community. The skill teaches Claude Code how to scrape YouTube metadata — titles, views, authors, upload dates — and present it in a usable format.</p>
+<p>For NotebookLM, users copy installation commands into their terminal, run the login command, authenticate once in Chrome, and then install the skill that tells Claude Code how to interact with NotebookLM. After that, it&#039;s just natural language: &quot;Create a new notebook titled Chase Demo with these sources&quot; or &quot;Based on those videos, what&#039;s the number one Cloud Code skill?&quot;</p>
+<p>The entire setup takes about five minutes.</p>
+<h2>What You Can Create With This Workflow</h2>
+<p>Once connected, users can generate everything NotebookLM produces manually — and more. The web interface limits you to 50 sources per notebook, but Claude Code can push dozens of URLs at once. Users can ask for:</p>
+<ul>
+<li>Audio overviews (NotebookLM&#039;s native podcast summary)</li>
+<li>Mind maps</li>
+<li>Flashcards</li>
+<li>Infographics</li>
+<li>Slide decks</li>
+</ul>
+<p>The workflow abstracts away the hardest part of research: building a corpus of knowledge from YouTube videos in a way that an AI agent can actually use. Normally, that&#039;s time-consuming and brittle. Here, it&#039;s free.</p>
+<p>Critics might note that NotebookLM&#039;s analysis isn&#039;t perfect — it sometimes hallucinates details or pulls captions incorrectly. Users need to double-check outputs inside NotebookLM before relying on deliverables for important work.</p>
+<blockquote>All the thinking is done by Google, and they&#039;re paying for it.</blockquote>
+<h2>Bottom Line</h2>
+<p>This workflow genuinely democratizes research automation. The combination of Claude Code&#039;s terminal control with NotebookLM&#039;s free analysis and generation capabilities creates something that would cost hundreds of dollars to build otherwise — and it&#039;s available right now for zero cost. The setup is simple, the use cases are infinite, and the results actually work. The biggest risk: relying on analysis that still needs verification. For busy professionals using text-to-speech, this is exactly the kind of tool that makes a 15-minute investment in research feel like cheating.</p>
+      </div>
+
       
-      <div class="excerpt-card">
+
+      <section id="excerpt" class="excerpt-card">
+        <div class="content-label">
+          <span class="label-text">Transcript excerpt on Chase H AI</span>
+        </div>
         <div class="article-excerpt">
           <p>Claude Code might be the most powerful research agent on the planet, but you need to add this one tool to unlock it. Now, most people's version of Claude Code research is just telling it to use the web search tool and praying that whatever it comes back with is good enough. But we can do better because what if I told you with just five minutes of setup, we could create workflows inside of Cloud Code that are able to scrape any section of YouTube, pull their captions, push that information to a free, robust, pre-built rag system that is able to do all the heavy lifting and analysis for us, and then take that analysis and give us deliverables like slide decks, infographics, podcasts, you name it. All while costing us virtually zero tokens.</p>
 <p>Now, if that sounds way too good to be true, you would normally be right, but not in this case. So, let me introduce you to the most underrated AI tool in the game today, Notebook LM. So, in today's video, I'm going to show you how to combine the powers of Claude Code and Notebook LM to replace a research stack for free that would otherwise cost you hundreds of dollars a month to build and maintain. I'm really excited to show you guys this one.</p>
@@ -48,9 +86,8 @@
           <a href="https://www.youtube.com/watch?v=usTeU4Uh0iM" class="read-button" target="_blank" rel="noopener">
             Watch on YouTube &rarr;
           </a>
-          <p class="cta-note">Watch the full video by Chase H on YouTube.</p>
         </div>
-      </div>
+      </section>
       
     </article>
   
