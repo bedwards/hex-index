@@ -14,19 +14,34 @@
     
     <article class="wikipedia-page">
       <header class="wikipedia-header">
-        <div class="type-badge">Wikipedia Deep Dive (Coming Soon)</div>
+        <div class="type-badge">Wikipedia Deep Dive</div>
         <h1>DeepSeek</h1>
         <div class="article-meta">
-          <span class="read-time">20 min read</span>
+          <span class="read-time">7 min read</span>
         </div>
       </header>
 
-      <div class="wikipedia-stub">
-        <p>This deep dive is being prepared. In the meantime, you can read the original article on Wikipedia.</p>
-        <p><a href="https://en.wikipedia.org/wiki/DeepSeek" target="_blank" rel="noopener" class="read-button">
-          Read on Wikipedia &rarr;
-        </a></p>
-      </div>
+      <div class="wikipedia-content"><p class="source-note">Based on <a href="https://en.wikipedia.org/wiki/DeepSeek">Wikipedia: DeepSeek</a></p>
+<p>In January 2025, a Chinese artificial intelligence company quietly sent shockwaves through the global tech industry—without spending nearly what its American competitors had spent on training similar models. When DeepSeek launched its R1 chatbot alongside the DeepSeek-R1 model, it did so with a reported training cost of roughly $6 million. OpenAI&#039;s GPT-4, by comparison, had been trained at an estimated $100 million in 2023. The disparity wasn&#039;t just a footnote—it was a fundamental challenge to assumptions that had governed AI development for years.</p>
+<p>The story begins not in some Silicon Valley garage, but in Hangzhou, Zhejiang Province, where DeepSeek Artificial Intelligence Basic Technology Research Co., Ltd. operates as the AI arm of High-Flyer, a Chinese hedge fund founded by Liang Wenfeng. That connection matters: it explains how an AI company could emerge from relative obscurity and immediately upend industry calculations. High-Flyer was itself co-founded in February 2016 by Liang—an AI enthusiast who had been trading through the turbulence of the 2008 financial crisis while still a student at Zhejiang University. By October 2016, the firm began stock trading using a GPU-dependent deep learning model, moving away from CPU-based linear models that had dominated quantitative finance until then.</p>
+<p>By the end of 2017, most of High-Flyer&#039;s trading was driven by artificial intelligence. The hedge fund had become an early proving ground for algorithmic decision-making, and Liang&#039;s vision expanded beyond financial markets. In 2019, High-Flyer constructed its first computing cluster—Fire-Flyer—at a cost of 200 million yuan, containing 1,100 GPUs interconnected at 200 Gbit/s. This cluster operated for roughly 1.5 years before retirement.</p>
+<p>By 2021, Liang began acquiring large quantities of Nvidia GPUs for an ambitious AI project. Reports suggest he obtained 10,000 Nvidia A100 chips before the United States restricted chip sales to China—a restriction that would later shape DeepSeek&#039;s technical approach in profound ways. That same year, construction began on Fire-Flyer 2 with a budget of 1 billion yuan.</p>
+<p>By 2022, Fire-Flyer 2&#039;s capacity had been utilized at over 96%, totaling 56.74 million GPU hours. Of that computing power, 27% supported scientific computing outside the company—evidence of how deeply the infrastructure was integrated into broader research efforts. The cluster contained 5,000 PCIe A100 GPUs arranged in 625 nodes, each holding 8 GPUs. Initially, DeepSeek used PCIe rather than the more expensive DGX version of A100 because their models fit within a single 40 GB GPU&#039;s memory—no need for the higher bandwidth that DGX provided. Later additions incorporated NVLinks and NCCL (Nvidia Collective Communications Library) to train larger models requiring what researchers call model parallelism.</p>
+<p>In April 2023, High-Flyer announced the launch of an artificial general intelligence (AGI) research lab focused on developing AI tools unrelated to the firm&#039;s financial business. Two months later, in July 2023, that lab was spun off into an independent company—DeepSeek—with High-Flyer as its principal investor and backer. Venture capital investors were reluctant to provide funding at first; they considered it unlikely the venture would generate a quick &quot;exit.&quot; The doubts didn&#039;t prevent the company from proceeding.</p>
+<p>DeepSeek released its first model, DeepSeek Coder, on November 2, 2023—followed by the DeepSeek-LLM series on November 29, 2023. These early releases established the company&#039;s pattern: open weight models where exact parameters were openly shared, a departure from typical proprietary software approaches. In January 2024, it released two DeepSeek-MoE models (Base and Chat). By April, three DeepSeek-Math models appeared (Base, Instruct, and RL).</p>
+<p>DeepSeek-V2 arrived in May 2024, followed a month later by the DeepSeek-Coder V2 series. September saw the introduction of DeepSeek V2.5, revised in December. On November 20, 2024, the preview of DeepSeek-R1-Lite became available through chat.</p>
+<p>By December 2024, DeepSeek-V3-Base and DeepSeek-V3 (chat) were released—models that would prove pivotal to the company&#039;s breakout. On January 20, 2025, DeepSeek launched its chatbot—based on the DeepSeek-R1 model—for iOS and Android. The response was swift: by January 27, it had surpassed ChatGPT as the most downloaded freeware app on the U.S. iOS App Store, triggering an 18% drop in Nvidia&#039;s share price.</p>
+<p>What made this possible? Several factors converged. DeepSeek significantly reduced training expenses for their R1 model by incorporating techniques such as mixture of experts (MoE) layers—a method allowing computational efficiency through specialized sub-models that activate only when needed. The company trained models during ongoing trade restrictions on AI chip exports to China, using weaker AI chips intended for export and employing fewer units overall—yet achieved comparable performance.</p>
+<p>The success against larger, more established rivals was described by industry observers as &quot;upending AI&quot;—a phrase that undersells what actually occurred. The breakthrough created something resembling a &quot;Sputnik moment&quot; for the United States in artificial intelligence, particularly due to DeepSeek&#039;s open-source approach combined with cost-effectiveness and high performance. This threatened established AI hardware leaders; Nvidia&#039;s share price dropped sharply, losing $600 billion in market value—the largest single-company decline in U.S. stock market history.</p>
+<p>DeepSeek&#039;s hiring approach also differentiated it from conventional AI labs. The company emphasizes skills over lengthy work experience, resulting in many hires fresh out of university. It recruits individuals without traditional computer science backgrounds to expand the range of expertise incorporated into models—including poetic knowledge and advanced mathematics. According to The New York Times, dozens of DeepSeek researchers have or have previously had affiliations with People&#039;s Liberation Army laboratories and the Seven Sons of National Defence—connections that underscore the company&#039;s positioning within China&#039;s broader technological ecosystem.</p>
+<p>Following the January launch, DeepSeek continued its rapid release cadence. On March 24, 2025, it released DeepSeek-V3-0324 under the MIT License. May 28 saw DeepSeek-R1-0528 arrive under the same license—a version noted for more closely following official Chinese Communist Party ideology and censorship in answers compared to prior models.</p>
+<p>August 21, 2025 brought DeepSeek V3.1 (under MIT License), featuring a hybrid architecture with thinking and non-thinking modes. The model surpassed prior versions like V3 and R1 by over 40% on benchmarks including SWE-bench and Terminal-bench—benchmarks measuring software engineering and terminal performance respectively. It was updated to V3.1-Terminus on September 22, 2025.</p>
+<p>September 29, 2025 released V3.2-Exp, using DeepSeek Sparse Attention—a more efficient attention mechanism based on research published in February.</p>
+<p>Yet not everything proceeded smoothly. In February 2026, Anthropic accused DeepSeek of using thousands of fraudulent accounts to generate millions of conversations with Claude to train its own large language models—an allegation that would test the company&#039;s reputation among industry watchers.</p>
+<p>DeepSeek has stated it focuses on research and does not have immediate plans for commercialization—posture allowing it to skirt certain provisions of China&#039;s AI regulations aimed at consumer-facing technologies. The company expanded into Africa, offering more affordable and less power-hungry AI solutions while bolstering African language models and generating startups, for instance in Nairobi.</p>
+<p>As of May 2024, Liang personally held an 84% stake in DeepSeek through two shell corporations—a concentration of control that reflects both its origin and its operating philosophy. The company headquartered in Hangzhou continues operating as a subsidiary of High-Flyer, with Liang serving as CEO for both entities.</p>
+<p>The lesson from DeepSeek&#039;s rise isn&#039;t simply about cost efficiency—it&#039;s about how constraints can reshape technological trajectories. By using weaker chips, fewer computing resources, and unconventional training methods born from export restrictions rather than abundance, the company demonstrated that artificial intelligence development need not follow established Western patterns. The industry response was immediate and severe: $600 billion vanished from a single company&#039;s market value in American markets. When DeepSeek released its models under permissive open-source licenses, it didn&#039;t just share weights—it shared an entirely different set of assumptions about what AI development requires.</p>
+<p>The &#039;Sputnik moment&#039; label that observers applied wasn&#039;t merely descriptive. Just as the Soviet launch of 1957 disrupted American technological confidence and triggered a decades-long response, DeepSeek&#039;s emergence forced reassessments across the AI landscape—forcing questions about whether the massive capital expenditures traditionally required for frontier AI models were actually necessary, or whether they represented inefficiencies waiting to be eliminated.</p></div>
 
       <footer class="wikipedia-footer">
         <p class="source-link">
@@ -34,7 +49,10 @@
             View original Wikipedia article &rarr;
           </a>
         </p>
-        
+        <p class="rewrite-note">
+        This article has been rewritten from Wikipedia source material for enjoyable reading.
+        Content may have been condensed, restructured, or simplified.
+      </p>
       </footer>
 
       
