@@ -136,6 +136,9 @@ function cleanPreamble(text: string): string {
   // Strip leading title (# or ##) — the title is in the page header
   cleaned = cleaned.replace(/^#{1,2}\s+.+\n+/, '').trim();
 
+  // Unescape JSON string escapes that survived parsing
+  cleaned = cleaned.replace(/\\"/g, '"').replace(/\\'/g, "'").replace(/\\n/g, '\n').replace(/\\\\/g, '\\');
+
   return cleaned;
 }
 
