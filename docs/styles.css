@@ -863,6 +863,73 @@ main {
   text-decoration-color: var(--accent);
 }
 
+/* ── Tag Pill ───────────────────────────────────────────────────── */
+
+.article-tag {
+  display: inline-block;
+  font-size: 0.7rem;
+  font-weight: 500;
+  color: var(--accent);
+  background: var(--accent-bg);
+  padding: 0.15em 0.5em;
+  border-radius: 2px;
+  text-decoration: none;
+}
+.article-tag:hover {
+  color: var(--accent-hover);
+  text-decoration: none;
+}
+
+/* ── Tag Index Grid ─────────────────────────────────────────────── */
+
+.tag-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--gap);
+}
+
+.tag-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding: 0.7rem 1rem;
+  border: 1px solid var(--rule);
+  border-radius: 3px;
+  background: var(--paper-warm);
+  color: var(--ink);
+  text-decoration: none;
+}
+.tag-card:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+  text-decoration: none;
+}
+.tag-card .tag-name {
+  font-weight: 500;
+  font-size: var(--text-base);
+}
+.tag-card .tag-count {
+  font-size: var(--text-sm);
+  color: var(--ink-muted);
+}
+
+/* ── Tag Page Header ────────────────────────────────────────────── */
+
+.tag-page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: var(--gap-lg);
+}
+
+.back-to-tags {
+  font-size: var(--text-sm);
+  color: var(--ink-muted);
+}
+.back-to-tags:hover {
+  color: var(--accent);
+}
+
 /* ── Source note (hidden — attribution is in header) ─────────────── */
 
 .source-note { display: none; }
@@ -900,4 +967,8 @@ main {
     gap: 0.15rem;
   }
   .article-meta .separator { display: none; }
+
+  .tag-grid {
+    grid-template-columns: 1fr;
+  }
 }
