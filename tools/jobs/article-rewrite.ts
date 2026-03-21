@@ -115,6 +115,9 @@ function cleanPreamble(text: string): string {
   // Strip residual JSON wrapper if the whole thing starts with {"content":
   cleaned = cleaned.replace(/^\s*\{\s*"content"\s*:\s*"/, '').replace(/"\s*\}\s*$/, '').trim();
 
+  // Strip leading title (# or ##) — the title is already displayed in the page header
+  cleaned = cleaned.replace(/^#{1,2}\s+.+\n+/, '').trim();
+
   return cleaned;
 }
 
