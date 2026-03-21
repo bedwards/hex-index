@@ -11,7 +11,7 @@ LOG_FILE="$PROJECT_DIR/logs/article-rewrite-$(date +%Y%m%d-%H%M%S).log"
 OLLAMA_URL="${OLLAMA_URL:-http://127.0.0.1:11434}"
 OLLAMA_MODEL="${OLLAMA_MODEL:-hf.co/unsloth/MiniMax-M2.5-GGUF:latest}"
 
-TIME_BUDGET=1200
+TIME_BUDGET=2400        # 40 minutes — highest priority job
 SECS_PER_ITEM=50
 DEPLOY_OVERHEAD=90
 

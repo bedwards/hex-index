@@ -12,9 +12,9 @@ OLLAMA_URL="${OLLAMA_URL:-http://127.0.0.1:11434}"
 OLLAMA_MODEL="${OLLAMA_MODEL:-hf.co/unsloth/MiniMax-M2.5-GGUF:latest}"
 
 # Tuning constants
-TIME_BUDGET=1200        # 20 minutes max for the LLM work
-SECS_PER_ITEM=30        # ~30 sec per article for topic discovery
-DEPLOY_OVERHEAD=90      # static gen + commit + push
+TIME_BUDGET=900         # 15 minutes — reduced as backlog clears
+SECS_PER_ITEM=30
+DEPLOY_OVERHEAD=90
 
 mkdir -p "$PROJECT_DIR/logs"
 cd "$PROJECT_DIR"
