@@ -28,15 +28,41 @@
       </header>
 
       <div class="content-label">
-        <span class="label-text">Transcript excerpt from <a href="../../publication/chasehai/index.html">Chase H AI</a></span>
+        <span class="label-text">Commentary by <a href="../../about/index.html">Brian Edwards</a></span>
         <nav class="content-nav">
-          <a href="https://www.youtube.com/watch?v=dSp4jL8R2o0" target="_blank" rel="noopener">Watch on YouTube &rarr;</a>
+          
+          <a href="https://www.youtube.com/watch?v=dSp4jL8R2o0" target="_blank" rel="noopener">Original video &rarr;</a>
         </nav>
       </div>
 
       
+      <div class="article-content">
+        <p>{&quot;content&quot;&gt; &quot;Chase H has a confession that might surprise AI developers: converting those messy n8n workflows you&#039;ve built into proper Python applications is surprisingly simple — and the benefits are substantial. In a practical demonstration, he walked through taking a RAG AI agent powered by LightRag and transforming it from a JSON file into a full-stack web app using Claude Code. The results? Faster performance, lower costs, and more control over your infrastructure.</p>
+<h2>Why Move Away From n8n</h2>
+<p>The core argument isn&#039;t about abandoning visual automation tools — it&#039;s about knowing when real code makes sense. Three factors drove this conversion: performance, cost, and control.</p>
+<p>First, performance. When the RAG agent lives inside n8n, it must make a trip to wherever your LightRag server is hosted, figure out the answer, and bring it back. That&#039;s latency added with every query. Second, cost. Running both n8n and LightRag separately means managing two different servers, two sets of costs, and ensuring they communicate. Compare that to a single Python application where everything lives in one place — lower cost, higher performance. Third, control. Working inside n8n means being constrained by the platform&#039;s tools and its terms of service. Building a SaaS application where you want to monetize? You&#039;ll feel those constraints. Writing your own Python code means owning it all.</p>
+<h2>The Conversion Process</h2>
+<p>Here&#039;s what surprised Chase about how easy this actually is. You don&#039;t need to manually rewrite anything. Instead, you drop your n8n automation JSON file into a Claude Code project folder, enter Plan Mode, and tell Claude what you want to build. The system reads the JSON structure and essentially rewrites it in Python.</p>
+<p>For well-created JSON files with clear documentation, this process goes smoothly. You explain how the automation works, ask for modifications, and let Claude Code generate all the code. The main roadblock you&#039;ll face is authentication — particularly Google Cloud setup, which can be tedious but follows the same patterns as n8n. Once you&#039;ve done it once in Python, you can reuse those credentials.</p>
+<p>The result is a full web application with a front end, proper Python architecture, and the ability to deploy on platforms like Railway. Testing the converted RAG agent showed it citing sources while answering questions — just like the original workflow, but now running as actual code.</p>
+<h2>When n8n Still Makes Sense</h2>
+<p>This isn&#039;t a dismissal of visual automation tools. n8n still has a crucial place in your AI stack for three reasons:</p>
+<p>First, prototyping and MVP development. The visual nature helps you figure out how data flows through a system — something that&#039;s hard to grasp when you&#039;re just writing code.</p>
+<p>Second, non-technical teams. If you&#039;re working with clients or colleagues who aren&#039;t technical, the visual interface makes communication easier than trying to explain Python architecture.</p>
+<p>Third, speed and customization. Once you&#039;ve got the hang of n8n, you can build and tweak things quickly without the back-and-forth of prompting an AI assistant to make sure it understood what you meant.</p>
+<p>Critics might note that moving everything to code assumes you have the technical skills to maintain it — a fair point for less experienced developers who may benefit more from staying inside visual automation tools until those skills develop.</p>
+<blockquote>&quot;Why are we even inside of n8n if we&#039;re just scaffolding a bunch of code notes together?&quot;</blockquote>
+<p>The real insight isn&#039;t that conversion is easy — it&#039;s knowing when to convert. If you&#039;re building something simple with a non-technical team, or prototyping to feel out what you want to build, stick with the visual tools. But once you&#039;re ready to ship a production application where performance matters and you need full control over your infrastructure, that&#039;s when making the leap to real code pays off.</p>
+<h2>Bottom Line</h2>
+<p>Chase&#039;s strongest argument is practical: moving from n8n workflows to Python isn&#039;t about abandoning what works — it&#039;s about understanding that visual tools are great for prototyping, but real applications require real code. The vulnerability? This assumes you have the technical capacity to maintain Python code, which is a genuine barrier for many teams. The transition isn&#039;t scary, though — you&#039;ve already done the hard work inside n8n. Now it&#039;s just about translating that into something more powerful.&quot;}</p>
+      </div>
+
       
-      <div class="excerpt-card">
+
+      <section id="excerpt" class="excerpt-card">
+        <div class="content-label">
+          <span class="label-text">Transcript excerpt on Chase H AI</span>
+        </div>
         <div class="article-excerpt">
           <p>NADN has been one of the most powerful noode tools on the market for some time now. But today, as platforms like Claude Code, Codeex, and anti-gravity become both more powerful and more userfriendly, one of the skills you need to master is taking your NADN automations, agents, and workflows and being able to convert them into proper applications when called for. Now this is something we have touched on in previous videos where we have taken any automations and used cloud code to essentially build a wrapper around them. We've given them a front end, a backend, databases, the works.</p>
 <p>But at its core, it was still an NAN JSON file essentially powering all the logic. But in today's video, we're taking it a step further. We aren't creating a wrapper this time because instead we're going to be taking an NAND JSON file and turning it into a proper Python app. And for today's demo, we are going to be converting one of my favorite NAND workflows.</p>
@@ -48,9 +74,8 @@
           <a href="https://www.youtube.com/watch?v=dSp4jL8R2o0" class="read-button" target="_blank" rel="noopener">
             Watch on YouTube &rarr;
           </a>
-          <p class="cta-note">Watch the full video by Chase H on YouTube.</p>
         </div>
-      </div>
+      </section>
       
     </article>
   
