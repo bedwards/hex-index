@@ -28,15 +28,58 @@
       </header>
 
       <div class="content-label">
-        <span class="label-text">Transcript excerpt from <a href="../../publication/natebjones/index.html">Nate B Jones</a></span>
+        <span class="label-text">Adapted from <a href="../../publication/natebjones/index.html">Nate B Jones</a></span>
         <nav class="content-nav">
-          <a href="https://www.youtube.com/watch?v=3FbqaD1MCUA" target="_blank" rel="noopener">Watch on YouTube &rarr;</a>
+          
+          <a href="https://www.youtube.com/watch?v=3FbqaD1MCUA" target="_blank" rel="noopener">Original article &rarr;</a>
         </nav>
       </div>
 
       
+      <div class="article-content">
+        <p>Here&#039;s an argument that should make every AI company uncomfortable: Perplexity just launched one of the best products in the AI industry, and it might not matter. Nate B Jones makes the case that Perplexity Computer is genuinely impressive — it orchestrates 19 different AI models, runs asynchronous workflows for months, and handles complex multi-step research tasks better than almost anything on the market. But Jones says it&#039;s also a cautionary tale about where most of the AI industry is building right now. The problem isn&#039;t execution. It&#039;s layer. When you depend on model providers who are simultaneously building the exact same product you&#039;re selling — while controlling access terms and pricing — you&#039;re just borrowing time.</p>
+<h2>The Structural Problem</h2>
+<p>The first few weeks of 2026 revealed patterns that will take years to play out. In late January, OpenClaw — an open source AI agent built by Austrian developer Peter Steinberger — hit 200,000 GitHub stars and became the fastest growing repository in history. It runs locally through WhatsApp and Telegram, manages email, modifies files, and browses the web autonomously.</p>
+<p>The demand signal was massive. The security problems were equally massive. Cisco&#039;s security team found a third-party skill performing data exfiltration without user awareness. One agent deleted all its emails. Another created a dating profile and started screening matches unprompted.</p>
+<p>Despite the flaws, people kept showing up. OpenClaw eventually spawned an entire project that Peter Steinberger now leads at OpenAI after officially joining in February.</p>
+<h2>The Timeline Hardens</h2>
+<p>On January 13th, Anthropic launched Claude Co-work — essentially code for the rest of your work. By February 5th, Tropic shipped Claude Opus 4.6 with a million token context window. Within days, iShares expanded tech software ETF recorded its worst two-day stretch since 2008. Multiple selloffs wiped out something like a quarter of a trillion dollars from SaaS stocks.</p>
+<p>But Anthropic just kept shipping. Co-work launched on Windows on February 11th, giving 70% of desktop computing access. On Valentine&#039;s Day — February 14th — Peter Steinberger officially joined OpenAI. The OpenClaw project now had sponsorship and resources to build a secure version.</p>
+<p>On February 18th, Perplexity confirmed it abandoned advertising, telling the Financial Times that ads risk making users lose trust. By February 24th, Anthropic&#039;s Enterprise Agents launched with deep connectors, private plug-in marketplaces, and pre-built templates.</p>
+<p>February 25th — Samsung unveiled the Galaxy S26 Aentic AI phone running Perplexity. Google previewed Gemini agents with App Functions letting apps expose data directly to AI at the OS level. And Perplexity shipped Computer.</p>
+<p>In about six weeks between January and February, the industry stratified into layers with fundamentally different structural economics: model providers own the weights at the bottom, orchestration combines models into products in the middle, distribution owners control the surface where users encounter agents. Cloud providers hover over everything spending $690 billion a year on infrastructure they must fill with tokens.</p>
+<h2>The Squeeze From Both Directions</h2>
+<p>The problem for Perplexity is that it sits in the middle layer — the most exposed position in the system. When a technology stack consolidates, the layer between platform owner and customer gets squeezed. It happened to travel agents, media companies, enterprise middleware. The common thread: if you don&#039;t own the layer below or the relationship above, you&#039;re just borrowing time.</p>
+<p>In AI, you&#039;re in that trap if you build on models you don&#039;t control and serve customers that model providers are now selling to directly. Every upstream provider has the ability — and now the incentive — to replicate what Perplexity does and change pricing and access terms in ways that compress margins.</p>
+<p>Reports have surfaced that Anthropic began banning users who powered OpenClaw with Claude credentials. Similar reports emerged about Google and OpenClaw. If that logic extends to orchestration layers, the dependency risk for Perplexity won&#039;t be theoretical. It will be very practical.</p>
+<p>But the squeeze isn&#039;t only coming from below. The same players squeezing Perplexity from below are also coming from above. The conventional defense for middleware companies is domain expertise — the thing model makers cannot replicate. OpenAI Frontier just blew a hole in that argument.</p>
+<p>Frontier launched as an enterprise platform connecting silo data warehouses, CRM systems, and internal applications into what OpenAI calls a semantic layer for the enterprise. The idea: onboard agents with institutional knowledge, grant them identity and permissions, build evaluation loops so agents improve with experience. That&#039;s the context layer. It&#039;s not fully realized yet — they&#039;re not talking about superhuman intelligence operating across a 10 token context layer — but that&#039;s where OpenAI wants to go.</p>
+<p>Harvey, Sierra, Decagon, and a bridge are already committed as Frontier partners. Smart players who build on top of models are joining forces with OpenAI because they don&#039;t want to get eaten.</p>
+<p>This doesn&#039;t mean domain expertise is worthless. It means the form that survives may be narrower than people think. If your domain expertise is mostly connecting enterprise systems and teaching AI how your org works, Frontier does that now with forward deployed engineers. If it&#039;s something deeper — proprietary data, regulatory knowledge from years of compliance, operational insight from running specific physical processes — there&#039;s still value there.</p>
+<p>But most companies claiming domain modes haven&#039;t done the rigorous thinking to figure out if they have true expertise that survives this kind of context consolidation.</p>
+<h2>What Perplexity Computer Actually Does</h2>
+<p>Despite the name, it&#039;s not hardware. It&#039;s a cloud-based Agentic system orchestrating 19 AI models together to execute really complicated multi-step workflows end to end. Available exclusively on Perplexity&#039;s $200 a month Max tier — representing the company&#039;s clearest bet yet that the value layer in AI is not the model, it&#039;s the orchestration.</p>
+<p>The core idea: you describe an outcome and Computer decomposes it into tasks and subtasks. It spawns specialized sub-agents that run in parallel. One agent might do web research while another drafts a document. A third generates visuals and a fourth writes code. Each task runs in an isolated compute environment with access to a real file system, a real browser, integrations with tools like Gmail, Slack, GitHub, Notion, Salesforce, and more than 400 others.</p>
+<p>Model routing is Perplexity&#039;s differentiating architectural choice. Computer uses Opus 4.6 as its central reasoning engine and delegates to specialized models per task. This routing is automatic but users can override — pin specific models to specific subtasks if they have strong preferences or want to manage token budgets.</p>
+<p>Crucially, workflows can run asynchronously for hours or even months. Kick off a job, close your laptop, come back to finished deliverables. Computer retains persistent memory across sessions, accumulating context about preferences and past work over time.</p>
+<p>The most credible early use cases cluster around research heavy multi-source workflows — competitive intelligence and market research that calls out search. Give it a prompt like &quot;analyze the top five competitors in X space, track their recent product launches and produce a briefing.&quot; Computer parallelizes seven different search types simultaneously, reads full source pages, deals with academic sources, cross references findings, constructs a structured detailed report.</p>
+<p>Financial analysis and investment memos also play into something Perplexity has been investing in. Pull earnings data, compare margins across competitors, synthesize analyst sentiment, output a formatted PDF with charts or a website. This is where multimodel routing really earns its keep — research agents gathering data while the coding agent builds visualizations.</p>
+<p>Outbound and pipeline building surprised some reviewers. Computer finds real email addresses, researches each prospect&#039;s recent activity, drafts personalized messages referencing specific details, sends them through a connected Gmail account. The recurring version — daily competitive monitoring, weekly reports — shifts from one-off assistant into persistent agent.</p>
+<p>Build tasks like &quot;build me a personal finance dashboard&quot; or &quot;create a portfolio site for me with case studies and then deploy it.&quot; Computer handles research, design, code, deployment loop in one long session, although it currently stamps outputs with a watermark so you may not want to distribute widely.</p>
+<p>Content repurposing becomes a multi-tool pipeline that would normally require stitching together three or four services. Pull a segment from a long podcast, extract the clip, convert to vertical format, add captions.</p>
+<blockquote>If you don&#039;t own the layer below or the relationship above, you&#039;re just borrowing time in AI.</blockquote>
+<p>The hyperscalers are not neutral referees. They need trillions of tokens to justify their valuations and capital spend — simple math. If OpenAI can&#039;t hit its target of $250 to $280 billion in revenue in a few years, the entire capital structure of the system doesn&#039;t work. They have to do this at differing scales for every hyperscaler.</p>
+<p>AWS secured exclusive third-party distribution for Frontier and is co-building the stateful runtime environment on Bedrock — vertical integration guaranteeing the enterprise agent layer runs through its infrastructure. Microsoft takes a 20% revenue share from OpenAI through 2032, locking in their ceiling. Google invested $3 billion in Anthropic while building its own agent layer into Android.</p>
+<h2>Bottom Line</h2>
+<p>The strongest part of Jones&#039;s argument is structural: when every model provider you depend on is simultaneously building the exact product you&#039;re selling — and controlling access and pricing — good execution at the middle layer doesn&#039;t create durability, it creates dependency. The biggest vulnerability is that Perplexity read the market correctly, killed their ad business early, and targeted $650 million in 2026 revenue. They may simply be too good at what they do to fail. But the stack economics suggest they&#039;re renting position rather than owning it — and the rent is about to get very expensive.</p>
+      </div>
+
       
-      <div class="excerpt-card">
+
+      <section id="excerpt" class="excerpt-card">
+        <div class="content-label">
+          <span class="label-text">Transcript excerpt on Nate B Jones</span>
+        </div>
         <div class="article-excerpt">
           <p>On February 25th, Perplexity shipped the best Agentic product of the month, and it might not even matter. Perplexity Computer launched to genuine excitement. I've tried it. It's a cloudnative multimodel orchestration system that routes work across 19 different Frontier models.</p>
 <p>It spawns sub agents. It persists for months and it delivers finished artifacts while you sleep. It sounds amazing and it's really, really good. It runs Claude Opus 4.6 six as its reasoning core, Gemini for deep research, Grock for speed, chat GPT 5.2 for long context recall.</p>
@@ -51,9 +94,8 @@
           <a href="https://www.youtube.com/watch?v=3FbqaD1MCUA" class="read-button" target="_blank" rel="noopener">
             Watch on YouTube &rarr;
           </a>
-          <p class="cta-note">Watch the full video by Nate B Jones on YouTube.</p>
         </div>
-      </div>
+      </section>
       
     </article>
   
