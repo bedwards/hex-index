@@ -1,6 +1,7 @@
 #!/bin/bash
-# Job 5: Generate article thumbnail images via Gemini
-# No local LLM required — uses Gemini API
+# Job 5: Generate article images via Gemini API
+# Self-budgeting: no GPU needed, runs independently of LLM jobs
+# Generates in batches, deploys after each batch
 
 set -euo pipefail
 
@@ -8,6 +9,11 @@ SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 PROJECT_DIR="$(cd "$SCRIPT_DIR/../.." && pwd)"
 LOCK_FILE="$PROJECT_DIR/logs/gen-images.lock"
 LOG_FILE="$PROJECT_DIR/logs/gen-images-$(date +%Y%m%d-%H%M%S).log"
+
+TIME_BUDGET=1200        # 20 minutes total
+SECS_PER_ITEM=3         # ~3 sec per image (Gemini API + ImageMagick)
+DEPLOY_OVERHEAD=90
+BATCH_SIZE=25           # Deploy every 25 images
 
 mkdir -p "$PROJECT_DIR/logs"
 cd "$PROJECT_DIR"
@@ -39,37 +45,38 @@ done
 log "Postgres ready (${PG_RETRIES}s)"
 step_done
 
-# Generate images in batches of 10, regenerate + deploy after each batch
-BATCH_SIZE=10
-TOTAL_LIMIT=200
+# Calculate total limit from time budget
+PENDING=$(docker compose exec -T postgres psql -U postgres -d hex-index -t -c "
+    SELECT COUNT(*) FROM app.articles WHERE image_path IS NULL AND content_path IS NOT NULL;
+" 2>/dev/null | tr -d ' ')
+TOTAL_LIMIT=$(( (TIME_BUDGET - DEPLOY_OVERHEAD * 4) / SECS_PER_ITEM ))  # budget for ~4 deploys
+[ "$TOTAL_LIMIT" -gt "${PENDING:-0}" ] && TOTAL_LIMIT="${PENDING:-0}"
+[ "$TOTAL_LIMIT" -lt 1 ] && { log "No articles need images"; exit 0; }
+log "Pending: ${PENDING:-?}, Budget: ${TIME_BUDGET}s, Total limit: $TOTAL_LIMIT"
+
+# Generate in batches
 GENERATED=0
-
 while [ "$GENERATED" -lt "$TOTAL_LIMIT" ]; do
-    step_start "Image batch (${GENERATED}-$(( GENERATED + BATCH_SIZE )))"
+    REMAINING=$(( TOTAL_LIMIT - GENERATED ))
+    THIS_BATCH=$(( REMAINING > BATCH_SIZE ? BATCH_SIZE : REMAINING ))
 
+    step_start "Image batch ($GENERATED-$(( GENERATED + THIS_BATCH )))"
     BEFORE=$(docker compose exec -T postgres psql -U postgres -d hex-index -t -c "SELECT COUNT(*) FROM app.articles WHERE image_path IS NOT NULL;" 2>/dev/null | tr -d ' ')
 
-    timeout 600 npx tsx tools/jobs/generate-images.ts --limit "$BATCH_SIZE" 2>&1 | tee -a "$LOG_FILE" || {
+    timeout 300 npx tsx tools/jobs/generate-images.ts --limit "$THIS_BATCH" 2>&1 | tee -a "$LOG_FILE" || {
         EC=$?
         [ "$EC" -eq 124 ] && warn "Batch timed out" || warn "Batch failed (exit $EC)"
     }
 
     AFTER=$(docker compose exec -T postgres psql -U postgres -d hex-index -t -c "SELECT COUNT(*) FROM app.articles WHERE image_path IS NOT NULL;" 2>/dev/null | tr -d ' ')
     NEW_IMAGES=$(( AFTER - BEFORE ))
-    GENERATED=$(( GENERATED + BATCH_SIZE ))
+    GENERATED=$(( GENERATED + THIS_BATCH ))
 
-    # If no new images were generated, we're done
-    if [ "$NEW_IMAGES" -eq 0 ]; then
-        log "No more articles need images"
-        break
-    fi
-
+    [ "$NEW_IMAGES" -eq 0 ] && { log "No more articles need images"; break; }
     step_done
 
-    # Deploy this batch (shared lock)
-    step_start "Deploy batch"
-    bash "$PROJECT_DIR/tools/cron/deploy.sh" "feat: ${NEW_IMAGES} article images (batch)" 2>&1 | tee -a "$LOG_FILE"
-    log "Published ${NEW_IMAGES} new images"
+    step_start "Deploy batch ($NEW_IMAGES images)"
+    bash "$PROJECT_DIR/tools/cron/deploy.sh" "feat: ${NEW_IMAGES} article images" 2>&1 | tee -a "$LOG_FILE"
     step_done
 done
 

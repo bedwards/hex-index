@@ -1,6 +1,6 @@
 #!/bin/bash
 # Job 3: Wikipedia rewrite
-# Walks articles with stub wikipedia articles, rewrites them via LLM
+# Self-budgeting: queries DB for stub count, caps --limit to fit TIME_BUDGET
 
 set -euo pipefail
 
@@ -9,7 +9,11 @@ PROJECT_DIR="$(cd "$SCRIPT_DIR/../.." && pwd)"
 LOCK_FILE="$PROJECT_DIR/logs/wiki-rewrite.lock"
 LOG_FILE="$PROJECT_DIR/logs/wiki-rewrite-$(date +%Y%m%d-%H%M%S).log"
 OLLAMA_URL="${OLLAMA_URL:-http://127.0.0.1:11434}"
-OLLAMA_MODEL="${OLLAMA_MODEL:-qwen3.5:122b}"
+OLLAMA_MODEL="${OLLAMA_MODEL:-hf.co/unsloth/MiniMax-M2.5-GGUF:latest}"
+
+TIME_BUDGET=1200
+SECS_PER_ITEM=80
+DEPLOY_OVERHEAD=90
 
 mkdir -p "$PROJECT_DIR/logs"
 cd "$PROJECT_DIR"
@@ -21,23 +25,21 @@ die()  { echo "[$(date '+%H:%M:%S')] FATAL: $*" | tee -a "$LOG_FILE" >&2; exit 1
 step_start() { STEP_NAME="$1"; STEP_START=$(date +%s); log "── $STEP_NAME ──"; }
 step_done()  { local e=$(( $(date +%s) - STEP_START )); log "── $STEP_NAME done ($(( e/60 ))m $(( e%60 ))s) ──"; }
 
-# Per-job lock
 exec 9>"$LOCK_FILE"
 if ! flock -n 9; then log "Another wiki-rewrite running. Exiting."; exit 0; fi
 echo $$ >"$LOCK_FILE"
 
-# Shared LLM lock — only one LLM job at a time (jobs 2/3/4)
 LLM_LOCK="$PROJECT_DIR/logs/llm.lock"
 exec 8>"$LLM_LOCK"
-if ! flock -n 8; then log "Another LLM job running. Exiting."; exit 0; fi
+if ! flock -w 300 8; then log "LLM busy for 5 min. Skipping."; exit 0; fi
 
 trap 'rm -f "$LOCK_FILE"; exec 9>&-; exec 8>&-' EXIT
 
 RUN_START=$(date +%s)
 log "=== Job 3: Wikipedia Rewrite (PID $$) ==="
 
-# Postgres
 step_start "Postgres"
+docker compose up -d postgres 2>&1 | tee -a "$LOG_FILE"
 PG_RETRIES=0
 until docker compose exec -T postgres pg_isready -U postgres -q 2>/dev/null; do
     PG_RETRIES=$((PG_RETRIES + 1))
@@ -47,7 +49,6 @@ done
 log "Postgres ready (${PG_RETRIES}s)"
 step_done
 
-# Ollama
 step_start "Ollama"
 OLLAMA_OK=false
 for i in 1 2 3; do
@@ -57,7 +58,7 @@ for i in 1 2 3; do
             OLLAMA_OK=true; log "Ollama ready"; break
         else
             warn "Model not loaded, warming up..."
-            curl -sf "${OLLAMA_URL}/api/chat" -d "{\"model\":\"$OLLAMA_MODEL\",\"messages\":[{\"role\":\"user\",\"content\":\"hi\"}],\"options\":{\"num_predict\":1},\"stream\":false}" >/dev/null 2>&1 || true
+            curl -sf "${OLLAMA_URL}/api/chat" -d "{\"model\":\"$OLLAMA_MODEL\",\"messages\":[{\"role\":\"user\",\"content\":\"hi\"}],\"options\":{\"num_predict\":1},\"keep_alive\":-1,\"stream\":false}" >/dev/null 2>&1 || true
             sleep 10
         fi
     else
@@ -67,15 +68,21 @@ done
 [ "$OLLAMA_OK" = false ] && die "Ollama unavailable"
 step_done
 
-# Run rewrites
-step_start "Wikipedia rewrite"
-timeout 10800 npx tsx tools/jobs/wikipedia-rewrite.ts --limit 100 2>&1 | tee -a "$LOG_FILE" || {
+PENDING=$(docker compose exec -T postgres psql -U postgres -d hex-index -t -c "
+    SELECT COUNT(*) FROM app.wikipedia_articles WHERE status = 'stub';
+" 2>/dev/null | tr -d ' ')
+LIMIT=$(( (TIME_BUDGET - DEPLOY_OVERHEAD) / SECS_PER_ITEM ))
+[ "$LIMIT" -gt "${PENDING:-0}" ] && LIMIT="${PENDING:-0}"
+[ "$LIMIT" -lt 1 ] && LIMIT=1
+log "Pending stubs: ${PENDING:-?}, Budget: ${TIME_BUDGET}s, Limit: $LIMIT (est $(( LIMIT * SECS_PER_ITEM / 60 ))m)"
+
+step_start "Wikipedia rewrite ($LIMIT stubs)"
+timeout "$TIME_BUDGET" npx tsx tools/jobs/wikipedia-rewrite.ts --limit "$LIMIT" 2>&1 | tee -a "$LOG_FILE" || {
     EC=$?
-    [ "$EC" -eq 124 ] && warn "Rewrite hit 5h timeout" || warn "Rewrite failed (exit $EC)"
+    [ "$EC" -eq 124 ] && warn "Hit time budget" || warn "Failed (exit $EC)"
 }
 step_done
 
-# Deploy (shared lock)
 step_start "Deploy"
 bash "$PROJECT_DIR/tools/cron/deploy.sh" "feat: wikipedia rewrites $(date +%Y-%m-%d\ %H:%M)" 2>&1 | tee -a "$LOG_FILE"
 step_done
