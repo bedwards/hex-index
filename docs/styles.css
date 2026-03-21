@@ -937,6 +937,92 @@ main {
   color: var(--accent);
 }
 
+/* ── Subscriber Signup ───────────────────────────────────────────── */
+
+.subscribe-card {
+  background: var(--paper-warm);
+  border: 1px solid var(--rule);
+  border-radius: 4px;
+  padding: var(--gap-lg);
+  margin-bottom: var(--gap-xl);
+}
+
+.subscribe-card h2 {
+  font-size: var(--text-lg);
+  font-weight: 600;
+  margin-bottom: 0.4rem;
+}
+
+.subscribe-card > p {
+  font-size: var(--text-sm);
+  color: var(--ink-soft);
+  margin-bottom: var(--gap);
+}
+
+.subscribe-fields {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  max-width: 400px;
+}
+
+.subscribe-input, .subscribe-select {
+  font-family: var(--font);
+  font-size: var(--text-sm);
+  padding: 0.5rem 0.7rem;
+  border: 1px solid var(--rule);
+  border-radius: 3px;
+  background: var(--paper);
+  color: var(--ink);
+}
+
+.subscribe-input:focus, .subscribe-select:focus {
+  border-color: var(--accent);
+  outline: none;
+}
+
+.subscribe-phone-row {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.subscribe-phone {
+  flex: 1;
+}
+
+.subscribe-select {
+  width: 120px;
+}
+
+.subscribe-btn {
+  font-family: var(--font);
+  font-size: var(--text-sm);
+  font-weight: 500;
+  padding: 0.5rem 1.2rem;
+  background: var(--accent);
+  color: var(--paper);
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+  align-self: flex-start;
+}
+
+.subscribe-btn:hover {
+  background: var(--accent-hover);
+}
+
+.subscribe-note {
+  font-size: var(--text-sm);
+  color: var(--ink-muted);
+  margin-top: 0.5rem;
+}
+
+.subscribe-confirmed {
+  font-size: var(--text-base);
+  color: var(--accent);
+  font-weight: 500;
+}
+
 /* ── Weekly Editions ─────────────────────────────────────────────── */
 
 .weekly-list {
@@ -947,8 +1033,8 @@ main {
 
 .weekly-item {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
+  gap: var(--gap);
+  align-items: start;
   padding: var(--gap) 0;
   border-bottom: 1px solid var(--rule);
 }
@@ -957,7 +1043,15 @@ main {
   border-bottom: none;
 }
 
-.weekly-item-info h2 {
+.weekly-cover {
+  width: 120px;
+  height: 160px;
+  object-fit: cover;
+  border-radius: 3px;
+  background: var(--paper-dark);
+}
+
+.weekly-info h2 {
   font-size: var(--text-md);
   font-weight: 500;
   line-height: var(--leading-tight);
@@ -967,6 +1061,7 @@ main {
 .weekly-item-meta {
   font-size: var(--text-sm);
   color: var(--ink-muted);
+  margin-bottom: 0.5rem;
 }
 
 .copy-url-btn {
