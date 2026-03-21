@@ -112,8 +112,15 @@ function cleanPreamble(text: string): string {
     cleaned = cleaned.replace(pattern, '').trim();
   }
 
-  // Strip residual JSON wrapper if the whole thing starts with {"content":
-  cleaned = cleaned.replace(/^\s*\{\s*"content"\s*:\s*"/, '').replace(/"\s*\}\s*$/, '').trim();
+  // Strip residual JSON wrapper — catches {"content": "..."}, {"text": "..."}, etc.
+  const jsonWrapperMatch = cleaned.match(/^\s*\{\s*"(?:content|text|[^"]+)"\s*:\s*"([\s\S]*)"\s*\}\s*$/);
+  if (jsonWrapperMatch) {
+    cleaned = jsonWrapperMatch[1]
+      .replace(/\\n/g, '\n')
+      .replace(/\\"/g, '"')
+      .replace(/\\\\/g, '\\')
+      .trim();
+  }
 
   // Strip leading title (# or ##) — the title is already displayed in the page header
   cleaned = cleaned.replace(/^#{1,2}\s+.+\n+/, '').trim();
