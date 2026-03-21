@@ -37,17 +37,17 @@
 
       
       <div class="article-content">
-        <p>What if you could use the world&#039;s most powerful coding agent — completely free and completely private — without sending a single byte to external servers? That&#039;s the proposition at the heart of Chase H&#039;s analysis: running Claude Code locally using open-source models instead of Anthropic&#039;s cloud infrastructure. The approach is surprisingly achievable, and the privacy guarantees are real.</p>
+        <p>What if you could use the world's most powerful coding agent — completely free and completely private — without sending a single byte to external servers? That's the proposition at the heart of Chase H's analysis: running Claude Code locally using open-source models instead of Anthropic's cloud infrastructure. The approach is surprisingly achievable, and the privacy guarantees are real.</p>
 <h2>The Privacy Trade-Off</h2>
-<p>The core appeal is straightforward. By swapping Claude Code&#039;s underlying model with a local open-source alternative via Ollama, users gain complete data isolation. No conversations leave the machine. No code exchanges with external servers. For developers handling sensitive client information or enterprises with strict compliance requirements, this matters.</p>
+<p>The core appeal is straightforward. By swapping Claude Code's underlying model with a local open-source alternative via Ollama, users gain complete data isolation. No conversations leave the machine. No code exchanges with external servers. For developers handling sensitive client information or enterprises with strict compliance requirements, this matters.</p>
 <figure class="inline-illustration">
     <img src="../../images/483a53af-2761-4d79-b30d-535890bae63e.webp" alt="" loading="lazy" width="600" height="315">
   </figure>
 
-<p>But there&#039;s a catch — and it&#039;s significant.</p>
-<p>The benchmark performance gap is real. Claude Code&#039;s Sonnet 4.6 and Opus 4.6 score around 80% on SWE verified tests. The best local model available today, GLM 4.7, achieves approximately 73.8% — roughly equivalent to Sonnet 3.7 from about a year ago. That&#039;s not a trivial difference.</p>
-<p>Most users won&#039;t even have hardware capable running the top-tier local models. Running GLM 4.7 requires around 48 GB of RAM, which eliminates most consumer machines. The practical alternatives like GLM 4.7 Flash run at 59.2% — roughly a 20% performance drop from cloud versions.</p>
-<p>Speed is another factor worth considering. Local models run on your hardware, not Anthropic&#039;s data centers, so tasks simply take longer to complete.</p>
+<p>But there's a catch — and it's significant.</p>
+<p>The benchmark performance gap is real. Claude Code's Sonnet 4.6 and Opus 4.6 score around 80% on SWE verified tests. The best local model available today, GLM 4.7, achieves approximately 73.8% — roughly equivalent to Sonnet 3.7 from about a year ago. That's not a trivial difference.</p>
+<p>Most users won't even have hardware capable running the top-tier local models. Running GLM 4.7 requires around 48 GB of RAM, which eliminates most consumer machines. The practical alternatives like GLM 4.7 Flash run at 59.2% — roughly a 20% performance drop from cloud versions.</p>
+<p>Speed is another factor worth considering. Local models run on your hardware, not Anthropic's data centers, so tasks simply take longer to complete.</p>
 <h2>How It Works</h2>
 <p>The setup process is surprisingly straightforward. Users need Claude Code installed already, then install Ollama (available at the official website). Once installed, users can pull any open-source model directly to their machine via simple terminal commands.</p>
 <p>Three methods exist for determining which model suits a particular system: asking Claude Code itself to recommend based on hardware analysis, using the open-source LLM fit tool that analyzes system capabilities, or consulting any AI chatbot about local model selection given available RAM.</p>
@@ -55,15 +55,15 @@
 <h2>When Local Makes Sense</h2>
 <p>Not every task justifies the trade-off. Chase H identifies three scenarios where local setup delivers clear value:</p>
 <p>First, usage limits. Users hitting monthly caps on paid plans benefit from a free local backup while waiting for resets.</p>
-<p>Second, straightforward tasks. Basic research, simple content generation, and tasks requiring minimal tool calls don&#039;t need top-tier models. For many real-world projects, having something roughly equivalent to Sonnet 3.7 is entirely sufficient.</p>
-<p>Third, data privacy. When working with sensitive client information where exposure to external servers creates risk, local processing becomes genuinely valuable — a solution that doesn&#039;t require throwing out the entire category of AI-assisted development.</p>
-<blockquote>You can run it for free on your laptop locally. It&#039;s totally private. Nobody ever sees your data.</blockquote>
-<p>A middle-ground option exists via Ollama&#039;s cloud services, though users should understand this means data leaves their machine and is no longer completely private.</p>
+<p>Second, straightforward tasks. Basic research, simple content generation, and tasks requiring minimal tool calls don't need top-tier models. For many real-world projects, having something roughly equivalent to Sonnet 3.7 is entirely sufficient.</p>
+<p>Third, data privacy. When working with sensitive client information where exposure to external servers creates risk, local processing becomes genuinely valuable — a solution that doesn't require throwing out the entire category of AI-assisted development.</p>
+<blockquote>You can run it for free on your laptop locally. It's totally private. Nobody ever sees your data.</blockquote>
+<p>A middle-ground option exists via Ollama's cloud services, though users should understand this means data leaves their machine and is no longer completely private.</p>
 <h2>Counterpoints</h2>
-<p>Critics might note that the performance gap isn&#039;t merely theoretical — it&#039;s immediately apparent in daily use. Tasks requiring 30-40 tool calls on Opus show meaningfully reduced effectiveness on local models. The hardware requirements also exclude a significant portion of potential users, making this solution more niche than it appears at first glance.</p>
+<p>Critics might note that the performance gap isn't merely theoretical — it's immediately apparent in daily use. Tasks requiring 30-40 tool calls on Opus show meaningfully reduced effectiveness on local models. The hardware requirements also exclude a significant portion of potential users, making this solution more niche than it appears at first glance.</p>
 <p>Additionally, open-source models are advancing rapidly. What represents a one-year gap today might be a three-month gap within a year, potentially narrowing the performance disadvantage significantly sooner than expected.</p>
 <h2>Bottom Line</h2>
-<p>The strongest argument for local Claude Code isn&#039;t technical superiority — it&#039;s data sovereignty. For users with appropriate hardware and legitimate privacy needs, the trade-off is compelling. The vulnerability lies in overselling the performance equivalence; most users will experience noticeably slower results with reduced capability. This isn&#039;t a replacement for cloud Claude Code but rather a targeted tool for specific scenarios where privacy or cost outweigh marginal performance gains. Watch for rapid open-source development in this space — the gap between local and cloud is closing faster than many assume.</p>
+<p>The strongest argument for local Claude Code isn't technical superiority — it's data sovereignty. For users with appropriate hardware and legitimate privacy needs, the trade-off is compelling. The vulnerability lies in overselling the performance equivalence; most users will experience noticeably slower results with reduced capability. This isn't a replacement for cloud Claude Code but rather a targeted tool for specific scenarios where privacy or cost outweigh marginal performance gains. Watch for rapid open-source development in this space — the gap between local and cloud is closing faster than many assume.</p>
       </div>
 
       
