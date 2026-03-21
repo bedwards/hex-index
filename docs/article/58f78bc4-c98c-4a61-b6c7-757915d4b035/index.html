@@ -28,15 +28,40 @@
       </header>
 
       <div class="content-label">
-        <span class="label-text">Transcript excerpt from <a href="../../publication/chasehai/index.html">Chase H AI</a></span>
+        <span class="label-text">Adapted from <a href="../../publication/chasehai/index.html">Chase H AI</a></span>
         <nav class="content-nav">
-          <a href="https://www.youtube.com/watch?v=QutvJAP06-A" target="_blank" rel="noopener">Watch on YouTube &rarr;</a>
+          
+          <a href="https://www.youtube.com/watch?v=QutvJAP06-A" target="_blank" rel="noopener">Original video &rarr;</a>
         </nav>
       </div>
 
       
+      <div class="article-content">
+        <p>{&quot;output&quot;: &quot;What if you could build premium, Apple-style 3D scrolling animations for your website using nothing but AI? That&#039;s the claim from Chase H., and he&#039;s assembled a step-by-step guide proving it&#039;s possible. The secret lies in combining Claude Code—an AI coding assistant—with Nano Banana 2, Google&#039;s latest image generation model. The result isn&#039;t a video file playing on loop; it&#039;s a series of individual frames that load as users scroll, creating that signature Apple-style effect you&#039;ve seen on product pages. And unlike the generic AI slop flooding the web, this approach produces something genuinely distinctive.</p>
+<h2>How Scroll-Driven Animation Works</h2>
+<p>The technique isn&#039;t magic. It borrows from Apple&#039;s visual playbook: start with one image (a keyboard at rest), then generate a second image showing what happens after movement (the deconstructed keyboard). These two still frames feed into an AI video model—Chase recommends either Cling 3.0 or VO 3.1—which interpolates the transition between them, generating a smooth animation.</p>
+<p>The final step transforms that video into what developers call a flip book: extracting every frame individually rather than loading a continuous video file. This matters because it dramatically improves performance. The frames load as users scroll instead of trying to buffer an entire clip.</p>
+<h2>Step-by-Step Process</h2>
+<p>First, generate your starting image in Nano Banana 2 at 2K quality. Define what you&#039;re showcasing—in Chase&#039;s example, it&#039;s headphones or a keyboard. Match your background color to your website; white backgrounds need white websites, black backgrounds need black sites. This alignment is crucial for the effect to feel natural.</p>
+<p>Next, use that first image as a reference for generating the ending frame. A simple prompt like &quot;X-ray image showing component parts in detail&quot; works well because the reference image does most of the heavy lifting. Once satisfied with both frames, feed them into your chosen video model along with a transition prompt describing how the object should transform—think gradual transparency revealing inner components rather than wild twisting.</p>
+<p>After generating the video, extract all frames using FFMPEG—a free tool that pulls individual images from the video. Then feed these to Claude Code with best practices for scroll animation implementation: pre-load frames, use WEBP format instead of JPEG, and ensure the background matches your site exactly.</p>
+<h2>Implementation Best Practices</h2>
+<p>The key to buttery-smooth results isn&#039;t just generating content—it&#039;s optimizing delivery. Chase emphasizes three critical factors:</p>
+<p>Pre-loading frames prevents jerky playback. WEBP format offers superior compression without quality loss. Background matching between generated images and your actual website ensures visual coherence; mismatched colors will clash obviously.</p>
+<p>A note on scrolling speed: eight heavy scrolls through the animation feels sluggish. Adjust expectations accordingly—users may need to scroll more deliberately to experience the full transition.</p>
+<h2>Counterpoints</h2>
+<p>Critics might argue this technique requires significant technical knowledge despite claims of simplicity. The process involves multiple tools, understanding of image generation parameters, and integration with web development workflows that average users may find intimidating.</p>
+<p>A reasonable counterargument: while the approach produces distinctive results, it relies on generating AI imagery that could feel artificial compared to hand-crafted motion design. Additionally, performance optimization details like WEBP conversion and frame pre-loading assume some technical literacy that not all content creators possess.</p>
+<h2>Bottom Line</h2>
+<p>Chase&#039;s guide offers a genuine alternative to the homogenized AI-generated websites flooding the internet. The technique works—his demo shows smooth animation with minimal friction. The biggest strength is immediate visual distinction: no more generic AI slop. The vulnerability lies in whether this level of customization remains accessible once you move past the tutorial and into real production. For now, if you want your site to look premium rather than automated, this process delivers exactly what it promises.</p>
+      </div>
+
       
-      <div class="excerpt-card">
+
+      <section id="excerpt" class="excerpt-card">
+        <div class="content-label">
+          <span class="label-text">Transcript excerpt on Chase H AI</span>
+        </div>
         <div class="article-excerpt">
           <p>You can now use AI to build these high-quality premium websites that use these sort of 3D scrolling animations that are also used by organizations like Apple. And the best part is it's actually very simple to implement this sort of thing. And it immediately vaults your website above all the AI slop generic garbage that you see everywhere else. So, in today's video, I'm going to teach you exactly how to do this step by step, combining the power of Clawed Code and the brand new Nano Banana 2.</p>
 <p>This is the sort of high lever addition that's actually kind of fun to implement. So, let's just hop into it. So, let's kick this off by talking about what's actually going on behind the scenes with this scrolling animation because this is a very cool premium looking asset that's again very simple to implement. Now, at first glance, you might be thinking, "Oh, this is just like a video that loads as I scroll." And that is actually not the case.</p>
@@ -48,9 +73,8 @@
           <a href="https://www.youtube.com/watch?v=QutvJAP06-A" class="read-button" target="_blank" rel="noopener">
             Watch on YouTube &rarr;
           </a>
-          <p class="cta-note">Watch the full video by Chase H on YouTube.</p>
         </div>
-      </div>
+      </section>
       
     </article>
   
