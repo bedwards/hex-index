@@ -28,15 +28,41 @@
       </header>
 
       <div class="content-label">
-        <span class="label-text">Transcript excerpt from <a href="../../publication/aiexplained/index.html">AI Explained</a></span>
+        <span class="label-text">Commentary by <a href="../../about/index.html">Brian Edwards</a></span>
         <nav class="content-nav">
-          <a href="https://www.youtube.com/watch?v=RH4hAgvYSzg" target="_blank" rel="noopener">Watch on YouTube &rarr;</a>
+          
+          <a href="https://www.youtube.com/watch?v=RH4hAgvYSzg" target="_blank" rel="noopener">Original video &rarr;</a>
         </nav>
       </div>
 
       
+      <div class="article-content">
+        <p>{&quot;title&quot;: &quot;AI Improves at Self-improving&quot;, &quot;author&quot;: &quot;AI Explained&quot;, &quot;source&quot;: &quot;AI Explained&quot;, &quot;pitch&quot;: &quot;A Google system just found a better way to multiply matrices — a task mathematicians thought they had already perfected 50 years ago. And it did so by essentially asking itself for better instructions. That alone should make anyone reconsider what AI models are actually capable of.&quot;, &quot;pull_quote&quot;: &quot;Alpha Evolve was chosen over a deep reinforcement learning approach because its code solution not only leads to better performance, but also offers clear advantages in interpretability, debugability, predictability, and ease of deployment.&quot;, &quot;counterpoints&quot;: &quot;The system still requires problems with automated evaluation functions — something that limits where it can be applied. Critics might note this means domains like natural sciences, where experiments can&#039;t easily be simulated, remain out of reach. Additionally, Alpha Evolve could improve parts of itself but couldn&#039;t create the entire system from scratch yet.&quot;, &quot;bottom_line&quot;: &quot;The most impressive achievement: finding a 48-rank tensor decomposition for complex matrix multiplication, beating a record that stood for five decades. The vulnerability: this is still a coding agent, not a system that can invent entirely new problems to solve. Humans remain in the driver&#039;s seat — but the pace of iteration is accelerating.&quot;, &quot;sections&quot;: [{&quot;heading&quot;: &quot;What Alpha Evolve Actually Does&quot;, &quot;content&quot;: &quot;Alpha Evolve from Google DeepMind is a coding agent at heart. It takes code submitted by humans, along with evaluation metrics telling it what success looks like, and then iteratively improves that code.</p>
+<p>The human provides the problem to solve, some code they have tried, and critically, evaluation metrics. The more metrics they can give, the better the performance. Then Gemini Flash — the smaller and quicker version of Google&#039;s language model — iterates on that code for plentiful ideas. Gemini Pro handles solid suggestions.</p>
+<figure class="inline-illustration">
+    <img src="../../images/ed2698dc-ce0d-4a02-9507-80f90b822695.webp" alt="" loading="lazy" width="600" height="315">
+  </figure>
+
+<p>The system uses prompt sampling, drawing on previous prompts humans have tried that worked before and programming via a database of programs that were great in other situations. All with one goal: improving the code the human submitted against those evaluation metrics.&quot;}, {&quot;heading&quot;: &quot;State-of-the-Art Results&quot;, &quot;content&quot;: &quot;Alpha Evolve eventually comes back with code improvements that produce programs 75% of the time considered state-of-the-art at one of dozens of given tasks. Twenty percent of the time, these constructions are actually better than state-of-the-art.</p>
+<p>The most famous achievement: it found a rank 48 tensor decomposition for 4x4 complex matrix multiplication — an unexpected improvement on the 50-year-old record for algorithms suitable for recursive application. Tensor decomposition means discovering a more fundamental recipe with fewer core steps to perform matrix multiplication. This allows the method to be used repeatedly or recursively to dramatically speed up calculations for very large matrices.</p>
+<p>Google also applied Alpha Evolve to its data center optimization, called Borg. The system helped recover 0.7% of its worldwide compute resources — soon amounting to billions of dollars in savings.&quot;}, {&quot;heading&quot;: &quot;The Next Generation&quot;, &quot;content&quot;: &quot;The natural next step is distilling Alpha Evolve&#039;s augmented performance into the next generation of base language models. This can have intrinsic value and likely uplift the next version of Alpha Evolve.</p>
+<p>The paper makes clear this creates a recursive loop: code that proves to be good becomes great data for training the next base model, which then gets better at coming up with improved programs.</p>
+<p>Alpha Evolve also helped refine Google&#039;s Ironwood chips, its specialized processors. When given that as a problem, it led to a 1% reduction in Gemini&#039;s training time — another recursive loop where a better or more efficient Gemini leads to a better future Alpha Evolve.&quot;}, {&quot;heading&quot;: &quot;Future Improvements&quot;, &quot;content&quot;: &quot;Google admits several areas for improvement going forward.</p>
+<p>First, solutions and their scores are kept in an evolutionary database. With Gemini models confirmed to have up to a 10 million token context window — though public versions only go up to 2 million — that evolutionary database could one day get incredibly large, giving future models a vast library to draw upon.</p>
+<p>Second, Alpha Evolve is model agnostic. As hardware improves and training time reduces, knowledge can be distilled to help make a better Gemini 3, which will make a much better language model within Alpha Evolve.</p>
+<p>The ablations in the paper showed every part of the coding agent was crucial. Using only a small base language model capped out performance at a lower point. Without that massive context window and full file evolution, performance also caps out at a much lower point.</p>
+<p>Third, the code snippet Alpha Evolve improves doesn&#039;t have to be the final function generating the direct solution. It can be a search algorithm later used to find an optimal final function. So Alpha Evolve can essentially continue to improve how we search for optimal programs.&quot;}, {&quot;heading&quot;: &quot;The Limitations&quot;, &quot;content&quot;: &quot;Alpha Evolve is not yet confirmation of an imminent fast takeoff. The main limitation: it handles problems for which it is possible to devise and submit an automated evaluator.</p>
+<p>While this is true of many problems in mathematical and computational sciences, there are domains such as natural sciences where only some experiments can be simulated or automated. It can help scientists evaluate new scientific experiments and they are working on making it a better co-scientist.</p>
+<p>Even the famously bullish Anthropic CEO Dario Amodee has said intelligence will be initially heavily bottlenecked by other factors of production — test tubes can only be tested so fast.&quot;}, {&quot;heading&quot;: &quot;Still No Skynet&quot;, &quot;content&quot;: &quot;Alpha Evolve could not yet create Alpha Evolve. It could improve parts of itself as discussed, but couldn&#039;t create the entire system from scratch.</p>
+<p>As Demis Hassabis, head of Google DeepMind, puts it: we have systems that are superhuman at the game Go, but yet could not invent Go. Humans are still in the driver&#039;s seat — at least for now.&quot;}]}</p>
+      </div>
+
       
-      <div class="excerpt-card">
+
+      <section id="excerpt" class="excerpt-card">
+        <div class="content-label">
+          <span class="label-text">Transcript excerpt on AI Explained</span>
+        </div>
         <div class="article-excerpt">
           <p>AI that can help improve AI is actually almost everywhere if you know where to look. Not least coding tools like the new codeex from open AAI which didn't just help me find a bug that claude within cursor missed but is helping AI researchers too. The coding agents might be doing the easier bits, but it's freeing up AI researchers time to well work on AI improvement. But rarely is the process of AI self-improvement so direct as it is in the alpha evolve agent from Google Deepmind.</p>
 <p>It can generate better prompts for itself so that it can evolve better code for useful tasks. Tasks which lead to efficiencies in its own next version. This was published less than a 100 hours ago, but don't worry, it isn't Skynet. The real world does not yet allow for the speed of iteration that Alpha Evolve involves.</p>
@@ -49,9 +75,8 @@
           <a href="https://www.youtube.com/watch?v=RH4hAgvYSzg" class="read-button" target="_blank" rel="noopener">
             Watch on YouTube &rarr;
           </a>
-          <p class="cta-note">Watch the full video by AI Explained on YouTube.</p>
         </div>
-      </div>
+      </section>
       
     </article>
   
