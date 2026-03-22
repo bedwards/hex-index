@@ -28,15 +28,68 @@
       </header>
 
       <div class="content-label">
-        <span class="label-text">Transcript excerpt from <a href="../../publication/veritasium/index.html">Veritasium</a></span>
+        <span class="label-text">Commentary by <a href="../../about/index.html">Brian Edwards</a></span>
         <nav class="content-nav">
-          <a href="https://www.youtube.com/watch?v=w5ebcowAJD8" target="_blank" rel="noopener">Watch on YouTube &rarr;</a>
+          
+          <a href="https://www.youtube.com/watch?v=w5ebcowAJD8" target="_blank" rel="noopener">Original video &rarr;</a>
         </nav>
       </div>
 
       
+      <div class="article-content">
+        <p>The story behind those strange square patterns has a surprising history that most people have never considered. Derek Muller, a Veritasium creator, reveals how barcode technology evolved from 19th-century telegraph systems into one of the most ubiquitous technologies of our digital age—and why understanding this transformation matters for anyone who uses a smartphone.</p>
+<h2>From Dots and Dashes to Supermarket Shelves</h2>
+<p>The journey begins in 1836, when two inventors along with Joseph Henry and Alfred Vail devised a machine that could send electrical pulses across wires. This wasn&#039;t the first electric telegraph, but it was notably simpler than competing systems. The breakthrough came when they turned dots and dashes into a code that operators could recognize simply by sound—allowing information to flow faster than ever before.</p>
+<figure class="inline-illustration">
+    <img src="../../images/5f84246a-11ed-4c9d-8a15-c44d1887e596.webp" alt="" loading="lazy" width="600" height="315">
+  </figure>
+
+<p>Morse code became an international standard for rapid communication, widely used in military, maritime communications, and aviation. The universally recognized distress call SOS, for instance, happens to be easy to send and recognize in Morse code.</p>
+<p>But the next century would bring a transformation that no one anticipated.</p>
+<p>In the late 1940s, Bernard Silver was an engineering student at Drexel University in Pennsylvania when he overheard the president of a local supermarket chain asking the engineering dean about ways to speed up the checkout process. At that time, cashiers had to type in each item and its price by hand—a process so tedious that many had developed carpal tunnel syndrome.</p>
+<p>Silver told his friend Norman Joseph Woodland about the problem, and together they began experimenting. After several false starts, Woodland moved down to Florida. One day on the beach, he drew some dots and dashes of Morse code in the sand—something he was very familiar with as a Boy Scout. He recalls extending the dots and dashes downward, making narrow and wide lines out of them. Thus, the first barcode was created.</p>
+<p>From this humble beginning evolved the Universal Product Code, or UPC—a barcode capable of storing a simple string of twelve numbers. It&#039;s read by scanning a laser across it and checking how much light is reflected to interpret the black and white lines as dots and dashes. A pair of vertical lines are placed at the beginning, middle, and end to ensure the scanner reads the code properly.</p>
+<p>The code is divided into left and right halves. Numbers on either side have their black and white lines flipped so that the scanner can tell left and right apart, even while reading upside down. When viewed upright, the numbers typically specify the manufacturer on the left and the product on the right.</p>
+<p>Manufacturers actually pay large sums to reserve given amounts of numbers for themselves so they can exclusively register their products. The twelve digits of a barcode uniquely specify every single grocery item you&#039;ve ever bought. This jar of peanut butter is identified by the same twelve digits no matter where in the world it&#039;s found, and all variations—smooth, crunchy, stir, no stir, sugar-free, low sodium—get their own unique barcode.</p>
+<p>But there was a catch: the last digit is not independent of the others. The barcode creators were aware that it could get scratched, stained, or tampered with, so they reserved the final digit to verify that the barcode is complete. Without that last digit, the number of unique possibilities drops to 10^11, or 100 billion options.</p>
+<p>To date, 1.24 billion barcodes have been registered—a number that is rising every day.</p>
+<h2>Why We Needed Something More</h2>
+<p>But barcodes weren&#039;t enough for what people really wanted. The limitation was clear: twelve digits could only identify one product. What if someone needed to know more information—like where that product came from?</p>
+<p>In 1986, cattle in the UK began showing symptoms of a curious brain disease—bovine spongiform encephalopathy or mad cow disease. It spread when cattle ate feed containing prions, misfolded proteins. If people ate beef containing tissue from the brain or spinal cord of infected cattle, they could contract a related brain illness that literally turns your brain into a sponge.</p>
+<p>As no test could detect mad cow disease in living cows, millions of cattle were called, and health officials sought a method to track sources and imports of beef. But with all the information this would require for any one piece of beef, barcodes were insufficient.</p>
+<p>American inventor David Elam tried to solve the problem by stacking many barcodes on top of each other. The result—Code 49—looked like a bookshelf and was actually the predecessor of PDF 417, a code often used on airline boarding passes. But Code 49 didn&#039;t solve the data quantity problem at best it multiplied the information a barcode could carry by a handful.</p>
+<p>A more efficient way was to extend barcodes into two dimensions. NASA tried this in 1994 with Vera code, used to track and identify space shuttle parts. This code was read by early digital cameras rather than lasers and was initially proprietary.</p>
+<p>Around the same time, Masahiro Hara—an engineer at a Japanese auto parts manufacturer named Denso—was getting frustrated at having to scan multiple barcodes for filling in the same box of car components. He set out to develop an alternative on his own, drawing inspiration from an unusual source.</p>
+<h2>How Information Gets Stored</h2>
+<p>To understand how information is stored in a QR code, let&#039;s build one ourselves. We&#039;ll use black and white stones, where white represents zero and black represents one. We&#039;re going to encode the link to a YouTube channel on this board.</p>
+<p>The first step is to convert &quot;youtube.com/veritasium&quot; into ones and zeros using ASCII encoding. ASCII encoding uses characters which itself has roots in Morse code. Every character is assigned a number from 1 to 256, then we convert the ASCII decimal into its binary form. Since 256 is 2 raised to the power of 8, we can use eight binary bit combinations to represent all ASCII characters. These eight bits make up one byte of information.</p>
+<p>The letter W is assigned the ASCII decimal 119, or 01110111 in binary. Doing the same for all characters in &quot;youtube.com/veritasium&quot; gives us a string that&#039;s twenty-six characters long, taking up twenty-six bytes of information.</p>
+<p>Our board is 25x25—this is known as a version 2 QR code. There are many different sizes, all readable by your phone camera. Hara&#039;s version one QR code was 21x21, and the largest version today is 177x177—that is large enough to hold three kilobytes of information.</p>
+<p>Just twenty-six of these would have been enough to store all the information Apollo 11&#039;s computer needed to send humans to the Moon. One programmer even encoded a computer game Snake into a version 40 QR code.</p>
+<p>The region around a QR code must be empty and of uniform color—this is the quiet zone. A distinguishing feature of QR codes is the three square patterns in the corners, which allow the reader to identify the orientation of the code. Almost all QR codes also have a fourth square in the last corner, but it&#039;s smaller and hence trickier to spot. This is the alignment pattern, used to rescale the QR code when it&#039;s read from varying distances or from crazy oblique angles.</p>
+<p>The relative size and distance of the alignment square with respect to the position squares allows the software to rescale it into a proper square. Next to the position squares are plain white strips that isolate them from the rest of the code, and these are timing strips—zebra pedestrian crossings which connect the top left position square with the other two.</p>
+<p>Every QR code has these alternating strips. You should look out for them: QR codes of all sizes visibly look the same, so this tells your phone which version it is and therefore how much data to expect. If there are five alternating squares, it&#039;s version one; if there are nine, it&#039;s version two—and so on.</p>
+<p>Next to those are format strips that contain rules for how to scan the code.</p>
+<p>There&#039;s another feature every QR code has: this one pixel adjacent to the bottom right position square is always dark. The remaining space is for data storage. Data inside a QR code always starts at the bottom right corner. Here, the first four squares carry four bits that specify the data format—triple 01 if it&#039;s just numbers, 0010 if it&#039;s alphanumeric (capital letters and numbers), 0100 if it&#039;s information stored in bytes, and 1 for Japanese kanji.</p>
+<p>The following eight bits are used to indicate the number of characters in our message. Since we have twenty-six characters, that should be 00011010.</p>
+<p>Next, we start arranging our bytes for &quot;youtube.com/veritasium&quot; starting in eight-bit two column cells. They follow a zigzag pattern that snakes its way to the top left. Within each cell that represents a byte, the most significant bit—corresponding to 2^7—is at the bottom right, and the least significant or 2^0 is at the opposite end.</p>
+<p>For W, it would thus be filled like this: we follow along with the rest. Once we fill in the bytes for &quot;youtube,&quot; we encounter the alignment pattern after four bits to put in the next T—we simply bypass it and do the same for any of the other fixed regions of the code.</p>
+<p>Thus we keep filling our data in the same zigzag pattern. After we complete &quot;youtube.com&quot; cells, start looking less regular and more tetris-like, but the way we put the stones—byte after byte—remains the same. And there go the last eight bits for the last letter M.</p>
+<p>We&#039;ve only covered about half of our QR code—that&#039;s because this whole remaining space is reserved for redundancy. These extra bytes of error correction allow us to reconstruct information if the QR code is damaged.</p>
+<p>For a fully intact QR code, error correction makes something else possible: putting a company logo at the center.</p>
+<p>Critically, QR codes offer four levels of error correction—low, which can still be read with seven percent of the code missing; medium, which handles fourteen percent; quartile, twenty-five percent; and high, thirty percent. This means a QR code could still be read properly even with nearly a third of it missing.</p>
+<p>Higher levels require more space for error correction, so knowing how much of the code is error correction is vital. This information is protected in two ways: first, the level of error correction is indicated in the format strip, which is present identically in two places—the simplest way to avoid errors is to duplicate this information.</p>
+<blockquote>The most significant bit corresponding to 2^7 is at the bottom right, and the least significant or 2^0 is at the opposite end.</blockquote>
+<h2>Bottom Line</h2>
+<p>Muller tells a compelling story about how supermarket checkout frustrations led to one of the most ubiquitous technologies in our digital lives. His strongest contribution is making the technical accessible—showing readers that QR codes aren&#039;t mysterious magic but rather logical extensions of older data storage systems. The biggest vulnerability: his historical framing oversimplifies complex technological evolution, and he doesn&#039;t fully interrogate whether QR codes really solve the problems he identifies. But the core insight holds—the patterns we scan every day have a rich history worth understanding.</p>
+      </div>
+
       
-      <div class="excerpt-card">
+
+      <section id="excerpt" class="excerpt-card">
+        <div class="content-label">
+          <span class="label-text">Transcript excerpt on Veritasium</span>
+        </div>
         <div class="article-excerpt">
           <p>when QR codes first came out I thought they were awful never going to catch on this is a flowchart from the time that really resonated with me the problem as I saw it was that QR codes are ugly and they mean nothing to people I would rather just see a website or a word that I could Google QR codes are a language for machines and I am a human but I was wrong QR codes obviously turned out to be so useful that they are now you ious used in everything from tickets to restaurant menus and advertising in some countries they're the most common way to exchange money and the story of QR codes is a very human one the origin of these checkerboard patterns actually dates back to our first efforts at digitizing information in 1825 there was a renowned painter who lived in New Haven Connecticut with his wife and two kids his big break came one day when he was invited to paint a portrait of the Marque Lafayette a hero of the American Revolution even though his wife was expecting their third child any day the opportunity was too good to pass up and he hastily set off for Washington DC where Lafayette was waiting there the painter wrote to his wife describing his first meeting with Lafayette signing off with the words we'll write again soon love to all the children in the greatest taste but with the same Ardent affection as ever thy loving husband after a few days with with no reply a courier delivered a letter which said his wife was Ill after child birth worried the painter rushed home he traveled by horse and wagon day and night managing to arrive back in New Haven in several days but it was far too late his wife had died not only that he had missed the funeral her body was already buried in the ground the painter's name was Samuel Finley Bri moris from that day forward Morris set out to find a faster way to communicate over long distances he got a job at New York University where he attended lectures on electricity a rapidly developing field at the time in 1836 along with Joseph Henry and Alfred Vil he devised a machine that could send electrical pulses along a wire this was not the first electric ...</p>
         </div>
@@ -44,9 +97,8 @@
           <a href="https://www.youtube.com/watch?v=w5ebcowAJD8" class="read-button" target="_blank" rel="noopener">
             Watch on YouTube &rarr;
           </a>
-          <p class="cta-note">Watch the full video by Derek Muller on YouTube.</p>
         </div>
-      </div>
+      </section>
       
     </article>
   

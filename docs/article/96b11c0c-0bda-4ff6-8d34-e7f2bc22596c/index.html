@@ -28,15 +28,49 @@
       </header>
 
       <div class="content-label">
-        <span class="label-text">Transcript excerpt from <a href="../../publication/jhspedals/index.html">JHS Pedals</a></span>
+        <span class="label-text">Commentary by <a href="../../about/index.html">Brian Edwards</a></span>
         <nav class="content-nav">
-          <a href="https://www.youtube.com/watch?v=dcC4HAc_jcw" target="_blank" rel="noopener">Watch on YouTube &rarr;</a>
+          
+          <a href="https://www.youtube.com/watch?v=dcC4HAc_jcw" target="_blank" rel="noopener">Original video &rarr;</a>
         </nav>
       </div>
 
       
+      <div class="article-content">
+        <p>How To Build A Germanium Fuzz Face - PNP Transistor Selection / Biasing&quot;, &quot;author&quot;: &quot;Josh Scott&quot;, &quot;publication&quot;: &quot;JHS Pedals&quot;, &quot;body&quot;: &quot;## The Challenge of Germanium Fuzz Faces</p>
+<p>Building a germanium fuzz face is one of the most notoriously difficult projects in the world of guitar effects. Most hobbyists who attempt it end up with a non-functional circuit, often left wondering what went wrong. Josh Scott has spent years teaching this exact skill through his Short Circuit series, and episode 19 specifically tackles the germanium variant — a version that uses PNP transistors rather than the more common NPN silicon transistors.</p>
+<figure class="inline-illustration">
+    <img src="../../images/96b11c0c-0bda-4ff6-8d34-e7f2bc22596c.webp" alt="" loading="lazy" width="600" height="315">
+  </figure>
+
+<h2>Silicon vs Germanium: What&#039;s the Difference?</h2>
+<p>The fuzz face circuit itself is deceivingly simple. Both silicon and germanium versions use essentially identical schematics. The only real difference lies in how the power supply is connected — one requires positive ground, the other negative ground. This seemingly small distinction creates a massive challenge for builders.</p>
+<p>Silicon transistors are more reliable and easier to work with. Germanium transistors require careful selection and precise biasing. Many builders fail because they don&#039;t measure their transistors properly or ignore the polarity requirements entirely.</p>
+<p>Scott argues that germanium fuzz faces produce a particular sound that many guitarists crave — a warmer, more dynamic tone that&#039;s difficult to replicate with silicon components. The debate between germanium and silicon has divided the guitar community for decades, though Scott avoids taking sides in this argument.</p>
+<h2>Understanding NPN vs PNP Polarity</h2>
+<p>The choice between NPN and PNP transistors isn&#039;t just technical — it&#039;s historical. Early fuzz faces used batteries exclusively, which meant positive ground was standard. Modern pedals use negative center power supplies, making NPN transistors the industry norm.</p>
+<p>NPN transistors have their emitter arrows pointing away from the base, representing what Scott calls &quot;normal polarity.&quot; These are used in virtually every pedal made today that connects to a standard power supply. PNP transistors point inward and require positive voltage on the ground rail — a reverse polarity setup that&#039;s fundamentally different from modern conventions.</p>
+<p>This polarity flip is where most hobbyists go wrong. They build their germanium fuzz face exactly as instructed but fail because they haven&#039;t reversed the power connections properly.</p>
+<h2>How to Measure and Bias Transistors</h2>
+<p>The process begins with measuring each transistor&#039;s parameters using a multimeter. Scott demonstrates this by connecting positive leads to the collector of Q2 while grounding the circuit, then reading the voltage. On his silicon version, the bias switch moved the voltage from 4.2 volts down to roughly 2 volts depending on resistor values.</p>
+<p>For germanium transistors, you must measure each one individually. The process requires a DCA (digital calibrator) and careful attention to which specific transistor you&#039;re testing at any given moment. Without this measurement step, germanium builds almost always fail.</p>
+<p>The oscilloscope becomes essential here. Scott uses it to generate test frequencies — either sine waves or square waves depending on what he&#039;s troubleshooting. By feeding the output signal into an oscilloscope, he can see exactly how the waveform is being clipped and distorted by the fuzz circuit. This visual feedback helps identify whether the transistors are biased correctly.</p>
+<h2>The Verdict</h2>
+<p>Scott&#039;s approach to teaching this material is notably hands-on. He walks viewers through each step while actually building the circuits in real time — something you won&#039;t find in written tutorials or theoretical discussions. His live stream format allows him to correct mistakes as they happen, which makes the learning process more organic and less polished.</p>
+<p>The biggest vulnerability in this approach is that watching someone build electronics on video can never fully replace hands-on experience. You can&#039;t pause and rewind a live demonstration when you forget a critical step. The audience must follow along attentively or risk missing important details.</p>
+<p>Critics might note that the germanium versus silicon debate is ultimately subjective — there is no objectively &quot;better&quot; transistor type, only what each player prefers sonically. Scott himself avoids this argument entirely in his instruction, focusing instead on technical execution rather than tonal preference.</p>
+<blockquote>&quot;Germanium transistors are where most people want to die when building a fuzz face.&quot;</blockquote>
+<h2>Bottom Line</h2>
+<p>This episode represents some of the best available practical instruction on germanium transistor selection and biasing. The content is uniquely valuable because it shows real-time problem-solving during actual circuit construction — not just theoretical schematics. Anyone serious about building their own fuzz face should watch this before attempting the project, then measure every single transistor individually before assembly.</p>
+<p>The core challenge isn&#039;t the electronics themselves — it&#039;s understanding that germanium requires different power polarity and more careful measurement than silicon versions. Once you grasp that distinction, the rest is simply following proper procedure.</p>
+      </div>
+
       
-      <div class="excerpt-card">
+
+      <section id="excerpt" class="excerpt-card">
+        <div class="content-label">
+          <span class="label-text">Transcript excerpt on JHS Pedals</span>
+        </div>
         <div class="article-excerpt">
           <p>e e [Music] oh hello how's everybody I'm staring the chat down every once in a while you know you start the live stream you do the test you get on and people say Your Voice Sounds like a gargoyle so we're just going to check that yay everyone says yay I was trying to play some uh trying to play some like Jaz not Jazz I don't know what I was playing sounds like we're good so let's jump into this I don't see anyone saying I sound like a gargoyle there we go did he fix that guitar hanger no not at all it's broken louder voice louder voice I can't fix that probably everyone has a different opinion on volumes I have my voice pretty cooking in the Stream so um live streams are a delicate Valen I don't want to break anything so let's jump right into this though uh this is part two it's episode 19 of short circuit so if you're new to this there's like 40 hours of circuit classes but last week I taught you how to build the ghs smiley which is a really nice accurate uh early 70 silicon fuzzface so I used the Silicon fuzzface to start cuz it's simple most simple fuzz faces look deceivingly simple I wouldn't say they're simple I would say they're easy but complicated and so we have this silicon fuzz face here let me play it for a second just to remind you what's going on and then I'll make a few announcements but I know that if I don't play the guitar if I don't if I don't play the guitar a lot of you are gonna you're going to ban me from your life all right so here we go all right that is the JHS Smiley uh last episode I told you exactly how to build it and so today we want to kind of go through the fuzz face um a little bit backwards the first fuzz face was germanium but I started with silicon because that product's solid it's a little more sure fire going to work and then today's the germanium which is where most people want to die they try to build a germanium fuzz face something goes wrong and you find yourself living in a van down by the river and um you you lose ...</p>
         </div>
@@ -44,9 +78,8 @@
           <a href="https://www.youtube.com/watch?v=dcC4HAc_jcw" class="read-button" target="_blank" rel="noopener">
             Watch on YouTube &rarr;
           </a>
-          <p class="cta-note">Watch the full video by Josh Scott on YouTube.</p>
         </div>
-      </div>
+      </section>
       
     </article>
   
