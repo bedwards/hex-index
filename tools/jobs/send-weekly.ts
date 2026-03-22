@@ -88,19 +88,6 @@ async function fetchSubscribers(): Promise<Subscriber[]> {
 
 // ── Week calculation (matches weekly.ts) ────────────────────────────
 
-function getISOWeek(d: Date): number {
-  const date = new Date(Date.UTC(d.getUTCFullYear(), d.getUTCMonth(), d.getUTCDate()));
-  date.setUTCDate(date.getUTCDate() + 4 - (date.getUTCDay() || 7));
-  const yearStart = new Date(Date.UTC(date.getUTCFullYear(), 0, 1));
-  return Math.ceil(((date.getTime() - yearStart.getTime()) / 86400000 + 1) / 7);
-}
-
-function getISOWeekYear(d: Date): number {
-  const date = new Date(Date.UTC(d.getUTCFullYear(), d.getUTCMonth(), d.getUTCDate()));
-  date.setUTCDate(date.getUTCDate() + 4 - (date.getUTCDay() || 7));
-  return date.getUTCFullYear();
-}
-
 interface WeekInfo {
   label: string;
   display: string;
@@ -118,9 +105,8 @@ function getCurrentWeek(): WeekInfo {
   const friday = new Date(saturday);
   friday.setUTCDate(saturday.getUTCDate() + 6);
 
-  const weekNum = getISOWeek(friday);
-  const weekYear = getISOWeekYear(friday);
-  const label = `${weekYear}-w${String(weekNum).padStart(2, '0')}`;
+  // Match weekly.ts label format: hex-index-YYYY-MM-DD (Friday date)
+  const label = `hex-index-${friday.getUTCFullYear()}-${String(friday.getUTCMonth() + 1).padStart(2, '0')}-${String(friday.getUTCDate()).padStart(2, '0')}`;
 
   const monthFmt = new Intl.DateTimeFormat('en-US', { month: 'long', timeZone: 'UTC' });
   const startMonth = monthFmt.format(saturday);
@@ -203,8 +189,9 @@ Browse all editions: https://hex-index.com/weekly/
 Hex Index Reader — Week of ${week.display}${unsubscribeUrl ? `\nUnsubscribe: ${unsubscribeUrl}` : ''}`;
 }
 
-function buildSmsText(): string {
-  return 'Hex Index Reader is ready: https://hex-index.com/weekly/';
+function buildSmsText(subscriberEmail: string): string {
+  const unsubscribeUrl = subscriberEmail ? buildUnsubscribeUrl(subscriberEmail) : '';
+  return `Hex Index Reader is ready: https://hex-index.com/weekly/${unsubscribeUrl ? `\nSTOP: ${unsubscribeUrl}` : ''}`;
 }
 
 // ── Main ────────────────────────────────────────────────────────────
@@ -277,10 +264,10 @@ async function main(): Promise<void> {
 
       try {
         await transport.sendMail({
-          from: secrets.gmailUser,
+          from: 'noreply@hex-index.com',
           to: smsAddress,
           subject: '',
-          text: buildSmsText(),
+          text: buildSmsText(sub.email),
         });
         smsSent++;
         console.info(`  SMS sent: ${sub.name || sub.phone} (${sub.carrier})`);
