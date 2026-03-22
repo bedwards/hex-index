@@ -153,7 +153,7 @@ function buildEmailHtml(week: WeekInfo, subscriberName: string, subscriberEmail:
   <p style="font-size: 16px; line-height: 1.6;">${greeting}</p>
 
   <p style="font-size: 16px; line-height: 1.6;">
-    This week's <strong>Hex Index Reader</strong> is ready — a curated collection of the best long-form writing from the past week, organized by topic and adapted for easy reading.
+    This week's <strong>Hex Index Reader</strong> is ready — original commentary on the best long-form writing from the past week, organized by topic with deep dives.
   </p>
 
   <div style="text-align: center; margin: 32px 0;">
@@ -179,7 +179,7 @@ function buildEmailText(week: WeekInfo, subscriberName: string, subscriberEmail:
   const unsubscribeUrl = subscriberEmail ? buildUnsubscribeUrl(subscriberEmail) : '';
   return `${greeting}
 
-This week's Hex Index Reader is ready — a curated collection of the best long-form writing from the past week.
+This week's Hex Index Reader is ready — original commentary on the best long-form writing from the past week.
 
 Download EPUB: https://hex-index.com/weekly/${week.label}.epub
 
