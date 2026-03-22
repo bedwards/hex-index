@@ -14,19 +14,32 @@
     
     <article class="wikipedia-page">
       <header class="wikipedia-header">
-        <div class="type-badge">Wikipedia Deep Dive (Coming Soon)</div>
+        <div class="type-badge">Wikipedia Deep Dive</div>
         <h1>Retrieval-augmented generation</h1>
         <div class="article-meta">
-          <span class="read-time">8 min read</span>
+          <span class="read-time">5 min read</span>
         </div>
       </header>
 
-      <div class="wikipedia-stub">
-        <p>This deep dive is being prepared. In the meantime, you can read the original article on Wikipedia.</p>
-        <p><a href="https://en.wikipedia.org/wiki/Retrieval-augmented_generation" target="_blank" rel="noopener" class="read-button">
-          Read on Wikipedia &rarr;
-        </a></p>
-      </div>
+      <div class="wikipedia-content"><p class="source-note">Based on <a href="https://en.wikipedia.org/wiki/Retrieval-augmented_generation">Wikipedia: Retrieval-augmented generation</a></p>
+<p>In 2023, Google demonstrated its large language model to the public. The tool—then called Bard—confronted a simple question: what is the James Webb Space Telescope? The answer it produced was catastrophically wrong. In a single confident sentence, the model claimed the JWST had been &quot;originally scheduled to orbit the sun but was eventually launched in 2021.&quot; That error cost Alphabet over $100 billion in stock value in a single day. It turns out the James Webb Space Telescope launched in December 2018—before any of this happened—and the LLM hallucinated an entirely fictional timeline. This wasn&#039;t a glitch. It was a structural problem inherent to how these models work: they have no access to the real world, only to what they&#039;ve been trained on.</p>
+<p>This is where Retrieval-Augmented Generation enters the story.</p>
+<p>RAG—a technique introduced in a 2020 research paper—fundamentally changes how large language models answer questions. Instead of relying solely on static training data frozen at publication time, RAG enables LLMs to pull information from external sources in real-time: databases, uploaded documents, web searches. Think of it as giving the model a library card and access to the stacks mid-answer.</p>
+<p>The core mechanism is elegant. When a user poses a query, the system first retrieves relevant documents from specified data sources—these supplement what the LLM already knows from its pre-existing training data. The retrieved information gets mixed into the prompt itself, allowing the model to generate responses based on both its internal knowledge and newly fetched external facts.</p>
+<p>This matters because it addresses one of AI&#039;s most embarrassing failure modes: hallucination. When a lawyer asks an LLM for precedent cases supporting a legal argument, hallucinated citations are far more dangerous than incorrect explanations. RAG doesn&#039;t eliminate these errors entirely, but it dramatically reduces their likelihood by grounding responses in verifiable sources.</p>
+<p>The financial savings are significant too. Traditional approaches would require retraining the entire model on new data—a computational nightmare costing millions. With RAG, updating an LLM&#039;s knowledge base means simply augmenting its external database with fresh information. No retraining required.</p>
+<p>But there&#039;s a subtler benefit: transparency. When a model cites sources directly in its response, users can cross-check that retrieved content for accuracy and relevance. A doctor verifying medical advice, a journalist confirming a claim, or a researcher validating facts—all can trace answers back to their origin.</p>
+<p>The method isn&#039;t foolproof though. In one notable example documented by MIT Technology Review, an AI-generated response stated &quot;The United States has had one Muslim president, Barack Hussein Obama&quot;—drawing from a rhetorically titled academic book. The model retrieved the phrase but fundamentally misunderstood the title&#039;s context, generating a false statement despite pulling from factually correct sources. RAG retrieves; it doesn&#039;t always understand.</p>
+<p>The technique works through several architectural layers worth understanding.</p>
+<p>First, data gets converted into embeddings—numerical representations in vector space. These embeddings are stored in vector databases to enable retrieval. When given a user&#039;s query, the document retriever selects the most relevant documents based on similarity calculations: dense vectors encoding meaning versus sparse vectors representing word identity like dictionary entries. Dense approaches are more compact; sparse are dictionary-length and contain mostly zeros.</p>
+<p>Methods vary for how similarities get calculated. Dot products enhance scoring efficiency while approximate nearest neighbor searches improve retrieval speed over standard K-nearest neighbors. Late Interactions help refine document ranking by comparing words precisely after retrieval.</p>
+<p>Newer RAG implementations as of 2023 incorporate specialized augmentation modules with abilities to expand queries into multiple domains, use memory systems, and self-improve from previous retrievals—sometimes called &quot;prompt stuffing&quot; when additional relevant context gets added directly to the user&#039;s input prompt to guide model responses.</p>
+<p>Beyond this basic flow, various enhancements improve accuracy. Hybrid vector approaches combine dense representations with sparse one-hot vectors for computational efficiency. Reranking techniques refine document selection during training. Supervised retriever optimization aligns retrieved content probabilities with generator likelihood distributions—retrieving top-k vectors, scoring response perplexity, minimizing divergence between what was selected and what the model expected.</p>
+<p>Chunking strategies matter enormously. Fixed length with overlap maintains semantic context across chunks; syntax-based methods break documents into sentences using libraries like spaCy or NLTK; file format-based chunking leverages natural boundaries in certain document types.</p>
+<p>Some approaches redesign language models entirely around retrieval. Retro—a method allowing a 25-times-smaller network to achieve comparable perplexity as its larger counterparts—accomplished this by incorporating domain knowledge during training. However, Retro was later reported as not reproducible; modifications produced Retro++ with in-context RAG capabilities.</p>
+<p>RAG works on unstructured text but extends to semi-structured and structured data like knowledge graphs. The method fundamentally enhances large language models by incorporating information retrieval before response generation—providing access to additional data beyond the original training set.</p>
+<p>When new information becomes available—whether tomorrow&#039;s news, updated company policies, or fresh research—the system simply augments the external knowledge base rather than retraining the model entirely. IBM describes this as the LLM drawing from augmented prompts and internal representations of its training data to synthesize answers.</p>
+<p>The implications are profound. A chatbot can access your company&#039;s internal documents. A legal assistant pulls specific case law. An academic research tool cites primary sources in real-time—none of which were part of any original training data. The model remains fluid, responsive, current.</p></div>
 
       <footer class="wikipedia-footer">
         <p class="source-link">
@@ -34,7 +47,10 @@
             View original Wikipedia article &rarr;
           </a>
         </p>
-        
+        <p class="rewrite-note">
+        This article has been rewritten from Wikipedia source material for enjoyable reading.
+        Content may have been condensed, restructured, or simplified.
+      </p>
       </footer>
 
       
