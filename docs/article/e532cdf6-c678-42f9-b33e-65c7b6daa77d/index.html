@@ -28,15 +28,60 @@
       </header>
 
       <div class="content-label">
-        <span class="label-text">Transcript excerpt from <a href="../../publication/3blue1brown/index.html"></a></span>
+        <span class="label-text">Commentary by <a href="../../about/index.html">Brian Edwards</a></span>
         <nav class="content-nav">
-          <a href="https://www.youtube.com/watch?v=FE-hM1kRK4Y" target="_blank" rel="noopener">Watch on YouTube &rarr;</a>
+          
+          <a href="https://www.youtube.com/watch?v=FE-hM1kRK4Y" target="_blank" rel="noopener">Original video &rarr;</a>
         </nav>
       </div>
 
       
+      <div class="article-content">
+        <p>{&quot;adapted_article_text&quot;: &quot;The Hidden Math Behind Every Oscillating System You Encounter&quot;</p>
+<p>A mass on a spring. A child on a swing. An electrical circuit humming along. These all share something fundamental: they oscillate, and sometimes that oscillation gets complicated when external forces enter the picture.</p>
+<figure class="inline-illustration">
+    <img src="../../images/e532cdf6-c678-42f9-b33e-65c7b6daa77d.webp" alt="" loading="lazy" width="600" height="315">
+  </figure>
+
+<h2>The Problem With External Forces</h2>
+<p>Consider a simple system: a mass attached to a spring, pulled toward its center position by a force proportional to how far it is from that center. Add some damping to slow the motion down over time. This is the classic harmonic oscillator.</p>
+<p>Now introduce an external force pushing the mass back and forth like wind gusts, oscillating according to cosine function. The frequency of this external force has nothing to do with the spring&#039;s natural resonant frequency.</p>
+<p>The behavior is fascinating. Initially, things look chaotic. The oscillation gets stronger and weaker in unpredictable ways before eventually settling into a rhythm. Why does this happen? How long until it stabilizes? And how big will those final oscillations be?</p>
+<p>This is where Laplace transforms become invaluable.</p>
+<h2>What Is the S-Plane?</h2>
+<p>The Laplace transform takes a function of time and converts it into a new function whose input is a complex number s—engineers call this the s-plane. Each point in that plane encodes an entire exponential function like e^(s*t).</p>
+<p>Big imaginary values of s correspond to functions with more oscillation. Negative real parts reflect decay toward zero. Positive real parts reflect growth or instability.</p>
+<p>The reason this matters: many functions in nature can be broken down into exponential pieces. The Laplace transform acts as a machine that exposes exactly how that breakdown looks.</p>
+<h2>Two Properties Worth Remembering</h2>
+<p>First, linearity. If you have a scaled sum of functions and apply the transform to each individually, taking that same scaled sum of the results gives you the same answer. This means complex functions can be decomposed into simpler pieces.</p>
+<p>Second, exponential behavior. When pumping in an expression like e^(a*t), it transforms into 1/(s-a)—an expression with a pole above the value a in the s-plane.</p>
+<p>These properties together give engineers a qualitative sense of system dynamics. After finding a system&#039;s Laplace transform, they can look at where poles land: imaginary values indicate oscillation, negative real parts indicate decay toward zero, positive real parts indicate instability or explosion.</p>
+<h2>From Differential Equations to Algebra</h2>
+<p>The most powerful property involves derivatives. When taking the Laplace transform of a derivative, it transforms into multiplication by s in the s-domain—plus subtracting off initial conditions.</p>
+<p>This is why it&#039;s so useful: differential equations turn into polynomials, and polynomials are far easier to work with algebraically than derivatives.</p>
+<h2>Walking Through an Example</h2>
+<p>Let&#039;s apply this to that mass-spring system with external oscillating force. The equation includes terms for position, velocity, damping, and the cosine forcing function.</p>
+<p>When taking the Laplace transform of all terms, the transform of each derivative becomes s multiplied by its transformed variable minus initial conditions. Substituting through gives a polynomial with constants from the original equation.</p>
+<p>If we assume both initial position and velocity are zero—starting completely stationary—that simplifies things considerably. The left side transforms into that polynomial mirror image: s² times the transformed variable, plus mu*s times transformed variable, plus k times transformed variable. This is exactly why the tool works so well: differential expressions turn into polynomials.</p>
+<p>The right side requires taking the Laplace transform of cosine, which creates two poles—one at ω<em>i and one at negative ω</em>i—reflecting oscillation with frequency ω.</p>
+<p>Now we have an expression describing the Laplace transform of our solution. From here, inverting the transform reveals the original function in the time domain.</p>
+<h2>What Poles Reveal</h2>
+<p>Just by seeing this transformed version, you gain intuition about system dynamics. The key question is: where are all the poles?</p>
+<p>The polynomial part creates two roots—typically with negative real parts and an imaginary component assuming damping isn&#039;t too large. When poles land like that, what&#039;s revealed is oscillation with decay: the unforced oscillator&#039;s behavior, matching the spring&#039;s natural resonant frequency.</p>
+<p>The other poles come from ω and negative ω—the external cosine force. These correspond to a tendency to oscillate in sync with that external force.</p>
+<p>If you push a child on a swing with a frequency that doesn&#039;t match their natural frequency, what ultimately happens? They oscillate in your frequency, not the swing&#039;s. The same principle applies here: dominant behavior is oscillation matching the external forcing function.</p>
+<h2>Counterpoints</h2>
+<p>A critic might note this approach has limitations for truly nonlinear systems—the transform only handles linear differential equations directly. Also, the initial conditions assumption simplifies things considerably; general solutions require keeping those constants around.</p>
+<h2>Bottom Line</h2>
+<p>The strongest argument for Laplace transforms is their ability to convert impossible differential equations into solvable algebra while simultaneously revealing system behavior through pole locations. The vulnerability: this requires assuming clean initial conditions and works best on linear systems. For anyone analyzing oscillators, circuits, or control systems, the transform isn&#039;t just a mathematical trick—it&#039;s a window into understanding exactly how dynamic systems behave before solving them.</p>
+      </div>
+
       
-      <div class="excerpt-card">
+
+      <section id="excerpt" class="excerpt-card">
+        <div class="content-label">
+          <span class="label-text">Transcript excerpt on </span>
+        </div>
         <div class="article-excerpt">
           <p>I want to show you this simple simulation that I put together that has a mass on a spring, but it's being influenced by an external force that oscillates back and forth. Now, if there was no external force and you pull out this mass and you just let it go, the spring has some kind of natural frequency that it wants to oscillate at. But here, when I'm adding that external force, like a wind blowing back and forth, it oscillates at a distinct unrelated frequency. What I want you to notice is how in the beginning you get this very irregularlook behavior gets kind of stronger and then weaker and then stronger again before eventually it settles into a rhythm.</p>
 <p>What specifically is going on there? How could you mathematically analyze what exactly this weird wibbly startup trajectory is? And could you predict how long it takes before the system hits its stride? And when it does hit that stride, could you predict exactly how big the swings back and forth are?</p>
@@ -48,9 +93,8 @@
           <a href="https://www.youtube.com/watch?v=FE-hM1kRK4Y" class="read-button" target="_blank" rel="noopener">
             Watch on YouTube &rarr;
           </a>
-          <p class="cta-note">Watch the full video by Grant Sanderson on YouTube.</p>
         </div>
-      </div>
+      </section>
       
     </article>
   
