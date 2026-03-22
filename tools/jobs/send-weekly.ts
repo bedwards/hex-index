@@ -1,18 +1,19 @@
 /**
  * Job: Send weekly Reader email/text to subscribers
  *
- * Reads subscribers from a Google Sheet (public CSV export),
- * sends each an email (and optionally SMS via carrier gateway)
- * with the latest epub URL and cover image.
+ * Reads subscribers from a Google Sheet via authenticated Apps Script endpoint,
+ * sends each an email (via Gmail SMTP) and SMS (via Twilio).
  *
  * Secrets loaded from ~/.config/.env:
- *   GMAIL_USER, GMAIL_APP_PASSWORD, GOOGLE_SHEET_ID
+ *   GMAIL_USER, GMAIL_APP_PASSWORD, SUBSCRIBER_TOKEN,
+ *   TWILIO_ACCOUNT_SID, TWILIO_AUTH_TOKEN, TWILIO_MESSAGING_SERVICE_SID
  */
 
 import { createTransport } from 'nodemailer';
 import { createHmac } from 'crypto';
 import { readFileSync } from 'fs';
 import { join } from 'path';
+import twilio from 'twilio';
 
 // ── Secret loading ──────────────────────────────────────────────────
 
@@ -46,12 +47,6 @@ interface Subscriber {
   carrier: string;
 }
 
-const SMS_GATEWAYS: Record<string, string> = {
-  att: '@mms.att.net',
-  verizon: '@vtext.com',
-  tmobile: '@tmomail.net',
-  sprint: '@messaging.sprintpcs.com',
-};
 
 // ── Fetch subscribers via authenticated Apps Script endpoint ────────
 
@@ -76,7 +71,7 @@ async function fetchSubscribers(): Promise<Subscriber[]> {
   }
 
   return data.subscribers
-    .filter(s => s.email || (s.phone && s.carrier))
+    .filter(s => s.email || s.phone)
     .map(s => ({
       name: '',
       email: s.email ?? '',
@@ -222,9 +217,15 @@ async function main(): Promise<void> {
     },
   });
 
-  // Verify connection
+  // Verify SMTP connection
   await transport.verify();
   console.info('SMTP connection verified');
+
+  // Initialize Twilio
+  const twilioClient = twilio(
+    loadSecret('TWILIO_ACCOUNT_SID'),
+    loadSecret('TWILIO_AUTH_TOKEN')
+  );
 
   const subject = `Hex Index Reader \u2014 Week of ${week.display}`;
   let emailsSent = 0;
@@ -250,30 +251,22 @@ async function main(): Promise<void> {
       }
     }
 
-    // Send SMS via email-to-SMS gateway
-    if (sub.phone && sub.carrier) {
-      const gateway = SMS_GATEWAYS[sub.carrier];
-      if (!gateway) {
-        console.warn(`  Unknown carrier "${sub.carrier}" for ${sub.name || sub.phone}`);
-        errors++;
-        continue;
-      }
-
+    // Send SMS via Twilio
+    if (sub.phone) {
       const digits = sub.phone.replace(/\D/g, '');
-      const smsAddress = `${digits}${gateway}`;
+      const to = digits.startsWith('1') ? `+${digits}` : `+1${digits}`;
 
       try {
-        await transport.sendMail({
-          from: 'noreply@hex-index.com',
-          to: smsAddress,
-          subject: '',
-          text: buildSmsText(sub.email),
+        await twilioClient.messages.create({
+          messagingServiceSid: loadSecret('TWILIO_MESSAGING_SERVICE_SID'),
+          to,
+          body: buildSmsText(sub.email),
         });
         smsSent++;
-        console.info(`  SMS sent: ${sub.name || sub.phone} (${sub.carrier})`);
+        console.info(`  SMS sent: ${sub.name || sub.phone}`);
       } catch (err) {
         errors++;
-        console.error(`  SMS failed (${smsAddress}): ${err instanceof Error ? err.message : String(err)}`);
+        console.error(`  SMS failed (${to}): ${err instanceof Error ? err.message : String(err)}`);
       }
     }
 
