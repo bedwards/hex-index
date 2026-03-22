@@ -16,6 +16,7 @@ import { Pool } from 'pg';
 import { writeFile, readFile, mkdir } from 'fs/promises';
 import { join, dirname } from 'path';
 import { generateText } from '../../src/wikipedia/ollama.js';
+import { cleanPreamble } from './clean-llm-output.js';
 
 // ── CLI args ────────────────────────────────────────────────────────
 const args = process.argv.slice(2);
@@ -105,49 +106,6 @@ function countWords(text: string): number {
   return text.trim().split(/\s+/).filter(w => w.length > 0).length;
 }
 
-/**
- * Strip LLM preamble from generated content.
- * Models often output "Here's the rewrite:" or "I see the structure..." before actual content.
- * Rules:
- *   1. Strip <think>...</think> blocks
- *   2. If there's a "---" on its own line and the text before it is < 500 chars, chop everything before it
- *   3. Strip common preamble patterns at the start
- */
-function cleanPreamble(text: string): string {
-  let cleaned = text.trim();
-
-  // Strip think tags
-  cleaned = cleaned.replace(/<think>[\s\S]*?<\/think>/g, '').trim();
-
-  // Strip code fences
-  cleaned = cleaned.replace(/^```\w*\n?/, '').replace(/\n?```\s*$/, '').trim();
-
-  // If there's a --- separator and the preamble before it is short, chop it
-  const separatorMatch = cleaned.match(/^([\s\S]*?)\n---+\n([\s\S]+)$/);
-  if (separatorMatch && separatorMatch[1].length < 500) {
-    cleaned = separatorMatch[2].trim();
-  }
-
-  // Strip common LLM preamble patterns
-  const preamblePatterns = [
-    /^(?:Here(?:'s| is) (?:the |my )?(?:rewritten|rewrite|adapted|revised)[\s\S]*?:\s*\n+)/i,
-    /^(?:I (?:see|understand|notice|'ll|will|have)[\s\S]*?(?:\.|:)\s*\n+)/i,
-    /^(?:(?:Sure|OK|Okay|Certainly|Of course)[,.!]?\s*[\s\S]*?(?:\.|:)\s*\n+)/i,
-    /^(?:Let me[\s\S]*?(?:\.|:)\s*\n+)/i,
-    /^(?:The following[\s\S]*?(?:\.|:)\s*\n+)/i,
-  ];
-  for (const pattern of preamblePatterns) {
-    cleaned = cleaned.replace(pattern, '').trim();
-  }
-
-  // Strip leading title (# or ##) — the title is in the page header
-  cleaned = cleaned.replace(/^#{1,2}\s+.+\n+/, '').trim();
-
-  // Unescape JSON string escapes that survived parsing
-  cleaned = cleaned.replace(/\\"/g, '"').replace(/\\'/g, "'").replace(/\\n/g, '\n').replace(/\\\\/g, '\\');
-
-  return cleaned;
-}
 
 // ── Main ────────────────────────────────────────────────────────────
 async function main(): Promise<void> {

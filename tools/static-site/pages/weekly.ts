@@ -699,47 +699,156 @@ export async function generateWeeklyEpubs(
     const articles = await getArticlesForWeek(pool, week.start, week.end);
     if (articles.length === 0) {continue;}
 
+    // Check for consolidated entries (from consolidate-weekly job)
+    const { rows: consolidatedRows } = await pool.query<{
+      publication_id: string;
+      article_ids: string[];
+      consolidated_content_path: string | null;
+      deep_dive_wikipedia_id: string | null;
+      tag_slug: string | null;
+    }>(`
+      SELECT publication_id, article_ids, consolidated_content_path, deep_dive_wikipedia_id, tag_slug
+      FROM app.weekly_consolidated
+      WHERE week_label = $1
+    `, [week.label]).catch(() => ({ rows: [] as never[] }));
+
+    // Build lookup: publication_id → consolidated entry
+    const consolidatedByPub = new Map(consolidatedRows.map(r => [r.publication_id, r]));
+    const hasConsolidation = consolidatedByPub.size > 0;
+
     // Group by topic (tag), using editorial order
     const byTopic = new Map<string, ArticleForEpub[]>();
 
-    for (const row of articles) {
-      const topicKey = row.tag_slug || '_uncategorized';
+    if (hasConsolidation) {
+      // Use consolidated data: one entry per publication
+      const seenPubs = new Set<string>();
+      for (const row of articles) {
+        // Find consolidated entry by checking if this article's publication matches
+        let matchedCons: typeof consolidatedRows[0] | undefined;
+        for (const [pubIdKey, c] of consolidatedByPub) {
+          if (c.article_ids.includes(row.id)) {
+            matchedCons = c;
+            if (seenPubs.has(pubIdKey)) { break; } // already processed this pub
+            seenPubs.add(pubIdKey);
+            break;
+          }
+        }
 
-      // Load content
-      let content: string;
-      if (row.rewritten_content_path) {
-        content = await loadContent(row.rewritten_content_path);
-      } else {
-        content = await loadContent(row.content_path);
-      }
-      if (!content) {continue;}
+        if (matchedCons && !seenPubs.has(`done:${matchedCons.publication_id}`)) {
+          seenPubs.add(`done:${matchedCons.publication_id}`);
 
-      // Load deep dives
-      const deepDiveRows = await getDeepDives(pool, row.id);
-      const deepDives: { title: string; content: string; slug: string }[] = [];
-      for (const dd of deepDiveRows) {
-        const ddContent = await loadWikipediaContent(dd.slug);
-        deepDives.push({ title: dd.title, content: ddContent, slug: dd.slug });
-      }
+          // Use consolidated content if available, otherwise fall back to first article
+          let content: string;
+          if (matchedCons.consolidated_content_path) {
+            content = await loadContent(matchedCons.consolidated_content_path);
+          }
+          if (!content!) {
+            content = row.rewritten_content_path
+              ? await loadContent(row.rewritten_content_path)
+              : await loadContent(row.content_path);
+          }
+          if (!content) { continue; }
 
-      // Load charcoal illustration from library/images/
-      let imageData: Buffer | null = null;
-      let imageExt = 'webp';
-      if (row.image_path) {
-        try {
-          imageData = await readFile(join(process.cwd(), row.image_path));
-          const ext = row.image_path.split('.').pop()?.toLowerCase();
-          if (ext) {imageExt = ext;}
-        } catch {
-          imageData = null;
+          // Load single best deep dive
+          const deepDives: { title: string; content: string; slug: string }[] = [];
+          if (matchedCons.deep_dive_wikipedia_id) {
+            const { rows: ddRows } = await pool.query<{ slug: string; title: string }>(`
+              SELECT slug, title FROM app.wikipedia_articles WHERE id = $1
+            `, [matchedCons.deep_dive_wikipedia_id]);
+            if (ddRows.length > 0) {
+              const ddContent = await loadWikipediaContent(ddRows[0].slug);
+              if (ddContent) {
+                deepDives.push({ title: ddRows[0].title, content: ddContent, slug: ddRows[0].slug });
+              }
+            }
+          }
+
+          // Use image from first selected article
+          let imageData: Buffer | null = null;
+          let imageExt = 'webp';
+          if (row.image_path) {
+            try {
+              imageData = await readFile(join(process.cwd(), row.image_path));
+              const ext = row.image_path.split('.').pop()?.toLowerCase();
+              if (ext) { imageExt = ext; }
+            } catch { imageData = null; }
+          }
+
+          const topicKey = matchedCons.tag_slug ?? row.tag_slug ?? '_uncategorized';
+          const entry: ArticleForEpub = { row, content, deepDives, imageData, imageExt };
+          if (!byTopic.has(topicKey)) { byTopic.set(topicKey, []); }
+          byTopic.get(topicKey)!.push(entry);
+        } else if (!matchedCons) {
+          // Article not in any consolidated entry — include as-is
+          let content: string;
+          if (row.rewritten_content_path) {
+            content = await loadContent(row.rewritten_content_path);
+          } else {
+            content = await loadContent(row.content_path);
+          }
+          if (!content) { continue; }
+
+          const deepDiveRows = await getDeepDives(pool, row.id);
+          const deepDives: { title: string; content: string; slug: string }[] = [];
+          for (const dd of deepDiveRows) {
+            const ddContent = await loadWikipediaContent(dd.slug);
+            deepDives.push({ title: dd.title, content: ddContent, slug: dd.slug });
+          }
+
+          let imageData: Buffer | null = null;
+          let imageExt = 'webp';
+          if (row.image_path) {
+            try {
+              imageData = await readFile(join(process.cwd(), row.image_path));
+              const ext = row.image_path.split('.').pop()?.toLowerCase();
+              if (ext) { imageExt = ext; }
+            } catch { imageData = null; }
+          }
+
+          const topicKey = row.tag_slug || '_uncategorized';
+          const entry: ArticleForEpub = { row, content, deepDives, imageData, imageExt };
+          if (!byTopic.has(topicKey)) { byTopic.set(topicKey, []); }
+          byTopic.get(topicKey)!.push(entry);
         }
       }
+    } else {
+      // No consolidation — original behavior
+      for (const row of articles) {
+        const topicKey = row.tag_slug || '_uncategorized';
 
-      const entry: ArticleForEpub = { row, content, deepDives, imageData, imageExt };
-      if (!byTopic.has(topicKey)) {
-        byTopic.set(topicKey, []);
+        let content: string;
+        if (row.rewritten_content_path) {
+          content = await loadContent(row.rewritten_content_path);
+        } else {
+          content = await loadContent(row.content_path);
+        }
+        if (!content) {continue;}
+
+        const deepDiveRows = await getDeepDives(pool, row.id);
+        const deepDives: { title: string; content: string; slug: string }[] = [];
+        for (const dd of deepDiveRows) {
+          const ddContent = await loadWikipediaContent(dd.slug);
+          deepDives.push({ title: dd.title, content: ddContent, slug: dd.slug });
+        }
+
+        let imageData: Buffer | null = null;
+        let imageExt = 'webp';
+        if (row.image_path) {
+          try {
+            imageData = await readFile(join(process.cwd(), row.image_path));
+            const ext = row.image_path.split('.').pop()?.toLowerCase();
+            if (ext) {imageExt = ext;}
+          } catch {
+            imageData = null;
+          }
+        }
+
+        const entry: ArticleForEpub = { row, content, deepDives, imageData, imageExt };
+        if (!byTopic.has(topicKey)) {
+          byTopic.set(topicKey, []);
+        }
+        byTopic.get(topicKey)!.push(entry);
       }
-      byTopic.get(topicKey)!.push(entry);
     }
 
     // Sort articles within each topic by published_at DESC, nulls last

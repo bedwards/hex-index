@@ -15,6 +15,7 @@ import { Pool } from 'pg';
 import { writeFile, readFile, mkdir } from 'fs/promises';
 import { join, dirname } from 'path';
 import { generateText } from '../../src/wikipedia/ollama.js';
+import { cleanPreamble } from './clean-llm-output.js';
 
 // ── CLI args ────────────────────────────────────────────────────────
 const args = process.argv.slice(2);
@@ -89,65 +90,6 @@ function countWords(text: string): number {
   return text.trim().split(/\s+/).filter(w => w.length > 0).length;
 }
 
-/**
- * Strip LLM preamble deterministically — no LLM involved.
- */
-function cleanPreamble(text: string): string {
-  let cleaned = text.trim();
-
-  // Strip think tags
-  cleaned = cleaned.replace(/<think>[\s\S]*?<\/think>/g, '').trim();
-
-  // Strip code fences
-  cleaned = cleaned.replace(/^```\w*\n?/, '').replace(/\n?```\s*$/, '').trim();
-
-  // If there's a --- separator and the preamble before it is short, chop it
-  const separatorMatch = cleaned.match(/^([\s\S]*?)\n---+\n([\s\S]+)$/);
-  if (separatorMatch && separatorMatch[1].length < 500) {
-    cleaned = separatorMatch[2].trim();
-  }
-
-  // Strip common LLM preamble patterns at the very start
-  const preamblePatterns = [
-    /^(?:Here(?:'s| is) (?:the |my )?(?:rewritten|rewrite|adapted|revised)[\s\S]*?:\s*\n+)/i,
-    /^(?:I (?:see|understand|notice|'ll|will|have)[\s\S]*?(?:\.|:)\s*\n+)/i,
-    /^(?:(?:Sure|OK|Okay|Certainly|Of course)[,.!]?\s*[\s\S]*?(?:\.|:)\s*\n+)/i,
-    /^(?:Let me[\s\S]*?(?:\.|:)\s*\n+)/i,
-    /^(?:The following[\s\S]*?(?:\.|:)\s*\n+)/i,
-  ];
-  for (const pattern of preamblePatterns) {
-    cleaned = cleaned.replace(pattern, '').trim();
-  }
-
-  // Strip residual JSON wrapper — catches {"content": "..."}, {"text": "..."}, etc.
-  const jsonWrapperMatch = cleaned.match(/^\s*\{\s*"(?:content|text|[^"]+)"\s*:\s*"([\s\S]*)"\s*\}\s*$/);
-  if (jsonWrapperMatch) {
-    cleaned = jsonWrapperMatch[1]
-      .replace(/\\n/g, '\n')
-      .replace(/\\"/g, '"')
-      .replace(/\\\\/g, '\\')
-      .trim();
-  }
-
-  // Strip malformed JSON prefix — model sometimes echoes the placeholder key
-  // e.g. {"your adapted article text here"}":"actual content...
-  cleaned = cleaned.replace(/^\s*\{[^}]*\}["'\s:]+/, '').trim();
-
-  // Strip JSON metadata prefix: title", "author": "Name", "piece": "actual content
-  cleaned = cleaned.replace(/^[^"]*",\s*"(?:author|title)":\s*"[^"]*",\s*"(?:piece|content|text)":\s*"/, '').trim();
-
-  // Strip {"content": ["text... (array variant from MiniMax)
-  cleaned = cleaned.replace(/^\s*\{\s*"(?:content|text|piece)"\s*:\s*\[\s*"?/, '').trim();
-  cleaned = cleaned.replace(/"\s*\]?\s*\}\s*$/, '').trim();
-
-  // Strip leading title (# or ##) — the title is already displayed in the page header
-  cleaned = cleaned.replace(/^#{1,2}\s+.+\n+/, '').trim();
-
-  // Unescape JSON string escapes that survived parsing
-  cleaned = cleaned.replace(/\\"/g, '"').replace(/\\'/g, "'").replace(/\\n/g, '\n').replace(/\\\\/g, '\\');
-
-  return cleaned;
-}
 
 // ── Main ────────────────────────────────────────────────────────────
 async function main(): Promise<void> {
@@ -238,7 +180,7 @@ async function main(): Promise<void> {
           }
         } catch { /* no wiki topics available */ }
 
-        const prompt = `You are a senior editor at a curated reading library. Your readers are smart, busy people who use text-to-speech to listen to long-form articles. Your job: take this piece and make them glad they spent 15 minutes with it.
+        const prompt = `You are a commentator at a curated reading library. Your readers are smart, busy people who use text-to-speech. Your job: write commentary on this piece that makes them glad they spent 15 minutes with you. You are not rewriting the article — you are commenting on the author's coverage, weaving in direct quotes and paraphrasing throughout.
 
 TITLE: "${article.title}"
 AUTHOR: ${article.author_name ?? 'Unknown'}
@@ -248,27 +190,28 @@ ${wikiContext}
 SOURCE TEXT:
 ${textForLlm}
 
-YOUR EDITORIAL APPROACH:
+YOUR COMMENTARY APPROACH:
 
-1. PITCH (opening 2-3 sentences):
-Open by selling the reader on why this piece is worth their time. What is the author's most surprising or distinctive claim? What evidence do they bring that you won't find elsewhere? Why should someone care right now? This is not a summary — it's a pitch. Make the reader think "I need to hear this."
+1. HOOK (opening 2-3 sentences):
+Open by framing what makes this piece notable. What is the author's most surprising or distinctive claim? What evidence do they bring that you won't find elsewhere? Why should someone care right now? This is not a summary — it's a hook. Make the reader think "I need to hear this."
 
-2. ADAPTED BODY (the meat):
-- Convert to third person throughout. Replace "I"/"me"/"my" with the author's name and pronouns. First mention: full name. After that: last name only.
-- Restructure for clarity. Lead with the strongest insight. Cut tangents.
-- Add clear ## section headings where the topic shifts.
-- Tighten every sentence. Cut filler, hedging, throat-clearing.
+2. COMMENTARY (the meat):
+Your commentary engages directly with the author's coverage — what they argued, how they argued it, and what it means. This is NOT a rewrite of the article. It is your editorial voice responding to theirs.
+- Write in third person. First mention: full name. After that: last name only.
+- DIRECT QUOTES: Pull 4-8 of the author's strongest, most distinctive sentences and quote them directly. Introduce each with attribution: '${article.author_name ?? 'The author'} writes, "..."' or 'As ${article.author_name ?? 'the author'} puts it, "..."'. Choose quotes that carry real weight — the ones a reader would highlight.
+- PARAPHRASING: Between quotes, paraphrase the author's arguments in your own words. Summarize their reasoning, then comment on it. "The core of the argument is..." followed by your take: "This lands because..." or "This overlooks..."
+- COMMENTARY LACED THROUGHOUT: After each major point or quote, add a sentence or two of editorial judgment. Does this evidence hold up? Is this framing effective? What context is missing? Your voice should be present on every page, not just at the end.
+- Add clear ## section headings where the coverage shifts.
 - Vary sentence AND paragraph length dramatically for rhythm.
 - Replace jargon with plain language. Spell out acronyms.
 - Remove self-referential platform language (newsletter CTAs, "subscribe", "like and share", channel plugs, "paid subscribers", "as I wrote last week").
-- CRITICAL: Do NOT copy sentences from the source. Rewrite everything in your own words. Paraphrasing is not enough — restructure, reframe, rethink the presentation. Your reader could read the original; give them a reason to read yours instead.
-- For video transcripts: clean up speech artifacts (stutters, repetition, "um", "you know", filler). Convert spoken dialogue into polished prose. If someone is quoted speaking, clean up the quote but keep the substance. Do NOT reproduce transcript verbatim.
+- For video transcripts: clean up speech artifacts (stutters, repetition, filler). Quote cleaned-up versions of what was said, attributed to the speaker.
 
 3. COUNTERPOINTS (woven in, not bolted on):
 Where the argument is weakest or where reasonable people disagree, add a sentence: "Critics might note..." or "A counterargument worth considering..." Keep it brief. The overall stance remains the author's. 1-3 per article depending on length.
 
 4. PULL QUOTE (one per article):
-Select the single most striking or quotable sentence from your adaptation. Format it as a blockquote (> ) between sections. This is the sentence someone would highlight or share.
+Select the single most striking sentence — either a direct quote from the author or your sharpest editorial line. Format as a blockquote (> ) between sections.
 
 5. BOTTOM LINE (final section):
 End with a ## Bottom Line section — 2-3 sentences of editorial judgment. Not a summary. A verdict: What's the strongest part of this argument? What's its biggest vulnerability? What should the reader watch for next?
@@ -281,22 +224,24 @@ FORMATTING:
 - Plain text only. No HTML.
 
 STYLE EXAMPLE:
-"Matt Yglesias makes an argument that's been strangely absent from progressive discourse: the strongest case for zoning reform isn't economic efficiency — it's racial justice. Drawing on Rothstein's *The Color of Law* and a 1917 Supreme Court case most activists have never heard of, Yglesias builds a case that housing policy, not criminal justice, is where structural racism runs deepest.
+"Matt Yglesias makes an argument that's been strangely absent from progressive discourse: the strongest case for zoning reform isn't economic efficiency — it's racial justice.
 
 ## The Forgotten Precedent
 
-The first major anti-segregation victory at the Supreme Court wasn't Brown v. Board of Education. It was Buchanan v. Warley in 1917 — a case striking down explicit racial zoning. Yglesias argues this history matters because land use policy was designed under conditions of deep racism, and the Civil Rights Act never unwound it.
+Yglesias opens with a case most readers won't know. "The first major Supreme Court victory against segregation wasn't Brown v. Board," he writes. "It was Buchanan v. Warley in 1917 — and it was about zoning." He traces how explicit racial zoning was struck down but land use policy quietly preserved the same boundaries. The argument is effective because it reframes something familiar — housing discrimination — through a lens that even policy wonks rarely use.
+
+Drawing on Rothstein's *The Color of Law*, Yglesias argues that "the Civil Rights Act dismantled segregation in schools and lunch counters, but never touched the zoning codes that kept neighborhoods divided." This is the piece's strongest move: connecting a well-known book to a specific, actionable policy failure.
 
 > Housing policy was built on racist foundations, and we never tore them up. We just stopped talking about it.
 
-Critics might note that framing housing as the *primary* driver of structural racism risks minimizing the very real harms of policing and mass incarceration. The two systems reinforce each other.
+Critics might note that framing housing as the *primary* driver of structural racism risks minimizing the very real harms of policing and mass incarceration. The two systems reinforce each other. Yglesias acknowledges this but doesn't fully resolve it.
 
 ## Bottom Line
 
 Yglesias's core argument is strong: the academic consensus on housing and racial inequality is clear, and the activist movement hasn't caught up. His biggest vulnerability is strategic — he admits the racial justice framing might hurt the political coalition needed to actually pass reform. That tension is unresolved, and it's the most interesting part of the piece."
 
 Output ONLY the JSON. No preamble, no explanation, no markdown fences.
-{"content": "your adapted article text here"}`;
+{"content": "your commentary text here"}`;
 
         const responseText = await generateText(prompt, {
           temperature: 0.5,

@@ -178,7 +178,7 @@ async function main(): Promise<void> {
 
           const alreadyUsed = validatedTopics.map(t => t.topic);
 
-          const prompt = `Select ${remaining} Wikipedia articles that give readers essential context for this piece. Pick specific topics — named events, people, laws, concepts — not broad categories like "Economics" or "History."
+          const prompt = `Select ${remaining} Wikipedia articles that give readers essential context for this piece. Your picks should be specific, nuanced, and slightly esoteric — the kind of topic a curious reader would be glad to discover, not one they already know about.
 
 ARTICLE: "${article.title}" from ${article.publication_name}
 
@@ -188,8 +188,24 @@ ${articleText}
 KEY TERMS: ${keyTerms.join(', ')}
 ${alreadyUsed.length > 0 ? `ALREADY SELECTED (do not repeat): ${alreadyUsed.join(', ')}` : ''}
 
-GOOD EXAMPLE: {"topics": [{"topic": "Smoot–Hawley Tariff Act", "reason": "The article discusses trade policy history"}]}
-BAD EXAMPLE: {"topics": [{"topic": "Economics", "reason": "Related to the topic"}]}
+SELECTION RULES:
+- NEVER pick a person who is a main subject of the article. If the article is about Trump, do NOT pick "Donald Trump." Pick a specific policy, event, or concept mentioned in passing instead.
+- NEVER pick broad categories: "Economics", "History", "Foreign policy", "Artificial intelligence", "Democracy"
+- NEVER pick well-known people or entities that any newspaper reader would already know: "Donald Trump", "Elon Musk", "China", "NATO", "Federal Reserve"
+- DO pick specific events, laws, treaties, battles, obscure historical figures, technical concepts, or niche phenomena that illuminate the article's argument
+- Prefer topics where the Wikipedia article would teach the reader something surprising
+
+GOOD EXAMPLES:
+- {"topic": "Smoot–Hawley Tariff Act", "reason": "The article references 1930s trade wars"}
+- {"topic": "Overton window", "reason": "The author argues this policy was once unthinkable"}
+- {"topic": "Buchanan v. Warley", "reason": "A 1917 case central to the housing argument"}
+- {"topic": "Goodhart's law", "reason": "The metrics problem described follows this pattern"}
+
+BAD EXAMPLES (never pick these):
+- {"topic": "Donald Trump", "reason": "Article is about Trump's policy"} — too obvious
+- {"topic": "Economics", "reason": "Related to the topic"} — too broad
+- {"topic": "United States Congress", "reason": "Legislation discussed"} — too generic
+- {"topic": "Climate change", "reason": "Environmental topic"} — too well-known
 
 Output ONLY the JSON object. No explanation, no preamble, no markdown fences.
 {"topics": [{"topic": "Exact Wikipedia Article Title", "reason": "One sentence"}]}`;
