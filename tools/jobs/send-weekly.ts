@@ -249,7 +249,7 @@ async function main(): Promise<void> {
     if (sub.email) {
       try {
         await transport.sendMail({
-          from: `"Hex Index Reader" <${secrets.gmailUser}>`,
+          from: '"Hex Index Reader" <noreply@hex-index.com>',
           to: sub.email,
           subject,
           html: buildEmailHtml(week, sub.name, sub.email),
