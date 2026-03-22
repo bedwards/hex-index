@@ -34,6 +34,14 @@ import { slugify } from '../../src/wikipedia/rewriter.js';
 const args = process.argv.slice(2);
 const limitIdx = args.indexOf('--limit');
 const LIMIT = limitIdx >= 0 ? parseInt(args[limitIdx + 1], 10) : 50;
+const articleIdIdx = args.indexOf('--article-id');
+const ARTICLE_IDS: string[] = [];
+if (articleIdIdx >= 0) {
+  // Collect all values after --article-id until next flag or end
+  for (let i = articleIdIdx + 1; i < args.length && !args[i].startsWith('--'); i++) {
+    ARTICLE_IDS.push(args[i]);
+  }
+}
 
 // ── Types ───────────────────────────────────────────────────────────
 interface TopicResult {
@@ -56,31 +64,54 @@ async function main(): Promise<void> {
 
   try {
     // Find articles that don't have 3 wikipedia links yet
+    let articleQuery: string;
+    let articleParams: unknown[];
+    if (ARTICLE_IDS.length > 0) {
+      articleQuery = `
+        SELECT
+          a.id, a.title, a.content_path,
+          p.name AS publication_name,
+          COALESCE(wc.cnt, 0) AS link_count
+        FROM app.articles a
+        JOIN app.publications p ON a.publication_id = p.id
+        LEFT JOIN (
+          SELECT article_id, COUNT(*) AS cnt
+          FROM app.article_wikipedia_links
+          GROUP BY article_id
+        ) wc ON wc.article_id = a.id
+        WHERE a.content_path IS NOT NULL
+          AND COALESCE(wc.cnt, 0) < 3
+          AND a.id = ANY($1)
+        ORDER BY a.published_at DESC NULLS LAST
+      `;
+      articleParams = [ARTICLE_IDS];
+    } else {
+      articleQuery = `
+        SELECT
+          a.id, a.title, a.content_path,
+          p.name AS publication_name,
+          COALESCE(wc.cnt, 0) AS link_count
+        FROM app.articles a
+        JOIN app.publications p ON a.publication_id = p.id
+        LEFT JOIN (
+          SELECT article_id, COUNT(*) AS cnt
+          FROM app.article_wikipedia_links
+          GROUP BY article_id
+        ) wc ON wc.article_id = a.id
+        WHERE a.content_path IS NOT NULL
+          AND COALESCE(wc.cnt, 0) < 3
+        ORDER BY a.published_at DESC NULLS LAST
+        LIMIT $1
+      `;
+      articleParams = [LIMIT];
+    }
     const { rows: articles } = await pool.query<{
       id: string;
       title: string;
       content_path: string;
       publication_name: string;
       link_count: string;
-    }>(`
-      SELECT
-        a.id,
-        a.title,
-        a.content_path,
-        p.name AS publication_name,
-        COALESCE(wc.cnt, 0) AS link_count
-      FROM app.articles a
-      JOIN app.publications p ON a.publication_id = p.id
-      LEFT JOIN (
-        SELECT article_id, COUNT(*) AS cnt
-        FROM app.article_wikipedia_links
-        GROUP BY article_id
-      ) wc ON wc.article_id = a.id
-      WHERE a.content_path IS NOT NULL
-        AND COALESCE(wc.cnt, 0) < 3
-      ORDER BY a.published_at DESC NULLS LAST
-      LIMIT $1
-    `, [LIMIT]);
+    }>(articleQuery, articleParams);
 
     console.info(`Found ${articles.length} articles needing wikipedia topics`);
 

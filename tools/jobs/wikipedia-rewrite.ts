@@ -21,6 +21,13 @@ import { generateText } from '../../src/wikipedia/ollama.js';
 const args = process.argv.slice(2);
 const limitIdx = args.indexOf('--limit');
 const LIMIT = limitIdx >= 0 ? parseInt(args[limitIdx + 1], 10) : 30;
+const articleIdIdx = args.indexOf('--article-id');
+const ARTICLE_IDS: string[] = [];
+if (articleIdIdx >= 0) {
+  for (let i = articleIdIdx + 1; i < args.length && !args[i].startsWith('--'); i++) {
+    ARTICLE_IDS.push(args[i]);
+  }
+}
 
 // ── Types ───────────────────────────────────────────────────────────
 interface StubRow {
@@ -151,23 +158,38 @@ async function main(): Promise<void> {
 
   try {
     // Find articles that have stub (unrewritten) wikipedia entries
-    const { rows: stubs } = await pool.query<StubRow>(`
-      SELECT
-        w.id AS wiki_id,
-        w.title AS wiki_title,
-        w.slug AS wiki_slug,
-        w.original_url,
-        w.content_path,
-        w.source_word_count,
-        a.id AS article_id,
-        a.title AS article_title
-      FROM app.wikipedia_articles w
-      JOIN app.article_wikipedia_links awl ON awl.wikipedia_id = w.id
-      JOIN app.articles a ON awl.article_id = a.id
-      WHERE (w.status = 'stub' OR w.rewrite_dirty = true)
-      ORDER BY a.published_at DESC NULLS LAST
-      LIMIT $1
-    `, [LIMIT * 3]); // up to 3 stubs per article
+    let stubQuery: string;
+    let stubParams: unknown[];
+    if (ARTICLE_IDS.length > 0) {
+      stubQuery = `
+        SELECT
+          w.id AS wiki_id, w.title AS wiki_title, w.slug AS wiki_slug,
+          w.original_url, w.content_path, w.source_word_count,
+          a.id AS article_id, a.title AS article_title
+        FROM app.wikipedia_articles w
+        JOIN app.article_wikipedia_links awl ON awl.wikipedia_id = w.id
+        JOIN app.articles a ON awl.article_id = a.id
+        WHERE (w.status = 'stub' OR w.rewrite_dirty = true)
+          AND a.id = ANY($1)
+        ORDER BY a.published_at DESC NULLS LAST
+      `;
+      stubParams = [ARTICLE_IDS];
+    } else {
+      stubQuery = `
+        SELECT
+          w.id AS wiki_id, w.title AS wiki_title, w.slug AS wiki_slug,
+          w.original_url, w.content_path, w.source_word_count,
+          a.id AS article_id, a.title AS article_title
+        FROM app.wikipedia_articles w
+        JOIN app.article_wikipedia_links awl ON awl.wikipedia_id = w.id
+        JOIN app.articles a ON awl.article_id = a.id
+        WHERE (w.status = 'stub' OR w.rewrite_dirty = true)
+        ORDER BY a.published_at DESC NULLS LAST
+        LIMIT $1
+      `;
+      stubParams = [LIMIT * 3];
+    }
+    const { rows: stubs } = await pool.query<StubRow>(stubQuery, stubParams); // up to 3 stubs per article
 
     if (stubs.length === 0) {
       console.info('No stub wikipedia articles to rewrite');

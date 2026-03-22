@@ -6,7 +6,7 @@
  *   2. Sends full article text to LLM for rewriting
  *   3. Stores rewritten content on filesystem, updates DB
  *
- * The LLM rewrites the full Substack article in our style —
+ * The LLM rewrites the full article in our style —
  * clean prose, Speechify-friendly, no subscription widgets or CTAs.
  */
 
@@ -20,6 +20,13 @@ import { generateText } from '../../src/wikipedia/ollama.js';
 const args = process.argv.slice(2);
 const limitIdx = args.indexOf('--limit');
 const LIMIT = limitIdx >= 0 ? parseInt(args[limitIdx + 1], 10) : 20;
+const articleIdIdx = args.indexOf('--article-id');
+const ARTICLE_IDS: string[] = [];
+if (articleIdIdx >= 0) {
+  for (let i = articleIdIdx + 1; i < args.length && !args[i].startsWith('--'); i++) {
+    ARTICLE_IDS.push(args[i]);
+  }
+}
 
 // ── HTML conversion ─────────────────────────────────────────────────
 function escapeHtml(text: string): string {
@@ -122,6 +129,13 @@ function cleanPreamble(text: string): string {
       .trim();
   }
 
+  // Strip malformed JSON prefix — model sometimes echoes the placeholder key
+  // e.g. {"your adapted article text here"}":"actual content...
+  cleaned = cleaned.replace(/^\s*\{[^}]*\}["'\s:]+/, '').trim();
+
+  // Strip JSON metadata prefix: title", "author": "Name", "piece": "actual content
+  cleaned = cleaned.replace(/^[^"]*",\s*"(?:author|title)":\s*"[^"]*",\s*"(?:piece|content|text)":\s*"/, '').trim();
+
   // Strip leading title (# or ##) — the title is already displayed in the page header
   cleaned = cleaned.replace(/^#{1,2}\s+.+\n+/, '').trim();
 
@@ -163,9 +177,10 @@ async function main(): Promise<void> {
       JOIN app.publications p ON a.publication_id = p.id
       WHERE a.full_content_path IS NOT NULL
         AND (a.rewritten_content_path IS NULL OR a.rewrite_dirty = true)
+        ${ARTICLE_IDS.length > 0 ? `AND a.id = ANY($2)` : ''}
       ORDER BY a.published_at DESC NULLS LAST
       LIMIT $1
-    `, [LIMIT]);
+    `, ARTICLE_IDS.length > 0 ? [LIMIT, ARTICLE_IDS] : [LIMIT]);
 
     if (articles.length === 0) {
       console.info('No articles to rewrite');
@@ -241,7 +256,9 @@ Open by selling the reader on why this piece is worth their time. What is the au
 - Tighten every sentence. Cut filler, hedging, throat-clearing.
 - Vary sentence AND paragraph length dramatically for rhythm.
 - Replace jargon with plain language. Spell out acronyms.
-- Remove all newsletter language ("subscribe", "paid subscribers", "as I wrote last week").
+- Remove self-referential platform language (newsletter CTAs, "subscribe", "like and share", channel plugs, "paid subscribers", "as I wrote last week").
+- CRITICAL: Do NOT copy sentences from the source. Rewrite everything in your own words. Paraphrasing is not enough — restructure, reframe, rethink the presentation. Your reader could read the original; give them a reason to read yours instead.
+- For video transcripts: clean up speech artifacts (stutters, repetition, "um", "you know", filler). Convert spoken dialogue into polished prose. If someone is quoted speaking, clean up the quote but keep the substance. Do NOT reproduce transcript verbatim.
 
 3. COUNTERPOINTS (woven in, not bolted on):
 Where the argument is weakest or where reasonable people disagree, add a sentence: "Critics might note..." or "A counterargument worth considering..." Keep it brief. The overall stance remains the author's. 1-3 per article depending on length.

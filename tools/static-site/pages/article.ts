@@ -161,21 +161,22 @@ function generateArticlePage(
   const authorName = article.author_name ?? 'Unknown';
   const pubName = escapeHtml(article.publication_name);
   const authorEsc = escapeHtml(authorName);
+  const isYouTube = article.original_url.includes('youtube.com');
 
   // Content section label + nav links
   const hasDeepDives = wikipediaLinks.length > 0;
   const contentLabel = isFullRewrite
     ? `<div class="content-label">
-        <span class="label-text">Adapted from <a href="${pathToRoot}publication/${article.publication_slug}/index.html">${pubName}</a></span>
+        <span class="label-text">Commentary by <a href="${pathToRoot}about/index.html">Brian Edwards</a></span>
         <nav class="content-nav">
           ${hasDeepDives ? `<a href="#deep-dives">Deep dives</a><span class="separator">&middot;</span>` : ''}
-          <a href="${article.original_url}" target="_blank" rel="noopener">Original article &rarr;</a>
+          <a href="${article.original_url}" target="_blank" rel="noopener">${isYouTube ? 'Original video' : 'Original article'} &rarr;</a>
         </nav>
       </div>`
     : `<div class="content-label">
-        <span class="label-text">Excerpt from <a href="${pathToRoot}publication/${article.publication_slug}/index.html">${pubName}</a></span>
+        <span class="label-text">${isYouTube ? 'Transcript excerpt' : 'Excerpt'} from <a href="${pathToRoot}publication/${article.publication_slug}/index.html">${pubName}</a></span>
         <nav class="content-nav">
-          <a href="${article.original_url}" target="_blank" rel="noopener">Read full article &rarr;</a>
+          <a href="${article.original_url}" target="_blank" rel="noopener">${isYouTube ? 'Watch on YouTube' : 'Read full article'} &rarr;</a>
         </nav>
       </div>`;
 
@@ -183,14 +184,14 @@ function generateArticlePage(
   const excerptSection = isFullRewrite && excerptHtml
     ? `<section id="excerpt" class="excerpt-card">
         <div class="content-label">
-          <span class="label-text">Excerpt from the original article on ${pubName}</span>
+          <span class="label-text">${isYouTube ? 'Transcript excerpt' : 'Excerpt from the original article'} on ${pubName}</span>
         </div>
         <div class="article-excerpt">
           ${excerptHtml}
         </div>
         <div class="excerpt-card-cta">
           <a href="${article.original_url}" class="read-button" target="_blank" rel="noopener">
-            Read the entire original on ${pubName} &rarr;
+            ${isYouTube ? 'Watch on YouTube' : `Read the entire original on ${pubName}`} &rarr;
           </a>
         </div>
       </section>`
@@ -203,7 +204,7 @@ function generateArticlePage(
       <header class="article-header">
         <h1>${escapeHtml(article.title)}</h1>
         <div class="article-meta">
-          <span class="author">By ${authorEsc}</span>
+          <span class="author">${authorEsc}</span>
           <span class="separator">&middot;</span>
           <a href="${pathToRoot}publication/${article.publication_slug}/index.html" class="publication">
             ${pubName}
@@ -232,9 +233,9 @@ function generateArticlePage(
         </div>
         <div class="excerpt-card-cta">
           <a href="${article.original_url}" class="read-button" target="_blank" rel="noopener">
-            Continue reading on ${pubName} &rarr;
+            ${isYouTube ? `Watch on YouTube` : `Continue reading on ${pubName}`} &rarr;
           </a>
-          <p class="cta-note">The full article by ${authorEsc} is available on ${pubName}.</p>
+          <p class="cta-note">${isYouTube ? `Watch the full video by ${authorEsc} on YouTube.` : `The full article by ${authorEsc} is available on ${pubName}.`}</p>
         </div>
       </div>
       `}

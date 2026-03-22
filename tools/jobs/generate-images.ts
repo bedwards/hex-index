@@ -22,6 +22,13 @@ import * as cheerio from 'cheerio';
 const args = process.argv.slice(2);
 const limitIdx = args.indexOf('--limit');
 const LIMIT = limitIdx >= 0 ? parseInt(args[limitIdx + 1], 10) : 30;
+const articleIdIdx = args.indexOf('--article-id');
+const ARTICLE_IDS: string[] = [];
+if (articleIdIdx >= 0) {
+  for (let i = articleIdIdx + 1; i < args.length && !args[i].startsWith('--'); i++) {
+    ARTICLE_IDS.push(args[i]);
+  }
+}
 
 // Load Gemini key from ~/.config/.env
 async function loadGeminiKey(): Promise<string> {
@@ -130,9 +137,10 @@ async function main(): Promise<void> {
       JOIN app.publications p ON a.publication_id = p.id
       WHERE a.image_path IS NULL
         AND a.content_path IS NOT NULL
+        ${ARTICLE_IDS.length > 0 ? `AND a.id = ANY($2)` : ''}
       ORDER BY a.published_at DESC NULLS LAST
       LIMIT $1
-    `, [LIMIT]);
+    `, ARTICLE_IDS.length > 0 ? [LIMIT, ARTICLE_IDS] : [LIMIT]);
 
     if (articles.length === 0) {
       console.info('No articles need images');

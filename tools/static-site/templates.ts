@@ -21,6 +21,7 @@ export interface StaticArticle {
   excerpt: string;
   url: string;
   imagePath: string | null;
+  displayTag: { slug: string; name: string } | null;
 }
 
 export interface StaticWikipediaArticle {
@@ -54,9 +55,11 @@ export function staticLayout(
   <header class="site-header">
     <nav class="container">
       <a href="${pathToRoot}index.html" class="logo">Hex Index</a>
+      <a href="${pathToRoot}tag/index.html" class="header-link">Topics</a>
+      <a href="${pathToRoot}weekly/index.html" class="header-link">Weekly</a>
       <a href="${pathToRoot}about/index.html" class="header-link">About</a>
       <div class="search-wrap">
-        <input type="text" id="search" class="search-input" placeholder="Search articles..." autocomplete="off" spellcheck="false">
+        <input type="text" id="search" class="search-input" placeholder="Search" autocomplete="off" spellcheck="false">
       </div>
     </nav>
   </header>
@@ -95,9 +98,10 @@ export function staticLayout(
               { name: 'a', weight: 2 },
               { name: 'p', weight: 1 }
             ],
-            threshold: 0.35,
-            distance: 200,
+            threshold: 0.4,
+            distance: 300,
             minMatchCharLength: 2,
+            ignoreLocation: true,
           });
         });
     }
@@ -180,11 +184,32 @@ export function staticReadingLayout(
 </head>
 <body class="reading-mode">
   <header class="reading-header">
-    <a href="${pathToRoot}index.html" class="back-link">&larr; Back to Library</a>
+    <a href="${pathToRoot}index.html" class="back-link" id="back-link">&larr; Back to Library</a>
   </header>
   <main class="reading-content">
     ${content}
   </main>
+  <script>
+  (function() {
+    var params = new URLSearchParams(window.location.search);
+    var from = params.get('from');
+    if (from) {
+      var names = {
+        'foreign-policy':'Foreign Policy','ai-tech':'AI & Tech','housing-cities':'Housing & Cities',
+        'political-strategy':'Political Strategy','history':'History','science':'Science',
+        'culture':'Culture','economics':'Economics','faith':'Faith','writing-craft':'Writing & Craft',
+        'music':'Music','law-rights':'Law & Rights','public-health':'Public Health',
+        'philosophy':'Philosophy','media':'Media','defense':'Defense','china':'China'
+      };
+      var link = document.getElementById('back-link');
+      if (link) {
+        var name = names[from] || from;
+        link.href = '${pathToRoot}tag/' + from + '/index.html';
+        link.textContent = '\\u2190 Back to ' + name;
+      }
+    }
+  })();
+  </script>
 </body>
 </html>`;
 }
@@ -194,9 +219,11 @@ export function staticReadingLayout(
  */
 export function renderStaticArticleCard(
   article: StaticArticle,
-  pathToRoot: string = './'
+  pathToRoot: string = './',
+  fromTag?: string
 ): string {
   const date = formatDate(article.publishedAt);
+  const articleUrl = `${pathToRoot}article/${article.id}/index.html${fromTag ? `?from=${fromTag}` : ''}`;
 
   const thumbHtml = article.imagePath
     ? `<img class="article-thumb" src="${pathToRoot}${article.imagePath}" alt="" loading="lazy" width="180" height="94">`
@@ -204,7 +231,7 @@ export function renderStaticArticleCard(
 
   return `<article class="article-card">
   <div>
-    <a href="${pathToRoot}article/${article.id}/index.html" class="article-link">
+    <a href="${articleUrl}" class="article-link">
       <h2 class="article-title">${escapeHtml(article.title)}</h2>
     </a>
     <div class="article-meta">
@@ -215,7 +242,9 @@ export function renderStaticArticleCard(
       </a>
       ${date ? `<span class="separator">&middot;</span><time>${date}</time>` : ''}
       <span class="separator">&middot;</span>
-      <span class="read-time">${article.estimatedReadTimeMinutes} min read</span>
+      <span class="read-time">${article.estimatedReadTimeMinutes} min read</span>${article.displayTag ? `
+      <span class="separator">&middot;</span>
+      <a href="${pathToRoot}tag/${article.displayTag.slug}/index.html" class="article-tag">${escapeHtml(article.displayTag.name)}</a>` : ''}
     </div>
   </div>
   ${thumbHtml}

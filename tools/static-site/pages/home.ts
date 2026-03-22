@@ -10,6 +10,7 @@ import {
   type StaticArticle,
 } from '../templates.js';
 import { writeFile, extractExcerpt } from '../utils.js';
+import { getDisplayTagsBulk } from './tag.js';
 import { join } from 'path';
 import { readFile } from 'fs/promises';
 
@@ -82,6 +83,9 @@ async function getArticlesForPage(
     LIMIT $1 OFFSET $2
   `, [ARTICLES_PER_PAGE, offset]);
 
+  const articleIds = result.rows.map(r => r.id);
+  const tagMap = await getDisplayTagsBulk(pool, articleIds);
+
   const articles: StaticArticle[] = [];
   for (const row of result.rows) {
     const content = await loadArticleContent(row.content_path);
@@ -96,6 +100,7 @@ async function getArticlesForPage(
       excerpt: extractExcerpt(content),
       url: row.original_url,
       imagePath: row.image_path,
+      displayTag: tagMap.get(row.id) ?? null,
     });
   }
   return articles;

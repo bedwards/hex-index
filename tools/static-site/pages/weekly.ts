@@ -476,13 +476,13 @@ async function buildEpub(
     manifestItems.push('<item id="title" href="title.xhtml" media-type="application/xhtml+xml"/>');
     spineItems.push('<itemref idref="title"/>');
 
-    // Nav (epub3) — build with proper indices
+    // Nav (epub3) — build with topic grouping
     let navTocHtml = '';
     let navIdx = 0;
     for (const topic of sortedTopics) {
       const articles = articlesByTopic.get(topic)!;
       const topicName = articles[0].row.tag_name || 'Uncategorized';
-      navTocHtml += `    <li><span>${escapeXml(topicName)}</span>\n      <ol>\n`;
+      navTocHtml += `    <li><a href="article-${navIdx}.xhtml">${escapeXml(topicName)}</a>\n      <ol>\n`;
       for (const article of articles) {
         navTocHtml += `        <li><a href="article-${navIdx}.xhtml">${escapeXml(article.row.title)}</a></li>\n`;
         navIdx++;
@@ -511,6 +511,7 @@ ${navTocHtml}    </ol>
       const articles = articlesByTopic.get(topic)!;
       const topicName = articles[0].row.tag_name || 'Uncategorized';
 
+      let isFirstInTopic = true;
       for (const article of articles) {
         const aid = `article-${articleIndex}`;
         const authorName = article.row.author_name ?? 'Unknown';
@@ -542,12 +543,15 @@ ${navTocHtml}    </ol>
           }
         }
 
+        const topicHeaderHtml = isFirstInTopic
+          ? `\n  <h2 class="topic-header">${escapeXml(topicName)}</h2>`
+          : '';
+
         const articleXhtml = `<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head><title>${escapeXml(article.row.title)}</title><link rel="stylesheet" type="text/css" href="style.css"/></head>
-<body>
-  <p class="topic-header">${escapeXml(topicName)}</p>
+<body>${topicHeaderHtml}
   ${imageHtml}
   <div class="article-header">
     <h1>${escapeXml(article.row.title)}</h1>
@@ -562,10 +566,11 @@ ${navTocHtml}    </ol>
         manifestItems.push(`<item id="${aid}" href="${aid}.xhtml" media-type="application/xhtml+xml"/>`);
         spineItems.push(`<itemref idref="${aid}"/>`);
         articleIndex++;
+        isFirstInTopic = false;
       }
     }
 
-    // NCX (for epub2 backward compatibility)
+    // NCX (for epub2 backward compatibility) — nested topic/article structure
     let ncxNavPoints = '';
     let ncxOrder = 1;
     ncxNavPoints += `  <navPoint id="navpoint-${ncxOrder}" playOrder="${ncxOrder}">
@@ -577,21 +582,28 @@ ${navTocHtml}    </ol>
     let ncxIdx = 0;
     for (const topic of sortedTopics) {
       const articles = articlesByTopic.get(topic)!;
+      const topicName = articles[0].row.tag_name || 'Uncategorized';
+      ncxNavPoints += `  <navPoint id="navpoint-${ncxOrder}" playOrder="${ncxOrder}">
+    <navLabel><text>${escapeXml(topicName)}</text></navLabel>
+    <content src="article-${ncxIdx}.xhtml"/>\n`;
+      ncxOrder++;
+
       for (const article of articles) {
-        ncxNavPoints += `  <navPoint id="navpoint-${ncxOrder}" playOrder="${ncxOrder}">
-    <navLabel><text>${escapeXml(article.row.title)}</text></navLabel>
-    <content src="article-${ncxIdx}.xhtml"/>
-  </navPoint>\n`;
+        ncxNavPoints += `    <navPoint id="navpoint-${ncxOrder}" playOrder="${ncxOrder}">
+      <navLabel><text>${escapeXml(article.row.title)}</text></navLabel>
+      <content src="article-${ncxIdx}.xhtml"/>
+    </navPoint>\n`;
         ncxOrder++;
         ncxIdx++;
       }
+      ncxNavPoints += `  </navPoint>\n`;
     }
 
     const ncx = `<?xml version="1.0" encoding="UTF-8"?>
 <ncx xmlns="http://www.daisy.org/z3986/2005/ncx/" version="2005-1">
   <head>
     <meta name="dtb:uid" content="hex-index-weekly-${week.label}"/>
-    <meta name="dtb:depth" content="1"/>
+    <meta name="dtb:depth" content="2"/>
     <meta name="dtb:totalPageCount" content="0"/>
     <meta name="dtb:maxPageNumber" content="0"/>
   </head>
@@ -802,7 +814,7 @@ function generateWeeklyListingPage(weeks: WeekListItem[]): string {
       <div class="weekly-info">
         <h2>${escapeHtml(w.display)}</h2>
         <p class="weekly-item-meta">${w.articleCount} article${w.articleCount !== 1 ? 's' : ''} &middot; ${formatFileSize(w.fileSize)}</p>
-        <button class="copy-url-btn" data-url="${escapeHtml(epubUrl)}" onclick="copyUrl(this)">Copy URL</button>
+        <a href="${escapeHtml(epubUrl)}" class="copy-url-btn" download>Download</a>
       </div>
     </div>`;
   }).join('\n');

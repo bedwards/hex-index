@@ -5,6 +5,7 @@
 
 import type { Pool } from 'pg';
 import { writeFile } from '../utils.js';
+import { getDisplayTagsBulk } from './tag.js';
 import { join } from 'path';
 
 interface IndexEntry {
@@ -15,6 +16,7 @@ interface IndexEntry {
   s: string;  // publication slug
   d: string;  // date (YYYY-MM-DD)
   r: number;  // read time minutes
+  g: string;  // tag slug (display tag)
 }
 
 /**
@@ -46,6 +48,9 @@ export async function generateSearchIndex(
     ORDER BY a.published_at DESC NULLS LAST
   `);
 
+  const articleIds = rows.map(r => r.id);
+  const tagMap = await getDisplayTagsBulk(pool, articleIds);
+
   const index: IndexEntry[] = rows.map(r => ({
     i: r.id,
     t: r.title,
@@ -54,6 +59,7 @@ export async function generateSearchIndex(
     s: r.publication_slug,
     d: r.published_at ? new Date(r.published_at).toISOString().slice(0, 10) : '',
     r: r.estimated_read_time_minutes,
+    g: tagMap.get(r.id)?.slug ?? '',
   }));
 
   const json = JSON.stringify(index);

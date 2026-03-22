@@ -1,6 +1,6 @@
 {
   "name": "hex-index",
-  "version": "0.2.0",
+  "version": "0.4.6",
   "description": "hex-index - built on claude-base",
   "type": "module",
   "bin": {
@@ -43,19 +43,27 @@
     "job:ingest": "bash tools/cron/ingest.sh",
     "job:wiki-discover": "tsx tools/jobs/wikipedia-discover.ts",
     "job:wiki-rewrite": "tsx tools/jobs/wikipedia-rewrite.ts",
+    "job:yt-ingest": "tsx tools/jobs/yt-ingest.ts",
     "job:article-rewrite": "tsx tools/jobs/article-rewrite.ts",
     "job:generate-images": "tsx tools/jobs/generate-images.ts",
+    "job:tag-articles": "tsx tools/jobs/tag-articles.ts",
+    "job:send-weekly": "tsx tools/jobs/send-weekly.ts",
+    "job:build-weekly": "bash tools/cron/build-weekly.sh",
     "static:generate": "tsx tools/static-site/generate.ts",
     "static:clean": "tsx tools/static-site/generate.ts --clean",
     "static:preview": "npx serve docs",
     "prepare": "husky || true"
   },
   "dependencies": {
+    "@types/archiver": "^7.0.0",
+    "@types/nodemailer": "^7.0.11",
     "@types/turndown": "^5.0.6",
+    "archiver": "^7.0.1",
     "cheerio": "^1.1.2",
     "dotenv": "^17.2.3",
     "express": "^5.2.1",
     "fast-xml-parser": "^5.3.3",
+    "nodemailer": "^8.0.3",
     "pg": "^8.13.0",
     "turndown": "^7.2.2",
     "zod": "^4.1.13"

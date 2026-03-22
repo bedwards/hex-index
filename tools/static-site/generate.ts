@@ -19,7 +19,9 @@ import { generateHomePages } from './pages/home.js';
 import { generateArticlePages } from './pages/article.js';
 import { generateWikipediaPages } from './pages/wikipedia.js';
 import { generatePublicationPages } from './pages/publication.js';
+import { generateTagPages } from './pages/tag.js';
 import { generateSearchIndex } from './pages/search-index.js';
+import { generateWeeklyEpubs } from './pages/weekly.js';
 import { generateAboutPage } from './pages/about.js';
 import { ensureDir } from './utils.js';
 import { rm, cp } from 'fs/promises';
@@ -81,6 +83,16 @@ async function main(): Promise<void> {
     const pubResult = await generatePublicationPages(pool, OUTPUT_DIR);
     console.info(`  ${pubResult.publicationsGenerated} publications, ${pubResult.pagesGenerated} pages\n`);
 
+    // Generate tag pages
+    console.info('Generating tag pages...');
+    const tagResult = await generateTagPages(pool, OUTPUT_DIR);
+    console.info(`  ${tagResult.tagsGenerated} tags, ${tagResult.pagesGenerated} pages\n`);
+
+    // Generate weekly epubs
+    console.info('Generating weekly epubs...');
+    const weeklyResult = await generateWeeklyEpubs(pool, OUTPUT_DIR);
+    console.info(`  ${weeklyResult.weeksGenerated} new epubs generated\n`);
+
     // Generate about page
     console.info('Generating about page...');
     await generateAboutPage(OUTPUT_DIR);
@@ -99,6 +111,8 @@ async function main(): Promise<void> {
     console.info(`  Article pages: ${articleResult.pagesGenerated}`);
     console.info(`  Wikipedia pages: ${wikiResult.pagesGenerated}`);
     console.info(`  Publication pages: ${pubResult.pagesGenerated}`);
+    console.info(`  Tag pages: ${tagResult.pagesGenerated}`);
+    console.info(`  Weekly epubs: ${weeklyResult.weeksGenerated}`);
     console.info(`  Search index: ${searchResult.articlesIndexed} articles`);
     console.info(`\nOutput: ${OUTPUT_DIR}`);
 
