@@ -10,6 +10,7 @@
  */
 
 import { createTransport } from 'nodemailer';
+import { createHmac } from 'crypto';
 import { readFileSync } from 'fs';
 import { join } from 'path';
 
@@ -136,12 +137,23 @@ function getCurrentWeek(): WeekInfo {
   return { label, display };
 }
 
+// ── Unsubscribe link ────────────────────────────────────────────────
+
+const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbw484H_YXlBlQ5lFGmz4-6nOls4jEBU5lWGL3yf5ZTQpyihux47AcwZ2MN2F1R9eFfoxw/exec';
+
+function buildUnsubscribeUrl(email: string): string {
+  const token = loadSecret('SUBSCRIBER_TOKEN');
+  const sig = createHmac('sha256', token).update(email.trim().toLowerCase()).digest('hex').slice(0, 16);
+  return `${APPS_SCRIPT_URL}?action=unsubscribe&email=${encodeURIComponent(email.trim().toLowerCase())}&sig=${sig}`;
+}
+
 // ── Email/SMS content ───────────────────────────────────────────────
 
-function buildEmailHtml(week: WeekInfo, subscriberName: string): string {
+function buildEmailHtml(week: WeekInfo, subscriberName: string, subscriberEmail: string): string {
   const coverUrl = `https://hex-index.com/weekly/cover-${week.label}.webp`;
   const weeklyUrl = 'https://hex-index.com/weekly/';
   const epubUrl = `https://hex-index.com/weekly/${week.label}.epub`;
+  const unsubscribeUrl = subscriberEmail ? buildUnsubscribeUrl(subscriberEmail) : weeklyUrl;
   const greeting = subscriberName ? `Hi ${subscriberName},` : 'Hi,';
 
   return `<!DOCTYPE html>
@@ -169,14 +181,16 @@ function buildEmailHtml(week: WeekInfo, subscriberName: string): string {
   <hr style="border: none; border-top: 1px solid #e0e0e0; margin: 32px 0;" />
 
   <p style="font-size: 12px; color: #999; text-align: center;">
-    Hex Index Reader &mdash; Week of ${week.display}
+    Hex Index Reader &mdash; Week of ${week.display}<br/>
+    <a href="${unsubscribeUrl}" style="color: #999;">Unsubscribe</a>
   </p>
 </body>
 </html>`;
 }
 
-function buildEmailText(week: WeekInfo, subscriberName: string): string {
+function buildEmailText(week: WeekInfo, subscriberName: string, subscriberEmail: string): string {
   const greeting = subscriberName ? `Hi ${subscriberName},` : 'Hi,';
+  const unsubscribeUrl = subscriberEmail ? buildUnsubscribeUrl(subscriberEmail) : '';
   return `${greeting}
 
 This week's Hex Index Reader is ready — a curated collection of the best long-form writing from the past week.
@@ -186,7 +200,7 @@ Download EPUB: https://hex-index.com/weekly/${week.label}.epub
 Browse all editions: https://hex-index.com/weekly/
 
 ---
-Hex Index Reader — Week of ${week.display}`;
+Hex Index Reader — Week of ${week.display}${unsubscribeUrl ? `\nUnsubscribe: ${unsubscribeUrl}` : ''}`;
 }
 
 function buildSmsText(): string {
@@ -238,8 +252,8 @@ async function main(): Promise<void> {
           from: `"Hex Index Reader" <${secrets.gmailUser}>`,
           to: sub.email,
           subject,
-          html: buildEmailHtml(week, sub.name),
-          text: buildEmailText(week, sub.name),
+          html: buildEmailHtml(week, sub.name, sub.email),
+          text: buildEmailText(week, sub.name, sub.email),
         });
         emailsSent++;
         console.info(`  Email sent: ${sub.name || sub.email}`);
