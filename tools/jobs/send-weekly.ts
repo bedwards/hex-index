@@ -47,7 +47,7 @@ interface Subscriber {
 }
 
 const SMS_GATEWAYS: Record<string, string> = {
-  att: '@txt.att.net',
+  att: '@mms.att.net',
   verizon: '@vtext.com',
   tmobile: '@tmomail.net',
   sprint: '@messaging.sprintpcs.com',
