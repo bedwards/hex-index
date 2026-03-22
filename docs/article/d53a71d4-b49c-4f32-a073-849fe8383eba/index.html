@@ -28,15 +28,73 @@
       </header>
 
       <div class="content-label">
-        <span class="label-text">Transcript excerpt from <a href="../../publication/veritasium/index.html">Veritasium</a></span>
+        <span class="label-text">Commentary by <a href="../../about/index.html">Brian Edwards</a></span>
         <nav class="content-nav">
-          <a href="https://www.youtube.com/watch?v=KZeIEiBrT_w" target="_blank" rel="noopener">Watch on YouTube &rarr;</a>
+          
+          <a href="https://www.youtube.com/watch?v=KZeIEiBrT_w" target="_blank" rel="noopener">Original video &rarr;</a>
         </nav>
       </div>
 
       
+      <div class="article-content">
+        <p>{&quot;output&quot;: &quot;The answer lies in a century-old feud between two Russian mathematicians that almost nobody remembers.</p>
+<p>In 1905, Russia was in turmoil. Socialist groups rose up against Tsar Nicholas II, demanding political reform or the ruler&#039;s resignation. The nation split into two camps: those who wanted to maintain the old order and those pushing for radical change. This division seeped into every corner of Russian society, even mathematics.</p>
+<figure class="inline-illustration">
+    <img src="../../images/d53a71d4-b49c-4f32-a073-849fe8383eba.webp" alt="" loading="lazy" width="600" height="315">
+  </figure>
+
+<p>On one side stood a deeply religious man named Pavel Necrosov. He was considered the &quot;Tsar of Probability&quot; — an influential mathematician who argued that probability could prove the existence of free will. His position was simple: if you observe convergence in social statistics like marriage rates or crime rates, those underlying decisions must be independent. And independence meant free will.</p>
+<p>His intellectual nemesis on the socialist side was Andrei Markov, known as &quot;Andrei the Furious.&quot; An avowed atheist, Markov had no patience for what he considered mystical nonsense. He publicly criticized Necrosov&#039;s work, calling it an abuse of mathematics.</p>
+<p>Their feud centered on a principle that probability theorists had relied on for two hundred years: the law of large numbers.</p>
+<h2>The Law of Large Numbers</h2>
+<p>The concept is intuitive. Flip a coin ten times and you might get six heads and four tails — not the 50/50 split you&#039;d expect. But as you flip more coins, the ratio slowly settles toward the expected outcome. After one hundred flips, you&#039;re likely to see something like fifty-one heads and forty-nine tails.</p>
+<p>This behavior — where the average outcome gets closer to the expected value as trials increase — is called the law of large numbers. First proven by Jacob Bernoulli in 1713, it became the foundation of probability theory. But there was a catch: it only worked for independent events. A fair coin flip has no influence on subsequent flips.</p>
+<p>What if you asked people to shout out their guesses instead of submitting them privately? The first person might think an item is extraordinarily valuable and guess around $2,000. Everyone else hears that number and adjusts their own guesses upward. Now the average doesn&#039;t converge to the true value — it clusters around a higher amount.</p>
+<p>For two hundred years, probability assumed you needed independence to observe this law. Markov wanted to challenge that assumption.</p>
+<h2>The Poetry Problem</h2>
+<p>Markov set out to prove that dependent events could also follow the law of large numbers. He found his example in text: whether your next letter is a vowel or consonant depends heavily on what the current letter is.</p>
+<p>He turned to Eugene Onegin, a poem by Alexander Pushkin. Taking the first 20,000 letters and stripping away punctuation, he counted that forty-three percent were vowels and fifty-seven percent were consonants. Then he examined overlapping pairs of letters.</p>
+<p>If letters were independent, vowel-vowel pairs should occur about eighteen percent of the time — the probability of a vowel multiplied by itself. But when Markov actually counted the pairs in the poem, vowel-vowel combinations appeared only six percent of the time: far less than if they were independent.</p>
+<p>This proved the letters were dependent. Now he needed to show these dependent letters still followed the law of large numbers.</p>
+<p>Markov built what amounts to a prediction machine. He created two circles — one representing vowels, one representing consonants — as states in a system. From any state, the next letter could be either vowel or consonant. Using the known frequencies (forty-three percent vowels, six percent vowel-vowel pairs), he calculated transition probabilities: roughly thirteen percent chance of moving from vowel to another vowel, eighty-seven percent chance of moving to a consonant.</p>
+<p>When he simulated this system randomly, the ratio of vowels to consonants initially jumped around wildly but slowly converged to forty-three percent vowels and fifty-seven percent consonants — exactly matching what he&#039;d counted by hand.</p>
+<p>Markov had built a dependent system. Dependent events following the law of large numbers.</p>
+<blockquote>&quot;Thus free will is not necessary to do probability. In fact, independence isn&#039;t even necessary.&quot;</blockquote>
+<p>This should have been revolutionary because almost everything in the real world depends on something else. Weather tomorrow depends on conditions today. How diseases spread depends on who&#039;s infected right now. Particle behavior depends on surrounding particles.</p>
+<p>Yet Markov seemed indifferent to practical applications. He wrote: &quot;I am concerned only with questions of pure analysis.&quot; Little did he know how his method would soon reshape one of the most important developments of the twentieth century.</p>
+<h2>The Morning After</h2>
+<p>On July 16, 1945, the United States detonated the world&#039;s first nuclear bomb — six kilograms of plutonium creating an explosion equivalent to nearly twenty-five thousand tons of TNT. This was the culmination of the Manhattan Project: a three-year effort involving J. Robert Oppenheimer, John Von Neumann, and a lesser-known mathematician named Stanislav Ulam.</p>
+<p>Even after the war ended, Ulam continued studying how neutrons behave inside a nuclear bomb. A uranium-235 nucleus, when struck by a neutron, splits and releases energy along with two or three more neutrons. If those new neutrons go on to hit and split more than one other uranium-235 nucleus, you get a runaway chain reaction.</p>
+<p>But uranium-235 was extraordinarily difficult to obtain. One of the key questions was simply: how much of it do you need?</p>
+<p>In January 1946, everything stopped. Ulam was struck by encephalitis — an inflammation of the brain that nearly killed him. His recovery was long and slow, spending most of his time in bed.</p>
+<p>To pass the time, he played solitaire. But as he played countless games, winning some and losing others, one question kept nagging at him: what are the chances that a randomly shuffled game of solitaire could be won?</p>
+<p>The problem was deceivingly difficult. With fifty-two cards, each arrangement creates a unique game. The total number of possible games is fifty-two factorial — roughly ten to the power of sixty-seven. Solving this analytically was hopeless.</p>
+<p>But Ulam had a flash of insight: what if he simply played hundreds of games and counted how many could be won? This would give him a statistical approximation without needing an exact calculation.</p>
+<p>Back at Los Alamos, scientists grappled with far harder problems than solitaire — like figuring out how neutrons behave inside a nuclear core. In a nuclear core, there are trillions of neutrons interacting with their surroundings. Computing outcomes directly seemed impossible.</p>
+<p>When Ulam returned to work, he had a sudden revelation: what if they could simulate these systems by generating lots of random outcomes?</p>
+<p>He shared this idea with Von Neumann, who immediately recognized its power but also spotted a key problem. In solitaire, each game is independent — how cards are dealt in one game has no effect on the next. But neutrons aren&#039;t like that. A neutron&#039;s behavior depends on where it is and what it has done before.</p>
+<p>Von Neumann realized they needed a Markov chain: a system where each step influences the next.</p>
+<h2>The Monte Carlo Method</h2>
+<p>The simplified version works like this. The starting state is simply a neutron traveling through the core. From there, three things can happen:</p>
+<p>First, it can scatter off an atom and keep traveling — an arrow leading back to itself. Second, it can leave the system or get absorbed by non-fissile material, ending its participation in the chain reaction. Third, it can strike another uranium-235 atom, triggering a fission event and releasing two or three more neutrons that start their own chains.</p>
+<p>The transition probabilities aren&#039;t fixed. They depend on the neutron&#039;s position, velocity, energy, and the overall configuration and mass of uranium. A fast-moving neutron might have thirty percent chance to scatter, fifty percent chance to be absorbed or leave, and twenty percent chance to cause fission. A slower moving neutron would have different probabilities.</p>
+<p>Von Neumann and Ulam ran this chain on the world&#039;s first electronic computer, the ENIAC. The machine randomly generated a neutron&#039;s starting conditions and stepped through the chain, keeping track of how many neutrons were produced on average per run — known as the multiplication factor K.</p>
+<p>After stepping through the full chain for a specified number of steps, they collected the average K value and recorded it in a histogram. They repeated this process hundreds of times, building a statistical distribution of possible outcomes.</p>
+<p>If most cases showed K less than one, the reaction dies down. If it&#039;s equal to one, there&#039;s a self-sustaining chain reaction that doesn&#039;t grow. If K is larger than one, the reaction grows exponentially — and you&#039;ve got a bomb.</p>
+<p>Von Neumann and Ulam had found a way to figure out how many neutrons were produced without doing any exact calculations. They could approximate differential equations too hard to solve analytically.</p>
+<p>All they needed was a name.</p>
+<p>Ulam&#039;s uncle was a gambler, and the random sampling with high stakes reminded him of the Monte Carlo Casino in Monaco. The name stuck.</p>
+<h2>Bottom Line</h2>
+<p>The Markov chain — born from a mathematical feud that seemed like pure abstraction — became essential to modeling complex dependent systems we couldn&#039;t otherwise understand. It helped predict whether a nuclear reaction would sustain itself or fizzle out. It changed how scientists simulate everything from particle physics to weather patterns.</p>
+<p>Markov&#039;s insight that independence isn&#039;t necessary for probability turned out to be one of the most practically important discoveries of the twentieth century. Sometimes the purest mathematics has the most surprising applications.</p>
+      </div>
+
       
-      <div class="excerpt-card">
+
+      <section id="excerpt" class="excerpt-card">
+        <div class="content-label">
+          <span class="label-text">Transcript excerpt on Veritasium</span>
+        </div>
         <div class="article-excerpt">
           <p>How many times do you need to shuffle a deck of cards to make them truly random? How much uranium does it take to build a nuclear bomb? How can you predict the next word in a sentence? And how does Google know which page you're actually searching for?</p>
 <p>Well, the reason we know the answer to all of these questions is because of a strange math feud in Russia that took place over a hundred years ago. In 1905, socialist groups all across Russia rose up against Thesar, the ruler of the empire. They demanded a complete political reform or failing that that he step down from power entirely. This divided the nation into two.</p>
@@ -49,9 +107,8 @@
           <a href="https://www.youtube.com/watch?v=KZeIEiBrT_w" class="read-button" target="_blank" rel="noopener">
             Watch on YouTube &rarr;
           </a>
-          <p class="cta-note">Watch the full video by Derek Muller on YouTube.</p>
         </div>
-      </div>
+      </section>
       
     </article>
   
