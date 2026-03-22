@@ -136,6 +136,10 @@ function cleanPreamble(text: string): string {
   // Strip JSON metadata prefix: title", "author": "Name", "piece": "actual content
   cleaned = cleaned.replace(/^[^"]*",\s*"(?:author|title)":\s*"[^"]*",\s*"(?:piece|content|text)":\s*"/, '').trim();
 
+  // Strip {"content": ["text... (array variant from MiniMax)
+  cleaned = cleaned.replace(/^\s*\{\s*"(?:content|text|piece)"\s*:\s*\[\s*"?/, '').trim();
+  cleaned = cleaned.replace(/"\s*\]?\s*\}\s*$/, '').trim();
+
   // Strip leading title (# or ##) — the title is already displayed in the page header
   cleaned = cleaned.replace(/^#{1,2}\s+.+\n+/, '').trim();
 

@@ -56,7 +56,7 @@ export function staticLayout(
     <nav class="container">
       <a href="${pathToRoot}index.html" class="logo">Hex Index</a>
       <a href="${pathToRoot}tag/index.html" class="header-link">Topics</a>
-      <a href="${pathToRoot}weekly/index.html" class="header-link">Weekly</a>
+      <a href="${pathToRoot}weekly/index.html" class="header-link">Reader</a>
       <a href="${pathToRoot}about/index.html" class="header-link">About</a>
       <div class="search-wrap">
         <input type="text" id="search" class="search-input" placeholder="Search" autocomplete="off" spellcheck="false">

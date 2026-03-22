@@ -84,18 +84,6 @@ interface WeekRange {
 
 // ── Week math (Saturday–Friday) ──────────────────────────────────
 
-function getISOWeek(d: Date): number {
-  const date = new Date(Date.UTC(d.getUTCFullYear(), d.getUTCMonth(), d.getUTCDate()));
-  date.setUTCDate(date.getUTCDate() + 4 - (date.getUTCDay() || 7));
-  const yearStart = new Date(Date.UTC(date.getUTCFullYear(), 0, 1));
-  return Math.ceil(((date.getTime() - yearStart.getTime()) / 86400000 + 1) / 7);
-}
-
-function getISOWeekYear(d: Date): number {
-  const date = new Date(Date.UTC(d.getUTCFullYear(), d.getUTCMonth(), d.getUTCDate()));
-  date.setUTCDate(date.getUTCDate() + 4 - (date.getUTCDay() || 7));
-  return date.getUTCFullYear();
-}
 
 /**
  * Get the week range for a given date.
@@ -118,10 +106,8 @@ function getWeekRange(date: Date): WeekRange {
   friday.setUTCDate(saturday.getUTCDate() + 6);
   friday.setUTCHours(12, 30, 0, 0);
 
-  // Use ISO week of the Friday for the label
-  const weekNum = getISOWeek(friday);
-  const weekYear = getISOWeekYear(friday);
-  const label = `${weekYear}-w${String(weekNum).padStart(2, '0')}`;
+  // Filename uses the Friday end date
+  const label = `hex-index-${friday.getUTCFullYear()}-${String(friday.getUTCMonth() + 1).padStart(2, '0')}-${String(friday.getUTCDate()).padStart(2, '0')}`;
 
   const monthFmt = new Intl.DateTimeFormat('en-US', { month: 'long', timeZone: 'UTC' });
   const startMonth = monthFmt.format(saturday);
@@ -357,15 +343,15 @@ function htmlToXhtml(html: string): string {
 // ── Epub generation ────────────────────────────────────────────────
 
 const EPUB_CSS = `body {
-  font-family: 'Lexend', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-family: 'Lexend', 'Roboto Slab', 'OpenDyslexic', sans-serif;
   font-size: 1em;
   line-height: 1.7;
   color: #1c1917;
   margin: 1em;
 }
-h1 { font-size: 1.4em; font-weight: 600; margin: 1.5em 0 0.5em; }
-h2 { font-size: 1.2em; font-weight: 600; margin: 1.5em 0 0.5em; border-top: 1px solid #d6d0c8; padding-top: 0.8em; }
-h3 { font-size: 1.05em; font-weight: 600; color: #44403c; margin: 1em 0 0.4em; }
+h1 { font-size: 1.15em; font-weight: 600; margin: 1.5em 0 0.5em; }
+h2 { font-size: 1.1em; font-weight: 600; margin: 1.5em 0 0.5em; border-top: 1px solid #d6d0c8; padding-top: 0.8em; }
+h3 { font-size: 1.02em; font-weight: 600; color: #44403c; margin: 1em 0 0.4em; }
 p { margin: 0 0 0.8em; }
 blockquote { border-left: 3px solid #9a3412; padding: 0.5em 0 0.5em 1em; margin: 1em 0; color: #44403c; font-style: italic; }
 ul, ol { margin: 0.8em 0; padding-left: 1.5em; }
@@ -376,9 +362,10 @@ img { max-width: 80%; height: auto; display: block; margin: 1em auto; }
 .article-meta { font-size: 0.85em; color: #78716c; margin-top: 0.3em; }
 .deep-dive { margin-top: 2em; padding-top: 1em; border-top: 1px solid #d6d0c8; }
 .deep-dive-label { font-size: 0.8em; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; color: #9a3412; margin-bottom: 0.5em; }
-.topic-header { font-size: 1.3em; font-weight: 600; margin: 2em 0 1em; padding-bottom: 0.5em; border-bottom: 2px solid #1c1917; }
-.cover-title { font-size: 1.8em; font-weight: 600; text-align: center; margin: 3em 0 0.5em; }
-.cover-subtitle { font-size: 1em; text-align: center; color: #78716c; margin-bottom: 3em; }
+.topic-header { font-size: 1.15em; font-weight: 600; margin: 2em 0 1em; padding-bottom: 0.5em; border-bottom: 2px solid #1c1917; }
+.cover-title { font-size: 1.3em; font-weight: 600; text-align: center; margin: 2em 0 0.3em; }
+.cover-subtitle { font-size: 0.95em; text-align: center; color: #78716c; margin-bottom: 1em; }
+.cover-image { max-width: 70%; height: auto; display: block; margin: 2em auto; }
 .source-note { display: none; }
 .toc-topic { font-size: 1.1em; font-weight: 600; color: #9a3412; margin: 1.5em 0 0.3em; }
 .toc-article { margin: 0.3em 0 0.3em 1em; }
@@ -398,7 +385,7 @@ async function buildEpub(
   week: WeekRange,
   articlesByTopic: Map<string, ArticleForEpub[]>,
   outputPath: string,
-  weeklyDir?: string
+  weeklyDir: string
 ): Promise<void> {
   await ensureDir(join(outputPath, '..'));
 
@@ -461,20 +448,31 @@ async function buildEpub(
       }
     }
 
-    // Title page
+    // Title page with cover image
+    const coverImageTag = existsSync(join(weeklyDir, `cover-${week.label}.webp`))
+      ? `<img class="cover-image" src="images/cover.webp" alt=""/>`
+      : '';
     const titleXhtml = `<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
-<head><title>The Hex Index Weekly</title><link rel="stylesheet" type="text/css" href="style.css"/></head>
+<head><title>Hex Index Reader</title><link rel="stylesheet" type="text/css" href="style.css"/></head>
 <body>
-  <p class="cover-title">The Hex Index Weekly</p>
+  ${coverImageTag}
+  <p class="cover-title">Hex Index Reader</p>
   <p class="cover-subtitle">${escapeXml(week.display)}</p>
-  <p style="text-align:center; margin-top:2em; color:#78716c;">hex-index.com</p>
+  <p style="text-align:center; margin-top:1em; color:#78716c; font-size:0.85em;">hex-index.com</p>
 </body>
 </html>`;
     archive.append(titleXhtml, { name: 'OEBPS/title.xhtml' });
     manifestItems.push('<item id="title" href="title.xhtml" media-type="application/xhtml+xml"/>');
     spineItems.push('<itemref idref="title"/>');
+
+    // Add cover image to epub if it exists
+    const coverFilePath = join(weeklyDir, `cover-${week.label}.webp`);
+    if (existsSync(coverFilePath)) {
+      archive.file(coverFilePath, { name: 'OEBPS/images/cover.webp' });
+      manifestItems.push('<item id="cover-image" href="images/cover.webp" media-type="image/webp" properties="cover-image"/>');
+    }
 
     // Nav (epub3) — build with topic grouping
     let navTocHtml = '';
@@ -607,7 +605,7 @@ ${navTocHtml}    </ol>
     <meta name="dtb:totalPageCount" content="0"/>
     <meta name="dtb:maxPageNumber" content="0"/>
   </head>
-  <docTitle><text>The Hex Index Weekly — ${escapeXml(week.display)}</text></docTitle>
+  <docTitle><text>Hex Index Reader — ${escapeXml(week.display)}</text></docTitle>
   <navMap>
 ${ncxNavPoints}  </navMap>
 </ncx>`;
@@ -619,7 +617,7 @@ ${ncxNavPoints}  </navMap>
 <package xmlns="http://www.idpf.org/2007/opf" unique-identifier="uid" version="3.0">
   <metadata xmlns:dc="http://purl.org/dc/elements/1.1/">
     <dc:identifier id="uid">hex-index-weekly-${week.label}</dc:identifier>
-    <dc:title>The Hex Index Weekly — ${escapeXml(week.display)}</dc:title>
+    <dc:title>Hex Index Reader — ${escapeXml(week.display)}</dc:title>
     <dc:creator>Hex Index</dc:creator>
     <dc:language>en</dc:language>
     <dc:date>${week.start.toISOString().split('T')[0]}</dc:date>
@@ -847,7 +845,7 @@ function generateWeeklyListingPage(weeks: WeekListItem[]): string {
     </section>`;
 
   const content = `
-    <h1 class="section-title">Weekly Editions</h1>
+    <h1 class="section-title">Hex Index Reader</h1>
     ${subscribeSection}
     <div class="weekly-list">
       ${weeks.length > 0 ? weekItems : '<p style="color:var(--ink-muted)">No weekly editions available yet.</p>'}
@@ -890,5 +888,5 @@ function generateWeeklyListingPage(weeks: WeekListItem[]): string {
     </script>
   `;
 
-  return staticLayout('Weekly Editions', content, pathToRoot);
+  return staticLayout('Hex Index Reader', content, pathToRoot);
 }
