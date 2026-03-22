@@ -28,15 +28,50 @@
       </header>
 
       <div class="content-label">
-        <span class="label-text">Transcript excerpt from <a href="../../publication/aiexplained/index.html">AI Explained</a></span>
+        <span class="label-text">Commentary by <a href="../../about/index.html">Brian Edwards</a></span>
         <nav class="content-nav">
-          <a href="https://www.youtube.com/watch?v=wPBD6wTap7g" target="_blank" rel="noopener">Watch on YouTube &rarr;</a>
+          
+          <a href="https://www.youtube.com/watch?v=wPBD6wTap7g" target="_blank" rel="noopener">Original video &rarr;</a>
         </nav>
       </div>
 
       
+      <div class="article-content">
+        <p>You are spending 15 minutes listening to this piece because it cuts through the noise on one of the most consequential technology stories of the year: a major Apple paper claiming AI models don&#039;t actually reason. But unlike the headlines, this piece explains what that really means—and why you should still use these tools.</p>
+<h2>The Paper That Went Viral</h2>
+<p>Apple&#039;s research paper made headlines across mainstream media—reaching over 13 million people. The study tested large language models on classic logic puzzles: Tower of Hanoi, checkers variants, and river crossing challenges (the fox and chicken problem). The findings were striking: as puzzle complexity increased, model performance dropped dramatically.</p>
+<figure class="inline-illustration">
+    <img src="../../images/e79f9ff1-e966-4221-a4bc-0e56d575012f.webp" alt="" loading="lazy" width="600" height="315">
+  </figure>
+
+<p>If these models functioned like traditional software calculators, increasing complexity shouldn&#039;t matter—correct answers should remain consistent. Instead, the paper demonstrated something different: these are probabilistic neural networks, not deterministic programs.</p>
+<h2>Why Models Fail on Complex Tasks</h2>
+<p>The distinction matters enormously. Large language models generate plausible outputs rather than accurate ones. When given multiplication problems with sufficiently large digits, they don&#039;t simply say &quot;I don&#039;t know&quot;—they hallucinate wrong answers that look convincing.</p>
+<p>Consider this example: when researchers presented Claude Opus and Gemini 2.5 Pro with a complex calculation without tools, both models produced confident but incorrect responses. They generated plausible-sounding numbers ending in similar patterns to the real answer—essentially very convincing BS. The moment these same models were allowed to use code or tools, they delivered correct results.</p>
+<p>This reveals what Apple discovered but didn&#039;t anticipate: these models aren&#039;t designed to be predictable software. They&#039;re generative systems that produce plausible outputs—which is precisely why they&#039;ll hallucinate when asked questions beyond their capacity.</p>
+<h2>What Researchers Actually Knew</h2>
+<p>The paper&#039;s findings weren&#039;t news to serious AI researchers. The study originally intended to compare &quot;thinking&quot; versus &quot;non-thinking&quot; models on math benchmarks, but results contradicted expectations—so they pivoted to puzzles instead.</p>
+<p>One detail many readers missed: the paper admitted that when provided algorithms directly in prompts, models still often failed. The authors expressed surprise that executing given algorithms didn&#039;t guarantee success. But this makes sense for probabilistic neural networks—even with 99.9% accuracy per step, millions of steps will eventually produce errors.</p>
+<p>The token limit issue also matters. Some tested problems required more than 128,000 tokens to answer—which these models simply couldn&#039;t output. Rather than attempt impossible calculations, they output shorter traces: &quot;here is the algorithm you need to use.&quot;</p>
+<blockquote>These models are designed to be generative—not predictable calculators. They want to produce plausible outputs, which explains why they&#039;ll hallucinate when asked questions they can&#039;t handle.</blockquote>
+<h2>The SimpleBench Problem</h2>
+<p>The author created a benchmark called SimpleBench to test simple scenarios where models fail. Testing GPT-4o on scenarios involving basic physical causation—like a glove falling onto a road—revealed errors despite 18 minutes of thinking time.</p>
+<p>This points to something important: language models are swiftly catching up to human performance across almost all text-based domains, but they generate mistruths with almost no hesitation. Like many humans, they&#039;ll confidently assert false information.</p>
+<h2>Model Recommendations</h2>
+<p>For practical use cases, the recommendation shifts based on budget and needs:</p>
+<p>For free users with caps, Google&#039;s Gemini 2.5 Pro scores highest on SimpleBench and includes access to a video generator model. Deepseek R1 offers very cheap API pricing with readable technical reports—suitable for those building production workflows.</p>
+<p>The $200 monthly tier for GPT-4o Pro from OpenAI is aimed at professionals, not average users. Benchmark results showed 93% accuracy on hard PhD-level science questions and 84% on competitive coding—but note that GPT-4o (not the Pro version) actually outperformed in December 2024&#039;s reveal.</p>
+<p>Companies often obscure comparison data: they may not show multiple parallel attempts taken to achieve record scores or serious usage limitations for larger models. Looking beyond headline benchmark results is essential for actual use cases.</p>
+<h2>Bottom Line</h2>
+<p>The Apple paper revealed something researchers already understood: large language models are probabilistic generators of plausible outputs, not reliable calculators. Their breakthrough isn&#039;t standalone intelligence—it&#039;s integration with symbolic systems that correct their BS in real-time. The models catch up to human performance fast, but they&#039;ll also confidentially lie like humans do. For practical use cases, Gemini 2.5 Pro remains the best free option; Deepseek R1 offers the best value for paid API access. Neither is a supercomputer, and both require tool use for reliable results.</p>
+      </div>
+
       
-      <div class="excerpt-card">
+
+      <section id="excerpt" class="excerpt-card">
+        <div class="content-label">
+          <span class="label-text">Transcript excerpt on AI Explained</span>
+        </div>
         <div class="article-excerpt">
           <p>Almost no one has the time to investigate headlines like this one seen by tens of millions of people that AI models don't actually reason at all. They just memorize patterns. AGI is mostly hype and even the underlying Apple paper quoted says it's an illusion of thinking. This was picked up in mainstream outlets like the Guardian which quoted it as being a pretty devastating Apple paper.</p>
 <p>So, what are people supposed to believe when half the headlines are about an imminent AI job apocalypse and the other half are about LLMs all being fake? Well, hopefully you'll find that I'm not trying to sell a narrative. I'll just say what I found having read the 30page paper in full and the surrounding analyses. I'll also end with a recommendation on which model you should use and yes, touch on the brand new 03 Pro from OpenAI.</p>
@@ -49,9 +84,8 @@
           <a href="https://www.youtube.com/watch?v=wPBD6wTap7g" class="read-button" target="_blank" rel="noopener">
             Watch on YouTube &rarr;
           </a>
-          <p class="cta-note">Watch the full video by AI Explained on YouTube.</p>
         </div>
-      </div>
+      </section>
       
     </article>
   
