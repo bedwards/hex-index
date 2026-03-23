@@ -152,6 +152,11 @@ async function main(): Promise<void> {
       )
     `);
 
+    // Add affiliate_links column if not present
+    await pool.query(`
+      ALTER TABLE app.weekly_consolidated ADD COLUMN IF NOT EXISTS affiliate_links JSONB NOT NULL DEFAULT '[]'::jsonb
+    `);
+
     const baseWeek = getWeekRange(new Date());
     const week = WEEK_LABEL
       ? { ...baseWeek, label: WEEK_LABEL }
@@ -210,18 +215,20 @@ async function main(): Promise<void> {
         // Single article — no consolidation needed (deterministic)
         const a = pubArticles[0];
         const deepDive = await getBestDeepDive(pool, [a.id]);
+        const singleLinks = await getTopAffiliateLinks(pool, [a.id]);
 
         await pool.query(`
           INSERT INTO app.weekly_consolidated
-            (week_label, publication_id, article_ids, consolidated_content_path, deep_dive_wikipedia_id, tag_slug)
-          VALUES ($1, $2, $3, $4, $5, $6)
+            (week_label, publication_id, article_ids, consolidated_content_path, deep_dive_wikipedia_id, tag_slug, affiliate_links)
+          VALUES ($1, $2, $3, $4, $5, $6, $7)
           ON CONFLICT (week_label, publication_id) DO UPDATE SET
             article_ids = EXCLUDED.article_ids,
             consolidated_content_path = EXCLUDED.consolidated_content_path,
             deep_dive_wikipedia_id = EXCLUDED.deep_dive_wikipedia_id,
             tag_slug = EXCLUDED.tag_slug,
+            affiliate_links = EXCLUDED.affiliate_links,
             updated_at = NOW()
-        `, [week.label, pubId, [a.id], a.rewritten_content_path ?? a.content_path, deepDive?.wikipedia_id ?? null, a.tag_slug]);
+        `, [week.label, pubId, [a.id], a.rewritten_content_path ?? a.content_path, deepDive?.wikipedia_id ?? null, a.tag_slug, JSON.stringify(singleLinks)]);
 
         console.info(`  ${pubName}: 1 article (no consolidation needed)`);
         consolidated++;
@@ -341,17 +348,19 @@ Output ONLY the JSON. No preamble.
       if (consolidatedText.length < 200) {
         console.info('    Consolidated text too short, falling back to first article');
         const fallback = selectedArticles[0];
+        const fallbackLinks = await getTopAffiliateLinks(pool, selectedIds);
         await pool.query(`
           INSERT INTO app.weekly_consolidated
-            (week_label, publication_id, article_ids, consolidated_content_path, deep_dive_wikipedia_id, tag_slug)
-          VALUES ($1, $2, $3, $4, $5, $6)
+            (week_label, publication_id, article_ids, consolidated_content_path, deep_dive_wikipedia_id, tag_slug, affiliate_links)
+          VALUES ($1, $2, $3, $4, $5, $6, $7)
           ON CONFLICT (week_label, publication_id) DO UPDATE SET
             article_ids = EXCLUDED.article_ids,
             consolidated_content_path = EXCLUDED.consolidated_content_path,
             deep_dive_wikipedia_id = EXCLUDED.deep_dive_wikipedia_id,
             tag_slug = EXCLUDED.tag_slug,
+            affiliate_links = EXCLUDED.affiliate_links,
             updated_at = NOW()
-        `, [week.label, pubId, selectedIds, fallback.rewritten_content_path ?? fallback.content_path, null, fallback.tag_slug]);
+        `, [week.label, pubId, selectedIds, fallback.rewritten_content_path ?? fallback.content_path, null, fallback.tag_slug, JSON.stringify(fallbackLinks)]);
         consolidated++;
         continue;
       }
@@ -380,17 +389,20 @@ Output ONLY the JSON. No preamble.
         if (score > bestScore) { bestTag = tag; bestScore = score; }
       }
 
+      const topLinks = await getTopAffiliateLinks(pool, selectedIds);
+
       await pool.query(`
         INSERT INTO app.weekly_consolidated
-          (week_label, publication_id, article_ids, consolidated_content_path, deep_dive_wikipedia_id, tag_slug)
-        VALUES ($1, $2, $3, $4, $5, $6)
+          (week_label, publication_id, article_ids, consolidated_content_path, deep_dive_wikipedia_id, tag_slug, affiliate_links)
+        VALUES ($1, $2, $3, $4, $5, $6, $7)
         ON CONFLICT (week_label, publication_id) DO UPDATE SET
           article_ids = EXCLUDED.article_ids,
           consolidated_content_path = EXCLUDED.consolidated_content_path,
           deep_dive_wikipedia_id = EXCLUDED.deep_dive_wikipedia_id,
           tag_slug = EXCLUDED.tag_slug,
+          affiliate_links = EXCLUDED.affiliate_links,
           updated_at = NOW()
-      `, [week.label, pubId, selectedIds, contentPath, deepDive?.wikipedia_id ?? null, bestTag]);
+      `, [week.label, pubId, selectedIds, contentPath, deepDive?.wikipedia_id ?? null, bestTag, JSON.stringify(topLinks)]);
 
       console.info(`    Consolidated: ${contentPath} (deep dive: ${deepDive?.title ?? 'none'})`);
       consolidated++;
@@ -402,6 +414,35 @@ Output ONLY the JSON. No preamble.
   } finally {
     await pool.end();
   }
+}
+
+/**
+ * Aggregate the best affiliate links across selected articles, deduped by ASIN.
+ */
+async function getTopAffiliateLinks(
+  pool: Pool,
+  articleIds: string[],
+  limit: number = 3
+): Promise<Array<{asin: string; title: string; author: string; description: string; category: string}>> {
+  if (articleIds.length === 0) { return []; }
+
+  const { rows } = await pool.query<{ affiliate_links: Array<{asin: string; title: string; author: string; description: string; category: string}> }>(`
+    SELECT affiliate_links FROM app.articles
+    WHERE id = ANY($1) AND affiliate_links IS NOT NULL AND jsonb_array_length(affiliate_links) > 0
+  `, [articleIds]);
+
+  // Flatten and dedupe by ASIN, take first N
+  const seen = new Set<string>();
+  const all: Array<{asin: string; title: string; author: string; description: string; category: string}> = [];
+  for (const row of rows) {
+    for (const link of row.affiliate_links) {
+      if (!seen.has(link.asin)) {
+        seen.add(link.asin);
+        all.push(link);
+      }
+    }
+  }
+  return all.slice(0, limit);
 }
 
 /**

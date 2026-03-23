@@ -240,8 +240,15 @@ STYLE GUIDE:
 BAD OPENING: "Imagine walking into a bank and being told your neighborhood is too risky..."
 GOOD OPENING: "In 1935, the federal government drew red lines around Black neighborhoods on city maps and declared them unfit for investment. The practice was called redlining, and its effects persist ninety years later."
 
+BOOK RECOMMENDATIONS:
+Identify 1-3 books that are directly relevant to this topic. Choose books that:
+- Are mentioned, quoted, or clearly alluded to in the source material
+- Or are the definitive work on the topic being discussed
+- Are well-known, highly-rated, and genuinely worth reading
+For each book, provide the Amazon ASIN (the 10-character product ID — look it up from your training data), the exact title, author name, and a 1-2 sentence description of why this book matters for understanding this topic.
+
 Output ONLY the JSON. No preamble, no explanation.
-{"${stub.original_url}": "your essay text here"}`;
+{"${stub.original_url}": "your essay text here", "affiliateLinks": [{"asin": "0374533555", "title": "Thinking, Fast and Slow", "author": "Daniel Kahneman", "description": "The foundational work on cognitive biases relevant to this topic.", "category": "books"}]}`;
 
   const responseText = await generateText(prompt, {
     temperature: 0.8,
@@ -249,13 +256,24 @@ Output ONLY the JSON. No preamble, no explanation.
   });
 
   let text: string;
+  let affiliateLinks: Array<{asin: string; title: string; author: string; description: string; category: string}> = [];
   try {
     let cleaned = responseText.trim();
     if (cleaned.startsWith('```')) {
       cleaned = cleaned.replace(/^```\w*\n?/, '').replace(/\n?```$/, '');
     }
-    const parsed = JSON.parse(cleaned) as Record<string, string>;
-    text = parsed[stub.original_url] ?? Object.values(parsed)[0] ?? '';
+    const parsed = JSON.parse(cleaned) as Record<string, unknown>;
+    // Extract affiliate links before treating as content map
+    if (Array.isArray(parsed.affiliateLinks)) {
+      affiliateLinks = parsed.affiliateLinks as Array<{asin: string; title: string; author: string; description: string; category: string}>;
+    }
+    // Extract essay text — look for the URL key or first string value
+    if (typeof parsed[stub.original_url] === 'string') {
+      text = parsed[stub.original_url] as string;
+    } else {
+      const firstString = Object.values(parsed).find(v => typeof v === 'string');
+      text = (firstString as string) ?? '';
+    }
   } catch {
     // Last resort: use the raw text as the rewrite
     text = responseText;
@@ -263,7 +281,7 @@ Output ONLY the JSON. No preamble, no explanation.
 
   text = cleanPreamble(text);
   if (text.length > 100) {
-    await saveRewrite(pool, stub, text);
+    await saveRewrite(pool, stub, text, affiliateLinks);
     console.info(`  Rewrote (single): ${stub.wiki_title}`);
   }
 }
@@ -274,7 +292,8 @@ Output ONLY the JSON. No preamble, no explanation.
 async function saveRewrite(
   pool: Pool,
   stub: StubRow,
-  plainText: string
+  plainText: string,
+  affiliateLinks: Array<{asin: string; title: string; author: string; description: string; category: string}> = []
 ): Promise<void> {
   const html = textToHtml(plainText, stub.original_url, stub.wiki_title);
   const slug = stub.wiki_slug;
@@ -295,9 +314,10 @@ async function saveRewrite(
         estimated_read_time_minutes = $3,
         status = 'complete',
         rewrite_dirty = false,
+        affiliate_links = $4,
         updated_at = NOW()
-    WHERE id = $4
-  `, [contentPath, wordCount, readTime, stub.wiki_id]);
+    WHERE id = $5
+  `, [contentPath, wordCount, readTime, JSON.stringify(affiliateLinks), stub.wiki_id]);
 }
 
 main().catch((err: unknown) => {
