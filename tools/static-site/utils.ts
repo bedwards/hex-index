@@ -240,6 +240,43 @@ export function estimateReadTime(content: string): number {
 /**
  * Slugify a string for use in URLs
  */
+/**
+ * Build an Amazon affiliate URL from ASIN and tag
+ */
+export function buildAmazonUrl(asin: string, tag: string): string {
+  return `https://www.amazon.com/dp/${encodeURIComponent(asin)}?tag=${encodeURIComponent(tag)}`;
+}
+
+/**
+ * Render an affiliate links section for static HTML pages.
+ * Tasteful, at break points — like the deep dives section.
+ */
+export function renderAffiliateSection(
+  links: Array<{ asin: string; title: string; author: string; description: string }>,
+  tag: string
+): string {
+  if (!tag || links.length === 0) {return '';}
+
+  const items = links.map(link => `
+    <li class="affiliate-item">
+      <a href="${buildAmazonUrl(link.asin, tag)}" target="_blank" rel="noopener sponsored">
+        <strong>${escapeHtml(link.title)}</strong> by ${escapeHtml(link.author)}
+      </a>
+      <p class="affiliate-desc">${escapeHtml(link.description)}</p>
+    </li>`
+  ).join('\n');
+
+  return `
+    <aside class="affiliate-section">
+      <h2>Recommended Reading</h2>
+      <p class="affiliate-disclosure">As an Amazon Associate, Hex Index earns from qualifying purchases.</p>
+      <ul class="affiliate-list">
+        ${items}
+      </ul>
+    </aside>
+  `;
+}
+
 export function slugify(text: string): string {
   return text
     .toLowerCase()

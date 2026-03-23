@@ -5,7 +5,7 @@
 
 import type { Pool } from 'pg';
 import { staticReadingLayout } from '../templates.js';
-import { writeFile, extractHtmlExcerpt, escapeHtml, formatDate } from '../utils.js';
+import { writeFile, extractHtmlExcerpt, escapeHtml, formatDate, renderAffiliateSection } from '../utils.js';
 import { join } from 'path';
 import { readFile } from 'fs/promises';
 
@@ -38,6 +38,7 @@ interface ArticleRow {
   rewritten_content_path: string | null;
   image_path: string | null;
   original_url: string;
+  affiliate_links: Array<{ asin: string; title: string; author: string; description: string }> | null;
 }
 
 interface WikipediaLink {
@@ -63,7 +64,8 @@ async function getAllArticles(pool: Pool): Promise<ArticleRow[]> {
       a.content_path,
       a.rewritten_content_path,
       a.image_path,
-      a.original_url
+      a.original_url,
+      a.affiliate_links
     FROM app.articles a
     JOIN app.publications p ON a.publication_id = p.id
     ORDER BY a.published_at DESC NULLS LAST
@@ -126,7 +128,8 @@ function generateArticlePage(
   contentHtml: string,
   wikipediaLinks: WikipediaLink[],
   isFullRewrite: boolean = false,
-  excerptHtml: string = ''
+  excerptHtml: string = '',
+  affiliateLinks: Array<{ asin: string; title: string; author: string; description: string }> = []
 ): string {
   const date = formatDate(article.published_at);
   const pathToRoot = '../../';
@@ -157,6 +160,9 @@ function generateArticlePage(
       </section>
     `;
   }
+
+  const affiliateTag = process.env.AMAZON_AFFILIATE_TAG ?? '';
+  const affiliateHtml = renderAffiliateSection(affiliateLinks, affiliateTag);
 
   const authorName = article.author_name ?? 'Unknown';
   const pubName = escapeHtml(article.publication_name);
@@ -224,9 +230,13 @@ function generateArticlePage(
 
       ${deepDivesHtml}
 
+      ${affiliateHtml}
+
       ${excerptSection}
       ` : `
       ${deepDivesHtml}
+
+      ${affiliateHtml}
       <div class="excerpt-card">
         <div class="article-excerpt">
           ${mainContent}
@@ -269,7 +279,8 @@ export async function generateArticlePages(
     }
     const wikipediaLinks = await getLinkedWikipedia(pool, article.id);
 
-    const html = generateArticlePage(article, displayContent, wikipediaLinks, hasRewrite, hasRewrite ? excerpt : '');
+    const affiliateLinks = Array.isArray(article.affiliate_links) ? article.affiliate_links : [];
+    const html = generateArticlePage(article, displayContent, wikipediaLinks, hasRewrite, hasRewrite ? excerpt : '', affiliateLinks);
     const filePath = join(outputDir, 'article', article.id, 'index.html');
 
     await writeFile(filePath, html);
