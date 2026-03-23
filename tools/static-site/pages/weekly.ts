@@ -384,6 +384,9 @@ img { max-width: 80%; height: auto; display: block; margin: 1em auto; }
 .affiliate-section { margin-top: 2em; padding-top: 1em; border-top: 1px solid #d4d4d4; }
 .affiliate-label { font-weight: bold; font-size: 0.95em; margin-bottom: 0.25em; }
 .affiliate-section li { margin-bottom: 0.75em; }
+.affiliate-book-description { font-size:0.85em; color:#78716c; }
+.affiliate-disclosure { font-size:0.8em; color:#78716c; font-style:italic; }
+.affiliate-books { list-style:none; padding:0; }
 `;
 
 interface ArticleForEpub {
@@ -561,14 +564,14 @@ ${navTocHtml}    </ol>
         if (affiliateTag && article.affiliateLinks.length > 0) {
           const bookItems = article.affiliateLinks.map(link => {
             const url = `https://www.amazon.com/dp/${encodeURIComponent(link.asin)}?tag=${encodeURIComponent(affiliateTag)}`;
-            return `    <li><a href="${escapeXml(url)}"><strong>${escapeXml(link.title)}</strong></a> by ${escapeXml(link.author)}<br/><span style="font-size:0.85em; color:#78716c;">${escapeXml(link.description)}</span></li>`;
+            return `    <li><a href="${escapeXml(url)}"><strong>${escapeXml(link.title)}</strong></a> by ${escapeXml(link.author)}<br/><span class="affiliate-book-description">${escapeXml(link.description)}</span></li>`;
           }).join('\n');
 
           affiliateHtml = `
   <div class="affiliate-section">
     <p class="affiliate-label">Recommended Reading</p>
-    <p style="font-size:0.8em; color:#78716c; font-style:italic;">As an Amazon Associate, Hex Index earns from qualifying purchases.</p>
-    <ul style="list-style:none; padding:0;">
+    <p class="affiliate-disclosure">As an Amazon Associate, Hex Index earns from qualifying purchases.</p>
+    <ul class="affiliate-books">
 ${bookItems}
     </ul>
   </div>`;
