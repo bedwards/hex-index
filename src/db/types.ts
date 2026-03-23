@@ -38,6 +38,7 @@ export interface Article {
   media_type: MediaType;
   tags: Record<string, unknown>;
   metadata: Record<string, unknown>;
+  affiliate_links: AffiliateLink[];
   full_text_search: string | null;
   created_at: Date;
   updated_at: Date;
@@ -64,6 +65,14 @@ export interface ArticleInfluence {
   title: string;
   publication_id: string;
   incoming_links: number;
+}
+
+export interface AffiliateLink {
+  asin: string;
+  title: string;
+  author: string;
+  description: string;
+  category: string;
 }
 
 // Input types for creating records
@@ -93,6 +102,7 @@ export interface CreateArticleInput {
   media_type?: MediaType;
   tags?: Record<string, unknown>;
   metadata?: Record<string, unknown>;
+  affiliate_links?: AffiliateLink[];
 }
 
 export interface CreateArticleLinkInput {
