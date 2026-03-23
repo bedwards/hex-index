@@ -291,7 +291,7 @@ export function createPagesRouter(pool: Pool): Router {
     try {
       const { id } = req.params;
 
-      const result = await pool.query<Article>(`
+      const result = await pool.query<Article & { affiliate_links: Array<{ asin: string; title: string; author: string; description: string }> | null }>(`
         SELECT a.*, p.name as publication_name, p.slug as publication_slug
         FROM app.articles a
         JOIN app.publications p ON a.publication_id = p.id
@@ -345,6 +345,28 @@ export function createPagesRouter(pool: Pool): Router {
         </nav>
       ` : '';
 
+      // Build affiliate links section
+      const affiliateTag = process.env.AMAZON_AFFILIATE_TAG ?? '';
+      const rawAffiliateLinks = Array.isArray(article.affiliate_links) ? article.affiliate_links : [];
+      let affiliateSection = '';
+      if (affiliateTag && rawAffiliateLinks.length > 0) {
+        const affiliateItems = rawAffiliateLinks.map(link =>
+          `<li class="affiliate-item">
+            <a href="https://www.amazon.com/dp/${encodeURIComponent(link.asin)}?tag=${encodeURIComponent(affiliateTag)}" target="_blank" rel="noopener sponsored">
+              <strong>${escapeHtml(link.title)}</strong> by ${escapeHtml(link.author)}
+            </a>
+            <p class="affiliate-desc">${escapeHtml(link.description)}</p>
+          </li>`
+        ).join('\n');
+        affiliateSection = `
+          <aside class="affiliate-section">
+            <h2>Recommended Reading</h2>
+            <p class="affiliate-disclosure">As an Amazon Associate, Hex Index earns from qualifying purchases.</p>
+            <ul class="affiliate-list">${affiliateItems}</ul>
+          </aside>
+        `;
+      }
+
       // Optimized article layout for Speechify:
       // 1. Title (h1) - Speechify starts here by default
       // 2. Subtitle (if present)
@@ -352,6 +374,7 @@ export function createPagesRouter(pool: Pool): Router {
       // 4. Source link to original Substack
       // 5. Deep Dives links
       // 6. Article content
+      // 7. Affiliate recommendations
       const content = `
         <article class="article content-width">
           <header class="article-header">
@@ -370,6 +393,7 @@ export function createPagesRouter(pool: Pool): Router {
           <div class="article-content">
             ${articleContent}
           </div>
+          ${affiliateSection}
         </article>
       `;
 
