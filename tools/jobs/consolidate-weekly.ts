@@ -18,6 +18,7 @@ import { writeFile, readFile, mkdir } from 'fs/promises';
 import { join, dirname } from 'path';
 import { generateText } from '../../src/wikipedia/ollama.js';
 import { cleanPreamble } from './clean-llm-output.js';
+import type { AffiliateLink } from '../../src/db/types.js';
 
 // ── CLI args ────────────────────────────────────────────────────────
 const args = process.argv.slice(2);
@@ -327,7 +328,7 @@ Output ONLY the JSON. No preamble.
       try {
         const cleaned = consResp.replace(/<think>[\s\S]*?<\/think>/g, '').trim()
           .replace(/^```\w*\n?/, '').replace(/\n?```\s*$/, '').trim();
-        const jsonMatch = cleaned.match(/\{[\s\S]*"content"\s*:\s*"[\s\S]*"\s*\}/);
+        const jsonMatch = cleaned.match(/\{[\s\S]*\}/);
         if (jsonMatch) {
           const parsed = JSON.parse(jsonMatch[0]) as { content: string };
           consolidatedText = parsed.content ?? '';
@@ -418,31 +419,32 @@ Output ONLY the JSON. No preamble.
 
 /**
  * Aggregate the best affiliate links across selected articles, deduped by ASIN.
+ * Uses a SQL CTE to flatten and deduplicate in the database.
  */
 async function getTopAffiliateLinks(
   pool: Pool,
   articleIds: string[],
   limit: number = 3
-): Promise<Array<{asin: string; title: string; author: string; description: string; category: string}>> {
+): Promise<AffiliateLink[]> {
   if (articleIds.length === 0) { return []; }
 
-  const { rows } = await pool.query<{ affiliate_links: Array<{asin: string; title: string; author: string; description: string; category: string}> }>(`
-    SELECT affiliate_links FROM app.articles
-    WHERE id = ANY($1) AND affiliate_links IS NOT NULL AND jsonb_array_length(affiliate_links) > 0
-  `, [articleIds]);
+  const { rows } = await pool.query<AffiliateLink>(`
+    WITH all_links AS (
+      SELECT jsonb_array_elements(affiliate_links) as link
+      FROM app.articles
+      WHERE id = ANY($1) AND jsonb_array_length(affiliate_links) > 0
+    )
+    SELECT DISTINCT ON (link->>'asin')
+      link->>'asin' as asin,
+      link->>'title' as title,
+      link->>'author' as author,
+      link->>'description' as description,
+      link->>'category' as category
+    FROM all_links
+    LIMIT $2
+  `, [articleIds, limit]);
 
-  // Flatten and dedupe by ASIN, take first N
-  const seen = new Set<string>();
-  const all: Array<{asin: string; title: string; author: string; description: string; category: string}> = [];
-  for (const row of rows) {
-    for (const link of row.affiliate_links) {
-      if (!seen.has(link.asin)) {
-        seen.add(link.asin);
-        all.push(link);
-      }
-    }
-  }
-  return all.slice(0, limit);
+  return rows;
 }
 
 /**

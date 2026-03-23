@@ -16,6 +16,7 @@ import { writeFile, readFile, mkdir } from 'fs/promises';
 import { join, dirname } from 'path';
 import { generateText } from '../../src/wikipedia/ollama.js';
 import { cleanPreamble } from './clean-llm-output.js';
+import type { AffiliateLink } from '../../src/db/types.js';
 
 // ── CLI args ────────────────────────────────────────────────────────
 const args = process.argv.slice(2);
@@ -258,16 +259,16 @@ Output ONLY the JSON. No preamble, no explanation, no markdown fences.
 
         // Parse response — extract content and affiliate links from JSON, strip preamble
         let rewrittenText: string;
-        let affiliateLinks: Array<{asin: string; title: string; author: string; description: string; category: string}> = [];
+        let affiliateLinks: AffiliateLink[] = [];
         try {
           let cleaned = responseText.trim();
           // Strip think tags and code fences
           cleaned = cleaned.replace(/<think>[\s\S]*?<\/think>/g, '').trim();
           cleaned = cleaned.replace(/^```\w*\n?/, '').replace(/\n?```\s*$/, '').trim();
           // Try to find JSON object anywhere in the response
-          const jsonMatch = cleaned.match(/\{[\s\S]*"content"\s*:\s*"[\s\S]*"\s*\}/);
+          const jsonMatch = cleaned.match(/\{[\s\S]*\}/);
           if (jsonMatch) {
-            const parsed = JSON.parse(jsonMatch[0]) as { content: string; affiliateLinks?: Array<{asin: string; title: string; author: string; description: string; category: string}> };
+            const parsed = JSON.parse(jsonMatch[0]) as { content: string; affiliateLinks?: AffiliateLink[] };
             rewrittenText = parsed.content ?? '';
             affiliateLinks = parsed.affiliateLinks ?? [];
           } else {

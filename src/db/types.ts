@@ -103,6 +103,14 @@ export interface CreateArticleLinkInput {
   context?: string;
 }
 
+export interface AffiliateLink {
+  asin: string;
+  title: string;
+  author: string;
+  description: string;
+  category: string;
+}
+
 // Query types
 export interface ArticleSearchParams {
   query?: string;
