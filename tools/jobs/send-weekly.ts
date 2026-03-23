@@ -9,11 +9,13 @@
  *   TWILIO_ACCOUNT_SID, TWILIO_AUTH_TOKEN, TWILIO_MESSAGING_SERVICE_SID
  */
 
+import 'dotenv/config';
 import { createTransport } from 'nodemailer';
 import { createHmac } from 'crypto';
 import { readFileSync } from 'fs';
 import { join } from 'path';
 import twilio from 'twilio';
+import { Pool } from 'pg';
 
 // ── Secret loading ──────────────────────────────────────────────────
 
@@ -128,9 +130,66 @@ function buildUnsubscribeUrl(email: string): string {
   return `${APPS_SCRIPT_URL}?action=unsubscribe&email=${encodeURIComponent(email.trim().toLowerCase())}&sig=${sig}`;
 }
 
+// ── Affiliate book picks ────────────────────────────────────────────
+
+interface AffiliateBook {
+  title: string;
+  author: string;
+  description: string;
+  articlePageUrl: string;
+}
+
+async function getWeeklyAffiliateBooks(weekLabel: string): Promise<AffiliateBook[]> {
+  const dbUrl = process.env.DATABASE_URL;
+  if (!dbUrl) { return []; }
+
+  const pool = new Pool({ connectionString: dbUrl });
+  try {
+    // Get top affiliate books from this week's consolidated entries
+    const { rows } = await pool.query<{
+      affiliate_links: Array<{asin: string; title: string; author: string; description: string}>;
+      article_ids: string[];
+    }>(`
+      SELECT affiliate_links, article_ids
+      FROM app.weekly_consolidated
+      WHERE week_label = $1
+        AND jsonb_array_length(affiliate_links) > 0
+      ORDER BY created_at
+    `, [weekLabel]);
+
+    // Flatten, dedupe, and resolve article page URLs
+    const seen = new Set<string>();
+    const results: AffiliateBook[] = [];
+
+    for (const row of rows) {
+      for (const link of row.affiliate_links) {
+        if (!seen.has(link.asin) && results.length < 3) {
+          seen.add(link.asin);
+          // Link to the first article that has this book recommendation
+          const articleId = row.article_ids[0];
+          results.push({
+            title: link.title,
+            author: link.author,
+            description: link.description,
+            articlePageUrl: `https://hex-index.com/article/${articleId}/index.html`,
+          });
+        }
+      }
+    }
+
+    return results;
+  } finally {
+    await pool.end();
+  }
+}
+
 // ── Email/SMS content ───────────────────────────────────────────────
 
-function buildEmailHtml(week: WeekInfo, subscriberName: string, subscriberEmail: string): string {
+function escapeEmailHtml(s: string): string {
+  return s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+}
+
+function buildEmailHtml(week: WeekInfo, subscriberName: string, subscriberEmail: string, books: AffiliateBook[] = []): string {
   const coverUrl = `https://hex-index.com/weekly/cover-${week.label}.webp`;
   const weeklyUrl = 'https://hex-index.com/weekly/';
   const epubUrl = `https://hex-index.com/weekly/${week.label}.epub`;
@@ -155,6 +214,17 @@ function buildEmailHtml(week: WeekInfo, subscriberName: string, subscriberEmail:
     <a href="${epubUrl}" style="display: inline-block; background: #1a1a1a; color: #ffffff; text-decoration: none; padding: 14px 32px; border-radius: 4px; font-size: 16px; font-weight: bold;">Download EPUB</a>
   </div>
 
+  ${books.length > 0 ? `<div style="margin: 32px 0; padding: 24px 0; border-top: 1px solid #e0e0e0;">
+  <p style="font-size: 14px; font-weight: bold; color: #1a1a1a; margin-bottom: 16px;">This Week's Recommended Reading</p>
+  ${books.map(b => `
+  <div style="margin-bottom: 16px;">
+    <a href="${b.articlePageUrl}" style="color: #1a1a1a; text-decoration: none; font-size: 15px; font-weight: bold;">${escapeEmailHtml(b.title)}</a>
+    <span style="color: #666; font-size: 14px;"> by ${escapeEmailHtml(b.author)}</span>
+    <p style="font-size: 13px; color: #666; margin: 4px 0 0 0; line-height: 1.5;">${escapeEmailHtml(b.description)}</p>
+  </div>
+  `).join('')}
+</div>` : ''}
+
   <p style="font-size: 14px; color: #666; text-align: center;">
     <a href="${weeklyUrl}" style="color: #666;">Browse all editions</a>
   </p>
@@ -169,7 +239,7 @@ function buildEmailHtml(week: WeekInfo, subscriberName: string, subscriberEmail:
 </html>`;
 }
 
-function buildEmailText(week: WeekInfo, subscriberName: string, subscriberEmail: string): string {
+function buildEmailText(week: WeekInfo, subscriberName: string, subscriberEmail: string, books: AffiliateBook[] = []): string {
   const greeting = subscriberName ? `Hi ${subscriberName},` : 'Hi,';
   const unsubscribeUrl = subscriberEmail ? buildUnsubscribeUrl(subscriberEmail) : '';
   return `${greeting}
@@ -177,16 +247,18 @@ function buildEmailText(week: WeekInfo, subscriberName: string, subscriberEmail:
 This week's Hex Index Reader is ready — original commentary on the best long-form writing from the past week.
 
 Download EPUB: https://hex-index.com/weekly/${week.label}.epub
-
+${books.length > 0 ? `\nThis Week's Recommended Reading:\n${books.map(b => `- ${b.title} by ${b.author}: ${b.articlePageUrl}`).join('\n')}\n` : ''}
 Browse all editions: https://hex-index.com/weekly/
 
 ---
 Hex Index Reader — Week of ${week.display}${unsubscribeUrl ? `\nUnsubscribe: ${unsubscribeUrl}` : ''}`;
 }
 
-function buildSmsText(subscriberEmail: string): string {
+function buildSmsText(subscriberEmail: string, topBook: {title: string; articlePageUrl: string} | null = null): string {
+  const weeklyUrl = 'https://hex-index.com/weekly/';
   const unsubscribeUrl = subscriberEmail ? buildUnsubscribeUrl(subscriberEmail) : '';
-  return `Hex Index Reader is ready: https://hex-index.com/weekly/${unsubscribeUrl ? `\nSTOP: ${unsubscribeUrl}` : ''}`;
+  const bookLine = topBook ? `\nReading pick: ${topBook.title} — ${topBook.articlePageUrl}` : '';
+  return `Hex Index Reader is ready: ${weeklyUrl}${bookLine}${unsubscribeUrl ? `\nSTOP: ${unsubscribeUrl}` : ''}`;
 }
 
 // ── Main ────────────────────────────────────────────────────────────
@@ -197,6 +269,11 @@ async function main(): Promise<void> {
 
   console.info(`Hex Index Reader — Week of ${week.display}`);
   console.info(`Week label: ${week.label}`);
+
+  // Load affiliate book picks
+  const books = await getWeeklyAffiliateBooks(week.label);
+  console.info(`Loaded ${books.length} affiliate book picks`);
+  const topBook = books.length > 0 ? { title: books[0].title, articlePageUrl: books[0].articlePageUrl } : null;
 
   // Fetch subscribers
   const subscribers = await fetchSubscribers();
@@ -240,8 +317,8 @@ async function main(): Promise<void> {
           from: '"Hex Index Reader" <noreply@hex-index.com>',
           to: sub.email,
           subject,
-          html: buildEmailHtml(week, sub.name, sub.email),
-          text: buildEmailText(week, sub.name, sub.email),
+          html: buildEmailHtml(week, sub.name, sub.email, books),
+          text: buildEmailText(week, sub.name, sub.email, books),
         });
         emailsSent++;
         console.info(`  Email sent: ${sub.name || sub.email}`);
@@ -260,7 +337,7 @@ async function main(): Promise<void> {
         await twilioClient.messages.create({
           messagingServiceSid: loadSecret('TWILIO_MESSAGING_SERVICE_SID'),
           to,
-          body: buildSmsText(sub.email),
+          body: buildSmsText(sub.email, topBook),
         });
         smsSent++;
         console.info(`  SMS sent: ${sub.name || sub.phone}`);
