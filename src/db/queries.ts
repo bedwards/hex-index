@@ -110,8 +110,8 @@ export async function createArticle(
     `INSERT INTO app.articles
      (publication_id, title, slug, original_url, content_path, full_content_path,
       rewritten_content_path, author_name,
-      published_at, word_count, estimated_read_time_minutes, media_type, tags, metadata)
-     VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14)
+      published_at, word_count, estimated_read_time_minutes, media_type, tags, metadata, affiliate_links)
+     VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15)
      RETURNING *`,
     [
       input.publication_id,
@@ -128,6 +128,7 @@ export async function createArticle(
       input.media_type ?? 'text',
       JSON.stringify(input.tags ?? {}),
       JSON.stringify(input.metadata ?? {}),
+      JSON.stringify(input.affiliate_links ?? []),
     ]
   );
   return rows[0];
