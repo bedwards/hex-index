@@ -46,6 +46,14 @@ function topicSortKey(slug: string): number {
 
 // ── Types ──────────────────────────────────────────────────────────
 
+interface AffiliateLink {
+  asin: string;
+  title: string;
+  author: string;
+  description: string;
+  category: string;
+}
+
 interface WeeklyArticleRow {
   id: string;
   title: string;
@@ -61,6 +69,7 @@ interface WeeklyArticleRow {
   tag_slug: string;
   tag_name: string;
   tag_score: number;
+  affiliate_links: AffiliateLink[] | null;
 }
 
 interface WikipediaDeepDive {
@@ -273,7 +282,8 @@ async function getArticlesForWeek(
       p.name AS publication_name, p.slug AS publication_slug,
       a.published_at, a.estimated_read_time_minutes,
       a.content_path, a.rewritten_content_path, a.image_path, a.original_url,
-      at.tag_slug, t.name AS tag_name, at.score AS tag_score
+      at.tag_slug, t.name AS tag_name, at.score AS tag_score,
+      a.affiliate_links
     FROM app.articles a
     JOIN app.publications p ON a.publication_id = p.id
     LEFT JOIN app.article_tags at ON at.article_id = a.id
@@ -371,6 +381,9 @@ img { max-width: 80%; height: auto; display: block; margin: 1em auto; }
 .toc-article { margin: 0.3em 0 0.3em 1em; }
 .toc-article a { text-decoration: none; }
 .toc-meta { font-size: 0.8em; color: #78716c; }
+.affiliate-section { margin-top: 2em; padding-top: 1em; border-top: 1px solid #d4d4d4; }
+.affiliate-label { font-weight: bold; font-size: 0.95em; margin-bottom: 0.25em; }
+.affiliate-section li { margin-bottom: 0.75em; }
 `;
 
 interface ArticleForEpub {
@@ -379,6 +392,7 @@ interface ArticleForEpub {
   deepDives: { title: string; content: string; slug: string }[];
   imageData: Buffer | null;
   imageExt: string;
+  affiliateLinks: AffiliateLink[];
 }
 
 async function buildEpub(
@@ -541,6 +555,25 @@ ${navTocHtml}    </ol>
           }
         }
 
+        // Affiliate book recommendations
+        const affiliateTag = process.env.AMAZON_AFFILIATE_TAG ?? '';
+        let affiliateHtml = '';
+        if (affiliateTag && article.affiliateLinks.length > 0) {
+          const bookItems = article.affiliateLinks.map(link => {
+            const url = `https://www.amazon.com/dp/${encodeURIComponent(link.asin)}?tag=${encodeURIComponent(affiliateTag)}`;
+            return `    <li><a href="${escapeXml(url)}"><strong>${escapeXml(link.title)}</strong></a> by ${escapeXml(link.author)}<br/><span style="font-size:0.85em; color:#78716c;">${escapeXml(link.description)}</span></li>`;
+          }).join('\n');
+
+          affiliateHtml = `
+  <div class="affiliate-section">
+    <p class="affiliate-label">Recommended Reading</p>
+    <p style="font-size:0.8em; color:#78716c; font-style:italic;">As an Amazon Associate, Hex Index earns from qualifying purchases.</p>
+    <ul style="list-style:none; padding:0;">
+${bookItems}
+    </ul>
+  </div>`;
+        }
+
         const topicHeaderHtml = isFirstInTopic
           ? `\n  <h2 class="topic-header">${escapeXml(topicName)}</h2>`
           : '';
@@ -556,6 +589,7 @@ ${navTocHtml}    </ol>
     <p class="article-meta">${escapeXml(authorName)} &#183; ${escapeXml(article.row.publication_name)}${date ? ` &#183; ${date}` : ''} &#183; ${article.row.estimated_read_time_minutes} min read</p>
   </div>
   ${htmlToXhtml(article.content)}
+  ${affiliateHtml}
   ${deepDiveHtml}
 </body>
 </html>`;
@@ -775,7 +809,8 @@ export async function generateWeeklyEpubs(
           }
 
           const topicKey = matchedCons.tag_slug ?? row.tag_slug ?? '_uncategorized';
-          const entry: ArticleForEpub = { row, content, deepDives, imageData, imageExt };
+          const affiliateLinks: AffiliateLink[] = row.affiliate_links ?? [];
+          const entry: ArticleForEpub = { row, content, deepDives, imageData, imageExt, affiliateLinks };
           if (!byTopic.has(topicKey)) { byTopic.set(topicKey, []); }
           byTopic.get(topicKey)!.push(entry);
         } else if (!matchedCons) {
@@ -806,7 +841,8 @@ export async function generateWeeklyEpubs(
           }
 
           const topicKey = row.tag_slug || '_uncategorized';
-          const entry: ArticleForEpub = { row, content, deepDives, imageData, imageExt };
+          const affiliateLinks2: AffiliateLink[] = row.affiliate_links ?? [];
+          const entry: ArticleForEpub = { row, content, deepDives, imageData, imageExt, affiliateLinks: affiliateLinks2 };
           if (!byTopic.has(topicKey)) { byTopic.set(topicKey, []); }
           byTopic.get(topicKey)!.push(entry);
         }
@@ -843,7 +879,8 @@ export async function generateWeeklyEpubs(
           }
         }
 
-        const entry: ArticleForEpub = { row, content, deepDives, imageData, imageExt };
+        const affiliateLinks: AffiliateLink[] = row.affiliate_links ?? [];
+        const entry: ArticleForEpub = { row, content, deepDives, imageData, imageExt, affiliateLinks };
         if (!byTopic.has(topicKey)) {
           byTopic.set(topicKey, []);
         }
