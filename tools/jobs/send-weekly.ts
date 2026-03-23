@@ -164,15 +164,16 @@ async function getWeeklyAffiliateBooks(weekLabel: string): Promise<AffiliateBook
     for (const row of rows) {
       for (const link of row.affiliate_links) {
         if (!seen.has(link.asin) && results.length < 3) {
-          seen.add(link.asin);
-          // Link to the first article that has this book recommendation
-          const articleId = row.article_ids[0];
-          results.push({
-            title: link.title,
-            author: link.author,
-            description: link.description,
-            articlePageUrl: `https://hex-index.com/article/${articleId}/index.html`,
-          });
+          const articleId = row.article_ids?.[0];
+          if (articleId) {
+            seen.add(link.asin);
+            results.push({
+              title: link.title,
+              author: link.author,
+              description: link.description,
+              articlePageUrl: `https://hex-index.com/article/${articleId}/index.html`,
+            });
+          }
         }
       }
     }
