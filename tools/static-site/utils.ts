@@ -238,9 +238,6 @@ export function estimateReadTime(content: string): number {
 }
 
 /**
- * Slugify a string for use in URLs
- */
-/**
  * Build an Amazon affiliate URL from ASIN and tag
  */
 export function buildAmazonUrl(asin: string, tag: string): string {
@@ -277,6 +274,9 @@ export function renderAffiliateSection(
   `;
 }
 
+/**
+ * Slugify a string for use in URLs
+ */
 export function slugify(text: string): string {
   return text
     .toLowerCase()
