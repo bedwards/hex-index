@@ -235,17 +235,53 @@ function processCoverImage(inputPath: string, outputPath: string): void {
   );
 }
 
-async function ensureCoverImage(weekLabel: string, weekDisplay: string, weeklyDir: string): Promise<boolean> {
+async function ensureCoverImage(
+  weekLabel: string,
+  weekDisplay: string,
+  weeklyDir: string,
+  pool?: Pool,
+  weekStart?: Date,
+  weekEnd?: Date,
+): Promise<boolean> {
   const coverPath = join(weeklyDir, `cover-${weekLabel}.webp`);
   if (existsSync(coverPath)) {return true;}
 
+  // Strategy 1: Use the best article image from this week's content.
+  // This guarantees unique covers per week since each week has different articles.
+  if (pool && weekStart && weekEnd) {
+    try {
+      const { rows } = await pool.query<{ image_path: string }>(`
+        SELECT a.image_path
+        FROM app.articles a
+        WHERE a.published_at >= $1 AND a.published_at < $2
+          AND a.image_path IS NOT NULL
+        ORDER BY a.published_at DESC
+        LIMIT 1
+      `, [weekStart.toISOString(), weekEnd.toISOString()]);
+
+      if (rows.length > 0) {
+        const articleImagePath = join(process.cwd(), rows[0].image_path);
+        if (existsSync(articleImagePath)) {
+          console.info(`  Using article image as cover for ${weekLabel}`);
+          processCoverImage(articleImagePath, coverPath);
+          console.info(`  Cover image saved: cover-${weekLabel}.webp`);
+          return true;
+        }
+      }
+    } catch (err: unknown) {
+      const msg = err instanceof Error ? err.message : String(err);
+      console.info(`  Article image lookup failed for ${weekLabel}: ${msg}`);
+    }
+  }
+
+  // Strategy 2: Fall back to Gemini-generated cover
   try {
     const geminiKey = await loadGeminiKey();
-    console.info(`  Generating cover image for ${weekLabel}...`);
+    console.info(`  Generating cover image via Gemini for ${weekLabel}...`);
 
     const imageData = await generateCoverImage(weekDisplay, geminiKey);
     if (!imageData) {
-      console.info(`  No image returned from Gemini for ${weekLabel}`);
+      console.info(`  WARNING: No cover image for ${weekLabel} — no article images and Gemini returned nothing`);
       return false;
     }
 
@@ -260,7 +296,7 @@ async function ensureCoverImage(weekLabel: string, weekDisplay: string, weeklyDi
     return true;
   } catch (err: unknown) {
     const msg = err instanceof Error ? err.message : String(err);
-    console.info(`  Cover image error for ${weekLabel}: ${msg}`);
+    console.info(`  WARNING: No cover image for ${weekLabel}: ${msg}`);
     return false;
   }
 }
@@ -686,9 +722,6 @@ export async function generateWeeklyEpubs(
   const weeklyDir = join(outputDir, 'weekly');
   await ensureDir(weeklyDir);
 
-  // Track whether we've already generated a cover this run (limit API calls)
-  let coveredOne = false;
-
   interface WeekInfo {
     label: string;
     display: string;
@@ -712,12 +745,8 @@ export async function generateWeeklyEpubs(
         `, [week.start.toISOString(), week.end.toISOString()]);
         const count = parseInt(countRows[0].count, 10);
         if (count > 0) {
-          // Generate cover image if missing (only for first missing one to avoid long runs)
-          let coverExists = existsSync(join(weeklyDir, `cover-${week.label}.webp`));
-          if (!coverExists && !coveredOne) {
-            coverExists = await ensureCoverImage(week.label, week.display, weeklyDir);
-            if (coverExists) {coveredOne = true;}
-          }
+          // Generate cover image if missing — uses article image (no API call needed)
+          const coverExists = await ensureCoverImage(week.label, week.display, weeklyDir, pool, week.start, week.end);
           weekInfos.push({
             label: week.label,
             display: week.display,
@@ -904,7 +933,7 @@ export async function generateWeeklyEpubs(
     if (byTopic.size === 0) {continue;}
 
     // Generate cover image for this week (if not already present)
-    const hasCover = await ensureCoverImage(week.label, week.display, weeklyDir);
+    const hasCover = await ensureCoverImage(week.label, week.display, weeklyDir, pool, week.start, week.end);
 
     await buildEpub(week, byTopic, epubPath, weeklyDir);
     weeksGenerated++;
