@@ -134,4 +134,36 @@ describe('cleanHtml', () => {
     expect(changed).toBe(true);
     expect(cleaned).toBe('<p>Real content.</p>');
   });
+
+  it('handles empty input', () => {
+    const { cleaned, changed } = cleanHtml('');
+    expect(changed).toBe(false);
+    expect(cleaned).toBe('');
+  });
+
+  it('does not strip legitimate prose containing "I should verify"', () => {
+    // "I should verify" mid-sentence in a quote is not LLM self-reference
+    const input = '<p>The auditor said, "I should verify the numbers before signing off."</p>';
+    const { cleaned, changed } = cleanHtml(input);
+    expect(changed).toBe(false);
+    expect(cleaned).toBe(input);
+  });
+
+  it('does not strip camelCase words like MacBook or iPhone', () => {
+    const input = '<p>MacBook Pro users often compare their device to an iPhone for productivity.</p>';
+    const { cleaned, changed } = cleanHtml(input);
+    expect(changed).toBe(false);
+    expect(cleaned).toBe(input);
+  });
+});
+
+describe('cleanPreamble edge cases', () => {
+  it('handles empty input', () => {
+    expect(cleanPreamble('')).toBe('');
+  });
+
+  it('does not strip legitimate "I should" in prose', () => {
+    const input = 'The manager noted that "I should verify the budget" was the first item.';
+    expect(cleanPreamble(input)).toBe(input);
+  });
 });

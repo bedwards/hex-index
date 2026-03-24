@@ -248,21 +248,9 @@ export function cleanHtml(html: string): { cleaned: string; changed: boolean } {
     /^<p>\{[^<]*\}&lt;output&gt;\s*[^<]*<\/p>\n?/,
     ''
   );
-  // Pattern 1f: Title stuck at start of first <p> (no JSON, just title: prefix)
-  //   e.g. <p>The Last Humans To Roam DoggerlandTen thousand years ago...
-  //   Detect: title text immediately concatenated with content (no space between)
-  //   This happens when JSON wrapper was stripped but left title prefix
-  result = result.replace(
-    /^(<p>)([A-Z][^<]{0,100}?)([a-z])([A-Z][a-z])/,
-    (match, pTag: string, _title: string, lastLower: string, nextCap: string) => {
-      // Only strip if the title appears to end abruptly (lowercase->uppercase without space)
-      // e.g. "Doggerland" + "Ten" -> "DoggerlandTen"
-      if (/[a-z][A-Z]/.test(lastLower + nextCap)) {
-        return `${pTag}${nextCap}`;
-      }
-      return match;
-    }
-  );
+  // Pattern 1f removed: Title concatenation heuristic was too fragile —
+  // could false-positive on camelCase words like MacBook, iPhone.
+  // These rare cases are better handled by marking rewrite_dirty in the DB.
   // Pattern 1g: &lt;ctrl&gt; tag artifacts
   result = result.replace(/&lt;ctrl&gt;/g, '');
   // Pattern 1h: &lt;output&gt; tag artifacts
@@ -320,7 +308,7 @@ export function cleanHtml(html: string): { cleaned: string; changed: boolean } {
     '$1'
   );
 
-  // Pattern 1k: escaped-json-keys mid-content
+  // Pattern 1m: escaped-json-keys mid-content
   //   e.g. &quot;content&quot;: &quot; or &quot;title&quot;: &quot;
   //   These appear when JSON was partially parsed but keys leaked through
   result = result.replace(

@@ -21,7 +21,7 @@ const args = process.argv.slice(2);
 const FIX = args.includes('--fix');
 const VERBOSE = args.includes('--verbose');
 const dirIdx = args.indexOf('--dir');
-const LIBRARY_DIR = dirIdx >= 0 ? args[dirIdx + 1] : join(process.cwd(), 'library');
+const LIBRARY_DIR = dirIdx >= 0 && args[dirIdx + 1] ? args[dirIdx + 1] : join(process.cwd(), 'library');
 
 // ── Detection patterns (for reporting) ──────────────────────────────
 // These detect contamination in HTML-encoded content
