@@ -94,8 +94,8 @@ Output ONLY a JSON array. No preamble.
 
   const response = await generateText(prompt, {
     temperature: 0.2,
-    numPredict: 300,
-    timeout: 60_000,
+    numPredict: 2000,
+    timeout: 120_000,
   });
 
   try {
@@ -107,7 +107,11 @@ Output ONLY a JSON array. No preamble.
       const parsed = JSON.parse(arrMatch[0]) as BookSuggestion[];
       return parsed.filter(b => b.title && b.author).slice(0, 3);
     }
-  } catch { /* parse failed */ }
+    console.info(`    LLM response (no array found): ${cleaned.slice(0, 200)}`);
+  } catch (err) {
+    console.info(`    LLM parse error: ${err instanceof Error ? err.message : String(err)}`);
+    console.info(`    Raw response: ${response.slice(0, 300)}`);
+  }
 
   return [];
 }
@@ -167,6 +171,7 @@ async function main(): Promise<void> {
 
           // Deterministic lookup — only keep books in our curated map
           const links: AffiliateLink[] = [];
+          const missed: string[] = [];
           for (const suggestion of suggestions) {
             const match = lookupBook(bookMap, suggestion.title, suggestion.author);
             if (match) {
@@ -177,6 +182,8 @@ async function main(): Promise<void> {
                 description: match.description,
                 category: match.category,
               });
+            } else {
+              missed.push(`${suggestion.title} by ${suggestion.author}`);
             }
           }
 
@@ -189,6 +196,9 @@ async function main(): Promise<void> {
             console.info(`  [${articlesProcessed}] ${article.title} → ${links.length} books: ${links.map(l => l.title).join(', ')}`);
           } else {
             console.info(`  [${articlesProcessed}] ${article.title} → no matches in book map`);
+          }
+          if (missed.length > 0) {
+            console.info(`    Missing from map: ${missed.join('; ')}`);
           }
         } catch (err) {
           console.info(`  [${articlesProcessed}] Error: ${err instanceof Error ? err.message : String(err)}`);
