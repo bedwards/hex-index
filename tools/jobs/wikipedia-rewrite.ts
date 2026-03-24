@@ -17,6 +17,7 @@ import { writeFile, readFile, mkdir } from 'fs/promises';
 import { join, dirname } from 'path';
 import { generateText } from '../../src/wikipedia/ollama.js';
 import { cleanPreamble, cleanHtml } from './clean-llm-output.js';
+import type { AffiliateLink } from '../../src/db/types.js';
 
 // ── CLI args ────────────────────────────────────────────────────────
 const args = process.argv.slice(2);
@@ -252,7 +253,7 @@ Output ONLY the JSON. No preamble, no explanation.
 
   let text: string;
   let jsonParsed = false;
-  let affiliateLinks: Array<{asin: string; title: string; author: string; description: string; category: string}> = [];
+  let affiliateLinks: AffiliateLink[] = [];
   try {
     let cleaned = responseText.trim();
     if (cleaned.startsWith('```')) {
@@ -262,7 +263,7 @@ Output ONLY the JSON. No preamble, no explanation.
     jsonParsed = true;
     // Extract affiliate links before treating as content map
     if (Array.isArray(parsed.affiliateLinks)) {
-      affiliateLinks = parsed.affiliateLinks as Array<{asin: string; title: string; author: string; description: string; category: string}>;
+      affiliateLinks = parsed.affiliateLinks as AffiliateLink[];
     }
     // Extract essay text — look for the URL key or first string value
     if (typeof parsed[stub.original_url] === 'string') {
@@ -310,7 +311,7 @@ async function saveRewrite(
   pool: Pool,
   stub: StubRow,
   plainText: string,
-  affiliateLinks: Array<{asin: string; title: string; author: string; description: string; category: string}> = []
+  affiliateLinks: AffiliateLink[] = []
 ): Promise<boolean> {
   const rawHtml = textToHtml(plainText, stub.original_url, stub.wiki_title);
   const { cleaned: html, changed: htmlCleaned } = cleanHtml(rawHtml);
