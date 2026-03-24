@@ -36,6 +36,10 @@ const args = process.argv.slice(2);
 const limitIdx = args.indexOf('--limit');
 const LIMIT = limitIdx >= 0 ? parseInt(args[limitIdx + 1], 10) : 50;
 const USE_CLAUDE = args.includes('--use-claude');
+if (USE_CLAUDE && !process.env.ANTHROPIC_API_KEY) {
+  console.error('ANTHROPIC_API_KEY is not set. Required for --use-claude.');
+  process.exit(1);
+}
 const generateText = USE_CLAUDE ? generateTextClaude : generateTextOllama;
 if (USE_CLAUDE) {
   console.info('Using Claude API for topic discovery');

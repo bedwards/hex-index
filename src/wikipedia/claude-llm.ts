@@ -11,7 +11,8 @@
 
 import Anthropic from '@anthropic-ai/sdk';
 
-const CLAUDE_MODEL = process.env.CLAUDE_MODEL || 'claude-sonnet-4-20250514';
+const CLAUDE_MODEL = process.env.CLAUDE_MODEL || 'claude-sonnet-4-6';
+const client = new Anthropic();
 
 interface GenerateOptions {
   system?: string;
@@ -31,8 +32,6 @@ export async function generateText(
     numPredict = 2000,
     retries = 2,
   } = options;
-
-  const client = new Anthropic();
 
   let lastError: Error | undefined;
 
