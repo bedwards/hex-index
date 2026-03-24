@@ -17,7 +17,8 @@ import { Pool } from 'pg';
 import { writeFile, mkdir } from 'fs/promises';
 import { join, dirname } from 'path';
 import { readFile } from 'fs/promises';
-import { generateText } from '../../src/wikipedia/ollama.js';
+import { generateText as generateTextOllama } from '../../src/wikipedia/ollama.js';
+import { generateText as generateTextClaude } from '../../src/wikipedia/claude-llm.js';
 import {
   scrapeWikipedia,
   searchWikipedia,
@@ -34,6 +35,12 @@ import { slugify } from '../../src/wikipedia/rewriter.js';
 const args = process.argv.slice(2);
 const limitIdx = args.indexOf('--limit');
 const LIMIT = limitIdx >= 0 ? parseInt(args[limitIdx + 1], 10) : 50;
+const USE_CLAUDE = args.includes('--use-claude');
+const generateText = USE_CLAUDE ? generateTextClaude : generateTextOllama;
+if (USE_CLAUDE) {
+  console.info('Using Claude API for topic discovery');
+}
+
 const articleIdIdx = args.indexOf('--article-id');
 const ARTICLE_IDS: string[] = [];
 if (articleIdIdx >= 0) {
