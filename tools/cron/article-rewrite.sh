@@ -11,7 +11,7 @@ LOG_FILE="$PROJECT_DIR/logs/article-rewrite-$(date +%Y%m%d-%H%M%S).log"
 OLLAMA_URL="${OLLAMA_URL:-http://127.0.0.1:11434}"
 OLLAMA_MODEL="${OLLAMA_MODEL:-qwen3:235b-a22b}"
 
-TIME_BUDGET=2400        # 40 minutes — highest priority job
+TIME_BUDGET=1500        # 25 minutes — fits even-hour Qwen slot
 SECS_PER_ITEM=50
 DEPLOY_OVERHEAD=90
 
