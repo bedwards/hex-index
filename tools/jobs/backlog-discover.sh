@@ -1,6 +1,7 @@
 #!/bin/bash
 # Burn down the wikipedia topic discovery backlog using Claude API
-# Usage: bash tools/jobs/backlog-discover.sh [--limit 100]
+# Usage: bash tools/jobs/backlog-discover.sh [LIMIT]
+# Example: bash tools/jobs/backlog-discover.sh 100
 set -euo pipefail
 cd "$(dirname "$0")/../.."
 

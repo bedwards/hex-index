@@ -30,6 +30,7 @@ export async function generateText(
     system,
     temperature = 0.3,
     numPredict = 2000,
+    timeout,
     retries = 2,
   } = options;
 
@@ -43,13 +44,16 @@ export async function generateText(
     }
 
     try {
-      const response = await client.messages.create({
-        model: CLAUDE_MODEL,
-        max_tokens: numPredict,
-        temperature,
-        ...(system ? { system } : {}),
-        messages: [{ role: 'user' as const, content: prompt }],
-      });
+      const response = await client.messages.create(
+        {
+          model: CLAUDE_MODEL,
+          max_tokens: numPredict,
+          temperature,
+          ...(system ? { system } : {}),
+          messages: [{ role: 'user' as const, content: prompt }],
+        },
+        timeout ? { timeout } : undefined,
+      );
 
       const textBlock = response.content.find(
         (b): b is Anthropic.TextBlock => b.type === 'text'
@@ -65,12 +69,14 @@ export async function generateText(
     } catch (err) {
       lastError = err instanceof Error ? err : new Error(String(err));
 
-      // Retry on rate limits and server errors
-      const isRetryable =
-        lastError.message.includes('rate_limit') ||
-        lastError.message.includes('overloaded') ||
-        lastError.message.includes('529') ||
-        lastError.message.includes('500');
+      // Retry on rate limits and server errors with proper type narrowing
+      let isRetryable = false;
+      if (err instanceof Anthropic.APIError) {
+        isRetryable =
+          err.status === 429 ||
+          err.status === 529 ||
+          err.status >= 500;
+      }
 
       if (!isRetryable) {
         throw lastError;
