@@ -226,7 +226,7 @@ export function renderStaticArticleCard(
   const articleUrl = `${pathToRoot}article/${article.id}/index.html${fromTag ? `?from=${fromTag}` : ''}`;
 
   const thumbHtml = article.imagePath
-    ? `<img class="article-thumb" src="${pathToRoot}${article.imagePath}" alt="" loading="lazy" width="180" height="94">`
+    ? `<a href="${articleUrl}" class="article-thumb-link"><img class="article-thumb" src="${pathToRoot}${article.imagePath}" alt="" loading="lazy" width="180" height="94"></a>`
     : '';
 
   return `<article class="article-card">
