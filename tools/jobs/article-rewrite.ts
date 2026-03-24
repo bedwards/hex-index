@@ -16,7 +16,7 @@ import { writeFile, readFile, mkdir } from 'fs/promises';
 import { join, dirname } from 'path';
 import { generateText } from '../../src/wikipedia/ollama.js';
 import { cleanPreamble } from './clean-llm-output.js';
-import type { AffiliateLink } from '../../src/db/types.js';
+
 
 // ── CLI args ────────────────────────────────────────────────────────
 const args = process.argv.slice(2);
@@ -224,13 +224,6 @@ FORMATTING:
 - Use **bold** for emphasis. ## for headings. > for pull quotes/blockquotes.
 - Plain text only. No HTML.
 
-BOOK RECOMMENDATIONS:
-Identify 1-3 books that are directly relevant to this article's core arguments. Choose books that:
-- Are mentioned, quoted, or clearly alluded to in the article
-- Or are the definitive work on the topic being discussed
-- Are well-known, highly-rated, and genuinely worth reading
-For each book, provide the Amazon ASIN (the 10-character product ID — look it up from your training data), the exact title, author name, and a 1-2 sentence description of why this book matters for understanding this article's topic.
-
 STYLE EXAMPLE:
 "Matt Yglesias makes an argument that's been strangely absent from progressive discourse: the strongest case for zoning reform isn't economic efficiency — it's racial justice.
 
@@ -249,7 +242,7 @@ Critics might note that framing housing as the *primary* driver of structural ra
 Yglesias's core argument is strong: the academic consensus on housing and racial inequality is clear, and the activist movement hasn't caught up. His biggest vulnerability is strategic — he admits the racial justice framing might hurt the political coalition needed to actually pass reform. That tension is unresolved, and it's the most interesting part of the piece."
 
 Output ONLY the JSON. No preamble, no explanation, no markdown fences.
-{"content": "your commentary text here", "affiliateLinks": [{"asin": "0374533555", "title": "Thinking, Fast and Slow", "author": "Daniel Kahneman", "description": "The foundational work on cognitive biases that underpins this article's argument about decision-making failures.", "category": "books"}]}`;
+{"content": "your commentary text here"}`;
 
         const responseText = await generateText(prompt, {
           temperature: 0.5,
@@ -257,20 +250,18 @@ Output ONLY the JSON. No preamble, no explanation, no markdown fences.
           timeout: 900_000,
         });
 
-        // Parse response — extract content and affiliate links from JSON, strip preamble
+        // Parse response — extract content from JSON, strip preamble
         let rewrittenText: string;
-        let affiliateLinks: AffiliateLink[] = [];
         try {
           let cleaned = responseText.trim();
           // Strip think tags and code fences
           cleaned = cleaned.replace(/<think>[\s\S]*?<\/think>/g, '').trim();
           cleaned = cleaned.replace(/^```\w*\n?/, '').replace(/\n?```\s*$/, '').trim();
           // Try to find JSON object anywhere in the response
-          const jsonMatch = cleaned.match(/\{[\s\S]*\}/);
+          const jsonMatch = cleaned.match(/\{[\s\S]*"content"\s*:\s*"[\s\S]*"\s*\}/);
           if (jsonMatch) {
-            const parsed = JSON.parse(jsonMatch[0]) as { content: string; affiliateLinks?: AffiliateLink[] };
+            const parsed = JSON.parse(jsonMatch[0]) as { content: string };
             rewrittenText = parsed.content ?? '';
-            affiliateLinks = parsed.affiliateLinks ?? [];
           } else {
             // No JSON wrapper — use raw text
             rewrittenText = cleaned;
@@ -302,10 +293,10 @@ Output ONLY the JSON. No preamble, no explanation, no markdown fences.
         await mkdir(dirname(rewriteFullPath), { recursive: true });
         await writeFile(rewriteFullPath, html, 'utf-8');
 
-        // Update DB - include affiliate links
+        // Update DB
         await pool.query(
-          'UPDATE app.articles SET rewritten_content_path = $1, rewrite_dirty = false, affiliate_links = $2, updated_at = NOW() WHERE id = $3',
-          [rewritePath, JSON.stringify(affiliateLinks), article.id]
+          'UPDATE app.articles SET rewritten_content_path = $1, rewrite_dirty = false, updated_at = NOW() WHERE id = $2',
+          [rewritePath, article.id]
         );
 
         const wordCount = countWords(rewrittenText);
