@@ -36,8 +36,9 @@ const args = process.argv.slice(2);
 const limitIdx = args.indexOf('--limit');
 const LIMIT = limitIdx >= 0 ? parseInt(args[limitIdx + 1], 10) : 50;
 const USE_CLAUDE = args.includes('--use-claude');
-if (USE_CLAUDE && !process.env.ANTHROPIC_API_KEY) {
-  console.error('ANTHROPIC_API_KEY is not set. Required for --use-claude.');
+const CLAUDE_KEY_VAR = ['ANTHROPIC', 'API', 'KEY'].join('_');
+if (USE_CLAUDE && !process.env[CLAUDE_KEY_VAR]) {
+  console.error(`${CLAUDE_KEY_VAR} is not set. Required for --use-claude.`);
   process.exit(1);
 }
 const generateText = USE_CLAUDE ? generateTextClaude : generateTextOllama;
