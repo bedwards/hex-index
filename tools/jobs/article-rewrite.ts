@@ -264,7 +264,7 @@ Output ONLY the JSON. No preamble, no explanation, no markdown fences.
           // Try to find JSON object anywhere in the response
           const jsonMatch = cleaned.match(/\{[\s\S]*"content"\s*:\s*"[\s\S]*"\s*\}/);
           if (jsonMatch) {
-            const parsed = JSON.parse(jsonMatch[0]) as { content: string };
+            const parsed = JSON.parse(jsonMatch[0]) as { content: string; affiliateLinks?: AffiliateLink[] };
             rewrittenText = parsed.content ?? '';
             affiliateLinks = parsed.affiliateLinks ?? [];
             jsonParsed = true;
