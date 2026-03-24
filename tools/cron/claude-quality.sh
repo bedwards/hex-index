@@ -36,8 +36,8 @@ RUN_START=$(date +%s)
 log "=== Claude Quality Guardian (PID $$) ==="
 
 # Find HTML files modified in the last 26 hours (covers daily window + buffer)
-REWRITTEN_FILES=$(find "$PROJECT_DIR/library/rewritten" -name '*.html' -mtime -1 2>/dev/null | sort)
-WIKIPEDIA_FILES=$(find "$PROJECT_DIR/library/wikipedia" -name '*.html' -mtime -1 2>/dev/null | sort)
+REWRITTEN_FILES=$(find "$PROJECT_DIR/library/rewritten" -name '*.html' -mmin -1560 2>/dev/null | sort)
+WIKIPEDIA_FILES=$(find "$PROJECT_DIR/library/wikipedia" -name '*.html' -mmin -1560 2>/dev/null | sort)
 
 REWRITTEN_COUNT=$(echo "$REWRITTEN_FILES" | grep -c '.' || echo 0)
 WIKIPEDIA_COUNT=$(echo "$WIKIPEDIA_FILES" | grep -c '.' || echo 0)
@@ -58,17 +58,18 @@ log "Auditing $AUDITING files (capped at $MAX_FILES)"
 
 # Build the file list for Claude's prompt
 FILE_LIST=""
-for f in $ALL_FILES; do
+while IFS= read -r f; do
+    [ -z "$f" ] && continue
     REL_PATH="${f#$PROJECT_DIR/}"
     FILE_LIST="${FILE_LIST}
 - ${REL_PATH}"
-done
+done <<< "$ALL_FILES"
 
 # Run Claude Code CLI one-shot
 # Uses Max subscription (Opus 4.6) — no API key needed
 log "Launching Claude Opus 4.6 quality guardian..."
 
-claude -p "You are the quality guardian for a curated reading library. A local LLM (MiniMax 122B) generates article commentary and Wikipedia essays. Your job: read each file, judge quality, and rewrite anything that falls short. You own the final quality.
+timeout 3600 claude -p "You are the quality guardian for a curated reading library. A local LLM (MiniMax 122B) generates article commentary and Wikipedia essays. Your job: read each file, judge quality, and rewrite anything that falls short. You own the final quality.
 
 FILES TO AUDIT AND IMPROVE:
 ${FILE_LIST}
@@ -122,7 +123,7 @@ Essays should read like engaging magazine features, not encyclopedias:
 
 After processing all files, output a brief summary: how many files reviewed, how many fixed, how many rewritten, key patterns you noticed." \
     --model opus \
-    --allowedTools "Read,Edit,Glob,Grep,Bash(read-only)" \
+    --allowedTools "Read,Edit,Glob,Grep" \
     2>&1 | tee -a "$LOG_FILE"
 
 EC=${PIPESTATUS[0]}

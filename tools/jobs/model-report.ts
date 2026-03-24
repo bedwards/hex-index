@@ -14,7 +14,14 @@ import { join } from 'path';
 
 const args = process.argv.slice(2);
 const hoursIdx = args.indexOf('--hours');
-const HOURS = hoursIdx >= 0 && args[hoursIdx + 1] ? parseInt(args[hoursIdx + 1], 10) : 24;
+const HOURS = (() => {
+  const parsed = hoursIdx >= 0 && args[hoursIdx + 1] ? parseInt(args[hoursIdx + 1], 10) : 24;
+  if (isNaN(parsed) || parsed <= 0) {
+    console.error(`Invalid --hours value: ${args[hoursIdx + 1]}. Must be a positive number.`);
+    process.exit(1);
+  }
+  return parsed;
+})();
 const modelIdx = args.indexOf('--model');
 const MODEL_FILTER = modelIdx >= 0 ? args[modelIdx + 1] : undefined;
 
