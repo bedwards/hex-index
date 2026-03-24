@@ -9,7 +9,7 @@ PROJECT_DIR="$(cd "$SCRIPT_DIR/../.." && pwd)"
 LOCK_FILE="$PROJECT_DIR/logs/article-rewrite.lock"
 LOG_FILE="$PROJECT_DIR/logs/article-rewrite-$(date +%Y%m%d-%H%M%S).log"
 OLLAMA_URL="${OLLAMA_URL:-http://127.0.0.1:11434}"
-OLLAMA_MODEL="${OLLAMA_MODEL:-hf.co/unsloth/MiniMax-M2.5-GGUF:latest}"
+OLLAMA_MODEL="${OLLAMA_MODEL:-qwen3:235b-a22b}"
 
 TIME_BUDGET=2400        # 40 minutes — highest priority job
 SECS_PER_ITEM=50
