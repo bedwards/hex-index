@@ -16,7 +16,8 @@ import { Pool } from 'pg';
 import { writeFile, readFile, mkdir } from 'fs/promises';
 import { join, dirname } from 'path';
 import { generateText } from '../../src/wikipedia/ollama.js';
-import { cleanPreamble } from './clean-llm-output.js';
+import { cleanPreamble, cleanHtml } from './clean-llm-output.js';
+import type { AffiliateLink } from '../../src/db/types.js';
 
 // ── CLI args ────────────────────────────────────────────────────────
 const args = process.argv.slice(2);
@@ -243,18 +244,27 @@ GOOD OPENING: "In 1935, the federal government drew red lines around Black neigh
 Output ONLY the JSON. No preamble, no explanation.
 {"${stub.original_url}": "your essay text here"}`;
 
+  const genStart = Date.now();
   const responseText = await generateText(prompt, {
     temperature: 0.8,
     numPredict: 12000,
   });
+  const genMs = Date.now() - genStart;
 
   let text: string;
+  let jsonParsed = false;
+  let affiliateLinks: AffiliateLink[] = [];
   try {
     let cleaned = responseText.trim();
     if (cleaned.startsWith('```')) {
       cleaned = cleaned.replace(/^```\w*\n?/, '').replace(/\n?```$/, '');
     }
     const parsed = JSON.parse(cleaned) as Record<string, unknown>;
+    jsonParsed = true;
+    // Extract affiliate links before treating as content map
+    if (Array.isArray(parsed.affiliateLinks)) {
+      affiliateLinks = parsed.affiliateLinks as AffiliateLink[];
+    }
     // Extract essay text — look for the URL key or first string value
     if (typeof parsed[stub.original_url] === 'string') {
       text = parsed[stub.original_url] as string;
@@ -267,10 +277,30 @@ Output ONLY the JSON. No preamble, no explanation.
     text = responseText;
   }
 
+  const beforeClean = text;
   text = cleanPreamble(text);
+  const preambleCleaned = text !== beforeClean;
+
   if (text.length > 100) {
-    await saveRewrite(pool, stub, text);
+    const htmlCleaned = await saveRewrite(pool, stub, text, affiliateLinks);
+    const wordCount = countWords(text);
     console.info(`  Rewrote (single): ${stub.wiki_title}`);
+
+    // Structured metrics for reporting
+    console.info(`  METRIC: ${JSON.stringify({
+      type: 'wiki-rewrite',
+      title: stub.wiki_title,
+      slug: stub.wiki_slug,
+      duration_ms: genMs,
+      word_count: wordCount,
+      response_len: responseText.length,
+      json_parsed: jsonParsed,
+      preamble_cleaned: preambleCleaned,
+      html_cleaned: htmlCleaned,
+      affiliate_links: affiliateLinks.length,
+      model: process.env.OLLAMA_MODEL ?? 'unknown',
+      timestamp: new Date().toISOString(),
+    })}`);
   }
 }
 
@@ -280,9 +310,11 @@ Output ONLY the JSON. No preamble, no explanation.
 async function saveRewrite(
   pool: Pool,
   stub: StubRow,
-  plainText: string
-): Promise<void> {
-  const html = textToHtml(plainText, stub.original_url, stub.wiki_title);
+  plainText: string,
+  affiliateLinks: AffiliateLink[] = []
+): Promise<boolean> {
+  const rawHtml = textToHtml(plainText, stub.original_url, stub.wiki_title);
+  const { cleaned: html, changed: htmlCleaned } = cleanHtml(rawHtml);
   const slug = stub.wiki_slug;
   const contentPath = `wikipedia/${slug}.html`;
   const fullPath = join(process.cwd(), 'library', contentPath);
@@ -299,11 +331,13 @@ async function saveRewrite(
     SET content_path = $1,
         word_count = $2,
         estimated_read_time_minutes = $3,
+        affiliate_links = $4::jsonb,
         status = 'complete',
         rewrite_dirty = false,
         updated_at = NOW()
-    WHERE id = $4
-  `, [contentPath, wordCount, readTime, stub.wiki_id]);
+    WHERE id = $5
+  `, [contentPath, wordCount, readTime, JSON.stringify(affiliateLinks), stub.wiki_id]);
+  return htmlCleaned;
 }
 
 main().catch((err: unknown) => {
