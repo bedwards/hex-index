@@ -12,7 +12,7 @@ OLLAMA_URL="${OLLAMA_URL:-http://127.0.0.1:11434}"
 OLLAMA_MODEL="${OLLAMA_MODEL:-qwen3:235b-a22b}"
 
 # Tuning constants
-TIME_BUDGET=900         # 15 minutes — reduced as backlog clears
+TIME_BUDGET=1500        # 25 minutes — fits even-hour Qwen slot
 SECS_PER_ITEM=30
 DEPLOY_OVERHEAD=90
 
