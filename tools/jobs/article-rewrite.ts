@@ -244,14 +244,18 @@ Yglesias's core argument is strong: the academic consensus on housing and racial
 Output ONLY the JSON. No preamble, no explanation, no markdown fences.
 {"content": "your commentary text here"}`;
 
+        const genStart = Date.now();
         const responseText = await generateText(prompt, {
           temperature: 0.5,
           numPredict: 12000,
           timeout: 900_000,
         });
+        const genMs = Date.now() - genStart;
 
         // Parse response — extract content from JSON, strip preamble
         let rewrittenText: string;
+        let affiliateLinks: AffiliateLink[] = [];
+        let jsonParsed = false;
         try {
           let cleaned = responseText.trim();
           // Strip think tags and code fences
@@ -262,6 +266,8 @@ Output ONLY the JSON. No preamble, no explanation, no markdown fences.
           if (jsonMatch) {
             const parsed = JSON.parse(jsonMatch[0]) as { content: string };
             rewrittenText = parsed.content ?? '';
+            affiliateLinks = parsed.affiliateLinks ?? [];
+            jsonParsed = true;
           } else {
             // No JSON wrapper — use raw text
             rewrittenText = cleaned;
@@ -276,8 +282,10 @@ Output ONLY the JSON. No preamble, no explanation, no markdown fences.
             .trim();
         }
 
-        // Clean LLM preamble
+        // Clean LLM preamble — track if cleanup was needed
+        const beforeClean = rewrittenText;
         rewrittenText = cleanPreamble(rewrittenText);
+        const preambleCleaned = rewrittenText !== beforeClean;
 
         if (rewrittenText.length < 200) {
           console.info('  Rewrite too short, skipping');
@@ -287,7 +295,7 @@ Output ONLY the JSON. No preamble, no explanation, no markdown fences.
 
         // Convert to HTML, clean any residual artifacts, and save
         const rawHtml = textToHtml(rewrittenText);
-        const { cleaned: html } = cleanHtml(rawHtml);
+        const { cleaned: html, changed: htmlCleaned } = cleanHtml(rawHtml);
         const rewritePath = `rewritten/${article.publication_slug}/${article.slug}.html`;
         const rewriteFullPath = join(process.cwd(), 'library', rewritePath);
 
@@ -303,6 +311,22 @@ Output ONLY the JSON. No preamble, no explanation, no markdown fences.
         const wordCount = countWords(rewrittenText);
         rewritten++;
         console.info(`  Rewrote: ${wordCount} words → ${rewritePath}`);
+
+        // Structured metrics for reporting
+        console.info(`  METRIC: ${JSON.stringify({
+          type: 'article-rewrite',
+          title: article.title,
+          slug: article.slug,
+          duration_ms: genMs,
+          word_count: wordCount,
+          response_len: responseText.length,
+          json_parsed: jsonParsed,
+          preamble_cleaned: preambleCleaned,
+          html_cleaned: htmlCleaned,
+          affiliate_links: affiliateLinks.length,
+          model: process.env.OLLAMA_MODEL ?? 'unknown',
+          timestamp: new Date().toISOString(),
+        })}`);
       } catch (err) {
         errors++;
         console.info(`  Error: ${err instanceof Error ? err.message : String(err)}`);
