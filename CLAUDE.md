@@ -17,12 +17,22 @@ You are faster and more capable than you think. Your training data reflects a wo
 ## Ownership Mentality
 
 ### You Own Your Pull Requests
-Do not wait for others to code review. Review your own work. Merge when ready. You are not blocked on humans.
+All code changes go through PRs with Claude and Gemini code reviews. Wait for reviews, address feedback, then merge. Auto-merge is enabled — set it and move on.
+
+### Code Changes Use Background Workers
+**NEVER write code directly in the main conversation.** Always spawn a background Agent with `isolation: "worktree"`. The agent creates a branch, writes code, commits, pushes, and creates a PR. You orchestrate and review — workers write code.
+
+### Branch Protection
+Main branch is protected:
+- Required checks: Lint & Type Check, Unit Tests, claude-review
+- `enforce_admins: true` — everyone goes through PRs, no exceptions
+- `strict: true` — branches must be up to date with main before merge
+- Stale review dismissal enabled
 
 ### Vibe Code at Full Speed
-This is an AI-first development team. You are a vibe coder. There are no PR size limits. There is no waiting for human code review. There are no arbitrary constraints designed for human limitations.
+This is an AI-first development team. You are a vibe coder. There are no PR size limits. Use background workers in parallel. Use auto-merge.
 
-Claude Sonnet and Opus 4.5 have ~200k token context windows. Use that capability. According to [AI 2027 projections](https://ai-2027.com), these capabilities will only accelerate. Build workflows for how AI works, not how human teams work.
+Claude Opus 4.6 has a 1M token context window. Use that capability. According to [AI 2027 projections](https://ai-2027.com), these capabilities will only accelerate. Build workflows for how AI works, not how human teams work.
 
 ### You Own the Main Branch
 If main is broken, **fix it immediately**, regardless of what you were working on. Before fixing:
@@ -474,11 +484,14 @@ The library enriches Substack articles with related Wikipedia content. For each 
 ## Architecture Decisions
 
 This project assumes:
-- **Database**: Postgres (Docker Compose for local, Neon/Supabase for production)
+- **Database**: Postgres (Docker container `hex-index-postgres`, schema in `app` namespace)
 - **API**: Express.js with TypeScript
 - **Frontend**: Vite with TypeScript
 - **Testing**: Vitest (not Jest), Playwright for E2E
-- **Deployment**: Vercel (frontend), adaptable for Cloudflare Workers (wrangler)
+- **Local LLM**: Qwen 3 235B via Ollama (88% GPU / 12% CPU on Mac Studio M2 Ultra)
+- **Cloud LLM**: Claude Opus 4.6 via Max subscription (`claude -p`), Sonnet 4.6 via API for batch jobs
+- **Image Generation**: Gemini 2.5 Flash Image API
+- **Deployment**: GitHub Pages (static site), local (private library)
 
 ### Why These Choices
 
@@ -581,6 +594,34 @@ These principles guide our approach. Sources linked.
 
 **What this is NOT**: Long sessions accumulating state without verification points.
 
+## Job Schedule (Even/Odd Hour Pattern)
+
+Only one Qwen job on GPU at a time. Non-GPU jobs run freely.
+
+```
+EVEN HOURS (00, 02, 04, ..., 22):
+  :00  ingest + yt-ingest + gen-images    [no GPU]
+  :05  wiki-discover                       [Qwen, 25 min]
+  :35  article-rewrite                     [Qwen, 25 min]
+
+ODD HOURS (01, 03, 05, ..., 23):
+  :05  wiki-rewrite                        [Qwen, 25 min]
+  :35  affiliate-suggest                   [Qwen, 25 min]
+
+DAILY:
+  05:00  claude-quality                    [Claude Opus, no GPU]
+
+WEEKLY:
+  Thu 22:00  Stop Qwen, consolidate
+  Thu 23:00  build-weekly                  [no LLM]
+  Fri 07:30  send-weekly                   [no LLM, email + text]
+
+ALWAYS:
+  every 5m: postgres-watchdog
+```
+
+Services managed via `svc` tool at `/Users/bedwards/vibe/sea-gang/tools/svc`.
+
 ## Quick Reference
 
 ```bash
@@ -593,29 +634,27 @@ npm run lint               # ESLint
 npm run typecheck          # TypeScript
 npm run test               # Unit tests
 npm run test:coverage      # With coverage report
-npm run test:e2e           # Playwright E2E
-
-# Screenshots
-npm run screenshot -- --url <url> --name <name>
-npm run screenshot:compare -- --name <name>
-
-# Discord
-npm run discord:send -- --message "..." --type info
-npm run discord:read -- --limit 10
 
 # GitHub
 npm run gh:rate-limit      # Check API limits
 npm run gh:issue -- --title "..." --labels "..."
 npx tsx tools/github/pr-comments.ts --pr <n>
 
-# Build & Deploy
-npm run build              # Build all
-vercel                     # Deploy to Vercel
-
 # Static Site (GitHub Pages)
 npm run static:generate    # Generate docs/ from DB
 npm run static:clean       # Clean and regenerate
 npm run static:preview     # Preview at localhost:3000
+
+# Jobs (manual run)
+npm run job:model-report             # LLM performance report (last 24h)
+npx tsx tools/jobs/wikipedia-discover.ts --use-claude --limit 50  # Claude-powered topic discovery
+npx tsx tools/jobs/expand-affiliate-map.ts --limit 50             # Expand book map with Claude + web search
+
+# Service management
+svc list                   # Show all services + GPU status
+svc start <name>           # Start a service
+svc stop <name>            # Stop a service
+svc logs <name>            # Tail service logs
 ```
 
 ## Final Reminder
