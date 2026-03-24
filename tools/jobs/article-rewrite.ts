@@ -15,8 +15,8 @@ import { Pool } from 'pg';
 import { writeFile, readFile, mkdir } from 'fs/promises';
 import { join, dirname } from 'path';
 import { generateText } from '../../src/wikipedia/ollama.js';
-import { cleanPreamble } from './clean-llm-output.js';
-
+import { cleanPreamble, cleanHtml } from './clean-llm-output.js';
+import type { AffiliateLink } from '../../src/db/types.js';
 
 // ── CLI args ────────────────────────────────────────────────────────
 const args = process.argv.slice(2);
@@ -285,8 +285,9 @@ Output ONLY the JSON. No preamble, no explanation, no markdown fences.
           continue;
         }
 
-        // Convert to HTML and save
-        const html = textToHtml(rewrittenText);
+        // Convert to HTML, clean any residual artifacts, and save
+        const rawHtml = textToHtml(rewrittenText);
+        const { cleaned: html } = cleanHtml(rawHtml);
         const rewritePath = `rewritten/${article.publication_slug}/${article.slug}.html`;
         const rewriteFullPath = join(process.cwd(), 'library', rewritePath);
 

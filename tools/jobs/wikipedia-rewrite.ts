@@ -16,7 +16,7 @@ import { Pool } from 'pg';
 import { writeFile, readFile, mkdir } from 'fs/promises';
 import { join, dirname } from 'path';
 import { generateText } from '../../src/wikipedia/ollama.js';
-import { cleanPreamble } from './clean-llm-output.js';
+import { cleanPreamble, cleanHtml } from './clean-llm-output.js';
 
 // ── CLI args ────────────────────────────────────────────────────────
 const args = process.argv.slice(2);
@@ -282,7 +282,8 @@ async function saveRewrite(
   stub: StubRow,
   plainText: string
 ): Promise<void> {
-  const html = textToHtml(plainText, stub.original_url, stub.wiki_title);
+  const rawHtml = textToHtml(plainText, stub.original_url, stub.wiki_title);
+  const { cleaned: html } = cleanHtml(rawHtml);
   const slug = stub.wiki_slug;
   const contentPath = `wikipedia/${slug}.html`;
   const fullPath = join(process.cwd(), 'library', contentPath);
