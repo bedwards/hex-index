@@ -1,14 +1,16 @@
 /**
- * Job: Expand the affiliate book map using Claude + web search
+ * Job: Expand affiliate book map with Ollama web search
  *
- * The existing affiliate-suggest job can only recommend books already in
- * content/affiliate-books.json (currently ~89 entries). This tool massively
- * expands that map by:
+ * Resolves unresolved book/author mentions from content/unresolved-mentions.json
+ * by using Qwen 3 235B via Ollama's built-in web search tools to find real
+ * Amazon ASINs.
  *
- *   1. Finding articles with rewrites but no affiliate links
- *   2. Asking Claude for 3 relevant book suggestions per article
- *   3. Searching Amazon for each suggestion to get the real ASIN
- *   4. Adding verified entries to affiliate-books.json
+ * The tool calling flow:
+ *   1. Send prompt + web_search/web_fetch tool definitions to Ollama
+ *   2. Model requests tool calls (search Amazon, fetch product pages)
+ *   3. We execute the tool calls against Ollama's cloud API
+ *   4. Send results back, loop until the model returns a final answer
+ *   5. Parse the ASIN from the response, validate, add to book map
  *
  * Usage:
  *   npx tsx tools/jobs/expand-affiliate-map.ts --limit 50
@@ -16,16 +18,44 @@
  */
 
 import 'dotenv/config';
-import { Pool } from 'pg';
 import { readFile, writeFile } from 'fs/promises';
 import { join } from 'path';
-import Anthropic from '@anthropic-ai/sdk';
+
+// ── Load OLLAMA_API_KEY from ~/.config/.env if not already set ────
+async function loadExtraEnv(): Promise<void> {
+  if (process.env.OLLAMA_API_KEY) {
+    return;
+  }
+  try {
+    const homedir = process.env.HOME ?? '/Users/bedwards';
+    const envPath = join(homedir, '.config', '.env');
+    const raw = await readFile(envPath, 'utf-8');
+    for (const line of raw.split('\n')) {
+      const trimmed = line.trim();
+      if (trimmed.startsWith('#') || !trimmed.includes('=')) {
+        continue;
+      }
+      const eqIdx = trimmed.indexOf('=');
+      const key = trimmed.slice(0, eqIdx).trim();
+      const value = trimmed.slice(eqIdx + 1).trim().replace(/^["']|["']$/g, '');
+      if (key === 'OLLAMA_API_KEY' && !process.env[key]) {
+        process.env[key] = value;
+      }
+    }
+  } catch {
+    // ~/.config/.env doesn't exist, that's fine
+  }
+}
 
 // ── CLI args ────────────────────────────────────────────────────────
-const args = process.argv.slice(2);
-const limitIdx = args.indexOf('--limit');
-const LIMIT = limitIdx >= 0 ? parseInt(args[limitIdx + 1], 10) : 20;
-const DRY_RUN = args.includes('--dry-run');
+const cliArgs = process.argv.slice(2);
+const limitIdx = cliArgs.indexOf('--limit');
+const LIMIT = limitIdx >= 0 ? parseInt(cliArgs[limitIdx + 1], 10) : 20;
+const DRY_RUN = cliArgs.includes('--dry-run');
+
+// ── Constants ───────────────────────────────────────────────────────
+const ITEM_TIMEOUT_MS = 120_000;
+const OLLAMA_CLOUD_BASE = 'https://ollama.com/api';
 
 // ── Types ───────────────────────────────────────────────────────────
 
@@ -37,34 +67,47 @@ interface BookEntry {
 
 type BookMap = Record<string, BookEntry>;
 
-interface BookSuggestion {
+interface UnresolvedEntry {
+  type: 'book_mention' | 'author_mention';
+  mentioned_in: string[];
+  first_seen: string;
+}
+
+type UnresolvedMap = Record<string, UnresolvedEntry>;
+
+interface OllamaToolCall {
+  function: {
+    name: string;
+    arguments: Record<string, unknown>;
+  };
+}
+
+interface OllamaMessage {
+  role: string;
+  content: string;
+  tool_calls?: OllamaToolCall[];
+}
+
+interface OllamaChatResponse {
+  message: OllamaMessage;
+}
+
+interface ResolvedBook {
+  asin: string;
   title: string;
   author: string;
-  category: string;
   description: string;
+  category: string;
 }
 
-interface ArticleRow {
-  id: string;
-  title: string;
-  rewritten_content_path: string;
+interface ResolvedError {
+  error: string;
 }
 
-// ── Anthropic client ────────────────────────────────────────────────
-
-function createAnthropicClient(): Anthropic {
-  // Construct env var name dynamically to avoid secrets CI check
-  const envKey = ['ANTHROPIC', 'API', 'KEY'].join('_');
-  const apiKey = process.env[envKey];
-  if (!apiKey) {
-    throw new Error(`${envKey} environment variable is required`);
-  }
-  return new Anthropic({ apiKey });
-}
-
-// ── Book map I/O ────────────────────────────────────────────────────
+// ── File I/O ────────────────────────────────────────────────────────
 
 const MAP_PATH = join(process.cwd(), 'content', 'affiliate-books.json');
+const UNRESOLVED_PATH = join(process.cwd(), 'content', 'unresolved-mentions.json');
 
 async function loadBookMap(): Promise<BookMap> {
   try {
@@ -77,7 +120,6 @@ async function loadBookMap(): Promise<BookMap> {
 }
 
 async function saveBookMap(bookMap: BookMap): Promise<void> {
-  // Sort alphabetically by key
   const sorted: BookMap = {};
   for (const key of Object.keys(bookMap).sort((a, b) => a.localeCompare(b))) {
     sorted[key] = bookMap[key];
@@ -85,12 +127,42 @@ async function saveBookMap(bookMap: BookMap): Promise<void> {
   await writeFile(MAP_PATH, JSON.stringify(sorted, null, 2) + '\n', 'utf-8');
 }
 
-function bookExists(bookMap: BookMap, title: string, author: string): boolean {
-  const exactKey = `${title}|${author}`;
-  if (bookMap[exactKey]) {
-    return true;
+async function loadUnresolvedMentions(): Promise<UnresolvedMap> {
+  try {
+    const raw = await readFile(UNRESOLVED_PATH, 'utf-8');
+    return JSON.parse(raw) as UnresolvedMap;
+  } catch {
+    return {};
   }
-  // Fuzzy: case-insensitive title match
+}
+
+async function saveUnresolvedMentions(data: UnresolvedMap): Promise<void> {
+  await writeFile(UNRESOLVED_PATH, JSON.stringify(data, null, 2) + '\n', 'utf-8');
+}
+
+// ── Validation ──────────────────────────────────────────────────────
+
+function isValidAsin(asin: string): boolean {
+  if (asin.length !== 10) {
+    return false;
+  }
+  if (!/^[A-Z0-9]+$/i.test(asin)) {
+    return false;
+  }
+  // Must start with B or a digit
+  return /^[B0-9]/i.test(asin);
+}
+
+function bookExistsByAsin(bookMap: BookMap, asin: string): boolean {
+  for (const entry of Object.values(bookMap)) {
+    if (entry.asin === asin) {
+      return true;
+    }
+  }
+  return false;
+}
+
+function bookExistsByTitle(bookMap: BookMap, title: string): boolean {
   const titleLower = title.toLowerCase().trim();
   for (const key of Object.keys(bookMap)) {
     const [mapTitle] = key.split('|');
@@ -101,250 +173,381 @@ function bookExists(bookMap: BookMap, title: string, author: string): boolean {
   return false;
 }
 
-// ── Claude: suggest books ───────────────────────────────────────────
+// ── Ollama tool calling ─────────────────────────────────────────────
 
-async function suggestBooks(
-  client: Anthropic,
-  articleTitle: string,
-  contentExcerpt: string,
-): Promise<BookSuggestion[]> {
-  const response = await client.messages.create({
-    model: 'claude-sonnet-4-20250514',
-    max_tokens: 1024,
-    messages: [
-      {
-        role: 'user',
-        content: `You are a book recommendation engine. Given an article title and excerpt, suggest exactly 3 books that are directly relevant.
-
-Requirements:
-- Only suggest real, well-known books that are available on Amazon
-- Include the exact title and author name as they appear on the book cover
-- Include a brief category (e.g. "history", "economics", "politics", "science", "philosophy", "technology")
-- Include a 1-sentence description
-
-Article: "${articleTitle}"
-
-Excerpt: ${contentExcerpt}
-
-Respond with ONLY a JSON object in this exact format, no other text:
-{"books": [{"title": "Book Title", "author": "Author Name", "category": "category", "description": "One sentence description."}]}`,
+const OLLAMA_TOOLS = [
+  {
+    type: 'function' as const,
+    function: {
+      name: 'web_search',
+      description: 'Search the web for information',
+      parameters: {
+        type: 'object',
+        properties: {
+          query: { description: 'Search query', type: 'string' },
+          max_results: { description: 'Max results', type: 'integer' },
+        },
+        required: ['query'],
       },
-    ],
-  });
-
-  try {
-    const text = response.content
-      .filter((block): block is Anthropic.TextBlock => block.type === 'text')
-      .map(block => block.text)
-      .join('');
-
-    let cleaned = text.trim();
-    // Strip markdown code fences if present
-    cleaned = cleaned.replace(/^```\w*\n?/, '').replace(/\n?```\s*$/, '').trim();
-
-    const parsed = JSON.parse(cleaned) as { books: BookSuggestion[] };
-    return parsed.books
-      .filter(b => b.title && b.author)
-      .slice(0, 3);
-  } catch (err) {
-    console.info(`  Claude parse error: ${err instanceof Error ? err.message : String(err)}`);
-    return [];
-  }
-}
-
-// ── Amazon ASIN lookup ──────────────────────────────────────────────
-
-const ASIN_REGEX = /\/dp\/([A-Z0-9]{10})\b/i;
-
-/**
- * Search Amazon for a book and extract its ASIN from the product URL.
- * Returns null if no valid ASIN is found.
- */
-async function findAsin(
-  client: Anthropic,
-  title: string,
-  author: string,
-): Promise<string | null> {
-  try {
-    const searchQuery = `site:amazon.com "${title}" ${author} paperback`;
-
-    const response = await client.messages.create({
-      model: 'claude-sonnet-4-20250514',
-      max_tokens: 1024,
-      tools: [
-        {
-          type: 'web_search_20250305',
-          name: 'web_search',
-          max_uses: 3,
+    },
+  },
+  {
+    type: 'function' as const,
+    function: {
+      name: 'web_fetch',
+      description: 'Fetch a web page',
+      parameters: {
+        type: 'object',
+        properties: {
+          url: { description: 'URL to fetch', type: 'string' },
         },
-      ],
-      messages: [
-        {
-          role: 'user',
-          content: `Search for this book on Amazon and return ONLY the Amazon product URL (the one containing /dp/XXXXXXXXXX).
+        required: ['url'],
+      },
+    },
+  },
+];
 
-Book: "${title}" by ${author}
+async function executeToolCall(
+  toolName: string,
+  toolArgs: Record<string, unknown>,
+  apiKey: string,
+): Promise<string> {
+  if (toolName === 'web_search') {
+    const query = typeof toolArgs.query === 'string' ? toolArgs.query : '';
+    const maxResults = typeof toolArgs.max_results === 'number' ? toolArgs.max_results : 5;
+    console.info(`    [tool] web_search: "${query}"`);
 
-Search query to use: ${searchQuery}
-
-Return ONLY the Amazon URL, nothing else. If you cannot find it, respond with "NOT_FOUND".`,
-        },
-      ],
+    const res = await fetch(`${OLLAMA_CLOUD_BASE}/web_search`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${apiKey}`,
+      },
+      body: JSON.stringify({ query, max_results: maxResults }),
+      signal: AbortSignal.timeout(30_000),
     });
 
-    // Extract text from the response
-    const text = response.content
-      .filter((block): block is Anthropic.TextBlock => block.type === 'text')
-      .map(block => block.text)
-      .join(' ');
-
-    // Try to find ASIN in the response text
-    const asinMatch = text.match(ASIN_REGEX);
-    if (asinMatch) {
-      const asin = asinMatch[1].toUpperCase();
-      // Validate: exactly 10 alphanumeric characters
-      if (/^[A-Z0-9]{10}$/.test(asin)) {
-        return asin;
-      }
+    if (!res.ok) {
+      const text = await res.text();
+      return JSON.stringify({ error: `web_search failed: HTTP ${res.status} ${text}` });
     }
-
-    // Also check for ASIN mentioned directly (10-char alphanumeric)
-    const directMatch = text.match(/\b([A-Z0-9]{10})\b/g);
-    if (directMatch) {
-      for (const candidate of directMatch) {
-        // Filter out common false positives (dates, words, etc.)
-        if (/^[0-9]{10}$/.test(candidate) || /^[A-Z]{10}$/.test(candidate)) {
-          continue;
-        }
-        if (/^[A-Z0-9]{10}$/.test(candidate)) {
-          return candidate;
-        }
-      }
-    }
-
-    return null;
-  } catch (err) {
-    console.info(`  ASIN lookup error for "${title}": ${err instanceof Error ? err.message : String(err)}`);
-    return null;
+    const data: unknown = await res.json();
+    return JSON.stringify(data);
   }
+
+  if (toolName === 'web_fetch') {
+    const url = typeof toolArgs.url === 'string' ? toolArgs.url : '';
+    console.info(`    [tool] web_fetch: ${url}`);
+
+    const res = await fetch(`${OLLAMA_CLOUD_BASE}/web_fetch`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${apiKey}`,
+      },
+      body: JSON.stringify({ url }),
+      signal: AbortSignal.timeout(30_000),
+    });
+
+    if (!res.ok) {
+      const text = await res.text();
+      return JSON.stringify({ error: `web_fetch failed: HTTP ${res.status} ${text}` });
+    }
+    const data: unknown = await res.json();
+    return JSON.stringify(data);
+  }
+
+  return JSON.stringify({ error: `Unknown tool: ${toolName}` });
+}
+
+async function resolveWithOllama(
+  prompt: string,
+  ollamaUrl: string,
+  ollamaModel: string,
+  apiKey: string,
+): Promise<ResolvedBook | ResolvedError> {
+  const messages: OllamaMessage[] = [
+    { role: 'user', content: prompt },
+  ];
+
+  const startTime = Date.now();
+  let iterations = 0;
+  const maxIterations = 10;
+
+  while (iterations < maxIterations) {
+    if (Date.now() - startTime > ITEM_TIMEOUT_MS) {
+      return { error: 'Timed out after 120s' };
+    }
+
+    iterations++;
+
+    const res = await fetch(`${ollamaUrl}/api/chat`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        model: ollamaModel,
+        messages,
+        tools: OLLAMA_TOOLS,
+        options: { temperature: 0.1, num_predict: 4000 },
+        keep_alive: -1,
+        stream: false,
+      }),
+      signal: AbortSignal.timeout(ITEM_TIMEOUT_MS),
+    });
+
+    if (!res.ok) {
+      const text = await res.text();
+      return { error: `Ollama HTTP ${res.status}: ${text}` };
+    }
+
+    const data = (await res.json()) as OllamaChatResponse;
+    const assistantMsg = data.message;
+
+    // If there are tool calls, execute them and continue the loop
+    if (assistantMsg.tool_calls && assistantMsg.tool_calls.length > 0) {
+      // Add assistant message to history
+      messages.push({
+        role: 'assistant',
+        content: assistantMsg.content ?? '',
+        tool_calls: assistantMsg.tool_calls,
+      });
+
+      // Execute each tool call and add results
+      for (const toolCall of assistantMsg.tool_calls) {
+        const toolResult = await executeToolCall(
+          toolCall.function.name,
+          toolCall.function.arguments,
+          apiKey,
+        );
+        messages.push({
+          role: 'tool',
+          content: toolResult,
+        });
+      }
+
+      continue;
+    }
+
+    // No tool calls — parse the final response
+    let content = (assistantMsg.content ?? '').trim();
+    // Strip thinking tags
+    content = content.replace(/<think>[\s\S]*?<\/think>/g, '').trim();
+
+    // Try to extract JSON from the response
+    const jsonMatch = content.match(/\{[\s\S]*\}/);
+    if (!jsonMatch) {
+      return { error: `No JSON in response: ${content.slice(0, 200)}` };
+    }
+
+    try {
+      const parsed = JSON.parse(jsonMatch[0]) as Record<string, unknown>;
+      if ('error' in parsed) {
+        return { error: String(parsed.error) };
+      }
+      if ('asin' in parsed && 'title' in parsed && 'author' in parsed) {
+        return {
+          asin: typeof parsed.asin === 'string' ? parsed.asin : JSON.stringify(parsed.asin),
+          title: typeof parsed.title === 'string' ? parsed.title : JSON.stringify(parsed.title),
+          author: typeof parsed.author === 'string' ? parsed.author : JSON.stringify(parsed.author),
+          description: typeof parsed.description === 'string' ? parsed.description : '',
+          category: typeof parsed.category === 'string' ? parsed.category : 'books',
+        };
+      }
+      return { error: `Unexpected JSON shape: ${jsonMatch[0].slice(0, 200)}` };
+    } catch (parseErr) {
+      return { error: `JSON parse failed: ${parseErr instanceof Error ? parseErr.message : String(parseErr)}` };
+    }
+  }
+
+  return { error: `Exceeded ${maxIterations} tool-calling iterations` };
+}
+
+// ── Prompt builders ─────────────────────────────────────────────────
+
+function buildBookPrompt(title: string, author: string): string {
+  return `Find the Amazon ASIN for this book:
+Title: "${title}"
+Author: "${author}"
+
+Search Amazon for this exact book. Find the product page and extract the ASIN (the 10-character alphanumeric identifier in the URL, like /dp/B08N5WRWNW or /dp/0399590528).
+
+IMPORTANT:
+- Only return a VERIFIED ASIN that you found on an actual Amazon page
+- Do NOT make up or guess ASINs
+- The ASIN must be for this specific book (not a different edition unless the exact one isn't available)
+- Prefer paperback or hardcover editions over Kindle
+
+After verifying, respond with ONLY this JSON (no other text):
+{"asin": "THE_ASIN", "title": "Exact Title", "author": "Exact Author", "description": "One sentence about why this book matters", "category": "books"}
+
+If you cannot find a verified ASIN, respond with:
+{"error": "reason"}`;
+}
+
+function buildAuthorPrompt(author: string): string {
+  return `Find an Amazon book by this author: ${author}
+
+Search for the most notable or well-known book by this author. Find the Amazon product page and extract the ASIN.
+
+IMPORTANT:
+- Only return a VERIFIED ASIN that you found on an actual Amazon page
+- Do NOT make up or guess ASINs
+- The ASIN must be for this specific book (not a different edition unless the exact one isn't available)
+- Prefer paperback or hardcover editions over Kindle
+
+After verifying, respond with ONLY this JSON (no other text):
+{"asin": "THE_ASIN", "title": "Exact Title", "author": "Exact Author", "description": "One sentence about why this book matters", "category": "books"}
+
+If you cannot find a verified ASIN, respond with:
+{"error": "reason"}`;
 }
 
 // ── Main ────────────────────────────────────────────────────────────
 
 async function main(): Promise<void> {
-  const dbUrl = process.env.DATABASE_URL;
-  if (!dbUrl) {
-    throw new Error('DATABASE_URL required');
+  await loadExtraEnv();
+
+  const apiKey = process.env.OLLAMA_API_KEY;
+  if (!apiKey) {
+    throw new Error(
+      'OLLAMA_API_KEY is required. Get one at https://ollama.com/settings/keys\n' +
+      'Set it in .env or ~/.config/.env',
+    );
   }
 
-  const anthropic = createAnthropicClient();
-  const pool = new Pool({ connectionString: dbUrl });
-  const bookMap = await loadBookMap();
-  const initialCount = Object.keys(bookMap).length;
+  const ollamaUrl = process.env.OLLAMA_URL ?? 'http://127.0.0.1:11434';
+  const ollamaModel = process.env.OLLAMA_MODEL ?? 'qwen3:235b-a22b';
 
-  console.info(`Loaded ${initialCount} books from affiliate-books.json`);
+  const bookMap = await loadBookMap();
+  const unresolved = await loadUnresolvedMentions();
+  const initialMapCount = Object.keys(bookMap).length;
+  const unresolvedKeys = Object.keys(unresolved);
+
+  console.info(`Loaded ${initialMapCount} books from affiliate-books.json`);
+  console.info(`Found ${unresolvedKeys.length} unresolved mentions`);
+
+  if (unresolvedKeys.length === 0) {
+    console.info('Nothing to resolve. Run affiliate-suggest.ts first to populate unresolved-mentions.json.');
+    return;
+  }
+
+  const toProcess = unresolvedKeys.slice(0, LIMIT);
+  console.info(`Processing ${toProcess.length} items (limit: ${LIMIT})`);
+
   if (DRY_RUN) {
-    console.info('DRY RUN — will show suggestions without writing to disk');
+    console.info('\nDRY RUN — showing what would be processed:\n');
+    for (const key of toProcess) {
+      const entry = unresolved[key];
+      const [title, author] = key.split('|');
+      console.info(`  ${entry.type}: "${title}" by ${author} (mentioned in ${entry.mentioned_in.length} sources)`);
+    }
+    return;
   }
 
   const stats = {
-    articlesProcessed: 0,
-    booksAlreadyMapped: 0,
-    booksSearched: 0,
-    booksAdded: 0,
-    booksNotFound: 0,
+    processed: 0,
+    added: 0,
+    failed: 0,
+    skipped: 0,
+    searchesUsed: 0,
   };
 
-  try {
-    // Find articles with rewrites but no affiliate links
-    const { rows: articles } = await pool.query<ArticleRow>(`
-      SELECT a.id, a.title, a.rewritten_content_path
-      FROM app.articles a
-      WHERE a.rewritten_content_path IS NOT NULL
-        AND (a.affiliate_links IS NULL OR a.affiliate_links = '[]'::jsonb)
-      ORDER BY a.created_at DESC
-      LIMIT $1
-    `, [LIMIT]);
+  for (const key of toProcess) {
+    stats.processed++;
+    const entry = unresolved[key];
+    const [title, author] = key.split('|');
 
-    console.info(`Found ${articles.length} articles needing affiliate link expansion\n`);
+    console.info(`\n[${stats.processed}/${toProcess.length}] ${entry.type}: "${title || '(no title)'}" by ${author}`);
 
-    for (const article of articles) {
-      stats.articlesProcessed++;
-      console.info(`[${stats.articlesProcessed}/${articles.length}] ${article.title}`);
+    // Skip if already in book map (may have been added in a previous iteration)
+    if (title && bookExistsByTitle(bookMap, title)) {
+      console.info('  SKIP: already in book map');
+      stats.skipped++;
+      // eslint-disable-next-line @typescript-eslint/no-dynamic-delete -- cleaning resolved entries from map
+      delete unresolved[key];
+      continue;
+    }
 
-      try {
-        // Load first ~500 words of rewritten content
-        const contentPath = join(process.cwd(), 'library', article.rewritten_content_path);
-        const html = await readFile(contentPath, 'utf-8');
-        const text = html.replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim();
-        const excerpt = text.split(/\s+/).slice(0, 500).join(' ');
+    const prompt = entry.type === 'book_mention' && title
+      ? buildBookPrompt(title, author)
+      : buildAuthorPrompt(author);
 
-        // Ask Claude for book suggestions
-        const suggestions = await suggestBooks(anthropic, article.title, excerpt);
+    try {
+      stats.searchesUsed++;
+      const result = await resolveWithOllama(prompt, ollamaUrl, ollamaModel, apiKey);
 
-        if (suggestions.length === 0) {
-          console.info('  No suggestions from Claude');
-          continue;
-        }
-
-        for (const suggestion of suggestions) {
-          const key = `${suggestion.title}|${suggestion.author}`;
-
-          if (bookExists(bookMap, suggestion.title, suggestion.author)) {
-            console.info(`  SKIP (already mapped): ${key}`);
-            stats.booksAlreadyMapped++;
-            continue;
-          }
-
-          stats.booksSearched++;
-
-          if (DRY_RUN) {
-            console.info(`  SUGGEST: ${key} [${suggestion.category}] — ${suggestion.description}`);
-            continue;
-          }
-
-          // Search Amazon for the ASIN
-          const asin = await findAsin(anthropic, suggestion.title, suggestion.author);
-
-          if (asin) {
-            bookMap[key] = {
-              asin,
-              category: suggestion.category || 'books',
-              description: suggestion.description || '',
-            };
-            stats.booksAdded++;
-            console.info(`  ADDED: ${key} → ${asin}`);
-          } else {
-            stats.booksNotFound++;
-            console.info(`  NOT FOUND on Amazon: ${key}`);
-          }
-
-          // Rate limit: small delay between web searches
-          await new Promise(r => setTimeout(r, 1000));
-        }
-      } catch (err) {
-        console.info(`  Error: ${err instanceof Error ? err.message : String(err)}`);
+      if ('error' in result) {
+        console.info(`  FAILED: ${result.error}`);
+        stats.failed++;
+        continue;
       }
+
+      // Validate the ASIN
+      const asin = result.asin.toUpperCase();
+      if (!isValidAsin(asin)) {
+        console.info(`  INVALID ASIN: "${result.asin}" — skipping`);
+        stats.failed++;
+        continue;
+      }
+
+      // Check for duplicate ASIN
+      if (bookExistsByAsin(bookMap, asin)) {
+        console.info(`  DUPLICATE ASIN: ${asin} already in map — skipping`);
+        stats.skipped++;
+        // eslint-disable-next-line @typescript-eslint/no-dynamic-delete -- cleaning resolved entries from map
+        delete unresolved[key];
+        continue;
+      }
+
+      // Validate non-empty fields
+      if (!result.title || !result.author || !result.description) {
+        console.info('  INVALID: missing title, author, or description');
+        stats.failed++;
+        continue;
+      }
+
+      // Add to book map
+      const mapKey = `${result.title}|${result.author}`;
+      bookMap[mapKey] = {
+        asin,
+        category: result.category || 'books',
+        description: result.description,
+      };
+
+      // Remove from unresolved
+      // eslint-disable-next-line @typescript-eslint/no-dynamic-delete -- cleaning resolved entries from map
+      delete unresolved[key];
+
+      stats.added++;
+      console.info(`  ADDED: ${mapKey} → ${asin}`);
+    } catch (err) {
+      console.info(`  ERROR: ${err instanceof Error ? err.message : String(err)}`);
+      stats.failed++;
     }
 
-    // Save updated map
-    if (!DRY_RUN && stats.booksAdded > 0) {
-      await saveBookMap(bookMap);
-      console.info(`\nWrote updated affiliate-books.json (${Object.keys(bookMap).length} total entries)`);
-    }
-
-    // Summary
-    const finalCount = Object.keys(bookMap).length;
-    console.info('\n── Summary ──────────────────────────────────────');
-    console.info(`  Articles processed:    ${stats.articlesProcessed}`);
-    console.info(`  Books already mapped:  ${stats.booksAlreadyMapped}`);
-    console.info(`  Books searched:        ${stats.booksSearched}`);
-    console.info(`  Books added:           ${stats.booksAdded}`);
-    console.info(`  Books not found:       ${stats.booksNotFound}`);
-    console.info(`  Map size:              ${initialCount} → ${finalCount}`);
-  } finally {
-    await pool.end();
+    // Brief delay between items to be a good citizen
+    await new Promise(r => setTimeout(r, 1000));
   }
+
+  // Save updated files
+  if (stats.added > 0 || stats.skipped > 0) {
+    await saveBookMap(bookMap);
+    console.info(`\nWrote updated affiliate-books.json (${Object.keys(bookMap).length} total entries)`);
+  }
+
+  await saveUnresolvedMentions(unresolved);
+  const remainingUnresolved = Object.keys(unresolved).length;
+  console.info(`Wrote updated unresolved-mentions.json (${remainingUnresolved} remaining)`);
+
+  // Summary
+  console.info('\n── Summary ──────────────────────────────────────');
+  console.info(`  Processed:          ${stats.processed}`);
+  console.info(`  Added to map:       ${stats.added}`);
+  console.info(`  Skipped (dupes):    ${stats.skipped}`);
+  console.info(`  Failed:             ${stats.failed}`);
+  console.info(`  Web searches used:  ${stats.searchesUsed} / 100 daily budget`);
+  console.info(`  Map size:           ${initialMapCount} → ${Object.keys(bookMap).length}`);
+  console.info(`  Unresolved:         ${unresolvedKeys.length} → ${remainingUnresolved}`);
 }
 
 main().catch((err: unknown) => {
