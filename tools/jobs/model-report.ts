@@ -35,53 +35,69 @@ interface Metric {
   json_parsed: boolean;
   preamble_cleaned: boolean;
   html_cleaned: boolean;
-  affiliate_links: number;
   model: string;
   timestamp: string;
 }
 
+/**
+ * Parse a log filename timestamp like "article-rewrite-20260321-140504.log"
+ * and return a Date, or null if unparseable.
+ */
+function parseLogFileDate(filename: string): Date | null {
+  const match = filename.match(/(\d{4})(\d{2})(\d{2})-(\d{2})(\d{2})(\d{2})\.log$/);
+  if (!match) { return null; }
+  const [, year, month, day, hour, min, sec] = match;
+  return new Date(`${year}-${month}-${day}T${hour}:${min}:${sec}`);
+}
+
 async function main(): Promise<void> {
   const logsDir = join(process.cwd(), 'logs');
-
-  // Find recent log files
   const cutoff = new Date(Date.now() - HOURS * 60 * 60 * 1000);
+
+  // Find timestamped log files only (not launchd wrappers, which duplicate
+  // the same METRIC lines that the timestamped logs already contain).
   const logFiles = await glob('{article-rewrite-*.log,wikipedia-rewrite-*.log}', { cwd: logsDir });
 
-  const metrics: Metric[] = [];
+  // Filter log files by filename timestamp so we skip files entirely outside
+  // the time window. This prevents old error lines from leaking into reports.
+  const recentLogFiles = logFiles.filter(file => {
+    const fileDate = parseLogFileDate(file);
+    // If we can't parse the date, include the file (conservative).
+    // Otherwise skip files that ended before our cutoff.
+    return fileDate === null || fileDate >= cutoff;
+  });
 
-  for (const file of logFiles) {
+  const metrics: Metric[] = [];
+  let errorCount = 0;
+  let timeoutCount = 0;
+
+  // Single pass per file: extract metrics AND count errors/timeouts.
+  for (const file of recentLogFiles) {
     const path = join(logsDir, file);
     try {
       const content = await readFile(path, 'utf-8');
       for (const line of content.split('\n')) {
+        // Extract METRIC lines
         const metricMatch = line.match(/METRIC: (.+)$/);
-        if (!metricMatch) {continue;}
-        try {
-          const metric = JSON.parse(metricMatch[1]) as Metric;
-          if (new Date(metric.timestamp) < cutoff) {continue;}
-          if (MODEL_FILTER && !metric.model.includes(MODEL_FILTER)) {continue;}
-          metrics.push(metric);
-        } catch { /* skip malformed */ }
+        if (metricMatch) {
+          try {
+            const metric = JSON.parse(metricMatch[1]) as Metric;
+            if (new Date(metric.timestamp) < cutoff) { continue; }
+            if (MODEL_FILTER && !metric.model.includes(MODEL_FILTER)) { continue; }
+            metrics.push(metric);
+          } catch { /* skip malformed */ }
+          continue;
+        }
+
+        // Count errors and timeouts (only from files within the time window)
+        if (/Error:|FATAL:|Failed/i.test(line)) {
+          errorCount++;
+        }
+        if (/timeout|Hit time budget/i.test(line)) {
+          timeoutCount++;
+        }
       }
     } catch { /* skip unreadable */ }
-  }
-
-  // Also check launchd wrapper logs
-  for (const prefix of ['launchd-article-rewrite', 'launchd-wiki-rewrite']) {
-    const path = join(logsDir, `${prefix}.log`);
-    try {
-      const content = await readFile(path, 'utf-8');
-      for (const line of content.split('\n')) {
-        const metricMatch = line.match(/METRIC: (.+)$/);
-        if (!metricMatch) {continue;}
-        try {
-          const metric = JSON.parse(metricMatch[1]) as Metric;
-          if (new Date(metric.timestamp) < cutoff) {continue;}
-          if (MODEL_FILTER && !metric.model.includes(MODEL_FILTER)) {continue;}
-          metrics.push(metric);
-        } catch { /* skip malformed */ }
-      }
-    } catch { /* skip */ }
   }
 
   if (metrics.length === 0) {
@@ -95,7 +111,7 @@ async function main(): Promise<void> {
   const byModel = new Map<string, Metric[]>();
   for (const m of metrics) {
     const key = m.model;
-    if (!byModel.has(key)) {byModel.set(key, []);}
+    if (!byModel.has(key)) { byModel.set(key, []); }
     byModel.get(key)!.push(m);
   }
 
@@ -153,10 +169,6 @@ async function main(): Promise<void> {
     const avgWords = words.reduce((a, b) => a + b, 0) / words.length;
     console.info(`\n   OUTPUT:`);
     console.info(`     Avg words: ${Math.round(avgWords)} | Min: ${Math.min(...words)} | Max: ${Math.max(...words)}`);
-
-    // Affiliate links
-    const withLinks = mets.filter(m => m.affiliate_links > 0).length;
-    console.info(`     With affiliate links: ${withLinks}/${mets.length}`);
   }
 
   // Comparison if multiple models
@@ -175,26 +187,10 @@ async function main(): Promise<void> {
     }
   }
 
-  // Errors from log files
+  // Errors & timeouts (already counted during the single-pass above)
   console.info('\n' + '='.repeat(70));
   console.info('ERRORS & TIMEOUTS');
   console.info('='.repeat(70));
-  let errorCount = 0;
-  let timeoutCount = 0;
-  for (const file of logFiles) {
-    const path = join(logsDir, file);
-    try {
-      const content = await readFile(path, 'utf-8');
-      for (const line of content.split('\n')) {
-        if (/Error:|FATAL:|Failed/i.test(line) && !/METRIC/.test(line)) {
-          errorCount++;
-        }
-        if (/timeout|Hit time budget/i.test(line)) {
-          timeoutCount++;
-        }
-      }
-    } catch { /* skip */ }
-  }
   console.info(`   Errors: ${errorCount} | Timeouts: ${timeoutCount}`);
 
   console.info('\n' + '='.repeat(70));
