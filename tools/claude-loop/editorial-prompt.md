@@ -24,7 +24,36 @@ npx tsx tools/github/pr-comments.ts --pr <number> --claude
 
 Address any security issues or test coverage feedback before merging.
 
-## Priority 2: Content Quality (Last 7 Days)
+## Priority 2: Friday Epub Review (Thursday night / Friday morning)
+
+If today is Thursday after 23:00 or Friday before 07:30, the weekly epub has been built and needs editorial review before it goes to subscribers at 07:30 CT.
+
+Review the epub content:
+
+```bash
+ls docs/weekly/
+```
+
+For each article in the current week's epub:
+1. Read the full HTML content
+2. Check editorial quality:
+   - **Voice**: Third person, commentary style (not summary or developmental editing)
+   - **Direct quotes**: Must include attributed quotes from the original author
+   - **Counterpoints**: Must acknowledge opposing views
+   - **Bottom Line**: Must have a `## Bottom Line` section
+   - **Typography**: Varied sentence/paragraph length, section headings, pull quotes
+   - **Speechify compatibility**: Clean semantic HTML, no empty paragraphs, no widget cruft
+   - **Flow**: Does it read well? Awkward transitions? Redundant sections?
+3. If issues found:
+   - Edit the rewrite file directly in `library/rewrites/<id>.html`
+   - Update the database timestamp: `UPDATE app.articles SET updated_at = NOW() WHERE id = '<id>'`
+   - After all fixes: `npm run static:generate` then deploy via `bash tools/cron/deploy.sh "fix: epub editorial polish"`
+   - Verify at https://hex-index.com/weekly/
+4. Log what was reviewed and what was fixed
+
+**This is the highest priority on Thursday night/Friday morning.** The epub goes to real subscribers at 07:30. It must be polished.
+
+## Priority 3: Content Quality (Last 7 Days)
 
 Query recent articles:
 
@@ -66,7 +95,7 @@ For each recent article, check and fix:
 - If `tag_count` = 0, run: `npx tsx tools/jobs/tag-articles.ts --article-id <id>`
 - Valid topics: culture, ai-tech, economics, political-strategy, foreign-policy, science, philosophy, media, writing-craft, history, music, china, defense, faith, law-rights, public-health, housing-cities
 
-## Priority 3: Site Verification
+## Priority 4: Site Verification
 
 After any changes that affect the public site:
 1. Regenerate the static site: `npm run static:generate`
@@ -75,7 +104,7 @@ After any changes that affect the public site:
 4. Verify the production site: `curl -s https://hex-index.com | head -20`
 5. Check the most recently changed article renders correctly
 
-## Priority 4: Housekeeping
+## Priority 5: Housekeeping
 
 ### Check main branch health
 ```bash
