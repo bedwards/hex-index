@@ -609,6 +609,7 @@ DAILY:
 WEEKLY:
   Thu 22:00  Stop Qwen, consolidate
   Thu 23:00  build-weekly                  [no LLM]
+  Thu 23:30–Fri 07:00  epub editorial review window [Claude editorial loop]
   Fri 07:30  send-weekly                   [no LLM, email + text]
 
 ALWAYS:
