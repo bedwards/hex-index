@@ -5,7 +5,7 @@
 
 import type { Pool } from 'pg';
 import { staticReadingLayout } from '../templates.js';
-import { writeFile, extractHtmlExcerpt, escapeHtml, formatDate, loadAffiliateBooks } from '../utils.js';
+import { writeFile, extractHtmlExcerpt, escapeHtml, formatDate, loadAffiliateBooks, buildAmazonUrl } from '../utils.js';
 import { join } from 'path';
 import { readFile } from 'fs/promises';
 
@@ -127,6 +127,7 @@ interface BookDeepDive {
   author: string;
   description: string;
   wikiSlug: string | null;
+  asin: string | null;
 }
 
 /**
@@ -158,17 +159,27 @@ function generateArticlePage(
     )
     .join('\n');
 
+  const affiliateTag = process.env.AMAZON_AFFILIATE_TAG ?? '';
+
   const bookItems = bookDeepDives
     .map((b) => {
-      const inner = b.wikiSlug
-        ? `<a href="${pathToRoot}wikipedia/${b.wikiSlug}/index.html">
+      let inner: string;
+      if (b.wikiSlug) {
+        inner = `<a href="${pathToRoot}wikipedia/${b.wikiSlug}/index.html">
           <strong>${escapeHtml(b.title)}</strong>
           <span class="read-time">by ${escapeHtml(b.author)}</span>
-        </a>`
-        : `<span class="deep-dive-no-link">
+        </a>`;
+      } else if (b.asin && affiliateTag) {
+        inner = `<a href="${buildAmazonUrl(b.asin, affiliateTag)}" target="_blank" rel="noopener">
+          <strong>${escapeHtml(b.title)}</strong>
+          <span class="read-time">by ${escapeHtml(b.author)}</span>
+        </a>`;
+      } else {
+        inner = `<span>
           <strong>${escapeHtml(b.title)}</strong>
           <span class="read-time">by ${escapeHtml(b.author)}</span>
         </span>`;
+      }
       return `
       <li class="deep-dive-item">
         ${inner}
@@ -331,6 +342,7 @@ export async function generateArticlePages(
         author: link.author,
         description: mapEntry?.description ?? link.description,
         wikiSlug,
+        asin: link.asin ?? mapEntry?.asin ?? null,
       });
     }
 
