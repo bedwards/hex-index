@@ -52,7 +52,7 @@ fi
 
 # Cap at 30 files per run to keep costs reasonable
 MAX_FILES=30
-ALL_FILES=$(echo -e "${REWRITTEN_FILES}\n${WIKIPEDIA_FILES}" | head -n "$MAX_FILES")
+ALL_FILES=$(printf '%s\n%s' "${REWRITTEN_FILES}" "${WIKIPEDIA_FILES}" | head -n "$MAX_FILES")
 AUDITING=$(echo "$ALL_FILES" | grep -v '^$' | wc -l | tr -d ' ')
 log "Auditing $AUDITING files (capped at $MAX_FILES)"
 
