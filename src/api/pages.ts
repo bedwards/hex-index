@@ -12,8 +12,8 @@ import { Router, Request, Response } from 'express';
 import { Pool } from 'pg';
 import { readFile } from 'fs/promises';
 import { join } from 'path';
-import { loadAffiliateBooks, renderBookPurchaseLinks } from '../../tools/static-site/utils.js';
-import type { ParsedAffiliateBook } from '../../tools/static-site/utils.js';
+import { loadAffiliateBooks, renderBookPurchaseLinks } from '../lib/affiliate-books.js';
+import type { ParsedAffiliateBook } from '../lib/affiliate-books.js';
 
 interface Article {
   id: string;
