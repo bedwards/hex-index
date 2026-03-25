@@ -99,4 +99,14 @@ if [ $? -ne 0 ]; then
     exit 1
 fi
 
+# If static-site source files changed, regenerate docs/ automatically
+STATIC_SRC_CHANGED=$(git diff --cached --name-only | grep -E '^(tools/static-site/|public/styles\.css|src/shared/affiliate-utils\.ts)' || true)
+
+if [ -n "$STATIC_SRC_CHANGED" ]; then
+    echo "🔄 Static site source files changed — regenerating docs/..."
+    npm run static:generate
+    git add docs/
+    echo "✅ Static site regenerated and staged."
+fi
+
 echo "✅ All pre-commit checks passed!"
