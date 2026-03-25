@@ -242,7 +242,9 @@ export function renderStaticArticleCard(
       </a>
       ${date ? `<span class="separator">&middot;</span><time>${date}</time>` : ''}
       <span class="separator">&middot;</span>
-      <span class="read-time">${article.estimatedReadTimeMinutes} min read</span>
+      <span class="read-time">${article.estimatedReadTimeMinutes} min read</span>${article.displayTag ? `
+      <span class="separator">&middot;</span>
+      <a href="${pathToRoot}tag/${article.displayTag.slug}/index.html" class="article-tag">${escapeHtml(article.displayTag.name)}</a>` : ''}
     </div>
   </div>
   ${thumbHtml}
