@@ -68,12 +68,13 @@ For each recent article, check and fix:
 
 ## Priority 3: Site Verification
 
-After any changes that affect the public site:
-1. Regenerate the static site: `npm run static:generate`
-2. Commit and push the updated `docs/` directory
-3. Wait for GitHub Pages to update (~2 min)
-4. Verify the production site: `curl -s https://hex-index.com | head -20`
-5. Check the most recently changed article renders correctly
+**Do NOT deploy directly.** The auto-deploy service (`tools/cron/auto-deploy.sh`) runs every 30 minutes and is the ONLY thing that regenerates the static site and deploys to GitHub Pages. All other jobs (including this editorial loop) should only write to DB + `library/`.
+
+After making content changes:
+1. The auto-deploy service will pick up changes within 30 minutes
+2. For urgent deploys (e.g., Friday epub fixes), call `bash tools/cron/auto-deploy.sh` directly
+3. After deploy, verify the production site: `curl -s https://hex-index.com | head -20`
+4. Check the most recently changed article renders correctly
 
 ## Priority 4: Housekeeping
 

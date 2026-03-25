@@ -52,11 +52,6 @@ step_start "YouTube ingestion"
 npx tsx tools/jobs/yt-ingest.ts --source content/youtube-sources.json 2>&1 | tee -a "$LOG_FILE"
 step_done
 
-# Deploy (shared lock — regenerate, commit, push)
-step_start "Deploy"
-bash "$PROJECT_DIR/tools/cron/deploy.sh" "feat: youtube ingest $(date +%Y-%m-%d\ %H:%M)" 2>&1 | tee -a "$LOG_FILE"
-step_done
-
 RUN_E=$(( $(date +%s) - RUN_START ))
 log "=== Job 6 complete ($(( RUN_E/60 ))m $(( RUN_E%60 ))s) ==="
 ln -sf "$LOG_FILE" "$PROJECT_DIR/logs/yt-ingest-latest.log"

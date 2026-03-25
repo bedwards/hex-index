@@ -123,46 +123,9 @@ else
     log "Skipping Wikipedia enrichment (Ollama unavailable)"
 fi
 
-# ── Static site generation ───────────────────────────────────────────
-step_start "Static site"
-npm run static:generate 2>&1 | tee -a "$LOG_FILE"
-step_done
-
-# ── Git: commit and push with conflict handling ──────────────────────
-step_start "Publish"
-
-if git diff --quiet docs/ && git diff --quiet --cached docs/; then
-    log "No new content to publish"
-else
-    git add docs/
-
-    COMMIT_MSG="feat: auto-publish $(date +%Y-%m-%d %H:%M)"
-    git commit -m "$COMMIT_MSG" 2>&1 | tee -a "$LOG_FILE"
-
-    PUSH_RETRIES=0
-    PUSH_MAX=3
-    while [ "$PUSH_RETRIES" -lt "$PUSH_MAX" ]; do
-        if git push 2>&1 | tee -a "$LOG_FILE"; then
-            log "Pushed successfully"
-            break
-        else
-            PUSH_RETRIES=$((PUSH_RETRIES + 1))
-            if [ "$PUSH_RETRIES" -ge "$PUSH_MAX" ]; then
-                warn "Push failed after $PUSH_MAX attempts — commit is local, will retry next run"
-                break
-            fi
-            log "Push failed, pulling with rebase (attempt $PUSH_RETRIES/$PUSH_MAX)..."
-            if ! git pull --rebase 2>&1 | tee -a "$LOG_FILE"; then
-                warn "Rebase conflict — aborting rebase, commit stays local"
-                git rebase --abort 2>/dev/null || true
-                break
-            fi
-        fi
-    done
-fi
-step_done
-
 # ── Summary ──────────────────────────────────────────────────────────
+# NOTE: Static site generation and deploy are handled by auto-deploy.sh
+# which runs every 30 minutes. This script only writes to DB + library/.
 RUN_ELAPSED=$(( $(date +%s) - RUN_START ))
 RUN_MINS=$(( RUN_ELAPSED / 60 ))
 RUN_SECS=$(( RUN_ELAPSED % 60 ))

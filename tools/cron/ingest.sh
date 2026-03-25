@@ -50,11 +50,6 @@ step_start "RSS ingestion"
 npm run ingest -- --source content/ingest-subscribed.json --no-enrich 2>&1 | tee -a "$LOG_FILE"
 step_done
 
-# Deploy (shared lock — regenerate, commit, push)
-step_start "Deploy"
-bash "$PROJECT_DIR/tools/cron/deploy.sh" "feat: ingest $(date +%Y-%m-%d\ %H:%M)" 2>&1 | tee -a "$LOG_FILE"
-step_done
-
 RUN_E=$(( $(date +%s) - RUN_START ))
 log "=== Job 1 complete ($(( RUN_E/60 ))m $(( RUN_E%60 ))s) ==="
 ln -sf "$LOG_FILE" "$PROJECT_DIR/logs/ingest-latest.log"
