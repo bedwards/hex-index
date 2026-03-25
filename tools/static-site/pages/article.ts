@@ -5,7 +5,7 @@
 
 import type { Pool } from 'pg';
 import { staticReadingLayout } from '../templates.js';
-import { writeFile, extractHtmlExcerpt, escapeHtml, formatDate, renderAffiliateSection } from '../utils.js';
+import { writeFile, extractHtmlExcerpt, escapeHtml, formatDate, loadAffiliateBooks } from '../utils.js';
 import { join } from 'path';
 import { readFile } from 'fs/promises';
 
@@ -120,6 +120,16 @@ function injectImageIntoText(html: string, imageSrc: string): string {
 }
 
 /**
+ * A book from affiliate_links that may or may not have a Wikipedia page
+ */
+interface BookDeepDive {
+  title: string;
+  author: string;
+  description: string;
+  wikiSlug: string | null;
+}
+
+/**
  * Generate article excerpt page HTML
  * Layout order: Title/byline → Deep Dives → Excerpt → Link to original
  */
@@ -127,19 +137,17 @@ function generateArticlePage(
   article: ArticleRow,
   contentHtml: string,
   wikipediaLinks: WikipediaLink[],
+  bookDeepDives: BookDeepDive[],
   isFullRewrite: boolean = false,
-  excerptHtml: string = '',
-  affiliateLinks: Array<{ asin: string; title: string; author: string; description: string }> = []
+  excerptHtml: string = ''
 ): string {
   const date = formatDate(article.published_at);
   const pathToRoot = '../../';
 
-  // Deep dives section if Wikipedia links exist - shown FIRST after header
-  let deepDivesHtml = '';
-  if (wikipediaLinks.length > 0) {
-    const linkItems = wikipediaLinks
-      .map(
-        (w) => `
+  // Merge Wikipedia links and books into a single deep dives list
+  const wikiItems = wikipediaLinks
+    .map(
+      (w) => `
       <li class="deep-dive-item">
         <a href="${pathToRoot}wikipedia/${w.slug}/index.html">
           <strong>${escapeHtml(w.title)}</strong>
@@ -147,22 +155,41 @@ function generateArticlePage(
         </a>
         <p class="topic-summary">${escapeHtml(w.topic_summary)}</p>
       </li>`
-      )
-      .join('\n');
+    )
+    .join('\n');
 
+  const bookItems = bookDeepDives
+    .map((b) => {
+      const inner = b.wikiSlug
+        ? `<a href="${pathToRoot}wikipedia/${b.wikiSlug}/index.html">
+          <strong>${escapeHtml(b.title)}</strong>
+          <span class="read-time">by ${escapeHtml(b.author)}</span>
+        </a>`
+        : `<span class="deep-dive-no-link">
+          <strong>${escapeHtml(b.title)}</strong>
+          <span class="read-time">by ${escapeHtml(b.author)}</span>
+        </span>`;
+      return `
+      <li class="deep-dive-item">
+        ${inner}
+        <p class="topic-summary">${escapeHtml(b.description)}</p>
+      </li>`;
+    })
+    .join('\n');
+
+  const allItems = wikiItems + bookItems;
+  let deepDivesHtml = '';
+  if (allItems.trim()) {
     deepDivesHtml = `
       <section id="deep-dives" class="deep-dives">
         <h2>Deep Dives</h2>
         <p class="deep-dives-intro">Explore related topics with these Wikipedia articles, rewritten for enjoyable reading:</p>
         <ul class="deep-dive-list">
-          ${linkItems}
+          ${allItems}
         </ul>
       </section>
     `;
   }
-
-  const affiliateTag = process.env.AMAZON_AFFILIATE_TAG ?? '';
-  const affiliateHtml = renderAffiliateSection(affiliateLinks, affiliateTag);
 
   const authorName = article.author_name ?? 'Unknown';
   const pubName = escapeHtml(article.publication_name);
@@ -230,13 +257,10 @@ function generateArticlePage(
 
       ${deepDivesHtml}
 
-      ${affiliateHtml}
-
       ${excerptSection}
       ` : `
       ${deepDivesHtml}
 
-      ${affiliateHtml}
       <div class="excerpt-card">
         <div class="article-excerpt">
           ${mainContent}
@@ -256,6 +280,20 @@ function generateArticlePage(
 }
 
 /**
+ * Look up a Wikipedia article slug by book title (case-insensitive)
+ */
+async function findWikiSlugForBook(
+  pool: Pool,
+  bookTitle: string
+): Promise<string | null> {
+  const result = await pool.query<{ slug: string }>(
+    `SELECT slug FROM app.wikipedia_articles WHERE LOWER(title) = LOWER($1) AND status = 'complete' LIMIT 1`,
+    [bookTitle]
+  );
+  return result.rows[0]?.slug ?? null;
+}
+
+/**
  * Generate all article pages
  */
 export async function generateArticlePages(
@@ -263,6 +301,7 @@ export async function generateArticlePages(
   outputDir: string
 ): Promise<{ pagesGenerated: number }> {
   const articles = await getAllArticles(pool);
+  const affiliateBooksMap = await loadAffiliateBooks(process.cwd());
   let pagesGenerated = 0;
 
   for (const article of articles) {
@@ -279,8 +318,23 @@ export async function generateArticlePages(
     }
     const wikipediaLinks = await getLinkedWikipedia(pool, article.id);
 
-    const affiliateLinks = Array.isArray(article.affiliate_links) ? article.affiliate_links : [];
-    const html = generateArticlePage(article, displayContent, wikipediaLinks, hasRewrite, hasRewrite ? excerpt : '', affiliateLinks);
+    // Build book deep dives from affiliate_links on the article
+    const rawAffiliateLinks = Array.isArray(article.affiliate_links) ? article.affiliate_links : [];
+    const bookDeepDives: BookDeepDive[] = [];
+    for (const link of rawAffiliateLinks) {
+      // Check if this book has a Wikipedia page
+      const wikiSlug = await findWikiSlugForBook(pool, link.title);
+      // Use description from the affiliate books map if available, fall back to article's affiliate_links
+      const mapEntry = affiliateBooksMap.get(link.title.toLowerCase());
+      bookDeepDives.push({
+        title: link.title,
+        author: link.author,
+        description: mapEntry?.description ?? link.description,
+        wikiSlug,
+      });
+    }
+
+    const html = generateArticlePage(article, displayContent, wikipediaLinks, bookDeepDives, hasRewrite, hasRewrite ? excerpt : '');
     const filePath = join(outputDir, 'article', article.id, 'index.html');
 
     await writeFile(filePath, html);
