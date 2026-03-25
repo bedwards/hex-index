@@ -18,7 +18,7 @@ SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 PROJECT_DIR="$(cd "$SCRIPT_DIR/../.." && pwd)"
 LOCK_FILE="$PROJECT_DIR/logs/friday-publish.lock"
 LOG_FILE="$PROJECT_DIR/logs/friday-publish-$(date +%Y%m%d-%H%M%S).log"
-SVC="/Users/bedwards/vibe/sea-gang/tools/svc"
+SVC="$HOME/vibe/sea-gang/tools/svc"
 
 mkdir -p "$PROJECT_DIR/logs"
 cd "$PROJECT_DIR"

@@ -6,7 +6,7 @@
 
 set -euo pipefail
 
-cd /Users/bedwards/hex-index
+cd "$HOME/hex-index"
 
 echo "=== Open PRs ==="
 gh pr list --state open --json number,title,createdAt,statusCheckRollup --template '{{range .}}#{{.number}} {{.title}} ({{timeago .createdAt}})
