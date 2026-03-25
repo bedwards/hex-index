@@ -8,6 +8,7 @@ import { writeFile, escapeHtml, renderBookPurchaseLinks, loadAffiliateBooks } fr
 import type { ParsedAffiliateBook } from '../utils.js';
 import { join } from 'path';
 import { readFile } from 'fs/promises';
+import { buildAmazonUrl } from '../utils.js';
 
 interface WikipediaRow {
   id: string;
@@ -104,6 +105,37 @@ function generateWikipediaPage(
     ? renderBookPurchaseLinks(matchedBook, affiliateTag)
     : '';
 
+  // Check if this Wikipedia article is about an author who has books
+  const authorBooks: ParsedAffiliateBook[] = [];
+  if (!matchedBook) {
+    for (const [, book] of affiliateBooksMap) {
+      if (wiki.title.toLowerCase().includes(book.author.toLowerCase())) {
+        authorBooks.push(book);
+      }
+    }
+  }
+
+  let authorBooksHtml = '';
+  if (authorBooks.length > 0) {
+    const bookItems = authorBooks
+      .map((book) => {
+        const amazonUrl = affiliateTag ? buildAmazonUrl(book.asin, affiliateTag) : '';
+        const link = amazonUrl
+          ? `<a href="${amazonUrl}" target="_blank" rel="noopener">${escapeHtml(book.title)}</a>`
+          : escapeHtml(book.title);
+        return `<li>${link} &mdash; ${escapeHtml(book.description)} <small>Affiliate link</small></li>`;
+      })
+      .join('\n          ');
+
+    authorBooksHtml = `
+      <div class="author-books">
+        <p>Books by this author:</p>
+        <ul>
+          ${bookItems}
+        </ul>
+      </div>`;
+  }
+
   // Related articles section
   let relatedHtml = '';
   if (relatedArticles.length > 0) {
@@ -159,6 +191,8 @@ function generateWikipediaPage(
           <span class="read-time">${wiki.estimated_read_time_minutes} min read</span>
         </div>
       </header>
+
+      ${authorBooksHtml}
 
       ${contentBlock}
 

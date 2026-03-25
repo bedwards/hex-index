@@ -534,6 +534,37 @@ export function createPagesRouter(pool: Pool): Router {
         ? renderBookPurchaseLinks(matchedBook, affiliateTag)
         : '';
 
+      // Check if this Wikipedia article is about an author who has books
+      const authorBooks: ParsedAffiliateBook[] = [];
+      if (!matchedBook) {
+        for (const [, book] of affiliateBooksMap) {
+          if (wiki.title.toLowerCase().includes(book.author.toLowerCase())) {
+            authorBooks.push(book);
+          }
+        }
+      }
+
+      let authorBooksHtml = '';
+      if (authorBooks.length > 0) {
+        const bookItems = authorBooks
+          .map((book) => {
+            const amazonUrl = affiliateTag ? buildAmazonUrl(book.asin, affiliateTag) : '';
+            const link = amazonUrl
+              ? `<a href="${amazonUrl}" target="_blank" rel="noopener">${escapeHtml(book.title)}</a>`
+              : escapeHtml(book.title);
+            return `<li>${link} &mdash; ${escapeHtml(book.description)} <small>Affiliate link</small></li>`;
+          })
+          .join('\n            ');
+
+        authorBooksHtml = `
+        <div class="author-books">
+          <p>Books by this author:</p>
+          <ul>
+            ${bookItems}
+          </ul>
+        </div>`;
+      }
+
       // Optimized Wikipedia layout for Speechify:
       // 1. Type badge + Title
       // 2. Meta: read time, source link
@@ -550,6 +581,7 @@ export function createPagesRouter(pool: Pool): Router {
             </p>
           </header>
           ${relatedSection}
+          ${authorBooksHtml}
           <div class="article-content">
             ${wikiContent}
           </div>
