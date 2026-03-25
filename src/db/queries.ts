@@ -9,6 +9,8 @@ import {
   Article,
   ArticleWithPublication,
   ArticleLink,
+  AffiliateBookRow,
+  UpsertAffiliateBookInput,
   CreatePublicationInput,
   CreateArticleInput,
   CreateArticleLinkInput,
@@ -335,6 +337,56 @@ export async function getArticleBacklinks(
     [articleId]
   );
   return rows;
+}
+
+// ============ Affiliate Books ============
+
+export async function getAffiliateBooks(
+  client: Pool | PoolClient
+): Promise<AffiliateBookRow[]> {
+  const { rows } = await client.query<AffiliateBookRow>(
+    'SELECT * FROM app.affiliate_books ORDER BY title'
+  );
+  return rows;
+}
+
+export async function getAffiliateBookByTitle(
+  client: Pool | PoolClient,
+  title: string
+): Promise<AffiliateBookRow | null> {
+  const { rows } = await client.query<AffiliateBookRow>(
+    'SELECT * FROM app.affiliate_books WHERE LOWER(title) = LOWER($1)',
+    [title]
+  );
+  return rows[0] ?? null;
+}
+
+export async function upsertAffiliateBook(
+  client: Pool | PoolClient,
+  book: UpsertAffiliateBookInput
+): Promise<AffiliateBookRow> {
+  const { rows } = await client.query<AffiliateBookRow>(
+    `INSERT INTO app.affiliate_books (title, author, asin, category, description, gutenberg_url, archive_url)
+     VALUES ($1, $2, $3, $4, $5, $6, $7)
+     ON CONFLICT (asin) DO UPDATE SET
+       title = EXCLUDED.title,
+       author = EXCLUDED.author,
+       category = EXCLUDED.category,
+       description = EXCLUDED.description,
+       gutenberg_url = EXCLUDED.gutenberg_url,
+       archive_url = EXCLUDED.archive_url
+     RETURNING *`,
+    [
+      book.title,
+      book.author,
+      book.asin,
+      book.category ?? 'books',
+      book.description ?? null,
+      book.gutenberg_url ?? null,
+      book.archive_url ?? null,
+    ]
+  );
+  return rows[0];
 }
 
 export async function getMostLinkedArticles(

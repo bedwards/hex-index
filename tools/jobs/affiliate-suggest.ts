@@ -38,11 +38,39 @@ interface BookEntry {
   asin: string;
   category: string;
   description: string;
+  gutenberg_url?: string;
+  archive_url?: string;
 }
 
 type BookMap = BookEntry[];
 
-async function loadBookMap(): Promise<BookMap> {
+async function loadBookMapFromDb(pool: Pool): Promise<BookMap | null> {
+  try {
+    const { rows } = await pool.query<{
+      title: string;
+      author: string;
+      asin: string;
+      category: string;
+      description: string | null;
+      gutenberg_url: string | null;
+      archive_url: string | null;
+    }>('SELECT title, author, asin, category, description, gutenberg_url, archive_url FROM app.affiliate_books');
+
+    return rows.map(row => ({
+      title: row.title,
+      author: row.author,
+      asin: row.asin,
+      category: row.category,
+      description: row.description ?? '',
+      gutenberg_url: row.gutenberg_url ?? undefined,
+      archive_url: row.archive_url ?? undefined,
+    }));
+  } catch {
+    return null;
+  }
+}
+
+async function loadBookMapFromJson(): Promise<BookMap> {
   const mapPath = join(process.cwd(), 'content', 'affiliate-books.json');
   try {
     const raw = await readFile(mapPath, 'utf-8');
@@ -316,16 +344,19 @@ async function main(): Promise<void> {
     return;
   }
 
-  const bookMap = await loadBookMap();
+  // Try loading from DB first, fall back to JSON
+  const dbBookMap = await loadBookMapFromDb(pool);
+  const bookMap = dbBookMap ?? await loadBookMapFromJson();
   const bookCount = bookMap.length;
+  const bookSource = dbBookMap ? 'database' : 'affiliate-books.json';
 
   if (bookCount === 0) {
-    console.info('No books in content/affiliate-books.json — nothing to match against');
+    console.info(`No books in ${bookSource} — nothing to match against`);
     await pool.end();
     return;
   }
 
-  console.info(`Loaded ${bookCount} books from affiliate mapping`);
+  console.info(`Loaded ${bookCount} books from ${bookSource}`);
 
   const unresolved = await loadUnresolvedMentions();
 

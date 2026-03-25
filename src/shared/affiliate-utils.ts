@@ -56,6 +56,42 @@ export async function loadAffiliateBooks(projectRoot: string): Promise<Map<strin
 }
 
 /**
+ * Load affiliate books from the database.
+ * Returns the same Map<string, ParsedAffiliateBook> format as loadAffiliateBooks.
+ * Use this when a database connection is available (private library, jobs).
+ * Falls back gracefully if the table doesn't exist yet.
+ */
+export async function loadAffiliateBooksFromDb(pool: import('pg').Pool): Promise<Map<string, ParsedAffiliateBook>> {
+  const map = new Map<string, ParsedAffiliateBook>();
+  try {
+    const { rows } = await pool.query<{
+      title: string;
+      author: string;
+      asin: string;
+      category: string;
+      description: string | null;
+      gutenberg_url: string | null;
+      archive_url: string | null;
+    }>('SELECT title, author, asin, category, description, gutenberg_url, archive_url FROM app.affiliate_books ORDER BY title');
+
+    for (const row of rows) {
+      map.set(row.title.toLowerCase(), {
+        asin: row.asin,
+        category: row.category,
+        description: row.description ?? '',
+        gutenberg_url: row.gutenberg_url ?? undefined,
+        archive_url: row.archive_url ?? undefined,
+        title: row.title,
+        author: row.author,
+      });
+    }
+  } catch {
+    console.warn('Warning: Could not load affiliate books from database (table may not exist yet)');
+  }
+  return map;
+}
+
+/**
  * Render purchase links footer for a Wikipedia page about a book.
  * Subtle: small text, no heading, just links.
  * Free sources first, paid second.

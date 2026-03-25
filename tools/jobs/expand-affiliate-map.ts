@@ -20,6 +20,7 @@
 import 'dotenv/config';
 import { readFile, writeFile } from 'fs/promises';
 import { join } from 'path';
+import { Pool } from 'pg';
 
 // ── Load OLLAMA_API_KEY from ~/.config/.env if not already set ────
 async function loadExtraEnv(): Promise<void> {
@@ -518,10 +519,38 @@ async function main(): Promise<void> {
     await new Promise(r => setTimeout(r, 1000));
   }
 
-  // Save updated files
+  // Save updated files (JSON backup)
   if (stats.added > 0 || stats.skipped > 0) {
     await saveBookMap(bookMap);
     console.info(`\nWrote updated affiliate-books.json (${bookMap.length} total entries)`);
+  }
+
+  // Sync to database if DATABASE_URL is available
+  const dbUrl = process.env.DATABASE_URL;
+  if (dbUrl && stats.added > 0) {
+    const pool = new Pool({ connectionString: dbUrl });
+    try {
+      let dbUpserted = 0;
+      for (const entry of bookMap) {
+        if (!entry.title || !entry.author) { continue; }
+        await pool.query(
+          `INSERT INTO app.affiliate_books (title, author, asin, category, description)
+           VALUES ($1, $2, $3, $4, $5)
+           ON CONFLICT (asin) DO UPDATE SET
+             title = EXCLUDED.title,
+             author = EXCLUDED.author,
+             category = EXCLUDED.category,
+             description = EXCLUDED.description`,
+          [entry.title, entry.author, entry.asin, entry.category || 'books', entry.description || null]
+        );
+        dbUpserted++;
+      }
+      console.info(`Synced ${dbUpserted} books to database`);
+    } catch (err) {
+      console.info(`Warning: Could not sync to database: ${err instanceof Error ? err.message : String(err)}`);
+    } finally {
+      await pool.end();
+    }
   }
 
   await saveUnresolvedMentions(unresolved);
