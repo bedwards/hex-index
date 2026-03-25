@@ -23,7 +23,9 @@ tmux kill-session -t "$SESSION" 2>/dev/null || true
 tmux new-session -d -s "$SESSION" -c "$PROJECT_DIR"
 
 # Send the claude command
-tmux send-keys -t "$SESSION" "claude" Enter
+# --dangerously-skip-permissions: the editorial loop runs autonomously in tmux
+# and cannot respond to interactive permission prompts
+tmux send-keys -t "$SESSION" "claude --dangerously-skip-permissions" Enter
 
 # Wait for Claude to start
 sleep 5
