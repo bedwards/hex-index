@@ -75,6 +75,28 @@ export interface AffiliateLink {
   category: string;
 }
 
+export interface AffiliateBookRow {
+  id: number;
+  title: string;
+  author: string;
+  asin: string;
+  category: string;
+  description: string | null;
+  gutenberg_url: string | null;
+  archive_url: string | null;
+  created_at: Date;
+}
+
+export interface UpsertAffiliateBookInput {
+  title: string;
+  author: string;
+  asin: string;
+  category?: string;
+  description?: string;
+  gutenberg_url?: string;
+  archive_url?: string;
+}
+
 // Input types for creating records
 export interface CreatePublicationInput {
   name: string;
@@ -111,14 +133,6 @@ export interface CreateArticleLinkInput {
   target_url: string;
   link_text?: string;
   context?: string;
-}
-
-export interface AffiliateLink {
-  asin: string;
-  title: string;
-  author: string;
-  description: string;
-  category: string;
 }
 
 // Query types
