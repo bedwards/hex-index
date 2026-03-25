@@ -14,7 +14,6 @@ OLLAMA_MODEL="${OLLAMA_MODEL:-qwen3:235b-a22b}"
 # Tuning constants
 TIME_BUDGET=1500        # 25 minutes — fits even-hour Qwen slot
 SECS_PER_ITEM=30
-DEPLOY_OVERHEAD=90
 
 mkdir -p "$PROJECT_DIR/logs"
 cd "$PROJECT_DIR"
@@ -79,7 +78,7 @@ PENDING=$(docker compose exec -T postgres psql -U postgres -d hex-index -t -c "
     LEFT JOIN (SELECT article_id, COUNT(*) AS cnt FROM app.article_wikipedia_links GROUP BY article_id) wc ON wc.article_id = a.id
     WHERE a.content_path IS NOT NULL AND COALESCE(wc.cnt, 0) < 3;
 " 2>/dev/null | tr -d ' ')
-LIMIT=$(( (TIME_BUDGET - DEPLOY_OVERHEAD) / SECS_PER_ITEM ))
+LIMIT=$(( TIME_BUDGET / SECS_PER_ITEM ))
 [ "$LIMIT" -gt "${PENDING:-0}" ] && LIMIT="${PENDING:-0}"
 [ "$LIMIT" -lt 1 ] && LIMIT=1
 log "Pending: ${PENDING:-?}, Budget: ${TIME_BUDGET}s, Limit: $LIMIT (est $(( LIMIT * SECS_PER_ITEM / 60 ))m)"
@@ -90,11 +89,6 @@ timeout "$TIME_BUDGET" npx tsx tools/jobs/wikipedia-discover.ts --limit "$LIMIT"
     EC=$?
     [ "$EC" -eq 124 ] && warn "Hit time budget" || warn "Failed (exit $EC)"
 }
-step_done
-
-# Deploy (shared lock)
-step_start "Deploy"
-bash "$PROJECT_DIR/tools/cron/deploy.sh" "feat: wikipedia topics $(date +%Y-%m-%d\ %H:%M)" 2>&1 | tee -a "$LOG_FILE"
 step_done
 
 RUN_E=$(( $(date +%s) - RUN_START ))

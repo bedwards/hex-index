@@ -12,8 +12,7 @@ LOG_FILE="$PROJECT_DIR/logs/gen-images-$(date +%Y%m%d-%H%M%S).log"
 
 TIME_BUDGET=1200        # 20 minutes total
 SECS_PER_ITEM=3         # ~3 sec per image (Gemini API + ImageMagick)
-DEPLOY_OVERHEAD=90
-BATCH_SIZE=25           # Deploy every 25 images
+BATCH_SIZE=50           # Process in batches of 50
 
 mkdir -p "$PROJECT_DIR/logs"
 cd "$PROJECT_DIR"
@@ -49,7 +48,7 @@ step_done
 PENDING=$(docker compose exec -T postgres psql -U postgres -d hex-index -t -c "
     SELECT COUNT(*) FROM app.articles WHERE image_path IS NULL AND content_path IS NOT NULL;
 " 2>/dev/null | tr -d ' ')
-TOTAL_LIMIT=$(( (TIME_BUDGET - DEPLOY_OVERHEAD * 4) / SECS_PER_ITEM ))  # budget for ~4 deploys
+TOTAL_LIMIT=$(( TIME_BUDGET / SECS_PER_ITEM ))
 [ "$TOTAL_LIMIT" -gt "${PENDING:-0}" ] && TOTAL_LIMIT="${PENDING:-0}"
 [ "$TOTAL_LIMIT" -lt 1 ] && { log "No articles need images"; exit 0; }
 log "Pending: ${PENDING:-?}, Budget: ${TIME_BUDGET}s, Total limit: $TOTAL_LIMIT"
@@ -73,10 +72,6 @@ while [ "$GENERATED" -lt "$TOTAL_LIMIT" ]; do
     GENERATED=$(( GENERATED + THIS_BATCH ))
 
     [ "$NEW_IMAGES" -eq 0 ] && { log "No more articles need images"; break; }
-    step_done
-
-    step_start "Deploy batch ($NEW_IMAGES images)"
-    bash "$PROJECT_DIR/tools/cron/deploy.sh" "feat: ${NEW_IMAGES} article images" 2>&1 | tee -a "$LOG_FILE"
     step_done
 done
 

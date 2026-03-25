@@ -13,7 +13,6 @@ OLLAMA_MODEL="${OLLAMA_MODEL:-qwen3:235b-a22b}"
 
 TIME_BUDGET=1500        # 25 minutes — fits even-hour Qwen slot
 SECS_PER_ITEM=50
-DEPLOY_OVERHEAD=90
 
 mkdir -p "$PROJECT_DIR/logs"
 cd "$PROJECT_DIR"
@@ -71,7 +70,7 @@ step_done
 PENDING=$(docker compose exec -T postgres psql -U postgres -d hex-index -t -c "
     SELECT COUNT(*) FROM app.articles WHERE full_content_path IS NOT NULL AND (rewritten_content_path IS NULL OR rewrite_dirty = true);
 " 2>/dev/null | tr -d ' ')
-LIMIT=$(( (TIME_BUDGET - DEPLOY_OVERHEAD) / SECS_PER_ITEM ))
+LIMIT=$(( TIME_BUDGET / SECS_PER_ITEM ))
 [ "$LIMIT" -gt "${PENDING:-0}" ] && LIMIT="${PENDING:-0}"
 [ "$LIMIT" -lt 1 ] && LIMIT=1
 log "Pending rewrites: ${PENDING:-?}, Budget: ${TIME_BUDGET}s, Limit: $LIMIT (est $(( LIMIT * SECS_PER_ITEM / 60 ))m)"
@@ -81,10 +80,6 @@ timeout "$TIME_BUDGET" npx tsx tools/jobs/article-rewrite.ts --limit "$LIMIT" 2>
     EC=$?
     [ "$EC" -eq 124 ] && warn "Hit time budget" || warn "Failed (exit $EC)"
 }
-step_done
-
-step_start "Deploy"
-bash "$PROJECT_DIR/tools/cron/deploy.sh" "feat: article rewrites $(date +%Y-%m-%d\ %H:%M)" 2>&1 | tee -a "$LOG_FILE"
 step_done
 
 RUN_E=$(( $(date +%s) - RUN_START ))

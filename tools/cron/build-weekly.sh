@@ -24,9 +24,9 @@ trap 'rm -f "$LOCK_FILE"; exec 9>&-' EXIT
 RUN_START=$(date +%s)
 log "=== Build Weekly Reader Edition (PID $$) ==="
 
-bash "$PROJECT_DIR/tools/cron/deploy.sh" "feat: weekly Reader edition $(date +%Y-%m-%d)" 2>&1 | tee -a "$LOG_FILE" || {
+bash "$PROJECT_DIR/tools/cron/auto-deploy.sh" 2>&1 | tee -a "$LOG_FILE" || {
     EC=$?
-    die "deploy.sh failed (exit $EC)"
+    die "auto-deploy.sh failed (exit $EC)"
 }
 
 RUN_E=$(( $(date +%s) - RUN_START ))

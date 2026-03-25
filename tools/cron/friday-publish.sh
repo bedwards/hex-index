@@ -86,9 +86,9 @@ step_done
 
 # ── Step 5: Build epub + deploy (fully deterministic) ────────────
 step_start "Build weekly epub + deploy"
-bash "$PROJECT_DIR/tools/cron/build-weekly.sh" 2>&1 | tee -a "$LOG_FILE" || {
+bash "$PROJECT_DIR/tools/cron/auto-deploy.sh" 2>&1 | tee -a "$LOG_FILE" || {
     EC=$?
-    die "build-weekly failed (exit $EC)"
+    die "auto-deploy failed (exit $EC)"
 }
 step_done
 
