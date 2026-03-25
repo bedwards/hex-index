@@ -75,8 +75,7 @@ CURRENT TITLE: "${article.title}"
 EXCERPT: ${excerpt}
 
 Requirements:
-- 60 characters ideal, 80 max
-- Sentence case (not Title Case, not ALL CAPS)
+- Title case. No trailing punctuation. No parenthetical asides. Keep acronyms (AI, ICE, FBI, DOGE) uppercase. 60 chars ideal, 80 max.
 - Descriptive and specific
 - No clickbait
 - No pipe separators or channel names
