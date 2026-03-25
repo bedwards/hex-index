@@ -182,12 +182,13 @@ These are non-negotiable quality standards:
 - **Never push directly to main** — all changes go through PRs
 
 ### Title Standards
-- **Title case** — capitalize major words, lowercase articles/prepositions
+- **Sentence case** — capitalize first word and proper nouns only (not Title Case)
 - **No trailing punctuation** — titles don't end with periods
 - **No parenthetical asides** — remove (w/ One Exception), (Full Interview)
-- **No individual ALL CAPS words** for emphasis — MASSIVELY → Massively
+- **No individual ALL CAPS words** for emphasis — MASSIVELY → massively
 - **Preserve real acronyms** — AI, ICE, FBI, DOGE, NATO stay uppercase
 - **60 chars ideal, 80 max**
+- **Example**: "Claude.md is RUINING Claude Code (w/ One Exception)" → "CLAUDE.md is ruining Claude Code"
 
 ## Useful Commands Reference
 
