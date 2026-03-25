@@ -31,6 +31,21 @@ export function normalizeTitle(title: string): string {
     );
   }
 
+  // Strip trailing periods
+  t = t.replace(/\.+\s*$/, '');
+
+  // Strip parenthetical asides at end
+  t = t.replace(/\s*\([^)]{0,40}\)\s*$/, '').trim();
+
+  // Fix individual ALL CAPS words (4+ letters) in mixed-case titles
+  const knownAcronyms = new Set(['AIDS','API','BBC','CEO','CIA','CTO','DOGE','DOJ','EPA','EU','FBI','FEMA','FTC','GDP','GOP','GPT','ICE','IMF','IRAN','IRS','ISIS','LLM','NASA','NATO','NBA','NFL','NSA','OPEC','SEC','UK','UN','US','USA','WHO','CLAUDE']);
+  if (/[a-z]/.test(t)) {
+    t = t.replace(/\b([A-Z]{4,})\b/g, (match) => {
+      if (knownAcronyms.has(match)) { return match; }
+      return match.charAt(0) + match.slice(1).toLowerCase();
+    });
+  }
+
   // Collapse excessive punctuation
   t = t.replace(/!{2,}/g, '!').replace(/\?{2,}/g, '?');
 

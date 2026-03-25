@@ -58,6 +58,43 @@ describe('normalizeTitle', () => {
       .toBe('The Great Gatsby and American Dreams');
   });
 
+  it('strips trailing periods', () => {
+    expect(normalizeTitle('The End of History.')).toBe('The End of History');
+  });
+
+  it('strips trailing period with whitespace', () => {
+    expect(normalizeTitle('The End of History.  ')).toBe('The End of History');
+  });
+
+  it('strips multiple trailing periods', () => {
+    expect(normalizeTitle('The End of History..')).toBe('The End of History');
+  });
+
+  it('strips parenthetical asides at end', () => {
+    expect(normalizeTitle('Trump Fires FBI Director (Full Interview)'))
+      .toBe('Trump Fires FBI Director');
+  });
+
+  it('keeps parenthetical in middle of title', () => {
+    expect(normalizeTitle('The (Real) Story Behind AI'))
+      .toBe('The (Real) Story Behind AI');
+  });
+
+  it('fixes individual ALL CAPS words in mixed-case titles', () => {
+    expect(normalizeTitle('How MASSIVELY Powerful AI Will Change Everything'))
+      .toBe('How Massively Powerful AI Will Change Everything');
+  });
+
+  it('preserves known acronyms in mixed-case titles', () => {
+    expect(normalizeTitle('The DOGE Movement and NASA Plans'))
+      .toBe('The DOGE Movement and NASA Plans');
+  });
+
+  it('does not touch short uppercase words (3 or fewer letters)', () => {
+    expect(normalizeTitle('The FBI and CIA Work Together'))
+      .toBe('The FBI and CIA Work Together');
+  });
+
   it('handles empty string', () => {
     expect(normalizeTitle('')).toBe('');
   });

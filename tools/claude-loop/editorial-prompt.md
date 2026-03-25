@@ -181,6 +181,14 @@ These are non-negotiable quality standards:
 - **Never use --no-verify** on commits — the pre-commit hook catches real bugs
 - **Never push directly to main** — all changes go through PRs
 
+### Title Standards
+- **Title case** — capitalize major words, lowercase articles/prepositions
+- **No trailing punctuation** — titles don't end with periods
+- **No parenthetical asides** — remove (w/ One Exception), (Full Interview)
+- **No individual ALL CAPS words** for emphasis — MASSIVELY → Massively
+- **Preserve real acronyms** — AI, ICE, FBI, DOGE, NATO stay uppercase
+- **60 chars ideal, 80 max**
+
 ## Useful Commands Reference
 
 ```bash
