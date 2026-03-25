@@ -28,13 +28,85 @@
       </header>
 
       <div class="content-label">
-        <span class="label-text">Excerpt from <a href="../../publication/ventureinsecurity/index.html">Venture in Security</a></span>
+        <span class="label-text">Commentary by <a href="../../about/index.html">Brian Edwards</a></span>
         <nav class="content-nav">
-          <a href="https://ventureinsecurity.net/p/anthropic-wont-kill-cyber-but-it" target="_blank" rel="noopener">Read full article &rarr;</a>
+          <a href="#deep-dives">Deep dives</a><span class="separator">&middot;</span>
+          <a href="https://ventureinsecurity.net/p/anthropic-wont-kill-cyber-but-it" target="_blank" rel="noopener">Original article &rarr;</a>
         </nav>
       </div>
 
       
+      <div class="article-content">
+        <h2>Anthropic Fires a Shot Across the Bow of Application Security</h2>
+
+<p>When Anthropic announced Claude Code Security in early March 2026, some cybersecurity companies lost up to 20 percent of their market capitalization in the ensuing panic. Ross Haleliuk, author of the newsletter Venture in Security and the book <em>Cyber for Builders</em>, argues that the market reaction was wildly overblown. His central thesis is blunt: artificial intelligence will not kill cybersecurity. It will expand it.</p>
+
+<blockquote>Contrary to what many think, declarations that "security is over" are very premature.</blockquote>
+
+<p>Haleliuk begins by carefully scoping what Claude Code Security actually does. At its core, the tool scans codebases for vulnerabilities and suggests patches, operating inside the same environment where code is written. That places it squarely in the territory of Static Application Security Testing, commonly known as SAST. He is quick to point out that this, while important, represents a narrow slice of what cybersecurity encompasses.</p>
+<figure class="inline-illustration">
+    <img src="../../images/5b7a4889-183b-4c66-ae0f-c8a7ac020067.webp" alt="" loading="lazy" width="600" height="315">
+  </figure>
+
+
+<blockquote>Claude Code Security, even if it works perfectly well, isn't going to solve all these problems.</blockquote>
+
+<p>He rattles off a long list of security domains untouched by code scanning: identity management, network segmentation, cloud misconfiguration, secrets management, incident response, compliance automation, and more. The argument is persuasive in its specificity. A tool that finds bugs in source code has nothing to say about an over-privileged service account or a flat network topology.</p>
+
+<h2>The Attacker Economics Argument</h2>
+
+<p>Where the piece gains real force is in its analysis of how AI changes the economics of offense. Haleliuk argues that historically, the scarcity of attacker resources has been a de facto security control. Companies with messy internals survived not because their defenses were strong but because attackers lacked the bandwidth to find every hole.</p>
+
+<blockquote>Attackers are not bound by corporate governance or acceptable-use policies deciding which models can or cannot be deployed. They will use every model available, every autonomous agent, every form of automation that allows them to enumerate infrastructure, map dependencies, generate exploits, and test hypotheses at a scale that was previously impossible.</blockquote>
+
+<p>This is a sharp observation. As large language models (LLMs) become cheaper and more capable, the cost of reconnaissance drops toward zero. Haleliuk contends this will force enterprises to fix long-neglected problems rather than rely on security through obscurity.</p>
+
+<p>Critics might note, however, that this argument cuts both ways. If AI-powered offense scales faster than AI-powered defense, the net effect could be a period of significantly increased breach rates before the market catches up. Haleliuk frames the expansion of the cybersecurity market as inevitable, but the transition period could be far more painful than he suggests.</p>
+
+<h2>The Cloud Analogy</h2>
+
+<p>Haleliuk draws a parallel to the early days of cloud computing. When hyperscalers like Amazon Web Services (AWS) and Microsoft Azure first emerged, many predicted they would "solve security" through standardized infrastructure and managed patching. Instead, the cloud accelerated software development so dramatically that it created entirely new categories of security problems.</p>
+
+<blockquote>Cloud didn't just create the CSPM market; it basically led to an explosion of adjacent markets, including CIEM, container security, secrets management, SaaS security, Zero Trust networking, and many, many more.</blockquote>
+
+<p>For readers unfamiliar with the alphabet soup: CSPM stands for Cloud Security Posture Management, tools that flag misconfigurations in cloud environments. CIEM is Cloud Infrastructure Entitlements Management, focused on controlling who and what can access cloud resources. Zero Trust is a security model that assumes no user or system should be trusted by default, even inside the corporate network.</p>
+
+<p>The analogy is historically sound. Cloud adoption did generate massive new security markets. Haleliuk believes AI will follow the same pattern, with every new AI assistant becoming a new identity to manage, every model integration a new data exposure pathway, every automated workflow a potential attack surface.</p>
+
+<h2>The Vibecoding Rebuttal</h2>
+
+<p>Haleliuk also takes aim at the notion that enterprises will simply "vibecode" their own security tools using AI, building custom solutions instead of buying from vendors. He is dismissive, and his reasoning is worth quoting at length.</p>
+
+<blockquote>Large organizations don't buy "features", they buy outcomes. Buying software is about buying a lot of intangibles that come with it, like reliability, security, being able to pass complex audits across jurisdictions, operational resilience at scale, partners they can trust when something breaks at the worst possible moment.</blockquote>
+
+<p>This is one of the stronger points in the piece. Enterprise software procurement is driven by compliance requirements, service-level agreements, and vendor accountability in ways that homegrown tools simply cannot replicate. A vibecoded security scanner might find vulnerabilities, but it cannot testify during a regulatory audit or provide 24/7 incident response support.</p>
+
+<blockquote>Now that everyone can ship software super fast, it becomes more, not less important that customers can actually rely on their partners.</blockquote>
+
+<p>A counterargument is that the "intangibles" defense has historically been the refuge of incumbents facing disruption. Enterprises once said the same things about on-premises software vendors before cloud-native startups displaced them. The intangibles may shift in form rather than disappear, and some current vendors may find their particular bundle of intangibles less valuable than they expect.</p>
+
+<h2>Collateral Damage in Application Security</h2>
+
+<p>Despite his broadly optimistic framing, Haleliuk is candid about which companies will suffer. SAST vendors, those whose core value proposition is "we scan your code and suggest fixes," face a genuine existential threat.</p>
+
+<blockquote>If a frontier AI lab can natively understand a codebase, detect vulnerabilities, and propose patches inside the same environment where code is getting written, the standalone value proposition of "we scan your code and suggest fixes" becomes very hard to defend.</blockquote>
+
+<p>He notes, with some wry amusement, that several application security companies publicly welcomed Claude Code Security as "great for the industry" while almost certainly recognizing it as terrible for their business.</p>
+
+<blockquote>I have recently seen a few appsec companies known for building scanners come forward with messages that "Claude Code Security is a great thing for the industry," but I don't think anyone inside these companies truly believes that it is good for their business.</blockquote>
+
+<p>Haleliuk identifies two categories of application security tools that should survive: product security platforms like Prime Security, Clover Security, and Seezo, which operate at a higher level of abstraction than code scanning, and runtime security solutions like Miggo, Oligo Security, and Raven, which monitor applications in production rather than at build time.</p>
+
+<h2>Bottom Line</h2>
+
+<p>Haleliuk's argument is well-structured and grounded in genuine market knowledge. His strongest moves are the attacker economics analysis, which persuasively explains why cheaper AI will expand rather than shrink cybersecurity spending, and the cloud analogy, which provides historical precedent for technology acceleration creating new security markets rather than eliminating them. The piece also benefits from his willingness to name specific winners and losers rather than hiding behind vague generalities.</p>
+
+<p>The argument is weakest in two places. First, the transition costs of AI-powered offense scaling are acknowledged but quickly waved away. The period between attackers gaining AI-powered capabilities and defenders catching up could involve significant real-world damage that the piece treats as a footnote. Second, the "intangibles" defense of enterprise vendors, while valid today, assumes that the current structure of enterprise procurement will persist even as AI reshapes how software is built, evaluated, and maintained. If AI agents can eventually handle compliance documentation, audit preparation, and incident response, the moat around enterprise vendors may prove shallower than Haleliuk assumes.</p>
+
+<p>Still, the core thesis holds. Cybersecurity is not a single product category that can be disrupted by a single tool. It is a sprawling ecosystem of interconnected problems, and AI is creating new ones faster than it is solving old ones. The companies that scan code for a living should be worried. Everyone else in cyber has reason to be cautiously optimistic.</p>
+
+      </div>
+
       
       <section id="deep-dives" class="deep-dives">
         <h2>Deep Dives</h2>
@@ -64,22 +136,38 @@
         </a>
         <p class="topic-summary">The broader cybersecurity practice of discovering and addressing vulnerabilities that AI tools like Claude Code Security aim to address</p>
       </li>
+      <li class="deep-dive-item">
+        <span class="deep-dive-no-link">
+          <strong>Cyber for Builders</strong>
+          <span class="read-time">by Ross Haleliuk</span>
+        </span>
+        <p class="topic-summary">The essential guide to building a cybersecurity startup — for founders, engineers, and investors.</p>
+      </li>
+
+      <li class="deep-dive-item">
+        <span class="deep-dive-no-link">
+          <strong>Weapons of Math Destruction</strong>
+          <span class="read-time">by Cathy ONeil</span>
+        </span>
+        <p class="topic-summary">How big data algorithms reinforce inequality and threaten democracy.</p>
+      </li>
         </ul>
       </section>
     
 
-      
-      <div class="excerpt-card">
+      <section id="excerpt" class="excerpt-card">
+        <div class="content-label">
+          <span class="label-text">Excerpt from the original article on Venture in Security</span>
+        </div>
         <div class="article-excerpt">
           <p>Over the past several weeks, social media has been exploding with predictions that “cyber is dead”. It doesn’t take much insight to jump on that bandwagon, as Anthropic’s announcement of Claude Code Security indeed sent the cybersecurity public market into turmoil, with some companies losing as much as 20% of their market cap. Contrary to what many think, declarations that “security is over” are very premature. In this piece, I share a perspective on why AI is actually expanding the total cybersecurity market, not killing it (and yet, why some categories will indeed suffer).</p><div><hr></div><p><em>This issue is <a href="https://ventureinsecurity.net/p/sponsor">brought</a> to you by… <a href="https://www.tines.com/webinars/workflow-clarity-where-ai-fits-in-modern-automation/?utm_source=Venture_in_Security&amp;utm_medium=paid_media&amp;utm_content=newsletter-primary-0303">Tines</a>. </em></p><h4><strong><a href="https://www.tines.com/webinars/workflow-clarity-where-ai-fits-in-modern-automation/?utm_source=Venture_in_Security&amp;utm_medium=paid_media&amp;utm_content=newsletter-primary-0303">Where does AI fit in modern automation?</a></strong></h4><p>Human-led. Rules-based. LLM-powered agentic systems. Each promises efficiency. Each has limits. The real advantage? Knowing when, and how, to use them together.</p><p>The teams pulling ahead aren’t betting on a single model. <strong>They’re architecting a custom mix of all three.</strong></p><p>On <strong><a href="https://www.tines.com/webinars/workflow-clarity-where-ai-fits-in-modern-automation/?utm_source=Venture_in_Security&amp;utm_medium=paid_media&amp;utm_content=newsletter-primary-0303">March 12th</a></strong>, join Tines and <em>The Hacker News</em> for a webinar exploring how to strike the right balance between approaches for your org, and scale AI adoption without sacrificing control or security.</p><div><hr></div><div><hr></div><h1>What Claude Code Security is and is not</h1><p style="text-align: justify;">Let’s start by taking a quick look at what Claude Code Security is and is not. If you haven’t read Anthropic’s announcement, I recommend you check it out. Essentially,<a href="https://www.anthropic.com/news/claude-code-security"> Claude Code Security</a> “scans codebases for security vulnerabilities and suggests targeted software patches for human review, allowing teams to find and fix security issues that traditional methods often miss”. Basically, Anthropic is saying that it will be able to truly understand the codebase and provide patches that people will be able to reliably accept. This part is important because there are many security startups focused on suggesting patches, so Anthropic is betting that it can do it as a part of its experience (which obviously makes sense), and that it can do a much better job than any of the add-ons (which again, I don’t see why it wouldn’t be able to).</p><p style="text-align: justify;">If you know security and understand what kinds of capabilities we are talking about here, you have probably realised that, at the very fundamental level, Anthropic just announced a potential solution to application vulnerabilities that are currently being discovered with SAST scanning and such. Without a doubt, this can be a huge step forward, and it can help application and product security engineers find and fix vulnerabilities ...</p>
         </div>
         <div class="excerpt-card-cta">
           <a href="https://ventureinsecurity.net/p/anthropic-wont-kill-cyber-but-it" class="read-button" target="_blank" rel="noopener">
-            Continue reading on Venture in Security &rarr;
+            Read the entire original on Venture in Security &rarr;
           </a>
-          <p class="cta-note">The full article by Ross Haleliuk is available on Venture in Security.</p>
         </div>
-      </div>
+      </section>
       
     </article>
   

@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Claude.md is RUINING Claude Code (w/ One Exception) - Hex Index</title>
+  <link rel="stylesheet" href="../../styles.css">
+</head>
+<body class="reading-mode">
+  <header class="reading-header">
+    <a href="../../index.html" class="back-link" id="back-link">&larr; Back to Library</a>
+  </header>
+  <main class="reading-content">
+    
+    <article class="article-page">
+      <header class="article-header">
+        <h1>Claude.md is RUINING Claude Code (w/ One Exception)</h1>
+        <div class="article-meta">
+          <span class="author">Chase H</span>
+          <span class="separator">&middot;</span>
+          <a href="../../publication/chasehai/index.html" class="publication">
+            Chase H AI
+          </a>
+          <span class="separator">&middot;</span><time>Mar 23, 2026</time>
+          <span class="separator">&middot;</span>
+          <span class="read-time">13 min read</span>
+        </div>
+      </header>
+
+      <div class="content-label">
+        <span class="label-text">Commentary by <a href="../../about/index.html">Brian Edwards</a></span>
+        <nav class="content-nav">
+          <a href="#deep-dives">Deep dives</a><span class="separator">&middot;</span>
+          <a href="https://www.youtube.com/watch?v=V3xDTx2XwGg" target="_blank" rel="noopener">Original video &rarr;</a>
+        </nav>
+      </div>
+
+      
+      <div class="article-content">
+        <h2>The Case Against Claude.md: When Guardrails Become Guardrails Against Yourself</h2>
+
+<p>Chase H makes a provocative argument that resonates with a growing contingent of AI-native developers: the claude.md file, that sacred instruction manual everyone insists should accompany every Claude Code project, might actually be making the AI dumber. The claim draws on a research paper from ETH Zurich, and while the headline finding is genuinely interesting, the practical takeaway deserves more scrutiny than a YouTube video can provide.</p>
+
+<p>The core finding from the ETH Zurich paper is striking on its face. Across multiple coding agents and benchmarks, context files like claude.md and agents.md tended to reduce task success rates while inflating inference costs by over 20 percent. Chase quotes the researchers directly:</p>
+<figure class="inline-illustration">
+    <img src="../../images/28d31711-7715-4d3c-a93c-aa8474c6d751.webp" alt="" loading="lazy" width="600" height="315">
+  </figure>
+
+
+<blockquote>Across multiple coding agents and large language models, we find that context files tend to reduce task success rates compared to providing no repository context while also increasing inference cost by over 20%.</blockquote>
+
+<p>That finding is worth sitting with. The instinct to give an AI agent more context, more scaffolding, more hand-holding feels so obviously correct that most developers never question it. The research suggests that instinct can backfire, at least under specific conditions.</p>
+
+<h2>Context Pollution Is Real, But the Diagnosis Is Incomplete</h2>
+
+<p>Chase identifies several mechanisms by which claude.md files hurt performance: redundant documentation, excessive tool calling, and what he aptly calls "context pollution." The argument goes like this: Claude Code already traverses the codebase, already reads files, already figures out the architecture. Layering a bloated instruction file on top of that natural exploration process just creates noise.</p>
+
+<blockquote>When I tell cloud code to do something, what is it going to do? It's already going to go through the codebase. It's already going to go through the search process and find out what it needs. So, it's doing that. Plus, it's taking a look at this bloated document you gave it, right? It's just excessive.</blockquote>
+
+<p>There is truth here, but it is a partial truth. The problem is not that context files exist. The problem is that most context files are poorly written. They are either auto-generated kitchen-sink documents produced by <code>/init</code>, or they are wish lists of every convention a developer has ever cared about, most of which are irrelevant to any given task. The ETH Zurich paper itself acknowledges this distinction. The researchers concluded that context files should describe "only minimal requirements" and that manually written files outperformed auto-generated ones in stripped-down repositories.</p>
+
+<p>This is not a finding against claude.md. It is a finding against bad claude.md files.</p>
+
+<h2>The Exception That Swallows the Rule</h2>
+
+<p>Chase acknowledges an important exception buried in the research: when all other documentation was removed from a repository, LLM-generated context files actually improved performance by about 2.7 percent and outperformed developer-written documentation. He frames this as a narrow edge case, applicable mainly to "personal assistant type agents" like Obsidian vaults:</p>
+
+<blockquote>This is for stuff that is huge. Also, when we're talking about very large code bases, the chances are that there is no documentation in any form whatsoever in there at all is highly unlikely. So, this scenario is almost somewhat an unrealistic scenario.</blockquote>
+
+<p>But this framing undersells the finding. Many real-world projects have documentation that is stale, scattered, or misleading. A well-crafted claude.md that captures the actual architectural truths of a project, the conventions that cannot be inferred from code alone, can serve as the single source of reliable context. The question is not whether documentation helps, but whether the documentation is accurate and minimal.</p>
+
+<p>Consider a project where the test runner is Vitest but the package.json still references Jest scripts from an old template. Or a monorepo where the deployment target for one service is GitHub Pages and another is Vercel. These are exactly the kinds of facts that Claude Code cannot reliably infer from traversing the codebase, and where a tight claude.md file pays for itself many times over.</p>
+
+<h2>The Skill of Writing Good Instructions</h2>
+
+<p>Chase makes a telling observation about the audience most likely to be harmed by claude.md files:</p>
+
+<blockquote>That requires a certain level of knowledge and technical knowhow that many people who are just stepping into the Vibe coding space with cloud code don't have. They don't come from a technical background. They're really just figuring this all out. If that's you, then I think the answer probably is delete the cloud MD.</blockquote>
+
+<p>This is fair advice for beginners, but it reveals a deeper truth: the problem is not the tool, it is the skill of using the tool. Writing effective instructions for an AI agent is itself a skill, one that Anthropic's own engineering blog has written about extensively under the banner of "context engineering." The solution for most developers is not to abandon context files but to learn to write better ones.</p>
+
+<p>The research finding that "stronger models didn't generate better context files" actually supports this point. Auto-generation, even by frontier models, produces bloat. Human curation, by someone who understands both the project and how language models consume context, produces signal. The failure mode is not the existence of the file but the abdication of editorial judgment about what belongs in it.</p>
+
+<h2>Skills and Hooks Are Not a Substitute</h2>
+
+<p>Chase suggests that many conventions currently stuffed into claude.md files should instead be implemented as skills or hooks. This is partly right. A pre-commit hook that runs linting is more reliable than an instruction that says "always lint before committing." But there is a category of guidance that does not fit neatly into hooks or skills: architectural context, naming conventions, deployment topology, the reasons behind technical decisions. These are the things a claude.md file should contain, and only these things.</p>
+
+<p>The new interactive <code>/init</code> flow that Anthropic shipped is a step toward this philosophy, pushing developers to think about whether a convention belongs in global context or in a more targeted mechanism. But as Chase himself notes, it is not a silver bullet.</p>
+
+<h2>What the Research Actually Shows</h2>
+
+<p>The ETH Zurich paper is valuable, but its findings need to be read carefully. The benchmarks tested coding agents on discrete tasks in existing repositories, a scenario where the agent's built-in code search is indeed sufficient for most needs. The findings do not directly address long-running projects where a developer (human or AI) returns to the same codebase hundreds of times, accumulating context about decisions that are invisible in the code itself.</p>
+
+<p>The 20 percent cost increase is real and worth attending to. Every token in a claude.md file gets processed on every interaction. That is an argument for ruthless brevity, not for deletion. A ten-line claude.md that captures the three things Claude Code would otherwise get wrong is worth its weight in tokens. A two-hundred-line claude.md that restates what the code already says is actively harmful.</p>
+
+<h2>Bottom Line</h2>
+
+<p>Chase H is right that most claude.md files are too long, too redundant, and too reflexively created. The ETH Zurich research provides genuine evidence that auto-generated context files hurt more than they help. But the conclusion "you probably don't need a claude.md file" oversimplifies the finding. The research actually shows that bad context files are worse than no context files, which is a very different claim from saying context files are inherently harmful. For developers willing to treat their claude.md as a curated, minimal document containing only what the AI cannot infer on its own, the file remains one of the most powerful tools in the Claude Code workflow. The discipline is in knowing what to leave out.</p>
+
+      </div>
+
+      
+      <section id="deep-dives" class="deep-dives">
+        <h2>Deep Dives</h2>
+        <p class="deep-dives-intro">Explore related topics with these Wikipedia articles, rewritten for enjoyable reading:</p>
+        <ul class="deep-dive-list">
+          
+      <li class="deep-dive-item">
+        <a href="../../wikipedia/claude-language-model/index.html">
+          <strong>Claude (language model)</strong>
+          <span class="read-time">6 min read</span>
+        </a>
+        <p class="topic-summary">Related topic</p>
+      </li>
+
+      <li class="deep-dive-item">
+        <a href="../../wikipedia/goodharts-law-Goodhart's_law/index.html">
+          <strong>Goodhart&#039;s law</strong>
+          <span class="read-time">7 min read</span>
+        </a>
+        <p class="topic-summary">The study&#039;s finding that context files become counterproductive targets exemplifies this principle where metrics distort behavior</p>
+      </li>
+
+      <li class="deep-dive-item">
+        <a href="../../wikipedia/glossary-of-artificial-intelligence/index.html">
+          <strong>Glossary of artificial intelligence</strong>
+          <span class="read-time">1 min read</span>
+        </a>
+        <p class="topic-summary">The research demonstrates how excessive context instructions create exploitable loopholes that degrade AI performance</p>
+      </li>
+      <li class="deep-dive-item">
+        <span class="deep-dive-no-link">
+          <strong>Thinking, Fast and Slow</strong>
+          <span class="read-time">by Daniel Kahneman</span>
+        </span>
+        <p class="topic-summary">The foundational work on cognitive biases and dual-process theory.</p>
+      </li>
+        </ul>
+      </section>
+    
+
+      <section id="excerpt" class="excerpt-card">
+        <div class="content-label">
+          <span class="label-text">Transcript excerpt on Chase H AI</span>
+        </div>
+        <div class="article-excerpt">
+          <p>Your Claude MD file is making Claude code dumber. And this isn't just my opinion. This is coming from researchers in ETHZurich where they tested this idea with multiple agents against multiple benchmarks. And the conclusion was clear.</p>
+<p>These sorts of context files like claw.md make our agents worse, not better, and more expensive. So if that's the case, why is everybody still telling you that you need to start every project with a claw.md file? and it's Claude Code's latest update to slash and it actually fixed anything. In this video, we are going to cover all of that.</p>
+<p>I'm also going to discuss the one exception to this rule so you don't fall into this common trap. So, let's start by very quickly reviewing what claude.md files even are so we're on the same page here. So, claude.md files are just markdown files aka text files. They are instructions you write to give claude persistent context.</p>
+<p>The idea is if I have a project, I'm going to have a claw.md file that lays out how the project is essentially set up. It's where I set conventions. You know, if I ever want Claude to always do something in a certain way every single time, the idea is you would put this in claw.md because claude code would always reference it. Emphasis on the always reference.</p>
+<p>Claw.md files essentially become system prompts. So, think of it this way. It's almost like every single time you prompt claw code in a project that has a claw.md file. It's like that claw.md file gets appended to your prompt every single time invisibly.</p>
+<p>Think of it that way. And for/init is a command inside of cloud code that will create a cloud. MD file for you for your project. It will go through your entire setup, go through all your architecture and figure out what should be in it.</p>
+<p>And it does it all automatically. And some sort of documentation like this makes sense in theory, right? like if I always want cloud code to use twospace indentation or to run npm test before committing and to have like some level of consistency, right? It makes sense, but what makes sense on paper doesn't always play out in reality as evidenced in this report from our researchers at Zurich.</p>
+<p>So this report is called evaluating agents.md. Think of agents.md and claw.md as ...</p>
+        </div>
+        <div class="excerpt-card-cta">
+          <a href="https://www.youtube.com/watch?v=V3xDTx2XwGg" class="read-button" target="_blank" rel="noopener">
+            Watch on YouTube &rarr;
+          </a>
+        </div>
+      </section>
+      
+    </article>
+  
+  </main>
+  <script>
+  (function() {
+    var params = new URLSearchParams(window.location.search);
+    var from = params.get('from');
+    if (from) {
+      var names = {
+        'foreign-policy':'Foreign Policy','ai-tech':'AI & Tech','housing-cities':'Housing & Cities',
+        'political-strategy':'Political Strategy','history':'History','science':'Science',
+        'culture':'Culture','economics':'Economics','faith':'Faith','writing-craft':'Writing & Craft',
+        'music':'Music','law-rights':'Law & Rights','public-health':'Public Health',
+        'philosophy':'Philosophy','media':'Media','defense':'Defense','china':'China'
+      };
+      var link = document.getElementById('back-link');
+      if (link) {
+        var name = names[from] || from;
+        link.href = '../../tag/' + from + '/index.html';
+        link.textContent = '\u2190 Back to ' + name;
+      }
+    }
+  })();
+  </script>
+</body>
+</html>

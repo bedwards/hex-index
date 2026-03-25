@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nvidia Just Open-Sourced What OpenAI Wants You to Pay Consultants For. - Hex Index</title>
+  <link rel="stylesheet" href="../../styles.css">
+</head>
+<body class="reading-mode">
+  <header class="reading-header">
+    <a href="../../index.html" class="back-link" id="back-link">&larr; Back to Library</a>
+  </header>
+  <main class="reading-content">
+    
+    <article class="article-page">
+      <header class="article-header">
+        <h1>Nvidia Just Open-Sourced What OpenAI Wants You to Pay Consultants For.</h1>
+        <div class="article-meta">
+          <span class="author">Nate B Jones</span>
+          <span class="separator">&middot;</span>
+          <a href="../../publication/natebjones/index.html" class="publication">
+            Nate B Jones
+          </a>
+          <span class="separator">&middot;</span><time>Mar 24, 2026</time>
+          <span class="separator">&middot;</span>
+          <span class="read-time">26 min read</span>
+        </div>
+      </header>
+
+      <div class="content-label">
+        <span class="label-text">Commentary by <a href="../../about/index.html">Brian Edwards</a></span>
+        <nav class="content-nav">
+          <a href="#deep-dives">Deep dives</a><span class="separator">&middot;</span>
+          <a href="https://www.youtube.com/watch?v=7AO4w4Y_L24" target="_blank" rel="noopener">Original video &rarr;</a>
+        </nav>
+      </div>
+
+      
+      <div class="article-content">
+        <h2>The Battle Between Open Source and Consulting Fees</h2>
+
+<p>Nate Jones frames NVIDIA's launch of NemoClaw as a philosophical counterpoint to the consulting-heavy strategies now being pursued by OpenAI and Anthropic. The argument is provocative: while two of the biggest names in AI have concluded that enterprises cannot adopt their tools without handholding from expensive consultants, Jensen Huang walked on stage and essentially told developers they could figure it out themselves. Whether that confidence is warranted or naive depends entirely on how one reads the current state of enterprise engineering.</p>
+
+<blockquote>Anthropic and OpenAI spent a year in 2025 figuring out that the companies they work with did not have the expertise to actually apply the solutions they were giving them.</blockquote>
+
+<p>This is the central tension Jones identifies, and it deserves scrutiny. OpenAI and Anthropic did not arrive at their consulting partnerships out of generosity. They arrived there because their revenue models depend on enterprise adoption, and enterprise adoption was stalling. The consulting play is not an admission of failure so much as an acknowledgment that shipping a powerful SDK does not automatically translate into organizational transformation. Anyone who has watched a Fortune 500 company try to adopt Kubernetes, or microservices, or even basic CI/CD pipelines, already knows this.</p>
+<figure class="inline-illustration">
+    <img src="../../images/02bd6382-8d7a-40bf-aa16-296a13652988.webp" alt="" loading="lazy" width="600" height="315">
+  </figure>
+
+
+<h2>NemoClaw as Strategic Positioning</h2>
+
+<p>Jones is refreshingly honest about what NemoClaw actually represents for NVIDIA. It is not purely a gift to the open-source community. It is a calculated move to extend NVIDIA's dominance beyond the chip layer and into the agentic software stack. NemoClaw wraps OpenClaw in enterprise-grade security, policy-based guardrails defined in YAML, and model constraints that conveniently ensure workloads run on NVIDIA hardware.</p>
+
+<blockquote>One of Jensen's larger moves here is to go from just managing the chip layer to move into the Agentic world because in his business he needs to go from just selling chips to scaling up to sell more of the value chain.</blockquote>
+
+<p>This is the part of the story that tends to get buried under the "open source good, consultants bad" framing. NVIDIA is not acting out of altruism. The company is building a funnel: open-source contributors add value to the OpenClaw ecosystem, NemoClaw captures that value in an enterprise-friendly wrapper, and enterprises deploy it on NVIDIA hardware. It is a well-executed platform strategy, and Jones deserves credit for naming it clearly rather than treating it as pure developer empowerment.</p>
+
+<h2>Rob Pike's Rules and the Hype Cycle</h2>
+
+<p>The most substantive section of Jones's commentary is his extended riff on Rob Pike's five rules of programming and how they apply to agentic systems. The argument is straightforward: the fundamental challenges of building reliable software have not changed just because the software now includes an LLM. Context windows fill up the same way memory buffers always have. Unmeasured systems cannot be optimized. Complexity breeds bugs.</p>
+
+<blockquote>Rule number five, data dominates. If you've chosen the right data structures and if you've organized things well, the algorithms will almost always be self-evident.</blockquote>
+
+<p>Jones maps each of Pike's rules onto contemporary agentic engineering problems, and the mapping is genuinely useful. Context compression is a data management problem. Agent readiness is a code hygiene problem. Multi-agent coordination benefits from the same simplicity-first approach that has served backend engineering for decades. The insight is not novel in itself, but stating it plainly in a landscape dominated by breathless hype about "agentic mesh architectures" serves a real purpose.</p>
+
+<p>There is a counterpoint worth raising, however. Pike's rules were formulated for deterministic systems where the relationship between inputs and outputs was, in principle, knowable. LLM-based agents introduce genuine nondeterminism that does not have a clean analog in traditional systems programming. When Jones says "simple scales better than complex," he is mostly right, but the definition of "simple" gets complicated when a core component of the system produces different outputs for identical inputs. The engineering discipline Pike advocated remains essential, but it may not be sufficient.</p>
+
+<h2>The Consulting Industry's Uncomfortable Incentives</h2>
+
+<p>Jones reserves his sharpest criticism for the consulting industry, and the critique lands. He argues that consultants have a financial incentive to present AI adoption as maximally complex, because complexity justifies billable hours. The result is elaborate "agentic mesh" diagrams and dense change management frameworks that obscure rather than illuminate.</p>
+
+<blockquote>Part of why as an industry we have not done this well is that the chaos is worth a lot of money. Consultants coming in and peddling their wares and saying this study shows that it's really hard helps them earn business.</blockquote>
+
+<p>This is a fair observation, but it glosses over why consulting firms exist in the first place. Most enterprises do not have the internal engineering talent to evaluate, adopt, and maintain cutting-edge tooling. This is not because their engineers are incompetent; it is because enterprise engineering organizations are optimized for stability and risk management, not rapid experimentation. The consulting industry fills a genuine gap, even if it also exploits that gap for profit. Jensen Huang telling developers "you got this" may be inspiring, but it does not change the structural reality that many organizations lack the senior engineering talent to self-serve on complex infrastructure decisions.</p>
+
+<h2>The Factory.ai Evidence</h2>
+
+<p>Jones strengthens his argument by citing Factory.ai's agent readiness framework, which evaluates codebases against eight technical pillars: style and validation, build systems, testing, documentation, dev environment, code quality, observability, and security. The finding that the agent is rarely the broken component, while the surrounding environment almost always is, aligns neatly with Pike's data-dominates principle.</p>
+
+<blockquote>If you can fix your data structures like linter configs, like documented builds, like dev containers, like an agents.md file, agent behavior then becomes self-evident.</blockquote>
+
+<p>This is perhaps the most actionable insight in the entire piece. Rather than chasing the latest agent framework or paying consultants to build elaborate orchestration layers, engineering teams would get more leverage from investing in basic software hygiene: strict linting, reproducible builds, comprehensive test suites, and clean documentation. The virtuous cycle Jones describes, where better environments make agents more productive, which frees time to improve environments further, is compelling and well-supported by Factory's data.</p>
+
+<h2>What Gets Lost in the Framing</h2>
+
+<p>The piece's biggest weakness is its binary framing. The reality is not a clean choice between NVIDIA's "trust the developers" approach and OpenAI/Anthropic's "hire consultants" approach. Both strategies serve different segments of the market. A well-staffed Silicon Valley startup with strong engineering culture can absolutely self-serve on NemoClaw. A 50,000-person financial services firm with legacy systems, regulatory requirements, and an engineering team that has been doing Java maintenance for fifteen years probably cannot, no matter how elegant the open-source framework.</p>
+
+<p>Jones also understates the degree to which NVIDIA's "open" approach still locks users into NVIDIA's ecosystem. NemoClaw runs on NVIDIA's OpenShell runtime, optimized for NVIDIA hardware. The openness is real at the framework level but constrained at the infrastructure level, which is where the money actually flows. This is not necessarily bad, but it complicates the narrative of NVIDIA as the populist alternative to consulting-dependent AI vendors.</p>
+
+<h2>Bottom Line</h2>
+
+<p>Jones makes a persuasive case that the agentic AI hype cycle has obscured a simple truth: the hard problems in deploying AI agents are mostly the same hard problems that have plagued software engineering for decades. Context management, measurement, simplicity, debugging, and data architecture are not new challenges. The value of NemoClaw is less in its specific technical features than in its implicit message that good engineering fundamentals are sufficient to build reliable agent systems. Whether enterprises can actually execute on that message without external help remains the open question that neither NVIDIA's optimism nor the consulting industry's complexity theater adequately answers.</p>
+
+      </div>
+
+      
+      <section id="deep-dives" class="deep-dives">
+        <h2>Deep Dives</h2>
+        <p class="deep-dives-intro">Explore related topics with these Wikipedia articles, rewritten for enjoyable reading:</p>
+        <ul class="deep-dive-list">
+          
+      <li class="deep-dive-item">
+        <a href="../../wikipedia/mandatory-access-control/index.html">
+          <strong>Mandatory access control</strong>
+          <span class="read-time">14 min read</span>
+        </a>
+        <p class="topic-summary">Explains the security model behind Nemo Claw&#039;s policy-based guardrails for enterprise AI deployment</p>
+      </li>
+
+      <li class="deep-dive-item">
+        <a href="../../wikipedia/actor-model/index.html">
+          <strong>Actor model</strong>
+          <span class="read-time">12 min read</span>
+        </a>
+        <p class="topic-summary">Reveals the foundational concurrency paradigm enabling &#039;agentic operating systems&#039; like OpenClaw</p>
+      </li>
+
+      <li class="deep-dive-item">
+        <a href="../../wikipedia/crossing-the-chasm/index.html">
+          <strong>Crossing the Chasm</strong>
+          <span class="read-time">13 min read</span>
+        </a>
+        <p class="topic-summary">Details the critical adoption gap that caused OpenAI/Anthropic&#039;s enterprise implementation failures</p>
+      </li>
+      <li class="deep-dive-item">
+        <span class="deep-dive-no-link">
+          <strong>Thinking, Fast and Slow</strong>
+          <span class="read-time">by Daniel Kahneman</span>
+        </span>
+        <p class="topic-summary">The foundational work on cognitive biases and dual-process theory.</p>
+      </li>
+        </ul>
+      </section>
+    
+
+      <section id="excerpt" class="excerpt-card">
+        <div class="content-label">
+          <span class="label-text">Transcript excerpt on Nate B Jones</span>
+        </div>
+        <div class="article-excerpt">
+          <p>Right now there's a battle playing out at the heart of agent world and it's a battle between titans, right? Nvidia's on one side with Nemo Claw, OpenAI and Enthropic are on the other side. If you're telling me Nate, no, no, no, they're all building agents, I'm the first to agree with you. That's not the point.</p>
+<p>The point is that Anthropic and Open AAI spent a year in 2025 figuring out that the companies they work with did not have the expertise to actually apply the solutions they were giving them. So they would launch cool stuff like codec and claude code and see it suffer in production when they could not figure out how to get actual teams at actual businesses to adopt them in ways that they themselves were using internally right anthropic ships I swear every 8 hours right and open AAI ships very very fast as well but they weren't seeing those speed ups at other companies and they could not figure out why and so now because of that year of failures open AI and anthropic are very publicly tying up with big consulting firms and they're doing that because they know that they need to find ways to work with services firms to get their actual content, their actual code into the hands of people in a way that's accessible to them. It turns out that AI doesn't teach itself, at least not for most people. And I think that's a bitter lesson that Enthropic and OpenAI have learned.</p>
+<p>I don't know that Nvidia agrees because on the other side of this, Nvidia just launched Nemo Claw and the backstory there is very very different. Nemo claw came from the open claw moment, right? Jensen walked out onto the stage and he said this is the future, right? The future is open claw because the future is an agentic operating system.</p>
+<p>And that's what he saw. And so regardless of what you think about OpenClaw the piece of software that Peter Steinberger coded, OpenClaw the system, OpenClaw the paradigm, OpenClaw the idea, that's what Judson was talking about. And he wanted to take that idea and bring it securely to the enterprise. Because of course the big thing with OpenClaw if you're in business is it's not secure.</p>
+<p>It's not something you can lock down well. There's lots and lots of issues ...</p>
+        </div>
+        <div class="excerpt-card-cta">
+          <a href="https://www.youtube.com/watch?v=7AO4w4Y_L24" class="read-button" target="_blank" rel="noopener">
+            Watch on YouTube &rarr;
+          </a>
+        </div>
+      </section>
+      
+    </article>
+  
+  </main>
+  <script>
+  (function() {
+    var params = new URLSearchParams(window.location.search);
+    var from = params.get('from');
+    if (from) {
+      var names = {
+        'foreign-policy':'Foreign Policy','ai-tech':'AI & Tech','housing-cities':'Housing & Cities',
+        'political-strategy':'Political Strategy','history':'History','science':'Science',
+        'culture':'Culture','economics':'Economics','faith':'Faith','writing-craft':'Writing & Craft',
+        'music':'Music','law-rights':'Law & Rights','public-health':'Public Health',
+        'philosophy':'Philosophy','media':'Media','defense':'Defense','china':'China'
+      };
+      var link = document.getElementById('back-link');
+      if (link) {
+        var name = names[from] || from;
+        link.href = '../../tag/' + from + '/index.html';
+        link.textContent = '\u2190 Back to ' + name;
+      }
+    }
+  })();
+  </script>
+</body>
+</html>

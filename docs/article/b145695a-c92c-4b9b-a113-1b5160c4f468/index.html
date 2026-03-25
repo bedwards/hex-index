@@ -28,13 +28,95 @@
       </header>
 
       <div class="content-label">
-        <span class="label-text">Excerpt from <a href="../../publication/chinatalk/index.html">ChinaTalk</a></span>
+        <span class="label-text">Commentary by <a href="../../about/index.html">Brian Edwards</a></span>
         <nav class="content-nav">
-          <a href="https://www.chinatalk.media/p/autonomous-weapons-101-dario-v-hegseth" target="_blank" rel="noopener">Read full article &rarr;</a>
+          <a href="#deep-dives">Deep dives</a><span class="separator">&middot;</span>
+          <a href="https://www.chinatalk.media/p/autonomous-weapons-101-dario-v-hegseth" target="_blank" rel="noopener">Original article &rarr;</a>
         </nav>
       </div>
 
       
+      <div class="article-content">
+        <h2>Autonomous Weapons Are Already Here</h2>
+
+<p>Since the early 1980s, roughly 40 militaries worldwide have deployed weapon systems capable of selecting and engaging targets without direct human input. That is the starting point of a ChinaTalk conversation between host Jordan Schneider and Michael Horowitz, a University of Pennsylvania professor who helped rewrite the Pentagon's overarching framework for autonomous weapons, Department of Defense (DoD) Directive 3000.09, during the Biden administration. Their discussion arrives in the wake of the public clash between Anthropic and the Pentagon over artificial intelligence (AI) in military applications -- a dispute that, as Horowitz argues, generated far more heat than light.</p>
+
+<p>Horowitz wastes no time dismantling the popular image of autonomous weapons as some futuristic nightmare. The reality is far more mundane.</p>
+<figure class="inline-illustration">
+    <img src="../../images/b145695a-c92c-4b9b-a113-1b5160c4f468.webp" alt="" loading="lazy" width="600" height="315">
+  </figure>
+
+
+<blockquote>The US military and basically 40 militaries around the world have deployed autonomous weapons systems since the early 1980s. These are often automated systems using essentially deterministic, good old-fashioned AI. They're on ships -- like these enormous Gatling guns called the Phalanx -- that can operate by algorithm.</blockquote>
+
+<p>The Phalanx Close-In Weapon System (CIWS), a radar-guided autocannon mounted on Navy vessels, can autonomously detect and destroy incoming missiles when an operator flips a switch. Radar-guided missiles, once launched, fly to their targets without any further human supervision. These are not theoretical weapons. They have been operational for over four decades. Horowitz uses this history to reframe the entire debate: the question is not whether autonomous weapons should exist, but what kinds of new autonomy the latest AI systems should enable.</p>
+
+<h2>Ukraine and the Last-Mile Problem</h2>
+
+<p>The conversation turns to the current battlefield in Ukraine, where electronic warfare has forced a practical evolution in drone autonomy. Ukrainian operators flying first-person-view (FPV) attack drones found themselves constantly jammed by Russian electronic countermeasures. Some tried fiber optic cables stretching kilometers to maintain control links. But the jamming problem demanded a different solution.</p>
+
+<blockquote>There are now some Ukrainian weapons that essentially have last-mile autonomy. If jamming occurs in the last kilometer and the data link goes away, that weapon -- trained on an algorithm that maybe has a target library of targets it's allowed to hit -- can still continue on to the target and hit it.</blockquote>
+
+<p>Horowitz frames this not as a radical escalation but as a practical necessity for militaries operating in environments saturated with electronic warfare. The drone does not decide to go to war. A human launches it, aims it at a target area, and the onboard algorithm takes over only when the communication link breaks. The autonomy is narrow, last-resort, and bounded by a pre-loaded target library.</p>
+
+<p>Critics might note that "bounded" autonomy in a jamming-heavy environment still means a machine is making the final kill decision based on image classification -- a technology with well-documented failure modes including misidentification of civilian vehicles as military targets.</p>
+
+<h2>What Anthropic Actually Got Right -- and Wrong</h2>
+
+<p>Horowitz offers a surprisingly sympathetic reading of Anthropic's position on military AI, while faulting the company's communication.</p>
+
+<blockquote>I actually have no problem with what Anthropic said. I think they do everybody a disservice when they use the phrase "fully autonomous weapons," because nobody knows what they mean.</blockquote>
+
+<p>The core of Anthropic's argument, as Horowitz reconstructs it, is that large language models (LLMs) are not suitable for powering autonomous weapons -- and he agrees. LLMs hallucinate. They are probabilistic systems ill-suited to safety-critical targeting decisions. The Pentagon, he notes, was not actually asking Anthropic to build LLM-powered kill bots.</p>
+
+<blockquote>Anthropic's actually probably correct about the limits of large language models in powering autonomous weapon systems -- which is also why the Pentagon isn't doing it right now and wasn't talking about doing it. That's one of the many reasons why this whole blow-up between Anthropic and the Pentagon was so needless.</blockquote>
+
+<p>The real dispute, Schneider suggests toward the end of the conversation, may have been less about autonomous weapons and more about domestic surveillance -- specifically whether Anthropic's tools might be used to locate undocumented immigrants. Horowitz concurs that AI-enabled mass surveillance is a legitimate concern, though he worries about it more from agencies other than the Pentagon.</p>
+
+<h2>The Legal Architecture That Already Exists</h2>
+
+<p>A persistent misconception in the autonomous weapons debate, according to Horowitz, is that some single Biden-era directive stands between civilization and killer robots. He dismantles this cleanly.</p>
+
+<blockquote>The thing that keeps humans involved in decisions on the battlefield actually has nothing to do with the Pentagon's directive on autonomy and weapon systems. The Pentagon's policy on autonomy and weapon systems is about the process for developing and fielding semi-autonomous and autonomous weapon systems.</blockquote>
+
+<p>The actual constraints on lethal force come from a separate and broader architecture: Pentagon guidance on the use of force, international humanitarian law treaty obligations, and requirements for proportionality and distinction that apply regardless of whether the weapon is a bow, a cruise missile, or an AI-enabled drone. Commanders and operators must ensure every use of force meets these standards. That obligation does not change when the weapon has an algorithm onboard.</p>
+
+<p>Schneider pushes back sharply, asking what these legal guardrails mean when senior officials ignore inspectors general or issue cavalier orders. Horowitz's response is pointed: if the concern is that the Pentagon will not follow the law, that is an argument against doing any business with the military at all, not an argument specific to autonomous weapons.</p>
+
+<h2>Cloud Versus Edge: A Clean Line</h2>
+
+<p>One practical distinction that emerged from the Anthropic dispute is whether AI models operate in the cloud or at the edge -- that is, on the weapon itself, disconnected from remote servers.</p>
+
+<blockquote>If you have a system that only operates through the cloud, then it almost by definition can't be used to power an autonomous weapon system. You could use it to do lots of other military operational things -- planning military operations, directing things. But if it's cloud-based, it can't operate on the edge in an autonomous weapon system.</blockquote>
+
+<p>Horowitz finds this distinction genuinely useful. An autonomous weapon, by the Pentagon's own definition, must function after activation without continuous human oversight -- which means without a data link, which means without cloud access. A company offering only cloud-based API access can credibly claim its technology cannot power autonomous weapons, while still supporting logistics, intelligence analysis, and command planning.</p>
+
+<p>A counterargument is that this clean line may not hold indefinitely. Models are getting smaller. Edge deployment of capable AI systems is an active area of commercial research. The cloud-versus-edge distinction is a snapshot of current technical constraints, not a permanent firewall.</p>
+
+<h2>The Real Risk Nobody Talks About</h2>
+
+<p>The most striking part of the conversation comes when Horowitz redirects attention from the battlefield to the command center. He is not especially worried about rogue drone swarms. Military institutions, he argues, are conservative about weapons, heavily incentivized to ensure reliability, and bound by standard operating procedures with clear accountability chains.</p>
+
+<p>What worries him is automation bias at the strategic level.</p>
+
+<blockquote>Senior decision-makers, uninformed about AI, trusting AI tools too much in guiding their decisions -- if you want to know how things really go awry, it's less because of AI at the pointy end of the spear and much more at the strategic level.</blockquote>
+
+<p>Horowitz points to systems like Maven Smart System, a dashboard aggregating intelligence from classified and open sources for combatant commanders. As these tools grow more sophisticated, generating increasingly specific recommendations for courses of action, the risk shifts from a malfunctioning weapon to a general who rubber-stamps an AI recommendation without understanding its limitations.</p>
+
+<p>Schneider draws a vivid parallel from his own experience using Claude Code, describing how he quickly moved from clicking permission prompts to enabling a "dangerously accept permissions" setting because it was more efficient.</p>
+
+<blockquote>Maybe all we have to hold onto is the idea that these are slow and bureaucratic institutions with paper trails, humans with legal liability if they screw things up, and the moral weight of killing the wrong person.</blockquote>
+
+<p>The trajectory Schneider describes -- from cautious engagement to habitual trust to full delegation -- is exactly the pattern behavioral scientists worry about with automation bias, and it maps uncomfortably well onto how military command structures might adopt AI decision-support tools.</p>
+
+<h2>Bottom Line</h2>
+
+<p>Horowitz makes a compelling case that the public conversation about autonomous weapons is badly miscalibrated. The strongest parts of his argument are historical: autonomous weapons have existed for decades, precision has reduced civilian casualties compared to earlier eras of warfare, and the legal architecture governing the use of force is broader and more durable than any single policy directive. His reframing of the Anthropic dispute as a communication failure rather than a genuine policy disagreement is persuasive.</p>
+
+<p>Where the argument is most vulnerable is in its reliance on institutional incentives and legal constraints as sufficient guardrails. Horowitz repeatedly invokes the accountability structures of the U.S. military as reasons for confidence, but these structures depend on political leadership that respects them -- a condition Schneider probes and Horowitz essentially concedes is outside the scope of the autonomous weapons question. The weakest link may not be a malfunctioning drone or an unregulated AI model, but a senior decision-maker who trusts an AI dashboard the way the rest of us have learned to trust autocomplete: automatically, reflexively, and without reading the fine print.</p>
+
+      </div>
+
       
       <section id="deep-dives" class="deep-dives">
         <h2>Deep Dives</h2>
@@ -64,22 +146,30 @@
         </a>
         <p class="topic-summary">The article discusses semi-autonomous fire-and-forget munitions like radar-guided missiles; loitering munitions represent a similar category of weapons with advanced autonomy used in Ukraine and Iran</p>
       </li>
+      <li class="deep-dive-item">
+        <span class="deep-dive-no-link">
+          <strong>Thinking, Fast and Slow</strong>
+          <span class="read-time">by Daniel Kahneman</span>
+        </span>
+        <p class="topic-summary">The foundational work on cognitive biases and dual-process theory.</p>
+      </li>
         </ul>
       </section>
     
 
-      
-      <div class="excerpt-card">
+      <section id="excerpt" class="excerpt-card">
+        <div class="content-label">
+          <span class="label-text">Excerpt from the original article on ChinaTalk</span>
+        </div>
         <div class="article-excerpt">
           <p>The Anthropic–Pentagon blowup generated enormous heat and almost no light.</p><p>Michael Horowitz has thought as much about autonomous weapons policy as anyone. He’s a professor at Penn who spent time in Biden’s DoD overseeing the office that rewrote <a href="https://www.esd.whs.mil/Portals/54/Documents/DD/issuances/dodd/300009p.pdf">DoD Directive 3000.09</a>, the Pentagon's overarching framework for autonomous weapons. He joined me to do a proper 101: what autonomous weapons actually are, how the relevant law works, what Ukraine has taught us, and where the genuine risks lie — which turns out to be less about killer drones and more about generals over-trusting their dashboards.</p><p>Listen now on <a href="https://pod.link/1289062927/episode/MDcwZTI1YzAtMTY5Mi0xMWYxLTg3NzYtZjMxYzM1YzZmNGJm">your favorite podcast app.</a></p><h2><strong>What Does an “Autonomous Weapon” Actually Mean?</strong></h2><p><strong>Jordan Schneider:</strong> How would you characterize where the fear lies in the well-meaning researcher or head of an AI lab who thinks their technology used for certain types of autonomy would be a bad direction to go? Maybe contrast that with how this stuff is used today in Ukraine and Iran.</p><p><strong>Michael Horowitz:</strong> The average Silicon Valley AI safety researcher who’s worried about autonomous war bots is probably worried about AI making the decision about who lives and who dies. They think that’s some dystopia they don’t want any part of.</p><p>They get worried about the incorporation of AI into the pointy end of the spear for militaries, especially when it comes to potentially selecting and engaging targets. What sometimes gets lost in the conversation is the substantial degree of autonomy that already exists in modern weapon systems.</p><p>The US military and basically 40 militaries around the world have deployed autonomous weapons systems since the early 1980s. These are often automated systems using essentially deterministic, good old-fashioned AI. They’re on ships — like these enormous Gatling guns called the Phalanx — that can operate by algorithm. If there are too many threats coming in, say too many missiles about to hit a ship, an operator can basically flip on the algorithm, which can automatically target and hit those incoming threats.</p><div class="captioned-image-container"></div><p>You also have semi-autonomous weapon systems that fall into the category of fire-and-forget munitions. Think about how a radar-guided missile works. A pilot believes there’s an adversary radar that’s a legitimate target. They press the launch button, the radar-guided missile fires. After going a certain distance, it turns on a seeker, detects a radar, goes in and destroys the radar. There’s no human supervision or control of any kind after that ...</p>
         </div>
         <div class="excerpt-card-cta">
           <a href="https://www.chinatalk.media/p/autonomous-weapons-101-dario-v-hegseth" class="read-button" target="_blank" rel="noopener">
-            Continue reading on ChinaTalk &rarr;
+            Read the entire original on ChinaTalk &rarr;
           </a>
-          <p class="cta-note">The full article by Jordan Schneider is available on ChinaTalk.</p>
         </div>
-      </div>
+      </section>
       
     </article>
   

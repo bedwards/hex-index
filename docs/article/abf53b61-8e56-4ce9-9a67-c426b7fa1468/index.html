@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>10 CLI Tools That Make Claude Code UNSTOPPABLE - Hex Index</title>
+  <link rel="stylesheet" href="../../styles.css">
+</head>
+<body class="reading-mode">
+  <header class="reading-header">
+    <a href="../../index.html" class="back-link" id="back-link">&larr; Back to Library</a>
+  </header>
+  <main class="reading-content">
+    
+    <article class="article-page">
+      <header class="article-header">
+        <h1>10 CLI Tools That Make Claude Code UNSTOPPABLE</h1>
+        <div class="article-meta">
+          <span class="author">Chase H</span>
+          <span class="separator">&middot;</span>
+          <a href="../../publication/chasehai/index.html" class="publication">
+            Chase H AI
+          </a>
+          <span class="separator">&middot;</span><time>Mar 21, 2026</time>
+          <span class="separator">&middot;</span>
+          <span class="read-time">15 min read</span>
+        </div>
+      </header>
+
+      <div class="content-label">
+        <span class="label-text">Commentary by <a href="../../about/index.html">Brian Edwards</a></span>
+        <nav class="content-nav">
+          <a href="#deep-dives">Deep dives</a><span class="separator">&middot;</span>
+          <a href="https://www.youtube.com/watch?v=uULvhQrKB_c" target="_blank" rel="noopener">Original video &rarr;</a>
+        </nav>
+      </div>
+
+      
+      <div class="article-content">
+        <h2>The Terminal as Operating System</h2>
+
+<p>Chase's roundup of ten command-line tools for Claude Code arrives at a moment when the AI coding ecosystem is undergoing a quiet but significant architectural shift. The thesis is straightforward: Claude Code lives in the terminal, CLI tools live in the terminal, and the friction of Model Context Protocol servers is increasingly unnecessary overhead. Whether that thesis holds up under scrutiny depends on what kind of work developers are actually doing.</p>
+
+<p>The most striking claim in the piece is the directional one about MCPs versus CLIs:</p>
+<figure class="inline-illustration">
+    <img src="../../images/abf53b61-8e56-4ce9-9a67-c426b7fa1468.webp" alt="" loading="lazy" width="600" height="315">
+  </figure>
+
+
+<blockquote>We're moving away from MCPs. We're moving into CLIs because it just makes sense. Cloud code lives in the terminal. CLIs live in the terminal. There's no overhead. It's like just a straight connection and allows cloud code to do the most with the least amount of tokens.</blockquote>
+
+<p>This framing deserves some pushback. MCPs were designed to solve a real problem: giving language models structured, discoverable access to external services with well-defined schemas. CLI tools solve a different problem: giving humans (and now AI agents) scriptable access to services through text commands. The fact that Claude Code can use both does not make them interchangeable. A CLI tool that outputs unstructured text requires the model to parse that output, which is itself a source of errors and token consumption. The "90,000 fewer tokens" figure Chase cites from the Playwright comparison is compelling, but a single benchmark does not establish a universal principle.</p>
+
+<h2>The Meta-Tool and the Bootstrapping Problem</h2>
+
+<p>The list opens with CLI Anything, a tool that generates CLI tools from open-source projects. This is a genuinely interesting concept from the creators of LightRAG, and it raises a question that Chase breezes past: what happens when the generated CLI is wrong? If Claude Code uses CLI Anything to create a Blender CLI wrapper, and that wrapper misrepresents Blender's capabilities or mishandles edge cases, the failure mode is subtle. The AI agent will confidently use a tool that does not work correctly, and the developer may not realize it until much later.</p>
+
+<blockquote>This is a CLI tool that creates other CLI tools. This thing is completely open-source and it's from the makers of light rag and rag anything. So these guys are kind of titans in the AI open source world.</blockquote>
+
+<p>The pedigree of the creators is not in question. But meta-tools that generate other tools compound the trust problem rather than solving it. Each layer of abstraction is another place where assumptions can silently break.</p>
+
+<h2>NotebookLM as a Video Processing Proxy</h2>
+
+<p>The NotebookLM CLI integration is arguably the most practically useful tool on the list, and Chase identifies exactly why:</p>
+
+<blockquote>It solves one of the issues with Claude Code and Son and Opus in general is the fact that they can't really handle videos. Notebook LM can. I can just throw YouTube URLs at Notebook LM. It will do all the analysis for me for free because these tokens are on Google servers, not ours.</blockquote>
+
+<p>This is a clever architectural move. Rather than waiting for Claude to develop native video understanding, developers can use NotebookLM as a preprocessing layer. The economics are appealing too: Google absorbs the compute cost of video analysis, and Claude Code receives structured text output. The catch, which goes unmentioned, is dependency risk. Google could change NotebookLM's capabilities, pricing, or API access at any time, and a workflow built on this integration would break without warning.</p>
+
+<h2>The Obvious Picks and the Dangerous Ones</h2>
+
+<p>Several tools on the list fall into the "obvious infrastructure" category. GitHub CLI, Vercel CLI, Supabase CLI, and FFmpeg are all well-established tools that any developer working in those ecosystems would already know about. Their inclusion feels more like padding than discovery. Chase acknowledges this with the GitHub CLI:</p>
+
+<blockquote>If we are doing anything where we are writing code and we want to push to GitHub, there is no reason why we wouldn't just use the GitHub CLI to do this, right?</blockquote>
+
+<p>Fair enough, but this is table stakes, not a revelation.</p>
+
+<p>The Stripe CLI entry is more interesting, not because of the tool itself, but because of the tension it reveals. Chase correctly notes that Stripe's web interface is painful to navigate and that the CLI can automate product creation. But then comes the caveat:</p>
+
+<blockquote>When you are dealing with things that have to do with money and transactions, like obviously you still want to test these out by hand.</blockquote>
+
+<p>This is the right instinct, and it applies far more broadly than Chase lets on. Any CLI tool that touches production systems with real consequences, whether financial, security, or data integrity, requires a different level of scrutiny than one that manipulates video files. The article treats all ten tools with roughly equal enthusiasm, but the risk profiles are wildly different.</p>
+
+<h2>The Skills Tax</h2>
+
+<p>A recurring theme is the need for "skills," essentially prompt files that teach Claude Code how to use each CLI tool effectively. Chase frames this as a minor installation step, but it represents a real maintenance burden that scales poorly:</p>
+
+<blockquote>Skills aren't a huge context window, you know, drag. But if you have too many of them, triggering the right one becomes a problem.</blockquote>
+
+<p>This is an underappreciated point that deserves more attention than it receives. Every skill loaded into Claude Code's context competes for the model's attention. As the number of CLI tools grows, developers face a curation problem: which tools deserve permanent context space, and which should be loaded on demand? Chase's own advice for the Google Workspace CLI, to have Claude Code analyze the repo and recommend which skills to install, is a pragmatic solution, but it also reveals the underlying tension. The "just install everything" approach does not scale.</p>
+
+<h2>The Security Elephant</h2>
+
+<p>The Google Workspace CLI entry, saved for last, is where the article's breezy tone becomes genuinely concerning. Giving an AI agent access to email, documents, and spreadsheets is not a productivity hack. It is a security decision with significant implications. Chase mentions sandboxing and Google's Armor feature for prompt injection protection, but the treatment is superficial:</p>
+
+<blockquote>Do we necessarily want Cloud Code to have access to all our emails? But luckily, it's not too hard to set up the GWS CLI tool in a way where we almost like sandbox cloud code.</blockquote>
+
+<p>The word "almost" is doing enormous work in that sentence. Prompt injection attacks against AI agents with tool access are an active area of security research, and the defenses are not yet mature. A developer who follows this advice without understanding the threat model could expose sensitive communications to exfiltration through carefully crafted emails that manipulate Claude Code's behavior.</p>
+
+<h2>Bottom Line</h2>
+
+<p>Chase's list is a useful survey of the CLI-centric approach to extending Claude Code, and the core insight about CLIs being a natural fit for terminal-native AI agents is sound. The NotebookLM integration and CLI Anything represent genuinely novel approaches to capability extension. But the article's enthusiasm outpaces its caution. The shift from MCPs to CLIs is not as clean as presented, the security implications of tools like GWS deserve far more than a paragraph, and the skills management problem will only get worse as the ecosystem grows. Developers would be well served to adopt two or three of these tools deeply rather than bolting on all ten and hoping Claude Code figures out when to use each one.</p>
+
+      </div>
+
+      
+      <section id="deep-dives" class="deep-dives">
+        <h2>Deep Dives</h2>
+        <p class="deep-dives-intro">Explore related topics with these Wikipedia articles, rewritten for enjoyable reading:</p>
+        <ul class="deep-dive-list">
+          
+      <li class="deep-dive-item">
+        <a href="../../wikipedia/headless-browser/index.html">
+          <strong>Headless browser</strong>
+          <span class="read-time">4 min read</span>
+        </a>
+        <p class="topic-summary">This emerging browser automation protocol explains how tools like Notebook LM CLI bypass missing APIs through modern headless browser control</p>
+      </li>
+
+      <li class="deep-dive-item">
+        <a href="../../wikipedia/language-binding/index.html">
+          <strong>Language binding</strong>
+          <span class="read-time">2 min read</span>
+        </a>
+        <p class="topic-summary">Reveals how CLI Anything auto-generates command-line interfaces for apps like Blender by bridging programming language barriers</p>
+      </li>
+
+      <li class="deep-dive-item">
+        <a href="../../wikipedia/getopt/index.html">
+          <strong>getopt</strong>
+          <span class="read-time">9 min read</span>
+        </a>
+        <p class="topic-summary">The obscure Unix library standardizing CLI argument parsing that underpins consistent tool behavior across the ecosystem described</p>
+      </li>
+      <li class="deep-dive-item">
+        <span class="deep-dive-no-link">
+          <strong>Thinking, Fast and Slow</strong>
+          <span class="read-time">by Daniel Kahneman</span>
+        </span>
+        <p class="topic-summary">The foundational work on cognitive biases and dual-process theory.</p>
+      </li>
+        </ul>
+      </section>
+    
+
+      <section id="excerpt" class="excerpt-card">
+        <div class="content-label">
+          <span class="label-text">Transcript excerpt on Chase H AI</span>
+        </div>
+        <div class="article-excerpt">
+          <p>If you've been paying attention to the Cloud Code ecosystem at all, then you've noticed a huge shift. Everyone, I mean everyone, is building CLI tools to enhance what Cloud Code can do. And today, I'm going to show you my 10 favorites. And they range from YouTube research to deploying applications to controlling my entire Google suite all from Cloud Code.</p>
+<p>And you might recognize a few of the ones we covered today, but if you leave with just a couple new ones, then I'll have done my job. So the first tool on our list is kind of a meta pick and that is CLI anything. This is a CLI tool that creates other CLI tools. This thing is completely open- source and it's from the makers of light rag and rag anything.</p>
+<p>So these guys are kind of titans in the AI open source world. Now the cell for this particular tool is that I can use CLI anything and point cloud code at any open-source project and claude code will use CLI anything to create a CLI tool for said program. And this repo shows some of the projects that they've already done this on things like Blender, Inkspace, OBS, Zoom. We actually did a full deep dive on this exact tool not too long ago.</p>
+<p>So I'll put a link to that above. And it looks like they've added a few since then. Notebook LM as well, right? So, the idea is if you want cloud code to work with some other program from the terminal and there's not like a clear API type deal to go along with it and it's open source, well, this is the perfect tool for that job.</p>
+<p>And it's also really easy to install and use. It's like two steps to install it and then it's just a one-step process to actually execute this. It runs the full pipeline on its own and for you the user, it's very, very simple. So before we jump into tool number two, a quick word from everybody's favorite sponsor, me.</p>
+<p>I just released the Claude Code Masterass. You can find it inside of Chase AI Plus. There is a link to that in the pin comment. And it is the perfect place if you're trying to figure out how can I go from zero to AI dev, especially if you don't come ...</p>
+        </div>
+        <div class="excerpt-card-cta">
+          <a href="https://www.youtube.com/watch?v=uULvhQrKB_c" class="read-button" target="_blank" rel="noopener">
+            Watch on YouTube &rarr;
+          </a>
+        </div>
+      </section>
+      
+    </article>
+  
+  </main>
+  <script>
+  (function() {
+    var params = new URLSearchParams(window.location.search);
+    var from = params.get('from');
+    if (from) {
+      var names = {
+        'foreign-policy':'Foreign Policy','ai-tech':'AI & Tech','housing-cities':'Housing & Cities',
+        'political-strategy':'Political Strategy','history':'History','science':'Science',
+        'culture':'Culture','economics':'Economics','faith':'Faith','writing-craft':'Writing & Craft',
+        'music':'Music','law-rights':'Law & Rights','public-health':'Public Health',
+        'philosophy':'Philosophy','media':'Media','defense':'Defense','china':'China'
+      };
+      var link = document.getElementById('back-link');
+      if (link) {
+        var name = names[from] || from;
+        link.href = '../../tag/' + from + '/index.html';
+        link.textContent = '\u2190 Back to ' + name;
+      }
+    }
+  })();
+  </script>
+</body>
+</html>

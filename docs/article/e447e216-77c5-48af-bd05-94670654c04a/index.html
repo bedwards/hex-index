@@ -28,13 +28,99 @@
       </header>
 
       <div class="content-label">
-        <span class="label-text">Excerpt from <a href="../../publication/semianalysis/index.html">SemiAnalysis</a></span>
+        <span class="label-text">Commentary by <a href="../../about/index.html">Brian Edwards</a></span>
         <nav class="content-nav">
-          <a href="https://newsletter.semianalysis.com/p/are-ai-datacenters-increasing-electric" target="_blank" rel="noopener">Read full article &rarr;</a>
+          <a href="#deep-dives">Deep dives</a><span class="separator">&middot;</span>
+          <a href="https://newsletter.semianalysis.com/p/are-ai-datacenters-increasing-electric" target="_blank" rel="noopener">Original article &rarr;</a>
         </nav>
       </div>
 
       
+      <div class="article-content">
+        <h2>The 9.3x Spike That Has Nothing to Do with AI</h2>
+
+<p>In June 2025, residential electricity rates across 13 eastern United States states jumped roughly 20% overnight. Politicians in New Jersey blamed a 300-megawatt Nebius AI datacenter built for Microsoft. SemiAnalysis, the semiconductor and energy research firm, calls that accusation laughable and sets out to prove it with a detailed comparison of the two largest energy markets in the country: the PJM Interconnection area covering those 13 states and 67 million residents, and the Electric Reliability Council of Texas, known as ERCOT, which manages the Texas grid.</p>
+
+<p>The central thesis is blunt. The authors argue that a simulation-driven capacity auction mechanism, not artificial intelligence infrastructure, is responsible for the price shock hitting American households.</p>
+<figure class="inline-illustration">
+    <img src="../../images/e447e216-77c5-48af-bd05-94670654c04a.webp" alt="" loading="lazy" width="600" height="315">
+  </figure>
+
+
+<blockquote>In short, empirically the fault is government policy, not AI.</blockquote>
+
+<p>That is a bold claim, and the report marshals considerable evidence to support it. But the argument is more nuanced than a simple exoneration of Big Tech.</p>
+
+<h2>How a Simulated Auction Drives Real Bills</h2>
+
+<p>The piece hinges on the distinction between two ways of keeping the lights on. PJM runs what is called a Base Residual Auction, or BRA -- a forward-looking capacity market that pays power plant owners to keep their equipment on standby for peak demand days. The price of this insurance-like product is determined by a simulated supply-and-demand curve called the Variable Resource Requirement, or VRR, curve. ERCOT, by contrast, operates an "energy-only" market where real-time scarcity pricing incentivizes generators to show up when they are needed.</p>
+
+<blockquote>The core issue with the capacity market design is that it is directly impacted by the supply &amp; demand forecast of a central planner, PJM. Any forecasting error can lead to billions of dollars of unwarranted spending.</blockquote>
+
+<p>The numbers are staggering. The 2025/26 BRA clearing price rose 9.3 times over the prior year, from $29 per megawatt-day to $270. Certain locations in Virginia saw prices closer to $450 per megawatt-day. The subsequent auctions hit a federally imposed price cap of $329 per megawatt-day. The authors estimate this translates to roughly $25 to $30 more per month for every household in the PJM territory -- approximately $16 billion in total capacity payments.</p>
+
+<p>Meanwhile in Texas, forward energy prices moved only 11 to 17 percent. No ninefold spike. No political crisis.</p>
+
+<h2>The Forecasting Problem</h2>
+
+<p>SemiAnalysis makes its strongest case when dissecting PJM's demand forecasts. The authors track construction timelines for individual datacenters and argue that PJM consistently overestimates how quickly these facilities come online.</p>
+
+<blockquote>PJM's own data shows an inability to forecast even one year out. In 2024, the datacenter load forecast was cut by 800MW versus the 2023 load forecast. In 2025, it happened again: the datacenter load forecast was cut by 1.1GW versus what had been forecasted just a year ago, in 2024!</blockquote>
+
+<p>The pattern is damning. Construction delays, GPU production bottlenecks, and the reality that new hardware platforms take longer than expected to reach full capacity all conspire to make PJM's projections look systematically inflated. When those inflated projections feed into the VRR curve, the auction clears at artificially elevated prices.</p>
+
+<p>The authors also note that PJM's methodology changes on the supply side made roughly 20 gigawatts of generation capacity "disappear" on paper. A single accounting change for natural gas power plants eliminated 14 gigawatts overnight. These are not physical retirements. They are reclassifications driven by modeling choices.</p>
+
+<h2>ERCOT's Built-In Skepticism</h2>
+
+<p>The Texas comparison is where the analysis shines. ERCOT's own demand forecasts were, if anything, more dramatic than PJM's. The 2025 Long-Term Load Forecast projected 77.9 gigawatts of potential datacenter load by 2030, more than double the prior year's estimate. But here is the critical difference: nobody treated that number as gospel.</p>
+
+<blockquote>ERCOT's internal grid analysts effectively said they would not plan for 100% of what developers claim until shovels actually move.</blockquote>
+
+<p>ERCOT applied haircuts to developer claims, discounting generic requests to 49.8 percent and officer-attested requests to 55.4 percent, then pushing all in-service dates back by 180 days. More importantly, these forecasts do not directly determine electricity prices the way PJM's VRR curve does. The market itself, through real-time pricing signals, decides what capacity is worth.</p>
+
+<p>The result is that Texas absorbed record-breaking peaks above 90 gigawatts in summer 2024 and a spring record of 78.4 gigawatts in May 2025 without brownouts and without a price explosion.</p>
+
+<h2>Winter Storm Fern: The Stress Test</h2>
+
+<p>The report's most compelling section may be its account of Winter Storm Fern in January 2026. This event served as a real-world test of both market designs under pressure.</p>
+
+<p>ERCOT's grid held. No emergency procedures were triggered. Real-time prices peaked around $300 per megawatt-hour. The post-Uri winterization reforms -- mandatory weatherproofing of gas production and generation equipment -- proved their worth.</p>
+
+<p>PJM fared dramatically worse despite its record-high capacity payments.</p>
+
+<blockquote>PJM's grid lost approximately 21 GW of generation capacity -- 15% of the fleet that cleared in the auction -- to frozen equipment and fuel delivery failures.</blockquote>
+
+<p>The Department of Energy had to issue emergency orders authorizing access to roughly 35 gigawatts of backup generation at datacenters and industrial sites. Virginia's datacenter-heavy Dominion zone saw prices spike to $1,800 per megawatt-hour, six times ERCOT's peak. The authors draw a sharp conclusion about incentive structures: PJM pays generators regardless of whether they actually deliver during emergencies, while ERCOT generators only earn significant revenue when they perform.</p>
+
+<blockquote>PJM's 9.3x capacity price increase was supposed to buy reliability. It did not.</blockquote>
+
+<h2>What the Analysis Underplays</h2>
+
+<p>Critics might note that SemiAnalysis has a vested interest in defending the AI datacenter buildout. The firm's business model depends on the semiconductor and AI infrastructure ecosystem continuing to expand without regulatory friction. The report is thorough, but it is not disinterested.</p>
+
+<p>A counterargument is that even PJM's own Independent Market Monitor -- which the authors cite extensively -- attributed roughly a doubling of capacity costs to incremental datacenter demand. The IMM found that removing all datacenters from the forecast would have reduced total capacity payments by $9.33 billion, a 64 percent cut. The authors acknowledge this data but pivot quickly to arguing that PJM's forecasts are inflated. That may be true, but it does not eliminate the underlying demand pressure. AI datacenters are consuming real megawatts, and the question of how much they contribute to price increases is one of degree, not kind.</p>
+
+<p>There is also a structural limitation the report does not fully address. ERCOT's regulatory simplicity -- one state, no Federal Energy Regulatory Commission jurisdiction -- is indeed an advantage for rapid adaptation. But PJM serves 67 million people across 13 states and the District of Columbia. Comparing the two as though regulatory complexity is simply a policy choice, rather than a reflection of geographic and political reality, elides the difficulty of governing a multi-state grid.</p>
+
+<h2>The Forward Market as Reality Check</h2>
+
+<p>One of the report's sharpest arguments involves forward energy prices. If AI datacenters were truly driving a structural scarcity crisis, energy traders betting real money would price that in.</p>
+
+<blockquote>PJM Western Hub forward prices have increased 12-20% in the 2028 and 2030 windows... nothing resembling the 9.3x explosion in the capacity market. Traders, using real money and real risk, are not pricing in the same panic that PJM's simulated VRR curve produced.</blockquote>
+
+<p>This is a telling data point. The disconnect between what the forward energy market shows and what the capacity auction produced suggests that at least some portion of the price spike is an artifact of the auction mechanism rather than a reflection of genuine scarcity.</p>
+
+<h2>Bottom Line</h2>
+
+<p>SemiAnalysis builds a persuasive case that PJM's capacity market design amplifies forecasting errors into billions of dollars of unnecessary costs for ratepayers. The comparison with ERCOT is effective: same datacenter buildout, radically different price outcomes. The Winter Storm Fern analysis is particularly damning, showing that expensive capacity payments failed to deliver reliability while ERCOT's cheaper, market-driven approach performed under pressure.</p>
+
+<p>The argument is weakest where it verges on full exoneration of AI datacenters. Even by the authors' own data, datacenter demand is a meaningful contributor to grid stress -- the debate is whether PJM's mechanisms wildly overstate that contribution. The report convincingly argues they do. But "the forecast is wrong" and "datacenters have no impact" are different claims, and the piece occasionally blurs the line between them.</p>
+
+<p>The strongest takeaway is structural. Market design matters enormously. Two regions facing identical demand shocks produced wildly divergent outcomes for households, and the divergence traces not to the datacenters themselves but to how each grid operator chose to plan for them. For the 67 million residents of the PJM area now paying $25 to $30 more per month, that distinction is cold comfort -- but it does point toward a fixable problem.</p>
+
+      </div>
+
       
       <section id="deep-dives" class="deep-dives">
         <h2>Deep Dives</h2>
@@ -64,22 +150,38 @@
         </a>
         <p class="topic-summary">The core topic examines whether AI datacenters like Microsoft&#039;s Nebius facility and others operated by Google, Anthropic, and Meta are driving up household electricity costs.</p>
       </li>
+      <li class="deep-dive-item">
+        <span class="deep-dive-no-link">
+          <strong>The Master Algorithm</strong>
+          <span class="read-time">by Pedro Domingos</span>
+        </span>
+        <p class="topic-summary">The quest for the universal learning algorithm that will reshape civilization.</p>
+      </li>
+
+      <li class="deep-dive-item">
+        <span class="deep-dive-no-link">
+          <strong>Thinking in Systems</strong>
+          <span class="read-time">by Donella Meadows</span>
+        </span>
+        <p class="topic-summary">A primer on systems thinking — how to see the interconnections that drive complex behavior.</p>
+      </li>
         </ul>
       </section>
     
 
-      
-      <div class="excerpt-card">
+      <section id="excerpt" class="excerpt-card">
+        <div class="content-label">
+          <span class="label-text">Excerpt from the original article on SemiAnalysis</span>
+        </div>
         <div class="article-excerpt">
           <h1>Are AI Datacenters Increasing Electric Bills for American Households?</h1><p><em>SemiAnalysis x Fluidstack is launching GTC with a 48-hour, full-stack AI infrastructure hackathon on March 15th from Power to Prefill, Dirt to Decode. With speakers from OpenAI, GPU MODE, and Thinking Machines, plus compute grants and GPU cluster access, come build with the best: <a href="https://luma.com/SAxFSHack">APPLY HERE</a>. </em></p><p>The topic of datacenter load growth and impact on power prices remains broadly misunderstood, akin to the <a href="https://newsletter.semianalysis.com/p/from-tokens-to-burgers-a-water-footprint">water consumption myth that we debunked recently</a>. It was at the forefront of the 2025 New Jersey elections, after a <a href="https://www.pa.gov/governor/newsroom/2025-press-releases/gov-shapiro-s-legal-action-again-averts-historic-price-spike-acr">~20% jump</a> in residential electricity rates overnight in June 2025. Some even began finger-pointing at the 300MW Nebius AI Datacenter for Microsoft in the state, a laughable claim given <a href="https://newsletter.semianalysis.com/p/how-ai-labs-are-solving-the-power">&gt;85% of its power is self-generated</a>. Are AI datacenters really causing households to pay electricity 20% more expensive?</p><p>This report explores the question by analyzing the two biggest energy markets in the US, which are also the largest AI Datacenter hubs: the PJM interconnection area – the grid operating covering 13 eastern US states (including New Jersey) - and ERCOT, who oversees the electric grid in Texas. In the Lone Star State, prices have been roughly stable for the last three years. On the other hand, the 67 million residents of the PJM area are set to see their bill increase by an average of ~15% in 2026 relative to the “pre-AI-Datacenter” era? Why such a divergence? In short, empirically the fault is government policy, not AI.</p><div class="captioned-image-container"></div><p>In PJM, we think poor market design is the main culprit. Most of the 15% increase in household electricity bills in PJM is driven by a widely misunderstood and somewhat obscure mechanism: the BRA capacity auction. The 2025/26 auction increased 9.3x over the prior year, as shown below. Worse: this increase is driven by a “simulation” and doesn’t reflect actual conditions. Is is largely a function of the demand and supply forecast made by a central planner (PJM), which as we’ll explain, has a history of huge miscalculations. </p><div class="captioned-image-container"></div><p>Many are finger-pointing at the surge in AI datacenters, and it is understandable. The PJM area is at the forefront of the AI boom, with G<a href="https://newsletter.semianalysis.com/p/multi-datacenter-training-openais">oogle notably training its Gemini model around Columbus Ohio</a>, while <a href="https://newsletter.semianalysis.com/p/amazons-ai-resurgence-aws-anthropics-multi-gigawatt-trainium-expansion">Anthropic/Amazon’s “Project Rainier”</a> and <a href="https://newsletter.semianalysis.com/p/meta-superintelligence-leadership-compute-talent-and-data">Meta’s “Prometheus”</a> in Indiana and Ohio are both in our <a href="https://www.youtube.com/watch?v=a-9egkpaZUw">world’s top 5 largest AI Datacenters</a>. PJM also hosts ...</p>
         </div>
         <div class="excerpt-card-cta">
           <a href="https://newsletter.semianalysis.com/p/are-ai-datacenters-increasing-electric" class="read-button" target="_blank" rel="noopener">
-            Continue reading on SemiAnalysis &rarr;
+            Read the entire original on SemiAnalysis &rarr;
           </a>
-          <p class="cta-note">The full article by Dylan Patel is available on SemiAnalysis.</p>
         </div>
-      </div>
+      </section>
       
     </article>
   

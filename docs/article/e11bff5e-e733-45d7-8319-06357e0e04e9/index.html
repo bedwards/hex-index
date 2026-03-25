@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Literacy - Lecture 3.1: Neural Nets - Hex Index</title>
+  <link rel="stylesheet" href="../../styles.css">
+</head>
+<body class="reading-mode">
+  <header class="reading-header">
+    <a href="../../index.html" class="back-link" id="back-link">&larr; Back to Library</a>
+  </header>
+  <main class="reading-content">
+    
+    <article class="article-page">
+      <header class="article-header">
+        <h1>AI Literacy - Lecture 3.1: Neural Nets</h1>
+        <div class="article-meta">
+          <span class="author">Kenny Easwaran</span>
+          <span class="separator">&middot;</span>
+          <a href="../../publication/kennyeaswaran/index.html" class="publication">
+            Kenny Easwaran
+          </a>
+          <span class="separator">&middot;</span><time>Sep 16, 2024</time>
+          <span class="separator">&middot;</span>
+          <span class="read-time">19 min read</span>
+        </div>
+      </header>
+
+      <div class="content-label">
+        <span class="label-text">Commentary by <a href="../../about/index.html">Brian Edwards</a></span>
+        <nav class="content-nav">
+          
+          <a href="https://www.youtube.com/watch?v=ilMpY2EPiJU" target="_blank" rel="noopener">Original video &rarr;</a>
+        </nav>
+      </div>
+
+      
+      <div class="article-content">
+        <h2>A Philosopher's Guide to the Black Box</h2>
+
+<p>Kenny Easwaran's lecture on neural networks occupies an unusual niche: it is neither a technical deep dive nor a breathless hype piece, but a philosopher's careful attempt to make the machinery of modern AI legible to non-specialists. The result is a talk that succeeds at demystification while quietly surfacing the epistemological anxieties that make neural networks philosophically interesting in the first place.</p>
+
+<p>Easwaran begins where any honest account of neural networks must begin: with a disclaimer about the brain analogy. Neural nets "were inspired by the brain," he notes, "but even now we're missing all sorts of detailed information about how the brain works so it's just an inspiration." This is a point that deserves more emphasis than it typically receives. The biological metaphor has done enormous work in marketing neural networks to the public, and it has also done enormous damage to public understanding. When people hear that an AI "works like neurons in the brain," they import all sorts of assumptions about consciousness, understanding, and reasoning that have no basis in the actual mathematics. Easwaran, to his credit, does not lean on the metaphor. He treats it as scaffolding to be discarded once the real structure is visible.</p>
+<figure class="inline-illustration">
+    <img src="../../images/e11bff5e-e733-45d7-8319-06357e0e04e9.webp" alt="" loading="lazy" width="600" height="315">
+  </figure>
+
+
+<h2>The Elegance of Simplicity</h2>
+
+<p>The lecture's greatest strength is its insistence that neural networks are, at bottom, simple. Each neuron "just operates simply," involving nothing more than "weights on each of its inputs," "a bias," and "a simple activation function." Easwaran walks through step functions, sigmoids, and ReLUs without getting lost in the calculus, offering just enough detail to make the point: these are not magical objects. They are arithmetic machines that multiply, add, and threshold.</p>
+
+<p>The grading example is particularly effective pedagogy. A professor's pass-fail test with four questions maps directly onto a single-neuron network with four weights and one bias. Nobody would build a neural network for this purpose, and that is precisely the point. By showing that the architecture can represent something completely mundane, Easwaran strips away the mystique before building back up to more complex cases.</p>
+
+<blockquote>We could imagine if you wiggle all three of those knobs then that red plane is going to change its angle move up or down and you could start with it in some random orientation and just tune all three of those knobs until it matches the data fairly well and this is actually how the very first neural nets were trained they literally had knobs on a device.</blockquote>
+
+<p>This historical detail about literal physical knobs on vacuum-tube-era machines is a delightful reminder that the field's origins were analog and tactile, not digital and abstract. It also quietly makes the point that "training" a neural network is not some exotic process. It is knob-twiddling. Sophisticated, automated, mathematically optimized knob-twiddling, but knob-twiddling nonetheless.</p>
+
+<h2>Where Depth Creates Darkness</h2>
+
+<p>The transition from shallow to deep networks is where Easwaran's philosophical instincts become most visible. The spam filter example illustrates how a single-layer network can only learn independent word-level correlations: "Nigeria" is spam-like or it is not. But the real world demands interaction effects. An email mentioning both "Nigeria" and "funds" is suspicious in a way that neither word alone predicts. Hidden layers allow the network to learn these combinations, building features out of features out of features.</p>
+
+<p>But this compositional power comes at a cost that Easwaran states with admirable directness:</p>
+
+<blockquote>There's not going to be any specific meaning that is given to us by any one of these neurons in it and there's no simple logic we can do these are not precise symbols of anything they just are numbers that get fed into weights and biases.</blockquote>
+
+<p>This is the interpretability problem in miniature, and it is refreshing to hear it stated so plainly in an introductory lecture. Too many AI primers either ignore the black-box problem entirely or wave it away with assurances about "explainable AI." Easwaran does neither. He names it as a fundamental feature of the technology, not a temporary inconvenience.</p>
+
+<h2>What the Lecture Leaves Out</h2>
+
+<p>A counterpoint worth raising is that the lecture's clarity comes at the cost of recency. By the time Easwaran mentions transformers, he is almost out of breath, noting only that "in text they do something else which is called a transformer and I'm not going to give you any of the details." Given that transformer architectures underpin virtually every large language model in use today, this omission is significant. A student leaving this lecture would understand perceptrons and backpropagation but would have almost no framework for understanding GPT, Claude, or any other system dominating the current landscape.</p>
+
+<p>There is also a missed opportunity around the ethics of opacity. Easwaran briefly mentions the question of "how did we decide that this person was likely to commit another crime in the future," but does not dwell on it. The interpretability problem is not merely academic. When neural networks are deployed in criminal sentencing, loan approvals, and medical diagnoses, the inability to explain their reasoning becomes a civil rights issue. A philosopher is perhaps better positioned than most to draw this connection, and the lecture would have been stronger for it.</p>
+
+<p>Additionally, the lecture could benefit from engaging with the scaling hypothesis that has dominated AI discourse in recent years. The idea that neural networks become qualitatively different as they grow larger, exhibiting emergent capabilities that smaller networks lack, complicates the "just knob-twiddling" framing in important ways. The arithmetic may be simple, but the systems that arithmetic produces at scale behave in ways that resist the kind of bottom-up understanding Easwaran advocates.</p>
+
+<h2>The Pedagogy of Honesty</h2>
+
+<p>What ultimately distinguishes this lecture is its honesty about the limits of understanding. Easwaran does not pretend that studying neural networks will yield mastery over them. The hidden layers remain hidden. The weights remain inscrutable. The best one can hope for is a structural understanding of what kind of thing a neural network is, paired with an honest acknowledgment of what remains opaque.</p>
+
+<blockquote>The intermediate steps in a neural net are very hard to understand or interpret they're a system that's not hard to comprehend in the abstract but it is very hard to get a concrete understanding of what is going on in any particular neuron in any particular net we just see that it works.</blockquote>
+
+<p>That final phrase, "we just see that it works," is the most philosophically loaded sentence in the entire lecture. It is an admission that the dominant technology of the era operates on a principle closer to empiricism than to engineering. Engineers traditionally build things they understand. Neural networks are things we build, train, and then observe, hoping to reverse-engineer comprehension after the fact. The field of mechanistic interpretability has made progress on this front, but Easwaran is right to frame it as an open problem rather than a solved one.</p>
+
+<p>For a lecture aimed at AI literacy, this is exactly the right note to strike. Literacy does not mean expertise. It means knowing enough to ask the right questions, and knowing which answers to distrust.</p>
+
+<h2>Bottom Line</h2>
+
+<p>Easwaran delivers an unusually honest introductory lecture on neural networks, one that prioritizes conceptual clarity over technical completeness. The core mechanics of weights, biases, and activation functions are explained with effective simplicity, and the interpretability problem is named rather than dodged. The lecture would benefit from more engagement with transformer architectures and the ethical dimensions of opacity, but as a foundation for AI literacy, it does what most introductions fail to do: it tells the audience what neural networks cannot explain about themselves.</p>
+
+      </div>
+
+      
+      <section id="deep-dives" class="deep-dives">
+        <h2>Deep Dives</h2>
+        <p class="deep-dives-intro">Explore related topics with these Wikipedia articles, rewritten for enjoyable reading:</p>
+        <ul class="deep-dive-list">
+          
+      <li class="deep-dive-item">
+        <span class="deep-dive-no-link">
+          <strong>The Alignment Problem</strong>
+          <span class="read-time">by Brian Christian</span>
+        </span>
+        <p class="topic-summary">How machine learning reflects and amplifies human values — and where it goes wrong.</p>
+      </li>
+
+      <li class="deep-dive-item">
+        <span class="deep-dive-no-link">
+          <strong>The Book of Why</strong>
+          <span class="read-time">by Judea Pearl</span>
+        </span>
+        <p class="topic-summary">The new science of cause and effect — why correlation is not causation and what to do about it.</p>
+      </li>
+        </ul>
+      </section>
+    
+
+      <section id="excerpt" class="excerpt-card">
+        <div class="content-label">
+          <span class="label-text">Transcript excerpt on Kenny Easwaran</span>
+        </div>
+        <div class="article-excerpt">
+          <p>this lecture is about neural Nets which are one important tool in artificial intelligence over the past several decades they were inspired by the brain but even now we're missing all sorts of detailed information about how the brain works so it's just an inspiration one of the important features of neural Nets is that they just involve numerical processing of the sort that simple cells might be able to do they don't involve complicated sets of instructions just simple numbers however even so they can do some really complicated things when you put them together in a big Network like the brain but the intermediate steps in a neural net are very hard to understand or interpret they're a system that's not hard to comprehend in the abstract but it is very hard to get a concrete understanding of what is going on in any particular neuron in any particular net we just see that it works so let's begin so what is a neuron if you look in a biology textbook you'll see a diagram something like this where there's lots of parts and lots of connections however we're not going to worry about all of that all that matters for us is that it's a kind of cell that has some parts that receive signals or inputs from others and some part that sends signals or outputs to others these signals are something like electrical currents that can have different strengths in this diagram I've only got three neurons however in the actual brain there are tens of billions of neurons Each of which is connected to thousands of others now we're not going to worry about any of that level of detail when we're talking about neural networks in a computer in the diagrams that we're going to use we'll just represent each neuron by a circle and there's going to be arrows indicating when one neuron sends a signal to another neuron and the specific thing we're going to do is we're going to say each neuron is going to have some activation which is a number in this case I'm using numbers between zero and one but it could theoretically be any sort of number and what a neuron does is it takes the numbers that are coming from the input neurons and it adds them up and then does some simple calculation to ...</p>
+        </div>
+        <div class="excerpt-card-cta">
+          <a href="https://www.youtube.com/watch?v=ilMpY2EPiJU" class="read-button" target="_blank" rel="noopener">
+            Watch on YouTube &rarr;
+          </a>
+        </div>
+      </section>
+      
+    </article>
+  
+  </main>
+  <script>
+  (function() {
+    var params = new URLSearchParams(window.location.search);
+    var from = params.get('from');
+    if (from) {
+      var names = {
+        'foreign-policy':'Foreign Policy','ai-tech':'AI & Tech','housing-cities':'Housing & Cities',
+        'political-strategy':'Political Strategy','history':'History','science':'Science',
+        'culture':'Culture','economics':'Economics','faith':'Faith','writing-craft':'Writing & Craft',
+        'music':'Music','law-rights':'Law & Rights','public-health':'Public Health',
+        'philosophy':'Philosophy','media':'Media','defense':'Defense','china':'China'
+      };
+      var link = document.getElementById('back-link');
+      if (link) {
+        var name = names[from] || from;
+        link.href = '../../tag/' + from + '/index.html';
+        link.textContent = '\u2190 Back to ' + name;
+      }
+    }
+  })();
+  </script>
+</body>
+</html>

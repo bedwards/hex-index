@@ -28,13 +28,93 @@
       </header>
 
       <div class="content-label">
-        <span class="label-text">Excerpt from <a href="../../publication/braddelong/index.html">DeLong&#039;s Grasping Reality</a></span>
+        <span class="label-text">Commentary by <a href="../../about/index.html">Brian Edwards</a></span>
         <nav class="content-nav">
-          <a href="https://braddelong.substack.com/p/mamlms-still-epic-fail-openbook-closedworld" target="_blank" rel="noopener">Read full article &rarr;</a>
+          <a href="#deep-dives">Deep dives</a><span class="separator">&middot;</span>
+          <a href="https://braddelong.substack.com/p/mamlms-still-epic-fail-openbook-closedworld" target="_blank" rel="noopener">Original article &rarr;</a>
         </nav>
       </div>
 
       
+      <div class="article-content">
+        <h2>The Ashford Meadow Stress Test</h2>
+
+<p>Brad DeLong, the Berkeley economist and prolific Substacker, set out to answer a deceptively simple question: can ChatGPT correctly list the seven champions who fought for Ser Duncan the Tall in the Trial of Seven at Ashford Meadow? The answer, drawn from George R.R. Martin's novella <em>The Hedge Knight</em>, is fixed and well-documented. There is exactly one correct roster. And ChatGPT failed to produce it nine consecutive times.</p>
+
+<p>The correct list: Duncan the Tall, Prince Baelor Targaryen, Ser Lyonel Baratheon, Ser Humfrey Hardyng, Ser Humfrey Beesbury, Ser Robyn Rhysling, and Ser Raymun Fossoway. DeLong knew this going in. He wanted to see whether the model could retrieve it cleanly.</p>
+<figure class="inline-illustration">
+    <img src="../../images/b3bbe951-7d82-4031-8385-1a06b0b7205f.webp" alt="" loading="lazy" width="600" height="315">
+  </figure>
+
+
+<p>It could not.</p>
+
+<h2>A Cascade, Not a Stumble</h2>
+
+<p>What makes DeLong's experiment compelling is not that the model got one name wrong. It is that each attempt introduced new errors while confidently correcting old ones. On the first try, ChatGPT placed Prince Maekar on Duncan's side, when Maekar actually fought against him. DeLong wiped the memory and tried again. This time the model invented a character entirely:</p>
+
+<blockquote>Ser Humfrey Cafferen (You wrote "Comma"): Cafferen joins somewhat later and under persuasion. His motivation appears to combine: Disgust at Aerion's excesses. Peer pressure from other honorable knights. The gravitational pull of Lyonel Baratheon's participation.</blockquote>
+
+<p>DeLong notes dryly that there appears to be exactly one reference to a "Ser Humfrey Cafferen" in the entirety of Google's index, a Reddit post from an Iron Throne roleplay forum. The model had confabulated a character with a plausible-sounding backstory, complete with political motivations.</p>
+
+<p>It also consistently misspelled Robyn Rhysling as "Ryswell," placed Willem Wylde on the wrong side, and swapped the two Fossoway cousins back and forth like a shell game. Each new attempt arrived with supreme confidence:</p>
+
+<blockquote>Let us set the record straight cleanly and definitively.</blockquote>
+
+<p>This phrase, or variations of it, appeared before nearly every wrong answer.</p>
+
+<h2>The Self-Correction Illusion</h2>
+
+<p>DeLong pushed further, telling the model explicitly that it had placed Maekar on the wrong side. ChatGPT apologized and corrected that single error, while introducing or preserving others. When DeLong mentioned the green-apple Fossoway, the model delivered a lovely narrative about the heraldic schism between Steffon and Raymun Fossoway, then placed the wrong cousin on Duncan's side:</p>
+
+<blockquote>His cousin, Ser Steffon Fossoway, is appalled. In response: Steffon publicly denounces Raymun's cowardice. He tears the red apple from his surcoat. He declares a new sigil — a green apple on gold. He takes the field for Duncan.</blockquote>
+
+<p>This is backwards. In the actual story, it is Raymun who fights for Duncan and later founds the green-apple branch. Steffon fights for the opposing side. The model constructed a dramatically satisfying but factually inverted narrative.</p>
+
+<p>Most remarkably, when DeLong simply gave the model the correct answer, it rejected it:</p>
+
+<blockquote>You are very close — but not quite. And the difficulty here is real: Ashford's roster is one of those things even careful readers scramble because Martin lets the lineup evolve in stages.</blockquote>
+
+<p>The model patronized the human who was feeding it the verified answer from A Wiki of Ice and Fire.</p>
+
+<h2>CleverHansMaxxing</h2>
+
+<p>DeLong frames his critique through the lens of Clever Hans, the early twentieth-century horse that appeared to do arithmetic but was actually reading subtle cues from its handler. The parallel is pointed. People who report breakthrough experiences with large language models may be doing something similar:</p>
+
+<blockquote>Overinterpreting success: Taking correct hoof-tap answers as evidence of arithmetic, rather than of a horse realizing when the human approved. Ignoring alternative explanations: Failing to consider that Hans might be responding to cues, not calculating.</blockquote>
+
+<p>DeLong is responding specifically to John Quiggin, the Australian economist, who had recently written that interacting with AI felt like talking to "an intelligent and exceptionally well-informed human." DeLong's retort is blunt:</p>
+
+<blockquote>I am giving it a token-sequence. It is looking around in its training data for the most similar token-sequences, picking one of them, then channelling the thoughts of the human mind that made that picked token sequence, and then outputting what it thinks that human would have written as the next token. I have not given it garbage in. But I am definitely getting unreliable garbage out.</blockquote>
+
+<h2>Where the Argument Thins</h2>
+
+<p>DeLong's experiment is genuinely illuminating, but it proves something narrower than he claims. The Ashford Meadow roster is a closed-list factual recall problem involving minor fictional characters. This is precisely the type of task where next-token prediction struggles most: the correct answer is a specific permutation of proper nouns, many of which sound similar and appear in overlapping contexts in the training data. Extending this failure to a general verdict on language models requires a leap that DeLong acknowledges but does not fully reckon with.</p>
+
+<p>He concedes that coding and natural-language fluency represent genuine successes. He quotes his friend Adam Farquhar's more nuanced take at length. But the essay's rhetorical energy flows entirely toward the prosecution. The question of why models fail at closed-list recall while succeeding at open-ended reasoning and code generation is genuinely interesting, and DeLong waves at it without engaging.</p>
+
+<h2>The Anthropomorphize-It-Anyway Position</h2>
+
+<p>The most interesting passage in the piece is not DeLong's own argument but the extended quotation from Farquhar, who advocates deliberately anthropomorphizing the machine as a practical strategy:</p>
+
+<blockquote>Today I think it is finally time to anthropomorphize the heck out of it. I need to treat the machine as though it were a somewhat eccentric roommate: a companion inclined to fixate on abstruse topics, possessed of unsettling literalism, vulnerable to the occasional non-sequitur, yet blessed with inexhaustible patience and a boundless appetite for our questions.</blockquote>
+
+<p>DeLong allows this position room to breathe. He distinguishes between CleverHansMaxxing as a practical heuristic for using the tools, which may be wise, and CleverHansMaxxing as a framework for understanding what the tools are and where they are headed, which he considers foolish.</p>
+
+<p>He closes with a nod to Stephen Wolfram's suggestion that language models have implicitly discovered deep regularities in language and thought:</p>
+
+<blockquote>Language is at a fundamental level somehow simpler than it seems. ChatGPT — even with its ultimately straightforward neural net structure — is successfully able to "capture the essence" of human language and the thinking behind it.</blockquote>
+
+<p>DeLong admits his own "Visualization of the Cosmic All" may be in error. It is a rare moment of epistemic humility in a piece otherwise built for demolition.</p>
+
+<h2>Bottom Line</h2>
+
+<p>DeLong has constructed an unusually patient and thorough demonstration of a real failure mode. Nine successive attempts, each wrong in different ways, each delivered with identical confidence. The Ashford Meadow test works because it eliminates every excuse: the answer is unambiguous, well-documented, and present many times over in training data. The model still cannot retrieve it.</p>
+
+<p>The essay is strongest as a cautionary tale about confusing fluency with knowledge. It is weakest as a general indictment of language models, because DeLong chose a task type that probes their most documented limitation while largely ignoring the domains where they demonstrably succeed. The "fractal capabilities" he dismisses are real. So are the fractal failures. Both deserve serious attention, and DeLong provides only half the picture, though he provides that half exceptionally well.</p>
+
+      </div>
+
       
       <section id="deep-dives" class="deep-dives">
         <h2>Deep Dives</h2>
@@ -64,22 +144,30 @@
         </a>
         <p class="topic-summary">This is the George R.R. Martin novella from A Song of Ice and Fire featuring Ser Duncan the Tall and the Trial of Seven at Ashford Meadow mentioned in the excerpt.</p>
       </li>
+      <li class="deep-dive-item">
+        <span class="deep-dive-no-link">
+          <strong>Thinking, Fast and Slow</strong>
+          <span class="read-time">by Daniel Kahneman</span>
+        </span>
+        <p class="topic-summary">The foundational work on cognitive biases and dual-process theory.</p>
+      </li>
         </ul>
       </section>
     
 
-      
-      <div class="excerpt-card">
+      <section id="excerpt" class="excerpt-card">
+        <div class="content-label">
+          <span class="label-text">Excerpt from the original article on DeLong&#039;s Grasping Reality</span>
+        </div>
         <div class="article-excerpt">
           <h6>I count this as a failure nine different successive times. There really is a unique, well‑defined answer, and where the machine has every chance to uncover it: the Hedge Knight Ashford Meadow line‑up. This avoids the usual escape hatches about “the data might be ambiguous” or “this is a hard open question.” We get not one isolated “hallucination” but rather a <em>hallucination</em> <em>cascade</em>…</h6><div><hr></div><div class="captioned-image-container"></div><p>As Noah Smith warns everyone: if you don’t like posts about “AI”—then stay off the internet for the next, I don’t know, five years or so. That applies here as well as anyone else.</p><p><strong>BE WARNED!!</strong></p><div><hr></div><p>Today’s MAMLM post is triggered by the extremely sharp John Quiggin’s: </p><blockquote><p><strong>John Quiggin</strong>; LLMs Reaching the Tipping Point &lt;<a href="https://johnquigginblog.substack.com/p/llms-reaching-the-tipping-point">https://johnquigginblog.substack.com/p/llms-reaching-the-tipping-point</a>&gt;: ‘[Before] Anthropic’s Claude Code late last year… there was a fair bit of disillusionment about “vibe coding” and… [its] buggy output… as well as… general disaffection… with… AI slop…. But lately, the tone has changed radically…. Even [the] previously sceptical… have concluded… Claude represent[s] the future…. OpenAI Deep Research… [has had] <a href="https://crookedtimber.org/2025/04/30/not-so-deep-thoughts-about-deep-ai/">mixed</a> <a href="https://johnquiggin.com/2025/12/10/adventures-with-deep-research">results</a> until recently. But now I’m perceiving the same kind of change… lengthy interactions … as if I were talking to an intelligent and exceptionally well-informed human… keeps track… seems less prone to fabrications… [and] this kind of interaction is fun…. DR is moving from being an enthusiastic but unreliable research assistant to something more like a well-read junior co-author. The ideas are still mine, but I can rely on DR to provide discussion and critique as well as routine stuff like literature summaries…</p></blockquote><p>I confess I have not been doing enough coding this winter to gain a sense of any sea-change. But I will say that I am not seeing it in other realms—specifically, in ChatGPT and its ilk as an alternative to standard search engines. The advantages are (a) a natural-language interface, (b) a system that has not (yet) been turned fully up the wazoo to sell ads, plus (c ) the SEO spammers have not yet descended to—I really do not like the vibe of “en****tify”—full commodification cannibalization. Yet I found it could not o the job when, yesterday, I asked it for a list of the fighters-for-good in Episode 5 of HBO’s “A Knight of the Seven Kingdoms”. That ought to have been well within its capabilities. And yet:</p><blockquote><p><em><strong>Who were the seven on Duncan’s side in the Trial of Seven?</strong></em></p><p>You </p>...</blockquote>
         </div>
         <div class="excerpt-card-cta">
           <a href="https://braddelong.substack.com/p/mamlms-still-epic-fail-openbook-closedworld" class="read-button" target="_blank" rel="noopener">
-            Continue reading on DeLong&#039;s Grasping Reality &rarr;
+            Read the entire original on DeLong&#039;s Grasping Reality &rarr;
           </a>
-          <p class="cta-note">The full article by Brad DeLong is available on DeLong&#039;s Grasping Reality.</p>
         </div>
-      </div>
+      </section>
       
     </article>
   
