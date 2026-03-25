@@ -75,7 +75,7 @@ If stashes exist:
 ## 5. GPU Status Check
 
 ```bash
-/Users/bedwards/vibe/sea-gang/tools/svc ls
+$HOME/vibe/sea-gang/tools/svc ls
 ```
 
 - Verify the expected Qwen job is running (check even/odd hour schedule)

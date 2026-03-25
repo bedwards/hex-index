@@ -8,7 +8,7 @@
 set -euo pipefail
 
 SESSION="claude-editor"
-PROJECT_DIR="/Users/bedwards/hex-index"
+PROJECT_DIR="$HOME/hex-index"
 PROMPT_FILE="$PROJECT_DIR/tools/claude-loop/editorial-prompt.md"
 
 if [ ! -f "$PROMPT_FILE" ]; then

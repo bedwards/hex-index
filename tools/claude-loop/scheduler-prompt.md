@@ -217,7 +217,7 @@ Post dashboard to Discord if any counts are concerning.
 
 **D. GPU observation:**
 ```bash
-/Users/bedwards/vibe/sea-gang/tools/svc ls
+$HOME/vibe/sea-gang/tools/svc ls
 ```
 - Verify expected job is running for current even/odd hour
 - Note but do NOT intervene if stuck (timeout handles it)
