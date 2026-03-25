@@ -152,7 +152,6 @@ function generateArticlePage(
       <li class="deep-dive-item">
         <a href="${pathToRoot}wikipedia/${w.slug}/index.html">
           <strong>${escapeHtml(w.title)}</strong>
-          <span class="read-time">${w.estimated_read_time_minutes} min read</span>
         </a>
         <p class="topic-summary">${escapeHtml(w.topic_summary)}</p>
       </li>`
@@ -166,18 +165,16 @@ function generateArticlePage(
       let inner: string;
       if (b.wikiSlug) {
         inner = `<a href="${pathToRoot}wikipedia/${b.wikiSlug}/index.html">
-          <strong>${escapeHtml(b.title)}</strong>
-          <span class="read-time">by ${escapeHtml(b.author)}</span>
+          <strong>${escapeHtml(b.title)}</strong> by ${escapeHtml(b.author)}
         </a>`;
       } else if (b.asin && affiliateTag) {
         inner = `<a href="${buildAmazonUrl(b.asin, affiliateTag)}" target="_blank" rel="noopener">
-          <strong>${escapeHtml(b.title)}</strong>
-          <span class="read-time">by ${escapeHtml(b.author)}</span>
-        </a>`;
+          <strong>${escapeHtml(b.title)}</strong> by ${escapeHtml(b.author)}
+        </a>
+        <span class="read-time">view on Amazon</span>`;
       } else {
         inner = `<span>
-          <strong>${escapeHtml(b.title)}</strong>
-          <span class="read-time">by ${escapeHtml(b.author)}</span>
+          <strong>${escapeHtml(b.title)}</strong> by ${escapeHtml(b.author)}
         </span>`;
       }
       return `
@@ -188,13 +185,13 @@ function generateArticlePage(
     })
     .join('\n');
 
-  const allItems = wikiItems + bookItems;
+  const allItems = bookItems + wikiItems;
   let deepDivesHtml = '';
   if (allItems.trim()) {
     deepDivesHtml = `
       <section id="deep-dives" class="deep-dives">
         <h2>Deep Dives</h2>
-        <p class="deep-dives-intro">Explore related topics with these Wikipedia articles, rewritten for enjoyable reading:</p>
+        <p class="deep-dives-intro">Explore these related deep dives:</p>
         <ul class="deep-dive-list">
           ${allItems}
         </ul>

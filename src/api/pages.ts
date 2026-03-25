@@ -352,11 +352,11 @@ export function createPagesRouter(pool: Pool): Router {
         const affiliateTag = process.env.AMAZON_AFFILIATE_TAG ?? '';
         let inner: string;
         if (wikiSlug) {
-          inner = `<a href="/wikipedia/${escapeHtml(wikiSlug)}">${escapeHtml(link.title)}</a>${link.author ? ` <span class="read-time">by ${escapeHtml(link.author)}</span>` : ''}`;
+          inner = `<a href="/wikipedia/${escapeHtml(wikiSlug)}">${escapeHtml(link.title)}${link.author ? ` by ${escapeHtml(link.author)}` : ''}</a>`;
         } else if (link.asin && affiliateTag) {
-          inner = `<a href="${buildAmazonUrl(link.asin, affiliateTag)}" target="_blank" rel="noopener">${escapeHtml(link.title)}</a>${link.author ? ` <span class="read-time">by ${escapeHtml(link.author)}</span>` : ''}`;
+          inner = `<a href="${buildAmazonUrl(link.asin, affiliateTag)}" target="_blank" rel="noopener">${escapeHtml(link.title)}${link.author ? ` by ${escapeHtml(link.author)}` : ''}</a> <span class="read-time">view on Amazon</span>`;
         } else {
-          inner = `<span>${escapeHtml(link.title)}</span>${link.author ? ` <span class="read-time">by ${escapeHtml(link.author)}</span>` : ''}`;
+          inner = `<span>${escapeHtml(link.title)}${link.author ? ` by ${escapeHtml(link.author)}` : ''}</span>`;
         }
         bookItems.push(`<li>${inner}</li>`);
       }
@@ -364,10 +364,10 @@ export function createPagesRouter(pool: Pool): Router {
       // Render Wikipedia deep dives section - compact list before content
       // Includes both Wikipedia articles and books (merged into one list)
       const allDeepDiveItems = [
-        ...wikiLinks.map(w => `
-              <li><a href="/wikipedia/${escapeHtml(w.slug)}">${escapeHtml(w.title)}</a>${w.read_time ? ` <span class="read-time">${w.read_time} min</span>` : ''}</li>
-            `),
         ...bookItems,
+        ...wikiLinks.map(w => `
+              <li><a href="/wikipedia/${escapeHtml(w.slug)}">${escapeHtml(w.title)}</a></li>
+            `),
       ];
       const wikiSection = allDeepDiveItems.length > 0 ? `
         <nav class="deep-dives" aria-label="Related Wikipedia articles">
