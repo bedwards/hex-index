@@ -122,9 +122,6 @@ gantt
     Wiki Rewrite (Qwen)        :o1, 01:05, 25m
     Affiliate Suggest (Qwen)   :o2, 01:35, 25m
 
-    section Daily
-    Claude Quality Guardian     :d1, 05:00, 30m
-
     section Weekly
     Build Weekly (Thu 23:00)   :w1, 23:00, 30m
     Send Weekly (Fri 07:30)    :w2, 07:30, 5m
