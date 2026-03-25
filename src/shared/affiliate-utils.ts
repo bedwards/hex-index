@@ -13,9 +13,11 @@ export function buildAmazonUrl(asin: string, tag: string): string {
 }
 
 /**
- * Affiliate book entry from content/affiliate-books.json
+ * Affiliate book entry from content/affiliate-books.json (array format)
  */
 export interface AffiliateBook {
+  title: string;
+  author: string;
   asin: string;
   category: string;
   description: string;
@@ -24,15 +26,12 @@ export interface AffiliateBook {
 }
 
 /**
- * Parsed affiliate book with title and author extracted from the key
+ * Alias kept for backward compatibility — AffiliateBook now includes title/author directly.
  */
-export interface ParsedAffiliateBook extends AffiliateBook {
-  title: string;
-  author: string;
-}
+export type ParsedAffiliateBook = AffiliateBook;
 
 /**
- * Load and parse the affiliate books map from content/affiliate-books.json.
+ * Load and parse the affiliate books array from content/affiliate-books.json.
  * Call once at the top of a generation run, not per-page.
  * Returns a Map keyed by lowercase book title for fast lookup.
  */
@@ -42,12 +41,11 @@ export async function loadAffiliateBooks(projectRoot: string): Promise<Map<strin
   const filePath = join(projectRoot, 'content', 'affiliate-books.json');
   try {
     const raw = await readFile(filePath, 'utf-8');
-    const data = JSON.parse(raw) as Record<string, AffiliateBook>;
+    const data = JSON.parse(raw) as AffiliateBook[];
     const map = new Map<string, ParsedAffiliateBook>();
-    for (const [key, value] of Object.entries(data)) {
-      const [title, author] = key.split('|');
-      if (title && author) {
-        map.set(title.toLowerCase(), { ...value, title, author });
+    for (const entry of data) {
+      if (entry.title && entry.author) {
+        map.set(entry.title.toLowerCase(), entry);
       }
     }
     return map;
