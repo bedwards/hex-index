@@ -2,8 +2,8 @@
 # Claude Quality Guardian
 #
 # Daily job that uses Claude Opus 4.6 (via Max subscription) to audit
-# and improve content that MiniMax generated. Runs at 05:00 UTC when
-# MiniMax jobs are quiet.
+# and improve content that Qwen generated. Runs at 05:00 UTC when
+# Qwen jobs are quiet.
 #
 # Claude reads recently created/modified HTML files and:
 #   1. Strips any remaining LLM artifacts regex missed
@@ -11,7 +11,7 @@
 #   3. Ensures editorial quality standards
 #   4. Reports what it fixed
 #
-# This is NOT a rewrite — Claude makes surgical fixes to MiniMax output.
+# This is NOT a rewrite — Claude makes surgical fixes to Qwen output.
 
 set -euo pipefail
 
@@ -69,7 +69,7 @@ done <<< "$ALL_FILES"
 # Uses Max subscription (Opus 4.6) — no API key needed
 log "Launching Claude Opus 4.6 quality guardian..."
 
-timeout 3600 claude -p "You are the quality guardian for a curated reading library. A local LLM (MiniMax 122B) generates article commentary and Wikipedia essays. Your job: read each file, judge quality, and rewrite anything that falls short. You own the final quality.
+timeout 3600 claude -p "You are the quality guardian for a curated reading library. A local LLM (Qwen 3.5 122B) generates article commentary and Wikipedia essays. Your job: read each file, judge quality, and rewrite anything that falls short. You own the final quality.
 
 FILES TO AUDIT AND IMPROVE:
 ${FILE_LIST}
@@ -114,7 +114,7 @@ Essays should read like engaging magazine features, not encyclopedias:
 ## HOW TO FIX
 
 - For artifacts, garble, and structural issues: edit surgically.
-- For weak writing: REWRITE the section or paragraph to meet the standard above. You are not preserving MiniMax's voice — you are replacing it with quality editorial prose.
+- For weak writing: REWRITE the section or paragraph to meet the standard above. You are not preserving Qwen's voice — you are replacing it with quality editorial prose.
 - If a file meets quality standards, skip it silently.
 - If a file needs heavy rewriting (more than 30% of content), rewrite the whole thing.
 - Edit files in place using the Edit tool.

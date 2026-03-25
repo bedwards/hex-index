@@ -483,7 +483,7 @@ This project assumes:
 - **API**: Express.js with TypeScript
 - **Frontend**: Vite with TypeScript
 - **Testing**: Vitest (not Jest), Playwright for E2E
-- **Local LLM**: Qwen 3 235B via Ollama (88% GPU / 12% CPU on Mac Studio M2 Ultra)
+- **Local LLM**: Qwen 3.5 122B via Ollama on Mac Studio M2 Ultra
 - **Cloud LLM**: Claude Opus 4.6 via Max subscription (`claude -p`), Sonnet 4.6 via API for batch jobs
 - **Image Generation**: Gemini 2.5 Flash Image API
 - **Deployment**: GitHub Pages (static site), local (private library)

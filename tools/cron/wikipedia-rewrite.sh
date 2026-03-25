@@ -9,7 +9,7 @@ PROJECT_DIR="$(cd "$SCRIPT_DIR/../.." && pwd)"
 LOCK_FILE="$PROJECT_DIR/logs/wiki-rewrite.lock"
 LOG_FILE="$PROJECT_DIR/logs/wiki-rewrite-$(date +%Y%m%d-%H%M%S).log"
 OLLAMA_URL="${OLLAMA_URL:-http://127.0.0.1:11434}"
-OLLAMA_MODEL="${OLLAMA_MODEL:-qwen3:235b-a22b}"
+OLLAMA_MODEL="${OLLAMA_MODEL:-qwen3.5:122b-a10b}"
 
 TIME_BUDGET=1500        # 25 minutes — fits odd-hour Qwen slot
 SECS_PER_ITEM=80
