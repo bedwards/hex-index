@@ -12,7 +12,7 @@ import { Router, Request, Response } from 'express';
 import { Pool } from 'pg';
 import { readFile } from 'fs/promises';
 import { join } from 'path';
-import { loadAffiliateBooks, renderBookPurchaseLinks } from '../shared/affiliate-utils.js';
+import { loadAffiliateBooks, renderBookPurchaseLinks, buildAmazonUrl } from '../shared/affiliate-utils.js';
 import type { ParsedAffiliateBook } from '../shared/affiliate-utils.js';
 
 interface Article {
@@ -349,9 +349,15 @@ export function createPagesRouter(pool: Pool): Router {
           [link.title]
         );
         const wikiSlug = wikiResult2.rows[0]?.slug ?? null;
-        const inner = wikiSlug
-          ? `<a href="/wikipedia/${escapeHtml(wikiSlug)}">${escapeHtml(link.title)}</a>${link.author ? ` <span class="read-time">by ${escapeHtml(link.author)}</span>` : ''}`
-          : `<span class="deep-dive-no-link">${escapeHtml(link.title)}</span>${link.author ? ` <span class="read-time">by ${escapeHtml(link.author)}</span>` : ''}`;
+        const affiliateTag = process.env.AMAZON_AFFILIATE_TAG ?? '';
+        let inner: string;
+        if (wikiSlug) {
+          inner = `<a href="/wikipedia/${escapeHtml(wikiSlug)}">${escapeHtml(link.title)}</a>${link.author ? ` <span class="read-time">by ${escapeHtml(link.author)}</span>` : ''}`;
+        } else if (link.asin && affiliateTag) {
+          inner = `<a href="${buildAmazonUrl(link.asin, affiliateTag)}" target="_blank" rel="noopener">${escapeHtml(link.title)}</a>${link.author ? ` <span class="read-time">by ${escapeHtml(link.author)}</span>` : ''}`;
+        } else {
+          inner = `<span>${escapeHtml(link.title)}</span>${link.author ? ` <span class="read-time">by ${escapeHtml(link.author)}</span>` : ''}`;
+        }
         bookItems.push(`<li>${inner}</li>`);
       }
 
