@@ -615,6 +615,7 @@ WEEKLY:
 
 ALWAYS:
   every 5m: postgres-watchdog
+  Quality audit: Run via Claude Code /loop in tmux (see tools/claude-loop/quality-audit-prompt.md)
 ```
 
 Services managed via `svc` tool at `/Users/bedwards/vibe/sea-gang/tools/svc`.
