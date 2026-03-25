@@ -28,13 +28,99 @@
       </header>
 
       <div class="content-label">
-        <span class="label-text">Excerpt from <a href="../../publication/semianalysis/index.html">SemiAnalysis</a></span>
+        <span class="label-text">Commentary by <a href="../../about/index.html">Brian Edwards</a></span>
         <nav class="content-nav">
-          <a href="https://newsletter.semianalysis.com/p/vera-rubin-extreme-co-design-an-evolution" target="_blank" rel="noopener">Read full article &rarr;</a>
+          <a href="#deep-dives">Deep dives</a><span class="separator">&middot;</span>
+          <a href="https://newsletter.semianalysis.com/p/vera-rubin-extreme-co-design-an-evolution" target="_blank" rel="noopener">Original article &rarr;</a>
         </nav>
       </div>
 
       
+      <div class="article-content">
+        <h2>Nvidia Designs the Whole Rack Now</h2>
+
+<p>At CES 2026, Nvidia unveiled the complete Vera Rubin platform: six silicon products spanning the Rubin Graphics Processing Unit (GPU), Vera Central Processing Unit (CPU), NVLink 6 Switch, ConnectX-9 Network Interface Card (NIC), BlueField-4 Data Processing Unit (DPU), and Spectrum-6 switch. The VR NVL72 rack represents the second generation of Nvidia's Oberon rack-scale architecture, and the company's ambitions have grown accordingly. Where Grace Blackwell was Nvidia's first attempt at treating the rack as a unit of compute, Vera Rubin is the version where Nvidia asserts near-total control over what goes inside it.</p>
+
+<p>SemiAnalysis describes this strategy as "extreme co-design," and the framing is apt:</p>
+<figure class="inline-illustration">
+    <img src="../../images/614098d2-75ba-4104-ad44-f4ce6398025b.webp" alt="" loading="lazy" width="600" height="315">
+  </figure>
+
+
+<blockquote>Nvidia's competitiveness strengthens with its extreme co-design supremacy. It is the only player with the best in class or close to the best in class silicon product offerings for all the major silicon contents in an Nvidia trail-blazed AI server system design.</blockquote>
+
+<p>No other chip company offers a competitive GPU, a state-of-the-art scale-up switch, a top-tier NIC, a leading Ethernet networking switch, and a purpose-built CPU all under one roof. AMD has competitive GPUs. Broadcom makes excellent switch ASICs. But nobody else fields the complete lineup. This vertical integration is Nvidia's moat, and Vera Rubin widens it.</p>
+
+<h2>The Silicon: Brute Force at 3 Nanometers</h2>
+
+<p>The Rubin GPU moves to a 3-nanometer process node with 336 billion transistors, a 60 percent increase over Blackwell. Dense FP4 performance hits 35 petaflops, a 3.5x improvement over GB200, achieved through more streaming multiprocessors, doubled tensor core width, and a 25 percent clock speed bump. Nvidia also claims an "effective" 50 petaflops through a new adaptive compression engine that dynamically eliminates zeros in the data stream.</p>
+
+<blockquote>While models that utilize Post Training Quantization or Quantization Aware Training will be tuned to maximize adaptive compression speedups, they are not strictly needed to take advantage of dynamic compression.</blockquote>
+
+<p>This is a meaningful departure from the rigid 2:4 structured sparsity of previous generations, which programmers largely ignored. The new approach works automatically on existing models. But SemiAnalysis appropriately flags the skepticism:</p>
+
+<blockquote>Many ML Systems engineers are still skeptical that this new form of sparsity will work well, and it is very possible that Nvidia's 50 PFLOPS is purely marketing like prior generations.</blockquote>
+
+<p>Whether that 50 petaflop figure holds up in real workloads or joins structured sparsity in the dustbin of marketing claims remains an open question.</p>
+
+<p>On the memory front, the shift to High Bandwidth Memory 4 (HBM4) delivers 22 terabytes per second of bandwidth at 288 gigabytes of capacity. That is 2.75x Blackwell. But the article reveals a telling supply chain reality: Nvidia requested pin speeds well above the Joint Electron Device Engineering Council (JEDEC) specification, and memory suppliers are struggling to deliver.</p>
+
+<blockquote>While Nvidia is targeting 22TB/s, we understand that memory suppliers are having challenges hitting Nvidia's requirements and we see it likely that initial shipments will come in slightly below at closer to 20TB/s.</blockquote>
+
+<p>Meanwhile, Micron appears to have fallen out of the HBM4 race entirely for Rubin, leaving SK Hynix and Samsung as the only viable suppliers. The concentration risk here deserves attention.</p>
+
+<h2>The Vera CPU and the Full Stack Play</h2>
+
+<p>The Vera CPU doubles performance over Grace by moving to a 3-nanometer reticle-sized compute die with 88 cores, simultaneous multithreading for 176 threads, and a 40 percent larger L3 cache. Memory bus width doubles to 1024 bits. SemiAnalysis notes that Nvidia was notably aggressive here:</p>
+
+<blockquote>NVIDIA was aggressive on the CPU front, with Vera doubling performance over Grace by moving to a 3nm reticle-sized compute die and disaggregating the memory controllers and I/O into chiplets.</blockquote>
+
+<p>The CPU has never been where Nvidia wins deals. But a mediocre CPU creates friction in the system sale. By making Vera genuinely competitive, Nvidia eliminates one more reason for customers to look elsewhere.</p>
+
+<h2>Cableless Design: Engineering Elegance or Lock-In?</h2>
+
+<p>Perhaps the most consequential change in VR NVL72 is the elimination of internal cables from the compute tray. Flyover cables were the major point of failure in Grace Blackwell assembly, and Jensen Huang claimed at CES that the new cableless design reduces compute tray assembly time from two hours to five minutes.</p>
+
+<p>The modular approach replaces cables with board-to-board connectors from Amphenol (Paladin HD2) and routes signals through a printed circuit board (PCB) midplane. This demanded significant upgrades to PCB materials, including M8/M9 grade copper clad laminate (CCL) and HVLP4 copper foil, with quartz cloth still under consideration for the longest signal paths.</p>
+
+<p>The cableless design is a genuine engineering achievement. But it also tightens Nvidia's grip on the ecosystem. Customization options for hyperscalers shrink considerably:</p>
+
+<blockquote>For VR NVL72, although some level of customization is still available, there are a lot more limitations on the form factor. Given the modular and the cableless design of VR NVL72, the customized modules at the front of the chassis must match the form factor and dimension of Nvidia's reference design.</blockquote>
+
+<p>Only the power delivery module, BlueField-4, and management modules remain customizable, and even those must conform to Nvidia's specified dimensions. This is a double-edged sword. Simpler assembly and fewer failure modes benefit everyone. But hyperscalers who built competitive advantages through custom server designs now find their options constrained. Whether this creates meaningful pushback or simply gets accepted as the cost of staying on Nvidia's roadmap will play out over the next year.</p>
+
+<h2>Cooling a 220-Kilowatt Rack</h2>
+
+<p>VR NVL72 runs at 180 to 220 kilowatts per rack, roughly double Blackwell. The compute tray is now 100 percent liquid cooled, with fans eliminated entirely. Cold plates cover every module, connected through internal manifolds with miniature quick disconnects. The Rubin GPU cold plate uses micro-channel technology with 100-micron pitch channels, down from 150 microns, with gold plating to resist corrosion from liquid metal thermal interface material.</p>
+
+<p>Nvidia claims the platform can operate with 45-degree Celsius inlet water temperatures, potentially avoiding mechanical chillers. SemiAnalysis provides useful context: this is not as revolutionary as the market perceived it. Blackwell already operates above 40 degrees, and vendors like Lenovo and HPE discussed 45-degree liquid cooling architectures in early 2025. The real engineering challenge is the tightened temperature differential. With less delta between inlet and outlet, flow rates must increase roughly 2 to 2.5 times.</p>
+
+<h2>Networking: Bidirectional Signaling Over Copper</h2>
+
+<p>The scale-up network doubles bandwidth without doubling cables, thanks to bidirectional signaling over existing copper backplane connections. Each electrical lane carries 448 gigabits per second, up from 224 in NVLink 5, by sending signals in both directions simultaneously over the same differential pair. Echo cancellation at each end of the wire separates the local transmit signal from the received signal.</p>
+
+<p>This is a clever solution to a hard physical constraint. Doubling the roughly five thousand copper cables on the Blackwell backplane would have been, as the article puts it, "a tall order" given the reliability problems already experienced at scale. The tradeoff is that echo cancellation must be precisely calibrated, and any delay in generating the local transmit copy can cause link failure.</p>
+
+<p>On the scale-out side, VR NVL72 doubles per-GPU bandwidth to 1.6 terabits per second using two ConnectX-9 NICs per GPU rather than a single faster NIC. This enables multi-plane network architectures that can scale to clusters of hundreds of thousands of GPUs. The article walks through InfiniBand, Spectrum Ethernet, and third-party Ethernet deployment options in considerable detail, with co-packaged optics (CPO) making its first appearance in Nvidia's scale-out backend network.</p>
+
+<h2>The TCO Question</h2>
+
+<p>For all the engineering brilliance, the business case requires scrutiny. VR NVL72 carries roughly 45 percent higher per-GPU capital cost versus GB300 and 14 to 15 percent higher cost versus AMD's MI4XX. SemiAnalysis frames a potential advantage in memory economics:</p>
+
+<blockquote>NVIDIA directly procures memory, allowing them to negotiate long-term agreements, volume-preferential terms with memory suppliers and most importantly, VVIP pricing. We think this will shield end customers from spikes in memory costs.</blockquote>
+
+<p>AMD, by contrast, carries roughly double the Dynamic Random Access Memory (DRAM) content per rack and leaves DDR5 procurement to assemblers, creating greater exposure to memory price spikes. In a rising DRAM market, Nvidia's centralized procurement could offset its higher sticker price. But that 45 percent premium is steep, and the Total Cost of Ownership (TCO) advantage depends heavily on assumptions about memory pricing trajectories and actual workload performance that have yet to be proven in production.</p>
+
+<h2>Bottom Line</h2>
+
+<p>Vera Rubin represents Nvidia at peak vertical integration. The company now designs the GPU, CPU, DPU, NIC, and both scale-up and scale-out switch ASICs, and it dictates the rack architecture in which they all sit. The cableless modular design is genuinely impressive engineering that solves real manufacturing problems. The bidirectional signaling approach to doubling scale-up bandwidth without doubling cables is elegant.</p>
+
+<p>The risk, as always with Nvidia, is that the moat depends on execution across an enormous surface area. Memory suppliers are already struggling to hit HBM4 specifications. The 50-petaflop adaptive sparsity claim is unproven. The 45 percent cost premium demands that every promised performance gain actually materializes. And the reduced customization options could eventually motivate the largest hyperscalers to accelerate their own silicon programs.</p>
+
+<p>For now, though, the competitive picture is clear. No other company can deliver this level of integration at rack scale. SemiAnalysis has produced a comprehensive technical breakdown of what may be the most complex commercially deployed computing system ever built, and the sheer density of engineering decisions documented here -- from quartz cloth PCB substrates to gold-plated micro-channel cold plates to bidirectional echo cancellation -- underscores just how far ahead Nvidia remains in the co-design game.</p>
+
+      </div>
+
       
       <section id="deep-dives" class="deep-dives">
         <h2>Deep Dives</h2>
@@ -69,17 +155,20 @@
     
 
       
-      <div class="excerpt-card">
+
+      <section id="excerpt" class="excerpt-card">
+        <div class="content-label">
+          <span class="label-text">Excerpt from the original article on SemiAnalysis</span>
+        </div>
         <div class="article-excerpt">
           <div class="captioned-image-container"></div><p>At CES 2026, Nvidia officially announced in detail all 6 Rubin platform products: the Rubin GPU, Vera CPU, NVLink 6 Switch, ConnectX-9, BlueField-4, and Spectrum-6. VR NVL72 is the second generation of Nvidia’s rack scale Oberon architecture that takes the stage. With competition catching up on rack scale game, Trainium 3 in the Gen2 UltraServer, AMD MI450X Helios Racks, and <a href="https://newsletter.semianalysis.com/p/tpuv7-google-takes-a-swing-at-the">Google’s TPU which was at rack scale even before GB200</a>, Nvidia answers with “extreme co-design” supremacy. With extreme co-design, Nvidia takes rack scale integration to the next level. Rack system becomes a unit of compute, a single distributed accelerator, and Nvidia designs the system.</p><div class="captioned-image-container"></div><p>For the Vera Rubin platform, Nvidia is asserting even more control over the system and rack level design. Rack scale integration and assembly have become more challenging, as every component is being pushed to the limit, whilst also optimizing for cost efficiency. VR NVL72 has a much more holistic design with a modular approach compared to Grace Blackwell for the purpose of integration efficiency and throughput.</p><p>Nvidia’s competitiveness strengthens with its extreme co-design supremacy. It is the only player with the best in class or close to the best in class silicon product offerings for all the major silicon contents in an Nvidia trail-blazed AI server system design. Nvidia offers the best accelerator, a SOTA scale up switch, the best NIC, and one of the best Ethernet networking switch, and <a href="https://newsletter.semianalysis.com/i/187132686/nvidia-vera">a much improved purpose-designed CPU</a>. No other competitors have such a complete suite of integrated silicon products.</p><p>In the sections below, we will discuss the 6 silicon products of the Vera Rubin platform at the silicon level. Then, we will discuss the rack and compute tray evolution from Grace Blackwell to Vera Rubin from the design perspective and the implication to components: cables, connectors, PCB, thermal, mechanical, and power.</p><p>Next, we will discuss the major networks of the VR NVL72 system, namely the scale up NVLink 6 network and the backend scale out network. We will discuss the logistical implications of much more limited hyperscaler customisation and the assembly supplier landscape.</p><p>Lastly, the report ends with a discussion on the TCO of the VR NVL72 system as well as the BoM and Power Budget estimate supporting the TCO analysis. Behind the paywall, we also provide readers with insight into Nvidia’s plans for their Groq IP. We will also cover some of the challenges with ...</p>
         </div>
         <div class="excerpt-card-cta">
           <a href="https://newsletter.semianalysis.com/p/vera-rubin-extreme-co-design-an-evolution" class="read-button" target="_blank" rel="noopener">
-            Continue reading on SemiAnalysis &rarr;
+            Read the entire original on SemiAnalysis &rarr;
           </a>
-          <p class="cta-note">The full article by Dylan Patel is available on SemiAnalysis.</p>
         </div>
-      </div>
+      </section>
       
     </article>
   
