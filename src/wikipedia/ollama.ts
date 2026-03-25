@@ -9,7 +9,7 @@
  */
 
 const OLLAMA_URL = process.env.OLLAMA_URL || 'http://127.0.0.1:11434';
-const OLLAMA_MODEL = process.env.OLLAMA_MODEL || 'hf.co/unsloth/MiniMax-M2.5-GGUF:latest';
+const OLLAMA_MODEL = process.env.OLLAMA_MODEL || 'qwen3.5:122b-a10b';
 const DEFAULT_TIMEOUT = parseInt(process.env.HEX_TASK_TIMEOUT_MS || '900000', 10);
 
 interface GenerateOptions {

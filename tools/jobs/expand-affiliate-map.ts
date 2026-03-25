@@ -416,7 +416,7 @@ async function main(): Promise<void> {
   }
 
   const ollamaUrl = process.env.OLLAMA_URL ?? 'http://127.0.0.1:11434';
-  const ollamaModel = process.env.OLLAMA_MODEL ?? 'qwen3:235b-a22b';
+  const ollamaModel = process.env.OLLAMA_MODEL ?? 'qwen3.5:122b-a10b';
 
   const bookMap = await loadBookMap();
   const unresolved = await loadUnresolvedMentions();

@@ -2,7 +2,7 @@
  * Audit and fix JSON metadata contamination in library HTML files.
  *
  * Scans all rewritten article and Wikipedia HTML files for JSON artifacts
- * left by MiniMax LLM output, and cleans them in-place.
+ * left by LLM output, and cleans them in-place.
  *
  * Usage:
  *   npx tsx tools/jobs/audit-html.ts                    # dry run (report only)

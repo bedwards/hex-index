@@ -1,6 +1,6 @@
 /**
  * Shared LLM output cleanup — strips JSON artifacts, think tags,
- * preamble, and other MiniMax quirks from generated text.
+ * preamble, and other LLM quirks from generated text.
  *
  * Used by article-rewrite.ts, wikipedia-rewrite.ts, and audit-html.ts.
  *
@@ -19,7 +19,7 @@
  *   - --- separators with short preamble
  *   - Common LLM preamble phrases
  *   - JSON wrappers: {"content": "..."}, {"text": "..."}, etc.
- *   - Malformed JSON prefixes from MiniMax
+ *   - Malformed JSON prefixes from LLM
  *   - JSON array variants: {"content": ["..."]}
  *   - Multi-key JSON objects with title/author/pitch/body fields
  *   - Nested JSON: {"": {"title": ...}}
@@ -121,7 +121,7 @@ export function cleanPreamble(text: string): string {
   // 10. Strip JSON metadata prefix: title", "author": "Name", "piece": "actual content
   cleaned = cleaned.replace(/^[^"]*",\s*"(?:author|title|source)":\s*"[^"]*",\s*"(?:piece|content|text|essay|commentary)":\s*"/, '').trim();
 
-  // 11. Strip {"content": ["text... (array variant from MiniMax)
+  // 11. Strip {"content": ["text... (array variant from LLM)
   cleaned = cleaned.replace(/^\s*\{\s*"(?:content|text|piece|essay|commentary)"\s*:\s*\[\s*"?/, '').trim();
   cleaned = cleaned.replace(/"\s*\]?\s*\}\s*$/, '').trim();
 
@@ -129,7 +129,7 @@ export function cleanPreamble(text: string): string {
   cleaned = cleaned.replace(/"\s*\}\s*$/, '').trim();
 
   // 13. Strip trailing ```json {...} blocks anywhere in text
-  //     MiniMax sometimes appends JSON after seemingly complete content
+  //     LLM sometimes appends JSON after seemingly complete content
   cleaned = cleaned.replace(/\s*```\s*json\s*\{[\s\S]*?\}\s*```\s*/g, '').trim();
   // Also without closing fence
   cleaned = cleaned.replace(/\s*```\s*json\s*\{[\s\S]*$/g, '').trim();
@@ -490,7 +490,7 @@ export function cleanHtml(html: string): { cleaned: string; changed: boolean } {
     '$1'
   );
 
-  // Pattern 11: Chinese/garbled characters from MiniMax (non-Latin noise in English text)
+  // Pattern 11: Chinese/garbled characters from LLM (non-Latin noise in English text)
   //   e.g. 不需要人类。 or 核心
   //   Only strip if surrounded by English text (don't strip intentional CJK content)
   // This is a conservative pattern — only strips short CJK sequences mid-English-sentence
