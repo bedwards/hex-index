@@ -13,9 +13,9 @@ gh pr list --state open --json number,title,statusCheckRollup,reviews,createdAt,
 For each open PR:
 - **All checks green, no unresolved reviews** --> merge it: `gh pr merge --squash <number>`
 - **Checks failing** --> read the failure, fix it in a worktree, push to the PR branch
-- **Claude/Gemini review feedback** --> read it: `npx tsx tools/github/pr-comments.ts --pr <number> --claude`
-  - Security issues: fix immediately
-  - Style/test suggestions: fix if quick, otherwise note and move on
+- **Claude/Gemini review feedback** --> read it: `npx tsx tools/github/pr-comments.ts --pr <number> --claude` and `gh api repos/bedwards/hex-index/pulls/<number>/comments --jq '.[] | select(.user.login | contains("gemini")) | {path: .path, body: .body[0:300]}'`
+  - Security issues or critical bugs: fix immediately
+  - Non-critical feedback (style, refactoring, minor improvements): **create a GitHub issue** — `gh issue create --title "<short description>" --label "enhancement,priority:low" --body "From review on PR #<number>. <details>"` — do NOT fix inline, keep PRs moving
 - **Stale PR (>24h)** --> investigate, fix or close with explanation
 - **Draft PRs** --> skip (someone is working on it)
 
@@ -35,7 +35,7 @@ If main is red:
 Keep all clones up to date with origin/main. For each clone:
 
 ```bash
-for clone in qwen-batch auto-deploy claude-editorial claude-ops claude-epub; do
+for clone in qwen-batch auto-deploy claude-editorial claude-ops claude-quality claude-epub claude-memory; do
   dir="$HOME/vibe/hex-index-clones/$clone"
   if [ -d "$dir" ]; then
     echo "=== $clone ==="
@@ -104,15 +104,22 @@ git checkout main && git pull --ff-only
 bash tools/cron/auto-deploy.sh
 ```
 
-## 7. Issue Triage
+## 7. Work Through Issues
 
 ```bash
-gh issue list --state open --json number,title,labels,assignees,updatedAt --jq '.[] | select(.assignees | length == 0)'
+gh issue list --state open --json number,title,labels,assignees,updatedAt --sort updated
 ```
 
-- Unassigned issues: assign to `@me` if actionable, or label `needs-triage`
-- In-progress issues with no PR after 48h: investigate
-- Blocked issues: check if blocker is resolved
+Work through ALL open issues in priority order:
+1. `priority:high` first, then `priority:medium`, then `priority:low`, then unlabeled
+2. For each issue, pick up ONE per cycle (don't try to do everything at once):
+   - Assign to `@me`: `gh issue edit <number> --add-assignee @me`
+   - Add `in-progress` label: `gh issue edit <number> --add-label "in-progress"`
+   - Implement the fix/feature in a worktree within this clone
+   - Create a PR that closes the issue
+   - Move to the next cycle
+3. Skip issues labeled `blocked` or already assigned to someone else
+4. If an issue is unclear, add a comment asking for clarification rather than guessing
 
 ## 8. Rate Limit Check
 

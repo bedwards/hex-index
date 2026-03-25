@@ -16,13 +16,20 @@ For each open PR:
 3. **PR is stale (>24h, no activity)** — Investigate and either fix or close with explanation
 4. **PR has review feedback** — Address the feedback, push fixes
 
-Also check for Claude GitHub App review comments:
+Also check for Claude and Gemini review comments on all recent PRs (open and merged in the last 24h):
 
 ```bash
+# Check open PRs
 npx tsx tools/github/pr-comments.ts --pr <number> --claude
+# Check Gemini comments
+gh api repos/bedwards/hex-index/pulls/<number>/comments --jq '.[] | select(.user.login | contains("gemini")) | {path: .path, body: .body[0:300]}'
 ```
 
-Address any security issues or test coverage feedback before merging.
+For review feedback:
+- **Security issues**: fix immediately in the PR
+- **Critical bugs**: fix immediately in the PR
+- **Non-critical feedback** (style, refactoring, minor improvements): **create a GitHub issue** instead of fixing inline. Use: `gh issue create --title "<short description>" --label "enhancement,priority:low" --body "From Gemini/Claude review on PR #<number>. <details>"`
+- This prevents review feedback from being lost while keeping PRs moving fast
 
 ## Priority 2: Friday Epub Review (Thursday night / Friday morning)
 
@@ -95,7 +102,33 @@ For each recent article, check and fix:
 - If `tag_count` = 0, run: `npx tsx tools/jobs/tag-articles.ts --article-id <id>`
 - Valid topics: culture, ai-tech, economics, political-strategy, foreign-policy, science, philosophy, media, writing-craft, history, music, china, defense, faith, law-rights, public-health, housing-cities
 
-## Priority 4: Site Verification
+## Priority 4: Backfill Old Articles
+
+Query articles older than 7 days that don't meet current standards:
+
+```bash
+psql "$DATABASE_URL" -c "
+  SELECT a.id, a.title, a.published_at, a.rewritten_content_path,
+         (SELECT count(*) FROM app.article_tags at2 WHERE at2.article_id = a.id) as tag_count,
+         (SELECT count(*) FROM app.article_wikipedia_links awl WHERE awl.article_id = a.id) as wiki_count
+  FROM app.articles a
+  WHERE a.published_at < NOW() - INTERVAL '7 days'
+    AND a.rewritten_content_path IS NOT NULL
+  ORDER BY a.published_at DESC
+  LIMIT 10;
+"
+```
+
+Pick ONE old article per cycle and check:
+- Does the rewrite follow current commentary style (third person, direct quotes, counterpoints, Bottom Line section)?
+- If not, read the rewrite, and if it's pre-guidelines quality (summary style, no quotes, no counterpoints), mark it dirty: `UPDATE app.articles SET rewrite_dirty = true WHERE id = '<id>'`
+- The next Qwen rewrite cycle will redo it with the current prompt
+- Log which article you flagged and why
+
+This is lower priority than new content — only do this when Priorities 1-3 have nothing actionable.
+
+## Priority 5: Site Verification
+
 
 **Do NOT deploy directly.** The auto-deploy service (`tools/cron/auto-deploy.sh`) runs every 30 minutes and is the ONLY thing that regenerates the static site and deploys to GitHub Pages. All other jobs (including this editorial loop) should only write to DB + `library/`.
 
@@ -105,7 +138,7 @@ After making content changes:
 3. After deploy, verify the production site: `curl -s https://hex-index.com | head -20`
 4. Check the most recently changed article renders correctly
 
-## Priority 5: Housekeeping
+## Priority 6: Housekeeping
 
 ### Check main branch health
 ```bash
