@@ -9,7 +9,7 @@ BASE="$HOME/vibe/hex-index-clones"
 
 mkdir -p "$BASE"
 
-for name in qwen-batch auto-deploy claude-ops; do
+for name in qwen-batch auto-deploy claude-ops claude-editorial claude-quality claude-epub claude-memory; do
   if [ ! -d "$BASE/$name" ]; then
     echo "Cloning $name..."
     git clone "$REPO" "$BASE/$name"
