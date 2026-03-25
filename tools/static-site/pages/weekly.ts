@@ -1024,7 +1024,7 @@ function generateWeeklyListingPage(weeks: WeekListItem[]): string {
 
   const content = `
     <h1 class="section-title">Hex Index Reader</h1>
-    <p class="reader-recommendation">For the best reading experience, we recommend <a href="https://readest.com/" target="_blank" rel="noopener">Readest</a> — a free, open-source epub reader.</p>
+    <p class="reader-recommendation">For the best reading experience, we recommend <a href="https://readest.com/" target="_blank" rel="noopener">Readest</a> — a free, open-source epub reader. For text-to-speech, try the <a href="https://speechify.com/" target="_blank" rel="noopener">Speechify</a> Chrome extension.</p>
     ${subscribeSection}
     <div class="weekly-list">
       ${weeks.length > 0 ? weekItems : '<p style="color:var(--ink-muted)">No weekly editions available yet.</p>'}

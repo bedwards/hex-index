@@ -4,7 +4,7 @@
 set -euo pipefail
 
 WRONG_MODEL="qwen3:235b-a22b"
-RIGHT_MODEL="qwen3.5:122b-a10b"
+RIGHT_MODEL="qwen3:235b-a22b"
 PLIST_DIR="$HOME/Library/LaunchAgents"
 
 for plist in \
