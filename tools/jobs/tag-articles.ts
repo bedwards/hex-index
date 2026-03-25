@@ -16,6 +16,8 @@ import { generateText } from '../../src/wikipedia/ollama.js';
 const args = process.argv.slice(2);
 const limitIdx = args.indexOf('--limit');
 const LIMIT = limitIdx >= 0 ? parseInt(args[limitIdx + 1], 10) : 50;
+const minTagsIdx = args.indexOf('--min-tags');
+const MIN_TAGS = minTagsIdx >= 0 ? parseInt(args[minTagsIdx + 1], 10) : 2;
 
 // ── Main ────────────────────────────────────────────────────────────
 async function main(): Promise<void> {
@@ -31,7 +33,7 @@ async function main(): Promise<void> {
     );
     const tagList = tags.map(t => `${t.slug}: ${t.name} — ${t.description}`).join('\n');
 
-    // Find articles without tags
+    // Find articles with fewer than MIN_TAGS tags
     const { rows: articles } = await pool.query<{
       id: string;
       title: string;
@@ -41,12 +43,11 @@ async function main(): Promise<void> {
       SELECT a.id, a.title, a.content_path, p.name AS publication_name
       FROM app.articles a
       JOIN app.publications p ON a.publication_id = p.id
-      LEFT JOIN app.article_tags at ON at.article_id = a.id
-      WHERE at.id IS NULL
-        AND a.content_path IS NOT NULL
+      WHERE a.content_path IS NOT NULL
+        AND (SELECT COUNT(*) FROM app.article_tags at WHERE at.article_id = a.id) < $1
       ORDER BY a.published_at DESC NULLS LAST
-      LIMIT $1
-    `, [LIMIT]);
+      LIMIT $2
+    `, [MIN_TAGS, LIMIT]);
 
     if (articles.length === 0) {
       console.info('No articles need tagging');
