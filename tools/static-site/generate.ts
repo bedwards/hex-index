@@ -24,8 +24,9 @@ import { generateSearchIndex } from './pages/search-index.js';
 import { generateWeeklyEpubs } from './pages/weekly.js';
 import { generateAboutPage } from './pages/about.js';
 import { ensureDir } from './utils.js';
-import { rm, cp, readFile, writeFile } from 'fs/promises';
+import { rm, cp, readFile, writeFile, readdir } from 'fs/promises';
 import { join } from 'path';
+import { existsSync } from 'fs';
 
 config();
 
@@ -73,7 +74,22 @@ async function main(): Promise<void> {
     // Copy static assets
     console.info('Copying static assets...');
     await cp(join(PUBLIC_DIR, 'styles.css'), join(OUTPUT_DIR, 'styles.css'));
-    console.info('  Copied styles.css\n');
+    console.info('  Copied styles.css');
+
+    // Copy article images from library/images/ to docs/images/
+    const libraryImagesDir = join(process.cwd(), 'library', 'images');
+    const outputImagesDir = join(OUTPUT_DIR, 'images');
+    if (existsSync(libraryImagesDir)) {
+      await ensureDir(outputImagesDir);
+      const imageFiles = await readdir(libraryImagesDir);
+      const webpFiles = imageFiles.filter(f => f.endsWith('.webp'));
+      for (const file of webpFiles) {
+        await cp(join(libraryImagesDir, file), join(outputImagesDir, file));
+      }
+      console.info(`  Copied ${webpFiles.length} article images\n`);
+    } else {
+      console.info('  No article images found\n');
+    }
 
     // Generate home pages
     console.info('Generating home pages...');
