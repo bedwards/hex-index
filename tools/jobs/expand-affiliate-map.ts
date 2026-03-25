@@ -60,12 +60,14 @@ const OLLAMA_CLOUD_BASE = 'https://ollama.com/api';
 // ── Types ───────────────────────────────────────────────────────────
 
 interface BookEntry {
+  title: string;
+  author: string;
   asin: string;
   category: string;
   description: string;
 }
 
-type BookMap = Record<string, BookEntry>;
+type BookMap = BookEntry[];
 
 interface UnresolvedEntry {
   type: 'book_mention' | 'author_mention';
@@ -115,15 +117,12 @@ async function loadBookMap(): Promise<BookMap> {
     return JSON.parse(raw) as BookMap;
   } catch {
     console.info('Warning: content/affiliate-books.json not found, starting fresh');
-    return {};
+    return [];
   }
 }
 
 async function saveBookMap(bookMap: BookMap): Promise<void> {
-  const sorted: BookMap = {};
-  for (const key of Object.keys(bookMap).sort((a, b) => a.localeCompare(b))) {
-    sorted[key] = bookMap[key];
-  }
+  const sorted = [...bookMap].sort((a, b) => a.title.localeCompare(b.title));
   await writeFile(MAP_PATH, JSON.stringify(sorted, null, 2) + '\n', 'utf-8');
 }
 
@@ -154,23 +153,12 @@ function isValidAsin(asin: string): boolean {
 }
 
 function bookExistsByAsin(bookMap: BookMap, asin: string): boolean {
-  for (const entry of Object.values(bookMap)) {
-    if (entry.asin === asin) {
-      return true;
-    }
-  }
-  return false;
+  return bookMap.some(entry => entry.asin === asin);
 }
 
 function bookExistsByTitle(bookMap: BookMap, title: string): boolean {
   const titleLower = title.toLowerCase().trim();
-  for (const key of Object.keys(bookMap)) {
-    const [mapTitle] = key.split('|');
-    if (mapTitle.toLowerCase().trim() === titleLower) {
-      return true;
-    }
-  }
-  return false;
+  return bookMap.some(entry => entry.title.toLowerCase().trim() === titleLower);
 }
 
 // ── Ollama tool calling ─────────────────────────────────────────────
@@ -420,7 +408,7 @@ async function main(): Promise<void> {
 
   const bookMap = await loadBookMap();
   const unresolved = await loadUnresolvedMentions();
-  const initialMapCount = Object.keys(bookMap).length;
+  const initialMapCount = bookMap.length;
   const unresolvedKeys = Object.keys(unresolved);
 
   console.info(`Loaded ${initialMapCount} books from affiliate-books.json`);
@@ -507,19 +495,20 @@ async function main(): Promise<void> {
       }
 
       // Add to book map
-      const mapKey = `${result.title}|${result.author}`;
-      bookMap[mapKey] = {
+      bookMap.push({
+        title: result.title,
+        author: result.author,
         asin,
         category: result.category || 'books',
         description: result.description,
-      };
+      });
 
       // Remove from unresolved
       // eslint-disable-next-line @typescript-eslint/no-dynamic-delete -- cleaning resolved entries from map
       delete unresolved[key];
 
       stats.added++;
-      console.info(`  ADDED: ${mapKey} → ${asin}`);
+      console.info(`  ADDED: ${result.title} by ${result.author} → ${asin}`);
     } catch (err) {
       console.info(`  ERROR: ${err instanceof Error ? err.message : String(err)}`);
       stats.failed++;
@@ -532,7 +521,7 @@ async function main(): Promise<void> {
   // Save updated files
   if (stats.added > 0 || stats.skipped > 0) {
     await saveBookMap(bookMap);
-    console.info(`\nWrote updated affiliate-books.json (${Object.keys(bookMap).length} total entries)`);
+    console.info(`\nWrote updated affiliate-books.json (${bookMap.length} total entries)`);
   }
 
   await saveUnresolvedMentions(unresolved);
@@ -546,7 +535,7 @@ async function main(): Promise<void> {
   console.info(`  Skipped (dupes):    ${stats.skipped}`);
   console.info(`  Failed:             ${stats.failed}`);
   console.info(`  Web searches used:  ${stats.searchesUsed} / 100 daily budget`);
-  console.info(`  Map size:           ${initialMapCount} → ${Object.keys(bookMap).length}`);
+  console.info(`  Map size:           ${initialMapCount} → ${bookMap.length}`);
   console.info(`  Unresolved:         ${unresolvedKeys.length} → ${remainingUnresolved}`);
 }
 

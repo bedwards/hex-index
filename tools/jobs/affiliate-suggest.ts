@@ -33,12 +33,14 @@ const resetMode = args.includes('--reset');
 // ── Book mapping ────────────────────────────────────────────────────
 
 interface BookEntry {
+  title: string;
+  author: string;
   asin: string;
   category: string;
   description: string;
 }
 
-type BookMap = Record<string, BookEntry>;
+type BookMap = BookEntry[];
 
 async function loadBookMap(): Promise<BookMap> {
   const mapPath = join(process.cwd(), 'content', 'affiliate-books.json');
@@ -47,7 +49,7 @@ async function loadBookMap(): Promise<BookMap> {
     return JSON.parse(raw) as BookMap;
   } catch {
     console.info('Warning: content/affiliate-books.json not found or invalid');
-    return {};
+    return [];
   }
 }
 
@@ -59,21 +61,21 @@ function lookupBook(
   bookMap: BookMap,
   title: string,
   author: string
-): (BookEntry & { title: string; author: string }) | null {
-  // Exact match: "Title|Author"
-  const exactKey = `${title}|${author}`;
-  if (bookMap[exactKey]) {
-    return { ...bookMap[exactKey], title, author };
+): BookEntry | null {
+  // Exact match on title + author
+  const titleLower = title.toLowerCase().trim();
+  const authorLower = author.toLowerCase().trim();
+  const exact = bookMap.find(
+    b => b.title.toLowerCase().trim() === titleLower && b.author.toLowerCase().trim() === authorLower
+  );
+  if (exact) {
+    return exact;
   }
 
-  // Fuzzy: case-insensitive match on title portion of key
-  const titleLower = title.toLowerCase().trim();
-  for (const [key, entry] of Object.entries(bookMap)) {
-    const [mapTitle] = key.split('|');
-    if (mapTitle.toLowerCase().trim() === titleLower) {
-      const [, mapAuthor] = key.split('|');
-      return { ...entry, title: mapTitle, author: mapAuthor ?? author };
-    }
+  // Fuzzy: case-insensitive match on title only
+  const byTitle = bookMap.find(b => b.title.toLowerCase().trim() === titleLower);
+  if (byTitle) {
+    return byTitle;
   }
 
   return null;
@@ -86,15 +88,9 @@ function lookupBook(
 function lookupAuthor(
   bookMap: BookMap,
   author: string
-): (BookEntry & { title: string; author: string }) | null {
+): BookEntry | null {
   const authorLower = author.toLowerCase().trim();
-  for (const [key, entry] of Object.entries(bookMap)) {
-    const [mapTitle, mapAuthor] = key.split('|');
-    if (mapAuthor && mapAuthor.toLowerCase().trim() === authorLower) {
-      return { ...entry, title: mapTitle, author: mapAuthor };
-    }
-  }
-  return null;
+  return bookMap.find(b => b.author.toLowerCase().trim() === authorLower) ?? null;
 }
 
 // ── Unresolved mentions tracking ────────────────────────────────────
@@ -321,7 +317,7 @@ async function main(): Promise<void> {
   }
 
   const bookMap = await loadBookMap();
-  const bookCount = Object.keys(bookMap).length;
+  const bookCount = bookMap.length;
 
   if (bookCount === 0) {
     console.info('No books in content/affiliate-books.json — nothing to match against');
