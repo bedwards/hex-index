@@ -12,6 +12,8 @@ import { Router, Request, Response } from 'express';
 import { Pool } from 'pg';
 import { readFile } from 'fs/promises';
 import { join } from 'path';
+import { loadAffiliateBooks, renderBookPurchaseLinks } from '../../tools/static-site/utils.js';
+import type { ParsedAffiliateBook } from '../../tools/static-site/utils.js';
 
 interface Article {
   id: string;
@@ -196,6 +198,10 @@ export function createPagesRouter(pool: Pool): Router {
   const router = Router();
   const libraryPath = join(process.cwd(), 'library');
 
+  // Load affiliate books map once at router creation
+  let affiliateBooksMap: Map<string, ParsedAffiliateBook> = new Map();
+  void loadAffiliateBooks(process.cwd()).then(map => { affiliateBooksMap = map; });
+
   // Home page - list recent articles
   router.get('/', async (_req: Request, res: Response) => {
     try {
@@ -333,40 +339,38 @@ export function createPagesRouter(pool: Pool): Router {
       // Extract subtitle from tags if present
       const subtitle = article.tags?.subtitle || '';
 
+      // Build book deep dives from affiliate_links — merged into deep dives section
+      const rawAffiliateLinks = Array.isArray(article.affiliate_links) ? article.affiliate_links : [];
+      const bookItems: string[] = [];
+      for (const link of rawAffiliateLinks) {
+        // Check if this book has a Wikipedia page
+        const wikiResult2 = await pool.query<{ slug: string }>(
+          `SELECT slug FROM app.wikipedia_articles WHERE LOWER(title) = LOWER($1) AND status = 'complete' LIMIT 1`,
+          [link.title]
+        );
+        const wikiSlug = wikiResult2.rows[0]?.slug ?? null;
+        const inner = wikiSlug
+          ? `<a href="/wikipedia/${escapeHtml(wikiSlug)}">${escapeHtml(link.title)}</a>${link.author ? ` <span class="read-time">by ${escapeHtml(link.author)}</span>` : ''}`
+          : `<span class="deep-dive-no-link">${escapeHtml(link.title)}</span>${link.author ? ` <span class="read-time">by ${escapeHtml(link.author)}</span>` : ''}`;
+        bookItems.push(`<li>${inner}</li>`);
+      }
+
       // Render Wikipedia deep dives section - compact list before content
-      const wikiSection = wikiLinks.length > 0 ? `
+      // Includes both Wikipedia articles and books (merged into one list)
+      const allDeepDiveItems = [
+        ...wikiLinks.map(w => `
+              <li><a href="/wikipedia/${escapeHtml(w.slug)}">${escapeHtml(w.title)}</a>${w.read_time ? ` <span class="read-time">${w.read_time} min</span>` : ''}</li>
+            `),
+        ...bookItems,
+      ];
+      const wikiSection = allDeepDiveItems.length > 0 ? `
         <nav class="deep-dives" aria-label="Related Wikipedia articles">
           <p class="deep-dives-label">Deep Dives</p>
           <ul class="deep-dives-list">
-            ${wikiLinks.map(w => `
-              <li><a href="/wikipedia/${escapeHtml(w.slug)}">${escapeHtml(w.title)}</a>${w.read_time ? ` <span class="read-time">${w.read_time} min</span>` : ''}</li>
-            `).join('')}
+            ${allDeepDiveItems.join('')}
           </ul>
         </nav>
       ` : '';
-
-      // Build affiliate links section
-      const affiliateTag = process.env.AMAZON_AFFILIATE_TAG ?? '';
-      const rawAffiliateLinks = Array.isArray(article.affiliate_links) ? article.affiliate_links : [];
-      let affiliateSection = '';
-      if (affiliateTag && rawAffiliateLinks.length > 0) {
-        const affiliateItems = rawAffiliateLinks.map(link =>
-          `<li class="deep-dive-item">
-            <a href="https://www.amazon.com/dp/${encodeURIComponent(link.asin)}?tag=${encodeURIComponent(affiliateTag)}" target="_blank" rel="noopener sponsored">
-              <strong>${escapeHtml(link.title)}</strong> \u2192
-              <span class="read-time">by ${escapeHtml(link.author)}</span>
-            </a>
-            <p class="topic-summary">${escapeHtml(link.description)}</p>
-          </li>`
-        ).join('\n');
-        affiliateSection = `
-          <section class="deep-dives books-section">
-            <h2>Books</h2>
-            <ul class="deep-dive-list">${affiliateItems}</ul>
-            <small class="affiliate-disclosure">Affiliate links</small>
-          </section>
-        `;
-      }
 
       // Optimized article layout for Speechify:
       // 1. Title (h1) - Speechify starts here by default
@@ -394,7 +398,6 @@ export function createPagesRouter(pool: Pool): Router {
           <div class="article-content">
             ${articleContent}
           </div>
-          ${affiliateSection}
         </article>
       `;
 
@@ -519,11 +522,19 @@ export function createPagesRouter(pool: Pool): Router {
         </nav>
       ` : '';
 
+      // Check if this Wikipedia article is about a book
+      const matchedBook = affiliateBooksMap.get(wiki.title.toLowerCase());
+      const affiliateTag = process.env.AMAZON_AFFILIATE_TAG ?? '';
+      const purchaseLinksHtml = matchedBook
+        ? renderBookPurchaseLinks(matchedBook, affiliateTag)
+        : '';
+
       // Optimized Wikipedia layout for Speechify:
       // 1. Type badge + Title
       // 2. Meta: read time, source link
       // 3. Related Substack articles
       // 4. Content
+      // 5. Purchase links (if it's a book)
       const content = `
         <article class="article content-width wikipedia-article">
           <header class="article-header">
@@ -537,6 +548,7 @@ export function createPagesRouter(pool: Pool): Router {
           <div class="article-content">
             ${wikiContent}
           </div>
+          ${purchaseLinksHtml}
         </article>
       `;
 

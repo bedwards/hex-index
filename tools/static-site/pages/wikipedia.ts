@@ -4,7 +4,8 @@
 
 import type { Pool } from 'pg';
 import { staticReadingLayout } from '../templates.js';
-import { writeFile, escapeHtml, renderAffiliateSection } from '../utils.js';
+import { writeFile, escapeHtml, renderBookPurchaseLinks, loadAffiliateBooks } from '../utils.js';
+import type { ParsedAffiliateBook } from '../utils.js';
 import { join } from 'path';
 import { readFile } from 'fs/promises';
 
@@ -92,11 +93,16 @@ function generateWikipediaPage(
   wiki: WikipediaRow,
   content: string,
   relatedArticles: RelatedArticle[],
-  affiliateLinks: Array<{ asin: string; title: string; author: string; description: string }> = []
+  affiliateBooksMap: Map<string, ParsedAffiliateBook>
 ): string {
   const pathToRoot = '../../';
   const affiliateTag = process.env.AMAZON_AFFILIATE_TAG ?? '';
-  const affiliateHtml = renderAffiliateSection(affiliateLinks, affiliateTag);
+
+  // Check if this Wikipedia article is about a book
+  const matchedBook = affiliateBooksMap.get(wiki.title.toLowerCase());
+  const purchaseLinksHtml = matchedBook
+    ? renderBookPurchaseLinks(matchedBook, affiliateTag)
+    : '';
 
   // Related articles section
   let relatedHtml = '';
@@ -156,7 +162,7 @@ function generateWikipediaPage(
 
       ${contentBlock}
 
-      ${affiliateHtml}
+      ${purchaseLinksHtml}
 
       <footer class="wikipedia-footer">
         <p class="source-link">
@@ -182,14 +188,14 @@ export async function generateWikipediaPages(
   outputDir: string
 ): Promise<{ pagesGenerated: number }> {
   const wikiArticles = await getAllWikipediaArticles(pool);
+  const affiliateBooksMap = await loadAffiliateBooks(process.cwd());
   let pagesGenerated = 0;
 
   for (const wiki of wikiArticles) {
     const content = await readWikipediaContent(wiki.content_path);
     const relatedArticles = await getRelatedArticles(pool, wiki.id);
 
-    const wikiAffiliateLinks = Array.isArray(wiki.affiliate_links) ? wiki.affiliate_links : [];
-    const html = generateWikipediaPage(wiki, content, relatedArticles, wikiAffiliateLinks);
+    const html = generateWikipediaPage(wiki, content, relatedArticles, affiliateBooksMap);
     const filePath = join(outputDir, 'wikipedia', wiki.slug, 'index.html');
 
     await writeFile(filePath, html);
