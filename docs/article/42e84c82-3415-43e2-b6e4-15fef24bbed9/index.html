@@ -28,13 +28,79 @@
       </header>
 
       <div class="content-label">
-        <span class="label-text">Excerpt from <a href="../../publication/bytebytego/index.html">ByteByteGo Newsletter</a></span>
+        <span class="label-text">Commentary by <a href="../../about/index.html">Brian Edwards</a></span>
         <nav class="content-nav">
-          <a href="https://blog.bytebytego.com/p/how-large-language-models-learn" target="_blank" rel="noopener">Read full article &rarr;</a>
+          <a href="#deep-dives">Deep dives</a><span class="separator">&middot;</span>
+          <a href="https://blog.bytebytego.com/p/how-large-language-models-learn" target="_blank" rel="noopener">Original article &rarr;</a>
         </nav>
       </div>
 
       
+      <div class="article-content">
+        <h2>Pattern Matching All the Way Down</h2>
+
+<p>ByteByteGo's latest explainer tackles one of the most persistent misconceptions in technology: that large language models (LLMs) actually learn in any way resembling human cognition. The article walks through three foundational concepts -- loss functions, gradient descent, and next-token prediction -- to demystify what these systems really do under the hood. It is a useful primer, though it occasionally understates just how strange and consequential the gap between "pattern matching" and "understanding" truly is.</p>
+
+<blockquote>LLMs don't learn the way you learned to code or solve problems. Instead, they follow repetitive mathematical procedures billions of times, adjusting countless internal parameters until they become very good at mimicking patterns in text.</blockquote>
+
+<p>That framing sets the right tone from the start. The word "learning" has become so entangled with artificial intelligence marketing that it takes deliberate effort to remember what is actually happening: numerical optimization over statistical distributions. No insight. No eureka moment. Just calculus applied at extraordinary scale.</p>
+<figure class="inline-illustration">
+    <img src="../../images/42e84c82-3415-43e2-b6e4-15fef24bbed9.webp" alt="" loading="lazy" width="600" height="315">
+  </figure>
+
+
+<h2>Measuring Failure First</h2>
+
+<p>The article begins with loss functions, which it describes as scoring systems that quantify how wrong a model is at any given moment. Three properties matter: the function must be specific, computable, and smooth. The first two are intuitive enough. The third is where things get interesting.</p>
+
+<blockquote>Smoothness means the function's output should change gradually as inputs change, without sudden jumps or breaks. Imagine walking down a gentle slope versus walking down a staircase.</blockquote>
+
+<p>This is why accuracy -- the metric most people would instinctively reach for -- cannot serve as a loss function. A model either got 47 predictions right or 48. There is no 47.3. Cross-entropy loss solves this by providing the smooth, continuous surface that optimization algorithms need to navigate. It is a pragmatic substitution, trading the metric humans care about for one that mathematics can actually work with.</p>
+
+<blockquote>LLMs are scored on matching patterns in their training data, not on being truthful or correct. If false information appears frequently in training data, the model gets rewarded for reproducing it.</blockquote>
+
+<p>This deserves more emphasis than the article gives it. The entire edifice of LLM capability rests on a loss function that is indifferent to truth. The system is not penalized for generating falsehoods -- only for generating text that diverges from the statistical patterns in its training corpus. A model trained on a dataset full of flat-earth content would confidently assert the earth is flat, and its loss score would be excellent.</p>
+
+<h2>Descending Blindly</h2>
+
+<p>Gradient descent, the optimization algorithm that actually adjusts a model's parameters, gets the landscape metaphor treatment: a ball rolling downhill in search of the lowest valley. The article explains that each adjustment is tiny, guided only by the local slope, with no ability to look ahead.</p>
+
+<blockquote>Picture walking downhill in thick fog where you can only see your feet. We can tell which direction slopes downward right where we're standing, but we can't see if there's a deeper valley just beyond a small uphill section.</blockquote>
+
+<p>The greedy nature of the algorithm is a genuine limitation, but it is also a necessary compromise. With hundreds of billions of parameters, the search space is so vast that exhaustive exploration is not merely impractical -- it is physically impossible. Stochastic Gradient Descent (SGD) adds randomness to the process by using small batches of training data rather than the full dataset, which paradoxically improves results. The noise introduced by random sampling helps the ball escape shallow local minima that would trap a more methodical approach.</p>
+
+<p>What the article does not mention is that modern training runs use more sophisticated variants like Adam and AdaGrad, which adapt learning rates per parameter. Pure SGD is largely a pedagogical tool at this point. The core intuition holds, but the actual machinery is considerably more complex.</p>
+
+<h2>The Prediction Game</h2>
+
+<p>The heart of the article is its explanation of next-token prediction. Despite the conversational fluency of modern LLMs, their entire training objective reduces to a single question: given this sequence of text, what word comes next?</p>
+
+<blockquote>Despite their ability to write essays, explain concepts, and hold conversations, LLMs are trained on one simple task: predict the next word in a sequence.</blockquote>
+
+<p>The article uses a clever example to show how context progressively narrows predictions. "I love to eat" could lead anywhere. Add "for breakfast" and the possibilities shrink. Add "with chopsticks in Tokyo" and the model is effectively cornered into Japanese breakfast items. This is the mechanism behind the common advice that longer, more specific prompts produce better outputs -- they simply leave less room for the model to wander into unlikely statistical territory.</p>
+
+<blockquote>The transformer architecture that powers modern LLMs has a critical advantage over older approaches. It can process all these training examples in parallel rather than one at a time.</blockquote>
+
+<p>Parallelization is indeed the breakthrough that made the current generation of LLMs possible, but it is worth noting that the transformer architecture, introduced in the 2017 paper "Attention Is All You Need," brought another equally important innovation: the self-attention mechanism. This allows the model to weigh the relevance of every token in the input against every other token, capturing long-range dependencies that earlier recurrent architectures struggled with. The article could have gone deeper here.</p>
+
+<h2>Where the Illusion Breaks</h2>
+
+<p>The article's strongest section examines the failure modes that emerge from pattern matching masquerading as reasoning. The example of the river-crossing puzzle is particularly telling.</p>
+
+<blockquote>There's a famous logic puzzle about transporting a cabbage, a goat, and a wolf across a river with specific constraints about which items can't be left alone together. LLMs solve this puzzle easily because it appears many times in their training data. However, if you slightly modify the constraints, the model often continues using the original solution.</blockquote>
+
+<p>This is not a minor quirk. It reveals something fundamental about what these systems are doing. They are performing sophisticated retrieval and interpolation, not logical deduction. When the problem looks familiar, the output looks correct. When it deviates even slightly from training data, the model cannot adapt because it was never reasoning in the first place.</p>
+
+<blockquote>The core issue is that LLMs are optimized to reproduce patterns from their training data, not to be truthful, logical, or correct.</blockquote>
+
+<p>A counterpoint is warranted here. Techniques like reinforcement learning from human feedback (RLHF), constitutional AI training, and chain-of-thought prompting have made meaningful strides in pushing models toward more reliable outputs. These methods do not resolve the fundamental limitation -- the base model is still a pattern matcher -- but they add layers of alignment that the article's framing somewhat dismisses. The gap between a raw pretrained model and a fine-tuned, RLHF-trained model is substantial, and glossing over it risks leaving readers with an incomplete picture.</p>
+
+<h2>Bottom Line</h2>
+
+<p>ByteByteGo delivers a clear, accessible explanation of the three pillars of LLM training. The article correctly anchors its argument in the distinction between pattern matching and reasoning, and it does a creditable job of explaining why that distinction matters for practical use. Where it falls short is in acknowledging the post-training techniques that partially mitigate the limitations it describes, and in exploring the self-attention mechanism that makes transformer-based models qualitatively different from their predecessors. Still, the core message -- that confident-sounding output is not the same as correct output -- is one that every user of these systems needs to internalize.</p>
+
+      </div>
+
       
       <section id="deep-dives" class="deep-dives">
         <h2>Deep Dives</h2>
@@ -64,22 +130,38 @@
         </a>
         <p class="topic-summary">The architecture behind modern LLMs that enables next-token prediction capabilities discussed in the article</p>
       </li>
+      <li class="deep-dive-item">
+        <span class="deep-dive-no-link">
+          <strong>The Master Algorithm</strong>
+          <span class="read-time">by Pedro Domingos</span>
+        </span>
+        <p class="topic-summary">The quest for the universal learning algorithm that will reshape civilization.</p>
+      </li>
+
+      <li class="deep-dive-item">
+        <span class="deep-dive-no-link">
+          <strong>Godel, Escher, Bach</strong>
+          <span class="read-time">by Douglas Hofstadter</span>
+        </span>
+        <p class="topic-summary">A Pulitzer-winning exploration of consciousness, formal systems, and strange loops.</p>
+      </li>
         </ul>
       </section>
     
 
-      
-      <div class="excerpt-card">
+      <section id="excerpt" class="excerpt-card">
+        <div class="content-label">
+          <span class="label-text">Excerpt from the original article on ByteByteGo Newsletter</span>
+        </div>
         <div class="article-excerpt">
           <h2><a href="https://go.bytebytego.com/Datadog_022326">Overcome the challenges of deploying LLMs securely and at scale (Sponsored)</a></h2><div class="captioned-image-container"></div><p>To scale with LLMs, you need to know how to monitor them effectively. In this eBook, get practical strategies to monitor, debug, and secure LLM-powered applications. From tracing multi-step workflows and detecting prompt injection attacks to evaluating response quality and tracking token usage, you’ll learn best practices for integrating observability into every layer of your LLM stack.</p><div><hr></div><p>When we talk about large language models “learning,” we can end up creating a misleading impression. The word “learning” suggests something similar to human learning, complete with understanding, reasoning, and insight.</p><p>However, that’s not what happens inside these systems. LLMs don’t learn the way you learned to code or solve problems. Instead, they follow repetitive mathematical procedures billions of times, adjusting countless internal parameters until they become very good at mimicking patterns in text.</p><p>This distinction matters more than you might think because it changes the way LLMs generate their answers.</p><p>Understanding how LLMs actually work helps you know when to trust their outputs and when to be skeptical. It reveals why they can write convincing essays about topics they don’t fully understand, and why they sometimes fail in surprising ways.</p><p>In this article, we’ll explore three core concepts that have a key impact on the working of LLMs:  loss functions (how we measure failure), gradient descent (how we make improvements), and next-token prediction (what LLMs actually do).</p><h2>The Foundation: Loss Functions</h2><p>Before an LLM can learn anything, we need a way to measure how badly it’s performing. This measurement is called a loss function.</p><p>Think of it as a scoring system that provides a single number representing how wrong the model is. The higher the number, the worse the performance. The goal of training is to make this number as small as possible.</p><div class="captioned-image-container"></div><p>However, you can’t just pick any measurement and expect it to work. A good loss function must satisfy three critical requirements:</p><ul><li><p>First, it must be specific. It needs to measure something concrete and not vague. If someone told you to “build an intelligent computer,” you’d struggle because intelligence itself is hard to define. Would a system that passes an IQ test count? Probably not, since computers have passed IQ tests for over a decade without being useful for much else. For LLMs, we pick something very specific, such as predicting the next word in a sequence correctly. This </p></li>...</ul>
         </div>
         <div class="excerpt-card-cta">
           <a href="https://blog.bytebytego.com/p/how-large-language-models-learn" class="read-button" target="_blank" rel="noopener">
-            Continue reading on ByteByteGo Newsletter &rarr;
+            Read the entire original on ByteByteGo Newsletter &rarr;
           </a>
-          <p class="cta-note">The full article by Alex Xu is available on ByteByteGo Newsletter.</p>
         </div>
-      </div>
+      </section>
       
     </article>
   

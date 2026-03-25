@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Literacy - Lecture 4.2: Neural Net Classifiers - Hex Index</title>
+  <link rel="stylesheet" href="../../styles.css">
+</head>
+<body class="reading-mode">
+  <header class="reading-header">
+    <a href="../../index.html" class="back-link" id="back-link">&larr; Back to Library</a>
+  </header>
+  <main class="reading-content">
+    
+    <article class="article-page">
+      <header class="article-header">
+        <h1>AI Literacy - Lecture 4.2: Neural Net Classifiers</h1>
+        <div class="article-meta">
+          <span class="author">Kenny Easwaran</span>
+          <span class="separator">&middot;</span>
+          <a href="../../publication/kennyeaswaran/index.html" class="publication">
+            Kenny Easwaran
+          </a>
+          <span class="separator">&middot;</span><time>Sep 16, 2024</time>
+          <span class="separator">&middot;</span>
+          <span class="read-time">26 min read</span>
+        </div>
+      </header>
+
+      <div class="content-label">
+        <span class="label-text">Commentary by <a href="../../about/index.html">Brian Edwards</a></span>
+        <nav class="content-nav">
+          
+          <a href="https://www.youtube.com/watch?v=H4WDca_MjoQ" target="_blank" rel="noopener">Original video &rarr;</a>
+        </nav>
+      </div>
+
+      
+      <div class="article-content">
+        <h2>Teaching Machines to See: Neural Net Classifiers and Their Discontents</h2>
+
+<p>Kenny Easwaran's lecture on neural network classifiers walks through the mechanics of how machines learn to recognize patterns in images, from handwritten digits to complex photographs. But beneath the tutorial lies a set of deeper questions about what it means for a system to "understand" its inputs, and whether the patterns these networks discover are the ones their creators intended.</p>
+
+<p>The lecture anchors its explanation in one of the foundational success stories of deep learning: handwritten digit recognition. A grid of pixels feeds into layers of neurons, weights get adjusted through backpropagation, and eventually the network learns to distinguish a 2 from a 3. Easwaran describes the training loop with admirable clarity:</p>
+<figure class="inline-illustration">
+    <img src="../../images/11dcc973-dc86-43cd-a906-c345d9cd8412.webp" alt="" loading="lazy" width="600" height="315">
+  </figure>
+
+
+<blockquote>We start with the weights and biases for all these connections at random... we'll put in just one of the training images and run it through the neural net... because the weights and biases in the neural net are just random, this first run is just going to output some random numbers for these 10 different digits.</blockquote>
+
+<p>The pedagogical choice to start with digit recognition is well-established in machine learning education, and for good reason. The problem is constrained enough to be tractable but rich enough to illustrate the core mechanics. What makes Easwaran's treatment distinctive is his emphasis on the gap between what the network does and what humans can understand about why it does it.</p>
+
+<h2>Convolutions: When Architecture Encodes Assumptions</h2>
+
+<p>The most substantive technical contribution of the lecture is its explanation of convolutional neural networks. Rather than letting each neuron in a hidden layer develop its own idiosyncratic relationship to the input pixels, convolutional architectures force neurons to share weights in a structured way. A small "kernel" of weights gets applied across the entire input grid, acting as a feature detector that operates everywhere rather than in one specific location.</p>
+
+<blockquote>Instead of having hundreds of unrelated neurons on that first hidden layer, they would make a whole grid of neurons in that first hidden layer that correspond to the positions in the array of pixels, but instead of each one of those having its own weights, what they do is they have one set of weights that gets applied to the entire input.</blockquote>
+
+<p>Easwaran frames this as both a practical improvement (fewer parameters to train) and an interpretability win (the kernels often correspond to recognizable features like edge detectors). This is accurate as far as it goes, but it understates the degree to which convolutional architectures bake in a strong assumption: that the same local features matter regardless of where they appear in the image. This assumption works brilliantly for many visual tasks but fails for others. A face detection system, for instance, cares very much about whether eyes appear above a mouth rather than below it. Pure convolution alone cannot capture such spatial relationships, which is why modern architectures layer additional mechanisms on top.</p>
+
+<h2>The Interpretability Mirage</h2>
+
+<p>The lecture traces a line from convolutional kernels through Google's Deep Dream project to Anthropic's work on mechanistic interpretability with Claude, suggesting a trajectory of increasing understanding. Easwaran describes how researchers discovered they could work backward from output labels to visualize what a neural network "imagines" an ideal input looks like:</p>
+
+<blockquote>They realized well you could start with the label and then try to figure out what pattern of pixels would excite that label neuron very well, and it turned out when they did that they got something that looked like this, and they realized this is sort of what the neural network imagines a banana most ideally looks like.</blockquote>
+
+<p>The framing here deserves scrutiny. While Deep Dream and related visualization techniques produce visually striking results, the degree to which they provide genuine "understanding" of network behavior remains hotly debated. Chris Olah and others at Anthropic have done rigorous work on mechanistic interpretability, but the field's own practitioners are the first to acknowledge how far they remain from the kind of transparent reasoning that symbolic AI systems can provide. Easwaran acknowledges this limitation but perhaps too gently, noting only that "none of this has given real interpretability." The gap between recognizing that a neuron responds to edge-like patterns and understanding why a network makes a specific classification decision on a specific input is enormous, and that gap has real consequences.</p>
+
+<h2>When Networks Learn the Wrong Lesson</h2>
+
+<p>The strongest section of the lecture deals with dataset bias and spurious correlations. The fishing boat example is particularly effective: a network trained to identify fish species instead learned to identify which boat the photograph came from, since different boats fished in different oceans for different species. Similarly, a medical imaging system learned to recognize hospital technician signatures rather than actual pathology in X-rays.</p>
+
+<blockquote>Instead of looking at the X-ray to figure out which issue was going on, it was identifying the signature of the hospital technicians from the different hospitals and said, oh, if this signature is on there it must be a broken bone, and if that signature is on there it must be cancer.</blockquote>
+
+<p>These examples illustrate a fundamental challenge that extends well beyond image classification. Neural networks are optimization machines. They will find whatever statistical regularity in the training data most efficiently reduces their error, whether or not that regularity corresponds to the causal structure humans care about. The fishing boat network was not "wrong" in any mathematical sense; it found a genuine correlation in its training data. It was wrong only in the sense that it learned something other than what its creators intended.</p>
+
+<p>This is where a counterpoint is worth raising. Easwaran draws an explicit parallel between neural network bias and human cognitive bias, suggesting that networks "replicate the same kinds of bias that humans do." The analogy is illuminating but potentially misleading. Human biases arise from a complex interplay of evolution, culture, emotion, and experience. Neural network biases arise from statistical patterns in finite datasets. The surface similarity in outcomes should not obscure the fundamentally different mechanisms at work. Conflating the two risks both anthropomorphizing the machines and mechanizing the humans.</p>
+
+<h2>Adversarial Fragility and Real-World Stakes</h2>
+
+<p>The lecture closes with a discussion of adversarial images, where carefully crafted pixel-level perturbations can cause a network to confidently misclassify an input. Easwaran correctly notes that generating such adversarial examples requires access to the network's internals and that single-image attacks do not generalize easily to real-world, multi-angle scenarios.</p>
+
+<blockquote>Creating the adversarial image is much easier to do because you're just trying to make it do a bad job on one image. These couple hundred pixels that you figure out how to modify are unlikely to apply very well to other images.</blockquote>
+
+<p>This is a reasonable summary of the state of the art circa 2024, but it may understate the practical risk. Research has demonstrated physical-world adversarial attacks, including modified stop signs that autonomous vehicles misclassify, and adversarial patches that can be printed and worn. The computational cost of generating these attacks continues to fall. More importantly, adversarial vulnerability points to something deeper about how neural networks represent information: they rely on statistical features that may not correspond to the semantic features humans use, making them brittle in ways that are difficult to anticipate or defend against.</p>
+
+<h2>Bottom Line</h2>
+
+<p>Easwaran delivers a clear and accessible introduction to neural network classifiers that covers the essential mechanics without drowning in mathematical detail. The lecture's real value lies in its honest treatment of the limitations: interpretability remains shallow, dataset bias produces systems that learn the wrong lessons, and adversarial attacks expose a fundamental fragility in how these networks process information. For readers approaching the topic for the first time, this is solid ground to stand on. For those already familiar with the basics, the most useful takeaway is the recurring reminder that a network's confidence in its output tells you nothing about whether it learned the right thing.</p>
+
+      </div>
+
+      
+      <section id="deep-dives" class="deep-dives">
+        <h2>Deep Dives</h2>
+        <p class="deep-dives-intro">Explore related topics with these Wikipedia articles, rewritten for enjoyable reading:</p>
+        <ul class="deep-dive-list">
+          
+      <li class="deep-dive-item">
+        <span class="deep-dive-no-link">
+          <strong>The Master Algorithm</strong>
+          <span class="read-time">by Pedro Domingos</span>
+        </span>
+        <p class="topic-summary">The quest for the universal learning algorithm that will reshape civilization.</p>
+      </li>
+
+      <li class="deep-dive-item">
+        <span class="deep-dive-no-link">
+          <strong>The Alignment Problem</strong>
+          <span class="read-time">by Brian Christian</span>
+        </span>
+        <p class="topic-summary">How machine learning reflects and amplifies human values — and where it goes wrong.</p>
+      </li>
+        </ul>
+      </section>
+    
+
+      <section id="excerpt" class="excerpt-card">
+        <div class="content-label">
+          <span class="label-text">Transcript excerpt on Kenny Easwaran</span>
+        </div>
+        <div class="article-excerpt">
+          <p>in this lecture I'll talk about neural Nets used for classification mentioning how they work some choices about how they're structured and issues for them around understandability bias and adversaries as a reminder here are the basics of how a neural net works there are input neurons that take in the data about the thing to be classified there are neurons in some number of hidden layers whose weights and biases are set the training data and generally don't have meaning to humans and then there's output neurons corresponding to various classifications that you might have again with their own weights and biases set by the training data in a very simple case the input neurons might represent the words in a resume and there might be just a single output neuron that says interview that could either be close to one if you should or close to zero if you shouldn't in an extremely complex case the input neurons might represent the hundreds or even thousands of different aspects of the meaning of a context in a large language model and the output neurons might represent the hundreds or thousands of aspects of the meaning that it thinks are relevant for the word that will come next so before rather than talking about either extreme I'll talk about one useful example that was one of the first successful uh applications of neuron Nets and this is to do recognition of handwritten digits and so the idea is that the input neurons here instead of drawing them as these little circles for the neurons I've drawn them as the pixels in a grid uh in the original uh version it was a 32x 32 pixel grid with 1,24 input neurons here I've drawn it as a smaller grid uh but then there's some hidden layers in between in the actual original application there were a few there were about hidden layers with a few hundred neurons each here I've just drawn it with three hidden layers with eight six and four neurons each and then there are 10 output neurons in the output layer corresponding to the 10 digits each neuron has a sigmoid activation function don't worry about the details of what that means except that every neuron will always have an output that is a number between zero and one and the way that we train this neural ...</p>
+        </div>
+        <div class="excerpt-card-cta">
+          <a href="https://www.youtube.com/watch?v=H4WDca_MjoQ" class="read-button" target="_blank" rel="noopener">
+            Watch on YouTube &rarr;
+          </a>
+        </div>
+      </section>
+      
+    </article>
+  
+  </main>
+  <script>
+  (function() {
+    var params = new URLSearchParams(window.location.search);
+    var from = params.get('from');
+    if (from) {
+      var names = {
+        'foreign-policy':'Foreign Policy','ai-tech':'AI & Tech','housing-cities':'Housing & Cities',
+        'political-strategy':'Political Strategy','history':'History','science':'Science',
+        'culture':'Culture','economics':'Economics','faith':'Faith','writing-craft':'Writing & Craft',
+        'music':'Music','law-rights':'Law & Rights','public-health':'Public Health',
+        'philosophy':'Philosophy','media':'Media','defense':'Defense','china':'China'
+      };
+      var link = document.getElementById('back-link');
+      if (link) {
+        var name = names[from] || from;
+        link.href = '../../tag/' + from + '/index.html';
+        link.textContent = '\u2190 Back to ' + name;
+      }
+    }
+  })();
+  </script>
+</body>
+</html>

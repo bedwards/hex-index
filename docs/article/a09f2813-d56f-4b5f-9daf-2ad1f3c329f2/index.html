@@ -28,13 +28,97 @@
       </header>
 
       <div class="content-label">
-        <span class="label-text">Excerpt from <a href="../../publication/theclimatebrink/index.html">The Climate Brink</a></span>
+        <span class="label-text">Commentary by <a href="../../about/index.html">Brian Edwards</a></span>
         <nav class="content-nav">
-          <a href="https://www.theclimatebrink.com/p/the-ai-augmented-scientist" target="_blank" rel="noopener">Read full article &rarr;</a>
+          <a href="#deep-dives">Deep dives</a><span class="separator">&middot;</span>
+          <a href="https://www.theclimatebrink.com/p/the-ai-augmented-scientist" target="_blank" rel="noopener">Original article &rarr;</a>
         </nav>
       </div>
 
       
+      <div class="article-content">
+        <h2>A Climate Scientist's Field Report from the AI Frontier</h2>
+
+<p>Zeke Hausfather is the climate research lead at Stripe and one of the more prolific climate communicators on the internet. He has been using large language models since GPT-3.5 launched in 2022, which gives him roughly three and a half years of hands-on experience applying these tools to real scientific work. His latest essay on The Climate Brink is a practitioner's guide to where AI helps climate science and where it falls flat, punctuated by a live experiment that goes entertainingly sideways before he corrects course.</p>
+
+<p>Hausfather's credibility on this topic runs deeper than most. He has collaborated directly with AI labs to evaluate how well language models handle climate science questions, and he works at a Silicon Valley company where AI adoption is not optional but expected. That combination of domain expertise and daily tool use makes his assessment unusually grounded.</p>
+<figure class="inline-illustration">
+    <img src="../../images/a09f2813-d56f-4b5f-9daf-2ad1f3c329f2.webp" alt="" loading="lazy" width="600" height="315">
+  </figure>
+
+
+<h2>Where AI Earns Its Keep</h2>
+
+<p>The strongest case Hausfather makes is for coding. Scientists, he argues, are generally not software engineers, and AI has closed that gap dramatically.</p>
+
+<blockquote>The ability of AI tools to write high quality code has grown by leaps and bounds over the past three years, to the point where its comparable to (or even better than) professional software engineers for many applications.</blockquote>
+
+<p>The practical result is that natural language has become a programming interface. Rather than wrestling with Python syntax, Hausfather describes specifying project requirements in plain English and letting Claude Code handle implementation. He calls data visualization progress particularly striking.</p>
+
+<blockquote>After being able to move a color bar scale from the horizontal to vertical axis just by telling the tool to do it, it would be hard to ever go back to the endless browsing of arcane feature documentation.</blockquote>
+
+<p>He extends the argument to data wrangling, file management, and even creative visualization. His tree ring temperature plot, he notes, emerged from prompting AI tools to propose novel chart types. And his Climate Dashboard, a fully hosted interactive site, was something he built in a day despite never having done web development before.</p>
+
+<blockquote>"Vibe coding" with tools like Claude Code lets me build and host websites in a day, two things I've never done before in my life.</blockquote>
+
+<p>There is a candid admission buried here, though. Hausfather acknowledges a real risk that these productivity gains come with a cost.</p>
+
+<blockquote>As with any muscle, coding skill will atrophy without use. It may well be that a decade from now that I'm less able to effectively review what has been produced by AI coding tools.</blockquote>
+
+<p>He waves this away with "good tests and a deep understanding of the topic matter," but the tension is real. If an entire generation of scientists outsources coding to AI, who will catch the subtle bugs that only experienced programmers recognize? Tests catch known failure modes. They do not catch the unknown ones.</p>
+
+<h2>Where AI Still Stumbles</h2>
+
+<p>Hausfather is equally direct about the limitations. Writing tops his list of things AI does poorly, at least for public-facing work.</p>
+
+<blockquote>Despite trying lots of difference experiments over the years, trying to have the AI analyze past writings to learn my style, I still find AI writing a poor simulacra of my own. There is a certain style of AI writing that is distinct and a bit soulless.</blockquote>
+
+<p>He draws a firm personal line: anything published under his name is written by him alone. AI can edit drafts and help with tone for unfamiliar contexts, like the commencement speech he gave last year, but the core creative work remains human.</p>
+
+<p>Research synthesis presents a more nuanced problem. Tools like Gemini's Deep Research can produce competent overviews of unfamiliar topics, but they lack access to paywalled academic literature and struggle with the judgment calls that define expert assessment. Hausfather points to a specific failure mode worth noting.</p>
+
+<blockquote>AI has a bit of a conservative bias (small-c, not in the political sense) where it will tend to go with prevailing conventions represented in its training data and discount newer studies.</blockquote>
+
+<p>His example is telling. When evaluating AI responses on what happens to temperatures after emissions cease, the models kept insisting on significant warming in the pipeline, ignoring more recent research showing near-zero committed warming. Training data reflects the past, and in a rapidly evolving field like climate science, the past can be meaningfully wrong.</p>
+
+<p>Original research ideas remain firmly out of reach. The contextual understanding of what matters in a field, what questions are ripe, what findings would shift the conversation, that remains a human strength.</p>
+
+<h2>The Live Experiment</h2>
+
+<p>The most revealing section of the essay is a real-time demonstration where Hausfather asks Claude Code to decompose uncertainty in future warming projections. He wants to separate how much comes from climate sensitivity versus carbon cycle feedbacks, using the FaIR reduced-complexity climate model.</p>
+
+<p>Claude spent seven minutes creating a detailed research plan, then two and a half minutes writing code, running simulations, and producing results. The speed is impressive. The initial results, however, were wrong.</p>
+
+<p>The climate sensitivity-only experiment showed a wider uncertainty range than the full model run, which is physically nonsensical. Claude offered a plausible-sounding explanation involving negative correlations in the calibrated ensemble. Hausfather, drawing on his domain expertise, identified the real problem: his prompt was ambiguous about whether to use concentration-driven or forcing-driven runs, and Claude chose the wrong one.</p>
+
+<blockquote>My initial prompt was not precise; I asked the Claude to "use the median concentration/forcings scenario from that initial run and runs the model in concentration/forcing driven rather than emissions driven mode." I meant (but did not specify) to use concentration-based runs when possible.</blockquote>
+
+<p>After correcting the approach, the results matched expectations. Hausfather is refreshingly honest that the mistake was partly his own, noting he should have caught it during plan review.</p>
+
+<blockquote>Being able to create a detailed plan for an experiment and have AI agents write the code and kick off the needed model runs is an immense productivity booster. It will not be perfect every time, diligence is needed to make sure that the instructions were followed accurately and the results do not include bugs.</blockquote>
+
+<p>This section alone makes the essay worth reading. It shows both the power and the peril in a single, concrete example rather than abstract theorizing.</p>
+
+<h2>The Energy Question</h2>
+
+<p>Hausfather addresses AI's energy footprint with the kind of quantitative rigor that characterizes his climate work. Data centers could consume up to twelve percent of United States electricity by 2030, up from about two percent before 2025. But he puts this in perspective: even if powered entirely by natural gas, that would increase total US emissions by only about 2.5 percent, against a backdrop of emissions already down twenty percent since 2005.</p>
+
+<p>At the individual level, the numbers are almost comically small. A ten-minute shower uses the energy equivalent of six thousand AI queries. A ten-mile gas car commute equals over thirty thousand.</p>
+
+<p>This framing is useful but arguably too reassuring. Hausfather's 2.5 percent figure treats the AI boom as a one-time, bounded shock to the energy system. If AI adoption follows the trajectory its proponents predict, those demand curves will steepen well beyond current projections. And the marginal emissions matter most precisely when every sector needs to be decarbonizing, not finding new reasons to burn gas.</p>
+
+<p>To his credit, Hausfather does not let the industry off the hook entirely. He co-authored a report showing that ninety percent of a data center's annual energy could come from solar and storage in sunny regions, at only a modest cost premium. The technology exists. The question is whether the pressure to deploy it will match the pressure to build capacity.</p>
+
+<h2>Bottom Line</h2>
+
+<p>Hausfather's essay is the most useful practitioner account of AI in science published this year. It avoids both the breathless hype and the reflexive skepticism that dominate most commentary. The live experiment, with its instructive failure and correction, is worth more than a dozen think pieces about AI's potential.</p>
+
+<p>The core message is straightforward: AI is an extraordinary coding and data analysis partner for scientists, a mediocre writer, and a poor original thinker. Scientists who learn to write precise specifications and rigorously verify outputs will see enormous productivity gains. Those who treat AI as a substitute for domain expertise will produce confident-looking garbage.</p>
+
+<p>What Hausfather perhaps understates is how few scientists currently have the workflow literacy he describes. He has years of practice, works at a tech company that encourages experimentation, and possesses deep enough domain knowledge to catch AI mistakes in real time. The median climate researcher has none of those advantages. Bridging that gap, not just building better models, may be the harder problem.</p>
+
+      </div>
+
       
       <section id="deep-dives" class="deep-dives">
         <h2>Deep Dives</h2>
@@ -64,22 +148,30 @@
         </a>
         <p class="topic-summary">The article discusses Claude Code, their AI assistant that the author uses extensively</p>
       </li>
+      <li class="deep-dive-item">
+        <span class="deep-dive-no-link">
+          <strong>Thinking, Fast and Slow</strong>
+          <span class="read-time">by Daniel Kahneman</span>
+        </span>
+        <p class="topic-summary">The foundational work on cognitive biases and dual-process theory.</p>
+      </li>
         </ul>
       </section>
     
 
-      
-      <div class="excerpt-card">
+      <section id="excerpt" class="excerpt-card">
+        <div class="content-label">
+          <span class="label-text">Excerpt from the original article on The Climate Brink</span>
+        </div>
         <div class="article-excerpt">
           <p>I was reminded of Arthur C. Clark’s famous third law the other day, that “any sufficiently advanced technology is indistinguishable from magic.” I’d recently gotten <a href="https://code.claude.com/docs/en/overview">Claude Code</a> set up on my computer, and was using it to help write the code for some <a href="https://docs.fairmodel.net/en/latest/">reduced-complexity climate model</a> runs. Suddenly projects that would have taken hours or even days were running in minutes. It was not perfect –&nbsp;I needed to carefully help it create projects plans, develop tests, and review the results – but it represented a remarkable step up from the capabilities I was familiar with in past web-based LLM interfaces.</p><p>I’m something of an unusual climate scientist as, rather than working in academia, my main role is as the climate research lead at <a href="https://stripe.com/">Stripe</a>, a financial technology company in Silicon Valley. As such, I’ve probably used AI far more than most other folks in the scientific community, given that we are strongly encouraged to use it extensively for work. I’ve also worked directly with AI labs on projects to evaluate the performance of LLMs in answering climate science questions, and to help enable AI tools to support scientific collaboration.</p><p>I started using GPT3.5 back in 2022 when it first came out. Initially it was a novelty but not particularly useful for scientific applications. It was quite prone to hallucinations, would get into endless spirals of errors it would then try and fix, and would often grossly misinterpret instructions. But it had decent skill at coding, and could (sometimes) help solve bugs in my code much faster than trying to search Stack Overflow or old Reddit posts.</p><p>This changed with the release of GPT4 in 2023, and particularly with the release of Code Interpreter that could automate data analysis and visualization capabilities. It still hallucinated, was not great at writing, but could arguably code better than the typical scientist. One of the earlier projects I did was to ask it to help visualize how unusual the summer of 2023 was in terms of global temperatures, which helped generate both the ideas of and code for this somewhat <a href="https://www.theclimatebrink.com/p/visualizing-a-summer-of-extremes">viral Climate Brink post</a> (which I referred to as “gobsmackingly bananas” at the time).</p><p>Today the tools are much better than they were in 2023. Hallucinations still exist, but they are much less frequent. As someone who has used these tools more than most in the scientific community, I have a good sense ...</p>
         </div>
         <div class="excerpt-card-cta">
           <a href="https://www.theclimatebrink.com/p/the-ai-augmented-scientist" class="read-button" target="_blank" rel="noopener">
-            Continue reading on The Climate Brink &rarr;
+            Read the entire original on The Climate Brink &rarr;
           </a>
-          <p class="cta-note">The full article by Andrew Dessler &amp; Zeke Hausfather is available on The Climate Brink.</p>
         </div>
-      </div>
+      </section>
       
     </article>
   

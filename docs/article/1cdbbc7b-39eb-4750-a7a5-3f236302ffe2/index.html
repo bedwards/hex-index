@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>We Hacked Flock Safety Cameras in under 30 Seconds. 🫥 - Hex Index</title>
+  <link rel="stylesheet" href="../../styles.css">
+</head>
+<body class="reading-mode">
+  <header class="reading-header">
+    <a href="../../index.html" class="back-link" id="back-link">&larr; Back to Library</a>
+  </header>
+  <main class="reading-content">
+    
+    <article class="article-page">
+      <header class="article-header">
+        <h1>We Hacked Flock Safety Cameras in under 30 Seconds. 🫥</h1>
+        <div class="article-meta">
+          <span class="author">Benn Jordan</span>
+          <span class="separator">&middot;</span>
+          <a href="../../publication/bennjordan/index.html" class="publication">
+            Benn Jordan
+          </a>
+          <span class="separator">&middot;</span><time>Nov 16, 2025</time>
+          <span class="separator">&middot;</span>
+          <span class="read-time">45 min read</span>
+        </div>
+      </header>
+
+      <div class="content-label">
+        <span class="label-text">Commentary by <a href="../../about/index.html">Brian Edwards</a></span>
+        <nav class="content-nav">
+          
+          <a href="https://www.youtube.com/watch?v=uB0gr7Fh6lY" target="_blank" rel="noopener">Original video &rarr;</a>
+        </nav>
+      </div>
+
+      
+      <div class="article-content">
+        <h2>Eighty Thousand Cameras Nobody Audited</h2>
+
+<p>Benn Jordan, a musician and independent researcher, presents what amounts to a citizen-led security audit of Flock Safety, the company behind more than 80,000 automated license plate reader cameras deployed across the United States. Working alongside security researcher John Gaines and open-source intelligence expert Joshua Michael, Jordan demonstrates that the devices can be compromised with startling ease -- in some cases requiring nothing more than pressing a button sequence on the back of the camera. The findings are not theoretical. They prompted U.S. senators and representatives to draft a formal letter requesting an FTC investigation on national security grounds.</p>
+
+<p>The central question the investigation raises is not whether surveillance technology can reduce crime. It is whether a $7.5 billion private company should be trusted with mass public surveillance when its hardware and software have never undergone a single independent public audit.</p>
+<figure class="inline-illustration">
+    <img src="../../images/1cdbbc7b-39eb-4750-a7a5-3f236302ffe2.webp" alt="" loading="lazy" width="600" height="315">
+  </figure>
+
+
+<h2>A Shell in Under a Minute</h2>
+
+<p>The most alarming vulnerability is also the simplest. Security researcher John Gaines discovered that pressing a button on the back of a Flock Safety camera in a particular sequence creates a wireless access point. From there, an attacker can enable Android Debug Bridge, connect to the device, and obtain full shell access -- meaning complete remote control, data exfiltration, and privilege escalation. Gaines packaged the exploit into a tool simple enough for a novice to use.</p>
+
+<blockquote>The longest part actually is waiting for the hotspot to turn on. But realistically in about 5 seconds. And in fact with the compute box you don't need to hit the buttons because the USB-C ports are exposed. So you can just plug in a rubber ducky and then walk away.</blockquote>
+
+<p>A rubber ducky -- a USB device that mimics a keyboard and executes scripts automatically -- costs as little as five dollars. The implications are sweeping. A compromised camera could be turned into a malware host, a credential-stealing honeypot, a cryptocurrency miner, or a tool for intercepting and modifying surveillance footage. That last possibility is particularly troubling for the justice system: if camera footage can be tampered with undetectably, its admissibility as evidence in court becomes fundamentally questionable.</p>
+
+<p>Jordan also demonstrated a Tempest attack -- a Cold War-era technique for decoding electromagnetic radiation leaking from electronic devices. Using a software-defined radio and a directional antenna, he was able to reconstruct what the camera was seeing from six feet away by exploiting RF leakage between 592 and 594 MHz. While this attack requires specialized equipment and expertise, it underscores that the cameras were never designed with the level of security appropriate for devices handling sensitive public data.</p>
+
+<h2>The Android Things Problem</h2>
+
+<p>Perhaps the most straightforward indictment of Flock Safety's security posture is the operating system running on its cameras. The devices use Android Things 8 or 8.1, an operating system Google discontinued in 2021 -- including all security updates. At the time of Jordan's investigation, more than 900 published vulnerabilities existed for this OS.</p>
+
+<blockquote>Someone please explain to me why there are even cameras in the wild recording public activity that aren't even running on supported software.</blockquote>
+
+<p>The comparison Jordan draws is apt: most consumers would discard a phone or home security system that stopped receiving security patches. Yet tens of thousands of government-funded surveillance cameras continue operating on abandoned software, collecting and transmitting data about millions of Americans daily. Hard-coded credentials, unencrypted data at runtime, and images retained well beyond the company's stated seven-day deletion window compound the picture of a product rushed to market without adequate security engineering.</p>
+
+<h2>Misleading Claims and Questionable Efficacy</h2>
+
+<p>The investigation's second major thread concerns whether Flock Safety's cameras actually deliver on the company's crime-reduction promises. Jordan methodically dismantles several of the company's public claims. Flock Safety's website states that 10% of all crime in America is solved using its services, but the source cited is a research paper authored by two Flock Safety employees that lacks regional analysis. Crime has been dropping nationally since 2021, making broad claims about any single technology's contribution nearly impossible to substantiate without rigorous controlled studies.</p>
+
+<p>The case of Bakersfield, California, is particularly damaging. Flock Safety claimed credit for a 33% decrease in motor vehicle thefts, but Jordan found the company was citing data from years before the cameras were installed. The Berkeley Police Accountability Board went further, finding that automated license plate readers in some California communities were correlated with increases in vehicle theft and lower crime clearance rates.</p>
+
+<blockquote>Over 5,000 cities leveraged Flock to solve north of 14% of all crimes in America. But Flock's story is an Atlanta story. We can now rest assured that if a crime happens in South Downtown, it will be solved.</blockquote>
+
+<p>Jordan notes dryly: it was not solved. The gap between marketing rhetoric and verifiable outcomes is a recurring theme. In Oakland, Flock Safety claimed an 11% rise in violent crime clearance rates while failing to mention that violent crime decreased 19% overall -- consistent with national trends -- and that Oakland's 2023 violent crime clearance rate of 3% was later acknowledged as an error by the police department itself.</p>
+
+<h2>Denver and the Limits of Democratic Oversight</h2>
+
+<p>The Denver saga illustrates how surveillance technology can resist democratic accountability even when elected officials push back. Mayor Mike Johnston initially claimed that Denver's Flock cameras were walled off from federal agencies and accessible only to Denver Police Department officers. Jordan's research suggested otherwise: in just over a year, queries openly associated with immigration services numbered over 1,800.</p>
+
+<p>When the Denver City Council overwhelmingly voted to not renew the Flock Safety contract -- going so far as to question the company's ethics and credibility -- Mayor Johnston signed the contract anyway. Council members called it a backroom deal with a known bad actor. The episode is a case study in how procurement decisions involving surveillance technology can bypass the very democratic processes that are supposed to authorize them.</p>
+
+<blockquote>We do not believe that the city and county of Denver should continue doing business with a company that has demonstrated such disregard for honesty and accountability.</blockquote>
+
+<p>In a particularly grim footnote, Jordan highlights the case of Jax Grafton, a trans woman whose murder Mayor Johnston cited as having been solved through Flock camera data. Grafton's mother publicly contradicted the claim, saying Flock had nothing to do with her daughter being found. Using a murder victim's story to justify surveillance spending -- inaccurately -- represents a rhetorical low point that even sympathetic observers would struggle to defend.</p>
+
+<h2>Counterpoints Worth Considering</h2>
+
+<p>Fair-minded critics of Jordan's investigation might raise several points. The devices he tested were acquired secondhand; Flock Safety could argue that cameras deployed in the field run different firmware or have been patched since these vulnerabilities were discovered. Jordan acknowledges this possibility, though he notes it would be unusual for hardware to vary so fundamentally between units. The responsible disclosure process was followed, and Flock Safety was given the standard 90-day window to address the issues -- a window the company used to release a PR statement without referencing the researchers or confirming any fixes.</p>
+
+<p>There is also a reasonable argument that license plate readers, properly implemented and audited, could be a legitimate law enforcement tool. The National Policing Institute found that the technology can improve public safety, albeit with the critical caveat that its impact depends on implementation. The problem Jordan identifies is not the concept of automated surveillance per se, but the complete absence of independent oversight, the use of abandoned operating systems, and a business model that prioritizes growth over security fundamentals like multifactor authentication.</p>
+
+<h2>Bottom Line</h2>
+
+<p>Jordan's investigation reveals a surveillance infrastructure built on consumer-grade Android hardware, abandoned operating systems, and unencrypted data -- deployed at massive scale with no independent security audit ever conducted. The vulnerabilities are not sophisticated zero-day exploits requiring nation-state resources; they are elementary failures that any competent penetration test would have caught on day one. Jordan's proposed solution -- requiring private surveillance vendors to undergo independent security certification before receiving government contracts, much like health inspections for restaurants or safety inspections for vehicles -- is so plainly reasonable that its absence from current policy is itself an indictment. The question is not whether 80,000 cameras can help solve crimes. It is whether a society that requires a license to cut hair but not to surveil millions of citizens has its priorities in order.</p>
+
+      </div>
+
+      
+      <section id="deep-dives" class="deep-dives">
+        <h2>Deep Dives</h2>
+        <p class="deep-dives-intro">Explore related topics with these Wikipedia articles, rewritten for enjoyable reading:</p>
+        <ul class="deep-dive-list">
+          
+      <li class="deep-dive-item">
+        <span class="deep-dive-no-link">
+          <strong>Thinking, Fast and Slow</strong>
+          <span class="read-time">by Daniel Kahneman</span>
+        </span>
+        <p class="topic-summary">The foundational work on cognitive biases and dual-process theory.</p>
+      </li>
+        </ul>
+      </section>
+    
+
+      <section id="excerpt" class="excerpt-card">
+        <div class="content-label">
+          <span class="label-text">Transcript excerpt on Benn Jordan</span>
+        </div>
+        <div class="article-excerpt">
+          <p>You may remember me from this video where I told you about 40,000 of these things that your tax dollars pay for that are tracking your every move and repurposing data collected about you every time that you drive past them. Upon further investigation, it turns out that there are over 80,000 of them. And um we got some and we hacked them. You can press a button a few times on the back of these cameras and within a few minutes turn them into your own personal spy device or malware host or honeypot that steals people's login credentials or a cryptocurrency minor.</p>
+<p>Whatever you want really. Or alternatively, how you can point an antenna at them and decode the video stream using a technique used by the CIA during the Cold War. Or how another researcher found a Google search phrase that had the capabilities of showing you the real-time location of these cameras and police patrol cars. This isn't clickbait or an exaggerated claim with no payoff.</p>
+<p>Just the other day, weeks before this video will be released, [music] US senators and representatives drafted an official letter to open an investigation that highlights the national [music] security risks associated with our findings. And in this video, I'm going to show you exactly how they work and even demonstrate them to journalists. &gt;&gt; No [ __ ] way. &gt;&gt; And finally, we're going to take a deep data dive into the efficacy, misinformation, and straightup lies surrounding some private surveillance startups.</p>
+<p>And we're going to use that momentum to push for protocols and legislation that actually makes you safer. Wow, that's a lot for a YouTube video. &gt;&gt; I can never act. Been trying to stack up racks on racks.</p>
+<p>Boys in the about wearing all black stain on track [music] and that's on me. Out here getting this be if you work for the devil. Better retreat. The meat and potatoes of this video will be mostly in parody with John Gainex white paper and that's linked in the description below.</p>
+<p>Many of these vulnerabilities were recently published with the National Vulnerability [music] Database or are in the process of publication. And to prevent the average viewer from getting lost or falling asleep, I'm going to keep many of the formalities and extensive details [music] to a minimum. But if you find yourself wanting more details at ...</p>
+        </div>
+        <div class="excerpt-card-cta">
+          <a href="https://www.youtube.com/watch?v=uB0gr7Fh6lY" class="read-button" target="_blank" rel="noopener">
+            Watch on YouTube &rarr;
+          </a>
+        </div>
+      </section>
+      
+    </article>
+  
+  </main>
+  <script>
+  (function() {
+    var params = new URLSearchParams(window.location.search);
+    var from = params.get('from');
+    if (from) {
+      var names = {
+        'foreign-policy':'Foreign Policy','ai-tech':'AI & Tech','housing-cities':'Housing & Cities',
+        'political-strategy':'Political Strategy','history':'History','science':'Science',
+        'culture':'Culture','economics':'Economics','faith':'Faith','writing-craft':'Writing & Craft',
+        'music':'Music','law-rights':'Law & Rights','public-health':'Public Health',
+        'philosophy':'Philosophy','media':'Media','defense':'Defense','china':'China'
+      };
+      var link = document.getElementById('back-link');
+      if (link) {
+        var name = names[from] || from;
+        link.href = '../../tag/' + from + '/index.html';
+        link.textContent = '\u2190 Back to ' + name;
+      }
+    }
+  })();
+  </script>
+</body>
+</html>
