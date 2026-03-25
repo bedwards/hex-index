@@ -70,6 +70,7 @@ export async function generateText(
       num_predict: numPredict,
       top_p: 0.95,
     },
+    think: false, // Disable Qwen 3.5 thinking mode — we want structured output, not reasoning
     keep_alive: -1,
     stream: false,
   });
@@ -111,14 +112,26 @@ export async function generateText(
 
       const data = (await response.json()) as {
         message?: { content?: string };
+        eval_count?: number;
       };
-      let content = data.message?.content?.trim() ?? '';
+      const rawContent = data.message?.content?.trim() ?? '';
+
+      // Strip <think>...</think> blocks from reasoning models (Qwen 3.5)
+      // Handle both greedy and lazy patterns, and empty/whitespace-only think blocks
+      const content = rawContent.replace(/<think>[\s\S]*?<\/think>\s*/g, '').trim();
+
       if (!content) {
-        lastError = new Error('Ollama returned empty response');
+        // If Ollama generated tokens (eval_count > 0) but content is empty,
+        // the server stripped think tags and there was no real output.
+        // If raw content was also empty and no tokens generated, the model
+        // genuinely produced nothing — retry in both cases.
+        const tokenCount = data.eval_count ?? 0;
+        const detail = tokenCount > 0
+          ? `(${tokenCount} tokens generated but content empty after think-tag stripping)`
+          : '(no tokens generated)';
+        lastError = new Error(`Ollama returned empty response ${detail}`);
         continue;
       }
-      // Strip <think>...</think> blocks from reasoning models
-      content = content.replace(/<think>[\s\S]*?<\/think>/g, '').trim();
       return content;
     } catch (err) {
       lastError = err instanceof Error ? err : new Error(String(err));
