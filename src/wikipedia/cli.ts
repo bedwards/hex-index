@@ -71,7 +71,7 @@ async function healthcheck(): Promise<void> {
 
   // Check Ollama
   const ollamaUrl = process.env.OLLAMA_URL || 'http://127.0.0.1:11434';
-  const ollamaModel = process.env.OLLAMA_MODEL || 'mistral-large:123b';
+  const ollamaModel = process.env.OLLAMA_MODEL || 'qwen3.5:122b-a10b';
   try {
     const resp = await fetch(`${ollamaUrl}/api/tags`, { signal: AbortSignal.timeout(5000) });
     if (!resp.ok) {
