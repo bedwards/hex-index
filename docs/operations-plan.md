@@ -31,9 +31,7 @@ Each clone:
 ~/vibe/hex-index-clones/
   qwen-batch/                         # Launchctl Qwen jobs (GPU work)
   auto-deploy/                        # Static site regeneration + GitHub Pages
-  claude-editorial/                   # Claude editorial loop (content quality)
-  claude-ops/                         # Claude ops loop (PRs, CI, health, cleanup)
-  claude-epub/                        # Claude Friday epub review (weekly)
+  claude-ops/                         # Single Claude loops session (all automated tasks)
 ```
 
 ### Clone Setup Script
@@ -50,7 +48,7 @@ BASE="$HOME/vibe/hex-index-clones"
 
 mkdir -p "$BASE"
 
-for name in qwen-batch auto-deploy claude-editorial claude-ops claude-epub; do
+for name in qwen-batch auto-deploy claude-ops; do
   if [ ! -d "$BASE/$name" ]; then
     echo "Cloning $name..."
     git clone "$REPO" "$BASE/$name"
@@ -131,466 +129,364 @@ It does NOT run on a timer. Instead, the Claude ops loop triggers it when needed
 
 ---
 
-## Claude Loops
+## Claude Loops — Single Session Architecture
 
-Claude loops run in tmux sessions using the Max subscription (`claude --dangerously-skip-permissions`). They use `/loop` for recurring execution. Each loop runs in its own clone.
+### One Session, One TUI, Many Tasks
+
+All Claude loops run in **one tmux session** (`claude-loops`) with **one Claude TUI instance**. Brian controls this session. A single meta-scheduler loop dispatches focused tasks via background agents with worktrees, keeping each task's context window clean.
+
+**Why one session:**
+- Brian can `tmux attach -t claude-loops` and see everything
+- No risk of multiple Claude sessions fighting over the same clone
+- `/loop` auto-expires after 3 days; one session is easier to refresh
+- Background agents with `isolation: "worktree"` provide the parallelism
+
+**Clone:** `~/vibe/hex-index-clones/claude-ops` (single clone for all loop work)
+**Tmux session:** `claude-loops`
+**Meta-loop interval:** Every 20 minutes
 
 ### Important Constraints
 
 - **Claude loops NEVER start Ollama/Qwen jobs.** GPU work is launchctl only.
 - **Claude loops NEVER push directly to main.** All code changes go through PRs.
-- **Claude loops use worktrees** within their clone for any code changes.
-- **Claude loops are aware of each other** via Discord coordination.
-- **Each loop runs in a separate tmux session** with a descriptive name.
+- **Every task spawns a background Agent** with `isolation: "worktree"` for a clean context window.
+- **One task per cycle.** The scheduler picks the highest-priority task and runs it. No multi-tasking.
+- **Tasks must be small and focused.** "Polish one article" not "review all articles." "Fix one failing PR" not "process all PRs."
 
-### Loop 1: Ops Loop (`claude-ops`)
+### How to Start the Loops Session
 
-**Clone:** `~/vibe/hex-index-clones/claude-ops`
-**Tmux session:** `claude-ops`
-**Interval:** Every 30 minutes
-**Purpose:** The operational backbone. Keeps everything running smoothly.
+From Brian's interactive Claude Code TUI (`~/hex-index`):
 
-#### Prompt: `tools/claude-loop/ops-prompt.md`
+```
+Hey Claude, start the loops session for me. Here's what to do:
+
+1. Open a new tmux session called "claude-loops" in ~/vibe/hex-index-clones/claude-ops
+2. Start Claude with --dangerously-skip-permissions
+3. Run /loop 20m tools/claude-loop/scheduler-prompt.md
+4. Confirm it's running with tmux ls
+```
+
+Or run the startup script:
+```bash
+bash tools/ops/start-loops.sh
+```
+
+To check on it:
+```bash
+tmux attach -t claude-loops    # Attach and watch
+# Ctrl-B D to detach without stopping it
+```
+
+To restart after 3-day expiry:
+```bash
+bash tools/ops/start-loops.sh  # Kills old session, starts fresh
+```
+
+### Startup Script: `tools/ops/start-loops.sh`
+
+```bash
+#!/bin/bash
+set -euo pipefail
+
+SESSION="claude-loops"
+CLONE="$HOME/vibe/hex-index-clones/claude-ops"
+
+# Sync clone before starting
+cd "$CLONE"
+git checkout main 2>/dev/null
+git pull --ff-only 2>/dev/null || git pull
+npm ci --silent 2>/dev/null || true
+
+# Kill existing session
+tmux kill-session -t "$SESSION" 2>/dev/null || true
+
+# Start fresh
+tmux new-session -d -s "$SESSION" -c "$CLONE"
+sleep 2
+tmux send-keys -t "$SESSION" "claude --dangerously-skip-permissions" Enter
+sleep 5
+tmux send-keys -t "$SESSION" "/loop 20m tools/claude-loop/scheduler-prompt.md" Enter
+
+echo "Claude loops session started: $SESSION"
+echo "Attach: tmux attach -t $SESSION"
+echo "Expires in ~3 days. Restart with: bash tools/ops/start-loops.sh"
+```
+
+### Meta-Loop Refresh
+
+`/loop` expires after 3 days. A launchctl plist restarts the session automatically:
+
+**Plist:** `com.hex-index.claude-loops-refresh`
+**Schedule:** Every 2 days (172800 seconds)
+**Action:** Runs `tools/ops/start-loops.sh`
+
+This ensures the loops session never stays dead for long. Brian can also restart manually anytime.
+
+---
+
+### The Scheduler Prompt: `tools/claude-loop/scheduler-prompt.md`
+
+This is the brain of the operation. Every 20 minutes, it picks the single highest-priority task and dispatches it as a background agent.
 
 ```markdown
-# Hex Index Ops Loop
+# Hex Index Scheduler
 
-You are the operations manager for hex-index. Every 30 minutes, you ensure
-everything is running smoothly. You do NOT create content --- you keep the
-system healthy.
+You are the automated scheduler for hex-index.com, a curated news publication.
+Every 20 minutes you pick ONE task, dispatch it as a background Agent with
+`isolation: "worktree"`, and report what you did.
 
-## 1. PR Pipeline (highest priority)
+You run in ~/vibe/hex-index-clones/claude-ops. All code changes go through PRs.
+You NEVER start Ollama/Qwen jobs. You NEVER push directly to main.
 
-```bash
-gh pr list --state open --json number,title,statusCheckRollup,reviews,createdAt,autoMergeRequest
-```
-
-For each open PR:
-- **All checks green, no unresolved reviews** --> merge it: `gh pr merge --squash <number>`
-- **Checks failing** --> read the failure, fix it in a worktree, push to the PR branch
-- **Claude/Gemini review feedback** --> read it: `npx tsx tools/github/pr-comments.ts --pr <number> --claude`
-  - Security issues: fix immediately
-  - Style/test suggestions: fix if quick, otherwise note and move on
-- **Stale PR (>24h)** --> investigate, fix or close with explanation
-- **Draft PRs** --> skip (someone is working on it)
-
-## 2. Main Branch Health
+## Step 1: Check the Clock
 
 ```bash
-gh run list --limit 5 --json conclusion,name,headBranch
+echo "Day: $(date +%u) Hour: $(date +%H) Minute: $(date +%M)"
+echo "Day name: $(date +%A)"
 ```
 
-If main is red:
-1. Check Discord: `npm run discord:read -- --filter "main"`
-2. Post you're on it: `npm run discord:send -- --message "Ops: fixing main branch CI"`
-3. Fix via PR from a worktree (never push directly)
+## Step 2: Pick ONE Task by Priority
 
-## 3. Clone Sync
+Tasks are ordered by priority. Pick the FIRST one that has work to do.
+Do NOT try to do multiple tasks in one cycle. Each task should take <15 minutes.
 
-Keep all clones up to date with origin/main. For each clone:
+### P0: Fix Broken Main (if CI is red)
 
 ```bash
-for clone in qwen-batch auto-deploy claude-editorial claude-ops claude-epub; do
-  dir="$HOME/vibe/hex-index-clones/$clone"
-  if [ -d "$dir" ]; then
-    echo "=== $clone ==="
-    cd "$dir"
-    # Check for uncommitted changes
-    if ! git diff --quiet || ! git diff --quiet --cached; then
-      echo "WARNING: $clone has uncommitted changes"
-      git stash list
-      git status --short
-    else
-      git checkout main 2>/dev/null
-      git pull --ff-only 2>/dev/null || echo "WARN: $clone cannot fast-forward"
-    fi
-    # Check for stale worktrees
-    git worktree list
-  fi
-done
+gh run list --branch main --limit 3 --json conclusion,name
 ```
 
-- If a clone has uncommitted changes: commit them to a branch, push, create PR
-- If a clone has stale worktrees (merged PR, no activity): `git worktree remove <path>`
-- If a clone has stale branches: delete if merged, investigate if not
-- **Never discard uncommitted work.** Always commit and push first.
-- If `package-lock.json` changed after pull: `npm ci`
+If any check on main is failing, this overrides everything. Spawn an agent:
+- Read the failure logs
+- Create a fix PR from a worktree
+- Post to Discord: "Scheduler: fixing broken main"
 
-## 4. Stash Cleanup
+### P1: Epub Review (Thu 22:00 -- Fri 07:00 only)
 
-Stashes are invisible and dangerous. For each clone:
-```bash
-git stash list
-```
-If stashes exist:
-- Apply each one to a new branch
-- Commit, push, create a PR or issue
-- Drop the stash only after the commit is pushed to origin
+Only active during the epub review window. If it's epub season, this is
+the ONLY task you run — skip everything else.
 
-## 5. GPU Status Check
+Spawn an agent to review ONE article from the current epub:
 
-```bash
-/Users/bedwards/vibe/sea-gang/tools/svc ls
-```
-
-- Verify the expected Qwen job is running (check even/odd hour schedule)
-- If a job appears stuck (running >30 min), note it but **do not kill it** --- the timeout mechanism handles this
-- If Ollama is loaded but no job should be running, that's fine (model stays warm)
-- **Never start or stop GPU services.** That's launchctl's job.
-
-## 6. Deploy Trigger
-
-Check if the static site needs regeneration:
 ```bash
 psql "$DATABASE_URL" -c "
-  SELECT COUNT(*) as changed
-  FROM app.articles
-  WHERE updated_at > (
-    SELECT COALESCE(MAX(created_at), '1970-01-01')
-    FROM app.weekly_consolidated
-  )
+  SELECT wc.id, wc.week_label, wc.consolidated_content_path,
+         wc.article_ids, wc.deep_dive_wikipedia_id
+  FROM app.weekly_consolidated wc
+  ORDER BY wc.created_at DESC
+  LIMIT 5;
 "
 ```
 
-If content has changed since last deploy:
-```bash
-cd ~/vibe/hex-index-clones/auto-deploy
-git checkout main && git pull --ff-only
-bash tools/cron/auto-deploy.sh
-```
+The agent should:
+- Pick the next unreviewed article (track what was reviewed via Discord messages)
+- Read the HTML, check against The Week magazine standard
+- Fix issues: hook, voice (third person), quotes (4-8 attributed), counterpoints,
+  Bottom Line section, typography, Speechify flow, clean HTML
+- Edit files directly in library/rewrites/
+- After fixes, trigger deploy: `cd ~/vibe/hex-index-clones/auto-deploy && bash tools/cron/auto-deploy.sh`
+- Post to Discord: "Epub review: polished [article title], fixed [N] issues"
 
-## 7. Issue Triage
-
-```bash
-gh issue list --state open --json number,title,labels,assignees,updatedAt --jq '.[] | select(.assignees | length == 0)'
-```
-
-- Unassigned issues: assign to `@me` if actionable, or label `needs-triage`
-- In-progress issues with no PR after 48h: investigate
-- Blocked issues: check if blocker is resolved
-
-## 8. Rate Limit Check
+### P2: PR Pipeline (always)
 
 ```bash
-npm run gh:rate-limit
+gh pr list --state open --json number,title,statusCheckRollup,reviews,createdAt
 ```
 
-If <100 requests remaining, scale back PR operations until reset.
+Pick ONE PR to handle:
+- **All checks green, approved** → merge: `gh pr merge --squash <number>`
+- **Checks failing** → spawn agent to read failure, fix in the PR branch, push
+- **Has Claude/Gemini review feedback** → spawn agent to address feedback
+  (`npx tsx tools/github/pr-comments.ts --pr <number> --claude`)
+- **Stale >24h** → investigate, fix or close with explanation
+- **Draft** → skip
 
-## Working Style
-
-- **Terse output.** Log what you did, not what you're about to do.
-- **One fix per cycle.** Don't try to fix everything at once.
-- **Post to Discord** after significant actions: `npm run discord:send -- --message "Ops: <action>"`
-- **All code changes through PRs** via worktrees within this clone.
-- **Never touch GPU services.** Observe only.
-```
-
-### Loop 2: Editorial Loop (`claude-editorial`)
-
-**Clone:** `~/vibe/hex-index-clones/claude-editorial`
-**Tmux session:** `claude-editorial`
-**Interval:** Every 2 hours
-**Purpose:** Content quality. Reviews, rewrites, fixes editorial issues.
-
-#### Prompt: `tools/claude-loop/editorial-prompt.md` (Updated)
-
-The existing editorial prompt is mostly good. Key changes:
-
-1. **Remove PR merge authority** --- that's now the ops loop's job
-2. **Remove deploy trigger** --- that's now the ops loop's job
-3. **Add clone awareness** --- work in `claude-editorial` clone, use worktrees for code changes
-4. **Sharpen epub review** --- more specific quality criteria
-5. **Add commentary polish** --- Claude rewrites Qwen's output to match guidelines
-
-```markdown
-# Hex Index Editorial Loop
-
-You are the developmental contributing editor for hex-index. Every 2 hours,
-you review and improve content quality. You do NOT manage PRs, deployments,
-or infrastructure --- the ops loop handles that.
-
-## Priority 1: Friday Epub Review (Thu 23:00 -- Fri 07:30 only)
-
-If today is Thursday after 23:00 or Friday before 07:30:
-
-The weekly epub has been built and needs editorial review before it goes to
-subscribers at 07:30 CT. This is your highest priority.
-
-### Epub Structure Review
+### P3: Issue Worker (pick one, work it to completion)
 
 ```bash
-# Find the current week's epub
-ls docs/weekly/ | sort | tail -5
+gh issue list --state open --json number,title,labels,assignees,updatedAt \
+  --jq 'sort_by(.updatedAt) | reverse | .[:10]'
 ```
 
-The epub should read like The Week magazine:
-1. **Opening section**: 2-3 biggest stories of the week (politics, economics, global)
-2. **Ideas & Commentary**: Thought-provoking analysis pieces
-3. **Culture & Science**: Lighter but substantive pieces
-4. **Deep Dives**: The Wikipedia explorations that enrich the articles
-5. **Books**: Curated affiliate recommendations that connect to the week's themes
+Pick ONE unassigned issue (or the highest-priority assigned-to-you issue).
+Spawn an agent to:
+1. Assign the issue: `gh issue edit <number> --add-assignee @me --add-label in-progress`
+2. Read the issue description and understand the task
+3. Implement the fix/feature in a worktree
+4. Create a PR referencing the issue ("Closes #N" in the body)
+5. Wait for CI + Claude/Gemini reviews (check in next cycle)
+6. Do NOT try to merge in the same cycle — the PR pipeline (P2) handles merges
 
-Check the Table of Contents. Is it ordered well? Does it tell a story of the week?
+**Scope control:** If the issue is too large for one cycle, break it into sub-issues
+and work on the smallest piece. Create issues for the remaining pieces.
 
-### Per-Article Quality Check
-
-For each article in the epub, read the full HTML and verify:
-
-- **Hook**: Does the opening paragraph grab you? Would you keep reading?
-- **Voice**: Third person, commentary style. Not summary, not developmental editing.
-- **Direct quotes**: 4-8 attributed quotes from the original author. "Smith writes..."
-- **Counterpoints**: At least one opposing view acknowledged.
-- **Bottom Line**: A `## Bottom Line` section that synthesizes.
-- **Typography**: Varied sentence/paragraph length. Section headings. Pull quotes in `<blockquote>`.
-- **Speechify flow**: Read it mentally as audio. Awkward transitions? Redundant phrases?
-  Jargon that needs spelling out? Acronyms that need expansion?
-- **Clean HTML**: Semantic tags only. No empty `<p>`, no widget cruft, no stray CSS.
-
-### Fixing Issues
-
-Edit rewrite files directly:
-```bash
-# Find the rewrite file
-psql "$DATABASE_URL" -c "SELECT id, title, rewritten_content_path FROM app.articles WHERE id = '<id>'"
-```
-
-Edit `library/rewrites/<publication>/<slug>.html` with fixes. The auto-deploy service
-will pick up changes within 30 minutes, or for urgent Friday fixes:
-```bash
-cd ~/vibe/hex-index-clones/auto-deploy
-bash tools/cron/auto-deploy.sh
-```
-
-## Priority 2: Polish Qwen Commentary (Recent 7 Days)
-
-Qwen writes good first-draft commentary. Claude makes it great.
+### P4: Editorial — Polish One Article (recent content)
 
 ```bash
 psql "$DATABASE_URL" -c "
-  SELECT a.id, a.title, p.name as publication, a.rewritten_content_path,
-         a.updated_at
+  SELECT a.id, a.title, p.name as pub, a.rewritten_content_path, a.updated_at
   FROM app.articles a
   JOIN app.publications p ON a.publication_id = p.id
   WHERE a.rewritten_content_path IS NOT NULL
     AND a.published_at > NOW() - INTERVAL '7 days'
-  ORDER BY a.published_at DESC
-  LIMIT 10;
+  ORDER BY a.updated_at ASC
+  LIMIT 5;
 "
 ```
 
-For each recent rewrite:
-1. Read the HTML file
-2. Run the commentary audit: `npx tsx tools/jobs/commentary-audit.ts --article-id <id>`
-3. If score < 80 or if you notice quality issues, edit the file directly:
-   - Strengthen the hook paragraph
-   - Add missing counterpoints
-   - Improve quote attribution ("writes" not just floating quotes)
-   - Vary sentence rhythm (mix 5-word punches with longer analytical sentences)
-   - Ensure the Bottom Line is a synthesis, not a summary
-   - Fix any first-person slips
-4. Do NOT mark articles dirty or trigger re-processing --- edit in place
+Spawn an agent to pick the OLDEST-updated article and polish it:
+- Run commentary audit: `npx tsx tools/jobs/commentary-audit.ts --article-id <id>`
+- If score < 80, edit the HTML file directly in library/rewrites/
+- Focus: hook paragraph, quote attribution, counterpoints, sentence rhythm,
+  Bottom Line synthesis, first-person slips
+- This is COMMENTARY on the article, not plagiarism. The rewrite must have
+  its own analytical voice with attributed quotes from the original author.
+- Post to Discord what was polished and the before/after audit score
 
-## Priority 3: Content Gaps
+### P5: Legacy Content Cleanup (older articles)
 
 ```bash
 psql "$DATABASE_URL" -c "
-  SELECT a.id, a.title, a.rewritten_content_path IS NOT NULL as has_rewrite,
-         a.image_path IS NOT NULL as has_image,
+  SELECT a.id, a.title, p.name as pub, a.rewritten_content_path,
+         a.published_at, a.image_path IS NOT NULL as has_image,
          (SELECT count(*) FROM app.article_wikipedia_links awl WHERE awl.article_id = a.id) as wiki_count,
-         jsonb_array_length(COALESCE(a.affiliate_links, '[]'::jsonb)) as affiliate_count,
-         (SELECT count(*) FROM app.article_tags at2 WHERE at2.article_id = a.id) as tag_count
+         jsonb_array_length(COALESCE(a.affiliate_links, '[]'::jsonb)) as affiliate_count
   FROM app.articles a
-  WHERE a.published_at > NOW() - INTERVAL '7 days'
-  ORDER BY a.published_at DESC;
+  JOIN app.publications p ON a.publication_id = p.id
+  WHERE a.published_at < NOW() - INTERVAL '14 days'
+    AND a.rewritten_content_path IS NOT NULL
+  ORDER BY RANDOM()
+  LIMIT 5;
 "
 ```
 
-Fix the highest-impact gap:
-- **Missing rewrite**: Mark dirty so next Qwen cycle picks it up:
-  `UPDATE app.articles SET rewritten_content_path = NULL WHERE id = '<id>'`
-- **Missing Wikipedia** (wiki_count < 3): `npx tsx tools/jobs/wikipedia-discover.ts --use-claude --article-id <id>`
-- **Missing image**: `npx tsx tools/jobs/generate-images.ts --article-id <id>`
-- **Missing tags**: `npx tsx tools/jobs/tag-articles.ts --article-id <id>`
-- **Missing affiliate links with book mentions**: Check `content/unresolved-mentions.json`
+Spawn an agent to pick ONE old article and bring it up to current standards:
 
-## Priority 4: Verify Production Site
+**Check each of these — fix the first gap found:**
 
-After any content changes:
+1. **Commentary vs plagiarism**: Read the rewrite. Is it original commentary with
+   attributed quotes? Or does it just rephrase the original without attribution?
+   If it reads like a summary or paraphrase, rewrite it as genuine commentary:
+   hook → weave direct quotes ("Smith writes...") → counterpoints → Bottom Line.
+
+2. **Missing features**: Does it have all 3 Wikipedia deep dives? An image?
+   Affiliate links for any books mentioned? Tags? Fix the first missing item.
+
+3. **HTML quality**: Run `npx tsx tools/jobs/audit-html.ts --article-id <id>`.
+   Fix any Speechify-incompatible markup.
+
+4. **Editorial guidelines**: Third person? Counterpoints? Varied typography?
+   Run the commentary audit and fix if score < 80.
+
+Only fix ONE article per cycle. Depth over breadth.
+
+### P6: Backlog Grooming
+
+```bash
+gh issue list --state open --json number,title,labels,assignees,updatedAt,body \
+  --jq 'sort_by(.updatedAt) | .[:20]'
+```
+
+Spawn an agent to do ONE of these (rotate between them):
+
+**A. Close stale issues:**
+- Issues with no activity for >14 days and no PR: close with explanation
+- Issues labeled `blocked` where the blocker is resolved: remove label, update
+
+**B. Create missing issues:**
+- Check recent CI failures — any recurring patterns without an issue?
+- Check `content/unresolved-mentions.json` — many unresolved? Create an issue
+- Check for articles with no rewrite, no image, no tags — create batch issue
+- Run `npm run gh:rate-limit` — if low, skip this step
+
+**C. Prioritize and label:**
+- Unassigned issues: label with priority (high/medium/low)
+- Mislabeled issues: fix labels
+- Duplicate issues: close the duplicate, link to the original
+
+### P7: Ops Housekeeping
+
+Rotate through these (one per cycle):
+
+**A. Clone sync:**
+```bash
+for clone in qwen-batch auto-deploy claude-editorial claude-ops claude-epub; do
+  dir="$HOME/vibe/hex-index-clones/$clone"
+  cd "$dir"
+  echo "=== $clone ==="
+  git status --short
+  git stash list
+  git worktree list
+  git checkout main 2>/dev/null && git pull --ff-only 2>/dev/null
+done
+```
+- Uncommitted changes → commit to branch, push, create PR
+- Stashes → apply to branch, push, drop stash
+- Stale worktrees → remove if PR is merged
+- Failed pull → investigate
+
+**B. Deploy check:**
 ```bash
 curl -s -o /dev/null -w "%{http_code}" https://bedwards.github.io/hex-index/
 ```
+Spot-check a recent article renders correctly.
 
-Spot-check a recent article page renders correctly.
-
-## Working Style
-
-- **Quality over quantity.** 1 article polished to perfection > 5 articles touched lightly.
-- **Edit in place** for content fixes (HTML files in library/).
-- **Use worktrees** within this clone for code changes.
-- **Never touch GPU services.** Never start Qwen jobs.
-- **Post to Discord** after editorial work: `npm run discord:send -- --message "Editorial: polished 3 articles for Friday epub"`
-```
-
-### Loop 3: Epub Review Loop (`claude-epub`)
-
-**Clone:** `~/vibe/hex-index-clones/claude-epub`
-**Tmux session:** `claude-epub`
-**Interval:** Every 1 hour (runs Thu 22:00 -- Fri 07:00 only)
-**Purpose:** Intensive epub review during the pre-publish window.
-
-This is a special-purpose loop that starts Thursday evening and stops Friday morning. It runs more frequently than the editorial loop and focuses exclusively on epub quality.
-
-#### Prompt: `tools/claude-loop/epub-prompt.md`
-
-```markdown
-# Hex Index Epub Review Loop
-
-You are reviewing the weekly epub for publication to subscribers at 07:30 CT Friday.
-This is a time-sensitive, intensive review. You run every hour from Thursday evening
-through Friday morning.
-
-## Check: Is It Epub Season?
-
+**C. Content gaps dashboard:**
 ```bash
-day=$(date +%u)  # 1=Mon, 4=Thu, 5=Fri
-hour=$(date +%H)
-if [ "$day" = "4" ] && [ "$hour" -ge "22" ]; then
-  echo "ACTIVE: Thursday evening review window"
-elif [ "$day" = "5" ] && [ "$hour" -lt "7" ]; then
-  echo "ACTIVE: Friday morning review window"
-else
-  echo "INACTIVE: Not epub season. Sleeping."
-  exit 0
-fi
+psql "$DATABASE_URL" -c "
+  SELECT
+    COUNT(*) FILTER (WHERE rewritten_content_path IS NULL) as no_rewrite,
+    COUNT(*) FILTER (WHERE image_path IS NULL AND rewritten_content_path IS NOT NULL) as no_image,
+    COUNT(*) FILTER (WHERE NOT EXISTS (
+      SELECT 1 FROM app.article_tags at2 WHERE at2.article_id = a.id
+    )) as no_tags
+  FROM app.articles a
+  WHERE a.published_at > NOW() - INTERVAL '30 days';
+"
 ```
+Post dashboard to Discord if any counts are concerning.
 
-If inactive, do nothing. Wait for next cycle.
-
-## The Week Magazine Standard
-
-The epub must read like a curated weekly magazine. Each issue tells the story
-of the week through carefully ordered sections.
-
-### Table of Contents Order
-
-1. **Lead stories** (2-3): The week's most consequential events or ideas
-2. **Analysis** (2-3): Deeper dives into policy, economics, strategy
-3. **Ideas** (2-3): Intellectual commentary, philosophy, culture
-4. **Science & Tech** (1-2): When available
-5. **Deep Dives** (2-3): The best Wikipedia explorations from this week
-6. **Recommended Reading**: Affiliate book picks that connect to themes
-
-Review the TOC. Does the ordering make narrative sense? Would a reader feel
-guided through the week's intellectual landscape?
-
-### Per-Article Checklist
-
-For each article, verify:
-
-- [ ] Opening hook is compelling (would you keep reading?)
-- [ ] Third person throughout (no "I", "we", "you" outside quotes)
-- [ ] 4-8 direct quotes attributed to original author
-- [ ] At least 1 counterpoint or alternative perspective
-- [ ] Bottom Line section that synthesizes (not summarizes)
-- [ ] Varied paragraph length (1-sentence punches mixed with longer analysis)
-- [ ] Section headings break up the text
-- [ ] At least 1 blockquote for visual/audio emphasis
-- [ ] No jargon without explanation
-- [ ] No acronyms without first spelling out
-- [ ] Clean HTML (no empty tags, no widget artifacts)
-- [ ] Speechify-ready (reads well as audio when you imagine it aloud)
-
-### Fix Everything You Find
-
-Edit files directly in `library/rewrites/`. After each batch of fixes:
+**D. GPU observation:**
 ```bash
-cd ~/vibe/hex-index-clones/auto-deploy
-bash tools/cron/auto-deploy.sh
+/Users/bedwards/vibe/sea-gang/tools/svc ls
 ```
+- Verify expected job is running for current even/odd hour
+- Note but do NOT intervene if stuck (timeout handles it)
+- Never start or stop GPU services
 
-### Quality Log
-
-After each review cycle, record what you found and fixed:
+**E. Rate limit check:**
 ```bash
-npm run discord:send -- --message "Epub review: checked N articles, fixed X issues. Quality: [good/needs-work/ready]"
+npm run gh:rate-limit
 ```
-```
+If <100 remaining, post warning to Discord. Scale back PR operations.
 
-### Loop Scheduling: Starting and Stopping
+## Step 3: Dispatch and Report
 
-#### Startup Script: `tools/ops/start-loops.sh`
+After picking a task:
 
+1. **Spawn a background Agent** with `isolation: "worktree"` for code changes,
+   or without isolation for read-only/content-edit tasks
+2. **Wait for completion** (agents return results)
+3. **Log to Discord**: `npm run discord:send -- --message "Scheduler [HH:MM]: <task> — <result>"`
+
+Keep your own output minimal. The agents do the work. You coordinate.
+
+## Schedule Awareness
+
+The scheduler is aware of what runs when to avoid conflicts:
+
+- **Even hours :05-:30**: wiki-discover is using Qwen GPU
+- **Even hours :35-:60**: article-rewrite is using Qwen GPU
+- **Odd hours :05-:30**: wiki-rewrite is using Qwen GPU
+- **Odd hours :35-:60**: affiliate-suggest is using Qwen GPU
+- **Thu 23:00**: build-weekly runs (auto-deploy clone)
+- **Fri 07:30**: send-weekly runs (auto-deploy clone)
+
+Claude tasks do NOT contend with GPU. But avoid running `auto-deploy.sh` while
+`build-weekly` or `friday-publish` is running (check the lock file):
 ```bash
-#!/bin/bash
-# Start all Claude loops in their respective clones
-# Run once after machine restart or when loops need refresh
-
-set -euo pipefail
-
-BASE="$HOME/vibe/hex-index-clones"
-
-start_loop() {
-  local name=$1
-  local clone=$2
-  local prompt=$3
-  local interval=$4
-
-  # Kill existing session
-  tmux kill-session -t "$name" 2>/dev/null || true
-
-  # Start new tmux session in the clone directory
-  tmux new-session -d -s "$name" -c "$BASE/$clone"
-  sleep 2
-  tmux send-keys -t "$name" "claude --dangerously-skip-permissions" Enter
-  sleep 5
-  tmux send-keys -t "$name" "/loop $interval $prompt" Enter
-
-  echo "Started $name (every $interval) in $BASE/$clone"
-}
-
-# Ops loop: every 30 minutes
-start_loop "claude-ops" "claude-ops" "tools/claude-loop/ops-prompt.md" "30m"
-
-# Editorial loop: every 2 hours
-start_loop "claude-editorial" "claude-editorial" "tools/claude-loop/editorial-prompt.md" "2h"
-
-echo ""
-echo "Active tmux sessions:"
-tmux ls
-echo ""
-echo "Attach with: tmux attach -t <session-name>"
+flock -n ~/hex-index/logs/auto-deploy.lock echo "deploy lock free" || echo "deploy locked"
 ```
-
-#### Friday Epub Startup: `tools/ops/start-epub-review.sh`
-
-```bash
-#!/bin/bash
-# Start the epub review loop Thursday evening
-# Called manually or by a launchctl job at Thu 22:00
-
-set -euo pipefail
-
-BASE="$HOME/vibe/hex-index-clones"
-
-tmux kill-session -t "claude-epub" 2>/dev/null || true
-tmux new-session -d -s "claude-epub" -c "$BASE/claude-epub"
-sleep 2
-tmux send-keys -t "claude-epub" "claude --dangerously-skip-permissions" Enter
-sleep 5
-tmux send-keys -t "claude-epub" "/loop 1h tools/claude-loop/epub-prompt.md" Enter
-
-echo "Epub review loop started. Will run until Friday 07:00."
-echo "Attach with: tmux attach -t claude-epub"
-```
-
-#### Stop Epub Review: `tools/ops/stop-epub-review.sh`
-
-```bash
-#!/bin/bash
-# Stop the epub review loop Friday morning after send-weekly runs
-tmux kill-session -t "claude-epub" 2>/dev/null || true
-echo "Epub review loop stopped."
 ```
 
 ---
@@ -606,6 +502,7 @@ This is Brian's primary workspace. It:
 - Uses worktrees for code changes (Agent with `isolation: "worktree"`)
 - Creates PRs for all changes
 - Never conflicts with clones because it's a separate `.git`
+- Is completely independent from the loops session
 
 ### Antigravity
 
@@ -617,13 +514,18 @@ Antigravity and Claude Code can share the same directory because:
 - Both use git branches/worktrees for isolation
 - Both create PRs for changes
 
-### Avoiding Conflicts
+### Three Sessions, No Conflicts
 
-- Brian's interactive sessions work on feature branches
-- Automated clones stay on main
-- All changes merge through PRs
-- Branch protection prevents direct pushes
-- Auto-merge handles the queue
+| Session | Directory | Purpose | Who Controls |
+|---------|-----------|---------|-------------|
+| Brian's Claude Code | ~/hex-index | Interactive dev | Brian |
+| Antigravity | ~/hex-index | Visual IDE | Brian |
+| claude-loops (tmux) | ~/vibe/hex-index-clones/claude-ops | Automated loops | Scheduler |
+
+- Brian's sessions work on feature branches in `~/hex-index`
+- The loops session works in a separate clone (`claude-ops`)
+- All changes merge through PRs — branch protection prevents conflicts
+- The loops session's background agents use worktrees within `claude-ops`
 
 ---
 
@@ -643,21 +545,29 @@ Antigravity and Claude Code can share the same directory because:
 | Odd :35 | affiliate-suggest | qwen-batch | Qwen 25m |
 | Thu 23:00 | build-weekly | auto-deploy | No |
 | Fri 07:30 | send-weekly | auto-deploy | No |
+| Every 2 days | claude-loops-refresh | claude-ops | No |
 
-### Claude Loops (tmux, Max Subscription)
+### Claude Scheduler (single tmux session, single /loop 20m)
 
-| Session | Clone | Interval | Active |
-|---------|-------|----------|--------|
-| claude-ops | claude-ops | 30m | Always |
-| claude-editorial | claude-editorial | 2h | Always |
-| claude-epub | claude-epub | 1h | Thu 22:00 -- Fri 07:00 |
+Every 20 minutes, picks ONE task by priority:
+
+| Priority | Task | Scope | When |
+|----------|------|-------|------|
+| P0 | Fix broken main | One CI fix | If main is red |
+| P1 | Epub review | One article | Thu 22:00 -- Fri 07:00 only |
+| P2 | PR pipeline | One PR merge/fix | Always |
+| P3 | Issue worker | One issue → PR | Always |
+| P4 | Editorial polish | One recent article | Always |
+| P5 | Legacy cleanup | One old article | Always |
+| P6 | Backlog grooming | One grooming action | Always |
+| P7 | Ops housekeeping | One maintenance task | Always |
 
 ### Interactive (Ad Hoc)
 
 | Tool | Directory | Purpose |
 |------|-----------|---------|
 | Claude Code TUI | ~/hex-index | Brian's primary dev |
-| Antigravity | ~/hex-index | Visual dev, UI work |
+| Antigravity | ~/hex-index | Visual IDE |
 
 ---
 
@@ -685,28 +595,31 @@ Each Qwen job gets a clean 25-minute window. The 5-minute gap at the top of each
 
 ```
 Thursday:
-  22:00  start-epub-review.sh           Start epub review loop
+  22:00  Scheduler detects epub season, switches to P1-only mode
   23:00  build-weekly (launchctl)        Consolidate + generate static site
-  23:05  claude-epub loop fires          First epub review pass
+  23:20  Scheduler: epub review pass 1   (one article)
+  23:40  Scheduler: epub review pass 2   (next article)
 
 Friday:
-  00:05  claude-epub loop fires          Second review pass
-  01:05  claude-epub loop fires          Third review pass
-  ...continues hourly...
+  00:00  Scheduler: epub review pass 3
+  00:20  Scheduler: epub review pass 4
+  ...continues every 20 min, one article per pass...
   05:00  friday-publish.sh (manual)      Pause GPU, final consolidation, deploy
-  05:05  claude-epub loop fires          Final review after fresh deploy
-  06:05  claude-epub loop fires          Last check
-  07:00  stop-epub-review.sh            Stop epub loop
+  05:20  Scheduler: epub review (post-deploy check)
+  05:40  Scheduler: epub review (final polish)
+  06:00  Scheduler: epub review (last pass)
+  07:00  Scheduler: epub season ends, resumes normal rotation
   07:30  send-weekly (launchctl)         Email + SMS to subscribers
 ```
 
-### Why This Works
+### Why This Works Better Than Multiple Loops
 
-- **Thursday 23:00**: `build-weekly` generates the epub from current DB state
-- **Thu 23:05 -- Fri 06:05**: Claude reviews 8+ times, fixing quality issues each pass
-- **Friday 05:00**: `friday-publish` does a final consolidation with latest Qwen output, regenerates
-- **Friday 05:05 -- 06:05**: Claude does 2 more passes on the final version
-- **Friday 07:30**: Email/SMS goes out with a thoroughly reviewed epub
+- **~27 review passes** between Thu 22:00 and Fri 07:00 (one article per pass)
+- Each pass has a **clean context window** (background agent with worktree)
+- No coordination problems between separate loops
+- Brian can see all activity in one tmux session
+- The scheduler naturally handles priority — if main breaks during epub season,
+  P0 overrides P1 and fixes main first, then resumes epub review
 
 ---
 
@@ -726,29 +639,29 @@ ln -sf ~/hex-index/.secrets .secrets
 
 ### Main Branch Breaks
 
-1. Ops loop detects within 30 minutes
+1. Scheduler detects within 20 minutes (P0 priority)
 2. Posts to Discord
-3. Creates a fix PR from a worktree
-4. If ops loop can't fix it, Brian gets notified via Discord
+3. Spawns agent to create a fix PR from a worktree
+4. If scheduler can't fix it, Brian gets notified via Discord
 
 ### Qwen Job Hangs
 
 1. `timeout` in the cron script kills it after the time budget
 2. `flock` releases automatically
 3. Next scheduled job picks up where it left off
-4. Ops loop observes but does NOT intervene
+4. Scheduler observes (P7) but does NOT intervene
 
 ### Merge Conflicts
 
 1. Each clone stays on main and uses worktrees for changes
 2. Worktrees target narrow, specific files
-3. If a PR has merge conflicts, ops loop rebases: `gh pr checkout <n> && git rebase main && git push -f`
+3. If a PR has merge conflicts, scheduler (P2) rebases: `gh pr checkout <n> && git rebase main && git push -f`
 4. Branch protection's `strict: true` ensures PRs are up-to-date before merge
 
 ### Lost Work
 
-The ops loop actively prevents this:
-- Checks all clones for uncommitted changes every 30 minutes
+The scheduler (P7: ops housekeeping) actively prevents this:
+- Checks all clones for uncommitted changes
 - Commits and pushes anything found
 - Converts stashes to branches
 - Cleans up merged worktrees
@@ -757,64 +670,80 @@ The ops loop actively prevents this:
 
 ## Monitoring Checklist
 
-The ops loop checks these every 30 minutes:
+The scheduler cycles through these across P2-P7 tasks:
 
-- [ ] Main branch CI is green
-- [ ] No open PRs older than 24h
-- [ ] All clones on main, up to date
-- [ ] No stashes in any clone
-- [ ] No orphaned worktrees
-- [ ] GPU running expected job (or idle between jobs)
-- [ ] GitHub API rate limit > 100
-- [ ] Production site returns 200
-- [ ] Discord messages sent for significant actions
+- [ ] Main branch CI is green (P0 if broken)
+- [ ] No open PRs older than 24h (P2)
+- [ ] All clones on main, up to date (P7-A)
+- [ ] No stashes in any clone (P7-A)
+- [ ] No orphaned worktrees (P7-A)
+- [ ] GPU running expected job (P7-D, observe only)
+- [ ] GitHub API rate limit > 100 (P7-E)
+- [ ] Production site returns 200 (P7-B)
+- [ ] Open issues triaged and labeled (P6)
+- [ ] Recent articles meet editorial standards (P4)
+- [ ] Legacy articles brought up to current standards (P5)
+- [ ] Discord messages sent for significant actions (all tasks)
 
 ---
 
 ## Migration Steps
 
-### Phase 1: Setup Clones (Day 1)
+### Phase 1: Setup Clones (Day 1) -- DONE
 
-1. Run `tools/ops/setup-clones.sh`
+1. ~~Run `tools/ops/setup-clones.sh`~~ Clones created manually
 2. Verify each clone can `npm run typecheck` and `npm run test`
 3. Update launchctl plists to use `qwen-batch` clone
-4. Update `auto-deploy.sh` to run from `auto-deploy` clone
+4. Symlink `library/`, `logs/`, `.env`, `.secrets` in all clones -- DONE
 
-### Phase 2: Start Loops (Day 1)
+### Phase 2: Write Scheduler Prompt (Day 1)
 
-1. Write the ops and epub prompt files
-2. Run `tools/ops/start-loops.sh`
-3. Monitor the first few cycles via `tmux attach -t claude-ops`
-4. Verify ops loop can merge PRs, sync clones, check health
+1. Create `tools/claude-loop/scheduler-prompt.md` from the plan above
+2. Create `tools/ops/start-loops.sh`
+3. Test the scheduler prompt manually first: start Claude in `claude-ops` clone,
+   paste the prompt, verify it picks the right task
 
-### Phase 3: Verify (Days 2-3)
+### Phase 3: Start Loops Session (Day 1)
 
-1. Watch the system through one full even/odd hour cycle
-2. Watch through one Friday epub pipeline
-3. Check Discord for loop activity messages
+1. Run `bash tools/ops/start-loops.sh`
+2. `tmux attach -t claude-loops` and watch the first 2-3 cycles
+3. Verify: agents spawn with worktrees, PRs get created, Discord gets messages
+4. Detach and let it run
+
+### Phase 4: Verify (Days 2-3)
+
+1. Check Discord for scheduler activity messages
+2. Watch through one full even/odd hour cycle (no GPU conflicts)
+3. Watch through one Friday epub pipeline
 4. Verify no git conflicts between clones
+5. Confirm the 3-day refresh launchctl plist works
 
-### Phase 4: Tune (Week 1)
+### Phase 5: Tune (Week 1)
 
-1. Adjust loop intervals if too frequent/infrequent
-2. Refine prompts based on actual loop behavior
-3. Add any missing checks to ops loop
-4. Polish epub review criteria
+1. Adjust 20m interval if too frequent/infrequent
+2. Refine scheduler prompt based on actual behavior
+3. Add task-specific prompts if agents need more guidance
+4. Calibrate P5 (legacy cleanup) — how many old articles need work?
+5. Monitor context window usage — is the meta-loop accumulating too much?
 
 ---
 
 ## Key Principles
 
-1. **Clones for isolation, worktrees for PRs.** Long-running processes get their own clone. Short-lived code changes use worktrees within the clone.
+1. **Clones for isolation, worktrees for PRs.** Long-running processes get their own clone. Short-lived code changes use worktrees within the clone. Background agents get clean context windows.
 
-2. **Separation of concerns.** Ops loop manages process. Editorial loop manages content. Epub loop manages the weekly publication. Qwen generates. Brian directs.
+2. **One session, one scheduler.** All Claude automation runs in a single tmux session with a single `/loop 20m` meta-scheduler. The scheduler dispatches focused tasks as background agents. No multi-session coordination headaches.
 
-3. **GPU is sacred.** Only launchctl controls the GPU. Claude loops observe but never touch. The `flock` lock is the final safety net.
+3. **Small, focused tasks.** Each scheduler cycle does ONE thing well. "Polish one article" not "review all content." "Fix one failing PR" not "process all PRs." Depth over breadth.
 
-4. **Everything through PRs.** No direct pushes to main. Branch protection enforces this. Auto-merge handles the queue.
+4. **GPU is sacred.** Only launchctl controls the GPU. The scheduler observes but never touches. The `flock` lock is the final safety net.
 
-5. **Never lose work.** No stashes. No uncommitted changes left lying around. The ops loop actively prevents this every 30 minutes.
+5. **Everything through PRs.** No direct pushes to main. Branch protection enforces this. The scheduler merges PRs (P2), creates fix PRs (P0, P3), but never bypasses review.
 
-6. **Deterministic where possible, LLM where necessary.** Ingestion, static site generation, epub building, email sending --- all deterministic. Topic discovery, rewriting, commentary, affiliate suggestions --- LLM. Editorial polish --- Claude.
+6. **Never lose work.** No stashes. No uncommitted changes left lying around. The scheduler (P7) actively prevents this.
 
-7. **The Week magazine standard.** The epub is a curated weekly magazine for real subscribers. Every issue must be polished, well-ordered, and a pleasure to read aloud via Speechify.
+7. **Commentary, not plagiarism.** Article rewrites are original editorial commentary with attributed direct quotes from the original author. Not summaries. Not paraphrases. Not developmental editing. The legacy cleanup task (P5) specifically hunts for old articles that don't meet this standard.
+
+8. **Deterministic where possible, LLM where necessary.** Ingestion, static site generation, epub building, email sending --- all deterministic code. Topic discovery, rewriting, commentary, affiliate suggestions --- Qwen. Editorial polish, issue work, quality review --- Claude.
+
+9. **The Week magazine standard.** The epub is a curated weekly magazine for real subscribers. Every issue must be polished, well-ordered, and a pleasure to read aloud via Speechify. During epub season (Thu 22:00 -- Fri 07:00), the scheduler dedicates every cycle to epub review.
