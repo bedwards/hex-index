@@ -24,7 +24,7 @@ import { generateSearchIndex } from './pages/search-index.js';
 import { generateWeeklyEpubs } from './pages/weekly.js';
 import { generateAboutPage } from './pages/about.js';
 import { ensureDir } from './utils.js';
-import { rm, cp } from 'fs/promises';
+import { rm, cp, readFile, writeFile } from 'fs/promises';
 import { join } from 'path';
 
 config();
@@ -49,10 +49,22 @@ async function main(): Promise<void> {
   const pool = createPool(databaseUrl);
 
   try {
-    // Clean output directory if requested
+    // Clean output directory if requested, preserving CNAME for GitHub Pages
     if (shouldClean) {
       console.info('Cleaning output directory...');
+      const cnameFile = join(OUTPUT_DIR, 'CNAME');
+      let cnameContent: string | null = null;
+      try {
+        cnameContent = await readFile(cnameFile, 'utf-8');
+      } catch {
+        // CNAME doesn't exist, nothing to preserve
+      }
       await rm(OUTPUT_DIR, { recursive: true, force: true });
+      if (cnameContent !== null) {
+        await ensureDir(OUTPUT_DIR);
+        await writeFile(cnameFile, cnameContent);
+        console.info('  Preserved CNAME file');
+      }
     }
 
     // Ensure output directory exists
