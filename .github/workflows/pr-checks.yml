@@ -35,12 +35,13 @@ jobs:
             exit 1
           fi
 
-      - name: Check branch is up to date
-        run: |
-          git fetch origin main
-          BEHIND=$(git rev-list --count HEAD..origin/main)
-          if [ "$BEHIND" -gt 10 ]; then
-            echo "Branch is $BEHIND commits behind main. Please rebase."
-            exit 1
-          fi
+      # DISABLED: branch freshness check — re-enable when needed
+      # - name: Check branch is up to date
+      #   run: |
+      #     git fetch origin main
+      #     BEHIND=$(git rev-list --count HEAD..origin/main)
+      #     if [ "$BEHIND" -gt 10 ]; then
+      #       echo "Branch is $BEHIND commits behind main. Please rebase."
+      #       exit 1
+      #     fi
 

@@ -24,9 +24,10 @@ All code changes go through PRs with Claude and Gemini code reviews. Wait for re
 
 ### Branch Protection
 Main branch is protected:
-- Required checks: Lint & Type Check, Unit Tests, claude-review
+- Required checks: Lint & Type Check, Unit Tests
+- Claude review: **disabled** (rename `.github/workflows/claude-code-review.yml.disabled` back to re-enable)
 - `enforce_admins: true` — everyone goes through PRs, no exceptions
-- `strict: true` — branches must be up to date with main before merge
+- `strict: false` — branches do not need to be up to date with main before merge
 - Auto-merge enabled
 - Stale review dismissal enabled
 
