@@ -351,19 +351,20 @@ export function createPagesRouter(pool: Pool): Router {
       let affiliateSection = '';
       if (affiliateTag && rawAffiliateLinks.length > 0) {
         const affiliateItems = rawAffiliateLinks.map(link =>
-          `<li class="affiliate-item">
+          `<li class="deep-dive-item">
             <a href="https://www.amazon.com/dp/${encodeURIComponent(link.asin)}?tag=${encodeURIComponent(affiliateTag)}" target="_blank" rel="noopener sponsored">
-              <strong>${escapeHtml(link.title)}</strong> by ${escapeHtml(link.author)}
+              <strong>${escapeHtml(link.title)}</strong> \u2192
+              <span class="read-time">by ${escapeHtml(link.author)}</span>
             </a>
-            <p class="affiliate-desc">${escapeHtml(link.description)}</p>
+            <p class="topic-summary">${escapeHtml(link.description)}</p>
           </li>`
         ).join('\n');
         affiliateSection = `
-          <aside class="affiliate-section">
-            <h2>Recommended Reading</h2>
-            <p class="affiliate-disclosure">As an Amazon Associate, Hex Index earns from qualifying purchases.</p>
-            <ul class="affiliate-list">${affiliateItems}</ul>
-          </aside>
+          <section class="deep-dives books-section">
+            <h2>Books</h2>
+            <ul class="deep-dive-list">${affiliateItems}</ul>
+            <small class="affiliate-disclosure">Affiliate links</small>
+          </section>
         `;
       }
 
