@@ -532,7 +532,7 @@ async function buildEpub(
     let navIdx = 0;
     for (const topic of sortedTopics) {
       const articles = articlesByTopic.get(topic)!;
-      const topicName = articles[0].row.tag_name || 'Uncategorized';
+      const topicName = articles[0].row.tag_name || 'Culture';
       navTocHtml += `    <li><a href="article-${navIdx}.xhtml">${escapeXml(topicName)}</a>\n      <ol>\n`;
       for (const article of articles) {
         navTocHtml += `        <li><a href="article-${navIdx}.xhtml">${escapeXml(article.row.title)}</a></li>\n`;
@@ -560,7 +560,7 @@ ${navTocHtml}    </ol>
     // Articles
     for (const topic of sortedTopics) {
       const articles = articlesByTopic.get(topic)!;
-      const topicName = articles[0].row.tag_name || 'Uncategorized';
+      const topicName = articles[0].row.tag_name || 'Culture';
 
       let isFirstInTopic = true;
       for (const article of articles) {
@@ -653,7 +653,7 @@ ${bookItems}
     let ncxIdx = 0;
     for (const topic of sortedTopics) {
       const articles = articlesByTopic.get(topic)!;
-      const topicName = articles[0].row.tag_name || 'Uncategorized';
+      const topicName = articles[0].row.tag_name || 'Culture';
       ncxNavPoints += `  <navPoint id="navpoint-${ncxOrder}" playOrder="${ncxOrder}">
     <navLabel><text>${escapeXml(topicName)}</text></navLabel>
     <content src="article-${ncxIdx}.xhtml"/>\n`;
@@ -840,7 +840,7 @@ export async function generateWeeklyEpubs(
             } catch { imageData = null; }
           }
 
-          const topicKey = matchedCons.tag_slug ?? row.tag_slug ?? '_uncategorized';
+          const topicKey = matchedCons.tag_slug ?? row.tag_slug ?? 'culture';
           const affiliateLinks: AffiliateLink[] = row.affiliate_links ?? [];
           const entry: ArticleForEpub = { row, content, deepDives, imageData, imageExt, affiliateLinks };
           if (!byTopic.has(topicKey)) { byTopic.set(topicKey, []); }
@@ -872,7 +872,7 @@ export async function generateWeeklyEpubs(
             } catch { imageData = null; }
           }
 
-          const topicKey = row.tag_slug || '_uncategorized';
+          const topicKey = row.tag_slug || 'culture';
           const affiliateLinks2: AffiliateLink[] = row.affiliate_links ?? [];
           const entry: ArticleForEpub = { row, content, deepDives, imageData, imageExt, affiliateLinks: affiliateLinks2 };
           if (!byTopic.has(topicKey)) { byTopic.set(topicKey, []); }
@@ -882,7 +882,7 @@ export async function generateWeeklyEpubs(
     } else {
       // No consolidation — original behavior
       for (const row of articles) {
-        const topicKey = row.tag_slug || '_uncategorized';
+        const topicKey = row.tag_slug || 'culture';
 
         let content: string;
         if (row.rewritten_content_path) {
