@@ -603,9 +603,6 @@ ODD HOURS (01, 03, 05, ..., 23):
   :05  wiki-rewrite                        [Qwen, 25 min]
   :35  affiliate-suggest                   [Qwen, 25 min]
 
-DAILY:
-  05:00  claude-quality                    [Claude Opus, no GPU]
-
 WEEKLY:
   Thu 22:00  Stop Qwen, consolidate
   Thu 23:00  build-weekly                  [no LLM]
