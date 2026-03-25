@@ -255,22 +255,23 @@ export function renderAffiliateSection(
   if (!tag || links.length === 0) {return '';}
 
   const items = links.map(link => `
-    <li class="affiliate-item">
+    <li class="deep-dive-item">
       <a href="${buildAmazonUrl(link.asin, tag)}" target="_blank" rel="noopener sponsored">
-        <strong>${escapeHtml(link.title)}</strong> by ${escapeHtml(link.author)}
+        <strong>${escapeHtml(link.title)}</strong> \u2192
+        <span class="read-time">by ${escapeHtml(link.author)}</span>
       </a>
-      <p class="affiliate-desc">${escapeHtml(link.description)}</p>
+      <p class="topic-summary">${escapeHtml(link.description)}</p>
     </li>`
   ).join('\n');
 
   return `
-    <aside class="affiliate-section">
-      <h2>Recommended Reading</h2>
-      <p class="affiliate-disclosure">As an Amazon Associate, Hex Index earns from qualifying purchases.</p>
-      <ul class="affiliate-list">
+    <section class="deep-dives books-section">
+      <h2>Books</h2>
+      <ul class="deep-dive-list">
         ${items}
       </ul>
-    </aside>
+      <small class="affiliate-disclosure">Affiliate links</small>
+    </section>
   `;
 }
 
