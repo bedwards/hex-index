@@ -148,13 +148,16 @@ function generateArticlePage(
   // Merge Wikipedia links and books into a single deep dives list
   const wikiItems = wikipediaLinks
     .map(
-      (w) => `
+      (w) => {
+        const summary = w.topic_summary && w.topic_summary.trim() ? `<p class="topic-summary">${escapeHtml(w.topic_summary)}</p>` : '';
+        return `
       <li class="deep-dive-item">
         <a href="${pathToRoot}wikipedia/${w.slug}/index.html">
           <strong>${escapeHtml(w.title)}</strong>
         </a>
-        <p class="topic-summary">${escapeHtml(w.topic_summary)}</p>
-      </li>`
+        ${summary}
+      </li>`;
+      }
     )
     .join('\n');
 
