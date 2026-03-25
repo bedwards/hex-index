@@ -100,6 +100,13 @@ async function main(): Promise<void> {
   const pool = new Pool({ connectionString: dbUrl });
 
   try {
+    // Load curated tag pool for post-rewrite tagging
+    const { rows: tags } = await pool.query<{ slug: string; name: string; description: string }>(
+      'SELECT slug, name, description FROM app.tags ORDER BY slug'
+    );
+    const tagList = tags.map(t => `${t.slug}: ${t.name} — ${t.description}`).join('\n');
+    const validSlugs = new Set(tags.map(t => t.slug));
+
     // Find articles with full text available but no rewrite yet
     const { rows: articles } = await pool.query<{
       id: string;
@@ -327,6 +334,77 @@ Output ONLY the JSON. No preamble, no explanation, no markdown fences.
           model: process.env.OLLAMA_MODEL ?? 'unknown',
           timestamp: new Date().toISOString(),
         })}`);
+        // ── Post-rewrite tagging ────────────────────────────────────
+        try {
+          const { rows: existingTags } = await pool.query<{ count: string }>(
+            'SELECT COUNT(*) as count FROM app.article_tags WHERE article_id = $1',
+            [article.id]
+          );
+          if (parseInt(existingTags[0].count, 10) < 2 && tagList.length > 0) {
+            const tagExcerpt = textForLlm.slice(0, 500);
+
+            // Get wiki topics for tagging context
+            let tagWikiContext = '';
+            try {
+              const { rows: tagWikiTopics } = await pool.query<{ title: string }>(`
+                SELECT w.title FROM app.article_wikipedia_links awl
+                JOIN app.wikipedia_articles w ON awl.wikipedia_id = w.id
+                WHERE awl.article_id = $1
+              `, [article.id]);
+              if (tagWikiTopics.length > 0) {
+                tagWikiContext = `\nRelated topics: ${tagWikiTopics.map(w => w.title).join(', ')}`;
+              }
+            } catch { /* no wiki topics */ }
+
+            const tagPrompt = `Score this article against each tag. Return ONLY valid JSON.
+
+ARTICLE: "${article.title}" from ${article.publication_name}
+EXCERPT: ${tagExcerpt}${tagWikiContext}
+
+TAGS:
+${tagList}
+
+For each tag, score 0-100 how well it matches this article. 100 = primary topic. 50+ = clearly relevant. Below 30 = not relevant, omit it.
+
+Return ONLY tags scoring 30+. Output valid JSON, no explanation:
+{"tags": [{"slug": "tag-slug", "score": 85}]}`;
+
+            const tagResponse = await generateText(tagPrompt, {
+              temperature: 0.2,
+              numPredict: 1500,
+            });
+
+            // Parse tag response
+            let tagScores: Array<{ slug: string; score: number }> = [];
+            let tagCleaned = tagResponse.trim();
+            tagCleaned = tagCleaned.replace(/<think>[\s\S]*?<\/think>/g, '').trim();
+            tagCleaned = tagCleaned.replace(/^```\w*\n?/, '').replace(/\n?```\s*$/, '').trim();
+            const tagJsonMatch = tagCleaned.match(/\{[\s\S]*\}/);
+            if (tagJsonMatch) {
+              const parsed = JSON.parse(tagJsonMatch[0]) as { tags: Array<{ slug: string; score: number }> };
+              tagScores = parsed.tags ?? [];
+            }
+
+            // Insert valid tags
+            for (const ts of tagScores) {
+              if (!validSlugs.has(ts.slug)) {continue;}
+              if (ts.score < 30 || ts.score > 100) {continue;}
+              await pool.query(
+                `INSERT INTO app.article_tags (article_id, tag_slug, score)
+                 VALUES ($1, $2, $3)
+                 ON CONFLICT (article_id, tag_slug) DO UPDATE SET score = EXCLUDED.score`,
+                [article.id, ts.slug, ts.score]
+              );
+            }
+
+            const validTags = tagScores.filter(t => validSlugs.has(t.slug) && t.score >= 30 && t.score <= 100);
+            if (validTags.length > 0) {
+              console.info(`  Tagged: ${validTags.map(t => `${t.slug}:${t.score}`).join(', ')}`);
+            }
+          }
+        } catch (tagErr) {
+          console.info(`  Tagging failed (non-fatal): ${tagErr instanceof Error ? tagErr.message : String(tagErr)}`);
+        }
       } catch (err) {
         errors++;
         console.info(`  Error: ${err instanceof Error ? err.message : String(err)}`);
