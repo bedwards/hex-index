@@ -67,6 +67,9 @@ while true:
 
 **Limit interactions with the human prompter.** Work autonomously. Only stop for things you absolutely cannot do.
 
+### Memory Hygiene
+Run `/consolidate-memory` at the end of long sessions or when you notice memory files growing stale. This is automatic on Thursdays during consolidation, but can be run anytime.
+
 ## What You Cannot Do
 
 If a tool isn't authenticated or you lack permissions, **stop immediately**. Do not use alternative approaches. Report back to the human prompter with:
