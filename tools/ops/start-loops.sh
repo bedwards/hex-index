@@ -6,9 +6,9 @@ CLONE="$HOME/vibe/hex-index-clones/claude-ops"
 
 # Sync clone before starting
 cd "$CLONE"
-git checkout main 2>/dev/null
-git pull --ff-only 2>/dev/null || git pull
-npm ci --silent 2>/dev/null || true
+git checkout main 2>&1 | grep -v "Already on"
+git pull --ff-only || git pull
+npm ci --silent
 
 # Kill existing session
 tmux kill-session -t "$SESSION" 2>/dev/null || true
