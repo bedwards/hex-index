@@ -229,6 +229,18 @@ npm run gh:rate-limit
 ```
 If <100 remaining, post warning to Discord. Scale back PR operations.
 
+### P8: Memory Consolidation (Thu 22:00)
+
+Run `/dream` to consolidate memory files across all worktrees. This prevents
+memory bloat and keeps future sessions fast.
+
+Spawn an agent to:
+1. Run `/dream` (the custom command handles all phases)
+2. Post to Discord: "Scheduler: memory consolidation complete"
+
+This task is low priority and only needs to run once per week during the
+Thursday consolidation window. Skip if higher-priority tasks have work to do.
+
 ## Step 3: Dispatch and Report
 
 After picking a task:
