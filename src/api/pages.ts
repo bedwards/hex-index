@@ -377,9 +377,8 @@ export function createPagesRouter(pool: Pool): Router {
       // 2. Subtitle (if present)
       // 3. Meta: author, date, reading time
       // 4. Source link to original Substack
-      // 5. Deep Dives links
+      // 5. Deep Dives links (Wikipedia articles + books)
       // 6. Article content
-      // 7. Affiliate recommendations
       const content = `
         <article class="article content-width">
           <header class="article-header">
