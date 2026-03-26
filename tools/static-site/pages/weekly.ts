@@ -852,7 +852,8 @@ export async function generateWeeklyEpubs(
           let content: string;
           if (row.rewritten_content_path) {
             content = await loadContent(row.rewritten_content_path);
-          } else {
+          }
+          if (!content!) {
             content = await loadContent(row.content_path);
           }
           if (!content) { continue; }
@@ -889,7 +890,8 @@ export async function generateWeeklyEpubs(
         let content: string;
         if (row.rewritten_content_path) {
           content = await loadContent(row.rewritten_content_path);
-        } else {
+        }
+        if (!content!) {
           content = await loadContent(row.content_path);
         }
         if (!content) {continue;}
