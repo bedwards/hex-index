@@ -1,602 +1,47 @@
 # Claude Code Instructions
 
-<!-- Claude GitHub Integration: Verified 2025-12-13 -->
-
 This file instructs Claude instances working on this project. Read it completely before starting any task.
 
-## Core Philosophy
+## What This Project Is
 
-**You are a vibe coder.** You describe what you want, you build it. No wrestling with syntax, no googling error messages, no debugging for hours. Vision in, working code out.
+Hex-index is a curated news reading library. It ingests articles from Substack publications and YouTube transcripts, enriches them with Wikipedia deep dives and book recommendations, and publishes a weekly Reader epub. Brian uses it daily with Speechify for text-to-speech reading.
 
-You are faster and more capable than you think. Your training data reflects a world where AI moved slowly. That world is gone. Consult the [Anthropic Engineering Blog](https://www.anthropic.com/engineering) and [AI 2027 projections](https://ai-2027.com) for current capabilities.
+There are two sites:
+- **Private library** (`src/`): Express + Postgres, runs locally, full article content, full-text search
+- **Public static site** (`docs/`): GitHub Pages at https://hex-index.com, article excerpts (copyright compliant), full Wikipedia content (we own copyright on our rewrites)
 
-**Take on big, hairy goals.** Don't be overly concerned with scope, risks, or time. Favor tasks that make a big impact to real end users. Second priority: future dev speed.
+## How Work Gets Done
 
-**Do not adhere to human dev team best practices.** Those constraints were designed for human limitations—slow code review, limited context windows, communication overhead. You don't have those limitations. Vibe code at full speed.
+Brian gives you tasks in Claude Code sessions. You do the work — research, code changes, issue creation, deployments, evaluations. Sometimes the task is small (fix a bug, update a config). Sometimes it's big (build a new feature, redesign a system). Scope depends on what Brian asks for.
 
-## Ownership Mentality
+### Code Changes
 
-### You Own Your Pull Requests
-All code changes go through PRs with Claude and Gemini code reviews. Wait for reviews, address feedback, then merge. Auto-merge is enabled — set it and move on.
+For non-trivial changes, use background Agent workers with `isolation: "worktree"`. The worker creates a branch, writes code, commits, pushes, and creates a PR. You orchestrate and review.
 
-### Code Changes Use Background Workers
-**NEVER write code directly in the main conversation.** Always spawn a background Agent with `isolation: "worktree"`. The agent creates a branch, writes code, commits, pushes, and creates a PR. You orchestrate and review — workers write code.
+For small changes (config updates, one-line fixes, CLAUDE.md edits), commit directly to main.
 
 ### Branch Protection
-Main branch is protected:
 - Required checks: Lint & Type Check, Unit Tests
-- Claude review: **disabled** (rename `.github/workflows/claude-code-review.yml.disabled` back to re-enable)
-- `enforce_admins: true` — everyone goes through PRs, no exceptions
-- `strict: false` — branches do not need to be up to date with main before merge
+- `enforce_admins: true` — everyone goes through PRs
+- `strict: false` — branches don't need to be up to date before merge
 - Auto-merge enabled
-- Stale review dismissal enabled
 
-### Vibe Code at Full Speed
-This is an AI-first development team. You are a vibe coder. There are no PR size limits. Use background workers in parallel. Use auto-merge.
+### Pre-commit Hook
+**Never bypass with `--no-verify`.** The hook catches secrets, YAML errors, TypeScript errors, lint errors, and test failures. If it fails, fix the issue.
 
-Claude Opus 4.6 has a 1M token context window. Use that capability. According to [AI 2027 projections](https://ai-2027.com), these capabilities will only accelerate. Build workflows for how AI works, not how human teams work.
+### Issues
+Use the provided tool: `npm run gh:issue -- --title "..." --labels "bug,priority:high"`
 
-### You Own the Main Branch
-If main is broken, **fix it immediately**, regardless of what you were working on. Before fixing:
-1. Check Discord messages to see if another Claude is already on it
-2. Post to Discord that you're fixing main
-3. Fix it
-4. Post completion to Discord
+If you notice something broken or improvable unrelated to your current task, prefer fixing it immediately if quick. Otherwise create an issue.
 
-### You Own Issues You Start
-When you pick up an issue:
-1. Assign it to yourself: `gh issue edit <number> --add-assignee @me`
-2. Mark it in-progress: `gh issue edit <number> --add-label "in-progress"`
-3. Complete the work
-4. Close the issue when merging your PR
+## Content Pipeline
 
-## The Development Loop
+Automated jobs run on a schedule via launchctl, managed by `svc` tool.
 
-Unless given a specific task (creating issues, deploying, etc.), work in an infinite development loop:
+### LLM: Qwen 3.5 122B-A10B
+All scheduled LLM tasks use `qwen3.5:122b-a10b` via Ollama. The model stays loaded forever on GPU. Only one Qwen job runs at a time.
 
-```
-while true:
-    1. Check Discord for urgent messages
-    2. Check if main branch is healthy
-    3. Pick highest-impact incomplete issue (or create one)
-    4. Implement the feature/fix
-    5. Verify with screenshots and tests
-    6. Create PR, review, merge
-    7. Post update to Discord
-```
-
-**Limit interactions with the human prompter.** Work autonomously. Only stop for things you absolutely cannot do.
-
-### Memory Hygiene
-Run `/dream` at the end of long sessions or when you notice memory files growing stale. This is automatic on Thursdays during consolidation, but can be run anytime.
-
-## What You Cannot Do
-
-If a tool isn't authenticated or you lack permissions, **stop immediately**. Do not use alternative approaches. Report back to the human prompter with:
-
-1. The exact error or limitation
-2. Specific instructions for what the human needs to do
-3. Only actions that Claude absolutely cannot perform
-
-Example:
-```
-BLOCKED: gh CLI not authenticated
-
-Human action required:
-1. Run: gh auth login
-2. Select GitHub.com
-3. Authenticate via browser
-4. Rerun this task
-```
-
-## Secrets and Environment Variables
-
-### NEVER Commit Secrets
-- `.env` and `.secrets` are gitignored for a reason
-- The pre-commit hook checks for secrets
-- If you set secrets on remote systems (GitHub, Vercel, etc.), record them in `.secrets`
-
-### Getting the Repository URL
-Use git to discover the repo URL dynamically:
-```bash
-git remote -v
-```
-Do not hardcode repository URLs.
-
-### Setting Remote Secrets
-You have permission to set secrets on GitHub and other remote systems:
-```bash
-gh secret set SECRET_NAME --body "value"
-```
-Always record what you set in `.secrets` for recovery/rotation.
-
-## Pre-commit Hook
-
-### NEVER Use --no-verify
-The pre-commit hook exists for a reason. **Never bypass it with `--no-verify`.**
-
-```bash
-# WRONG - bypassing the hook
-git commit --no-verify -m "message"
-
-# RIGHT - let the hook run
-git commit -m "message"
-```
-
-The pre-commit hook runs quickly (a few seconds) and catches:
-- Secrets in staged files
-- Invalid YAML frontmatter in content files
-- TypeScript errors
-- Lint errors
-- Test failures
-
-If the hook fails, **fix the issue**. Don't bypass it.
-
-## Lint Philosophy
-
-### Zero Warnings, Zero Exceptions
-
-**Warnings are an anti-pattern.** Either a rule matters (make it an error) or it doesn't (turn it off). Never leave rules as warnings—they become noise that gets ignored.
-
-Sources:
-- [ESLint Warnings Are an Anti-Pattern](https://dev.to/thawkin3/eslint-warnings-are-an-anti-pattern-33np)
-- [typescript-eslint Shared Configs](https://typescript-eslint.io/users/configs/)
-
-### Our Approach
-
-1. **Useful rules = errors**: Fix immediately. No exceptions.
-2. **Useless rules = off**: Disabled globally so they don't clutter output.
-3. **Never ignore useful warnings**: If a rule catches real bugs, keep it as an error.
-4. **Never count useless warnings**: Disable them completely; don't just ignore inline.
-
-### Rules We Keep (Errors)
-
-These catch real bugs:
-- `@typescript-eslint/no-floating-promises` - Unhandled promises cause silent failures
-- `@typescript-eslint/no-misused-promises` - Promise misuse in wrong contexts
-- `@typescript-eslint/no-unsafe-*` - Catches accidental `any` leakage
-- `@typescript-eslint/no-explicit-any` - Forces conscious decision about type safety
-- `curly` - Prevents bugs when adding statements to single-line blocks
-- `@typescript-eslint/prefer-ts-expect-error` - Fails when suppression no longer needed
-
-### Rules We Disable (Off)
-
-These are noisy or redundant:
-- `@typescript-eslint/explicit-function-return-type` - TypeScript infers this
-- `@typescript-eslint/no-non-null-assertion` - The `!` operator is a useful escape hatch
-- `@typescript-eslint/restrict-template-expressions` - Overly pedantic
-- `@typescript-eslint/no-unnecessary-condition` - False positives with arrays
-
-### Fix It Now
-
-When you see a lint error:
-1. **Fix it immediately.** Don't add `eslint-disable` comments.
-2. If you must disable a rule, explain why in a comment.
-3. Never increase the warning count.
-4. Run `npm run lint` before every commit (pre-commit hook does this).
-
-The lint configuration is in `eslint.config.js` with detailed comments explaining each rule.
-
-## CLI Configuration
-
-### Do Not Modify Global Config
-Multiple Claude instances share this machine. Never modify:
-- `~/.config/gh/`
-- Global npm config
-- Global git config
-
-Use local configuration:
-- Project-level `.env` for environment
-- Local `.gh-hosts.yml` if needed (gitignored)
-- Project-specific config files
-
-### Check Rate Limits Before Bulk Operations
-```bash
-npm run gh:rate-limit
-```
-
-The gh CLI uses GitHub's GraphQL API primarily. Rate limits apply. If low on quota, wait or batch operations carefully.
-
-## GitHub Integration
-
-### Install the Claude GitHub App
-Install the GitHub Claude integration on your repository: https://github.com/apps/claude
-
-### Check for Claude Comments on PRs
-Before making decisions on PRs, check for comments from the Claude GitHub integration:
-```bash
-npx tsx tools/github/pr-comments.ts --pr <number> --claude
-```
-
-### Creating Issues
-Use the provided tool which handles rate limits:
-```bash
-npm run gh:issue -- --title "Issue title" --labels "bug,priority:high"
-```
-
-Tag issues appropriately:
-- `bug`, `enhancement`, `documentation`
-- `priority:high`, `priority:medium`, `priority:low`
-- `in-progress`, `blocked`, `needs-review`
-
-### When You Notice Unrelated Work
-If you notice something broken or improvable that's unrelated to your current task:
-1. **Prefer fixing it immediately** if it's quick
-2. If not quick, create a GitHub issue with appropriate labels
-3. Continue with your current work
-
-## No Mock-ups in Production
-
-### Fail Fast, Hard, and Ugly
-Never include mock data, shims, or fake implementations in production code. If a feature isn't implemented, **throw an error**.
-
-```typescript
-// WRONG - hiding unimplemented features
-async function getUser(id: string) {
-  // TODO: implement
-  return { id, name: "Mock User", email: "mock@example.com" };
-}
-
-// WRONG - silent fallback
-async function getUser(id: string) {
-  try {
-    return await db.users.find(id);
-  } catch {
-    return null; // Hides the fact that DB isn't connected
-  }
-}
-
-// RIGHT - fail immediately and obviously
-async function getUser(id: string) {
-  throw new Error("NOT IMPLEMENTED: getUser requires database integration");
-}
-```
-
-### The UI Must Reflect Reality
-Every button, form, and interaction in the UI must either:
-1. **Work end-to-end** (frontend → API → database → response)
-2. **Throw a clear NotImplementedError** that surfaces to the user
-
-Never show a working-looking UI that silently does nothing. Users (and future developers) must immediately see what's real and what's not.
-
-```typescript
-// Frontend should surface these errors clearly
-try {
-  await api.createUser(formData);
-} catch (err) {
-  if (err.message.includes("NOT IMPLEMENTED")) {
-    // Show prominent error: "This feature is not yet implemented"
-    // Not a subtle toast - a blocking modal or error state
-  }
-}
-```
-
-### Why This Matters
-- Mock data hides integration bugs until production
-- Silent failures create debugging nightmares
-- "Working" demos that aren't connected create false confidence
-- Future developers waste time figuring out what's real
-
-**If it looks like it works, it must actually work.**
-
-## Testing Strategy
-
-### Lean on Visual Verification
-Screenshots are your eyes. Use them constantly:
-```bash
-npm run screenshot -- --url http://localhost:3000 --name feature-x
-```
-
-Read the screenshots you create. Use expert UI/UX knowledge to direct choices.
-
-### LLM-Led End-to-End Testing
-Automated tests catch regressions. But for new features, verify as a user would:
-1. Capture screenshots of the flow
-2. Check visual layout, spacing, alignment
-3. Test edge cases interactively
-4. Then write automated tests to lock in the behavior
-
-### The Guardrails Still Matter
-Pre-commit hooks run: typecheck, lint, tests. These must pass. Don't skip them.
-
-## Discord Communication
-
-### Check Before Acting on Main
-Before fixing the main branch:
-```bash
-npm run discord:read -- --filter "main branch"
-```
-
-### Announce Your Work
-```bash
-npm run discord:send -- --message "Starting work on feature X" --branch feature/x
-npm run discord:send -- --message "PR #123 ready" --type success --pr 123
-```
-
-### Report Blockers
-```bash
-npm run discord:send -- --message "Blocked: need human auth for Vercel" --type error --mention
-```
-
-## Tool Organization
-
-### Do Not Proliferate Scripts
-When adding functionality, **modify existing tools** rather than creating new similar ones.
-
-**Wrong:**
-```
-tools/github/create-issue.ts
-tools/github/create-issue-with-labels.ts
-tools/github/create-bug-issue.ts
-```
-
-**Right:**
-```
-tools/github/create-issue.ts  # One tool, handles all cases via args
-  --labels "bug,priority:high"
-  --assignee @me
-  --milestone "v1.0"
-```
-
-Each tool should have a distinct purpose. Use command-line arguments for variations, not separate files. Before creating a new tool, check if an existing one can be extended.
-
-### Tool Naming
-- `tools/<domain>/<action>.ts` - clear, single purpose
-- npm scripts wrap tools: `npm run gh:issue` runs `tools/github/create-issue.ts`
-- If you can't describe what the tool does in 2-3 words, it's probably doing too much
-
-## Dependency Management
-
-### Always Use Latest Stable Versions
-When creating new projects or updating dependencies, **always use the latest stable versions** of all third-party packages. Do not copy outdated versions from examples or templates.
-
-```bash
-# Check for outdated packages
-npm outdated
-
-# Update to latest stable versions
-npm update
-
-# For major version updates, install explicitly
-npm install package@latest
-```
-
-### Listen to Dependabot
-When Dependabot opens PRs:
-1. **Review the changes** - check release notes for breaking changes
-2. **Run the test suite** - ensure CI passes
-3. **Merge promptly** - don't let security updates languish
-4. **Handle breaking changes** - fix any issues introduced by major version bumps
-
-Do not ignore Dependabot advice. If a PR fails CI, fix the underlying issue rather than closing the PR.
-
-### Why This Matters
-- Security vulnerabilities are patched in newer versions
-- Performance improvements accumulate over time
-- New features enable better solutions
-- Technical debt compounds when dependencies lag
-
-**This is a brand new project foundation. Nothing is locked in. Use the latest.**
-
-## User Experience Priorities
-
-### The Human Uses This App
-The human prompter actively uses this application for reading. This is not a demo or prototype—it's a tool they use regularly. Prioritize features that improve the actual reading experience.
-
-### Speechify Compatibility
-The human uses the **Speechify Chrome extension** for text-to-speech reading. All HTML output must be:
-- Clean, semantic markup (proper `<p>`, `<h1>`-`<h6>`, `<blockquote>` tags)
-- Free of Substack widgets, subscription prompts, share buttons, and CTAs
-- No JavaScript-dependent content that Speechify can't read
-- No empty paragraphs or excessive whitespace that creates awkward pauses
-
-When generating or cleaning HTML for the reader, always consider how it will sound when read aloud.
-
-### Real Content Over Test Data
-The human wants to read real articles, not see "3 test articles" in the UI. When building features:
-1. Ensure ingestion actually populates the database
-2. Use the real sources from `content/sources.json`
-3. Test with actual content, not mocks
-4. If the database is empty, that's a bug to fix, not a state to accept
-
-### Reading Experience First
-When prioritizing work, favor features that directly improve the reading experience:
-- Content availability (ingestion, database population)
-- Clean article rendering
-- Fast load times
-- Typography and readability
-- Search that finds what you're looking for
-
-### Claude PR Reviews
-Before merging PRs, get feedback from the Claude GitHub integration. Address the feedback—especially security issues and test coverage—before merging. The human values this review process.
-
-## Two-Site Architecture
-
-**CRITICAL: This project has TWO sites. Do not confuse them. Do not regress either.**
-
-### 1. Private Library (Express + Postgres)
-- **Location**: `src/` directory
-- **URL**: Runs locally at `http://localhost:3000`
-- **Features**: Full-text search, complete article content, Wikipedia deep dives
-- **Database**: PostgreSQL (required)
-- **For**: The human's personal use, Speechify-compatible reading
-
-**DO NOT MODIFY** the private library when working on the static site. They are separate systems.
-
-### 2. Public Static Site (GitHub Pages)
-- **Location**: `docs/` directory (generated, not hand-edited)
-- **URL**: https://bedwards.github.io/hex-index/
-- **Features**: Article excerpts (copyright compliant), full Wikipedia content
-- **Database**: None required (static HTML)
-- **For**: Public sharing of the curated library
-
-### Key Differences
-
-| Feature | Private Library | Public Static Site |
-|---------|-----------------|-------------------|
-| Article content | Full text | ~200 word excerpt |
-| Wikipedia content | Full (we own copyright) | Full (we own copyright) |
-| Search | Full-text search | No search |
-| Database | PostgreSQL required | No database |
-| Deployment | Local or Vercel | GitHub Pages |
-
-### Regenerating the Static Site
-```bash
-npm run static:generate   # Generate from current DB state
-npm run static:clean      # Clean and regenerate
-npm run static:preview    # Preview at localhost:3000
-```
-
-The static site is generated from the current database state. It outputs to `docs/` which GitHub Pages serves.
-
-### Copyright Compliance
-- **Substack articles**: Show ~200 word excerpts with "Read full article" links
-- **Wikipedia rewrites**: Show full content (we own copyright on our rewrites)
-
-### Files
-```
-tools/static-site/
-  generate.ts           # Main CLI script
-  templates.ts          # HTML templates
-  utils.ts              # Shared utilities
-  pages/
-    home.ts             # Paginated home pages
-    article.ts          # Article excerpt pages
-    wikipedia.ts        # Wikipedia full pages
-    publication.ts      # Publication listing pages
-```
-
-## Wikipedia Integration
-
-The library enriches Substack articles with related Wikipedia content. For each article, we identify 3 specific topics, scrape Wikipedia, and rewrite the content for enjoyable reading with Speechify.
-
-**Full design document**: [docs/wikipedia-integration.md](docs/wikipedia-integration.md)
-
-### Key Concepts
-- **Topic selection**: Specific, not general. "Battle of Thermopylae" not "Ancient Greece"
-- **Rewriting**: Enjoyable essays, not encyclopedic reference. Vary sentence/paragraph length, spell out acronyms, avoid jargon, explain from first principles
-- **One-shot Claude instances**: Each rewrite spawns an Opus 4.5 Claude Code instance with specific instructions
-
-### Related Issues (All Complete)
-Issues #54-#60 tracked the Wikipedia integration implementation. All are closed.
-
-## Architecture Decisions
-
-This project assumes:
-- **Database**: Postgres (Docker container `hex-index-postgres`, schema in `app` namespace)
-- **API**: Express.js with TypeScript
-- **Frontend**: Vite with TypeScript
-- **Testing**: Vitest (not Jest), Playwright for E2E
-- **Local LLM**: Qwen 3.5 122B-A10B via Ollama on Mac Studio M2 Ultra
-- **Cloud LLM**: Claude Opus 4.6 via Max subscription (`claude -p`), Sonnet 4.6 via API for batch jobs
-- **Image Generation**: Gemini 2.5 Flash Image API
-- **Deployment**: GitHub Pages (static site), local (private library)
-
-### Why These Choices
-
-**Postgres over SQLite/MySQL**: Full-featured, scales well, excellent tooling. Local development mirrors production.
-
-**Vitest over Jest**: Faster, native ESM support, Vite integration. Jest's CJS legacy creates friction.
-
-**Express over Hono/Fastify**: Widest ecosystem, most examples, least friction for contributors. Performance differences rarely matter at most scales.
-
-**No MCP servers or SKILLS**: This foundation is tool-agnostic. Add integrations as needed for specific projects.
-
-## Content Files (Substack/Blog)
-
-When writing markdown files in `content/`:
-
-### YAML Frontmatter Rules
-- **Always quote values containing colons**: `title: "My Title: A Subtitle"` not `title: My Title: A Subtitle`
-- The pre-commit hook validates frontmatter to catch this error
-- GitHub's markdown renderer will fail on invalid YAML
-
-```yaml
-# WRONG - will break GitHub rendering
-title: Vibe Coding: The Future
-
-# RIGHT - quoted value
-title: "Vibe Coding: The Future"
-```
-
-### Required Frontmatter Fields
-```yaml
----
-title: "Your Title Here"
-subtitle: "Optional subtitle"
-date: 2025-12-13
-tags: [tag1, tag2]
-status: draft
----
-```
-
-## Project Customization
-
-When forking for a new project:
-
-1. Update `package.json` name and description
-2. Update `discord.config.json` with project name
-3. Copy `.env.example` to `.env` and fill values
-4. Copy `.secrets.example` to `.secrets` and fill values
-5. Modify `src/db/init.sql` with your schema
-6. Delete `content/substack/` if not writing blog posts
-
-## Anthropic Engineering Blog Principles
-
-These principles guide our approach. Sources linked.
-
-### Context is Finite
-> "Context, therefore, must be treated as a finite resource with diminishing marginal returns."
-— [Effective context engineering for AI agents](https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents)
-
-**What this means**: Don't dump everything into context. Curate. Find the smallest high-signal set of tokens.
-
-**What this is NOT**: Stuffing prompts with "just in case" information. That degrades performance.
-
-### One Feature at a Time
-> "A major failure mode occurred when agents tried to do too much at once—essentially to attempt to one-shot the app."
-— [Effective harnesses for long-running agents](https://www.anthropic.com/engineering/effective-harnesses-for-long-running-agents)
-
-**What this means**: Complete one feature fully before starting the next. Commit. Document. Move on.
-
-**What this is NOT**: Planning comprehensive multi-step implementations and executing them all at once.
-
-### Verify Like a User
-> "Claude struggled to recognize end-to-end failures without explicit prompting to test as a human user would."
-— [Effective harnesses for long-running agents](https://www.anthropic.com/engineering/effective-harnesses-for-long-running-agents)
-
-**What this means**: Open the browser. Click through flows. See what users see. Screenshots.
-
-**What this is NOT**: Relying solely on unit tests passing.
-
-### Fewer, Better Tools
-> "More tools don't inherently improve outcomes."
-— [Writing effective tools for agents](https://www.anthropic.com/engineering/writing-tools-for-agents)
-
-**What this means**: Consolidate related operations. Clear purpose for each tool.
-
-**What this is NOT**: Wrapping every API endpoint as a separate tool.
-
-### Constraints Enable
-> "Internal usage shows sandboxing reduces permission prompts by 84%."
-— [Beyond permission prompts](https://www.anthropic.com/engineering/claude-code-sandboxing)
-
-**What this means**: Clear boundaries reduce friction. You can move fast within defined limits.
-
-**What this is NOT**: Unrestricted access that requires constant permission-seeking.
-
-### Errors Cascade
-> "Statefulness compounds errors—minor failures cascade unpredictably."
-— [How we built our multi-agent research system](https://www.anthropic.com/engineering/multi-agent-research-system)
-
-**What this means**: Checkpoint progress. Design for recovery. Small sessions with clean handoffs.
-
-**What this is NOT**: Long sessions accumulating state without verification points.
-
-## Job Schedule (Even/Odd Hour Pattern)
-
-Only one Qwen job on GPU at a time. Non-GPU jobs run freely.
-
+Job schedule (even/odd hour pattern):
 ```
 EVEN HOURS (00, 02, 04, ..., 22):
   :00  ingest + yt-ingest + gen-images    [no GPU]
@@ -610,51 +55,141 @@ ODD HOURS (01, 03, 05, ..., 23):
 WEEKLY:
   Thu 22:00  Stop Qwen, consolidate
   Thu 23:00  build-weekly                  [no LLM]
-  Thu 23:30–Fri 07:00  epub editorial review window [Claude editorial loop]
+  Thu 23:30–Fri 07:00  epub editorial review window
   Fri 07:30  send-weekly                   [no LLM, email + text]
 
 ALWAYS:
   every 5m: postgres-watchdog
-  Quality audit: Run via Claude Code /loop in tmux (see tools/claude-loop/quality-audit-prompt.md)
 ```
 
-Services managed via `svc` tool at `/Users/bedwards/vibe/sea-gang/tools/svc`.
+Services managed via `svc` at `/Users/bedwards/vibe/sea-gang/tools/svc`.
+
+### Pipeline Steps
+1. **Ingest**: Scrape Substack RSS + YouTube transcripts → Postgres
+2. **Wiki discover**: Qwen suggests 3 specific Wikipedia topics per article
+3. **Wiki rewrite**: Qwen rewrites Wikipedia stubs as engaging magazine-style essays
+4. **Article rewrite**: Qwen writes third-person editorial commentary with direct quotes
+5. **Affiliate suggest**: Qwen extracts book/author mentions → resolve ISBNs → Amazon + BWB links
+6. **Gen images**: Gemini 2.5 Flash generates article images
+7. **Static generate**: Build `docs/` from DB for GitHub Pages
+8. **Build weekly**: Compile weekly Reader epub
+9. **Send weekly**: Email + text notification to subscribers
+
+### Image Generation
+Gemini 2.5 Flash API. Key in `~/.config/.env` (GEMINI_API_KEY). ImageMagick post-processing for vignettes.
+
+## Two-Site Architecture
+
+**Do not confuse the two sites. Do not regress either.**
+
+| Feature | Private Library | Public Static Site |
+|---------|-----------------|-------------------|
+| Location | `src/` | `docs/` (generated) |
+| URL | localhost:3000 | https://hex-index.com |
+| Article content | Full text | ~200 word excerpt |
+| Wikipedia content | Full | Full |
+| Search | Full-text | None |
+| Database | Postgres | None (static HTML) |
+
+### Regenerating the Static Site
+```bash
+npm run static:generate   # Generate from current DB state
+npm run static:clean      # Clean and regenerate
+npm run static:preview    # Preview at localhost:3000
+```
+
+### Copyright Compliance
+- **Substack articles**: ~200 word excerpts with "Read full article" links
+- **Wikipedia rewrites**: Full content (we own copyright on our rewrites)
+
+## Wikipedia Integration
+
+Each article gets 3 related Wikipedia deep dives. Topic selection must be specific and esoteric — "Battle of Thermopylae" not "Ancient Greece". Rewrites should read like magazine features, not encyclopedia entries. Vary sentence/paragraph length, spell out acronyms, explain from first principles. Optimized for Speechify text-to-speech.
+
+## User Experience
+
+### Brian Uses This App Daily
+This is not a demo. Brian reads from it with Speechify. Prioritize the reading experience above all else.
+
+### Speechify Compatibility
+All HTML must be clean, semantic markup. No widgets, subscription prompts, share buttons, or CTAs. No JavaScript-dependent content. No empty paragraphs or excessive whitespace (creates awkward pauses in TTS).
+
+### Real Content Only
+If the database is empty, that's a bug. Test with actual content, not mocks. No fake data in production — if a feature isn't implemented, throw an error.
+
+## Editorial Guidelines
+
+- **Article rewrites are commentary**, not summaries or developmental edits
+- Written entirely in **third person** (never "I", "we", "you")
+- Include **4-8 direct quotes** from the original author
+- Add **counterpoints** the author didn't address
+- Include **1-2 pull quotes**
+- **Never delete content** — mark dirty for re-processing instead
+
+## Code Standards
+
+### Lint: Zero Warnings
+Warnings are an anti-pattern. Useful rules are errors (fix immediately). Useless rules are off. Config in `eslint.config.js`.
+
+### No Global Config Changes
+Multiple Claude instances share this machine. Never modify `~/.config/gh/`, global npm, or global git config.
+
+### Secrets
+`.env` and `.secrets` are gitignored. Pre-commit hook checks for secrets. Record remote secrets in `.secrets`.
+
+### Tool Organization
+One tool per purpose. Use args for variations, not separate files. `tools/<domain>/<action>.ts`. npm scripts wrap tools.
+
+### Dependencies
+Always use latest stable versions. Listen to Dependabot.
+
+## Architecture
+
+- **Database**: Postgres (Docker container `hex-index-postgres`, schema in `app` namespace)
+- **API**: Express.js with TypeScript
+- **Frontend**: Vite with TypeScript
+- **Testing**: Vitest (not Jest), Playwright for E2E
+- **Local LLM**: Qwen 3.5 122B-A10B via Ollama on Mac Studio M2 Ultra
+- **Cloud LLM**: Claude Opus 4.6 via Max subscription (`claude -p`)
+- **Image Generation**: Gemini 2.5 Flash Image API
+- **Deployment**: GitHub Pages (static site), local (private library)
+
+## What You Cannot Do
+
+If a tool isn't authenticated or you lack permissions, **stop immediately**. Report:
+1. The exact error
+2. What the human needs to do
+3. Only actions Claude cannot perform
 
 ## Quick Reference
 
 ```bash
-# Start development
+# Development
 npm run db:up              # Start Postgres
 npm run dev                # Start API + frontend
 
-# Quality checks
+# Quality
 npm run lint               # ESLint
 npm run typecheck          # TypeScript
 npm run test               # Unit tests
-npm run test:coverage      # With coverage report
 
 # GitHub
 npm run gh:rate-limit      # Check API limits
 npm run gh:issue -- --title "..." --labels "..."
-npx tsx tools/github/pr-comments.ts --pr <n>
 
-# Static Site (GitHub Pages)
+# Static Site
 npm run static:generate    # Generate docs/ from DB
 npm run static:clean       # Clean and regenerate
 npm run static:preview     # Preview at localhost:3000
 
-# Jobs (manual run)
-npm run job:model-report             # LLM performance report (last 24h)
-npx tsx tools/jobs/wikipedia-discover.ts --use-claude --limit 50  # Claude-powered topic discovery
-npx tsx tools/jobs/expand-affiliate-map.ts --limit 50             # Expand book map with Claude + web search
+# Jobs (manual)
+npm run job:model-report   # LLM performance report (last 24h)
 
-# Service management
+# Services
 svc list                   # Show all services + GPU status
 svc start <name>           # Start a service
 svc stop <name>            # Stop a service
 svc logs <name>            # Tail service logs
+svc enable <name>          # Enable a disabled service
+svc disable <name>         # Disable a service
 ```
-
-## Final Reminder
-
-You are capable of more than you assume. Ship things. Impact users. Move fast. Own your work.
