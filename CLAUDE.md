@@ -40,8 +40,8 @@ If you notice something broken or improvable unrelated to your current task, pre
 
 Automated jobs run on a schedule via launchctl, managed by `svc` tool.
 
-### LLM: Qwen 3.5 122B-A10B
-All scheduled LLM tasks use `qwen3.5:122b-a10b` via Ollama. The model stays loaded forever on GPU. Only one Qwen job runs at a time.
+### LLM: Qwen 3.5 122B-A10B-Q8
+All scheduled LLM tasks use `qwen3.5:122b-a10b-q8` via Ollama. The model stays loaded forever on GPU. Only one Qwen job runs at a time.
 
 Job schedule (even/odd hour pattern):
 ```
@@ -163,7 +163,7 @@ Always use latest stable versions. Listen to Dependabot.
 - **API**: Express.js with TypeScript
 - **Frontend**: Vite with TypeScript
 - **Testing**: Vitest (not Jest), Playwright for E2E
-- **Local LLM**: Qwen 3.5 122B-A10B via Ollama on Mac Studio M2 Ultra
+- **Local LLM**: Qwen 3.5 122B-A10B-Q8 via Ollama on Mac Studio M2 Ultra
 - **Cloud LLM**: Claude Opus 4.6 via Max subscription (`claude -p`)
 - **Image Generation**: Gemini 2.5 Flash Image API
 - **Deployment**: GitHub Pages (static site), local (private library)

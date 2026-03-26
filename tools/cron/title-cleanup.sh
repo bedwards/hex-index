@@ -10,7 +10,7 @@ PROJECT_DIR="$(cd "$SCRIPT_DIR/../.." && pwd)"
 LOCK_FILE="$PROJECT_DIR/logs/title-cleanup.lock"
 LOG_FILE="$PROJECT_DIR/logs/title-cleanup-$(date +%Y%m%d-%H%M%S).log"
 OLLAMA_URL="${OLLAMA_URL:-http://127.0.0.1:11434}"
-OLLAMA_MODEL="${OLLAMA_MODEL:-qwen3.5:122b-a10b}"
+OLLAMA_MODEL="${OLLAMA_MODEL:-qwen3.5:122b-a10b-q8}"
 
 TIME_BUDGET=1500        # 25 minutes — fits Qwen slot
 SECS_PER_ITEM=10
