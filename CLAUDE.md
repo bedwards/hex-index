@@ -22,6 +22,8 @@ For small changes (config updates, one-line fixes, CLAUDE.md edits), commit dire
 
 ### Branch Protection
 - Required checks: Lint & Type Check, Unit Tests
+- Claude review: **enabled** via `.github/workflows/claude-code-review.yml`
+- Gemini review: **enabled** via Gemini Code Assist GitHub App (no workflow needed)
 - `enforce_admins: true` — everyone goes through PRs
 - `strict: false` — branches don't need to be up to date before merge
 - Auto-merge enabled

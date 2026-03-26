@@ -99,16 +99,16 @@ if [ $? -ne 0 ]; then
     exit 1
 fi
 
-# If static-site source files changed but docs/ didn't, warn
-STATIC_SRC_CHANGED=$(git diff --cached --name-only | grep -E '^(tools/static-site/|public/styles\.css)' || true)
-DOCS_CHANGED=$(git diff --cached --name-only | grep -E '^docs/' || true)
-
-if [ -n "$STATIC_SRC_CHANGED" ] && [ -z "$DOCS_CHANGED" ]; then
-    echo "⚠️  WARNING: Static site source files changed but docs/ was not updated."
-    echo "   Run 'npm run static:generate' and stage the docs/ changes."
-    echo "   Changed source files:"
-    echo "$STATIC_SRC_CHANGED" | sed 's/^/     /'
-    # Warning only — don't block the commit
+# Regenerate static site docs/ if DB is accessible
+echo "Checking if static site needs regeneration..."
+if docker exec hex-index-postgres pg_isready >/dev/null 2>&1; then
+    echo "Database is up — regenerating static site..."
+    npm run static:generate
+    git add docs/
+    echo "Static site regenerated and staged."
+else
+    echo "⚠️  WARNING: Database not accessible — docs/ could not be regenerated."
+    echo "   Start the Postgres container and run 'npm run static:generate' manually."
 fi
 
 echo "✅ All pre-commit checks passed!"
