@@ -120,13 +120,13 @@ Return ONLY tags scoring 30+. Output valid JSON, no explanation:
 
         // Validate and insert
         const validSlugs = new Set(tags.map(t => t.slug));
+        const modelName = process.env.OLLAMA_MODEL ?? 'unknown';
         let inserted = 0;
         for (const ts of tagScores) {
           if (!validSlugs.has(ts.slug)) {continue;}
           if (ts.score < 30 || ts.score > 100) {continue;}
 
           try {
-            const modelName = process.env.OLLAMA_MODEL ?? 'unknown';
             await pool.query(
               `INSERT INTO app.article_tags (article_id, tag_slug, score, tagged_by)
                VALUES ($1, $2, $3, $4)

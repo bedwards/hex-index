@@ -13,6 +13,6 @@ ALTER TABLE app.article_tags
 ALTER TABLE app.article_wikipedia_links
   ADD COLUMN IF NOT EXISTS discovered_by TEXT;
 
--- Backfill existing data as 'unknown'
-UPDATE app.articles SET rewrite_model = 'unknown' WHERE rewritten_content_path IS NOT NULL AND rewrite_model IS NULL;
-UPDATE app.wikipedia_articles SET rewrite_model = 'unknown' WHERE status = 'complete' AND rewrite_model IS NULL;
+-- Backfill existing data as 'unknown' with approximate timestamps
+UPDATE app.articles SET rewrite_model = 'unknown', rewritten_at = updated_at WHERE rewritten_content_path IS NOT NULL AND rewrite_model IS NULL;
+UPDATE app.wikipedia_articles SET rewrite_model = 'unknown', rewritten_at = updated_at WHERE status = 'complete' AND rewrite_model IS NULL;
