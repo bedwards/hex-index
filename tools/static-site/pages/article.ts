@@ -118,7 +118,9 @@ function injectImageIntoText(html: string, imageSrc: string): string {
         return html.slice(0, insertPos) + '\n' + imgTag + '\n' + html.slice(insertPos);
       }
       // Remember first valid position in case all remaining have blockquotes
-      if (fallbackPos === null) fallbackPos = insertPos;
+      if (fallbackPos === null) {
+        fallbackPos = insertPos;
+      }
     }
   }
 
