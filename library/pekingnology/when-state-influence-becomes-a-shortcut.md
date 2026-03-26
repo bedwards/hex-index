@@ -1,0 +1,132 @@
+---
+title: "When “State Influence” Becomes a Shortcut"
+author: "Zichen Wang"
+publication: "Pekingnology"
+publication_slug: "pekingnology"
+published_at: "2026-02-24T12:20:10.000Z"
+source_url: "https://www.pekingnology.com/p/when-state-influence-becomes-a-shortcut"
+word_count: 3286
+estimated_read_time: 17
+---
+
+Rush Doshi has [responded](https://x.com/RushDoshi/status/2025582545232933265?s=20) to my [weekend post.](https://www.pekingnology.com/p/attribution-error-a-case-study-in) I want to thank him for the detailed, substance-focused discussion. This kind of public back-and-forth—on a specific claim, with sources on the table—feels increasingly rare online, where “debate” too often devolves into name-calling. His response also pushed me to think more carefully about issues that extend well beyond this one Tesla story, and that matter for China-watching in general.
+
+A U.S.-based friend cautioned me against having this discussion at all:
+
+> “The problem isn’t that whether Sohu is state-owned or not; the supposed state-society distinction lives only in the philosophical imagination of American liberals. They corner you into proving one’s true independence from the party state. But it’s a false premise; they wrote the rules such that you can’t win.”
+
+I understand the warning. Still, I think the discussion is worth having—both for intellectually honest and curious readers, and for more practical reasons. It inevitably touches on a larger question that keeps resurfacing in Western discourse about China: once you divide everything in China into two buckets—either “state-owned,” or “not state-owned but under state influence”—is that the end of the conversation?
+
+\---
+
+To recap: Rush approvingly [quote-retweeted](https://x.com/RushDoshi/status/2024109284062040540) a [story](https://electrek.co/2026/02/17/chinese-state-media-amplifies-viral-tesla-failure-amid-45-sales-crash/) published by *Electrek*, a website [influential](https://www.thedrive.com/tech/21838/the-truth-behind-electreks-dark-alliance-with-tesla) in the EV sector, which alleged that Chinese state media was amplifying an alleged Tesla failure:
+
+> “The PRC’s industrial policy planners have decided now is the time to drive Tesla’s market share down as low as possible, and they have enlisted the Propaganda Department to help.”
+
+The *Electrek* story mistook an insignificant Chinese website—one that carried a brief repost of the alleged Tesla failure—for a key Chinese state media outlet. I also noted that the repost ultimately traces back to [original reporting](https://www.jinantimes.com.cn/news-146-5214703.html) by a local, state-owned newsroom that emerged in recent years with a noticeably different tone than the usual “state media” caricature—an outlet that, among other things, [spoke up](https://www.zaobao.com.sg/news/china/story20260204-8299337) for a Chinese journalist who had been briefly detained and then released.
+
+In his response, Rush [wrote](https://x.com/RushDoshi/status/2025582545232933265?s=20):
+
+> Zichen makes three critical errors in his post: (1) he not only overstates the “attribution error” but makes one of his own, (2) he omits critical information that contradicts his argument and indicates Electrek’s was directionally right, and (3) he in no way counters the point that China is putting pressure on Tesla.
+
+I’m happy to engage with each of these points. But to do so—especially on the first and second points—I need to spend a little more time on something that is easy to miss if you don’t live inside both ecosystems: China’s online media distribution works very differently from the U.S. model, and that difference routinely produces misunderstandings that then cascade into broader interpretive errors.
+
+In the U.S., the *New York Times* website typically publishes *New York Times* journalism. It does not run *Washington Post* or *Wall Street Journal* reporting. In China, by contrast, a media outlet’s website—even one of the most prominent central-level outlets—will often carry reporting from other organizations, including outlets that are politically “weaker” than itself. For China’s large commercial “portal” sites such as Sina, Sohu, and NetEase, this has long been the norm. A single report appearing on many different Chinese sites—including on peer outlets or on sites that are institutionally “stronger” than the original publisher—is not an anomaly. It happens every day, widely, without government intervention.
+
+This is simply a fact of China’s media and internet ecology, shaped by multiple forces. There is path dependence from the portal era, when aggregation was not a side feature but the core product and habit formation was baked into how traffic was captured and monetized. There is also a basic cost structure: reposting is fast, cheap, and scalable, while original reporting requires staffing, travel, editing, legal review, and—crucially—greater exposure to error and political risk. Over time, this interacts with a compliance regime that is often organized not around case-by-case editorial judgments, but around whether content comes from a government-approved source [list](https://www.cac.gov.cn/2025-08/14/c_1756886951645965.htm) that can be shown to regulators and internal supervisors as a form of procedural justification. And above all, there is a political governance logic that rewards risk minimization: the safest editorial decision is often to circulate what has already been published elsewhere, ideally by someone “more authoritative,” rather than to originate a story that might later be judged inappropriate, inaccurate, or simply inconvenient. Weak copyright enforcement in the early years helped lock in these incentives and normalized reposting as a default distribution mechanism.
+
+Of course, Chinese authorities can intervene and cause many sites to publish the same or similar content at once. That does happen. It is happening. But precisely because both organic virality and top-down coordination exist, distinguishing between the two requires contextual analysis—and reasonable people can sometimes land on different conclusions.
+
+**This takes us to a recurring conceptual trap in China analysis: if one begins from the premise that the Chinese authorities are all-powerful, then every observable outcome becomes “compatible” with government direction, and the distinction between orchestration and emergence collapses. That is not analysis; it is a one-way filter.**
+
+In this case, absent additional contrary evidence, my view remains that the spread of a story about “a Tesla Model Y that lost all power on a highway despite showing 72 km of remaining range” across Chinese websites is far more plausibly an organic outcome—because it is exactly the kind of content that, in any modern social-media environment, attracts attention.
+
+With that framing, let me return to Rush’s specific counterarguments.
+
+Rush’s first point is about *China.com* and state control:
+
+> **First, Zichen misses that [China.com](http://china.com/) is also under state control:** Zichen’s claim that *[China.com](http://china.com/)* has “no publicly known affiliation to the Chinese government’s press office” (i.e., the Propaganda Department) is incorrect and is a form of the very “attribution error” he criticizes. Public filings show [China.com](http://china.com/) was de facto under the Propaganda Department for years (it was [owned](https://thenextweb.com/news/former-nasdaq-company-china-com-sells-its-news-portal-business-for-11-7-million) by the state’s China Radio International) before being sold to a company [controlled](http://en.ytsports.cn/news-4993.html) by the Chengdu government. This is not a purely commercial actor, and certainly not one free from state influence when it comes to which stories it amplifies. Zichen claims “China-watching” requires analysts to “verify the institution; verify the attribution; then interpret,” but it is not entirely clear his analysis follows his own formula. Yes, the [China.com](http://china.com/) link is not the strongest evidence of a campaign against Tesla, but it is neither irrelevant nor is it is it the *only* evidence an objective analyst might consider, which leads to the next point.
+
+First, almost any website under PRC jurisdiction can be described as “under state control” in the sense that, if the state decides to control it, it can. If that is the standard, then labeling China.com “state-controlled” adds very little analytical value. **The more relevant question is not whether a site can be controlled in principle, but whether its behavior in a particular moment is best explained by top-down direction—or by the ordinary mechanics of China’s distribution ecosystem, commercial incentives, and social-media dynamics.**
+
+Second, my original point was—and Rush does not really dispute this—that the alleged Tesla failure was not original reporting by *China.com*. *China.com* merely [pasted](https://news.china.com/socialgd/10000169/20260209/49238952.html) a small excerpt from elsewhere, in a way that even obscured the original sourcing. That is not serious journalism; it’s closer to low-effort aggregation. And analytically, it matters: reposting is evidence of marginal participation in an information wave, not evidence of originating or steering it.
+
+Third, *China.com* is an inconsequential player. When I noted that it is not on the Cyberspace Administration of China’s [list](https://wap.cac.gov.cn/xglj/zyzdxwwz/A094002phoneindex_1.htm) of “central key news websites,” the point was not metaphysical purity; it was about institutional significance. Rush notes that it was later sold to a company controlled by the Chengdu government. *China.com*’s broader trajectory is well known: it was once the [first](https://www.nytimes.com/1999/07/14/business/chinacom-soars-in-its-us-trading-debut.html) China-related internet company listed on Nasdaq, and later the first such Nasdaq-listed Chinese internet company to [file for bankruptcy protection](https://www.globaltimes.cn/content/682185.shtml)—and it never meaningfully recovered. If this website were truly an important node for government signaling, it has left remarkably little trace of that role over the past decade. In recent years, there is little evidence that *China.com* has served as a major channel through which authorities release or amplify sensitive messages.
+
+It does have an exceptionally advantageous domain name, which is precisely why some outside observers may over-weight it. But that is branding, not institutional weight. And if you simply look at the site, the user experience is chaotic—ad-heavy, cluttered.
+
+[
+
+![](https://substackcdn.com/image/fetch/$s_!rurE!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F7a20ac44-a9d7-4a7d-8056-ace802877366_1246x1832.png)
+
+
+
+](https://substackcdn.com/image/fetch/$s_!rurE!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F7a20ac44-a9d7-4a7d-8056-ace802877366_1246x1832.png)
+*screenshot of the *China.com* webpage cited by *Electrek.**
+
+Rush’s second point is that the story went viral across major platforms, suggesting *Electrek* was “directionally right”:
+
+> **Second, Zichen misses that this story went viral in ways that suggest his conclusion may be flawed and that Electrek’s story is directionally right.** The Tesla story was much bigger than one misattributed China.com post. The piece originated in New Yellow River (which is state-owned), but it then went out to most major Chinese “commercial” sites that amplify content, and it has stayed up: [Sohu.com](http://sohu.com/) (under significant government influence), [Sina.com](http://sina.com/) (under significant government influence), [ThePaper.cn](http://thepaper.cn/)’s app (state-owned), and even some regional television stations (government-owned). It went viral on social media, particularly in Chinese automotive corners. And it seemingly marked a reversal in Beijing’s approach to Tesla. *Electrek* notes that the Chinese government previously ran interference *for* Tesla and *against* Chinese citizens in the media and court (not a great look for Tesla). The fact that this story is popping up now and has stayed relevant across so many Chinese portals is consistent with a change in policy towards Tesla (more on that below). Given this evidence, it is entirely plausible that the government is leveraging “commercial” media to push a “consumer safety” angle without directly involving the most high-profile state media.
+
+My pushback here is not that government influence never exists. It is about the inferential jump from “this spread widely” to “this signals a policy reversal.” In practice, the argument quietly shifts from capability to culpability—from “could” to “therefore did.”
+
+Start with the content itself. If a Tesla Model Y owner documents—via video, images, and text—that the car, allegedly, showing roughly 72 km of remaining range, suddenly lost power on a highway and was forced into deceleration before a full blackout, is that something likely to draw attention organically? In China’s social media environment, absolutely. A dramatic consumer safety narrative plus a globally recognizable brand is a viral formula.
+
+Second, in the Chinese EV space, “safety controversies” are not rare signals; they are constant noise. Tesla is not only one of many brands that have repeatedly been caught in online storms. BYD, Xiaomi, Li Auto, Nio, EVs running on Huawei systems, and others face relentless waves of negative stories—some real, some exaggerated, some outright fabricated. Anyone who spends time in China’s automotive corners knows how chaotic the public-opinion environment is and how common it is to suspect competitors of [paid amplification and astroturfing](https://tv.cctv.com/2026/01/29/VIDEusqzT0CQFaBePyYZzbfb260129.shtml). In that context, the existence of another trending EV safety story is not, by itself, evidence of a coordinated government campaign or a Beijing “signal.”
+
+[
+
+![](https://substackcdn.com/image/fetch/$s_!t13V!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F79493989-a245-4b50-95bd-47b01e7d74f7_1000x568.png)
+
+
+
+](https://substackcdn.com/image/fetch/$s_!t13V!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F79493989-a245-4b50-95bd-47b01e7d74f7_1000x568.png)
+*Li Yunfei, PR director for BYD, denouncing competitors’ black ops in media, on prime time at China Central Television*
+
+Third, reposting by Sohu, Sina, The Paper, and even some regional broadcasters is not unusual in China’s news distribution system. If anything, what deserves more attention is what did **not** happen: China’s most authoritative central outlets—Xinhua, People’s Daily, and China Central Television—did not drive this cycle. For many China watchers, participation by these top-tier outlets is often among the most persuasive indicators of a centrally aligned media push. Rush does not cite such examples here, and a quick scan of their main feeds during the same window does not suggest they drove this cycle.
+
+So my core quibble with Rush’s first and second points is this: if we begin from the fact that almost all Chinese platforms are, in some sense, under state control, and then treat widespread reposting of a genuinely newsworthy incident as sufficient evidence of policy intent, we risk turning state control into an all-purpose shortcut that flattens the difference between distribution and orchestration.
+
+Rush’s third point is his most substantive.
+
+> Third, Zichen is wrong to use the Electrek story to suggest there is no campaign against Tesla. If one really wanted to make the case there was no campaign in the press, it would be worth at least studying whether the regulatory environment has changed in ways that disadvantage Tesla and showing that it had not. But Zichen does not do this, and his focus on [China.com](http://china.com/) is actually a distraction from what is understood by many at Tesla itself, industry analysts, trade associations, and the U.S. government: that China got what it wanted from Tesla and is now prioritizing domestic companies as the EV market turns cutthroat, with Tesla’s market share falling. Tesla is to blame for some of its problems (old models in a competitive environment), but there are signals of changing policy that will further complicate its future. The Ministry of Industry and Information Technology (MIIT) along with relevant standard-setting bodies are pushing a wave of new regulations that effectively (1) ban Tesla’s signature hidden door handles (enacted), (2) reverses Tesla’s design trends by mandating physical buttons on the dashboard (still in draft form), and (3) effectively bans Tesla’s yoke-style steering wheel (enacted). Tesla is not the only company with these features, and it was a Xiaomi crash that supposedly launched the door handle process, but state media frequently refer to these as “Tesla” features, and these regulations disproportionately affect Tesla. Critically, most of [Tesla’s Chinese competitors](https://std.samr.gov.cn/gb/search/gbDetailed?id=4984F354F9F8CAD1E06397BE0A0AA46C) were directly [involved](https://std.samr.gov.cn/gb/search/gbDetailed?id=2265C5E741CF5CEBE06397BE0A0A4FAA) as [part](https://openstd.samr.gov.cn/bzgk/std/newGbInfo?hcno=31A8C8FEC38342D2FE8F3F2ECEDFB53F) of the “key drafting units” (起草单位) for these regulations—Tesla was not. And in an unusually direct article, state-owned *China Daily* directly rebutted Elon Musk’s hope that he might soon receive Full Self-Driving approval by [indicating](https://www.chinadaily.com.cn/a/202601/23/WS697363dda310d6866eb35785.html#:~:text=By%20Ma%20Si%20%7C%20chinadaily.com,a%20less%2Dcapable%20autopilot%20system.) “China \[is\] not about to approve Tesla self-driving tech soon.” Tesla was denied Level-3 approval for autonomous driving, though some domestic models received it. In the past, Tesla benefited from Chinese industrial policy, as Zichen notes. But he misses that, now, Chinese industrial policy is looks to be turning against it.
+
+First, I’m not sure it is objectively true that “state media frequently refer to these as ‘Tesla’ features.” I’ve seen [coverage](https://opinion.cctv.com/2025/09/30/ARTIjfruwZv8FBK2RzJnO4en250930.shtml) of hidden door handles that do not name Tesla at all, and coverage that references other brands that have widely adopted the design. At the same time, it is not surprising that people associate hidden door handles with Tesla: Tesla’s design choices helped popularize the feature globally, and Tesla remains the most symbolically loaded EV brand in public discourse. On this point, global media often makes the same association. Rush’s own description—“**Tesla’s signature hidden door handles**”—is, in a way, evidence of how natural that association has become.
+
+As a matter of fact, few Chinese outlets have lambasted Tesla’s hidden door handles as Bloomberg did in a report explicitly titled: [Tesla’s Dangerous Doors](https://www.bloomberg.com/features/2025-tesla-dangerous-doors/)
+
+[
+
+![](https://substackcdn.com/image/fetch/$s_!Otkk!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F01abecd6-7766-4d60-ab7c-2b51ab534855_2366x1350.png)
+
+
+
+](https://substackcdn.com/image/fetch/$s_!Otkk!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F01abecd6-7766-4d60-ab7c-2b51ab534855_2366x1350.png)
+
+> …whereas Teslas fare well in government-administered crash tests, certain hallmarks of its vehicles — flush door handles, electrical power, mechanical releases — are flummoxing occupants and first responders. This can turn moments after crashes into deadly races against time.  
+> The Virginia crash is one of a string of incidents exposing this paradox. Last November in California, a Tesla Cybertruck slammed into a tree and a wall and caught fire, killing three college students trapped inside. The same month, in Wisconsin, a Model S fire left five dead, with a cluster of bodies in the front seats suggesting to a detective there may have been a struggle to escape. In Los Angeles this spring, an All-American basketball player survived a Cybertruck crash by kicking through a window before bystanders pulled him out by his legs.
+
+Second, on the “key drafting units” point. He wrote, “**most of Tesla’s Chinese competitors were directly involved as part of the ‘key drafting units**’," but neglected to add that other major foreign automakers—including American ones—are [also involved](https://std.samr.gov.cn/gb/search/gbDetailed?id=4984F354F9F8CAD1E06397BE0A0AA46C) in the doorhandle regulation: Ford and GM, as well as Toyota, Honda, Mercedes-Benz, Porsche, Daimler, Hyundai, Ferrari, and others. If so many firms—domestic and foreign—participated in the same standards process, it becomes harder to frame the outcome as a coordinated industrial-policy conspiracy specifically targeting Tesla.
+
+Rush mentioned three regulations. The [second](https://std.samr.gov.cn/gb/search/gbDetailed?id=2265C5E741CF5CEBE06397BE0A0A4FAA), still in draft and not enacted, has two “key draft units,” including the joint venture between a Chinese carmaker and Volkswagen. The [third](https://openstd.samr.gov.cn/bzgk/std/newGbInfo?hcno=31A8C8FEC38342D2FE8F3F2ECEDFB53F) targets the yoke-style steering wheel, which is controversial in itself, and the U.S. government even [conducted](https://apnews.com/article/musk-tesla-electric-vehicle-steering-wheel-c69867f4eb15bc582d956c309aeba95b) an investigation in 2023.
+
+That does not mean politics never enters standards. It means the evidentiary bar for “policy reversal aimed at Tesla” should be higher than “Tesla was not on the drafting list.”
+
+Third, Rush notes Level 3 approvals. It is true that China’s national regulator has so far granted conditional L3 approval to only two domestically branded passenger-car models. But those approvals are [narrowly scoped](https://www.reuters.com/world/asia-pacific/china-approves-first-batch-l3-autonomous-driving-vehicles-2025-12-15/): the L3 functions can only be activated on designated road sections in Beijing and Chongqing, and the initial pilot operations are to be conducted via the automakers’ own ride-hailing units. That is not the same category as a broad, consumer-facing authorization for nationwide personal use of advanced driver-assistance features. Treating the two as equivalent risks, comparing unlike with unlike.
+
+\---
+
+If there is one lesson to take from this exchange, it is that “state influence” should be treated as a starting condition, not a conclusion. In China, the state’s capacity to shape outcomes is real; so is the system’s tendency to incentivize compliance and caution. But that background fact does not, on its own, tell an observer whether a specific news cycle is an intentional message, a bureaucratic spillover, a commercial distribution reflex, or simply a story that happened to be well-suited to travel. Once “under state influence” becomes a label that ends inquiry rather than begins it, it stops functioning as analysis and starts functioning as a shortcut—one that can be rhetorically satisfying but empirically thin. And if the premise becomes that because the state *can* control everything, it therefore *must* be directing everything, the work of journalism and analysis quietly gives way to reflex. The result is a monolithic China in which nothing is organic, no consumer is genuinely angry, and no local newsroom is simply trying to do its job.
+
+This is why the unglamorous work still matters: attribution, context, and restraint. Attribution means more than getting a domain name right. It means tracing the chain of republication, understanding which nodes have actual agenda-setting weight, and asking what would count as corroboration beyond “it showed up on portals.” Context means situating a story inside the mechanics of China’s media ecology—where aggregation is normal, where reposting is often the default, and where “being everywhere” can be the natural outcome of distribution structures rather than a signature of central coordination. Restraint means resisting the temptation to treat plausibility as proof, or to infer policy turns from a single information wave when alternative explanations—market competition, social-media dynamics, bureaucratic fragmentation—remain equally consistent with what can be observed. The burden should be to show what is distinctive—timing, coordination across authoritative outlets, regulatory follow-through, or direct official cues—rather than relying on distribution breadth alone
+
+Finally, any claim about targeted pressure is strengthened—or weakened—by comparison. If a safety-incident narrative about Tesla spreads widely, the relevant question is not only “could the state have wanted this?” but also “does similar content about BYD, Xiaomi, Li Auto, or other high-profile brands travel in similar ways, under similar conditions, through the same distribution surfaces?” In China’s EV arena, storms are constant, incentives to amplify are plentiful, and motivations are rarely singular. The discipline, then, is not to deny politics, but to locate it with care: to ask what is distinctive about this case, what is ordinary for the ecosystem, and what additional evidence would justify elevating a noisy, fast-moving media cycle into a claim about Beijing’s intent. (Enditem)
+
+[
+
+![Elon Musk standing in a dance pose during a company event.](https://substackcdn.com/image/fetch/$s_!Gbin!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fac3a5230-aff5-4329-b6fc-2965fef77a3d_600x400.jpeg "Elon Musk standing in a dance pose during a company event.")
+
+
+
+](https://substackcdn.com/image/fetch/$s_!Gbin!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fac3a5230-aff5-4329-b6fc-2965fef77a3d_600x400.jpeg)
+*Elon Musk dancing onstage during a delivery event for Tesla’s China-made Model 3 cars in Shanghai in 2020. Aly Song/Reuters*

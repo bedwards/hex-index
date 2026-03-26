@@ -1,0 +1,76 @@
+---
+title: "Revolutions Are Built on Failure"
+author: "Margaret Killjoy"
+publication: "Birds Before the Storm"
+publication_slug: "margaretkilljoy"
+published_at: "2025-08-01T19:27:55.000Z"
+source_url: "https://margaretkilljoy.substack.com/p/revolutions-are-built-on-failure"
+word_count: 2182
+estimated_read_time: 11
+---
+
+Last weekend, I packed up my van and drove over to the Shenandoah Valley anarchist bookfair in Virginia. I won’t tell you a ton about the bookfair itself, only that the food was both free and incredible—a rare thing to say about big collective events—and that the people there were kind and welcoming. One thing I love about modern anarchism, especially in smaller towns and more rural areas, is that it’s no longer aggressively subcultural. I was probably the only person there wearing a punk vest, and there were several of us in nice, colorful summer dresses. (Well, my wine-red dress was colorful by my personal standards.)
+
+Clearly, subculture is close to my heart, and clearly the overwhelming majority of my clothing is black, but my love for monochrome fashion is entirely unrelated to my interest in anarchist politics.
+
+I was asked to come down and give a sort of opening address, a speech about the topic and slogan “A Better World is Possible.”
+
+I figured I would write up a speech and then let it do double duty as my week’s substack post, but I didn’t finish writing it down ahead of time. So I did what I usually do: I cobbled together notes and then just talked about shit. I’m reasonably comfortable talking about shit in front of a microphone, as one might imagine.
+
+It’s a funny topic, “A Better World is Possible,” because it’s so… true and untrue in self-evident ways. You can’t look around this world without realizing that things could be better than this. For one thing, we could live in a world without livestreamed genocide. That would certainly be a better world. We could live in a country without concentration camps that do double duty as grifts and sell concentration camp merch to the concentration camp fans who elected fascists to run the United States.
+
+It’s really easy to imagine a world without those things, because a few years ago, we lived in a terrible world that was, somehow, better than our current world, because it didn’t have those particular atrocities.
+
+See, one thing I’ve learned by reading history is that things can always get worse. There’s not actually a bottom we can hit. There’s bad and there’s worse and there’s worser, but there isn’t worsest. (Or, you know, to use vaguely correct grammar, there’s no “worst.”) It’s terrifying to realize there’s no limit to how much suffering can exist in the world, but it’s also… hear me out… strangely something that can help our optimism.
+
+Because if there’s no limit to suffering, then all of the suffering that isn’t happening right now is because of the incredible amounts of effort put in by literally billions of people to make sure that the suffering isn’t worse. We are succeeding at stopping an infinite amount of suffering, even if we aren’t succeeding at stopping all suffering.
+
+A better world is always possible, because a worse world is always possible. There is this grand drama that’s been playing out since probably the beginning of humanity but certainly since the beginning of empire, the state, hierarchy, capitalism, and all of that shit. There’s a grand drama between oppression and liberation, and all of us are actors in that drama whether we conceive of ourselves that way or not.
+
+So I can tell you a better world is possible, and I can tell you that fighting for a better world has immediate value. Even when we don’t “win” and create some utopian society, we “win” because through our actions we can often prevent at least some level of suffering. Our victories are hard to measure, because we don’t live in the even worse world we would live in if it weren’t for the collective work we all put in.
+
+There is no final victory in this dramatic struggle, either. Not for either side. Right now most of us live in a capitalist society, and those of us in the US and elsewhere are living in capitalist societies which are in the process of shifting to fascist societies. But fascism will never win in any permanent sense. It will always collapse. If we ever create a free, egalitarian society, it too won’t be a static thing. It too would likely, one day, collapse. There will always be an ebb and flow.
+
+This thought does not leave me hopeless. It leaves me determined. I am excited to play my small part in fighting for a better world.
+
+I also can tell you that a better world is possible because I’ve lived in a better world. The better world I’ve lived in was small scale and temporary, to be sure. I’ve been in anarchist gatherings of hundreds of people living together for a week or two at a time, building infrastructure horizontally and making decisions collectively. I’ve been to the morning meetings where everyone determines what work needs to be done and then people volunteer to do that work—including unglamorous work like dishwashing and ditchdigging.
+
+I’ve spoken with people who’ve been to even better worlds, to better worlds built on larger scales that have lasted for longer. I’ve spoken with people who’ve spent time in Chiapas, Mexico, living among the Zapatistas who rely on bottom-up infrastructure to make their decisions and care for one another. I’ve spoken with people who’ve spent time in Northeastern Syria, where millions of people are experimenting with “democratic confederalism,” another bottom-up democratic system that draws inspiration from both indigenous ways of life and the writing of the anarchist Murray Bookchin. Neither of those worlds are perfect, and they’re both under constant threat from multiple armed groups and from entire nation states. But they exist, and they’re better. So it really is easy to say that a better world is possible.
+
+There’s this slogan that used to sort of annoy me, “when we fight, we win.” It annoys me partly because it’s a bit ambiguous. I suspect most people who use that slogan mean “when we actually get our shit together to fight bad things, we defeat those bad things and ‘win’ in a reasonably objective fashion.” Other people might use it to mean “simply by the act of fighting, we are winning because we are refusing our own subjugation.” I’m very sympathetic to the latter interpretation, but the former one bothers me. It bothers me because well, I’ve been part of countless social struggles in my life, and usually? Usually, from an objective point of view, we lose. I’ve stood in a clearcut that was once a forest I tried to defend, you know?
+
+But what I’ve come to understand over the years is that revolutions are built on failure. We fail, over and over again, until one day we win. It’s our tenacity and endurance that sets us apart from our enemies. I think all the time of a piece of advice that I got when I was a young direct action activist trying to stop forests from being clearcut: “always run uphill.” The idea is that if you’re in the woods, and the cops decide they want to arrest you, then you should run uphill. Because running uphill sucks, and no one wants to do it. And you probably want to get away from the cops more than they want to catch you, so they’ll give up before you do.
+
+Another time, I was talking to an old punk who was part of the fight against fascist skinheads in the 1980s. He told me “whenever you see a nazi, you jump them. It doesn’t matter if you win.” One time, walking home alone from the bar, he saw three nazis. He jumped all three of them, lost badly, and woke up in the hospital. Eventually, the nazi punks fucked off out of his town. Because the antifascists wanted the nazis gone more than the nazis wanted to be there. Nazis simply do not do well in a fair fight, because fascism is a coward’s ideology that attracts people who are weak who want to feel strong. As soon as the tide turns against fascism, the fascists flee like rats from a sinking ship. This is why all of these fascists came out of the woodwork in the past ten years—they only express fascist values when they feel like they’re protected by powerful allies like Trump.
+
+Our side, though, fights just as well (if not better) from the underdog position. We’ll run up that hill (and make a deal with god?). We’ll fight when we’re outnumbered. Failure does not stop us.
+
+Revolutions are built on failure, because we fight and we lose, we fight and we lose, we fight and we lose, and we fight and we win.
+
+It’s through failure, then, that we’ll find our way to a better world.
+
+Or, if I’m being really honest with myself, it’s through fighting itself that we’ll find the moments of beauty that enrich and define our lives, whether or not we ever live longterm in any kind of better world.
+
+I think though, a lot, about Emma Goldman, one of the more prominent anarchists in history. She lived an entire long life fighting for a better world, spending her time in prison for her commitments, living plenty of her years in exile. Then, in her late 60s, she got to live in anarchist Catalonia during the Spanish Civil War, when workers took control of the cities and the farms and built a revolutionary society. I wish I could paint you a pretty picture, in which she got to die there, in a world built on solidarity and mutual aid, but revolutionary Spain was betrayed by the Stalinists and defeated by the Fascists a few years before she died. Still, she got to see it, and may we all be so lucky.
+
+Our victories seem fleeting, sometimes. But so too are our defeats.
+
+It took Ireland 800 years to partly break British colonial rule, and some of the island is still occupied by a foreign government. Eight hundred years of failure after failure, of rebellion after rebellion, until one day they won. In the ongoing struggle that has continued, the Provisional Irish Republican Army tried to kill a Prime Minister of the United Kingdom, Margaret Thatcher (AKA the worst Margaret). The IRA failed. In their statement, though, they wrote something that is timeless and true. They wrote: “we have only to be lucky once, you will have to be lucky always.” Because revolutions are built on failures.
+
+North America has only been colonized for 500 years. It’s not too late to see the colonial empire shattered and the land returned to indigenous stewardship.
+
+\---
+
+The speech I gave hit on some of these points and hit on some others I’m not thinking about right now. But I remember that I wish I’d ended it on another quote from another dead anarchist. Maybe my favorite political thinker is an Italian guy named Errico Malatesta. My favorite anecdote about him is that one time his friends smuggled him out of Italy by packing him into a crate of sewing machines and shipping him off to Argentina, whereupon he organized with a baker’s union that became the most radical union in the country for decades.
+
+In an essay of his called [Towards Anarchism](http://dwardmac.pitzer.edu/Anarchist_Archives/malatesta/towardsanarchy.html) , he wrote that: “the subject is not whether we accomplish Anarchism today, tomorrow, or within ten centuries, but that we walk towards Anarchism today, tomorrow, and always.”
+
+I think about that all the time.
+
+But I’ll end not with that short, pithy quote, but a longer excerpt from the same essay:
+
+> If we should want to substitute one government for another, that is, impose our desires upon others, it would only be necessary to combine the material forces needed to resist the actual oppressors and put ourselves in their place.
+> 
+> But we do not want this; we want Anarchism which is a society based on free and voluntary accord—a society in which no one can force his wishes on another and in which everyone can do as he pleases and together all will voluntarily contribute to the well-being of the community. But because of this Anarchism will not have definitively and universally triumphed until all men will not only not want to be commanded but will not want to command; nor will Anarchism have succeeded unless they will have understood the advantage of solidarity and know how to organize a plan of social life wherein there will no longer be traces of violence and imposition. And as the conscience, determination, and capacity of men continuously develop and find means of expression in the gradual modification of the new environment and in the realization of the desires in proportion to their being formed and becoming imperious, so it is with Anarchism; Anarchism cannot come but little by little slowly, but surely, growing in intensity and extension.
+> 
+> Therefore, the subject is not whether we accomplish Anarchism today, tomorrow, or within ten centuries, but that we walk towards Anarchism today, tomorrow, and always.

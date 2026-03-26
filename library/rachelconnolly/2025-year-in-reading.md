@@ -1,0 +1,160 @@
+---
+title: "2025 Year in Reading "
+author: "Rachel Connolly"
+publication: "Rachel Connolly"
+publication_slug: "rachelconnolly"
+published_at: "2025-12-19T11:59:12.000Z"
+source_url: "https://rachelconnolly.substack.com/p/2025-year-in-reading"
+word_count: 4670
+estimated_read_time: 24
+---
+
+This week I asked some friends of the substack to write a little note on the books they loved this year, and on any which disappointed them. Everyone interpreted my prompt slightly differently because it was badly written. I just used the words “things you liked” and so, one person didn’t realise I meant books. We fixed that. My criteria for who I asked was people who, if they said to me “oh this book is actually good” I would assume this to be accurate. Here are their responses. They’re lovely to read.
+
+**Rachel Connolly (me)**
+
+This is not an exotic suggestion but I had a truly beautiful time reading Septology by Jon Fosse last January. I remember waking up early one morning to read it, after a late night at a party, and watching the windows in my bedroom grow foggy and wishing it was twice the length it is.
+
+Some rereads. I reread The Road by Cormac McCarthy. A perfect book. I read it every few years. I still haven’t read The Passenger, I’m saving it. I reread God Bless You Otis Spunkmeyer by Joseph Earl Thomas for work, which was excellent. He is an extremely smart and funny writer. You can tell he has been out in the world too. He has interesting things to say about human nature. I reread Show Them A Good Time by Nicole Flattery too. Another perfect book. Another laceratingly intelligent and funny writer with interesting things to say about human nature. I bought this book at random years ago because I liked the cover and that was the first time I encountered her work, very glad I did.
+
+I’ve been reading bits from a book of Donald Judd’s collected essays and criticism, which are brilliant. A very original and distinctive thinker and writer. I read Klostvog by Margarita Khemlin, about an extremely vain and scheming Jewish woman in the Soviet Union. Very interesting view on trauma. I read Happiness as Such by Natalia Ginsburg and loved it. I’m slowly working through all of her translated books. This one had one of the funniest chapter openings I have encountered: “I reached Leeds yesterday morning. I stayed in a boarding house called the Hong-Kong. You can’t imagine anything sadder than the Hong-Kong boarding house in Leeds.” There have been lots of funny lines at New Work, my reading series. I often think of a line from Sean Tanner’s reading: “She pulled down her skirt and showed me her knickers” and I am excited to hear that he is working on a novel. Some other great ones this year. The Third Reich by Roberto Bolaño. Very funny, the plot goes awry a bit but so? And then there was Big Kiss Bye Bye by Claire Louise Bennet. The Benefactors by Wendy Erskine too. And Flesh by David Szalay. I placed a bet against it winning the Booker, although I thought it should win. I just assumed it wouldn’t. And actually not because men have been banned from winning literary prizes, although they certainly have and you will see definitely evidence of this on any prize list you care to check. But because I thought it was more stylistically distinctive and riskier than prize winners tend to presently be. (To me this is a bigger problem than the totalitarian censorship which has prohibited any books by men being published in the last decade, controversial as that may be to admit.)
+
+I was disappointed when I read Ablutions by Patrick DeWitt. Nicole Flattery said I would like it so I bought it and tried to start it three times. And it never clicked. I thought it was me. Then I forced myself and it still never clicked. It’s exactly the kind of book I would like, it’s funny and dark and the writing is great, but somehow I couldn’t get into it. That happens sometimes, like when you meet a person you theoretically should like and you just can’t in practise get along with them. Perfection by Vincenzo Latronico was also not for me. I wrote an unenthusiastic review of it. I found it a bit obvious I suppose. And it didn’t seem to me to have anything to say about human nature.
+
+**Lucie Elven**
+
+**Writer of short stories, a novel, essays, criticism and so on.**
+
+Anne Serre’s new story collection Vertu et Rosalinde is a series of vignettes about a (single) narrator’s friends. My favourite story, maybe, describes Berthe, who in conversation always replies with a nonsequitur. Serre’s genius is often to start from the perspective of ‘what I liked about x’, even when x is really odd. But isn’t that how friendship is? Gently maddening, inspiring and mysterious. The book is a good example of how, when something is really good, it can become, in a strange way, funny. It’s being translated into English by Mark Hutchinson at the moment. This year I read the rest of the prodigious Marie Ndiaye’s Tous mes amis (All My Friends in Jordan Stump’s translation). My favourite is still the last story, ‘Revelation’. A friend with great taste recommended two classics: ‘At Hiruharama’ by Penelope Fitzgerald and ‘The Birds’ by Daphne du Maurier, both brilliant. In novels, I picked up Atticus Lish’s Preparations For the Next Life in the autumn, and it really is very good. Right now I’m reading and really liking Natasha Stagg’s Grand Rapids and Olga Tokarczuk’s House of Day, House of Night.
+
+**Jess White**
+
+**Writer of fiction and criticism, and [one of my favourite substacks](https://substack.com/@jesswhitereadsbooks/p-181466879) where she writes mini reviews of everything she has read that week.**
+
+2026 was the year that I discovered Rosemary Tonks, an English writer and poet who published throughout the ‘60s and early ‘70s before converting to fundamentalist Christianity and disappearing from the London literary scene she was previously part of. I’ve read three of her six novels; *The Halt During the Chase* (1972), *The Bloater* (1968) and *Businessmen as Lovers* (1968). Her protagonists in these are all women in their early 30s searching for something, which has been great to read as a woman in her early 30s searching for something. Tonks’ prose is exact, funny and cutting, while also being filled with meaning. She clearly had an eye for seeing things exactly as they are, and an uncanny ability to summarise difficult-to-put-a-name-to concepts in a couple of sentences, at most.
+
+The worst book that I attempted to read was Sophie Kemp’s *Paradise Logic*. I got about a third of the way through and gave up, completely enraged that it passes as readable in today’s publishing landscape. A vapid, empty book written in dreadful prose that points towards something rotten going on.
+
+**Issa Quincy**
+
+**Writer of fiction and poetry. His book [Absence](https://granta.com/products/absence/) came out this year and is very good.**
+
+Fifteen years ago, Renee Gladman published *Event Factory* with the tiny-but-mighty press, Dorothy Project. It is a sliver of a novel about a traveller who arrives in the Calvino-esque fictional city of Ravicka, a place beset by an undefined and increasingly fraught state of crisis. As the title would suggest–*things* happen, but the slippery nature of Ravicka proves ever-allusive. It is, in part, a meditation on emergence and disappearance, as well as the proliferation of events–meaningful and meaningless–shadowed by impending disaster. Sound familiar?
+
+As well as enjoying this, I loved Lebanese-American poet Rachelle Rahmé’s latest collection, *Mercurial, or Is That Liberty?*, published by Fonograf Editions. Its staccato logic—constantly short-circuiting and rewiring—pulls you close to its grasp of truth before suddenly withdrawing again. It holds you wonderfully between these twin forces of certainty and negation.
+
+This year was also great for reading as I was introduced to the work of African American playwright, Adrienne Kennedy, and fell in love with her play, *He Brought Her Heart Back In A Box*, about an ill-fated interracial romance in 1940s Georgia. Being the grandson of a doomed interracial marriage and having moved to the American South this year, there was a lot to reflect upon in this story set in the American South. But beyond all the obvious biographical echoes, I admire Kennedy most for her dramatic inventiveness and the dreamy enlivening of a story that so easily could’ve felt tired.
+
+Not so great was Per Petterson’s 2003 novel *Out Stealing Horses*, which—despite being the Norwegian author’s most acclaimed and (famous?) work—I found unbearably uninteresting. Its shallowness is masked—rather impressively, I suppose—as depth. Monochromatic in character, tone, and morality, and as bleak as its Nordic landscape, the novel felt too coherent, too determinate, too neat for me.
+
+**Nicole Flattery**
+
+**Writer of novels and stories and essays and criticism.**
+
+I read so much new fiction that I enjoyed this year; John Patrick McHugh’s *Fun and Games,* Katie Kitamura’s *Audition*, Eimear McBride’s *The City Changes Its Face*, David Szalay’s *Flesh*, Wendy Erskine’s *The Benefactors*, Amie Barrodale’s *Trip, Big Kiss, Bye-Bye* by Claire-Louise Bennett, *Eden’s Shore* by Oisin Fagan, Anika Jade Levy’s *Flat Earth*. There is a real disdain right now for contemporary fiction that I don’t see anywhere else (imagine proudly saying you don’t watch films by contemporary filmmakers?) I’m suspicious of it. Funnily, it seems to be writers, critics and publishers, of a certain generation, who are most eager to declare every new book worthless, to hasten the end after they’ve extracted all they possibly can from the industry, to make the transition to AI as seamless as possible. In the face of this hostility and disinterest, I think we should be defiant. I’m so happy that new books are still being written, and that many of them are very good. I’m looking forward to reading Polly Barton’s latest and Harriet Armstrong’s *To Rest Our* *Minds and Bodies* over Christmas too. Apart from that I read the Cazalet Chronicles on every bus and train in New Zealand and they were so pleasurable.
+
+Something else I really enjoyed this year, and I watched it twice, was the HBO show *Industry*. I’m team Yasmin Kara-Hanini. I can’t resist a deeply-fucked up woman with lovely hair. We all have our weaknesses.
+
+**Sean Tanner**
+
+**Writer of fiction and essays. You should [read this of his](https://www.hobartpulp.com/web_features/the-black-river), it will make you laugh I promise.**
+
+All Fours by Miranda July really put me on my ass. I’ll have what she’s having – except it’s just Miranda July writing about erotically fondling a handful of her breakdancing lover’s urine. Or erotically removing a tampon. Or explaining why step daddy porn turns her on. Erotically. She is so fearless in her weirdness that I can only bow my head in a deep reverence for what she has achieved in this book. She is a true artist and a complete freak.
+
+The Sea by John Banville was the first of his books I’ve read. I had only previously encountered John Banville as a vaguely disgruntled literary figure. He was known for casting his dry aspersions toward the new generation. I always quite liked him, though. I found his crankiness refreshing and somehow endearing. So, it was a pleasure to find that The Sea’s protagonist was of a similar disposition. Honestly, the best book I’ve read in a long time, and an absolute masterclass in fictional memoir.
+
+I also really enjoyed Flesh by David Szalay, especially the early chapters, which are charged with erotic tension. The frankness and the accuracy of his descriptions really elevate the smut, but it’s still smut. It also put me in the confusing position of being simultaneously aroused and disgusted by what I was reading. As David Brent from the office might say, this is big boy shit.
+
+I decided to give Kingsley Amis a go on the back of his son’s subversive humour. I read Lucky Jim, but it wasn’t funny at all. It all felt quite dated, and yes, like some of his son’s work, it did come across as misogynistic, only I don’t think he was doing it on purpose. Does that make it worse or better? I don’t know.
+
+**Monica Heisey**
+
+**Writer of fiction and essays and for the screen and so on.**
+
+This year I was writing a lot, and so my reading was mostly about trying to find my own novel’s family, the books that it comes from or lives near. To that end I have read almost exclusively novels about women being intense in their diaries, or groups of people in early mid-life freaking out about their friendships, relationships, and creative careers. I have also read a lot of actual women’s diaries.
+
+I revisited some old favourites—*The Folded Clock* by Heidi Julavits, *Visit from the Goon Squad* by Jennifer Egan, *How Should A Person Be?* by Sheila Heti, *The Interestings* by Meg Wolitzer—and found some new ones, like *The Forbidden Notebook* by Alba de Céspedes, and *The End of the Affair* by Graham Greene. I read *The Information* by Martin Amis and can’t stop thinking about a passage where the narrator talks about which planets are pathetic to him, referring parenthetically at one point to Pluto as “another toilet.” The best diaries I read were Helen Garner’s *How to End a Story* and *Daybook: The Journal of an Artist* by Anne Truitt. *The Diary of Anaïs Nin* made me feel sort of insane but sometimes that’s what you’re looking for from a reading experience.
+
+You also asked what books I didn’t like, and while I do not want to be specific, I wouldn’t mind a little break from the following in literature, generally: slim volumes of sparse prose; women lying face down on book covers; the entire genre of “sisters with a secret”; anything being “preserved in the amber of one’s memory;” wan narrators who tremble all the time; main characters with names like Fox or Jammy; overlong descriptions of paintings in museums, which often feel to me like stolen valour from Pisarro or whoever. (While I’m up on my high horse I’d like to suggest that we take a moment to reconsider quotation marks. I think we’ve overcorrected and I miss them.)
+
+**Cal Revely-Calder**
+
+**Editor and writer of essays, and an upcoming book of essays on convenience culture which I am very excited to read**
+
+The most unusual thing I read this year was Mattia Filice’s \*Driver\*, a free-verse novel about train drivers in France. The protagonist & his comrades bicker, smoke, picket, wallow in technical minutiae. One makes an unscheduled stop in the night for a secret rendezvous. Differently, lately, I’ve been working my way through Flannery O’Connor, & after her strange, repetitive, brilliant stories, I’ve reached \*The Habit of Being\*, her letters. Their style — the ugly spots, such as on race, notwithstanding — is wonderfully rigorous. She knew what sentences were.
+
+**Felix Higham**
+
+**[Artist](https://www.instagram.com/felix_higham/?hl=en)**
+
+​​Some Books that were great this year, one is Baron Baddge by Alexander Learnt Holenia. I picked it up in a bookshop, it was short and I thought i’d read it on a train I was about to take. The story is about a soldier explaining his relationship with a woman, to do so he tells a tale from his past about a cavalry unit going to find the enemy in the first world war. It is dreamlike and strange, it’s sort of about love keeping someone alive but also a very tense relationship of power between soldiers as they follow a fool and maybe the underworld and loads of other things I’m not sure. It’s cinematic and held me and I’ve thought about it lots since I finished it.
+
+Another great book I read this year was Mariano Azuela’s The Underdogs. This classic book has been on my to read list for ages and I was with people and they were raving about it and was tempted to say I had read it. Instead I said I hadn’t yet but was going to and better still I did. It’s excellent. It’s set in the Mexican revolution, which Azuela served in, because of this or because he’s a genius ,the characters seem so real, this world event told at human scale is very vivid, funny at times and heart breaking. Idealism and then the disillusionment of war. It’s the story of the Mexican revolution landscape and a portage of its people and landscape.
+
+**Hettie O’Brien**
+
+**Editor and writer of an upcoming book on private equity which I am very excited about. She is covering this in a narrative driven and really fluid way, I think it’ll be a really fresh take on the subject.**
+
+I spent the first half of this year doing research for a book about private equity, so I ended up reading a lot of biographies about financiers from the 1980s with titles like “A Tiger In The Land Of Bulls and Bears” or “BILLIONAIRE”. I wouldn’t say these are “good” books, but there’s a reassuring familiarity to their characters: men who have a natural antipathy for / suspicion of authority, who are abrasive or awkward but get portrayed as eccentric geniuses, who invariably spend their later years as philanthropists, and who worry on some existential level about whether people will remember them. The best piece I read this year was Ava Kofman’s New Yorker profile of Curtis Yarvin, a masterful piece of magazine writing. And for pleasure, I relied on the recommendations of friends who read more fiction than me: Kairos by Jenny Erpenbeck and Shirley Hazzard’s The Transit of Venus were both really, really good.
+
+**Rosie Coleman Collier**
+
+**Curator and co host of New Work and in general interesting brain.**
+
+I read John Patrick McHugh’s *Fun and Games* on the beach on a Greek island in May. This was a perfect book to read on holiday, and it reminded me that I need to read more books that make me laugh. I’m about to re-read Lucia Berlin’s *A Manual for Cleaning Women.* I think everyone should read these short stories, particularly for the way Berlin observes the overlooked world of work, the labour of service workers, cleaners, administrators and nurses. *Peter Hujar – Eyes Open in the Dark* at Raven Row was one of my favourite exhibitions this year, and the exhibition booklet was a brilliant takeaway.
+
+**Mark O’Connell**
+
+**Writer of non fiction of many kinds. Most recently the excellent A Thread of Violence.**
+
+This year, as with most years, I didn’t read very many new books. Of the new books I did read, I think the best was probably Daniel Kehlman’s The Director, translated from the German by Ross Benjamin. It’s a dark, surreal, uncomfortably funny novel about the wartime life and career of the Austrian filmmaker GW Pabst. I found it unsettling and entertaining and surprising, and generally terrific. Samanta Schweblin’s new collection, Good and Evil and Other Stories is incredible: dark, and strange, and unnervingly beautiful; her total mastery of the uncanny is always a marvel. I also really liked Flesh, by David Szalay, which I probably don’t need to say more about because it won the Booker Prize, and kicked off a whole spurious discourse about how men are writing books again or whatever. I really liked Madeleine Thien’s The Book of Records, too, and Hari Kunzru’s Blue Ruin (which I think came out last year, but let’s not quibble.) I also read War and Peace, which definitely didn’t come out this year, and which despite its reputation for greatness, is in fact actually great. And I loved All My Cats, a short and unexpectedly bizarre—even twisted—book by the Czech writer Bohumil Hrabal about being steadily demented by his own cats. I also read some poetry, but as always, not nearly enough. I feel like a total ignoramus when it comes to poetry. But my friend Eva H.D., who is a poet and a reliable non-ignoramus, insisted I would love Philip Levine’s collection What Work Is, and she was right, I do love it. It’s about factory labour and class solidarity and love, and is filled with moving, ennobling portraits of working class people in the American midwest, but not in a way that is remotely corny. I also read a lot of stuff on my phone, but I don’t remember any of that.
+
+**Nikita Bakshani**
+
+**Writer of fiction and person who is very knowledgeable about food and hosting.**
+
+I’ll never forgive Anthony Bourdain for the queues I’ve had to endure at dining establishments he’d recommended, effectively ruining their vibes. But I loved The Anthony Bourdain Reader, a new collection of his nonfiction, (auto)fiction, comic strips, playwriting, and more. It spans over 30 years of work. It’s got a good mix of his life as a chef in New York and his travels. For a food writer, his work doesn’t have too many descriptions – it’s all verbs and adverbs. And because he was obsessed with crime novels (and had so many failed attempts at them), he manages to make something as mundane as frying onions seem like a high-stakes car chase. He was more interested in the people who cook food than the food itself. His irreverence, which I used to find kind of annoying, was more palatable when I realised it was grounded in a hatred of food elitism, rather than some ‘sad bad boy’ persona he’s putting on. Well, a bit of that too, but I’m willing to shrug it off because I liked this book so much.
+
+**Joseph Earl Thomas**
+
+**Writer of fiction and essays. [You should read this one it’s great](https://www.theparisreview.org/blog/2024/08/01/i-got-snipped-notes-after-a-vasectomy/).**
+
+I’ve never been disappointed re-reading Samuel Delany’s Times Square Red, Times Square Blue every year, and I’m always reminded of the intensive clarity with which we could be taking social life, though often we decide not to for fear of judgement and an increasing desire for conformity by some other name. Yiyun Li’s book Things in Nature Merely Grow feels like a kindred spirit to Delany’s book in serious nonfiction, in its clear-headed disidentification with the emotive posture of the grief genre, its laughter at the demands of normative response, and meticulous thinking about the horrors and pleasures of language on-demand.
+
+**Ross**
+
+**My boyfriend, and man of generally impeccable taste.**
+
+I’ll get the boring answer out of the way first – I loved Flesh by David Szalay; there was something uncanny about the way that book captured the aimlessness and emptiness of luxury which really stuck with me. It brought me right back to a time I stayed in a very large house and discovered that there were 16 cans of the owner’s favourite deodorant in the utility cupboard, together with a similar number of toothpastes. The best thing I read this year though was ‘The Third Reich’, a Bolano novel from 1989. It’s about a German wargaming enthusiast who, on holiday with his girlfriend, returns to a Spanish seaside resort he had last visited as a child. The holiday takes a grim turn when another tourist they become friends with disappears, presumed drowned; the protagonist spends an ever-increasing amount of time holed-up in his room honing moves for an imminent tournament. A sense of dread pervades. Brilliant stuff!! On the non-fiction side, Graydon Carter’s memoir was excellent (far eclipsing Keith McNally’s which I read just after), if only to see first hand just how much he hates Tina Brown.
+
+**Rebecca Achieng Ajulu-Bushell**
+
+**Writer of fiction and essays and a memoir about, improbably, being a former Olympian. Also host of New Work.**
+
+Nothing is True and Everything is Possible
+
+I’ve started to really like it when people over-write because it’s so much better than all the strange current under-written auto fiction that is so sparse it’s actually really hard to know what’s going on, if anything. This is a really beautiful memoire masquerading as straight up non fiction, which uses classic Russian tropes (the mafia guy, the bureaucrat sent to waste money in the middle of nowhere, the escort with revolving sugar daddies) to paint a picture of the spin machine that is the Kremlin. It’s both insider yet voyeuristic, subjective but non-emotive in a way that gives life to the characters of each trope so that they aren’t little ornaments in a snow globe of new money but you actually read them and feel a sense of them even though the context is unimaginable. It’s a book about the birth of modern Russia and it reminds me of one of my favourite quotes from a Lope de Vega play where the devil is having a conversation with Providence about him entering his kingdom, and he’s like ‘oh I know you oh cursed one, come in, what are you going to get up to?’ And the devil’s like ‘I’ve literally been here the whole time…’
+
+The Coin
+
+Dismayed as I was to see this on one of those instagram ‘get the look’ collages, I won’t be deterred. The Coin is a very good novel for people who detest contemporary fiction. A Palestinian woman who may or may not be good at her job as a teacher is in New York and she becomes consumed by this object inside her which may be her heritage and is also a physical curse, which seem to be the same thing and this pours out of her in the form of perfectly written OCD. I really love books about women who lose it really well. It’s quite challenging because there is a dialogue with the reader, the great sentences stuck out hard, and the plot exists along five planes that seem impossible to hold together but they do. It’s really ambitious yet quite subtly rendered, maybe even too restrained but the chapters are really short and so the pacing is captivating. Her memories of home create a perfect sense of displacement which allows the politics of the book to reveal itself through fruits and flowers instead of screaming off every page.
+
+Out for 2026
+
+When I say I’m done I really really mean no more half-baked on the nose books about ‘privilege and power.’ Why is someone always named after a character from the Wind in the Willows and someone else is like reluctantly at Oxbridge and someone else is so poor they’ve never seen a serving spoon. There’s a new production category for streamers which is essentially a show that you can follow whilst being on your phone and I don’t think we should be giving that kind of treatment to the Line of Beauty or Brideshead.
+
+**Sophie Mackintosh**
+
+**Writer of fiction and essays and a substack which I like very much.**
+
+Two books I really loved this year were both small sharp objects – May We Feed The King by Rebecca Perry, out in January, and The Dry Heart by Natalia Ginzburg, which was first published in 1947. I’ve been a fan of Rebecca’s poetry for a long time, and May We Feed The King is her first novel; it’s a gemlike take on historical fiction, moving between a curator who creates luscious and historically accurate tableaux in historic buildings, and the life of a reluctant king. It’s intricate and uncanny and beautiful. The Dry Heart is a short dark tale about duty and expectations and love, following the unhappy relationship between the unnamed narrator and a man called Albert, and the matter-of-fact way the story is recounted feels totally effortless; it also boasts one of the greatest opening paragraphs of all time.
+
+**Clive Martin**
+
+**Writer of non fiction**
+
+It’s been a pretty bad year for my reading habits and a pretty bad year in general. My Reels habit has diminished my attention span so much that I developed a kind of theory-excuse in which my Instagram discover page was the great novel of its age - and nothing could really compete with it’s urgency and immediacy. But of course, this is nonsense. Almost like when an alcoholic says they are not one because they don’t drink during the day. However I did read Caroline Fraser’s ‘Murderland’ on holiday in Sweden, which I somewhat enjoyed, but did not finish. The same goes for Mike Davis’s City of Quartz. I am currently staring at a copy of Rings of Saturn in an effort to purify my brain…But the Reels keep calling my name.
+
+I also read the first few chapters of Perfection and found it quite well observed but a tad snide. I just kept thinking ‘Yeah…I get it’, and left it to gather dust on my bedside table.
+
+Till next time xxxx

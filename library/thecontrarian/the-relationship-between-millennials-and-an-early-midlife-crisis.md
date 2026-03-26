@@ -1,0 +1,113 @@
+---
+title: "The Relationship Between Millennials And An Early Midlife Crisis"
+author: "Jen Rubin"
+publication: "The Contrarian"
+publication_slug: "thecontrarian"
+published_at: "2020-12-27T07:04:36.000Z"
+source_url: "https://thecontrarian.substack.com/p/the-relationship-between-millennials"
+word_count: 1686
+estimated_read_time: 9
+---
+
+[
+
+![Image for post](https://substackcdn.com/image/fetch/$s_!hMO1!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2Fff1253c5-c5fc-4ce7-9d4e-0c3a7c65a435_3000x2000.jpeg "Image for post")
+
+
+
+](https://substackcdn.com/image/fetch/$s_!hMO1!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2Fff1253c5-c5fc-4ce7-9d4e-0c3a7c65a435_3000x2000.jpeg)
+*Photo by [Kleiton Silva](https://unsplash.com/@kjsfotografia?utm_source=medium&utm_medium=referral) on [Unsplash](https://unsplash.com/?utm_source=medium&utm_medium=referral)*
+
+> **`It is always our own self that we find at the end of the journey. The sooner we face that self, the better —` [`Ella Maillart`](https://everydaypower.com/self-reflection-quotes/)**
+
+We spend all the time and effort in the world trying to figure out everything around us but seldom put in half of that effort and time in figuring ourselves out. The lesser time we invest in knowing ourselves, the harder it gets to cope with the changing times and its relevance in our lives. Millennials like me fit into this description perfectly.
+
+We compete with everything and everyone around us and make the external environment and its stakeholders our holy grail. In a way, our fire is fueled not by our own innate abilities and desires to grow and get better, but by the accomplishments of those we know and hear of.
+
+We get inspired and motivated to then be like them or better. Whether it's a better-paying job, a new car, making a difference in the world (whatever that means) or having the money to spend on your vanity.
+
+The point is, you rarely or sometimes, **never** self-reflect. The lack of self-reflection and constant desire to build your world of expectations around somebody else's lives is probably the first step towards a mid-life crisis.
+
+While this feeling is quite common in people in the age band of 40–55, there is a sudden shift in the crisis's trend, hitting a much younger demographic. [A survey conducted by Censuswide](https://www.inc.com/justin-bariso/new-research-claims-millennials-are-facing-a-quarter-life-crisis-heres-why-thats-a-good-thing.html) among 6,000 participants aged 25 – 33 concluded the following:
+
+-   80% of the participants feel pressurised to succeed in either their careers, personal finance and relationships before touching the age of 30.
+    
+-   61% of people feel anxious about finding the right job or doing something they are passionate about.
+    
+-   Nearly 48% of them said they feel pressured to match their peers in different aspects of life when they compare the growth or success they see.
+    
+
+[Sigmund Freud thought](https://en.wikipedia.org/wiki/Midlife_crisis) that everyone’s thoughts were driven by the fear of impending death during the middle age. When you are young, you tend to look at the world from the most optimistic and confident lense possible. The underlying reason that drives this optimism is the fact that you have time on your side. You believe you can conquer whatever you want and can turn things around in your favour and at your will. Time at that point is your best friend. Sadly, most of us only realise that much later in our lives and then have one of the most common regrets known to humankind, which is, ‘I wish I did more with my life’.
+
+As you get older, your reality and the illusion of your youth begin to cross paths, and that’s where the trouble starts for most people. When people hit the number forty, they get a sudden reality check, where they tend to quantify the losses and missed opportunities way more than everything they have and should be grateful for. This is primarily because people relate the number forty with the notion that half their life is over. Hence, Freud makes the point that this crisis hits you as you get closer to death.
+
+In a convoluted way, that logic does seem fair. As humans, if there is one secret we all share in common, that is, **we are all selfish people at some level**. So it is only natural for us to want more and feel a sense of regret for all that we have missed or not accomplished. The issue with this thought process is that we cannot regulate it and put some restraint on it. That is probably the reason we tend to spiral down the road of the mid-life crisis.
+
+\---
+
+## **So why are millennials spiralling so much faster than the previous generations?**
+
+**Let’s break this down to three key areas we can address and understand:**
+
+#### **Life, Love & Money**
+
+Whatever anyone says, everyone at some level will relate with either one of the three, i.e. Life, Love or Money. They drive our priorities, ambitions and desires. Either you want more money, people around whom you feel loved or just an easy and complacent life with little or no worries. These three factors make up the Zen state of mind of our individual materialistic worlds. The only problem is that youngsters give them way too much priority too soon and cannot cope with the unexpected events that hit them in their journey.
+
+#### **Need for instant gratification**
+
+Ask yourself this. If social media had no option to ‘*like*’ a photo or ‘*write a comment*’, would you still give it the same amount of time? Most of us click on something or watch something because we can see the traction it has generated from its ‘*likes*’ or ‘*comments*’. That is the validation we get that a particular post is worth spending time on. Also known as the ‘*trending*’ topics
+
+This lightning speed of validation that you see on Social Media platforms sooner or later becomes your second nature, and you start expecting the same sort of quick and instant reaction in the real world.
+
+If you have spent six months at a job and are not getting the same recognition that your latest Instagram post is getting you, you might choose to blame the company or the people you are working with. **Very rarely would you stop to think and remind yourself that the timelines are different for different worlds.**
+
+When you cannot navigate your thought process and segment these expectations, you sooner or later start feeling depressed. This has very little to do with your own decisions, and maybe it isn’t even your fault. You genuinely could be a victim of circumstance. Most of the time, you don’t even know that you are being injected with an addiction of searching for instant gratification in one world, that will spread way worse than Covid into all your other worlds.
+
+#### **Comparing yourself to others — A false sense of identity**
+
+At one point, it was my favourite thing in the world. To compare my life to others. These ‘others’ were never those who had less than me, so I may feel grateful for what I have. Instead, they were always those that had more than me materialistically.
+
+> **`The beauty about materialism is that it is tangible enough for you to see and feel, but the curse of it is that you don’t realise that it means nothing until you work your ass off to own it.`**
+
+Today, most of us still compare our lives to others for the things that define people in the short term. Like a fancy car, lavish holidays and all the other stupid stuff that matters to you today, but will not matter in a few weeks from now. The constant comparison to those who have more than you is like swallowing a depression pill even when you don’t want it or need it.
+
+\---
+
+However, there is light at the end of every tunnel. And this one is no different. We can make some changes in our lives that prevent us from going the road of an early mid-life crisis. These have to do more with learning to self-reflect and gratitude less with the external environment around us.
+
+#### **Stop chasing power and start chasing happiness**
+
+Quite often, we run behind those things in life that will lead us down the road of making us feel powerful, but not happy. One quote comes to mind from the show Billions that best describes the importance of chasing power.
+
+> **`That suit is a mark of a man who is successful at everything in life, that doesn’t really matter.`**
+
+One needs to start chasing those things that makes one happy. If you want to look for a start, look at people in the field of arts. Most of them do what they do because it gives them a deep sense of peace and happiness. This is despite knowing that they may or may not get rich doing it.
+
+Their commitment to doing what they love is unconditional. Find something you love the way an artist loves her craft, and that might help you find a purpose as well if you are out in the market looking for it along with happiness.
+
+#### **Teach yourself to self-reflect**
+
+There is no fixed way to do this, and it will not happen in a day or a week. Might take you months or even a year of constantly reflecting on your decisions and interpreting what they mean to you in hindsight.
+
+When you self-reflect, you learn to look at things from a neutral perspective rather than from the point of bias. Whether they are your thoughts, actions, emotions or feelings, you will be able to label them and act on them accordingly. You can start self-reflecting by simply questioning things around you or those that affect you. For example:
+
+-   What is it that is really upsetting me?
+    
+-   What caused me to react the way I did?
+    
+-   How can I learn to look at both sides of the story?
+    
+
+#### **Take time and be grateful**
+
+We all know that Rome was not built in a day, but we often want our world to be. Doesn’t seem fair right? Every time you decide to pursue something or invest your time in something, it is important to know that it will be a slow and gradual process. Please don’t rush into it and be disappointed that it did not happen sooner. Learn to tell yourself that sometimes it is not meant to happen sooner.
+
+> **`Progress is like reading a good book, if it does not take time, it isn’t taking you anywhere`**
+
+Very rarely are we thankful for the things that we have. Being grateful for what we have is probably what helps us shape our state of mind with materialism. The less grateful we are, the more materialistic we tend to become.
+
+[In Buddhism](https://www.learnreligions.com/being-grateful-449576), one is taught to be thankful all the time. It is not limited to the period of good fortunes or blessings. They believe that gratitude should be a habit of mind and thus completely unconditional like one’s integrity.
+
+Learning to be grateful for what you have helps put you on a more rational path of assessing your needs and wants while applying logic and reason to it.
+
+Until next time…

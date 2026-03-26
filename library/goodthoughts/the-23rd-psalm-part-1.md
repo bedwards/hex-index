@@ -1,0 +1,26 @@
+---
+title: "The 23rd Psalm Part 1"
+author: "Richard Y. Chappell"
+publication: "Good Thoughts"
+publication_slug: "goodthoughts"
+published_at: "2021-01-25T16:43:00.000Z"
+source_url: "https://goodthoughts.substack.com/p/the-23rd-psalm-part-1-21-01-25"
+word_count: 728
+estimated_read_time: 4
+---
+
+From the Pastor:
+
+**Psalm 23:1**
+
+The LORD is my shepherd;
+
+I shall not want.
+
+The 23rdPsalm is one of the most well-known chapters in all of the Scriptures. It is often turned to in times of trouble and loss, and certainly is a Psalm that brings comfort amid those crises in life. However, the 23rd Psalm is more than just a Psalm for those dealing with difficulties and sadness in life, it’s a chapter that recognizes God’s goodness and mercy towards His sheep every step of the way.
+
+From the very first stanza, David assures us of God’s providential care by telling us that “Jehovah is my shepherd.” David uses the personal pronouns “I” and “me” and “my” in this Psalm, but David’s words are not for him alone. He is standing in the place of every believer as a model for how God cares for all of His sheep. And when he writes to tell us about this God who is the shepherd of his sheep, David uses the proper name for God, “Yahweh”, often translated in the Scriptures as “LORD”, with all of the letters being capitalized to show its uniqueness in identifying the proper name for God. In using “LORD” to begin his Psalm David is also displaying for the reader that it is the God who has made and rules over everything that cares for each and every one of his sheep. God knows all of His sheep by name, and in the New Testament Jesus would take this theme and say, “he calls his own sheep by name…” (John 10:3c). This is why David knows that with the Sovereign Lord as his shepherd he will never be without anything he could ever need. The God who gives life, and even better than that, who gives NEW life knows exactly what His sheep need and is constantly providing for them all that they need and more. None of the sheep of the LORD ever go without. To give understanding to this important point, David the reader with several examples of God’s shepherding care.
+
+First, David writes, “He *makes* me to lie down in green pastures…” Notice David’s word usage, “He MAKES”. The Lord knows exactly when His sheep needs rest and He provides that for them. The Lord is not a heavy-handed shepherd driving His sheep to be over burdened or over worked. No! He is a gently and lowly shepherd that knows His sheep need rest, and when it is necessary, He makes sure they are able to rest in the choices of places. Second, He provides his sheep with restorative waters so they will never thirst. As you can probably already tell, Christ again, picks up on many of these themes in the New Testament as He teaches His followers about the life giving and sustaining of the Savior to grant His children bread that would make them never hunger and water that would make them never thirst. This is what the Father through the Son does for all His sheep. He provides them with the very elements they need to restored, His body and blood. Third, David states that God “leads… in the path of righteousness for His name’s sake.” Why does God provide such care and love to his sheep? Why does He go to such links to give us everything we need and so much more? Why does He lead us down the path of obedience, holiness, and faithfulness to Him? For the Glory and Praise of His name! All that God does is for the “His name’s sake.” It is God and His name alone that deserves all the adulation and praise that man can muster. No one else, no other institution, no other claimed deity can do what God does for His sheep. God is always for God. For Him to be for anything or anyone else would make Him an idolater, just as it would us. He is the greatest of all Beings. Therefore, all that He does is designed for Him to be worshipped and praised from every corner of the globe by His sheep. And when His sheep recognize all that their loving, gracious Shepherd has done for them, they will and should praise His name forever and ever. Amen.
+
+Next week I will work through Psalm 23:4 and examine how the Lord walks us through even the darkest of times.

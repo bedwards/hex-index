@@ -1,0 +1,119 @@
+---
+title: "Kaija Straumanis Says Goodbye (Mostly!) to Open Letter"
+author: "Chad W. Post"
+publication: "Three Percent"
+publication_slug: "threepercentproblem"
+published_at: "2025-09-30T17:32:45.000Z"
+source_url: "https://threepercentproblem.substack.com/p/kaija-straumanis-says-goodbye-mostly"
+word_count: 1587
+estimated_read_time: 8
+---
+
+As part of the publishing agreement between the University of Rochester/Open Letter Books and Deep Vellum Publishing, Kaija Straumanis—long-time senior editor for the press—will be departing later this month. (Mostly. More on that below.) Since she’s been here for so long, and has been such an integral part of this phase of Open Letter’s history, I wanted to give her a chance to say a public farewell.
+
+From Kaija:
+
+> Dear colleagues and friends,
+> 
+> My last day as Editorial Director for Open Letter Books will be October 13th, 2025.
+> 
+> My time with the press has been more than a career—it has been the air I breathe, the dreams I dream, my home away from home. I have been grateful since day one to its founder and publisher, Chad W. Post, my various colleagues during my tenure, and the University of Rochester for turning my childhood dream-job into my reality, and a place to continually learn and grow.
+> 
+> These 13 years working at Open Letter, especially with all these talented authors and translators, have helped me become a better reader, better translator, better editor, and—I wholeheartedly believe—better person. Providing access to and a stage for world voices and literature in translation is so important, always, and it has been a pure pleasure and the greatest honor to be part of Open Letter’s mission and committment thereto. And as my path rounds a new bend (and it is a little scary), it puts me at ease to know that Chad will continue, as ever, to run the press under these values, and to forever champion its artists and their work.
+> 
+> Thank you to everyone I’ve worked with over these years via Open Letter, and to the authors and translators for having me be part of bringing your works into publication. I look forward to meeting you again soon, elsewhere or otherwise, and I can’t wait to see what we will all continue to accomplish.
+> 
+> With love,
+> 
+> Kaija
+
+[
+
+![](https://substackcdn.com/image/fetch/$s_!bAAE!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F3bfc0cb0-2077-40b7-a474-8eed7f1b8a00_640x290.jpeg)
+
+
+
+](https://substackcdn.com/image/fetch/$s_!bAAE!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F3bfc0cb0-2077-40b7-a474-8eed7f1b8a00_640x290.jpeg)
+*Part of Kaija’s quite famous “head shot” series of photographs,*
+
+Although Kaija won’t be a full-time employee of Open Letter’s anymore, she will continue to typeset all our books (and doing similar work for other presses), proofread as many as I can coerce her into (her eyes are invaluable), doing some informal consulting (about books under consideration and keeping my tone in line), and, as is mentioned below, translating at least one title for us from Latvian. Can’t escape the Open Letter world that easily!
+
+If you’d like to get in touch with Kaija about anything—personal, translation-related, potential jobs, etc.—and don’t know how to, feel free to email me and I can put you in touch. You can also follow her on [Instagram](https://www.instagram.com/kmstraum?igsh=MXdxbDc0Nm0wejNsYQ==) and [Twitter](https://x.com/kmstraumane?s=21&t=ZYGeH_C-Nz7TxReXl5KHsQ).
+
+\---
+
+This is a big change for not just Kaija, but Open Letter as a whole, and rather than dwell on the impact of this, I’d like to take a second just to highlight her career as a translator. She was part of the very first cohort of students to come to the University of Rochester for its MA in Literary Translation Studies (MALTS), which has produced numerous world-class translators over the decade and a half of its existence.
+
+I’ll be posting more about [the program](https://www.sas.rochester.edu/lts/graduate/malts.html)—and how to apply—in the near future, but as Open Letter continues to evolve to connect international authors, translators, and the reading public over high-quality, lasting works of literature, and bring more aspiring translators into this fold, it’s worth mentioning that Kaija’s thesis was one of the first MALTS titles Open Letter ever published:
+
+[
+
+![](https://substackcdn.com/image/fetch/$s_!skz7!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F9000aef9-e73f-4c5a-9099-b8347fe5b30f_220x340.jpeg)
+
+
+
+](https://www.openletterbooks.org/products/high-tide)
+
+***[High Tide](https://www.openletterbooks.org/products/high-tide)*** **[by Inga Ābele](https://www.openletterbooks.org/products/high-tide)** was one of—if not “the”—the first novels by a female Latvian writer to be translated into English. In 2013. Which is exactly the sort of thing Open Letter and MALTS came into existence to address: bringing underrepresented languages and cultures to the attention of English-language readers. And although Latvia might not seem terribly exotic, the fact that up until just over a decade ago, almost no Latvian novels were available to the culturally curious points to the huge gap between the Western European countries with the most works in translation (France, Germany, Spain) and the situation facing the rest of the continent.
+
+This is a wonderful novel that is told in reverse over three decades and could be categorized as, broadly, a psychological mystery that does involve a murder and jail . . . It’s also a book we will likely be discussing on a future episode of one of our myriad podcasts.
+
+Also worth noting that Kaija won the AATSEEL Award for “Best Literary Translation into English” for this book!
+
+[
+
+![](https://substackcdn.com/image/fetch/$s_!dQ-7!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fb7511a19-cab6-4b6b-88ac-281e010b9dc1_220x341.jpeg)
+
+
+
+](https://substackcdn.com/image/fetch/$s_!dQ-7!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fb7511a19-cab6-4b6b-88ac-281e010b9dc1_220x341.jpeg)
+
+***[The River](https://www.openletterbooks.org/products/the-river)*** **[by Laura Vinogradova](https://www.openletterbooks.org/products/the-river)** was Kaija’s contribution to the [Translator Triptych](https://www.openletterbooks.org/products/2024-translator-triptych-bundle-latvia?_pos=3&_sid=d102b62b6&_ss=r) that she curated, and which came out earlier this year. This book has been receiving a ton of reviews and praise from readers for the quality of the translation and the sheer beauty and latent sadness of Vinogradova’s writing. It’s a novel about loss, about grief, about possibilities, and about finding yourself as a woman in your 30s.
+
+\---
+
+The next book Kaija is doing for Open Letter (a co-translation with Uldis Balodis) is ***Aspirantūra*** **by Margarita Perveņecka**, tentatively entitled ***Postgraduate Studies**.* This won’t be out for a few years now, but promises to be a major event for Latvian literature.
+
+Given that she’s just embarking on this translation, there’s not a lot to share at this moment (although I’m cooking up some schemes . . . ), however, this has been [reviewed by The Untranslated](https://theuntranslated.wordpress.com/2023/12/21/graduate-school-aspirantura-by-margarita-pervenecka/). (I could be wrong, but the fact that it’s one of—if not “the”—only books by women on the site makes me very happy.)
+
+For anyone not in the know, Andrei from The Untranslated is a true polyglot who reads a lot of giant works of “experimental” literature and writes about them in hopes of finding publishers for these books. Kaija and I had a lovely coffee with him in Riga a few summers ago and after our chat, Kaija—who had already been eyeing *Aspirantūra* in bookstores—bit the bullet and picked it up, and Andrei went on to write about it:
+
+> The main setting of the novel is an alternative version of Earth that saw major technological advances much earlier than we did. In that fictional world, space travel and genetic engineering were made possible already in the 19th century. The novel begins in the future, probably some 300 years from now, but, as things develop, we get more glimpses of the events which took place in the 19th, 20th, and 21st centuries. The society of the future is highly stratified, with the technocratic elite whose name I would translate as “alphanumerics” (*ciburi*) at the top.
+
+\---
+
+Given Kaija’s importance to the promotion of Latvian literature and culture in English, I want to take a second to point out a few other of her non-Open Letter projects:
+
+[
+
+![](https://substackcdn.com/image/fetch/$s_!hDz7!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F024e271a-9a88-4412-8409-86bc23a9fb03_220x312.jpeg)
+
+
+
+](https://substackcdn.com/image/fetch/$s_!hDz7!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F024e271a-9a88-4412-8409-86bc23a9fb03_220x312.jpeg)
+
+***[Doom 94](https://wreckingballpress.com/product/doom-94/)*** **[by Jānis Joņevs](https://wreckingballpress.com/product/doom-94/)** came out from Wrecking Ball Press in 2018 in this totally metal cover. It is a book about heavy metal, about the music scene in Latvia in the early 1990s after the dissolution of the USSR and the start of Latvia’s second independence as a country. Joņevs is a massively talented writer who has been one of my (non-Kaija) connections to the Latvian literary scene. Hopefully Kaija will publish more of his work in the coming months. (And maybe a U.S. press will pick this up—it’s got a lot of potential.)
+
+She also translated his short story “[Victory](https://www.bodyliterature.com/2023/02/28/janis-jonevs/)” for [B O D Y magazine](https://www.bodyliterature.com/).
+
+[
+
+![](https://substackcdn.com/image/fetch/$s_!DHSL!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F70e7fdd5-c991-4a31-8933-a86409e2f5df_220x352.jpeg)
+
+
+
+](https://substackcdn.com/image/fetch/$s_!DHSL!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F70e7fdd5-c991-4a31-8933-a86409e2f5df_220x352.jpeg)
+
+***[Flesh-Coloured Dominoes](https://bookshop.org/a/164/9781911350637)*** **[by Zigmunds Skujiņš](https://bookshop.org/a/164/9781911350637)** came out from Arcadia Press in 2014, and is the first work of Skujiņš’s to appear in English. He was one of Lativa’s most prominent and respected twentieth-century writers, having been born in 1926 and passing away just a few years ago in 2022. This book is an international best-seller, and caught the attention of Gary Pulsifer (R.I.P.) during an editorial trip to Riga. It’s a very funny book, in which a baroness’s husband returns from the war with his upper half sown onto the body of a different soldier . . .
+
+\---
+
+She has translated a few other projects—such as a contribution to Comma Press’s ***[The Book of Riga](https://bookshop.org/a/164/9781910974384)***—and you can see all of them here, but one that’s not listed on her website, but deserves a mention, is ***The Forest Daughters*** **by Sanita Reinsone**. This work of reportage is about the partisan *women* who fought for Latvia’s independence—a bit of history that, for the obvious, semi-misogynist reasons you would expect, has been largely ignored. Kaija received a National Endowment for the Arts Translation Fellowship for this project, and the book should be available in full in 2026. Stay tuned!
+
+\---
+
+For all you Two Month Review aficionados, Kaija will still be participating on the podcast, so don’t worry—it won’t become a bro fest just yet! (Brian and I need Kaija to keep us grounded!!) So again, she’ll continue to be involved in a few Open Letter projects, but will be moving on to other (undefined as yet) pastures.
+
+One final, personal note: If you don’t know already, Kaija is my partner and mother of Aleksandrs, our wonderful, amazing seven-year-old, and loving stepmother to my two older kids, Chloë and Aidan. So this is a bit more emotional than a typical employee departure!
+
+A couple of years ago, she lost her father—a impressive and intimidating man of great intellect whose love for his country was unmatched—and at the risk of speaking on his behalf, I know that he would be incredibly proud of all Kaija’s done for Latvian culture, and will be anxiously waiting to see what she does next for this beautiful Baltic country.

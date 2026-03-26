@@ -1,0 +1,209 @@
+---
+title: "How Did TVs Get So Cheap?"
+author: "Brian Potter"
+publication: "Construction Physics"
+publication_slug: "constructionphysics"
+published_at: "2026-01-08T13:01:23.000Z"
+source_url: "https://www.construction-physics.com/p/how-did-tvs-get-so-cheap"
+word_count: 2031
+estimated_read_time: 11
+---
+
+You’ve probably seen [this famous graph](https://www.aei.org/carpe-diem/chart-of-the-day-or-century-8/) that breaks out various categories of inflation, showing labor-intensive services getting more expensive during the 21st century and manufactured goods getting less expensive.
+
+[
+
+![](https://substackcdn.com/image/fetch/$s_!bwoY!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Feaf24c26-1548-444a-8e37-4c94bb0e40f0_1320x1424.png)
+
+
+
+](https://substackcdn.com/image/fetch/$s_!bwoY!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Feaf24c26-1548-444a-8e37-4c94bb0e40f0_1320x1424.png)
+
+One of the standout items is TVs, which have fallen in price more than any other major category on the chart. TVs have gotten so cheap that they’re vastly cheaper than 25 years ago *even before adjusting for inflation*. In 2001, Best Buy was selling a 50 inch big screen TV on Black Friday for $1100. Today a TV that size will set you back less than $200.
+
+[
+
+![](https://substackcdn.com/image/fetch/$s_!Fvus!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fb7c985f4-5e39-4ac0-a27b-cf8835047d43_434x680.png)
+
+
+
+](https://substackcdn.com/image/fetch/$s_!Fvus!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fb7c985f4-5e39-4ac0-a27b-cf8835047d43_434x680.png)
+*Via [Black Friday Archive](https://blackfridayarchive.com/ad/best-buy-2001/page-5).*
+
+[
+
+![](https://substackcdn.com/image/fetch/$s_!Oxd6!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fd5646055-66a9-4a80-b6e2-1569f85e5760_1230x586.png)
+
+
+
+](https://substackcdn.com/image/fetch/$s_!Oxd6!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fd5646055-66a9-4a80-b6e2-1569f85e5760_1230x586.png)
+*Via [Amazon](https://www.amazon.com/Toshiba-50-inch-4K-LED-Fire-TV/dp/B0DZ8R71DB?crid=46PLRDTPAUDO&dib=eyJ2IjoiMSJ9.s27LwJyALazTBryCFkI8eBI4l64Ys--qgJXQiysP6Zq5r9repXur-1c_-mTS8xk3M30NXh_Da0Q9ovkcbCLLQNemX5_Sgn1rQBHcG9boH0kdm_xxwq8lrkTLrj7d0P8ydaBnCd5Z3O8TuMc6XklAVafshvlRuNZrDpVoqhx83AwHqaRlQchbEnUu8G6wMYikTvfaS3aj0bO7JiX4TfM5AhJlDRW0Z8aXj4MymFAc1gs.baG9F0_-yxm6vJOT410lRbc7-Ng68Xwx0leeFip7Rbg&dib_tag=se&keywords=52%2Binch%2Btv&qid=1767444334&sprefix=52%2Binch%2Btv%2Caps%2C132&sr=8-10&th=1).*
+
+The plot below shows the price of TVs across Best Buy’s Black Friday ads for the last 25 years. The units are “dollars per area-pixel”: price divided by screen area times the number of pixels (normalized so that standard definition = 1). This is to account for the fact that bigger, higher resolution TVs are more expensive. You can see that, in line with the inflation chart, the price per area-pixel has fallen by more than 90%.
+
+!function(){"use strict";window.addEventListener("message",(function(e){if(void 0!==e.data\["datawrapper-height"\]){var t=document.querySelectorAll("iframe");for(var a in e.data\["datawrapper-height"\])for(var r=0;r<t.length;r++){if(t\[r\].contentWindow===e.source)t\[r\].style.height=e.data\["datawrapper-height"\]\[a\]+"px"}}}))}();
+
+This has prompted [folks to wonder](https://x.com/JosephKahn/status/2005168116289208584), how exactly did a complex manufactured good like the TV get so incredibly cheap?
+
+[
+
+![](https://substackcdn.com/image/fetch/$s_!SYkD!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fa8027a5c-df34-4241-bb98-8e347e13083d_593x184.png)
+
+
+
+](https://substackcdn.com/image/fetch/$s_!SYkD!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fa8027a5c-df34-4241-bb98-8e347e13083d_593x184.png)
+
+It was somewhat more difficult than I expected to suss out how TV manufacturing has gotten more efficient over time, possibly because the industry is [highly secretive](https://www.soundandvision.com/content/mother-glass). Nonetheless, I was able to piece together what *some* of the major drivers of TV cost reduction over the last several decades have been. In short, every major efficiency improving mechanism that I [identify in my book](https://www.amazon.com/Origins-Efficiency-Brian-Potter/dp/1953953522?_encoding=UTF8&dib_tag=se&dib=eyJ2IjoiMSJ9.Y2vZzFl6tzZ3TrzwjHT7MlzeuvqekKPys2-lYswdFoLr4VICNiuZeNqQVT2LMawFUL3Dv2nmL_ThNSA7qEk56fkyI24ArvMPXyZ6C-tJDXptA7oRjC2b8na3Aqx3-fk2jIzZuacJ7vZE4q9UG8worA.wWFcGp7awglohso3M7CxT_7e7Xq9YW4fyRgYBnbcI2A&qid=1755029613&sr=8-1) is on display when it comes to TV manufacturing.
+
+##### How an LCD TV works
+
+Since 2000, the story of TVs falling in price is largely the story of liquid crystal display (LCD) TVs going from a niche, expensive technology to a mass-produced and inexpensive one. As late as 2004, LCDs were just [5% of the TV market](https://sst.semiconductor-digest.com/2005/12/display-manufacturing-particles-on-display/); by 2018, they were more than 95% of it.
+
+Liquid crystals are molecules that, as their name suggests, form regular, repetitive arrangements (like crystals) even as they remain a liquid. They exhibit two other important characteristics that together can be used to construct a display. First, the molecules can be made to change their orientation when an electric field is applied to them. Second, if polarized light (light oscillating within a single plane) passes through a liquid crystal, its plane of polarization will rotate, with the amount of rotation depending on the orientation of the liquid crystal.
+
+[
+
+![](https://substackcdn.com/image/fetch/$s_!s7nh!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F5dc01159-96de-4384-ba9e-f759352d43c7_524x277.png)
+
+
+
+](https://substackcdn.com/image/fetch/$s_!s7nh!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F5dc01159-96de-4384-ba9e-f759352d43c7_524x277.png)
+*Liquid crystal rotating the plane of polarization of light, via [Chemistry LibreTexts](https://chem.libretexts.org/Bookshelves/Physical_and_Theoretical_Chemistry_Textbook_Maps/Supplemental_Modules_%28Physical_and_Theoretical_Chemistry%29/Physical_Properties_of_Matter/States_of_Matter/Liquid_Crystals).*
+
+LCD screens use these phenomena to build a display. Each pixel in an LCD TV contains three cells, which are each filled with liquid crystal and have either a red, green, or blue color filter. Light from behind the screen (provided by a backlight) first passes through a polarizing filter, blocking all light except light within a particular plane. This light then passes through the liquid crystal, altering the light’s plane of polarization, and then through the color filter, which only allows red, green, or blue light to pass. It then passes through another polarizing filter at a perpendicular orientation to the first. This last filter will let different amounts of light through, depending on how much its plane of polarization has been rotated. The result is an array of pixels with varying degrees of red, blue, and green light, which collectively make up the display.
+
+[
+
+![](https://substackcdn.com/image/fetch/$s_!elM2!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Feacb6062-9abe-4972-995f-0c76d0a361e7_1024x565.png)
+
+
+
+](https://substackcdn.com/image/fetch/$s_!elM2!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Feacb6062-9abe-4972-995f-0c76d0a361e7_1024x565.png)
+*Structure of an LCD screen, via Nano Banana.*
+
+On modern LCD TVs, the liquid crystals are combined together with a bunch of semiconductor technology. The backlight is provided by light emitting diodes (LEDs), and the electric field to rotate the liquid crystal within each cell is controlled by a thin-film transistor (TFT) built up directly on the glass surface.
+
+Some LCD screens, known as [QLED](https://www.samsung.com/us/tvs/tv-buying-guide/what-is-qled-tv/), use [quantum dots](https://en.wikipedia.org/wiki/Quantum_dot_display) in the backlight to provide better picture quality, but these otherwise work very similarly to traditional LCD screens. There are also other types of display technology used for TVs, such as [organic LEDs (OLED)](https://global.canon/en/technology/oled-display-2023s.html), that don’t use liquid crystal at all, but today these are still a [small (but rising) fraction of total TV sales](https://www.oled-info.com/omdia-oled-tv-sales-are-rising-demand-mini-led-lcd-tvs-growing-faster#:~:text=OLED%20TV-,Omdia:%20OLED%20TV%20sales%20are%20rising%2C%20but%20demand%20for%20mini,the%20last%20quarter%20of%202024.).
+
+It took decades for LCDs to become the primary technology used for TV screens. LCDs first found use in the 1970s in calculators, then other small electronic devices, then watches. By the 1980s they were being used for small portable TV screens, and then for laptop and computer screens. By the mid-1990s LCDs were displacing cathode ray tube (CRT) computer monitors, and by the early 2000s were being used for larger TVs.
+
+##### Steadily falling LCD TV Cost
+
+When LCD TVs first appeared, they were an expensive, luxury product. In this [2003 Black Friday ad](https://blackfridayarchive.com/ad/best-buy-2003/page-4), Best Buy is selling a 20 inch LCD TV (with “dazzling 640x480 resolution”) for $800. The same ad has a 27 inch CRT TV on sale for $150. (I remember wanting to buy an LCD TV when I went to college in 2003, but settling for a much cheaper CRT).
+
+[
+
+![](https://substackcdn.com/image/fetch/$s_!uPus!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fead4b63a-6d93-40ed-b1b0-3e806dd246a7_897x803.png)
+
+
+
+](https://substackcdn.com/image/fetch/$s_!uPus!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fead4b63a-6d93-40ed-b1b0-3e806dd246a7_897x803.png)
+*Via [Black Friday Archive](https://blackfridayarchive.com/ad/best-buy-2003/page-4).*
+
+How did the cost of LCD TVs come down?
+
+LCD TVs start life as a large sheet of extremely clear glass, known as “mother glass”, manufactured by companies like Corning. Layers of semiconductor material are deposited onto this glass and selectively etched away using [photolithography](https://www.construction-physics.com/p/how-to-build-a-20-billion-semiconductor), producing the thin film transistors that will be used to control the individual pixels. Once the transistors have been made, the liquid crystal is deposited into individual cells, and the color filter (built up on a [separate sheet of glass](https://www.toppan.com/en/electronics/colorfilter/display/production/)) is attached. The mother glass is then cut into individual panels, and the rest of the components — polarizing filters, circuit boards, backlights — are added.
+
+[
+
+![](https://substackcdn.com/image/fetch/$s_!hwJG!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F708de069-88a3-49bb-b358-7398ccd4f6c9_1500x2004.png)
+
+
+
+](https://substackcdn.com/image/fetch/$s_!hwJG!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F708de069-88a3-49bb-b358-7398ccd4f6c9_1500x2004.png)
+*LCD manufacturing process, via [RJY Display](https://rjoytek.com/tft-lcd-manufacturing-principle-and-process-introduction/).*
+
+A key aspect of this process is that many manufacturing steps are performed on the large sheets of mother glass, before it’s been cut into individual display panels. And over time, these mother glass sheets have gotten larger and larger. The first “Generation 1” sheets of mother glass were around 12 inches by 16 inches. Today, Generation 10.5 mother glass sheets are 116 by 133 inches, nearly 100 times as large.
+
+[
+
+![](https://substackcdn.com/image/fetch/$s_!j3gE!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fd94816eb-2abc-4c2f-8ec2-bfae51ef3f9f_1280x1208.png)
+
+
+
+](https://substackcdn.com/image/fetch/$s_!j3gE!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fd94816eb-2abc-4c2f-8ec2-bfae51ef3f9f_1280x1208.png)
+*Via [Wikipedia](https://en.wikipedia.org/wiki/LCD_manufacturing).*
+
+Scaling up the size of mother glass sheets has been a major challenge. The larger the sheet of glass, and the larger the size of the display being cut from it, the more [important it becomes to eliminate defects and impurities](https://sst.semiconductor-digest.com/2005/12/display-manufacturing-particles-on-display/). As a result, manufacturers have had to find ways to keep very large surfaces [pristine](https://www.corning.com/media/worldwide/cdt/documents/TIP_102.pdf) — LCDs today are manufactured in cleanroom conditions. And larger sheets of glass are more difficult to move. Corning built a mother glass plant right next to a Sharp LCD plant to avoid transportation bottlenecks and allow for increasingly large sheets of mother glass.
+
+However, there are substantial benefits to using larger sheets of glass. Due to geometric scaling effects, it’s more efficient to manufacture LCDs from larger sheets of mother glass, as the cost of the manufacturing equipment rises more slowly than the area of the glass panel. Going from Gen 4 to Gen 5 mother glass sheets reduced the cost per diagonal inch of LCD displays by 50%. From Gen 4 to Gen 8, the equipment costs per unit of LCD panel area fell by 80%. Mother glass scaling effects have, as I understand it, been the largest driver of LCD cost declines.
+
+[
+
+![](https://substackcdn.com/image/fetch/$s_!lUk0!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F4eb4c382-9308-43dd-902a-3169f47e03a3_833x492.png)
+
+
+
+](https://substackcdn.com/image/fetch/$s_!lUk0!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F4eb4c382-9308-43dd-902a-3169f47e03a3_833x492.png)
+*Via [Corning](https://arpa-e.energy.gov/sites/default/files/migrated/1100%20AM%20Peter%20Bocko%20presentation%20for%20micro-PV%20final.pdf).*
+
+LCDs have thus followed a similar path to [semiconductor manufacturing](https://www.construction-physics.com/p/how-to-build-a-20-billion-semiconductor?utm_source=publication-search), where an important driver of cost reduction has been manufacturers using larger and larger silicon wafers over time. In fact, sheets of mother glass have grown in size much faster than silicon wafers for semiconductor manufacturing:
+
+[
+
+![](https://substackcdn.com/image/fetch/$s_!Vy9l!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F5d363f9c-b9da-4fb7-9d4d-715aace21869_627x382.png)
+
+
+
+](https://substackcdn.com/image/fetch/$s_!Vy9l!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F5d363f9c-b9da-4fb7-9d4d-715aace21869_627x382.png)
+*Via [Corning](https://www.corning.com/media/worldwide/cdt/documents/TIP_102.pdf).*
+
+LCDs are thus an interesting example of costs falling due to the use of larger and larger batch sizes. Several decades of [lean manufacturing](https://en.wikipedia.org/wiki/Lean_manufacturing) and business schools assigning “[The Goal](https://www.amazon.com/Goal-Process-Ongoing-Improvement/dp/0884271951?crid=26GE7ELSH3Y5C&dib=eyJ2IjoiMSJ9.mZT9qeuZx5n85qTjB3e_Tap-bvpT9KG-lsTT065NGdrzP9oZgRcUq62iLdvJHCxglTpBSt1WyaCWgyQMhXWtFrZVhrXX47S0qlK_vMzqi2G-dgwfcdkBL6gB3D4ZiDRVW1ZlVq_mIQ4SD40T_9m_a3hgfYYIGeI1-EfVBK-WER0Gs_jknus6g50cOm6ek1LR43oMgypJvq2lLMJVSDvrQrSeTFfgW6SQDr6Az2O-SWjz9VOPS38ymXToiEQHVCK0BqwjMKr3IrcrTHW7UfiXlNNkTZtVSJ8w8WE8NuoD_1o.qbntxXgOn5PNdoFJZoWocTGmDe7GlXIkRDW9i0r4l_g&dib_tag=se&keywords=the+goal+book&qid=1767712007&sprefix=the+goal%2Caps%2C166&sr=8-2)” have convinced many folks that you should always aim to reduce batch size, and that the ideal manufacturing process is “one piece flow” where you’re processing a single unit at a time. But as we see in several processes — semiconductor manufacturing, LCD production, container shipping — increasing your batch size can, depending on the nature of your process, result in substantial cost savings.
+
+At the same time, we do see a tendency towards one piece flow at the level of mother glass panels. Early LCD fabs would bundle mother glass sheets together into cassettes, and then move those cassettes through subsequent steps of the manufacturing process. Modern LCD fabs use something much closer to a continuous process, where individual sheets of mother glass move through the process one at a time.
+
+[
+
+![](https://substackcdn.com/image/fetch/$s_!ZrRC!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fa74f8edf-ff9a-4d5d-afcf-dd9fd042d4ea_805x433.png)
+
+
+
+](https://substackcdn.com/image/fetch/$s_!ZrRC!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fa74f8edf-ff9a-4d5d-afcf-dd9fd042d4ea_805x433.png)
+*Via [Souk et al](https://www.wiley.com/en-us/Flat+Panel+Display+Manufacturing-p-9781119161363).*
+
+Outside of larger and larger sheets of mother glass, there have been numerous other technology and process improvements that have allowed LCD costs to fall:
+
+-   “Cluster” plasma-enhanced chemical vapor deposition (PECVD) machines were developed in the 1990s for depositing thin film transistor materials. These machines were much faster, and required much less maintenance, than previous machines.
+    
+-   Manufacturers have found ways to reduce the number of process steps required to create thin-film transistors. Early operations required eight separate masking steps to build up the transistors. This was eventually reduced to four.
+    
+-   Thanks to innovations like moving manufacturing operations into cleanrooms and replacing manual labor with robots, yields have improved. Early LCD manufacturing often operated at 50% yield, where modern operations achieve 90%+ yields.
+    
+-   Cutting efficiency – the fraction of a sheet of mother glass that actually goes into a display — has increased, thanks to strategies like [Multi-Model Glass](https://displaydaily.com/mmg-getting-more-interest/), which allows manufacturers to cut displays of different sizes from the same sheet of mother glass.
+    
+-   The technology for filling panels with liquid crystal has improved. Until the early 2000s, displays were filled with liquid crystal through capillary action: small gaps were left in the sealant used to create the individual crystal cells, which the liquid crystal would gradually be drawn into. It could take hours, or even days, to fill a panel with liquid crystal. The development of the “[one drop fill](https://www.ushio.co.jp/en/technology/casestudy/101022.html)” method — a process in which each cell is filled before the sealant was cured, and then UV light is used to cure the sealant — reduced the time required to fill a panel from days to minutes.
+    
+-   Glass substrates were gradually made more durable, which reduced defects and allowed for more aggressive, faster etching.
+    
+
+[
+
+![](https://substackcdn.com/image/fetch/$s_!yX9_!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F0a530dad-296f-4ccc-82e9-7b46f1ccc76c_597x389.png)
+
+
+
+](https://substackcdn.com/image/fetch/$s_!yX9_!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F0a530dad-296f-4ccc-82e9-7b46f1ccc76c_597x389.png)
+*Strategies for LCD manufacturing improvement, circa 2006. Via [FPD 2006 Yearbook](https://books.google.com/books?id=LyWsuyWCS0sC&pg=PA10&dq=LCD+cost+decline&hl=en&newbks=1&newbks_redir=0&source=gb_mobile_search&sa=X&ved=2ahUKEwiZ5cWW19yRAxUvm2oFHU9NDR8Q6AF6BAgPEAM#v=onepage&q&f=false).*
+
+More generally, because LCD manufacturing is very similar to semiconductor manufacturing , the industry has been able to benefit from advances in semiconductor production. (As one industry expert [noted in 2005,](https://sst.semiconductor-digest.com/2005/12/display-manufacturing-particles-on-display/) “\[t\]he display manufacturing process is a lot like the semiconductor manufacturing process, it’s just simpler and bigger.”) LCD manufacturing has relied on equipment originally developed for semiconductor production (such as [steppers](https://en.wikipedia.org/wiki/Stepper) for photolithography), and has tapped semiconductor industry expertise for things like minimizing contamination. Some semiconductor manufacturers (like [Sharp](https://global.sharp/)) have later entered the LCD manufacturing market.
+
+LCD manufacturing has also greatly benefitted from economies of scale. A large, modern LCD fab will cost [several billion dollars](https://sst.semiconductor-digest.com/2017/12/gen-10-and-larger-flat-panel-display-capacity-to-grow-at-59-cagr-to-2022/) and produce [over a million displays a day](https://www.coherent.com/news/blog/cell-polarize-cutting-flat-panel-displays).[1](#footnote-1) It’s thanks to the enormous market for LCD screens that these huge, efficient fabs can be justified, and the investment in new, improved process technology can be recouped.
+
+[
+
+![](https://substackcdn.com/image/fetch/$s_!z0Mh!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Ff67323b5-5cd2-43e7-9e84-12151795abfd_946x519.png)
+
+
+
+](https://substackcdn.com/image/fetch/$s_!z0Mh!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Ff67323b5-5cd2-43e7-9e84-12151795abfd_946x519.png)
+*Annual LCD production, via [Corning](https://arpa-e.energy.gov/sites/default/files/migrated/1100%20AM%20Peter%20Bocko%20presentation%20for%20micro-PV%20final.pdf).*
+
+Falling LCD costs have also been driven by relentless competition. A [2014 presentation from Corning](https://arpa-e.energy.gov/sites/default/files/migrated/1100%20AM%20Peter%20Bocko%20presentation%20for%20micro-PV%20final.pdf) states that LCD “looks like a 25 year suicide pact for display manufacturers.” Manufacturers have been required to continuously make enormous investments in larger fabs and newer technology, even as profit margins are constantly threatened (and occasionally turning negative). This seems to have partly been driven by countries considering flat panel display manufacturing a strategic priority — the Corning presentation notes that manufacturing investments have been driven by nationalism, and there were various efforts to prop up US LCD manufacturing in the 90s and 2000s for strategic reasons.
+
+##### Conclusion
+
+Those who have read [my book](https://www.amazon.com/Origins-Efficiency-Brian-Potter/dp/1953953522?_encoding=UTF8&dib_tag=se&dib=eyJ2IjoiMSJ9.Y2vZzFl6tzZ3TrzwjHT7MlzeuvqekKPys2-lYswdFoLr4VICNiuZeNqQVT2LMawFUL3Dv2nmL_ThNSA7qEk56fkyI24ArvMPXyZ6C-tJDXptA7oRjC2b8na3Aqx3-fk2jIzZuacJ7vZE4q9UG8worA.wWFcGp7awglohso3M7CxT_7e7Xq9YW4fyRgYBnbcI2A&qid=1755029613&sr=8-1) will not find much surprising in the story of TV cost declines. Virtually all the major mechanisms that can drive efficiency improvements — improving technology and overlapping S-curves, economies of scale (including geometric scaling effects), eliminating process steps, reducing variability and improving yield, advancing towards continuous process manufacturing — are on display here.
+
+[1](#footnote-anchor-1)
+
+Though many of these will be phone-sized displays.

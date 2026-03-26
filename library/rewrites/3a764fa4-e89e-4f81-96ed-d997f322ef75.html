@@ -1,0 +1,65 @@
+<h2>Ten Architectures, One Conclusion: Data Still Wins</h2>
+
+<p>Between January 27 and February 17, 2026, ten open-weight large language models shipped from labs spanning the United States, China, the Middle East, and Canada. Sebastian Raschka, the machine learning researcher and author of <em>Build a Large Language Model (From Scratch)</em>, catalogues them all in a single survey piece that doubles as an architectural field guide. The sheer pace is staggering. A decade ago, a single new architecture warranted a year of discourse. Now ten arrive in three weeks.</p>
+
+<p>Raschka is candid about what matters most:</p>
+
+<blockquote>Modeling performance is likely not attributed to the architecture design itself but rather the dataset quality and training recipes.</blockquote>
+
+<p>That admission, buried in the conclusion, quietly undercuts the very premise of an architecture comparison. It is the right admission to make.</p>
+
+<h2>The DeepSeek Gravitational Pull</h2>
+
+<p>If there is a single through-line across all ten releases, it is the gravitational pull of DeepSeek V3. Moonshot AI's Kimi K2.5, at one trillion parameters, is explicitly described as a scaled-up version of the DeepSeek V3 architecture. Raschka notes that z.AI's GLM-5 now adopts Multi-head Latent Attention (MLA) and DeepSeek Sparse Attention. Even Arcee AI's Trinity Large, from a previously unknown American startup, uses a DeepSeek-style Mixture-of-Experts (MoE) configuration.</p>
+
+<blockquote>Kimi K2.5 is a native multimodal model built upon Kimi K2 through large-scale joint pre-training on approximately 15 trillion mixed visual and text tokens.</blockquote>
+
+<p>The number should land with some weight. Fifteen trillion tokens is an enormous pre-training corpus, and the fact that vision tokens were mixed in from the earliest stages rather than bolted on later represents a meaningful shift in how multimodal models get built.</p>
+
+<h2>The Efficiency Race</h2>
+
+<p>StepFun's Step 3.5 Flash stands out for a pragmatic reason: speed. At 196 billion parameters with only 11 billion active per token, it achieves roughly three times the throughput of DeepSeek V3.2 on Hopper GPUs. Multi-Token Prediction (MTP) with three additional tokens during both training and inference is the key trick. Raschka explains:</p>
+
+<blockquote>DeepSeek V3 reported using MTP-1, that is, MTP with 1 extra token (instead of 3) during training, and then making MTP optional during inference. Step 3.5 Flash uses MTP with 3 additional tokens (MTP-3) during both training and inference.</blockquote>
+
+<p>This is a concrete engineering decision with measurable payoff. More labs should be this transparent about their inference optimizations.</p>
+
+<p>Qwen's contribution to the efficiency story comes through hybrid attention. The Qwen3-Coder-Next model replaces standard attention with a Gated DeltaNet and Gated Attention hybrid in a 3:1 ratio. Raschka explains the tradeoff clearly:</p>
+
+<blockquote>DeltaNet offers less precise content-based retrieval than full attention, which is why one gated attention layer remains.</blockquote>
+
+<p>That single retained attention layer is a telling concession. Pure linear attention is not yet ready to stand alone. Ant Group's Ling 2.5 takes a similar hybrid approach but substitutes Lightning Attention for DeltaNet, achieving 3.5 times the throughput of Kimi K2 at equivalent parameter counts.</p>
+
+<h2>Small Models, Big Claims</h2>
+
+<p>Two models target the on-device category. Nanbeige 4.1 3B is architecturally almost identical to Llama 3.2 3B, with one notable divergence: it drops weight tying between input embeddings and the output layer. Raschka observes that weight tying "is a nice way to reduce the total number of parameters, but it almost always results in worse training performance as evidenced by higher training and validation losses." Most of Nanbeige's gains come from post-training, not architecture.</p>
+
+<p>Cohere's Tiny Aya, at 3.35 billion parameters, takes a more distinctive approach with parallel transformer blocks. Instead of computing attention and the feed-forward network sequentially, both operate on the same normalized input simultaneously. It is the strongest multilingual model at the 3B scale, outperforming Qwen3-4B and Gemma 3 4B. However, its non-commercial license significantly limits real-world adoption, a constraint Raschka notes but does not dwell on. That licensing restriction matters more than any architectural choice for anyone considering deployment.</p>
+
+<h2>Benchmarks at the Breaking Point</h2>
+
+<p>Raschka makes an important aside about benchmark saturation. Comparing Claude Opus 4.5 and Opus 4.6 on SWE-Bench Verified, he notes they score nearly identically, despite users reporting clear differences in real-world performance. His diagnosis is sharp:</p>
+
+<blockquote>The more likely issue here is that the SWE-Bench Verified benchmark has saturated, and it may no longer be a meaningful benchmark to report from now on.</blockquote>
+
+<p>This is a field-wide problem. When benchmarks no longer discriminate between models that feel different to use, the benchmarks are broken, not the models. The community's continued reliance on these numbers is becoming an obstacle to honest evaluation.</p>
+
+<h2>The GLM-5 Moment</h2>
+
+<p>Among the ten, GLM-5 from z.AI arguably makes the strongest overall impression. At 744 billion parameters, it appears to match or exceed the performance of both GPT-5.2 extra-high and Claude Opus 4.6 on independent hallucination benchmarks. Raschka notes that its architecture is strikingly similar to DeepSeek V3.2 but reduces the number of transformer layers from 92 (in its GLM-4.7 predecessor) to 78, a decision he attributes to latency reduction:</p>
+
+<blockquote>Layer depth cannot be parallelized in the same way as width.</blockquote>
+
+<p>Fewer layers, wider experts. It is a simple principle that more teams are converging on.</p>
+
+<p>MiniMax M2.5, meanwhile, takes a contrarian approach. No sliding window attention, no hybrid attention mechanisms, no MLA. Just plain Grouped Query Attention (GQA) at 230 billion parameters. Despite this architectural conservatism, it leads OpenRouter usage statistics and holds its own on coding benchmarks. Sometimes the simplest design wins on cost efficiency alone.</p>
+
+<h2>What Is Missing</h2>
+
+<p>Raschka acknowledges the elephant in the room: DeepSeek V4 has not shipped yet. The entire field has been building on V3's blueprints for months. When V4 arrives, it will either validate or invalidate the architectural bets dozens of teams have placed.</p>
+
+<p>One gap in the survey is any sustained discussion of inference cost per token across these models. Throughput numbers appear for Step 3.5 Flash and Ling 2.5, but a systematic cost comparison would be far more useful to practitioners than yet another benchmark table. Architecture comparisons are intellectually satisfying, but the market will ultimately sort these models by price-performance ratio, not by how cleverly they arrange their attention heads.</p>
+
+<h2>Bottom Line</h2>
+
+<p>Raschka has produced a valuable reference for anyone trying to keep pace with the open-weight model explosion. The architectural diagrams alone justify the read. But his own conclusion is the most important sentence in the piece: performance comes from data and training recipes, not from architecture. The ten models surveyed here prove that point by achieving similar results through wildly different structural choices. The real race is happening in the training pipeline, where none of these teams are sharing their secrets.</p>

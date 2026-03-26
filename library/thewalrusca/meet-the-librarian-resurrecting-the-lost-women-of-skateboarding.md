@@ -1,0 +1,185 @@
+---
+title: "Meet the Librarian Resurrecting the Lost Women of Skateboarding"
+author: "The Walrus"
+publication: ""
+publication_slug: "thewalrusca"
+published_at: "2025-11-30T12:01:08.000Z"
+source_url: "https://thewalrusca.substack.com/p/meet-the-librarian-resurrecting-the"
+word_count: 3411
+estimated_read_time: 18
+---
+
+[
+
+![](https://substackcdn.com/image/fetch/$s_!OhQF!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Ff3132a79-7f23-481e-a2ca-9a8269a516a4_1800x1200.jpeg)
+
+
+
+](https://substackcdn.com/image/fetch/$s_!OhQF!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Ff3132a79-7f23-481e-a2ca-9a8269a516a4_1800x1200.jpeg)
+
+*Canadian champion Pam Judge rocking a cast from a skiing accident while skating at the Oasis Skatepark, documented by Arne Ratermanis in May 1979 (iStock / Ana Luisa O. J.)*
+
+***This story was originally published on [thewalrus.ca](https://thewalrus.ca/)***
+
+**By [Natalie Porter](https://thewalrus.ca/author/natalie-porter/)**
+
+**It was not the post** about an X Games vert champion or someone catapulting themselves down multiple sets of stairs on a skateboard that received immediate support from followers on my Instagram account. The post featured Liz Bevington (RIP)—a German-born, Venice Beach misfit who learned to skateboard at age fifty-two in 1976. She wasn’t content to sit around and watch her son have all the fun, and when Bevington was eventually widowed, skateboarding became her core social outlet.
+
+The history of women in skateboarding is the focus of my account, and the popular post included photos of Bevington rocking her pink high-top shoes, wearing a tasseled “Skateboard Mama” beach T-shirt, and riding her custom skateboard with a windsurfer sail all the way into her eighties. The post also contained retro footage of her in vibrant spandex grooving to a disco beat on her skateboard, weaving through a street party, surrounded by lithe young men on roller skates. She looks like she’s having a blast, completely in the zone. Over forty-five years later, the online response to Bevington’s lifestyle was pure stoke.
+
+“Oh my goodness she is GOALS! 😍”
+
+“What an inspiration 😍 😍 😍”
+
+“I love her so much!!! 🔥 🔥 🔥”
+
+“This is my favorite skater on this account so far.”
+
+“Legend 🙌”
+
+“Wow she was so awesome. 🙌 You dig up the best stories!”
+
+“Thanks for sharing and creating this page 👏 . . . RIP Liz aka Skateboard Mama love you and will never forget you.”
+
+Bevington experienced being in the limelight to some extent during her heyday, making a cameo in a Coors Light commercial in 1984 and then a Pepsi ad in 1990, even receiving sponsorship from the clothing brand B.U.M. Equipment. The *Los Angeles Times* presented her in an article when she protested a proposed ban on roller sports in Venice Beach, followed by a photo shoot of Bevington skateboarding the Santa Monica pier.
+
+[
+
+![](https://substackcdn.com/image/fetch/$s_!wSED!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F574a9f2c-02fb-4a12-b0f7-704cbb63ca7c_1800x1682.jpeg)
+
+
+
+](https://substackcdn.com/image/fetch/$s_!wSED!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F574a9f2c-02fb-4a12-b0f7-704cbb63ca7c_1800x1682.jpeg)
+
+*Liz Bevington protesting a potential ban on roller sports in Venice Beach, in the* LA Herald Examiner*, May 31, 1989 (Michael Haering)*
+
+As for historical accounts of Bevington in skateboarding media, there’s a tiny photo of her in the September 1984 issue of *Thrasher*. She is shown cheering on the competitors in a flatland freestyle contest at the Venice Beach pavilion, which included Diane Veerman (now Desiderio) and April Hoffman successfully competing against the guys. And yet Bevington was never acknowledged as a contributor to the scene with the same status as a sponsored skater in their youthful prime. She was always described as a novelty act and a bit of an outsider. But she wasn’t in it for the glory.
+
+Bevington loved the carnival scene of Venice Beach, interacting with eccentric people and posing for photos with tourists, and she loved skateboarding. When asked what her adult sons thought of her obsession during a PBS television show called *The 90’s*, she said, “They are used to it now. They know that that’s what I do.” And if she bailed on her skateboard, she would just “get up and go again!” Bevington didn’t see the point in babying her aches and pains, because everybody has them. “Just go out and do something . . . I’m getting high on it.”
+
+Bevington had an aura of positive vibes, and, at age eighty, she made an appearance at the inaugural Mighty Mama Skate-O-Rama Mother’s Day event in 2004 hosted by skateboarding author Barb Odanaka; she cruised through the skatepark, busting out her *Saturday Night Fever* moves. Four years later, she was still at it, wind-skating for a piece in the *Santa Monica Daily*, extolling the benefits of regular exercise and a mug of beer in the sunshine at Big Dean’s Ocean Front Cafe.
+
+\---
+
+### Liz Bevington rode her custom skateboard with a windsurfer sail all the way into her eighties.
+
+\---
+
+I’m convinced that because Bevington radiated authenticity, not necessarily as a “cool” skateboarder but as a person who knew herself and what brought her joy, people were drawn to her story. She didn’t need anyone’s permission. She cultivated her own style and wasn’t swayed by popular thinking about age-appropriate behaviour or attire.
+
+I never had the chance to meet Bevington—she died in 2020 at age ninety-six—but I’ve done my best to gather content about her in my online archive, Womxn Skateboard History. When I watched her interview from *The 90’s*, I felt an immediate sense of admiration and awe for her, and this experience repeated itself multiple times with other skateboarders. I’ve foraged information on women in skateboarding for over twenty years, and the process of uncovering and validating individuals, especially older women who have been ignored or forgotten, has brought me great fulfillment. It’s both the thrill of discovery and the accumulation of proof of women’s participation in skateboarding that drives me. With every additional bio, I’m able to weave different stories together to create a bigger picture.
+
+I’ve only met in person a tiny percentage of the people I feature, let alone the account’s followers on Instagram, but over time, many of these people have become friends. You might guess that my target audience is teenaged female skateboarders, but from a quick scroll, I can see that folks are diverse in gender, age, and background, and sometimes their connection to skateboarding is unclear. There’s even a handful of old-school dudes—collectors of skateboarding memorabilia—who have alerted me to vintage zines and photos, hauling out cardboard boxes squirrelled away in their basements or garages. Their involvement has been critical.
+
+I launched the Womxn Skateboard History archive and Instagram account on International Women’s Day in March 2022, after several false starts. It’s been a life-altering experience. I’m a nerdy, middle-aged skater librarian and would never describe myself as an extrovert, but this project has transformed me and continues to push me out of my comfort zone. Today I ask myself, *Why did it take me so long to go public? And what was I afraid of?*
+
+\---
+
+#### **You can’t share stories from** ***thewalrus.ca*** **on Facebook or Instagram because of Meta’s response to the [Online News Act](https://thewalrus.ca/why-you-might-stop-seeing-canadian-news/), but you can share this Substack article there**
+
+\---
+
+[
+
+![](https://substackcdn.com/image/fetch/$s_!aVdP!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F0cd7378c-0bc6-473d-a052-1996670b77d3_1800x2685.png)
+
+
+
+](https://substackcdn.com/image/fetch/$s_!aVdP!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F0cd7378c-0bc6-473d-a052-1996670b77d3_1800x2685.png)
+
+*KZ Zapata grinds a parking barrier in 1986, published in a “Time Machine” feature in* Thrasher*, March 1999 (Mörizen Föche)*
+
+***I*** ***just want to*** *drop in already*.
+
+At age forty-three, I was poised at the top of a quarter pipe at my local skatepark in the Pacific Northwest, surrounded by forest, ferns, and blackberry bushes, with my skateboard balanced and waiting to drop in. After leaving Vancouver for a more affordable town further north with easy access to backcountry trails, lakes, and oceanfront in the traditional territory of the Tla’amin Nation, I found myself enticed to skateboard again. The park features a snake run shaped like a concrete Celtic knot, a dilapidated bowl that resembled a giant bathtub, and a street section with handrails, banks, stairs, and a pyramid-shaped obstacle. Except for a variety of crude penis-shaped graffiti in the bowl, the setting was idyllic, but I was starting to lose my shit.
+
+I was grateful that my muscle memory retained a smattering of basic skateboarding skills, but after a pause of more than a decade, I was in for a shock regarding the mobs of scooter kids swarming the park like locusts. I didn’t want to be some nasty, weird woman yelling at kids having fun, but my patience had its limits, and that included abandoned scooters in my direct path and little boys staring at me like deer in headlights. I needed a break.
+
+I noticed one other adult skateboarding the mellow flat-ground section of the park. A dad in his late thirties was practising tricks while encouraging his two daughters to try skateboarding. What a refreshing scene, I thought. We made small talk about the challenges of returning to skateboarding in middle age, the need to stretch more and wear wrist guards, et cetera. And then things got awkward. To my face, he said, “You know, there were no girls when I started skateboarding.” I was confused because I could have sworn that I had just told him that I started skating in the 1990s with a crew of young women not far from his hometown.
+
+This skate dad announced that he “discovered” female skateboarders a few years ago by following the Berrics on Instagram. The Berrics is a renowned skatepark whose owners initiated a contest series in 2008 called Battle at the Berrics; in 2019, the organizers announced the first Women’s Battle at the Berrics, pitting the top female street skaters against each other and broadcasting the recorded results online. The way Skate Dad described the event, it sounded like women in skateboarding hadn’t existed prior to this contest, at least women he regarded as “real” skateboarders, capable of performing the same or more advanced tricks than him.
+
+I calmly told Skate Dad that there was a rich history of women in skateboarding spanning sixty years prior to the Berrics. But that’s all I had in me. When someone is mansplaining away my precious time at a skatepark, the conversation only makes me resentful, because it’s not really a conversation, it’s an uninvited lecture. I’m a classic librarian in the sense that I’m trained in de-escalation and dislike confrontation, and I don’t believe that going into combat mode aids the learning process. But I still get triggered by odd encounters like this one with Skate Dad. I was left feeling rejected and disheartened, and I was unwillingly transported back to my teenage years in the 1990s when female skaters were often unwelcome at skateparks and labelled imposters.
+
+While it’s not a malicious statement, I get tired of “There were no girls who skated when I was a kid” sneaking into articles and interviews with prominent skateboarders in the industry, and then it’s regurgitated by random bros at the skatepark. Similarly, the declaration “I was the only female skateboarder” is also problematic. This narrative is common because it often really felt like we were the only girls in our respective communities. A better statement might be “I didn’t know of any other girls who skated in my town.” When we offer context, it allows for the possibility that someone in a neighbouring suburb or distant country was forging away solo on a tennis court, hoping for a friend.
+
+It’s fun to feel special, and when there’s been limited airtime, funding, and affirmation for women, it can be hard to let go of stories about our identity that showcase us as unique. But there’s space for everyone, including the skateboarders we haven’t been exposed to or befriended yet.
+
+As a constructive response to feeling frustrated, research and writing became my refuge and outlet. And the archive is now one beast of a website filled with hundreds of skaters’ bios plus photos, videos, interviews, references, and zines. My hope is that it will be a gateway for exploration that eliminates any debate about women’s participation. I call this quiet, obsessive approach “The Wrath of a Skater Librarian.”
+
+\---
+
+-   [Inside Skateboarding’s New Counterculture](https://thewalrus.ca/inside-skateboardings-new-counterculture/)
+    
+-   [Women’s Sports Aren’t About Bake Sales and Role Models](https://thewalrus.ca/womens-sports-arent-about-bake-sales-and-role-models/)
+    
+-   [Hell on Wheels](https://thewalrus.ca/hell-on-wheels/)
+    
+
+\---
+
+**In the late fall** of 2007, I was on the picket line at Vancouver’s Central Library—it was our seventy-fourth day on strike. Our union was bargaining with management and had us rallying for gender equity and equal pay, and the exciting news at our pep talk that morning was that award-winning author Naomi Klein and her personal researcher, a trained librarian, Debra Ann Levy, were joining us.
+
+It would turn out to be a critical day for me.
+
+There’s a YouTube video of the presentation, posted by our union. I can see the picketers clustered together, seated along the amphitheatre facing Robson Street, waiting in anticipation. Almost everyone wears a protest placard like an apron, looped around our necks with string. The sun is shining, but I know we must have been cold now that we’d stopped lapping the library’s perimeter.
+
+I spot myself seated at ground level. I’m bundled up for the weather wearing a black beanie and brown leather jacket, likely having just taken advantage of the donated coffee and doughnuts. Being born and raised in small-town Ontario meant practically living at a Tim Hortons during my teenage years; it was our default youth centre, along with the concrete footprint of a demolished factory, which we used as a makeshift skatepark.
+
+\---
+
+### Librarians are a mysterious coven. We sometimes go rogue when faced with book bans and often have secret identities.
+
+\---
+
+The year before the strike, after a summer working as a youth intern at an anarchist bookstore called Spartacus, I landed a job as a library assistant thanks to the encouragement of a friend. It felt like a good match, so I applied to become a full-fledged librarian, studying at the University of British Columbia. And months later, I was in the odd predicament of protesting the institution that had launched my career.
+
+Klein had just released her book *The Shock Doctrine: The Rise of Disaster Capitalism*, which she explained was about the war on the public sphere, where governments exploit and fabricate crises to manipulate people, and her belief that there are areas in life, like free access to information, where the profit motive should not apply. She said:
+
+“In these simple acts of helping people access information . . . you are embodying this spirit that there are some things that are too important, too fundamental to our democracy to allow the profit motive to govern those transactions. And you’re fighting for that. And people treat librarians like mousy figures, but mice roar at times, and this work is far too often taken for granted. Part of the reason it’s taken for granted is because it’s so squarely in the public. It is in the area of life where things are freely given and freely taken, not bought and sold. A different spirit governs.”
+
+Klein’s words landed with her audience, and then she hammered it home. Klein admitted that her book was priced out of reach for many people.
+
+“I wrote this book so that it would be read by whoever wants to read it, and your work allows that to be the case, and I’m counting on you to protect this space. I also want to say that my research assistant, the woman who is responsible for the seventy pages of footnotes in *The Shock Doctrine*, Debra Levy over there, is a trained librarian. Debra has educated me on so much; we used the hell out of libraries to produce this book. We could not have produced this book without the public library system.”
+
+The crowd erupted into applause at the mention of Levy’s contributions, and not only was I inspired by Klein’s speech, I was also blown away by the thought of how cool Levy’s job must be. Having the opportunity to merge one’s expertise as a librarian with a passion project in a slightly anonymous but meaningful role sounded incredible. A seed was planted.
+
+Librarians are a mysterious coven. While usually operating in the shadows, serving an organization or a neighbourhood, we sometimes go rogue when faced with book bans or threats to access to information. It’s honourable work. We often have unexpected secret identities and get a kick out of the look of surprise and even disapproval when we reveal what really gets us going. For me, it’s been skateboarding, joining girl gangs, and researching women skateboarders. But I’ve tended to avoid being present in my writeups for the archive and in social media posts because it’s a level of exposure I’m only beginning to get comfortable with.
+
+There’s safety in distancing oneself from the debate, but here I am, writing transparently because my connections with women’s stories and the individuals themselves have impacted me. The process has inspired in me a new confidence, and it’s also helped me reconcile past hurts. I know that my early experiences as a 1990s female skater with the skateboarding industry and society at large, which often felt like an enemy, shaped me. I think anger was a valid response at the time, but I’m so relieved that this negative dynamic no longer defines skateboarding for me.
+
+It’s been over four years since I interacted with Skate Dad; in that short while, I believe that skateboarding, though still creative and chaotic, has entered a stage of maturity in terms of inclusion. In this era of social media, the perspectives of skaters within collectives and community groups have more impact compared to in the past, when exclusively male pro skaters, company owners, and magazine editors had significant influence over trends, beliefs, and behaviours. Skateboarding is not a utopia, but it is evolving.
+
+[
+
+![](https://substackcdn.com/image/fetch/$s_!iX-h!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F76073cf0-9c79-451f-812c-df5c5fe131b4_1800x1135.jpeg)
+
+
+
+](https://substackcdn.com/image/fetch/$s_!iX-h!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F76073cf0-9c79-451f-812c-df5c5fe131b4_1800x1135.jpeg)
+
+*Confederation skatepark crew, 1998 (Natalie Porter)*
+
+**I still struggle with** bouts of frustration because, even though I love doing it, why should it take an obsessive librarian an absurd number of hours, days, months, and now years to scour magazines and newspaper databases, sort through Facebook photo albums, cling to names and rumours of someone’s sister being a skater, to dredge up and consolidate this history? I’m not content with seeing a small handful of women be tokenized, especially when there are skateboarders around the world who remain mostly unknown but whose stories could have an impact on their community. I just wish it wasn’t such an ordeal, but then again, if it was easy, it wouldn’t be as fulfilling. Kind of like skateboarding.
+
+Consider PJ McKenzie, known as Pam Judge in her competitive years, who was the first female Canadian national skateboarding champion in 1977 and 1978. Her name should be revered among Canadian skateboarders and historians, but I had to tease this needle out of a haystack, and I only connected with her by luck. I had never heard of McKenzie before launching the archive, and there is no reason why I should have, because she has never been properly celebrated outside of a few Canadian newspaper clippings from the ’70s and a skateboarding newsletter called *The Canadian Pipeline*.
+
+I was fortunate to have found a profile on Facebook called Da Mad Taco Skates Again (whoever you are, I owe you a beer or perhaps a keg?) loaded with vintage magazines and random photos. During a deep dive of this account, I saw an unfamiliar girl grinding the coping of a pool at the Oasis Skatepark in Mission Valley, California, in 1979. Her left arm was bound by a cast from a skiing accident, and the caption stated that “Pam” was a skier from Canada staying the summer in San Diego. My brain instantly sparked.
+
+Being a diligent librarian, with an easy CTRL-F, I cross-referenced my directory of every magazine issue I’ve consulted—the name of the skater, the page they appear, and a link when available—and I quickly found the article. Next to the entry for the July 1979 issue of *Skateboarder*, I had written “Pam Judge (Canada) has comments in contest article!” although I had yet to source a photo of her.
+
+Now that I had her full name and city, I got to work pulling up newspaper clippings and found one from her ski racing years and several from her early days skateboarding in Alberta but not a single lead regarding where she was today.
+
+I hashed together a website bio for McKenzie, followed by an Instagram post, waited for a bite from someone who recognized her, and then moved on. Seven months later, I received a message through the website contact form, and it was the kind of dream scenario I had always hoped for, a scenario which repeats itself today.
+
+Hi Natalie,
+
+Hope this finds you happy and healthy!! I thought I might check google to see if I existed anywhere after 44 years, lo and behold, I found your article 3 days ago. So cool!! Please call me . . . Really would love to chat!!
+
+PJ
+
+McKenzie would later tell me she had been feeling down, having endured some health challenges and heartbreak. That’s when she’d heard a whispering voice suggest that she google herself—and how she discovered the bio I’d written of her late one night.
+
+*Adapted and excerpted, with permission, from* [Girl Gangs, Zines, and Powerslides: A History of Badass Women Skateboarders](https://ecwpress.com/products/girl-gangs-zines-and-powerslides) *by Natalie Porter, published by ECW Press, 2025. All photos courtesy of ECW Press.*
+
+**[Natalie Porter](https://thewalrus.ca/author/natalie-porter/) lives in Powell River on the traditional territory of the Tla’amin First Nation, began skateboarding in 1995, and works for the British Columbia Library Association. She is the founder of @womxnsk8history on Instagram and the online archive Womxn Skateboard History and is a subject expert for the Smithsonian’s skateboarding advisory board.**

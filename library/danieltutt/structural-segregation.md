@@ -1,0 +1,66 @@
+---
+title: "Structural Segregation "
+author: "Daniel Tutt"
+publication: "Daniel Tutt"
+publication_slug: "danieltutt"
+published_at: "2025-04-16T18:57:27.000Z"
+source_url: "https://danieltutt.substack.com/p/structural-segregation"
+word_count: 1964
+estimated_read_time: 10
+---
+
+One of Lacan’s most important insights is that capitalism—concurrent to its globalizing and homogenizing tendencies—foments relations of segregation. Lacan warned that segregation will appear more and more at the very moment that market capitalism envelops the world in a seemingly total manner. In its spread to envelop the world through open markets, capitalism as a system gives rise to a reactive opposite movement, consisting of new unpredictable particularism’s and barriers that will reestablish separations even more segregative than before.
+
+With this core insight in mind, I recently presented remarks with the [Lacan Salon](https://youtu.be/mPGv6Pd3s2I?si=H-VWbG4deKlP2Yve&t=3609) on a panel that included Lacanian thinkers from around the western hemisphere, from Canada, Mexico, Argentina, Brazil to the USA. The prompt of this panel was to analyze the Trump moment, what it represents and what we are witnessing in terms of the profound destruction currently unleashed by DOGE, the trade wars and the fallout from Israel’s genocide in Gaza.
+
+I chose to direct my remarks to the theme of segregation as Lacan links segregation to capitalism, and I will elaborate on this connection below, but also chose to address segregation because Elon Musk’s ideological push for [neo-segregation](https://www.thenation.com/article/politics/trump-musk-lift-ban-on-segregated-facilities/) is a cornerstone to the new Trump agenda. Locating segregation describes the indifference to the destruction currently underway with the steady dismantling of the American bureaucracy, from the laying off hundreds of scientists at the National Institute of Health, to destroying the US Agency for International Development USAID, the Department of Education, the National Endowment for the Humanities, etc.
+
+I offer a Marxist class analysis of the Trump coalition as forged on a ‘contradictory class alliance’ between the finance aristocracy with class elements dejected from the system of productive labor, namely petty bourgeois small business owners, and lumpen elements of the working class. The destruction of the American bureaucracy is an act of symbolic violence designed to satiate the deeper economic suffering of the working class. It is forged in a hatred of the system of capitalism in its present state. And this is where the psychoanalytic insights of Lacan come into the picture, specifically the notion that segregation describes the logic of obscure destruction such as we are currently witnessing, but it also gives rise to unresolved resentments, and these resentments are borne from the neglect of the working class and the utter ignorance to their condition.
+
+**Lacan on Capitalism: Surplus Value & Surplus Enjoyment**
+
+Lacan calls capitalism a ‘masters discourse’ that structurally imposes relations of domination on every subject. Its only goal is to valorize itself. What matters for capital is the repetition of the act of buying, and in this repetition Lacan identifies a renunciation of enjoyment which places the subject in the position of an object that satisfies the Other’s demand for production. In Lacan’s most precise articulation of capitalism delivered in the Milan lecture delivered in May 1972, Lacan describes the “capitalist discourse” like a roulette table: A divided subject addresses the market for a solution to their deeper division (symptom, dissatisfaction, etc.). The market provides a solution in the form of a commodity which produces a surplus enjoyment for the subject. But this surplus enjoyment forecloses the original question of the subject’s division and hence leaves the desire of the subject dissatisfied.
+
+It is surplus value that constitutes the capitalist discourse and the subject of this discourse is generated on a structural demand for the recognition of surplus value. This sounds like a circular system, and that is because it is. Lacan will argue that the preconditions for the production of surplus value involve a loss of enjoyment—a subversion—and he identifies this in Marx’s *Capital* Vol. I Chapter 7 on “The Labour-Process and the Process of Producing Surplus-Value.” Of particular relevance here is the “laughter of the capitalist” in the production process that Marx writes about in this section of the text. Lacan identifies this moment as an example of subjective subversion because the laugh is unexpected; it hinges on the capitalist’s position in the process of surplus value extraction.
+
+The capitalist is both outside and within the chain of exploitation, and he can claim, by the end of it, that he too, like the worker is also a worker. It is this subversion of the system by the capitalist that makes the capitalist a master and the knowledge of this mastery is what elicits his laughter. Thus, the laughter has a perverse dimension, a sadistic pleasure is elicited when *Mehrlust* (surplus value) is brought out into the open.[1](#footnote-1) Capitalism is constantly producing surplus objects which exceed and fall from the subject’s capacity to grasp this surplus object. And this surplus object now becomes out in the open in the social field, it becomes quantifiable and then re-appropriated back into the value system.
+
+**The Absolutization of the Market: Pascal and Capitalism**
+
+Lacan elaborates a historical materialist account of modern capitalism in Seminar XVI “From an Other to the other” when he locates the historical moment in which capital “absolutizes the market”, i.e., when surplus value became entangled with surplus enjoyment (and Lacan of course gives this the name *jouissance*). In *Seminar XVI*, Pascal is invoked as the seminal philosopher for understanding the historical moment in which surplus enjoyment is “brought out into the open” and Pascal emerges when the absolutizing of the market occurs in the 17th century. When “surplus value” in discourse locatable[2](#footnote-2) Lacan argues that this erodes the guarantees of the social order, of God and of the power of the aristocracy. The rise of both rationalism in science also coincides with this moment in which capitalism envelops all of social life, and it is this envelopment that means that the precise quantification of surplus jouissance and its circulation in society can now be calculated. This erodes what Lacan calls the “field of the other” and it is this erosion which makes God into an inconsistent source for what is known as truth. This is why Pascal is important in the history of thought, he emerges to resolve the crisis of belief in European social life that is generated from capitalism and rationalism in science.[3](#footnote-3)
+
+**Capitalism and Segregation:**
+
+In the late 1960s Lacan elaborate his discourse theory and many have observed that these set of reflections are to be understood as his own way of responding to Freud’s problem of group psychology and “mass groups.” In Lacan’s framework, the discourses of science and of capitalism reduce the human to their biological constitution, i.e., humans are effectively treated like reproducible cattle, and this objectification of the human is another cause for the revolt of particular communities. Lacan writes in 1968:
+
+> “We are going to be submerged before long by segregationist problems that we will call racism and which are related to the control of what happens at the level of the reproduction of life, in beings who find themselves, because of what they speak, to have all sorts of problems of conscience \[...\]”
+
+When Lacan speaks of the rise of new discourses of segregation, he does not mean that racism will return in the same way that race discourse emerged in the 19th century. He means that segregation is now communitarian, it involves sexism, religious fundamentalism, and even class segregation. Thus, by segregation Lacan refers to any exclusion based on belonging by birth, and he means that the combination of an unregulated market capitalism with science gives rise to a radical and consistent fanaticism of the Other, with a view to establishing an intractable separation.
+
+[
+
+![](https://substackcdn.com/image/fetch/$s_!EwCg!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F0e953086-e6de-4d75-b126-71b52ea7a3d1_936x1074.webp)
+
+
+
+](https://substackcdn.com/image/fetch/$s_!EwCg!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F0e953086-e6de-4d75-b126-71b52ea7a3d1_936x1074.webp)
+
+The discourse of science and capitalism do not segregate univocally, however. They function as an *inadequate shelter* for relations amongst humans. They spawn the need to form particularism’s that confer a separating shelter on humans. But at the same time as Lacan argues in Seminar XVII, *The Other Side of Psychoanalysis* that ‘segregation’ is the very principle of the discourses that structure human bonds and this is present in Lacan’s discussion of the bond of the Jewish community in his treatment of Freud’s *Moses and Monotheism* where Lacan argues that it is the bond over the prohibition of the free trade in women, the ban on prostitution, that cements the possibility of fraternity, it is not the loving identification with Moses as a father stand-in.
+
+**From Love to Hate:**
+
+Freud thought the bond of love is what tied society together but Lacan began to doubt the extent to which love glues the social bond in the capitalism of our time. For Freud, love is what governs the affective bond to the father as a stand-in identification of any given group. As an affect, love does *not want to know* and thus a social bond of love is a bond in which the One (the unity of the group) possess a certain efficacy. We remember that for Freud the bond of the group is founded in love of the father, but this is an ambivalent bond. It often only breeds a cycle of narcissistic dependence. In what Freud refers to as the ‘artificial groups’ or the bourgeois groups of modern social life from the church, corporation, army, etc. the bond of the father is forged in such a way that a stunted Oedipal process occurs because this bond is forged on a negative dependence with the institution through the stand-in of the boss, the director etc. The artificial groups keep its subjects in a state of infantile dependence and this stunts their independence and gives rise to a counter-reaction. Freud called this reaction ‘mass groups’ or the rise to a series of reaction-social group formations or to what Freud called the ‘spontaneous groups.’ But yet even in the spontaneous groups such as break-away rebellious groups, renegade political parties, etc. Freud sees these groups as governed by a love bond to a leader and this identification is often more productive than the narcissistic bond with the directors and bosses of artificial groups.
+
+In his analysis of capitalism and segregation, Lacan upends Freud’s love-bond theory of groups. While he still retains the same idea from Freud that the artificial groups of capitalist society generate the need to revolt against them, Lacan diagnoses a far more severe crisis internal to the system, a crisis that prevents the bond of love to function as the predominant social bond within groups. Lacan argues that hate has become more common in gluing groups together and this is the core of the reason why segregation emerges as so common. The affect of hate is an affect which is seeking for clarity into the signifier, hate fulfills the desire to know and the desire to know is a desire aimed towards a signifier that is looking for satisfaction. In our current social arrangement, segregative bonds of hate maintain a desire to construct a One that would provide a relief to the discontent for each member of the group. What both Freud and Lacan identify in their respective analysis of capitalist group formation is that groups form as a protest at the level of the *being of each member.* Capitalist institutions repress feelings of hatred and feelings of hostility, and they offer no adequate outlet to the crisis of this repression they engender, they thus set the ground for the type of groups that are capable of forging segregative bonds of hate. The problem is one of scale. To what extent can such actions be tolerated at a mass scale. The answer to that question will point to a deeper understanding of neo-fascism as an effect of neo-segregation.
+
+[1](#footnote-anchor-1)
+
+*Mehrlust* is the neologism Lacan invents to describe the pleasure gained from surplus enjoyment.
+
+[2](#footnote-anchor-2)
+
+Lacan, Jacques “From an Other to the Other” Seminar XVI, translated by Bruce Fink, Polity Press 2024. p. 26
+
+[3](#footnote-anchor-3)
+
+I gave a talk that elaborates further into Pascal’s role in the crisis of belief and the absolutization of the market for Lacan Toronto a few months ago

@@ -1,0 +1,204 @@
+---
+title: "What's Up With All the Theme Parks?"
+author: "George Saunders"
+publication: "Story Club"
+publication_slug: "storyclub"
+published_at: "2026-02-26T21:01:12.000Z"
+source_url: "https://georgesaunders.substack.com/p/whats-up-with-all-the-theme-parks"
+word_count: 1817
+estimated_read_time: 10
+---
+
+[
+
+![](https://substackcdn.com/image/fetch/$s_!H7Uo!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2Faceb18e8-25ad-448b-b72d-a380e345f59b_2500x427.png)
+
+
+
+](https://substackcdn.com/image/fetch/$s_!H7Uo!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2Faceb18e8-25ad-448b-b72d-a380e345f59b_2500x427.png)
+
+Writing this early Wednesday morning from [Austin](https://www.austintexas.org/event/george-saunders%3A-live-in-conversation-in-austin/391301/), where I had a fun event last night with Judy Maggio, Texas broadcasting legend - thank you, Judy. I’m on to [Houston](https://inprinthouston.org/event/inprint-george-saunders-reading-2/) today, then [Dallas](https://dma.org/programs/event/arts-letters-live-george-saunders) on Thursday, [San Diego](https://www.warwicks.com/event/saunders-2026) on Friday - and home, tour done.
+
+[
+
+![](https://substackcdn.com/image/fetch/$s_!eWB0!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fdd74ddbd-1efe-4765-bfd5-81426e15097b_640x480.jpeg)
+
+
+
+](https://substackcdn.com/image/fetch/$s_!eWB0!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fdd74ddbd-1efe-4765-bfd5-81426e15097b_640x480.jpeg)
+*Good morning, Austin.*
+
+Thanks, so much, to all of you who’ve come out to these events - it’s all been so much fun and so inspiring. Judy closed last night with a beautiful question about what these events do for me. And the simple answer was: they confirm what I’ve always said about imagining my reader. Turns out, my readers *are* generous, full of life, vastly intelligent and compassionate, and very much on my side. *Thank you all, so much.*
+
+I wanted to let you all know about [this](https://pen.org/press-release/100-writers-urge-release-of-ali-asadollahi/) urgent situation in Iran, involving the incarceration of the poet Ali Asadollahi, one of many writers jailed for peaceful expression and dissent. My friends at PEN ask that we amplify this in any way we can, and that our “solidarity is incredibly meaningful and appreciated by his family as they work to try and get Ali released as soon as possible.”
+
+Now on to our Office Hours question for this week:
+
+Q.
+
+*Hi George,*
+
+*I’m writing to ask about the theme parks in your writing. We have Pastoralia, CivilWarLand, My Chivalric Fiasco, Bounty, Ghoul, Joysticks in Sea Oak, maybe some I’m forgetting about. So many parks! I also get the sense in several that these places—decrepit though they may be—are refuges from an even more f’d up world outside their boundaries.*
+
+*I don’t know if this is something you would be up to addressing on Story Club. I’m just interested in what these settings do for you & why you gravitate to them.*
+
+*Thanks for your work!*
+
+[
+
+![Genesee Country Village & Museum ...](https://substackcdn.com/image/fetch/$s_!BKck!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F2deffaee-da8a-4a99-8d33-afa2c95d1092_214x236.jpeg "Genesee Country Village & Museum ...")
+
+
+
+](https://substackcdn.com/image/fetch/$s_!BKck!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F2deffaee-da8a-4a99-8d33-afa2c95d1092_214x236.jpeg)
+
+A.
+
+And thank you for the question, which fits in nicely with our [ongoing discussion](https://georgesaunders.substack.com/p/a-story-comes-from-out-of-a-transient) of “CivilWarLand in Bad Decline,” as well as with a question I’m getting a lot on this tour for “Vigil,” i.e., “What’s up with all the ghosts?”
+
+Often, people ask these questions with a thematic answer in mind: “The theme parks are meant to permit some commentary on capitalism and our entertainment/profit complex.” Or: “The ghosts are a gateway into thinking about death (but also life!).”
+
+But I want to answer a little more honestly, by saying that, for me, these elements are not really there to make a story “about” something, but simply to give it energy.
+
+[
+
+![](https://substackcdn.com/image/fetch/$s_!Gnau!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F46b4fe83-c295-44c6-af96-c20e289b3234_2912x332.png)
+
+
+
+](https://substackcdn.com/image/fetch/$s_!Gnau!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F46b4fe83-c295-44c6-af96-c20e289b3234_2912x332.png)
+
+  
+The first theme-park story I ever wrote was called (as I’ve mentioned here before) “[A Lack of Order in the Floating Object Room](https://hungermtn.org/a-lack-of-order-in-the-floating-object-room/).” It literally came to me in a dream, at a low/transitional moment in my life, when I was working as a groundsman at an apartment complex in Amarillo, Texas and wondering what the heck was next for me.
+
+In that dream, I heard a distinctive voice in my head, quite different from the faux-Hemingway voice I’d been using, and I got up and wrote the first five lines of it down, and then, over the next week or so, grew the story out from the voice.
+
+I believe it was my subconscious throwing me a life raft – sort of saying, “You’re never going to figure this out on your own. Hear: grab on to this.” (Not the last time such a thing would happen to me.)
+
+So, that story got accepted by *The Northwest Review* and (I would later find out) was the story that got me into the Syracuse program and thereby literally changed my life.
+
+But I ignored the lesson it was trying to teach me (about humor and voice) and before long, feeling validated by my acceptance at Syracuse, retreated back into HemingwayLand.
+
+And I stayed there for about three years.
+
+[
+
+![](https://substackcdn.com/image/fetch/$s_!Gnau!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F46b4fe83-c295-44c6-af96-c20e289b3234_2912x332.png)
+
+
+
+](https://substackcdn.com/image/fetch/$s_!Gnau!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F46b4fe83-c295-44c6-af96-c20e289b3234_2912x332.png)
+
+Fast forward to that perhaps-too-often told “La Boda de Eduardo/conference room breakthrough” story (see page 107 of *A Swim in a Pond in the Rain*, or scroll down a bit in [this post](https://georgesaunders.substack.com/p/notes-from-the-death-cleaning) from a few years ago.
+
+Having seen the light (“Be fast, funny, and entertaining! Cease all planning!” I needed….well, I needed something to work on.
+
+So, I very frankly decided to knock off my own earlier story, but set in a different theme park…and that became “The Wavemaker Falters,” the first of this new breed of story that would end up making up the book *CivilWarLand in Bad Decline*.
+
+[
+
+![](https://substackcdn.com/image/fetch/$s_!Gnau!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F46b4fe83-c295-44c6-af96-c20e289b3234_2912x332.png)
+
+
+
+](https://substackcdn.com/image/fetch/$s_!Gnau!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F46b4fe83-c295-44c6-af96-c20e289b3234_2912x332.png)
+
+In nearly every story in that book, I grafted in some sort of theme park – not for thematic reasons but to destabilize that Hemingway-imitating part of myself.
+
+And it worked, I found; as soon as I set a story in some strange theme park, it *de facto* became a comic story. And that meant….freedom. My static ideas about what a story should do (be serious, teach a lesson, demonstrate the writer’s direct experience) got undercut by the difficulty (and by the fun, too) of trying to think up examples of what such a theme park would be like. And the language also had to be new. It would just sort of appear in front of me, now that I’d given myself permission (by way of the theme park addition) to be silly.
+
+Silly, in pursuit of the serious.
+
+And with the conscious, planning mind disabled in this way, surprising things started to come out, telling me what I really thought about the working life I was living and about the system I had been raised in, and maybe hadn’t really ever noticed before.
+
+So, there was “theme” and all of that but only because I hadn’t gone looking for it. Or, rather, I hadn’t “decided” my theme and then tried to illustrate it. I had just started dancing, for fun, and theme…showed up.
+
+[
+
+![](https://substackcdn.com/image/fetch/$s_!Gnau!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F46b4fe83-c295-44c6-af96-c20e289b3234_2912x332.png)
+
+
+
+](https://substackcdn.com/image/fetch/$s_!Gnau!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F46b4fe83-c295-44c6-af96-c20e289b3234_2912x332.png)
+
+Sometimes I think that the hardest thing we writers have to do is get out of our own way – that is, get clear of all those IDEAS that are always causing us to dictate a story instead of getting well and truly lost in it.
+
+That lostness is felt, by the reader, as openness, and as connection – reader and writer become fellow-travelers in the unfolding adventure of the story.
+
+And craft, for each one of us, might just be the answer to: “How do I get myself profitably lost? Really free of those “must” and “should” voices in my head, and of my plan?”
+
+One such answer might be, for some of us: the juxtaposition of random, or difficult-to-resolve, elements. (in this case, realist efficiency + theme park).
+
+The mind, temporarily, doesn’t know what to do with that juxtaposition and (glory, glory) has to proceed by some other method.
+
+[
+
+![](https://substackcdn.com/image/fetch/$s_!Gnau!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F46b4fe83-c295-44c6-af96-c20e289b3234_2912x332.png)
+
+
+
+](https://substackcdn.com/image/fetch/$s_!Gnau!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F46b4fe83-c295-44c6-af96-c20e289b3234_2912x332.png)
+
+We might say that when we put the mind to the task of reconciling elements that we can’t rationally reconcile – well, that’s craft.
+
+And the mind *will* reconcile those elements, if we give it time - it’s very strange.
+
+For example: I had written the opening sections of the story “Liberation Day,” and had introduced the idea of these people hanging on a wall, whose job it was to dramatize whatever story was input into them…and I needed a new story for them to tell, something bigger than I’d given them so far. And, just by chance, I’d been researching the [Battle of the Little Big Horn](https://www.history.com/articles/battle-of-the-little-bighorn) (for years, for fun) and, because it was the pandemic, I had the notion to just…make it that.
+
+Of course, my mind recoiled a bit and wanted a say in it. “Why that story? What’s the relevance to the first bit?” But I answered: “Don’t know. If that came into my head, there must be a reason.”
+
+Or, more honestly, I thought: the story will find a reason, through my planned massive rewriting of same.
+
+There was no relation between the plight of those people on the way and the Battle of the Little Big Horn, and then, with each new draft, there started to be one, but it was subtle and even now I can’t say exactly what it is - except that the rewriting put the two in relation in a way that, it seems to me, is not trivial.
+
+In a sense what happens is that the story grows and changes to accommodate the “intrusion” of the random element, and the random element does the same, and thereby becomes not so random.
+
+And the result doesn’t have that distinctive smell of something predetermined and then imposed on the reader.
+
+[
+
+![](https://substackcdn.com/image/fetch/$s_!Gnau!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F46b4fe83-c295-44c6-af96-c20e289b3234_2912x332.png)
+
+
+
+](https://substackcdn.com/image/fetch/$s_!Gnau!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F46b4fe83-c295-44c6-af96-c20e289b3234_2912x332.png)
+
+Imagine two columns of “elements” and the job is to randomly select two and drop them into the same story. That would, theoretically, dislodge whatever habitual story-making tendency is enslaving you.
+
+But I’ve noticed that, as soon as we do that (and decide, say, to write a story that has both “bears” and “adultery” in it, for example)…we will tend to start trying to “resolve” those elements too neatly. A female bear cheats on a male bear in a zoo. A couple, in the wild, menaced by a bear, confess to each having had an affair.
+
+And so on, and we’re back to the same “I am overdetermining my story” problem.
+
+So whatever this “getting out of our own way” move is, it’s not simple. Writing is such a subjective thing and we long for formulas and mantras that let us switch off the constant doubt and just get to it.
+
+But, it’s starting to seem to me, the constant doubt *is* art - being in relation to our ever-blooming doubt at every moment of the process.
+
+[
+
+![](https://substackcdn.com/image/fetch/$s_!Gnau!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F46b4fe83-c295-44c6-af96-c20e289b3234_2912x332.png)
+
+
+
+](https://substackcdn.com/image/fetch/$s_!Gnau!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F46b4fe83-c295-44c6-af96-c20e289b3234_2912x332.png)
+
+Anyway, for me, for awhile there, if I set a story in an exaggerated theme park (and that element of purposeful exaggeration was really important), something fun would happen. Is it still true? I’m not sure. I did this with “ [Ghoul](https://www.newyorker.com/magazine/2020/11/09/ghoul)” a few years back and liked the result but I also know that “deciding” to do something like this, that I’ve done so many times before, for reasons I’m well aware of, is fraught. (It can, alas, become another formula).
+
+The ghosts in *Lincoln in the Bardo* and *Vigil* (and many of the stories) work in a similar way. If I put a ghost in, something too-knowing in me gets destabilized.
+
+In other stories, the destabilizing/enlivening thing has been some concession I make to allow myself to depart from “normal” language. “ [The Falls](https://www.newyorker.com/magazine/1996/01/22/the-falls)” might be an example, as well as most of the stories in *Tenth of December*. Often, this concession is that “third-person ventriloquist” voice I’ve talked about here before - putting myself so deep into a character’s voice and diction that the language goes satisfyingly (destabilizingly) overboard.
+
+The idea, I think, is that I want to urge myself into a zone where I don’t know what’s happening next or what the criterion for that determination might be. For me it tends to be a verbal zone – the language feels new, which makes everything else underdetermined and new as well.
+
+What do you think Story Club? Am I ringing any bells here?
+
+P.S. I really enjoyed [this tweet](https://x.com/tnyfrontrow/status/2026074012535980152?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Etweet) from *The New Yorker* film critic Richard Brody.
+
+P.P.S Here’s a beautiful photo of Brooklyn in the storm, from your beloved SC editor, Samantha Storey:
+
+[
+
+![](https://substackcdn.com/image/fetch/$s_!Hv6b!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F47004430-2cc4-4351-9f0e-1ab396daa406_5712x4284.jpeg)
+
+
+
+](https://substackcdn.com/image/fetch/$s_!Hv6b!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F47004430-2cc4-4351-9f0e-1ab396daa406_5712x4284.jpeg)

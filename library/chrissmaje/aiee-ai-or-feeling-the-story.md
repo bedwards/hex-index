@@ -1,0 +1,50 @@
+---
+title: "Aiee, AI! Or, feeling the story"
+author: "Chris Smaje"
+publication: "Chris's Substack"
+publication_slug: "chrissmaje"
+published_at: "2025-09-02T10:14:10.000Z"
+source_url: "https://chrissmaje.substack.com/p/aiee-ai-or-feeling-the-story"
+word_count: 1253
+estimated_read_time: 7
+---
+
+With the publication of my new book *Finding Lights in a Dark Age* fast approaching but not yet arrived, I’m at that awkward stage in an author’s journey with a book where it’s too late to change anything in it, but it’s not yet left the nest and made its own way in the world. Already, I’m visited too often by an internal monologue along the lines of “should have included that, shouldn’t have said that, should have said that better”. Something I like about writing books rather than, say, blog posts is their fixed and tangible material presence in the world. The downside is, well, the fixity, rather than the more dialogic nature of online discussion. At its best – which it often is on this blog – online dialogue can be great. Whereas at its worst, retreating to a book and its ineradicable one-way word flow offers a certain balm to the soul.
+
+Ah well, I’m happy overall with what I’ve written in *Finding Lights*. But in this awkward moment of pause, I still sometimes find myself switching gears in conversations with people when they stray into potentially controversial areas in case it prompts a flaring of that internal monologue. One such area that’s blindsided me a couple of times has been along the lines of “Ah, so you’re writing about the shape of the future – I expect you must have said a lot about artificial intelligence? It’s going to change the world!”
+
+The truth, dear reader, is that I’ve said almost nothing about artificial intelligence in the book. And so the internal monologue flares again: “Aiee, AI! Should have included that…”
+
+An advance review copy of the book sits on the desk beside me as I write these words. I touch it and feel its calming fixity. What’s done is done, and you can’t write about everything in the few short pages of a book…
+
+Actually, I’m fairly relaxed about my AI omission. I see AI as but another over-hyped manifestation of our over-energised and over-connected world, which will likely fall as that world falls. Will it change the world in the meantime? Possibly, but not, I think, in especially interesting or positive ways. If it changes the world, it will change it in the way that the spread of 200 horsepower tractors in a world of 20 horsepower ones changes it. An acceleration, an amplification of a doomed trend. For sure, it will be used for some good purposes. It will be used for many more bad ones. Technology is never neutral. It’s always folded into existing social structures. And the argument of my book is that those structures will soon change radically, if unpredictably.
+
+I spoke with a friend recently who works in a large public sector organisation. She told me that AI is increasingly dominating the deliberative and decision-making processes of her organisation in ways she thinks are uncreative and deadening. Artificial intelligence is not, in fact, ‘intelligent’. It’s just stylishly regurgitative.
+
+I’ve seen AI versions of things I’ve written and debates I’ve had. They’re kind of like the low B essay of a moderately diligent but unengaged university student, who’s read a couple of the sources from the reading list and written a competent bit of hackery along the lines of “A says this and B says that. The strength of A is this, the weakness is that. The strength of B is this, the weakness is that. I think they’ve both got a point, but I think A is best because my professor prefers them”.
+
+As I was discussing with my friend this deadening AI-ification of her workplace, it suddenly struck me that public intellectual culture is increasingly AI-ified in a similar way. Let me not name names, but there are certain authors and certain publishers that churn out books about weighty contemporary matters – food systems, migration and so on – along these lines. A says this and B says that. Here’s my novel and creative synthesis of the same old crap, along with five hundred references that hopefully nobody’s going to follow up too closely. Typically, the novel solution involves salvation by high-energy (but purportedly ‘renewable’) new technology which is being mercilessly flogged by state-corporate interests as the only realistic way to save the world or save the poor.
+
+I’m not suggesting that these books have actually been written by AI. I don’t doubt they had an ‘original’ human creator. Most human originality is regurgitative anyway. But you do need a creative spark somewhere. The AI-ification of our intellectual culture speaks to its loss of creativity and vitality. We keep going over the same old arguments, looking for ‘creative’ solutions in them to growing problems that can’t be solved because they’re inherent to the premise of the arguments. There’s something deadening about this cookie-cutter futurology in contemporary public culture: “things look bleak, but actually I’m optimistic about the future because of (drumroll) tech-X”. For my part, I’m not optimistic about the future, but I stay hopeful because hope is a human trait. Maybe it’s programmed in – evolutionarily, that is, and not through coding. The difference is that you feel it.
+
+The B student’s essay shows they have a basic ability to read, understand, summarize and repackage. It fits them to managerial work in public or private corporations where these skills are useful. This would be fine if business-as-usual was a good long-term bet for our public-private corporatized civilisation, but it’s not fine now.
+
+Matters aren’t helped much if we turn out more A students – hence I’m not overly excited by the prospect of improved and more creative AI. A students end up being brilliant thinkers in universities whose output is quietly ignored by the rest of society – universities have become anything but universal – or, more likely, brilliant generators of income for our doomed corporatized civilisation.
+
+Forgive me if the above sounds cynical. I don’t mean to suggest that there are no possible positions or acts of grace in the modern world. But I do think we need to do better, and this involves making some fundamental changes to the stories we tell, which AI and our AI-ified public culture are unable to do.
+
+I’m not an especially creative or brilliant thinker myself, but I hope my book might help a few people see more ways of stepping out of these familiar stories and into the darker unknown. This is a place where the solution to global problems becomes easier because we stop trying to solve them. Instead, we address ourselves, without particularly knowing what we’re doing, to more tangible matters that are closer to hand.
+
+In other words, I think we need some radically different stories that we can inhabit from the inside because we really feel them, rather than AI-ified surveys of the field that return some ‘realistic’ version of the status quo ante delivered by high-energy technologies.
+
+My book won’t find favour with everyone, of that I can be sure. My fondest hope for it is that at least no one will think it was written by AI, or a human version of it.
+
+And now, as previously trailed, I’m going to be mostly offline for two or three weeks. But rest assured I will be back here with more genuinely human-produced content soon.
+
+### **Current reading**
+
+Gaia Foundation *We Feed the UK*
+
+David Graeber *Pirate Enlightenment*
+
+(By the way, I just came across [this interesting obituary](https://thesociologicalreview.org/collections/guest-essays/the-elvis-of-anthropology/) of Graeber, who in my opinon truly was a creative and brilliant thinker. I daresay many people would come out a lot worse if an ex-partner wrote their obituary).

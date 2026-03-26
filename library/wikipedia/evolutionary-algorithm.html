@@ -1,0 +1,52 @@
+<p class="source-note">Based on <a href="https://en.wikipedia.org/wiki/Evolutionary_algorithm">Wikipedia: Evolutionary algorithm</a></p>
+<h2>The Ingenuity of Nature, Replicated in Code</h2>
+<p>Imagine solving a complex problem, like designing the most efficient wind turbine or predicting stock market trends, without knowing exactly how to do it. You have no clear path, no formula to follow. This is where evolutionary algorithms (EAs) step in—a fascinating approach that mimics nature&#039;s own problem-solving strategy: evolution.</p>
+<h2>The Essence of Evolutionary Algorithms</h2>
+<p>At their core, EAs are computer programs that simulate the process of biological evolution to find solutions to difficult problems. They belong to a broader category known as bio-inspired algorithms and metaheuristics, which are part of computational intelligence. Instead of following a rigid set of rules, EAs use mechanisms like reproduction, mutation, recombination, and selection to evolve a population of candidate solutions over time.</p>
+<h3>How It Works: A Simple Example</h3>
+<p>Let&#039;s break it down with an example. Suppose you want to find the optimal design for a wind turbine blade. Here’s how an EA might tackle this problem:</p>
+<p>1. **Initial Population**: Start by randomly generating a set of possible designs (individuals). This is your first generation. 2. **Fitness Evaluation**: Assess each design based on certain criteria, such as efficiency and cost-effectiveness. The better the design, the higher its &quot;fitness.&quot; 3. **Selection**: Choose the best designs to be parents for the next generation. 4. **Crossover (Reproduction)**: Combine parts of two parent designs to create offspring. This mimics biological reproduction. 5. **Mutation**: Introduce small random changes to some of the offspring, adding diversity and potentially leading to better solutions. 6. **Replacement**: Replace less fit individuals with new ones. 7. **Repeat**: Go back to step 2 and repeat until you find a satisfactory solution.</p>
+<p>This process continues, with each generation hopefully getting closer to the optimal design.</p>
+<h2>The Versatility of Evolutionary Algorithms</h2>
+<p>EAs are incredibly versatile because they don&#039;t make any assumptions about the problem&#039;s landscape. They can handle all types of problems and often perform well in approximating solutions where other methods fall short. However, their computational complexity, especially in evaluating fitness functions, can be a significant challenge. Fitness approximation is one way to overcome this hurdle, but it’s worth noting that even simple EAs can solve surprisingly complex problems.</p>
+<h2>Types of Evolutionary Algorithms</h2>
+<p>EAs come in various flavors, each with its unique approach and applications:</p>
+<ul>
+<li>**Genetic Algorithm**: The most popular type, using strings of numbers to represent solutions and applying operators like recombination and mutation. Often used for optimization problems.</li>
+<li>**Genetic Programming**: Solutions are computer programs, evaluated based on their ability to solve computational tasks. Variants include Cartesian genetic programming, gene expression programming, and more.</li>
+<li>**Evolutionary Programming**: Similar to evolution strategy but with deterministic selection of all parents.</li>
+<li>**Evolution Strategy (ES)**: Uses vectors of real numbers and typically applies self-adaptive mutation rates. Mainly used for numerical optimization.</li>
+<li>**Differential Evolution**: Based on vector differences, suitable for numerical optimization problems.</li>
+<li>**Coevolutionary Algorithm**: Solutions compete or cooperate, making it ideal for dynamic or competitive scenarios.</li>
+<li>**Neuroevolution**: Genomes represent artificial neural networks, evolving both structure and connection weights.</li>
+<li>**Learning Classifier System**: Evolves sets of classifiers (rules) using reinforcement learning or supervised learning approaches.</li>
+<li>**Quality–Diversity Algorithms**: Aims for high-quality and diverse solutions, exploring a wide variety of possibilities across the problem space.</li>
+</ul>
+<h2>Theoretical Foundations</h2>
+<p>Several theoretical principles underpin EAs:</p>
+<h3>No Free Lunch Theorem</h3>
+<p>This theorem states that all optimization strategies are equally effective when considering every possible problem. In practice, however, problems are restricted, and exploiting problem-specific knowledge can improve an EA&#039;s performance. This is often done through heuristics or local search procedures, known as memetic algorithms.</p>
+<h3>Convergence Proof</h3>
+<p>For elitist EAs, where the best individuals from each generation are carried over to the next, there’s a general proof of convergence. This ensures that the algorithm will eventually find an optimal solution if one exists. However, this doesn&#039;t guarantee speedy convergence, and elitist EAs can sometimes converge prematurely.</p>
+<h3>Representation Matters</h3>
+<p>David E. Goldberg showed in 1990 that using real numbers for representation can limit the areas of the search space an EA can reach. The recommendation is to use arithmetic operators for recombination with real-valued representations, making them more effective than binary ones.</p>
+<h2>Limitations and Extensions</h2>
+<p>One limitation of many EAs is their lack of a clear distinction between genotype (the genetic code) and phenotype (the physical characteristics). In nature, this process, known as embryogenesis, makes the genetic search more robust. Recent work in artificial embryogeny aims to address this by exploring indirect encodings that enhance evolvability.</p>
+<h2>Comparison with Monte-Carlo Methods</h2>
+<p>Both EAs and Monte-Carlo methods involve randomness, but EAs learn from past search steps, using fitness-based selection and mixing information from current solutions. In contrast, Monte-Carlo methods generate new solutions independently of existing ones, making them suitable for problems where there’s nothing to learn from previous searches.</p>
+<h2>Practical Applications</h2>
+<p>EAs are used in a wide range of fields, from industry and engineering to finance and art. They require a different mindset compared to traditional exact methods, focusing on supporting the evolutionary search process rather than just formulating the goal. This approach can be challenging for beginners but is crucial for successful application projects.</p>
+<h2>Other Nature-Inspired Methods</h2>
+<p>Beyond EAs, there are other nature-inspired global search techniques:</p>
+<ul>
+<li>**Memetic Algorithm**: Combines population-based algorithms with individual learning procedures for local refinements.</li>
+<li>**Cellular Evolutionary or Memetic Algorithm**: Restricts mate selection to maintain genotypic diversity and reduce premature convergence.</li>
+<li>**Ant Colony Optimization**: Inspired by ant foraging, suitable for combinatorial optimization problems.</li>
+<li>**Particle Swarm Optimization**: Based on animal flocking behavior, primarily used for numerical optimization.</li>
+<li>**Gaussian Adaptation**: Based on information theory, used for maximizing manufacturing yield or mean fitness.</li>
+</ul>
+<h2>The Future of Evolutionary Algorithms</h2>
+<p>Since the turn of the century, many new nature-inspired algorithms have been proposed, although some face criticism for lacking rigorous validation. In 2020, Google’s AutoML-Zero demonstrated the ability to rediscover classic algorithms like neural networks using EAs. Additionally, computer simulations like Tierra and Avida model macroevolutionary dynamics, pushing the boundaries of what EAs can achieve.</p>
+<h2>Conclusion</h2>
+<p>Evolutionary algorithms are a testament to the power of nature&#039;s problem-solving capabilities. By mimicking evolution, they offer a flexible and robust approach to tackling complex problems across various domains. Whether you&#039;re designing wind turbines, optimizing financial models, or exploring artistic creativity, EAs provide a versatile toolkit for innovation and discovery.</p>
+<blockquote>&quot;The diversity of life is truly amazing, but equally astounding is the unity that underlies it.&quot; — Jared Diamond</blockquote>

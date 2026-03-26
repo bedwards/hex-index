@@ -1,0 +1,82 @@
+---
+title: "Your Loneliness Was a Design Decision Made by Your Enemy"
+author: "Margaret Killjoy"
+publication: "Birds Before the Storm"
+publication_slug: "margaretkilljoy"
+published_at: "2025-11-28T13:21:42.000Z"
+source_url: "https://margaretkilljoy.substack.com/p/you-loneliness-was-a-design-decision"
+word_count: 1708
+estimated_read_time: 9
+---
+
+The best days of my life, I barely notice my phone. If I spend the day out in the world, I forget that I have social media accounts that I could be checking, news I could be doomscrolling. The best days of my life, I’m usually, but not always, with people (or my dog, who counts as people) and it simply doesn’t occur to me to look at a tiny screen. Some of the best days of my life are spent in my hammock reading print books.
+
+I think everyone I know has the fantasy of destroying their phone or their computer. Everyone has a different but oddly specific way they’d do it: smash it with a rock, throw it off a skyscraper, set it on the train tracks. Myself, and I know this isn’t environmentally friendly, I imagine myself on a tiny sailboat somewhere on the ocean (even though I don’t sail) and I cast my devices overboard. I don’t want to just destroy my phone or my computer, I want to sacrifice these machines to the gods of the ocean.
+
+We have these thoughts, but we’re mistaken about why we have them. Most of the time, when I’m imagining the depths swallowing my phone, I think it’s because I want to disappear from society, that I want to leave the world of people behind. I want to set the computer on the tracks and then walk into the woods, forever.
+
+The thing is, I’m doing that fantasy wrong, even in my own head. We’ve decided somehow that our phones, with their promise of constant interconnectivity, are representations of people, of society, of community. We think we want to be done with our phones because we want to be done with people. But that’s simply not the case. What we wish to be done with are hollow, disconnected interactions. We wish to be done with *notifications* and *engagement*. If socializing were food, we want a meal but we’re given empty calories.
+
+Because nearly (but not all of) the entire online ecosystem is designed not to bring us together, but to keep us apart.
+
+That’s not an accident. It was designed that way. It was designed that way by our enemies.
+
+\---
+
+I know it’s easy to blame all our problems on capitalism, but this is a problem created by capitalism.
+
+Sacrifice, as I understand it (related to me by a dear friend who was describing the work of Georges Bataille), is less about blood and more about rendering things (or animals, or people, if we’re talking about old-school sacrifice) unproductive. We make things sacred (both sacrifice and sacred sharing an etymological root) by taking things out of the realm of the productive economy. By letting things just have had their existence and never be “useful.” Historically, the sabbath was sacred precisely because it was unproductive.
+
+The Celts in Gaul (now France) would just dig holes, make art, and throw that art into the hole. It sounds silly, at first, but the more I think about it, the more I’m drawn to the idea. I watch my friends knit scarves just to unravel them. I play piano to an empty room, writing songs I’ll never play again. I grew far too many tomatoes this year, taking more joy in growing them than preserving them, and at a certain point I just let them rot on the vine.
+
+It doesn’t make economic sense to grow food that no one eats, but sometimes I serve a “dumb supper” and set a plate of food out for the dead, then carry it into the woods for the faeries. It doesn’t make economic sense to knit scarves you’ll never wear. But most of the best moments of our lives sit outside the productive economy.
+
+Parties, at their best, are not economically productive activities. Socializing, at its best, is not multitasked as networking.
+
+Yet I do also value productivity. I love writing books and publishing them. I love writing history and teaching it. I love sewing clothes that I wear, I love building shelves and desks from wood, I love writing songs that are pressed onto vinyl.
+
+But what we’re being sold is something that somehow feels like productivity but isn’t. We’re neither relaxing nor producing—no wonder we’re exhausted and alienated.
+
+\---
+
+The gig economy sells us isolation and tells us that it’s freedom. Work some regular shit job all day, then get more “economic freedom” by doing gig work all night. (The “freedom” in question is usually the freedom to not starve to death.) And when you’re done with however many jobs you work, no one likes cooking for just themselves, and no one likes going to restaurants alone, so order online delivery. Food without a single social interaction.
+
+The labor movement rose to power through workplace organizing, in workplaces. In factories a hundredish years ago, one worker would read the latest radical newspaper (anarchist, socialist, or communist usually) to everyone while they toiled and even largely illiterate workers learned just how the capitalist system fucked them.
+
+We still have a version of that, of course. We have instagram explainers and we have tiktok posts and we have bluesky threads, and maybe we’re actually just as good at spreading class consciousness now, but what we don’t have, not as easily, is each other. We don’t have comrades; we have people we follow and people who follow us. We call it “engagement” when we comment on a post, but it’s not engagement, not really. It’s some odd simulacra.
+
+The algorithm rewards hot takes and it rewards infighting because both of those things drive engagement. The algorithm rewards us for being shitty to each other, and this was a design decision. People spend the limited time they have on this earth sitting in board rooms (in Zoom rooms now) looking at charts of interaction types on their platforms and say “getting people riled up drives engagement with our app, means more market share.”
+
+The more isolated we are, the more we’re driven to be shitty to each other, the more we’re going to spend what little we have on what’s advertised to us.
+
+When I first started podcasting for an ad-driven network, I was worried everyone would get mad at me for making content that some corporation uses to sell ads. But I think most people understand that they do it too, whether or not they’re paid for it. All our posts and comments keep eyeballs on apps that serve us ads.
+
+I’m not mad at you about it, I’m not mad at myself about it.
+
+I’m mad at the people who make these design decisions. I’m mad at the billionaires and the aspiring billionaires who literally feed on our desperation and loneliness, who salivate watching us destroy each other on the internet.
+
+\---
+
+People talk about the “male loneliness epidemic” and people talk about how there’s no such thing, because everyone is lonely, and why are men getting the special focus.
+
+It’s true though, that men are lonely. So are women. So are other people. We’re all lonely, and we’re lonely in unique and intersectional ways. We could be lonely together, but instead we’re arguing about who is loneliest.
+
+Us arguing about that is a design decision.
+
+\---
+
+I hate to brag, but I’m not lonely, not really. It’s not because I’m an introvert. I crave solitude, but I understand that solitude isn’t isolation, isn’t loneliness. Solitude works well for me because I know it’s a choice. I wish to spend a large chunk of my time alone or in very limited company. I’ve always been this way, and the rest of my family is this way. It takes a lot to make me lonely.
+
+I’m distrustful of every dichotomy, though, and every personality categorization. We all have different traits in different amounts. I’m an introvert, because solitude recharges my batteries. But I’m an extrovert too, then, because I have a separate set of batteries that I need social interaction to charge. Those batteries charge a lot faster and last a lot longer, but they’re there. I crave social interaction too.
+
+I’ve always heard, and used, this “battery” metaphor, but I think it’s of limited use. Because we’re not machines, we’re animals. We don’t have batteries, we have muscles. We improve through practice. Socializing, then, is a muscle. One that we can strengthen. When I fell into isolation (actual isolation, not just solitude) during the pandemic, those muscles atrophied. I’m strengthening them again. That’s why I’m not lonely.
+
+But, and this is key, I’m not doing that work alone. I’m doing that with people. With friends, with community. These are muscles we develop with one another. Much like solidarity, another muscle we must strengthen. The ability to accept (and celebrate) differences is the basis of solidarity.
+
+If you know me at all, you knew I was going to suggest that solidarity is the solution to how we’re all being systematically isolated from one another. We need actual social interaction (which *can* happen online too, it’s just trickier). We need to meet one another and we need to talk. We need to talk about our lives, and talk about our problems, and talk about solutions to our problems. We need to meet people where they’re at, and we need to meet with people who are different from us.
+
+We need to get together, because it turns out we have the same enemies: the people who are trying to make us lonely—who are the same people who are trying to make us poor, who are the same people who are drying the lakes to build data centers, who are the same people who are trying to shut down borders, who are the same people who drew those borders in the first place.
+
+Throwing my phone into the sea isn’t the answer to my problems because it’s an individual solution to a systemic problem. I’m not solving what’s wrong with my life without your help, and you’re not solving it without mine.
+
+Well, I’m also not going to throw my phone into the sea because the fish never did anything so evil that they ought to be subjected to Instagram.

@@ -1,0 +1,84 @@
+---
+title: "Reading Orly Castel-Bloom’s \"Dolly City\""
+author: "Chad W. Post"
+publication: "Mining the Dalkey Archive"
+publication_slug: "dalkeyarchive"
+published_at: "2025-09-22T18:06:04.000Z"
+source_url: "https://dalkeyarchive.substack.com/p/reading-orly-castel-blooms-dolly"
+word_count: 2173
+estimated_read_time: 11
+---
+
+OK, let’s admit upfront that the odds of my ever getting around to finishing the Jean Echenoz post I really want to write are longer than the Mets blowing a 5 game lead for the third wild card (and 96.7% chance of making the playoffs) over the past three-plus weeks. Which is \[checks standings\] oh. Well, OK. I guess all you Echenoz-heads should just hold tight . . . and if the Reds actually make the playoffs and knock the Mets out, I’ll dedicate a whole week to crushing this piece and trying to make a case for Echenoz—along with Jean-Patrick Manchette—recentering the American stereotype of “French literature,” despite violating most all of the trends uncovered in Tom Comitta’s *[People's Choice Literature: The Most Wanted and Unwanted Novels](https://bookshop.org/a/164/9780231219280)*. (For more on Comitta’s book and research, check out [this podcast](https://threepercentproblem.substack.com/p/three-percent-podcast-198-tom-comitta).)
+
+In the meantime, the Reds still aren’t favorites to pull this off (the have a 41.9% shot entering into the games on September 22), so I don’t have to back up that claim quite yet. And given my generalized bad luck related to sports, I believe I just cursed both teams somehow the D-Backs will make an improbable run, in which case, I’ll . . . IDK, write about snakes for a month or something.
+
+[
+
+![](https://substackcdn.com/image/fetch/$s_!4smw!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F0962803a-da97-440f-9f45-2dfe25e1c16b_220x352.jpeg)
+
+
+
+](https://bookshop.org/a/164/9781681378558)
+
+If for one reason or another—like my ADHD, feeling the need to post about other books and authors, wrapping Echenoz into a podcast with one of his translators or fans, or in a post about Minuit & Jérôme Lindon, etc.—I never get to this, I just want to recommend, wholeheartedly, Echenoz’s *[Command Performance](https://bookshop.org/a/164/9781681378558).* Along with the two [Solvej Balle](https://bookshop.org/beta-search?keywords=Solvej+Balle) books, and Stanislaw Lem’s *The Investigation*, this was one of my favorite reads of the summer. Funny, engrossing, well-plotted, overstuffed with characters, and, like most Echenoz books, it features a rather surprising ending.
+
+And while I’m on about NYRB and baseball—two of my favorite things!—you might be interested in knowing that NYRB is reissuing Robert Coover’s *[The Universal Baseball Association, Inc., J. Henry Waugh, Prop.](https://bookshop.org/a/164/9798896230182)* next March (with a new intro by Ben Marcus), just in time for spring training! As a big Coover fan, who absolutely loves this book and wanted to reprint it more than any other book in recent memory, I’m so glad that it’s coming out again. Also, Coover does have a couple books with Dalkey, sorta: *A Night at the Movies* is currently out of stock (but brilliant) but the ebook of Stephane Vanderhaeghe’s *[Robert Coover and the Generosity of the Page](https://bookshop.org/a/164/9781564788429)* is available via Bookshop.org and other e-book retailers. (The print version is out of stock, but probably findable.)
+
+\---
+
+Anyway, let’s get to the whale.
+
+For today’s *CONTEXT* reprint post, I have a piece from Issue No. 23—one of the last to be printed—about a Dalkey Essential that was reissued earlier this year, Orly Castel-Bloom’s *[Dolly City](https://bookshop.org/a/164/9781628975604).* (This piece is also the afterword to both Dalkey editions of the novel.) To date, Dalkey Archive Press has published two Castel-Bloom books (*An Egyptian Novel* being the other, but that’s also out of stock . . . I’m whiffing like [Oneil Cruz](https://www.fangraphs.com/players/oneil-cruz/21711/stats?position=SS%2FOF) today!). And Feminist Press has done *[Textile](https://bookshop.org/a/164/9781558618251)*, which was longlisted for the [Best Translated Book Award](https://en.wikipedia.org/wiki/Best_Translated_Book_Award)—here’s [a piece about it from P. T. Smith](https://www.rochester.edu/College/translation/threepercent/2014/04/12/textile-by-orly-castel-bloom-trans-by-dalya-bilu-why-this-book-should-win/) for anyone who is interested.
+
+*[Dolly City](https://bookshop.org/a/164/9781628975604)* is the novel of hers I like best, the most upsetting, strange, discomforting, and curious. Given that I’m no expert—and reread this almost exactly two years ago, I’m going to turn this over to [Karen Grumberg](https://liberalarts.utexas.edu/mes/faculty/kg227), the Stiles Professor of Humanities and Comparative Literature at the University of Texas.
+
+Enjoy!
+
+[
+
+![](https://substackcdn.com/image/fetch/$s_!e8JH!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F56fcef94-8de2-44ee-a980-24f299f8172d_220x340.jpeg)
+
+
+
+](https://bookshop.org/a/164/9781628975604)
+
+#### **Reading Orly Castel-Bloom’s “Dolly City”**
+
+*[Dolly City](https://bookshop.org/a/164/9781628975604)* is an astonishing novel. It leaves some readers enthralled, some stunned, and others intimidated. Orly Castel-Bloom told me that, in the months following the Israeli publication of the novel in 1992, people who recognized her as its author were actually afraid of her. Castel-Bloom’s writing—confrontational, fearless, and disconcertingly funny—often evokes such visceral reactions. Now, nearly two decades after its appearance first shocked the Israeli reading public, the novel remains as provocative and powerful as it was then.
+
+Born in Tel Aviv in 1960 to French-speaking Egyptian Jewish parents, Orly Castel-Bloom spoke only French during the first years of her life. She studied film at Tel Aviv University for one year and theater for another at the Beit Zvi theater school. She started publishing in 1987. By the time *[Dolly City](https://bookshop.org/a/164/9781628975604)* appeared, Israeli critics had already been debating the merits of Castel-Bloom’s writing for five years. Her first collection of short stories, *Lo Rahok mi-Merkaz ha-Ir* (*Not Far from the Center of Town*, 1987) evoked much critical controversy, particularly regarding its unconventional language and style. Her second collection, *Sviva Oyenet* (*Hostile Surroundings*, 1989), and her first novel, *Heykhan Ani Nimtset* (*Where Am I*, 1990),confirmed the originality of her voice, but some critics still questioned the “literary” value of Castel-Bloom’s writing: the unadorned, conversational Hebrew of her stories, peppered with English expressions, was labeled flat and therefore inadequate for literary expression. Her unsentimental and sometimes absurd characters were considered devoid of humanity and incapable of evoking the reader’s sympathy or interest.
+
+The publication of *[Dolly City](https://bookshop.org/a/164/9781628975604)*, while it did not dispel entirely the questions regarding Castel-Bloom’s literary merit, established her as a prominent figure, impossible and irresponsible to ignore. Gershon Shaked, an influential literary critic, deemed that Castel-Bloom had “done nothing less than change the face of Hebrew fiction.” The esteemed author S. Yizhar praised her writing, and the prominent critic Dan Miron declared her to be one of the most interesting writers of her generation. *[Dolly City](https://bookshop.org/a/164/9781628975604)* was reviewed in all the major Israeli newspapers. Adi Ophir, in his review for *Ma’ariv*, recommended that readers read the novel three or four times: first, “to absorb the shock”; second, to understand how and why Dolly does what she does; third, to connect Dolly’s world to one’s own; and fourth, to get to the bottom of Castel-Bloom’s idiosyncratic use of language. In a review in *Ha’aretz*, Ariel Hirschfeld declared that *[Dolly City](https://bookshop.org/a/164/9781628975604)* constitutes a new Israeli-Hebrew dictionary, challenging all accepted definitions and values. Indeed, *[Dolly City](https://bookshop.org/a/164/9781628975604)* helped establish Castel-Bloom as one of the most important living writers of Hebrew, compared to a diverse array of authors from Dostoyevsky to Kafka. Though not everyone agrees on the merits of Castel-Bloom’s writing, it leaves no one indifferent.
+
+By now, four novels and four short story collections later, the centrality of *[Dolly City](https://bookshop.org/a/164/9781628975604)* in the world of Israeli letters is undisputed. This is somewhat incongruous, given that the novel is itself an attack on all forms of authority, political, social, or linguistic. Zionist ideology, represented here by Dolly’s acquaintance Gordon (a parody of the Russian Zionist A. D. Gordon), is tolerated but not taken seriously. The Holocaust, the memory and memorializing of which is a primary component of collective identity in Israel, is presented in *[Dolly City](https://bookshop.org/a/164/9781628975604)* as a crime warranting bloody vengeance, and also as a means of exclusion of non-European Jews like Dolly from the nation’s consciousness. The novel’s critical confrontation with Israeli society leads it to raise questions about gender as well. Dolly’s obsessive and fiercely independent motherhood is complicated by the fact that her son’s paternity is unknown and by the mystery of her own father’s death. In Israeli literature, which historically has been preoccupied with fathers and sons, the dearth of literal and metaphoric fathers in this novel makes a significant statement. The language, too, contributes to the novel’s iconoclasm. Some readers dislike what has been called Castel-Bloom’s “thin Hebrew,” which they see as stripped of the richness and depth of the “literary” Hebrew considered the epitome of Zionist ideals. A close reading of her stories and novels, however, shows that there is more to Castel-Bloom’s use of language than meets the eye: it is informed by biblical allusions, clever word games, and an awareness of the ideological dynamics of language. Moreover, her Hebrew resonates with readers because it acknowledges and incorporates its own perpetual development through television, slang, new technologies, and the languages of immigrants. Not surprisingly, Castel-Bloom’s “thin Hebrew” has spawned more than a few admiring imitations.
+
+[
+
+![](https://substackcdn.com/image/fetch/$s_!hXuu!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F17d9b2e1-5515-4e66-87dc-9fe7ed4e7fe3_220x319.jpeg)
+
+
+
+](https://bookshop.org/a/164/9781628975604)
+
+One need not know Hebrew to get a sense of how revolutionary *[Dolly City](https://bookshop.org/a/164/9781628975604)* is. The prose pummels the reader. Dolly, by turns apathetic and enraged, is articulate and perhaps overly perceptive. “Madness is a predator,” she observes. “Its food is the soul. It takes over the soul as rapidly as our forces occupied Judea, Samaria, and the Gaza Strip in 1967. \[. . .\] And if a state like the State of Israel can’t control the Arabs in the territories, how can anybody expect me, a private individual, to control the occupied territories inside myself?” She explicitly relates the chaos within her to the political mayhem that plagues her environment. Violence reigns in her city. And a strange city it is: dystopic, fantastic, phantasmagoric, nightmarish—Dolly City is unlike any other setting in Hebrew literature. At once Tel Aviv and every other city in the world, Dolly City recalls the alienating metropolis that is by now a familiar setting of modernist writing, at the same time adding terrifying new features to this landscape. It is a city whose inhabitants are not only lonely, anxious, and unfriendly, but also deeply depressed and murderously violent. Dolly’s own aggressive tendencies, which drive her to surreptitiously inject unwitting passersby with morphine, murder a host of German orphans, castrate her psychiatrist, and more, reflect the violence of her city and affect every aspect of her relationships with others, from strangers on the street to her own son. No recognizable ethical or moral code governs *[Dolly City](https://bookshop.org/a/164/9781628975604)*, and nothing is too sacred to escape the blade of Castel-Bloom’s pen. This is a world where everything has lost its significance—Dachau in Dolly City is just a word on an old plank—so the reader must question everything.
+
+The violence that is so prevalent in *[Dolly City](https://bookshop.org/a/164/9781628975604)* is related to two particular overlapping concerns that Castel-Bloom addresses: motherhood and the nation. The experience of motherhood as expressed in *[Dolly City](https://bookshop.org/a/164/9781628975604)* is at once universally human and specifically Israeli, as attested by two of the most striking images in the novel: Dolly’s son glued to her back and the map of the Land of Israel she carves on his back. The first image speaks to phenomena that cross linguistic, geographic, and cultural boundaries: it magnifies the fears and concerns that are part of every mother’s experience, and casts the son as a burden the mother must bear. The latter image, an explicitly political, fleshly cartography, addresses the idiosyncrasies of Israeli motherhood, subject to the demands of national identity and, more concretely, of the military, in which every secular Israeli Jew—male and female—is required to serve at age eighteen. Dolly’s raison d’être is to protect her son: “I wanted to be in command on all fronts, and what’s wrong with that?” she demands. “I’m not entitled to demand sovereignty over the defense of my son?” The vocabulary of war is not coincidental in this context. Dolly’s son’s eventual conscription to the Academy of Brutal Seamanship denies her “sovereignty” over his “defense,” even as it liberates him from his obsessively protective mother. The mother/son interaction is one of many in the novel marked by aggression, paranoia, and impatience. Perhaps *[Dolly City](https://bookshop.org/a/164/9781628975604)*’s most chilling accomplishment is laying bare a society in which not only politics and war but also interpersonal relations are exceedingly violent. A mother cuts into her son’s flesh; suicides regularly plummet earthward from skyscrapers; vehicles collide into each other relentlessly; Jews crucify non-Jews in the street. Subject to Dolly’s keen gaze, these violent social relations erupton the surface of Dolly City itself in the form of cancerous tumors. Dolly’s response—a frenzied attempt to cure the city, followed by indifference—parallels the broader postmodern concern at the heart of the novel: contemporary society is sick and there is no cure in sight.
+
+It would be a mistake, however, to allow this bleak assessment to overshadow other qualities of the novel. Perhaps one of the most effective resources in Castel-Bloom’s critical arsenal is her sometimes macabre sense of humor. Despite the seriousness ofthe issues it confronts, *[Dolly City](https://bookshop.org/a/164/9781628975604)* is a very funny book. Like the novel and two collections of short stories by Castel-Bloom that preceded it, *[Dolly City](https://bookshop.org/a/164/9781628975604)* uses black humor, satire, parody, and sarcasm to express anxiety and to criticize social norms. Castel-Bloom, like her contemporary Etgar Keret, finds new discursive possibilities in humor: the language of humor allows her to make the banal original, and the horrible somewhat palatable.Dalkey Archive’s new edition of *[Dolly City](https://bookshop.org/a/164/9781628975604)* at last makes this important novel available to English-language readers worldwide, filling a lacuna in the library of Israeli works available in translation. As we move into the second decade of the millennium, the relevance and acuity of *[Dolly City](https://bookshop.org/a/164/9781628975604)* become increasingly apparent, not only for Israel, but for contemporary society as a whole.
+
+—Karen Grumberg
+
+\---
+
+*This piece has appeared in the 2010 and 2025 Dalkey Archive Press editions of* [Dolly City](https://bookshop.org/a/164/9781628975604) *by Orly Castel-Bloom, and in* Context *No. 22.*
+
+\---
+
+#### Works by Orly Castel-Bloom in English Translation
+
+*[Dolly City](https://bookshop.org/a/164/9781628975604)*
+
+*An Egyptian Novel*
+
+*[Textile](https://bookshop.org/a/164/9781558618251)*

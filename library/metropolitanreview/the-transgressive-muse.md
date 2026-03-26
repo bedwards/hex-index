@@ -1,0 +1,83 @@
+---
+title: "The Transgressive Muse"
+author: "The Metropolitan Review"
+publication: ""
+publication_slug: "metropolitanreview"
+published_at: "2025-12-18T21:56:20.000Z"
+source_url: "https://www.metropolitanreview.org/p/the-transgressive-muse"
+word_count: 2341
+estimated_read_time: 12
+---
+
+[
+
+![](https://substackcdn.com/image/fetch/$s_!WhN2!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F65f701f1-4426-43c0-87c6-7b160a20f3f2_900x599.jpeg)
+
+
+
+](https://substackcdn.com/image/fetch/$s_!WhN2!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F65f701f1-4426-43c0-87c6-7b160a20f3f2_900x599.jpeg)
+*Joan Miró, *The Hope of a Condemned Man I*, 1974, Oil on canvas*
+
+“Beauty is Truth, truth beauty,” said Keats, “—that is all / Ye know on earth, and all ye need to know.”[1](#footnote-1) But the poet was missing an element. The last two centuries have seen the binary coupling evolve into a ménage à trois. A hot newcomer, Transgression, has joined the hallowed pair as the transcendent purpose and valorizing principle of art, bringing with it a perverse polycule of aesthetic virtues — shock value, envelope-pushing, norm-busting, taboo-shattering, bourgeois-épatering — without which the modern literary canon, and certainly its cover copy and promotional spin, would be seriously bereft.
+
+The duly anointed modern writer must begin their work with an invocation of the transgressive muse. For example, Norman Mailer’s shoutout to the “perversion, promiscuity, pimpery, drug addiction, rape, razor-slash, bottle-break” that “elaborates a morality of the bottom.”[2](#footnote-2) Or Irvine Welsh’s trainspotted litany of bourgeois amenities — “big fucking television . . . dental insurance . . . leisure wear and matching luggage” — rejected in favor of joyous delinquency and heroin.[3](#footnote-3) Not to mention Jack Kerouac’s paean to the “mad ones . . . who never yawn or say a commonplace thing, but burn, burn, burn like fabulous yellow roman candles exploding like spiders across the stars.”[4](#footnote-4)
+
+Timothy Atkinson’s version of this benediction in his new novel Help Me I Am in Hell, a valiant new effort to get inside the transgressive muse’s well-worn pants, goes as follows:
+
+> We are the ones who do not exist in the consciousness of the world. We might as well not exist at all . . . . Our battle is one of the mind . . . waged inside our brains against the world. It is a fight against ourselves as we fight . . . to accept ourselves in the world as it is.
+
+The “we” in this case consists of Atkinson’s nameless first-person protagonist and an ER nurse with whom he has just spent the wee hours smoking crystal meth. The protagonist — let us call him Fyodor 2.0 in homage to the author’s page-one namecheck of Dostoevsky’s equally anonymous Underground Man — is a hypochondriac of epic proportions. His kidneys ache. He thinks he has tumors. He suffers from night sweats. His limbs go numb. He can feel his neurons misfiring. He scours the Internet for diseases to diagnose himself with. At night, he loiters in an emergency room lobby, just in case he’s overcome by his ailments, knowing all the while, in an astute moment of self-psychotherapy, that it is the “nagging fear of death that causes the pain to manifest.” His terror of dying is paralyzing, reaching beyond the inevitability of his own annihilation to the moment several billion years hence when the “red giant” sun will swallow the Earth, and beyond that, to the eventual heat death of the universe.
+
+All of this compounds, proving to Fyodor 2.0 the meaninglessness of life and the futility of improving or changing it, of doing anything besides anguish over symptoms, drink incessantly, and smoke meth. The existential void justifies his self-loathing, his years-earlier failure as a writer, his inability to find anything with which to give life meaning or purpose. It explains his “persistent boredom, fear, anxiety, horror,” alone in his studio apartment, without direction. Which begs the question, one Atkinson skillfully suggests but never quite voices: which came first, the chicken or the anomie? Is it the metaphysical dread that prompts 2.0’s abject depression or his depression that causes him to latch onto and obsess over the ultimate nothingness of being?
+
+Of course, there is one thing that does motivate him, one that has the power to move him away from solitary bouts with the bottle and into the world: Sex! “\[T\]he sound of a woman’s orgiastic screams while I pummel the shit out of her makes me forget I am alive which in turn makes me forget that I will die.” Much of the book is taken up with misogynistic sexual forays and attempts at connection, even when that connection only “beats masturbation because there’s that warm moist feeling and I don’t have to worry about carpal tunnel.” Fyodor 2.0 frequents emaciated prostitutes and hooks up with sex addicts he meets online, though it’s unclear whether through dating apps or Backpage. The sex that ensues tends toward the repulsive and the depraved, leaving 2.0 angry and ashamed. But he also occasionally finds himself in something approaching a relationship.
+
+The first of these is with Amy, the ER nurse with whom he shares both a tweak pipe and, as he convinces himself, a kindred spirit. On her breaks, she retrieves him from the emergency room lobby and they troop out to her parked car to commune over crystal hits. He recites his latest symptoms, and in turn she reassures him he’s not going to die. He soon realizes he is falling in love, but, with all the awkwardness of a teen romance, cannot bring himself to express his feelings for fear of losing the meth-infused friendzone and of risking rejection. In a surprisingly heartfelt rap, he professes his readiness to be there for her. But when later she actually does need him, after the death of her mother, he can only see it as an opportunity for sex, and cajoles her to move in with him. She demurs and he goes berserk, flying into a furious vituperative rant that shreds the last vestiges of his humanity along with her ego. “Now she will never, ever love me,” he laments as her car drives off.
+
+This same rage ruins 2.0’s chance for an affair with Stephanie, a flirtatious nymphet day-job coworker whom he’s slept with a couple of times but now disdains. She invites him to her birthday party with the promise of a blow job (most likely a tease); nonetheless he shows up at the trendy downtown LA nightclub where she and her ultra-cool Hollywood aspirant friends are celebrating. His lust is renewed after seeing her erotic clubwear, a lust quickly ruined by the discovery of Stephanie’s new boyfriend, a mellow, flute-playing hippie. Seething with jealousy, 2.0 tries to relate to her friends, but in a downward spiral (familiar to anyone who has had to party with art-adjacent glitterati), he grows increasingly alienated and insecure, “marooned amongst an alien race on an alien planet.” Unfortunately, in lieu of withdrawing into his space capsule, he drinks heavily and becomes belligerent. Insults them. Topples the table they are all sitting at. Furiously upbraids the mortified Stephanie over her failure to blow him. And in a final pièce de trangressive résistance savagely beats her hippie boyfriend and breaks his flute.
+
+2.0 has graduated from Underground Man to Raskolnikov. His crazed but safely internal monologue has overflowed into acts of abhorrent violence and emotional brutality, causing us to experience a “transgressive frisson” — the moment where our identification with a protagonist is broken by their traversal of a limit we are loath to cross. 2.0 paradoxically manifests an incel’s sexual rage and a Chad’s sexual success (or the opportunity for it). He is full of rage and shame, not because he is not getting laid but because he is not getting love. What he truly craves is not sex, which he gets plenty of, but someone to love him, to prove he exists and that this existence matters.
+
+Much to his consternation, such a someone does come into his life: Molly, a sex-positive, alt-lit poet. He attends her reading at an indie bookstore and, try as he might to commit some act of transgressive self-destruction — announcing to the reader his carnal love of books that drove him as a teen to “stick my dick inside their inner spine,” underlining the point by withdrawing to a bathroom stall to leave a glob of semen on a Bukowski tome — his bibliophilia and guzzling of the bookstore wine go undetected; he ends up enjoying the evening. Especially Molly’s poetry, which mainly concerns how much she loves to fuck. Their courtship is surprisingly chaste for two such high-libido characters. Molly drags him on hikes, listens to death metal with him, and waits until she feels comfortable enough to have sex, which, when it happens, is supremely orgasmic. They share their inner turmoil. She tells him he is not a bad person and tries to help him stop drinking. She is Orpheus bringing his Eurydice out from Hades. Is this transgressive tale going to end up as a story of redemption? Suddenly, it’s 3 a.m. and 2.0 awakens from a fugue state to find himself with Summer, his favorite emaciated whore, violently fucking and smoking meth, having left Molly’s bed as she slumbered in post-orgasmic bliss. Eurydice has looked back and remains in hell.
+
+“I don’t want to be unoriginal,” says 2.0 in a monologue, comparing his struggle to Dostoevsky’s Underground Man. “But what if it’s true? Despite that it’s been said before . . . . Does that mean there is no use in saying it again?” These are salient questions. Alienation and the anguish of existence do not vanish as a result of their literary expression, even by the great transgressive masterworks we know so well. People continue to experience dissociation, abjection, fear and trembling, the horror and the heart of darkness as the truth of their being. But does this individual truth mandate its repetition? Does the value its expression holds for the tormented individual unburdening themself imbue it with value for us, the readers? Or should sagas of pain and woe be reserved for the therapist, rehab, or twelve-step program — in other words, an audience who cares enough about the individual undergoing the dark night of the soul to want to go through hell with them. In order to count as literature, the narrative must transcend personal circumstances and give us something of value for our empathy, edification, illumination, or entertainment.
+
+What does Atkinson give us that lifts 2.0’s story above the personal hellscape of his many fellow sufferers? An intensity of language, for one. Atkinson keeps his narrative at an operatic fever pitch, unusual for our Hemingway-infected, distancing American prose. His paragraphs ebb and swell and shudder with emotion in the tradition of D. H. Lawrence. Moreover, in passages like the following, where 2.0 is falling apart, the text jumps out of its grammatical strictures, fragments bumping into and contradicting one another to mirror his mental disarray:
+
+> I want to cry in my terror and my brain just screams things at me all day long and all night too. I can’t shut it off how it howls and screeches its torrent of curses and obscenities belittling me and causing me to regret and drilling into me all that is wrong with me. I can’t stop it. I can’t shut it off.
+
+Too bad so much of it is unquotable, consisting, as it so often does, of some of the foulest language imaginable. It’s not so much all the “dicks” and “cunts” and “pussies” as their inevitable coupling with some sort of disgusting descriptor. Pussies “smell rank like some kind of mold.” Men “smell like unwashed cock.” Cunts have tumors “all up inside” and sometimes contain “chunks of viscera . . . bright red with wet gore.” Atkinson is clearly attempting a literary version of the cinematic “body horror” genre, accentuating 2.0’s revulsion to physicality and the raw guts of being. But he could have done so with a little less J. G. Ballard and a lot more Charles Baudelaire who, in poems like “Carrion,”[5](#footnote-5) links the sexual body to a decaying corpse in a way that poetically sears the mind rather than assaults it.
+
+Nonetheless, 2.0’s obscene rantings do evince a coherent philosophy of life in which individual humans are little more than the ciphers of their sex organs. “A cock needs a cunt, but a cunt does not need a cock,” he says. Human interaction, despite its high-minded pretensions, is no more than the acting out of the predisposition of our genitalia. Hence no metaphor or description can pass unless linked to something carnal and elemental. An ex’s promiscuity becomes a preference “for many different flavors of cock and cunt.” His yearning for Molly’s love becomes a desire for “the warm embrace of her labia.” His self-denigration makes him “not worth the fluid it would take to lubricate her cunt enough to slide my dick into it.” This reductio ad genitalium is not so much transgressive as expressive of a disenchanted, socially-mediated world whose pervasive pornography has already transgressed our sensibility.
+
+What ultimately sets Atkinson’s book apart and constitutes its transgressive core is the violence it does to the categories in which we would like to contain his protagonist. Is he a deeply sensitive failed artist or an addict hitting bottom? An alcoholic or a self-medicating neurotic? A raging lunatic or one of Kerouac’s “holy outcasts”? Does his paranoia stem from amphetamine psychosis, bipolar disorder, or what the Romantics termed “a nervous temperament”? His sleepless nights from existential dread or speed? Does he need a psychiatrist, detox, a doting partner, or a publisher (and hopefully editor) for his novel? In short, is he a diagnosable aberration we can dismiss or an indictment of the human condition we too must suffer. Atkinson doesn’t answer. And so, as the story hurtles toward its Sopranos-like cut-to-black ending, we are left to ask whether his protagonist wants our help getting out of hell or wants instead to pull us in.
+
+[
+
+![](https://substackcdn.com/image/fetch/$s_!qWT-!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fa7ed21fa-2f48-42eb-9ac7-345efdc9981d_1667x149.png)
+
+
+
+](https://substackcdn.com/image/fetch/$s_!qWT-!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fa7ed21fa-2f48-42eb-9ac7-345efdc9981d_1667x149.png)
+
+**David Polonoff is a satirist and novelist living in New York City. His work has appeared in the** ***Village Voice*****,** ***East Village Eye*****, and on his Substack, [Tropelessness](https://davidpolonoff.substack.com/?utm_campaign=profile_chips). His novel** ***WannaBeat*****, detailing a misspent youth in San Francisco’s literary North Beach neighborhood, is available from Trouser Press Books and Amazon.**
+
+[1](#footnote-anchor-1)
+
+John Keats, “Ode on a Grecian Urn,” 1819
+
+[2](#footnote-anchor-2)
+
+Norman Mailer, *The White Negro: Superficial Reflections on the Hipster*, 1957
+
+[3](#footnote-anchor-3)
+
+Irvine Welsh, *Trainspotting*, 1993
+
+[4](#footnote-anchor-4)
+
+Jack Kerouac, *On the Road*, 1959
+
+[5](#footnote-anchor-5)
+
+Charles Baudelaire. “Une Charogne” (“Carrion”), *Les Feurs du Mal*, 1857.

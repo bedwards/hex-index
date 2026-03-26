@@ -1,0 +1,101 @@
+---
+title: "Is New Jersey the next swing state?"
+author: "Eli McKown-Dawson"
+publication: ""
+publication_slug: "natesilver"
+published_at: "2025-11-01T19:36:03.000Z"
+source_url: "https://www.natesilver.net/p/is-new-jersey-the-next-swing-state"
+word_count: 2068
+estimated_read_time: 11
+---
+
+[
+
+![](https://substackcdn.com/image/fetch/$s_!xXTB!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fc04cc1c3-9128-494b-9848-d18c5fddacc5_1080x607.png)
+
+
+
+](https://substackcdn.com/image/fetch/$s_!xXTB!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fc04cc1c3-9128-494b-9848-d18c5fddacc5_1080x607.png)
+*Republican gains in 2024 were largest in places like Passaic County, where Manhattan can feel both close and far away. [r/outdoors](https://www.reddit.com/r/Outdoors/comments/184jxx7/view_of_nj_and_nyc_from_garret_mountain/).*
+
+The 2024 election was a solid enough victory for Donald Trump, but hardly a “red wave.” Except in a few states like New Jersey. There, the [polling average had Kamala Harris up by 15 points](https://www.natesilver.net/p/nate-silver-2024-president-election-polls-model) but she only won the state by 6. Looking to past elections wouldn’t have helped predict the relatively close outcome either: Trump [improved on his 2020 margin by 10 points](https://www.nytimes.com/interactive/2024/11/05/us/elections/results-new-jersey-president.html). If every state had shifted that much, Trump would have won Minnesota, Maine and New Hampshire in addition to the more traditional swing states last November, while Virginia would have been within the recount margin. In fact, New Jersey saw the second-largest swing toward Republicans in the country, behind only [neighboring New York](https://newjerseyglobe.com/fr/141678/).
+
+!function(){"use strict";window.addEventListener("message",(function(e){if(void 0!==e.data\["datawrapper-height"\]){var t=document.querySelectorAll("iframe");for(var a in e.data\["datawrapper-height"\])for(var r=0;r<t.length;r++){if(t\[r\].contentWindow===e.source)t\[r\].style.height=e.data\["datawrapper-height"\]\[a\]+"px"}}}))}();
+
+Now, does that single result make New Jersey a swing state? Let’s not get carried away: it was still [only the 11th-most competitive state in 2024](https://uselectionatlas.org/RESULTS/). That’s a long way off from quintessential swing states like its other[1](#footnote-1) neighbor, Pennsylvania, which voted [only 0.2 points to the right of the national popular vote in 2024](https://www.nytimes.com/interactive/2024/11/05/us/elections/results-pennsylvania-president.html). And sometimes, surprising shifts in the presidential margin prove to be one-off flukes. For example, [Barack Obama won Indiana in 2008](https://uselectionatlas.org/RESULTS/index.html), moving the state from R+21 to D+1. But how did Indiana vote by 2024? Basically back to where it started at R+19.
+
+So as much as we keep warning you not to read *too* much into Tuesday’s results, this is probably the race with the biggest long-term consequences for the electoral map.
+
+#### The two paths toward a redder New Jersey
+
+New Jersey’s rightward swing in 2024 [followed a familiar pattern](https://www.pewresearch.org/politics/2025/06/26/behind-trumps-2024-victory-a-more-racially-and-ethnically-diverse-voter-coalition/): Trump picked up support among nonwhite residents and maintained his strong edge among voters without college degrees. Those trends helped him [flip five of New Jersey’s 21 counties.](https://www.nytimes.com/interactive/2024/11/05/us/elections/results-new-jersey-president.html) And *every* NJ county shifted at least somewhat toward Trump between 2020 and 2024.
+
+Trump’s gains were particularly dramatic in the [New York City exurbs](https://en.wikipedia.org/wiki/New_York_metropolitan_area), especially in [areas with large Hispanic populations](https://www.cnn.com/2025/10/28/politics/new-jersey-governor-latino-vote-trump-ciattarelli-sherrill). Passaic County — which is 43 percent Hispanic and has a lower proportion of college-educated residents than the statewide average — moved from D +17 in 2020 to R +3 in 2024. The last time a Republican presidential candidate won that county [was 1992](https://en.wikipedia.org/wiki/Passaic_County,_New_Jersey#Politics). It’s the same story in Hudson County, the densely-populated Democratic stronghold right across the river from Manhattan: it’s 41 percent Hispanic and moved 18 points toward Trump between 2020 and 2024.
+
+In fact, New Jersey counties where the share of Hispanic residents was above the statewide average swung 13 points toward Trump between 2020 and 2024. The differences are even more striking below the county level: Union City is [80 percent Hispanic and shifted 27 points toward Trump in 2024](https://www.nytimes.com/2025/10/30/us/politics/republicans-hispanics-new-jersey.html). Trump also [flipped the city of Passaic](https://www.cnn.com/2025/10/28/politics/new-jersey-governor-latino-vote-trump-ciattarelli-sherrill) (70 percent Hispanic). In counties with average or below-average numbers of Hispanic residents, conversely, the average shift toward Trump was only R +6 — although Trump also performed well in heavily Asian American parts of the state.
+
+And where did Trump make the smallest gains? In white, suburban places like Burlington County. Trump improved on his 2020 margin by only 3 points in Cape May and Hunterdon, two of the whitest counties in New Jersey. He also saw below-average gains in New Jersey’s most educated counties like Somerset and Morris.
+
+!function(){"use strict";window.addEventListener("message",(function(e){if(void 0!==e.data\["datawrapper-height"\]){var t=document.querySelectorAll("iframe");for(var a in e.data\["datawrapper-height"\])for(var r=0;r<t.length;r++){if(t\[r\].contentWindow===e.source)t\[r\].style.height=e.data\["datawrapper-height"\]\[a\]+"px"}}}))}();
+
+So one way that New Jersey could become a truly competitive swing state is if Republicans can expand their [multiracial working-class coalition](https://www.patrickruffini.com/p/the-book-that-explains-the-2024-election) from 2024. But that’s not the party’s only option.
+
+Why? Because Trump isn’t the only Republican who’s come close to a statewide win in New Jersey recently. In 2021, Republican gubernatorial candidate Jack Ciattarelli — who [just so happens to be the candidate again this year](https://www.nytimes.com/2025/10/29/nyregion/jack-ciattarelli-republican-governor-new-jersey.html) — lost his race by only 3 points. Yes, Ciattarelli was helped by the presence of a Democrat in the White House. But it was still a strong performance.
+
+And Ciattarelli took a [meaningfully different path than Trump](https://www.nbcnews.com/meet-the-press/video/kornacki-trump-ciattarelli-s-different-paths-to-gop-gains-in-new-jersey-248868933887) to make that performance happen. Ciattarelli slightly beat Trump’s 2024 margin in most New Jersey counties [simply because he won a larger share of the vote statewide](https://www.nbcnews.com/politics/2021-elections/new-jersey-governor-results/). But the exceptions to that rule are informative. Ciattarelli’s biggest overperformance came in Hunterdon County, which is essentially tied with Morris and Somerset for the most educated county in New Jersey. And all five counties where Ciattarelli ran ahead of Trump by double digits had below-average shares of Hispanic residents.
+
+Conversely, Ciattarelli underperformed Trump in only four counties. He ran 21 points behind Trump in Hudson County (41 percent Hispanic) and 6 points behind in Passaic (43 percent Hispanic). The other two were New Jersey’s most heavily Asian (Middlesex) and Black (Essex) counties. Long story short: Ciattarelli’s coalition in 2021 was [whiter and more highly educated than Trump’s in 2024](https://www.nbcnews.com/meet-the-press/video/kornacki-trump-ciattarelli-s-different-paths-to-gop-gains-in-new-jersey-248868933887).
+
+!function(){"use strict";window.addEventListener("message",(function(e){if(void 0!==e.data\["datawrapper-height"\]){var t=document.querySelectorAll("iframe");for(var a in e.data\["datawrapper-height"\])for(var r=0;r<t.length;r++){if(t\[r\].contentWindow===e.source)t\[r\].style.height=e.data\["datawrapper-height"\]\[a\]+"px"}}}))}();
+
+So the second way Republicans could make inroads in New Jersey would be by cutting into Democrats’ margins among higher-income white voters, while holding onto Trump’s gains with Hispanics and Asian Americans. In 2021, if Ciattarelli had combined his solid suburban numbers with Trump’s margins in Essex, Middlesex, Passaic and Hudson counties, that wouldn’t quite have been enough for him to win the state — but it would have reduced Phil Murphy’s margin to just 1.3 points.
+
+#### Big swings don’t always stick
+
+How likely is it that the New Jersey swing sticks around? Sometimes, these shifts have more to do with a particular candidate or the national environment than any long-term trends. We already mentioned Indiana, for instance, where Obama might have benefited from the surprise factor and volunteers spilling over the border from Chicago. Obama’s gains in the Dakotas and Montana — he lost the latter state by only 2.4 points — also proved to be temporary.[2](#footnote-2)
+
+On the other hand, there are states like Iowa or Ohio. Trump won both states in 2016, with Hillary Clinton [investing lots of campaign resources there](https://fivethirtyeight.com/features/donald-trump-had-a-superior-electoral-college-strategy/) when she actually had bigger problems (uhhhh, Wisconsin). But unlike Indiana, they’ve continued moving in the same direction. There, the single-year swing *did* reflect a real trend: namely, [Republicans’ durable gains with white working-class voters](https://centerforpolitics.org/crystalball/its-not-the-economy-stupid-the-ideological-foundations-of-white-working-class-republicanism/).
+
+Of course, there’s also a middle ground. Rhode Island swung toward Republicans in 2016 by about 12 points. But eight years later, the state hasn’t reverted to its 2012 margin — nor has it continued shifting right. If New Jersey ends up in this scenario, we’d expect it to be a D+6 state in the medium term: so competitive in strong Republican years, but not a true swing state.
+
+!function(){"use strict";window.addEventListener("message",(function(e){if(void 0!==e.data\["datawrapper-height"\]){var t=document.querySelectorAll("iframe");for(var a in e.data\["datawrapper-height"\])for(var r=0;r<t.length;r++){if(t\[r\].contentWindow===e.source)t\[r\].style.height=e.data\["datawrapper-height"\]\[a\]+"px"}}}))}();
+
+Still, cobbling together a supercharged version of the Trump and Ciattarelli coalitions might be easier said than done for Republicans. Democrats’ improvement with white college-educated voters has [come at the expense of their performance among working-class Black, Hispanic, and Asian voters](https://catalist.us/whathappened2024/). The inverse holds for Republicans, who [have collapsed in wealthy, educated suburbs](https://www.natesilver.net/p/georgia-has-gone-from-luxury-to-necessity).
+
+#### So, what can we learn from 2025?
+
+On Tuesday, we’ll see Ciattarelli try to thread this needle when he faces off [against Democrat Mikie Sherrill](https://www.nytimes.com/2025/10/29/nyregion/jack-ciattarelli-republican-governor-new-jersey.html). The three-time gubernatorial candidate (yes, he *also* ran in 2017 but lost the primary) has [gone from Trump-skeptical to Trump-curious over the past eight years](https://www.nytimes.com/2025/10/29/nyregion/jack-ciattarelli-republican-governor-new-jersey.html). Trump has [endorsed Ciattarelli](https://apnews.com/article/new-jersey-republican-primary-trump-jack-ciattarelli-3e40a8b79c80bd47d93e56631c13eb46), and in an early-October debate, Ciattarelli [gave Trump an “A” grade for his second term](https://nypost.com/2025/10/08/us-news/ciattarelli-gives-president-trump-an-a-grade-for-second-term-i-think-hes-right-about-everything-hes-doing/). However, Ciattarelli is still trying to keep Trump out of the spotlight, avoiding references to Trump by name and focusing his pitch on suburban themes such as lowering property taxes. He’s also [invested in outreach to Hispanic voters](https://www.nytimes.com/2025/10/30/us/politics/republicans-hispanics-new-jersey.html), even [holding a Spanish-language town hall](https://www.youtube.com/watch?v=5baAdXGKsus) (with a translator), hoping to keep the racial realignment going.
+
+The challenge is greater because Ciattarelli has to convince [Trump’s increasingly turnout-averse base](https://www.slowboring.com/p/when-people-dont-vote-democrats-win) to head to the ballot box even when Trump himself isn’t on the ballot. But leaning into Trump *too much* could turn off the very college-educated voters Ciattarelli did well with in 2021.
+
+What we do know is that this strategy hasn’t yet helped Ciattarelli take a lead in the polls: he currently trails Sherrill by between 4.6 and 6.6 points, depending on which [polling](https://polls.decisiondeskhq.com/averages/general-ballot-test/2025-nj-governor/new-jersey/lv-rv-adults) [average](https://fiftyplusone.news/polls/governor/general/new-jersey) [you](https://www.racetothewh.com/governor/newjersey25) [use](https://votehub.com/polls/?poll=new_jersey_gov_2025).
+
+There’s a fair amount of [variation from poll to poll](https://www.nytimes.com/interactive/polls/new-jersey-governor-election-polls-2025.html): this week alone, we’ve seen everything from [D+1](https://www.atlasintel.org/poll/2025-new-jersey-gubernatorial-election-10-31-2025) to [D+10](https://d3nkl3psvxxpe9.cloudfront.net/documents/newjersey_20251030.pdf) results.[3](#footnote-3) But Sherrill’s average lead in the polls makes her a solid favorite. Between 2001 and 2021, the average polling error in New Jersey gubernatorial polls was 3.7 points. Those errors run in both directions: the polls overestimated Democrats by 4 points in 2009 but Republicans by 3 points in 2013. Still, even the 4.2 point polling error in Ciattarelli’s favor from 2021 wouldn’t be enough for him to flip the Garden State. Because it would take an above-average polling error to knock Sherrill out of the lead, her current [83 percent chance of winning on Polymarket looks relatively fair](https://polymarket.com/event/new-jersey-governor-election-winner-2025?tid=1761844383775).
+
+!function(){"use strict";window.addEventListener("message",(function(e){if(void 0!==e.data\["datawrapper-height"\]){var t=document.querySelectorAll("iframe");for(var a in e.data\["datawrapper-height"\])for(var r=0;r<t.length;r++){if(t\[r\].contentWindow===e.source)t\[r\].style.height=e.data\["datawrapper-height"\]\[a\]+"px"}}}))}();
+
+New Jersey’s results will also be easier to interpret if [Virginia is taken as background context](https://www.natesilver.net/p/do-political-scandals-still-matter). Harris won both states by about 6 points in 2024, but [Democrats have a more comfortable lead in Virginia’s gubernatorial polling average](https://www.natesilver.net/p/do-political-scandals-still-matter). Does that imply that New Jersey really is trending red when Virginia isn’t?
+
+Maybe, but there are other differences between the states. Sherrill might be a slightly weaker candidate than Abigail Spanberger, for instance. A moderate Democrat and former Navy helicopter pilot and federal prosecutor who [flipped a suburban New Jersey congressional district in 2018](https://en.wikipedia.org/wiki/New_Jersey%27s_11th_congressional_district#2018), Sherrill has made Trump a central part of her campaign and called Ciattarelli the “[Trump of Trenton](https://www.politico.com/news/2025/10/24/trump-rips-new-jersey-mikie-sherrill-00622990).” That’s an understandable strategy given [Trump’s unpopularity](https://www.natesilver.net/p/trump-approval-ratings-nate-silver-bulletin). But her campaign has been far from perfect. There was a minor scandal about Sherrill [failing to report college classmates for academic honor code violations](https://www.nytimes.com/2025/10/29/nyregion/mikie-sherrill-new-jersey-governor.html). She’s also had some less-than-flattering TV moments, like when she had trouble answering the question: “If you could pass one piece of legislation, what would it be?”
+
+Sherrill also won her primary with [only 34 percent of the vote](https://www.washingtonpost.com/elections/results/2025/06/10/new-jersey-governor-primary/), which could suggest problems consolidating the Democratic base. In that race, she did best in counties with above-average shares of college-educated residents and below-average shares of Black residents. Indeed, some New Jersey Democrats are [concerned about Black voter turnout this year](https://www.nbcnews.com/politics/elections/democrats-grapple-concerns-black-voter-turnout-new-jersey-rcna238922). Sherrill is fighting hard to reverse Republicans’ gains among Hispanics: her campaign and associated PACs have [spent over $4 million on Spanish-language advertising](https://www.nytimes.com/2025/10/30/us/politics/republicans-hispanics-new-jersey.html).
+
+Even among just the polls released this week, the crosstabs by race are all over the place. Recent polls have shown Sherrill’s support among Black voters anywhere between 40 percent and 82 percent. Two polls released *on the same day* this week showed Ciattarelli winning either 18 percent or 41 percent of the Hispanic vote, meanwhile. These differences are normal given the small sample sizes for Democratic subgroups and the difficulty of polling nonwhite voters, but they suggest the presence of some genuine uncertainty.
+
+!function(){"use strict";window.addEventListener("message",(function(e){if(void 0!==e.data\["datawrapper-height"\]){var t=document.querySelectorAll("iframe");for(var a in e.data\["datawrapper-height"\])for(var r=0;r<t.length;r++){if(t\[r\].contentWindow===e.source)t\[r\].style.height=e.data\["datawrapper-height"\]\[a\]+"px"}}}))}();
+
+And while the fundamentals ought to be solid for Democrats in New Jersey — it’s still a blue-ish state, it’s an off-year election, and Trump is unpopular — Democrats are the incumbent *gubernatorial* party, having held the New Jersey governorship [since 2018](https://en.wikipedia.org/wiki/List_of_governors_of_New_Jersey). Murphy, the current governor, isn’t popular: [some polls even have his approval rating in the state below Trump’s](https://www.nj.com/politics/2025/10/is-nj-having-a-political-identity-crisis-trump-now-has-higher-approval-rating-than-murphy.html). Furthermore, the last time a party won three consecutive terms in the New Jersey governor’s mansion [was in 1965](https://en.wikipedia.org/wiki/List_of_governors_of_New_Jersey). So a close race could just come down to Sherrill being part of an unpopular two-time incumbent party.
+
+That’s why it’s going to be hard to infer much from this election, either about the state of New Jersey or the broader political environment. Still, if Ciattarelli wins on Tuesday, reporters en route from New York City to diners in Pennsylvania in 2028 might actually need to get off the Turnpike to see what’s going down.
+
+[1](#footnote-anchor-1)
+
+Since the Silver Bulletin readership likely has an above-average number of geography enthusiasts, we should note that New Jersey also shares some [small, weird land borders with Delaware.](https://www.nj.com/news/g66l-2019/02/8d5d160f2b5307/a-little-piece-of-delaware-is-actually-hidden-in-nj-how-did-that-happen.html)
+
+[2](#footnote-anchor-2)
+
+The biggest swing toward Obama in 2008 was in Hawaii. In general, presidents get big boosts in their home states. Those swings are mostly temporary, but they’ll occasionally stick around at least partially, like Hawaii.
+
+[3](#footnote-anchor-3)
+
+This sort of variation is actually a good thing, because it suggests there’s [not a ton of herding going on](https://www.natesilver.net/p/theres-more-herding-in-swing-state).

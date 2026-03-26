@@ -1,0 +1,118 @@
+---
+title: "No one knows what a body can do"
+author: "Nicolas Delon"
+publication: ""
+publication_slug: "nicolasdelon"
+published_at: "2025-05-13T14:48:01.000Z"
+source_url: "https://nicolasdelon.substack.com/p/no-one-knows-what-a-body-can-do"
+word_count: 3144
+estimated_read_time: 16
+---
+
+Here are some clichés you’ll hear at ultramarathons.
+
+-   “It’s 90% mental and the other half is physical.”
+    
+-   “It’s not about the destination, it’s about the journey.”
+    
+-   “Find your why.”
+    
+-   “Start slow, then slow down”
+    
+-   “One mile at a time”
+    
+-   “Trust the training.”
+    
+-   “Dig deep.”
+    
+-   “Keep moving forward.”
+    
+-   “I’m never doing this again” (usually followed by signing up for another one)
+    
+-   “Type 2 fun” (miserable during, but fun in retrospect)
+    
+
+Most of them are rather trite. But many of them ring true because they are. The problem with clichés is not that they’re false (they’re often true in some sense) but that they lack specificity and precision, they’re riddled with exceptions, and usually provide little actionable information. Some of those, however, are worth chewing on. And so you are warned, I will be rehearsing some clichés in what follows.
+
+# The setting
+
+Last weekend, I started my sixth and completed my fourth 100-mile race, the [Hellbender 100](https://www.hellbender100.com/) near Old Fort, NC, which this year featured an [alternate, and some say “easier,” course](https://www.hellbender100.com/course) due to the devastation caused by Hurricane Helene last fall. The area was severely hit, and many of the trails are still closed. This alternate course did not look, at least on paper, as exciting as the original course. We did not ascend Mount Mitchell, for instance, the highest point east of the Mississippi. And we repeated some sections more than a beautiful loop course typically allows. Still, this was a challenging course (the repetition frankly didn’t help) with its own charms.
+
+[
+
+![](https://substackcdn.com/image/fetch/$s_!e6rA!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F8418e7c4-297a-4731-9476-e3fc0baa9169_1174x1070.png)
+
+
+
+](https://substackcdn.com/image/fetch/$s_!e6rA!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F8418e7c4-297a-4731-9476-e3fc0baa9169_1174x1070.png)
+
+This essay is not a race report, breaking down the race section by section as well as covering training and race prep. It’s an art to write those well; most of them I find boring to read, so writing one, I can’t imagine. What I want to do instead is mull over some things I’ve learned running 100-milers.
+
+What is a one-hundred-miler? It is a one-hundred-mile footrace! You have to complete the distance in as little time as possible, powered only by your own feet. Some will be a tad longer ([Cruel Jewel](https://dumassevents.com/cruel-jewel-100/), for instance, which I completed twice and quit once, hovers around 103-105 miles). Your GPS watch may record more or less than exactly 100 miles. But typically, that’s what the race distance is supposed to be. One hundred miles, or 160.9 kilometers. However, the most significant variation is terrain. You’ll find trail races, like those I’ve run, and road races. Flat and hilly courses. Desert, rolling hills, mountains, and swamps. I like mountainous races, even though I live and train on “flats” (after five years in pancake-flat Florida, I moved to pancake-flat Charleston, SC). Mountain races take a lot longer to complete, holding the distance fixed. That’s because elevation gain (aka “vert”) slows you down a lot. Unless you are vying for the top spots in a 100-miler, you’ll find yourself running very few hills on the way up. If you do, you’ll burn your wings before too long. Plus, the time you gain on the uphill, relative to a brisk walking pace (or “power-hiking”), is minor compared to its energetic cost. In other words, you’ll expend precious fuel for little payoff. Of course, if you can afford to run those hills conservatively without burning out, knock yourself out. Notice that I wrote “running very few hills on the way up”. This is because you’ll find yourself running a lot of the hills on the way down, at least unless and until your quads are completely trashed, which they may well be before too long. You can make up for quite a bit of time by running well downhill and on the flat sections while being strong and steady, but not hasty, on the uphill. Steady does it, patience pays off. Alright, so when you say you’ve run a hundred miles, you’re saying you’ve covered the distance basically non-stop, only pausing at aid stations to refuel, change socks, nurse a wound, etc. You’re not literally running the whole time.
+
+# Fake
+
+Hellbender offers approximately 20,000 feet of elevation gain (and the same amount of loss since we arrive where we started). For comparison, Cruel Jewel offers 10k more elevation (and a few extra miles of distance). At approximately 30,000 (officially 33k) feet, it’s basically a Mount Everest worth of climbing (from sea level)! That’s in the same ballpark as some of the most legendary mountain ultras, such as Hardrock and UTMB, with no altitude and no alpine peaks, more like a Sisyphean accumulation of gnarly hills. I know from experience that 20,000 feet of climbing is an amount I can manage despite suboptimal training conditions. Cruel Jewel was tough, but I did it, and the hills per se were not the worst part. So I knew I could manage Hellbender. I finished Cruel Jewel in 33 hours in 2022, dropped midrace in 2023, and finished in 36 hours in 2024.
+
+For Hellbender, I drafted three plans: a realistic 30-hour plan, an optimistic 28-hour plan, and a backup 33-hour plan. Best laid plans, as they say. Things didn’t go exactly as expected, which is precisely what you should expect. I finished in a time of [31 hours and 28 minutes](https://www.strava.com/activities/14439055736), feeling like a million dollars in the last 25 miles after feeling like an arrogant fool humiliated by the mountain gods since mile 40. In the interim, I threw up, slept, shivered, hallucinated, and felt like I was on a death march. Things that usually help—watermelon, ramen—did not. Too many miles I walked on empty.
+
+Until the actual nap (nearly an hour on a stretcher under layers of blankets to fight emerging hypothermia). About to officially drop, I made one last-ditch effort. The aid station volunteers kept mentioning their vegan options to my fellow runners, so I picked a half burrito. Spicy. Simple. Dry. But tasty and, most importantly, moving in the right direction (from my mouth to my stomach and not the other way around). Broth, a good cup of coffee, some fruit, and I was off, determined to complete the whole damn thing. When you have only 25 miles left, unless you’re injured or skirting with the cutoff times, you *know* you can finish. You just have to actually will it. (I warned you there’d be clichés.)
+
+Uh oh. My legs felt like concrete. I was stone cold. Somehow this felt different, though. On my way uphill to Kitsuma Peak, where I lay on the stretcher for over an hour, my body and mind had practically shut down. On basic survival mode, I managed to painstakingly, slowly march my way up the mountain in order to drop out at the aid station, passed by dozens of more fortunate runners. I now realize I never actually said to the aid station captain that I wanted to drop, but only texted it to my wife, knowing she was asleep at our Airbnb. But after this burrito and the motivational ommph that got my ass off the stretcher, feeling stone cold was different. It felt like I just needed to *warm back up*, not that I was *burning out*. One step at a time (there’s another cliché), until the steps got quicker. I spent the last 40k/25M passed by none and passing many. This felt great. From the outside, it must have looked like mediocre running, but to me, it felt like I was flying. In the right circumstances, a positive feedback loop can kick off. The better you feel, the better you run; the better you run, the better you feel. *In the right circumstances*. Feel too good too early and you’re bound to burn your wings, which is probably what happened to me in the first 40 miles as I was on the totally unplanned pace of a sub-24-hour finish.
+
+**This is lesson number one: feeling** ***fast makes you fast. Fake it until you make it*****.** I was not injured, I knew I could—at last—keep enough calories down to maintain a decent pace until the end. Just apply the cliché with caution.
+
+[
+
+![](https://substackcdn.com/image/fetch/$s_!9s2Z!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Ffca03b78-91ae-4016-b600-85203ad076ed_4032x3024.jpeg)
+
+
+
+](https://substackcdn.com/image/fetch/$s_!9s2Z!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Ffca03b78-91ae-4016-b600-85203ad076ed_4032x3024.jpeg)
+
+# Unprepared
+
+Here’s what I find intriguing—call it the *paradox of preparedness*. You know with near certainty that something will go wrong. Not just the predictable marathon miseries (bonking, bloody nipples, cramps), but a whole catalog of breakdowns more or less unique to ultrarunning: inability to swallow the very fuel you need to continue, violent rejection of foods you normally crave, hallucinations that turn trees into bears or children, cognitive decline that makes simple math impossible. I’ve discovered my body can literally walk while sleeping. Of course, sleep kicks in at 3 AM when you’re climbing a steep and muddy hill under the moon and a fading headlamp. Others report temporary blindness, scary animal encounters, sudden storms, or simply getting lost far off course. All this comes on top of the predictable tripping, sliding, toe-stubbing, and ankle-rolling.
+
+The paradox bites deeper: while these setbacks are common enough to be catalogued, you can’t know which ones will visit you, or when, or in what combination. Maybe none will happen. Maybe you’ll troubleshoot them on the fly. Maybe they’ll arrive when you’re least equipped to handle them. The point is, the range of possible failures exceeds preparation. You can train for hills, fueling, sleep deprivation, muscle fatigue, and so on. This will narrow the range of likely setbacks. Still, for most of us, something will go wrong. And yet you will sign up again. Each race will be exactly the same in that each time will be different. But every race will itself be maddeningly repetitive: steps, hills, laps, out-and-backs, gels, refills, it’s all the same all over again, except it’s never the same. (I used to love but honestly have never really understood Gilles Deleuze’s *[Difference and Repetition](https://en.wikipedia.org/wiki/Difference_and_Repetition)*. But it sounds apt here.)
+
+**This is the second lesson:** ***expect the unexpected (or don't expect the expected to go as expected)*****.**
+
+# Steadfast
+
+In a famous episode of Homer’s epic poem, Odysseus, the mythical Greek king of Ithaca, ties himself to the mast of his ship to be able to hear the Sirens’ beautiful song without being lured to his death. Cunning as he was, Odysseus knew he could not resist the seduction, which no mortal had heard and survived. He knew that, once he heard it, he would lose control of his rational faculties. So he decided to use them in advance to bind himself, literally and figuratively, by ordering his crew to plug their ears with wax and to tie him tightly to the mast. Most crucially, he commanded them not to untie him, *no matter how much* he begged, pleaded, or ordered them to do so.
+
+How does this pertain to running a hundred miles? No, a race is not an odyssey. But if you’re lucky enough to have a crew, you will give them instructions. I generally don’t have a crew, except last year when my wife and daughters showed up at a handful of aid stations with a cooler, a chair, and a grab bag of essentials. Last weekend, I only saw them once, at a crucial aid station. Here’s the crucial part: my wife knows she is not supposed to let me quit, even if I tell her to (either in person or by text). She has internalized the strong motivation of my pre-race self to persist no matter what (barring injury or force majeure), despite anything my mid-race self could say. And so, since we have not instituted a safe word, I am stuck, even if I *really* want to quit. It worked last year and this year too. In other words, my trust in my wife’s judgment becomes my commitment device. I metaphorically tied myself to the mast of her steadfastness so that the sirens of the aid station—“look at that chair!”; “oh, the car is right there, we could go home and watch a movie!”—cannot work their magic. Mid-race, in the depths of suffering, most runners’ judgment will be compromised. (This is probably not the time to sign contracts or make major life decisions.) Be like Ulysses, accept that you will be enchanted by the sirens of the DNF (“did not finish”), but don’t allow yourself to act on this particular mid-race preference.
+
+**This is the third lesson:** ***tie yourself to a mast, you’ll be glad you did (when it’s over).***
+
+# Sick
+
+With all that being said, there is one feeling you cannot fight, which will overwhelm you and dwarf the pains, burns, itches, and cramps. *Enter nausea*. In his 1938 novel, *La* *nausée* (*[Nausea](https://en.wikipedia.org/wiki/Nausea_\(novel\))*), the French existentialist philosopher Jean-Paul Sartre described the narrator Roquentin’s recognition of the utter “facticity” or contingency of existence, the feeling that everything is pointless. Imagine feeling like this, finding justification for nothing, familiar objects in your life losing their apparent purpose, appearing simply there yet irreparably out of place, and your own existence striking just like that of an inert brick that happens to be there for no reason. Objects, people, and events are and happen, but for no reason, to no end. This awareness of the sheer existence of other things *as well as yourself* as meaningless must be, well, rather unpleasant. Sartre, ever the existentialist, offered Roquentin a way out we all have: we are radically free. The meaningless universe offers us, at every juncture, opportunities to create meaning through our choices (even through our refusal to make choices). Does this help? Not quite yet, because the sense of radical freedom is itself nauseating. No matter what you choose, you are responsible; you can’t just sit and coast, basking in the peaceful admission of facticity. This sucks.
+
+Well, running a hundred miles is a little bit like that (of course it is, if Sartre is correct about the universality of both meaninglessness and freedom). First, literally. Nausea has become the major performance bottleneck for me in distances longer than 50 miles. It gets powerful enough that drinking enough water, let alone eating energy gels, pretzels, bars, PB&Js, or most other snacks, appears virtually impossible. You try, and then you chew, and then you spit out from your mouth, or else your stomach will churn it back shortly afterwards. But it’s not just food—the feeling is diffuse and pervasive. It ends up extending to the whole endeavor. The nausea covers food and other objects, and it is both literal (a physical sensation of sickness) and figurative (a Sartrean mix of visceral revulsion and anguish). The trail itself becomes sickeningly superfluous, while the body—this bag of failing systems, cramping muscles, and churning stomach—confronts you with its brute facticity. One striking thing about nausea, at least to me, is how powerful it can be. It’s as if other unpleasant experiences, most notably pain, recede in the background. Of course, the sensations are all tangled up, and the cognitive fog that kicks in over time doesn’t make you better at discriminating them. But you can get over the pain. I find it much harder to get over the nausea.
+
+[
+
+![A Renaissance drawing with vivid colours depicting a woman holding the head of a man, who is bent over and expelling a brownish-red material from his mouth. A second woman stands at the left of the image in the doorway to the room, and appears to offer support. A crude representation of vomiting.](https://substackcdn.com/image/fetch/$s_!PCb1!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fb290d5bd-0b0d-4df8-a36c-56c4fd0b10ec_1000x1109.jpeg "A Renaissance drawing with vivid colours depicting a woman holding the head of a man, who is bent over and expelling a brownish-red material from his mouth. A second woman stands at the left of the image in the doorway to the room, and appears to offer support. A crude representation of vomiting.")
+
+
+
+](https://substackcdn.com/image/fetch/$s_!PCb1!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fb290d5bd-0b0d-4df8-a36c-56c4fd0b10ec_1000x1109.jpeg)
+*14th-century illustration of vomiting from the Casanatense *[Tacuinum Sanitatis](https://en.wikipedia.org/wiki/Tacuinum_Sanitatis)**
+
+And so you can look at the race as a microcosm of existence: what you experience as you “run” is a more intense or concentrated version of the latent feeling of existential despair befalling a radically free human like Roquentin. And as you do, the race makes you reflect, with sadness, disgust, and anguish, about your whole life. *Why am I doing this (plus all the other things)?* Sishyphus knew, and I can’t [imagine him happy](https://en.wikipedia.org/wiki/The_Myth_of_Sisyphus) in this moment: life just sucks. (Note the irony: the ultrarunner keeps signing up for those races, knowing all too well how it goes.)
+
+\---
+
+I thought I might end here, lessons learned and crushed by the facticity of existence, the overwhelming nausea it is bound to induce in the reflective person, and the Sisyphean boulders we keep pushing over absurd hills. But this is not what I learned. What I learned is that nausea is transient and illusory. In its literal, physical manifestation, it is very real. But vomit is just vomit. And after a few trials, I’ve now learned that food can sit quite well on the empty stomach of a runner rejuvenated by the belief they have left the physical cause of their nausea behind at the aid station. In its figurative manifestation, nausea is self-indulgence with your immediate, present self, as if what it felt and believed was imbued with some kind of authority or special insight. But you come to the race as a bundle. Months of training, your pre-race self, your crew and supporters, your pre-commitment devices, and the volunteers and race directors. You can think of the union of the pre- and post-race selves as the “principal” who has contracted with, delegated authority to, an “agent,” the nauseated running self, for them to make certain decisions on their behalf, to achieve certain goals. Unfortunately for the agent, they have to stick through it when it sucks because they are not here to benefit themselves. I have found that fragmenting the self in this way helps to reframe the suffering experienced on the run as part of a story we tell ourselves to make meaning and create value. I’ve explored this idea, in Nietzschean terms, in my paper, “[Strangers to ourselves](https://philarchive.org/rec/DELSTO-2).” One of my central claims is that we can’t reliably know whether our suffering is intrinsically bad through introspection.
+
+**This lesson number four (a bit of a mouthful):** ***know that you will be a stranger to yourself and act accordingly—scaffold your agency and integrate your suffering into a meaningful story of overcoming.***
+
+# What can you do
+
+In its succinct restatement made famous by Deleuze, the seventeenth-century philosopher Spinoza noted that *no one has yet determined what the body can do*, or “laid down the limits to the powers of the body”. (*[Ethics](https://en.wikisource.org/wiki/Ethics_\(Spinoza\)/Part_3)*, pt. 3, prop. 2) There is much to unpack here, but one thing Spinoza meant was that we knew then and know now very little about how bodies work, much less how they interact with the mind, which is just another aspect of the same thing for Spinoza. He was right: at 3 AM, you have no idea what your body can do. Don’t listen to the sirens, listen to your wife.
+
+# Post-mortem: What I have (not) learned
+
+I am of necessity a stranger to myself. There are corners of my soul that the introspective nature of this essay cannot shed light on. I will sign up for another race knowing what I know—including that it will suck, I will experience nausea, something will go wrong—because I do not really know who I am. We are such confabulators and self-deceivers. I will forget the sirens’ songs. I will remember my wife’s mast and my daughters screaming in ecstasy anytime they saw me. They make for good stories. They are who I am too.

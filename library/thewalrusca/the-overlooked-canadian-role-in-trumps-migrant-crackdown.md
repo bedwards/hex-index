@@ -1,0 +1,185 @@
+---
+title: "The Overlooked Canadian Role in Trump’s Migrant Crackdown"
+author: "The Walrus"
+publication: ""
+publication_slug: "thewalrusca"
+published_at: "2025-11-27T12:01:30.000Z"
+source_url: "https://thewalrusca.substack.com/p/the-overlooked-canadian-role-in-trumps"
+word_count: 4612
+estimated_read_time: 24
+---
+
+[
+
+![](https://substackcdn.com/image/fetch/$s_!T2O2!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Ffb4f1451-134e-47f6-a200-3a930472898a_1536x1024.jpeg)
+
+
+
+](https://substackcdn.com/image/fetch/$s_!T2O2!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Ffb4f1451-134e-47f6-a200-3a930472898a_1536x1024.jpeg)
+
+*Donald Trump tours Alligator Alcatraz in Ochopee, Florida. (Evan Vucci/AP Photo)*
+
+***This story was originally published on [thewalrus.ca](https://thewalrus.ca/)***
+
+**By [Meghan Davidson Ladly](https://thewalrus.ca/author/meghan-davidson-ladly/)**
+
+**On August 21,** the Federal District Court in Miami ordered the closure of the Florida detention centre known as Alligator Alcatraz. Two weeks later, the United States Court of Appeals for the Eleventh Circuit ruled to pause that lower court decision. Alligator Alcatraz—and all the controversy surrounding it—was resurrected.
+
+Built in just eight days in the Everglades wetlands, the facility was intended to hold up to 5,000 federal immigration detainees. In July, around 1,800 people were confined there in groups of thirty-two inside disaster-relief tents, where conditions reportedly swung between extreme cold and heat, with sewage hauled out and drinking water brought in. Speaking to the [Associated Press](https://apnews.com/article/alligator-alcatraz-immigration-detainees-florida-cc2fb9e34e760a50e97f13fe59cbf075), migrant detainees and their lawyers described worm-infested food, swarms of mosquitoes, windowless cells, flooded floors with fecal waste, and insufficient showers and toilets.
+
+The centre faced lawsuits from the American Civil Liberties Union and others citing due-process violations. Environmental groups and the Miccosukee Tribe also challenged the site, arguing no environmental review was conducted before it was built. In her late-August ruling on the latter case, US district judge Kathleen M. Williams ruled that detainees must be relocated within sixty days, barred new transfers, and ordered much of the facility dismantled. The state appealed and asked the ruling be paused while their appeal was heard. The stay was granted, and detainees once again began to be transferred to the Everglades facility.
+
+Among the companies contracted to provide services for Alligator Alcatraz are IRG Global Emergency Management—a US offshoot of ARS Global Emergency Management, a Toronto-based company also known as Access Restoration Services Ltd—and a US-based business unit of Quebec-based security operator GardaWorld. IRG Global Emergency Management was incorporated only this past February, yet it has received a total of $25.8 million (US) from the state of Florida so far this year—$6.2 million (US) of that in contracts to provide operational support to Alligator Alcatraz.
+
+Headquartered in Virginia, GardaWorld’s US arm—GardaWorld Federal—has an $8 million (US) contract to provide services for the detention site. (In an email, a GardaWorld spokesperson wrote that the company could not comment on a specific facility or service due to its contractual obligations with the Florida Department of Emergency Management.) In July, it was advertising vacancies for full-time positions based in a remote part of southern-central Florida for armed security guards and correctional officers, with a preference for candidates who were bilingual in English and Spanish.
+
+While the job advertisements did not explicitly cite Alligator Alcatraz, it is the only detention facility in that location. The job descriptions indicated a potentially dangerous working environment, noting that “employees may be exposed to extreme cold or hot weather conditions, fumes, or airborne particles, toxic or caustic chemicals, and loud noise.” (According to a GardaWorld spokesperson, GardaWorld Federal is governed separately and the parent company does not have visibility on its hiring practices.) Such conditions are legal under Florida jurisdiction, says Thomas Kennedy, a policy analyst and a spokesperson for the Florida Immigrant Coalition. “Unfortunately, Florida does not have any real meaningful labor laws,” he wrote in an email. “We live in a hellish state.”
+
+While it may seem disturbing for any Canadian-linked entity to be involved in the operations of a detention centre accused of human rights abuses, they aren’t breaking the law. And that’s part of a bigger problem, says Aidan Gilchrist-Blackwood, network coordinator at the Canadian Network on Corporate Accountability. “There is, unfortunately, a precedent of really serious abuses being documented and linked to the Canadian security sector around the world.” The CNCA, a coalition of forty-two civil society groups, fights to hold Canadian companies to account for human rights abuses and environmental destruction.
+
+Whether IRG or GardaWorld are implicated in the allegations against the facility is not clear, and there may be no way to hold them responsible even if they are. “Right now,” says Gilchrist-Blackwood, “there really are not good mechanisms in Canada for accountability for abuses linked to Canadian companies outside of Canada.”
+
+\---
+
+-   [The Chaos Trump Unleashed Is Just Getting Started](https://thewalrus.ca/americas-great-unravelling-has-begun-what-comes-next/)
+    
+-   [Migrants Follow Risky Path into Canada as US Deportation Threats Grow](https://thewalrus.ca/migrant-crossings-into-canada-surge-as-us-deportation-threats-grow/)
+    
+-   [I’ve Visited Guantánamo 28 Times as a Reporter. It Still Defies Belief](https://thewalrus.ca/guantanamo-bay/)
+    
+
+\---
+
+**In 2019,** the federal government under then prime minister Justin Trudeau created the office of the Canadian Ombudsperson for Responsible Enterprise. The office of CORE is intended to review complaints about human rights abuses by Canadian companies abroad in the oil and gas, garment, and mining sectors. The body reports to the minister of international trade.
+
+But from the start, the office was criticized as toothless because it lacked the ability to compel witnesses and documents in its investigations. It was also limited in its scope, as businesses outside the sectors monitored could not be examined. Its first ombudsperson, Sheri Meyerhoffer, stepped down from her five-year term at the end of April 2024. An interim leader occupied the role until this past May. Meyerhoffer’s replacement hasn’t yet been appointed, and there has been no job application posted to fill the role.
+
+The minister of international trade under Global Affairs issued a review of CORE at the time of Meyerhoffer stepping down, but that report has not been presented to Parliament. The CORE website still invites people to email or call to file complaints, but without an ombudsperson appointed, those complaints cannot be investigated. (A recent CTV report noted that the newly released federal budget does not specify whether this role will be filled.)
+
+Even if CORE were fully staffed and its mandate extended to cover the security sector, it would most likely not apply to the Canadian companies whose US affiliates have contracts with Alligator Alcatraz. “There’s really nothing to stop a Canadian company from going out anywhere in the world and getting involved in serious human rights abuses,” said James Yap, a Toronto-based lawyer specializing in business and human rights. “And it extends far beyond the US.”
+
+This gap in oversight points to a larger trend: the steady outsourcing of state functions to private operators. Beginning in the 1980s in the US and 1990s in Canada, governments started to reduce state services and embrace privatization for certain nationally run institutions, such as prisons, as a way to trim bureaucracies and cut costs. Many private security companies then further honed their expertise during the conflicts in Afghanistan and Iraq, setting up and then managing the daily operations of military bases. Security operators “have the gear at the ready in their storage houses, and it’s great for the government because it doesn’t have to worry,” says Aaron Ettinger, associate professor of political science at Carleton University. “But moving fast often means making a lot of mistakes, and that is certainly what is happening in Florida right now.”
+
+In January 2023, Florida governor Ron DeSantis declared a state of emergency in the state, citing a crisis due to the influx of illegal migrants. This state of emergency has been extended multiple times—most recently in late September of this year—and grants the government extraordinary powers. DeSantis and the Florida Division of Emergency Management (FDEM) are able to award contracts without the usual regulatory oversight and bypassing procurement and competitive bidding rules. And no audit has been completed of this spending. (DeSantis’s office and FDEM did not respond to interview requests.)
+
+Both the US-based entity of ARS and IRG have enmeshed themselves in Florida state affairs to varying degrees. The *[Orlando Weekly](https://www.orlandoweekly.com/news/big-desantis-campaign-donor-set-to-reap-millions-from-alligator-alcatraz-detention-camp-39884579/)* and other outlets have reported that, in 2022, Access Restoration Services US, Inc. made a $99,980 (US) donation to the governor’s political action committee at the time, Friends of Ron DeSantis. The donation was made several days before DeSantis was re-elected. The company donated a further $99,980 (US) to the Republican Party of Florida in 2023 and $50,000 in 2024, plus an additional $75,000 to former Florida attorney general Ashley Moody. While reporting varies, the total contributions amount to at least around $325,000 (US). In 2023, the company also hired Tallahassee-based Ballard Partners to lobby on its behalf; the group’s lobbyists include former DeSantis administration officials, and head Brian Ballard is a vocal supporter of President Donald Trump.
+
+ARS USA landed an open-ended contract in 2023 to transport unauthorized migrants, and in July of that year, it received the first state payment for $6 million (US). Subsequent contracts came from the US federal government and at state level to do rescue operations in Israel and Haiti, as well as hurricane disaster relief in North Carolina and Florida.
+
+That year, a Houston law firm in which ARS had previously invested $3 million (US) was alleged to have engaged in insurance fraud concerning hurricane damages in multiple states. According to reporting by WGCU, an NPR and PBS affiliate for Southwest Florida, ARS also faced lawsuits and accusations that it had inflated its restoration costs. (ARS reportedly broke ties with and sued the law firm and has denied all allegations against the company.)
+
+This involvement did not seem to harm its reputation in the eyes of the US government. The *Orlando Weekly* and the *Miami Herald* reported that, this past June, ARS offshoot IRG Global Emergency Management received its initial two contracts. The first was for $19,678,600 (US) to transport Israeli evacuees from Cyprus. And the second was for $1,180,000 (US) for operational support services for “migration efforts.” This second contract was granted on June 24, the same day IRG made a $10,000 (US) donation to the Republican Party of Florida. Later, IRG signed a further two contracts worth $2.2 million (US) and $2.9 million (US) to provide onsite emergency services, site shuttles, and arms management for the facility.
+
+\---
+
+### “All of this is basically a legalized form of bribery: it’s favour-buying from elected officials.”
+
+\---
+
+According to a newsletter from ARS Responds Canada, a company that shares the same Toronto business address as ARS Global Emergency Management, chief executive officer Joseph Gagliano is based in Toronto, where his family founded the company in 1959. In July of this year, the CEO of IRG was listed as Giuseppe Gagliano, and the president was Robbie Meek. As of October, Meek is now listed as CEO and president on the company’s website. Only weeks after IRG was formed, Meek and the company donated a total of $6,000 (US) to the campaign account of Florida attorney general James Uthmeier, a key figure spearheading the plans for Alligator Alcatraz. The *Orlando Sentinel* reported that IRG donated another $3,000 (US) to Uthmeier in June.
+
+“All of this is basically a legalized form of bribery: it’s favour-buying from elected officials. It’s also standard procedure and entirely out in the open,” says Ettinger, who notes that while campaign donation rules vary by state, they are porous enough in the US that corporations can often donate without significant limitations. “It undermines the public’s interest in government contracting based on merit because it introduces quid pro quo motives into the mix. It’s good for business, not good for democracy or efficient market-based government contracting.”
+
+When reached for comment on this story, ARS emailed that “ARS USA is not affiliated with ‘Alligator Alcatraz’ in any capacity,” that it is a “completely separate and independent entity from IRG Global Emergency Management,” and that it “does not hold, manage, or participate in any contracts related to” the Florida site. The spokesperson referred further questions to the Canada-based office, which offered a similar clarification, saying that it “delivers emergency response and restoration services for the insurance and property management sectors” and “operates as a wholly independent entity, and is in no way associated with the operations of ARS USA or IRG USA.” IRG Global Emergency Management did not respond to interview requests.
+
+“There is no enforceable due diligence responsibility that companies would have to monitor what their foreign subsidiaries do,” says Burkard Eberlein, professor of public policy and sustainability at Schulich School of Business. “Under Canadian corporate law, these are separate legal entities, so a subsidiary would be a separate legal entity, and there’s no automatic responsibility.”
+
+Some companies and industries may have their own code of conduct—like the Mining Association of Canada’s Towards Sustainable Mining Protocol—but such codes are voluntary. “Those standards, if they exist, what can they do?” says Eberlein. “There’s definitely a difference between mining, where there’s at least an attempt to have those standards and implement them, versus the private security business.”
+
+Canada also lacks supply chain–tracking regulations, which would require subsidiary companies to ensure materials sourced from abroad meet domestic standards. There is nothing here comparable to European Union supply traceability mechanisms like the EU Deforestation Regulation, which mandates that companies of a certain size demonstrate that products such as coffee, cocoa, and rubber are produced in compliance with the laws of their country of origin and have not contributed to deforestation before they can be sold in the EU.
+
+The federal government’s fall 2024 economic update indicated that the Canadian government would [introduce legislation](https://www.canada.ca/en/global-affairs/news/2024/12/statement-by-minister-ng-on-forced-labour-measures-in-2024-fall-economic-statement.html) that would hold Canadian companies responsible if any component of their supply chains involves forced labour or child labour. But there have been no updates on any such legislation since then.
+
+To Eberlein, all of these voluntary codes and standards are about reputation management. For Canadian companies, committing to them can offer the veneer of dedication to fair labour practices and environmental responsibility without much scrutiny. “Maybe Canadian companies are a little bit cleaner than other companies in a global comparison,” he says. “Is that good enough? No, but if you want to do more, it would shake up the whole sector and be quite costly.”
+
+[
+
+![](https://substackcdn.com/image/fetch/$s_!i8V-!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fd199182a-11d5-4bc3-8b24-6c5dd810ac03_1800x958.jpeg)
+
+
+
+](https://substackcdn.com/image/fetch/$s_!i8V-!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fd199182a-11d5-4bc3-8b24-6c5dd810ac03_1800x958.jpeg)
+
+*Aerial view of structures built at Alligator Alcatraz, Friday, July 4, 2025 (Pedro Portal/Miami Herald via ZUMA Press Wire)*
+
+**Founded by** Canadian Stéphan Crétier in 1995, GardaWorld operates globally, offering services such as private armed guards, bank security, armoured trucks, and airport security screening. (The Canadian branch of the multinational business is headquartered in Montreal, while Crétier resides in Dubai.)
+
+GardaWorld’s financial contributions in Florida seem relatively minor; the *Miami Herald* reported that GardaWorld Cash—a subsidiary of GardaWorld—donated $5,000 (US) to a DeSantis PAC in 2018. (In an email, a GardaWorld spokesperson wrote that the company’s “political activities, if any, comply with applicable laws and are disclosed through public reporting channels. Beyond that, we do not comment on specific contributions made by our business units.”)
+
+Yet the firm has courted its own share of controversy. Four GardaWorld staff were killed in Iraq after they were kidnapped in 2007; the company reportedly never confirmed if it attempted to pay a ransom. A GardaWorld spokesperson wrote they were not authorized to comment on the incident, but that the description “does not accurately reflect what transpired.” The spokesperson added that “this tragedy continues to pain all of the team, and our sympathies remain firmly with the families and colleagues of those team members.”
+
+In 2012, two GardaWorld staff in Afghanistan, where the company provided security work for the US government, were found with stockpiles of unlicensed assault rifles. (In an email, a GardaWorld spokesperson stated that the weapons “were being taken to be tested at a firing range before being purchased and properly licensed by GardaWorld,” and that it had complied with all Afghan laws and regulations in its operations in the country.)
+
+Two years later, Afghan officials detained GardaWorld’s country manager and accused him of holding unlicensed rifles and radios. (In an email, a GardaWorld spokesperson described the incident as “the result of an administrative misunderstanding” which was resolved, and added that GardaWorld “continued to operate in the country, uninterrupted.”) In 2020, a former GardaWorld employee sued the company, accusing it in part of falsifying the training records of staff heading to Afghanistan. Some of the accusations were dismissed, while others were allowed to go forward. The company denied the allegations in court, and it settled the case with the former employee in 2024.
+
+In 2023, the city of Denver opted not to contract GardaWorld, [operating as Aegis Defense Services LLC](https://www.denverpost.com/2023/07/06/denver-migrant-sheltering-gardaworld-contract/amp/), to run its migrant centres after the non-profit American Friends Service Committee released a report linking the company to unsafe conditions at other detention facilities where it was contracted. (In an email, a GardaWorld spokesperson wrote that the report “mischaracterizes GardaWorld Federal’s activities” and that it “incorrectly attributes activities or vendor roles to GardaWorld.”)
+
+Those facilities include a centre in Fort Bliss, Texas, where the report noted that GardaWorld was contracted with the federal government to provide services to migrants who had crossed the border as unaccompanied minors. In 2022, an internal report from the US Department of Health and Human Services’ Office of Inspector General detailed poor living conditions and administration of services at the facility. (GardaWorld Federal is not mentioned in the government report. In an email, a GardaWorld spokesperson wrote that GardaWorld Federal’s “primary role at the facility was to provide medical care for unaccompanied children waiting to be reunited with their families.”)
+
+In a separate investigation, the *[Tampa Bay Times](https://projects.tampabay.com/projects/2020/investigations/garda-world/armored-trucks/)* found that GardaWorld’s armoured truck business often used drivers with insufficient training and failed to maintain their trucks, putting them at risk for accidents. GardaWorld has disputed these findings, and a spokesperson wrote in an email that the claims against the company “have long been dismissed without any finding against GardaWorld Cash.”
+
+GardaWorld’s revenue amounted to around $4 billion in 2021. In 2022, the Quebec government invested $300 million into GardaWorld through Investissement Québec, purchasing preferred shares at market conditions. “Anyone who owns a $300 million chunk of any company \[this size\] has significant influence in the operations of that company,” says Yap. The office of Christine Fréchette, Quebec’s minister of economy, innovation, and energy, has not responded to interview requests.
+
+Québec solidaire’s Andrés Fontecilla, member of the National Assembly of Quebec for Laurier-Dorion, has been critical of the provincial government’s handling of this issue. “We denounce the fact that government money is being used to finance, even indirectly, concentration camps for migrants whose only crime is being illegal immigrants,” Fontecilla wrote in a statement over email.
+
+The MNA explained that the Quebec government–granted financial assistance takes the form of preferred shares, a financial tool halfway between equity and a loan. The government will adjust the interest rate paid by GardaWorld based on the number of jobs created. Fontecilla points out that since the 2022 loan from the government is tied to subsidies for increasing jobs, it could be possible that Alligator Alcatraz contracts count toward those job increases, in which case government money is entangled in the detention centre. (In an email, a GardaWorld spokesperson wrote that the GardaWorld Federal “would not be the recipient of any funding from Canada-based government entities attributed to GardaWorld.”)
+
+“Quebec should absolutely hold GardaWorld accountable for the investments it makes in various projects,” wrote Fontecilla. “Even if the government says that Quebec’s portion of funding did not go toward investments in Alligator Alcatraz, it remains a significant amount, and it’s not clear that the government actually has figures to demonstrate that no Quebec taxpayer money was used for this purpose.”
+
+**Amidst growing reporting** on both companies’ involvement with Alligator Alcatraz, Ettinger believes the Canadian government has kept silent on this issue because making a statement condemning it could antagonize Trump and unsettle ongoing trade negotiations.
+
+This would not be the first ethically messy entanglement between a federal Liberal government and a private corporation accused of wrongdoing. In 2019, a division of the Montreal-based engineering conglomerate SNC-Lavalin Group Inc. was alleged to have paid $47.7 million to Saadi Gaddafi, son of former Libyan dictator Muammar Gaddafi, for help in securing Libyan construction contracts. Ethics commissioner Mario Dion found four significant troubling attempts by then prime minister Justin Trudeau and his staff to influence attorney general Jody Wilson-Raybould to issue a deferred prosecution agreement, which would have allowed the company to dodge criminal charges. Wilson-Raybould and another cabinet member, Jane Philpott, resigned in protest, and the Public Prosecution Service of Canada ultimately found that SNC-Lavalin should stand trial.
+
+\---
+
+### “We don’t have these laws; we have these massive gaps in our regulation.”
+
+\---
+
+Karen Hamilton, director of Above Ground—a group advocating for Canadian corporate accountability—is concerned about how the volatile US–Canada relations may be shaping the current federal government’s handling of corporate human rights concerns abroad.
+
+ “It’s a specific moment, there’s a threat to Canadian identity, there are concerns around tariffs, and that’s taking the immediate attention of the new government,” said Hamilton.
+
+When reached for comment, John Babcock, a media relations spokesperson at Global Affairs Canada, wrote: “The Government of Canada expects Canadian companies operating abroad to abide by all relevant laws, to respect human rights in their operations, and to adopt best practices and internationally respected guidelines on responsible business conduct.” He noted that a new five-year strategy for Responsible Business Conduct abroad was launched in 2022. The strategy includes a focus on due diligence and accountability and applies to all Canadian companies active abroad, regardless of size, sector, or scope. These guidelines are, however, voluntary.
+
+France passed legislation in 2017 requiring its multinational companies to guard against human rights abuses irrespective of whether they are operating on French soil or abroad. In June 2024, South Korea proposed its own such law. And the EU has been negotiating a similar legislative framework. Reflecting on GardaWorld, Hamilton noted, “We don’t have these laws; we have these massive gaps in our regulation.”
+
+As of mid-November, the US Court of Appeals for the Eleventh Circuit’s ruling remains in place. The appellant court has halted Judge Williams’s verdict, siding with the federal and state governments’ petition asking to pause the lower court ruling to shut down the facility. In a 2–1 decision, the appellant court found that Alligator Alcatraz could not be considered to be a project of the federal government because Florida built and operates the facility with state money. And, as it is not a federal initiative, the demand for a mandatory environmental assessment study did not apply. Such assessments are obligatory under the National Environmental Policy Act for all federal projects.
+
+\---
+
+#### **You can’t share stories from** ***thewalrus.ca*** **on Facebook or Instagram because of Meta’s response to the [Online News Act](https://thewalrus.ca/why-you-might-stop-seeing-canadian-news/), but you can share this Substack article there**
+
+\---
+
+“Florida will undoubtedly be harmed if it cannot ‘apply its own laws’ to respond to an immigration crisis and serve the public interest,” the majority appeals court ruling stated. Both judges who were in favour of the government—Judge Barbara Lagoa and Judge Elizabeth L. Branch—were nominated by Trump. Dissenting Judge Adalberto Jordan was nominated by former president Barack Obama. Judge Lagoa is married to lawyer Paul Huck of Florida firm Lawson Huck Gonzalez. According to [WUSF](https://www.wusf.org/education/2025-09-22/uwfs-conservative-makeover-desantis-linked-firm-center-sudden-ouster-top-lawyer), an NPR affiliate in Tampa Bay, the law firm has ties to the DeSantis administration and has secured over $10 million (US) in state contracts since its founding in 2023. The firm has no ties to Alligator Alcatraz.
+
+The original appeal against Miami’s Federal District Court ruling will now go ahead, with the case being heard by a fresh slate of appellate judges. And this further ruling will determine whether to reinstate Judge Williams’s injunction to shut down Alligator Alcatraz or overrule the closure decision altogether. On October 10, the Department of Justice requested the appeal proceedings be paused, citing the federal government shutdown at the time.
+
+Despite the uncertainty around the Everglades complex, the DeSantis government has opened a second immigration detention facility—currently given the moniker “Deportation Depot”—at a state prison west of Jacksonville. And plans are being discussed to open a third centre in the Florida Panhandle.
+
+Five months into operations, both IRG Global Emergency Management and GardaWorld Federal continue to fulfill their contracts with Alligator Alcatraz. And according to the *Globe and Mail*, the US offshoot of GardaWorld has been shortlisted by Immigration and Customs Enforcement (ICE), along with thirty-nine additional companies, to compete for further detention centre contracts.
+
+**“It’s always been** very difficult and painful, but it’s never been this bad,” says Mich P. González, a lawyer at Sanctuary of the South. SOS is a group providing legal services to migrants and fostering sanctuary spaces, and it’s being represented by the ACLU, ACLU of Florida, and Americans for Immigrant Justice in a lawsuit against members of the Trump administration, De Santis, and other state officials over “the government’s attempts to prevent people detained in civil immigration custody at Alligator Alcatraz from communicating with legal counsel and from filing motions with the immigration court that could result in their release from detention.” (One count in the complaint was dismissed in August.) Based out of New Orleans, González is representing several clients being held at Alligator Alcatraz.
+
+One of them, Michael Borrego Fernandez, is a lead plaintiff in SOS’s lawsuit. A Cuban national, he was arrested on June 10 for a parole violation and outstanding traffic violations. He was transferred to the detention centre on July 5, and he alleges that, while there, he had to have an emergency surgery due to excessive bleeding and did not have access to essential post-surgery medications.
+
+His mother, Yaneisy Fernandez Silva, says she had no direct communication from immigration officials or staff at Alligator Alcatraz. Her son had access to a monitored phone. González attempted to visit Borrego Fernandez on July 30 but was turned away at the facility and told no visit would be possible until August 4. On August 1, Borrego Fernandez was transferred to another detention centre—the Krome facility in Miami—where González was able to see him in person without an appointment the following morning.
+
+\---
+
+### “It is not a place for human habitation, it’s a concentration camp.”
+
+\---
+
+González describes a concerted effort to make Alligator Alcatraz’s operations clandestine. He notes that, while it is standard practice to have a hard time contacting authorities at migrant detention centres, Alligator Alcatraz has been exceptionally untransparent and difficult.
+
+ “There’s no clear source of authority over their custody that you can ask for help,” says González. “It took us forever just to get a good contact to request a legal virtual call. And there are no in-person legal visits—that is unheard of.”
+
+The Department of Homeland Security, which oversees ICE, has continually argued that it is not running Alligator Alcatraz. In early October, however, the Federal Emergency Management Agency reimbursed the state of Florida $608 million (US) for its spending on Alligator Alcatraz and other immigration detention centres now operating within Florida. In the Court of Appeals ruling, the majority sided with Homeland Security and the other defendants, stating that even with such federal funding assistance, Alligator Alcatraz should not be considered to be federally managed.
+
+Adding to an already murky chain of authority, under the 287(g) program—referring to section 287(g)(1) of the Immigration and Nationality Act—ICE can authorize state and local law enforcement to perform immigration officer duties. In this case, the state of Florida is detaining undocumented migrants at the centre. The majority of detainees held at Alligator Alcatraz do not appear on ICE’s public database, making it difficult to verify who is there at any given time. Immigrants held at such centres are also being transported via chartered flights run by private contractors to other detention facilities away from their families and legal representatives, often with little to no notice. At least twenty people have died this year while in ICE custody, including forty-nine-year-old Canadian Johnny Noviello, who died at a Miami detention facility in June. (ICE did not respond when contacted for this piece.)
+
+For Fernandez Silva, fifty-one, the only thing that matters in the bureaucratic and moral mess of Alligator Alcatraz is her son. She says Borrego Fernandez was deported to Mexico in September, and she does not know why he was sent there. Asked what she would want Canadians to know about Alligator Alcatraz, she says, “It is not a place for human habitation, it’s a concentration camp. They should see for themselves the conditions of this concentration camp, and the total inhumanity of the people who are running it.”
+
+**[Meghan Davidson Ladly](https://thewalrus.ca/author/meghan-davidson-ladly/)’s work has appeared in the** ***New York Times*** **and the** ***Globe and Mail*****.**

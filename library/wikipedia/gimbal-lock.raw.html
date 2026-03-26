@@ -1,0 +1,276 @@
+<p>Gimbal lock is the loss of one degree of freedom in a multi-dimensional mechanism at certain alignments of the axes. In a three-dimensional three-gimbal mechanism, gimbal lock occurs when the axes of two of the gimbals are driven into a parallel configuration, &quot;locking&quot; the system into rotation in a degenerate two-dimensional space.</p>
+<p>The term can be misleading in the sense that none of the individual gimbals is actually restrained. All three gimbals can still rotate freely about their respective axes of suspension. Nevertheless, because of the parallel orientation of two of the gimbals&#039; axes, there is no gimbal available to accommodate rotation about one axis, leaving the suspended object effectively locked (i.e. unable to rotate) around that axis.</p>
+<p>The problem can be generalized to other contexts, where a coordinate system loses definition of one of its variables at certain values of the other variables.</p>
+<p>A gimbal is a ring that is suspended so it can rotate about an axis. Gimbals are typically nested one within another to accommodate rotation about multiple axes.</p>
+<p>They appear in gyroscopes and in inertial measurement units to allow the inner gimbal&#039;s orientation to remain fixed while the outer gimbal suspension assumes any orientation. In compasses and flywheel energy storage mechanisms they allow objects to remain upright. They are used to orient thrusters on rockets.</p>
+<p>Some coordinate systems in mathematics behave as if they were real gimbals used to measure the angles, notably Euler angles.</p>
+<p>For cases of three or fewer nested gimbals, gimbal lock inevitably occurs at some point in the system due to properties of covering spaces.</p>
+<p>While only two specific orientations produce exact gimbal lock, practical mechanical gimbals encounter difficulties near those orientations.  When a set of gimbals is close to the locked configuration, small rotations of the gimbal platform require large motions of the surrounding gimbals.  Although the ratio is infinite only at the point of gimbal lock, the practical speed and acceleration limits of the gimbals—due to inertia (resulting from the mass of each gimbal ring), bearing friction, the flow resistance of air or other fluid surrounding the gimbals (if they are not in a vacuum), and other physical and engineering factors—limit the motion of the platform close to that point.</p>
+<p>Gimbal lock can occur in gimbal systems with two degrees of freedom such as a theodolite with rotations about an azimuth (horizontal angle) and elevation (vertical angle). These two-dimensional systems can gimbal lock at zenith and nadir, because at those points azimuth is not well-defined, and rotation in the azimuth direction does not change the direction the theodolite is pointing.</p>
+<p>Consider tracking a helicopter flying towards the theodolite from the horizon. The theodolite is a telescope mounted on a tripod so that it can move in azimuth and elevation to track the helicopter. The helicopter flies towards the theodolite and is tracked by the telescope in elevation and azimuth. The helicopter flies immediately above the tripod (i.e. it is at zenith) when it changes direction and flies at 90 degrees to its previous course. The telescope cannot track this maneuver without a discontinuous jump in one or both of the gimbal orientations. There is no continuous motion that allows it to follow the target. It is in gimbal lock. So there is an infinity of directions around zenith for which the telescope cannot continuously track all movements of a target. Note that even if the helicopter does not pass through zenith, but only near zenith, so that gimbal lock does not occur, the system must still move exceptionally rapidly to track it, as it rapidly passes from one bearing to the other. The closer to zenith the nearest point is, the faster this must be done, and if it actually goes through zenith, the limit of these &quot;increasingly rapid&quot; movements becomes infinitely fast, namely discontinuous.</p>
+<p>To recover from gimbal lock the user has to go around the zenith – explicitly: reduce the elevation, change the azimuth to match the azimuth of the target, then change the elevation to match the target.</p>
+<p>Mathematically, this corresponds to the fact that spherical coordinates do not define a coordinate chart on the sphere at zenith and nadir. Alternatively, the corresponding map T2→S2 from the torus T2 to the sphere S2 (given by the point with given azimuth and elevation) is not a covering map at these points.</p>
+<p>Consider a case of a level-sensing platform on an aircraft flying due north with its three gimbal axes mutually perpendicular (i.e., roll, pitch and yaw angles each zero). If the aircraft pitches up 90 degrees, the aircraft and platform&#039;s yaw axis gimbal becomes parallel to the roll axis gimbal, and changes about yaw can no longer be compensated for.</p>
+<p>This problem may be overcome by use of a fourth gimbal, actively driven by a motor so as to maintain a large angle between roll and yaw gimbal axes.  Another solution is to rotate one or more of the gimbals to an arbitrary position when gimbal lock is detected and thus reset the device.</p>
+<p>Modern practice is to avoid the use of gimbals entirely. In the context of inertial navigation systems, that can be done by mounting the inertial sensors directly to the body of the vehicle (this is called a strapdown system) and integrating sensed rotation and acceleration digitally using quaternion methods to derive vehicle orientation and velocity. Another way to replace gimbals is to use fluid bearings or a flotation chamber.</p>
+<p>A well-known gimbal lock incident happened in the Apollo 11 Moon mission. On this spacecraft, a set of gimbals was used on an inertial measurement unit (IMU). The engineers were aware of the gimbal lock problem but had declined to use a fourth gimbal. Some of the reasoning behind this decision is apparent from the following quote:</p>
+<blockquote>The advantages of the redundant gimbal seem to be outweighed by the equipment simplicity, size advantages, and corresponding implied reliability of the direct three degree of freedom unit.</blockquote>
+<p>They preferred an alternate solution using an indicator that would be triggered when near to 85 degrees pitch.</p>
+<blockquote>Near that point, in a closed stabilization loop, the torque motors could theoretically be commanded to flip the gimbal 180 degrees instantaneously. Instead, in the LM, the computer flashed a &quot;gimbal lock&quot; warning at 70 degrees and froze the IMU at 85 degrees</blockquote>
+<p>Rather than try to drive the gimbals faster than they could go, the system simply gave up and froze the platform. From this point, the spacecraft would have to be manually moved away from the gimbal lock position, and the platform would have to be manually realigned using the stars as a reference.</p>
+<p>After the lunar module had landed, Michael Collins, aboard the command module joked, &quot;How about sending me a fourth gimbal for Christmas?&quot;.</p>
+<p>In robotics, gimbal lock is commonly referred to as &quot;wrist flip&quot;, due to the use of a &quot;triple-roll wrist&quot; in robotic arms, where three axes of the wrist, controlling yaw, pitch, and roll, all pass through a common point.</p>
+<p>An example of a wrist flip, also called a wrist singularity, is when the path through which the robot is traveling causes the first and third axes of the robot&#039;s wrist to line up. The second wrist axis then attempts to spin 180° in zero time to maintain the orientation of the end effector. The result of a singularity can be quite dramatic and can have adverse effects on the robot arm, the end effector, the process itself, and safety.</p>
+<p>The importance of avoiding singularities in robotics has led the American National Standard for Industrial Robots and Robot Systems – Safety Requirements to define it as &quot;a condition caused by the collinear alignment of two or more robot axes resulting in unpredictable robot motion and velocities&quot;.</p>
+<p>The problem of gimbal lock appears when one uses Euler angles in applied mathematics; developers of 3D computer programs, such as 3D modeling, embedded navigation systems, and video games must take care to avoid it.</p>
+<p>In formal language, gimbal lock occurs because the map from Euler angles to rotations (topologically, from the 3-torus T3 to the real projective space RP3, which is the same as the space of rotations for three-dimensional rigid bodies, formally named SO(3)) is not a local homeomorphism at every point, and thus at some points the rank (degrees of freedom) must drop below 3, at which point gimbal lock occurs. Euler angles provide a means for giving a numerical description of any rotation in three-dimensional space using three numbers, but not only is this description not unique, but there are some points where not every change in the target space (rotations) can be realized by a change in the source space (Euler angles). This is a topological constraint – there is no covering map from the 3-torus to the 3-dimensional real projective space; the only (non-trivial) covering map is from the 3-sphere, as in the use of quaternions.</p>
+<p>To make a comparison, all the translations can be described using three numbers 
+  
+    
+      
+        x
+      
+    
+    {\displaystyle x}
+  
+, 
+  
+    
+      
+        y
+      
+    
+    {\displaystyle y}
+  
+, and 
+  
+    
+      
+        z
+      
+    
+    {\displaystyle z}
+  
+, as the succession of three consecutive linear movements along three perpendicular axes 
+  
+    
+      
+        X
+      
+    
+    {\displaystyle X}
+  
+, 
+  
+    
+      
+        Y
+      
+    
+    {\displaystyle Y}
+  
+ and 
+  
+    
+      
+        Z
+      
+    
+    {\displaystyle Z}
+  
+ axes. The same holds true for rotations: all the rotations can be described using three numbers 
+  
+    
+      
+        α
+      
+    
+    {\displaystyle \alpha }
+  
+, 
+  
+    
+      
+        β
+      
+    
+    {\displaystyle \beta }
+  
+, and 
+  
+    
+      
+        γ
+      
+    
+    {\displaystyle \gamma }
+  
+, as the succession of three rotational movements around three axes that are perpendicular one to the next. This similarity between linear coordinates and angular coordinates makes Euler angles very intuitive, but unfortunately they suffer from the gimbal lock problem.</p>
+<p>A rotation in 3D space can be represented numerically with matrices in several ways. One of these representations is:</p>
+<p>An example worth examining happens when 
+  
+    
+      
+        β
+        =
+        
+          
+            
+              π
+              2
+            
+          
+        
+      
+    
+    {\displaystyle \beta ={\tfrac {\pi }{2}}}
+  
+. Knowing that 
+  
+    
+      
+        cos
+        ⁡
+        
+          
+            
+              π
+              2
+            
+          
+        
+        =
+        0
+      
+    
+    {\displaystyle \cos {\tfrac {\pi }{2}}=0}
+  
+ and 
+  
+    
+      
+        sin
+        ⁡
+        
+          
+            
+              π
+              2
+            
+          
+        
+        =
+        1
+      
+    
+    {\displaystyle \sin {\tfrac {\pi }{2}}=1}
+  
+, the above expression becomes equal to:</p>
+<p>Carrying out matrix multiplication:</p>
+<p>And finally using the trigonometry formulas:</p>
+<p>Changing the values of 
+  
+    
+      
+        α
+      
+    
+    {\displaystyle \alpha }
+  
+ and 
+  
+    
+      
+        γ
+      
+    
+    {\displaystyle \gamma }
+  
+ in the above matrix has the same effects: the rotation angle 
+  
+    
+      
+        α
+        +
+        γ
+      
+    
+    {\displaystyle \alpha +\gamma }
+  
+ changes, but the rotation axis remains in the 
+  
+    
+      
+        Z
+      
+    
+    {\displaystyle Z}
+  
+ direction: the last column and the first row in the matrix won&#039;t change. The only solution for 
+  
+    
+      
+        α
+      
+    
+    {\displaystyle \alpha }
+  
+ and 
+  
+    
+      
+        γ
+      
+    
+    {\displaystyle \gamma }
+  
+ to recover different roles is to change 
+  
+    
+      
+        β
+      
+    
+    {\displaystyle \beta }
+  
+.</p>
+<p>It is possible to imagine an airplane rotated by the above-mentioned Euler angles using the X-Y-Z convention. In this case, the first angle - 
+  
+    
+      
+        α
+      
+    
+    {\displaystyle \alpha }
+  
+ is the pitch. Yaw is then set to 
+  
+    
+      
+        
+          
+            
+              π
+              2
+            
+          
+        
+      
+    
+    {\displaystyle {\tfrac {\pi }{2}}}
+  
+ and the final rotation - by 
+  
+    
+      
+        γ
+      
+    
+    {\displaystyle \gamma }
+  
+ - is again the airplane&#039;s pitch. Because of gimbal lock, it has lost one of the degrees of freedom - in this case the ability to roll.</p>
+<p>It is also possible to choose another convention for representing a rotation with a matrix using Euler angles than the X-Y-Z convention above, and also choose other variation intervals for the angles, but in the end there is always at least one value for which a degree of freedom is lost.</p>
+<p>The gimbal lock problem does not make Euler angles &quot;invalid&quot; (they always serve as a well-defined coordinate system), but it makes them unsuited for some practical applications.</p>
+<p>The cause of gimbal lock is the representation of orientation in calculations as three axial rotations based on Euler angles. A potential solution therefore is to represent the orientation in some other way. This could be as a rotation matrix, a quaternion (see quaternions and spatial rotation), or a similar orientation representation that treats the orientation as a value rather than three separate and related values. Given such a representation, the user stores the orientation as a value. To quantify angular changes produced by a transformation, the orientation change is expressed as a delta angle/axis rotation. The resulting orientation must be re-normalized to prevent the accumulation of floating-point error in successive transformations. For matrices, re-normalizing the result requires converting the matrix into its nearest orthonormal representation. For quaternions, re-normalization requires performing quaternion normalization.</p>
+<ul><li>Aircraft principal axes</li><li>Charts on SO(3) – Mathematical descriptions of a rotation group</li><li>Flight dynamics – Study of the performance, stability, and control of flying vehicles</li><li>Grid north – Cartesian geographic coordinate systemPages displaying short descriptions of redirect targets (equivalent navigational problem on polar expeditions)</li><li>Inertial navigation system – Continuously computed dead reckoning</li><li>Motion planning – Computational problem</li><li>Quaternions and spatial rotation – Correspondence between quaternions and 3D rotations</li><li>Keyhole problem – Problems tracking near a gimbal axis under rate and acceleration limits</li></ul>
+<ul><li>Gimbal Lock - Explained at YouTube</li></ul>

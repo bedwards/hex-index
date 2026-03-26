@@ -1,0 +1,91 @@
+---
+title: "What The US Is Doing To Ukraine Is Far Worse Than Yalta"
+author: "Phillips P. O'Brien"
+publication: "Phillips P. O'Brien"
+publication_slug: "phillipspobrien"
+published_at: "2025-12-16T08:16:35.000Z"
+source_url: "https://phillipspobrien.substack.com/p/what-the-us-is-doing-to-ukraine-is"
+word_count: 2753
+estimated_read_time: 14
+---
+
+Hi All,
+
+If history does not exactly repeat itself (and it does not) then it does often rhyme. What we are seeing from the Trump administration is unprecedented in its betrayal of Ukraine. The US is now acting like an agent of Vladimir Putin’s dictatorship in bullying democratic Ukraine to surrender parts of it territory, a wealth of natural resources and millions of its people to Putin’s brutal rule. The USA is not negotiating between Ukraine and Russia, it is putting enormous pressure on Ukraine to agree to a deal that *might* appeal to Putin. This is what I mean when I say that the US is now the enemy of freedom. It wants to strengthen dictatorships at the expense of democracies.
+
+However there are some interesting historical comparisons that people are making—the rhymes as it were. The one most commonly thrown around in US history is Franklin Roosevelt at Yalta. In this case the US supposedly accepted the expansion of brutal totalitarian rule over countries that wished to be their allies. Aha, we are told, Trump is nothing new. The USA has in the past sold out possible allies into dictatorial rule.
+
+[
+
+![Stalin & Roosevelt at Yalta, 1945](https://substackcdn.com/image/fetch/$s_!OSnK!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F00ab27ac-ad3e-4e17-a03b-9957f85e2469_750x606.png "Stalin & Roosevelt at Yalta, 1945")
+
+
+
+](https://substackcdn.com/image/fetch/$s_!OSnK!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F00ab27ac-ad3e-4e17-a03b-9957f85e2469_750x606.png)
+*Roosevelt and Stalin at Yalta. This was a fundamentally different situation than the one we are seeing between Trump and Putin.*
+
+Btw, before Donald Trump took over the Republican Party, you could reliably expect to hear any Democratic attempt to reach a compromise deal [described by Republicans as a potential sell-out](https://www.atlanticcouncil.org/blogs/new-atlanticist/the-yalta-conference-at-seventy-five-lessons-from-history/) of the type Franklin Roosevelt supposedly did at the Yalta Conference (February 4-11, 1945). Ronald Reagan, for example, was a constant critic of Roosevelt’s actions at Yalta, with examples ranging from the 1950s [through his two terms in office](https://www.reaganlibrary.gov/archives/speech/statement-40th-anniversary-yalta-conference).
+
+The widely shared Republican critique was that the Roosevelt too easily trusted Stalin, deferred to the USSR and as a result [consigned half of Europe to totalitarian rule for generations](https://www.upi.com/Archives/1985/02/05/President-Reagan-said-Tuesday-he-would-like-to-erase/3967476427600/).
+
+So it is rather bitterly ironic today that it is the GOP, after decades of attacking FDR for “betraying” Poland, that is using all of America’s might to betray and weaken a democratic Ukraine. That being said, what Trump is doing is far far worse than anything FDR was accused of. To understand just how large the differences are, I will start with a short primer on Yalta and FDR.
+
+**Roosevelt and Yalta**
+
+What happened factually at Yalta is actually not an area of disagreement. Roosevelt went to the conference, in the Crimea, with Stalin and Churchill to try and work out some growing problems between the Big Three over the shape of post-war Europe. When it came to Eastern Europe, and in particular Poland, FDR wanted to convince Stalin to allow some democratic influence into a new Polish government. He was faced with a great dilemma on Poland. He very much would have wanted a free Poland with a pro-western alignment, but Poland was entirely occupied by Stalin’s Red Army, and it was Stalin who was establishing the facts on the ground.
+
+In particular Stalin refused to have anything to do with the pre-war Polish government (which had been recognized by the USA) and had installed a new pro-Communist “Lublin” government which was preparing to do his bidding.
+
+Roosevelt understood that overall, Stalin was in a dominant position vis-a-vis Poland. The US had no forces in the region and the widespread assumption was that US forces would all be withdrawn from Europe when the war was over (NATO was not even a glean in the eye at this point). As such, Roosevelt’s area of maneuver was greatly confined, which both he and Stalin understood.
+
+The result of this power imbalance was that Roosevelt, despite asking, almost begging Stalin to allow for some broadening of the Lublin government to allow democratic influence, had to accept in the end a pretty weak pledge that Stalin would allow some undefined “democratic elements” into the new Polish state. And in doing so, Roosevelt admitted that the pre-war Polish government had no chance of being re-established. Roosevelt was not happy with the deal, and admitted at the end of the conference that he was exhausted and did not think he could get anything more.
+
+*Btw if you want to read more about Roosevelt at Yalta, [I cover it in detail in my biopgraphy of William Leahy, who was FDR’s chief of staff and his closest adviser at the conference](https://www.penguinrandomhouse.com/books/548325/the-second-most-powerful-man-in-the-world-by-phillips-payson-obrien/).*
+
+**After Yalta**
+
+What that meant was that when the conference was over, Stalin went ahead and did exactly what he wanted to do to Poland, which was to make it a Soviet-client state with a communist dictatorship and no democratic input. So Roosevelt in the end got nothing of substance to help the Poles and seemed to accept that there future was to be brutalized. This is the key element to the betrayal narrative.
+
+It is a reading, however, that makes a number of fundamental mistakes about history and time. Yes, Roosevelt had to accept at Yalta what Stalin gave him, because at that time he had no options beyond militarily threatening his ally, the USSR. Stalin controlled the area under discussion, there were no US forces near Poland, and so the US had no ability to influence behavior on the ground. Plus the Yalta Conference itself was time limited. It was not like FDR could permanently stay in the Crimea and fight forever about Poland. He had to head back to the USA after a few days, and Stalin knew that. It meant that in the end, Roosevelt had to accept the words that Stalin gave him.
+
+However in Roosevelt’s mind, Yalta was not the end of the process, it was arguably the beginning. Having received a pledge from Stalin to allow some “democratic elements” into Poland, Roosevelt believed he had a wedge to try and get a better deal in the future.
+
+And we can see some of that in arguably the least understood period in Roosevelt’s presidency, the period after Yalta and before his death two months later (April 12, 1945). In that time, Roosevelt soured greatly on Stalin, understanding that he had been played and coming to believe that Stalin could not be trusted. Roosevelt started moving more and more to slapping Stalin down and imagining a world where the US and USSR were not allies. [Roosevelt’s final telegram to Stalin was the roughest communication that FDR would ever send to the Soviet dictator](https://history.state.gov/historicaldocuments/frus1945v05/d161). In diplomatic language, he accused Stalin of reneging on the Yalta accords particularly regarding Poland. Roosevelt also went further and accused Stalin of aggressively trying to expand his rule in places such as Rumania. FDR even concluded the telegram by threatening to break the unity of the alliance between the USA and USSR if Stalin did not change his behavior. Here is a short quote from the last paragraph and [I will include the entire telegram at the end of this piece](https://history.state.gov/historicaldocuments/frus1945v05/d161) so you can read just how angry FDR was with Stalin at this time.
+
+*I wish I could convey to you how important it is for the successful development of our program of international collaboration that this Polish question be settled fairly and speedily. If this is not done all of the difficulties and dangers to Allied unity which we had so much in mind in reaching our decision at the Crimea will face us in an even more acute form. You are, I am sure, aware that genuine popular support in the United States is required to carry out any Government policy foreign or domestic. The American people make up their own mind and no Governmental action can change it.*
+
+So Roosevelt, the more he understood what Stalin really meant by Yalta, felt more betrayed and angry. By the end of March he was determined to slap down Stalin and was even threatening breaking the alliance if the Soviet dictator did not make concessions on Poland.
+
+But then FDR died and it went down into history that he had betrayed Poland at Yalta as if that was an immutable decision that was one he was content to see carried on. It was not true.
+
+**What Trump Is Doing Now**
+
+The primary difference between FDR at Yalta and Trump today is that Trump could easily stand up to Putin’s dictatorship were he so inclined. Russia is a weak state with a weakening economy. It cannot conquer Ukraine, indeed Russia is suffering massive casualties and has taken less than 20% of Ukraine overall (including what was seized starting in 2014). If the US wanted to help Ukraine win, Russia could be defeated by the Ukrainians doing the fighting and the US providing the support. If faced by such a situation in 1945, Roosevelt would absolutely have helped the Poles to put the pressure on the USSR—not the other way around.
+
+What Trump is doing would be akin to Roosevelt saying to Stalin at Yalta; “Not only can you have Poland, why don’t you have France as well.”
+
+So Trump has options, which is what makes his wanton siding with a dictatorship so notable. He is strengthening the forces of oppression when he could weaken them. Moreover, Trump is doing so against the public opinion of the US people. Over the last few months support for Ukraine has grown in the US, even amongst Republicans.
+
+However during that time, Trump has been maneuvering to decimate Ukraine, and is now simply disregarding public opinion.
+
+So this is what makes what Trump is doing both unprecedented and horrific. Trump is strengthening Putin because he wants to, and maybe because he and his cronies will benefit from it. He could help defeat a brutal dictatorship, but instead he is bending over backwards to help it by choice.
+
+Franklin Roosevelt would be appalled. Would that more Americans today were as well.
+
+[Text of Roosevelt’s Final Telegram to Stalin, dated 1 April 1945.](https://history.state.gov/historicaldocuments/frus1945v05/d161)
+
+### ***President Roosevelt to the Chairman of the Council of People’s Commissars of the Soviet Union (Stalin)***
+
+*Washington, 1 April 1945.*
+
+*I cannot conceal from you the concern with which I view the development of events of mutual interest since our fruitful meeting at Yalta. The decisions we reached there were good ones and have for the most part been welcomed with enthusiasm by the peoples of the world who saw in our ability to find a common basis of understanding the best pledge for a secure and peaceful world after this war. Precisely because of the hopes and expectations that these decisions raised, their fulfillment is being followed with the closest attention. We have no right to let them be disappointed. So far there has been a discouraging lack of progress made in the carrying out, which the world expects, of the political decisions which we reached at the Conference particularly those relating to the Polish question. I am frankly puzzled as to why this should be and must tell you that I do not fully understand in many respects the apparent indifferent attitude of your Government. Having understood each other so well at Yalta I am convinced that the three of us can and will clear away any obstacles which have developed since then. I intend, therefore, in this message to lay before you with complete frankness the problem as I see it.*
+
+*Although I have in mind primarily the difficulties which the Polish negotiations have encountered, I must make a brief mention of our agreement embodied in the declaration on liberated Europe. I frankly cannot understand why the recent developments in Rumania should be regarded as not falling within the terms of that agreement. I hope you will find time personally to examine the correspondence between our Governments on this subject.*
+
+*However, the part of our agreements at Yalta which has aroused the greatest popular interest and is the most urgent relates to the Polish question. You are aware of course that the Commission which we set up has made no progress. I feel this is due to the interpretation which your Government is placing upon the Crimean decisions. In order that there shall be no misunderstanding I set forth below my interpretation of the points of the agreement which are pertinent to the difficulties encountered by the Commission in Moscow.*
+
+*In the discussions that have taken place so far your Government appears to take the position that the new Polish Provisional Government of National Unity which we agreed should be formed should be little more than a continuation of the present Warsaw Government. [\[Page 195\]](https://history.state.gov/historicaldocuments/frus1945v05/pg_195)I cannot reconcile this either with our agreement or our discussions. While it is true that the Lublin Government is to be reorganized and its members play a prominent role it is to be done in such a fashion as to bring into being a new Government. This point is clearly brought out in several places in the text of the agreement. I must make it quite plain to you that any such solution which would result in a thinly disguised continuance of the present Warsaw regime would be unacceptable and would cause the people of the United States to regard the Yalta agreement as having failed. It is equally apparent that for the same reason the Warsaw Government cannot under the agreement claim the right to select or reject what Poles are to be brought to Moscow by the Commission for consultation. Can we not agree that it is up to the Commission to select the Polish leaders to come to Moscow to consult in the first instance and invitations be sent out accordingly. If this could be done I see no great objection to having the Lublin group come first in order that they may be fully acquainted with the agreed interpretation of the Yalta decisions on this point. It is of course understood that if the Lublin group comes first no arrangements would be made independently with them before the arrival of the other Polish leaders called for consultation.[66](https://history.state.gov/historicaldocuments/frus1945v05/d161#fn:1.7.4.12.8.146.18.4) In order to facilitate the agreement the Commission might first of all select a small but representative group of Polish leaders who could suggest other names for the consideration of the Commission. We have not and would not bar or veto any candidate for consultation which Mr. Molotov might propose being confident that he would not suggest any Poles who would be inimical to the intent of the Crimean decision. I feel that it is not too much to ask that my Ambassador be accorded the same confidence and that any candidate for consultation presented by any one of the Commission be accepted by the others in good faith.[67](https://history.state.gov/historicaldocuments/frus1945v05/d161#fn:1.7.4.12.8.146.18.6) It is obvious to me that if the right of the Commission to select these Poles is limited or shared with the Warsaw Government the very foundation on which our agreement rests would be destroyed. While the foregoing are the immediate obstacles which in my opinion have prevented the Commission from making any progress in this vital matter there are two other suggestions which were not in the agreement but nevertheless have a very important bearing on the result we all seek. Neither of these suggestions has been as yet accepted by your Government. I refer to (1) that there should be the maximum of political tranquility [\[Page 196\]](https://history.state.gov/historicaldocuments/frus1945v05/pg_196)in Poland and that dissident groups should cease any measures and countermeasures against each other. That we should respectively use our influence to that end seems to me so eminently reasonable. (2) It would also seem entirely natural in view of the responsibilities placed upon them by the agreement that representatives of the American and British members of the Commission should be permitted to visit Poland. As you will recall Mr. Molotov himself suggested this at an early meeting of the Commission and only subsequently withdrew it.[68](https://history.state.gov/historicaldocuments/frus1945v05/d161#fn:1.7.4.12.8.146.18.10)*
+
+*I wish I could convey to you how important it is for the successful development of our program of international collaboration that this Polish question be settled fairly and speedily. If this is not done all of the difficulties and dangers to Allied unity which we had so much in mind in reaching our decision at the Crimea will face us in an even more acute form. You are, I am sure, aware that genuine popular support in the United States is required to carry out any Government policy foreign or domestic. The American people make up their own mind and no Governmental action can change it. I mention this fact because the last sentence of your message about Mr. Molotov’s attendance at San Francisco[69](https://history.state.gov/historicaldocuments/frus1945v05/d161#fn:1.7.4.12.8.146.20.2) made me wonder whether you give full weight to this factor.*
+
+*Roosevelt*

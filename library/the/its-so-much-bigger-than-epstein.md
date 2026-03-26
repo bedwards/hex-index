@@ -1,0 +1,136 @@
+---
+title: "It's so much bigger than Epstein"
+author: "Anand Giridharadas"
+publication: ""
+publication_slug: "the"
+published_at: "2026-02-02T16:17:46.000Z"
+source_url: "https://the.ink/p/its-so-much-bigger-than-epstein"
+word_count: 3158
+estimated_read_time: 16
+---
+
+*Today, with renewed attention on the Jeffrey Epstein files after Friday’s release of millions more records, we can finally bring you the full text, **unpaywalled**, of [my November essay for](https://www.nytimes.com/2025/11/23/opinion/meaning-epstein-emails.html)* [The New York Times](https://www.nytimes.com/2025/11/23/opinion/meaning-epstein-emails.html) *on what I learned by reading the first trove in its entirety. And, above, for the first time, an audio version, read by me.*
+
+*Candidly, it is Ink readers who made this labor-intensive deep dive of reporting possible. Subscribe to support more where it came from.*
+
+[
+
+![](https://substackcdn.com/image/fetch/$s_!R_k0!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F4559791a-725f-41e9-976c-d44c65bf2d3e_1024x683.jpeg)
+
+
+
+](https://substackcdn.com/image/fetch/$s_!R_k0!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F4559791a-725f-41e9-976c-d44c65bf2d3e_1024x683.jpeg)
+
+As journalists comb through the [Epstein emails](https://www.nytimes.com/2025/11/12/us/politics/epstein-emails-trump.html), surfacing the name of one fawning luminary after another, there is a collective whisper of “How could they?” How could such eminent people, belonging to such prestigious institutions, succumb to this?
+
+A close read of the thousands of messages makes it less surprising. When Jeffrey Epstein, a financier turned convicted sex offender, needed friends to rehabilitate him, he knew where to turn: a power elite practiced at disregarding pain.
+
+At the dark heart of this story is a sex criminal and his victims — and his enmeshment with President Trump. But it is also a tale about a powerful social network in which some, depending on what they knew, were perhaps able to look away because they had learned to look away from so much other abuse and suffering: the financial meltdowns some in the network helped trigger, the misbegotten wars some in the network pushed, the overdose crisis some of them enabled, the monopolies they defended, the inequality they turbocharged, the housing crisis they milked, the technologies they failed to protect people against.
+
+The Epstein story is resonating with a broader swath of the public than most stories now do, and some in the establishment worry. When Representative Ro Khanna, Democrat of California, [speaks](https://www.npr.org/2025/11/17/nx-s1-5611012/democratic-lawmaker-reacts-to-trumps-reversal-on-epstein-files#) of an “Epstein class,” isn’t that dangerous? Isn’t that class warfare?
+
+But the intuitions of the public are right. People are right to sense that, as the emails lay bare, there is a highly private merito-aristocracy at the intersection of government and business, lobbying, philanthropy, start-ups, academia, science, high finance and media that all too often takes care of its own more than the common good. They are right to resent that there are infinite second chances for members of this group even as so many Americans are deprived of first chances. They are right that their pleas often go unheard, whether they are being evicted, gouged, foreclosed on, A.I.-obsolesced — or, yes, raped.
+
+It is no accident that this was the social milieu that took Mr. Epstein in. His reinvention, after he pleaded guilty to prostitution-related charges in Florida in 2008**,** would never have been possible without this often anti-democratic, self-congratulatory elite, which, even when it didn’t traffic people, took the world for a ride.
+
+The emails, in my view, together sketch a devastating epistolary portrait of how our social order functions, and for whom. Saying that isn’t extreme. The way this elite operates is.
+
+**The idea of an Epstein class** is helpful because one can be misled by the range of people to whom Mr. Epstein ingratiated himself. Republicans. Democrats. Businesspeople. Diplomats. Philanthropists. Healers. [Professors](https://www.nytimes.com/2025/11/21/us/professors-jeffrey-epstein-relationships.html). Royals. Superlawyers. A person he emailed at one moment was often at war with the ideas of another correspondent — a Lawrence Summers to a Steve Bannon, a Deepak Chopra to a scientist skeptical of all spirituality, a Peter Thiel to a Noam Chomsky. This diversity masked a deeper solidarity.
+
+What his correspondents tended to share was membership in a distinctly modern elite: a ruling class in which 40,000-foot nomadism, world citizenship and having just landed back from Dubai lend the glow that deep roots once provided; in which academic intellect is prized the way pedigree once was; in which ancient caste boundaries have melted to allow rotation among, or simultaneous pursuit of, governing, profiting, thinking and giving back. Some members, [like Mr. Summers](https://www.nytimes.com/2025/11/20/us/larry-summers-jeffrey-epstein-emails-scandal.html), are embedded in all aspects of it; others, less so.
+
+If this neoliberal-era power elite remains poorly understood, it may be because it is not just a financial elite or an educated elite, a noblesse-oblige elite, a political elite or a narrative-making elite; it straddles all of these, lucratively and persuaded of its own good intentions. If it’s a jet set, it’s a carbon-offset-private-jet set. After all, flying commercial won’t get you from your Davos breakfast on empowering African girls with credit cards to your crypto-for-good dinner in Aspen.
+
+**Many of the Epstein** emails begin with a seemingly banal rite that, the more I read, took on greater meaning: the whereabouts update and inquiry. In the Epstein class, emails often begin and end with pings of echolocation. “Just got to New York — love to meet, brainstorm,” the banker Robert Kuhn wrote to Mr. Epstein. “i’m in wed, fri. edelman?” Mr. Epstein wrote to the billionaire Thomas Pritzker (it is unclear if he meant a person, corporation or convening). To Lawrence Krauss, a physicist in Arizona: “noam is going to tucson on the 7th. will you be around.” Mr. Chopra wrote to say he would be in New York, first speaking, then going “for silence.” Gino Yu, a game developer, announced travel plans involving Tulum, Davos and the D.L.D. (Digital Life Design) conference — an Epstein-class hat trick.
+
+Landings and takeoffs, comings and goings, speaking engagements and silent retreats — members of this group relentlessly track one another’s passages through JFK, LHR, NRT and airports you’ve never even heard of. Whereabouts are the pheromones of this elite. They occasion the connection-making and information barter that are its lifeblood. If “Have you eaten?” was a traditional Chinese greeting, “Where are you today?” is the Epstein-class query.
+
+Their loyalty, it appears, is less downward to people and communities than horizontal to fellow members of their borderless network. Back in 2016, Theresa May, then the prime minister of Britain, seemed to capture their essence: “If you believe you are a citizen of the world, you are a citizen of nowhere.” Mr. Epstein’s correspondents come alive far from home, freed from obligations, in the air, ready to connect.
+
+And the payoff can be real. Maintain, as Mr. Epstein did, a grandmother-like radar of what a thousand people are doing tomorrow and where, and you can introduce a correspondent needing a lending partner to someone you’re seeing today. Or let Ehud Barak know a Rothschild has the flu. Or offer someone else a jet ride back to New York and reward the journalist who tipped you off by setting him up to meet a Saudi royal.
+
+But the whereabouts missive is just the first flush of connection. Motion is the flirtation; actual information, the consummation.
+
+**How did Mr. Epstein manage to pull so many strangers close?** The emails reveal a barter economy of nonpublic information that was a big draw. This is not a world where you bring a bottle of wine to dinner and that’s it. You bring what financiers call “edge” — proprietary insight, inside information, a unique takeaway from a conference, a counterintuitive prediction about A.I., a snippet of conversation with a lawmaker, a foretaste of tomorrow’s news.
+
+What the Epstein class understands is that the more accessible information becomes, the more precious nonpublic information is. The more everybody insta-broadcasts opinions, the dearer is the closely held take. The emails are a private, bilateral social media for people who can’t or won’t post: an archipelago of single-subscriber Substacks. And in the need to maintain relevance by offering edge, a reader detects thirst and swagger, desperateness and swanning.
+
+“Saw Matt C with DJT at golf tournament I know why he was there,” Nicholas Ribis, a former Trump Hotel executive, wrote to Mr. Epstein, making what couples therapists call a bid for attention. Jes Staley, then a top banking executive, casually mentioned a dinner with George Tenet, the former Central Intelligence Agency director, and got the reaction he probably hoped for: “how was tenet.” Mr. Summers laid bait by mentioning meetings with people at SoftBank and Saudi Arabia’s sovereign wealth fund. Mr. Epstein nibbled: “anyone stand out?” Then Mr. Summers could offer proprietary intel. On it went: What are people saying? Who are you hearing for F.B.I. director? Should I drop your name to Bill Clinton?
+
+Sometimes these people give the impression that their minds would be blown by a newspaper. Mr. Kuhn wrote to Mr. Epstein: “Love to get your sense of Trump’s administration, policies.” And while it may seem strange to rely on Mr. Epstein for political analysis when you can visit any number of websites, for this class, insight’s value varies inversely with the number of recipients. And the ultimate flex is getting insider intel and shrugging: “Nthg revolutionary really,” the French banker Ariane de Rothschild wrote during a meeting with Portugal’s prime minister.
+
+**Nomadic bat signals get** things going, and edge keeps them flowing, while underneath a deeper exchange is at work. The smart need money; the rich want to seem smart; the staid seek adjacency to what Mr. Summers called “life among the lucrative and louche”; and Mr. Epstein needed to wash his name using blue-chip people who could be forgiving about infractions against the less powerful. Each has some form of capital and seeks to trade. The business is laundering capital — money into prestige, prestige into fun, fun into intel, intel into money.
+
+Mr. Summers wrote to Mr. Epstein: “U r wall st tough guy w intellectual curiosity.” Mr. Epstein replied: “And you an interllectual with a Wall Street curiosity.”
+
+In another email, Mr. Epstein offered typo-strewn and false musings on climate science to Mr. Krauss, including that Canada perhaps favored global warming, since it’s cold (it doesn’t), and that the South Pole is actually getting colder (it’s melting rapidly). Mr. Krauss let Mr. Epstein indulge in his rich-man theorizing while offering a tactful correction and a hint that more research funding would help.
+
+For this modern elite, seeming smart is what inheriting land used to be: a guarantor of opened doors. A shared hyperlink can’t stand alone; your unique spin must be applied. Mr. Krauss sends his New Yorker article on militant atheism; Mr. Chomsky sends a multiparagraph reply; Mr. Epstein dashes off: “I think religion plays a major positive role in many lives. . i dont like fanaticism on either side. . sorry.” This somehow leads to a suggestion that Mr. Krauss bring the actor Johnny Depp to Mr. Epstein’s private island.
+
+Again and again, scholarly types lower themselves to offer previews of their research or inquiries into Mr. Epstein’s “ideas.” “Maybe climate change is a good way of dealing with overpopulation,” muses Joscha Bach, a German cognitive scientist.
+
+The nature of this omnidirectional capital exchange comes into special focus in the triangle of emails among Mr. Epstein, Mr. Summers and his wife, Elisa New. Mr. Summers seemingly benefited from Mr. Epstein’s hosting, tip-offs, semi-insight into Trumpworld and, most grossly, dating advice many years into his marriage.
+
+Ms. New sought Mr. Epstein’s help contacting Woody Allen and revising her emails to invite people on her televised poetry show. Mr. Epstein tutored her in elite mores and motives: Don’t say, *Come on my show*; say, *Join Serena Williams, Bill Clinton and Shaq in* *coming on my show*. Mr. Epstein reaped the benefits of smarts by association in hanging around them, of the reputation cleanse of affiliation with Harvard professors and a former Treasury secretary, and of getting to cosplay as statesman, once sending an unsolicited intro email to Mr. Summers and a Senegalese politician, Karim Wade, who, Mr. Epstein informed Mr. Summers, is “the most charismatic and rational of all the africans and has there respect.” There are 1.5 billion people and 54 countries in Africa.
+
+**This class has** its status games. One is, when getting a tip, to block the blessing by saying you already know. Another is to apologize for busyness by invoking centrality — “trump related issues occupying my time.” When an intro is offered, the coldest reply is “no.” The ultimate power move is from Mohamed Waheed Hassan of the Maldives, whose emails ended: “Sent from President’s iPad.”
+
+If you were an alien landing on Earth and the first thing you saw was the Epstein emails, you could gauge status by spelling, grammar, punctuation. Usage is inversely related to power in this network. The earnest scientists and scholars type neatly. The wealthy and powerful reply tersely, with misspellings, erratic spacing, stray commas.
+
+The status games belie a truth, though: These people are on the same team. On air, they might clash. They promote opposite policies. Some in the network profess anguish over what others in the network are doing. But the emails depict a group whose highest commitment is to their own permanence in the class that decides things. When principles conflict with staying in the network, the network wins.
+
+Mr. Epstein may despise what Mr. Trump is doing, but he still hangs with Steve Bannon, the Trump whisperer and attack dog, seeking help on crypto regulation. Michael Wolff is a journalist, but that doesn’t stop him [from advising](https://www.nytimes.com/2025/11/12/business/media/michael-wolff-epstein-trump-emails.html) Mr. Epstein on his public image. Kenneth Starr, who once doggedly pursued sexual misconduct allegations against Mr. Clinton, reinvented himself as a defender of Mr. Epstein. These are permanent survivors who will profit when things are going this way and then profit again when they turn.
+
+“What team are you pulling for?” Linda Stone, a retired Microsoft executive, asked Mr. Epstein just before the 2016 election.
+
+“none,” he replied.
+
+In one email, he commiserates with Mr. Wolff about Mr. Bannon’s rhetoric; in another, he invites Mr. Bannon over and suggests an additional guest — Kathryn Ruemmler, who served as President Barack Obama’s White House counsel.
+
+His exchanges with Ms. Ruemmler are especially striking — not for the level of horridness, but for how they portray this network at its most shape-shiftingly self-preservational, and most indifferent to the human beings below.
+
+Like so many, she had gone from Obama-era public service to private legal practice, eventually becoming the [chief lawyer](https://www.cnbc.com/2025/11/13/goldman-sachs-jeffrey-epstein-emails-ruemmler.html) for Goldman Sachs. That people move from representing the presidency to representing banks is so normal that we forget the costs: the private job done with the savvy to outfox one’s former public-sector colleagues, the public job done gently to keep open doors.
+
+In some exchanges in 2014, Ms. Ruemmler appears to be contemplating a job offer: attorney general of the United States, [according to](https://www.nytimes.com/2014/09/26/us/politics/eric-holder-resigning-as-attorney-general.html) contemporary reports. And who does she seek advice from? A convicted sex offender.
+
+In another email, Mr. Epstein asks a legal question about whether Mr. Trump can declare a national emergency to build a border wall. She responds that a prospective employer has offered her a $2 million signing bonus. The glide from tyranny to bonus distills a core truth: Regardless of what happens, the members of this social network will be fine.
+
+Ms. Ruemmler told Mr. Epstein she was going to New York one day. “I will then stop to pee and get gas at a rest stop on the New Jersey Turnpike, will observe all of the people there who are at least 100 pounds overweight, will have a mild panic attack as a result of the observation, and will then decide that I am not eating another bite of food for the rest of my life out of fear that I will end up like one of these people,” she wrote in 2015.
+
+But in the class of permanent survivors, today’s jump scare may yield to tomorrow’s opportunity. A few years after she joined the company, Goldman Sachs [declared](https://www.goldmansachs.com/insights/articles/anti-obesity-drug-market) anti-obesity drugs a “$100 billion opportunity.”
+
+**Generally, you can’t read** other people’s emails. Powerful people have private servers, I.T. staffs, lawyers. When you get a rare glimpse into how they actually think and view the world, what they actually are after, heed Maya Angelou: Believe them.
+
+American democracy today is in a dangerous place. The Epstein emails are a kind of prequel to the present. This is what these powerful people, in this mesh of institutions and communities, were thinking and doing — taking care of one another instead of the general welfare — before it got really bad.
+
+This era has seen a surge in belief in conspiracy theories, including about Mr. Epstein, because of an underlying intuition people have that is, in fact, correct: The country often seems to be run not for the benefit of most of us.
+
+Shaming the public as rubes for succumbing to conspiracy theories misses what people are trying to tell us: They no longer feel included in the work of choosing their future. On matters small and big, from the price of eggs to whether the sexual abuse of children matters, what they sense is a sneering indifference. And a knack for looking away.
+
+Now the people who capitalized on the revolt against an indifferent American elite are in power, and, shock of all shocks, they are even more indifferent than anyone who came before them. The clubby deal-making and moral racketeering of the Epstein class is now the United States’ governing philosophy.
+
+In spite of that, the unfathomably brave survivors who have come forward to testify to their abuse have landed the first real punch against Mr. Trump. In their solidarity, their devotion to the truth and their insistence on a country that listens when people on the wrong end of power cry for help, they shame the great indifference from above. They point us to other ways of relating.
+
+\---
+
+**A note to our readers: Your support for The Ink is what allowed me to take so many days to open-endedly read these emails, without even knowing where it would lead. That is an allocation of time not all newsrooms would make. You make that kind of work possible when you subscribe here.**
+
+\---
+
+### ***Join us for Live conversations this week!***
+
+*Join us **tomorrow**, **Tuesday, February 3,** at **12:30 p.m. Eastern**, for a conversation with journalist **Jason Burke** on his new book**, [The Revolutionists](https://www.penguinrandomhouse.com/books/646490/the-revolutionists-by-jason-burke/)**, on the rise of political violence in the 1970s and its lessons for today. Then on **Wednesday, February 4,** also at **12:30 p.m. Eastern**, join The Ink Book Club as we reveal our February pick. And immediately following, **Wednesday, February 4,** at **1:00 Eastern**, we’ll speak with legal analyst and former federal prosecutor **Elliot Williams** about **[Five Bullets](https://www.penguinrandomhouse.com/books/768052/five-bullets-by-elliot-williams/)**, his new book on the Bernie Goetz shootings and what they mean for our current crises over race, crime, and safety.*
+
+*To join and watch, [download the Substack app](https://substack.com/redirect/21bb85f6-0755-4efe-a3b7-07c3b77de36b?j=eyJ1IjoiNHVydmcifQ.8o7dZlnJasqMiqBAjv3NaKaphVGXxcp1YU_ECO_j64s) (click on the button below) and make sure on your notifications — you’ll get an email and an alert within the app once we’re live, and you can watch, chat, and even participate in the conversation during our Book Club meetings from your iOS or Android mobile device. If you’re using a computer, you can also watch (and ask questions in the text chat) [on our homepage](https://the.ink/). If you don’t see the conversation streaming on our homepage, just look in the notification menu (the bell-shaped icon at the upper right) and click to join us.*
+
+![](https://substackcdn.com/image/fetch/$s_!O231!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2F576ac1a9-6466-4fac-9e05-e2faaae2de6d_600x600.png)
+
+Get more from Anand Giridharadas in the Substack app
+
+Available for iOS and Android
+
+[Get the app](https://substack.com/app/app-store-redirect?utm_campaign=app-marketing&utm_content=author-post-insert&utm_source=anandwrites)
+
+\---
+
+###### *Photo by Fabrice Coffrini / AFP via Getty Images; Alex Wong/Getty Images*

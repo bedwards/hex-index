@@ -1,0 +1,121 @@
+---
+title: "This Is What Destroying the Vaccine Market Looks Like"
+author: "Sarah Longwell, Tim Miller, Bill Kristol"
+publication: "The Bulwark"
+publication_slug: "thebulwark"
+published_at: "2026-02-15T13:03:08.000Z"
+source_url: "https://www.thebulwark.com/p/this-is-what-destroying-the-vaccine-market-looks-like-moderna-flu-prasad-fda"
+word_count: 2887
+estimated_read_time: 15
+---
+
+[
+
+![](https://substackcdn.com/image/fetch/$s_!GA8u!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F721ba017-b5ed-4a54-a455-1501acc69f79_4891x3222.jpeg)
+
+
+
+](https://substackcdn.com/image/fetch/$s_!GA8u!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F721ba017-b5ed-4a54-a455-1501acc69f79_4891x3222.jpeg)
+*The exterior of the headquarters of Moderna in Cambridge, Massachusetts in June 2025. (Photo by David L. Ryan/Boston Globe via Getty Images)*
+
+THE VACCINE MAKER MODERNA decided this past week to tell the world about bad news it had received from the federal government.
+
+A potentially groundbreaking vaccine for seasonal flu that the Massachusetts-based company had developed [would not be](https://feeds.issuerdirect.com/news-release.html?newsid=7346090610333866&symbol=MRNA) getting approval from regulators. In fact, it wasn’t even getting formal consideration, Moderna announced in a Tuesday [press release](https://feeds.issuerdirect.com/news-release.html?newsid=7346090610333866&symbol=MRNA), because officials were refusing to accept the application.
+
+This is not the type of [development](https://www.cidrap.umn.edu/influenza-vaccines/fda-reverses-course-refuses-review-moderna-s-application-new-mrna-flu-vaccine) you would normally expect a pharmaceutical company to broadcast. But that’s because there’s nothing normal about the way the federal government is behaving in this saga—or, for that matter, how the government has been behaving ever since President Donald Trump put anti-vaccination crusader [Robert F. Kennedy Jr.](https://www.google.com/search?q=robert+f+kennedy+jr+rfk+site%3Athebulwark.com&sca_esv=d8f8ed9cdf44d55f&sxsrf=ANbL-n5v2mO4JHipquMSaf5AsCZG8-H8PQ%3A1771116197353&ei=pRaRaYKZFZ6i5NoPycGzmQ8&biw=1745&bih=816&ved=0ahUKEwjC_7H-odqSAxUeEVkFHcngLPMQ4dUDCBM&uact=5&oq=robert+f+kennedy+jr+rfk+site%3Athebulwark.com&gs_lp=Egxnd3Mtd2l6LXNlcnAiK3JvYmVydCBmIGtlbm5lZHkganIgcmZrIHNpdGU6dGhlYnVsd2Fyay5jb21IvgxQqwZY_ApwAXgAkAEAmAE2oAHKAaoBATS4AQPIAQD4AQGYAgCgAgCYAwCIBgGSBwCgB7QBsgcAuAcAwgcAyAcAgAgA&sclient=gws-wiz-serp) in charge of America’s public health.
+
+Moderna’s flu shot, which uses [mRNA technology](https://www.pennmedicine.org/about/pioneering-the-future-of-medicine/mrna) made famous during the COVID-19 pandemic, is the product of a lengthy research and development process that goes back years. Along the way, Moderna scientists consulted directly with officials at the Food and Drug Administration, the agency inside of Kennedy’s department (Health and Human Services) that is responsible for reviewing and approving vaccines.
+
+Such consultation is normal. And a major focus of the discussion between the company and the regulators was how Moderna should test the new shot to demonstrate its safety and effectiveness. There was some back and forth—again, pretty routine—but ultimately the FDA agreed that Moderna’s design for a trial was “acceptable,” according to communication Moderna cited in its press release.
+
+Moderna proceeded with the testing, got [promising](https://www.cidrap.umn.edu/influenza-vaccines/moderna-announces-promising-efficacy-results-mrna-flu-vaccine-trial) [results](https://irp.cdn-website.com/89dd0539/files/uploaded/Moderna+2025+Analyst+Day_FINAL_PDF-48-54e4e7af.pdf) and submitted its application. It had good reason to believe it would receive consideration and, in due time, outright approval. Instead, on February 3, Moderna got what’s known as a [“refuse to file” letter](https://static.modernatx.com/pm/6cef78f8-8dad-4fc9-83d5-d2fbb7cff867/38ab7558-636c-40d1-b49a-c8f51a7afa1a/38ab7558-636c-40d1-b49a-c8f51a7afa1a_viewable_rendition__v.pdf) from the FDA, in which the agency said the company had not put the new vaccine to a sufficiently demanding test.
+
+This was not a decision to reject the Moderna vaccine. It was a refusal even to think about approving it. The FDA [rarely](https://www.biospace.com/fda/all-the-ways-modernas-flu-vaccine-rejection-letter-shocked-us) [takes](https://jamanetwork.com/journals/jamainternalmedicine/fullarticle/2775955) such a step, and when it does it’s usually because an application is missing a whole component or includes suspect data. Nobody is suggesting Moderna’s application has those kinds of issues.
+
+On the contrary, the available evidence suggests this is a case of the FDA disqualifying a vaccine on questionable grounds, while changing its standards for review late in the process because it was trying to find a way to reject the vaccine. And based on reporting in outlets like [STAT](https://www.statnews.com/2026/02/11/moderna-flu-vaccine-application-rejected-by-prasad-overruling-fda-staff/) and the *[Wall Street Journal](https://www.wsj.com/health/healthcare/why-the-fda-blocked-modernas-new-flu-shot-84fdaab6)*—along with some details I was able to confirm myself—the decision didn’t come from senior career staff working most closely on the application.[1](#footnote-1) They actually thought the review should go forward. The decision to refuse instead came directly from Vinay Prasad, a physician-researcher whom Kennedy installed as director of the FDA’s vaccines and biologics division.[2](#footnote-2)
+
+A director overruling career staff on a decision of this magnitude is highly unusual. But it’s indicative of the Trump administration’s broader, [dramatic](https://www.scientificamerican.com/article/how-a-year-of-rfk-jr-has-changed-american-science/) [departure](https://www.washingtonpost.com/health/2026/02/12/rfk-jr-kennedy-cdc-covid-health-trust/1e7c2f1c-0824-11f1-b196-5e1986b3575c_story.html) from past practices that had emphasized careful deliberation, input from staff and outside experts and lots of public discussion.
+
+“Even if a product didn’t work, ultimately—even if it wasn’t shown to be effective—there was at least a well-defined process to get to that endpoint,” [Michael Osterholm](https://www.cidrap.umn.edu/michael-t-osterholdm-phd-mph), director of the University of Minnesota’s Center for Infectious Disease Research and Policy, told me. “What you saw this past week was the FDA completely turning that process on its head.”
+
+This new way of doing things [doesn’t look](https://www.npr.org/2026/02/13/nx-s1-5712721/rfk-jr-children-vaccines-cdc-funding-autism-immunizations) like the “gold standard science” and “radical transparency” Kennedy promised to bring to HHS. But hypocrisy isn’t the main issue here. Rather, it’s the loss of reliable federal support for vaccines, and how that loss is already dissuading companies from developing new shots that could someday protect hundreds of millions of people from dangerous, even lethal infections.
+
+\---
+
+SEASONAL FLU IS ONE of those diseases. You probably know all about the [symptoms](https://www.cdc.gov/flu/signs-symptoms/index.html), which include fever and chills plus an assortment of respiratory and gastrointestinal problems that resemble a common cold or stomach bug except that they are more severe. What you may not know—or, at least, may not fully appreciate—is that for many hundreds of thousands of Americans every year the flu won’t simply knock them out of work or school for a few days. It will send them to the hospital and, in the most dire cases, to the morgue.
+
+The Centers for Disease Control and Prevention estimates that [last season’s flu](https://www.cdc.gov/flu-burden/php/data-vis/2024-2025.html), circulating in late 2024 and early 2025, killed tens of thousands (and maybe more than 100,000) in the United States. The toll from [this season’s flu](https://www.cidrap.umn.edu/influenza-general/cdc-reports-6-more-child-deaths-flu-virus-levels-stay-moderate-high) will depend in part on how many people get a vaccine, which research has shown [significantly reduces](https://www.cdc.gov/flu-vaccines-work/benefits/) the risk of hospitalization and death.
+
+But the flu shot is better at reducing disease severity than preventing infection. And its [effectiveness varies](https://www.publichealth.columbia.edu/news/science-flu-shot) from season to season because the virus mutates so frequently. When designing each year’s new vaccine, scientists have to predict which strains are likely to circulate. That is not easy and they have to do so with plenty of lead time, because the companies create the key material for most of today’s flu shots by growing it [inside](https://www.niaid.nih.gov/diseases-conditions/influenza-vaccine-production-and-design) of [eggs](https://www.infectioncontroltoday.com/view/what-s-egg-age-old-vaccine-production-method-lives-?).
+
+One [advantage](https://www.nature.com/articles/s41541-023-00752-5) of [mRNA vaccines](https://www.mdpi.com/2076-393X/12/12/1382) is that the production process is a lot quicker than a chicken’s reproductive cycle. Once scientists have identified a pathogen, manufacturers can start to mass produce a vaccine within a matter of weeks. That’s how Moderna and a handful of other companies were able to churn out effective vaccines so quickly after COVID-19 first appeared on American soil in early 2020.
+
+The same technology could let scientists wait a bit longer into the year—and get a little more data—before picking which virus strands to include in each season’s flu vaccine. That would, in turn, increase the chances the final composition is a good match for whichever variants end up circulating. Another potential advantage of mRNA production is that it avoids the possibility that the virus will [mutate](https://www.scripps.edu/news-and-events/press-room/2017/20171030wilson.html) while inside the eggs, which can happen.
+
+But to unlock all that promise, a company like Moderna has to demonstrate to federal officials that a shot actually works. Figuring out how to do that was the subject of exchanges between Moderna and FDA officials back in 2024, with Moderna proposing to run a randomized trial with a sample of more than 40,000 people—half getting the Moderna shot, half getting an older shot already in wide use. The testing would take place across eleven countries and, according to Moderna, would cost more than a billion dollars to run. The subjects would all be at least 50 years old, because that’s the market Moderna has in mind for its vaccine.
+
+FDA officials made a counter-suggestion: For the portion of subjects over 65, they said, Moderna should consider testing their vaccine against a second shot that’s on the market already. That second shot has a higher dose—basically, more pieces of virus to stimulate a bigger immune response—because your immune system weakens as you age. Moderna wanted to stick with its proposal.
+
+Exactly how hard federal officials pushed and exactly why Moderna resisted—these things are still unknown. But Moderna officials say the FDA made clear that testing the shot against only the standard dose was okay—and then conveyed the same message a year later, during “pre-review” meetings.[3](#footnote-3) On top of that, Moderna [did submit data](https://x.com/matthewherper/status/2022142338492248217) showing its shot generated more antibodies than the higher-dose alternative for seniors. That’s not the same as running a trial comparing outcomes like hospitalization, but it’s the kind of meaningful evidence the FDA would typically consider.
+
+That record explains why Moderna officials say they were “completely surprised and honestly pretty confused” by the FDA’s refusal to consider the application, as company president Stephen Hoge put it in [an interview](https://nypost.com/2026/02/11/business/fda-blindsides-moderna-with-refusal-to-review-flu-vaccine-application/) with the *New York Post*. And he’s not the only one who feels that way, or who worries about the implications.
+
+“Moderna appears to have been set up—like they were given a set of expectations, and now the rug has been pulled out from under them,” [Ian Spatz](https://www.rockcreekpolicy.com/about-1), founder and CEO of the Rock Creek Policy Group, told me. “It really will hurt the ability of the industry to make those investments if they can’t count on the FDA to honor the communications they have with them.”
+
+Spatz has spent decades working in and around the pharmaceutical industry. But you’ll hear something very similar from [Joshua Sharfstein](https://publichealth.jhu.edu/faculty/1781/joshua-m-sharfstein), a former FDA principal deputy director with a [reputation](https://www.managedhealthcareexecutive.com/view/woodcock-vs-sharfstein-for-fda-commissioner) as an industry critic.
+
+“For FDA to change a decision at this late stage, the rules should be similar to instant replay in football—you need new evidence and a compelling explanation to overturn the call on the field,” Sharfstein, now a professor at Johns Hopkins University, told me. “I don’t see how that’s the case here.”
+
+\---
+
+OVER THE PAST FEW DAYS, Trump administration officials have [defended their actions on Moderna’s vaccine](https://www.nytimes.com/2026/02/11/health/fda-moderna-flu-vaccine.html) through a variety of channels—including a statement (also [provided to me](https://substackcdn.com/image/fetch/$s_!UCwa!,w_1456,c_limit,f_webp,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F49293d94-eb77-4e4b-8ca0-b2a2d5b96473_842x406.jpeg)) from HHS spokesman Andrew Nixon arguing that the company “refused to follow very clear FDA guidance” by declining to test its vaccine against the higher dose recommended for seniors.
+
+But the idea that Moderna defied “clear” guidance doesn’t square with the FDA’s 2024 statement that the company’s test was acceptable, unless Moderna is lying about that quote or taking it way out of context.[4](#footnote-4) And the underlying logic of the FDA’s new demand doesn’t make a lot of sense either, because a new vaccine doesn’t have to be better than all existing alternatives in order to have value.[5](#footnote-5)
+
+On the contrary, simply having multiple options on the market has clear advantages—like offering alternatives to people who can’t tolerate certain vaccines because of allergies and protecting against sudden supply shocks for a particular vaccine type. The latter is a real possibility in a world where avian flu is wiping out whole [poultry flocks](https://cpif.org/poultry-stocks-rocked-by-avian-flu-outbreak/).
+
+Knowing which vaccine is best is certainly useful information, and can be helpful for deciding which version of a vaccine to recommend—or to finance. But that’s different from clearing a vaccine for use, which has always been the [FDA’s job](https://www.fda.gov/vaccines-blood-biologics/development-approval-process-cber/vaccine-development-101). And that’s not to mention the fact that even if the FDA felt strongly that Moderna needed to test its vaccine more rigorously for people over 65, that was no reason to discount the results for people between 50 and 65. The agency could have simply approved the vaccine for people in that age range exclusively.
+
+Administration officials speaking to media late last week hinted that something like that might eventually be possible, with one unnamed federal official telling reporters on a conference call that Moderna might have more luck with a second, narrower request for approval if the company showed some “[humility](https://www.nbcnews.com/health/health-news/fda-defends-decision-not-review-modernas-mrna-flu-shot-rcna258642)” when it made the submission. But the idea that approval of a vaccine might depend—even a little bit—on whether the manufacturer says ‘pretty please’ speaks volumes about what role scientific judgment is now playing in the approval process.
+
+It also helps to explain why so many people in the world of vaccines find the flu-shot decision alarming. It takes years and sometimes decades to develop a vaccine. And while there’s lots of [money](https://www.fiercebiotech.com/biotech/blackstone-bets-750m-modernas-flu-program-approval-comes-view) to be made, there’s lots to be lost too.
+
+“Developing something that is an effective treatment for a disease is a long-term process and a long-term investment,” [Patricia Zettler](https://moritzlaw.osu.edu/patricia-j-zettler-ba-jd), an Ohio State University law professor who has worked in general counsel offices of both the FDA and HHS, told me. “And so companies—if they don’t have certainty about what kinds of expectations FDA is going to have, or what FDA’s views on the science are—that long-term investment in innovation is difficult to do.”
+
+That’s especially true given that changes to the approval process are taking place as part of a broader retreat from a decades-long embrace of vaccinations. That retreat includes a [downsizing](https://www.thebulwark.com/p/this-is-the-vaccine-story-rfk-jr-doesnt-want-you-to-hear-meningitis-meningococcal-disease) of official recommendations for vaccines people should get, a [rewriting](https://www.npr.org/sections/shots-health-news/2025/11/20/nx-s1-5615040/cdc-rfk-childhood-vaccines-autism) of official government guidance to raise doubts about vaccine safety, and the [canceling](https://www.thebulwark.com/p/rkf-jr-kennedy-hhs-may-have-just-ruined-our-best-weapon-against-bird-flu-moderna-mrna-covid-boosters-cdc) of hundreds of millions of dollars in government support for mRNA vaccine development.
+
+These decisions, like the refusal to consider Moderna’s flu shot, came directly from leaders rather than career staff—and in some cases, they came [from Kennedy himself](https://www.nytimes.com/2025/11/21/us/politics/rfk-jr-cdc-vaccines-autism-website.html). And though HHS officials have said he was not involved in the Moderna flu-shot decision, it’s difficult not to see his influence at work given his [long](https://www.nytimes.com/2025/08/07/health/kennedy-vaccines-mrna-trump.html) (and [dishonest](https://www.factcheck.org/2025/08/rfk-jr-justifies-cuts-to-mrna-vaccine-projects-with-falsehoods/)) [record](https://www.statnews.com/2025/08/13/rfk-jr-mrna-vaccine-research-science-papers-justification-misreading/) of [attacking](https://www.cnn.com/2025/09/10/health/kennedy-mrna-vaccine-science-conversation) mRNA technology.
+
+“It’s kind of naïve to think that there’s never been any sort of political interference with the FDA decisions over many years, but there’s never been anything like this,” said Spatz, who is also a lecturer at the University of Southern California. “There’s never been this kind of involvement from the secretary—and from the people working for the secretary, up to the FDA commissioner himself—in terms of involvement in these kinds of decisions.”
+
+Pop this newsletter into a friend’s inbox or post it to social media:
+
+\---
+
+THE COMPANIES AND THEIR INVESTORS have taken notice—and action. Even before the flu-shot imbroglio, Moderna [announced](https://www.fiercebiotech.com/biotech/modernas-reshaping-rolls-3-more-pipeline-purges) it was [putting](https://www.biospace.com/business/moderna-wont-run-phase-iii-vaccine-trials-as-skepticism-grows-in-us-bloomberg) on hold research into potential mRNA treatments for other conditions. And as companies dial back on R&D, it won’t just be for current threats like seasonal flu. Early studies suggest versions of mRNA vaccines could be effective against certain kinds of cancer too. Now companies will have to wonder if the animus towards mRNA vaccine will spill over into those efforts too.
+
+“If this is going to happen—and if it’s going to happen again and again—it can really cast a pall over the field, and the ability to develop new approaches and new technologies to be delivered to people with not just infections, but a variety of diseases,” Adam Lauring, a professor and infectious disease physician at the [University of Michigan](https://medschool.umich.edu/department-news/adam-lauring-md-phd-new-chief-division-infectious-diseases-department-internal-medicine), told me. “That’s what I’m watching, because it’s concerning when, even if something works, there’s regulatory uncertainty and it’s not clear that it’s ever gonna see the light of day.”
+
+And that’s to say nothing of the potential of mRNA vaccines to fight another pandemic, a nightmare scientists fear could become reality if a strain of avian flu starts spreading through human-to-human transmission. It’s the kind of threat for which an mRNA vaccine might be particularly well suited, because of the speed with which companies can manufacture doses. But given the hostility from Kennedy and his team, finding support for that kind of development just got a lot harder.
+
+“If today we were to have a flu pandemic emerge, we could probably only produce enough vaccine with our current technologies to vaccinate about 20 percent of the world in the first year,” Osterholm told me. But “mRNA technology would offer us the opportunity to greatly scale that up, such that within the year we could probably have enough vaccine to vaccinate the world. That would be the difference between those scenarios—millions and millions of lives lost.”
+
+[1](#footnote-anchor-1)
+
+Lizzy Lawrence of STAT broke the story that Prasad had overruled senior staff; Liz Essley Whyte published more reporting in the *Journal* a few hours later. Both are excellent journalists I would recommend following if you care about these issues.
+
+[2](#footnote-anchor-2)
+
+Prasad has been a controversial figure ever since the pandemic, when he was an outspoken—and frequently caustic—critic of vaccine mandates and other pandemic measures. He has also generated controversy since coming to the FDA, both for the policy positions he’s taken and for the way he’s managed the department. You can read about that [here](https://www.statnews.com/2025/10/31/vinay-prasad-fda-cber-management-issues-insiders-say/) and [here](https://www.biospace.com/fda/fdas-prasad-weathers-personal-controversy-internal-strife-amid-moderna-imbroglio).
+
+[3](#footnote-anchor-3)
+
+Here is the relevant passage from the FDA’s 2024 letter, as quoted in the Moderna [press release](https://feeds.issuerdirect.com/news-release.html?newsid=7346090610333866&symbol=MRNA) from Tuesday: “While we agree it would be acceptable to use a licensed standard dose influenza vaccine as the comparator in your Phase 3 study, we recommend you use a vaccine preferentially recommended for use in older adults by the ACIP (i.e., Fluzone HD, Fluad or Flublok) for participants >65 years of age in the study. Data on comparative efficacy of your vaccine against an influenza vaccine preferentially recommended for use in the >65 years age group may help inform ACIP’s recommendation for the use of your vaccine in the older adult population. If you proceed with using a standard dose influenza vaccine comparator in participants ≥65 years of age, we agree with your plan to include statements in the Informed Consent Form.”
+
+[4](#footnote-anchor-4)
+
+One reason to take Moderna at its word is that federal officials have not challenged the quote, even though it’s been out there for several days. I did ask Christopher Ridley, the Moderna spokesman, why the company hasn’t released the full document. “The document itself is large and has lots of names, confidential information (on manufacturing etc.) that would need to be redacted,” he said. He also noted that Moderna in its press release had cited the FDA’s expression of concern, rather than trying to hide that.
+
+[5](#footnote-anchor-5)
+
+One other argument administration officials have made is that, by failing to test against the high dose for seniors, Moderna put those people at greater risk of disease. This is a particularly strange argument given that (a) the lower dose is still recommended and widely taken by seniors (b) Kennedy and his allies have, in other contexts, called for testing vaccines against placebos—which would expose participants to far greater danger.

@@ -1,0 +1,125 @@
+---
+title: "Ideology and Authenticity "
+author: "Daniel Tutt"
+publication: "Daniel Tutt"
+publication_slug: "danieltutt"
+published_at: "2025-07-07T13:11:24.000Z"
+source_url: "https://danieltutt.substack.com/p/ideology-and-authenticity"
+word_count: 3623
+estimated_read_time: 19
+---
+
+[
+
+![](https://substackcdn.com/image/fetch/$s_!SeIF!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F1e2a24b5-c972-4530-8e55-2928ee686bdb_1456x971.webp)
+
+
+
+](https://substackcdn.com/image/fetch/$s_!SeIF!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F1e2a24b5-c972-4530-8e55-2928ee686bdb_1456x971.webp)
+*This piece is originally published in [Muftah Magazine](https://www.muftah.org/) as part of its new issue on “Authenticity.”*
+
+Critics of “wokeism” and “cancel culture” often reproduce the very same nihilism and despair that fuel wokeism itself. The woke/anti-woke pipeline functions as something of an echo chamber that feeds into “anti-politics,” understood as the success of establishment politics (or what Marxists used to call “bourgeois politics”) in effectively *pacifying* movements that aim to upend and revolutionize the class and material bases of political life. The concept of anti-politics is useful here because it helps explain the tendency for political ideology to collapse into an aesthetic or symbolic form that gestures toward power but relies instead on slogans, generalized outrage, and protest. This is the objective of bourgeois politics within the Democratic Party in the United States: to absorb and neutralize outlier protest and agitational movements—from Black Lives Matter, to Bernie Sanders, to more recently Zohran Mamdani. The Democratic Party is perhaps the single most efficient force by which truly agitational political energy in American life becomes overwhelmed by inertia and subordinated to the establishment’s own political machinery.
+
+A good example of how the inertia and pacifying machine of the Democratic Party operates is observable in two recent protests movements: the No Kings protests and anti-ICE uprisings in Los Angeles. Because these movements are qualitatively different in terms of strategy, optics, and messaging, the appropriate way to analyze them is to locate the class basis from which they both emerge. The anti-ICE protests emerged from some of the poorest working class neighborhoods in Los Angeles, and the tactics they deployed against the police (like burning, looting, and effacing property) recall the Rodney King riots of 1992, which Mike Davis referred to as the “first postmodern bread riot.”[1](#footnote-1) The No Kings protests, on the other hand, are a largely middle class movement sponsored by over 200 civil society nonprofits from the American Civil Liberties Union (ACLU) to MoveOn.org, all of which are deeply ensconced in the Democratic Party. These two movements should not be seen as separate; they are interrelated but also antagonistic to one another. The best way to clarify the distinction between them is to invoke what the late poet and communist thinker Joshua Clover once called the “split” that occurs in any riot—between a “practical” side that aims for maximal agitation (and thus a true overcoming of ICE as a repressive agency of the state) and a “communicative” side which seeks to pacify and redirect the antagonistic energies of the “practical” riot.[2](#footnote-2)
+
+Clover was a “communization” theorist who saw the task of communist activity as rejecting the building of institutions within capitalism to prepare the working class for revolution. Communization is fundamentally skeptical of socialist parties, aiming instead for a worker-led model of “council communism.” But in an era when just over 10% of workers are unionized, it is unclear how such a strategy could effectively organize the working class. For Clover, capitalism has been in a “long downturn” since at least the early 1970s, which means the ruling class cannot regenerate a social contract with its citizens that would make the institutions of capitalism reformable or even oriented towards social welfare. In Clover’s view, class forces are to some extent already fixed in such a way that class struggle, should it appear within the day-to-day inertia of bourgeois politics, is destined to be pacified.
+
+This, then, is one of the downsides of communization theory: how it construes the working class. If riot or spontaneous uprisings are the sole horizon for anti-capitalist politics, how can the working class develop a collective consciousness beyond them? How can militant organization take place outside of the maximal expression of what are in reality rare moments of riot and insurrection? Moreover, is the wider presupposition of communization not an appeal to a theory of immiseration of the working class which maintains that novel political activity is largely driven by populations formally excluded from wage labor? This is in fact one of Clover’s core claims, namely that “surplus rebellions” are the predominant site of agitation.
+
+What Clover’s thesis amounts to, however, is a repetition of some of the theories of Black Panther figures such as Eldridge Cleaver who argued that the lumpenproletariat—the unemployed, gig employees, and those on the margins of stable work—will become the vanguard of communist class politics. Yet recent work by Clyde Barrow has shown that the class demands of the lumpenproletariat are often more easily manipulated by the Democratic Party and funneled into its preferred arena of political agitation: identity politics and civil liberties.[3](#footnote-3) In other words, at a class level, there are inherent limitations to a “lumpen-centered” theory of communism today because of the ideological hegemony of bourgeois politics and its capacity to effectively turn this class and its spontaneous interests away from those of labor and the working class. For wage laborers, maximalist slogans about “the abolition of work” are often neither acceptable nor appealing as they undermine the social conditions that define them as a group within the labor market. Within the arena of bourgeois politics, the lumpenproletariat are what Claus Offe refers to as “policy takers,” that is, prone to following consumption-based concerns and not economic-based concerns.[4](#footnote-4) When the lumpenproletariat or “surplus populations” are mobilized in riots, it becomes unclear how their class interests (evident in their antagonistic relation to labor demands) might be reconciled through the riot’s force alone.
+
+The recent work of Jasper Bernes—a close comrade to Clover and communist poet associated with the wider California Communist current—frames the 2020 George Floyd uprising as a rupture, a moment in which communist and abolitionist politics might have found a new center outside the capture of bourgeois politics. In his new book, *[The Future of Revolution](https://www.versobooks.com/products/977-the-future-of-revolution?srsltid=AfmBOoo2JE2OaA4hi1OVZ0QxzSbTuAHBAMrrKSNWUHBWdwg49pJqg2gA),* Bernes situates his method within the tradition of the “ultraleft,” which like communization theory, holds that genuine communist activity emerges only in specific revolutionary conjunctures, “when particular forms of practice, whether commune, council, or something else, open up a path toward a communist horizon, a communist prospect, visible from some point of rising action.”[5](#footnote-5) Although Bernes is cautious not to classify the George Floyd protests as “revolutionary,” the book nonetheless links it to a wider communist genealogy in line with the Paris Commune of 1871 and the Russian Revolution of 1917.
+
+As we saw in Clover’s distinction between the practical and the communicative dimensions of the riot, Bernes appears interested only in its practical expression. This leads to a one-sided analysis that overlooks the broader conditions under which class struggle persists within capitalist politics. This limitation likely stems from a core ultraleft assumption: that the inward transformation of individuals is impossible so long as capitalism endures. But what would it mean to analyze the communicative side of these political events? What would it mean to confront the class ideology embedded in left-liberalism?
+
+## **The Upper Middle Class and its Ideological Discontents**
+
+Most analyses of “woke” ideology mistakenly but persistently tell us that the phenomenon emerges out of Marxist theory. In reality, many Marxists do not take the construct of “wokeism” seriously enough to develop a full critique, precisely because the term has become so nebulous as to be meaningless, and so overused in popular discourse that any response risks being both too personal and too general. Yet in two recent books—Musa al-Gharbi’s *We Have Never Been Woke,* and Norman Finkelstein’s *I’ll Burn That Bridge When I Get to It*—we find a sustained engagement with the idea that “wokeism” emerged from the far left, and specifically Marxist ideology.
+
+In al-Gharbi’s account, we are given a clear explanation for why the George Floyd protests shifted from a maximalist phase of burning down police precincts and removing confederate statues to a more symbolic path focused on renaming schools, implementing diversity, equity, and inclusion (DEI) initiatives, and pursuing other norm-based reforms within corporate and institutional life. For al-Gharbi, woke politics is defined as a symbolic demand for norm corrections, not material or revolutionary alteration to the prevailing system of power. Its origins are not found in movements such as Occupy Wall Street or even the George Floyd uprising itself. In al-Gharbi’s analysis, woke politics is a reaction to capitalist crisis and stagnation, and rather than emerging from the masses, it stems from the frustrations of the upper middle class during periods when their career expectations go unmet. Woke politics is thus a confused and neurotic projection of a segment of the middle class that has shaped the postwar period to such a degree that it is no longer clear whether all politics has been subordinated to the hallucinations of the upper middle class, or whether more serious and emancipatory movements (such as the civil rights movement) were exceptions to, rather than expressions of, “wokeism.”
+
+Al-Gharbi does not seem to think that the working class had any historical agency in the postwar period whatsoever. In his reading, the locus of political activity has centered on three “Great Awokenings” which started first in the 1960s, then in the 1980s and 1990s, and most recently in 2020. Relying on the French sociologist Pierre Bourdieu, who theorized the discontents of students in the May 1968 uprising as a dynamic involving a collapse in the implicit promises for job placement (and hence of “elite overproduction”), al-Gharbi sees the upper middle class as *the* driving agent of history.[6](#footnote-6) Some of this argument of course has a good deal of validity, as nearly half of upper-middle-class children born in the 1980s failed to replicate the class position of their parents by age thirty. Out of revenge, the upper middle class sought to indict the system that let them down. But because these downwardly mobile upper middle class aspirants are still ensconced in capitalist institutions, they seek ideological outlets in socialist, feminist, antiracist, or queer critiques of the prevailing order. Here, “ideology” is understood as a substitute for class resentment among a coddled elite seeking to overthrow a “rival tier” within the broader elite class.
+
+With this analysis in place, al-Gharbi then claims that Marxism becomes the predominant ideology that motivates the vanguard of the upper middle class. But Marxism, in this reading, is personified as an ideology that ultimately becomes a cudgel against a working class-centered form of politics, and that is adapted to the whims of the habitus of the upper middle class. Marxism, in other words, is completely shorn from Marx’s main principles. Marxism for the upper middle class effectively becomes what existentialism became on behalf of its proponents in the mid-20th century—an ideology that compliments, and does not challenge, the need for subjective authenticity.
+
+In *The Jargon of Authenticity,* the German philosopher Theodor Adorno develops a critique of existentialist philosophy as a movement of thought that celebrated the authentic inward state of the subject but held no self-critical relation to the Other. This led to a philosophy that was fully in line with the existing status quo.[7](#footnote-7) The emphasis placed on inward authenticity was elevated to an ideal that had no need for any self-critical position, and this meant that the existentialist was vulnerable to administrative authority. Al-Gharbi quotes George Orwell’s critique of socialists in his time, who states that “One sometimes gets the impression that the mere words ‘Socialism’ and ‘Communism’ draw towards them with magnetic force every fruit-juice drinker, nudist, sandal-wearer, sex-maniac, Quaker, ‘Nature Cure’ quack, pacifist and feminist in England.”[8](#footnote-8)
+
+Yet nowhere in al-Gharbi’s analysis does he consider the possibility that Marxism might take a different non-elitist controlled form in the world or in politics. And nowhere in al-Gharbi’s analysis does one find where authentic emancipation might come from. If the professional is fully compromised and fated to resentful narcissistic projection and control, gone is any possibility of the figure that Lenin used to refer to as the professional revolutionary. We end up coming full-circle from a pessimistic, anti-universalistic woke politics, to a critique of woke politics that seems to produce a similar anti-politics. Yet the challenges facing the left are too great to permit a retreat into a reactive pessimism that judges all gestures toward emancipation as inevitably collapsing into group narcissism. If history is indeed driven by the upper middle class, we may be at a dead end. But the task remains to identify class agents capable of igniting history, and it is to that task that Marxism points the way.
+
+## **Be Careful Fighting Monsters…**
+
+In *I’ll Burn That Bridge When I Get to It*, the well-known critic of Israel Norman Finkelstein similarly blames “wokeism” and “cancel culture” on elements of the Marxist left. Specifically, he draws a parallel between these phenomena and Maoism, particularly the party line during and after the Cultural Revolution in China.[9](#footnote-9) At that time, the ideological line could shift abruptly, and failure to keep up with those changes could lead to punishment. In Finkelstein’s view, the same dynamic applies today: fall behind the current line, and you are canceled. Thus, both al-Gharbi and Finkelstein see cancel culture as emanating from the top-down, never from the bottom up. While al-Gharbi notes many cases of elites “canceling” working-class people, there are not many cases of non-elites successfully canceling elites. Cancelation is like cricket or lacrosse—it is invariably an elite sport designed and enforced by people with power, deployed against those with less power.
+
+Cancel culture is a class conflict scenario executed by an executive class. Al-Gharbi quotes the culture writer Bertrand Cooper who [wrote](https://www.currentaffairs.org/news/2021/07/who-actually-gets-to-create-black-pop-culture) that “were \[George\] Floyd still alive, or somehow reborn, he would not be hired to work within any of the institutions which now produce popular culture in his honor because he never obtained a bachelor’s degree. No matter how much Michael Brown or Breonna Taylor might have impacted a living Floyd, he would not be eligible to work at The Atlantic, at the New York Times, at HBO, or at Netflix.” At the heart of woke ideology, then, is an uncritical politics of “authenticity” that affects minority communities differently, but which is driven consistently by elites policing their own. So, for example, Black elites tend to leverage the struggles and experiences of lower-to moderate-income, nonimmigrant, monoracial Black communities to enhance their own credibility and life prospects by claiming to speak on their behalf. When what is politically judged to be authentic in the struggles of the subaltern or the working class subject is ultimately decided by the whims of the elite (whose ideology is forged on intra-elite resentment), then woke politics not only becomes anti-politics, it becomes a class politics that is indistinguishable from bourgeois politics itself.
+
+Finkelstein’s book is less academically rigorous than is al-Gharbi’s, and it is full of memoir-style reflections on his own [denial of tenure](https://www.insidehighered.com/news/2007/06/11/depaul-rejects-finkelstein) on spurious grounds related to his advocacy of Palestinian rights. The son of two Holocaust survivors, Finkelstein’s lack of patience with elitist woke politics is not surprising. What *is* surprising, however, is the extent to which he appears unable to see a way out of woke politics. It may be that his more than fifty years of tireless work exposing the crimes of Israel’s illegal occupation of Palestine—and now the genocide in Gaza—have left him with little hope that the excesses of woke politics can ever be tempered or redirected away from their extremes. As he says:
+
+> “The woke crowd latches onto the furthest-most limits to manifest just how cutting-edge, how much better and purer, it is. Gays and lesbians are so passé, so humdrum. At its worst, the woke cult of transgenders is a cross between voyeurism and morbidity, a fascination with the sexually bizarre, a politically correct version of snuff pornography.”[10](#footnote-10)
+
+In another passage, Finkelstein allows all good sense and decency to escape him:
+
+> “Whenever I see he/him or she/her, I think fuck/you. You must be living an awfully precious life if, amid the pervasive despair of an economy in free fall, your uppermost concern is clinging to your pronouns. Here’s my shout-out to the snooty, self-indulgent, virtue-signaling Harvard-Hamptons-Hollywood crowd: “I’ll tell you my pronouns if you tell me your net worth.”[11](#footnote-11)
+
+Why would the great Norman Finkelstein—a tireless advocate of the Palestinian cause and a man who has spent decades mastering the art of principled debate in the face of Zionist witch hunts—undermine the basis of his own argument by falling sway to such vulgar bigotry? One might think that a critic of the excesses of woke ideology would be especially attuned to the danger of reproducing those same excesses. As Nietzsche warned, be careful in fighting monsters.
+
+Although it may be too early to tell, and contrary to Finkelstein’s apparent sentiments, the Zohran Mamdani campaign suggests that the class driving “wokeism” is indeed capable of tempering some of its earlier excesses. Mamdani is the son of upper middle class immigrants—his mother a filmmaker, and his father a professor known for having expressed maximalist policy preferences including police abolition. Mamdani’s 2025 Mayoral campaign has shown a refusal to be defined in terms of identity when pressed by the bourgeois press. Mamdani himself has also steered clear of maximalist demands—such as police abolition—that often alienate working-class voters as much as they are seized upon by the right for being unrealistic and extreme.
+
+Of course, Finkelstein’s book is not all bluster and bigotry. What it lacks, however, is a sincere effort to clarify Marxism beyond an appeal to a vague, pre-New Left version—one that was more basic and more directly aligned with working-class issues. The mere suggestion that Marxism centers the working class is not taboo or old-fashioned, it is foundational to Marxism itself. Affirming this need not make one a persona non grata, old-fashioned, or subject to cancelation. In this sense, Finkelstein seems to long not for a more rigorously Marxist left but perhaps for a better liberalism. He writes:
+
+> “To be proud of being Black, a woman, or gay defies rational sense; one cannot be proud of what one is; only of what one does.” But identity politics asserts the primacy of these biological givens in one’s self-definition. On the one hand, identity politics decries these invidious “social constructs”— Black, woman, gay—to which a negative valence has been attached by the world at large. But, on the other hand and simultaneously, identity politics elevates racial, sexual, etc. data to the overarching aspect of one’s being; a positive valence is imputed to them, something that one is supposed to embrace as of one’s essence. Now, it is true that no one comes into this world tabula rasa, “that to a great extent, he is formed by his race, his surroundings, his nation.” But what sense is there in making a “cult” of that over which one has no choice; why be enthralled by that to which one is, as it were, in thrall? Why would one want to be defined by an imposed identity, an identity determined at birth and overdetermined by society?”[12](#footnote-12)
+
+It seems that Finkelstein wants “the woke” to learn more from Martin Luther King Jr. than from Marx. He wants people to be judged not on the color of their skin but on the content of their character. There is a senselessness and a brutality that is at the heart of cancel culture, a perniciousness and even a sadism that is often completely untethered from reason or ideology. And Finkelstein and al-Gharbi are therefore right to point to the petty resentments over intra-elite aspirations which primarily drive that intensity, but this does not mean that these developments are overwrought with Marxist ideology. Cancel culture is mediated through politically low-stakes conflicts—it most often occurs in digital interfaces—and because it often involves firings or the threat of career death, its logic is best analogized to market competition (ideology stands in as a superficial, secondary factor).
+
+One of the important contributions of al-Gharbi’s and Finkelstein’s books is this reminder: that woke politics is in fact driven by a very specific sentiment of the upper middle class. Its mantras and maxims are detectable as reflections of class interest, and so the first task of any criticism of woke politics should be to avoid reproducing its underlying frameworks of understanding. The excesses of “wokeism” are not authentic excesses of the disconnects of the masses of the working class; if anything they are only partial expressions of those discontents. Any alternative to the hegemony of woke politics would have to prioritize solidarity over exclusion, and critical ideology over a sacred and uncritical conception of the left. Everything hinges on the class dynamics and the class forces that shape woke politics. The upper middle class will have a reluctance to shrugging off woke politics—we should expect them to remain uncritical to it and especially to the reconstitution of a class-centered orientation to the left. In lieu of reaffirming the woke-to-anti-woke pipeline or other pessimistic conclusions, socialists critical of “wokeism” need to cultivate a more principled assessment that clearly delineates the problem.
+
+\---
+
+**NOTES**
+
+[1](#footnote-anchor-1)
+
+Mike Davis, “[Realities of the Rebellion](https://www.marxists.org/history/etol/newspape/atc/5146.html),” *Against the Current*, No. 39 (July/August 1992).
+
+[2](#footnote-anchor-2)
+
+Joshua Clover, *Riot. Strike. Riot: The New Era of Uprisings (*New York: Verso Books, 2016), 15.
+
+[3](#footnote-anchor-3)
+
+Clyde Barrow, *The Dangerous Class: The Concept of the Lumpenproletariat* (Ann Arbor: University of Michigan Press, 2020), 130 - 132.
+
+[4](#footnote-anchor-4)
+
+Ibid., 132.
+
+[5](#footnote-anchor-5)
+
+Jasper Bernes, *The Future of Revolution: Communist Prospects from the Paris Commune to the George Floyd Uprising (*New York: Verso Books, 2025), 8.
+
+[6](#footnote-anchor-6)
+
+Musa al-Gharbi, *We Have Never Been Woke: The Cultural Contradictions of a New Elite* (Princeton: Princeton University Press, 2024).
+
+[7](#footnote-anchor-7)
+
+Theodor Adorno, *The Jargon of Authenticity* (London: Routledge, 2002), 27.
+
+[8](#footnote-anchor-8)
+
+George Orwell, *The Road to Wigan Pier* (Orlando: Harvest, 1958), 174.
+
+[9](#footnote-anchor-9)
+
+“Today’s woke politics is yesterday’s Maoism come alive,” writes Finkelstein. See *I’ll Burn That Bridge When I Get to It*, 58.
+
+[10](#footnote-anchor-10)
+
+Norman Finkelstein, *I’ll Burn That Bridge When I Get to It: Heretical Thoughts on Identity Politics, Cancel Culture, and Academic Freedom* (New York: Sublation Press, 2023), 55.
+
+[11](#footnote-anchor-11)
+
+Ibid., 61.
+
+[12](#footnote-anchor-12)
+
+Ibid., 392-393.

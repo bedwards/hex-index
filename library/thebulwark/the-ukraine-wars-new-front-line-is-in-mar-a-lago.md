@@ -1,0 +1,89 @@
+---
+title: "The Ukraine War’s New Front Line Is in Mar-a-Lago"
+author: "Sarah Longwell, Tim Miller, Bill Kristol"
+publication: "The Bulwark"
+publication_slug: "thebulwark"
+published_at: "2026-02-05T07:38:05.000Z"
+source_url: "https://www.thebulwark.com/p/ukraine-war-new-front-line-phases-civilians-endurance"
+word_count: 1961
+estimated_read_time: 10
+---
+
+[
+
+![](https://substackcdn.com/image/fetch/$s_!Qu1l!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fa5404922-3a9f-4417-a3d3-865b06ea4960_5400x3602.jpeg)
+
+
+
+](https://substackcdn.com/image/fetch/$s_!Qu1l!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fa5404922-3a9f-4417-a3d3-865b06ea4960_5400x3602.jpeg)
+*A view of damage to the infrastructure on the CHP-4 Darnytska power plant that was hit by a Russian attack multiple times on February 4, 2026 in Kyiv, Ukraine. Russia attacked the energy facility as Ukraine is suffering one of its coldest winters in years, with residents struggling with a lack of heat and electricity. (Photo by Paula Bronstein/Getty Images)*
+
+EVERY MILITARY ORGANIZATION CONDUCTS battles and operations to meet the strategy set by its civilian leaders. From the Russian full-scale invasion of Ukraine in February 2022 through roughly June 2025, I have watched along with others and analyzed the tactical battles and the operational campaigns in Ukraine progress through at least ten discernible phases. Each one had distinct objectives, shaped by each side’s conduct of tactical fights—i.e., battles—and the linking of these battles into operational campaigns. In each, both sides have made adjustments based on their respective critical assessments of the art of the possible that would allow them to gain an advantage. These ten phases are my analysis alone. Here is a brief doctrinal summary of each, though these summaries represent a vast oversimplification of what has happened in the four years of war:
+
+**Phase I:** The initial Russian full-scale invasion and the hasty Ukrainian defense (February–March 2022).
+
+**Phase II:** Russia’s limited offensive on adjusted fronts, with Ukrainian forces adjusting their hasty defense positions to confront the enemy (April–June 2022).
+
+**Phase III:** Culminating Russian offensives, and Ukraine taking the initiative with limited hasty attacks (July–September 2022).
+
+**Phase IV:** While tactical fights continue, an operational pause by both sides, with both sides focused on mass mobilization of personnel and materiel; during this phase, Ukraine’s forces achieved the liberation of Kherson (September–December 2022).
+
+**Phase V:** Limited action by both sides, with a race between additional Russian mobilization and Ukrainian forces achieving limited force transformation given the supply of new Western equipment and training (December 2022–June 2023).
+
+**Phase VI:** The Ukrainian summer offensive, delayed by several months for various reasons, pitted against extensive Russian deliberate defenses of minefields, trenches, and long-range weapons (July–October 2023).
+
+**Phase VII:** The long “slugfest” in the east, with both sides alternating between hasty defensive and hasty offensive operations (October 2024–July 2024).
+
+**Phase VIII:** The surprising Ukrainian offensives into Kursk and Belgorod (August 2024).
+
+**Phase IX:** The fight for an advantage; Russia using long-range weapons and Ukraine reinforcing key positions along the front (hindered significantly by Congress’s delay of the flow of approved equipment) (November 2024–June 2025).
+
+I believe that across these phases, Ukraine’s record is 6–2–2: six operational successes, two clear setbacks, and two outcomes best described as draws.
+
+Since the summer of 2025, however, the balance of the war has become murkier because the facts on the ground have become harder to read and the political context of the war has become as unpredictable as the combat, if not more so. Traditional markers of success—terrain gained or lost, cities held, offensives launched, the state of the army and the people’s will—tell us less than they once did. That’s because what is happening no longer fits neatly into earlier categories.
+
+The war has now entered what I consider the next phase, one which may be defined less by sweeping maneuver than by continued attrition, infrastructure destruction, the deliberate erosion of civilian life and political dysfunction. In this next phase, the disconnect between war and diplomacy will become impossible to ignore.
+
+If this next phase has a defining feature, it is Russia’s unstopped and systematic effort to turn winter itself into a weapon. Russian forces have intensified strikes on Ukrainian energy generation and distribution infrastructure, knowing full well what those attacks mean when temperatures plunge well below freezing. Without electricity, not just lights and communications, but heat, water pressure, sewage, hospital care, and transportation, all Ukrainian urban life is affected.
+
+During a conversation last week, an American friend of mine living in Kyiv captured this reality in stark terms: With electricity unreliable and temperatures dropping, pipes in residential buildings have cracked. Toilets have frozen. Water supply has become critical not because reservoirs are empty, but because the systems that move and heat the water are malfunctioning. This is, by any reasonable interpretation of international law and the law of armed conflict, a war against civilians. It is an additional war crime on top of the uncountable thousands the Russians have already committed. The deliberate targeting of energy systems to impose suffering on noncombatants meets that threshold, yet this is the context in which the world is supposed to take seriously the notion that a peace process is underway.
+
+This phase has impeded any analyst’s efforts to measure what is happening. That’s because analysts have long relied on proxy indicators—reports from the battlefield, civilian cell phone pings, traffic flows, and electricity usage—to estimate the population’s status and the public’s willingness to continue supporting the fight. But when leaders must chose between protecting women and civilian or commanding their troops, and phones cannot be charged, or networks go down, or when water becomes unavailable and toilets can’t flush, the flow of information from proxies collapse. For example, reports suggest that large numbers of people are leaving Kyiv—some estimates indicate that over 600,000 have departed—this data is inherently unreliable because the very systems that generate them are failing.
+
+That uncertainty matters. It allows wishful thinking to fill gaps in knowledge, and narratives of “war fatigue” or “collapse” to outrun the evidence. What we can say with confidence is that conditions inside Ukrainian cities are placing enormous strain on civilians, and that strain is cumulative. People are not fleeing because the front lines are moving. They are leaving because daily life has become unsustainable—precisely the effect Russia appears to be seeking. Not decisive battlefield victory, but societal exhaustion.
+
+\---
+
+AGAINST THIS BACKDROP, THE UNITED STATES has been attempting to broker negotiations between Ukraine and Russia, most recently through trilateral talks in Abu Dhabi. On paper, these talks are meant to explore pathways toward ending the war. In practice, they have exposed a deep and growing contradiction.
+
+Carl von Clausewitz had warnings about allies. “We may further reckon allies as the last support of the defensive,” he [wrote](https://www.gutenberg.org/files/1946/1946-h/1946-h.htm#chap70) nearly two centuries ago. “Naturally we do not mean ordinary allies, which the assailant may likewise have; we speak of those essentially interested in maintaining the integrity of the country.” But “the \[leader on the\] defensive may reckon the more certainly on it in proportion as his existence is of importance to others, that is to say, the sounder and more vigorous his political and military condition.” And the political importance of Ukraine’s survival to the United States—at least, to the present administration—remains uncertain. And that’s a kind way of putting it.
+
+American negotiators have pursued what might be described as a bifurcated strategy: engaging Russia with what Moscow sees as respectful dialogue and flexibility, while simultaneously pressing Ukraine to consider territorial concessions and limits on its sovereignty in the name of realism. That approach has confused even experienced observers of the conflict.
+
+Russia’s position, meanwhile, remains consistent. Moscow repeatedly rejects ceasefires not embedded in a comprehensive settlement on its terms. It insists Ukraine must cede territory they still control. It consistently rejects binding security guarantees for Ukraine as unacceptable. It has made clear that it regards any Western military presence in Ukraine as part of an agreement—even a peacekeeping force—as a red line.
+
+In other words, Russia is negotiating as if it has already won.
+
+Ukraine’s position has also been consistent: Without credible, enforceable security guarantees, they believe that any ceasefire simply becomes an operational pause before the next Russian offensive. History gives Kyiv [ample reason](https://www.thebulwark.com/p/russian-peace-offensive-counteroffensive) for skepticism. Other Europeans see it the same way, and only the U.S. administration remains blind to Russian patterns long established.
+
+What makes the current moment so jarring is not that talks are difficult—that is normal in war—but that negotiations are proceeding as if they exist in a separate universe from the war being fought on the ground. While diplomats discuss frameworks and sequencing, Russian forces continue to attack civilian infrastructure in ways that actively undermine the possibility of peace. The ongoing campaign against Ukrainian civilians is not leverage for peace; it is evidence against Russia’s desire for it.
+
+All the while, Washington’s focus on this critical conflict continues to splinter. Because the Trump administration has been drawn toward crises in Venezuela, speculative disputes over Greenland, unrest in American cities, and the gravitational pull of various domestic political scandals, Europe has begun to adapt in more structural ways.
+
+\---
+
+THE EUROPEAN UNION AND NATO members are no longer treating support for Ukraine as an emergency response. They have adapted to a long-term approach, with multiyear funding mechanisms, coordinated procurement, expanded production of air defense systems, and long-term sustainment planning dominating European discussions—not simply altruistic but motivated by self-interest. European leaders understand that the outcome of this war will shape their own security environment for decades. A Russian victory—even a limited one—would validate coercion, normalize infrastructure warfare, and push instability westward. Europe’s response has therefore shifted from episodic aid to an industrial strategy, with the belief they must establish it themselves, even avoiding help from the Americans.
+
+Despite political turbulence, the flow of arms and intelligence to Ukraine has not stopped. It has changed character. Europe is becoming more serious about sustaining Ukraine precisely as public debate in the United States grows more distracted and episodic.
+
+European states have assumed greater responsibility for artillery ammunition, air defense, and armored systems, while accelerating domestic production to replace exports. Germany has prioritized sustainment and replacement over symbolic deliveries.
+
+Intelligence sharing has also evolved. While the United States remains central, European partners have expanded their own contributions, ensuring that Ukraine retains access to battlefield awareness even amid political uncertainty and a rising distrust in Washington. This diversification of intelligence sources reflects a sober understanding that reliance on a single patron, especially one that is not proving itself as trustworthy, is a vulnerability.
+
+Another underappreciated feature of this war is the continued presence of foreign volunteers fighting alongside Ukrainian forces. They come from dozens of countries, motivated by the belief that Ukraine’s fate is not isolated and that, if Russia succeeds here, the precedent will matter elsewhere. Precise numbers are elusive, but thousands of foreign fighters have served in Ukrainian units since 2022. Casualties among these volunteers are significant, particularly among cohorts drawn from economically vulnerable regions who often find themselves in the most dangerous roles.
+
+American citizens have also fought and died in Ukraine, though the United States does not track or publicize those figures in any systematic way. These are not U.S. soldiers deployed by Washington; they are volunteers who made a personal calculation about risk and consequence. Their presence underscores a reality often missed in policy debates: Many people see this war not as a faraway dispute over land, but as forward defense.
+
+This next phase of the war resists any perfect narrative. Ukraine is not collapsing, but neither is it advancing decisively. Russia is not winning cleanly, but it is imposing real suffering. Diplomacy appears active, but peace is not meaningfully closer. This war has shifted from contests of maneuver to contests of endurance. And endurance, in this context, is not measured only in battalions and brigades. It is measured by the presence of warm apartments, flowing water, functioning hospitals, and a society’s capacity to endure suffering without breaking while its soldiers fight for territorial integrity and cultural sovereignty.
+
+Any peace process that ignores this reality will fail. Negotiations cannot be disconnected from conduct. A nation that deliberately targets civilians is not looking for a prelude to peace; they are advancing an argument against trust. And until truth is confronted honestly, talk of settlement will remain just that—talk—while the war grinds on in the dark, the cold, and the silence of frozen cities.

@@ -1,0 +1,108 @@
+---
+title: "Sinocism Weekly - March 6, 2026"
+author: "Bill Bishop"
+publication: "Sinocism"
+publication_slug: "sinocism"
+published_at: "2026-03-06T21:34:15.000Z"
+source_url: "https://sinocism.com/p/sinocism-weekly-march-6-2026"
+word_count: 2147
+estimated_read_time: 11
+---
+
+*I am testing a new weekly, free version to highlight some of the key issues of the week. Please let me know in the comments if you think this is a worthwhile effort, or a waste of time and inbox space. Thanks - Bill*
+
+Welcome to the Sinocism Weekly, a free Friday newsletter highlighting the most important items from the Sinocism Essential Eight published Monday through Thursday. This week was dominated by two overlapping stories: the opening of China’s annual Two Sessions legislative meetings in Beijing, and the US–Israel military strikes on Iran that sent shockwaves through energy markets and forced Beijing into a delicate balancing act between its diplomatic ambitions and its energy security anxieties. Underneath those headlines, the week also brought fresh signals on the tech decoupling front, another China-related espionage scandal in the UK, and continued evidence that Xi Jinping’s military purge is far from over.
+
+For daily coverage and deeper analysis, subscribe to the paid Sinocism newsletter at [sinocism.com](https://sinocism.com). This week’s [Sharp China podcast](https://sinocism.com/p/sharp-china-all-eyes-on-iran-two), outside the paywall, covers the Iran situation, Two Sessions, Alibaba, DeepSeek, and the UK spy arrests in detail.
+
+**1\. The Government Work Report: Steady as She Goes**
+
+Premier Li’s draft Government Work Report, delivered Thursday at the opening of the National People’s Congress, set the tone for the year ahead: things are on the right track despite a difficult external environment and continuing domestic headwinds, including overcapacity and deflationary pressures. The overarching message was one of continuity with the policy direction established at the Fourth Plenum and Central Economic Work Conference in late 2024, rather than any dramatic pivot toward aggressive stimulus. If you were hoping for a big consumption stimulus, you will likely be disappointed.
+
+The GDP growth target was trimmed from “around 5%” to a range of 4.5–5%, reflecting both the uncertain global environment and a dose of realism about domestic demand. The headline budget deficit holds at 4% of GDP, and while the broader fiscal deficit may widen marginally, the net effect of fiscal support could actually be less stimulative than in 2025. The PBOC will cut rates and reserve requirement ratios, but incrementally—don’t expect a dramatic easing cycle. Direct support for household consumption remains underwhelming, which continues to be the most frustrating gap between the leadership’s stated goals and its actual policy commitments.
+
+As Gerard DiPippo [observed on LinkedIn](https://www.linkedin.com/posts/gerard-dipippo-b76565230_chinas-government-work-report-budget-and-share-7435470844782391296-GbdJ/), Beijing’s policy rhetoric tends to be more variable than the policy reality. In practice, China’s leadership remains fairly conservative when it comes to fiscal policy and household support. The narrative of a shift toward consumption-led growth is stronger than the policies currently supporting it, at least in the short to medium term.
+
+Technological self-sufficiency and industrial policy remain core priorities. The Work Report does acknowledge overcapacity and deflation—a notable rhetorical concession—and there are some new measures aimed at mitigating the domestic fallout from large-scale industrial subsidies. But nothing in the report challenges the fundamental growth model. The accompanying 15th Five-Year Plan draft reinforces these themes.
+
+Thanks to the excellent [NPC Observer](https://npcobserver.com/) for hosting PDFs of the key documents, including the Government Work Report ([Chinese](https://npcobserver.com/wp-content/uploads/2026/03/2026-Government-Work-Report_NON-FINAL_ZH.pdf) | [English](https://npcobserver.com/wp-content/uploads/2026/03/2026-Government-Work-Report_NON-FINAL_EN.pdf)), the MOF budget report ([Chinese](https://npcobserver.com/wp-content/uploads/2026/03/2026-MOF-Report_NON-FINAL_ZH.pdf) | [English](https://npcobserver.com/wp-content/uploads/2026/03/2026-MOF-Report_NON-FINAL_EN.pdf)), and the NDRC development plan report ([Chinese](https://npcobserver.com/wp-content/uploads/2026/03/2026-NDRC-Report_NON-FINAL_ZH.pdf) | [English](https://npcobserver.com/wp-content/uploads/2026/03/2026-NDRC-Report_NON-FINAL_EN.pdf)). I also created a full translation of the [15th Five-Year Plan draft](https://docs.google.com/document/d/1FPfhGc_6eelC_kg3-SDyy4KAmyB8K8Do/edit) with Claude Cowork that you can read and comment on.
+
+\---
+
+**2\. Xi’s Jiangsu Session: New Quality Productive Forces Front and Center**
+
+Xi Jinping attended a panel discussion with the Jiangsu NPC provincial delegation—a standard Two Sessions ritual in which the top leader reviews the Government Work Report with deputies from his chosen province and uses the occasion to signal his priorities. This year Xi chose to emphasize the 15th Five-Year Plan period and the imperative for major economic powerhouse provinces like Jiangsu to take the lead in navigating an increasingly complex global environment.
+
+The centerpiece of his remarks was the continued elevation of “new quality productive forces” as the defining framework for China’s economic strategy. Xi stressed that developing these forces is critical to high-quality growth and economic competitiveness. He called for deep integration between education, science, and talent development, and pushed for breakthroughs in core technologies alongside the modernization of both traditional industries and future-focused sectors. The message was clear: self-reliance in technology is not just a priority—it is the priority.
+
+Xi also addressed social concerns, directing officials to find practical ways to boost employment, raise incomes, and expand public services in pursuit of “common prosperity.” These are familiar themes, but the emphasis on practical implementation is worth noting. He closed by reinforcing the need for strict Party discipline and anti-corruption efforts, reminding officials to deliver tangible results for the public rather than engage in superficial political achievements. Given the PLA purges discussed below, the anti-corruption warnings carry particular weight this year.
+
+[
+
+![](https://substackcdn.com/image/fetch/$s_!ulI6!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F0301812e-3c54-4e27-aff5-188445d02bb2_900x628.jpeg)
+
+
+
+](https://substackcdn.com/image/fetch/$s_!ulI6!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F0301812e-3c54-4e27-aff5-188445d02bb2_900x628.jpeg)
+
+\---
+
+**3\. The US–Israel Attack on Iran: Beijing’s Diplomatic Response**
+
+The US–Israel military strikes on Iran dominated the international news cycle this week and drew a strong but entirely predictable diplomatic response from Beijing. Wang Yi had calls with the foreign ministers of Russia, Iran, Oman, France and Israel, and his messaging was consistent: opposition to the use of force, condemnation of the assassination of Iranian leaders, calls for a return to dialogue, and a framing of the US as undermining the post–World War II international order.
+
+In his call with Russian FM Lavrov, Wang Yi was particularly pointed, stating that it is “unacceptable” for the US and Israel to launch attacks during ongoing negotiations, and that military strikes without UN Security Council authorization “undermine the peace foundation established after World War II.” He characterized the situation as pushing the Middle East “to the brink of a dangerous abyss.” This is strong language by Chinese diplomatic standards, but it remains firmly in the rhetorical domain—we should not expect any material Chinese intervention.
+
+An important point of context: Secretary of Defense Hegseth made clear in response to a reporter’s question that the attack on Iran was not about China. This is worth taking seriously. Arguments that this military action is part of some grand strategy vis-à-vis Beijing are post-facto rationalizations that ascribe more strategic coherence to the Trump team than the evidence warrants. Those making such arguments have not paid sufficient attention to Elbridge Colby’s work, or to the National Defense Strategy. That said, the Iran war matters enormously for China’s interests. We discussed the possible impact on China, and how it may react, in this week’s [episode of Sharp China](https://sinocism.com/p/sharp-china-all-eyes-on-iran-two), which is outside the paywall.
+
+\---
+
+**4\. Energy Anxiety: China Restricts Fuel Exports as Iran War Continues**
+
+While Beijing’s diplomatic response to the Iran strikes was predictable, its economic response was more revealing. In calls with the Saudi and UAE foreign ministers, Wang Yi emphasized that the spillover of war into Gulf states is something “China does not want to see.” Notably, in his call with the UAE foreign minister, Wang specifically stressed that non-military targets such as energy infrastructure, the economy, and civilian livelihoods should not be attacked, and that the security of shipping lanes must be safeguarded. The explicit mention of energy and shipping was aimed squarely at protecting China’s oil import lifelines through the Persian Gulf.
+
+But the most revealing signal of Beijing’s anxiety came from action, not words. [According to Bloomberg](https://www.bloomberg.com/news/articles/2026-03-05/china-tells-top-refiners-to-suspend-diesel-and-gasoline-exports), the NDRC ordered top refiners to immediately suspend all exports of diesel and gasoline, halting new contracts and negotiating the cancellation of existing shipments. Exceptions remain for Hong Kong, Macau, and bonded storage fuel, but this sudden hoarding of refined petroleum products is the most concrete indicator of how seriously policymakers are taking the supply disruption risk.
+
+Beijing is dispatching Special Envoy Zhai Jun to the Middle East to push for de-escalation. The strategic calculus for China is genuinely mixed. On the one hand, a US bogged down in yet another Middle East quagmire, depleting weapons stockpiles that require rare earths and advanced manufacturing to replenish, reduces American capacity to focus on the Indo-Pacific. On the other hand, the risks to oil and gas supplies, global energy prices and the global economy could be negative for the Chinese economy. And if the US-Israel operation effects regime change that results in a new Iranian government that is less attached to the PRC, that could be detrimental to Beijing’s geopolitical interests. But the turmoil unleashed so far may be seen by many as confirmation of the PRC’s longstanding claim that the US is the greatest source of instability in the world.
+
+\---
+
+**5\. US–China: Trade Talks and a Trump–Xi Summit Still on Track**
+
+There was some speculation early in the week that because of the US attack on Iran, Xi might postpone or cancel his meeting with President Trump scheduled for the end of March. That speculation was unfounded, and [Bloomberg reported](https://www.bloomberg.com/news/articles/2026-03-03/us-china-trade-chiefs-to-meet-mid-march-before-trump-xi-summit) that the US and PRC negotiating teams will meet once more, just after the NPC concludes, possibly in Paris.
+
+One intriguing development amid the Iran war: Trump announced that the US would offer insurance and Navy escorts for all commercial ships traveling through the Persian Gulf. While Trump has mentioned China specifically in other contexts, his Truth Social post on maritime security referenced “ALL maritime trade,” which should include PRC-flagged vessels and ships bound for China. This creates an interesting dynamic—China benefits from US naval protection of the very shipping lanes that its own Navy is not yet positioned to secure alone in the Gulf.
+
+Should Trump ask Xi to send a PLA Navy task force to help escort commercial ships and defend against possible Iranian attacks on Gulf shipping? Or will the PRC try to cut its own deal for safe passage with Iran?
+
+\---
+
+**6\. Another UK–China Spying Scandal**
+
+Three British men [were arrested](https://www.telegraph.co.uk/news/2026/03/04/three-men-arrested-for-spying-for-china/) on suspicion of assisting Chinese intelligence under the UK’s National Security Act. All three have ties to the Labour Party. One, David Taylor, is the partner of Labour MP Joani Reid and heads programmes at Asia House, a prominent London-based organization focused on Asia policy.
+
+After the UK government’s fumbled handling of a different alleged China spying case last year, the authorities presumably believe they have a very solid case this time—they would not want to risk another public embarrassment. This could develop into a significant scandal for the Labour Party and Prime Minister Starmer, particularly given the personal and professional connections between the accused and sitting MPs.
+
+Making things potentially worse for Labour, this comes ahead of likely Peter Mandelson-related China revelations that may cause even further embarrassment. The China influence and intelligence question is becoming a recurring political vulnerability for the UK’s governing party, and it is difficult to see how the issue gets smaller from here.
+
+\---
+
+**7\. Nvidia Halts H200 Production; Still Waiting for the New DeepSeek Model**
+
+The [Financial Times reported](https://www.ft.com/content/nvidia-h200-china-export) that Nvidia has stopped production of its H200 chips because the US State Department continues to block export licenses for China. This is a significant marker in the ongoing technology decoupling story. The H200 was designed as a high-performance AI training chip that Nvidia hoped could still be sold to Chinese customers under existing export control frameworks—a chip that threaded the needle between compliance and commercial viability in the China market. The State Department’s continued refusal to grant licenses has effectively killed that strategy.
+
+Nvidia’s decision to halt production rather than continue manufacturing chips it cannot sell speaks to the company’s assessment that the regulatory environment is unlikely to change in the near term.
+
+Meanwhile, on the Chinese AI side, we are still waiting for the new DeepSeek model, which has been anticipated for weeks. DeepSeek’s previous releases showed what Chinese labs can achieve under constraints, and the next model drop—whenever it comes—will be closely watched as a test of whether tightening chip restrictions are actually slowing Chinese AI development or merely forcing innovation down different paths. There have been [Western media reports](https://www.reuters.com/world/china/chinas-deepseek-trained-ai-model-nvidias-best-chip-despite-us-ban-official-says-2026-02-24/) that DeepSeek is training the new model on smuggled Nvidia Blackwell chips.
+
+\---
+
+**8\. More PLA Purges Confirmed at the CPPCC**
+
+The CPPCC Standing Committee confirmed the removal of several senior military figures at its preparatory meeting ahead of the annual session. Han Weiguo, former commander of the Ground Forces; Liu Lei, former Ground Forces political commissar; and Gao Jin, former head of the logistics support department of the Central Military Commission, were all stripped of their CPPCC Standing Committee posts and had their memberships revoked. Zhang Kejian, former head of the State Administration of Science, Technology and Industry for National Defense—a key organization in the military-industrial complex—received the same treatment.
+
+These purges continue the sweeping anti-corruption campaign within the PLA that has been underway for more than two years, with particular focus on the procurement, logistics, and equipment development systems.
+
+\---
+
+*For daily coverage of these stories and more, subscribe to the paid Sinocism newsletter at [sinocism.com](https://sinocism.com). You can also catch this week’s episode of [Sharp China](https://sinocism.com/p/sharp-china-all-eyes-on-iran-two) for deeper discussion on the Iran situation, Two Sessions, Alibaba, DeepSeek, and the UK spy scandal.*

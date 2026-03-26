@@ -1,0 +1,68 @@
+---
+title: "The Sky and Leaves as They Fall"
+author: "Margaret Killjoy"
+publication: "Birds Before the Storm"
+publication_slug: "margaretkilljoy"
+published_at: "2025-10-03T16:25:20.000Z"
+source_url: "https://margaretkilljoy.substack.com/p/the-sky-and-leaves-as-they-fall"
+word_count: 1453
+estimated_read_time: 8
+---
+
+On the first morning of autumn, on the first morning it really *felt* like autumn, with the sun low in the crisp air and the leaves scattered across the ground, I woke up to find a dying bird in my living room.
+
+There are a lot of reasons there shouldn’t be a dying bird in my living room, and one of those reasons is that I’m bad at bird ID so I can’t even write about the damn thing in a satisfying way. I think it was a robin.
+
+Another reason there shouldn’t be a dying bird in my living room is that the door to the porch was closed so it ought not to have been able to get in.
+
+Another reason there shouldn’t be a dying bird in my living room is that we share our world with bird flu now, and we’re not supposed to really get too close to dead (or, presumably, dying) birds these days.
+
+I threw a tea towel over it where it lay on the floor, donned a respirator, and gingerly carried it outside. I set atop some junk in my yard and watched the little guy breathe and blink. I swear I saw a tear drop down its face, but even as I saw that my brain told me I must not have seen such a thing—though later googling revealed that birds can, indeed, produce tears. Just likely not in response to emotion.
+
+I came inside and washed my hands and decided my life wouldn’t be better served by panicking about illness right now. Ten minutes later, when I returned to the outdoors to walk my dog, the robin had ceased its breathing.
+
+Welcome, autumn. Good thing I don’t put full faith in omens.
+
+\---
+
+We haven’t reached any kind of consensus about how bad things are right now in America. Every person I’ve talked to has a different take on the current crisis. Some people are fully alert, watching the sky for signs of its falling. Others are keeping their head down, their eyes firmly on the path ahead of them. Others are writing tangled metaphors about all of this into their newsletters.
+
+We can’t agree what’s happening right now, so every conversation I’ve had for the past few weeks has been confusing, on some level, for everyone involved. Is the sky falling or isn’t it?
+
+The answer, of course, is that the fascists are trying to drop the sky on us but they’re not currently capable of doing it as completely as they’d like. They’re dropping chunks of the sky on all of us they can, and they’re threatening to drop the rest of the sky on the rest of us in the hopes that we’ll stop fighting back. Fortunately, their threats aren’t quite working, not completely, not yet.
+
+This non-total apocalyptic moment leaves all our nervous systems confused, and it leaves all of us with different conclusions. Some people are panicking. Some people are avoiding panic by avoiding the situation. Some people are (in my opinion, wisely) trying to look soberly at the problems we’re facing and prepare for contingencies.
+
+Compare two contrasting, reasonable positions. Salon ran an article this week called “[MAGA Can’t Expand Its Base—And Christian Music Tells Us Why](https://www.salon.com/2025/10/01/maga-cant-expand-its-base-and-christian-music-tells-us-why/).” It lays out clearly and rationally just how unpopular Trump and his policies are, and to be sure, an authoritarian society does in fact require buy-in from the population. This piece is optimistic without being naive.
+
+On the other hand, Truthout posted a piece called “[National Security Directive Declares War on Those Who Don’t Support Trump Agenda](https://truthout.org/articles/national-security-directive-declares-war-on-those-who-dont-support-trump-agenda/)” that describes NSPM-7, or National Security Presidential Memorandum 7. The little reporting I’ve seen on this has mostly, mistakenly, referred to it as an executive order. That’s not what it is. It’s a directive towards federal law enforcement that tells them whom to target. It doesn’t even bother claiming that their enemy is “Antifa,” but instead more broadly, explicitly, labels “anti-fascism” as the enemy.
+
+After the previous week’s executive order that labeled “Antifa” as a domestic terrorist group, some people worried. Others, understandably, tried to spread calm. There is no such thing as a legal classification called “domestic terrorist group” in the US. Antifa is not an actual organization. Executive orders aren’t laws. All of these things are true. But this is scant relief, because Trump has proven perfectly willing to violate the law and the constitution and the courts, and there’s no particular reason to believe any of those things will stop him from exercising power. And directing federal law enforcement is certainly within even his legal power.
+
+We don’t know how bad it’s going to get. We shouldn’t assume we’ll reach the levels of evil we’ve seen in fascist regimes of the past, but we shouldn’t assume we won’t.
+
+\---
+
+We have a problem with normalcy bias. Ironically, some of the most radical people I know suffer from this the worst—when you are already convinced that the US government is evil (which is easy to be convinced of, because it’s been true throughout the country’s entire history), it’s hard to scale up above “evil.” We are so used to seeing the democrats and republicans as functionally the same, as two sides of the same imperialist coin, that it’s hard to wrap our head around the idea that the current administration is so much worse. Fascism is, in fact, worse than neoliberalism or neoconservativism.
+
+Which means, ironically, that radicals are being lapped by progressives and liberals right now in terms of putting up a fight to the rise of fascism in America, because progressives and liberals are used to seeing the government as “good” and are worried about it becoming “bad.”
+
+It’s true that Biden’s administration oversaw the rollback of all of the promised reforms we ostensibly won during the 2020 uprising. It’s true that Biden’s administration was in power during the repression of the Stop Cop City Movement. It’s true that Biden’s administration has been responsible for evil after evil (like every administration before it).
+
+It’s not true, however, that Biden deported more people than Trump. Obama is still the reigning champ as I write this, who during his first term deported more than a thousand people a day, but [Trump’s daily deportations in his first term were more than double what Biden managed](https://factchequeado.com/teexplicamos/20250820/obama-deportations-trump-biden-numbers/). Importantly, atop deportation numbers, arrests of migrants are up, and [Trump is building culture of fear](https://www.visaverge.com/news/is-trump-deporting-more-people-what-the-data-really-shows/) and openly declaring war on the people of this country.
+
+It’s important for us to remember that democrats (and the state itself) are themselves guilty of unspeakable crimes, but it’s also important for us to remember that *what’s happening now is worse*.
+
+\---
+
+I don’t know that it’s possible for us to all reach some kind of agreement about just how bad things are right now, and it’s even less possible for us to agree about how bad things are likely to get—because none of us know. Our actions, individually and collectively, will determine how bad things are going to get.
+
+I do know that this disagreement between us is stressful. It feels like we’re all collectively gaslighting one another, arguing about how bright or dim the lights are. But none of us are lying to each other. Some of us are lying to ourselves, but by and large we just perceive the light differently. So I’ll keep having conversations with people who think it’s strange that I’ve moved to GrapheneOS, and that I’ve set disappearing messages to default on Signal, and that I think we should be all making plans in case we’re arrested for what amounts to thought crime.
+
+And I’ll continue to think it’s strange that people believe that we’re not in immediate and dramatic levels of danger. I’ll also, though, try to listen to them. And frankly, I’ll hope they’re right.
+
+I won’t regret preparedness, though, because it helps soothe my nerves to know that I’m taking steps towards protecting myself and my friends. Action, not just hope, is the antidote to despair.
+
+Part of my preparedness practice is to revel in the beauty of life and the world. Crunching leaves underfoot, wearing cozy hoodies and cozy hand-knit shawls, and telling my friends I love them are as much part of my preparedness as keeping my messages encrypted. Because the trees are turning the vibrant colors of death, and I hope I live another sixty years, but I ought to live, always, like I might live only another six months.
+
+That’s what I tell myself, anyway, as autumn sets in. May we all see winter, and spring, and summer, and autumns again in the future.

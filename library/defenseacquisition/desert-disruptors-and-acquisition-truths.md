@@ -1,0 +1,1450 @@
+---
+title: "Desert Disruptors and Acquisition Truths"
+author: "Various"
+publication: "Defense Tech and Acquisition"
+publication_slug: "defenseacquisition"
+published_at: "2026-02-23T23:45:11.000Z"
+source_url: "https://defenseacquisition.substack.com/p/desert-disruptors-and-acquisition"
+word_count: 12537
+estimated_read_time: 63
+---
+
+Welcome to the latest edition of **Defense Tech and Acquisition**. The big stories this week include:
+
+-   Acquisition Transformation requires courage, tools, and resolve.
+    
+-   EXIM is fueling a new source of capital for the defense industry.
+    
+-   Army is flexing AI and autonomy in expanded fires formations.
+    
+-   Navy sees more autonomous systems & directed energy systems ahead.
+    
+-   Air Force selects mission autonomy vendor & Accelerates Sentinel missile.
+    
+-   Space Force moves Custody and Transport Layer from SDA to SSC
+    
+-   Golden Dome needs software defined architecture and Mod & Sim
+    
+-   Congress holds Army hearing and CBO issues economic forecast.
+    
+
+\---
+
+We’re a bit late in our usual Saturday post having joined many of you at the **[Creative Disruptors in the Desert](https://www.linkedin.com/posts/creative-defense-foundation_disruptorsinthedesert-disruptorsbythelakes-activity-7431160148959735808-UON7/?utm_source=share&utm_medium=member_desktop&rcm=ACoAAEqCxS8B4c4mam8P0OcJapXPK1DpD_lIc1Y)** this weekend. The event featured honorary co-hosts HAC-D Chairman **[Rep. Ken Calvert](https://calvert.house.gov/)** and Ranking Member **[Rep. Betty McCollum](https://mccollum.house.gov/)** alongside UnderSecretaries (R&E) **[Emil Michael](https://www.war.gov/About/Biographies/Biography/Article/4232659/emil-michael/)** and (A&S) **[Michael Duffey](https://www.acq.osd.mil/leadership/as/michael-duffey.html)**.
+
+It was a weekend packed with insightful discussions, panels, and demonstrations from Defense, Congress, IC, and industry leaders—all centered on advancing interoperable robotics and autonomy. We were honored to hear a keynote address from Chairman of the Joint Chiefs **[Gen Dan Caine](https://www.af.mil/About-Us/Biographies/Display/Article/2942633/john-d-caine/)** followed by CIA Deputy Director **[Michael Ellis](https://www.cia.gov/about/director-of-cia/)**. Panels brought together OSW and Service leaders—including the CNO, Under Secretary of the Army, ASWs, SAEs, DRPMs, and the new PAEs—plus traditional and non-traditional industry executives.
+
+Paired with the Warfighting Innovation Summit, the two days delivered stunning drone shows, robotic demonstrations, and pitch competitions. Minutes after closing remarks, [Collaboration.ai](https://collaboration.ai/) delivered graphic illustrations and AI summaries of each session, printed and emailed to attendees.
+
+The highlight was engaging with so many subscribers and disruptors from government, industry, and allies focused on strengthening our national security. Escaping DC’s weather for beautiful Palm Springs, CA didn’t hurt either.
+
+To attend or get involved in future events, visit the **[Creative Defense Foundation](https://creativedefense.org/)**.
+
+\---
+
+[
+
+![](https://substackcdn.com/image/fetch/$s_!sKG4!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Ffcf6ed88-0dec-4ee0-a22f-68417a5aea62_1806x176.jpeg)
+
+
+
+](https://substackcdn.com/image/fetch/$s_!sKG4!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Ffcf6ed88-0dec-4ee0-a22f-68417a5aea62_1806x176.jpeg)
+
+#### [The Greatest Threat to Acquisition Transformation Is Fear](https://warontherocks.com/2026/02/the-greatest-threat-to-acquisition-transformation-is-fear/)
+
+[Bonnie Evangelista](https://www.linkedin.com/in/bonnieevangelista/)
+
+[
+
+![](https://substackcdn.com/image/fetch/$s_!auN8!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fe41610f4-eaf5-4b80-949e-d1af300447f9_1006x667.png)
+
+
+
+](https://substackcdn.com/image/fetch/$s_!auN8!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fe41610f4-eaf5-4b80-949e-d1af300447f9_1006x667.png)
+
+The DoD’s acquisition and sustainment culture is pathologically risk-averse. The greatest threat to acquisition transformation is not the FAR. It is not congressional oversight, statutory constraints, insufficient training, or an absence of strategy. The greatest threat is fear. Not fear as emotion, but fear as architecture.
+
+-   For more than three decades, senior leaders have promised reform. And yet the system is getting worse, not better.
+    
+-   Longer program timelines. More reviews. Fear is the operating logic of the system.
+    
+-   We built a [rapid acquisition construct](https://asc.army.mil/web/wp-content/uploads/2021/04/ACQ_writing_awards_2020_web.pdf) designed to bypass the bureaucratic bottlenecks that everyone agrees are the problem. We streamlined decision-making, collapsed timelines, and focused relentlessly on delivery. And it worked, but only briefly.
+    
+-   First movers in acquisition are uniquely exposed. They challenge inherited norms, reinterpret guidance, and attempt to apply authorities in ways that deliver results rather than preserve process. reverted after the change agents left. Safety was rewarded over creativity. Caution praised over adaptive judgment.
+    
+-   Every meaningful acquisition breakthrough occurred because a group of individuals often at low levels decided to act against the inertia. DIU trailblazed use of [CSOs](https://www.diu.mil/work-with-us/open-solicitations), AFWERX led its [open topic model](https://afwerx.com/divisions/sbir-sttr/open-topic/). Kessel Run’s use of [cATO](https://playbook.rise8.us/history/). JAIC’s [Tradewinds Marketplace](https://www.tradewindai.com/tw-marketplace) pioneered a streamlined acquisition model.
+    
+-   Leaders publish [memos](https://media.defense.gov/2025/Nov/10/2003819439/-1/-1/1/TRANSFORMING-THE-DEFENSE-ACQUISITION-SYSTEM-INTO-THE-WARFIGHTING-ACQUISITION-SYSTEM-TO-ACCELERATE-FIELDING-OF-URGENTLY-NEEDED-CAPABILITIES-TO-OUR-WARRIORS.PDF), give [flowery speeches](https://www.youtube.com/watch?v=VlDlndPwlJI), and issue [calls to arms](https://breakingdefense.com/2026/01/defense-acquisition-reform-dale-white-robert-collins-army-seiko-okano-navy-stephen-purdy-space/). However, the operational reality shows leaders demand speed while rewarding caution.
+    
+-   First movers in acquisition are uniquely exposed. They challenge inherited norms, reinterpret guidance, and attempt to apply authorities in ways that deliver results rather than preserve process.
+    
+-   If leaders are serious about transformation, then the solution is not another strategy document. It is institutional surgery.
+    
+-   Besides structural incentives and formal accountability measures, leaders should also reshape the daily behaviors that quietly reinforce fear and inertia.
+    
+-   No reform cavalry is coming. Leadership protection often follows action, not the other way around. Every breakthrough of the past decade began with individuals acting before the system made it safe.
+    
+
+#### [Acquisition Transformation Requires Some Fundamental Changes](https://www.nationaldefensemagazine.org/articles/2026/2/6/acquisition-transformation-requires-some-fundamental-changes)
+
+[Timothy Cooke](https://www.linkedin.com/in/twcooke/)
+
+The Secretary of War’s recent “Arsenal of Freedom” speech promised sweeping reforms but none of it will matter if the ~200,000 COs, PMs and acquisition specialists executing these plans don’t fundamentally change how they think and behave.
+
+-   The real problem isn’t with the regulations. It’s with the personnel following them.
+    
+-   A CO might choose a slower, more expensive option from an established contractor. Why? Because the innovative choice, while technically compliant, requires justification. Justification means scrutiny. Scrutiny means career risk.
+    
+-   Multiply this decision by thousands of employees making similar calculations every day, and individual choices coalesce into a collective pattern that undermines the mission.
+    
+-   Procurement professionals follow patterns of risk avoidance that look coordinated but emerge from individual self-preservation.
+    
+-   In pockets though, some minds and behaviors are shifting. Acquisition teams are embracing risk and managing it via the terms and conditions of deal structures.
+    
+-   The good teams won’t wait for perfect requirements. They will post a problem statement, invite demonstrations and down select based on what worked.
+    
+-   DoW directions requires software acquisitions to default to using Commercial Solutions Openings — a competitive process to obtain innovative commercial products, technologies or services that meet program requirements.
+    
+-   When CSOs are paired with Other Transactions it provides a streamlined pathway for COs to justify why they want to use innovative methods, it makes innovation the path of least resistance and ultimately the default.
+    
+-   Contracting officers should stop treating every acquisition like a major weapon system. Use the simplified procedures already in the FAR for commercial items.
+    
+-   Government program managers should structure contracts with predefined pivot points. Every 18 months, the government can choose to continue with the incumbent, recompete the next phase or change direction — no penalty.
+    
+-   Make it safer to choose the adaptive solution than the precedented one.
+    
+
+#### [Four Imperatives Reshaping Defense Acquisition: What Decades in Federal Procurement Taught Me About Speed vs. Perfection](https://www.linkedin.com/pulse/four-imperatives-reshaping-defense-acquisition-what-decades-gracia-gwble/)
+
+[Jamie Garcia](https://www.linkedin.com/in/jaimegracia/)
+
+The Army’s Acquisition Career Management Office r**[ecently published a message](https://asc.army.mil/web/four-pillars-of-acquisition-reform/)** to the workforce outlining four reform imperatives: maintain a bias for action, put commercial solutions first, prioritize speed, and focus on outcomes. These aren’t just Army priorities—they’re the future of federal acquisition across every agency.
+
+-   We’ve built an enterprise that punishes action and rewards analysis paralysis.
+    
+-   Contracting officers spend months perfecting requirements documents for technology that will be obsolete before the contract awards.
+    
+-   Program managers conduct fruitless and lackluster market research sessions that never translate into procurement decisions.
+    
+-   The Army’s call for “entrepreneurial thinking, taking prudent risks and transparency in communication” represents a fundamental cultural shift.
+    
+-   Risk management must be part of each acquisition professional’s daily workflow.
+    
+-   When we needed to award an $85M support services contract, traditional timelines suggested 14 months. We cut it to 6 without protest.
+    
+-   The secret wasn’t cutting corners—it was eliminating unnecessary process steps that added no value to the procurement outcome.
+    
+-   Speed requires two critical enablers: trained professionals who understand how to move quickly within regulatory boundaries, and leaders willing to underwrite the risks inherent in acceleration.
+    
+-   Too often, we have one without the other.
+    
+    -   Contracting officers who know rapid acquisition pathways hesitate because they lack leadership support.
+        
+    -   Leaders who demand speed fail to provide the training and tools their workforce needs to execute safely.
+        
+-   The shift from “development first to development last” represents perhaps the most dramatic philosophical change in the DACM guidance.
+    
+-   The Army explicitly instructs: “If we can’t adopt a capability, adapt one. Development should generally be a last resort.”
+    
+-   This isn’t about abandoning innovation—it’s about recognizing that commercial industry is innovating faster than government can develop.
+    
+-   The challenge lies in acquisition professionals’ comfort with traditional development contracts, compared with their limited exposure to commercial buying strategies.
+    
+-   Here are the critical competencies acquisition professionals must develop immediately:
+    
+    -   ✅ **AI Procurement Proficiency**: Understanding how to use generative AI tools for requirement development, market research, solicitation drafting, proposal evaluation, and contract administration. This goes far beyond general AI awareness to procurement-specific applications.
+        
+    -   ✅ **Commercial Acquisition Expertise**: Deep knowledge of FAR Part 12 commercial item determination, commercial best practices, and how to adapt industry approaches to government constraints. Training with Industry programs becomes essential, not optional.
+        
+    -   ✅ **Risk-Informed Decision Making**: Ability to identify, assess, communicate, and manage risks in real-time as part of daily workflow. Moving beyond quarterly risk registers to continuous risk assessment.
+        
+    -   ✅ **Cross-Functional Collaboration**: Working effectively across program management, engineering, logistics, test, and contracting to deliver integrated solutions. Breaking down functional silos that slow decision-making.
+        
+    -   ✅ **Outcome Measurement**: Developing metrics that track mission achievement rather than process compliance. Shifting from “Did we follow the FAR?” to “Did we deliver capability when needed?”
+        
+    -   ✅ **Adaptive Acquisition Framework Fluency**: Understanding all six acquisition pathways and knowing when to apply each based on program characteristics, not defaulting to traditional approaches.
+        
+    -   ✅ **Digital Literacy**: Basic competency in data analytics, visualization, and emerging technologies. Not necessarily becoming a data scientist but being conversant enough to leverage these tools.
+        
+
+#### [What America Must Learn from Ukraine](https://www.foreignaffairs.com/united-states/what-america-must-learn-ukraine)
+
+[Michael Brown](https://www.linkedin.com/in/michaelabrownceo/) and [Matt Kaplan](https://www.linkedin.com/in/matt-kaplan-86107a177/)
+
+The war in Ukraine is, at once, a past and future conflict. On the one hand, Russia’s invasion resembles World War I, with static frontlines, trenches, and vast areas of no man’s land in which soldiers are quickly killed. On the other hand, the conflict has been defined by innovation and modern technology.
+
+-   There has never before been a war with such broad and effective use of satellites, autonomous systems, AI software, and other commercial gear.
+    
+-   After scoring a quick and decisive victory in the 1991 Gulf War, American military planners had concluded that future wars would also be short.
+    
+-   They assumed that the key to success was no longer mass but large, expensive, high-tech systems.
+    
+-   But Ukraine demonstrates the opposite. Wars can still be long conflicts of attrition. Small, poor states can surprise and overwhelm larger, wealthier ones.
+    
+-   While it is true that not every tactical lesson from Ukraine is relevant for future wars - it is simply undeniable that imagination, adaptability, and affordable, commercially available capabilities will be essential to tomorrow’s conflicts.
+    
+-   American defense officials must therefore step out of their comfort zones and start rethinking Washington’s military doctrines.
+    
+-   They need to begin envisioning how an adversary’s capabilities could neutralize the United States’ sophisticated defense platforms and tactics.
+    
+-   They have to learn how to adapt their systems at the speed of software development, which means within hours and days instead of years.
+    
+-   Finally, they must design cheap weapons that American manufacturers can quickly produce and replace, such that total mass—rather than just platform exquisiteness—becomes a significant warfighting factor.
+    
+-   Otherwise, when the next conflict arrives, the United States may be shocked and set back, much as Russia was.
+    
+
+[
+
+![](https://substackcdn.com/image/fetch/$s_!wBIB!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F00adfe99-7ee2-48db-a39d-f42f8d5f3514_1806x176.jpeg)
+
+
+
+](https://substackcdn.com/image/fetch/$s_!wBIB!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F00adfe99-7ee2-48db-a39d-f42f8d5f3514_1806x176.jpeg)
+
+#### [From Seats to Sorties: Why the Pentagon Should Buy Software the Way It Buys (Some) Weapon Systems](https://benvanroo.substack.com/p/from-seats-to-sorties-why-the-pentagon)
+
+[Ben Van Roo](https://www.linkedin.com/in/vanroo/)
+
+[
+
+![](https://substackcdn.com/image/fetch/$s_!mvD7!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F8b6d144e-ee08-4686-bd44-f323e2f6c064_795x373.png)
+
+
+
+](https://substackcdn.com/image/fetch/$s_!mvD7!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F8b6d144e-ee08-4686-bd44-f323e2f6c064_795x373.png)
+
+Boeing sustains C-17s under a [$23.8B performance-based logistics contract](https://boeing.mediaroom.com/2021-09-29-Boeing,-U-S-Air-Force-Extend-C-17-Sustainment-Partnership-with-Phased-Contract-Valued-at-Up-To-23-8-Billion). The Air Force doesn’t buy C-17 spare parts. It doesn’t buy repair actions. It buys *readiness*. The contract specifies a mission capable rate, a cost per flying hour, and maintenance man-hours per flying hour. Boeing figures out how to deliver. If parts last longer, if predictive maintenance catches failures before they happen, Boeing keeps the margin. If readiness drops, Boeing eats the cost. The fleet consistently beats its 82.5% mission capable rate target ([87%+ and climbing](https://boeing.mediaroom.com/2011-10-07-Boeing-Awarded-Contract-for-PBL-Sustainment-of-C-17-Globemaster-III)).
+
+-   Now look at how the same government buys software. Per seat. Per license. Per module. Annual renewal regardless of whether anyone actually logs in.
+    
+-   The federal government spends roughly $6B a year on software licenses, and a meaningful chunk of that buys shelf-ware nobody touches.
+    
+-   An outcomes-based software contract *could* look like: the Air Force buys intelligence fusion from Vendor X, not by the seat but by the product. 200 finished all-source intel products per week, average time-to-decision under four hours, verified by an independent measurement layer. If they deliver with five people instead of 50, they keep the margin. If they miss, they eat the cost.
+    
+-   The per-seat model that defined SaaS for two decades was always a proxy for value. AI is exposing how crude that proxy was. When ten AI agents do the work of a hundred analysts, you don’t need a hundred seats.
+    
+-   SaaS companies sold nouns (platforms, dashboards, seats). AI sells verbs (analyzing, deciding, executing). When the verb gets commoditized, the noun that enabled it stops being worth what it used to be. The government is still buying nouns. Expensive ones. With annual renewals.
+    
+-   The FY2024 NDAA created an “Anything-as-a-Service” pilot (XaaS) where DoD pays for capability metered by actual usage rather than by license. The [May 2025 implementing memo](https://www.acq.osd.mil/dpap/policy/policyvault/USA000508-25-DPCAP.pdf) targets SaaS, Data-as-a-Service, and Space-as-a-Service, initially routed to SOCOM, CYBERCOM, and TRANSCOM. Real progress.
+    
+-   The [SWIFT program](https://www.war.gov/News/Releases/Release/Article/4174350/software-fast-track-initiative/), also launched in May 2025, uses AI and LLMs to grant rapid provisional Authorities to Operate for software, replacing chunks of the manual RMF review process.
+    
+
+#### [DoW Seeks Business Operators for National Defense (BOND)](https://x.com/deptofwar/status/2022332494700253460?s=61&t=N9C0BbA8TfGTOFu4lu8FnQ)
+
+[
+
+![](https://substackcdn.com/image/fetch/$s_!ozbj!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fa0aa19b7-734f-4639-9a83-5459c95a6cf8_443x677.png)
+
+
+
+](https://substackcdn.com/image/fetch/$s_!ozbj!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fa0aa19b7-734f-4639-9a83-5459c95a6cf8_443x677.png)
+
+The deputy secretary of war created the Business Operators for National Defense program, or BOND, to bring in experienced industry experts to help the War Department overhaul its acquisition process.
+
+-   In the last two months, the department has met with more than 100 industry experts. Today, as part of BOND, more than 70 former corporate officers are serving alongside the DoW’s leaders to advance the Arsenal of Freedom initiative.
+    
+-   The Department is seeking about 250 industry executives to participate in BOND.
+    
+-   Industry veterans who have what it takes can email [the program coordinator](mailto:bond@war.mil) to volunteer your services.
+    
+
+#### [War, Energy Departments Team up to Advance Future of Nuclear Power, Military Base Energy Security](https://www.war.gov/News/News-Stories/Article/Article/4407099/war-energy-departments-team-up-to-advance-future-of-nuclear-power-military-base/)
+
+A next-generation nuclear reactor was loaded aboard a C-17 Globemaster III aircraft for transport to Hill Air Force Base, Utah. The reactor will eventually head to the Utah San Rafael Energy Lab for testing and evaluation.
+
+-   The Ward 250 is a 5 megawatt nuclear reactor that fits into the back of a C-17 aircraft could theoretically power about 5,000 homes.
+    
+-   For military use, such a reactor could provide energy security on a military base ensuring the mission there need not depend on the civilian power grid, and in military operations overseas, such reactors would mean U.S. forces could operate without concern that an enemy might cut fuel supplies.
+    
+-   The president signed four executive orders designed to advance America's nuclear energy posture, May 23, 2025. Those include "[Reinvigorating the Nuclear Industrial Base,](https://www.whitehouse.gov/presidential-actions/2025/05/reinvigorating-the-nuclear-industrial-base/)" "[Reforming Nuclear Reactor Testing at the Department of Energy](https://www.whitehouse.gov/presidential-actions/2025/05/reforming-nuclear-reactor-testing-at-the-department-of-energy/)," "[Ordering the Reform of the Nuclear Regulatory Commission](https://www.whitehouse.gov/presidential-actions/2025/05/ordering-the-reform-of-the-nuclear-regulatory-commission/)," and "[Deploying Advanced Nuclear Reactor Technologies for National Security](https://www.whitehouse.gov/presidential-actions/2025/05/deploying-advanced-nuclear-reactor-technologies-for-national-security/)."
+    
+-   The future of warfare is energy-intensive, and includes AI data centers, directed-energy weapons, and space and cyber infrastructure. The civilian power grid was not built for that, and so the DoW will need to build its own energy infrastructure.
+    
+
+#### [Pentagon CTO Urges Anthropic to Cross the Rubicon on Military AI Use Cases Amid Ethics Dispute](https://defensescoop.com/2026/02/19/pentagon-anthropic-dispute-military-ai-hegseth-emil-michael/)
+
+The Pentagon will adhere to existing laws and regulations associated with surveillance, security and democratic processes as it fast-tracks the military’s frontier AI adoption, but it won’t permit companies supplying the technology to determine its rules for operation.
+
+> *“We want guardrails. We need the guardrails tuned for military applications. You can’t have an AI company sell AI to the DoW and then don’t let it do Department of War things, because we’re in the business of defending the country and defending our troops. I think if someone wants to make money from the government, from the U.S. DoW, those guardrails ought to be tuned for our use cases — so long as they’re lawful.”* **[Emil Michael](https://www.war.gov/About/Biographies/Biography/Article/4232659/emil-michael/)**, DoD CTO
+
+-   Frontier AI encompasses the most advanced, large-scale, and capable foundational models that are rapidly pushing the boundaries of machine intelligence.
+    
+-   Within that realm is [generative AI](https://defensescoop.com/tag/generative-ai/) that applies models to create convincing but not always correct software code, text, images and other human-like outputs based on patterns in training data and user prompts.
+    
+-   Michael divides the department’s AI use cases across three primary echelons.
+    
+    -   Corporate enterprise use cases, which any big organization would do for efficiency to enable humans to do more with less time.
+        
+    -   How do we take all the intelligence we have, all the data that we have, and we have a lot of it, and make sense of it to utilize it for something useful?
+        
+    -   Warfighting. How do we do modeling simulation? How do we kind of understand what our operational needs are and gaps?
+        
+-   But [recent reports suggest](https://www.axios.com/2026/02/16/anthropic-defense-department-relationship-hegseth) that Anthropic is [resisting pressure](https://www.wsj.com/politics/national-security/woke-ai-spat-escalates-between-pentagon-and-anthropic-433b7c5c?gaa_at=eafs&gaa_n=AWEtsqf2sm-5aVIIAmEMRe27YfC2vkt8EbjCL0z24pQV5FXKYKFJNNyWaehnh1TS7X8%3D&gaa_ts=699792de&gaa_sig=BN6vCC1DqqK98kYiIy9t7dF2itvBFAxadljmkRu0V3wsCIG131uCpDf-ubQ6cKq66LhMPUE5WtE75xU-rgU5Cw%3D%3D) from DOD to loosen protections that could prevent the military from deploying Claude AI for operations related to the mass surveillance of Americans or the development of weapons that can fire autonomously, without human intervention.
+    
+-   The Pentagon, in contrast, wants free range to use any genAI products it purchases for what it deems to be “lawful purposes” — without any vendor-imposed restrictions.
+    
+
+**Big Meeting Tomorrow**: [Anthropic CEO to meet with Pete Hegseth on AI model use for DoD](https://www.cnbc.com/2026/02/23/anthropic-ai-dario-defense-secretary-pete-hegseth.html)
+
+#### [Obviant Awarded Contract Expansion with the USW(A&S) to Accelerate Acquisition Transformation and Digitization](https://www.businesswire.com/news/home/20260219137743/en/Obviant-Awarded-Contract-Expansion-with-the-Under-Secretary-of-War-for-Acquisition-and-Sustainment-to-Accelerate-Acquisition-Transformation-and-Digitization)
+
+USW(A&S) awarded **[Obviant](https://urldefense.proofpoint.com/v2/url?u=https-3A__www.obviant.com_&d=DwMFaQ&c=euGZstcaTDllvimEN8b7jXrwqOf-v5A_CdpgnVfiiMM&r=lQVz12aZFKpblU1crqtm9R2-NO-JjFePKozEKktyB-w&m=8uhCVzDjQxSkRhmK5l9nc8R3ZYl7G50WP243DSJDmHFGE00Dqg-hfcW7Cq8ZJxrK&s=4xs3QtFKIZJqOvpVIYJkYZbUlxP7M9Uxd4UaHAIfIE0&e=)** - the data intelligence platform transforming DoW acquisition, contracting, and budgeting data into actionable insight - a contract is to deliver a digital acquisition platform in direct support of the DoW’s [Acquisition Transformation Strategy](https://urldefense.proofpoint.com/v2/url?u=https-3A__media.defense.gov_2025_Nov_10_2003819441_-2D1_-2D1_1_ACQUISITION-2DTRANSFORMATION-2DSTRATEGY.PDF&d=DwMFaQ&c=euGZstcaTDllvimEN8b7jXrwqOf-v5A_CdpgnVfiiMM&r=lQVz12aZFKpblU1crqtm9R2-NO-JjFePKozEKktyB-w&m=8uhCVzDjQxSkRhmK5l9nc8R3ZYl7G50WP243DSJDmHFGE00Dqg-hfcW7Cq8ZJxrK&s=bwYTSK1tR4046cUDA8m92_K0WBnsxYynjz4QGj1jToQ&e=).
+
+-   The platform will integrate fragmented data sources, enhance analytical insight, and deliver enterprise-wide intelligence that empowers faster, data-driven acquisition decisions.
+    
+-   This effort will fuse data from Obviant’s open-source intelligence data core with key government authoritative data sources to provide a single, trusted data source of truth.
+    
+-   This effort directly supports key national Executive Orders and strategies to digitize the acquisition system and implement portfolio scorecards.
+    
+
+> *"This initiative will deliver trusted, decision-grade acquisition intelligence, so leaders can move faster, manage risk earlier, and get capability to the warfighter sooner."* \- [Brendan Karp](https://www.linkedin.com/in/brendankarp/), Obviant CEO
+
+#### [DOW’s New CIO Seeks to Put the Warfighter First](https://www.war.gov/News/News-Stories/Article/Article/4408271/dows-new-chief-information-officer-seeks-to-put-the-warfighter-first/)
+
+> *"Our mission is to support the NDS and the warfighters. Everything we do should be supporting the warfighter community and their mission. We need ruthless prioritization of all of our initiatives. There are some things we're just simply not going to do because \[they don't\] serve the warfighter mission."* **[Kirsten Davies](https://www.linkedin.com/in/kirstendavies/)**, DoD CIO.
+
+-   Davies is responsible for all matters related to the DoW’s information enterprise, including cybersecurity, communications, information systems and more.
+    
+-   We will measure outcomes, not activity.
+    
+-   We need to execute on data analytics and AI. We need to secure our advantage in the spectrum. This is a long-term play for us, for national security and for our partners and allies.
+    
+-   We have a window of opportunity to do some really interesting, exciting, transformative work. I want you to embrace the opportunity and also know that I've got your back.
+    
+
+#### [Anduril Expands Rocket Motor Production With $43.7M in DPA Funding](https://www.anduril.com/news/powering-america-s-arsenal-anduril-expands-rocket-motor-production-with-additional-usd43-7m-in-defense-production-act-title-iii-funding)
+
+Solid rocket motors (SRMs) are among the most critical and capacity-constrained sub-systems needed for weapons production. DoW and Congress have emphasized the need to diversify the industrial base through policy direction and by directing significant funding toward expanding the munitions and rocket motors supplier base.
+
+-   To meet this need, on 02 October 2025 Anduril was awarded $43.7M in additional DPA Title III funding to expand domestic SRM production capacity.
+    
+-   This comes after the DoW provided an initial $14.3M investment to Anduril in December 2024 to buttress Anduril’s $75M investment to produce large volumes of SRMs at reduced costs.
+    
+-   This public-private partnership reflects a shared commitment to addressing America’s urgent need for scalable, reliable rocket motor production.
+    
+-   The funding will increase the efficiency and resiliency of Anduril’s Mississippi factory through expanded test fire infrastructure for more complex motors, increased storage capacity, and by acquiring common production tooling.
+    
+-   In August 2025, Anduril opened its full-rate production facility in Mississippi, making Anduril the third supplier of SRMs in the US.
+    
+
+#### [JIATF-401 Expands Counter-Drone Training, Bolsters Homeland Defense](https://www.war.gov/News/News-Stories/Article/Article/4408111/jiatf-401-expands-counter-drone-training-bolsters-homeland-defense/)
+
+As small UAS become cheaper, more accessible and increasingly weaponized, Joint Interagency Task Force 401 is expanding its efforts to strengthen the military’s ability to counter the growing threat at installations in the U.S. and abroad.
+
+-   At the center of the effort to train the joint force for this threat is the [Joint c-SUAS University](https://www.war.gov/News/Feature-Stories/Story/Article/4306645/drones-101-welcome-to-dows-joint-counter-small-uas-university/) at Fort Sill, Oklahoma, a critical component of JIATF-401.
+    
+-   The university develops and validates counter-UAS curriculum for the War Department and serves as the task force’s hub for instruction, mobile training teams and technical integration.
+    
+-   Rather than focusing solely on individual operators, the university is shifting to a train-the-trainer model designed to multiply expertise across the force.
+    
+
+> *“Unmanned systems are a defining threat of our time. Drones are prolific, inexpensive, evolving quickly and increasingly accessible to nonstate actors and individuals.”* Brig. Gen. Matt Ross, task force director.
+
+#### [In Modern Conflict, Speed Wins. AI Will Help America Win That Race](https://www.realcleardefense.com/articles/2026/02/18/in_modern_conflict_speed_wins_ai_will_help_america_win_that_race_1165456.html)
+
+[Cory Ondrejka](https://www.linkedin.com/in/coryondrejka/?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3BHfnI0VJGRoOD5a6O5nbxfQ%3D%3D)
+
+In the [recent DoW memo](https://media.defense.gov/2026/Jan/12/2003855671/-1/-1/0/ARTIFICIAL-INTELLIGENCE-STRATEGY-FOR-THE-DEPARTMENT-OF-WAR.PDF) on military AI transformation: “speed wins.” In an era of unprecedented technological acceleration and multi-polar risk, the winners must create a truly “AI-first military”. And that requires overcoming challenges unique to delivering AI to military commanders and warfighters.
+
+-   The science-fiction nature of current and emerging AI capabilities is already our reality. State actors are already using frontier models for cyber espionage.
+    
+-   It was assumed that AI-driven development of large, complex projects like web browsers was years away. But several teams did this last week.
+    
+-   The small open-source project OpenClaw enabled millions of AI agents to collaboratively navigate vast amounts of personal data.
+    
+-   Building-changing products during the last three technological transformations has reinforced a core truth: when the status quo changes, **the winners are those who master and deploy the new technology fastest**. Speed wins.
+    
+-   To maintain our edge, the Pentagon must address three novel challenges.
+    
+    -   First, as AI frontier model capabilities advance on a monthly and weekly basis, we must be both aggressive and deliberate about the infrastructure we build, ensuring we do not lock it inside proprietary walled gardens, nor grant unnecessarily restrictive Authorizations to Operate.
+        
+    -   Second, we must realize that AI’s true potential lies in agentic autonomy. Agentic AI enables radically more efficient ways to get the right information to the right leader at the right moment.
+        
+    -   Finally, DoW needs to help achieve the next level of integrated intelligence using a “world model,” that represents how the physical world works.
+        
+-   America’s military needs the right AI. It needs to directly address the three unique challenges to becoming AI-first – fast model adoption and validation, true partnered development of future capabilities, and evolving of spatial simulation.
+    
+-   This ensures America’s commanders have what they need to be their best: planning, testing, and executing at superhuman speeds, without sacrificing the uniquely human decision-making capabilities that guarantee success.
+    
+
+#### [Divergent and Mach Industries Launch Venom](https://www.prnewswire.com/news-releases/divergent-and-mach-industries-launch-venom-302689655.html)
+
+[
+
+![](https://substackcdn.com/image/fetch/$s_!gxnO!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F3c1c5343-f688-4115-8a34-ba92f6b872b5_2700x1800.jpeg)
+
+
+
+](https://substackcdn.com/image/fetch/$s_!gxnO!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F3c1c5343-f688-4115-8a34-ba92f6b872b5_2700x1800.jpeg)
+
+Divergent Technologies and Mach Industries announced a partnership to deliver Venom, a prototype flight demonstration aircraft showing hardware development at software speed.
+
+-   Mach Industries established the baseline requirements and architecture leveraging the avionics and simulation from existing, flight-proven tech stacks with a MOSA architecture to accelerate development from concept to flight.
+    
+-   Divergent executed the digital design and 3D print of the Venom structure, including wings, fuselage, skins, and control surfaces as monolithic assemblies rather than conventional multi-part builds.
+    
+
+> *“By combining Mach's innovative systems with Divergent's revolutionary digital manufacturing platform, we've moved from concept to a flight-ready prototype in 71 days. This isn't just an impressive metric—it's a direct enabler of our strategy to achieve affordable mass and support the SECWAR's 'Drone Dominance' vision. ODASW(P&E) is committed to sponsoring collaborations like this that accelerate rapid acquisition and deliver urgent, low-cost munitions to the warfighter."*
+> 
+> [Alex Lovett](https://www.linkedin.com/in/alex-lovett-6b1835345/?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3Bx39qdBiVQHuQzik%2BVsXjwQ%3D%3D), the Principal Deputy Assistant Secretary of War for Mission Capabilities (OUSW(R&E))
+
+#### [How Commercial Drones Make the Pentagon’s ‘Blue UAS Select’ List](https://www.militarytimes.com/news/pentagon-congress/2026/02/20/how-commercial-drones-make-the-pentagons-blue-uas-select-list/)
+
+DoW this week began testing for the initial phase of its Drone Dominance Program, an effort to expand the use of commercial drones across the military.
+
+-   Dubbed “the Gauntlet,” military operators will fly and evaluate uncrewed aerial systems, or UASs, at Fort Benning, Georgia, to determine which of the [25 competing vendors](https://www.armytimes.com/air/2026/02/03/pentagon-taps-25-firms-for-small-cheap-attack-drone-competition/) will advance to the next phase of the program.
+    
+-   Ahead of the testing, DoW curated a list of commercial drones that meet baseline performance and compliance standards.
+    
+-   With the list, officials aim to streamline procurement and encourage military leaders to begin buying and fielding approved systems sooner rather than later.
+    
+-   In December, the DCMA [launched](https://www.dcma.mil/News/Article-View/Article/4346752/us-x-launches-blue-list-uas-website/) the Blue List UAS website, which [catalogs 54 drone models](https://bluelist.appsplatformportals.us/UAS-Cleared-List/) cleared, at a minimum, for training use.
+    
+-   Of those, 29 also received the “select” label, indicating they passed a competitive review process and are authorized for operational deployment.
+    
+-   With so many drone models available and the pace of change accelerating, a central question of what DOD is looking for in a commercial drone remains.
+    
+-   DoW first established the [Blue UAS program in 2020](https://www.war.gov/News/Releases/Release/Article/2318799/defense-innovation-unit-announces-suas-product-availability-to-provide-secure-c/) to mitigate cybersecurity risks and reduce reliance on foreign-made components.
+    
+-   For a drone to be added to the [Blue UAS](https://mobilicom.com/insight/what-is-blue-uas-the-ultimate-guide-to-secure-drone-compliance/) list, it must pass rigorous testing and cyber security evaluations…essentially a Blue UAS is an NDAA-compliant drone that’s been officially field tested for performance and approved by the Pentagon.
+    
+-   Following the “Gauntlet” testing, which is scheduled to end in March, it will resume testing every six months until 2028.
+    
+-   By the end of the program, the department aims to have [acquired some 300,000 drones](https://www.defensenews.com/unmanned/2025/12/03/pentagon-seeks-to-acquire-rapidly-field-over-300000-small-drones/) and named five primary vendors.
+    
+
+#### [Atropos Reveals Subscale Test Model of Tacit Spear Airlifter](https://aviationweek.com/defense/supply-chain/atropos-reveals-subscale-test-model-tacit-spear-airlifter)
+
+[
+
+![Atropos demo](https://substackcdn.com/image/fetch/$s_!zhsf!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fe3434ee5-009f-4513-bbd6-8e20de81b95f_1600x545.jpeg "Atropos demo")
+
+
+
+](https://substackcdn.com/image/fetch/$s_!zhsf!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fe3434ee5-009f-4513-bbd6-8e20de81b95f_1600x545.jpeg)
+
+The **[Atropos Group](https://www.atroposgroup.com/)** has completed a subscale flight-test model of its autonomous Tacit Spear cargo aircraft within six months of launching the company…with flight preparation underway.
+
+**Our Take**: This is one to watch. The team is a group of movers and shakers who will make this happen.
+
+#### [DIU Eyes First Launch for Its Commercial Hypersonic Testbed](https://www.airandspaceforces.com/diu-eyes-first-launch-for-its-commercial-hypersonic-testbed/)
+
+DIU is gearing up for the first flight of its commercially developed hypersonic testbed by the end of February—part of a project to increase the cadence of DoW’s hypersonic flight testing and field advanced, high-speed systems and components at scale.
+
+-   As part of DIU’s [Hypersonic High-Cadence Advanced Testing (HyCAT) program](https://www.c4isrnet.com/battlefield-tech/2022/09/02/pentagon-seeks-commercial-tech-for-hypersonic-test-vehicle/), the mission will pair Rocket Lab’s HASTE launcher with a high-speed testbed called DART AE, built by Australian firm Hypersonix.
+    
+-   The scramjet-powered DART will deploy in a suborbital hypersonic environment with the goal of collecting key propulsion, aerothermal, and vehicle control data to support future DoW testing.
+    
+-   The flight will be HyCAT’s second since DIU launched the program in 2022.
+    
+-   HyCAT was established amid a broader push within DOD to actually field the hypersonic weapons capabilities the military services have spent years developing, like the Air Force’s [ARRW](https://www.airandspaceforces.com/arrw-hypersonic-missile-tested-final-time-but-really-the-end/) and the Army’s [LRHW](https://www.congress.gov/crs-product/IF11991).
+    
+-   Because the cost, availability, and fidelity of testing infrastructure is often a limiting factor in getting a complex capability over the finish line, DoW began creating more hypersonic flight test opportunities and eventually increasing its flight test cadence to one test per week.
+    
+-   The second HyCAT mission is unique in that it features a NTDC aerospace firm, Hypersonix, demonstrating air-breathing hypersonic propulsion—a complex engineering challenge that doesn’t currently have a commercial market.
+    
+
+#### [The Newest Old Tech in Warfare: Balloons](https://www.wsj.com/politics/national-security/the-newest-old-tech-in-warfare-balloons-0966e9af)
+
+A military technology from the French Revolution is finding new life on the modern AI-powered battlefield. From Ukraine to the Pacific Ocean, balloons are making a comeback, boosted by high-tech innovations in sensors, autonomy and materials.
+
+-   The low-cost, floating systems can spy, link communications networks and transport payloads. They barely show up on radar and soar high above electronic-warfare transmissions that fry other airborne devices.
+    
+-   They also carry weapons, including one-way attack drones, thousands of miles to hit faraway targets, causing destruction and sowing fear far from the front lines.
+    
+-   High-altitude balloons are slated to be part of Army exercises in Nevada and across Europe in April, and the service is preparing to test swarms of balloons in the Pacific late this year.
+    
+-   But no country has pushed the balloon frontier further than Ukraine, which is using them to execute audacious strikes deep inside Russia, as well as for reconnaissance and transportation, and as decoys.
+    
+
+[
+
+![](https://substackcdn.com/image/fetch/$s_!ySoe!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F3c458e92-8ab1-431c-9934-9931ed769090_2000x184.jpeg)
+
+
+
+](https://substackcdn.com/image/fetch/$s_!ySoe!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F3c458e92-8ab1-431c-9934-9931ed769090_2000x184.jpeg)
+
+#### [Build American, Sell Worldwide: How A Depression-Era Agency Is Funding America’s New Industrial Core](https://x.com/rossiadam/status/2022005654756397329)
+
+The **[Export-Import Bank of the United States (EXIM)](https://exim.gov/)** authorized $185M for **[Cesium Astro’s](https://www.cesiumastro.com/)** new factory, a 270,000 sq ft complete production megaplant in Texas.
+
+-   What’s even better is that it isn’t taxpayer money in the traditional sense. EXIM operates like a bank, lending, charging interest, and historically it has turned a profit for the Treasury.
+    
+-   And this funding mechanism didn’t exist five years ago.
+    
+-   EXIM’s original mission was to help American companies sell products overseas by financing foreign buyers.
+    
+-   Under the new "Make More in America" initiative, it can now fund the construction of factories on US soil (so long as 15-25% of what that factory produces serves export markets).
+    
+-   EXIM’s priority sectors under Make More in America:
+    
+    -   Semiconductors and microelectronics
+        
+    -   Large-capacity batteries and energy storage
+        
+    -   Critical minerals processing
+        
+    -   Renewable energy components
+        
+    -   Biotech and medical supplies
+        
+-   Now, space and satellite manufacturing
+    
+-   CesiumAstro’s $185M is the largest deal to date, and it comes after other recipients including:
+    
+    -   BETA Technologies — $170M for electric aircraft manufacturing in Vermont
+        
+    -   Electrovaya — $51M for lithium-ion battery production
+        
+    -   6K Additive — $27M for sustainable titanium powder manufacturing
+        
+    -   ESS Tech — $24M for iron flow battery production in Oregon
+        
+
+#### [Project Vault](https://matthewbernard776320.substack.com/p/project-vault)
+
+[Matthew Bernard](https://www.linkedin.com/in/matthew-bernard-55488158/)
+
+On February 2nd, the Trump administration announced Project Vault, a $12B public-private initiative to stockpile all 60 critical minerals on the USGS list inside the United States, backed by the largest loan in the Export-Import Bank’s 92-year history.
+
+-   It is structured as a demand-led insurance product for civilian industry.
+    
+-   To execute it, the government has conscripted three of the world’s most sophisticated commodity trading houses whose logistics infrastructure was built around LNG and oil, and is now being redeployed into critical minerals.
+    
+-   The initiative also marks a significant pivot in how EXIM Bank operates, shifting from a trade finance agency into something closer to a strategic investment arm of the federal government.
+    
+
+[
+
+![](https://substackcdn.com/image/fetch/$s_!V2bj!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fd153ecfe-92db-422e-84fb-bd9d7e4f058b_1766x877.png)
+
+
+
+](https://substackcdn.com/image/fetch/$s_!V2bj!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fd153ecfe-92db-422e-84fb-bd9d7e4f058b_1766x877.png)
+
+-   Think of it less as a government program and more as a structured insurance product for American industry. Participating manufacturers pay upfront commitment fees, essentially a security premium, in exchange for guaranteed access to stockpiled raw materials during defined market disruptions. They cover storage costs. They can draw down inventory for normal operations, provided they replenish it.
+    
+-   The architecture borrows from the Strategic Petroleum Reserve, but the ambition is considerably broader: all 60 minerals on the U.S. Geological Survey’s Critical Minerals List, covering everything from lithium to rare earths, the inputs that underpin modern manufacturing, defense systems, and the clean energy transition.
+    
+-   The private capital in the deal flows from three trading houses — **Hartree Partners, Mercuria Energy Americas, and Traxys**
+    
+
+#### [Why America Needs Defense Innovation Corridors, Not Just Hubs](https://innoblepursuit.substack.com/p/why-america-needs-defense-innovation)
+
+[Troy Thompson](https://www.linkedin.com/in/troymthompsonii/)
+
+[
+
+![](https://substackcdn.com/image/fetch/$s_!88Be!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fe58c32b3-abf0-42d4-a35e-ca43413acd04_1263x871.png)
+
+
+
+](https://substackcdn.com/image/fetch/$s_!88Be!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fe58c32b3-abf0-42d4-a35e-ca43413acd04_1263x871.png)
+
+The defense industrial base is formally one of America’s 16 critical infrastructure sectors. That definition usually conjures steel mills, depots, and shipyards, but in a great‑power competition the innovation layer of that base, labs, foundries, integration corridors, test ranges, digital design environments, is just as much an instrument of sovereign power as a carrier strike group or a strategic port.
+
+-   If you cannot design, prototype, test, and field new systems at speed, you are choosing to fight tomorrow’s wars with yesterday’s tools.
+    
+-   The defense industrial base encompasses more than 100,000 companies and subcontractors supplying services, facilities, materials, and components to mobilize, deploy, and sustain U.S. forces worldwide.
+    
+-   Its proper for national strategy to treat the defense industrial base’s innovation corridors as preeminent national assets to be safeguarded and intentionally designed and integrated where it makes sense.
+    
+-   Throughout the nation, we’ve tried to build “hub and spoke” models, isolated repositories of technology talent and opportunity sparsely connected to each other when network effects permit, mostly planted in dense urban centers.
+    
+-   The Southeast Frontier-Tech Corridor: A Prototype for America. Over $140B of DoD spending in FY24 went to the Southeast. It is a real, existing mesh of yards, factories, ports, bases, labs, and small businesses that already behaves like an industrial theater, even though we have never named it or integrated siloed operations to govern it as one.
+    
+
+[
+
+![](https://substackcdn.com/image/fetch/$s_!l74p!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F393ae280-02f3-46e3-aeb1-fd327de0abbe_1241x677.png)
+
+
+
+](https://substackcdn.com/image/fetch/$s_!l74p!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F393ae280-02f3-46e3-aeb1-fd327de0abbe_1241x677.png)
+
+**Our Take:** Love to see this vision and visual from Troy and his passion to scale the SE corridor as a vital part of our DIB.
+
+#### [Northrop not seeking direct DoD investment for solid rocket motors, but suppliers might](https://breakingdefense.com/2026/02/northrop-not-seeking-direct-dod-investment-for-solid-rocket-motors-but-suppliers-might-ceo/)
+
+Northrop Grumman’s CEO said the company has no plans to follow L3Harris’ lead to allow the Pentagon to take a financial stake in its solid rocket motor businesses, but hinted that some of its key suppliers may enter into similar investment agreements with the department.
+
+-   In January, the DoD announced it would invest $1B into [L3Harris’](https://breakingdefense.com/tag/l3harris/) missile solutions business, which would spin off as a separate publicly-held company.
+    
+-   One key reason for Northrop not to follow is the interplay between solid rocket motors and the company’s strategic missiles business — a separate division of Northrop that includes programs like the Sentinel intercontinental ballistic missile program, which use solid rocket motors.
+    
+-   When asked in January whether the Pentagon’s stake in the L3Harris missile solutions business could lead to a competitive disadvantage for other solid rocket motor providers, Michael Duffey, USD(A&S), said the ability to provide a return to the taxpayer was the driving force in L3Harris deal.
+    
+
+> *“There's just a lot of strategic synergy in those parts of our portfolio that we want to maintain ownership structure of.”* [Kathy Warden](https://www.linkedin.com/in/kathywarden/), Northrop CEO
+
+**Other Defense Industry News**
+
+-   **[Pentagon Says RTX Improves ‘Poor’ Performance on Crucial Missile](https://www.bloomberg.com/news/articles/2026-02-17/pentagon-says-rtx-improves-poor-performance-on-crucial-missile?embedded-checkout=true)**
+    
+-   **[Shield AI Seeks $1 Billion to Lead Global Defense Tech Surge](https://www.pymnts.com/startups/2026/shield-ai-seeks-1-billion-dollars-lead-global-defense-tech-surge/)**
+    
+-   **[DoW Invests $11.8M for the Domestic Processing of Critical Materials](https://www.war.gov/News/Releases/Release/Article/4410424/department-of-war-invests-118m-for-the-domestic-processing-of-critical-materials/)**
+    
+-   **[DOW Enhances U.S. Rare Earth Elements Supply Chain Resilience](https://www.war.gov/News/Releases/Release/Article/4410568/dow-enhances-us-rare-earth-elements-supply-chain-resilience/)**
+    
+-   **[DoW Announces Groundbreaking of New Munitions Campus in Indiana](https://www.war.gov/News/Releases/Release/Article/4411124/department-of-war-announces-groundbreaking-of-new-munitions-campus-in-indiana/)**
+    
+
+[
+
+![](https://substackcdn.com/image/fetch/$s_!DvNa!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F1be75c63-d098-4d87-be8b-4e6b8dba2adc_1806x176.jpeg)
+
+
+
+](https://substackcdn.com/image/fetch/$s_!DvNa!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F1be75c63-d098-4d87-be8b-4e6b8dba2adc_1806x176.jpeg)
+
+#### [PAE Fires Activates Three Capability Program Executives (CPEs)](https://www.army.mil/article-amp/290576/portfolio_acquisition_fires_activates_three_capability_program_executives_cpes)
+
+The Army officially activated the first three Capability Program Executives under the Portfolio Acquisition Executive Fires organization, marking a significant step forward in transforming the Army’s acquisition processes within the Fires portfolio.
+
+-   The newly activated CPEs include Defensive Fires, Offensive Fires, and Integrated Fire and represent a centralized approach to managing the Army’s fires portfolio.
+    
+-   Each CPE is led by an acquisition executive with extensive expertise in acquisition and fires operations, ensuring decisive leadership and oversight in delivering critical capabilities to the warfighter.
+    
+-   The Capability Program Executives include [COL Guy Yelverton III](https://www.linkedin.com/in/guy-yelverton-iii-025b0015/) (CPE Defensive Fires), [BG Robert Mikesh](https://www.linkedin.com/in/robert-rj-mikesh-a5b32129/) (CPE Offensive Fires), and [Ms. Miranda Oden](https://vepimg.b8cdn.com/uploads/vjfnew/11566/content/docs/17095739221-05mirandaoden-pdf1709573922.pdf) (in the dual role of CPE Integrated Fires and PAE Fires Executive Director).
+    
+
+#### [Creating the Army’s Integrated Fires Complex](https://mwi.westpoint.edu/the-modern-king-of-battle-creating-the-armys-integrated-fires-complex/)
+
+To prevail in this environment, our Army must reimagine the fires warfighting function and move from a rigid kill chain to an integrated fires complex: a holistic framework that converges offensive and defensive fires and will win the counter-C2 fight, win the counter-reconnaissance fight, win the counterfires fight, and rapidly destroy the key systems the enemy needs to succeed.
+
+-   We need to establish an offensive mindset that designates fires as the key warfighting function.
+    
+-   We should move beyond the cumbersome C5ISRT framework, to focus on streamlined, rapid, decisive actions that disrupt enemy decision cycles.
+    
+-   Synchronizing offensive and defensive fires in ways that converge domains and address the changing character of warfare is imperative.
+    
+-   We must reimagine how we deconflict airspace, maneuver elements, and conduct clearance of fires.
+    
+-   An integrated and seamless C2 architecture is required to pass sensor and shooter data across the kill web.
+    
+-   The convergence of offensive and defensive fires to dismantle the threat’s eyes, ears, and ability to fight, is a pivotal step to deterrence in the modern battlefield.
+    
+-   Our mandate is to fuse thousands of nodes, creating a new geometry of warfare defined not by space and time, but by speed of decision.
+    
+
+#### [The Army is Mispricing Readiness, and Additive Manufacturing Exposes the Problem](https://breakingdefense.com/2026/02/the-army-is-mispricing-readiness-and-additive-manufacturing-exposes-the-problem/)
+
+COL Michael Mai
+
+Current policy strongly prohibits the Army from ordering small quantities of spare parts with short notice. That currently acts as an Achilles heel for their Abrams tank fleets.
+
+-   The Army is about to lose millions of dollars in training value for reasons that have nothing to do with funding shortfalls or maintenance discipline.
+    
+-   A significant portion of their Abrams tank fleets remain non-mission capable, waiting for parts.
+    
+-   The Army has the technical ability to manufacture many of these parts quickly using advanced manufacturing techniques. But they’re not.
+    
+-   This is solely due to current policies that make it nearly impossible to justify buying those parts at the “wrong” price.
+    
+-   A common driver is vehicles sitting non-mission capable while waiting on spare parts managed through the [Defense Logistics Agency (DLA)](https://breakingdefense.com/tag/DLA/), often with delivery timelines measured in months. These delays are often not caused by technical complexity; In many cases, tanks are sidelined by simple components like hoses, brackets, or washers.
+    
+-   The underlying issue is that these parts are produced by sole-source vendors whose business models are optimized for large batch production, not small, urgent orders. When demand is low and quantities are small, the supply system struggles to respond quickly.
+    
+-   The total non-recurring cost to engineer and qualify the entire catalog is less than $100M. Spread across nearly 1,700 parts, most of this cost represents a one-time investment. Once completed, those parts can be produced repeatedly at relatively low marginal cost. In other words, the most expensive part of adopting advanced manufacturing at scale is already largely understood and bounded. Yet TACOM’s ability to use this capability remains constrained by how DLA funds and prices spare parts.
+    
+-   The result is predictable: the supply system cannot justify purchasing a higher-cost part today, even when doing so would immediately restore vehicle availability and preserve training readiness. The cheaper part remains cheaper only on paper. Operationally, it is often the most expensive option available.
+    
+-   If advanced manufacturing restored 40 tanks, the readiness impact would be immediate. Forty tanks multiplied by fifty training days yields 2,000 additional Abrams training days per year.
+    
+
+#### [Meet VECTOR: An Unofficial Soldier-Made AI Tool the Army Suspended Pending a Compliance Review](https://defensescoop.com/2026/02/02/artificial-intelligence-army-review-vector-talent-management-tool/)
+
+VECTOR, an AI application was hosted on an official Army data analytics platform could help soldiers write performance evaluations and prepare for promotion boards by tapping into historical board data, critical assessments that determine whether a soldier moves on to the next rank.
+
+-   Within days however, VECTOR was gone — at least for now.
+    
+-   The program was not officially sanctioned by the Army, but created by an individual non-commissioned officer. The Army suspended VECTOR while it conducts a compliance review.
+    
+-   The soldier made the tool to give others a better understanding of the personnel process, but it did not have access to historic, sensitive data, contradicting what the message claimed.
+    
+-   The Pentagon wants troops to use LLMs in their every-day operations as part of an acceleration strategy that in part will unleash experimentation.
+    
+-   VECTOR was created on Army Vantage, a Palantir-made platform intended to improve decision-making by meshing data repositories with machine learning. For basic access, military personnel and department civilians can access Vantage with a CAC and cyber awareness training certificate to create their own apps.
+    
+
+#### [Army Using AI to Update Doctrine](https://www.militarytimes.com/news/your-military/2026/02/20/army-using-ai-to-update-doctrine/)
+
+When a soldier reads a field manual, they are studying the Army’s guide on how to fight. Now, doctrine writers are using AI to update those manuals.
+
+-   Leaders at the Combined Army Doctrine Directorate have started training authors on generative AI tools to speed up research and drafting, a move that reflects the military’s broader efforts to quickly push updated guidance to a force facing a rapidly-evolving battlefield.
+    
+-   Doctrine development has historically been a time consuming and tedious process that stretches years, and officials are looking to speed it up by incorporating AI into the writing process.
+    
+-   From searching hundreds of text for historical examples to polishing grammar.
+    
+
+**Our Take:** This reminds us of then BG HR McMaster, director of the Army’s Capability Integration Center’s Concepted Development and Experimentation Directorate back in 2009 had [novel approaches to crowdsource the Army Capstone Concept](https://www.army.mil/article/32159/updated_army_capstone_concept_hits_web).
+
+#### [Army Advances LTAMDS Radar Integration with PAC-3 Missiles for 360° Patriot Defense](https://www.armyrecognition.com/news/army-news/2026/u-s-army-advances-ltamds-radar-integration-with-pac-3-missiles-for-360-patriot-defense)
+
+The Army awarded Lockheed Martin a $33.8M cost-plus-incentive-fee contract to support ground and flight testing that integrates the Lower Tier Air and Missile Defense Sensor with [PAC-3 interceptors](https://www.armyrecognition.com/military-products/army/air-defense-systems/air-defense-vehicles/patriot-pac-3-mse-gem-t-air-defense-missile-system-data). The award advances Patriot modernization by validating the 360-degree LTAMDS radar and ensuring reliable sensor-to-shooter performance before broader fielding through 2027.
+
+[
+
+![](https://substackcdn.com/image/fetch/$s_!FATn!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F75e408a2-0094-4619-b440-bc584981ddfa_842x542.png)
+
+
+
+](https://substackcdn.com/image/fetch/$s_!FATn!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F75e408a2-0094-4619-b440-bc584981ddfa_842x542.png)
+
+#### [Army Lets Soldiers Flaunt Their Drone Skills in First-Ever Competition](https://www.militarytimes.com/news/your-military/2026/02/19/us-army-lets-soldiers-flaunt-their-drone-skills-in-first-ever-competition/)
+
+Soldiers from across the Army showcased drone warfare skills and ideas in the first annual **Best Drone Warfighter Competition** in Huntsville last week.
+
+-   The competition drew over 800 attendees and competing teams drawn from every Army unit.
+    
+-   It mirrors existing Army competitions such as Best Sapper, Best Ranger and Best Sniper, with emphasis on drone warfare. Soldiers compete in three lanes for the titles of Best Operator, Best Tactical Hunter-Killer Team, and Best Innovation.
+    
+-   The lanes include a drone racing obstacle course, a cross-country field exercise in which soldiers pair up to take out targets, and an innovation lane which sees soldiers showcase drone technology they’ve developed to a panel of five judges.
+    
+-   Soldiers competing in the Best Operator lane raced **[Neros Archer FPV drones](https://www.neros.tech/#Products)**. The Neros was chosen to establish a baseline for competitors to showcase their skills on a standard drone platform, offering a modular design that is easy to repair.
+    
+-   Future iterations of the Army competition event could incorporate drone swarm tactics, though that depends on the pace of developing technology.
+    
+-   What we’re seeing is that is going to be a common capability and piece of equipment across every formation of every type and any group of soldiers.
+    
+-   There will be so many mission sets that drones can do and various types of technology across ranges of autonomy, and that’s something that we’re looking at very closely as well.
+    
+-   Best Operator: Sgt. Javon Purchner, 1st Cav. Div.
+    
+-   Best Tactical Lane: Staff Sgt. Angel Caliz and Spc. Jonah Burks, 2nd Cav Regt.
+    
+-   Best Drone Innovation: 1st Lt. Ryan Giallonardo, Chief Warrant Officer 3 Robert Reed, Chief Warrant Officer 2 Nathan Shea and Sgt. 1st Class Brent Wehr, 28th Infantry Division
+    
+-   [Video](https://www.linkedin.com/posts/cpe-aviation_bdwcfinal-4x5-ngomp4-activity-7431755866669735936-LKvE?utm_source=share&utm_medium=member_desktop&rcm=ACoAAACRMeYBUP67LQoOQBeSygka-2vadYTeozI)
+    
+
+Related: **[Drones Change Everything About Combined Arms Combat](https://www.militarytimes.com/news/your-military/2026/02/20/drones-change-everything-about-combined-arms-combat-us-army-aviation-chief-says/)**
+
+#### [The Army is Writing the Book on Using Small Drones in a Tank Formation](https://www.defenseone.com/technology/2026/02/army-writing-book-using-small-drones-tank-formation/411338/?oref=ds_update_nl&utm_source=Sailthru&utm_medium=email&utm_campaign=Defense%20Systems%20Update:%20Feb.%2017%2C%202026&utm_term=newsletter_ds_update)
+
+As the Army’s Transformation-in-Contact brigades test and help develop new technology, they’re also shaping how soldiers will be trained to use it.
+
+-   Soldiers in the 3rd Infantry Division are working on a pair of courses to certify soldiers to operate small unmanned aerial systems, part of a service-wide effort to create doctrine around using drones throughout every formation.
+    
+-   The legacy UAS systems were focused on dedicated 15-series UAS operators, whereas now, we're leaning more toward training standard infantry and armor soldiers to be the UAS operators.
+    
+-   So far the division has been focusing on UAS classified in [groups 1 and 2](https://www.congress.gov/crs-product/IF12797)—that is, under 55 pounds. They’ve fielded more than 150 of them, Langley said, including the Anduril Ghost-X, Performance Drone Works C100, the Neros Archer, the Teal 2, and the AeroVironment Switchblade 600.
+    
+-   To qualify, soldiers start with about 40 hours of simulation training before ever touching the UAS itself.
+    
+-   Every single soldier, from a maintainer to an infantryman to a signal soldier who fixes the radios—all of them kind of have a baseline understanding of how drones work, and could, with the sim time, with a little bit of minimal field training, be able to deliver effects during an operational or training environment.
+    
+
+#### [New Army Office Aims to Quickly Develop and Scale Soldier Ideas](https://www.defenseone.com/technology/2026/02/new-army-office-aims-quickly-develop-and-scale-soldier-ideas/411587/)
+
+Pathway for Innovation and Technology will connect rapid-acquisition hubs to program chiefs. It aims to meld service leaders’ mandates to cut bureaucracy and adopt a VC mindset with their push to turn soldiers’ ideas into manufactured gear.
+
+-   The PIT sits at the table with the PAEs and communicates directly with them to express what we are seeing. The PIT is also serve as a tech scout for them. What we've had is unit-driven innovation. We've had lab-driven innovation with PMs and PAEs. But in this case, the gloves are off and we can inject that capability.
+    
+-   Within PIT sits the Army’s [FUZE program](https://fuze.army.mil/), [Joint Innovation Outpost](https://www.army.mil/article/290149/fort_bragg_opens_lieutenant_general_gavin_joint_innovation_outpost) and [Global Tactical Edge Directorate](https://sam.gov/workspace/contract/opp/c56028b99e7644a5a48e0d28f5111c8a/view).
+    
+-   One of the top issues they’d like to tackle is power generation and integration, particularly for unmanned aerial systems.
+    
+-   Ideally, a PIT-lead program development might look like an [xTech](https://xtech.army.mil/) competition to get a bunch of companies working on a problem the Army wants to solve, select maybe 10 companies and award them prize money, get their prototypes in the field with soldiers for a 30 or 45 days, and then award Small Business Innovation Research contracts for another six months of development.
+    
+-   From there, they could use FUZE’s [Tech Maturation Program](https://fuze.army.mil/programs/tmi/) to buy five, then 20, then maybe 100 pieces of equipment, while working on a Program Objective Memorandum that would lay out a five-year acquisition plan.
+    
+
+#### [Landscape of Current Robotic Solutions](https://sam.gov/workspace/contract/opp/f37847b6c34e42bdb4c2f9f835649594/view)
+
+Army Capability Program Executive Mission Autonomy (CPE MA) issued an [RFI](https://sam.gov/workspace/contract/opp/f37847b6c34e42bdb4c2f9f835649594/view) on the landscape of current industry robotics and autonomy solutions, opportunities for teaming, and develop an acquisition strategy to provide the capability to the Force rapidly. Responses are due Feb 27th (Friday).
+
+[
+
+![](https://substackcdn.com/image/fetch/$s_!hlBa!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F8e19bafa-3a3f-43bb-b957-cf31f0731a83_1806x176.jpeg)
+
+
+
+](https://substackcdn.com/image/fetch/$s_!hlBa!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F8e19bafa-3a3f-43bb-b957-cf31f0731a83_1806x176.jpeg)
+
+#### [Navy MH-60s, Air Force F-16s Will Soon Fly With New C-UAS Missiles](https://www.navalnews.com/naval-news/2026/02/u-s-navy-mh-60s-air-force-f-16s-will-soon-fly-with-new-c-uas-missiles/)
+
+[
+
+![](https://substackcdn.com/image/fetch/$s_!9Xz5!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F0a492418-aa8f-49ae-8f70-e50fbee03f06_917x450.png)
+
+
+
+](https://substackcdn.com/image/fetch/$s_!9Xz5!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F0a492418-aa8f-49ae-8f70-e50fbee03f06_917x450.png)
+
+Derivatives of the AGR-20F FALCO air-to-air missile are being rapidly prototyped to fulfill the urgent low-cost engagement requirement for one-way attack drone swarms numbered in the hundreds.
+
+-   A joint urgent requirement identified by CENTCOM has greenlit [BAE Systems’](https://www.baesystems.com/en) new infrared-guided Advanced Precision Kill Weapon System (APKWS) variant for rapid prototyping and production for initial fielding no later than this fall.
+    
+-   Without a rapidly fielded air-to-air solution, U.S. forces on the ground and at sea would face a critical vulnerability in the region.
+    
+-   The upgraded configuration adds a nose-mounted long-wave infrared (LWIR) seeker and a mid-body warhead equipped with a dual safe proximity fuse. The new seeker enables a handoff from laser designation to infrared homing, reducing the time an aircrew must maintain laser illumination.
+    
+-   The reduced lasing time enables faster engagements against maneuvering or massed unmanned aircraft. The smaller diameter enables fighters to carry a dozen or more missiles per sortie.
+    
+
+#### [Blue Water Autonomy Introduces Liberty-class Autonomous Ship](https://www.navalnews.com/naval-news/2026/02/video-blue-water-autonomy-introduces-liberty-class-autonomous-ship/)
+
+[
+
+![](https://substackcdn.com/image/fetch/$s_!y7mU!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F19fca41a-2ee8-4d02-b0a3-0728ed50b5e0_1158x378.png)
+
+
+
+](https://substackcdn.com/image/fetch/$s_!y7mU!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F19fca41a-2ee8-4d02-b0a3-0728ed50b5e0_1158x378.png)
+
+**[Blue Water Autonomy](https://www.blw.ai/)**, a Boston-based technology and shipbuilding company, this month unveiled its first vessel, the Liberty-class. Liberty is a 190-foot steel autonomous ship with a range of over 10,000 nautical miles and over 150 metric tons of payload capacity.
+
+-   The autonomous surface vessel was designed in partnership with Damen, with construction beginning at Conrad Shipyard in March 2026.
+    
+-   The first vessel is expected to be completed for the Navy later this year under a program of record.
+    
+-   Liberty’s design supports a range of missions, including missile, sensor, and logistics payloads, and offers the Navy a ship immediately producible with existing U.S. shipyards and commercial supply chains.
+    
+-   The Liberty-class will be built on Damen’s Stan Patrol 6009 hull design. Blue Water selected the design due to its Axe Bow, a distinctive, vertical bow that slices cleanly through the waves, minimizing slamming and allowing more gradual wave re-entry.
+    
+-   Blue Water, working with over 100 world class suppliers such as Damen and Conrad, has developed Liberty entirely with private capital, an unprecedented approach for a full sized Navy ship, but one typical in commercial markets.
+    
+-   Following delivery of the first ship, Blue Water plans to move into serial production, targeting 10 to 20 vessels per year.
+    
+
+#### [Navy Weighs Creating Robotic Autonomous Systems Commander Amid Unmanned Push](https://breakingdefense.com/2026/02/navy-weighs-creating-robotic-autonomous-systems-commander-amid-unmanned-push/)
+
+CNO ADM Daryl Caudle said a robotic autonomous systems commander would coordinate across domains.
+
+-   This RAS commander, if you will, knows how to C2 these packages of unmanned capabilities to achieve the mission outcomes that the strike group commander may want.
+    
+-   Where my head is, and we’re not there yet, a RAS warfighting commander — it’s almost a joint task force commander just for these systems alone.
+    
+-   The details of what the RAS commander role looks like are still being fleshed out.
+    
+-   While RAS is now arranged by domain, like undersea, aviation and cyber, a RAS commander could coordinate across the domains.
+    
+-   I can easily see a robotic and autonomous system commander, you know, as a first instantiation on the strike group staff.
+    
+-   Now I’ve got a strike commander, I got an integrated air missile defense I’ve got a sea combat commander, I got an information warfare commander, and then, because of these capabilities, are certainly going to be across the main to advise that striker commander, best I can see a RAS commander too.
+    
+-   Caudle said that he wasn’t ready to publish an unmanned strategy just yet, adding that he needs to understand what the command structure to employ these forces would look like.
+    
+
+#### [STEAMRACER-Class USV Advances in Major Navy MASC Program](https://www.navalnews.com/naval-news/2026/02/steamracer-class-usv-advances-in-major-u-s-navy-masc-program/)
+
+[
+
+![STEAMRACER-class USV Sea Machines U.S. Navy MASC](https://substackcdn.com/image/fetch/$s_!RqYl!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F830e626a-5127-486e-8d95-99ee257f1a26_2042x857.jpeg "STEAMRACER-class USV Sea Machines U.S. Navy MASC")
+
+
+
+](https://substackcdn.com/image/fetch/$s_!RqYl!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F830e626a-5127-486e-8d95-99ee257f1a26_2042x857.jpeg)
+
+**[Sea Machines](https://sea-machines.com/)** unveiled the STEAMRACER-class USV and announced it is strongly positioned in the Navy’s final competitive evaluation phase for the [Modular Attack Surface Craft (MASC) Program](https://www.navsea.navy.mil/Media/News/Article-View/Article/4261138/us-navy-seeks-industry-feedback-for-modular-attack-surface-craft-program/).
+
+-   Carved from the shipbuilding space in 2015, Sea Machines Robotics has spent the past decade developing and deploying the world’s leading marine autonomy across fleets operating on most oceans.
+    
+-   Over that period, the company has invested more than $50M in VC backed capital to develop, field, and harden a fully integrated autonomy stack. This investment addressed one of the most technically complex challenge of unmanned surface vessels such as MASC: reliable software–hardware integration at scale.
+    
+-   Having completed the difficult work up front, Sea Machines is now positioned to rapidly integrate [mature, field-proven autonomy](https://sea-machines.com/sm300-ng/) into purpose-built autonomous platforms.
+    
+
+#### [Navy Approves StormBreaker Smart Bomb for F/A-18E/F to Engage Moving Targets in All Weather](https://www.armyrecognition.com/news/army-news/2026/u-s-navy-approves-stormbreaker-smart-bomb-for-f-a-18e-f-to-engage-moving-targets-in-all-weather)
+
+The U.S. Navy has formally **[approved](https://www.rtx.com/news/news-center/2026/02/20/u-s-navy-approves-raytheons-stormbreaker-smart-weapon-for-use-on-super-hornet)** [](https://www.rtx.com/news/news-center/2026/02/20/u-s-navy-approves-raytheons-stormbreaker-smart-weapon-for-use-on-super-hornet)Raytheon’s StormBreaker smart weapon for operational use on the **[F/A-18E/F Super Horne](https://www.armyrecognition.com/military-products/air/fighter/f-a-18-super-hornet)**t. The precision air-to-surface munition is designed to engage moving and stationary targets in adverse weather, using a multi-mode seeker to operate over land and at sea.
+
+-   With carrier air wings increasingly expected to operate in contested, sensor-dense environments, the integration gives naval aviators a broader and more flexible strike option against time-sensitive and mobile threats.
+    
+-   The decision marks a significant step in aligning Navy strike capabilities with evolving maritime warfare demands.
+    
+-   StormBreaker’s multi-mode seeker reduces dependence on external designation, and its ability to prosecute moving targets in adverse conditions narrows the window during which an adversary can reposition or disperse.
+    
+
+[
+
+![](https://substackcdn.com/image/fetch/$s_!eBQk!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F2f52c187-2d87-4e52-8b8b-0085cefd4337_916x393.png)
+
+
+
+](https://substackcdn.com/image/fetch/$s_!eBQk!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F2f52c187-2d87-4e52-8b8b-0085cefd4337_916x393.png)
+
+Related: **[Navy approves Raytheon’s StormBreaker for use on Super Hornet fleet](https://www.navalnews.com/naval-news/2026/02/u-s-navy-approves-raytheons-stormbreaker-for-use-on-super-hornet-fleet/)**
+
+#### [The Yamato Syndrome](https://lewisnavy1.substack.com/p/the-yamato-syndrome)
+
+[David Lewis](https://www.linkedin.com/in/david-lewis-pmp-6a6061a/)
+
+Force design decisions are often framed as technical debates over ships: displacement, sensors, missile capacity, survivability, and unit cost. However, history shows that this framing is incomplete and, especially during times of technological and operational change, can be misleading. The most important factor is not whether an individual ship is well-designed, but whether the fleet as a system can remain relevant over decades of uncertainty. When navies fail, it is not because they build poor ships, but because they build ships that are perfect for a future that never arrives.
+
+-   **Yamato Syndrome**: the pursuit of analytically impeccable, tightly coupled, highly optimized principal combatants whose relevance depends on the continued validity of the assumptions that shaped them.
+    
+-   Force design under uncertainty, cannot hinge on selecting the “best” ship. It must distinguish between
+    
+    -   Continuity: maintaining numbers, readiness, and industrial capacity through steady production of proven hulls that evolve incrementally.
+        
+    -   Adaptation: creating platforms that enable learning, experimentation, and integration of capabilities that cannot yet be fully specified.
+        
+-   The lesson of *Yamato* is not that large or powerful ships are obsolete, but that extending a mature design philosophy beyond its limits leads to strategic failure.
+    
+-   The Navy does not need to predict the future of naval warfare precisely; it needs to design a force that can **discover that future faster than its adversaries**, without undermining its industrial base.
+    
+
+#### [Navy Brass Sees Future Battleship as Catalyst to Scale Next-gen Laser Weaponry](https://defensescoop.com/2026/02/18/navy-lasers-admiral-caudle-golden-fleet-battleship/)
+
+The Navy must embark on an aggressive push to integrate advanced lasers, high-power microwaves and other directed energy weapons across the fleet as part of its broader plan to counter intensifying and emerging drone and missile threats.
+
+-   Largely due to technical, environmental, industrial and other complexities, Navy insiders have struggled for decades to make DE capabilities a shipboard reality at-scale.
+    
+-   The military’s urgent need to counter cheap, swarming adversarial drones in multiple regions has heightened calls for maritime, laser-enabled weaponry.
+    
+-   CNO sees directed energy weapons solving problems not for just shipboard use. I see it solving problems for base protection as well. And so, this idea that I can put directed energy in places where anything that’s in line of sight can be taken out without shooting a kinetic weapon is appealing to me.
+    
+
+#### [NAVSEA Opens Competition for LSM Vessel Construction Manager](https://www.navalnews.com/naval-news/2026/02/navsea-opens-competition-for-lsm-vessel-construction-manager/)
+
+[
+
+![](https://substackcdn.com/image/fetch/$s_!RTTC!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F83467586-82df-4c2b-9852-b83e850fd0ab_1350x599.jpeg)
+
+
+
+](https://substackcdn.com/image/fetch/$s_!RTTC!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F83467586-82df-4c2b-9852-b83e850fd0ab_1350x599.jpeg)
+
+NAVSEA has issued a competitive [RFP](https://sam.gov/workspace/contract/opp/79c9f5e7665446f89dca25c61fc90a00/view) for a Vessel Construction Manager (VCM) to manage the production and delivery of the Navy’s new Landing Ship Medium vessels.
+
+-   The solicitation calls for single VCM to take responsibility for contracting, oversight and delivery of LSM Block 1 ships based on a non-developmental Damen landing ship design.
+    
+-   The navy has directed that initial production will be split between Bollinger Shipyards in Mississippi and Fincantieri Marinette Marine in Wisconsin.
+    
+-   The decision to appoint a VCM as a prime contractor is intended to leverage established commercial ship acquisition practices in order to accelerate delivery, improve cost discipline, and expand the US shipbuilding enterprise.
+    
+-   VCM responsibilities will include the selection and award of shipbuilding subcontracts; configuration management of the LST-100 design across multiple shipyards; oversight of shipyard construction; negotiation and/or purchase of class standard equipment to be used by all shipbuilders; and provisioning, crew training, and turnover to a government crew.
+    
+-   The VCM will hold the prime contract with the navy and, in turn, issue and manage its own subcontracts with shipyards. This places the VCM in direct contractual control of shipyard performance and creates a buffer that, along with a proven design, is expected to reduce cost and schedule risks. Outsourcing to a
+    
+-   VCM will also significantly reduce the number of naval personnel required to manage the programme.
+    
+
+Related: [Navy seek vessel construction manager for new LSM programme](https://www.naval-technology.com/news/us-navy-lsm-programme-rfp/)
+
+### Marine Corps
+
+#### [Digitizing the Front Lines](https://news.usni.org/2026/02/19/digitizing-the-front-lines)
+
+From massive formations to four Marines in a dunebuggy, the Marine Corps is working with the joint force to craft a single network to prepare for a digitized battlefield.
+
+-   That effort, **Project Dyanmis**, recently connected live, decentralized networks to support fire missions – a first in the service’s effort to connect with the joint force into a single network with AI, automation and cloud environments.
+    
+-   The milestone was achieved two weeks ago when a group of Marines joined soldiers from the 4ID at Fort Carson, Colo., for Ivy Sting IV, one in a continuing series of Army demonstrations of its Next-Generation C2 modernization program.
+    
+-   Eight more experiments are planned this year.
+    
+-   Project Dynamis [took root two years ago](https://news.usni.org/2024/02/14/marine-corps-upcoming-project-dynamis-to-be-its-jadc2-accelerator) as the Marine Corps began to develop its part of the military’s combined joint all-domain command-and-control architecture modernization goals, fueled by rapidly-advancing technologies and greater focus on lethality.
+    
+-   To fight in the modern battlefield, the Marine Corps is going to require capabilities to aggregate, orchestrate, analyze and share data quickly.
+    
+
+#### [Marine Corps Looking Into New Medium-Range Tactical Drone as it Pushes Small UAS Capabilities](https://defensescoop.com/2026/02/17/marine-corps-medium-range-tactical-drone-suas/)
+
+The drone should be able to launch from stationary and mobile platforms, such as amphibious ships. Under 20 pounds. Man-portable. Semi-autonomous. Able to launch and land vertically. These are some of the characteristics the Marine Corps is looking for in a new medium-range tactical (MRT) drone the service could equip its expeditionary forces with.
+
+-   The Corps currently uses the hand-launched RQ-20B Puma for reconnaissance and surveillance, which is part of a family of drones that is nearly 20 years old.
+    
+-   In a market research [request](https://sam.gov/workspace/contract/opp/c86e4748b31f48ec91dedf513a562d73/view) issued last week, the service is turning to industry for information about a new unmanned aerial system that can gather real-time information for Marines deployed to austere environments.
+    
+-   The Marine Corps has been investing significant resources into its stable of drones by establishing small UAS certification programs across the fleet and experimenting with different tech as it [gears up to buy 10,000 new first-person view systems](https://defensescoop.com/2026/01/02/marine-corps-drones-training-procurement/) this year.
+    
+
+#### [Marines Bring Amphibious Vehicles Back to Life With One Simple, Critical Component](https://www.war.gov/News/News-Stories/Article/Article/4407492/marines-bring-amphibious-vehicles-back-to-life-with-one-simple-critical-compone/)
+
+When a shortage of critical single-use consumable suspension washers resulted in multiple amphibious combat vehicles being taken out of service, Marines assigned to the Fabrication Platoon, 2nd Maintenance Battalion, at Marine Corps Base Camp Lejeune, North Carolina, stepped in, turning a potentially yearlong delay into a one-hour fix.
+
+[
+
+![](https://substackcdn.com/image/fetch/$s_!zHHl!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F8f4c015d-b54b-4ad7-a120-365fd6789512_1142x272.png)
+
+
+
+](https://substackcdn.com/image/fetch/$s_!zHHl!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F8f4c015d-b54b-4ad7-a120-365fd6789512_1142x272.png)
+
+-   ACVs were being taken out of service due to the lack of a specific suspension locking washer. The part, a mandatory replacement item for the vehicle's suspension system, was unavailable through the standard supply system due to a backlog, hindering unit readiness.
+    
+-   WO2 Anthony Juedes and WO3 Matthew Pine tasked the team to find a solution. They reverse engineered a part, produce a working prototype, showcasing advanced manufacturing.
+    
+-   It took < 30 minutes to create and in less than an hour had a working prototype. It takes < 90 seconds to cut the part.
+    
+-   Contractors were used to strengthen the reverse engineering process, help lower risk, ensure quality control and create a more thorough part-review for the fabrication process.
+    
+-   Once approved, 10 ACVs were brought back into service in a single morning, showcasing how this capability can be used not only on base, but also while forward deployed.
+    
+-   The 2nd Maintenance Battalion produced more than 80 washers, bringing 15 nonoperational ACVs back into service. For a part that costs less than $2 to make, the effort bypassed a supply shortage that could have sidelined the fleet indefinitely.
+    
+
+**Our Take:** This is the second story today of how simple parts are impacting countless weapon system readiness and warfighting operations. Maybe we start a new series called S2:S2. Stupid Sh\*t to Success Story. Continue to recognize and reward rapid, novel, and cost effective solutions like these.
+
+**Other Navy News:**
+
+-   **[Navy Seeks New ‘ASEM’ Anti-Radar Missile](https://www.navalnews.com/naval-news/2026/02/us-navy-seeks-new-asem-anti-radar-missile/)**
+    
+-   **[L3Harris to deliver communications systems for Navy submarines](https://www.naval-technology.com/news/l3harris-us-navy-submarine/?cf-view)**
+    
+-   **[Defense Companies Strike High-Tech Gulf of America Security Partnership](https://www.navalnews.com/naval-news/2026/02/american-defense-companies-strike-high-tech-gulf-of-america-security-partnership/)**
+    
+-   **[The Perils of Our Shipbuilding Imbalance](https://spectator.org/anchors-away-the-perils-of-our-shipbuilding-imbalance/)**
+    
+
+[
+
+![](https://substackcdn.com/image/fetch/$s_!gJTA!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F5f9d9f7e-f999-47c9-8dcb-bb98f11ddbf3_1806x176.jpeg)
+
+
+
+](https://substackcdn.com/image/fetch/$s_!gJTA!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F5f9d9f7e-f999-47c9-8dcb-bb98f11ddbf3_1806x176.jpeg)
+
+#### [X-68A LongShot Air-To-Air Missile-Carrying Drone Moves Closer To F-15 Launch](https://www.twz.com/news-features/x-68a-longshot-air-to-air-missile-carrying-drone-moves-closer-to-f-15-launch)
+
+[
+
+![General Atomics' air-launched LongShort drone has made new progress toward its first flight with the completion of various tests on the ground, including a demonstration of its weapons release capabilities.](https://substackcdn.com/image/fetch/$s_!qGr1!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F932d369a-e6c3-41b9-8688-21c62d698301_1920x1080.jpeg "General Atomics' air-launched LongShort drone has made new progress toward its first flight with the completion of various tests on the ground, including a demonstration of its weapons release capabilities.")
+
+
+
+](https://substackcdn.com/image/fetch/$s_!qGr1!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F932d369a-e6c3-41b9-8688-21c62d698301_1920x1080.jpeg)
+
+General Atomics’ air-launched [LongShot drone](https://www.twz.com/air/f-15-launches-longshot-air-to-air-missile-carrier-drone-in-new-renderings) has made new progress toward its first flight with the completion of various tests on the ground, including a demonstration of its weapons release capabilities.
+
+-   LongShot, now also designated the X-68A, is set to be carried aloft by an F-15.
+    
+-   The current goal is to begin flight testing before the end of the year.
+    
+-   The goal of the program has been to explore how an uncrewed aircraft capable of firing air-to-air missiles could extend the reach and reduce the vulnerability of the launch platform, [among other benefits](https://www.twz.com/39152/aircraft-launched-missile-like-drones-that-fire-their-own-air-to-air-missiles-are-in-the-works).
+    
+-   Released renderings of LongShot have depicted it as capable of releasing at least one [AIM-120 Advanced Medium Range Air-to-Air Missile](https://www.twz.com/air/biggest-aim-120-amraam-order-ever-just-signed-by-pentagon) (AMRAAM) from an internal bay running along the bottom of the fuselage.
+    
+-   DARPA and General Atomics have also talked about the potential to launch X-68As from bombers’ internal bays, as well as from cargo aircraft using the [Rapid Dragon palletized munitions system](https://www.twz.com/36878/air-force-c-17-launched-a-pallet-of-mock-cruise-missiles-during-recent-arsenal-plane-test).
+    
+-   What the cost equation might be, in particular, compared to using more advanced, reusable drones and/or [longer-ranged missiles](https://www.twz.com/air/this-is-what-the-classified-aim-260-missile-actually-looks-like-air-force-confirms), is unclear.
+    
+-   Still, the Air Force and/or other services could see LongShot as a necessity for meeting certain operational needs that cannot be addressed by any other solution.
+    
+
+**Related Article**: [DARPA’s New X-Plane: Meet the X-68A LongShot Drone](https://www.airandspaceforces.com/darpas-new-x-plane-meet-the-x-68a-longshot-drone/)
+
+#### [The Air Force Has Selected the Brain for Its Autonomous Fighter](https://www.daytondailynews.com/local/the-air-force-has-selected-the-brain-for-its-ohio-built-autonomous-fighter/PSZR4IMXPJBGVLFNXDQF2SBE4Q/)
+
+The Air Force said two vendors, RTX Collins and Shield AI, have started semi-autonomous flight testing in partnership with General Atomics on that company’s YFQ-42 platform, and with Ohio’s Anduril on its YFQ-44.
+
+-   It’s the latter craft that is to be built at Anduril’s Arsenal-1 manufacturing complex near Rickenbacker Airport in Pickaway County.
+    
+-   Under the program, Shield AI’s Hivemind autonomy software has been integrated on Anduril’s Fury aircraft and is supporting system-level testing before flight demonstrations expected in coming months.
+    
+-   Using multiple vendors for different airframes, the Air Force is *“demonstrating that mission software can be decoupled from vehicle hardware, breaking down barriers for technology integration and fostering a more competitive and innovative ecosystem.”*
+    
+
+**Related Article**: [Shield AI Selected as Mission Autonomy Provider for the U.S. Air Force Collaborative Combat Aircraft Program](https://shield.ai/shield-ai-selected-as-mission-autonomy-provider-for-the-u-s-air-force-collaborative-combat-aircraft-program/)
+
+#### [Air Force to Accelerate B-21 Raider Production to Boost Stealth Bomber Fleet](https://interestingengineering.com/military/usaf-to-accelerate-b-21-raider-production)
+
+The US Air Force and Northrop Grumman are nearing an agreement to speed up production of the B-21 Raider, which is expected to go into service by 2027.
+
+-   While the program is currently in low-rate initial production, a $4.5B capacity expansion will see manufacturing throughput increased, while maintaining the program of record at a minimum of 100 B-21 Raiders.
+    
+-   Northrop Grumman and the US Air Force are working on a growth framework that will accelerate the delivery of the aircraft. Warden noted that a formal agreement could be reached by the end of the fiscal quarter on March 31.
+    
+-   The pending agreement will not change the baseline fleet objective, which still stands at a minimum of 100 B-21s.
+    
+-   Warden confirmed that Northrop received the contract for the third low-rate lot in Q1 of 2025.
+    
+-   Northrop Grumman has indicated it aims to invest between $2B and $3B over multiple years to accelerate B-21 production.
+    
+-   The company has previously announced it spent $477M on process changes.
+    
+
+#### [C3BM Launches Software Developer Student Pipeline](https://www.af.mil/News/Article-Display/Article/4408184/c3bm-launches-software-developer-student-pipeline/)
+
+C3BM launched its first iteration of a training pipeline meant to prepare Airmen for the rigors of developing software capabilities in support of the DAF BATTLE NETWORK.
+
+-   Airmen who earn the 1D7X4P Specialty Code (Software Developer) from the 81st Training Support Squadron and receive orders to **[C3BM’s Kessel Run division, Operational Response Team division or Airspace Mission Planning](https://www.aflcmc.af.mil/C3BM/Our-Divisions/)** Conjure branch, now undergo specialized training to increase their technical skills.
+    
+-   The pipeline will expand on the Airmen’s technical knowledge in a range of subjects centered around software development mirroring industry standards and C3BM’s culture.
+    
+-   Students in the pipeline will have their skill levels evaluated throughout the course to determine their abilities at a ranking of level one to four.
+    
+-   Airmen already serving in roles as software developers within C3BM will also be afforded the opportunity to attend the pipeline to improve their abilities.
+    
+
+#### [Air Force Sees Early 2030s Rollout for Revamped Sentinel Missile](https://www.defensenews.com/air/2026/02/17/us-air-force-sees-early-2030s-rollout-for-revamped-sentinel-nuclear-missile/)
+
+The Air Force said Tuesday it expects its next-generation LGM-35A Sentinel nuclear missile to reach initial capability in the early 2030s, following a revamp of the over-budget program’s acquisition plan set to finish this year.
+
+-   The Sentinel program was also originally expected to reach initial operational capability in 2029, but that deadline first slid to 2030 and is now dropping further behind schedule.
+    
+-   In July 2024, the Pentagon decided the LGM-30G Minuteman III replacement was too critical to national security to cancel.
+    
+-   The Air Force said Tuesday that the restructuring of the Sentinel program is now projected to finish by the end of 2026, along with a new Milestone B decision.
+    
+-   The Air Force said that after taking the DRPM role, White and the Sentinel team conducted a detailed review of the program, and decided it was on track to finish its restructuring phase this year and to deliver initial capability in the early 2030s.
+    
+
+#### [Sentinel ICBM Program Hit by Software Delays, Minuteman Extension Risks](https://www.militarytimes.com/news/pentagon-congress/2026/02/18/sentinel-icbm-program-hit-by-software-delays-minuteman-extension-risks-gao/)
+
+GAO views the program breach as an opportunity to address fundamental challenges, including resolving issues with key design tools and performance requirements and finalizing the launch facility design.
+
+-   **Options to lower costs and arrest delays.** Sentinel program officials continue to evaluate options to potentially redesign portions of the weapon system for cost reductions and are looking at avenues to minimize further schedule delays.
+    
+-   **Software risks.** Sentinel is software-intensive, and development progress remains slow. These delays have raised concerns from program officials about the prime contractor’s ability to complete the program’s software in a timely manner.
+    
+-   **Opportunity to improve risk management.** The transition from Minuteman III to Sentinel involves a complex, total weapon system replacement. But the Air Force hasn’t developed a risk management plan for the most complex project the service has ever undertaken. Research has found that planners can better position a megaproject for success by investing appropriate time at the front end to develop the tools and processes to identify and manage risks.
+    
+
+[
+
+![](https://substackcdn.com/image/fetch/$s_!aFnE!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F509aba60-5102-4b28-ab0d-dc40b80f537c_852x147.png)
+
+
+
+](https://substackcdn.com/image/fetch/$s_!aFnE!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F509aba60-5102-4b28-ab0d-dc40b80f537c_852x147.png)
+
+**Our Take**: We have faith that Gen White will be able to get this program back on-track and as the previous article shows, that is already well underway.
+
+#### [Kessel Run Launches Program for ‘Next-Gen’ Air Operations Center](https://www.airandspaceforces.com/kessel-run-next-gen-air-operations-center/)
+
+Kessel Run software factory is launching an effort to create the “next generation” of the service’s Air Operations Centers, which command, control, and coordinate aircraft movements around the globe.
+
+-   In the Feb. 18 [program announcement](https://sam.gov/workspace/contract/opp/a2be5bc280d948b886cd4ad8998ef552/view), Kessel Run indicated it wants to incorporate artificial intelligence, machine learning, data fusion, and cloud-based software—the same technologies that are reshaping entire industries today.
+    
+-   The goal here is to enhance planners’ ability to synthesize and visualize the flight, intelligence, and threat data pouring into AOCs around the clock and to help leaders make better, faster decisions.
+    
+-   The plan is to release a request for information from industry later this month, starting a process that will end with a contract award targeted for June 2027.
+    
+-   The announcement lists four areas Kessel Run is particularly interested in:
+    
+    -   Artificial intelligence and machine learning “to accelerate decision-making”
+        
+    -   Data fusion and visualization from multiple sources
+        
+    -   Advanced cybersecurity measures
+        
+    -   Cloud-native architectures
+        
+
+**Related Article**: [Air Force Launches Program to Modernize Air Operations Centers](https://defensescoop.com/2026/02/19/air-force-kessel-run-program-modernize-air-operations-centers/)
+
+**Our Take**: While this effort is good to see because DoW needs to keep pulling in new tech, we see it as a huge missed opportunity to wait until next June to get underway. This doesn’t require a year of studying. Issue a challenge and make vendors bring ideas and solutions - test them out over the rest of 2026 and go full bore when the 27 budget drops. End the current contract early if there is a better way-ahead.
+
+**Other Air Force News:**
+
+-   [Air Force Deploying Angry Kittens to Middle East](https://www.twz.com/air/f-16s-heading-to-middle-east-equipped-with-angry-kitten-electronic-warfare-pods)
+    
+-   **[Air Force aims to enhance aircraft safety with improved data management](https://interestingengineering.com/military/us-air-force-aircraft-safety-twin-system)**
+    
+
+[
+
+![](https://substackcdn.com/image/fetch/$s_!OVIG!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F59bb5f74-53cc-4763-98c4-57fa51cf384b_1806x176.jpeg)
+
+
+
+](https://substackcdn.com/image/fetch/$s_!OVIG!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F59bb5f74-53cc-4763-98c4-57fa51cf384b_1806x176.jpeg)
+
+#### [Portions of the Pentagon’s LEO Constellation on Hold as Acquisition Reviews Proceed](https://spacenews.com/portions-of-the-pentagons-leo-constellation-on-hold-as-acquisition-reviews-proceed/)
+
+Procurements of the Proliferated Warfighter Space Architecture (PWSA) are on hold as the Pentagon reviews acquisition options and shifts responsibility for parts of the program outside the Space Development Agency (SDA).
+
+-   SDA’s architecture is intended to support missile warning, tracking, communications and other military missions **[through multiple “layers”](https://spacenews.com/space-development-agency-to-start-building-its-first-constellation-of-surveillance-satellites/)** of satellites launched in two-year tranches.
+    
+-   Procurement of the tracking layer — satellites equipped with infrared sensors to detect missile launches and follow them through flight — is **[moving forward](https://spacenews.com/space-development-agency-awards-3-5-billion-in-contracts-for-missile-tracking-satellites/)**.
+    
+-   The custody layer likely will be the responsibility of a new Space Force portfolio acquisition executive focused on **[space-based sensing and targeting](https://www.spaceforce.mil/News/Article-Display/Article/4373004/daf-puts-acquisition-on-wartime-footing-implementing-secwars-warfighting-acquis/)**.
+    
+-   The sensing and targeting office is expected to release a request for industry information for Air Moving Target Indicator, or AMTI, satellites.
+    
+-   AMTI sensors are designed to detect, track and characterize airborne moving objects across wide areas, enabling continuous custody of a target through flight.
+    
+-   Plans for Tranche 3 of the transport layer also are uncertain and seems likely to be absorbed into a broader Space Force-led space data transport initiative.
+    
+
+**Our Take**: This is likely the first step to slowly standing down the SDA. While disappointing since it was a novel organization focused on moving fast, in its way, it achieved an important goal: getting the rest of the Space Force (particularly SSC) moving faster and embracing commercial technology.
+
+#### [Pentagon Seeks Commercially Built GEO Spy Satellites](https://spacenews.com/pentagon-seeks-commercially-built-geo-spy-satellites/)
+
+The Pentagon is seeking proposals under which companies would build and initially operate satellites to monitor geosynchronous orbit — and then transfer those systems to government control within 36 months.
+
+-   The approach is outlined in a new solicitation from DIU, titled “**[Geosynchronous High-Resolution Optical Space-Based Tactical Reconnaissance](https://www.diu.mil/work-with-us/submit-solution/PROJ00653)**.”
+    
+-   The Pentagon is trying to fast-track the deployment of spacecraft for surveillance of GEO, a strategically important region roughly 22,000 miles above Earth where many U.S. communications, missile warning and intelligence satellites operate.
+    
+-   The military lacks sufficient satellites capable of providing high-resolution space-to-space imagery and maintaining custody of both friendly and adversarial spacecraft in GEO.
+    
+-   DIU would select vendors capable of developing and fielding a GEO reconnaissance system on commercial terms and timelines, demonstrating it under their own operational control, and then transferring the spacecraft to government ownership and operations once performance is proven.
+    
+-   Companies selected for prototypes must be able to deliver a high-resolution electro-optical image of a resident space object in GEO using a commercially operated satellite within 24 months of award.
+    
+-   Within 36 months, they would need to transition from a commercially owned, commercially operated model to a government-owned, government-operated structure.
+    
+
+**Related Article**: [DOD eyes commercial satellites that can spy on other satellites](https://www.defensenews.com/space/2026/02/18/dod-eyes-commercial-satellites-that-can-spy-on-other-satellites/)
+
+#### [USSF Wants to Get Battle Management Tools from Lab to Operations Faster](https://www.airandspaceforces.com/space-force-battle-management-lab-operators/)
+
+The Space Force team responsible for developing advanced battle management capabilities wants to create a better pipeline for mature space domain awareness tools to move from the lab into the hands of operators.
+
+-   The service has already started strengthening that connection by moving a key experimentation lab under the PEO portfolio.
+    
+-   The Space Domain Awareness Tools, Applications, and Processing Laboratory, or [SDA TAP Lab](https://sdataplab.org/) was established in 2023 to help hone new C2 tools from industry and academia and quickly deliver them to users.
+    
+-   The team is working to funnel more of those SDA TAP Lab tools, as well as other capabilities from industry, into a key space BM system called Kronos.
+    
+-   [Through Kronos](https://www.airandspaceforces.com/space-force-battle-management-c2-tools-kronos/), the Space Force has been consolidating legacy systems that provide operators—battle managers in particular—with intelligence tools and command-and-control capabilities to help decipher threats and make rapid decisions about how to respond.
+    
+-   To support, it issued a [commercial solutions opening for Kronos](https://sam.gov/workspace/contract/opp/17b76144c5e647a687ac053d07e33a7e/view), a mechanism to draw in more innovative tools from industry on a faster and more regular cadence.
+    
+
+#### [SpaceX Unveils Space Traffic Management System](https://spacenews.com/spacexs-unveils-space-traffic-management-system/)
+
+A new SpaceX initiative to provide space traffic coordination services has attracted attention and praise in part because of the conditions it places on users of it.
+
+-   SpaceX announced in late January **[Stargaze](https://starlink.com/updates/stargaze?srsltid=AfmBOord_S_ZHDNXztZ2-rWfdGJo_smfHjK5cD6FTGW72VgLu8pR-kEp)**, a space situational awareness (SSA) system that uses images from star tracker cameras on its nearly 10,000 Starlink satellites to identify other objects in orbit and plot their orbits.
+    
+-   SpaceX says that Stargaze collects nearly 30 million observations of objects each day, which are used to calculate their orbits “in near real-time.”
+    
+-   SpaceX then uses that information to calculate potential close approaches and issue conjunction data messages that provide details on those close approaches.
+    
+-   More than a dozen companies are participating in a beta test of SpaceX’s space traffic management platform using Stargaze data.
+    
+-   SpaceX says it will open the system to all satellite operators at no charge.
+    
+-   The emergence of Stargaze and SpaceX’s space traffic management platform comes as the Office of Space Commerce is working on its own system, TraCSS, mandated by Space Policy Directive 3 in 2018.
+    
+
+#### [Space Force Surveys Industry for Refueling Tech](https://www.airandspaceforces.com/space-force-surveys-industry-for-refueling-tech/)
+
+As the Space Force continues to weigh the military utility and economic viability of refueling satellites in orbit, it’s asking industry for systems that could start doing so by 2030.
+
+-   [The Feb. 13 request for information](https://sam.gov/workspace/contract/opp/09b0d38d864b4d658fe76c8cf052c03d/view), which will help inform Space Force decisions on how and if to take advantage of commercial refueling capabilities, is geared toward companies with satellite servicing vehicles already equipped with one of the two standard interfaces SSC has approved in recent years:
+    
+    -   Orbit Fab’s Rapidly Attachable Fluid Transfer Interface
+        
+    -   Northrop Grumman’s Passive Refueling Module.
+        
+-   The service is particularly interested in vehicles that have achieved the equivalent of a preliminary design review, which means it’s ready to be demonstrated in a representative environment.
+    
+-   The 2030 timeline matches the service’s schedule for delivering its first fleet of satellites that could potentially be designed with the option to be refueled in orbit—a space domain awareness program [called RG-XX](https://www.airandspaceforces.com/space-force-new-reconnaissance-satellites-2030/).
+    
+-   The program will likely be the Space Force’s first operational application of on-orbit refueling, but the Space Force’s long-term vision for the capability is unclear.
+    
+
+Our Take: We still stand by our position that for any expensive satellite, it is foolhardy not to embrace this new technology advance. The space domain is changing and the need to maneuver will only become greater either because of adversary action or because of increased traffic.
+
+**Other Space Force News:**
+
+-   [CECOM SEC Transitions Sustainment of Wideband Satellite Communications Operational Management System to U.S. Space Force](https://www.army.mil/article/290089/cecom_sec_transitions_sustainment_of_wideband_satellite_communications_operational_management_system_to_u_s_space_force)
+    
+
+[
+
+![](https://substackcdn.com/image/fetch/$s_!CJ7X!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fd3319927-b95b-416e-bcb0-6f7b9ee082b6_2000x210.jpeg)
+
+
+
+](https://substackcdn.com/image/fetch/$s_!CJ7X!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fd3319927-b95b-416e-bcb0-6f7b9ee082b6_2000x210.jpeg)
+
+#### [Golden Dome Will Fail Without Software-Defined Warfare](https://spacenews.com/golden-dome-will-fail-without-software-defined-warfare/)
+
+[Ryan Frigm](https://www.linkedin.com/in/ryan-frigm-12121730/?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3BhSaJCS8xTYGYl%2FfBzWi7hA%3D%3D)
+
+If the U.S wants to defend the homeland against the next generation of missile and aerial threats, hardware alone will not save us.
+
+-   Sensors, radars and interceptors are necessary but no longer sufficient. The decisive advantage for GD4A will come from software and the ability to integrate, test, adapt and fight as a single, coherent system.
+    
+-   But software-defined warfare will not emerge organically. The GD4A DRPM office must serve as the change agent for this initiative.
+    
+-   The program office must mandate a software-defined architecture from the outset and enforce integration as the organizing principle of the program.
+    
+-   At its core, Golden Dome is a systems integration problem. The only way to solve it on the required timeline is through digital alchemy: using software to transform existing materiel into a capability greater than the sum of its parts.
+    
+-   This is the essence of software-defined warfare, and the next war will not be won with the best PowerPoint slides but rather victory will belong to the side that can iterate faster, integrate across domains and adapt in real time.
+    
+-   The good news is that the U.S. is uniquely positioned to do this now. The U.S. stands at the intersection of a technological maturity curve and a strategic necessity.
+    
+-   The technologies required for software-defined warfare (massive compute, edge AI and autonomous orchestration) are no longer exotic; they are industrial-grade and deployed commercially at scale.
+    
+-   **The first step toward a digital-based transformation will be through modeling and simulation.**
+    
+    -   Not just eye-catching visualizations, but high fidelity, physics-based representations of real-world systems running on a highly performant core simulation engine with the data analytic tools to make sense of the simulation results and “so what” outcomes.
+        
+    -   Having these capabilities will enable intelligent decision making, from architectural analysis; vulnerability assessments, strategic investments; tactics, techniques and procedure development; to advanced wargaming.
+        
+
+**Our Take**: We agree 100%.
+
+[
+
+![](https://substackcdn.com/image/fetch/$s_!xLlR!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F01082d37-c907-451c-9d37-d9e3019304b8_1806x176.jpeg)
+
+
+
+](https://substackcdn.com/image/fetch/$s_!xLlR!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F01082d37-c907-451c-9d37-d9e3019304b8_1806x176.jpeg)
+
+#### [How Russia Is Reshaping Command and Control for AI-Enabled Warfare](https://www.csis.org/analysis/how-russia-reshaping-command-and-control-ai-enabled-warfare)
+
+Russia is transforming its command and control (C2) architecture under wartime pressure and these changes are shaping the country’s incremental move toward battlefield-required software solutions.
+
+-   Russia is no longer prioritizing the construction of a single, comprehensive automated C2 architecture comparable to Western joint concepts; instead, it is reallocating effort toward tactical, task-specific software, driven by battlefield necessity.
+    
+-   Because unmanned systems now conduct up to 80 percent of Russian fire missions, the center of gravity in C2 innovation has shifted toward software that manages drones and integrates them with artillery and other fire units.
+    
+-   The Russian military assesses its AI capabilities for visual and audio data processing as relatively mature, placing computer vision, sensor fusion, and signal analysis at technology readiness level (TRL) 6–9, while natural-language processing remains at an early, experimental stage, TRL 1–3.
+    
+-   Within Russian C2 systems, AI is primarily envisioned as a support function rather than a replacement for human decisionmaking.
+    
+-   Russia began its C2 digitalization effort by building a dense layer of standards governing terminology, system architecture, hardware-software integration, and information management.
+    
+-   To enable AI-driven tactical software, the Russian military launched a systematic data collection effort in 2025 focused on unmanned operations and strike outcomes.
+    
+-   Despite efforts to reduce dependence on foreign commercial technologies, Russia’s military AI development remains heavily reliant on open-weight models and civilian software ecosystems.
+    
+
+#### [F-35 Software Could Be Jailbreaked Like An iPhone: Dutch Defense Secretary](https://www.twz.com/air/f-35-software-could-be-jailbreaked-like-an-iphone-dutch-defense-minister)
+
+The F-35’s ‘computer brain,’ including [its cloud-based components](https://www.twz.com/31861/replacement-for-f-35s-troubled-alis-cloud-based-brain-rebranded-odin-and-is-still-years-away), could be cracked to accept third-party software updates, just like ‘[jailbreaking](https://www.kaspersky.com/resource-center/definitions/what-is-jailbreaking)‘ a cellphone, according to the Dutch State Secretary for Defense.
+
+-   The statement comes as foreign operators of the jets continue to be pressed on what could happen if the United States [were ever to cut off support](https://www.twz.com/how-the-f-35s-lack-of-spare-parts-became-as-big-a-threat-as-enemy-missiles).
+    
+-   Tuinman, who has been State Secretary for Defense in the Netherlands [since 2024](https://english.defensie.nl/organisation/central-staff/state-secretary-for-defence), does not appear to have offered any further details about what the jailbreaking process might entail.
+    
+-   The F-35 program imposes unique limits on the ability of operators to make changes to the jet’s software, as well as to associated systems on the ground.
+    
+
+\---
+
+[
+
+![](https://substackcdn.com/image/fetch/$s_!1zi2!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F5985933d-88e8-4ed8-99f7-0aefa35817d8_1806x176.jpeg)
+
+
+
+](https://substackcdn.com/image/fetch/$s_!1zi2!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F5985933d-88e8-4ed8-99f7-0aefa35817d8_1806x176.jpeg)
+
+#### [The Budget and Economic Outlook: 2026 to 2036](https://www.cbo.gov/system/files/2026-02/61882-Outlook-2026.pdf)
+
+Congressional Budget Office
+
+[
+
+![](https://substackcdn.com/image/fetch/$s_!12iU!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fea88fa7e-563c-4f00-80f5-177ecaba31f4_892x602.png)
+
+
+
+](https://substackcdn.com/image/fetch/$s_!12iU!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fea88fa7e-563c-4f00-80f5-177ecaba31f4_892x602.png)
+
+[
+
+![](https://substackcdn.com/image/fetch/$s_!VQBD!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F1e206f27-00db-497a-bd13-52a8490f3622_1228x558.png)
+
+
+
+](https://substackcdn.com/image/fetch/$s_!VQBD!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F1e206f27-00db-497a-bd13-52a8490f3622_1228x558.png)
+
+[
+
+![](https://substackcdn.com/image/fetch/$s_!VesE!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Ff331bd3c-0d5a-44d1-b96a-f250bb8b2a5c_882x712.png)
+
+
+
+](https://substackcdn.com/image/fetch/$s_!VesE!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Ff331bd3c-0d5a-44d1-b96a-f250bb8b2a5c_882x712.png)
+
+[
+
+![](https://substackcdn.com/image/fetch/$s_!jkI7!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fc5d59fa2-1352-41e1-95c5-b25ba4c8f515_1216x530.png)
+
+
+
+](https://substackcdn.com/image/fetch/$s_!jkI7!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fc5d59fa2-1352-41e1-95c5-b25ba4c8f515_1216x530.png)
+
+[
+
+![](https://substackcdn.com/image/fetch/$s_!UhC7!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F74e2fb5d-976a-4a2b-a3a8-9ff9e25b194b_1197x474.png)
+
+
+
+](https://substackcdn.com/image/fetch/$s_!UhC7!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F74e2fb5d-976a-4a2b-a3a8-9ff9e25b194b_1197x474.png)
+
+Our Take: This is worth a full read or at least review of the relevant graphics.
+
+#### [Modernization of the Organic Industrial Base](https://armedservices.house.gov/calendar/eventsingle.aspx?EventID=6397)
+
+HASC Hearing, Feb 24, 2026 with
+
+-   Brent Ingraham (ASA/ALT)
+    
+-   LTG Chris Mohan, AMC Commanding General
+    
+
+\---
+
+### Podcasts, Books, and Videos
+
+-   **[The SBIR Program with Amanda Bresler,](https://shows.acast.com/squaring-the-circle/episodes/the-small-business-innovation-research-sbir-program-with-ama)** [](https://shows.acast.com/squaring-the-circle/episodes/the-small-business-innovation-research-sbir-program-with-ama)Squaring the Circle
+    
+-   **[Why Government Software Fails w/Bryon Kroger](https://www.youtube.com/watch?v=dKKiQn8WGC4&t=1s)**, Rise8
+    
+-   **[DoW’s $4.6T Audit Sprint: Inside the Race to 2028 w/Jay Hurst](https://www.youtube.com/watch?v=-wQfQ_vJxPA)**, Fed Gov Today
+    
+-   **[Unpacking CNO’s Fighting Instructions w/Bryan Clark](https://open.spotify.com/episode/4Hm2f05qZnsDuIadMRq84T)**, CAVASSHIPS
+    
+-   **[Building American Drone Dominance w/Andy Yakulis](https://open.spotify.com/episode/2HIR2R0HLfrWhpMQE1OVYP?si=kZnkMu5KSt2UxZLmaSQoYQ)**, Mission Matters
+    
+-   **[Are Manned Aircraft Becoming Obsolete? w/Mike Benitez](https://www.youtube.com/watch?v=co4za4qD6JQ),** Restricted Handling
+    
+-   **[Space as the Backbone of Integrated Defense w/Jeff Schrader](https://www.youtube.com/watch?v=7NSMQWH6fZU)**, AFA
+    
+-   **[Want Effective AI? It'll Take Contextualized Mission Data](https://www.youtube.com/watch?v=Mtf5H96C5SM)**, Mitchell Institute
+    
+-   **[Inside GenAI.mil: How the Pentagon Is Scaling AI to a Million Users w/Cameron Stanley](https://www.youtube.com/watch?v=kT9pIESn8Qc)**, Fed Gov Today
+    
+-   **[Fireside Chat with LtGen. David Harris, Air Force Futures](https://www.youtube.com/watch?v=o2kVKCHm3sQ)**, Michell Institute
+    
+
+### Upcoming Events and Webinars
+
+-   **[Tactical Wheeled Vehicles Conference](https://www.ndia.org/events/2026/2/23/twv-2026)**, NDIA, Feb 23-25, Pittsburgh, PA
+    
+-   **[American Dynamism: America 250 Summit](https://a16z.com/american-dynamism-summit)**, Mar 3, Washington DC
+    
+-   **[Loitering Munitions Systems Summit](https://loiteringmunitions.dsigroup.org/)**, DSI, Mar 3-4, Huntsville, AL
+    
+-   **[Joint Space Operations Summit](https://space.dsigroup.org/)**, DSI, Mar 4-5, National Harbor, MD
+    
+-   **[JIATF 401 Counter-sUAS Industry Day](https://docs.google.com/forms/d/e/1FAIpQLSfRIXpk5uMIwVUUrApmf3JilW_kgC8xwTbzYPeWADhBNYShCA/viewform)**, Mar 5, Arlington, VA
+    
+-   **[Pacific Operational Science and Tech (POST),](https://www.postconference.org/)** NDIA, Mar 9-12, Honolulu, HI
+    
+-   **[Defense Software and Data Summit,](https://www.govini.com/request-an-invite-2026-defense-software-and-data-summit)** Mar 10, Washington DC
+    
+-   **[Tectonic Defense Summit](https://events.tectonicdefense.com/tectonic-defense-summit)**, Mar 11-12, Austin, TX (We’ll see you there!!)
+    
+-   **[National Security Innovation Base Summit](https://www.reaganfoundation.org/events/2026-national-security-innovation-base-summit)**, Ronald Reagan Inst, Mar 11-12, DC
+    
+-   **[Capital Factory House](https://house.capitalfactory.com/)**, Mar 12-17, Austin, TX
+    
+-   **[Naval IT Day 2026](https://afceanova.swoogo.com/NavalITDay2025)**, AFCEA NOVA, Mar 12, Chantilly, VA
+    
+-   **[Air Force Contracting Summit](https://www.usdlf.org/air-force-contracting-summit-26)**, DLF, Mar 16-17, Reston, VA
+    
+-   **[Human Systems Conference](https://www.ndia.org/events/2026/3/17/human-systems-conference)**, NDIA, Mar 17-18, Arlington, VA
+    
+-   **[Munitions Executive Summit](https://www.ndia.org/events/2026/3/17/munitions-executive-summit)**, NDIA, Mar 17-18, Parsippany, NJ
+    
+-   **[Navy Information Warfare Industry Day](https://www.afcea.org/events/2025-navy-information-warfare-industry-day)**, AFCEA, Mar 18, Springfield, VA
+    
+-   **[Autonomy in Defense](https://defense-autonomy.coriniumintelligence.com/)**, Corinium, Mar 18-19, Washington DC
+    
+-   **[AI Summit](https://www.potomacofficersclub.com/events/2026-artificial-intelligence-summit/)**, Potomac Officers Club, Mar 19, Reston, VA
+    
+-   Plan out your full year by visiting our **[Events](https://defenseacquisition.substack.com/p/events)** [](https://defenseacquisition.substack.com/p/events)page.
+    
+
+***Join over 14,000 defense and industry subscribers** to get our weekly recaps and thought pieces. **Paid subscribers** also get budget and legislative analysis and are valued supporters of our work.*

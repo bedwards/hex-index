@@ -1,0 +1,177 @@
+---
+title: "Vice Nimrod (A Novel of the Tower of Babel) Chapter 3"
+author: "PILCROW"
+publication: ""
+publication_slug: "pilcrowmag"
+published_at: "2026-02-12T23:25:16.000Z"
+source_url: "https://www.pilcrowmag.com/p/vice-nimrod-a-novel-of-the-tower"
+word_count: 3945
+estimated_read_time: 20
+---
+
+We continue the second round of [PILCROW’s Serialized Novel Contest](https://www.pilcrowmag.com/p/what-is-pilcrow), with our first Finalist’s third chapter. Over the next three weeks, we’ll serialize the first few chapters of our three Finalist’s unpublished novels, and then subscribers (both free and paid) will vote on a Winner to be fully serialized here on the Substack. Finalists are awarded $500; the Winner $1,000.
+
+Our Finalists are:
+
+-   *Vice Nimrod* by Colin Dodds
+    
+    -   [Chapter 1](https://www.pilcrowmag.com/p/onboarding-in-the-tower-of-babel)
+        
+    -   [Chapter 2](https://www.pilcrowmag.com/p/vice-nimrod-chapter-2)
+        
+-   *Still Soft With Sleep* by Vincenzo Barney
+    
+-   *Don’t Disappoint* by Martin Van Cooper
+    
+
+While the traditional organs of American letters [continue to wither](https://www.metropolitanreview.org/p/the-washington-post-killed-their), we recognize the need [to forge a new path](https://substack.com/home/post/p-186997650?selection=a3450331-4e51-4fec-927b-624f18b6316e#:~:text=We%20need%20to%20build%20our%20networks%2C%20fund%20what%20we%20can%20if%20we%20have%20the%20resources%2C%20and%20steal%20what%20we%20can%20from%20institutions%20while%20we%20can%2C%20knowing%20those%20resources%20will%20always%20be%20ephemeral). If you believe in what we’re doing, PLEASE share and subscribe and spread the word.
+
+⚬─────────✧─────────⚬
+
+*In Vice Nimrod, a young refugee from a brimstone-wrecked small town, Ishkebek finds his way to Nimrod’s Mighty Tower, where he lands a job. Through a mix of savvy alliances and good luck, he rises through the ranks, and survives a professionally disastrous friendship with an idol-smashing protege, to reach the rank of Vice Nimrod, Communications. In his words, we learn how Nimrod’s Communications Group deftly handles the inquiries of the neighboring kingdoms, how it spins the burning of Sodom & Gomorrah, and how it finally flounders through the varied crises that make up the Confusion of Tongues.*
+
+⚬─────────✧─────────⚬
+
+*Senior Associate - Workplace Piety, Communications & Kingdom Marketing*
+
+A year or two went by. Work was good. Those years were like flying on narcotic and erotic tailwinds and updrafts of distraction and self-importance. The fantasy of the world made all-encompassing, tangible and real the way that memos about memos seem to prove themselves by a cheap principle of reflexivity. When you only spend two or three waking hours a day out of the office, the office becomes a perfect tautology.
+
+People who never experience it have no hope of understanding it. But imagine a life where you never have to think about who you are or if you’re right or wrong, good or evil, never had to think about death, or reality, or the fleetingness and futility of it all. And you got paid enough that you never had to worry about money or getting old. When things are good at work, life is a variety of perfect. And it only costs everything.
+
+Eventually, the wind blew from the south through the new moon, and a fresh Festival of Layoffs began. Young men cheered and old men lamented a world they alternately took credit for and, shaking their heads, claimed they did not make. Women wept their coffee-scented tears.
+
+Yersinia, who so loved the Internal Communications Function, was out. Her Internal Communicators Vision & Values Statement, however well distributed by human resources, couldn’t save her. Though bald, I doubt she was more than forty. I heard she went back to her kingdom, and got into sovereign correspondence. I didn’t know anyone who missed her.
+
+I was junior and useful enough to glide through unscathed. I stayed close to Jerr, and learned a few more things of the variety that might dispirit someone slightly less invested.
+
+I was promoted. Now I could use my little iron ID tablet to ride the executive elevator on late nights and weekends.
+
+But the real promotion was being read into the conspiracy, shown yet more of the trick of the riddle, and advanced from a dupe to a liar. I was proud. I took the raise, said goodbye to my roommates and moved to my own apartment a few floors up. Except for rare weekend jaunts, I rarely left the tower anymore. I liked it that way.
+
+Rumor control was the unofficial name for a lot of what I did then.
+
+*Rumor control, tumor patrol, hey lady have you seen a mole?* my colleague Brian liked to sing. Brian was born and raised in the tower. With an Executive Commanding Vice Nimrod of Leasing, Odor Suppression & Wind Management for a father, he came in as a Senior Associate, and could take more liberties than most.
+
+He was probably still tipsy from the night before. But his little rhyme made sense. A tumor, as someone explained to me once at a party, is a bit of tissue that’s too excited about growing, and so grows at the expense of the rest of the body. Cutting it out helps sometimes, but not always. A rumor works the same way. Except it’s very hard to cut out a rumor once it’s become fashionable. What a good communications team can do that the body can’t is create more and more flesh to encase, confound and drown the rumor. Now a Senior Associate myself, I’d learned a dozen ways to change the subject and call it *staying on message*.
+
+The tumor that day was big, in that it had big implications. But it was also of no immediate danger to anyone in power, so Brian and I got the call.
+
+It was a Monday after a long weekend in Sodom, where Brian had an apartment, and we were both worse for wear. I was still young then, and would take the occasional trip to Gomorrah and Sodom. I learned some of the vinegar-sour pleasures that the tower, for all its cosmopolitan tolerance, would not allow. The starving men and women in hanging cages, near death, who’d simper as you feasted a few feet away, or the new eunuchs chained to the windows of the brothels, looking on sullenly.
+
+For a provincial like myself, it was too much. But Brian had the purse and the temperament to put those famously debauched cities to the test. What I recall of that weekend, if I’m not confusing it with others, is that I begged off in the early morning, leaving Brian in a tavern. I became immediately lost in the warren of alleys that border the expensive precincts that housed the disposable boys and girls homes.
+
+All I remember after a certain point is vomit in my sandals, and the pitying look of a sleepy prostitute as she rubbed my head and patted my pockets. Brian tracked me down after the sun had risen, right when the madam of the establishment where I’d fallen unconscious was about to have me stretched half to death on the “visitor’s bed” that the town famously reserved for deadbeats.
+
+*Tumor patrooolll!* Brian sang that nauseous morning in the office, as he rolled across the office floor on a stool with large wooden wheels.
+
+Jerr yelled to me from his papyrus-screened office. I evicted the idle mad mirth from my face and hurried over, hoping I didn’t still smell of Sodom.
+
+He asked if I was on rumor control with “Harrahrad’s kid,” which was how he referred to Brian. I nodded and he told me to take the lead on it. He gestured for me to sit, and smiled tightly, as if he’d spent considerable time arranging the creases in his face. He asked what I thought of the assignment.
+
+I said what I knew: It should be easy—with the rumor reported on only three floors. The job was mostly a matter of telling the other side of things—off the record, to give the sense of privilege. The gossips and loudmouths we told would tell the other version of the story. That would confuse the matter and make everyone weary of the subject.
+
+I said I’d make the rumor “die of disinterest,” to use Jerr’s preferred phrase. He nodded, said it was hard to go wrong with bewilderment. He fixed me for a moment with his eyes—clear, though the flesh around them was like blossoms fried in a pan. That day is still clear to me. I can see the small arched windows open behind him, the light through their dirty glass marking the walls. It was an old floor, with a brick desk like an altar. What came next was important, and later, I tried to pass it on to the underlings that I liked.
+
+Jerr tapped his desk with a knuckle, gestured around at the office, the tower, and told me that all of this is essentially nothing special. It’s just brick, stone, bitumen, glass, rope and iron. That’s the truth, and it’s what the builders and the dullards will tell you. But the tower is actually made from something else—something more volatile—*attention*. Jerr paused on that last word. Without attention, there is no tower and there is no life in it. And attention—that’s what we’re the real architects of.
+
+I wasn’t sure what to say. Jerr gestured at the office behind me and asked about something I’d finished, a tablet that was read aloud at two-minute intervals at all the gates over a recent holiday.
+
+He asked me to recite it, and I could. It had to do with which objects and people could pass through the Mouth of the Weeping Thin-Lipped Whisperer, and where other traffic should be rerouted during Nimrod’s Camp Holiday.
+
+Jerr said that announcement had altered the meaning of that gate, of the people who passed through it, or went around. It had reinforced the meaning of the year and sanctity of our organizational hierarchy. He reminded me of the hundred subtle tonal elements of the screamed announcement, the thousands of words not used. It avoided mention of the lawgiver, avoided apology, avoided a hundred other wrong or puzzling impressions. It protected the certitude of the quotidian, he said. Thanks, I think, I said. Jerr asked if I understood exactly why we couldn’t have three floors of decorators, idol-buyers and low-level astronomers going around saying that the purpose of the tower is to wage war on the gods. I asked if it was because of what happened in Shinursba. I clenched my jaw at the mention of it.
+
+Good, he said, and asked me what happened in Shinursba. I told him that the Lord God, in multiple form, cast His righteous anger on the small city and smote it with a low orange deluge of flame that burned for half a day and simmered for forty more. Jerr nodded, said he hadn’t heard all the details. I told him I was from there. He asked if we had ten righteous men. I said we thought so.
+
+He said it’s a tricky business—righteous men—but we’re getting off the subject. He tried to remember what he was talking about, and said *attention*. Attention is volatile; we live in a house made of lamp oil. And if that attention were to shift—to the grievances of which we are all rightful heirs, or to the numberless tedious and humiliating scenarios that keep us alive, the million dreams not coming true, the ever-sinking sensation that you are no capstone but the gray murk of old bitumen between lower support stones, or even if that attention were to turn to the sudden ecstasy that springs from no man or earthly authority, but surges overpoweringly and unites all of creation in a flash—then before very long no stone would stand upon a stone, our name would evaporate, and we would be scattered across the formless face of the earth.
+
+From his face, I could tell Jerr had gone somewhere when he’d spoken. Like most senior managers, he’d grown up in the tower. What I’d just heard was, I think, what the tower had told him at some very early age.
+
+We sat in some silence for a moment. My hangover throbbed. I remember stuttering a little before choking out the next sentence. I asked how I should push the attention for this latest assignment.
+
+Jerr took a breath and gave me the background. There are a few basic rumors about the tower that Internal Comms has to patrol and either confound or refute again and again, he said, leaning back in his chair.
+
+One is that the tower is a siege ladder. That’s the gossip that the lower-floor embroiderers, calendrists, stargazers and idol carvers were all aflutter about that day.
+
+The second is that the tower is a gift from the gods by which we may eventually reach them, attain their stature, and live in peaceful communion with them.
+
+Three is that the tower is a pillar meant to buttress the heavens and keep the floodwaters above from again crashing down and drowning every living creature.
+
+The fourth is that the tower is a garish spectacle by which the cynical rulers of the five kingdoms embellish their greatness, and divert their intelligent underlings from courtly plotting.
+
+Five is that the tower is an arbitrary center for the attention of man, an island of sensible social reality piled to block out the chaos that roils our own natures, as well as the oblivion that rages from past and future, above and below, blowing in every wind.
+
+The sixth is that it is a bulwark against death and time, the signature of our undying name on the earth, and a lasting reminder that we exist, and have existed.
+
+There are a few others, Jerr said, but those are the most frequent ones that pop up.
+
+I struggled to get it all down on the scraps of scraped, mismatched parchment that I always carried back then. I asked which story we espoused.
+
+Jerr smiled as he sat down behind his desk. So you want to know what the tower is for? he asked me. I shrugged, afraid I’d misspoken. Do you? Do you want to know in service to what truth do we suppress these stories? he asked. I said yes, but softly, as if mumbling made me less culpable.
+
+Our work serves no truth, Jerr said, it serves the tower. Whatever ideas happen to be in fashion, we can make them serve the tower, he said. But it can never work the other way around. Never. He asked if I could understand that. I said yes, and apologized, blaming my background in the priesthood. He said it’s okay, it’s good even, having a basic knowledge of deeper reasons made me better at my job. Eternal verities are great for us, he said, especially when we don’t have to massage them away later.
+
+He saw I wanted to say something and told me to spit it out. I asked if it was all just obfuscation and distraction. He smiled.
+
+You think you’re wrestling with reality, and that’s good, but you’re not, Jerr said, kindly, like a father. He looked off and said something I’d later repeat.
+
+“We, by which I mean the tower, are a colossus. Don’t forget that. But we’re a colossus on a high wire. We are the culmination of hundreds of generations, languages, races, nations, religions all gathered to speak with a single colossal voice, to build something that means all things at once. Something like the tower occurs so rarely that you might as well round it down to never. We are a freestanding scandal upon the devouring murk of the earth. In this preposterous position, the colossus twitches a hand here, bends a knee slightly, jerks up an arm, ventures a foot slightly outward, crouches halfway. The dance signifies nothing. But without it, the colossus would plummet into an abyss past nostalgia or regret. All we do, with the words we use, is to shift a finger minutely, to flex the inside of an ankle, to shift a shoulder to keep from falling. That’s Communications, in a nutshell.”
+
+That afternoon confirmed me in my career, eliminated all my naive doubts and hopes. It drew me still farther in.
+
+[
+
+![](https://substackcdn.com/image/fetch/$s_!JdVy!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Ffee00319-1aa0-4c50-9ebd-d3acc2134706_383x648.png)
+
+
+
+](https://substackcdn.com/image/fetch/$s_!JdVy!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Ffee00319-1aa0-4c50-9ebd-d3acc2134706_383x648.png)
+
+*Associate Manager - Divine Compliance, Workplace Piety & Communications*
+
+I learned how to run meetings, and how to subvert those of my rivals. It was part politics, part long hours, part plotting and part honest friendships. But I was promoted until I was one of the seven or eight most powerful internal communications executives in the entire group. Smarter men, stronger men with wittier repartee and better connections fell away like damp scaffolding after the autumn rains. I surpassed those born to wealth, to sophistication, to the tower. Brian left to start a restaurant with a couple guys he went to school with.
+
+The work could be dispiriting if you were prone to idealism or ambivalence, or if you had other options. I had none of that. It could be frustrating if you wanted to get something done. The interdepartmental contradictions, cumbersome review process, senseless redactions and insertions from higher ups, made the job less about conveying a message or sharing information and more about maintaining a subtle but unyielding mesh of organizational taboos and unspoken truces among bickering bureaucracies.
+
+But we weren’t the least free of all the scribes in the tower. We had one guy join our team, a young and thoughtful fellow named Jedla, whose quick smile only later revealed itself as the visible reed of a deep-rooted panic. He had transferred in from Potentate Relations, and was amazed at how few reviews and strictures we had in Communications. In his old department, weeks of work were spent on the honorifics and salutations. The rest was a matter of negotiating with the ambassadorial grammarians. For Jedla, Communications presented an impossible amount of freedom. He was always asking questions, so many questions, and didn’t last past the next festival of layoffs.
+
+The job was hard on the decent, the ones who couldn’t quite shake the feeling of dishonesty and subtle wrongdoing. Maybe they could do the job, but they rarely advanced very far. With each shrewd maneuver, you increased your culpability. This was best understood by the best of us, who found a way to quit despite their ambitions, with insomnia, depression, chronic misspellings, or worse.
+
+But I had no outside interests, no family, nothing calling from outside the office, not even the light debauchery of my station. My weekends in Gomorrah grew farther apart. There was something wrong with the pleasures of the pleasure towns. Even in the best of the houses, on whose silken pillows and lush perfumes one seemed to float, every visit cost a little more than the last, and revealed some new small flaw in the mirage. Finally the city’s exacting exuberance added up to a nervous titter against the miserable silence that swallowed the horizon on all sides.
+
+So I mostly stayed in the tower. I despised anything else. Work was all I desired, and there was more than enough work. Nimrod and his Operating Committee were always rewriting the Sacred Tenets of Responsible Ascension, or the Vision & Values Statements for recently reorganized departments, or changing the Relentless Career Advancement program, to a something it called *Capabilities and Community*.
+
+As The Mission Statement of Nimrod’s Mighty Tower to the Heavens will tell you in bullet point number two: “We speak with one language.” This was true only because we were very busy erasing the one we used the day before.
+
+One day, Nimrod decided that work on the tower had slowed unacceptably. So he publicly stated that the tower was a pillar holding the heavenly floodwaters at a safe distance, and the sky was starting to sag. It was my job to spread this story. I knew it well—it was a rumor I’d helped to confound a few years earlier.
+
+From afar, I can’t imagine anything more shameless than us on Nimrod’s Communications team as we undid the work we had done only a few months earlier. I can’t imagine more effort resulting in less meaning. But I lacked even a glimmer of the voice I’m using with you today.
+
+For real Communications executives, undoing our own work was the real proof of our skill. It was our glory. That you might not understand it—that’s our glory, too.
+
+Jerr brought me to new meetings with real Senior People, where I learned the boardroom language of raised eyebrows, slight nods, small wags of the chin, about those above us. In this eminently disavowable mix of facial semaphore and insinuation, I was admitted further into how the place really worked.
+
+After, we’d go back to his office, where he’d explain what had just happened. Jerr’s talks, full of good gossip and practical advice, would often end with a strenuous pep talk. I didn’t need one, but I think he did. Looking back, I realize that Jerr was trying to explain to himself how he’d spent his life.
+
+The gossip, especially about Executive Directing Vice Nimrods and above, was gold. Any connection to those blessed executive tiers was. The gradation of ranks determined the flow of deference or abuse in the tower. Everyone wanted a little more money, slightly cleaner water, somewhat fresher food, marginally prettier lovers, and, above all, to eat a little less crap. At the top, presumably eating no crap, was the figure of Nimrod, the Mighty Hunter. Sometimes Jerr would talk about Nimrod, but not the descendant of Noah or the hunter to whom the animals meekly offered their necks. To hear Jerr tell it, he was something more mortal, an executive.
+
+To hear Jerr talk about what Nimrod liked, what he didn’t, who and which enterprises were in favor and which were out—to me, it was like hearing about the toilet habits of God. His gossip made me imagine my next promotion. And promotion was the only perpendicular move against the ever-horizontal hand of death. Achieving rank seemed the only measure that you were worth being born at all. I labored under these assumptions for most of my life. The tower had a way of blotting out the rest of the world like that.
+
+I wasn’t alone. Nimrod (and to a lesser extent, the regularly shifting roster of executives on the Operating Committee) was the obsession of most in the tower. From the cold mud of a deluge-ruined world, he’d fired bricks and began building. Now he was the boss of all of us, upon whose tenderest whim our fates relied. Maybe you’d catch sight of him at a festival, or giving an impromptu speech to a division that had achieved a notable success, but even if you didn’t, he was everywhere.
+
+Each gate of the tower bore the face of an animal that no longer walked the earth, thanks to Nimrod’s mastery as a hunter. The three-eyed lion, the featherless, six-winged eagle, the bull with a spine of horns were all gone from the earth, and adorned the East, South and West Gates.
+
+In the time when Nimrod hunted, some whispered that destroying a species so soon after the flood wasn’t exactly the accomplishment that Nimrod and his people made it out to be. Nimrod hunted those whisperers just as effectively, so that the world might speak one language. The thin-lipped whisperer’s agonized grimace adorned the tower’s shady North Gate.
+
+In those days, I dreamt of Nimrod. We’d walk the upper floors talking about plumbing, about the weights and counterbalances of the dumbwaiters, about the conical crumbled ruin visible in the center of the tower’s courtyard, which no one ever spoke of. The mood was very casual.
+
+In one dream, we were leaving through the Lion’s Mouth on an oxcart, dressed as retired temple prostitutes, with dresses of flowing ribbons over our distended stomachs. We rode on rough sacks and laughed as we drank sour wine, its sediment sticking in our teeth. I asked what was in the sacks we were sitting on. Nimrod’s face, like it was in all these dreams, shifted in the shifting light, a composite made from the million ill-wrought or well-worn tower coins.
+
+He told me the sacks were full of eyeballs. I asked if they were human. He closed his own eyes and nodded. Yes, he said. Does it hurt? I asked. Yes, a great deal, he said. But if we didn’t sit on them, they’d spill in the mud and blow away in the wind.
+
+[
+
+![](https://substackcdn.com/image/fetch/$s_!NDjZ!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F2d245815-5533-494c-9512-18b1fc99083b_383x648.png)
+
+
+
+](https://substackcdn.com/image/fetch/$s_!NDjZ!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F2d245815-5533-494c-9512-18b1fc99083b_383x648.png)

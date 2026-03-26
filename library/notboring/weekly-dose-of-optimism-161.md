@@ -1,0 +1,206 @@
+---
+title: "Weekly Dose of Optimism #161"
+author: "Packy McCormick"
+publication: "Not Boring"
+publication_slug: "notboring"
+published_at: "2025-09-12T12:58:39.000Z"
+source_url: "https://www.notboring.co/p/weekly-dose-of-optimism-161"
+word_count: 2620
+estimated_read_time: 14
+---
+
+[
+
+![](https://substackcdn.com/image/fetch/$s_!6r5_!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Feb0924f2-9724-4b52-a2ec-ed2af676d262_1208x608.png)
+
+
+
+](https://substackcdn.com/image/fetch/$s_!6r5_!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Feb0924f2-9724-4b52-a2ec-ed2af676d262_1208x608.png)
+
+Hi friends 👋 ,
+
+Happy Friday and welcome back to our 161st *Weekly Dose of Optimism.*
+
+Packy here. This was a dark week in America.
+
+On Monday and Tuesday, my whole twitter feed was filled with images and video of the murder of Iryna Zarutska. On Wednesday, I was offline for most of the day at Primary’s NYC Summit. When I opened up Twitter in the afternoon, the first tweet I saw was [Mike Solana’s](https://x.com/micsolana/status/1965856551295750177): “it can not be like this.” I scrolled for a few seconds before I realized what he was talking about; Charlie Kirk had been shot while speaking at Utah Valley University. He passed away soon after.
+
+The ~36 hours between then and now have been weird, online. On the far left, some people are celebrating the murder, which left two young girls without a dad. On the far right, some people are calling for Civil War. These are the extremes, expressed by a loud minority, but they’ve been amplified to the point that it seems like “the left” is celebrating a murder and “the right” wants War.
+
+Most people, however, don’t hold those extreme views. Most people are sad - about the specific incidents, and about the fact that we keep opening up our feeds to some new tragedy, to the point that it seems like the world is full of darkness and hatred.
+
+Because we experience so much of this through the internet, things get distorted. People cheer, I think, because it feels like a video game. Not real life. But it’s not a video game. What happens online bubbles over into real life. People get radicalized, and they radicalize others, and they take peoples’ real lives.
+
+All of this makes bad outcomes feel inevitable. They are not. As [David Foster Wallace said](https://www.notboring.co/p/means-and-meaning) about the internet’s influence nearly 30 years ago, “at a certain point we’re gonna have to build up some machinery, inside our guts, to help us deal with this.”
+
+This is individual machinery. The vast, vast majority of us — those who think that killing innocent people is abhorrent and those who want no part of a Civil War, those who recognize the humanity in other people and who want to see each other be safe, healthy, and happy — need to resist the temptation to see the world the way a tiny handful of very loud voices (and bots) online want us to see it.
+
+This is not to say that we’re not living through a dangerous time. We are. These things can bubble over. And it’s OK to be angry and sad when tragedies happen. Good even, in small doses. We’re human.
+
+But we can’t become hopeless. Because the world is a much better place than it seems online, and it’s worth fighting to keep it that way. What will prevent it from bubbling over is us. Both optimism and pessimism are self-fulfilling prophecies.
+
+So while it feels weird to focus on the good things that happened amidst all the bad this week, that’s what we do here at Not Boring, and that’s what we’ll do every week. Over to Dan for the *Dose*. Then, all of us, let’s log off for the weekend.
+
+Let’s get to it.
+
+\---
+
+#### **Today's Weekly Dose is brought to you by... [Bland](https://www.bland.ai/enterprise?utm_campaign=NB&utm_medium=paid&utm_source=NB)**
+
+[
+
+![](https://substackcdn.com/image/fetch/$s_!PEYY!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fa774bbce-71d6-4310-81d0-0a2680888b39_1920x1080.png)
+
+
+
+](https://www.bland.ai/enterprise?utm_campaign=NB&utm_medium=paid&utm_source=NB)
+
+*AI is calling. Ring ring. Hello? It's Bland, the literal voice behind Fortune 500s.  
+Heard of Bland yet? It’s the [world’s most powerful AI phone-calling agent](https://www.bland.ai/?utm_campaign=notboring&utm_medium=paid&utm_source=notboring). Chances are, you’ve already spoken to it without even noticing.  
+Enterprises are using it to handle millions of calls, texts, and webchat interactions 24/7 – all while perfectly representing their brand. From a single dashboard you can:*
+
+-   *Build agents with any voice and personality, for any possible use case. Just define guardrails to control its behavior and plug in any of your external tools. Done.*
+    
+-   *Deploy your brand’s AI across every department from sales to operations to support with a single click. It will dynamically respond to any caller’s language, self-improve, and scale infinitely.*
+    
+-   *Track performance of campaigns, extract data, and watch it score a higher CSAT than human reps\* – all while slashing costs.*
+    
+
+*Pretty wild, huh? Here, **[give it a call yourself](https://www.bland.ai/?utm_campaign=notboring&utm_medium=paid&utm_source=notboring)**.  
+Or Not Boring readers can **[get exclusive access to an even more advanced version here](https://www.bland.ai/enterprise?utm_campaign=NB&utm_medium=paid&utm_source=NB)**.*
+
+\---
+
+(1) **[NASA Says Mars Rover Discovered Potential Biosignature Last Year](https://www.nasa.gov/news-release/nasa-says-mars-rover-discovered-potential-biosignature-last-year/)**
+
+*From NASA*
+
+> *A sample collected by NASA’s Perseverance Mars rover from an ancient dry riverbed in Jezero Crater could preserve evidence of ancient microbial life. Taken from a rock named “Cheyava Falls” last year, the sample, called “Sapphire Canyon,” contains potential biosignatures.*
+
+[
+
+![](https://substackcdn.com/image/fetch/$s_!0z7t!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F92a7996f-5b2e-405d-a83b-336693bc4365_1536x1090.webp)
+
+
+
+](https://substackcdn.com/image/fetch/$s_!0z7t!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F92a7996f-5b2e-405d-a83b-336693bc4365_1536x1090.webp)
+
+Houston, we have potential biosignatures.
+
+NASA’s Perseverance rover may have found the strongest hint yet of past life on Mars. While drilling into a mudstone called Cheyava Falls, the rover uncovered minerals like vivianite and greigite along with organic carbon and sulfur, all common byproducts of microbial activity on Earth. These “leopard spots” could form without life, but the rock shows no signs of the heat or acidity usually required for that. So we can’t exactly say “life” and we can’t exactly say “signs of life” but we can say “it’d be pretty hard to imagine there wasn’t life.”
+
+The findings, published in *Nature*, suggest Mars might have remained habitable longer than scientists previously believed. The sample, named Sapphire Canyon, is one of 27 cores waiting to be brought back to Earth, but the Mars Sample Return mission is stalled by rising costs and budget cuts. If only there was a man whose mission was to make getting back and forth between Mars easier and more economical, so easy in fact, that we could colonize the planet…
+
+**(2) [The Future of Starlink Direct to Cell](https://www.spacex.com/updates#dtc-gen2-spectrum)**
+
+*From SpaceX*
+
+> *SpaceX has entered into a purchase agreement with EchoStar for 50 MHz of exclusive S-band spectrum in the US as well as global Mobile Satellite Service (MSS) spectrum licenses. This agreement will enable us to develop and deploy our next generation Starlink **[Direct to Cell](https://www.starlink.com/business/direct-to-cell)** constellation which will be capable of providing broadband service to cell phones globally.*
+
+[
+
+![](https://substackcdn.com/image/fetch/$s_!opk0!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F8e7a52a9-0b8a-4dca-8208-52bf37131ceb_3240x2160.jpeg)
+
+
+
+](https://substackcdn.com/image/fetch/$s_!opk0!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F8e7a52a9-0b8a-4dca-8208-52bf37131ceb_3240x2160.jpeg)
+
+Oh yeah, totally forgot about Elon. He’s that guy. He’s him. [The Trillion Dollar Man](https://www.bloomberg.com/news/articles/2025-09-05/tsla-tesla-offers-unprecedented-1-trillion-pay-package-to-elon-musk).
+
+And while Elon’s SpaceX tries to make us multi-planetary, the company is funding it’s mission via it’s highly lucrative internet and network provider Starlink. And Starlink is making big moves. In a deal worth $17B, it just locked in exclusive S-band spectrum from EchoStar *(great evil company in a movie name btw)* to supercharge the next generation of Starlink Direct to Cell. The Direct to Cell project uses Starlink satellites to provide 4G and future 5G service directly to ordinary mobile phones anywhere on Earth. The current network already has more than 600 satellites beaming 4G to over six million users worldwide, letting ordinary LTE phones text, call, and run apps anywhere there’s sky. Built as “cell towers in space,” these satellites sit lower than rivals for a stronger link and tie into Starlink’s 8,000-satellite laser mesh for global reach.
+
+The new spectrum from EchoStar and custom SpaceX silicon will push performance far beyond today’s system. Next-gen satellites will handle thousands of beams, 20 times the throughput, and up to 100 times the total capacity of the first generation, aiming for full 5G speeds on standard phones. SpaceX plans to launch these with Starship’s heavy lift, combining massive bandwidth with seamless integration for carriers like T-Mobile, Rogers, and KDDI.
+
+It’s wild that at this point Elon basically upends entire 12-figure industries, and it’s not even major news. Just another day at the office.
+
+**(3) [Alterego](https://www.alterego.io/)**
+
+*From Alterego*
+
+> *Introducing **Alterego**, the first near-telepathic interface, designed to make technology as intuitive as using your inner voice.*
+
+In an age of increasingly impressive launch videos, this was one of the cooler demo videos I have seen. It comes from the startup Alterego, which is developing Silent Sense, a non-invasive device which understands what you intend to say without speaking, allowing you to extend your thinking without the need to type, tap, or talk out loud. I don’t think it’s technically telepathy, but if it walks, talks *(or in this case, doesn’t talk)* and smells like telepathy…
+
+Alterego’s headset senses the faint electrical signals that fire in your jaw and throat when you silently form words, a process called subvocal speech. It’s like when you read silently and your mouth and throat make tiny movements even though you’re not speaking. Surface electrodes capture these neuromuscular signals and AI models decode the patterns into text or commands in real time. Replies come back through bone-conduction audio, so you hear responses privately without using speakers or earbuds.
+
+Just thinking out loud here, and I know this is just a demo, but a device like Alterego’s could fundamentally change the ways we interact and communicate with everything and everyone around us.
+
+(4) **[Magnetic field–enhanced vertical integration enables embodied intelligence in untethered soft robots](https://www.science.org/doi/10.1126/sciadv.adv9572)**
+
+*Li et al in Science*
+
+> *Embodied intelligence in soft robotics offers unprecedented capabilities for operating in uncertain, confined, and fragile environments that challenge conventional technologies. However, achieving true embodied intelligence—which requires continuous environmental sensing, real-time control, and autonomous decision-making—faces challenges in energy management and system integration. We developed deformation-resilient flexible batteries with enhanced performance under magnetic fields inherently present in magnetically actuated soft robots, with capacity retention after 200 cycles improved from 31.3 to 57.3%.*
+
+[
+
+![](https://substackcdn.com/image/fetch/$s_!j7a8!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fb7989e37-6620-47c2-b717-efae2a2e1de1_474x514.png)
+
+
+
+](https://substackcdn.com/image/fetch/$s_!j7a8!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fb7989e37-6620-47c2-b717-efae2a2e1de1_474x514.png)
+
+Soft robots have a hard challenge, and a simple telehealth consultation cannot bring them relief. These ultra-flexible machines, designed to slip through tight spaces, struggle to carry reliable onboard power because conventional batteries can’t survive constant bending and twisting without rapidly losing capacity or breaking.
+
+Researchers cracked that by building a manta ray–style soft robot whose own magnetic field both propels it and keeps its flexible zinc-manganese batteries stable, nearly doubling their capacity retention. External magnetic fields push and pull the robot’s magnetized body, creating the forces and torques that make it swim, while the same fields protect its batteries so power keeps flowing as it moves. The result is a robot that can roam untethered for hours, sensing and reacting to its environment, whether underwater or in narrow passages, in real time. It’s a blueprint for soft robots that can explore hard-to-reach places, assist in medical procedures, or power next-generation wearables without being tied to a cord.
+
+**(5) [We’ve just completed our first Jetson ONE delivery!](https://x.com/jetson_aero/status/1965038287489249583)**
+
+*Jetson Aero*
+
+> *Palmer Luckey — tech visionary from California — completed ground training in under 50 minutes before confidently taking the controls for his first low-altitude flights. A record demonstrating Palmer’s unique understanding of advanced technologies and just how easy our personal single-seater eVTOL is to fly.*
+
+As avowed J. Storrs Hall fans and fellow askers of the question, “*[Where is my flying car?](https://www.amazon.com/Where-Flying-Car-Storrs-Hall/dp/1953953182),*” we get all tingly whenever we see developments in personal aviation. We’re also big Palmer Luckey guys; he does billionaire as well as anyone out there.
+
+So we were very happy this week when Jetson Aero delivered its first eVTOL to the Oculus and Anduril founder, who apparently learned how to fly the thing in under an hour.
+
+It’s a little terrifying to see one of the people America is depending on to build hard, crazy things getting up in the air in that little guy, and we’re not sure we’d get in a Jetson ONE quite yet, but it does seem like we’re finally getting much closer to an era of ubiquitous personal flight. Given that [batteries, motors, power electronics, and embedded compute keep getting better and cheaper](https://www.notboring.co/p/the-electric-slide), it’s practically inevitable.
+
+A Jetsons future in which we’re all zipping around in the skies is the future we were promised. Less traffic. Faster commutes. Flying cars and their equivalents will be a sign that we are back on track.
+
+And because people have always tended to commute for the same amount of time, even as our modes of transportation have gotten faster, the second-order effects will be really interesting to watch play out. If it takes as long to get out to the country that it currently takes to get to the exurbs, I bet we’ll see a bunch of interesting development projects like [Esmerelda](https://esmeralda.org/), [California Forever](https://esmeralda.org/), and [Proto-Town](https://x.com/chianlihang/status/1893051760173863179) take off.
+
+For the time being, though, please enjoy watching Palmer Luckey fly.
+
+**BONUS: A Big Week for AI Doing Cool Stuff for Humans**
+
+*[Math, Inc. launches Gauss and completes Prime Number Theorem Challenge](https://www.math.inc/gauss)*
+
+“The Math Inc. team is excited to introduce **Gauss**, a first-of-its-kind autoformalization agent for assisting human expert mathematicians at formal verification. Using Gauss, we have completed a [challenge](https://mathstodon.xyz/@tao/111847680248482955) set by Fields Medallist Terence Tao and Alex Kontorovich in January 2024 to formalize the strong [Prime Number Theorem](https://en.wikipedia.org/wiki/Prime_number_theorem) (PNT) in Lean [(GitHub)](https://github.com/math-inc/strongpnt)…
+
+Our results represent the first steps towards formalization at an unprecedented scale. Gauss will soon dramatically compress the time to complete massive initiatives. With further algorithmic improvements, we aim to increase the sum total of formal code by 2-3 orders of magnitude in the coming 12 months. This will serve as the training ground for a [new paradigm](https://www.math.inc/vision) — verified superintelligence and the machine polymaths that will power it.”
+
+*[Introducing Oboe, the easiest way to learn anything, with magical courses made just for you.](https://x.com/oboelabs/status/1965777375716929866)*
+
+“We’re heading toward a future where humans only exist to feed AI. AI gets smarter, we get stupider. But what if AI’s purpose was to feed us? That’s the future we hope Oboe can help nudge us all towards.
+
+Oboe is the world’s first AI-powered generalized learning platform. With a single prompt you can generate a personalized course about anything. From the history of AI to contract law, from ordering wine in France to understanding how mortgages work. And the more you use it, the better it gets at teaching you.”
+
+*[Replit raises $250 million at $3 billion and launches Agent 3](https://x.com/amasad/status/1965800350071590966)*
+
+Packy here. Not Boring Portfolio company and former Deep Dive subject, [Replit](https://www.notboring.co/p/replit-remix-the-internet), announced that it raised a $250 million Series C at a $3 billion valuation, and more importantly, launched **[Agent 3](https://replit.com/agent3)** - which can run for *200 minutes* to build, test, and run full websites. It can even create other agents.
+
+It is really good! I am not an engineer, so I’ve been excited to try new AI coding tools to see if even I can use them to make websites. In *The Electric Slide,* I used Claude Code to make the [Electric Slide website](https://electricslide.notboring.com/), which was very cool. But when I tried to use Claude Code and OpenAI’s Codex to make me a website for not boring, they inevitably ran into bugs as soon as I asked them to change something from the first version they made. As a non-engineer, even with their help, even using Cursor, it took forever to figure out how to fix the issues, and I just gave up.
+
+Yesterday, I gave Replit’s Agent 3 the same instructions, and it just… worked. We went back and forth on the design for a bit before it started coding, and it got the suggestions I made. Then it designed, coded, and tested for 55 minutes. All while I was writing the intro to the Dose. In a sidebar, it walks you through testing on each of the different pages of the website, so you can see exactly what it did. When it found bugs, it fixed them itself. I even had it design a scratchpad page that could handle things like Spotify embeds on movable cards, and that worked, too.
+
+[
+
+![](https://substackcdn.com/image/fetch/$s_!XRAN!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F03d6ac17-dde7-49c6-8cf6-7eef67710318_680x285.png)
+
+
+
+](https://substackcdn.com/image/fetch/$s_!XRAN!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F03d6ac17-dde7-49c6-8cf6-7eef67710318_680x285.png)
+
+My prompting was not super specific, so the site is not nearly as good as it would be if I hired an agency to do it (particularly on the design and copy), but given an hour or two on this (which I might spend this weekend), I bet I could make something I’d be happy to publish. Given that I spent all of three minutes on this, that’s wild.
+
+\---
+
+Have a great weekend y’all.
+
+Thanks to **[Bland](https://www.bland.ai/enterprise?utm_campaign=NB&utm_medium=paid&utm_source=NB)** for sponsoring. Go build your company a voice!
+
+We’ll be back in your inbox next week.
+
+Thanks for reading,
+
+Packy + Dan

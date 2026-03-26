@@ -1,0 +1,107 @@
+---
+title: "It's Probably Good That Pitchfork Is Doing Comments And Reader Scores"
+author: "jaime brooks"
+publication: ""
+publication_slug: "jaimebrooks"
+published_at: "2025-10-22T20:05:28.000Z"
+source_url: "https://jaimebrooks.substack.com/p/its-probably-good-that-pitchfork"
+word_count: 2386
+estimated_read_time: 12
+---
+
+[
+
+![](https://substackcdn.com/image/fetch/$s_!KMrM!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F6cd0d2fe-94ed-47ea-b42d-29e1f72416cb_1640x965.png)
+
+
+
+](https://substackcdn.com/image/fetch/$s_!KMrM!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F6cd0d2fe-94ed-47ea-b42d-29e1f72416cb_1640x965.png)
+
+A long time ago, Pitchfork had an official message board. It was called “Pitchfork Media Smackdown,” and I posted there a little bit when I was a teenager. Around the turn of the millennium, when record industry revenues were peaking, there was a pretty robust ecosystem of music-based forums on the internet, but they were expensive to maintain and difficult to moderate. Trying to keep one going long-term was like trying to run your own personal social media platform, and few people had the temerity to attempt that while simultaneously trying to run a music website or succeed as a recording artist. So, in the early aughts, a lot of official, brand-sanctioned forums were shut down, and Pitchfork’s was no different.
+
+Pitchfork Media Smackdown actually survived without Pitchfork’s direct support when users organized their own replacement forum, and a version of it continues to persist today under a different name, but that’s a story for another time. The important context for this post is that after the official version of PFMS went dark, Pitchfork never again permitted the existence of anything that could be described as a public comments section. Their editorial voice remained singular. If you wanted to quibble with their scores, you had to go somewhere else.
+
+In the aughts, “somewhere else” could mean a lot of different things. There were forums dedicated to particular artists, like the one attached to the Radiohead fan site [atease](https://web.archive.org/web/20040701050748/http://www.ateaseweb.com/), or [Collected Animals](https://collectedanimals.org/). There were Pitchfork competitors like [Stylus](https://stylusmagazines.com/) or [Coke Machine Glow](https://cokemachineglow.com/). Some writers, both of the professional and aspirational variety, talked shop on a barebones UK-based forum called [I Love Music](https://ilxor.com/). Others would eventually congregate on Tumblr, which was, for a time, a hotbed of influential music criticism. Today, there are Discord servers, well-moderated subreddits, and stubbornly free-standing websites like [Rate Your Music](https://rateyourmusic.com/) and [Sputnik](https://www.sputnikmusic.com/).
+
+[
+
+![](https://substackcdn.com/image/fetch/$s_!iPPE!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F572bac2a-7d0e-43ac-9610-cf2ae909e5b0_1348x818.png)
+
+
+
+](https://substackcdn.com/image/fetch/$s_!iPPE!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F572bac2a-7d0e-43ac-9610-cf2ae909e5b0_1348x818.png)
+
+Many of these communities would spawn writers who would go on to write for Pitchfork proper, but the site’s editorial voice projected an authority that boomed out over the entire landscape, making each individual faction feel small by comparison. I think that’s part of the reason why today, the default sentiment expressed toward Pitchfork reviews on social media is adversarial. For decades now, the discourse has been populated by people who see Pitchfork as an inaccessible monolith that’s always talking over them. It doesn’t occur to them to see individual writers as peers. The score at the top of the review functions like a police badge or a stormtrooper helmet, enforcing a sense of hierarchy regardless of whether or not the writer wants it to.
+
+During the confusion and disruption of the blog era, when “traffic” was still a mysterious phenomenon and the precise relationship between online and offline was much more difficult to map, the singular nature of Pitchfork’s editorial voice often looked to outside observers like a superpower. The messy, complicated process of generating an indie success story was hidden behind the scenes, like how the grossest parts of the process of creating a McDonald’s hamburger happen in places that the customers who eat them will never visit. The less we all knew about who was reading Pitchfork, the easier it was to idealize them. Struggling artists could fantasize about a good review changing their fortunes overnight, writers could fantasize about the right byline transforming a hobby into a career, and readers could fantasize that they were reading crucial dispatches from the heart of the zeitgeist rather than just another website full of people making posts.
+
+Personally, I try not to idealize. I feel like it’s fundamentally disrespectful. I think it’s more meaningful to love someone for who they really are, shortcomings and all, than it is to invent an exaggerated version of them in your mind and project that onto them. I don’t have a detailed vision in my mind of what I think Pitchfork should be that I’m constantly comparing them to. I see them as just another website where people make posts, which is fine with me, because sometimes the posts are good and I like to read good posts about music. There aren’t really a lot of outlets left who will pay writers to create the sort of posts that Pitchfork publishes, so I’m happy to enjoy their output while I still can.
+
+[
+
+![](https://substackcdn.com/image/fetch/$s_!snhc!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F5bff8d4c-fac5-4fd8-a13e-63374e896694_640x480.png)
+
+
+
+](https://substackcdn.com/image/fetch/$s_!snhc!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F5bff8d4c-fac5-4fd8-a13e-63374e896694_640x480.png)
+*A MacBook photobooth image from 2011 of me holding the check Pitchfork sent me for an article about K-Pop I wrote for them*
+
+Anyway, this morning, Pitchfork [announced](https://pitchfork.com/news/were-testing-comments-and-reader-scores-on-album-reviews/) that they’re testing a new feature that will allow readers to leave comments and vote on a “reader score” for album reviews that will appear next to the official one, like the audience scores on Rotten Tomatoes. Most of the immediate feedback I saw about this move from writers on social media and elsewhere was negative, suggesting that it will devalue the review/reviewer and worrying that it will expose writers to harassment. As someone who reads Pitchfork, has been reviewed by them, and has written for them in the past, I wanted to weigh in with my own opinion, which is that I think it is probably good that Pitchfork is doing comments and reader scores.
+
+The biggest reason I feel this way has to do with money. Last year, Pitchfork underwent a massive [reorganization](https://www.npr.org/2024/01/18/1225446347/pitchfork-faces-layoffs-and-restructuring-under-conde-nast), where several longtime staffers who were responsible for a lot of wonderful posts were laid off by the publication’s parent company, Condé Nast. The company’s rationale was a bit opaque, it may have had to do with internal politics within Condé itself as many as any other factor, but one explanation that did come up repeatedly in post-mortems was that Pitchfork wasn’t monetized very well. They generated an enormous amount of traffic, but that traffic wasn’t generating much revenue. Maybe the ad team at Condé wasn’t doing the best job, or maybe the site needed to run more ads or push subscriptions. Either way, monetization was an issue.
+
+If Pitchfork is ever going to paywall anything, the ability to leave comments and vote on reader scores seems like the best-case scenario for readers. Other publications, like Defector, already paywall the ability to leave comments. Popular Substacks and YouTube channels often paywall the ability to join Discord servers where readers and viewers can congregate to socialize and discuss the content. Paywalling reviews would limit their reach, and paywalling the “[Columns](https://pitchfork.com/thepitch/)” section that the new editorial team launched after the reorganization would ensure that only a minority of readers would have access to some of the best writing the site publishes.
+
+[
+
+![](https://substackcdn.com/image/fetch/$s_!OXEZ!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F0bb76518-a155-4c0b-8bca-4cf3987bfa04_1968x746.png)
+
+
+
+](https://substackcdn.com/image/fetch/$s_!OXEZ!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F0bb76518-a155-4c0b-8bca-4cf3987bfa04_1968x746.png)
+
+Nothing in Pitchfork’s announcement indicates they plan on charging users to leave comments or vote on reader scores once they start rolling out the feature to all readers, but if it works as a free offering, the site will finally have a product that it makes sense to charge for, enabling them to generate subscription revenue without further degrading the reading experience with ads or paywalling essential features. The move could save the site from future downsizing and enable them to survive as a source of paid work for staffers and freelancers for a little bit longer.
+
+If you had to pay to vote on reader’s scores, a huge chunk of the people who work in the music industry might become subscribers in order to inflate the scores of projects they’re working on. Back-channel discourse that previously existed primarily in email threads and group texts would become transparent and monetizable. If you had to pay to leave comments under album reviews, perhaps the new generation of influencer/critics that Spencer Kornhaber profiled in his [recent piece](https://www.theatlantic.com/culture/2025/10/arts-criticism-future/684523/) about the future of criticism in The Atlantic would all become subscribers in order to disseminate their takes and plug their channels.
+
+[
+
+![](https://substackcdn.com/image/fetch/$s_!01aU!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F07fa179f-fabb-44c7-9997-3506bd78e1a7_1572x821.png)
+
+
+
+](https://substackcdn.com/image/fetch/$s_!01aU!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F07fa179f-fabb-44c7-9997-3506bd78e1a7_1572x821.png)
+
+Would putting reader scores next to the official ones devalue the official reviews or reviewers? I’m not sure I really understand that criticism. It sounds like idealization to me. In economic terms, value is driven by scarcity. Pitchfork’s initial success happened because they published five reviews a day at a time when existing critical institutions like Rolling Stone were still slow-talking the transition to digital for fear that it would cannibalize their print business. The lack of competition on that front made them a leader in the space, not necessarily the quality or the accuracy of their reviews. That scarcity is gone, and it is never coming back. Pretending that there’s no competition will not remove the threat that competition poses.
+
+To me, the concept of a reader score is just an acknowledgement a change that has already happened, that the site’s editors do not have the power to undo or reverse. The devaluation in question is ongoing regardless of what Pitchfork does. The popularity of short-form video is making it harder for purely text-based content to generate attention online. Is Pitchfork supposed to just ignore that, too? Which course of action will do more to protect the value of the written review: refusing to adapt in ways that might prolong the site’s viability long-term or continuing to do whatever they can to generate the money they need to pay writers? Over-estimating the site’s influence on broader trends in media and technology just gets in the way of fully appreciating the situation they’re actually in.
+
+Furthermore, I don’t think it’s beyond the realm of possibility that puncturing the authority the scores project by allowing readers to offer a counter-argument might actually improve the relationship Pitchfork has with readers. For a long time, I have held the opinion that the scores function as an albatross around writers’ necks, saddling them with the baggage of the brand and giving readers an excuse to avoid engaging with them as peers and fellow enthusiasts. Shedding some of that baggage might be good for everyone involved.
+
+Yes, conversations about Pitchfork reviews that happen on social media or in certain forums can be toxic and disruptive, but in my experience, discussions that happen in communities where fans, writers, and artists come together as equals can be generative and thrilling. My favorite outlet for criticism in the twenty tens was [The Singles Jukebox](https://thesinglesjukebox.com/), where a wide variety of writers with varying levels of professional ambition would contribute takes about new releases that were often irreverent and wildly divergent from one another. The friction and collective excitement that came out of those interactions made all of music criticism better. Maybe reader scores and comments can make Pitchfork less like a megaphone and more like The Singles Jukebox.
+
+[
+
+![](https://substackcdn.com/image/fetch/$s_!naWY!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fa9ddf499-28be-477e-afd3-e803764513dd_1120x706.png)
+
+
+
+](https://substackcdn.com/image/fetch/$s_!naWY!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fa9ddf499-28be-477e-afd3-e803764513dd_1120x706.png)
+
+Will allowing comments on reviews open up writers to harassment? My understanding is that currently, Pitchfork is testing out these new features with an audience of five hundred readers, and moderation is being done by editors rather than writers. It remains to be seen whether this approach will be able to successfully handle the volume of comments that will flow in after the feature rolls out to everyone. The burden of moderation is presumably a big reason why Pitchfork pulled the plug on their official message board back in the aughts—I believe they were employing a mod back then, which seems like a pretty significant expense.
+
+It’s also true, though, that Pitchfork writers are going to experience harassment regardless of whether or not that harassment appears on the site itself in any capacity. Being on Twitter was sort of compulsory of music writers in the twenty tens, and the site has no control over what kind of threats, doxxing, and abusive language writers are subjected to there. At least in a moderated comments section, editors can serve as a bulwark against the worst of it.
+
+The complaint, then, is not necessarily that a comments section will subject writers to harassment that wouldn’t have existed otherwise, and more that it will make the discourse surrounding their reviews harder to ignore. In a way, I guess, you could say that handing over real estate on the website itself to readers makes it harder to idealize Pitchfork’s audience. Again, my inclination is to wonder: why is that a bad thing? It’s true that in the past, for a relatively brief period of time, some critics could make decent money sending in a review and then never worrying about what anybody thought of it, but we don’t live in that world anymore. The competition exists. Social media exists, Letterboxd exists, Twitter exists, and the myriad communities that enthusiasts have founded in order to express and discuss their own opinions exist. Metrics, analytics, play counts, view counts, follower counts, like counts, retweets, and quote tweets exist. It’s not like Pitchfork’s ridiculous scoring system wasn’t already a big step down the road that brought us here in the first place.
+
+Younger writers and critics who emerge in other mediums will always have lived in a world where it’s impossible to ignore metrics and competition. They will never have known a world where the vast majority of people didn’t consume and discuss music on what are essentially surveillance platforms. They will not be able to imagine creating content without having vastly more information about who is viewing it than the institutional critics of the past ever did. The idea of being able sustain a livelihood while ignoring outside criticism and competition will be unthinkable to them from day one. This is already what reality looks like for many of the critics profiled in Kornhaber’s piece.
+
+I think it wouldn’t be the worst thing in the world if some version of Pitchfork is still there to pay some of those hypothetical future critics to make good posts that otherwise would not exist. I don’t think they’re going to mind too much if there are comments and reader scores attached to some of those posts. In fact, I think it’s possible that some good may come out of whatever community develops around those features, similar to the communities that developed around competing sites, forums, and platforms like Tumblr in the past, which eventually influenced and improved the discourse more broadly, including on Pitchfork. I think comments sections can absolutely generate toxicity, but I think the idea of Pitchfork as a monolithic authority that stood above and beyond all of the other discourse that was happening online was kind of toxic, too. I’m not sure we’re really losing anything particularly special or important if that goes away. At the end of the day, it’s just a website where writers try to make good posts. I look forward to reading them.
+
+[
+
+![](https://substackcdn.com/image/fetch/$s_!0nba!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Ffb552f8d-5d53-4557-97c1-e56fb1fd295a_1242x810.png)
+
+
+
+](https://substackcdn.com/image/fetch/$s_!0nba!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Ffb552f8d-5d53-4557-97c1-e56fb1fd295a_1242x810.png)

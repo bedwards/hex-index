@@ -1,0 +1,85 @@
+---
+title: "Why Are They So Bad? "
+author: "Bentham's Bulldog"
+publication: ""
+publication_slug: "benthams"
+published_at: "2025-12-17T16:31:16.000Z"
+source_url: "https://benthams.substack.com/p/why-are-they-so-bad"
+word_count: 2216
+estimated_read_time: 12
+---
+
+The two most recent criticisms of effective altruism that I came across were unusual in that one was also an argument for child-murdering cannibalism, and the other for blowing up Earth with a supernova.
+
+I get irritated by the constant barrage of criticisms of effective altruism. Everyone on the internet wants to criticize a movement [that’s saved 50,000 lives annually, improved conditions for billions of animals, and reduced existential risks](https://www.astralcodexten.com/p/in-continued-defense-of-effective?utm_source=publication-search), based on confused, tendentious, and ill-informed philosophical judgments that usually make little reference to the actual things EAs do. I’ve heard two such criticisms recently that made me want to pull my hair out. In place of doing so, I thought I’d write about why they were wrong.
+
+Effective altruism, for those unfamiliar, is a social movement built around trying to do good effectively. The [core argument](https://www.goodthoughts.blog/p/why-not-effective-altruism?utm_source=publication-search) for EA is that it’s good to do good things, actions differ radically in how much good they do, so we should aim to do as much good as we can. If making the world a better place is important—which it is almost by definition—then we should strive to see how we can do it most effectively.
+
+Normally we think that there’s an obligation to do more good rather than less when the costs are similar. Imagine there were two buttons, but you could only press one. The first would save ten lives. The second would save two lives. Surely you’d be obligated to press the first. But if we apply similar logic to charity, we get the result that we ought to donate to the most effective charities. I have a longer [FAQ](https://benthams.substack.com/p/effective-altruism-faq?utm_source=publication-search) if you want to read more about EA—really I think the core idea is quite commonsensical.
+
+So why do the critics not like it?
+
+The first criticism I stumbled across came from a fellow named Guillaume Verdon in his [interview with Lex Fridman](https://www.youtube.com/watch?v=hekZo8WmdtE). Verdon is a prominent AI accelerationist who thinks we should speed up AI progress without much concern for AI safety and alignment. Verdon’s argued that EAs are focused on trying to promote well-being and minimize suffering which:
+
+1.  Leads to focus on “spurious” things like reducing shrimp pain.
+    
+2.  Leads to wireheading where you get addicted to TikTok and are constantly having your desires fulfilled but not ultimately happy—this causes decay and death.
+    
+3.  Instead, he suggests we try to maximize energy because it is “very objective.”
+    
+
+It may sound as if I am misrepresenting what he is saying given the silliness of these points. I assure you I am not, and would encourage you to watch the video if you are skeptical. One big problem with each of these criticisms is that effective altruists need not think pleasure and pain are all that matter.
+
+On any plausible view, animals being tortured in a cage and people dying of disease are very bad, and it’s worth preventing them. Pleasure and pain can be *among* the things that matter without being the *only* things that matter. I don’t think pleasure and pain are the only things that matter. Trying to save and improve lives as effectively as possible doesn’t require any controversial view about which things make a life go well, because in practice the leading theories will give ~identical recommendations.
+
+Now, is it “spurious” to care about shrimp suffering? Well, seeing as Verdon gave *no argument* for this position—and there are [many strong arguments](https://benthams.substack.com/p/for-a-short-period-of-time-you-can) for reducing shrimp suffering—I can only conclude it is not. It is a bad thing to be in great pain. Shrimp’s eyes are being crushed, flesh eating parasites devour their skin, and they’re suffocated by the trillions. The fact that doing something about it sounds weird to Verdon [nine seconds after hearing about it](https://benthams.substack.com/p/think-for-more-than-nine-seconds) is not, in fact, a serious objection.
+
+Does EA lead to wireheading? No, obviously not, this is ridiculous. Unsurprisingly, Verdon did not actually list any EA orgs promoting wireheading. You won’t find any. The ethical views held by most EAs hold that it’s valuable to promote *long-term true happiness*, rather than brief momentary satisfaction that leads to long-term meaninglessness and misery. So it’s neither a criticism of things EAs do nor believe. It’s just word association—in Verdon’s head EA is sort of like utilitarianism which is sort of like hedonism (in the philosophical sense) which is sort of like hedonism (in the sense of pursuit of cheap pleasure). But slam-poetry-style word games do not make for a serious argument.
+
+What about the claim that we should promote energy because it is objective instead of happiness? One wonders if Verdon gave this proposal—seemingly a pinnacle of his worldview—any thought before proposing it. A supernova has a great deal of energy, but it is not the pinnacle of moral value. If a supernova destroyed Earth, by Verdon’s standard, this would be a great thing. That’s obviously insane. If your criticism of EA is that it focuses on curing malaria rather than creating supernovas, that is a bit silly. That which is worthwhile in life can rarely be precisely measured.
+
+Now, elsewhere it seemed that what he really cares about is something more like maximizing energy storage. But that, again, is not a measure of what is valuable. If everyone was being tortured all the time, but there was a lot of energy storage, that would not be an improvement. This is the reason why no moral philosopher in the history of the world has proposed energy as an ideal terminal value.
+
+Verdon’s speech also completely unnecessarily flaunted computer science jargon. He referred to maximizing energy as a “loss function,” rather than, as normal people would call it, a value. Using the word “loss function” to mean “what we should aim at” neither makes your point clearer nor more precise. In fact, in ML the loss function is what’s minimized—so interpreted literally, it would seem Verdon was saying the opposite of what he intended.
+
+The [second piece](https://eclecticinquiries.substack.com/p/effective-altruism-as-moral-slavery) criticizing EA was by Ian Jobling. Jobling starts by suggesting that “I’m sure many feel, as I do, that there must be something terribly wrong with a moral philosophy that leads anyone to privilege shrimp welfare above all other causes.” This is an interesting fact about his psychology but as an argument, it is irrelevant. None of those who defend shrimp welfare think it’s a popular cause; we just think it follows from plausible underlying values. As is the standard approach, Jobling never once mentions any of the *reasons* people have given for caring about shrimp welfare. It is easiest to refute a counterintuitive position if you never once mention arguments in its favor.
+
+Next, Jobling suggests that because people don’t actually give as much as Singer says, the theory is “at odds with human nature.” But something can be a good thing to do even if people don’t actually do it. If humans were more naturally charitable, would that make the drowning child argument correct? If humans were naturally violent and cruel, would that make violence and cruelty okay?
+
+Human nature can be flawed in various respects. And in any case, to be a utilitarian—or even to buy the drowning child argument—you don’t have to agree with Singer that one ought to give everything. After all, few would think even if there were constantly children drowning, [we’d be obligated to spend all our time saving them](https://www.jstor.org/stable/24671242).
+
+Jobling then gets into his serious critique, directed primarily at the drowning child argument. The argument goes: if you walked past a child drowning in a pond, you’d be obligated to wade into the pond and save his life. But by failing to donate, we similarly fail to save lives. What’s the morally relevant difference? Jobling explains:
+
+> Singer fails to consider the subjectivist interpretation of the thought experiment. If you see a child drowning, you will likely feel a powerful emotional motivation to help even if it means ruining your shoes. Maybe what the thought experiment really shows is that you should just do things that you are emotionally motivated to do. If you feel like saving the child, then you should do that. If you feel like ordering the shrimp basket at a sports bar, you should do that.
+
+But this is, on its face, a *totally inadequate response*. The widespread intuition isn’t that you should only pull the child out of the pond *if you feel like it*. It’s that you should pull the child out of the pond full stop. Jobling’s view totally fails to explain the judgment almost everyone has.
+
+Jobling has given a *fully general response to all moral arguments*.
+
+Think abortion is wrong? Well then you can address the [violinist thought experiment](https://ethics.org.au/thought-experiment-the-famous-violinist/) by saying that people have the *intuition* that there’s a difference. You have a fully general objection to any moral argument. Jobling’s argument could equally be used in defense of slavery, child rape, and cannibalism. This is a serious defect of a moral defense.
+
+Even if subjectivism is true, most people care, at least to some degree, about their values being consistent. Most people would be dispirited to learn that the reason they perform one act but not another is due to no morally relevant difference, but instead purely because of divergent emotional reactions built on arbitrary differences. Even if it’s ultimately up to us what to care about, most people have deep values that imply caring about those suffering and dying on the other side of the world. That’s what the drowning child argument illustrates.
+
+Jobling describes himself as a reformed racist. He spent his younger years being an online racist writing about the inferiority of other races and has come to regret it (note: I say this not to shame him; I think it’s noble to turn one’s back on a vile ideology and we should welcome those who do with open arms). Presumably Jobling would not buy a racist justifying neglecting the interests of black people by simply *describing* that they don’t care about black people. Yet the excuse he gives in this article is a fully general one. It is a fully general reason never to be moved by moral argument.
+
+Imagine the following dialogue:
+
+> Bob the racist: I love racism! There’s nothing I like more in life than trampling on the interests of blacks, Hispanics, and other people of color, especially black queer folk who have been systematically marginalized and socioeconomically disadvantaged by centuries of oppression.
+> 
+> Ian: But this is totally unjustified. Skin color isn’t a morally important trait. If someone painted your skin black, that wouldn’t strip you of moral worth. What could possibly justify ignoring black people’s interests?
+> 
+> Bob: well, you see, you give the “changing skin color,” thought experiment as an argument against racism. But you fail to consider the subjectivist interpretation of the thought experiment. I have a negative emotional reaction to white people being mistreated if their skin color changed, but not to black people being mistreated.
+
+Presumably, Jobling would not think such a person had made a good point. But this is exactly the same as Jobling’s argument. In both cases, one’s sole defense of a moral judgment is an emotional reaction. Even subjectivism is right, we have emotional reactions to certain principles. We mostly don’t like our moral frameworks being hopelessly arbitrary. It is empirically undeniable that non-cognitivists can be moved by the drowning child argument because Peter Singer, at the time he wrote about it, *was* a non-cognitivist.
+
+Jobling then describes—citing Wolf—that a moral saint would be strangely barren, focusing only on the good. Such a person would not strike him as very interesting. But EAs don’t urge people to be saints, only to give away a non-trivial portion of wealth. I also find this judgment to be bizarre; it is good to be a saint because saints save *lots of lives* and make the world enormously better.
+
+Whether Wolf or Jobling personally finds them interesting seems beside the point. Norman Borlaug is not that interesting to me—he just did agriculture—but because he saved a billion people, I think his life was well-lived. The good is worth pursuing. By definition, it matters more than other pursuits.
+
+Lastly, Jobling declares:
+
+> Williams would have regarded effective altruism as utilitarianism gone mad. For Williams, ethical causes need to make some connection to our emotions, or our internal reasons, to motivate people.
+
+This is a curious remark because, as I’ve noted many times, as have roughly all high-profile EAs, EA doesn’t require utilitarianism. Thinking one should prevent death and suffering doesn’t require utilitarianism, just the more [modest idea that making the world better is important](https://www.goodthoughts.blog/p/beneficentrism). Jobling’s response is to simply give up on moral reasoning—give up on ever being moved by argument to care about something one didn’t previously care about. Jobling could have no criticism of Dahmer provided that not killing people didn’t jibe with his personal values.
+
+If your defense of not being an EA could also be used by rapists, genocidaires, and war criminals, then it leaves much to be desired as a defense. Similarly, if it implies that it would be great to torture everyone on the planet for a million years to create an extra supernova, something has gone badly wrong. This is roughly how you’d expect the criticisms of EA to go if EA were right in that they don’t make even the faintest degree of sense.

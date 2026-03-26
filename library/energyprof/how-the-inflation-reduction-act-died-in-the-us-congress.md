@@ -1,0 +1,68 @@
+---
+title: "How the Inflation Reduction Act Died in the U.S. Congress"
+author: "Various"
+publication: "Energy Prof"
+publication_slug: "energyprof"
+published_at: "2025-07-29T08:17:17.000Z"
+source_url: "https://energyprof.substack.com/p/how-the-inflation-reduction-act-died"
+word_count: 883
+estimated_read_time: 5
+---
+
+President Biden’s Inflation Reduction Act (IRA) was the most ambitious U.S. climate policy so far. Key provisions expanded tax credits for renewable energy, electric vehicle purchases, and domestic battery manufacturing. The IRA was supposed to channel hundreds of billions of dollars into clean technology adoption and domestic manufacturing.
+
+The idea behind the IRA was to make it politically bullet-proof. Many of the investments subsidized under the IRA would go to competitive electoral districts or states represented by Republicans in the House of Representatives and the Senate. These elected politicians would support the IRA, protecting the legislation against repeals under a Republican administration.
+
+But President Trump’s budget bill in 2025 repealed most of the IRA climate policies. According to [Jesse Jenkins](https://repeatproject.org/) at Princeton University, the IRA would have reduced U.S. greenhouse gas emissions by over 40% from 2005 by 2035. With President Trump’s One Big Beautiful Bill (OBBB), emissions would decrease by about 25%.
+
+Why did the IRA fail to survive? In what follows, I propose three reasons for the early death of the IRA.
+
+1\. The Theory Behind the IRA
+
+The IRA was supposed to build its own constituency. The IRA allocated substantial funding to support manufacturing investments in battery storage, solar panels, electric vehicles, and other technologies. These investments would benefit conservative states and districts. As a result, the IRA would be protected by a coalition of virtually all Democrats and a critical mass of Republicans at the federal level.
+
+Given that any new budget legislation would require both the House and the Senate, the IRA just had to keep a handful of Republicans on its side. Even if the Republicans gained a majority in both the House and the Senate, and the President was a Republican, many of the IRA provisions would be safe.
+
+How is that working out for the Democrats? Not well. President Trump’s OBBB of 2025 decimated the IRA. Production and investment tax credits for solar and wind power are phased out for projects that are not in service by end of 2027. Electric vehicle and residential solar credits disappear. Restrictions on foreign technologies are tightened.
+
+2\. The Time Lag Problem
+
+The first problem with the IRA was the time lag.
+
+Turning legislation into running factories takes years. When President Trump came to power in January 2025, investment in clean technology manufacturing was still in the early stages.
+
+Many good plans were made, with [USD 115 billion](https://www.cleaninvestmentmonitor.org/reports/us-clean-energy-supply-chains-2025) invested in clean technology manufacturing between the IRA’s entry into force and the first quarter of 2025. But of the 380 manufacturing facilities announced by companies, only 161 were operational at that time.
+
+As a result, many of the promised manufacturing job in red districts had yet to materialize. Instead of hundreds of thousands of voters directly benefiting from clean technology manufacturing, they had promises from the political left. Meanwhile, the political right campaigned against renewable energy and climate policy.
+
+3\. The Politicization of Renewable Energy
+
+The second headwind to the IRA was the recent politicization of renewable energy. For decades, renewable energy was one of the few climate-related topics that both Democrats and Republicans supported.
+
+Data from Pew Research shows how much public opinion about renewables has changed in the past few years. In 2020, 79% of Americans [supported](https://www.pewresearch.org/science/2025/06/05/americans-views-on-energy-at-the-start-of-trumps-second-term/) the expansion of wind and solar power over more fossil fuels. In 2025, the same survey question received only 60% support.
+
+As a result, renewables are now yet another partisan issue in a hyperpolarized United States.
+
+Democrats support renewable energy. Republicans oppose renewable energy.
+
+4\. We Live in Trump’s World Now
+
+The third – and probably most important – driver of the IRA’s passing is President Trump’s dominant role in the Republican Party. Simply put, the Republican Party is now completely dominated by the MAGA ideology.
+
+The Republican Representatives and Senators who supported the IRA faced President Trump’s fury. When the House and the Senate were negotiating President Trump’s budget bill, the White House threatened on social media to support primary challengers to anyone who voted against the bill.
+
+In this situation, the small group of potential IRA supporters in the GOP caved. President Trump’s MAGA voters have far more electoral power than the handful of potential beneficiaries of the IRA. Voting against President Trump’s budget would have risked a politician’s career, as a Trump-supported primary challenger would have captured the MAGA vote, which dominates Republican politics in most states.
+
+5\. Where Do We Go From Here?
+
+Easy come, easy go.
+
+The saga of the IRA shows the difficulty of long-term policymaking in a deeply polarized United States. If the voting population is evenly split between supporting and opposing the energy transition, efforts to lock in long-term decarbonization policy face strong headwinds.
+
+The IRA was a sincere and reasonable effort to strike a balance between feasibility and durability. By using the budget reconciliation procedure, Democrats overcame the filibuster threat and passed an ambitious policy. But with the Republicans winning elections across the board in 2024, Trump used the same budget reconciliation procedure against the Democrats.
+
+Things could have gone in a different direction if the Democratic Party had not suffered a disastrous loss in 2024. With the IRA, President Biden’s team made a reasonable gamble but lost.
+
+After President Trump’s second term, we will again face a new political reality. Nobody knows who is running the country at that time.
+
+But we do know that we live in a deeply divided nation, where consistent long-term policy is very difficult.

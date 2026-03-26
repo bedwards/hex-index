@@ -1,0 +1,342 @@
+---
+title: "2025 Was Rough. These Records Were Incredible."
+author: "Kevin Alexander"
+publication: ""
+publication_slug: "thekevinalexander"
+published_at: "2025-12-17T14:42:15.000Z"
+source_url: "https://thekevinalexander.substack.com/p/top-albums-2025-curated-picks"
+word_count: 4137
+estimated_read_time: 21
+---
+
+[
+
+![](https://substackcdn.com/image/fetch/$s_!x8fs!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fa99fd115-52f0-4a8d-ac7a-73d27dbdd9a8_760x760.jpeg)
+
+
+
+](https://substackcdn.com/image/fetch/$s_!x8fs!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fa99fd115-52f0-4a8d-ac7a-73d27dbdd9a8_760x760.jpeg)
+
+### Good morning!
+
+> *Today we’re taking a look at our Top Albums of 2025*
+
+\---
+
+We’re back!
+
+By almost any metric, 2025 wasn’t great. The universe didn’t send us its best! But if we’re talking about records—and we are—this was a banner year. For every stain on the landscape (Daniel Ek, the Velvet Sundown), there were countless counterpoints: music that doubled down on what we love, artists unafraid to cover new ground, etc. Turns out the best weapon against things like AI and downward financial pressure on artists and scenes is to stare it all in the face and just keep going.
+
+The best part? The appetite for all of that is only growing. People keep making music, and indie labels and venues keep springing up to help get it to our ears. Those might take forms we haven’t seen in a while (i.e., tape labels, house shows), but obstacles make you clever.
+
+I sometimes get asked if I ever worry that I’ll run out of records to write about. My answer is always a polite version of, “Are you kidding me?!” That might happen at some point, but the biggest hurdle in 2025 was finding enough time to cover all the records I wanted to. I thought for sure I’d have figured out how to do that by now. Nope. Maybe next year.
+
+The list below represents what I consider the best the year had to offer. As noted previously, I use objective criteria, but I’m also not above using things like first impressions and “vibes” in the calculus. These were the records that consistently fed my ears and lit up my brain. For fans of semantics, we can swap in/out terms like “best,” “favorite,” etc.—dealer’s choice.
+
+The ultimate barometer is this: if we were at a diner after a show and you channeled your inner Rob Gordon and asked me what records I’d recommend, these would be the ones I pitched.
+
+For the past couple of years, [Sam Colt](https://open.substack.com/users/32534089-sam-colt?utm_source=mentions) [Steve Goldberg](https://open.substack.com/users/60661526-steve-goldberg?utm_source=mentions) and I have put together our annual favorites. There’s not a lot of overlap in taste, and that’s what keeps this so fun. I’m not blowing smoke when I say that I start looking forward to this group project in early fall. Jami had to step away this year, but will hopefully be back with us in ‘26.
+
+When you’re done here, please head over to their pages and check out their takes!
+
+#### **Meet the co-conspirators**
+
+**Sam Colt—**Recovering copywriter and author of *[This Is A Newsletter!](https://thatguyfromtheinternet.substack.com/)*—a consistently hilarious, biting chronicle of modern life and its indignities.  
+  
+**Sam’s List:**
+
+1.  Rosalia- *Lux*
+    
+2.  Clipse- *Let God Sort ‘em Out*
+    
+3.  Deftones- *Private Music*
+    
+4.  Geese- *Getting Killed*
+    
+5.  billy woods- *GOLLIWOG*
+    
+6.  Nourished by Time- *The Passionate Ones*
+    
+7.  Wednesday- *Bleeds*
+    
+8.  Panda Bear-*Sinister Grift*
+    
+9.  FKA twigs- *EUSEXUA*
+    
+10.  Stereolab- *Instant Holograms on Metal Film*
+     
+
+Read his full breakdown- including honorable mentions-[here](https://thatguyfromtheinternet.substack.com/p/9842e467-e696-453c-b7b8-d97ec90a9f1e).
+
+\---
+
+**Steve Goldberg—**Writes *[Earworms](https://earworm.substack.com/)* [and](https://earworm.substack.com/) *[Songloops](https://earworm.substack.com/),* weaving personal essays with the songs that lodge themselves in your brain.
+
+**Steve’s Picks:**
+
+(alphabetical order)
+
+1.  Yazz Ahmed - A Paradise in the Hold
+    
+2.  Amadou & Mariam - L’amour à la folie
+    
+3.  The Antlers - Blight
+    
+4.  The Besnard Lakes - The Besnard Lakes Are the Ghost Nation
+    
+5.  Anna Von Hausswolff - Iconoclasts
+    
+6.  Henge - Journey to Voltus B
+    
+7.  Walt McClements - On a Painted Ocean
+    
+8.  Midlake - A Bridge Too Far
+    
+9.  Vines - I’ll Be Here
+    
+10.  Youth Lagoon - Rarely Do I Dream
+     
+
+Check out Steve’s thoughts on his picks—and those that just missed the cut— [here](https://open.substack.com/pub/earworm/p/my-ten-favorite-albums-of-2025?r=1046qe&utm_campaign=post&utm_medium=web).
+
+\---
+
+As in Part 2, some of these we’ve talked about before, and I’ve included excerpts from previous reviews. I like yapping about records, but the goal is—and remains—finding you a new favorite or two.
+
+Also: All are Gizmo-approved:
+
+[
+
+![](https://substackcdn.com/image/fetch/$s_!i0yP!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F6672b95b-b313-4766-aa2f-6f442bbf2cf7_979x927.jpeg)
+
+
+
+](https://substackcdn.com/image/fetch/$s_!i0yP!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F6672b95b-b313-4766-aa2f-6f442bbf2cf7_979x927.jpeg)
+
+*Let’s get to it!*
+
+\---
+
+**Immersion-*****WTF***
+
+My love for Wire is no secret, and the same holds true for frontman Colin Newman’s solo work. This year, that circle expanded to include Immersion, his project with partner Malka Spigel (formerly of Minimal Compact). They actually gifted us two releases this year (plus a collaboration with / reworking of a single by Dummy). Nanocluster Vol. 3, with SUSS, was gorgeous. WTF?? takes the best parts from all of those disparate pieces and blends them into something incredible.
+
+From my original review:
+
+> *The record kicks off with “Defiance,” an instrumental that gets things off to a strong start with uptempo beats but refuses to plant its flag in either camp: not synth, not pop, not really anything but itself. Immersion—and Wire before them—thrive in these in-between zones, especially when they let the music do the talking. I tried to categorize their last record, Nanocluster Vol. 4, and failed spectacularly. I know better this time around.*
+
+“It’s a Long Way to Brooklyn” is a highlight, a track that doesn’t need words. But the whole thing opens up when they do. Spigel’s voice on “Timeline” is cool and almost detached, and Newman sidles in with a wry spoken-word counterpoint. Elsewhere, like on “Use It Don’t Lose It,” his trademark deadpan delivery turns a good track into a great one.
+
+If this all sounds heavy, it is—and it isn’t. At least no more so than something like Talking Heads’ Life During Wartime was back in the day. David Byrne was singing about NYC’s Alphabet City, and Immersion is speaking on a much larger scale. Nevertheless.
+
+WTF?? is an album about the constant, low-grade anxiety of modern life, and an era where current events have you saying “what the fuck?” several times before lunch.
+
+\---
+
+**Bob Mould-** ***Here We Go Crazy***
+
+At my day job, one of my corollary duties is administering annual hearing exams and helping people find hearing protection that works for them. This is thanks to Bob Mould.
+
+Husker Du’s *New Day Rising* hit me like a kick to the head and was never played at less than full volume. I liked it that way and loved his power trio, **[Sugar.](https://thekevinalexander.substack.com/i/148887272/sugar-copper-blue)** To this day, it’s still the loudest show I’ve ever been to. I used to find that post-show ringing in my ears a weird badge of honor. When it was still there after day two, I started to worry. My hearing rebounded (sort of), which marked the point when I no longer cared how uncool I looked wearing earplugs at shows. But Mould hasn’t quieted down. He’s at his best when he’s at full throttle, and on his 15th solo record, he delivers.
+
+The opener, “Here We Go Crazy,” reminds listeners of the best parts of Sugar. “Fur Mink Augurs” and “Sharp Little Pieces” are equally intense. The songs come at you relentlessly: blast furnace chords, merciless drumming, and sometimes hard-to-understand vocals (especially for those with hearing difficulties). When you listen closely, they often touch on challenging subjects—it would be easy for a sound like this to wear down even the strongest among us. Yet Mould consistently shows us a bit of light (heh).
+
+*Here We Go Crazy* isn’t exhausting; it’s invigorating. It’s a breath of fresh air at a time when we need it more than ever. Play it loud; just remember to limit your exposure and keep in mind that the most effective hearing protection is the kind you’ll actually wear.
+
+\---
+
+**Hayley Williams*****\- Ego Death at a Bachelorette Party***
+
+I know you’ve already seen a bazillion reviews of this record, so let me save us all some time by just saying: “same!” But before you go play it, I want to add that I love how this record was released. Last year, Cindy Lee’s *Diamond Jubilee* drew raves for not being streamable and for being available only on YouTube and a specific website. Williams followed suit (sort of) by releasing the tracks via her website—no tracklist, no problem.
+
+This is her first outing as an independent artist, and if that’s not doing things on your own terms (while raising a middle finger to those who got rich off your talent for decades), well, I don’t know what is. Williams—and, to an extent, Paramore—have always shapeshifted stylistically, but here that impulse is taken to another level, with wonderful results. Still, in my opinion, she truly shines when she leans all the way into old-school pop, like “Good Ol’ Days.”
+
+Do the kids still refer to songs as “bops”? Because this is a bop—and a perfect example of her incredible talent.
+
+\---
+
+**Ryan Davis & The Roadhouse Band-** ***New Threats from the Soul***
+
+Over the last few months, there’s been a trend in “bigger” publications to tout Americana as the latest new thing, as if it just popped out of the ether—as if Waxahatchee (or whoever) suddenly sparked a whole-ass genre. That’s obviously not true. What’s actually happening is that people are slowly discovering artists and bands who have been there, putting in the miles for years.
+
+I can’t claim any sort of moral high ground or expertise here. As noted in my initial review, *“until not too long ago I was a dues-paying member of the ‘anything but country’ club”*—a broad brush that also treated folk and Americana as collateral damage. As usual, I’m late to the party, but I’m happy to be here now.  
+  
+That said, how do you not fall for a record that casually namechecks A Tribe Called Quest, Peg Bundy, and Betty Rubble before the first chorus even hits?
+
+And then a line like this comes in and stops you cold:
+
+> *“You can see the kingdom from the tailgate*
+> 
+> *If you stack a couple coolers, but you’re never gonna see it from the front of the line”*
+
+Maybe college football has cooked my brain, but damn, that’s my kind of wordsmithing. Again, we’re not even through the opening track here!
+
+Speaking of which, these sound radio-friendly but are absolutely not built for the airwaves—the shortest track here clocks in at 5:55. That’s fine by me. Morgan Wallen and co. can have the chart space and radio spots. This is a record suited for back roads, sitting on the porch, or in your favorite bar on a cool summer evening.
+
+With *New Threats…*, Davis and the Roadhouse Band tip their hat to Americana while bringing new energy. It’s not easy to sound brand-new and 100 years old at once, but they walk that tightrope well here (absolutely NOT derogatory). It’s music that understands the lay of the land, respects it, and is cool with adding its own take. It’s the sort of thing that will convert skeptical listeners like me sooner rather than later.
+
+\---
+
+**Nourished by Time-** ***The Passionate Ones***
+
+When I was in high school, my girlfriend was very much into R&B, and I was very much… not. We landed at a kind of musical détente, where we’d swap who got to control the music based on a very blurry set of criteria that seemed to change with every trip. That said, there were a few “compromise” records that we both begrudgingly enjoyed.
+
+The Passionate Ones reminds me of that same very narrow band of R&B from around 1988–92 that used to blast out of my tape deck. We spent a lot of that time dreaming, and on Marcus Brown’s latest, it feels like a love letter to the dreamers—the ones just trying to get by. It’s a bit of sonic reassurance that it’s okay to have your head in the clouds.
+
+It might evoke memories of bands and days gone by, but it’s also really hard to pigeonhole. Sure, R&B fits, but so do experimental and dance. Brown takes us on a ride and isn’t afraid to go off on a tangent or two. And there are earworms, and…
+
+…and in a world where slop like Velvet Sundown becomes a thing, it’s nice to know there are still some things Suno just ain’t going to be able to copy. In my totally objective, not-at-all-blurry rubric for what makes a great record, originality is part of the calculus. And in that category, *The Passionate Ones* is off the charts.
+
+There are no compromises on this LP, but I’d like to think it would absolutely qualify as a compromise record.
+
+\---
+
+*The number one way my newsletter finds new readers is when people share it. So, feel free to spam share it with everyone.*
+
+\---
+
+**Destroyer-** ***Dan’s Boogie***
+
+Have you ever been to Wendover, Nevada? If not, it’s a border town that’s a little worse for wear. Not quite a Temu-brand Vegas, but it’s close. It’s transient by nature, and melancholy and hard luck seem to be the only permanent residents.
+
+In my head, this is the sort of place where Dan Bejar—aka Destroyer—would have a standing gig as a lounge singer. The songs are great, but the louche persona he’s built feels like a perfect fit. On 2011’s synth-pop masterpiece Kaputt, he talked about doing coke and all sorts of other midlife debauchery.
+
+New iterations came via subsequent records like *Poison Season* and have reached their peak (or bottom?) with *Dan’s Boogie*. It feels like the end of the road for a guy with nothing left to lose—the sort of entertainer who still thinks “the act” has some life left in it, even if that means playing to a midday crowd of four or five disinterested truckers. The whole thing has a morning-after vibe, literally and figuratively, as if Bejar is in on the joke and no longer worries whether you’ll “get” his free association and poetry.
+
+…and it’s fantastic.
+
+Ultimately, places like Wendover are a great place to study the human condition—the wins, the losses, the beautiful, and the ugly. Sometimes they’re just a great place to get off the road and into some cheap food. *Dan’s Boogie* encompasses all of that. I honestly don’t know where Bejar goes from here, but I’m in no rush to get past this record.
+
+\---
+
+**Kathleen Edwards-** ***Billionaire***
+
+One of the highlights of my week are our Monday discussions. Sure, I share a ton of picks with everyone, but I get WAY more in return. Occasionally, a record takes on a life of its own in the chat, and comments about it stretch over the course of a few weeks. This, of course, is a very loud signal that maybe, you know, you should check the record out? That happened with *Billionaire*, and man, am I glad I paid attention!
+
+I originally noted
+
+> I*t didn’t take me long to get why people are so excited about this record. In fact, it took about 30 seconds of the opener “Save Your Soul.” I found myself nodding enthusiastically and saying, “Okay, then!” The line “Line your pockets with gold… Who’s gonna save your soul/When your money’s no good.” feels like a question a LOT of people should be asking themselves in 2025. And just in case Jason Isbell doesn’t already have enough fans here in the community, the solo on this track rips.*
+
+That was followed by “Say Goodbye, Tell No One,” one of those rare tracks whose gorgeous sound is a thin veneer over caustic lyrics. It’s incredible. I can almost guarantee someone’s going to use this to get through a bad breakup. They could do worse.
+
+I also mentioned that if there was a weak link here, “I Need a Ride” was it. People told me to give it some time; maybe it would grow on me? Dear reader, that’s exactly what happened. And if Isbell wasn’t enough, towards the end, Shelby Lynne and Allison Moorer stop by to add some vocals.
+
+\---
+
+**Gelli Haha-** ***Switcheroo***
+
+Where do I start with a record described by a fan as “...like Kate Bush meets Suburban Lawns, and it is pretty good!“? Switcheroo is what happens when an artist starts out making folk music, moves to LA, connects with a producer, and makes the pivot of a lifetime. Along the way, Angel Abaya ditched her legal name, adopted the Gelli Haha persona, and proceeded to make one of the most unhinged records of 2025.
+
+Imagine your favorite dream pop band grabbing a copy of The B-52s’ Whammy! on the way to the launch pad, taking off, and crash-landing in an electroclash warehouse party in the coolest part of the galaxy.
+
+Switcheroo is ecstatic. It’s aspirational and absurd in equal measure. It’s awesome. In other words, it’s perfect for this moment. [Speaking with Abaya earlier this year](https://open.substack.com/pub/thekevinalexander/p/in-conversation-gelli-haha?utm_campaign=post-expanded-share&utm_medium=web), I asked how this project came to be. Her answer?
+
+> “Gelli Haha is a project born through curiosity. I wanted to create something that was fun and moved people physically and emotionally. Fun music to dance to, something mystical, and enchanting and silly.”
+
+Mission accomplished.
+
+In that same piece, I said,
+
+> *Maybe it’s just me, but here’s something liberating about how this album refuses to care what you think. It’s not just theatrical—it’s maximalist identity performance with zero fucks given apologies. Gelli Haha isn’t aiming for relatability; she’s too busy being a pop gremlin, and tbh, that rules. The whole project feels like a rejection of our (collective) obsession with being “real,” that’s often ripping through the usual music discourse channels. Instead, she turns her persona into a playground—and lets you run wild with it.*
+
+*Switcheroo* is weird, hilarious, and absolutely unhinged—and it might be the most fun I’ve had with a record all year. Listening makes joy feel like a radical act- a rare treat in the current era. Once you’re in the Gelliverse, you may never want to leave. I certainly don’t.
+
+\---
+
+**Fust-*****Big Ugly***
+
+From November:
+
+> *Fust is the latest to corner the market on the sort of storytelling Drive-By Truckers and Wussy have mastered. On Big Ugly, the band’s third album, they’ve hit critical mass. Real stories about real people, just tryin’ to get through the day. It’s the world of hard-working folks, hours under a vicious sun, and well-lit places. In this case, 24-hour gas stations out by the highway. It’s always strange to me, a child of suburbia, and a man that’s spent 49(ish) of his 50 years living above the Mason-Dixon line, to be so fascinated with the stories from the South. I don’t know what it is, but it’s always been a goldmine for storytelling. Even the nomenclature follows this pattern: Big Ugly is an area in West Virginia. And like the state, it’s an odd name for a beautiful thing — or in this case, specifically, a record from a North Carolina–based band.*
+
+“Spangled” kicks things off with a story of a repossessed hospital and helping a friend. And if that’s not a track for today, I’m not sure what is. It’s also a banger with no shortage of guitars, piano, and pedal steel. It’s purpose-built for rippin’ a heater and thinkin’ about things as you whiz down your nearest moonlit back road.
+
+“Mountain Language” is another swaggering track with fuzzy riffs and lines like:
+
+> *You can’t even find work at the Country Boy  
+> Selling gas station drugs  
+> To take care of your sister Dallas  
+> She’s a little, little older than us  
+> She’s a little older than us*
+
+This is a masterclass in telling the stories of the people who live in places Yankees rarely go, and of values we can all relate to. The record ends the same way it begins — with a story of collapse when Aaron Dowdy tells us on the way out that he’s blacking out from living.
+
+*Big Ugly* is a mix of ballads and rockers, but truly shines on the latter. Dowdy isn’t afraid to paint an unvarnished picture of real life, but does so in a way that never feels condescending. The characters here feel like his people, not caricatures built for peddling records. This is a world progress often leaves behind, but like an abandoned school bus slowly being consumed by kudzu, there is grace and beauty in the decay.
+
+I keep trying to find new things to say about this record, but my quiver of superlatives only holds so many arrows, ya know?
+
+\---
+
+**Preoccupations-** ***Ill at Ease***
+
+*Ill at Ease* is certainly not something you’ll be blasting on your boat as you and the crew knock back tall boys. It’s icy in spots and apocalyptic in others. One song mentions centrifuges. Does Van Halen sing about centrifuges? Dear reader, they do not.
+
+Oh, and it will sometimes make you want to dance (probably on land).
+
+When Women broke up in 2012, the Flegel brothers went their separate (musical) ways. Patrick morphed into Cindy Lee, whose *[Diamond Jubilee](https://cindylee.bandcamp.com/album/diamond-jubilee)* record was on just about every AOTY there is last year. Matt and bandmate Mike Wallace went on to form the core of Viet Cong. That name was thankfully changed for a whole host of obvious reasons, and Preoccupations came to be.
+
+*[Ill at Ease](https://open.qobuz.com/album/q94d6ta5kdxec)* is the band’s fifth record, and arguably their most accessible. It’s a post-punk record, but it’s as pop as anything Psychedelic Furs or The Sound ever put out. On a more contemporary note, I kept drawing a line to The Helio Sequence. For absolutely no reason at all, the record’s “Andromeda” reminds me of “[Keep Your Eyes Ahead.](https://open.qobuz.com/track/49842820)” While I’m at it, Flegel’s almost raspy vocals will evoke comparison to The Fur’s Richard Butler’s.
+
+None of this is a liability. In fact, it’s all in the plus column for me. There has been some chatter that this record is too pat, too polished compared to their previous releases. I am not in that camp. Sure, there are a points where I miss that earlier volatility, but I like my post-punk dance-y, and this delivers for days. “Andromeda” and “Focus” have been battling it out for my fave track of the year, and several others make a good case for being shortlisted as well.
+
+Get in, we’re listening to the soundtrack to the apocalypse.
+
+\---
+
+#### **A few more incredible records I’d recommend in a second:**
+
+-   **Stereolab — Instant Holograms on Metal Film**
+    
+    The data goblins at Spotify tell me my most-played song in 2025 was “Ping Pong,” off the band’s 1994 record Mars Audiac Quintet. Such is the staying power Stereolab enjoys that, three decades on, I’m still playing the records—and so are a whole lot of other people. Will this one have the same longevity? It’s Stereolab! I wouldn’t be against it.
+    
+-   **Sextile — Yes, Please**
+    
+    One of my “old man yells at cloud” complaints is that techno—er, EDM—er, dance music has started to over-index on glitches and bleeps and bloops. There’s nothing wrong with that (see Stereolab), but sometimes I want big bass, a little sweat, and some weapons-grade hedonism. The lyrics flit between existential and immediate, but if I’m honest? I’m here for the beats. And they never stop coming. Incredible record that takes you right back to those nights that didn’t even get started until 10:30 p.m. Listen again? Yes, please.
+    
+-   **Andy Bell — Pinball Wanderer**
+    
+    This year, we got records from Erasure’s Andy Bell and the former Ride frontman of the same name. A real “Oh, we got both kinds. We got Country *and* Western” moment. This one is from the latter Andy and is a fantastic ride into space.  
+    The record’s cover of the Passions’ 1981 track “I’m in Love With a German Film Star” is worth the price of admission alone.
+    
+-   **Avery Friedman — New Thing**
+    
+    Writing this record up last spring, I quipped: “I am convinced someone, somewhere, decided that any promo email had to include either ‘pedal steel’ or ‘indie folk’ in the description. It feels like a bit of PR Mad Libs or refrigerator-magnet poetry gone wrong…those two phrases are as ubiquitous as UPCs on the records they’re trying to move.”
+    
+    …which said PR rep then posted on social media. Lol. Oops. It was all taken in stride, and why not? I loved the record, and Friedman made it easy.  
+    
+    On the title track, Friedman tells us: *“It’s a little bit of a new thing / It’s a little hard to predict / And I can’t quite describe it / But it’s like a magnet flipped.”* Honestly, I can’t think of a better way to sum up this record than that. This album fades in and out—sometimes it feels like the light of midday; other times like a fever dream or fuzzy memories struggling to make it out of the back of one’s mind.
+    
+      
+    I closed that first review by stating, “It’s not PR spin when I tell you that’ll be a contender for a spot on my AOTY list.” And, well, here we are.
+    
+-   **Die Spitz — Something to Consume**
+    
+    My elevator pitch for this Austin-based quartet has always been simple: Die Spitz is the Gen Z equivalent of L7. To be clear, that’s meant as high praise. They’re fast, loud, and have something to say—and exactly zero Fs to give. Ava Schrobilgen, Chloe De St. Aubin, Eleanor Livingston, and Kate Halter also happen to be talented musicians.
+    
+      
+    Their 2023 record was centered around “Hair of Dog,” one of my favorite tracks of the year, and the EP quickly found its way onto my Best of 2023 list. It set the stage for Something to Consume. Almost a rough draft, if you will. That’s not to say this record has the edges sanded off—it absolutely doesn’t—but it’s clear the group has worked to evolve from those early beginnings.
+    
+
+\---
+
+And that’s a wrap! Any of your favorites on this list? What should be on here? I’d love to hear your thoughts. Sound off in the comments, and let me know!
+
+Thanks for being here,
+
+Kevin—
+
+Want to try Qobuz free for two months? **[Click here to give it a test drive!](https://try.qobuz.com/onrepeat/)**
+
+[![](https://substackcdn.com/image/fetch/$s_!reb_!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2F3f85cf93-e56c-40b6-b704-6311971e7056_1200x1200.png)On Repeat by Kevin Alexander
+
+On Repeat is like your favorite music magazine but without the Hyundai ads.
+
+](https://thekevinalexander.substack.com?utm_source=substack&utm_campaign=publication_embed&utm_medium=web)
+
+[
+
+![](https://substackcdn.com/image/fetch/$s_!1YPP!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fb261985f-3b76-480a-82c0-f29c8ef9962e_400x404.png)
+
+
+
+](https://substackcdn.com/image/fetch/$s_!1YPP!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fb261985f-3b76-480a-82c0-f29c8ef9962e_400x404.png)

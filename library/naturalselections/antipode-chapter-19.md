@@ -1,0 +1,162 @@
+---
+title: "Antipode – Chapter 19"
+author: "Various"
+publication: "Natural Selections"
+publication_slug: "naturalselections"
+published_at: "2025-04-15T15:01:30.000Z"
+source_url: "https://naturalselections.substack.com/p/antipode-chapter-19"
+word_count: 5125
+estimated_read_time: 26
+---
+
+*Antipode is a true account of my experiences while doing research in Madagascar from 1993 – 1999; it was published by St. Martin’s Press in 2001. Here is where we started—with the* [Introduction](https://naturalselections.substack.com/p/antipode-introduction)*. And here are* [all of the chapters](https://naturalselections.substack.com/s/antipode) *posted thus far.*
+
+\---
+
+Pascal took us out to Nosy Mangabe in the little motor boat, and Lebon and Fortune, on shore, smiled widely as they recognized me coming in. Two years earlier, Rosalie had told us that she thought they were terrified of Jessica and me. I wondered at their apparent pleasure now, and thought these may have been fear grins, of the sort known in other primates.
+
+If they were, it was warranted. The island had gone to seed, a sour, wildly sprouting seed which left its foul odor on all it came in contact with, and a lingering smell of helplessness. The physical structures of camp were basically unchanged—three tent platforms still prominent, the conservation agents’ small cabin, the dank, cement-floored lab, the tiny structure housing the toilets—but all was in chaos. In 1997, one of the toilets never worked, but the other one usually did, albeit with a lot of leakage from the tank. There was always an inch or two of water on the floor of the dark room where spiders went to die. The PVC pipe which ran from the waterfall to the wooden shower, and from the shower to the toilets, had been wobbly, but secure. When we arrived this year, though, someone had walked into the pipe and knocked it off its connection—no adhesive had been used in its construction. Now a waterfall’s force of water was flooding camp, constantly, and reattaching it seemed impossible with the huge amount of water now flowing out the pipe. From the channels the water had formed, it seemed the PVC had been broken for at least several days. The noise was deafening. There were no shower or toilets as a result. The pit toilet was even less appealing this year, for the boards on which you squatted were rotting, lending a very precarious air to the endeavor.
+
+Furthermore, the little pool in which I had been attacked by the lemur, the pool closest to camp, where we got our drinking water and, just downstream, brushed our teeth and washed our faces, had been polluted. It was being used to clean fish, the unwanted parts left to decay in the once fresh water. Worse, the conservation agents were using the pool to bathe, now that there was no shower, and the waterfall, though it was my preferred bathing spot, required clambering over several boulders to access it. The Malagasy, traditionally, don’t use toilet paper—they find the habit dirty and rather disgusting, which perhaps it is. Instead, they prefer to clean themselves after a bowel movement by rinsing themselves in water. This once pristine water source quickly became known to us as butt-water pond.
+
+We couldn’t do anything about the bacteria now living in butt-water pond, and this left us without an easily accessible source of clean water. Bret set about to fix some of the problems in camp immediately, with his unique combination of mechanical and logical skills, and an intuition that often results in him packing just the right combination of required items. Now the two tubes of epoxy putty he had brought saved the day.
+
+Glenn, on the other hand, had never before packed for such a trip. I had given him what background I could think of regarding the living conditions: he needed a tent, something comfortable to sleep on, and cheap, quick-drying clothes that could be discarded at the end of the season if necessary. He had to bring all the toothpaste and shampoo and whatever else he might need. I told him what shots to get, and which prescriptions to request from his doctor. Everything needed to fit in one 70 pound bag, plus his carry-on. Except for the toilet paper that I calculated and packed for all of us, he needed to be self-sufficient.
+
+When the trident emerged, like Neptune’s, from Glenn’s bag, it made him easy to mock. Did he expect to be sparring with the deities? In what bizarre situation did he imagine coming to rely on a trident? Had he ever needed a trident before? But he had also packed a folding shovel, which was extremely useful before its untimely demise shortly after we arrived, and fishing rods, the likes of which Lebon and Fortune had never seen. He was naïve at this game, and Bret and I were relatively experienced at predicting the disasters that might befall us, but we had all done relatively well in this test of our accuracy in deciding what we would need to live in a rainforest for several months.
+
+Bret was doing what he could to elevate our lives above the minimum required for mere survival. After several spectacular attempts to simply reattach the broken pipe, he realized he would have to block the water source first. He climbed the waterfall and found the pipe’s origin, in a pool above the cascade. His first choice of plug: a mango. When he laid the sweet fruit at the entrance to the pipe, though, massive suction stripped the flesh off the mango, pulling the remaining fruit far into the middle of the pipe, where it stopped, firmly embedded. All water flow was stopped, apparently permanently. In one sense, the plug had worked perfectly, but there was now a mango lodged inside a 12 foot length of pipe that was not replaceable without a trip to Tana. The pipe had to be cleared of mango-plug before any further attempts were made to reattach the pipe to the shower. Over the course of several hours, Bret effectively plunged the pipe by repeatedly decreasing then releasing the flow of water into the pipe at its origin, slowly moving the mango downstream until, finally, it shot out the other end, hitting the shower with a welcome thud.
+
+After experimenting with fruit and non-fruit plugs alike, Bret found one that worked, and set to fixing the problem back in camp. He had found a spigot in town and, with the variety of adhesives and blades he had brought with him, fixed the broken pipe and installed the spigot, giving us even easier, if less romantic, access to pure water than we had at the pool before it became butt-water pond. He spent several days fixing the toilets, finally producing two brilliantly functioning flush toilets where before there had been none. The rooms they were in were still dark, dank little stalls where insects and their predators collected, including both the neon green *Phelsuma* geckos and the occasional boa. Wearing a headlamp into one at night, clutching a roll of toilet paper while trying to stay dry in what seemed to be constant rain, did not approximate a developed world toilet experience, but it was several orders of magnitude better than the alternative.
+
+Bret, however, is a perfectionist. It was clear to him that what was missing was a toilet seat. Few Malagasy have access to flush toilets at all, and those who do have generally never seen a toilet seat. It wasn’t surprising that there was no seat. I had spent the previous season strengthening my stomach muscles squatting over the toilet or a hole in the ground, and expected to do the same this year. Bret would have none of it.
+
+When next we went into town, to procure supplies so that Bret could fix the rest of camp, and to get Rosalie, who was going to help me and be trained at the beginning, rather than the end, of my field season this year, Bret had an agenda. As I languished at the Maroa, my gut reacting to Nosy Mangabe bacteria, Bret took Glenn on a mission. Find a toilet seat. In Maroantsetra it was now possible to buy three kinds of adhesives, and two or three gauges of wires—hardware stores were diversifying, and becoming better stocked. But there wasn’t a pre-fabricated toilet seat in all of town. Bret spoke essentially no French, so I taught him set phrases to use when he was seeking particular objects. In my daze, I inadvertently wasted his entire morning while he walked around town asking for an “*assiette de toilette*.” A toilet plate. Finally I got it right, but he still had no luck finding a seat.
+
+Remembering that across the river there was a building claiming to be a Technical College, they went there. In short order, Bret found a man who knew another man, the actual craftsman, who would carve a toilet seat for us. We had taken the measurements of the relevant toilet dimensions, and with these, a sharply honed aesthetic, and very little French, Bret described to the middleman what he wanted.
+
+“Oh yes, I understand,” the man nodded. “Europeans use these. I have seen them.” If true, this suggested a rare sophistication for a Maroantsetran. Because we were headed back to the island the next morning, they arranged to have the toilet seat sent on the next boat. The price for commissioning a toilet seat? Twelve dollars. We expected that if and when a toilet seat did arrive on Nosy Mangabe, it would be a plywood plank with a hole, crudely cut, in the middle of it.
+
+Several days later, when I came back to camp after a morning watching frogs, the toilet seat awaited.
+
+“This,” Bret told me, “may well be the most beautiful toilet seat the planet has ever seen.” And so it was. Carved out of a deep red hardwood, two thick planks had been melded together in a perfect seam. All of the edges were rounded and sanded, the grain of the wood seeming to bend as the form itself did. The proportions were perfect. It was a work of art.
+
+\---
+
+[
+
+![](https://substackcdn.com/image/fetch/$s_!C5_P!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fbfa1618c-7171-4c58-9bb7-85f55e186f35_1227x1649.heic)
+
+
+
+](https://substackcdn.com/image/fetch/$s_!C5_P!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fbfa1618c-7171-4c58-9bb7-85f55e186f35_1227x1649.heic)
+*Bret on our tent platform, working on his dissertation*
+
+The fine workmanship of our new toilet seat did not impress Lebon and Fortune. They were too busy watching us to care much for art. Meanwhile, Rosalie had arrived, and I was busy teaching both her and Glenn how to start a field season. Truthfully, I was distracted by them at this point, as what I really wanted to do was jump into the work myself—I had been away from my frogs for almost two years, and was yearning to learn more about them, rather than teach others how to do so. So as I dragged them out to the forest, day after day, looking for appropriate spots to set up experiments, and for populations to mark, I wanted to be watching frogs, but Rosalie and Glenn had nothing to do but watch me. I made excuses to wander off and find frogs doing interesting things, but often I would look up from my observations and find Rosalie or Glenn, silently, almost shyly, observing me.
+
+Part of my aversion to this stage of the process was that, to set up the second year of the experiment that tested what limits the size of *Mantella* populations, I needed to lay several transect lines through the forest. I was establishing grids, areas outlined by pieces of neon flagging tape that delimited areas of known size, so that we could monitor frog populations in pieces of forest of identical size. Drawing straight lines of 35 meters (115 feet), or even the shorter lengths of 10 meters (33 feet), in the tangled, viney, steep and slippery understory is an exasperating, muddy task. It never results in grids as accurate as you were hoping for, due to the surprising appearance of large trees or boulders exactly where a line should go. Glenn volunteered frequently for the job of walking the plastic transect tape along the compass bearing I had calculated, and quickly understood why I disliked this particular task so much. Each of us, at some point, ended up face down in decomposing leaf litter, after an ankle-level vine had tripped us while we focused on compass and transect tape instead of our own feet.
+
+Another task that both Glenn and Rosalie helped with was finding populations of frogs to watch, and marking them. When Rosalie had been with me during my previous season, she had walked into several populations that Jessica and I had already tried to mark. We had clipped their toes, tied waistbands around them, stitched beads into their backs, but nothing stuck. Before coming to Madagascar this year, I had found reference, in a book on field methods for studying amphibians, to tattooing frogs. After dialing the phone number given in the appendix, I was soon listening to a message of a gruff male voice advising that they only took orders late at night, a few days a week. Were those motorcycle engines I heard revving in the background? I called back at the appropriate time, and it became clear that I was communicating with a tattoo parlor in New York, a hang-out for bikers.
+
+“What do you need?” the man asked, after yelling at a buddy to cut his engine. I hesitated, thinking perhaps I should give up on this line of inquiry altogether.
+
+“Well, I need to mark some very small, tropical frogs,” I paused, waiting for a laugh, or confusion, or annoyance, to become apparent at the other end of the line. Nothing. So I continued. “I’ll be in the rainforest in Madagascar without access to electricity, so I need a battery-powered tattoo machine that will allow me to permanently mark the wet skin of amphibians.” Long pause. I thought maybe he had dropped the phone.
+
+“We can do that,” he said finally. “Sometimes we need to tattoo on the road, so we have portable models.” I was incredulous.
+
+“Really?” I asked. “Frog skin is wet, so it won’t work the same way as a tattoo on human skin does.” Now I had managed to annoy him.
+
+“I know *that*,” he said, “I’m not an idiot. Just last week, we were down at Sea World tattooing penguin toes.” He paused again, thoughtful. “But penguins aren’t amphibians, are they? Still, they’re in the water all the time, and their skin is wet. I think the same machine will work for you.” I was off to the races.
+
+Glenn took to tattooing the frogs, which I was grateful for, and soon we had several populations of A1s, D4s and P6s. Each of us, Glenn, Rosalie, and myself, picked a population, and began watching individuals each morning, again taking the afternoons to run experiments. Quickly I began seeing males employ sneaky strategies, avoiding territory owners while trying to attract and court females. K2 was a male who defended a territory that included no egg-laying sites—no wells—but often met with reproductive success anyway. He seemed always to be assessing whether or not his nearest competitor, who controlled access to the wells he needed to mate in, was present. If not, he would quickly make his move and try to utilize a well himself. I tried to stop myself from over-estimating what they were capable of, but sometimes it did seem that they were building scenarios, plotting alternative outcomes. But these are frogs, with small brains. What really differentiates us and them?
+
+\---
+
+I was not the only person wondering about this question. Many of the guides were on the island more frequently than they had been in 1997. There were a few more tourists, at least one most weeks, and they always had a guide with them. Furthermore, Projet Masoala, apparently on orders from headquarters in Antalaha, was pursuing trail-building and camp rehabilitation projects now that Bret had fixed the most egregious problems in camp. In theory, the guides were being paid for their work on Nosy Mangabe, which required their unique combination of forest knowledge and physical skills, but in practice they were being taken advantage of. Since 1997, an exquisite new trail had been constructed up to the old cemetery. The trail was perfectly graded and lined with rocks, with trenches dug at regular intervals to allow run-off down the hillside without washing out the trail. The guides had designed and built the trail over the course of several weeks, but had been paid for only half of their work. Now they were routinely being called out to the island to do camp maintenance. One of the guides told me that he had worked one day for pay in each of January and February, a total of 24,000 FMG, or less than $5, each month. Many days he was out on the island doing manual labor, labor which the guides agreed, when pressed, was truly the job of the conservation agents. None of them knew what the conservation agents made, but they believed it was around 500,000 FMG/month, or roughly 20 times what the guide had made. I asked one guide how much they got paid for each day of manual labor.
+
+"Oh no," he smiled, the weak smile of a man defeated, "we do not get paid for this work."
+
+I was already friends with Felix, Armand, and Emile, and quickly we came to know Paul, Augustin, and others as well. Often when I came back to camp for lunch they were there, which itself was a departure from the isolated feeling the island had in years past. They were all intensely curious to know what I had learned about the forest. They asked me what I had found that day and I, happy to have people as excited by my frogs as I was, would tell them of a new tussle over territory I was watching, or a mother frog who had fed her tadpole. These stories, so easily interpreted in terms of our own, human experiences, were fascinating to the guides. And they, like me, wondered how complex these frogs really were.
+
+Bret, meanwhile, was working on a chapter of his dissertation in which he attempted to explain the long-recognized but poorly understood correlation of species diversity with latitude. There are more species the closer you get to the equator. At the poles, there are few organisms; in the tropics, there are many. Any rather obvious explanations you may come up with for this—there is simply more sunlight in the tropics, or more resources—fall apart under closer scrutiny. The guides, especially Paul and Felix, frequently asked Bret what he was working on, and were surprised to learn from him just how unique their home was.
+
+“More species here?” they would ask, curious. “But isn’t it just that there are different species here?” The much discussed endemism of Madagascar was well known to the guides—what you find on the great red island you can find nowhere else in the world. But they had never before heard that the tropics had more species than, say, a comparable area of land in Europe, or North America. Even Nosy Mangabe, with its conspicuous absences, was much more diverse than any two square miles of temperate forest.
+
+One of the most difficult aspects of both Bret’s and my scientific discussions with the guides was convincing them that the world they know, the rainforests of northeastern Madagascar, does not look like the rest of the world. This is one of the most formidable aspects of communicating with people in the temperate zone, too. Everyone assumes that their world is *the* world, or at least fully representative of the diversity that is out there. In fact, part of Bret’s thesis focused on the idea that one of the common explanations for species diversity patterns, competitive exclusion, seems to hold true in the temperate zone, where it was founded, but not in the tropics, where species are most diverse. Competitor species do not necessarily drive each other to extinction in the tropics, although they usually do in the temperate zone. Even scientists, who seek explanation for the patterns we see, are biased by our predominant experiences, which tend to be in first world, temperate zone countries.
+
+Rosalie understood the world’s Western bias all too well, but managed to elude any bitterness many people would have felt in her situation. Instead, as a burgeoning scientist in a country too poor to provide much, if any, support for such a career, she took advantage of joy where she could find it. Even when a large (but non-poisonous) snake, a *Madagascarophis*, bit her, she was philosophical about it, figuring that she had annoyed it enough to deserve the attack. We had a discussion on the long walk back from the forest one day, just Rosalie and me, about science and work and routes to defining quality of life.
+
+“Why do you work here in Madagascar?” she wondered aloud. “What about it do you enjoy?” Despite very different perspectives, like my mother, Rosalie didn’t understand the appeal. We spoke, as always, in French.
+
+“It is arduous to work here to be sure, but also thrilling to glean new information about the frogs and this forest.” I paused. This wasn’t a complete answer.
+
+“Aren’t there animals at the Museum in Michigan?” she wondered. The only other *vazaha* she had worked with were collectors, who took animals back to their Museums in the U.S., France or Italy, rather than working on them in their natural environment. She had told me earlier that she simultaneously disapproved of the wholesale ransacking of her country’s flora and fauna for the knowledge of first world scientists, but also recognized that there was value in that knowledge. It also meant that she knew there were a lot of Malagasy animals dispersed through the world.
+
+“Yes,” I acknowledged, “but they’re all dead. It’s hard to study the behavior of dead animals.” She laughed. “But more to the point, perhaps, is that I defined a research question that would bring me to Madagascar. That was part of the choice, not an unexpected by-product.”
+
+“Really?” she asked, surprised. “I like this idea, that you actually enjoy working in Madagascar. Most people do not.” She shook her head slowly, remembering.
+
+“Don’t get me wrong,” I continued, “it’s difficult and excruciatingly frustrating at times. But, in many ways, Madagascar is more real than the U.S. Many people in America are accustomed to having things, and the money to buy them, but don’t have close-knit communities of friends and family. The reverse is true in Madagascar.” She was nodding, ruefully.
+
+“But sometimes things would be nice,” she offered.
+
+“Oh yes, they are.” I conceded. “I guess it’s very easy for me to think that I would rather have community than things, but how do I know? I like my things, my comforts, but I have never had real community, so have no idea what we have given up for a few possessions and comforts.” I didn’t say it to Rosalie, but having Glenn with me on this trip was reminding me of my own weaknesses. This was his first time in the developing world, and he was struggling to make it feel like the world he knew and understood, to interpret it in first world terms.
+
+That evening the four of us—Bret, Glenn, Rosalie and myself—were having dinner on the middle tent platform, where Rosalie’s tiny tent was pitched, and there was a table to sit at. It was low tide and full moon, and the clear white light bounced off the still bay and onto everything in camp, lighting us up as if on a movie set. With her strong personality only slightly hidden beneath shyness and a soft voice, Rosalie taught us Malagasy words for some of what was so present in our lives then—moon and tide and sun and cloud. I asked her about her name, and she told me she wished her parents had given her a Malagasy name, not the French Rosalie, which evoked colonial times.
+
+What she really wanted to talk about that night was music. Bret had brought some music with him, and a Walkman, and she was intensely curious what kind of music we listened to. We brought out one of my small playback speakers, usually reserved for experiments, and put on traditional Latin American salsa and merengue, which Bret had fallen in love with during his time in Panama. Rosalie had never heard such music before, and it made her want to dance. So, on a coarse sandy shore, Bret taught her to salsa, to merengue. She was tireless, and soon I took his place, though I dance less well than he does, and had never led before.
+
+The light from the moon, as well as a few candles we had melted into the table, projected our silhouettes onto the tarp that lined the back of the tent platform. Lebon and Fortune were up at their cabin, drinking, watching our spiraling forms, hearing shards of music and laughter. Soon, unable to resist, they came down to where we were. Lebon danced a little with us, but mostly he and Fortune retreated into shyness and cultural amusement, watching from the shadows. Only Rosalie was utterly unself-conscious, the rest of us sliding in and out of embarrassment and fluidity.
+
+\---
+
+The next morning when I got to my stand to do focal watches, it began to rain furiously. I sat about being glum, seeing no frogs, then retreated to the fisherman's camp to wait until the onslaught diminished. There were ten or fifteen fisherfolk there, smoking fish, cooking rice, and trying to stay marginally dry, just as I was. I greeted them, put my stuff down on one corner of the giant tent platform—not wanting to displace them or their stuff, but feeling that I had a right to use the space as well—and, after updating some data sheets, began to read. I often carried a novel for such circumstances. After a few minutes, a small boy came over with a brush, and cleaned the area in front of me. After a few strangled words of protest, that this wasn’t necessary, I merely said "*Misoatra*." *Thank you*.
+
+After a while, a youth of about 15 or 16 came up to me, shyly, and looked over my shoulder. I smiled at him, then continued reading. Trying for real communication with my very limited Malagasy vocabulary is an absurdity. "No problem." "What's the news?" "No news." "Rice frog administrative building." "Going for a little walk." "Thank you very much." "Pain. No pain." "You're welcome." Doesn't make for much of a narrative. So I sat reading while he looked over my shoulder for a few moments. Then he said, distinctly, and in English, "your book is in English." I looked at him, laughing—but I had thought you someone without a second language, and here you have a third!
+
+“How do you know English?” I asked him, slowly, enunciating.
+
+“I am learning English at the *lyçee* in Maroantsetra.” He paused, noticing my surprise. “I fish with my family on the weekends, for our food,” he explained, then asked, “are you waiting for someone?”
+
+"No, only for the rain to stop. I study frogs."
+
+"Oh yes," he said, thoughtful, "I have seen you, working, in the, I don't the word in English, in the *bambu*?" He ended on a question, not knowing if I would understand the French word.
+
+"Yes, the bamboo," I agreed. "It is the same word in English." I had slipped into French, but wasn’t sure why. My French was better than his English, but he wanted to practice, it was clear, and his English was certainly not bad for a poor child from Maroantsetra who has to help his family fish to get enough to eat. I told him that it was very impressive that he spoke three languages.
+
+"My English is very bad." I think they teach this as a stock phrase. Every Malagasy says it when you tell them they speak English well.
+
+"What country are you from?" he asked, having some difficulty with the grammatical construction, but getting it right before finishing the sentence aloud.
+
+"The United States." He looked confused. Ah yes, the ridiculous name that our country has. If we weren't such a superpower, we'd have to explain ourselves every time we left our borders.
+
+"*Les Etats-Unis*," I added, in French.
+
+"Ah, America," he nodded, and smiled, and the image I evoked by mentioning America didn't reek of barely clad blondes selling toothpaste and cars. In Madagascar, unlike in many countries, the U.S. hasn't messed anything up with neocolonial or military activities. But the French have, so we, along with the rest of the non-French *vazaha*, are the good guys, relatively speaking.
+
+"What is the book you are reading?" He asked, then added, "I have no books to practice my English with." Oh, I thought, I would gladly leave you a book to practice with, but how could you possibly get through what I have brought—Steinbeck and Austen and Twain and my current book, *Tereza Batista*, by Jorge Amado, translated from the Portuguese. How to explain this? I thought of the Sartre novel I had also brought, translated into English. How odd it would be for him, whose second language is French, to read Sartre in English, his third.
+
+"This book is from, and about, South America. It is translated from Portuguese." I couldn't remember how to say "translated" in French, and didn’t think he would know the word in English. Sure enough, he didn't catch that part.
+
+"So, in all of America, North and South, you are speaking English?" He seemed excited at the prospect of all that land available to him if only he spoke English.
+
+"No, in South America they speak Spanish, and Portuguese. Only in the United States do we speak English." Canada, Mexico, and Central America were too complicated to explain, with my limited language skills and lack of a map. I wished that I had brought world maps to show people. What arrogance we have, calling ourselves Americans. The Mexicans and all peoples south know it, and call us Norteamericanos, which is what we are, though it doesn't describe us as precisely as when we say that we are from the United States of America. But our nationality is "American," though Mexicans, Hondurans, Brazilians and Chileans are equally "American."
+
+By this time the rain had eased. I began to hear frog calls from the bamboo stand next to the fisherman's camp. In back of me, rice was being dished onto plates, with fish to follow.
+
+"Please," my young friend said, motioning to the gathering group of people, "come eat with us."
+
+"No," I smiled, thankful that Rosalie had instructed me in this point of Malagasy hospitality. When a group of people is eating, they must invite those who are not. This holds even if there is not enough, and those invited are expected to decline. "Thank you," I said, "but I think it is time that I return to the forest."
+
+\---
+
+*Next week: Chapter 20 – Now We’re Cooking With Charcoal*
+
+[
+
+![](https://substackcdn.com/image/fetch/$s_!lFQt!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F02ee0284-e237-42c7-96f5-4ca0bf469614_2621x1659.heic)
+
+
+
+](https://substackcdn.com/image/fetch/$s_!lFQt!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F02ee0284-e237-42c7-96f5-4ca0bf469614_2621x1659.heic)
+*Glenn on the dock*

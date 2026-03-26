@@ -1,0 +1,92 @@
+---
+title: "All worked up about WorkKeys"
+author: "Mike Petrilli"
+publication: "SCHOOLED"
+publication_slug: "schooledbymikepetrilli"
+published_at: "2025-10-10T10:02:21.000Z"
+source_url: "https://schooledbymikepetrilli.substack.com/p/all-worked-up-about-workkeys"
+word_count: 2181
+estimated_read_time: 11
+---
+
+In today’s edition: The final (?) word on the wisdom of using WorkKeys as an alternative assessment for CTE students, plus analyses of the Mississippi Miracle Marathon, the Massachusetts Malaise, and Overly-Patient Oregon.
+
+*Sign up to receive this newsletter in your inbox on Tuesday and Friday mornings. SCHOOLED is free, but a few linked articles may be paywalled by other publications.*
+
+[
+
+![](https://substackcdn.com/image/fetch/$s_!rFlf!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F62780678-27ba-4fac-8f12-54e34c577201_2500x417.png)
+
+
+
+](https://substackcdn.com/image/fetch/$s_!rFlf!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F62780678-27ba-4fac-8f12-54e34c577201_2500x417.png)
+
+I didn’t plan to spend three issues [in a row](https://schooledbymikepetrilli.substack.com/p/if-tracking-is-ok-at-age-eighteen) discussing Alabama’s [idea](https://schooledbymikepetrilli.substack.com/p/should-we-let-cte-students-opt-out) of letting CTE students take the WorkKeys exam if they fail to meet the state’s college and career readiness standards on the ACT. But it has clearly struck a nerve!
+
+Below are two more super thoughtful and meaty responses. The first is from Boston College’s Shaun Dougherty, one of the nation’s leading scholars of career and technical education. The second is by Jill Pinsky of Watershed Advisors, who served as Deputy Assistant Superintendent at the Louisiana Department of Education in the mid 2010s, where she overhauled the state’s accountability system, in which WorkKeys plays a role.
+
+**Shaun Dougherty:**
+
+> Having a secondary test for high school accountability could improve the information that students and schools have to improve student outcomes after high school graduation. All students need the minimum skills to be adaptable and pursue additional training as the economy continues to change. However, two decades of test-based accountability have yielded too little useful information at the point of high school exit, especially for students who either cannot or will not enroll directly in college.
+> 
+> At present, nearly everyone takes the same tests of math and English language arts as a condition of state accountability. And while states complement these tests (or use elements of them) with measures to define college and career readiness, the metrics being used may not be as useful to students, employers, and colleges as the spirit of accountability should intend. In particular, among students who score at the low end of high school tests of math and reading and that are used for accountability, it is pretty clear that those lower scores are not helpful to the students and provide only limited information for schools about how to best advise students in their post school plans. Specifically, if students score above some agreed upon threshold for graduation, they may not meet the threshold for college readiness (e.g., an ACT score of 17 or higher in Tennessee), particularly readiness for colleges that are known to produce favorable returns on investment. In these cases, states often allow students to use an industry certificate or sequence of technical education courses as indicators of readiness. However, these indicators may not provide the strength of signal that employers or other training programs might need. And for students who are looking to showcase their strengths, having another metric to bolster their resume could be valuable.
+> 
+> Wisconsin, for example, has used the WorkKeys assessment as a metric to complement the use of the ACT for college readiness. Though evidence of whether this provided the intended value is limited, the notion of having assessments that provide complementary information to a population of students who will not all enroll in college has merit. Existing assessments were largely not built to capture work readiness. The WorkKeys and ASVAB are among only a few mainstream measures, but they have not been used at scale. Allowing districts or states flexibility to experiment with offering such assessments as a complement to, rather than replacement for, existing accountability exams would meet the dual policy goals of 1) ensuring that everyone has the minimum skills needed to adapt in a changing economic environment (e.g., return for postsecondary training and college when needed), and 2) providing economic value and connection to the workforce as a well-defined alternative to direct college enrollment.
+
+**Jill Pinsky:**
+
+> I’m back with some reflections on letting CTE students take WorkKeys instead of the ACT.
+> 
+> Louisiana followed this path starting back in the 2015–2016, and we learned a lot about what *not* to do from that experience. For context, Louisiana required every student to take the ACT at least one time. Students could also take WorkKeys, and we would use a concordance table to give schools accountability credit for the higher of the two scores. Louisiana’s college scholarship program, TOPS, also began allowing WorkKeys Silver to qualify for its lowest level scholarship, which can only be used at public two-year colleges.
+> 
+> Here’s what happened when Louisiana created an incentive for WorkKeys:
+> 
+> -   In the 2015–2016 school year, Louisiana students took just over 41,000 WorkKeys assessments. By the 2018–2019 school year, that number had increased to nearly 148,000—and 60 percent of those tests were taken by students not pursuing a career diploma.
+>     
+> -   Districts spent over $1 million on WorkKeys assessments in one year.
+>     
+> -   WorkKeys test prep became more common. Anecdotally, we heard stories of district and school leaders encouraging students to take WorkKeys until they got the score that would yield the highest accountability points, regardless of the impact on the student’s trajectory. (For context, moving from Silver to Gold on WorkKeys was equivalent of a jump from 18 to 22 on the ACT.)
+>     
+> -   Louisiana’s average ACT scores started to decline after steadily increasing for four consecutive years. The decline in scores had real impacts on students: In 2018–2019, 6,997 graduates were not eligible for TOPS due solely to ACT scores, or 17 percent of total students (41,756). This equated to approximately $21 million lost in potential scholarships.
+>     
+> 
+> One clear lesson here is that we shouldn’t have allowed WorkKeys to replace the ACT for *all* students. Likely we should have restricted it to students pursuing a career pathway as they are proposing in Alabama and as, I believe, Louisiana does now. Even still, my experience left me wondering if we were wrong to incentivize WorkKeys at all. Here’s why.
+> 
+> First, I’m all for flexibility. But the real aspiration should be integration, not separation. We want to blur the distinctions between “college prep” and “career prep,” so students can keep doors open rather than funneling them down isolated tracks. Letting CTE students skip certain assessments or requirements risks reifying those divisions. Instead, we should ask: How do we build assessments, supports, and credentials that serve both pathways simultaneously? How do we make sure that the competencies valued in career fields are also meaningful in postsecondary contexts—and vice versa?
+> 
+> Second, once we tie assessments to high-stakes outcomes—graduation eligibility, scholarships, district and school accountability, public reporting—we magnify incentives for gaming, narrowing curriculum, and “teaching to the test.” The higher the stakes, the greater the temptation for adults (district leaders, school boards, state agencies) to pressure modifications, exemptions, or accommodations—especially for subgroups that may drag down performance metrics. If we think WorkKeys is worthy of students’ time and attention and holds value for post-graduation (I’m not convinced it does any of these things), let’s consider lower-stakes way to support students in pursuing that path before we raise the stakes.
+> 
+> Hopefully Alabama is able to avoid some of the pitfalls that we faced in Louisiana. I’ll be watching with cautious optimism.
+
+\---
+
+[
+
+![](https://substackcdn.com/image/fetch/$s_!iRMt!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fbf0eefac-402e-4166-8ae9-c31c8f9e03e5_600x100.png)
+
+
+
+](https://substackcdn.com/image/fetch/$s_!iRMt!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fbf0eefac-402e-4166-8ae9-c31c8f9e03e5_600x100.png)
+
+-   **Kelsey Piper**’s [article](https://www.theargumentmag.com/p/illiteracy-is-a-policy-choice) in The Argument two weeks ago kicked up a lot of dust—even earning accolades from National Review conservatives, as I [reported](https://schooledbymikepetrilli.substack.com/p/should-we-let-cte-students-opt-out) in SCHOOLED. But not everybody was impressed with her take on the Mississippi Miracle (or what **Carey Wright** prefers to call the Mississippi Marathon). Everyone’s favorite communist, **Freddie deBoer**, [savaged it](https://freddiedeboer.substack.com/p/there-are-no-miracles-in-education), claiming that Mississippi’s progress must clearly be a fraud, just like other education reform success stories of yesteryear. Now [Kelsey is back](https://www.theargumentmag.com/p/is-mississippi-cooking-the-books), this time teaming up with **Karen Vaites**, to rebut Freddie. And rebut him they did—at least on the question of Mississippi and the rest of the Southern Surge. They dig into whether the state has been exempting large numbers of special-ed students from the NAEP test (no), whether its third-grade retention policy is gaming the numbers (no) and whether there are patterns in the data (such as trends for top, middle, and high achievers) that look off (no). All in all an impressive job. I just wish they hadn’t conceded so much to **Freddie** about past ed reform successes, most of which have much stronger evidence than deBoer lets on.
+    
+-   **Natalie Wexler** decided to enter the Southern Surge debate via her Substack, with a [compelling case](https://nataliewexler.substack.com/p/whats-really-behind-the-southern) for the importance of knowledge-rich curriculum in helping students become strong readers. Unfortunately, her post’s title sounded a bit too confident for my taste, veering as it did into mis-NAEP-ery. None of us really know why some states are surging and others are plateauing, though it’s constructive to float hypotheses. One I haven’t seen mentioned much: Isn’t it kind of important that Mississippi, Alabama, and Louisiana are all states with weak teachers unions?
+    
+-   Strong-union states, on the other hand, are really struggling. That’s one takeaway from **Joanne Jacobs**’s [write-up](https://www.joannejacobs.com/post/nervous-in-new-england-can-the-north-rise-again) of a recent Boston Globe article **by Christopher Huffaker**—a real banger, if you ask me—which bemoaned the Massachusetts Malaise and the underperformance of New England states writ large compared to those in the South. Joanne also dug into the articles by **Kelsey**, **Karen**, and **Natalie** and concludes that “phonics is a critical step, but only one step, in a long journey.”
+    
+-   And it’s not just schools on the East Coast that are disappointing. **Christine Pitts** [takes us to Oregon](https://edpolicyhotlist.substack.com/p/the-education-policy-hotlist-f1a), the [naked-biking capital of the world](https://www.nytimes.com/2025/10/04/opinion/trump-national-guard-portland-naked-bike.html), where student achievement is barely budging, and parent-analyst **Andy Jacobs** calculates that, at “the current rate of progress, it will take Oregon roughly three decades for students to return to pre-pandemic achievement levels in math—and possibly never in reading.” Yet the message from the Oregon Department of Education was: Be patient. “Recovery is happening and will take time,” its leaders assured us. **Christine**’s not buying it. “I’m a fan of standards, assessment, and accountability,” she writes. “They’re not the enemy—they’re the floor. Until Oregon’s education leaders are willing to name that truth and raise expectations, we’ll keep mistaking ‘barely better’ for progress.”
+    
+-   I personally prefer a good debate about the best instructional strategies to boost student achievement over culture war clashes. But **Ross Wiener**’s [article](https://www.theatlantic.com/ideas/archive/2025/10/mahmoud-taylor-liberal-pluralism/684464/) in the Atlantic deserves your attention even though it’s about the latter and not the former—specifically the new Supreme Court mandate to let parents opt their children out of lessons at odds with their religious beliefs. **Ross** deserves credit for calling for his fellow progressives to embrace “religious accommodation” for public school parents as a key part of living in a pluralistic society.
+    
+-   Speaking of pluralism, **Rick Hess** continues his [conversation](https://www.edweek.org/policy-politics/opinion-what-could-the-new-federal-tuition-tax-credit-mean-for-school-choice/2025/10) with **Ashley “Pluralism” Berner** over on his Education Week blog, this time tackling the forthcoming federal education tax credit initiative. Rick offers a nice summary of how the tax credit will work, but Ashley points out what SCHOOLED readers already know from our [September 30 debate](https://schooledbymikepetrilli.substack.com/p/how-to-persuade-democratic-governors): “The two big questions are the actual shape of the Treasury Department’s rulemaking and the number of Democrat-led states that will opt in.” Yup—and the answer to the first question will no doubt influence the answer to the second.
+    
+-   A week ago, we [covered](https://schooledbymikepetrilli.substack.com/p/should-we-let-cte-students-opt-out) an excerpt of **Joe Viteritti**’s excellent [new book](https://global.oup.com/academic/product/radical-dreamers-9780197827109?cc=us&lang=en&), appearing in [Education Next](https://www.educationnext.org/are-charter-schools-an-endangered-species-excerpt-radical-dreamers/). Now the estimable journal has run a [great review](https://www.educationnext.org/the-progressive-school-reform-voices-crying-in-the-wilderness-radical-dreamers-viteritti/) by **Andy Smarick**. The challenge Joe sets for himself, explains Andy, is to “revive the left’s dying support for school choice by recounting the thinking of four primary figures who were born between 1929 and 1941 and whose intellectual contributions came mainly in the late 1960s through the early 1990s.” Namely: **Ronald Edmonds**, **Jack Coons**, **Howard Fuller**, and **Diane Ravitch**. Read it, assign it, discuss it!
+    
+-   It must be book-release season because Education Next also published a [review](https://www.educationnext.org/school-governance-redux-reforming-local-control-public-schools-book-review-kogan-levy/) of two new books on education governance, this one by my colleague and mentor **Checker Finn**. The first is *No Adult Left Behind: How Politics Hijacks Education Policy and Hurts Kids* by **Vlad Kogan**. The second is *Why School Boards Matter: Reclaiming the Heart of American Education and Democracy* by **Scott Levy**. As indicated by their titles, **Scott** is more optimistic about school boards than **Vlad** is. But as **Checker** notes, we’re probably stuck with school boards whether we like them or not, so we ought to follow the authors’ advice on how to improve them.
+    
+-   School boards were also the topic of a [new study](https://fordhaminstitute.org/national/research/whos-board-school-boards-and-political-representation-age-conflict) we published this week at the Fordham Institute, in partnership with the **Wallace Foundation** and conducted by **Michael Hartney** and **David Houston**. My colleague Adam Tyner and I [wrote up](https://fordhaminstitute.org/national/commentary/school-board-members-are-wearing-rose-colored-glasses) the results in this week’s **[Education Gadfly](https://fordhaminstitute.org/national/commentary/education-gadfly-weekly)**, bemoaning the rose-colored glasses worn by many school board members, who tend to rank their own schools much more highly than their voters do. Also, you’ll be shocked—SHOCKED—to learn that school boards hate charter schools!
+    
+-   Also in the **[Education Gadfly](https://fordhaminstitute.org/national/subscribe)**, **Robert Pondiscio** [writes up](https://fordhaminstitute.org/national/commentary/families-arent-waiting-schools-be-fixed) a new University of Arkansas study on the state’s education savings account program (by **Daion L. Daniels**, **Alison Heape Johnson**, **Joshua B. McGee**, and **Patrick J. Wolf**). The program’s rapid expansion has garnered much attention, but Robert was most impressed with its high retention rate of 91 percent. “That number suggests that families are not dabbling impulsively with alternatives to traditional public schools or leaving them in a fit of pique only to return. They’re making durable changes… It suggests that once parents exercise choice, they rarely go back.”
+    
+
+\---

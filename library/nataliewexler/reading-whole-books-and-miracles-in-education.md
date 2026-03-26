@@ -1,0 +1,80 @@
+---
+title: "Reading Whole Books, and \"Miracles\" in Education"
+author: "Natalie Wexler"
+publication: "Natalie Wexler"
+publication_slug: "nataliewexler"
+published_at: "2025-12-12T16:57:51.000Z"
+source_url: "https://nataliewexler.substack.com/p/reading-whole-books-and-miracles"
+word_count: 1474
+estimated_read_time: 8
+---
+
+[
+
+![](https://substackcdn.com/image/fetch/$s_!ZstH!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fe5dfdc63-73a3-4979-a786-19e5a5c156c1_4756x3171.jpeg)
+
+
+
+](https://substackcdn.com/image/fetch/$s_!ZstH!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fe5dfdc63-73a3-4979-a786-19e5a5c156c1_4756x3171.jpeg)
+
+\---
+
+Have you heard that kids are reading fewer whole books in school, and that instead they’re getting just brief texts or excerpts of longer works? Some [say](https://www.theatlantic.com/magazine/archive/2024/11/the-elite-college-students-who-cant-read-books/679945/) that’s a big problem, others [say](https://www.shanahanonliteracy.com/blog/whole-books-or-excerpts-which-does-the-most-to-promote-reading-ability) there’s no evidence to show it makes a difference—and still others [have said](https://fordhaminstitute.org/national/commentary/7-thoughts-about-elite-college-students-who-cant-read-books) there’s no real evidence it’s happening.
+
+As of this morning, we have [new evidence](https://www.nytimes.com/2025/12/12/us/high-school-english-teachers-assigning-books.html) that it *is* happening, courtesy of *New York Times* education reporter Dana Goldstein. It’s not a scientific study, but the *Times* issued a call for input on the issue and got over 2,000 responses. Given that there don’t appear to be any truly scientific studies out there on the subject, that’s probably the best we’re going to get. And there’s plenty of anecdotal evidence that whole books and novels are fading from the curriculum, even in high school.
+
+As it happens, I’ve written [an article](https://www.aft.org/ae/winter2025-2026/wexler) on the importance of having kids read whole books that just appeared in the Winter issue of *American Educator*. I wrote it months ago, so I wasn’t able to cite Goldstein’s article. But my piece covers many of the same factors pushing teachers to use brief texts that Goldstein’s does: lack of instructional time, kids’ shortened attention spans (thanks, screens and social media), the need to expose students to different genres of text, and—according to Goldstein’s data, primarily—curricula that focus on excerpts.
+
+One fundamental factor that Goldstein doesn’t mention is the widespread belief that it’s more important to teach kids supposedly transferable skills like “making inferences” than to ensure that they read and understand any particular text. That’s one reason curricula focus on excerpts, and it’s also a belief that teachers are inculcated with during their training.
+
+#### “The Skills Are the Same”
+
+In my piece, I quote one middle school teacher’s explanation for why his class was only reading excerpts or just the first half of a chapter book: “it doesn’t matter whether it’s the entire book or an excerpt,” he said, because “the skills are the same.” (This anecdote is courtesy of education journalist Holly Korbey, to whom I am also indebted for the [amusing yet depressing anecdote](https://hollykorbey.substack.com/p/a-novel-burden) with which I begin my piece—an excerpt from a post by a former teacher whose class was hopelessly confused about the plot of *To Kill a Mockingbird.)*
+
+It might seem like common sense to have kids read a whole novel rather than, say, just the first few chapters, but there are definitely skeptics out there who need to be convinced. In the article, I marshal the evidence indicating that reading whole books, and especially novels, can indeed have benefits—including boosting reading comprehension.
+
+*American Educator*, by the way, is an excellent magazine that is published by the American Federation of Teachers. This is the most recent of several articles I’ve written for them, and the editing I’ve gotten there is the most careful I’ve gotten anywhere.
+
+There are several pieces in the current issue worth reading, including one by Paul Kirschner, Carl Hendrick, and Jim Heal on “[instructional illusions](https://www.aft.org/ae/winter2025-2026/kirschner_hendrick_heal)” and one by Daniel Willingham and Eric Turkheimer on [what IQ scores mean](https://www.aft.org/ae/winter2025-2026/turkheimer_willingham). You can find the table of contents for the whole issue [here](https://www.aft.org/ae/winter2025-2026).
+
+*American Educator* has a long history of publishing terrific articles on cognitive science, including Rosenshine’s “[principles of instructio](https://www.aft.org/sites/default/files/Rosenshine.pdf)n” and the often-cited article on the limitations of “[minimally guided instruction](https://www.aft.org/sites/default/files/Clark.pdf)” by Richard Clark, Paul Kirschner, and John Sweller.
+
+The publication goes out to all 900,000+ AFT members. How many read it, though, is unclear. When I speak to groups of American teachers and mention or show images of the aforementioned two articles—which appear to be widely known in England, Australia, and perhaps other countries—I don’t see many knowing nods. It seems to be new information. But it’s great that the articles are out there for anyone who is interested, whether they’re AFT members or not—there’s no paywall.
+
+#### No Miracles, but Dramatic Progress Is Possible
+
+In addition to “whole books,” another hot topic in education circles lately is the so-called Mississippi Miracle. Much ink, or screen time, has already been spilled or spent on this subject, so I won’t rehash the whole debate here.[1](#footnote-1)
+
+But briefly: Some commentators have pointed to the significant increase in reading scores in Mississippi as a “miracle,” given that the state ranked near the bottom for many years and is now in eighth place nationally for fourth-grade results. Others have tried to debunk the claim, arguing that the improvements are primarily due to Mississippi’s policy of holding back third-graders whose reading skills aren’t up to par. They argue that this practice artificially inflates the fourth-grade reading scores that are relied on as the key measure of improvement.
+
+Thanks for reading Minding the Gap! This post is public so feel free to share it.
+
+It’s healthy to be skeptical of anything that’s characterized as a “miracle,” especially in education. There have been hoaxes and frauds, largely fueled by pressure to obtain unrealistic results. But no one who was involved in engineering the change in Mississippi would characterize it as a miracle. It wasn’t a dramatic overnight shift. Rather, it was a long steady rise, fueled by enormous amounts of hard work that gradually changed teacher practice to bring it in line with scientific evidence.
+
+#### Reading Isn’t Like Growing
+
+[One of the articles](https://statmodeling.stat.columbia.edu/wp-content/uploads/2025/11/Mississippi-MIracle-Galleys-1.pdf) that tries to debunk the “miracle” analogizes the third-grade retention policy to a “height school” that guarantees all of its graduates “will be at least 6 feet tall.” Instruction at the school is focused on “the value of additional height,” along with a policy of retaining shorter students until they’ve reached a certain height threshold for each grade level—and in order to graduate, you have to be at least 72 inches.
+
+Clearly, that kind of policy will weed out students who are short. No argument there. But the fact that the authors use this analogy to argue that Mississippi hasn’t really raised reading scores reveals a fundamental misunderstanding of what’s happening there. For one thing, Mississippi isn’t kicking kids who can’t read out of the system, like the short kids at the “height school.” As others have pointed out, the kids who are held back do go on to fourth grade eventually, and their results are included in the following year’s fourth-grade scores.
+
+More fundamentally, learning to read isn’t a natural process like growing. Some kids might just figure it out if they spend another year in third grade, without any more effective instruction, but most of them won’t. There are plenty of students in middle and high school who weren’t taught how to decode words at lower grade levels and still don’t know how to do it.
+
+The point of Mississippi’s policy isn’t just to hold kids back and expect they’ll somehow do better a year later because they’re older, or have maybe been told that reading is a valuable practice; it’s to teach them to read. The point of the retention policy was to publicize schools’ failure to do that and thereby push them to change what they were doing. And that’s what the state appears to have done.
+
+And unlike some other “improvements” that turned out to be illusory, it has occurred at a fairly low grade level, where it’s easier to engineer positive change. If kids don’t know how to decipher written words and you teach them how to do that in an effective way—which is what happened in Mississippi—you can see pretty quick results.
+
+#### You Don’t Need Miracles to Effect Change
+
+True, the NAEP reading tests are ostensibly assessments of reading comprehension, not decoding, but at the fourth-grade level the texts aren’t as complex as they are at eighth grade, so decoding ability plays a larger role. As the grade levels go up, and the texts and curriculum increasingly assume knowledge and skills that students don’t have, it becomes much harder to bring about significant improvements.
+
+But not impossible. Schools that align their instruction with principles of cognitive science can see huge gains, even at higher grade levels. As I mentioned in [my last post](https://nataliewexler.substack.com/p/could-it-happen-here), on education reform in England, one secondary school that serves a low-income area—and uses evidence-informed teaching methods—has been able to produce the same percentage of top-scoring students as Eton, one of England’s elite boarding schools.
+
+You might call that a miracle, but I’d say it’s living proof that principles of cognitive science can work to change students’ lives. And you don’t even need to turn teachers into experts in cognitive science for these kinds of dramatic changes to happen.
+
+A case in point: [one study](https://nataliewexler.substack.com/p/the-power-of-just-reading-a-good) (again in England) found that a 12-week intervention increased struggling readers’ scores on a standardized reading comprehension test by 16 *months*.
+
+What was the intervention? Having students read whole novels, at a fairly brisk pace, instead of excerpts and brief texts.
+
+[1](#footnote-anchor-1)
+
+For those who are interested in going deeper, you can find some responses to the Mississippi skepticism [here](https://www.theargumentmag.com/p/is-mississippi-cooking-the-books) , [here](https://www.theargumentmag.com/p/a-lot-of-people-are-way-too-eager), and [here](https://www.karenvaites.org/p/for-the-antidote-to-sloppy-skepticism).

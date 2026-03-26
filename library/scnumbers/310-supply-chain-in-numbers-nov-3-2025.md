@@ -1,0 +1,32 @@
+---
+title: "[#310] Supply Chain in Numbers - Nov 3, 2025"
+author: "Various"
+publication: "Supply Chain in Numbers"
+publication_slug: "scnumbers"
+published_at: "2025-11-03T13:03:46.000Z"
+source_url: "https://scnumbers.substack.com/p/310-supply-chain-in-numbers-nov-3"
+word_count: 599
+estimated_read_time: 3
+---
+
+*Welcome to “Supply Chain in Numbers.” This newsletter tracks significant numbers from the supply chain world. Five prominent numbers are published every Monday. If you have any feedback, please send it to m*e.
+
+### 70 LockerNYC locations
+
+The New York City Department of Transportation is expanding a delivery locker pilot program to 36 additional locations in the next several weeks in a bid to curb package theft and truck traffic. The program, called LockerNYC, offers free public delivery lockers for sending and receiving packages on public sidewalks and in indoor locations across the city’s five boroughs. LockerNYC will have 70 locations once the new lockers are available. Since the program’s launch in April 2024, LockerNYC users have made more than 15,000 reservations for package pickups and drop-offs, according to the release. GoLocker operates and maintains the program’s lockers and accepts packages from UPS, FedEx, the U.S. Postal Service, DHL, and other carriers. \[[Supply Chain Dive](https://www.supplychaindive.com/news/new-york-parcel-locker-expansion-lockernyc/761460/)\]
+
+### 12 cents per parcel
+
+About 4,400 small, independent regional companies have worked as delivery contractors for Amazon since the launch of the Delivery Service Partner program in 2018. It’s hard work, but entrepreneurs were drawn to it because of the possibility of solid money. According to an Amazon analysis of 648 delivery contractors last year, 80 percent generated annual profits of more than $100,000. One issue for the delivery companies, however, has become increases in insurance premiums; they employ young male drivers for the most part, and a single incident can jack up the rates for the whole firm. To mollify some of those concerns, Amazon is increasing the payment per package delivered by 20 percent to 12 cents per parcel. \[[Numlock](https://www.numlock.com/p/numlock-news-october-21-2025-parcels)\]
+
+### 2.66 days to get a berth
+
+Disruptions to global trade caused by tensions between China and the United States have led to long wait times for vessels queued off the coast of China. In the week ending October 19, the average wait time rose to 2.66 days for a vessel to get a berth. That is up 17 percent week over week, due in part to the tit-for-tat fees announced by China and the U.S. on the other country’s ships. \[[gCaptain](https://gcaptain.com/commodity-vessels-clog-up-china-ports-as-fees-on-u-s-ships-begin/)\]
+
+### 5% of volume from France to the NYC lane
+
+Pharmaceutical company Takeda has partnered with shipping startup Vela to test whether its wind-powered cargo vessel, modeled after ocean-racing sailboats, can deliver temperature-sensitive drugs between France and the U.S. in around two weeks. The first commercial voyage carrying Takeda’s blood-disease medicine is scheduled for the fall of 2026 from the port city of Caen, France, to New York City. The voyage will determine whether Vela can offer an alternative to slower container ships and expensive air cargo. Takenda wants to ship around 5% of its volumes between France and New York in 2026. Potential benefits of using Vela’s sailing vessel include Takeda meeting its goal of reaching net-zero greenhouse gas emissions by 2040, reducing the use of expensive air cargo, and sidestepping booking a 40-foot sea cargo container to ship fewer than six pallets of pharmaceuticals. \[[Supply Chain Dive](https://www.supplychaindive.com/news/vela-takeda-test-wind-powered-cargo-vessel-drug-shipments/802174/)\]
+
+### €300 million logistics investment in Africa
+
+DHL Group plans to invest more than €300 million ($349 million) in warehouses and other infrastructure in Africa to capitalize on demand from sectors such as e-commerce and renewable energy. For China and other nations whose US trade has been disrupted, Africa offers a chance to diversify. Jumia Technologies AG, the continent’s biggest e-commerce company, said Trump’s tariffs are helping it access Chinese goods. The Asian nation’s shipments to Africa surged 56% last month — the fastest since February 2021. Most of DHL’s African operations, including warehousing, packaging, and supply chain management, are in South Africa, Egypt, and Kenya. \[[Bloomberg](https://www.bloomberg.com/news/articles/2025-10-15/dhl-plans-to-invest-300-million-to-boost-african-trade-and-build-infrastructure)\]

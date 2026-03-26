@@ -1,0 +1,1460 @@
+<p>In quantum field theory, Wilson loops are gauge invariant operators arising from the parallel transport of gauge variables around closed loops. They encode all gauge information of the theory, allowing for the construction of loop representations which fully describe gauge theories in terms of these loops. In pure gauge theory they play the role of order operators for confinement, where they satisfy what is known as the area law. Originally formulated by Kenneth G. Wilson in 1974, they were used to construct links and plaquettes which are the fundamental parameters in lattice gauge theory. Wilson loops fall into the broader class of loop operators, with some other notable examples being &#039;t Hooft loops, which are magnetic duals to Wilson loops, and Polyakov loops, which are the thermal version of Wilson loops.</p>
+<p>To properly define Wilson loops in gauge theory requires considering the fiber bundle formulation of gauge theories. Here for each point in the 
+  
+    
+      
+        d
+      
+    
+    {\displaystyle d}
+  
+-dimensional spacetime 
+  
+    
+      
+        M
+      
+    
+    {\displaystyle M}
+  
+ there is a copy of the gauge group 
+  
+    
+      
+        G
+      
+    
+    {\displaystyle G}
+  
+ forming what&#039;s known as a fiber of the fiber bundle. These fiber bundles are called principal bundles. Locally the resulting space looks like 
+  
+    
+      
+        
+          
+            R
+          
+          
+            d
+          
+        
+        ×
+        G
+      
+    
+    {\displaystyle \mathbb {R} ^{d}\times G}
+  
+ although globally it can have some twisted structure depending on how different fibers are glued together.</p>
+<p>The issue that Wilson lines resolve is how to compare points on fibers at two different spacetime points. This is analogous to parallel transport in general relativity which compares tangent vectors that live in the tangent spaces at different points. For principal bundles there is a natural way to compare different fiber points through the introduction of a connection, which is equivalent to introducing a gauge field. This is because a connection is a way to separate out the tangent space of the principal bundle into two subspaces known as the vertical and horizontal subspaces. The former consists of all vectors pointing along the fiber 
+  
+    
+      
+        G
+      
+    
+    {\displaystyle G}
+  
+ while the latter consists of vectors that are perpendicular to the fiber. This allows for the comparison of fiber values at different spacetime points by connecting them with curves in the principal bundle whose tangent vectors always live in the horizontal subspace, so the curve is always perpendicular to any given fiber.</p>
+<p>If the starting fiber is at coordinate 
+  
+    
+      
+        
+          x
+          
+            i
+          
+        
+      
+    
+    {\displaystyle x_{i}}
+  
+ with a starting point of the identity 
+  
+    
+      
+        
+          g
+          
+            i
+          
+        
+        =
+        e
+      
+    
+    {\displaystyle g_{i}=e}
+  
+, then to see how this changes when moving to another spacetime coordinate 
+  
+    
+      
+        
+          x
+          
+            f
+          
+        
+      
+    
+    {\displaystyle x_{f}}
+  
+, one needs to consider some spacetime curve 
+  
+    
+      
+        γ
+        :
+        [
+        0
+        ,
+        1
+        ]
+        →
+        M
+      
+    
+    {\displaystyle \gamma :[0,1]\rightarrow M}
+  
+ between 
+  
+    
+      
+        
+          x
+          
+            i
+          
+        
+      
+    
+    {\displaystyle x_{i}}
+  
+ and 
+  
+    
+      
+        
+          x
+          
+            f
+          
+        
+      
+    
+    {\displaystyle x_{f}}
+  
+. The corresponding curve in the principal bundle, known as the horizontal lift of 
+  
+    
+      
+        γ
+        (
+        t
+        )
+      
+    
+    {\displaystyle \gamma (t)}
+  
+, is the curve 
+  
+    
+      
+        
+          
+            
+              γ
+              ~
+            
+          
+        
+        (
+        t
+        )
+      
+    
+    {\displaystyle {\tilde {\gamma }}(t)}
+  
+ such that 
+  
+    
+      
+        
+          
+            
+              γ
+              ~
+            
+          
+        
+        (
+        0
+        )
+        =
+        
+          g
+          
+            i
+          
+        
+      
+    
+    {\displaystyle {\tilde {\gamma }}(0)=g_{i}}
+  
+ and that its tangent vectors always lie in the horizontal subspace. The fiber bundle formulation of gauge theory reveals that the Lie-algebra valued gauge field 
+  
+    
+      
+        
+          A
+          
+            μ
+          
+        
+        (
+        x
+        )
+        =
+        
+          A
+          
+            μ
+          
+          
+            a
+          
+        
+        (
+        x
+        )
+        
+          T
+          
+            a
+          
+        
+      
+    
+    {\displaystyle A_{\mu }(x)=A_{\mu }^{a}(x)T^{a}}
+  
+ is equivalent to the connection that defines the horizontal subspace, so this leads to a differential equation for the horizontal lift</p>
+<p>This has a unique formal solution called the Wilson line between the two points</p>
+<p>where 
+  
+    
+      
+        
+          
+            P
+          
+        
+      
+    
+    {\displaystyle {\mathcal {P}}}
+  
+ is the path-ordering operator, which is unnecessary for abelian theories. The horizontal lift starting at some initial fiber point other than the identity merely requires multiplication by the initial element of the original horizontal lift. More generally, it holds that if 
+  
+    
+      
+        
+          
+            
+              
+                γ
+                ~
+              
+            
+          
+          ′
+        
+        (
+        0
+        )
+        =
+        
+          
+            
+              γ
+              ~
+            
+          
+        
+        (
+        0
+        )
+        g
+      
+    
+    {\displaystyle {\tilde {\gamma }}&#039;(0)={\tilde {\gamma }}(0)g}
+  
+ then 
+  
+    
+      
+        
+          
+            
+              
+                γ
+                ~
+              
+            
+          
+          ′
+        
+        (
+        t
+        )
+        =
+        
+          
+            
+              γ
+              ~
+            
+          
+        
+        (
+        t
+        )
+        g
+      
+    
+    {\displaystyle {\tilde {\gamma }}&#039;(t)={\tilde {\gamma }}(t)g}
+  
+ for all 
+  
+    
+      
+        t
+        ≥
+        0
+      
+    
+    {\displaystyle t\geq 0}
+  
+.</p>
+<p>Under a local gauge transformation 
+  
+    
+      
+        g
+        (
+        x
+        )
+      
+    
+    {\displaystyle g(x)}
+  
+ the Wilson line transforms as</p>
+<p>This gauge transformation property is often used to directly introduce the Wilson line in the presence of matter fields 
+  
+    
+      
+        ϕ
+        (
+        x
+        )
+      
+    
+    {\displaystyle \phi (x)}
+  
+ transforming in the fundamental representation of the gauge group, where the Wilson line is an operator that makes the combination 
+  
+    
+      
+        ϕ
+        (
+        
+          x
+          
+            i
+          
+        
+        
+          )
+          
+            †
+          
+        
+        W
+        [
+        
+          x
+          
+            i
+          
+        
+        ,
+        
+          x
+          
+            f
+          
+        
+        ]
+        ϕ
+        (
+        
+          x
+          
+            f
+          
+        
+        )
+      
+    
+    {\displaystyle \phi (x_{i})^{\dagger }W[x_{i},x_{f}]\phi (x_{f})}
+  
+ gauge invariant. It allows for the comparison of the matter field at different points in a gauge invariant way. Alternatively, the Wilson lines can also be introduced by adding an infinitely heavy test particle charged under the gauge group. Its charge forms a quantized internal Hilbert space, which can be integrated out, yielding the Wilson line as the world-line of the test particle. This works in quantum field theory whether or not there actually is any matter content in the theory. However, the swampland conjecture known as the completeness conjecture claims that in a consistent theory of quantum gravity, every Wilson line and &#039;t Hooft line of a particular charge consistent with the Dirac quantization condition must have a corresponding particle of that charge be present in the theory. Decoupling these particles by taking the infinite mass limit no longer works since this would form black holes.</p>
+<p>The trace of closed Wilson lines is a gauge invariant quantity known as the Wilson loop</p>
+<p>Mathematically the term within the trace is known as the holonomy, which describes a mapping of the fiber into itself upon horizontal lift along a closed loop. The set of all holonomies itself forms a group, which for principal bundles must be a subgroup of the gauge group. Wilson loops satisfy the reconstruction property where knowing the set of Wilson loops for all possible loops allows for the reconstruction of all gauge invariant information about the gauge connection. Formally the set of all Wilson loops forms an overcomplete basis of solutions to the Gauss&#039; law constraint.</p>
+<p>The set of all Wilson lines is in one-to-one correspondence with the representations of the gauge group. This can be reformulated in terms of Lie algebra language using the weight lattice of the gauge group 
+  
+    
+      
+        
+          Λ
+          
+            w
+          
+        
+      
+    
+    {\displaystyle \Lambda _{w}}
+  
+. In this case the types of Wilson loops are in one-to-one correspondence with 
+  
+    
+      
+        
+          Λ
+          
+            w
+          
+        
+        
+          /
+        
+        W
+      
+    
+    {\displaystyle \Lambda _{w}/W}
+  
+ where 
+  
+    
+      
+        W
+      
+    
+    {\displaystyle W}
+  
+ is the Weyl group.</p>
+<p>An alternative view of Wilson loops is to consider them as operators acting on the Hilbert space of states in Minkowski signature. Since the Hilbert space lives on a single time slice, the only Wilson loops that can act as operators on this space are ones formed using spacelike loops. Such operators 
+  
+    
+      
+        W
+        [
+        γ
+        ]
+      
+    
+    {\displaystyle W[\gamma ]}
+  
+ create a closed loop of electric flux, which can be seen by noting that the electric field operator 
+  
+    
+      
+        
+          E
+          
+            i
+          
+        
+      
+    
+    {\displaystyle E^{i}}
+  
+ is nonzero on the loop 
+  
+    
+      
+        
+          E
+          
+            i
+          
+        
+        W
+        [
+        γ
+        ]
+        
+          |
+        
+        0
+        ⟩
+        ≠
+        0
+      
+    
+    {\displaystyle E^{i}W[\gamma ]|0\rangle \neq 0}
+  
+ but it vanishes everywhere else. Using Stokes theorem it follows that the spatial loop measures the magnetic flux through the loop.</p>
+<p>Since temporal Wilson lines correspond to the configuration created by infinitely heavy stationary quarks, Wilson loop associated with a rectangular loop 
+  
+    
+      
+        γ
+      
+    
+    {\displaystyle \gamma }
+  
+ with two temporal components of length 
+  
+    
+      
+        T
+      
+    
+    {\displaystyle T}
+  
+ and two spatial components of length 
+  
+    
+      
+        r
+      
+    
+    {\displaystyle r}
+  
+, can be interpreted as a quark-antiquark pair at fixed separation. Over large times the vacuum expectation value of the Wilson loop projects out the state with the minimum energy, which is the potential 
+  
+    
+      
+        V
+        (
+        r
+        )
+      
+    
+    {\displaystyle V(r)}
+  
+ between the quarks. The excited states with energy 
+  
+    
+      
+        V
+        (
+        r
+        )
+        +
+        Δ
+        E
+      
+    
+    {\displaystyle V(r)+\Delta E}
+  
+ are exponentially suppressed with time and so the expectation value goes as</p>
+<p>making the Wilson loop useful for calculating the potential between quark pairs. This potential must necessarily be a monotonically increasing and concave function of the quark separation. Since spacelike Wilson loops are not fundamentally different from the temporal ones, the quark potential is really directly related to the pure Yang–Mills theory structure and is a phenomenon independent of the matter content.</p>
+<p>Elitzur&#039;s theorem ensures that local non-gauge invariant operators cannot have a non-zero expectation values. Instead one must use non-local gauge invariant operators as order parameters for confinement. The Wilson loop is exactly such an order parameter in pure Yang–Mills theory, where in the confining phase its expectation value follows the area law</p>
+<p>for a loop that encloses an area 
+  
+    
+      
+        A
+        [
+        γ
+        ]
+      
+    
+    {\displaystyle A[\gamma ]}
+  
+. This is motivated from the potential between infinitely heavy test quarks which in the confinement phase is expected to grow linearly 
+  
+    
+      
+        V
+        (
+        r
+        )
+        ∼
+        σ
+        r
+      
+    
+    {\displaystyle V(r)\sim \sigma r}
+  
+ where 
+  
+    
+      
+        σ
+      
+    
+    {\displaystyle \sigma }
+  
+ is known as the string tension. Meanwhile, in the Higgs phase the expectation value follows the perimeter law</p>
+<p>where 
+  
+    
+      
+        L
+        [
+        γ
+        ]
+      
+    
+    {\displaystyle L[\gamma ]}
+  
+ is the perimeter length of the loop and 
+  
+    
+      
+        b
+      
+    
+    {\displaystyle b}
+  
+ is some constant. The area law of Wilson loops can be used to demonstrate confinement in certain low dimensional theories directly, such as for the Schwinger model whose confinement is driven by instantons.</p>
+<p>In lattice field theory, Wilson lines and loops play a fundamental role in formulating gauge fields on the lattice. The smallest Wilson lines on the lattice, those between two adjacent lattice points, are known as links, with a single link starting from a lattice point 
+  
+    
+      
+        n
+      
+    
+    {\displaystyle n}
+  
+ going in the 
+  
+    
+      
+        μ
+      
+    
+    {\displaystyle \mu }
+  
+ direction denoted by 
+  
+    
+      
+        
+          U
+          
+            μ
+          
+        
+        (
+        n
+        )
+      
+    
+    {\displaystyle U_{\mu }(n)}
+  
+. Four links around a single square are known as a plaquette, with their trace forming the smallest Wilson loop. It is these plaquettes that are used to construct the lattice gauge action known as the Wilson action. Larger Wilson loops are expressed as products of link variables along some loop 
+  
+    
+      
+        γ
+      
+    
+    {\displaystyle \gamma }
+  
+, denoted by</p>
+<p>These Wilson loops are used to study confinement and quark potentials numerically. Linear combinations of Wilson loops are also used as interpolating operators that give rise to glueball states. The glueball masses can then be extracted from the correlation function between these interpolators.</p>
+<p>The lattice formulation of the Wilson loops also allows for an analytic demonstration of confinement in the strongly coupled phase, assuming the quenched approximation where quark loops are neglected. This is done by expanding out the Wilson action as a power series of traces of plaquettes, where the first non-vanishing term in the expectation value of the Wilson loop in an 
+  
+    
+      
+        
+          SU
+        
+        (
+        3
+        )
+      
+    
+    {\displaystyle {\text{SU}}(3)}
+  
+ gauge theory gives rise to an area law with a string tension of the form</p>
+<p>where 
+  
+    
+      
+        β
+        =
+        6
+        
+          /
+        
+        
+          g
+          
+            2
+          
+        
+      
+    
+    {\displaystyle \beta =6/g^{2}}
+  
+ is the inverse coupling constant and 
+  
+    
+      
+        a
+      
+    
+    {\displaystyle a}
+  
+ is the lattice spacing. While this argument holds for both the abelian and non-abelian case, compact electrodynamics only exhibits confinement at strong coupling, with there being a phase transition to the Coulomb phase at 
+  
+    
+      
+        β
+        ∼
+        1.01
+      
+    
+    {\displaystyle \beta \sim 1.01}
+  
+, leaving the theory deconfined at weak coupling. Such a phase transition is not believed to exist for 
+  
+    
+      
+        
+          SU
+        
+        (
+        N
+        )
+      
+    
+    {\displaystyle {\text{SU}}(N)}
+  
+ gauge theories at zero temperature, instead they exhibit confinement at all values of the coupling constant.</p>
+<p>Similarly to the functional derivative which acts on functions of functions, functions of loops admit two types of derivatives called the area derivative and the perimeter derivative. To define the former, consider a contour 
+  
+    
+      
+        γ
+      
+    
+    {\displaystyle \gamma }
+  
+ and another contour 
+  
+    
+      
+        
+          γ
+          
+            δ
+            
+              σ
+              
+                μ
+                ν
+              
+            
+          
+        
+      
+    
+    {\displaystyle \gamma _{\delta \sigma _{\mu \nu }}}
+  
+ which is the same contour but with an extra small loop at 
+  
+    
+      
+        x
+      
+    
+    {\displaystyle x}
+  
+ in the 
+  
+    
+      
+        μ
+      
+    
+    {\displaystyle \mu }
+  
+-
+  
+    
+      
+        ν
+      
+    
+    {\displaystyle \nu }
+  
+ plane with area 
+  
+    
+      
+        δ
+        
+          σ
+          
+            μ
+            ν
+          
+        
+        =
+        d
+        
+          x
+          
+            μ
+          
+        
+        ∧
+        d
+        
+          x
+          
+            ν
+          
+        
+      
+    
+    {\displaystyle \delta \sigma _{\mu \nu }=dx_{\mu }\wedge dx_{\nu }}
+  
+. Then the area derivative of the loop functional 
+  
+    
+      
+        F
+        [
+        γ
+        ]
+      
+    
+    {\displaystyle F[\gamma ]}
+  
+ is defined through the same idea as the usual derivative, as the normalized difference between the functional of the two loops</p>
+<p>The perimeter derivative is similarly defined whereby now 
+  
+    
+      
+        
+          γ
+          
+            δ
+            
+              x
+              
+                μ
+              
+            
+          
+        
+      
+    
+    {\displaystyle \gamma _{\delta x_{\mu }}}
+  
+ is a slight deformation of the contour 
+  
+    
+      
+        γ
+      
+    
+    {\displaystyle \gamma }
+  
+ which at position 
+  
+    
+      
+        x
+      
+    
+    {\displaystyle x}
+  
+ has a small extruding loop of length 
+  
+    
+      
+        δ
+        
+          x
+          
+            μ
+          
+        
+      
+    
+    {\displaystyle \delta x_{\mu }}
+  
+ in the 
+  
+    
+      
+        μ
+      
+    
+    {\displaystyle \mu }
+  
+ direction and of zero area. The perimeter derivative 
+  
+    
+      
+        
+          ∂
+          
+            μ
+          
+          
+            x
+          
+        
+      
+    
+    {\displaystyle \partial _{\mu }^{x}}
+  
+ of the loop functional is then defined as</p>
+<p>In the large N-limit, the Wilson loop vacuum expectation value satisfies a closed functional form equation called the Makeenko–Migdal equation</p>
+<p>Here 
+  
+    
+      
+        γ
+        =
+        
+          γ
+          
+            x
+            y
+          
+        
+        ∪
+        
+          γ
+          
+            y
+            x
+          
+        
+      
+    
+    {\displaystyle \gamma =\gamma _{xy}\cup \gamma _{yx}}
+  
+ with 
+  
+    
+      
+        
+          γ
+          
+            x
+            y
+          
+        
+      
+    
+    {\displaystyle \gamma _{xy}}
+  
+ being a line that does not close from 
+  
+    
+      
+        x
+      
+    
+    {\displaystyle x}
+  
+ to 
+  
+    
+      
+        y
+      
+    
+    {\displaystyle y}
+  
+, with the two points however close to each other. The equation can also be written for finite 
+  
+    
+      
+        N
+      
+    
+    {\displaystyle N}
+  
+, but in this case it does not factorize and instead leads to expectation values of products of Wilson loops, rather than the product of their expectation values. This gives rise to an infinite chain of coupled equations for different Wilson loop expectation values, analogous to the Schwinger–Dyson equations. The Makeenko–Migdal equation has been solved exactly in two dimensional 
+  
+    
+      
+        
+          U
+        
+        (
+        ∞
+        )
+      
+    
+    {\displaystyle {\text{U}}(\infty )}
+  
+ theory.</p>
+<p>Gauge groups that admit fundamental representations in terms of 
+  
+    
+      
+        N
+        ×
+        N
+      
+    
+    {\displaystyle N\times N}
+  
+ matrices have Wilson loops that satisfy a set of identities called the Mandelstam identities, with these identities reflecting the particular properties of the underlying gauge group. The identities apply to loops formed from two or more subloops, with 
+  
+    
+      
+        γ
+        =
+        
+          γ
+          
+            2
+          
+        
+        ∘
+        
+          γ
+          
+            1
+          
+        
+      
+    
+    {\displaystyle \gamma =\gamma _{2}\circ \gamma _{1}}
+  
+ being a loop formed by first going around 
+  
+    
+      
+        
+          γ
+          
+            1
+          
+        
+      
+    
+    {\displaystyle \gamma _{1}}
+  
+ and then going around 
+  
+    
+      
+        
+          γ
+          
+            2
+          
+        
+      
+    
+    {\displaystyle \gamma _{2}}
+  
+.</p>
+<p>The Mandelstam identity of the first kind states that 
+  
+    
+      
+        W
+        [
+        
+          γ
+          
+            1
+          
+        
+        ∘
+        
+          γ
+          
+            2
+          
+        
+        ]
+        =
+        W
+        [
+        
+          γ
+          
+            2
+          
+        
+        ∘
+        
+          γ
+          
+            1
+          
+        
+        ]
+      
+    
+    {\displaystyle W[\gamma _{1}\circ \gamma _{2}]=W[\gamma _{2}\circ \gamma _{1}]}
+  
+, with this holding for any gauge group in any dimension. Mandelstam identities of the second kind are acquired by noting that in 
+  
+    
+      
+        N
+      
+    
+    {\displaystyle N}
+  
+ dimensions, any object with 
+  
+    
+      
+        N
+        +
+        1
+      
+    
+    {\displaystyle N+1}
+  
+ totally antisymmetric indices vanishes, meaning that 
+  
+    
+      
+        
+          δ
+          
+            [
+            
+              b
+              
+                1
+              
+            
+          
+          
+            
+              a
+              
+                1
+              
+            
+          
+        
+        
+          δ
+          
+            
+              b
+              
+                2
+              
+            
+          
+          
+            
+              a
+              
+                2
+              
+            
+          
+        
+        ⋯
+        
+          δ
+          
+            
+              b
+              
+                N
+                +
+                1
+              
+            
+            ]
+          
+          
+            
+              a
+              
+                N
+                +
+                1
+              
+            
+          
+        
+        =
+        0
+      
+    
+    {\displaystyle \delta _{[b_{1}}^{a_{1}}\delta _{b_{2}}^{a_{2}}\cdots \delta _{b_{N+1}]}^{a_{N+1}}=0}
+  
+. In the fundamental representation, the holonomies used to form the Wilson loops are 
+  
+    
+      
+        N
+        ×
+        N
+      
+    
+    {\displaystyle N\times N}
+  
+ matrix representations of the gauge groups. Contracting 
+  
+    
+      
+        N
+        +
+        1
+      
+    
+    {\displaystyle N+1}
+  
+ holonomies with the delta functions yields a set of identities between Wilson loops. These can be written in terms the objects 
+  
+    
+      
+        
+          M
+          
+            K
+          
+        
+      
+    
+    {\displaystyle M_{K}}
+  
+ defined iteratively so that 
+  
+    
+      
+        
+          M
+          
+            1
+          
+        
+        [
+        γ
+        ]
+        =
+        W
+        [
+        γ
+        ]
+      
+    
+    {\displaystyle M_{1}[\gamma ]=W[\gamma ]}
+  
+ and</p>
+<p>In this notation the Mandelstam identities of the second kind are</p>
+<p>For example, for a 
+  
+    
+      
+        
+          U
+        
+        (
+        1
+        )
+      
+    
+    {\displaystyle {\text{U}}(1)}
+  
+ gauge group this gives 
+  
+    
+      
+        W
+        [
+        
+          γ
+          
+            1
+          
+        
+        ]
+        W
+        [
+        
+          γ
+          
+            2
+          
+        
+        ]
+        =
+        W
+        [
+        
+          γ
+          
+            1
+          
+        
+        ∘
+        
+          γ
+          
+            2
+          
+        
+        ]
+      
+    
+    {\displaystyle W[\gamma _{1}]W[\gamma _{2}]=W[\gamma _{1}\circ \gamma _{2}]}
+  
+.</p>
+<p>If the fundamental representation are matrices of unit determinant, then it also holds that 
+  
+    
+      
+        
+          M
+          
+            N
+          
+        
+        (
+        γ
+        ,
+        …
+        ,
+        γ
+        )
+        =
+        1
+      
+    
+    {\displaystyle M_{N}(\gamma ,\dots ,\gamma )=1}
+  
+. For example, applying this identity to 
+  
+    
+      
+        
+          SU
+        
+        (
+        2
+        )
+      
+    
+    {\displaystyle {\text{SU}}(2)}
+  
+ gives</p>
+<p>Fundamental representations consisting of unitary matrices satisfy 
+  
+    
+      
+        W
+        [
+        γ
+        ]
+        =
+        
+          W
+          
+            ∗
+          
+        
+        [
+        
+          γ
+          
+            −
+            1
+          
+        
+        ]
+      
+    
+    {\displaystyle W[\gamma ]=W^{*}[\gamma ^{-1}]}
+  
+. Furthermore, while the equality 
+  
+    
+      
+        W
+        [
+        I
+        ]
+        =
+        N
+      
+    
+    {\displaystyle W[I]=N}
+  
+ holds for all gauge groups in the fundamental representations, for unitary groups it moreover holds that 
+  
+    
+      
+        
+          |
+        
+        W
+        [
+        γ
+        ]
+        
+          |
+        
+        ≤
+        N
+      
+    
+    {\displaystyle |W[\gamma ]|\leq N}
+  
+.</p>
+<p>Since Wilson loops are operators of the gauge fields, the regularization and renormalization of the underlying Yang–Mills theory fields and couplings does not prevent the Wilson loops from requiring additional renormalization corrections. In a renormalized Yang–Mills theory, the particular way that the Wilson loops get renormalized depends on the geometry of the loop under consideration. The main features are</p>
+<ul><li>Smooth non-intersecting curve: This can only have linear divergences proportional to the contour which can be removed through multiplicative renormalization.</li><li>Non-intersecting curve with cusps: Each cusp results in an additional local multiplicative renormalization factor </li><li>  </li><li>    </li><li>      </li><li>        Z</li><li>        [</li><li>        ϕ</li><li>        ]</li><li>      </li><li>    </li><li>    {\displaystyle Z[\phi ]}</li><li>  </li><li> that depends on the cusp angle </li><li>  </li><li>    </li><li>      </li><li>        ϕ</li><li>      </li><li>    </li><li>    {\displaystyle \phi }</li><li>  </li><li>.</li><li>Self-intersections: This leads to operator mixing between the Wilson loops associated with the full loop and the subloops.</li><li>Lightlike segments: These give rise to additional logarithmic divergences.</li></ul>
+<p>Wilson loops play a role in the theory of scattering amplitudes where a set of dualities between them and special types of scattering amplitudes has been found. These have first been suggested at strong coupling using the AdS/CFT correspondence. For example, in 
+  
+    
+      
+        
+          
+            N
+          
+        
+        =
+        4
+      
+    
+    {\displaystyle {\mathcal {N}}=4}
+  
+ supersymmetric Yang–Mills theory maximally helicity violating amplitudes factorize into a tree-level component and a loop level correction. This loop level correction does not depend on the helicities of the particles, but it was found to be dual to certain polygonal Wilson loops in the large 
+  
+    
+      
+        N
+      
+    
+    {\displaystyle N}
+  
+ limit, up to finite terms. While this duality was initially only suggested in the maximum helicity violating case, there are arguments that it can be extended to all helicity configurations by defining appropriate supersymmetric generalizations of the Wilson loop.</p>
+<p>In compactified theories, zero mode gauge field states that are locally pure gauge configurations but are globally inequivalent to the vacuum are parameterized by closed Wilson lines in the compact direction. The presence of these on a compactified open string theory is equivalent under T-duality to a theory with non-coincident D-branes, whose separations are determined by the Wilson lines. Wilson lines also play a role in orbifold compactifications where their presence leads to greater control of gauge symmetry breaking, giving a better handle on the final unbroken gauge group and also providing a mechanism for controlling the number of matter multiplets left after compactification. These properties make Wilson lines important in compactifications of superstring theories.</p>
+<p>In a topological field theory, the expectation value of Wilson loops does not change under smooth deformations of the loop since the field theory does not depend on the metric. For this reason, Wilson loops are key observables in these theories and are used to calculate global properties of the spacetime manifold. In 
+  
+    
+      
+        2
+        +
+        1
+      
+    
+    {\displaystyle 2+1}
+  
+ dimensions they are closely related to knot theory with the expectation value of a product of loops depending only on the manifold structure and on how the loops are tied together. This led to the famous connection made by Edward Witten where he used Wilson loops in Chern–Simons theory to relate their partition function to Jones polynomials of knot theory.</p>
+<ul><li>Winding number</li></ul>

@@ -1,0 +1,74 @@
+---
+title: "Do What You Believe In"
+author: "Hamilton Nolan"
+publication: ""
+publication_slug: "hamiltonnolan"
+published_at: "2025-11-07T14:53:54.000Z"
+source_url: "https://www.hamiltonnolan.com/p/do-what-you-believe-in"
+word_count: 2196
+estimated_read_time: 11
+---
+
+[
+
+![](https://substackcdn.com/image/fetch/$s_!zQ-6!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fccd68c1a-00ce-4b2b-acb3-516e0458744d_1024x683.jpeg)
+
+
+
+](https://substackcdn.com/image/fetch/$s_!zQ-6!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fccd68c1a-00ce-4b2b-acb3-516e0458744d_1024x683.jpeg)
+*You may be surprised how many people agree with you. (Photo: Getty)*
+
+An enormous amount of analysis goes into politics. Some of it is strategic analysis: What should we do? How should we persuade people? What words should we use? What positions on what issues are electorally advantageous?
+
+Some of it is insta-historic analysis: What happened? What happened in that election? What happened in that vote shift? What caused X to vote for Y? What mysterious process in the unknowable minds of others prodded them to go for this guy and not that guy?
+
+\---
+
+\---
+
+Some of this analysis is conducted by professional pollsters and political consultants and campaign managers and candidates. Some of it is conducted by pundits and commentators and the press. Much of it, though, is conducted by regular voters. Conversations among political junkies become a mini-version of a Face The Nation panel. Discussions of who our preferred political party should nominate and what that candidate should say and how they should campaign and how they should win over other people take on the quality of an interminable Nate Silver post. Engaging with politics, to many voters, means stepping into the mind state of a political consultant and then imagining what tactical choices can dominate the 4-D chessboard of public opinion. Critiques of parties and candidates and issues are freighted with a meta-heaviness in which the things are judged not simply for what they are, but for how we think they will interact with the infinite other quantum ripples of the world to produce a political outcome.
+
+At the risk of stepping too firmly on The Rake of Obviousness, I want to suggest a different mental model of politics—a different way of engaging with the political process. It is this: Think about what you want to happen. Then fight for that thing.
+
+Note that this model of political engagement removes from you the burden of being an omniscient being with the ability to predict the future. Whereas in the other model you are required to spend a great deal of time gaming out probabilities about how each and every word and action and position will interact with every other word and action and position in the world and what thoughts those refractive combinations will produce inside the minds of people you don’t know, the model that I am suggesting does not require that. You can wipe that off your schedule. Now you have a lot more free time. What could you do with that free time? You could think about what kind of world you want to see. Then you could fight to make that world a reality.
+
+I realize that this sounds somewhat unsophisticated. Yet—though this may be counterintuitive—I also believe that it is the model of political engagement that will produce the best results. I cannot begin to estimate how many people I have met who believe, in theory, in equality and justice and other principles that would seem to dictate that they be, you know, socialists. Their values and beliefs, however, are only the first step of their political process. After determining these beliefs, they then put on their Amateur Strategist hat and proceed to imagine why all of the things that they would like to see are not in fact possible (because of, you know, swing voters and such). Then they feed their actual beliefs into their own—purely imaginary!—Machine of Political Strategy, which spits out a blander and more watered down version of those beliefs, which they believe is more palatable, more politically possible. Then they start their fight with a goal that is half of the goal that they would actually like to achieve, in their hearts. Thus their initial political ask is less of what they want and more of what their enemies want. In the name of being savvy and strategic, they have successfully negotiated against themselves.
+
+[
+
+![](https://substackcdn.com/image/fetch/$s_!-EDi!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F1b2f89d5-fc4f-4997-b03b-3cb0d8bb9ea2_4247x3013.jpeg)
+
+
+
+](https://substackcdn.com/image/fetch/$s_!-EDi!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F1b2f89d5-fc4f-4997-b03b-3cb0d8bb9ea2_4247x3013.jpeg)
+*Not pictured: everyone who told them their positions didn’t poll well.*
+
+Of all of the shocking things about the rise of Donald Trump, perhaps the most shocking to me has been the fact that his opponents often do not appear to have taken any useful lessons from him at all. In Trump we have a man who defied all of the conventional wisdom about how politicians should act in order to become successful. He said a million things that made pundits say, “This blunder will end him.” And yet he got stronger. He told a million verifiable lies and acted purely on instinct and insulted all sorts of important constituencies and generally did the opposite of the classic “run to the middle” strategy. And yet he got stronger. He is, in addition to being one of the worst humans on planet Earth, a titanic living embodiment of how to create your own reality, rather than to mold yourself to existing reality. With this approach, he decimated dozens of political opponents, seized control of the Republican Party, and has become the most powerful man in America.
+
+Despite this, the bulk of the political consultant class has not retired in shame. The bulk of the pundit class has not rethought its priors. The belief that political success flows from running to the middle, from triangulation, from reading polls and then selecting the exact midpoint of everyone’s belief on every issue—that belief is, for many in the professional politics world, quasi-religious and ineradicable no matter how much evidence there is to the contrary. One towering idiot narcissist is on the verge of squeezing the last breath out of American democracy and turning us into a fascist state and [Third Way](https://www.thirdway.org/) still, somehow, exists. This is simple insanity. If someone is kicking your ass, the thing to do is to figure out why they are kicking your ass, and draw some lessons from that, and implement the lessons in order to kick their ass instead. The thing to do is not to say, “I read a book about every single martial art, meaning it is highly unlikely for you to kick my ass, so I will just keep on doing what I am doing.”
+
+Have you ever read history? Interesting stuff. One thing I notice when I read history is this: The world is shaped primarily by people who believe things and then take action in accordance with their beliefs. When the Bolsheviks wanted communism, they fought for communism. When the revolutionaries wanted revolution, they made revolutions. When the capitalists wanted capitalism, they killed everyone who stood in their way. When the religious people wanted to spread their religions, they preached those religions, and also killed everyone who stood in their way. These are the sorts of events that have done the most to shape world history. A common thread in all of them is their notable lack of triangulation. They are not defined by groups of people trying to sand down their own message in order to perhaps win a small portion of what they wish to have. Instead, they are defined by groups of people fighting hard for strongly held beliefs. It is possible to take a valuable lesson from this, even without the massacres.
+
+\---
+
+\---
+
+Two events of the past week have made me think once again about this (admittedly simplistic) dynamic. The first was the death of Dick Cheney, a consummate Republican Party insider who lived long enough to see the outsider brutes take control of his party before he descended into this final resting place in hell. The amoral compromises of Cheney and the other Republican insiders are the very thing that left the door unlocked for Trump. By that I mean that the deliberate decision of Republican insiders who were concerned primarily with protecting the interests of capital to form a political alliance of convenience with racists and religious extremists eventually led to the overthrow of those very same insiders, when a man more capable of seducing the nuts came along. Trump’s ability to force the entire Republican establishment to bend the knee to him was made possible by the absence of any genuine moral backbone among the forces controlling the party before him. Their own triangulation in pursuit of electoral power robbed them of the ability draw any effective line of resistance against the guy who knows nothing and makes up everything and lies and cheats and tries to steal elections and demands loyalty in exchange for nothing. By the time people like Dick Cheney and Mitch McConnell and their peers realized they were losing control of the party that they assumed they owned, it was too late. Their laughable bleats that Trump was a bad guy had no effect, because the party they had built did not possess any true morality in the first place. The nuts were the only Republicans who were fighting for their true beliefs, insane or repellent as they were. The functionaries, the professional compromisers and dealmakers, found that their own power was far more contingent than they believed.
+
+The second thing that happened this week was Zohran Mamdani’s [victory](https://inthesetimes.com/article/zohran-mamdani-mayor-new-york-city-victory) in New York City. He is a political talent, blessed with charisma, but his campaign was powered by the fact that he was fighting for genuine beliefs. He is a leader. He led people to his own beliefs. At many points throughout the campaign—up to and including his acceptance speech—he visibly refused to disavow his own beliefs. Now he is the mayor. Is he the mayor because New York City was already secretly full of a million democratic socialists that pollsters didn’t know about? No. He is the mayor because he convinced a million New Yorkers that his brand of democratic socialism might be good. He did this by fighting for what he believes in.
+
+Does everyone deserve, for example, health care? Yes. Some people who believe this will then say: It is not politically possible to achieve this ideal, so we should ask, instead, for a more modest improvement. Now, we do not know whether the strategy of trying for a more modest goal will succeed. The only thing we can say for sure about that strategy is: It definitely will not achieve what its advocates believe is necessary. Its only guarantee is that it will fail. If you are going to pursue an uncertain outcome, you might as well pursue the uncertain outcome that you want, rather than one that will not give you what you want even if it succeeds.
+
+Looking at “the electorate” and trying to shape yourself in order to get on their good side is not the way to do politics. It works only in the absence of a purer opposition. Even when it wins, it achieves less than it should. It produces, in the long run, the stagnation lack of progress that makes people cynical about politics. It defeats the entire purpose of being interested in politics in the first place.
+
+Do you want to “change the electorate” in your own favor? Good news: you are the electorate. Do what you believe. Bring others along. The tides of history are more chaotic than the weather, shaped by far too many factors to know, much less to predict. Just think about what the world should be like and then try to bring that about. By doing so you will always be engaged in politics that truly animates your soul. When you bring people to your side, you will be bringing them to a place worth being, rather than just instrumentalizing them as momentary suckers whose votes you can exploit. If you win you will get what you actually want. If you lose you will have lost for a good cause rather than a shitty one. Don’t think so much. Go fight. We have already lost way too much by failing to do this for too long.
+
+\---
+
+#### More
+
+-   Related reading: [How to Think About Politics Without Wanting to Kill Yourself](https://www.hamiltonnolan.com/p/how-to-think-about-politics-without); [There’s No Justice Without Power](https://www.hamiltonnolan.com/p/theres-no-justice-without-power); [Why Would Dick Cheney Endorse Kamala Harris?](https://www.hamiltonnolan.com/p/why-would-dick-cheney-endorse-kamala); [The Real “Third Way” Is the Labor Movement](https://www.hamiltonnolan.com/p/the-real-third-way-is-the-labor-movement).
+    
+-   I covered Zohran’s election night for In These Times, and [you can read that piece here](https://inthesetimes.com/article/zohran-mamdani-mayor-new-york-city-victory). I also wrote a separate piece for Columbia Journalism Review about the stupid hostility of mainstream papers towards Zohran’s campaign, [which you can read here](https://www.cjr.org/analysis/legacy-papers-have-been-weird-and-hostile-toward-zohran-mamdani.php).
+    
+-   Thank you for reading How Things Work, and thank you, in particular, to everyone who became a paid subscriber after [my biannual update post](https://www.hamiltonnolan.com/p/a-brief-biannual-update-on-the-publication) last week. As I said in that post, the fact that this site has no paywall means that I am obligated to continually ask my readers to become financial supporters of How Things Work, even though you do not technically have to. If you enjoy reading this site and would like to help keep it free for everyone regardless of income, now is a great time to take a quick second and become a paid subscriber yourself. It’s the sort of thing that people intend to do sometimes and, for understandable reasons, never get around to. Here is your chance! I appreciate you all. And I promise to write some less obvious things very soon.

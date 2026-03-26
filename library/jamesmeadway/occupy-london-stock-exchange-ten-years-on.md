@@ -1,0 +1,87 @@
+---
+title: "Occupy London Stock Exchange, ten years on"
+author: "James Meadway"
+publication: "Pandemic Capitalism"
+publication_slug: "jamesmeadway"
+published_at: "2021-10-17T19:03:08.000Z"
+source_url: "https://jamesmeadway.substack.com/p/occupy-london-stock-exchange-ten"
+word_count: 2133
+estimated_read_time: 11
+---
+
+[
+
+![](https://substackcdn.com/image/fetch/$s_!9HUc!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2F4e437139-56ec-49c7-a153-37e711e26e41_800x530.jpeg)
+
+
+
+](https://substackcdn.com/image/fetch/$s_!9HUc!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2F4e437139-56ec-49c7-a153-37e711e26e41_800x530.jpeg)
+
+*Occupy London. Source: [Nathan Meijer](https://www.flickr.com/photos/npmeijer/ "Go to Nathan Meijer's photostream")/Flickr*
+
+Friday marked a decade since Occupy London Stock Exchange took up residence outside St Paul’s Cathedral. The original Occupy LSX plan was to meet up at St Paul’s, then move to occupy Paternoster Square, outside the Stock Exchange itself and home to a number of investment banks. But the square [is privately owned](https://en.wikipedia.org/wiki/Paternoster_Square), an injunction was granted to prevent anyone entering – enforced by the police – and so we were pushed back to St Paul’s churchyard instead. Two days later – ten years ago as I write – this [list of demands was agreed](https://occupylondon.org.uk/about/statements/initial-statement/) by the 500 or so occupying the churchyard and attending its General Assemblies:
+
+1.  The current system is unsustainable. It is undemocratic and unjust. We need alternatives; this is where we work towards them.
+    
+2.  We are of all ethnicities, backgrounds, genders, generations, sexualities, dis/abilities and faiths. We stand together with occupations all over the world.
+    
+3.  We refuse to pay for the banks’ crisis.
+    
+4.  We do not accept the cuts as either necessary or inevitable. We demand an end to global tax injustice and our democracy representing corporations instead of the people.
+    
+5.  We want regulators to be genuinely independent of the industries they regulate.
+    
+6.  We supported the strike on the 30th November and the student action on the 9th November, and actions to defend our health services, welfare, education and employment, and to stop wars and arms dealing.
+    
+7.  We want structural change towards authentic global equality. The world’s resources must go towards caring for people and the planet, not the military, corporate profits or the rich.
+    
+8.  The present economic system pollutes land, sea and air, is causing massive loss of natural species and environments, and is accelerating humanity towards irreversible climate change. We call for a positive, sustainable economic system that benefits present and future generations.
+    
+9.  We stand in solidarity with the global oppressed and we call for an end to the actions of our government and others in causing this oppression.
+    
+10.  This is what democracy looks like. Come and join us!
+     
+
+The next few weeks and months saw St Paul’s churchyard play host to rounds of meetings, seminars, and discussions. New sites were occupied at Finsbury Square and, perhaps most spectacularly – and certainly appreciated in the worsening weather of late October London – the disused UBS building on Sun Street, a short walk from St Pauls. Smaller actions were staged outside the Bank of England, and at Canary Wharf, London’s eastern outpost for the financial system. There was music –  decent music, even; [seeing these two was a highlight](https://www.theguardian.com/uk/video/2011/dec/07/occupy-london-massive-attack-radiohead) – and attempts to grapple, with varying degrees of success, the complexities of modern finance.
+
+**Precursors**
+
+The direct inspiration was Occupy Wall Street, which had set up in New York’s Zucotti Park on 17 September. But 2011 was itself an unusually unsettled year: Occupy in the winter, protests and occupations across Southern Europe, major strikes in China, the Iranian electoral protests, the Arab Spring. The convulsions from the financial crisis and its aftermath were still playing out; across the West, after an initial, partially co-ordinated turn into Keynesianism – meaning deficit spending by governments – global co-operation crumbled over the following year and versions of austerity were imposed across the major economies. By early 2011, two years after the 15 September bankruptcy of investment Bank Lehman Bros that triggered the global collapse, the social tensions it produced had seemingly snapped. 15 October 2011 was the date called for by one of the post-crash movements, the Spanish collective *¡Democracia Real YA!*, whose own occupations of the squares in Spain had won global attention in May.
+
+These global years of protest happen, infrequently: it is not a stretch to claim 2011 in a sequence of “unsettled years” that would include 1989, 1968, 1919, 1848 and 1830. But this poses two questions: why does this happen? And then does it matter?
+
+**Reasons**
+
+[Quantitative research](https://www.cambridge.org/core/journals/government-and-opposition/article/great-recession-inequality-and-occupy-protests-around-the-world/E1DC65A8769E827BC278A461F7F0561A) by sociologist Alpet Yagci has suggested a direct link between worse recessions after the crash, more inequality, and the prevalence of Occupy protest movements over the end of 2011 and into 2012. The worse a recession hit a country, and the more unequal it was, the more likely it was to see protests flagging themselves as Occupy. It shouldn’t be a surprise that either the movement took hold in the US, or spread so rapidly to the UK, given this – both countries were notoriously unequal, even prior to the crash, and (directly as a result, via [financialisation](https://theglobepost.com/2019/10/31/grace-blakeley-financialization/)) had suffered amongst the worst recessions in the OECD as a result.
+
+As Yagci points out, this relationship appears relatively unusual: modern studies of social movements tend to claim that find a direct link between economic collapse and social protest is comparatively rare. Usually, [capacity to mobilise](https://en.wikipedia.org/wiki/Resource_mobilization) in the face of economic adversity has to be developed beforehand – so trade unions, for instance, have to be recruited into, and organisation put in place *before* strikes and demonstrations can be organised. Often, the economic collapse itself would work dead against that organisation – mass unemployment in a recession undermining trade union capacity, for example. Occupy seemingly worked against this trend, something Yagci attributes to its relatively dispersed and social media-dependent forms of organising. In principle, anybody, anywhere, could do their own #Occupy protest, from an initial tweet – and many people did, with some [951](https://www.theguardian.com/news/datablog/2011/oct/17/occupy-protests-world-list-map) separate protests recorded in 82 different countries. If people turned up – preferably with tents – the protest happened; if they didn’t, it didn’t, with limited real resource cost. The barriers to successful mobilisation appeared to have evaporated.
+
+It was this line of thinking that sparked off some real excitement about the possibilities of online organising over that period. In the UK, the student protest movement at the end of 2010 – responding to a tripling of tuition fees, to £9,000 a year – was sparked by an official National Union of Students demo, massively larger than expected, that ended with the invasion of the Conservative Party’s then-HQ in Millbank Tower. But it was a continued independently of the NUS via activists organised nationally around online calls for action, and on the ground at individual colleges and universities. The Arab Spring was widely heralded as the triumph of online, social media-led organisation, subverting existing structures (including those of the left) and developing their own independent momentum.
+
+This benign view of social media now, of course, barely lasted the next few years – although at the time, it wasn’t just the anarchist view of the internet as a scope for anti-capitalist mobilisation: Yochai Benkler’s influential *The Wealth of Networks* offered an argument for a new kind of digital network-enabled liberalism, and more generally versions of tech-utopianism dominated centrist politics especially prior to 2008. By early 2011, something like this benign view remained the default setting for thinking politically about the internet in the West – Evgeny Morozov’s *The Net Delusion*, released, by happy coincidence, in January 2011 was an early, honourable exception. Union organiser [Mark Bergfeld](https://twitter.com/mdbergfeld?s=20) [here](https://www.academia.edu/12330007/No_Gods_no_Masters_no_Leaders_The_Role_of_anarchists_in_Occupy) has a useful discussion of Occupy’s own ideology as a “fusion” of post-Seattle anarchism, “radical populism” and its own “techno-utopianism”.
+
+**Legacies**
+
+And if we have to think about the long-term consequences of Occupy, particularly in the UK, the legacy looks even less clear. [Sarah Jaffe](https://twitter.com/sarahljaffe?s=20) and Michelle Chen make a convincing case, over [two](https://www.dissentmagazine.org/blog/belabored-occupys-ten-year-anniversary) [podcasts](https://www.dissentmagazine.org/blog/belabored-the-legacy-of-occupy-wall-street), for the impact of Occupy Wall Street on the US labour movement, and [Upstream argues similarly for the “new economy” movement](https://www.upstreampodcast.org/occupy). The opening of a whole decade of US dissent – from Black Lives Matter to the Bernie Sanders election campaigns – can be convincingly claimed to begin with OWS. So, too, can the popularisation of the 99% slogan: a quick and comprehensible way to talk about inequality (that, if anything, tends to understate the problem: [the 0.1 and 0.01% are the real culprits here](https://review.chicagobooth.edu/economics/2017/article/never-mind-1-percent-lets-talk-about-001-percent).)
+
+Yet for the UK, although the protests gained a media traction and presence well beyond their attendance, the case for their legacy is harder to make. First, whilst the police repression in New York was dramatically visible – and, at least viewed from the outside, contributed to the protests’ visibility and the winning of wider public support – the situation of the occupiers at St Paul’s was different. Giles Fraser, at the time Canon Chancellor of St Paul’s, deserves his credit for immediately standing on the steps of the cathedral and welcoming the protestors, whilst wrangling over the best way to deal with them resulted in three resignations from the cathedral’s staff (Fraser himself, part-time chaplain Fraser Dyer, and Dean of the Cathedral, Graeme Knowles) and legal cases delayed a police eviction until into the next year. Intended or not, the graphic scenes of the police evicting protestors were avoided until very late in the day – by which point, media attention had gone elsewhere.
+
+Second, as the list of demands references, there was a broader political context to this. Although the Labour Party had failed to oppose austerity spending cuts jammed through by the Tory-Lib Dem Coalition from June 2010’s “Emergency Budget” onwards, this had not prevented the wider labour movement moving into action. On 30 November, two million public sector employees “[staged Britain’s biggest strike for more than 30 years](https://www.theguardian.com/commentisfree/2011/nov/30/strike-turns-tide-of-generation)” against significant cuts to pensions. Spread across the public sector, and enjoying significant public support, the government was [rapidly forced to soften its hardline stance on negotiations](https://www.theguardian.com/society/2011/dec/01/public-sector-strikes-deadline-talks). Further walkouts were threatened.
+
+And then it ended. Concessions were made by government that softened the blow, but that would still leave [most public sector workers materially worse off](https://www.redpepper.org.uk/n30-and-after-was-that-it/). But the movement was ended. It was, as industrial relations scholar [Gregor Gall](https://twitter.com/leftacademic?s=20) notes, a “[bureaucratic mass strike](https://www.redpepper.org.uk/n30-and-after-was-that-it/)”: organised by the union leaderships as a tactic in negotiations, rather than developing from below. Despite the breathless claims from some on the left that Nov 30 would change everything in British industrial relations, strike days in Britain fell to their [lowest since official records began](https://www.theguardian.com/uk-news/2018/may/30/strikes-in-uk-fall-to-lowest-level-since-records-began-in-1893) over the next few years. Union membership continued to decline. In terms of radical potential in 2011, the possibility of a functioning relationship between Occupy and the trade unions was never developed on more than a fairly ad hoc and personalised relationship between individual trade unionists and Occupy itself. In particular, the fusion of union demands and the broader anxieties about democracy and inequality that Occupy presented didn’t happen inside a social movement context. It’s here that some contrast with the US might be most apparent.
+
+**Corbynism**
+
+Yet these two separate strands of an anti-austerity movement did, eventually, find some reconciliation in the upsurge of support for Jeremy Corbyn’s leadership campaign in 2015. The popularisation of slogans around inequality, notably the 99% versus 1%, found its repurposed expression in much of the rhetoric of Corbynism – notably “For the Many Not the Few” (itself the cunning reappropriation of a Tony Blair slogan). I don’t believe the same left populist rhetoric would have worked so effectively without the discursive preparation provided by Occupy beforehand – that, in other words, the meaning and intent of the slogan was already something known and understood by many beforehand.
+
+But the fusion was only ever incomplete. Occupy LSX and its British offshoots could not get out of the squares they held, and into wider society. The unions remained bureaucratically isolated from the movement: too weak, outside of the public sector, to hold the deep social roots in working class communities that they once nurtured. Politically, Corbynism could offer something to both groups – the public sector core of the union movement, and the often younger, nearly always un-unionised gig economy and zero hours workers central to Occupy – but the alliance was deeply uneven. [As I’ve argued before](https://onlinelibrary.wiley.com/doi/abs/10.1111/1467-923X.13004), Corbynism did not develop a programme that could match its populist rhetoric, becoming too bureaucratically-focused and detached from immediate economic concerns.
+
+The failure of Corbynism was also a failure of the protest movements in Britain after the financial crisis. But all of them – from Climate Camp, to the student protest movement, to Occupy itself and beyond – have left a legacy: new institutions have been built, and new political rhetoric coined. “Generation Left” would not exist without them. Their triple demands – against environmental crisis, for democracy and equality – are now the foundations of any plausible future left government.
+
+\---
+
+On the very first day of Occupy, after failing to get in to Paternoster Square, and then eventually making our way back to St Paul’s churchyard, I sat down next to a woman with a striking asymmetric haircut who made a clear-eyed contribution to an otherwise slightly meandering discussion, in smaller groups, about organising the camp. Yva and I are still together ten years later and, whatever else Occupy may or may not have done, this the legacy that means the most to me.
+
+\---
+
+A slight delay getting this newsletter out, the result of (variously) party conferences and Paris - apologies. Back to normal service from here on in.

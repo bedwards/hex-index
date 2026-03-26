@@ -1,0 +1,110 @@
+---
+title: "A Conversation with Victoria Volker"
+author: "Waco Can't Wait"
+publication: "Waco Can't Wait"
+publication_slug: "wacocantwait"
+published_at: "2022-01-11T05:05:39.000Z"
+source_url: "https://wacocantwait.substack.com/p/a-conversation-with-victoria-volker"
+word_count: 3089
+estimated_read_time: 16
+---
+
+Welcome to Waco Can’t Wait’s first interview! I am looking forward to releasing more conversations like this that highlight people doing valuable work in Waco and McLennan County.
+
+Last month, I had the chance to speak with Victoria Volker, a queer pastor and Co-Founder of Lady Justice House, an LGBTQ+ centered congregation in Waco. We spoke about her coming into her queer and christian identity, the challenges of starting a new church community, and what role the church can play in supporting LGBTQ+ youth in a state that is increasingly hostile towards their existence.
+
+I hope that y’all enjoy this dialogue, and please let me know if there is anyone else you would like me to interview in the future!
+
+\---
+
+Peter Mungiguerra (P) - Can you tell me a little bit about yourself and how you ended up in Waco?
+
+Victoria Volker (V) - So I grew up south of Austin in Buda, and I kind of always knew that I was queer, but I didn’t really act on it. I went to Wellesley for undergrad, and the goal was to get as far away from my home as I could. I loved my women's college experience. Originally, my degree was in American Studies and Teacher Education.
+
+After I graduated, I was dating someone, and we moved to Nashville because she was going to Vanderbilt for grad school. I taught AP U.S. History there. After we broke up, I moved back to Austin, taught there for two years, teaching middle school and high school history. I loved it, but got really burned out from toxic administrations. 
+
+Then I met my current partner. We've been together for four and a half years now. When my partner finished her Ph.D. to become a pharmacist, she had to expand her job search beyond Austin because of the supersaturated pharmacy market, and we ended up here. We hadn't even seen the house that we rented before we showed up. We moved here in January of 2020 and then COVID hit.
+
+P - That must have been a big transition.
+
+V - It was. We were just starting to get our feel of what Waco was like and then COVID hit. I was also starting graduate school at the Iliff School of Theology in Denver. As soon as we knew we were going to move to Waco, I immediately started following every Instagram account of Waco businesses and people to try to get a sense of what the community was like. I have loved it so much more than I was expecting to. There are so many cool small businesses and people, and there are really great, especially female clergy members here in Waco that are doing their best to create space. 
+
+P - Can you speak a little bit more about the seminary program you are in?
+
+V - Coming from Wellesley, I was looking for something that was intentional and diverse with a liberal arts focus. Iliff checked all of those boxes. I actually didn’t grow up religious at all, so when I began my faith journey, and the call got louder, it was like, oh my God, we have to go to seminary.
+
+Iliff is really focused on social justice. There are a lot of questions about the violence and harm that Christianity has done. What are we talking about in terms of history? How can we deconstruct? How can we queer these narratives? That’s what I love about Iliff. They want to prepare you for the world.
+
+P - What was it like coming into your queer identity and your Christian identity almost simultaneously?
+
+V - I think I'm very lucky in that I got to come into my queer identity without a lot of fuss or fanfare. You know, it was just like, oh, I'm bisexual. My parents took it fine, and they were honestly more upset that I wanted to go into teaching than that I was queer. So, you know, my coming out was very relaxed, and my experience of going to Wellesley made very clear the political aspect of being a queer person and being a politicized body. 
+
+As I began to develop a faith, I didn't come into it with the kind of baggage that a lot of people who've been hurt by the church and who are queer have. I've always gotten to look at the scriptures, theology, and church policy through a queer lens.
+
+Without that sort of baggage, at first it gave me a big sense of imposter syndrome. What could I possibly bring to this? I felt like a baby. I'm just learning. But I've realized that because I'm not walking around with that particular trauma, I can see and speak to things that people who are carrying that trauma can't or are not ready to do. I'm very lucky and I'm very privileged to have that experience. My experience has allowed me to speak truth in spaces that have done a lot of damage to their people.
+
+P - Could you speak a little bit to what Lady Justice House is? What's the mission? When did y’all get started?
+
+V - So my friend Michelle Shackelford and I are co pastoring it, and we met when she was working at a yoga studio in Waco. She had been toying around with the idea of a yoga class that blended with her Christianity because she has an M.Div. from Truett Seminary. For about a year and a half, we would meet and get coffee and get totally distracted and just talk for hours and not get anything done. About six months ago, we were both like, OK, we're really doing this. We just have to bite the bullet and do it. In March, my partner and I were very lucky to have purchased a home here. Because we had the space, it made it so much easier.
+
+Lady Justice House Church came up and all the pieces came in at the right time. Our mission has two pillars: liberation and loving kindness. Our theology is that the essence of Christianity should be liberation, as in liberation of all people from systems that other people might call sin. We consider these systems to be that of oppression, violence, hegemony, anti-blackness, capitalism, or patriarchy.
+
+To be liberated from that, we have to be liberated within ourselves, and so we take a dual focus on inward and outward liberation. And we do that through loving kindness, which is self-compassion and its healing the person while being embodied spiritual beings that are able to do liberated work in the world.
+
+So this sort of back and forth of embodied liberation, inward and outward, has been our central focus. We've been meeting for about four months, and it's been really incredible to see this community. We're not really big yet, but every step has felt really affirming. 
+
+We have some ex-Mormon women in our community that have been really blessed by our group, which we were not expecting to have a place where they could just feel worthy and just be able to spend time in relationship with the divine in themselves and in the world and around them in ways that aren't shaming. We meet on Sunday nights at 4:30 at my house and we sit on yoga mats and we have a liturgy we use. There's a brand new womanist liturgy by Dr. Gaffney, who's a very famous woman theologian. So our liturgy every week focuses on women in the Bible and marginalized bodies and people in the Bible.
+
+We do have times of movement because you can't liberate yourself if you are not in your body, if you are not embodied. So the movement is part of that. We do communion every week. Right now we're meeting every week because of advent. We were playing around with meeting every other week just because we also believe that you can't do everything all at once and be healthy and whole.
+
+We have also started a sort of book study that meets right before, and we knew that we wanted education to be a part of what we do at Lady Justice House Church. One of the things that is incredibly frustrating to Michelle and me is this placement of faith upon people, especially at a very young age, and they're told how to be Christian, but they are just given the fish. They're not taught how to fish. So there's no biblical literacy. There's no critical thinking around the scripture and around different theologies. And so we knew that was going to be something that was really important to us. 
+
+And I've started to do some work with the Unitarian Universalist Church here, and they're incredible. When they heard what we were doing, they said that if we ever needed more space that we could use their space. So there have just been these moments that are of things that have just opened up so much.
+
+P - It's really exciting when you create something new and authentic, you do things the way that you want, and all the right things start to appear. To broaden the scope a little bit, how do you feel about the visibility of the LGBTQ community in Waco?
+
+V - I think that it is growing in visibility, but I think the queer community is still asking for visibility instead of taking up space anyways. This is totally from an outsider perspective, and I'm sure that there are queer organizers here that are screaming at me for saying this about how they're not asking. And I totally respect that. 
+
+I think the kinds of experiences that I have heard from people are about the more progressive/liberal Wacoans who are heterosexual and like they idea of saying yes we support gay marriage, we like gay people, but refuse to do the true work of understanding the ways that homophobia and heterosexism affect and are tied into racism, anti-blackness, and misogyny. That’s the work that is not being done. 
+
+When you push up against that as a queer person, you realize they’re giving you lip service. So I think it's two parts. It's taking up space anyway as a community and also dealing with the “white moderate” types that MLK wrote about. We have got to, and I own that as a liberal white person. We have got to own our own shit as progressives and understand that when we're not willing to do the work, people are suffering.
+
+I think that the community is getting more visible, and places like Stay Classy Waco, Waco Pride Network, the farmers market, and other small businesses are really doing a great job to raise visibility. But the fear around what the old money can do is real and is there, and it's costing us a chance to be a larger community and to wrestle with these questions that need to be wrestled with.
+
+P - I think that all makes a lot of sense. In my experience of organizing in progressive/Democratic politics, there is always this pushback you're getting from certain people, whether it be the moneyed interests or the entrenched incumbents. We assign power to these people, and we end up buying into their narrative. In reality, these people’s perches are far more precarious than they care to admit and that we care to believe in. I think you’re right about asserting yourself in more spaces and putting pressure on people who claim to be allies as well. 
+
+V - Yeah, yeah. And I think there are some “progressive churches” here in Waco, but they don’t have queer leadership. I have just as much right to it as anybody else. So that been really wonderful to step into that (in Lady Justice House) and have that affirmed as like, OK, we are doing this and this is needed.
+
+P - You are probably well aware of this, but Texas has been attacking LGBTQ people for a long time, and this has hit a fever pitch during the last legislative session with the transgender athlete ban.
+
+What do you think the role is of church communities and especially church communities like yours to try to help people through these tough times, especially children who are struggling with their sexual and Christian identity and then receiving this kind of outside pressure? Pressure that takes the form of not being worthy of being an athlete or criminal penalties for parents who affirm their children’s sexual identity. 
+
+V - Well, I think that scripture makes it very clear, and of course everyone has a right to their own biblical interpretation, but I and we at Lady Justice think that scripture has a very clear mandate that spiritual people have an obligation to first do no harm and second to advocate for those who are suffering. And I don't mean that in a paternalistic sense.
+
+I mean that my liberation is tied to your liberation is tied to that child's liberation is tied to that trans person's liberation. So I think that particularly speaking in a progressive clergy context, the evangelical political movement, or the religious right, is a phenomenon that was born. It did not happen by happenstance. It was so specific and targeted and they came and did what they came to do.
+
+Let us tie evangelicalism to conservative social policies. And I don't think messages at Church of you are loved, you are worthy, God is love are enough. That is not enough. It is at best insufficient and at worst, ignorant and apathetic.
+
+We are causing harm by not doing when we just say you are loved, when we're not calling out the systems of power and privilege, when we're not acknowledging the context by which this has come into play, by not remaining in dialogue, by not showing up. 
+
+We are saying I don't believe that your humanity is tied with mine, I don't believe that your liberation is tied with mine, and I'm tired of the apathy. And I think that's where a lot of the impetus for Michelle and I to start Lady Justice came from because we want a church community that's not afraid to wrestle with these things and is not afraid to look at our Christianity as a larger context of things that have done violence and continue to do violence, and what the role of White Christianity in particular is in perpetuating violence against marginalized folks.
+
+Though we are just now starting out, our goal is always, why are we here? Because churches have become part and parcel of the capitalist system, so people's relationship to church is often I come in on Sunday for a service, you provide me that service, and I leave, and my duty as far as my spirituality is done. That's not my spirituality.
+
+My spirituality is actively involved in liberation for everyone, and I understand that if I am going to be embodied and connected to the divine, however you define it, then I have to be on the front lines standing next to you, not in front of you. I'm standing next to you. So and that's how Michelle and I both feel. We're not here to create a transactional church, that's been done.
+
+P - And I like that. A big part of God's mission is that education for us and to give people a lens through which to see the world and not just to connect with or have that communing with the divine, but also to understand this is how the world ought to be, and here's how it is. And then pointing specifically, like you said, to the actors who are running contrary to that. I would love to see more progressive church communities take that active role and understand that we cannot let the religious right go unchecked. 
+
+V - You know, there's two things that are coming to mind. First, we had this great conversation with the Book Club last Sunday. And again, we're reading Shameless by Nadia Bols Weber, which is about sexual liberation. She talks about sexual stewardship. So one of the questions we have kept bringing up in Book Club is what does it look for Lady Justice to engage in sexual stewardship? And for myself, as always, thinking sort of action oriented mind, was do we need to get involved with Planned Parenthood?
+
+Do we need to see what the city's doing in terms of HIV awareness and services? We ended up having such a humbling conversation last Sunday because everyone is sitting around the table saying sexual stewardship starts with us. We just had this great conversation of every one of us sitting around that table understanding that our bodies are not sinful and that our desires are not shameful and that we are allowed to come into the world as fully embodied sexual beings. And that's OK. Our faith is not based on issues telling us that our bodies are so sinful that we just need to be in our minds and we just need to pray that God will make us better.
+
+That was really impactful to me as someone who is outward focused. We were already doing the work because having this conversation, reading this book, and affirming the words of these people in this room and giving that education piece of the theology that you have been taught is toxic and you don't have to hold that anymore and each of those people now has a voice. Our conversation will evolve, and our action on sexual health and gender health will evolve organically and naturally because we all have that sort of inward liberation, outward liberation. 
+
+So there's that piece and then I think for a forward in terms of calling out the church community. For myself as a Methodist the main Methodist churches that are connected here are tied with the conservative Methodist groups that are working to make sure that I cannot be fully ordained and that I could not get married in a United Methodist Church without possibly defrocking a clergy person. These are the things I wrestle with as a clergy person. What does it mean to be a church community? I know that they believe that they are doing the right thing, and I still wrestle with what to do with that.
+
+P - Just y’all existing invites the dialogue. It’s you saying you cannot split the baby anymore, you don’t get to have it both ways. I love that. 
+
+Thank you so much for sitting down with me, we ended up talking for 40 minutes!
+
+V - Thank you, too!

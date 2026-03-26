@@ -1,0 +1,64 @@
+---
+title: "Hive Morality and Human Politics"
+author: "Cyril Hédoin"
+publication: ""
+publication_slug: "cyrilhedoin"
+published_at: "2025-12-13T11:01:00.000Z"
+source_url: "https://cyrilhedoin.substack.com/p/hive-morality-and-human-politics"
+word_count: 1807
+estimated_read_time: 10
+---
+
+*Very short summary: In this essay, I argue that humans’ evolutionary history makes them prone to moral self-righteousness. Not only is morality unnecessary for the evolution of cooperation, in some cases, morality can make the achievement of cooperation more difficult. In human societies, the ultimate cooperative stage occurs when individuals are willing to reflect on and eventually revise their moral beliefs. From this perspective, one of the key functions of politics is to establish the conditions for peaceful moral disagreement.*
+
+\---
+
+Casual observation indicates that we are surrounded by species with very strong dispositions toward cooperation. The most significant cases are eusocial insects like ants, honeybees, wasps, and termites. In *Leviathan*, Thomas Hobbes noted,
+
+“It is true, that certain living creatures (as bees, and ants), live sociably one with another, (which are therefore by Aristotle numbered amongst political creatures), and yet have no other direction, than their particular judgements and appetites, nor speech, whereby one of them can signify to another, what he thinks expedient for the common benefit; and therefore some man may perhaps desire to know, why mankind cannot do the same.”
+
+The highly cooperative character of some species has puzzled biologists and philosophers alike. Our human intuition suggests that cooperation is tied to morality. After all, especially in what game theorists call “social dilemmas,” our personal interests push us to avoid the sacrifices entailed by cooperation while hoping to benefit from others’ efforts. Without morality, the case for cooperation seems hopeless. Individuals who free ride on others’ contributions ensure that if everyone does the same, no one contributes and cooperation never emerges. Still, cooperation is endemic in the natural world, despite the fact as Hobbes notes, that bees and ants haven’t developed anything that deserves to be called “morality.”
+
+It’s now widely acknowledged that this reasoning puts the cart before the horse. Cooperation is not the result of a preexisting morality. It’s the other way around: human morality evolved from the development of cooperative relations.[\[1\]](#_ftn1) Cooperation without morality depends on evolutionary mechanisms biologists are familiar with. In the case of eusocial insects, their highly cooperative organization follows from their genetic haplodiploidy, i.e., males only have one set of chromosomes, while females have two (as in humans). This increases the degree of genetic relatedness (as computed with Hamilton’s rule). For instance, parents and their children share 50% of their genes by descent (each child gets half of their genes from each parent). In haplodiploid species, the genetic relatedness between the queen and her “sons” is also 50% (males get all their genes from the queen but are haploid), but it is 75% between “worker sisters.” This strengthens the mechanism of kin selection, one of the main drivers of the evolution of cooperation.
+
+Cooperation has also evolved through other mechanisms such as direct and indirect reciprocity,[\[2\]](#_ftn2) and, more controversially, group selection. The latter was initially explained by the selection of traits that benefit the group or even the whole species.[\[3\]](#_ftn3) However, this contradicts the basic Darwinian postulate that evolution is primarily driven by the maximization of individual reproductive success. This led to group selection being discarded as an explanation of the evolution of cooperation. However, it is now largely accepted that group selection is compatible with the Darwinian principle of individual fitness maximization, at least as long as evolutionary pressures are such that selection between groups is stronger than selection within groups. The point is that fitness is “frequency-dependent,” meaning that the evolutionary success of an organism (or its genes) depends on the frequency of traits in the overall population. When subpopulations are segmented (i.e., members of one subpopulation are more likely to interact with members of their subpopulation than with members of other subpopulations), individual fitness will depend on the distribution of traits in one’s subpopulation (potentially selecting against cooperative traits), but also on how this distribution affects occasional interactions between subpopulations (favoring subpopulations displaying a higher degree of cooperation).[\[4\]](#_ftn4)
+
+Group selection is even more relevant in accounting for human evolution specifically. As Hobbes suggests in the above quote, sociality emerged in species devoid of any ability to form a culture, to create institutions, and to intentionally follow moral principles. Humans are special (unique?) because they achieved cooperation well beyond the limits of circles of genetic kin. This would not have been possible without culture and institutions. Language gave rise to culture, and culture strengthened the ties between non-genetically related individuals. It contributed to our evolved capacity to create, identify, and follow abstract rules, and to sanction individuals who ignore them. In a nutshell, there are good reasons to think that group selection is stronger among humans than among any other species on earth because it is not only biological, but also *cultural*.
+
+From this perspective, several researchers have pointed out the historical importance of *warfare* in the evolution of human cooperation through cultural group selection.[\[5\]](#_ftn5) Warfare, and especially *mass warfare*, has been made possible only because humans have evolved the capacity to mobilize their fellows to fight other human groups, either through coercion (those who refuse to fight are jailed or killed) or moralization (group members have a moral duty to fight for their group). The culture of warfare increases the strength of between-group selection because it increases the evolutionary advantage of human groups able to mobilize their resources, including human resources, to fight. Hence, cultural group selection puts a premium on the collective capacity to cooperate in order to fight. This creates a positive feedback loop: more cooperation increases fighting ability and favors the evolution of the culture of warfare.
+
+[
+
+![](https://substackcdn.com/image/fetch/$s_!4gVG!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fba2742de-555d-478f-953a-4ee211ce0995_1280x767.jpeg)
+
+
+
+](https://substackcdn.com/image/fetch/$s_!4gVG!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fba2742de-555d-478f-953a-4ee211ce0995_1280x767.jpeg)
+
+###### “Consequences of War,” Peter Paul Rubens (1638-9)
+
+If we accept this evolutionary story, then human morality is tied to the evolution of cooperation through cultural group selection and warfare. From a metaethical point of view, some have argued that this is enough to be skeptical about the truth value of our moral beliefs.[\[6\]](#_ftn6) However, I don’t want to discuss metaethics here. I instead point out another implication regarding **how morality can be an obstacle to cooperation**. Given the evolutionary origins of morality, we may expect that individuals hold their moral beliefs quite strongly. This is especially true for moral beliefs related to one’s duties to serve one’s group, e.g., one’s country. This is, indeed, something that we can easily observe casually in day-to-day conversations where people typically exhibit a high degree of self-righteousness. We are prone to doubt many things, but morality is generally not among them. There is nothing inherently bad about this; indeed, this is largely what sets morality apart from our other beliefs and rules.
+
+However, an interesting aspect of morality is that it involves not only beliefs about one’s rights and duties, but also about *others’ rights and duties*. It translates into preferences about what other individuals should do. Still, even if moral beliefs involve others’ actions (and possibly beliefs), my moral beliefs are still *mine*. So, not only are we prone to maintain our moral beliefs even when evidence indicates that others don’t think the same way we do, but these beliefs are largely about how others should behave. It follows that morality is not only authoritative (i.e., it often prevails over other considerations); it can easily turn *authoritarian*. Self-righteousness makes moral disagreement particularly difficult to resolve and easily lends itself to the justification of forcing others to comply with one’s moral beliefs, even while genuinely thinking that one is doing the right thing.
+
+These considerations especially matter regarding our moral beliefs about one’s duty to defend one’s country. There is talk in several European countries of reintroducing mandatory military service. A French general recently commented that if a country like France is not ready to see “its children” die at the front, it is lost. In the 1960s, heated debates, and violence, surrounded the conscription of tens of thousands of Americans sent to fight in the Vietnam War. The strength of the moral belief that we ought to fight when our country is under attack is surely due to our evolutionary history. Still, it’s not universal. It’s easy to regard those who disagree as being motivated by cowardice or selfishness. It may sometimes indeed be the case. However, rejecting such duty doesn’t entail immorality, especially since “is under attack” might mean different things to different people.
+
+In his article “The Commonwealth of Bees,” the philosopher Gerald Gaus argues that there is no social morality when individuals are purely conscientious.[\[7\]](#_ftn7) But asking people to depart from their genuine moral beliefs is demanding a lot. They will be willing to do it only if they are incentivized, broadly speaking, to do so. That entails in particular that they believe that other individuals are like-minded. In human societies, the ultimate form of cooperation is achieved not because individuals act based on their moral beliefs, but because they are willing to reflect on these beliefs—and eventually to revise them—when others disagree. We are not bees, and so it’s not a question of cooperating without morality. The issue is rather to achieve cooperation *given* our strong moral beliefs.
+
+Fortunately, humans have not only evolved morality; they have also evolved *politics*. Morality is naturally “hive morality”: we are prone to assume that everybody thinks, or should think, like us about what is good for all. Politics is often contaminated by the same hive thinking, even more so in populist times. But the foundational role of politics is to acknowledge disagreement, including moral disagreement, and to find ways (institutions) to foster cooperation despite it. That’s why politics should be respectful of individuals, their ways of life, and their beliefs. In many cases, this entails giving people rights to believe and to live as they wish. When it’s not possible, as may be in the case of military defense against external threats, politics should be even more mindful of moral disagreement and accommodate the diversity of beliefs by limiting coercion. Self-righteous moralistic appeals to a supposed duty are unlikely to do the trick.
+
+\---
+
+[\[1\]](#_ftnref1) Richard Joyce, *The Evolution of Morality* (MIT Press, 2006).
+
+[\[2\]](#_ftnref2) Robert L. Trivers, “The Evolution of Reciprocal Altruism,” *The Quarterly Review of Biology* 46, no. 1 (1971): 35–57. Martin A. Nowak and Karl Sigmund, “Evolution of Indirect Reciprocity,” *Nature* 437, no. 7063 (2005): 1291–98.
+
+[\[3\]](#_ftnref3) V. C. Wynne-Edwards, *Animal Dispersion in Relation to Social Behaviour* (Oliver and Boyd, 1962).
+
+[\[4\]](#_ftnref4) This is mathematically captured by the so-called “Price equation.” A good philosophical treatment of group selection along these lines is Samir Okasha, *Evolution and the Levels of Selection* (Clarendon Press, 2006).
+
+[\[5\]](#_ftnref5) Samuel Bowles and Herbert Gintis, *A Cooperative Species: Human Reciprocity and Its Evolution* (Princeton University Press, 2011).
+
+[\[6\]](#_ftnref6) For a version of this kind of argument for moral skepticism, see Joyce, *The Evolution of Morality*.
+
+[\[7\]](#_ftnref7) Gerald Gaus, “The Commonwealth of Bees: On the impossibility of Justice-Through-Ethos,” *Social Philosophy and Policy* 33, nos. 1–2 (2016): 96–121.

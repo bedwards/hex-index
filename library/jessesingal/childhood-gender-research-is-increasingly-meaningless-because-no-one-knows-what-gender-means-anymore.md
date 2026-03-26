@@ -1,0 +1,66 @@
+---
+title: "Childhood Gender Research Is Increasingly Meaningless Because No One Knows What 'Gender' Means Anymore"
+author: "Jesse Singal"
+publication: ""
+publication_slug: "jessesingal"
+published_at: "2025-09-23T20:54:08.000Z"
+source_url: "https://jessesingal.substack.com/p/childhood-gender-research-is-increasingly"
+word_count: 1887
+estimated_read_time: 10
+---
+
+[
+
+![](https://substackcdn.com/image/fetch/$s_!LwO2!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F117a299f-6780-4d2c-93ad-ee88cf8ffa48_1600x1066.png)
+
+
+
+](https://substackcdn.com/image/fetch/$s_!LwO2!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F117a299f-6780-4d2c-93ad-ee88cf8ffa48_1600x1066.png)
+
+Last week, *The Economist* [published an article](https://x.com/jessesingal/status/1968701785318547635) I wrote about an important new study on a cohort of kids whose parents socially transitioned their genders at a young age. I love writing for *The Economist*, but it is a publication with pretty tight space and tone constraints, so 1) some quotes got cut that I want to publish; and 2) I wasn’t allowed to do my default level of blathering and editorializing.
+
+This post will have two parts: First, I’ll give you guys the “director’s cut” version, as I submitted it to *The Economist*, with all the quotes and other material I hoped to include. Then the paywall, then some blathering. Oh, and right below the paywall I’ll also include an unlocked link to the version that ran in *The Economist*.
+
+### Me, Uncut and Less Edited Than I Ever Should Be
+
+When the researcher Dr. Kristina Olson began studying kids who had transitioned genders at a young age in the early 2010s, there weren’t a lot of them. The idea of the “trans kid” was fairly new, and experts didn’t generally recommend full-blown social transition for most minors. In the States, the few youth gender clinics mostly followed a version of the so-called Dutch Protocol, based out of a clinic founded in Utrecht and later moved to Amsterdam.
+
+The Dutch discouraged social transition, because their research showed that most kids with gender dysphoria would grow out of it in time, with no medical intervention necessary. A Toronto clinic had published similar results from its own sample, and embraced a similarly cautious approach.
+
+As the decade progressed, though, a new understanding took hold: that trans kids “know who they are” and that there’s therefore little reason to delay social transition. With the cultural tides shifting, an increasing number of parents followed suit and transitioned young kids — in some cases, as young as age 3. This is generally known as the “affirming” approach.
+
+Between 2013 and 2017, Dr. Olson and her colleagues recruited a group of hundreds of these early transitioners, as well as their families, with the goal of following up with them for many years to come. They also recruited two comparison groups: a group of siblings of the trans-identifying kids who themselves identified as cisgender at the start of the study, and an unrelated group of cisgender kids, mostly recruited from Washington State (where Dr. Olson, now at Princeton University, was based at the time).
+
+The TransYouth Project, as it came to be called, has since become the single largest and most successful longitudinal effort to track early transitioning youth in the U.S./the world. In 2018 Dr. Olson [received a MacArthur Genius Grant](https://www.macfound.org/fellows/class-of-2018/kristina-olson) for her work. Now, the latest results have been released, and they highlight the vexingly complex nature of this research — and the very different ways in which different experts can interpret the same statistics.
+
+“[Stability and Change in Gender Identity and Sexual Orientation Across Childhood and Adolescence](https://srcd.onlinelibrary.wiley.com/doi/epdf/10.1111/mono.12479),” which was originally the doctoral dissertation of lead author Dr. Benjamin deMayo under Dr. Olson’s supervision at Princeton, was published in the *Monographs of the Society for Research in Child Development* in July. It’s nearly book length, and the headline finding is that kids who transitioned young remained relatively stable in their gender identities over time. The average kid in this study transitioned at age 7, was last contacted by Olson’s team just over eight years later, and at that time had an 81.6% chance of having been unwavering in their gender identity. The other 18.4% had experienced at least one identity change, entailing either a reversion to their natal sex or — more frequently — coming out as “gender diverse,” or a category that is neither cisgender nor a transgender boy or girl (“nonbinary” is the most common label applied to this group).
+
+“In some ways it’s positive, in that it refutes some claims that when kids socially transition they stop evaluating their gender in any way,” said Amy Tishelman, a Boston College professor of psychology and neuroscience who previously worked as a clinician at the Boston Children’s Hospital gender clinic, which is one of the oldest in the country. “There is this argument that everyone who socially transitions is on a train track that never veers one way or another. That would refute that.”
+
+But just how frequent such veering occurs — and how it should be interpreted — are vexing questions. For one thing, in 2022, Dr. Olson published a study in *Pediatrics* on a different subset of the same cohort. In that study, just 6% of the kids had an identity change over a five-year period. While it’s not apples-to-apples, \[WE CHANGED THIS ALONG THE WAY — YOU CAN DRAW COMPARISONS HERE\] there’s a big difference between 6% and 18.4%, and taken together the two studies suggest that as the follow-up period grows, some of this study’s subjects are likely to develop significantly different feelings about their gender identities. The studies authors last checked in with the current cohort at age 15, on average, meaning most of them haven’t even entered young adulthood yet.
+
+“The longer the observation the greater the instability!!!” said Dr. Stephen Levine, a psychiatry professor at Case Western Reserve University School of Medicine who has been working with and researching trans adults and youth for decades, said in an email. “Very important. And very important to keep \[the\] study going.” If over time, desistance becomes more common, “that might be a good argument for why social transition at a young age should be done cautiously,” [said Dr. Laura Edwards-Leeper](https://www.washingtonpost.com/outlook/2021/11/24/trans-kids-therapy-psychologist/), a psychologist who also worked at the Boston clinic and who has become a critic of what she sees as reckless approaches to youth transition. (Tishelman and Edwards-Leeper both helped write the most recent Standards of Care published by the World Professional Association for Transgender Health.)
+
+Edwards-Leeper also noted that a nonbinary gender identity might just be a way station, of sorts, on the way toward some of these kids reidentifying with their birth sex. “It might be easier for them to admit to themselves and everyone in their lives that they are JUST shifting to nonbinary, rather than back to cis — as a first step,” she said. “This is definitely the way it often goes with transitioning from cis to trans — it feels safer to try out nonbinary first. I would suspect that some of those nonbinary kids will shift to cis as they get a bit older.”
+
+Key to this debate is whether social transition itself increases the likelihood that a young person will identify as trans in the long run. While this idea is often laughed off by advocates and some researchers, the UK’s [Cass Review](https://webarchive.nationalarchives.gov.uk/ukgwa/20250310143933/https://cass.independent-review.uk/home/publications/final-report/), widely regarded as the most comprehensive effort yet published to evaluate the state of youth gender medicine, noted that “it is important to view \[social transition\] as an active intervention because it may have significant effects on the child or young person in terms of their psychological functioning and longer-term outcomes.”
+
+“The results are exactly what I said was going to happen back in 2018 and in subsequent writings,” said Dr. Kenneth Zucker, a clinical psychologist and sex researcher in Toronto. This might sound braggadocious, but, as the kids say, Zucker has receipts. In a [2018 article in the](https://www.tandfonline.com/doi/full/10.1080/15532739.2018.1468293) *[International Journal of Transgenderism](https://www.tandfonline.com/doi/full/10.1080/15532739.2018.1468293)*, he wrote, “I would hypothesize that when more follow-up data of children who socially transition prior to puberty become available, the persistence rate will be extremely high.”
+
+Dr. Zucker is on the older-school end of the spectrum: His since-shuttered Toronto clinic produced some of the seminal research showing a high rate of desistance among a population of kids who arrived at his clinic aged 2–12, and who had not yet socially transitioned. Dr. Zucker believes that according to the available evidence, the act of socially transitioning a child could increase the likelihood of persistence, which in turn increases the likelihood of the young person seeking puberty blockers or cross-sex hormones, which have little-understood long-term consequences and some well-understood risks. (In the monograph, deMayo et al. note that 86% of the young people in their sample have started blockers and 68% have started hormones.)
+
+[Dr. Olson has previously argued](https://slate.com/human-interest/2016/01/what-alarmist-articles-about-transgender-children-get-wrong.html) that in the aughts and 2010s, Zucker and his colleagues’ high desistance statistics stemmed from a misunderstanding: The kids at their clinics were mostly gender *nonconforming*, rather than having severe gender dysphoria or outright endorsing a trans identity. “Thus, most of the children who are argued to have grown out of their gender dysphoria never claimed a transgender identity to begin with,” she and a colleague wrote in *Slate* in 2016.
+
+Dr. Zucker has long been skeptical of this explanation. In the aughts, he said, he and his colleagues in Toronto “were seeing a lot of very young kids, and I would say that the vast majority of those kids were as extreme as the cases that deMayo et al. have studied. Yet for the ones that we did follow up on, the vast majority desisted.”
+
+The monograph touches on another hot-button issue pertaining to youth gender, which is the question of external influences. Citing Zucker and other earlier researchers, the authors reference the “common idea in the literature. . . that parents in some way contribute to or facilitate gender nonconformity in their children.” They express skepticism of this idea on the grounds that most of the siblings of trans youth “are cisgender.” “Presumably, if parents were encouraging gender nonconformity, in general, we might see a higher rate of transgender identity among the siblings.”
+
+But Zhenya Abbruzzese, cofounder of the Society for Evidence-Based Gender Medicine, a U.S.-based research organization that is skeptical of youth medical transition, interpreted the data very differently. She pointed out that “remarkably, 23% of female siblings became transgender-identified during the study.” This occurred during a period in which there has been a rapid rise in youth identifying as transgender, with the vast majority (sometimes 70% or 80%) being female. This was also a much higher figure than the percentage of natal males (9%) or females (10%) in the pseudocontrol group who came out as trans during the study, or the percentage of male siblings who did (9%). (The researchers note that the rate of identity *change* was the same in the three groups, in terms of statistical significance, but Abbruzzese pointed out that because the subgroups are so small — just seven of the male children in the cisgender group came out as trans, for example — a lack of statistical power could be responsible.)
+
+All these figures, it should be said, are far higher than the traditional, population-based estimates of the trans population produced by organizations like the Centers for Disease Control and Prevention, which have historically hovered at around 1%. Clearly young people understand terms like *gender* differently than their parents, but what’s unknown is the extent to which these labels reflect deep-seated, longer-term trajectories versus feelings that will, in time, resolve into more traditional sexual orientations and gender identities. Drs. deMayo and Olson, for this part, were not interested in discussing this. Dr. deMayo “politely” declined via email. “Not interested, thanks,” said Olson.
+
+### **Developmental Psychologists Against Social Influence**
+
+As for the opining: This is good and useful research, but it’s just wild how much the researchers have to dance around the most obvious explanation for certain patterns we’re seeing in how kids identify: social influence and contagion.
+
+[Read more](https://jessesingal.substack.com/p/childhood-gender-research-is-increasingly)

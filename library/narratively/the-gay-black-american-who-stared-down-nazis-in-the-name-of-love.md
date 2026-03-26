@@ -1,0 +1,146 @@
+---
+title: "The Gay Black American Who Stared Down Nazis in the Name of Love"
+author: "Ethelene Whitmire"
+publication: ""
+publication_slug: "narratively"
+published_at: "2026-01-27T15:01:19.000Z"
+source_url: "https://www.narratively.com/p/the-gay-black-american-who-stared"
+word_count: 3013
+estimated_read_time: 16
+---
+
+[
+
+![](https://substackcdn.com/image/fetch/$s_!1qSb!,w_5760,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fc6c16431-02eb-410d-a725-4a40d3dc80a5_1852x1042.jpeg)
+
+
+
+](https://substackcdn.com/image/fetch/$s_!1qSb!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fc6c16431-02eb-410d-a725-4a40d3dc80a5_1852x1042.jpeg)
+**Illustration by* **Kat Lam***
+
+*Every day is a good day to share a story about an American facing down fascists. Today we’re sending out this Narratively Classic because tomorrow over at Narratively Academy [we’ll be chatting with the author, Ethelene Whitmire, about how she expanded this story into a book](https://www.narrativelyacademy.com/p/this-week-how-i-turned-my-nonfiction) set to be published by Penguin Random House next week. Enjoy the story—we’re making it free to all this week—and hope you can [join us tomorrow](https://www.narrativelyacademy.com/p/this-week-how-i-turned-my-nonfiction).*
+
+\---
+
+In Italy at the end of 1944, the Negro 92nd Infantry Division of the United States Army discovered two gaunt men who claimed they had escaped from a Nazi concentration camp. One man was thin and blonde with a “scholarly appearance.” The other had brown skin, a slight build and an erect carriage. After two years behind barbed wire, they said, they had fled the camp and gone on an incredible journey to reach the American lines: swimming in lakes, hiking through the snow-covered Apennines, and taking shelter in barns, caves, woods and the homes of friendly partisan supporters. They claimed they dodged bullets and ate leaves to survive; they said they bore witness to the slaughter of women and babies. Their names were Reed Peggram, an African-American, and Gerdh Hauptmann, his Danish friend, and they were “ragged and near collapse from hunger and fatigue.”
+
+[
+
+![](https://substackcdn.com/image/fetch/$s_!EFBH!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F7aa56282-8ed3-4d4c-a915-9ffe14721a3b_1470x2048.jpeg)
+
+
+
+](https://substackcdn.com/image/fetch/$s_!EFBH!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F7aa56282-8ed3-4d4c-a915-9ffe14721a3b_1470x2048.jpeg)
+*Max Johnson interviewing Reed Peggram and Gerdh Hauftman after their escape from a concentration camp, Dec. 30, 1944. (Photo courtesy The Baltimore Afro-American Archives)*
+
+Freelance war correspondent Max Johnson, writing for the Negro newspapers *Call and Post*, *New York Amsterdam News* and *Baltimore Afro-American*, reported this curious find. The headlines that accompanied his stories were purposefully provocative: “Negro Escapes German Camp in Italy,” “Two Scholars Flee Concentration Camp,” “How Boston Lad Studying in Denmark Escaped Nazis” and “Boy Friends Scorn Bombs, Come Out OK.” Although he reported their claims, Johnson was skeptical of Peggram’s tale, not even believing that he was an American citizen, since his “accent was decidedly British.” Another correspondent noted that Peggram claimed to have a bachelor’s and master’s from Harvard, that he spoke English flawlessly, along with four other languages, and that despite his ordeal, it was not his physical suffering that upset him most. “One of my greatest losses was my diploma from Harvard,” Peggram said. “They don’t issue duplicates. But I still have my Phi Beta Kappa key.” The two men refused to leave each other’s side, but it was not clear if Hauptmann would be allowed to return to the U.S. with Peggram. Johnson called their story, “a modern version of Damon and Pythias,” referencing the Greek legend of loyalty between friends. Here were “bonds of friendship so strong that even the Nazis were unable to break them.” “If Peggram’s story proves to be correct,” wrote Johnson, “it will undoubtedly become one of the greatest human interest stories yet revealed in this war.”
+
+[
+
+![](https://substackcdn.com/image/fetch/$s_!Gb2U!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F645026f6-6f3f-49b0-894f-7c4e802c9751_84x18.svg)
+
+
+
+](https://substackcdn.com/image/fetch/$s_!Gb2U!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F645026f6-6f3f-49b0-894f-7c4e802c9751_84x18.svg)
+
+Reed Edwin Peggram was born on July 26, 1914, in Boston, Massachusetts. His father, Harvey Thomas Peggram, worked variously as a shorthand teacher, a self-employed card writer, and, according to his World War I draft card, an artist. Harvey was inducted into the United States Army on November 6, 1917, and served overseas as a private in the medical unit between May 15, 1918, and September 9, 1919. He returned from the war “100 percent disabled,” and became a permanent resident at the Central State Hospital in Petersburg, Virginia, where he was treated for gas poisoning, according to his family. He would remain there until his death in 1956. For all intents and purposes, young Reed no longer had a father.
+
+In the club photographs for the 1931 Boston Latin School literary and drama clubs, Peggram’s face stands out as the only African-American there. In a class of 262 students, Peggram ranked in the first quarter in scholarship. He received several awards and obtained honors on exams in Elementary Latin, Elementary French, Elementary German, and Advanced Latin. As it has been for hundreds of years of Boston Latin graduates, Harvard was the next step. On his 1931 Harvard application, Peggram said he wanted “to become an accomplished linguist.” He applied for multiple scholarships, stating on financial aid forms that his mother had three additional children with her new husband, “Mr. Farrar,” and that his grandmother was his sole financial supporter. He also listed his father as dead. He was accepted to the college and distinguished himself, not just as a fine student but as one of the few black students at Harvard at the time.
+
+[
+
+![](https://substackcdn.com/image/fetch/$s_!CXiR!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F81733b36-cf76-474f-8d69-c2f57f564547_1140x1359.jpeg)
+
+
+
+](https://substackcdn.com/image/fetch/$s_!CXiR!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F81733b36-cf76-474f-8d69-c2f57f564547_1140x1359.jpeg)
+*Peggram’s undergraduate Harvard photo, 1935. (Photo courtesy Harvard University Archives.)*
+
+In 1934, applying for a Rhodes Scholarship, Peggram asked Dean A. Chester Hanford for a recommendation. “He is one of the highest scholars in his class,” wrote Hanford. “Last November he was elected to membership in Phi Beta Kappa. He is a thorough gentleman.” Hanford shared a copy of the letter with Peggram, who promptly thanked him. But there was another letter Peggram did not see. “I wish to supplement my letter of May 29th to you about Mr. Reed Peggram by stating that he is a negro \[sic\],” Hanford wrote in his second letter. “It seemed to me that you should know that fact.” “Thank you for your testimonial and letter about Reed Peggram,” responded tutor Andrew Sydenham Farrar Gow. “I should like to thank you however for telling me that Peggram is a Negro. I should certainly have been somewhat taken aback if I had admitted a man with such a name unwarned.”
+
+Although Gow insisted this information would have no bearing, Peggram did not get the scholarship. Peggram graduated from Harvard in 1935, magna cum laude, with the thesis, “A comparison of the personal element in Madame Bovary and L’Éducation Sentimentale.” Over the next two years, he would get his master’s from Harvard, study English and comparative literature at Columbia, and return to Harvard to begin work on his Ph.D. It is clear from Peggram’s letters that while there, he became infatuated with Leonard Bernstein, who would later become famous for composing the music for “West Side Story.”
+
+Bernstein arrived at Harvard in 1935 and was also a graduate of the Boston Latin School — perhaps the two already knew each other from high school. One night at Harvard, Peggram and Bernstein sat side by side on a studio couch in a dimly lit room while a quartet played Beethoven. Peggram had asked that the lights be lowered because he believed that it was “more pleasant to listen to music in a room that has been darkened.” Peggram was in “ecstasy and agony at once,” sitting so close to Bernstein. Peggram requested a song from Debussy while Bernstein listened with eyes closed as if he was asleep.
+
+In a letter, Peggram would later explain that he felt, “ecstasy because you are here, and agony because I do not dare touch you, even in the dark, for fear of breaking the spell of such exquisite beauty.” In a series of letters written to Bernstein in October 1937, Peggram referenced T.S. Eliot, Rachmaninoff, Eros and Psyche, Diaghilev’s treatment of Nijinsky, and the speech of Aristophanes in “The Symposium,” a discourse on love that says when a person, “happens on his own particular half, the two of them are wondrously thrilled with affection and intimacy and love, and are hardly to be induced to leave each other’s side for a single moment.”
+
+Leonard Bernstein’s archive at the Library of Congress only contains Peggram’s letters. Bernstein’s replies are lost, save for a few brief, devastating quotes that Peggram included in his own letters, which suggest that Bernstein rejected his overtures. “The revelation of your letter,” wrote Peggram, “was after all, a great shock to me, and your use of the words ‘repulsive’ and ‘shudder’ an insult to the tenets which I hold sacred.” Later Peggram — demonstrating his preference for British spelling — beseeched Bernstein, “May I also request that, as a favour to me, you destroy all my letters and any other material that I have sent or given you during this regrettable incident?” In 1938, Peggram got a scholarship to study at the Sorbonne: a chance to travel, a fresh start.
+
+[
+
+![](https://substackcdn.com/image/fetch/$s_!kUa8!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fcec2e793-5132-40bc-b360-cc4169a22eed_84x18.svg)
+
+
+
+](https://substackcdn.com/image/fetch/$s_!kUa8!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fcec2e793-5132-40bc-b360-cc4169a22eed_84x18.svg)
+
+In the fall of 1938, Peggram met the person who would change his life. There is no record of how Peggram met Danish scholar Gerdh Hauptmann, who was studying fine art and painting at the Sorbonne, for the same reason that there is no written record of any facet of their relationship: They were gay, in a time when few dared to write such feelings down. Nevertheless, the evidence suggests that this was the definitive romantic relationship of Peggram’s life. Hauptmann taught him Danish; he taught Hauptmann English. Within a year, he would write that they were “inseparable.” “Recent European events have caused me to leave France for Denmark,” Peggram wrote in September 1939. “I hope you will also join your prayers to mine for humanity, civilization, and culture.”
+
+Peggram spent the early months of the war working with Hauptmann on a 120-page manuscript, “Poems and Sketches,” a translation of the 19th century Danish author Jens Peter Jacobsen. During this time, Peggram’s family and friends implored him to return to the U.S. while he still could. The U.S. State Department had already warned Americans to leave the European continent, but Peggram did not. Unable to declare his love for Hauptmann and explain that he would not leave Europe without the man he loved, Peggram baffled his family by insisting that his need to collaborate with Hauptmann on scholarly projects “richer and more profound than either of us had produced separately” made it impossible to leave Hauptmann behind.
+
+The men left Copenhagen shortly before it was invaded by the Nazis on April 9, 1940. They fled to Paris to retrieve their luggage and made their way to Florence, Italy, where they wrongly assumed they would be safe. They spent the rest of the year stranded and broke, pleading for money from family in the U.S. who could not understand why Peggram would not just come home. Information about Reed’s European movements are located in letters between him and Dorothy Norman, the editor and publisher of the journal *Twice a Year* from 1938 – 1948. “I am struggling for my life,” Peggram wrote on January 15, 1941. “If someone does not help me very soon, I shall just simply die.” “We wish only to live, to write, to create, to say what we have to say as only we know how to say it,” he continued. “It is because we know we must do this together that we are only annoyed, rather than grateful, when people offer me a ticket to N.Y. as some have indeed attempted — without explaining, by the way, how my collaborator could ever be saved through this philanthropy.”
+
+He assured Norman that he was not begging nor pleading. He said was merely making, “a statement of fact.” “Two young artists of more than ordinary ability need immediate financial help in order not to perish,” he wrote. “In the name of art, of culture, of humanity in their deepest sense, this message must somehow be spread around where it will take effect at once, before it is too late.”
+
+Hope came in the form of an inheritance. In September 1940, Peggram’s friend from Harvard, 25-year-old music student and aspiring concert pianist Montford Schley Variell, was found dead, according to *The New York Times*, “under mysterious circumstances” in his apartment. Lying face down, neatly wrapped from neck to feet in a blanket and sheet, Variell “had been dead for several days.” The police were not sure if he had committed suicide, died accidentally, or was murdered. Initially, the medical examiner declared his death a suicide by gas — the cause was later changed to carbon monoxide poisoning.
+
+Variell had a will and two life insurance policies that totaled $81,000, and he left money to several heirs, including $11,000 — worth approximately $160,000 in 2018 — to Peggram. This, he hoped, would be enough to get them both out of Europe. But the money would not be released to him unless he came home — without Hauptmann — to claim it. Despite the legal obstacles, Peggram held out hope. In a letter dated April 9, 1941, he wrote to Norman: “Just how long it will take us to reach the U.S.A. still depends upon how soon acquaintances, consuls, attorneys, lawyers, etc. can experience sudden attacks of intelligence forceful enough to make them understand that we have been living here by necessity rather than by choice. But we know that even these will realize themselves in the end.” After this, there were no more letters. Communications between Peggram and his friends and family stopped as, according to Peggram, he and Hauptmann were taken into a concentration camp at Bagni di Lucca, less than 50 miles from Florence.
+
+[
+
+![](https://substackcdn.com/image/fetch/$s_!Yj9U!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F71c76500-cbca-47cf-ac33-57a9cb22ce43_84x18.svg)
+
+
+
+](https://substackcdn.com/image/fetch/$s_!Yj9U!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F71c76500-cbca-47cf-ac33-57a9cb22ce43_84x18.svg)
+
+When Peggram and Hauptmann told the story of their arrest to the *Baltimore Afro-American*, they did not mention homosexuality. They were taken into custody, they said, because the authorities felt “a Dane has no right to be a friend of a Negro.” After several days of interrogation, the Germans decided that Peggram would be permitted to leave German-occupied territory, but that Hauptmann, as the subject of a conquered country, would be compelled to join the German army. But, as the *Afro-American* put it, Peggram and Hauptmann “swore that whatever came, they would not break up.”
+
+[
+
+![](https://substackcdn.com/image/fetch/$s_!cELm!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F2912c8fe-18c9-486d-bcfb-c4867d2ff522_316x453.png)
+
+
+
+](https://substackcdn.com/image/fetch/$s_!cELm!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F2912c8fe-18c9-486d-bcfb-c4867d2ff522_316x453.png)
+*Peggram and Hauftman tell Lt. James Young how they escaped from a German concentration camp, Mar. 17, 1945. (Photo courtesy The Baltimore Afro-American Archives)*
+
+They were held at Bagni di Lucca until January 1944, when Allied planes gunned the camp, forcing the Germans to move their prisoners to another site. Over the next few months, the two men were shifted from camp to camp until they reached Piacenza, where Hauptmann was ordered to a German work camp. He refused to leave Peggram, whom the Germans would not compel to leave because, they said, “You are American.” The scholars were put in solitary confinement as the Germans pondered their fate. “We didn’t know how long we stayed there, but it was really hell,” said Peggram. “Just enough soup to lead a miserable existence. For months we did not see a single human being. In fact, we saw nothing that was living. Not even bugs. There was no light, no action — nothing but a great deal of time to think about what was in store for us.”
+
+Before their fate was decided, the camp was attacked by Italian partisans, who freed the prisoners and gave them shelter. Hauptmann and Peggram spent the rest of the year with the partisans, before striking out on their own in an attempt to reach the American lines. “They found that all German-occupied territory was a prison,” wrote Johnson. “Without passports or other identification, their lives were worth less than when they were confined.” Peggram and Hauptmann spent weeks hiking across country, once being shot at by German machine gunners, hiding with partisan families during the day and sleeping in barns at night.
+
+At last, they reached the 92nd Infantry Division, and were safe. “They appeared to be as happy as two kids talking about what Santa Claus had brought them,” wrote Johnson.
+
+Although the reporter was initially skeptical of their story, there seems to be no reason to doubt Peggram and Hauptmann’s account of their imprisonment and escape. It is true that there was a camp at Bagni di Lucca, and that 16 miles away was another camp, Colle di Compito, that held citizens from the U.S., Great Britain and Denmark. Prisoners were often transferred between the two camps. Peggram told Johnson, “We are not principally concerned with going to America. We only want to go some place where we can be assured remaining together to work in peace,” but Peggram returned to the U.S. alone, several months after encountering the 92nd Division. He departed Europe on the hospital ship *Algonquin* from Naples, Italy, arriving in Charleston, South Carolina, on August 14, 1945. He would not see Hauptmann again.
+
+[
+
+![](https://substackcdn.com/image/fetch/$s_!jEiA!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fbadde2b5-a443-4542-a1f0-6709f920a374_84x18.svg)
+
+
+
+](https://substackcdn.com/image/fetch/$s_!jEiA!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fbadde2b5-a443-4542-a1f0-6709f920a374_84x18.svg)
+
+Upon his return to the U.S., Peggram was hospitalized for four years, the result, he said in a 1950 alumni newsletter, of a “nervous breakdown.” After his release, he returned to Boston to live in a multiple-family dwelling shared by his mother and half-brother. His existence was mainly solitary. “My own postgraduate history is no particular triumph,” he wrote in a later class note. “Either I am too lazy or too comfortable (scarcely the latter) to function as a professional translator.”
+
+According to these missives, he spent the rest of his life singing in Episcopal Church choirs, improving the “seven or eight” foreign languages he knew, and failing to convince a publisher to accept his “antique, revised, unpublished doctoral dissertation.” He died on April 20, 1982. In 1971 Gerdh Hauptmann published a book of poems, *Declaration*, in English, by a Danish publisher. One poem, “Ante,” appeared to reference his relationship with Peggram. It began: I remember once — we were walking together, perhaps in a year or two, you said, and we made plans, and discussed whether it should be in New York — in Paris — or maybe somewhere in China. We did not know then — although perhaps we did suspect it — that the apples would not ripen on the trees that year or the next or ever.
+
+\---
+
+Love this story and have questions for this author? [Join us at 1pm on January 28](https://www.narrativelyacademy.com/p/this-week-how-i-turned-my-nonfiction)!
+
+[
+
+![](https://substackcdn.com/image/fetch/$s_!U32w!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F62129f6c-9065-452c-a225-f97e108cf2bf_940x788.png)
+
+
+
+](https://www.narrativelyacademy.com/p/this-week-how-i-turned-my-nonfiction)
+
+\---
+
+***Ethelene Whitmire*** *is a respected historian and professor for the Department of African American Studies at the University of Wisconsin–Madison. Her research has won awards and funding from the Ford Foundation, the Fulbright Program, and the American Library Association, and she has been invited to writers residencies including Yaddo, UCross, Hedgebrook, and Virginia Center for the Creative Arts.*
+
+***Kat Lam*** *(they/them) is an illustrator based in Brooklyn, New York, whose work depicts everyday scenes with a touch of surrealism and melancholy.*
+
+This story was originally published on September 4, 2018.

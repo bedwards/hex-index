@@ -1,0 +1,157 @@
+---
+title: "The only job that AI won't replace is venture capitalist, says Marc Andreessen, a venture capitalist"
+author: "Egor Kotkin"
+publication: ""
+publication_slug: "egorkotkin"
+published_at: "2025-08-02T13:14:17.000Z"
+source_url: "https://egorkotkin.substack.com/p/the-only-job-that-ai-wont-replace"
+word_count: 2781
+estimated_read_time: 14
+---
+
+[
+
+![](https://substackcdn.com/image/fetch/$s_!PuMg!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F1c3b970c-8dd1-4514-aca4-4dad26043992_1077x824.jpeg)
+
+
+
+](https://substackcdn.com/image/fetch/$s_!PuMg!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F1c3b970c-8dd1-4514-aca4-4dad26043992_1077x824.jpeg)
+
+Marc Andreessen is an American billionaire, co-founder of the Netscape browser, which was sold to AOL for $4.2 billion in 1998, and a venture capitalist who currently sits on the boards of Mark Zuckerberg's Meta, Hewlett Packard, and Coinbase. During a recent podcast [interview](https://youtu.be/qpBDB2NjaWY), Andreessen said that being a venture capitalist may be a profession that is "literally timeless":
+
+> So much of what a venture capitalist firm is are its relationships with the world, because to build a company, you end up needing a lot of relationships… it’s possible that that is quite literally timeless. And when, you know, when the AI is doing everything else, that may be one of the last remaining fields that people are still doing
+
+On the one hand, it’s funny to hear Andreessen repeating with a straight face the famous last words of every future unemployed person when they first hear about the invention to replace them: “technology-schmechtology, it simply won’t be able to do what I do.”
+
+What's even funnier is that he said this on the same broadcast in which he admitted that venture capitalists are very bad at their job:
+
+> Every great venture capitalist in the last 70 years has missed most of the great companies of his generation... The great VCs have a success rate of getting, I don't know, two out of 10 of the great companies of the decade, right?
+
+Probably because “discovering great companies of one’s generation” isn’t really their job. In reality, a venture capitalist's job is to find companies that can be hyped up and sold to suckers long before they realize that the company has no idea how to make the money that would justify its valuation.
+
+> This isn't the traditional capitalist story of "you win some, you lose some." The point isn't that venture capitalists sometimes invest in companies that don't make their money back. The point is that the entire model deployed by VCs is to profit by disrupting the marketplace with predatory pricing, and leave the losses to the suckers who buy into the IPO. A company that engages in predatory pricing and its late-stage investors might not recoup, but the venture investors do.  
+> *[New research reveals that Silicon Valley uses predatory pricing to crush competitors and scam investors](https://www.businessinsider.com/venture-capital-big-tech-antitrust-predatory-pricing-uber-wework-bird-2023-7)*
+
+But the real reason for Andreessen's calm is that the nature of his work has nothing to do with the stability of his position anyway: the stability of his position is protected by his position itself—the position to decide whose work gets to be given to machines.
+
+Meanwhile, people who are engaged in productive labor have fewer illusions about the capitalists' method of determining whose labor is replaceable. That's why in the United States, back in 2023, the first major joint strike of the actors' and screenwriters' guilds in Hollywood in 60 years [took place](https://deadline.com/2024/09/wga-strike-ends-one-year-anniversary-writers-struggle-1236101334/)—and the issue of protecting both the work of screenwriters and the appearance of actors from AI was one of the main ones. Given that at that point, not even a year had passed since ChatGPT appeared in November 2022.
+
+And it so happens that he **dichotomy of the Creator and the Boss (labor that creates value versus the power to distribute value)** is also most clearly expressed in modern Hollywood. For some reason, it is in the film business—in the industry where, it would seem, the role of the Creator (script, director, producer, cameraman, acting work) is most visible, and its importance is most indisputable—that the modern generation of executives, and especially CEOs, has also emerged, convinced that the most important and irreplaceable work is theirs.
+
+### Why CEOs can’t stop ruining their businesses
+
+Anyone who has been following the news of film production for the last 15 years, since the beginning of the Marvel and Netflix era—i.e. cinematic universes and streaming—is aware of how the film production process has changed, how much the role of studio bosses—those very executives—has grown in it. If changing script teams has always been the norm in pre-production, then in the Marvel-Netflix era, the norm has become not only replacing scriptwriters during filming, but also replacing directors, as well as reshoots and additional shooting. That is, even before the advent of ChatGPT, the Bosses intervened in processes that their predecessors were smart enough not to touch if it ain’t broken.
+
+Officially, Bosses fought for quality, guided by rational commercial considerations—so that the film would come out better and collect more at the box office. In praxis, replacing the director, additional shooting and reshoots inflated the film's budget, making it harder to even break even in the box office. In other words, the intervention of the Boss in the work of the Creator did not stand up to criticism not only in terms of unquantifiable assessments of the artistic value, but also by their own straightforward commercial metrics: projects that become more expensive do worse at the box office and fail to retain audiences until the next film.
+
+Just in May, Warner Bros. CEO once again demonstrated the "geniuses at work" class of Hollywood bosses in the Marvel-Netflix era, by returning HBO in the name of the streaming service Max, which they themselves removed from it several years ago, despite the protests and criticism of absolutely everyone—viewers, journalists, and industry professionals. Every single person who cared about this kind of news knew that replacing the iconic three letters of the HBO cable brand in the streaming service's name with the generic, sterile, faceless, corporate MAX was a bad, harmful idea. Everyone, that is, except one person: WB CEO. And yet the joke was on anybody else but him. As a Russian saying goes:"I'm the boss, you're the fool."
+
+[
+
+![](https://substackcdn.com/image/fetch/$s_!v0L6!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F98fcee67-e4de-4c04-a7b6-7b916658f68c_1162x910.png)
+
+
+
+](https://substackcdn.com/image/fetch/$s_!v0L6!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F98fcee67-e4de-4c04-a7b6-7b916658f68c_1162x910.png)
+
+This back and forth renaming is another example of what has become a typical “activity” of CEOs in recent times, when it would be better if they did nothing at all. Again and again, the Bosses continue to rudely interfere with film production with personnel changes and reshoots, even when everyone else—from filmmakers to critics and simply attentive viewers—has already seen the pattern that the result will always be worse, stitched together on a rough, visible thread, like Frankenstein's monster just off the operating table—and the news of additional filming or reshoots themselves have begun to influence viewer interest and box office forecasts.
+
+And there are no signs of this trend abating. On the contrary, everything points to the fact that “I'm the boss — you're a fool” is simply a new reality in which all of us—audiences and Creators—have found ourselves in the wrong place: directors, screenwriters, and leading actors have lost their jobs—but CEOs have been only getting richer.
+
+What could be explained by a mistake the first time, stupidity the second time, stubbornness the third time, on the tenth indicates a system. The repeated clear from a purely commercial point of view mistakes, indicates intentionality: bosses aren’t stupid, it’s us, just like with the actual job of VCs, are wrong in our understanding of what exactly they are doing.
+
+There’s a system to their madness, and purpose of the system is determined by its output. And the output of them flexing their Boss power to commercial detriment was demonstration of their power to exercise their power to commercial detriment. We misjudged their power play as money-game, and failed to realize that the losses from their decisions indicated not their commercial unsuitability, but that their position was not subject to “market forces.” They were breaking old taboos, inflicting losses and stripping Creators of the power they used to have, to demonstrate, in words of Cersei Lannister, that “power is power,” that "no one’s irreplaceable” (except for them, of course).
+
+Which might not be in line with how we understand capitalism, but is certainly in line with what capitalism is.
+
+### Neoliberal capitalism as crack cocaine of capitalism
+
+And it does make complete sense, including commercial, through the appropriate optics, which is in this case, would be a lens of "[a \[Milton\] Friedman doctrine](https://www.nytimes.com/1970/09/13/archives/a-friedman-doctrine-the-social-responsibility-of-business-is-to.html)."
+
+The Friedman doctrine divided capitalism into "before" and "after".
+
+-   Before: the capitalism of magnates, the capitalism of robber barons, capitalism that grew out of colonialism—the era of the original accumulation of capital and the era of the "Great Geographical Discoveries" - this is one and the same era.  
+      
+    With all its strengths and weaknesses, the “capitalism before” had one peculiarity—it always had a pronounced human factor. Therefore, even the most ruthless businessmen, for example, from the American era of robber barons of the 19th century - John Morgan, John Rockefeller, Dale Carnegie and others, who became the first dollar billionaires in history, in addition to the memory of their inventive and ruthless business practices, left museums, theaters, libraries and universities, which 100-150 years later became an integral part of the American cultural heritage—just like the Tretyakov Gallery or projects of the Morozov merchant dynasty in Russia immortalized their names and contributions.
+    
+-   The “capitalism after” or **neoliberalism**, which replaced European social democracy in Western Europe, the New Deal in the USA and the Soviet system in the USSR and Eastern Europe, is more technocratic, in it dynasties were replaced by hired CEOs, the preservation of familial legacy—the pursuit of bonuses based on stock market performance.  
+    The human factor of magnates of the old, obsessed with building empires to their name, provided “capitalism before” with the benefit of a long-term perspective, even as a side effect of their megalomania—something that has practically disappeared from the praxis of neoliberal capitalism. In fact, today’s corporations live one day at a time, because modern top management lives one day at a time — from bonus to bonus, the frequency of which has already reached quarterly.
+    
+
+The lack of long-term commitment to the employment, frequent job changes, for which millennial workers were scolded so much, have become a staple of career path for their bosses. The typical strategy of a modern “in-demand executive” with an MBA is to make as many decisions as possible that will maximize bonuses in the shortest possible time, and change jobs before their long-term consequences occur.
+
+✔️ This is beneficial to top management, increasing maximum earnings in a minimum amount of time.
+
+✔️ This is beneficial to shareholders, whose “stonks are always growing”.
+
+And so this is a new reality, in which the top management planning step has been reduced to three months.
+
+🚫 This is not beneficial for employees, whose layoffs are the number one move for top management to boost capitalization on the stock market.
+
+🚫 This is not beneficial for consumers, who see the results of the intervention of seemingly crazy corporate Bosses in the product, without being able to do anything about it - the consequences of decisions made by top management on the stock price are always delayed - from a year to several years, when bonuses from the increased stock price have already been received. And the ability of consumers to "vote with their feet" is limited by a) the monopolization of the market, b) the universalization of this approach - where will a moviegoer go, tired of the monotonous Marvel slop - to DC?
+
+🚫 This is not beneficial for society, which bears all sorts of extrenalities of modern capitalism living one day at a time - from the need to do something with laid-off workers to the consequences of the changing climate of the planet.
+
+🚫 This is not profitable for the businesses themselves: a successful corporation that firmly occupies a place in the market can easily hold on to the market for several years with a skeleton crew - but not develop. In addition to people, top management also eats up funds for development, directing profits and government subsidies today not to development, but to buying back their own shares to accelerate their rate and their own bonuses here and now (stock buybacks).
+
+One of the most high-profile and visible examples of a true industry giant being destroyed in this way is Boeing, which, through massive layoffs and uncontrolled stock buybacks over many years, has gradually lost its ability to build airplanes and space rockets—and yet it remained a money-printing machine for top management and shareholders.
+
+**The financialization of the economy and the capture of the state during the [neoliberal half-century from Carter to Trump](https://egorkotkin.substack.com/p/1992-2024-the-democratic-party-at) have led to capital becoming virtually unmoored from the commodity—from the ability to produce and sell it.** Starting with the taming of American labor, which allowed capital to no longer care about the interests of labor, capital in the neoliberal era has reached a state where it can no longer care about “market forces” too.
+
+## How the hope for the future got stolen
+
+The appearance of AI on the scene is an accelerating factor of the existing dynamics.
+
+In another reality — the reality of optimistic sci-fi of the 1960s and 1970s, like the Soviet science fiction and Star Trek, automation is a miracle of progress that will allow people to work less and live better:
+
+> How far has progress come — unseen miracles,  
+> It has sunk to the depths and risen to the skies.  
+> The worries are forgotten, the running has stopped,  
+> Robots are working hard, not people.
+> 
+> How far has progress come — physical labor has disappeared,  
+> And even mental labor will be replaced by a mechanical process.  
+> The worries are forgotten, the running has stopped,  
+> Robots are working hard, not people.
+> 
+> How far has progress come — there was little time,  
+> And now you can wander around the world, with a song or without.  
+> The worries are forgotten, the running has stopped,  
+> Robots are toiling, man is happy.
+> 
+> *["The Adventures of Electronics" (1979)](https://youtu.be/KvFXt_l4QbA)*
+
+How many people today experience this optimism? How many remember it? And how many even noticed the change in the image of the future in sci-fi to its opposite—from techno-optimism to cyberpunk—which occurred after 1980? *([I wonder what could happen around that time](https://egorkotkin.substack.com/p/1992-2024-the-democratic-party-at)?* 🤔*)*
+
+Who today would even think of being happy to hear that robots will now toil instead of them? But back in 1979, people dreamed about it.
+
+[
+
+![Image](https://substackcdn.com/image/fetch/$s_!1n4N!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F055f3285-2b02-4b27-9f66-a4a9f797f876_1218x1077.jpeg "Image")
+
+
+
+](https://substackcdn.com/image/fetch/$s_!1n4N!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F055f3285-2b02-4b27-9f66-a4a9f797f876_1218x1077.jpeg)
+*How "Now a Robot Can Work for You" Sounds Under Capitalism and Socialism*
+
+In today’s world, the advances in automation are not good news for humans, who can now be replaced by robots, but for CEOs, investors, and shareholders, for whom the reduction in payroll costs promises an increase in “stonks” and the bonuses tied to them.
+
+And observers are already sounding the alarm: the AI-driven jobs crisis is not just coming, but [already here, represented in the changing dynamics of hiring and firing](https://www.bloodinthemachine.com/p/the-ai-jobs-crisis-is-here-now), and employers might be intentionally trying to conceal it: per [Brian Merchant’s reporting](https://www.bloodinthemachine.com/p/the-ai-jobs-crisis-is-here-now), the language learning app Duolingo, that in April 2025 publicly committed to going “AI-first,” actually have been AI-first since 2023: the first translators were fired in 2023, and in October 2024 came the turn of writers.
+
+> Almost every professional artist or illustrator I meet tells me they have lost clients and gigs to firms that have turned to AI instead of paying for human work; some have been pushed out of their fields altogether
+
+A historically-high graduate unemployment might be another indicator. Graduates of higher education institutions are a valuable labor resource: qualified, still healthy, still ready to work overtime, on an “entry position” salary, for a carrot of some unspecified future prospects. And it is at “entry positions” that existing LLMs the more ready to take on human jobs.
+
+The Duolingo example shows that Hollywood actors and screenwriters started their big strike not a minute too early in 2023: in fact, they jumped on the last carriage before the almost departing train in their industry, leveraging their labor power before it got significantly reduced.
+
+They were able to do this because they were already members of their industry unions, which have been active since the era of the great labor movements of the first third of the 20th century. Whereas the new professions, like tech and IT, which ushered this new era of “disruptive innovation” and “move fast, break things” (in other words, fucked around), ended up being entirely unprepared to the “find out” harvest. They didn’t even need to disrupt unions—those were already disrupted long before that.
+
+In the context of this understanding of the current historical moment, the insane tyranny of CEOs sabotaging their own businesses with voluntaristic, unprofitable decisions becomes a strategy: **at the end of capitalism, the power of economic coercion (the power of money) weakens, and maintaining relations of class exploitation requires coercion by force**—that is, fascism.
+
+And the top of world capital, by showcasing their insubordination to the “market forces,” has demonstrated that they are already halfway there: that **capital is no longer dependent on markets, which have largely exhausted their usefulness to capital, and is ready to move on to exercising direct control over labor, in a more “lord-peasant” or “slaver-slave” rather than “employer-employee” fashion.**
+
+\---
+
+-   **Bitcoin donations:** bc1q2hvwy7vms6ykpwg5s4980kycz4u9dgjueep78y
+    
+    \---

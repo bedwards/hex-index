@@ -1,0 +1,60 @@
+---
+title: "Hong Kong fire; Politburo study session on strengthening Internet governance; Japan-China; Cloud loophole for advanced AI chips; Xu Qinxian"
+author: "Bill Bishop"
+publication: "Sinocism"
+publication_slug: "sinocism"
+published_at: "2025-12-01T23:50:27.000Z"
+source_url: "https://sinocism.com/p/hong-kong-fire-politburo-study-session"
+word_count: 1267
+estimated_read_time: 7
+---
+
+Xi Jinping pointed out that internet chaos pollutes social morals and infringes on the interests of the masses; we must dare to show the sword and resolutely strike, cutting off interest chains and industrial chains, and eradicating the soil and conditions for their breeding. We must combine the crackdown on internet chaos with an in-depth search for weak links in the governance of the internet ecosystem, taking targeted measures to solidify foundations and patch weak spots. - Readout from the November Politburo Study Session
+
+**Summary of the Essential Eight:**
+
+**1\. [Hong Kong fire](https://sinocism.com/i/180360091/hong-kong-fire) -** The official death toll from the horrible fire at the Wang Fuk Court public housing estate is now over 150 people. The search continues for more victims, and for the cause of the disaster. So far 14 people have been arrested on corruption and manslaughter charges.
+
+**2\. [November Politburo meeting](https://sinocism.com/i/180360091/november-politburo-meeting) -** The Politburo meeting met on Friday, November 28. The readout was quite short, and the publicized agenda was “to deliberate the ‘Comprehensive Report on the Situation of the 20th Central Committee’s Inspection of Provinces (Autonomous Regions, and Municipalities)’”. The CCTV report did not show any images from inside the meeting, but the report on the Politburo study session later that day did, and the absence of both Standing Committee member Li Xi and Politburo member Ma Xingrui may be noteworthy, especially given the rumors swirling for months that Ma may be in trouble. I discuss the study session in the next item.
+
+**3\. [Politburo study session on strengthening Internet governance](https://sinocism.com/i/180360091/politburo-study-session-on-strengthening-the-governance-of-the-internet-ecosystem) -** The November Politburo study session, convened on November 28, focused on “strengthening the governance of the Internet ecosystem”. The meeting signals a distinct evolution in how Beijing approaches digital control. A critical takeaway from the readout is the marked shift in the leadership’s stance on artificial intelligence, moving beyond viewing it merely as a frontier industry to be regulated and instead positioning it as a functional instrument of social control and state capacity. Xi Jinping framed AI not only as a challenge but as a vital “support condition” for the regime. This phrasing suggests a strategic directive to harness these technologies to bolster governance capabilities, explicitly tasking officials with utilizing AI to better “understand public opinion” and enhance “forward-looking” or predictive governance. The call to “promote application scenarios” within a governance context implies a mandate for the Cyberspace Administration of China and security apparatus to accelerate the deployment of AI-driven censorship and surveillance tools.
+
+The meeting delivered a command to “cut off interest chains”. This “economic root cause analysis” represents a tacit acknowledgment that “Internet chaos”—ranging from sensationalism to organized rumors—is fundamentally driven by profit seeking. By grouping “interest chains” with “industry chains,” the Party is signaling a broad crackdown that extends beyond individual content creators to the entire ecosystem that monetizes traffic. This approach targets the corporate engines of the attention economy, most notably the Multi-Channel Networks (MCNs) that manage influencers, which were explicitly cited in the text as entities requiring stricter guidance. The meeting likely presages a crackdown on the “production lines” of digital content and the platform algorithms that prioritize engagement over political correctness.
+
+The readout concluded with Xi’s comments about global Internet governance and the need to do more to tell China’s story well globally:
+
+> Xi Jinping pointed out that the governance of the internet ecosystem is a common issue facing all countries in the world. We must actively participate in the formulation of international rules, join hands with various countries to combat cyber crimes, and promote the building of a community with a shared future in cyberspace. We must strengthen the construction of international communication Internet platforms and capabilities, use the Internet to spread China’s voice and tell China’s story well, vividly displaying a credible, lovable, and respectable image of China.
+
+I have included a full translation of the readout in this section.
+
+[
+
+![](https://substackcdn.com/image/fetch/$s_!jc-f!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fa57c16e5-e6a3-435a-95ab-e43a6196cb1f_1902x1056.png)
+
+
+
+](https://substackcdn.com/image/fetch/$s_!jc-f!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fa57c16e5-e6a3-435a-95ab-e43a6196cb1f_1902x1056.png)
+
+The November 28th issue of “Study Times” carried an interesting page one article by Zhao Weidong, a deputy head of the Beijing Municipal Propaganda Department. In [Seizing the Strategic Initiative in Utilizing Information Technology to Advance Cultural Construction 把握利用信息技术推进文化建设的战略主动](https://sinocism.notion.site/Seizing-the-Strategic-Initiative-in-Utilizing-Information-Technology-to-Advance-Cultural-Constructio-2bc84ece41d780e58089f80893b87fe2) , Zhao highlights the risks of algorithms, and he makes a case for US firms, and US regulators, to be even more cautious about using PRC open-source AI models:
+
+> Persist in value guidance and guard against “Algorithm Supremacy.” The widespread application of algorithmic technology easily leads to content following algorithms and people being controlled by algorithms, exacerbating the “information cocoon” effect and fueling the spread of false and harmful information. We must be clear that technology is a tool and a means. We must strengthen value guidance over algorithms, prevent technological applications from deviating from the correct orientation, and ensure that technological applications are conducive to spreading Core Socialist Values, promoting positive energy, and cultivating noble aesthetic tastes among the people. **We must accelerate the construction of autonomous and controllable mainstream corpora, use mainstream corpora to train large artificial intelligence models, and ensure that Core Socialist Values are embedded throughout them. We must persist in planning ahead and ensure the source guidance and native implantation of values in new technological applications.**  
+>   
+> 坚持价值引领，防范“算法至上”。算法技术的普及应用，容易导致内容跟着算法走、人被算法控制，加剧“信息茧房”效应，助长虚假信息、不良信息传播。必须明确，技术是工具、是手段。要加强对算法的价值观引导，防止技术应用偏离正确导向，确保技术应用有利于传播社会主义核心价值观，有利于弘扬正能量，有利于培养人民群众高尚的审美情趣。加快建设自主可控的主流语料库，用主流语料训练人工智能大模型，确保社会主义核心价值观贯穿其中。坚持未雨绸缪，在新技术应用中做好价值观的源头引领、原生植入。  
+>   
+> Persist in cultural subjectivity and guard against “Western Supremacy.” With the development of information technologies such as blockchain, artificial intelligence, and intelligent voice, information dissemination channels have become more complex and methods more diverse, making the input of Western cultural products and values more hidden and rapid. Some groups, especially teenagers, are easily influenced by them, blindly idolizing Western culture and disparaging local culture. Facing this challenge, we must hold high the cultural subjectivity of the Chinese nation, enhance the leading power, cohesive power, shaping power, and radiating power of mainstream cultural products, effectively set up “firewalls,” develop advanced information technology to screen and clean up harmful information, and resolutely block Western cultural dross outside the country’s gates.  
+>   
+> 坚持文化主体性，防范“西方至上”。随着区块链、人工智能、智能语音等信息技术的发展，信息传播渠道更加复杂、方法更加多样，西方文化产品与价值观的输入更加隐蔽和迅速。部分人群尤其是青少年容易受其影响，盲目追捧西方文化、贬低本土文化。面对这一挑战，必须高扬中华民族的文化主体性，增强主流文化产品引领力、凝聚力、塑造力、辐射力，有效设置“防火墙”，研发先进信息技术以甄别清理不良信息，坚决将西方文化糟粕挡在国门之外。
+
+**4\. [Japan-China](https://sinocism.com/i/180360091/japan-china) -** The crisis triggered by the PRC’s reaction to Prime Minister Takaichi’s November 7 remarks shows no signs of abating. Today the Foreign Ministry spokesperson called on Takaichi to “simply retract the erroneous remarks”, which is politically impossible. The PRC side cancelled more cultural performances and is now leaning hard into questioning the status of Japan’s Ryukyu Islands, which of course is really about pulling Okinawa away from Japan and removing the US troops stationed there. But so far China has refrained from more substantive countermeasures like once again restricting rare earths exports, so as long as the crisis is contained to tourism, seafood, cultural performances and people-to-people exchanges then in probably the best case scenario the crisis should be manageable until the PRC side finds a way to walk things back in a few months.
+
+**5\. [Nvidia and PRC AI firms love the cloud loophole](https://sinocism.com/i/180360091/nvidia-and-prc-ai-firms-love-the-cloud-loophole) -** The Financial Times [contributes](https://www.ft.com/content/96fe9898-a3a4-4a33-be1d-da06bdb6cb2b?shareType=nongift) to the growing public awareness of successive US administrations’ unwillingness to close the loophole that allows PRC AI firms to access the most advanced Nvidia chips deployed in data centers outside of China:
+
+> Alibaba and ByteDance are among the tech groups training their latest large language models in data centres across south-east Asia, according to two people with direct knowledge of the matter.  
+>   
+> These people said there had been a steady increase in training in offshore locations after the US in April moved to restrict sales of the H20, Nvidia’s China-only semiconductors.
+
+The report says that DeepSeek, which [released](https://cas-bridge.xethub.hf.co/xet-bridge-us/692cfec93b25b81d09307b94/2d0aa38511b9df084d12a00fe04a96595496af772cb766c516c4e6aee1e21246?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=cas%2F20251201%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20251201T153738Z&X-Amz-Expires=3600&X-Amz-Signature=b4ff59f0b0617da5882acc85ddc4b184f53f0d907013a87355ef84fb9d48d749&X-Amz-SignedHeaders=host&X-Xet-Cas-Uid=public&response-content-disposition=inline%3B+filename*%3DUTF-8%27%27paper.pdf%3B+filename%3D%22paper.pdf%22%3B&response-content-type=application%2Fpdf&x-id=GetObject&Expires=1764607058&Policy=eyJTdGF0ZW1lbnQiOlt7IkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc2NDYwNzA1OH19LCJSZXNvdXJjZSI6Imh0dHBzOi8vY2FzLWJyaWRnZS54ZXRodWIuaGYuY28veGV0LWJyaWRnZS11cy82OTJjZmVjOTNiMjViODFkMDkzMDdiOTQvMmQwYWEzODUxMWI5ZGYwODRkMTJhMDBmZTA0YTk2NTk1NDk2YWY3NzJjYjc2NmM1MTZjNGU2YWVlMWUyMTI0NioifV19&Signature=UFDGW7clR18pc87DTe3bBJPl42fRhWdVDAKwIoyCr%7EmK2HmKyyREbBQ3qK1JdEw5kvR6Y1VmOcjLzQhBjzQSGk7WtXSj6NICZAaP3mXSTz-WRkK68A7upLDyMz-2O38vNGRBAxERCMT6vDa199Zh6L9Alg6MnSBwbRO1b38DPmbm5NjfpnmQZwBYffLR4orVTrrpdX5zjPOpBZQpx9tc5Csf1Q0zo3ChYF9F0LvG99WvYiV76vlk6wWezqkbD8muHJuBo30MhiZCRneqEvIbt%7ElCBrxfOHlIyv76lycgVkwHhxLslEevZeJbdhmQNpJgcMHI-pZSUanhiK6AfZtk9A__&Key-Pair-Id=K2L8F4GPSG1IFC) its latest models today, is not using overseas data centers.
+
+The Trump Administration will not close the overseas cloud loophole, as Nvidia would be very unhappy, and because as part of the latest US-China trade deal, my understanding is that the US agreed to stand down on any new chip export control actions.
+
+[Read more](https://sinocism.com/p/hong-kong-fire-politburo-study-session)

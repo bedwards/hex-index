@@ -1,0 +1,96 @@
+---
+title: "A country can’t get rich by making housing scarce"
+author: "Matthew Yglesias"
+publication: "Slow Boring"
+publication_slug: "slowboring"
+published_at: "2026-02-04T11:01:12.000Z"
+source_url: "https://www.slowboring.com/p/a-country-cant-get-rich-by-making"
+word_count: 2130
+estimated_read_time: 11
+---
+
+Late last year, the Trump administration claimed they were going to roll out ideas on housing affordability. But shortly before Christmas, the president himself let slip that [he actually wants to protect incumbent homeowners’ investments](https://x.com/RyderSelmi/status/2003508266282926583) and thus doesn’t particularly want to make housing more affordable.
+
+[
+
+![](https://substackcdn.com/image/fetch/$s_!QQK2!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F03cc1a90-88a0-4a01-a030-364683b37cb5_890x926.png)
+
+
+
+](https://substackcdn.com/image/fetch/$s_!QQK2!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F03cc1a90-88a0-4a01-a030-364683b37cb5_890x926.png)
+
+At a January 29 cabinet meeting, [Trump was even more explicit,](https://www.usatoday.com/story/news/politics/2026/01/29/trump-housing-prices-increase-affordability-economy-interest-mortgage-rates/88418610007/) saying that the only housing proposal he’s really enthusiastic about is lower interest rates because this will make prices go higher: “I don’t want to drive housing prices down. I want to drive housing prices up for people that own their homes. And they can be assured that’s what’s going to happen.”
+
+I’m glad Trump joined the argument on this, because my guess is that these concerns about protecting homeowners’ equity are about 100 times more influential in the real world than stuff that gets more play in the media.
+
+Yes, it’s true that some people think that new development raises rents, and that’s bad. And there are many left-wing ideologues who are annoyed when we talk about housing supply because the only political issues they want to discuss are ones that frame billionaires as the bad guys.
+
+But Trump is pointing here to a much more mainstream concern. For millions of middle-class Americans, not only is their owner-occupied housing their largest investment, but they’ve also been told over and over again that purchasing a home to live in is *the* key to building long-term wealth.
+
+And when I say “told” I don’t mean in a vague cultural script sense; a lot of public policy is aimed at specifically advantaging this particular form of investment.
+
+So of course it’s jarring if public officials turn around and start saying they want to make it cheaper for young people with no money to buy homes. Your unaffordable housing is my lucrative investment. Your accessible starter home is my nest egg collapsing in value.
+
+Right?
+
+Not really.
+
+Part of the story here is that American policy toward saving, investment, and homeownership is kind of misguided. But the bigger problem is that we’re dealing with a [wrongheaded zero-sum worldview](https://www.slowboring.com/p/malthusian-intuitions-are-destroying). Restrictions on the supply of housing are not a simple transfer from renters to homeowners or from young to old. They are an incredibly value-destroying [leaky bucket of redistribution](https://www.slowboring.com/p/how-to-promote-growth-and-equality) that makes people a lot poorer on average.
+
+#### Rebooting your intuitions on housing wealth
+
+Most people in Washington, D.C., myself included, own plastic snow shovels that are lightweight and good at moving large quantities of snow relatively quickly. These shovels are also completely useless against the large blocks of ice that have besieged the city over the past couple of weeks. As a result, metal shovels — including shovels that were designed for gardening rather than snow removal — have become a scarce quantity in high demand. Within a couple of days of the storm, it was not only impossible to buy a metal shovel at any Ace Hardware, Home Depot, or Lowe’s in or near the city, but they were also out of things like pickaxes too. I got the last crowbar from my neighborhood hardware store two days after the snow fell and have been using it ever since to smash ice.
+
+I don’t know exactly what the secondary market for these implements looks like. But I guarantee you that under these conditions of intense scarcity, a person with a spare metal shovel could sell it for a lot more than he bought it for. Anyone who happens to have anything that’s good at smashing ice has seen a nice little bump in their wealth as a result of the temporary scarcity.
+
+So maybe we should pass a law prohibiting (or strictly limiting) the manufacture and sale of new metal shovels, pickaxes, crowbars, and similar implements. The snow will melt soon enough and this particular ice crisis will pass. But these kinds of tools have enduring use. If you restrict the supply of new ones, then over time more and more people will find themselves wanting to buy used ones from the people who already own them. There will be future ice storms and future demolition jobs. People will want to dig holes in gardens. And through the magic of supply constriction, something like my trusty ice-smashing crowbar can be transformed from a slowly depreciating durable good into an *appreciating* asset — an investment commodity that builds wealth over the long term.
+
+Notably, nobody proposes that we do anything like that or believes it would be a sensible way for a country or a city or a state or a region to proceed.
+
+We even saw a real world example of this during Covid, when production of new cars was temporarily curtailed, which [led the price of used cars to soar](https://www.slowboring.com/p/housing-policy-lessons-from-the-microchip). Most Americans own cars (often more than one car) so in some sense the car shortage was a financial windfall that caused the net worth of many to soar. But, again, nobody proposed permanent quantitative limits on the sale of new cars in order to bolster car wealth. “Ban cars” is a semi-joking slogan of urbanist ideologues, not a wealth-building strategy.
+
+The same even applies to financial assets. Like most Americans, I have some savings in the stock market, mostly in index funds that own shares of existing large companies. In some sense, the fact that people found new companies and those companies sometimes grow and become successful is a threat to the profitability (and therefore share price) of the large, existing companies that are in my 401(k) fund.
+
+But I’ve never heard anyone argue that we should bolster the value of Americans’ existing stock portfolios by making it impossible to found new companies.
+
+Obviously companies lobby to protect themselves against new competition all the time. But nobody believes that giving in to those pressures is a reasonable strategy for bolstering retirement funds.
+
+#### Growth is good
+
+The point, in both the trivial case of banning new crowbars and the dramatic case of banning new companies, is that these moves would be bad for economic growth, and people generally benefit from a growing economy.
+
+Of course, growth isn’t the only thing that matters. People care about distributive issues and fairness and environmental protection and all kinds of other things. But they do also care about growth. It might be worth accepting slower growth to advance some other social aim. But this really only works when the benefits are large and the growth impacts are small.
+
+Banning new companies would obviously be an economic disaster, so (fortunately) no one proposes that.
+
+The car thing, though, strikes me as a fairly close analogy to housing. One big problem with restricting new car production in order to increase car owners’ car wealth is that to actually realize that wealth, you’d need to sell your car. Most people own cars because cars are useful, so if they ended up carless they would either need to go buy another one (at now-inflated prices) or else they’d take a big hit to their well-being. Lots of very old cars would stay on the road much longer despite poor performance, bad features, and worse fuel efficiency. A larger share of social resources would be sucked up by trying to repair old beaters and keep them on the road. Safety would get worse. Governments would start various programs to help young people afford car ownership — some outright subsidies, but mostly a lot of subsidized credit to help people get cars so they can get jobs — but ultimately those programs would just end up further inflating the value of the existing fleet of used cars.
+
+That’s the dilemma you’d end up with: a “wealthier” society in terms of the paper value of its stock of used cars but in all practical terms a *poorer* society in which the average quality of people’s access to transportation services declines.
+
+Something like a ban on new metal shovels would make this even clearer. Random old tools would obtain more financial value, but life would be worse: the actual act of shoveling would become harder.
+
+And the more you repeated this exercise, the worse things would become. First you ban new shovels. Then you extend the ban to pickaxes and crowbars to create even more wealth. Then you’re banning hammers. Next it’s all hand tools. Eventually it’s cars too. Heck, maybe we even restrict the supply of new smartphones to enhance the trade-in value of the phones that people already own.
+
+What you’re doing here is entering a degrowth spiral.
+
+Of course, specific individuals might benefit from some of this. Our household owns, I believe, three hammers for no particular reason. A ban on new hammers would let us sell one or two at a profit and still have access to adequate hammering. But if you pick another random tool to ban, that might be very bad for me. The point is that we know, in general, that it’s bad economic policy to ban the production of something that is broadly useful. The losses will outnumber the gains, even if there are some gains.
+
+#### The price impact of zoning reform is unpredictable
+
+One difference between a house and other commodities is that a homeowner normally owns not just a home, but also the land that it’s built on. It seems to me that if you were allowed to replace rowhouses like mine in D.C. with tall mixed-use apartments, that would probably increase rather than decrease the value of the land. Homes would (probably) get cheaper because there would be a lot more of them, but land would (probably) get more expensive because the development rights would be more valuable. So to me as a homeowner (but really a landowner), the net impact of this sort of zoning reform on my wealth would probably be positive.
+
+The more you change the scale of your analysis, though, the more uncertain this becomes.
+
+If you did zoning reform throughout the Boston-D.C. corridor, I’m not sure you could actually predict the price impact on specific neighborhoods. Maybe the value of land in Philadelphia would go down because more people would have access to housing in the more expensive cities? Or maybe the value of land in Philadelphia would go up because of agglomeration impact throughout the mega-region? Maybe there are counties on the exurban fringe that would end up with less growth demand? Or maybe they would have more growth demand because as inner-ring suburbs densified people with a strong preference for low density would sell, take their profits, and get bigger homes further away? You also could see price impacts in wildly distant regions. Maybe fewer people would move to the suburbs of Charlotte if more homes were being built in suburban Maryland. Population growth in Greater Boston might put upward pressure on the value of land in coastal Maine as more people went on vacation.
+
+Given the uncertainty involved and the natural tendency of most people to err on the side of loss-aversion, I think skepticism toward dramatic changes to land use policy is understandable. Any given gigantic liberalization of land use rules would probably create some losers, and it’s not totally clear who those would be. If big reforms with lots of benefits were very easy politically, they would have already happened.
+
+But understanding that any really large change will face some public skepticism is different from Trump’s view that the typical homeowner is better off with housing scarcity. That is not correct.
+
+The right way to think about the broad impact of broad upzoning is that it is a pro-growth policy measure.
+
+Americans will end up with more square footage per capita. It will create jobs and tax revenue. Some people will end up with higher earnings. There will be some agglomeration benefits. People on average will be better off. If you can get it done, you should.
+
+I think you should also try to reassure people that even though bigger changes sound scarier, the broader the policy change, the smaller the likely impact on any specific place tends to be. If you radically upzoned a nine block radius in one expensive neighborhood in an affluent metro area, crazy things might happen construction-wise. If you radically upzoned every neighborhood in every metro area, then you’d get a lot of benefits over the longer term, but the changes would be more diffuse and less jarring.
+
+What you don’t want to do is talk yourself into the corner where scarcity is a wealth-building strategy. If it was, it would make sense to create scarcity not just of homes but of cars and appliances and all kinds of other durable goods. But a society where people struggle to obtain housing and durable goods isn’t a wealthy society; it’s a poor one.

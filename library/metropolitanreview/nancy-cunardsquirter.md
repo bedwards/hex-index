@@ -1,0 +1,629 @@
+---
+title: "Nancy Cunard/Squirter"
+author: "Udith Dematagoda"
+publication: ""
+publication_slug: "metropolitanreview"
+published_at: "2026-02-21T18:30:29.000Z"
+source_url: "https://www.metropolitanreview.org/p/nancy-cunardsquirter"
+word_count: 10222
+estimated_read_time: 52
+---
+
+[
+
+![](https://substackcdn.com/image/fetch/$s_!f7Su!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F2e9fe68a-0215-42dc-a235-c15b38e294f3_1600x1066.png)
+
+
+
+](https://substackcdn.com/image/fetch/$s_!f7Su!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F2e9fe68a-0215-42dc-a235-c15b38e294f3_1600x1066.png)
+*Udith Dematagoda, *The World Tree*, 2025, Photograph*
+
+#### **Saturday, 2009**
+
+I decided to pack it in that night…being in a band. I’d probably stick to the music all the same. Didn’t need any of these other cunts holding me back! Would probably empty out ma bank account, sell my guitar and get one of those big analog synths second-hand…one of those big Soviet fuckers…Polyvox or something…would just play drones and harsh noise on it…piss every cunt off…or not, whatever. I decided I didn’t want to be in a band. There’s nae point hoping for universal salvation when cunts don’t even appreciate what they’re being given…don’t they know that I’m some sort of prophet?…I’m not though…not even close. Would probably figure out a way to live quietly…would find a way to keep reading books for a living, somehow, but making music with others was done. The decision was easy enough. Hungover again this morning…stayed in the pub for a few more and headed back to Ally’s flat for the cans, which turned out to be out of date Strongbow. Gutted. Shouldn’t be allowed to give the impression that you’ve got loads of cans when what you’ve actually got, right, are cans of Strongbow, and out of date ones at that. Disgusting. Tanned about seven of them anyway. By this point the electric shocks had become pretty regular, cutting through every one of my thoughts every couple of minutes…drank more to dampen the effects…didn’t seem to be working. We sat around mostly in silence, drinking in Ally’s living room…a spacious two bedroom flat in Dowanhill which his burd’s parents had bought for her…they lived around the corner on Observatory Road. He’d got his cock in the till…only had to keep it there and he’d be sorted. He’ll probably fuck it up, let’s face it. She seemed like a nightmare. I drained the final dregs of disgusting cider from one can, sat back on the couch and looked around the room. Benoit had taken a large pouch of ketamine out of his pocket and started laying lines on a CD case…*The Texas-Jerusalem Crossroads*…Ally suddenly livened up after looking at his phone…his burd had gone to some night at the Arches…he said we could get on the guest list if we wanted.
+
+We ended up going along. I’d taken a line of ketamine and felt pretty out of it by the time we eventually arrived. The main hall was packed with people, a lot of them seemed to be wearing white; the space was filled with wet blue light and powdery smoke. Was an Italo-disco night or some pish… just sounded like techno or house music all the same. I’d never bothered to learn the difference. Women seemed to like it and they were always around — and that’s all that mattered, really. When we rocked up to the bar, Ally’s girlfriend was standing there with her friends…one of them looked familiar. I knew her from the honors module on the history of Byzantium a couple of years back. She was diminutive and pale, big light brown eyes, pink lips, black hair always tied with a red ribbon into a long pleat reaching halfway down her back. We’d never spoken before, but she’d always sit in the row in front of me, sometimes glancing backwards when she leaned back to yawn, stretching out her arms above her with clenched fists and sticking out her chest. She yawned exaggeratedly and audibly. Didn’t wear a bra. Fantastic tits…far too big for her liking, or so it seemed by the way she covered them — she would have much preferred them smaller, I think. Once asked me for a light when we were standing outside in a polite Northern English drawl, a little more gravelly than I’d have assumed…she smoked Vogue menthols…I remember being mildly disappointed at not hearing some hint of an Italian or Greek accent, but there was little else to dispel the enchantment. And yet, it was merely one among many, recorded briefly before being dismissed, as if certain to reappear, one more encounter forgotten through abundance with the foolish certainty that the days of plenty would prove boundless and unending. We locked eyes in mutual recognition…she was wearing what appeared to be a white bodysuit with black denim shorts over it. This time she wore her dark curly hair down. Her eyes seemed to suggest that she was high. She came up to me and shouted something in my ear with her hot lemonade scented breath…No idea what the fuck she was saying. At this point the massive hall and bar area started to feel very close. I had the distinct impression that I was surrounded on all sides by an abrasive dark blue carpet. She took my hand and we walked with purpose to the center of the dance floor. She stopped and turned around dramatically, throwing her hands up and writhing to the pulsating beat, swinging her hips from side to side, bringing her cold, damp, fingers down onto my shoulders, squeezing them slightly. Her scintillating eyes, with their overlarge and pulsating pupils, seemed a little too sympathetic…utterly deluded. Not long after…struggling to focus, I was undressing her in a large moonlit bedroom with high ceilings, the roof painted an azure blue against the white cornicing, the rancid orange street lamp creeping around the edge of the double windows. She sat back on the bed and bit her lip in anticipation…two shimmering orbs of sapphire blue reflected the complacent moonlight…I was painfully hard…but in a single instant, all of the abundant light fled from her eyes as if a switch had been pressed in error, scattering all that ionic beauty, which evaporated into a dejected mist. Her thick, delicately shaped eyebrows formed into a tragic grimace. She began to silently weep. Her pain seemed, at that moment, to be larger than her delicate frame could contain…the sorrow of the nightingale. Could I still have shagged her? Probably. Best not, though. I could only apologize…what else? Not that I’d done fuck all….Gutted…her hair was so wet with tears that it stuck to her cheeks…I held her until she fell asleep…Pulled on my clothes and boots in the dark, and slipped out quietly. I walked home with a pang of regret. I could have fucked her all the same. And why not? Why not since that’s all that there was or ever will be…death in the second, or first order.
+
+*Once you’re in, you’re in.*
+
+We were second on. It was a decent crowd, but mostly people we knew as per usual. The receptionist, Nora, had come along with her severe looking friend, also blonde, who kept giving me the evil eye all night. Probably just the way she looked, to be fair. Sour. Nora looked different from yesterday. Outside of the cold light of day and into the more forgiving and flattering dusk, she seemed to have lost something, and really didn’t seem too appealing anymore. As with most things, reality never quite manages to obviate the underwhelming second glance. For my part I couldn’t seem to stop thinking of the girl from the night before, yet I could barely remember her face, let alone her name. As we ascended the stage a pitiful silence greeted us, as if the room, steeped in recondite murmurs only moments ago, thought it best to offer momentary respect for what was about to come to pass. A large white light blinded my view of the audience. I could make out only silhouettes.
+
+*All we can see in the falling light*
+
+*The bars of the cage gleaming bold and tight,*
+
+*The bare walls, the dirt, the dark, the cold.*
+
+*What will we see in the coming night,*
+
+*Terror dreams of falling flight,*
+
+*The bare walls, the dirt, the dark, the cold.*
+
+We played all of those eight songs more perfectly than they had ever been played, not a single slippage or off-note. By the time I had sung the last lyric of the last song, allowing the ear-piercing feedback to resonate throughout the funereal dimness of that room, to an audience of indifferent shadows, I knew quite well that it was the end. I had loved all those boys like my brothers, and more so, simply because I had no obligations to them. They’d all die miserable and alone all the same, whether sooner or later…cursed as we clearly were. Might as well make it happen sooner…in my case. I made my way past the faceless crowd, down to the back of the room, and up the stairs onto the street in order to smoke. It seemed uncharacteristically empty for a Saturday, that street which usually thronged all weekend long with swaying crowds, drunkenly bantering, deferring the inevitable: feral and resolute. Now no one. Entirely too many cunts in the world, so it suited me just fine if they’d decided to fuck off for just one night. Perhaps they heard I’d decided to stop playing music? Obviously. See, the problem with being a misunderstood genius seems to mostly be that nae cunt actually understands you. Quite a big problem, as it turns out. You begin to doubt yourself, to doubt whether you actually are a genius. Almost definitely not, let’s be honest. Everycunt thinks they’re a genius! Come on! As if everyone can be. And as if it really mattered whether you are or not. But then what’s the point? Probably isn’t one. The burd used to say “you’re really sensitive” as if that was a compliment…it’s definitely always an insult to say that to a man. Subtle undermining of the old ego, as it were. It’s always mind game with these women…
+
+“Looked like you were kissing the microphone.”
+
+“Sorry?”
+
+“Good set! When you sing…it looks like you’re kissing the microphone, like snogging it…or trying to… It looked funny.”
+
+“Snogging?”
+
+“Yeah…snogging…I know…sorry, my mum’s English…I come out with words like that occasionally! Can’t be helped. Anyway, I liked it! How long have you guys been playing?”
+
+“Playing what?”
+
+“Music…how long have you played in a band?”
+
+“I dunno…why? What does it matter?”
+
+“Do you want me to leave you alone?” She asked.
+
+I hadn’t yet registered her presence. She was standing to my left, a touch on the taller side, enough to be slightly awkward but not enough to be at all imposing…we’re talking 5-foot-7 or some weird height like that…she wore a black lace dress with tights and dark brown brogues…all scuffed up…slightly dishevelled…dirty blonde hair…the very severe stare had softened a little from before; one of those hapless furies, perhaps, unsure of her purpose…I think I know the type well. It wasn’t to my liking.
+
+“Nah, it’s sound. We’ve been playing for a few years. How? Do we sound shite?”
+
+“No I said it was a good set, didn’t I? What’s your name?”
+
+“Vincent.”
+
+“Where’s that from?”
+
+“The name Vincent?”
+
+“Yeah, I mean… whatever, but like not many people have that name?”
+
+“Many people that look like me?”
+
+“Not what I meant.”
+
+“Saint Vincent De Paul…the charitable.”
+
+“Are you religious?”
+
+“Obviously not, no. “
+
+“How is it obvious?”
+
+“I guess it isn’t. I’m not, in any case. Was brought up Catholic”
+
+“So it looked like you’re kissing the microphone when you’re singing.”
+
+“Yeah you said…wasn’t intentional. Why do you keep mentioning that?”
+
+“Nothing…,” she replied, taking a long drag of her cigarette and looking down awkwardly at the floor, and then looking up again with a sort of malicious grimace. It looked as if she wasn’t wearing makeup, but it was usually impossible for me to tell. There’s often a great deal of subtlety in these matters, a lot of skill that went into maintaining these illusions which, after all, were supposedly for our benefit but rarely was. In any case, it was clear she was attempting, through self-conscious purpose and effort, to make herself slightly unattractive in dress and manner, but being possessed of an unmistakable physical grandeur and elegance, she knew it was impossible…and delighted in this fact. No doubt this aspect of her appearance — which dominated first impressions — in time only served to increase her appeal even more, inevitably attracting the sort of attention she claimed not to want at all. Definitely wasn’t a type to my liking. Might as well give it a shot, in any case.
+
+“Did you come with Nora? Were you at this opening she mentioned?”
+
+“Yeah…but I dunno her well, she’s a friend of a friend. It was my opening, actually…but there weren’t many people there, unfortunately.”
+
+“You a jewellery designer as well?”
+
+“I’m a *Sculptress*.”
+
+“That the preferred term?”
+
+“Definitely.”
+
+“What kind of sculptures?”
+
+“I’m an earth sign…so obviously I use clay. Well, I think they’re very sensual, very…I dunno…very corporeal.”
+
+“A what sign?”
+
+“An earth sign.”
+
+“Dunno what that means.”
+
+“I’m a Taurus.”
+
+“Right…sorry…I’m probably too stupid to understand what you’re on about. What are they of, the sculptures?”
+
+“Mostly body parts…and some bodies…but never faces.”
+
+“Don’t you like faces?”
+
+“No…the opposite. Maybe it’s because I’m not very good at seeing faces. I love them though. How do you write your lyrics?”
+
+“I don’t know…I hear the music and start scribbling. Best not to think about it too much.”
+
+She took out a pack of tobacco, skins and filters from a black rectangular block-like purse around her waist, covered in a diamond patterned shiny leather, and finished with a golden clasp. Biting off one filter from the stick, she held it gently between her lips as she took a pinch of tobacco and placed it delicately onto the skin. As she did so, she looked up and caught me staring and smiled momentarily with an unexpected radiance, before returning her face to its familiar rigidity. I thought about a picture I’d seen in a book in the library earlier in the week…a black and white image…Nancy Cunard…heiress…a second-rate poet…a “muse”…a well-to-do whore, essentially…she was rich, dressed cool and hung out in the right circles…There was a resemblance here…and she was of that type…mixed with something else…one of those other rich slags…one of those pre-Raphaelite stunners…maybe that one that was Virginia Woolf’s maw…the one who was married and widowed before she met her Dad…she had two grown up sons…the ones that diddled Woolf until she was twenty-four…diddled her into being a genius, maybe…maybe only the diddled become geniuses? She was alright I guess…wasn’t exactly a crowded field…they’ve got to big her up, the burds…she had money and the others didn’t…one, maybe two, decent novels in all…but money was what bought influence in the end…until you’re dead, eventually, and have no use for the money anyway. She was alright. I think Katherine Mansfield was more my type…I would have liked to marry her…would have made a good widower; heartbroken, inconsolable over my beautiful, young, dead wife, never marrying again…holding onto a few insignificant moments of affection…grieving for a woman who in all likelihood despised everything about me…which is all women, with all men, eventually.
+
+“What’s your name?” I asked her, catching her eye and taking a minute step towards where she was standing. A subtle trick I’d learned. She took a step back, and then leaned into it.
+
+“Vivi…short for Vivian. So do you do something else except music?”
+
+“Why? Do I need a day job?
+
+“You’re a wee bit defensive aren’t you?”
+
+“I’m writing a PhD on Franz Fanon’s influence on postcolonial poetics and aesthetics.”
+
+“Ok…sounds cool,” she said, half-heartedly. She seemed to grow palpably icier, and adopted an air of studied indifference and suspicion. Turning her body subtly to the side, she began looking outward onto the road, where a row of black cabs, with their orange lights illuminated, were parked patiently.
+
+“We’re going to the Art School.” I heard someone behind me, and turned over my shoulder to see Johnny, Bertrand and Ally standing at the door throwing their jackets over their shoulders. They began to walk down the road slowly and without much purpose. I turned back to her, but she was still fixated on the road. I had to either bump her or get her to come along…we’d gotten paid 50 quid each, and I wasn’t about to spend the night sober or trying to chat up some stuck up art school burd that wasn’t having any of it. Wasn’t that fussed either way…to be fair.
+
+“I’ll catch youse up,” I shouted after them. When I turned back around she was looking right at me with an indiscreet and malicious scowl, which I now understood better…seeing that she was clearly incapable of concealing it.
+
+“You wanna come with us?”
+
+“Ok…but just to be clear. I’m not interested in that way. I have a girlfriend,” she replied.
+
+“Sound…entirely up to you. No one’s forcing you to do anything, doll.”
+
+“But I’d like to come…I’ll just go inside…get my coat and tell Nora we’re leaving.”
+
+“She can come too.” I added.
+
+“Oh…do you want her to come as well?”
+
+“Yeah…why not…I did invite her to the gig,” I said, while rolling a cigarette.
+
+“Ok…ok…right.”
+
+When we arrived the place was still only sparsely filled since it was early doors…we grabbed a table at the side, to the right of the stage and dancefloor. I sat down next to Nora but couldn’t really follow anything she was talking about, and I found myself completely uninterested in any case. Vivi looked bored…she wasn’t really talking, just sitting awkwardly next to all of the others, and opposite to where I was…already on her third gin and tonic. The music was loud enough that we couldn’t all talk together. She’d occasionally catch me looking over, and seemed to be more sincerely malicious in her aspect now. Her face seemed to be engaged in an inexorable struggle, unable to compromise between what now seemed to me a hard, sapphic, hostility and an indulgent and all too susceptible curiosity. She was either moving or charming…night or day…difficult to tell. I had no idea what she wanted from me, and couldn’t help but sense a deep and irrational disdain. Her presence began to irritate me intensely. Bertrand asked everyone, in turn, to hold out their palms, and placed a single white pill into each hand. No one refused, and we gulped them down, except for Nora — who said she had to leave to meet friends. Bertrand was always generous with his drugs, as he was with much else. He usually sold them three for a tenner. He wouldn’t take the tenner I’d offered to him, refused with that indifferent Gallic shrug…so I just shoved it into the front pocket of his shirt. Not sure if he even noticed.
+
+After a while Nora left without much ceremony. The dancefloor started to fill up quickly. As I stood up to go and smoke, Vivian got up too; we walked silently and awkwardly together, side by side, out the back to the empty smoking area. It had suddenly become cold outside, and she’d put her coat in the cloakroom. I noticed her shiver a little. I took off my leather jacket and put it around her shoulders, but she seemed even more pissed off than she already was at this benevolent gesture. The silence was punctuated by her occasional exasperated sighs. I had absolutely no idea what to say to her, and less idea why I actually felt obligated to say anything at all.
+
+“They’re Mitsubishis, those pills,” I said gormlessly, “usually get a good dunt aff them.”
+
+“Why are you talking like that?”
+
+“Like what?”
+
+“I thought you’re doing a PhD? Doesn’t matter…sorry…for some reason I’m so mad at you…which is a bit mental because we just met and I don’t know you at all.”
+
+“I generally tend to have that effect. Definitely not a good thing.”
+
+“Why is that?” She asked.
+
+“Probably cos I look like more of a dick than I am…I’m actually alright…I think, anyway.”
+
+“Yeah…you seem ok! Doesn’t explain why I’m so bloody livid, with you, specifically.”
+
+“Maybe you’re over-thinking it, doll.”
+
+“So stop calling me doll, for a start.”
+
+“Why?”
+
+“It’s quite sexist?”
+
+“I’m working class. It’s a term of endearment.” I replied.
+
+Personally, I canny really imagine hating women. Never thought of them being anything other than objects of pity, when they weren’t objects of lust. Probably just the type of burds I knocked about with, to be fair.
+
+“No it’s not…it’s an affectation, and not even a very convincing one!”
+
+“Alright…whatever.”
+
+“I’m sorry…I really can’t explain this…I’m so angry with you. Maybe we can go and dance?”
+
+“What?”
+
+“Let’s go and dance?”
+
+“Why?”
+
+“Because I feel like dancing.”
+
+“I don’t really dance…”
+
+“Is it usually just enough to stand around looking cool?”
+
+“I can’t dance.”
+
+“Everyone can dance…I can teach you.”
+
+“You don’t need to teach me to dance, doll, I’m perfectly capable. Just don’t feel like it.”
+
+“Well…all of a sudden everything seems completely beautiful and right with the world, and I want to dance! I wonder why that is? You don’t feel it? Hasn’t kicked in?”
+
+“Not yet…usually takes me a while.”
+
+“Well…let’s go back inside and dance!” She screamed, the black of her eyes now enormous and engorged. She took me by the hand and led me back inside.
+
+*Above all you crave a stillness of the heart to counteract a turmoil of the soul. I fear you will be disappointed.*
+
+When we came back inside, the black and white tiles on the floor seemed to be illuminated. The crowd was packed but faceless, once more comprised of shadows, hazy shapes that formed a congealed mass breaking off here and there but staying true to its amorphous shape; an undulating, rippling, darkness. Something stirred in me at the sight of it. Several beams of aerated white light broke through above. There was no music for the moment, nor the sounds of chatter, gulping, breathing or anything you’d expect to hear. And then…a single, girlish, laugh beside me cut through the torpid air. She pulled me into the middle of that mass, right to the middle of the dancefloor, which was silent still. The opening notes of a distorted bass guitar pounded through the air…a song I hadn’t heard in some years…a muted cheer…there were no faces in that crowd…only arms outstretched…tentacles reaching out of a murky, restless, sea…a beam of light shone above her head, illuminating her now undeniably soft features, no longer contorted…she stood in front of me…wearing my leather jacket on which she had rolled up the sleeves to the elbows…it looked incredible on her…the malice now seemed far away, a distant memory at that point…and it had in fact transmuted into its opposite…she was close enough that I could nearly feel the moistness of her breath…There was something of the Sea about her too…something wet with torment and anticipation, a sublime wildness, untameable…proximate, merely, perhaps…for that Great Mother to whom all men should owe an unspoken fealty. Suddenly a warm tingling which began at the tips of my fingers resonated throughout, engulfing me in a wave of heady invincibility. *Spread your love like a fever…don’t you ever come down.* I put my hands on her hips, and she placed her own over mine and held them there for a moment…her fingers stroked the back of my hand…before she gently lifted them off her hips and smiled. I didn’t try to touch her again, though she kept near, and we remained close enough to embrace. We must have danced for some time, hours in fact, but I could only remember when the lights came on, and vaguely shuffling out, wide-awake, into the night…soon we were outside mingling among a crowd; she was shivering controllably. We didn’t try to find the others, who for sure had fucked off. Somebody passed by and asked us to come to an after party…but I could already feel the come down in the pipeline…on the cusp of nullity and utter disinterest. My throat was so dry that it began to throb painfully. I felt a note and a few coins in my pocket.
+
+“Should I put you in a taxi?”
+
+“You can walk me home…I live on my own on, just down the road in Park Circus.”
+
+“You’re really shivering.” I replied. She held out her hands, with the palms facing up.
+
+“Feel my hands…they’re ice cold.”
+
+I felt them…they were. But I didn’t really want to hang around too long…it was baltic…and the prospect of walking seemed completely unappealing. Should probably go to that afters. Get dial-a-booze. See if I can top up with another ploid…go home and take some tramadol…sleep it off the whole day tomorrow. Had to teach a fucking class on Monday, only two weeks in…had done fuck all to prepare…as per usual.
+
+“You have to walk me home…make sure I don’t freeze to death,” she said “…I’ll make you some tea.”
+
+“Aye, ok…no worries.”
+
+I kept at a distance as we walked down the road…we must have walked quite fast…but the time felt long and slow to end…I don’t remember much being said. The sky was beginning to turn a light purple, but the putrid street light glow was undiminished. We both stopped walking at the peak of the bridge above Charing Cross and stood looking up north, towards the high-rise tenements in the distance. I looked over to her…a haze of blonde hair and black lace…no face to be distinguished…we walked on.
+
+She was on the third floor…a new, light, fairly spacious but small studio flat that seemed to have been formed by cutting a bigger place into two, apparently by means of a shoddy looking dry-wall…the sounds of light snoring could be heard beyond it. It was warm…warmer than I’d ever known it could be inside. On entering the flat there was a kitchenette to the left, separated by an island from the living and sleeping areas, and on the other side of it was a small grey two-seater couch, and a white-faced clock with black dials on the wall-behind it, ticking loudly…a coffee table, a double bed in the left-hand corner, pushed up against the bay windows. The sheets were light blue and made of a satin-like material. The tall windows looked out onto a large Gothic white tower… I’d often seen it from a distance, but never this close…no idea what the fuck it was…a church…a masonic lodge…could be either or both in this city…the walls of the studio were painted off-white…all the furniture was made of solid light wood and clearly chosen with care…there were a few lamps…a large red Persian rug in the middle of the wooden floor. In the middle of the room there was a wide white table, covered with brushes, paints, implements, and various small clay sculptures. On the walls there were photos…mostly black and white…a large monstera plant was at the middle of the double windows…next to it was an undersized Cello and a music stand…there was a money tree on the kitchen counter…and another purple plant — I didn’t know which — on the bedside table. Above the bed was a print of some abstract painting that seemed familiar. I sat down on the couch as she lit her gas stove and placed an old white enamelled iron kettle on top of the largest burner. She saw me staring at it.
+
+“My Gran’s old whistling jenny…it’s only thing I have left of her.”
+
+“Looks nice.”
+
+“What time is it?” she asked, “There’s a clock above the wall.”
+
+I turned around and stared at the clock, which didn’t have numbers, numerals or markers of any description.
+
+“The time?” She repeated.
+
+“I dunno…I’m not very good at telling the time.” I replied.
+
+“Why’s that?”
+
+“I was off with the chicken-pox when they learned to read the clock in primary school…and when I went back I was too scared to ask, so I just avoided it, and pretended like I knew. I mean…I definitely understand the concept…but whenever someone asks me to read a clock face…I really have to take my time and figure it out, every time…and knowing how easy it is for other people only makes it worse.”
+
+“Right…that’s pretty weird,” she replied distractedly, leaning over the kitchen island to catch a brief glimpse of the clock. “It’s almost 5 a.m. What kind of tea do you want?”
+
+“Like…normal tea. Whatever. What’s this painting?”
+
+The painting was composed of a pale yellow background and various shapes, in red, black, blue and white — the latter being the most prominent, the colour of a thin parallelogram in the foreground, bisected by two white triangles with a thin yellow line running through them.
+
+“Can’t you tell what it is?” She asked, walking over and placing a dark blue mug of tea, with the teabag still inside, in front of me, before going over to sit on her bed. “Lemon and ginger…it’s good for the cold weather…I put a wee bit of honey in it.”
+
+“It just looks like shapes to me,” I replied.
+
+“You’ll see if you keep looking at it, eventually.”
+
+“Seems pointless…If I didn’t see it the first time, then I probably don’t deserve to see it at all.”
+
+“How are you feeling?”
+
+“Why?”
+
+“Well…you’re looking awfy maudlin, as my Gran used to say,” she said, holding her bottom lip out in a comically sad face.
+
+“What was she like?” I asked.
+
+“She was my favourite person in the world. Worked as a seamstress. She had a really hard life, but she was always really cheery with everyone. You remind me of her, especially right now.”
+
+“You taking the piss?”
+
+“A wee bit…you do though…not exactly sure why…tell me how you’re feeling…on a comedown, obviously. Is it that bad?”
+
+“Well…I feel like nothing in the world can ever please me…that I can never attain happiness without the use of drugs. Like behind everything, beyond all of the most horrible, evil and unthinkable things imaginable is nothing, absolute emptiness…which is actually the worse thing it’s possible to envision.”
+
+“Are you, like, depressed?” She asked with a smile, in a tone that sounded condescending. But it was difficult to be sure about anything concerning her at this point.
+
+“I don’t feel particularly attached to being alive…I find it unbearable.” I replied.
+
+All of a sudden she began to look panicked and flustered…and seemed like she didn’t want to make eye contact anymore. She kicked off her slippers, lay down on the bed, and turned to the left to look out of the window. She lay almost completely still for a few minutes, silent.
+
+“Why are you saying that? That’s such an awful thing to say,”” she began, still staring out of the window
+
+She seemed to be speaking to my reflection in the window, but I couldn’t actually see any reflection at all. “It can’t be true, it’s probably just another affectation…you seem to have a lot of them. Do you really feel like that…that you want to…is it just the comedown?…are you just romanticising the idea? Because there’s nothing beautiful or romantic about it. And it’s, like, really…such a cliché.”
+
+She turned back around: “See this is why…this is the reason.”
+
+“What are you on about?” I asked.
+
+“The reason that I’ve been angry with you all night.”
+
+“I think I should probably go,” I said.
+
+“You play and sing so well…I wanted to tell you that all night…that I loved your music, and the way you were on stage, and everything, but when we spoke I just couldn’t get over this feeling of…rage…and it’s not anything you’ve said or done. I know it’s not. But you have this arrogance and contempt that cuts across your whole aura, I don’t know if it’s like self-contempt or scorn for the world, or maybe for life itself…it’s all kind of the same at the end of the day…but if that’s the way you feel about life…then I just can’t condone that sort of behaviour…and it’s not something you should be so casual about…it’s arrogant…it’s *so* callous.”
+
+Her eyes were wide and wet, I couldn’t tell whether they were filled with tears or simply exasperated and overworked. I took out my tobacco, skins and filters. I rolled a cigarette in silence, slowly and deliberately. I could feel her staring at me expectantly, but I didn’t look. I place the cigarette in my mouth and stood up from the couch slowly.
+
+“You’re wrong about me,” I said, lighting my cigarette, and exhaling deeply, and turning slightly towards the door.
+
+“Maybe I am…” she replied. “You don’t have to leave now, though. You haven’t even drunk your tea.”
+
+“What would your girlfriend say if she came round now?”
+
+“I don’t know. Let’s not talk about her. This hasn’t got anything to do with her.”
+
+“Tell me about her.”
+
+“You’re nothing like her. Why do you want to know?”
+
+“I don’t really.”
+
+“Oh my god…you’re such a dick,” she said with a faint, slightly hoarse, laugh — regaining her composure somewhat.
+
+“So I mean…I’ve got to teach a class on Monday morning and I should really get a few hours sleep before I have to get up and prepare something.”
+
+“How many students have you got?”
+
+“Seven…all girls. They’re all pretty annoying,”
+
+“Sounds fun…must be tough. I bet you’re really hard on them, but they really want to please you.”
+
+“Right…not really. Weird thing to say. It’s mostly tedious and annoying to be honest.”
+
+“Do you wanna be an artist or you do wanna be a teacher? You can’t be both.”
+
+“I don’t have the luxury of just being one.”
+
+“Well…you can come and lie down on the bed, if you want. Lie next to me.” She now lay in the middle of the bed, turned onto her right side, propped on her elbow, her face resting on her palm. Her forehead shone with a light perspiration as it caught the dim light from the bedside lamp. I took off my boots slowly, placed my jacket on the couch, walked over to the bed and sat down.
+
+“It’s ok if you fall sleep, I don’t mind. I can wake you up. Just lie down here.” She tapped the empty space next to her with her left hand. I lay down cautiously.
+
+“Just…no touching. Is that ok?”
+
+“Of course it is.”
+
+“Why am I wrong?” She asked.
+
+“About what?”
+
+“You.”
+
+“Because I have some sort of belief in myself…in what I’m trying to do. But I feel like I’m touched by death…as if I can see it everywhere…like I can’t seem to go anywhere without it confronting me in some form. I believe I can do something, make something, but I sense that my time is limited. I find everything else unbearable, and I ought to end it while I’m still young, after I’ve made something that gives me a sense of complete possession. I’m not suited for anything other than that. Everything else I’ve done has just been to pass the time, and it’s always just wearisome and miserable.”
+
+“So you want to make your life into a work of art. Something that’s rare because it was, like, fleeting? But why should anybody care? They probably won’t. You’ll be forgotten…but not for the people who may never have cared about or understood your art, but loved you for who you were…which will always be more than your art.”
+
+“I don’t care what other people think, or if I’m remembered. And I don’t know anything about art.”
+
+“Enough to give living up for it.”
+
+“Is there something wrong with that?”
+
+“Yes, everything…you clearly don’t think about anyone else but yourself. You want to make art only for yourself. That’s not art…that’s just, like…wanky…literally just wanking. And it’s not cool.”
+
+“Whatever, I don’t care about being cool…so what’s your art about, then?”
+
+“Connecting myself with others…understanding…trying to break out of isolation…getting over things that have hurt me in the past…but really it’s all about connection, empathy,” she replied confidently.
+
+“Well…I need to stop playing music, in any case.”
+
+“Don’t do that…I think I’d like you less if you stopped playing music and became some boring academic.”
+
+“It’s probably going to kill me otherwise.”
+
+“Why?”
+
+“It’s a consuming obsession, it’s all that I can think about. Nothing else comes even close to it. But nothing I make is good enough…I try to take it all the way…all the way to the wall…the absolute limit of my meagre talents and knowledge, or whatever it is…but it’s fuck all in the end…it’s nothing special…it’s impoverished…it’s nothing at all…and if I can’t do anything else…then what’s the point?”
+
+“Aren’t you being a wee bit dramatic?”
+
+“I don’t think so…I’m no capable of being insincere…that’s my problem.”
+
+“Can’t you be satisfied with what you make and find fulfilment in other things or other people?”
+
+“Probably not…”
+
+“Something bad must have happened in your childhood…some sort of shock.”
+
+“Not really.”
+
+“Have you tried meditating? Tranquillity and stillness are, like, totally the way to go.”
+
+“Tranquillity is just a step away from stupidity…I’ve got too much restless energy…I need to keep moving…move towards something.”
+
+“Towards what? Truth?”
+
+“…I’m definitely too stupid to articulate it.”
+
+“The Universe?”
+
+“Reality, I think.”
+
+“Sounds boring.”
+
+“There’s more reality in music than in words…maybe there’s greater truth, too.”
+
+“Oh…well there’s too much of all that already. You should try something else,” she said.
+
+“…There’s far more truth in death than there is in mere life.” I replied.
+
+“Stop being so tragic…it’s not an attractive quality.”
+
+“Tell me about her…your girlfriend?”
+
+“I said I don’t wanna talk about her…she’d be heartbroken to know that I’ve got a man in my bed.”
+
+“Doesn’t she like men?”
+
+“Definitely not. Neither do I, actually.”
+
+“Then why am I in your bed?”
+
+“You’re a little different.”
+
+“I’m really not.”
+
+“Well you *definitely* are.”
+
+“Am I too immature to be considered a man, that what you mean? Still a boy?”
+
+“Well…No…not that…you’re pretty unbearable and you love talking nonsense and listening to yourself…so you’re definitely a man,” she said, bringing a hand towards my chest, allowing it hover momentarily, before removing it. “But you just seem a bit different.”
+
+“Exotic?”
+
+“Are you just making stuff up now?”
+
+“Whatever, doll. Nothing is happening here. It’s perfectly chaste.”
+
+“Touching is just the most obvious way…it’s definitely not the most hurtful.”
+
+“Right…but we’re just talking…and I’m away to leave soon, anyway.”
+
+“Why? I told you can fall asleep here, I’ll wake you up I promise. And I’ll make you some toast in the morning.”
+
+“Alright…sound.”
+
+“Will you write songs about me?” She asked, sleepily.
+
+“Why would I do that?” I replied.
+
+It occurred to me then that an *ingénue* is interesting only for as long she is young and beautiful, beyond which she inevitably becomes dreadful and irritating. Nothing gets better with age. But she was beautiful, still. I’d already decided that somehow…though it was by no means certain by simply looking at her…it also occurred to me to question why I felt the need to be such a cunt all time. The latter realisation pained me a great deal.
+
+“I don’t write those kinds of songs,” I said, perfunctorily.
+
+“It would really please me…don’t you want to please me?” She asked, yawning.
+
+“Not sure…most powerful instinct is to say no, to be honest. But it’s only a reflex…cos I don’t know you. Probably not though…I don’t wanna please anyone.”
+
+A long period of silence followed, during which we maintained peripatetic eye contact, but said nothing at all. I never felt her scrutiny relent. The back of my head began to throb with a sharp and lingering pain, as the last dregs of untimely and abnormal happiness were wrenched from it. For whatever reason, I felt as if I didn’t want to leave that bed, or that room, ever again. No idea what time it was…felt like 7 a.m.
+
+“What month is your birthday?”
+
+“Early January.”
+
+“God…makes sense.”
+
+“How?”
+
+“What’s your surname?”
+
+“…Aetdalla.”
+
+“Where’s that from?”
+
+“…Sri Lanka…the Sacred Isle.”
+
+“What’sit…mean?”
+
+“Something to do with Elephants.”
+
+“Barbar…”
+
+“Aye.”
+
+“Sailship…”
+
+“…What?”
+
+“Painting…”
+
+*Was an impression difficult to shake…was walking round about Charing Cross. Was round that bridge…was that one, aye…see I couldn’t make out her face and that…she probably never had one to be fair…to be fare…Belfair…anyway…aye…ground was all black sludge was pretty hard to walk…thick as fuck black sludge…pavement just looked the same, right, was blacker, but when you tried to walk on it…was black sludge…running on it made you sink deeper…the quicker I tried to go, more I sank…waist deep soon enough…was on ma oan…was nae cunt around…dunno where I was going to…towards the White Tower on the hill…Mater Dolorosa…Perfectly chaste.*
+
+\---
+
+#### **Sunday**
+
+The back of 3 p.m. when I eventually went down the road, wasn’t too much of a walk…just down the hill for me…other side of the park…but it was raining heavily…we’d both slept badly, but for a long time…slipping in and out of wakefulness…pretty sure the “no touching” didn’t last…can’t be sure but…she was definitely pressed up against me through the night…felt her damp hair brushing against my mouth…had one of her long legs draped over me…fingers caressing the back of my head…can’t be sure…felt like she was on top of me at one point…her lips pushed up against my mouth…her tongue probing…with the innocent and instinctual certainty of a somnambulist. I was told no touching…best stick to it…never know how crazy these burds can get, these days.
+
+Woke to a girl much transfigured, sat upright in bed, hair dishevelled…wild, red eyed…wouldn’t be surprised to find she didn’t know me at all…a small frightened animal…completely shocked at my very presence in her sanctuary…I never said much…my head was pounding now…the sky was a dark, thick grey…would start to piss down at any moment…she insisted on making me toast. I refused…wanted to get the fuck outta there too. I hesitated and looked over. She was looking straight ahead but not at anything in particular; her eyes underpinned by two dark circles:
+
+“I had a super weird dream…”
+
+“…What was it?” I asked.
+
+“I was in Ballater…Craigendorroch…Deeside, up north, in the wooden lodge my parents had for a week each year…a timeshare…we went up there every summer…I always hated it…parents would argue constantly on the drive up to Aberdeen…shouting matches when me and my sister had gone to bed. Always a miserable holiday. It was where my Dad died, one summer…in his sleep one evening…heart just stopped beating…I was twelve…I hated him, so I was glad…From the balcony, beyond the Pine trees…you could see a big black hill…beyond it were the Cairngorms…I was stood on the empty balcony…nobody around …I guess it was autumn because there were so many dead leaves on the ground…but there were no deciduous trees around…the sky was a pale blood red…completely cloudless…the hill was shiny like latex…I heard this deafening roar of water: a huge wave crashed over the top of the hill, a deluge, a flood, a tsunami — an enormous wall of dirty blue sea water cascaded over the horizon towards me at a horrifying speed…I screamed.”
+
+“Aye…well…I had a pretty weird dream myself.” I replied, absent-mindedly.
+
+She sighed ominously. Didn’t really know what to say…suppose I had to say something, though, obviously. I often found myself on the receiving end of candour and emotional vulnerability, and truth be told I couldn’t really understand why. Probably because I was quiet…people assume some degree of sensitivity and introspection…that I was some cunt that was good at listening. But I never listened, not really. Was rather that I just didn’t see the point in talking. Most cunts talk too much. I wanted to say something to her, I really did, something that would assuage her anxiety, her fears, or whatever it was that made her seem so helpless and troubled right then. But the room was already too cold that morning…the distance already too great. “No touching allowed.” She said. Fine with me, doll…I’ll quite happily never touch you. Even if you want me to; even if you beg me to. *Never give them what they want.* I managed to get up and make for the door — we hugged awkwardly. It started to rain as soon as I got out onto the street. I was soaked by the time I got home, where I crashed out on my bed…not stirring again until the early morning.
+
+\---
+
+#### **Monday**
+
+Walking through the Park to the Uni at 8:55 a.m.…definitely going to be late…barely slept…done fuck all to prepare…clutching a copy of the book in my hand…hadn’t re-read it yet…had only read it the once…ages ago…couldn’t remember fuck all…hadn’t gone to that lecture to take notes for my seminar…at some point in the night I’d got a text off Ally telling me he wanted to quit the band…wasn’t fussed…the band was dead to all intents and purposes…the first of many things…a shivering bleakness…occurred tae me that I hadn’t eaten anything in twenty-four hours…not even sure I had enough money to lift a tenner from my account to buy lunch…still had tobacco, which was all that mattered…that morning I’d put on a white shirt, a black tie and a grey wool blazer…didn’t really look the part at all…just looked like some dishevelled cunt…some cunt that’d slept in his clothes…felt like I still stank of booze…I’d sprayed on a fair amount of Fahrenheit…now probably just smelled like a boozy, perfumed ponce…eyes were completely bloodshot…shivering, nausea, dread…and regret, obviously…there’s nothing quite like it…I savoured it…the excuse…the profound reason…the physiological justification to luxuriate in misery…deprived of all poetry…all rarefied perspective…all artifice…all higher sentiments and feelings…just, pure, unmitigated, misery, both corporeal and spiritual…and no one more deserving of it than me!
+
+The room was too hot when I walked in mumbling some awkward apologies, trying not to catch their eyes. Old and large with mahogany wood panelling, five tall, floor to ceiling windows looking out onto University Avenue. Everybody was sat around a long table in the middle. There were seven of them, all girls. None of them much over the age of twenty-one…each in possession of a certain subtle or overt charm; different variations, iterations, versions of those unknown qualities and quantities that imbue youth with beauty…in some of them it might prove fleeting, eventually, in time…in others it may well persist much longer…and perhaps considered individually…if there was only one…or two…three at a stretch…then it might have been bearable…but the cumulative effect…seven of them: it was monstrous…to describe each of their charms, to attribute to each the source of their individual gifts would be gratuitous…like the relentless angles of a greased, gyrating, camera eye…pornographic…too much beauty is like too much Cunt…the stench of indulgence…it was certainly no mistake…to be confronted with such obscene and variegated faces…it was too much. I avoided making eye contact with all of them…I tried as far as possible not to engage in some discourse…I asked a few questions here and there…the lesson just consisted of me just reading out random passages…very confusing! And giving some vague prompt…I split them off into groups for some reason for ten minutes…just to buy some time…they looked confused…wry smiles…really I had no idea what I was doing…I had no desire to instruct…to pass on my experience or wisdom…I’d never had any wisdom to be fair…I never wanted to teach…to shape minds…the whole concept was alien to me…I had no desire to inspire…no need for admiration and forced respect through credentials…I’m indifferent to the fate of other minds…barely care about the fate of my own…a matter of supreme indifference whether they were developed or not. They were so much more than minds…unfortunately…I wanted to fuck them all, each one of them…like I wanted to fuck everything else that was beautiful, to soil it, to ruin it, to subsume its essence, absorb its energy, its vitality, to devour it, to gorge upon it…until I spewed. I wanted to fuck them all, every single beautiful woman in the world, and the others too, who perhaps weren’t “beautiful”…but actually were, all the same…because they were women…and therefore beautiful…I wanted to fuck them all…but maybe just the once. One time, for all time. After that I’d be bored…just the one time would suffice! And then I’d ignore them. Stop replying. And then maybe…I could get them out of my mind, and turn my scant attention to more pressing matters. Their voices formed a recondite chorus of polite deference, assent, but more often some motivated disagreement…with something I’d said or suggested…I couldn’t keep track of anything I had actually said…such was my indifference…I wasn’t the type to hold my tongue…and I wasn’t saying anything of value, in any case…just spraffing shite. The room was unbearably hot! I hadn’t taken off my olive-green mac…I could feel a layer of sweat forming around my forehead. All of my pre-ambles and attempts to divert attention away from my lack of preparedness and general surfeit of insight were failing…they were fired up…raring to go…indignant!…that was the only reason those academic cunts put this particular book on the syllabus…bums on seats…well shaped and pert arses in the present case…get them good and riled up with meaningless indignation at the subtleties of literary artefacts, and a complex artistry which they had no real ability to grasp…I took up the book and started to read from a page where a word caught my eye…I’d highlighted it in pencil:
+
+*Ugly. Yes, it was ugly enough; but if you were man enough you would admit to yourself that there was in you just the faintest trace of a response to the terrible frankness of that noise, a dim suspicion of there being a meaning in it which you- you so remote from the night of first ages-could comprehend. And why not? The mind of man is capable of anything- because everything is in it, all the past as well as the future. What was there after all? Joy, fear, sorrow, devotion, valour, rage-who can tell? - but truth- truth stripped of its cloak of time. Let the fool gape and shudder — the man knows, and can look on without a wink.*
+
+“I mean…it’s just a bit misogynistic isn’t it?”
+
+“Yeah…isn’t it like the male gaze or something?”
+
+“Definitely!”
+
+“Clearly he hates women. Totally agree.”
+
+“That’s an interesting perspective…how so?” I asked.
+
+Confused regurgitated bullshit passed off with that unnatural confidence that comes easily to those that are privately educated…particularly burds. See you couldn’t exactly disagree, cos then you couldn’t theoretically shag them, and that should be the end goal in all respects, generally speaking, in all relations with women. At some point there has to be some shagging, at least on the abstract level, even if no actual shagging occurs.
+
+“…I mean, I think we can agree that he was writing through historical circumstances that were quite detached from our own, and social attitudes that were certainly different from what we would view as normal.” I conceded, “but what about in this particular passage? The one we just read?”
+
+The slender, sour looking brunette with the upturned nose stirred in her seat…she was probably the fittest out of the lot of them…objectively speaking…can’t say she did much for me…too straight up and down…like a stretch of urban dual-carriageway…she was fit in that way that other women would say was attractive…gamine…thin…disdainful…self-abnegating…reserved, awkwardly unsmiling. Probably took a lot to get her off…obviously I wouldn’t mind trying…but I suspect it might not be possible at all…frigid…usually always the first to answer…but for whatever reason, today she’d not said anything until now.
+
+“It’s just a man’s perspective, so we don’t need to read too much into it,” she said.
+
+“Sorry…but how is that an excuse?” Another voice piped up.
+
+“I wasn’t excusing anything!” she replied, defensively.
+
+“Does something have to be excused, in the text? How about in the this specific passage then?” I offered, unsuccessfully, again.
+
+“Yes? I feel like it does?” Another voice came.
+
+“I feel like we’re *so* done with books like this…it’s time we moved on from them.”
+
+Replied the voluptuous American burd, who had that type of doe-eyed, dreamy and alluring look that seemed indistinguishable from acute concussion. “And like…it’s so racist?”
+
+“I read that it, like, seems to condemn colonialism…but it’s just like an apology for it?” Someone added.
+
+“But everything was racist then, by the standards of racism we have in the contemporary moment…which are, like, essentially forms of politesse and etiquette more than they’re anything else.” I replied, idiotically.
+
+The majority stared at me blankly…one of them, however, a blonde who was particularly equine…who at some point in her life, up until now, was by no means out of place on a hockey pitch…wearing a light blue jumper which looked like it was cashmere…smashing tits…definitely had the type of face that contorted into a grimace when she came, completely flushed, red, invariably letting some sort of very guttural noise…she looked to be particularly aggrieved and shocked at what I’d just said, but didn’t seem sure how to respond.
+
+“But…aren’t you…I would have thought…since it’s really a really racist book…I was reading that article by Achebe…and it’s like really racist…like so racist…don’t you think so?”
+
+“I didn’t say it wasn’t racist.” I conceded, wearily, but unconvincingly.
+
+“It’s definitely racist.”
+
+“I agree?”
+
+The word “racist” reverberated about the room, bouncing off the walls, rattling the windows, a savage contagion…I was becoming a little disorientated, gripped by the nagging feeling that I ought to tread carefully for once, but at the same time I didn’t seem any more capable of restraint than usual. I noticed I now had a pounding headache. I was more than a little confused.
+
+“What does racism mean exactly?” I asked.
+
+The girl that looked half-Indian sat up in her seat, with her back up. I think she’s half-Indian…she also could, as it were, easily have also been from Andalucia, or be South American, or Sicilian, or Armenian, or from the coastal regions of the Mahgreb, or the Shiraz region of Iran, some hints of the mountains of Balochistan, or to be fair, just a slightly dusky Scottish burd…I’d met a few…Celtic…Scots…but olive skin…dark eyes…”hint of the tar brush” as ma mates granny used tae say about me, rather objectively, bless her heart, lovely woman, also used to call me a ‘bonny wee laddy’ and give us sour plums when we were over or money to get a 20p mixture, whether in cash or in bottles of ginger…This burd seemed a bit demure, but one could tell she’d be rampant once the clothes were off and she really got into it…ear-piercing screams, would probably shout the house down…if you got her there…but it definitely wasn’t gonna be easy.
+
+“It’s White Supremacy,” she said.
+
+She’s *at it*…I thought. But surely they can’t all be *at it*?
+
+“Right…well what is that? It seems a bit like wishful thinking to me, as a concept,” I replied, feigning nonchalance.
+
+I was less sure of myself as the acrimony seemed to be evolving further. I couldn’t help but feel it directed more and more towards me, at my person, specifically. Was I now the racist? Nah mate…impossible…canny be a racist when you’re a racial! I canny be a racist! I am race! Not that I’d got fuck all out of it. More likely that they’re a bit confused about what’s happening here…burds often tend to be. Wished they’d just shut the fuck up…my head was pounding now. Felt all the moisture was leaving ma body through my windpipe…I stood up…and regretted it immediately…started swaying a wee bit…shuddering…think I managed to right myself…walked over to the window and looked out…I could feel all their attention pulsating down my spine…tingling…a vague acidic taste…clammy warmth around my temples…felt some sweat droplets rolling down ma back…did I drink any water today? Sometimes the old ticker seemed to be beating irregularly…it was going completely mental now…couldn’t seem to shake the distinct feeling I was about tae deck it…fall on the floor…embarrass myself in front of all of these young, beautiful women…who I could probably have shagged, had I just kept it together…they don’t sleep with weak men!…I’ve gotta give em some of some banter at least…could just deck it, and then laugh and get back up and give em some wry quip…well timed…” Sorry about that…I think I might be dying, but let’s just wait until the end of the class.” See…that’s just shite!…canny even think of a decent quip…you stupid cunt!…wonder how long we’ve got left in the class…wonder how long I’ve been standing at this window gaping gormlessly like some glaiket gadge…weather was dreakit outside…wonder how long it’s been since I said anything…fucking ages…yonkies…they probably just think I’m deep in thought…knees felt like they were weighed down by ballast…but lopsided…the right much heavier…if I’m gonna deck it, I’ll probably keel over to one side…to the right…I needed to right myself…would it be that bad? Maybe I’d be out for a few minutes and I’d wake up refreshed…all of the women fussing over me…caressing…sympathetic…concerned…at least it’d get them to shut the fuck up for a wee bit…just needed to think…might even deck it now…Will I?…I’ll black out…and never wake up again…which would be the best of all possible scenarios.
+
+“Err…What do we think is meant by the term ‘ugly’? Why…errr…is what’s described rendered in terms such as ‘ugly’…which already suggests it’s opposite.” I was probably slurring my words at this point.
+
+“What?”
+
+“What do you mean?”
+
+They all seemed to demand, in a singular collective voice.
+
+“Ugly…ugly…ugly,” I says, “…errr…ugly, like what does that mean?”
+
+“Ugly is only the opposite of the Western concept of Beauty, itself a Colonial construct, an instrument of oppression, a diabolical invention. Things are only ugly because they are Other. We should attempt to question the beautiful because it’s an artificial construct, this ideal, because it’s oppressive and Colonial.”
+
+A collective voice came in reply.
+
+Definitely *at it*.
+
+Fair play to all these tidy wee burds…honestly fair play to them…but I couldn’t help thinking they were all talking pish…that they had no idea what they were on about! I tried to…
+
+\---
+
+Last few minutes a blur…dismissed the class somehow…excused myself…sick…” feeling unwell.” Stepped out the seminar room…left my papers and notes scattered all over the table…my bag too…instinctively took out my tobacco and started to roll a fag…couldn’t get my hands to stop shaking…
+
+\---
+
+I’d started to run…tae bolt…needed to get back to ma flat, to ma room…see, it felt like I was dying just at that moment…something was about to give way…brain haemorrhage…aneurism (good song)… the old ticker…wasn’t even that old, technically…but I’d already put it through the wars…now I was gonna die, arbitrarily, like, on the middle of Park Avenue…cause of death? No idea…“your honour, our man was coming aff the back of a particularly harsh comedown”…the coroner will say…“three-day hangovers are lethal…a senseless tragedy”…felt weird as fuck thinking I was gonna die…every time I tried to think myself out of it, to rationalise, all of my thoughts became a tangled electric vapour…more palpitations…sweating profusely now…our album wouldn’t be out till later in the year…see…if I die now, and it turns out the album is shite…that is, if anycunt actually gets to hear it…then what was the point? But who’d decide if it was shite? It’s ready…there’s nothing more to do with it…but is it good? And why would I give a shit anyway? I’d be dead! I cut through the park, past the skateboarders and the tennis courts, and turned left onto my street opposite the bowling green. At a distance I could see a figure, tall and austere, dressed in black, leisurely pacing up and down outside the entrance to our building, which was at the very end of the street at the corner. The street was empty, and there were few cars parked at sides of the road. The figure caught sight me from a distance and stopped its pacing and stood staring down at the street at me, waiting. I felt myself enveloped by trepidation and misgiving, as I slowed my frantic pace down as far as it was possible to go without coming to a standstill. My eyesight was too bad to make out who it was, its specific features, but its presence, even at a distance, was unmistakably intrusive, other-worldly. It grew impatient…seemingly frustrated…its movements jerked and became erratic as it seemed to recognise me…it began to walk towards me…as it grew closer, its pace quickened, and its shape softened…less big than I’d imagined a moment earlier…and growing smaller…less uniformly black…an aviator jacket…black suede with cream fur collar…blonde hair, tied back severely …red eyes…she kept walking, unsmiling, right into me, and threw her arms around me. She said nothing, never took her face out from my shoulder, and seemed to bury it further, barely breathing. My panic subsided, gripped by confusion and puzzlement. Perhaps I’d already died, at some point.
+
+“Can you take me inside?” She finally asked, apparently unable to make eye contact. She leaned into me as I opened the door to the close…she yielded all of her weight to me — it seemed so miniscule, so insubstantial…I practically carried her up the stairs, placing her on the bed, moving away to sit at my desk, turning the chair around to face the bed. The room was still cold, not yet registering a returned presence, caught unawares. She lay motionless for some time staring at the ceiling, almost catatonic. She sat up on the bed and slowly, and silently, began to undress…when she removed her bra…she covered her breasts with one folded arm, and got under the covers.
+
+“Come to me,” Vivian said, almost pleading.
+
+\---
+
+Scorched earth…a tumultuous terrain, red, rough uniform mounds of excitable flesh, crops of downy hair, the clammy and strained breath, gasping into my ear, as I devoured her neck…it smelled of almond…she never ceased to yield to every touch and caress…I had, in truth, always lingered at length, and with purpose, on those parts designed to distract from the final oblivion…the neck, the shoulder, the collar bone, the hip, down to the inner thigh…she was weightless still, yet clearly substantial…I could grasp her non-weight in my arms, and feel for the first time as if I was holding something…possessed for the first time…I lifted her on top…she writhed and convulsed…I’d come to know the contours of the same such dissimulation with other women, I’d come to know well the poses and routines, the gestures and motions with which they tried to convey their benevolent indulgence, the source of their pleasure…those women whom I had known, but had never, I now realised, come close to possessing…she lay down and pulled me back on top, and into her…a blue mist descended…taking over my movements…ceaseless…but as I came close…no longer able to hold myself back…I pulled out, instinctively…and sat up…she began to shake…a prelude to the flood…a cascade…no longer just threatening the horizon, but engulfing us completely.
+
+[
+
+![](https://substackcdn.com/image/fetch/$s_!Fb9_!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Ff3faed8e-43cd-4bc6-8968-275be51edde0_1319x141.png)
+
+
+
+](https://substackcdn.com/image/fetch/$s_!Fb9_!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Ff3faed8e-43cd-4bc6-8968-275be51edde0_1319x141.png)
+
+**Udith Dematagoda is a writer, musician and scholar from Scotland. He is the Editor in Chief and publisher of Hyperidean Press, and writes the Substack Immanent Dissolution.**

@@ -1,0 +1,68 @@
+---
+title: "I Can't Tell You What's Coming"
+author: "Margaret Killjoy"
+publication: "Birds Before the Storm"
+publication_slug: "margaretkilljoy"
+published_at: "2025-09-17T16:43:51.000Z"
+source_url: "https://margaretkilljoy.substack.com/p/i-cant-tell-you-whats-coming"
+word_count: 1601
+estimated_read_time: 9
+---
+
+My dog knows there’s something wrong, and he’s anxious. He hasn’t mastered the art of doomscrolling, and I don’t think he takes much in from the news podcasts we listen to, but he can tell that I’m worried, which makes him worried, which in turns makes me worried, which in turn… well, you get the idea.
+
+It breaks my heart that I can’t keep my friends safe from anxiety, and it breaks my heart even more that I can’t keep this four year old mutt safe from anxiety. He’s got long walks and he’s got as-needed trazodone, and those things help, but I suspect it would help more if all the humans in his life weren’t wound up balls of stress, staring at an uncertain future.
+
+The news is sending waves of stress through us, leaving fractures across our bodies. Or at least it’s fracturing me and some of the people I care about. Most people I know are tired, stressed, and grouchy right now, and when they get together they make one another tired, stressed, and grouchy. Our friendships, relationships, and communities are all strained by what’s going on.
+
+I don’t have any solutions here, not other than the things you already know, like that we need to be offering one another grace now more than ever. We need to be assuming best intentions of everyone we care about. We need to practice our empathy and our conflict de-escalation. We need to build community even when sometimes all we want to do is to be left alone.
+
+We also, maybe more than anything else, need to remember we are strong. And that our enemies are just people, the same as us. Mortal, the same as us.
+
+\---
+
+It’s weeks like this that I’m grateful I’m not a hot take writer. When you write—and talk—for a living, there’s this incessant pressure to know exactly what to say about every news story, every political development. There’s good money in offering people ragebait or reassurance. Saying “everything is fucked” or “everything is fine” is a good way to build your platform.
+
+As mad as I am sometimes at the hot take machine, I’m not mad at the people who live inside of it and make it run. It takes a certain kind of bravery to come out swinging with an opinion every week. I just don’t want to do it.
+
+I don’t want to do it because, frankly, I don’t know anything. I don’t know what’s going to happen. I spend countless hours a week researching the history of social movements, but history can only give you perspective, never answers.
+
+\---
+
+There *is* a certain kind of reassurance I can offer you, right now. Or at least I can share the reassurance I’m offering myself right now. It’s a strange reassurance, I admit, but here it is: they are already instituting fascism as fast as they can in this country. All the bad shit we’re afraid of? They’re either already doing it or they’re trying to sort out how to do it, and they’re not going to be able to move substantially faster than they already are.
+
+I’m not afraid of the fallout of last week’s news because everything bad that might come out of it was already being planned. They’ve already been scapegoating trans people for everything bad in this country and are trying to criminalize our existence. They’ve already been talking about declaring “Antifa” a domestic terror organization. They’re already funding a genocide (and were before the current administration) and they were already ramping up ICE infrastructure as fast as they possibly can. I don’t know that there’s any further acceleration available. The fascist pedal is already to the fascist metal.
+
+That’s not to say that things aren’t going to get worse: they *are* going to get worse. They’re just, as far as I can tell, getting worse as fast as they already can. Our actions aren’t going to somehow convince the fascists to get even more fascist. There’s an odd sort of freedom in that realization. We can—and should—collectively stop saying shit like “oh if you behave a certain way, it will just embolden the fascists.” They’re already as bold as they can get.
+
+And that doesn’t mean that the free speech crackdown over the past week hasn’t been startling. The level of hypocrisy from the right wing comes as no surprise, but it’s still worth noting: a man they touted as a champion of free speech was assassinated and their response is the suppression of free speech at levels we haven’t seen since the various red scares of the 20th century.
+
+\---
+
+My friends are worried about me right now, and I’m worried about me too, and I’m worried about them, all of us are playing strange games where we decide who should be more worried about whom. We’re all wondering who is the most at risk, who needs our support most immediately.
+
+It’s our duty, though, to resist fear and despair. Last week, I saw people online, people I usually respect, say terrible things like: “if you’re trans then don’t go home tonight, but stay with friends, because we’re going to be hunted tonight.”
+
+In so many ways, I see people say “we are weak and vulnerable,” and that’s just not true. All of us are made of flesh and blood and there’s a built-in fragility to the human body, but that’s no more true this week than it was two weeks ago. When I look at the trans people in my life, I see the toughest motherfuckers I’ve ever met.
+
+There’s that meme that goes around, of two people talking. “Wow, you’re so resilient,” says the first person. “Thank you, it was that or be dead,” says the second. I know people share that meme to critique how often marginalized people are told they’re resilient, but there’s still also an essential truth to it. We’ve seen ourselves through so much, and we’ll see each other through so much more.
+
+\---
+
+Once, about half my life ago, I went to foreign detention in the Netherlands for a night because I was caught up in a mass arrest of antifascists who were trying to defend a mosque against the Nazis who’d already burned the place down once. The police managed to single me out as a foreigner, but we all refused to give them our names or nationalities, and they singled me out (as well as a few Dutch people who seemed potentially “foreign” to the cops) so there I was in foreign detention.
+
+I felt defeated that night, lying alone on a wooden bench in a cell across the ocean from where I was born. Because of some complicated shit in the Dutch legal system, I had reason enough to worry that I might spend months or years in prison in a foreign country.
+
+I made a bargain with myself, the kind of bargain I’ve since learned you should never make. I told myself “Once I get out of this, I’ll live my life in such a way to not wind up in foreign detention again.”
+
+The police let me go the next day, and they told me I’d fallen in with the wrong crowd. (Considering two Dutch strangers let themselves be carted off to foreign detention alongside me rather than break solidarity, I disagree strongly.)
+
+For years, I looked at that night all wrong. I let it scare me. I kept that terrible bargain I made with myself. Whenever I was in a legally complicated situation overseas, like sleeping in a squat or marching in a demonstration, I was wracked with and wrecked by fear. I acted like the Dutch cops had won. They didn’t though. I walked out of that cell the next day, in no small part because several Dutch people had refused to identify themselves and gone to foreign detention with me. I—or rather, we—won. We walked out with no charges. The real lesson I should have learned—that it took me a decade to learn—was that solidarity is powerful, not that the police are powerful.
+
+\---
+
+I can’t tell you what’s coming and I can’t tell you that it’ll be okay but I also, really, really can’t tell you that “everything is fucked” or anything like that. I can only tell you that the future will be determined by our actions. One problem with the current electoral system in this country is that we grow up being told that the only way we can make our voice heard is by voting for representatives to various levels of government, but history isn’t written by voters. It’s written by people taking action. In particular, though not exclusively, history is written by people taking collective action.
+
+In order to take collective action, we need to act in solidarity with one another. In order to act in solidarity with one another, we need to offer each other grace. We need to assume best intentions. We need to de-escalate our conflicts. We need to work hard, and we need to not let ourselves off the hook, but we need to be willing to let each other off the hook.
+
+And I need to figure out how to explain to my poor dog that everything is okay, even when nothing is okay, because his only job should be to live his best life and be good to people. Which is actually quite a hard job. But I bet he’s up for it.

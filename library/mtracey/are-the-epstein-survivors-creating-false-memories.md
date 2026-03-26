@@ -1,0 +1,143 @@
+---
+title: "Are the Epstein Survivors creating false memories?"
+author: "Michael Tracey"
+publication: ""
+publication_slug: "mtracey"
+published_at: "2025-11-25T03:05:02.000Z"
+source_url: "https://www.mtracey.net/p/epstein-survivors-false-memories"
+word_count: 3355
+estimated_read_time: 17
+---
+
+[
+
+![](https://substackcdn.com/image/fetch/$s_!JeEQ!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F3f79a6c7-e8d4-4adb-ba1c-0a31626ec1ea_2048x1152.png)
+
+
+
+](https://substackcdn.com/image/fetch/$s_!JeEQ!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F3f79a6c7-e8d4-4adb-ba1c-0a31626ec1ea_2048x1152.png)
+*CNN’s “The Source” with Kaitlan Collins — November 18, 2025*
+
+One of the new “Epstein Survivors” to have recently emerged, at least in public, is Wendy Avis, who also goes by the name Wendy Pesante. She made her debut in connection with the [first round](https://www.mtracey.net/p/epstein-victims-press-conference) of Epstein-related brouhaha at the US Capitol on September 3. There, Wendy spoke at a rally organized by the “trafficking awareness” NGO with which she is now loosely affiliated, called “World Without Exploitation” — the same outfit that produced a heavily-circulated [video](https://youtu.be/FEz_Yoa1QCE?si=fA1AOnHkfBHCMjIY) last week featuring “survivors” demanding the passage of legislation to [ostensibly](https://www.mtracey.net/p/massie-khanna-epstein-bill) release the “Epstein Files.” Wendy appeared in the video, holding up a photo of herself at age 14, which is how old she says she was when she met Jeffrey Epstein. She held up the same photo when she spoke in front of the Capitol on November 18, flanked by allied members of Congress and a crew of kindred “survivors.”
+
+The intended PR impact of Wendy’s public unveiling was obvious: here was yet another “survivor” coming forward, for the very first time, to reveal she’d been sexually abused at the youngest age on the generally-accepted spectrum of purported Epstein victims. No one in their right mind is going to condone a man in his 50s having any kind of sexual contact with a 14-year-old girl, nor would such contact be legal in any US state. While a great many “Epstein survivors” were [adults at the time of their claimed victimization](https://www.mtracey.net/p/these-professional-epstein-survivors) — a fact consistently elided in the blusterous media coverage and overall public perception — Wendy’s case would be much more straightforward and devoid of moral qualifiers. So it’s easy to see why the “survivors” and their representatives would want to put her front-and-center. She’s precisely the type of “survivor” who’s most likely to generate sympathy for their cause. Whatever that cause might be, exactly.
+
+So… what does Wendy claim happened to her? What are her accusations? What were the circumstances of her purported victimization, such that she’s now being held out as a prime example of Epstein’s (and [Ghislaine Maxwell’s](https://www.mtracey.net/p/ghislaine-maxwell-just-drove-a-stake)) rampant predation — with her experience being cited to fuel a prolonged political uproar, unusually concerted Congressional action, and saturation-levels of media coverage?
+
+In short: she won’t say what happened to her. When I saw Wendy on the evening of November 18, at a “vigil” hosted by the Democratic Women’s Caucus, I asked if she could do a brief interview. “Not at this time,” she said. “No thank you. Sorry.”
+
+[
+
+![](https://substackcdn.com/image/fetch/$s_!baNr!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F42b9ae18-ac8e-4caa-a2fa-8a163c34f30b_1122x1306.png)
+
+
+
+](https://substackcdn.com/image/fetch/$s_!baNr!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F42b9ae18-ac8e-4caa-a2fa-8a163c34f30b_1122x1306.png)
+*From Wendy’s public Facebook account*
+
+While we don’t know much about the sexual abuse Wendy claims she underwent, we do know she has joined a group of dedicated “Epstein Survivors,” who are in turn represented by the same group of dedicated lawyers, namely Edwards Henderson — the namesake newlywed husband-and-wife firm (Brad and Brittany) who have led the charge in so much lucrative Epstein-related litigation over the past 15+ years. We also know Wendy claims to have met Epstein when she was 14. But beyond that, we know almost nothing about the details of her claimed victimization, because she has declined to provide them — even as she’s made a conscious decision, as a 36-year-old woman, to enter the public arena and start doing high-profile political advocacy, on the basis of the “abuse” she claims to have endured over two decades ago. While untold millions of dollars, government resources, and media airtime are endlessly demanded on their behalf, Wendy and other “survivors” perceive no commensurate obligation to provide even the slightest bit of corroborating information. “I don’t have to tell you what happened,” she [said](https://www.tiktok.com/@_wendy_740/video/7548849064855588151) on the TikTok account she launched earlier this year.
+
+Ahead of the [September 3 press conference](https://www.mtracey.net/p/epstein-victims-press-conference) and rally, Wendy sat for a [group interview](https://youtu.be/MmUO3I7QDZU?si=hQdLJTBS7CEEGnCl) with other “survivors” on NBC News; it was announced that she had never before spoken publicly about her Epstein experience. So viewers were no doubt on the edge of their seats. Wendy first recounted that she met Epstein “through friends… it was very normal.” And she said she went to his house in Palm Beach. But beyond that… basically nothing. Hallie Jackson of NBC News, compelled to request at least *some* minimal elaboration, asked Wendy if she could expound on what she was “involved in” with Epstein — that is, what did he force her to do? Wendy replied, “I’m not really comfortable answering that.” Of course, Jackson politely accepted the evasion — standard practice, it would seem, in this one journalistic area. Even though lawyers and PR handlers had specifically delivered these interview subjects to NBC, presumably for the purpose of describing their victimization by Epstein and his confederates. Unfazed, Jackson moved right along. “And how did you cope with that trauma?” she asked. “You just put it behind you and don’t think about it,” Wendy said.
+
+In fact, Wendy explained that for roughly 16 years, she “had never really thought about” her alleged encounter with Epstein. She “didn’t talk about it, didn’t think about it, nothing.” Then suddenly, in 2019, upon news of Epstein’s federal indictment and arrest, “it was brought up” to her again by unspecified individuals. She said she was told, “Hey — this is a big deal in 2019. This is a real big deal. And it’s your truth.”
+
+“Sounds like you almost buried Jeffrey Epstein’s memory,” Jackson remarked.
+
+“Oh, absolutely,” Wendy said.
+
+Having kept this memory “buried” since 2003, it was finally excavated and explained to her by unidentified third-parties, whom she said also informed her that “now you have to heal from this.” Whatever transpired in 2003 was something that apparently had no appreciable impact on her life for 16 years. “It’s almost like you were in denial, maybe?” Jackson asked. “No,” Wendy said. “I just — at that point, like, I’m 30. I had moved on. I had a career, a family.”
+
+But in 2019, it became something she urgently had to “heal” from. A newly-discovered “truth,” discovered by others, and then impressed onto her.
+
+Wendy said she never told anyone contemporaneously about the claimed Epstein encounter. The first time she told family members was “pretty much after everything was in motion.”
+
+“Meaning the cases and the investigation?” Jackson asked.
+
+“I had decided that I was going to pursue it,” said Wendy.
+
+Translation: she decided she was going to get the money.
+
+I’ve always said I don’t even begrudge people who were given an opportunity, almost out of the blue, to conjure up a claim against Jeffrey Epstein and/or Ghislaine Maxwell, no matter how tenuous, and receive huge settlement payouts — tax-free! — which in Wendy’s case could total at least $5 million, and probably more once you add up what she could’ve gotten from the Epstein estate and JP Morgan. The younger the claimants were at the time of their claimed victimization, the more $ they would generally get. Whatever her haul ended up being, it was undoubtedly life-changing money, handed over on a silver platter, with very little required of her, other than to follow the lead of her Robin Hood legal squad. And let’s face it — in the grand scheme of things, a little bit of dubious wealth redistribution isn’t the worst injustice ever to afflict mankind. Better that a few million go to Wendy, you might say, than for it to stay hoarded in some dead rich guy’s estate on the US Virgin Islands, or in the cash reserves of a corporate colossus like JP Morgan. Wendy appears to originally be from a lower-middle-class background; now she posts videos of herself relaxing in the jacuzzi at her amply-sized suburban homestead. Can you really begrudge her for seizing this serendipitous financial opportunity? Even if it might have required a little embellishment, or (wink wink) “recovered memory” techniques? I can’t. And I can’t say *I* wouldn’t have done it either, if I were ever somehow in that position.
+
+But what I *do* begrudge is the utter refusal of journalists, politicians, lawyers, and social media ignoramuses to rationally evaluate what the real circumstances plainly are here — not just of Wendy, who on her own is neither here nor there. She’s only of any note insofar as she’s emblematic of how the component parts of this sprawling Epstein mega-narrative have been assembled, and then strategically immunized from critical examination, thus enabling a moral panic and mass hysteria to foment unrestricted, without anyone ever pausing to check the underlying facts or evidence.
+
+Basic methods of empirical verification, ordinarily central to any journalistic pursuit, are deemed repugnant and intolerable in this one special context — and then spun as some sick desire to smear the private lives of “victims.” But that’s a totally inane cop-out. The private lives of these people would be of no particular interest to anyone (or to me, at least) except for the relevance they’ve been ascribed as constituent parts of the mythical multinational odyssey known as the Epstein affair, stoking hysteria in every direction without reprieve. How could it be defensible for the public to be deprived of any ability to assess the foundational evidence, or lack thereof, underpinning this mega-narrative? [Why are central players so averse to answering basic questions](https://www.mtracey.net/p/epstein-survivors-refusing-questions)? Because if the answers are so easily forthcoming, and the evidence is sound, shouldn’t they be *eager* to engage?
+
+As just one example, here’s another “survivor” who made her debut in front of the Capitol last week:
+
+[
+
+![](https://substackcdn.com/image/fetch/$s_!yoFx!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fcb0f0048-6dae-4c71-9673-21711a848572_2048x1536.jpeg)
+
+
+
+](https://substackcdn.com/image/fetch/$s_!yoFx!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fcb0f0048-6dae-4c71-9673-21711a848572_2048x1536.jpeg)
+*Credit to yours truly, crouching in front of the lectern on November 18*
+
+This woman was introduced as Lara Blume McGee, apparently an “[Arkansas-based philanthropist](https://armoneyandpolitics.com/arkansas-survivor-epstein-files/).” Almost nothing is in the public record about the circumstances of her claimed victimization by Epstein, Maxwell, or anyone else. When I approached her in hopes of acquiring more information, she said, “I’m not talking to any journalists. Thank you.”
+
+“Why not?” I replied. “Isn’t this supposed to be a press availability?” She then walked away.
+
+For now I guess we’ll just have to take her word that she was “groomed” by Epstein into joining an “international model sex-trafficking ring.”
+
+Though they are conflated in the media, Lara Blume McGee is in a very different “survivor” category than Wendy Avis, aka Wendy Pesante. McGee, based on the scant information she’s given, would be one of the adult grooming victims who later recast their purported experiences as “trafficking,” and in so doing made themselves eligible for generous settlement payments. Wendy, on the other hand, would be in the fundamentally unrelated cohort of “local Palm Beach girls” who were ferried to Epstein’s house for sexualized massages in the early 2000s, more often than not by other girls. So it would make sense for the “survivors” to foreground Wendy in their public presentations, rather than McGee.
+
+On her TikTok account, Wendy [says](https://www.tiktok.com/@_wendy_740/video/7547497497598446903) she has written a “memoir” called “The Average Jane Doe.” (A reference to how she was previously known only as “Jane Doe” in court filings, prior to September.) The memoir was completed a year ago, she says, but for “several reasons” — which she doesn’t elaborate — she will not be releasing the current version. A website of Wendy’s, active as of earlier this year but now defunct, says the memoir “charts \[her\] journey from abuse to healing and advocacy, aiming to empower the voiceless, challenge harmful societal norms, and inspire change in addressing abuse.” Website visitors were invited to enter their email address to receive updates on the book’s upcoming release, which apparently never came. Wendy says she still hopes to eventually publish the book, inspired by the blockbuster success of the new “memoir” by [Virginia Roberts Giuffre](https://www.mtracey.net/p/nobodys-girl-by-virginia-roberts-giuffre). But in the meantime, Wendy is trying to garner more followers on social media. She has occasionally [expressed frustration](https://www.tiktok.com/@_wendy_740/video/7556367816014793998) with this endeavor. “Girls fart in jars and rake in millions of views,” she wrote in the caption of one TikTok video. “Twerkers? Millions of followers. Me? An actual Epstein survivor... stuck at 25k. Make it make sense, TikTok.”
+
+[
+
+![](https://substackcdn.com/image/fetch/$s_!MRqA!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Faa7fd432-9daa-4b33-8b4b-019feaa644b0_1036x1554.png)
+
+
+
+](https://substackcdn.com/image/fetch/$s_!MRqA!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Faa7fd432-9daa-4b33-8b4b-019feaa644b0_1036x1554.png)
+
+Among the TikToks she feels aren’t getting enough traction are those where she [divulges](https://www.tiktok.com/@_wendy_740/video/7558256807626444087) that she’s been in “constant therapy” for seven years. The likely starting point of which would’ve been right around the time she was first informed by lawyers and “survivors” that she was in possession of Epstein-related “truths” she needed to exhume. Who’s paying for all this constant therapy, anyway? Some insight recently came from Lisa Phillips, the adult grooming survivor and professional modeling scout who appeared alongside Wendy on CNN last week, in yet another schmaltzy TV group interview, this time including Ro Khanna and Thomas Massie. Phillips gave a separate podcast-style interview in which she [boasted](https://x.com/mtracey/status/1991508249326284887) that Epstein “survivors” were receiving five years of free therapy — “really good therapy,” she stressed — courtesy of JP Morgan. And that’s where she said their “power is coming from” for this latest foray into energetic political activism. The subsidized therapy must also be what empowered Lisa Phillips to make her infamous announcement in September that she and other “survivors” were going to compile their own “list” of Epstein trafficking conspirators still at large, and then hand it over to Massie and Marjorie Taylor Greene, who’d then name the perpetrators on the floor of the House, where they’d be shielded from any defamation exposure under the Constitution’s “speech and debate” clause. Mysteriously, the promised “list” was never turned over.
+
+[
+
+![](https://substackcdn.com/image/fetch/$s_!6VfQ!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fe58224f9-95e9-4b1e-997c-d1df535066ce_2048x1154.png)
+
+
+
+](https://substackcdn.com/image/fetch/$s_!6VfQ!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fe58224f9-95e9-4b1e-997c-d1df535066ce_2048x1154.png)
+*Wendy, back row, middle — Lisa, back row, right*
+
+Lisa was right about the bank-funded therapy, though. This derives from a $75 million [settlement](https://www.vi.gov/governor-bryan-issues-statement-on-jp-morgan-chase-settlement-in-epstein-lawsuit/) against JP Morgan obtained by the government of the US Virgin Islands, of which $10 million was allocated “to support survivors with mental health care.” Bear in mind, these funds are distinct from whatever payment (up to $5 million each) the “survivors” might have already received from their own class-action lawsuit against JP Morgan, or the other Epstein-related compensation vehicles. An entirely separate fund is currently paying for their “mental health” services, the parameters of which were expanded on July 1, 2025 to cover “non-traditional modalities” such as “Equine-Assisted Psychotherapy” and “Trauma-Informed Yoga.” In addition, “survivors” may now even have their college tuition or “life-coaching” expenses paid by the fund, if that’s what their mental health provider recommends. The program is [still active today](https://www.usvimentalhealthfund.com/), and will be until June 30, 2028. So that’s a whole lot more empowering therapy yet to come.
+
+In several TikToks, Wendy [says](https://www.tiktok.com/@_wendy_740/video/7548892989356084493) she’s been diagnosed with [Borderline Personality Disorder](https://www.tiktok.com/@_wendy_740/video/7537836387488386318) (BPD). According to a survey of the recent literature, such as this [2023 study](https://emotionandpsychopathology.org/journal/article/view/17), BPD is commonly associated with “inaccurate perceptions, disturbed memory processes, and an increased tendency to develop false memories.” The tendency to develop false memories, it is suggested, could induce or contribute to the “maintenance of BPD-related dysfunction.” Persons with BPD are “more susceptible to perceptual illusions than healthy persons,” according to a [2020 study](https://www.frontiersin.org/journals/psychiatry/articles/10.3389/fpsyt.2020.00474/full), and exhibit “elevated direct verbal suggestibility,” according to a [2022 study](https://www.sciencedirect.com/science/article/pii/S0149763422002408).
+
+[
+
+![](https://substackcdn.com/image/fetch/$s_!O5Ez!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fffdcbbd5-0d28-4452-b426-c93a7ae2adb2_2048x1766.png)
+
+
+
+](https://substackcdn.com/image/fetch/$s_!O5Ez!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fffdcbbd5-0d28-4452-b426-c93a7ae2adb2_2048x1766.png)
+*Wendy’s TikTok*
+
+An [article](https://pubmed.ncbi.nlm.nih.gov/9384924/) in the Harvard Review of Psychiatry warns of a “pitfall” clinicians often face when treating patients with BPD: “The possibility of reinforcing false memories of trauma.” The article, by Dr. Joel Paris, is from 1995, so perhaps is to be discarded for medical obsolescence. But some insights seem worth considering:
+
+> Memory research is highly relevant to clinical practice, since psychotherapy depends to a great extent on examining long-term memories, which are then interpreted in the context of the patient’s life history. If all memories are colored by cognitive schema, then what patients tell therapists may reflect their view of the world as much as a description of objective reality. This distinction has been labeled “narrative truth vs. historical truth.” In essence, if memories are not laid down in detail in the first place, they should not be conceptualized by therapists as records in the mind that need only to be accessed.
+
+The author goes on:
+
+> Although there is a tendency in modern society to attribute suffering to trauma, and in doing so to legitimate that suffering, trauma-focused therapies can be harmful. Borderline patients might benefit more from taking responsibility for their lives than from assuming the role of a victim.
+
+When she first stepped into the limelight in September, Wendy declared: “Being a survivor is not a headline, it’s our life. We have to live it. It’s panic in a grocery store. It’s smiling at work while my hands tremble. It’s waking up at 3am with my heart racing and not knowing why. It’s living with PTSD, anxiety, and depression — and your nervous system’s on guard at all times, even in the safest room around the safest people. Healing isn’t tidy. It’s therapy; it’s wait-lists; it’s trying a medication, and trying again, over and over, for years.”
+
+Is anyone curious about the 16 years between 2003 and 2019, when Wendy said she never once thought about Epstein, and was living a normal life, with no adverse effects from the encounter she purportedly had with him? Was she undergoing such relentless psychic turmoil during this period? (Apparently not, according to her own self-told chronology.) Did the anguish only begin when she started to be implored by lawyers and therapists to recover the memories she had long ago “buried,” so she could “heal” from the traumatic “truth” she’d been unknowingly harboring? By which process she could also receive millions of dollars?
+
+Dr. Paris says in his article:
+
+> Although all memories of trauma, or any other experience, are subject to distortion, “recovered memories” are the most likely ones to be fabricated.
+
+It need not be the case that Wendy outright fabricated her entire experience with Epstein. Maybe she really did schlep to that godforsaken house in Palm Beach when she was 14, at the urging of other teenage girls; she wouldn’t be the only one. If so, was she told to lie about her age and say she was 18? We know that was the instruction younger girls were often given by “survivors” like [Haley Robson](https://www.compactmag.com/article/the-anti-trafficking-racket/) and [Virginia Roberts Giuffre](https://www.mtracey.net/p/we-need-to-talk-about-virginia), who were slightly older, and would collect cash for every girl they located for a “massage.” Wendy does [mention](https://www.tiktok.com/@_wendy_740/photo/7546651313594060087) in one of her TikToks that she was “preyed on by evil girls,” but doesn’t expand on the point. In addition, it’s been established that not *every* “massage” Epstein ever got would include overtly sexual contact. So it’s theoretically possible that Wendy could have just stood there for 45 minutes, perhaps in a partial state of undress, collected $200 cash, and left. Maybe she happily went to the mall afterwards, like other girls are known to have done post-massage. If so, could this explain why she never once thought about the episode for 16 years, until she was retrospectively told what a profound trauma she must have endured?
+
+Even if her memory wasn’t completely fabricated, Wendy may still have absorbed a certain “cognitive schema” through which to process this long-lost memory, imparted to her by profit-seeking lawyers, “constant therapy,” and impassioned fellow “survivors” — all operating in a climate of hot moral frenzy, whereupon the memories Wendy retrieved would be “colored” by the fever-pitched narratives around Epstein (and Maxwell, who Wendy also indicts, but gives no indication of having ever met.)
+
+Today, being a newly-revealed “Epstein survivor” is Wendy’s entire public identity, not to mention her livelihood; I would have liked to ask how much money she sought and obtained from the various settlement funds. Maybe a slightly rude question, sure, but probably the most illuminating one that can be asked of “survivors.” It’s understandable that Wendy would prefer to speak with more comforting journalists like Kaitlan Collins of CNN, under conditions safely agreed in advance by the PR handlers who were busily trailing the “survivors” all throughout DC last week.
+
+Wendy is not the only newfound “survivor” who claims to have recovered memories that were once mysteriously “buried.” There are more. I was actually able to interview one of them, just before her PR guardians could descend. Another one is particularly shocking, given her apparent centrality to the larger Epstein legal trajectory. The frequency of “recovered memories” is great enough to hypothesize some sort of pronounced “social contagion” effect. I will elaborate in a subsequent article. *This* article was originally supposed to be paywalled, but I reversed myself for unknown reasons! I hereby declare the next one really *will* be paywalled, and there will be lots of interesting material, so consider upgrading to a paid subscription.
+
+\---

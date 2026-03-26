@@ -1,0 +1,747 @@
+---
+title: "How I had sex with a pretty girl (politics were involved)"
+author: "Naomi Kanakia"
+publication: ""
+publication_slug: "woman-of-letters"
+published_at: "2025-09-04T13:02:54.000Z"
+source_url: "https://www.woman-of-letters.com/p/the-story-of-how-i-had-sex-with-a"
+word_count: 8746
+estimated_read_time: 44
+---
+
+Hi friends, I want to post about an insane thing that happened to me. Like, this story is so wild, I am still struggling to process it.
+
+But, okay, there is a backstory here. And I'm not totally certain how to present it to you. For starters: I live in a fascist country.
+
+You might think that you know what country I'm talking about, but you probably don't, because there are so many examples nowadays of countries that have adopted this particular form of fascism.
+
+In this country, I live in the capital, and I attend a large private high school that's a lot like an American high school, because it's mostly intended for the kids of American Embassy staff, diplomats, multinational workers, and anyone else who doesn't want to enroll their kids in our country’s local school system.
+
+My mom is a university professor, my dad works for a multinational treaty organization—a term that probably means nothing to most of you—it's something like the United Nations or World Health Organization, but it's not either of those things. Many people would claim my dad's employer is evil, but I think it's more accurate to say his organization is just very ineffective at achieving its mission (alleviating global poverty).
+
+Anyway, I am very tall (6' 5"), especially for this country, where people stereotypically tend to be quite short. I am pretty shy, bookish, don't have many friends, and don't get particularly good grades, either!
+
+Because I'm a tall guy, I attract a lot of attention, and people are often disappointed that I’m not more athletic. I've been called "a waste of height" by a number of men and boys.
+
+That's very important context for this story: I am not considered cool at all.
+
+You'd think that because I am willing to call out the fascism in this country, I'd be considered cool and rebellious, but that's not how it works under real fascism. Under real fascism, when you mention the word 'fascism' people will either do one of two things: a) fall silent and ignore you; or b) immediately start arguing with you about the meaning of the word 'fascist' and all the many ways your own society doesn't resemble Hitler's Germany at all.
+
+These arguments aren't particularly convincing to me, I think fascism is really the only appropriate word. But I'm not that good at arguing. Like I said, I'm not that smart, not a great debater—I can't actually make my arguments line up.
+
+Moreover, this school has a cadre of fascists who attend. They're often (but not always) associated with bigshots in our country's government, and these kids run riot. They can do whatever they want. Nobody opposes them.
+
+This school has international students and local students. The international students are from all over the world—they’re the kids of embassy and NGO staff. And these international students are total NPCs and don’t matter at all. But my people—the local people—have very distinctive names that would immediately give away the country I’m writing from, so for the purposes of this post, I am going to use a naming convention where I give Welsh names to the local people. The story is not set in Wales, but the country where I live is fascist! If they figure out where I'm writing from, I will get in trouble. My parents will lose their jobs.
+
+Apologies to Welsh people, I assume you are great—I have never heard anything bad about Wales, and I don't think anyone else has either, so I think everyone will understand this is just a naming convention.
+
+\---
+
+Anyway, I am a sophomore and today in English class we had to do family presentations. It's a big unit where we have to research our family history and then present what we find.
+
+And one kid, Dafydd, had a presentation about how his grandfather had been an industrialist who had been persecuted by our colonial overlords, and how this grandfather had given money to freedom fighters. That may or may not be true of his grandfather, but...like, his grandfather obviously got rich under colonialism, so it’s a bit much to claim that he was oppressed.
+
+However, it’s the same for all of us. Look at my dad, maybe his employer is evil and maybe they aren’t. If we started calling out that kind of stuff, we'd never be done.
+
+But instead of bringing his presentation to an orderly close, Dafydd spoke for ten minutes, and then he looked at our teacher, Miss Simonson, who is a white American, and he said, "And that is why we can't ignore the fight against oppression today."
+
+"Well said," said Miss Simonson.
+
+"And I find this whole unit oppressive," he continued. "Because in this unit the grandchildren of colonialists and freedom-fighters, oppressors and oppressed, have been forced to sit together, as if their grievances are equal. It is insulting that my grandfather is being discussed in the same breath as people who dedicated their lives to imperialism and I believe this school should truly acknowledge the hand that it has played in stoking religious fear and hatred and…"
+
+This guy went on and on and on about oppression. And yet this kid, Dafydd, was from a family of high-ranking fascists. Dafydd’s father often went to international conferences where he spoke on behalf of the oppressive fascist party that rules our country! That's the most annoying thing about fascism—these guys constantly talk about how they are oppressed. By whom? Who is oppressing you? Like okay, you have the power now—you have the whip-hand, everyone is afraid of you. So just enjoy it—there's no need to redefine language to force everyone to pretend like you guys are not the oppressors here.
+
+Finally I said, "Miss Simonson, what is this?"
+
+"Excuse me?" she said.
+
+Our desks were in a circle, and Dafydd was standing in front of the glowing blank light of the digital projector.
+
+Miss Simonson blinked a few times. We were used to these guys monologuing now.
+
+"Like...what is this?" I said. "What is happening now?"
+
+"I..." She paused.
+
+"Can we move on to the next presentation?" I said.
+
+"I...yes, that's good. Thank you, Dafydd. Who is next?”
+
+That's all I said. You know...fascism has crept slowly upon this school. Many of the students have powerful, unscrupulous parents. If these students complain about a teacher, the teacher *will* be fired. This is beyond just "rich parents always complain" stuff—now you're dealing with geopolitics. This school is specially authorized by an act of government, and my dad says this act could always be revoked.
+
+\---
+
+But all that fascism stuff is not important—who cares about that? What is more important is the main thing—the main thing! Which is that after having this interaction with Dafydd, I got a message that very night from a girl, Anwen.
+
+Who is so hot!
+
+Like, okay, our school is not that big. It has about a thousand students in the high school, so Anwen is one of perhaps a hundred girls in my class. Of these girls, I would have sex with roughly 100 percent of them. Some guys pretend there are girls in our class who are ugly—I don’t know if I agree. There are definitely some with less attractive faces and bodies, I suppose, but nobody who’s really ugly.
+
+On the other hand, when I was a freshman there was a French girl in our class really liked me, and I ignored her. She would text me, slip me notes, but I had never really thought of her sexually before. I wasn't sure what to do in this situation, so I ignored her, which I know made her feel really bad—thankfully her parents got reassigned back to Paris so she left the school. This means perhaps it’s not literally true that I'd have sex with every single girl at this school, but I really think in that situation I was just caught off-guard, and in retrospect I should've given her a chance.
+
+Anyway, with Anwen, I have fantasized about her sexually *many* times. Like, I don't know—she is slender, she wears makeup, has long legs. My friends say she is mid, but to me she seems like a girl from a movie. I don't really see any difference. She's like if a movie star was in my classroom. I can hardly look in her direction, because when she's in my field of vision it's like my eyes are going to explode.
+
+And she messaged me!
+
+She said, "I hate Dafydd. Glad you said something."
+
+I wrote back, "Yeah."
+
+"My dad is friends with Dafydd’s dad.”
+
+I wrote back, "I mean I didn’t want to say anything…Do you hang out with him at all?”
+
+“Yeah I see him around.”
+
+\---
+
+Obviously she did, because Anwen's dad is also a powerful fascist leader!
+
+It's complicated how fascism works, but this fascist party has been gaining political power for a long time, decades. And they got that power by whipping up ethnic hatred against our country's main religious minority group, who I will call the Unitarians. The fascists are always saying the Unitarians are trying to replace us. The fascist claim is that the Unitarians want to impregnate our women and build up enough demographic weight that they’re able to institute oppressive religious laws that will make us convert to the Unitarian faith.
+
+It is just plainly untrue. There is no way that could happen, demographically, because this minority group is like fifteen percent of the population. It’s just absolutely bonkers—no relation to reality. The Unitarians have no plans or desire to force their faith upon us.
+
+For a long time in this country, almost everything was controlled by a non-fascist party, the Union Party. The Union Party believed in liberal, multicultural, secular ideals, and people from this party controlled the universities, civil service, banks, corporations, media, and generally the government as well. This party won election after election, for many years.
+
+Then this party began to lose elections. For decades, they lost more elections than they won. But they still retained control over the universities, civil service, banks, corporation, media, etc—everything except the Parliament and local governments.
+
+And this guy, Anwen's dad, Bleddyn, was one of the first mainstream journalists to throw in the towel and embrace fascism. He didn’t become an outright fascist—not at first. He just signaled his openness to the fascist program in various complicated ways that aren't important to this story. And as the fascists learned to exert their power on society, this guy rose steadily through the ranks of various media organizations.
+
+In short, Anwen's dad is a sell-out. At the time when people like my dad were openly shit-talking this fascist party, Anwen's dad switched sides, and he got rewarded for it.
+
+\---
+
+"When Dafydd goes monologuing, it’s just so blatant," Anwen wrote. "I don't know."
+
+"Right, like...why are we sitting in class listening to this guy talk? He's not a teacher."
+
+"No, exactly," she said. "It's ridiculous. And it cuts into class time."
+
+"Yes...that's the problem. The class time."
+
+"I don't know. The AP test is coming. Have you been studying? It's my first AP."
+
+“My parents got me a book. I should look into it."
+
+"Really?" she said.
+
+"I mean...it's a test to get college credit if I go to college in America? I don't know. Doesn’t seem that important."
+
+"But...what if you got a bad score?"
+
+It was honestly like talking to someone from another planet. We were in the same school, taking the same classes. But she seemed to care about AP tests.
+
+"Okay, but...back to Dafydd,” I said. “What is your understanding of why he was talking so much in class?"
+
+"I don't know," she said. "People are like that."
+
+"Yeah."
+
+Honestly, it was enough to make somebody an incel. Like, I am trying to interact with this girl who seems to want something from me. And I would give her anything! Anything she wanted, she could have from me.
+
+People tell me I am very self-absorbed. Which is definitely true. But I don't know how to be different. I would love to be absorbed in other things. I would love to learn anything this girl wants to teach me, but she wants to talk about AP tests. And I have no idea how to break through that and talk about something genuine.
+
+[
+
+![](https://substackcdn.com/image/fetch/$s_!g4CR!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fdc8909d2-1bc9-4965-b0b8-d65271da99c7_1456x150.png)
+
+
+
+](https://substackcdn.com/image/fetch/$s_!g4CR!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fdc8909d2-1bc9-4965-b0b8-d65271da99c7_1456x150.png)
+
+### Update
+
+I've received a lot of online feedback that I am somehow pathetic and am representative of some vast underclass of male losers. This has been weirdly energizing, because it's so obviously *not* true.
+
+Like, please show me all these male losers who are like me—I would love to make friends with them. Maybe we could jerk off together. That would be great. I am so lonely, every guy at my school is horrible in various ways that are too tedious to enumerate here.
+
+\---
+
+But the real reason I am posting is that an incredible thing has occurred. You see, Dafydd is on the basketball team. And the captain of the basketball team is another guy named Geraint. And this guy, Geraint, is a jerk. Like, he's not a bully—we do not have anything at our school that I would describe as classical bullying. But this guy, Geraint, walks around scowling. Last year I was ahead of him in the lunch-line, and he said, "Freshmen last."
+
+I was like, "What?"
+
+"Freshmen go behind upperclassmen."
+
+He grabbed me by the shoulder and pushed me back. It was so surprising. Like, this is not really a thing. We don't have hazing rituals like that.
+
+But our school is big enough that if someone is a jerk, and they're in a different class, you can just ignore them.
+
+And now this guy, Geraint, came and found me in the library. And he said, "We should talk."
+
+"Umm, sure."
+
+He stood over me. By the way, he is not taller than me. He is broad-shouldered, and I guess he exercises. Like...maybe he could beat me up, but I have my doubts. In my experience with fighting, there is no beating you up—you just punch a few times and then the teachers come and you get in trouble. So the possibility of a true fight doesn't even exist.
+
+"Let's talk," I said. "What are we talking about?"
+
+"I want you to apologize to Dafydd," he said. "For disrespecting him."
+
+"Okay..."
+
+"And to Miss Simonson. She felt really upset, really called out."
+
+Now he was gaining steam. Geraint was our student body president by the way—a position that was an absolute joke. I don't know if you've ever been to an international school, but they're pathetic—just a hollow simulation of an American high school. For instance...why did we even have a basketball team? These guys would fly on an airplane to other countries to play against other international high schools, in games nobody cared about.
+
+Why? It was so mind-boggling! And if you questioned this institution, people would just shrug, as if it was written in stone that we would have this expensive and pointless team. But we could just as easily not do it, not have a basketball team at all. Just play intramural sports. Or play cricket and badminton against some of the local private schools.
+
+Anyway, this guy, Geraint, said, "I want you to apologize."
+
+"N—no," I said. "That will not happen."
+
+"I am just warning you," he said. "Or we'll charge you with honor code violations. I'm head of the honor board."
+
+"What?" I said.
+
+I had literally never even heard of the honor board before. Our school is just like every other school—kids don't prosecute each other. That's not a thing. Instead if you get in trouble, the teachers and principals come after you.
+
+"Look," he said. "If this gets out online..."
+
+"If what gets out?" I said.
+
+"That you denied the genocide," he said.
+
+"What?"
+
+"Yes, that you denied Trinitarian genocide."
+
+"Look," I said. At this point I was laughing. This whole incident was so *not* threatening at all. "I just don't know if you can make that stick."
+
+"This is serious," he said. "I want you to apologize."
+
+"No," I said. "I definitely will not do that."
+
+And then we were just left at an impasse. I was in the library, trying to read manga, and Geraint was looming over me.
+
+"You stink," he said. "You reek."
+
+"Okay..."
+
+"You're stinking up this whole library. Get the fuck out of here, if you're not going to shower. Get the fuck out."
+
+He kept haranguing me, in that cold voice. And, reader, there may have been an element of truth to this. It's a hot climate. We'd had gym class—I sometimes skip showering after gym class, because I hate my lumpy, ungainly body. I don't know, whatever.
+
+"You're pathetic," he said. "Nobody says it, you oaf, but we know you masturbate in the bathroom during the day, you woke incel mutant. You're pathetic. Go take a shower."
+
+"Hmm," I said.
+
+"Are you fucking crying?" Geraint said. "Nobody tells you like it is, nobody stands up to you, because they know the truth would destroy you,. Like, you’re fucking yeti. You are nothing. Nobody sees an ounce of value in your existence." He slowed down and began to enunciate. "Apologize to Dafydd or I will find you every single fucking day and make your life hell. I will be here day and night, laying into you."
+
+"I don't think you're going to do that," I said.
+
+"You think I'm lying?"
+
+"Just...I don't know," I said. "I just think you probably have better things to do than make my life miserable. Like, you're Low-T, face it. You just don't have the balls. I mean that literally, whatever makes a man a man, you don't have it."
+
+"What the fuck are you saying?"
+
+"You have no idea," I said. “Come on, Geraint. Your existence is way more pathetic than mine. Get the fuck out of here, and I won't tell anyone what happened."
+
+He blinked a few times. And then the white American librarian saved him, if you can believe it. Mrs. Donaldson came and ordered him out, saying she'd check if this was really his free period, and if it wasn't she'd write him up.
+
+Then she hovered over me, asked if I was okay, said I could always talk to her, acted like she'd somehow defended me. God, I hate this school.
+
+[
+
+![](https://substackcdn.com/image/fetch/$s_!i3yM!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F2c0a70de-f707-4019-bb6a-1463ce746c61_1456x150.png)
+
+
+
+](https://substackcdn.com/image/fetch/$s_!i3yM!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F2c0a70de-f707-4019-bb6a-1463ce746c61_1456x150.png)
+
+### Q&A
+
+**I also live in your country, and the stuff you’re saying is not true. Things here are fine for minorities.**
+
+In the last few weeks, many people have tried to guess where I live. Almost all of these guesses were incorrect, because I have carefully falsified some details in my account in order to throw people off track. However, a lot of the guessers have gotten frustrated—they say probably not everyone agrees that my country is fascist.
+
+Listen to yourselves! Of course not everyone agrees that we are ruled by fascists, because the fascists are very popular and tend to win elections in this country by large majorities. What I call fascism, most of my country calls “good, honest governance.”
+
+Even those who disagree with this regime, like my parents, often argue with me that it’s not so bad.
+
+You see, I am a Trinitarian, I belong to the majority religious group. So the concrete effects of fascism are not that large for people like us.
+
+But for our country’s minority group, the Unitarians, things are very different. If you kill a member of this group you can always argue they were blaspheming your religion—the majority religion—and there's a good chance you'll be acquitted. This means it's very easy to take whatever this minority group has. You can take their jobs, take their houses, take their land—because who are they going to complain to? Nobody will defend them.
+
+Some people will argue this isn't happening.
+
+Even more confusingly, sometimes these same people will *also* argue that the old regime was just as bad, and that this minority group had no real rights, no real legal protection, under that old regime too.
+
+I went through a period when I would argue online, anonymously, about these things. But it just got so wearisome, because there's all this stuff people bring in from other countries (the US and Canada especially). These countries have their own politics and their own suite of ideas about multiculturalism and oppression, and it’s very difficult to make those ideas really fit the situation in our country. That's the whole point of this oppression and anti-colonialism rhetoric that our fascists use—it's meant to short-circuit and confuse these North American liberals.
+
+It's a bit of a comical situation, honestly, because our school is on an American curriculum, which means we get assigned all these books that are about being courageous, standing up against oppression, speaking out for minorities. But...whatever is happening in our own country is really bad. It will turn into ethnic cleansing someday. People want this minority group to just disappear, and when that doesn't happen, the fascists will get mad. They will want solutions. And...things will happen.
+
+It's just like these fucking movies and books about the past! Those movies are still coming out! A constant stream of films about the goddamn unspeakable 20th-century atrocities that nobody was courageous enough to stop.
+
+\---
+
+But if you speak out, what’s going to happen? There's a sense in my country that there's no point.
+
+For a while I thought that I would bear witness, that I would write a diary or a novel that would capture life in this time. But I tend to lose interest in the project myself, honestly. Because although there's not a lot of other projects like it online—this 'young man bears witness' diary still *feels* generic. It feels like something that already exists, because it describes feelings that are so well-known.
+
+And yet, paradoxically, when you talk to people about life in this country, they'll question whether anything is happening at all. It happens so suddenly. It's like a mode that people can turn on—denial. Even my dad has been switching into it more and more often.
+
+"Oh but it's not that bad. Unitarians can still sometimes win court cases. Don't exaggerate.” He said this to me the other day.
+
+It's insane. He is literally the person who I learned about these troubles from. But now he's saying I am exaggerating. The fact is nobody knows how bad it is! There's no data on how often these minorities win their court cases. My country is so big that even before fascists took over, it was already difficult for people in the capital to understand what was happening. And now this fascist government has steadily subverted all of the organs that used to collect data. It has created a vast black hole—so we don't actually know what is happening out there.
+
+But I told my dad, "Look, let's say you're a minority person who owns an apartment. If someone wants that apartment, they can hire thugs to go in, pack all your stuff, and make you go."
+
+"That is not how it works," my dad said.” "Apartment complexes are already segregated, in this country. They all live together, they own their apartment communally, usually, in a co-operative. So you cannot just kick out one minority person from a building, because it is the whole complex that usually belongs to that group."
+
+"Okay, but that's not true! What about the Andersons, they lived in this very building that we ourselves live in."
+
+"They were renters."
+
+"But now they're gone. Where did they go? You know our landlords never liked that the Andersons were Unitarian.”
+
+"I don't know that."
+
+"But that's what you told me! You told me that for years, that you felt like our landlords didn't like the Andersons because they were Unitarians. Come on..."
+
+In our country, everyone pretends like it's criss-crossed by these ancient religious feuds. But our country still had those feuds ten years ago. And yet the Andersons (yes I gave them an English name) managed to get an apartment here—apartments are very hard to get in our country, and once you've got one you don't leave. The Andersons somehow got into this apartment complex that mostly doesn't have people like them!
+
+And now they're gone.
+
+"Because our landlords wanted to give the flat to their daughter,” my dad said.
+
+"Except they didn't ask us, even though we hadn't been here as long, and our apartment is nicer,” I said.
+
+"No."
+
+In our city, there are tenant protections. It's very hard to make a tenant move out. So long as they pay their rent, it's very hard to evict. Everyone knows that! But the Andersons just moved out without asserting their rights, because they understood that if someone said online that there was a Unitarian family in a Trinitarian building where they weren't wanted, then...it could be bad. Mr. Anderson worked for Pepsi. If he got labeled online as some kind of Unitarian predator, then Pepsi would fire him.
+
+This is something everyone knows. If you talk to any Unitarian, they would tell you, but somehow my dad was arguing things weren't so bad.
+
+What I am saying sounds subversive or conspiratorial, but it's the basic reality of how our society operates. And my parents, in their better moments, tell me that it used to operate differently. Other people say that's not true, that it was always extractive. But if that's the case, I just don't see how the Andersons could've ended up in our building in the first place.
+
+[
+
+![](https://substackcdn.com/image/fetch/$s_!jn2x!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fdbd70822-6190-42f6-8d69-237280548d27_1456x150.png)
+
+
+
+](https://substackcdn.com/image/fetch/$s_!jn2x!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fdbd70822-6190-42f6-8d69-237280548d27_1456x150.png)
+
+### Third Update
+
+Many people have written to complain about my portrayal of Geraint. They say he doesn’t ring true. They tell me the boys at their school are real monsters, and that beta-cuck Geraint is somehow unrealistic—an actual alpha male would've behaved differently.
+
+Look, I don't know anything about your school. I have seen the same movies you have, with these hulking football team brutes who are genuinely scary and will beat you senseless, and who despite their terrible personalities are somehow dating the hottest girl in school.
+
+We don't have guys like that here. I don't know what to say. We have annoying guys who think they're tough. And those annoying guys often have girlfriends. But not as often as you'd think, honestly. Like...I don't know if Geraint actually has a girlfriend.
+
+\---
+
+Anyway, the main result of my encounter with Geraint was that Anwen reached out to me! She wrote, "Hey I heard Geraint got intense with you. Sorry about that."
+
+"I mean that's not exactly true,” I wrote. “But he can spin things that way, sure.”
+
+"What do you mean?"
+
+"Just that it’s a complicated story. Hard to explain.”
+
+"I want to know," she said. "Is there...I mean, is there someplace you'd feel safer talking? Like I don't know if you're worried about screenshots or something."
+
+"Screenshots?"
+
+"About what happened, I just know what my friends have texted me. But if you wrote something and I screenshotted it, then that would be your story. And then maybe that could get out and be bad.”
+
+"That's a good point."
+
+"Like my dad, he works in the media, right? And if people come to him with something, and there's no screenshots, then he's basically like...there's no story."
+
+"Really?"
+
+"I mean video is better," she wrote. "But you at least need a screenshot of something that people can understand. With whatever happened to you and Geraint, I asked my dad about it, and he said it would be way too hard to make the internet understand what you were fighting about. So you're probably safe."
+
+"Yes," I wrote. "That's exactly what I told Geraint. I was like...you probably can't make anything stick."
+
+"Really?" she wrote. "That is so funny. Is that really what you said?"
+
+"Yeah...okay, but let me tell you the story in real life. So there’s no screenshots or whatever. And then you'll have to admit that you know me."
+
+"Oh I should do that anyway, just in case," she said. "Can I send my driver to get you? Like...what day works? He could take us to the Colonial or maybe Haus...I'm not sure."
+
+"I have never been to either of those places," I wrote. "But I know what they are, obviously."
+
+The Colonial was a club that'd been founded by our former colonial occupiers. Then it got taken over by army types, and it became very exclusive—a certain sort of capital elite used to hang out there, people way more important than my family. I am talking true military-industrial complex people. And then the fascists took it over, through a complex procedure that was in all the newspapers, and the club became their playground.
+
+Haus, on the other hand, was a really fancy hotel, like the Four Seasons but not that. A lot of the kids from my school would talk about hanging out there. They would serve alcohol there, if the bar manager knew your parents and knew they were okay with it.
+
+Anwen wrote, "Well with the Colonial it's all my dad's kind of people. Like, Dafydd and Geraint go there a lot. No, let's go to Haus."
+
+\---
+
+I also have a driver, by the way. I do not live in America. The status signals here are a little different. I would not say that 'everyone' in this country has a driver—that would be absurd, because who would be the driver's driver? But my family does keep a car and a driver.
+
+Anwen's car was obviously much nicer. But what was really incredible, to me, was that she came with the car. Like this human girl picked me up at my flat.
+
+"You're here," I said.
+
+"Oh yeah," she said. "I figured, I dunno, I wanna see you, so why wait? But then I realized that with my driver, Sion…we should actually be careful talking in front of him. Like, I can kiss or anything, that's fine. I mean, my parents said that would be fine. Okay…wait, I should explain that. Basically my mom was like, oh you should feel safe in front of Sion and not think he's going to report to us everything you do."
+
+"I've got it."
+
+"You do?"
+
+"Yes..." I said. I was cracking up, because I really did get it. Her driver was obviously quite conservative and reported to her parents about all her movements and actions. Her parents had told the driver it was okay if she hung out with boys. But if she started talking politics, that might be too much for them.
+
+\---
+
+Traffic in our city is incredible. Getting anywhere means at least an hour in the car. So we were in the car together, and I felt myself pushed against the door by her sheer, human, presence.
+
+I am not an artist with words. She was a hot girl. She just had that ineluctable...hotness. Like, what they create in movies, with music and makeup and lighting—it was what she had naturally, at least for me. And we sat in this car, in silence, and she gave me a shy, painful smile.
+
+And I took her hand. And that felt really good. I held her hand for many minutes, while I pondered next steps.
+
+Then I said, "I am going to kiss you". And I put a hand on the side of her face (I had watched an online video about this technique), and our lips met, and we kissed for, I don't know how long. And while we kissed, I thought about how this was an insane, incredible occurrence—literally the stuff that my sexual fantasies were made of. And I definitely enjoyed it! I wanted it to continue. But, I mean...there was a strange man in the front seat.
+
+He coughed, and we sprung apart.
+
+"I think enough," Sion said.
+
+My whole body got extremely damp, and I imagine that I smelled a little bit. But we kept holding hands, and she crept closer to me, put her head on my shoulder. I couldn't stop smiling. And, I dunno, we talked about AP tests.
+
+\---
+
+Once we got to Haus, we kept holding hands, which was great. She kept asking if that was okay, and I kept saying, “Yeah, why not?”
+
+This place was basically a very fancy hotel lobby with a bar. The staff all knew Anwen, and she waved to some friends at other tables.
+
+"Is it okay if we sit alone?" she said. "Maybe near a fountain."
+
+"Like...do you think it's bugged here?"
+
+"N—no," she said. "That's not real. Our phones are definitely monitored. But just in that regular way that everything is monitored now. I don't think they’re bothering to bug this hotel or anything. But, I dunno, just nice to have background noise so people can't overhear."
+
+"True," I said. "Sorry. That was weird. I swear that I don’t think we’re in a spy movie."
+
+"No, totally," she said. "Anyway...you were, like, going to tell me about, you know...Geraint. And all that stuff."
+
+"Oh!" I said. "Yes. Well, you know this guy. Do you know him?"
+
+"Do I know Geraint?"
+
+"Yeah."
+
+"I mean...are you friends with him?"
+
+"N—no, like we don't text. I see him. By the way, you know, when I was talking about my driver—I might’ve given you the wrong idea. I don’t kiss people in my car all the time. That's never happened before."
+
+"No, totally, I get that."
+
+"Like, never. My mom mentioned she'd told Sion that it...that it was okay. She told him I was allowed to date and kiss and stuff. But that was last year, and I never, you know, I never did anything."
+
+"I've got it," I said. "My parents also had the same exact talk with me."
+
+"Oh my god, it's such a thing for our families—these Trinitarian families, they tell us: you're allowed to date, you know that, right?"
+
+"Yes!" I said. "Same exact conversation."
+
+"And I'm like...great, someone tell these boys that. Tell them, don't tell me."
+
+"Yeah...” I didn’t really know what to say about that, so I sat there kinda sweating, feeling awkward.
+
+“But…so…what happened with Geraint?” she said.
+
+"Oh!” I said. “Uhh yeah, this guy came to me in the library, asking me to apologize to Dafydd. And then he said somehow it was an honor code violation, because I was denying genocide. I said no, and I faced him down. Finally Mrs. Donaldson rescued him. I know this sounds pathetic to insist upon, but it was a battle of wills, and I won."
+
+"I mean...Geraint has a lot of attention now. He had that video."
+
+After Geraint got in early action to Harvard, he posted a video online saying he was debating turning it down, because Harvard was too woke. He asked people to debate in the comments, trying to convince him either way. Many of the commenters said he ought to turn it down, and Geraint turned this into a whole online thing. Finally, the Leader—the Prime Minister of our country—weighed in, saying he ought to go to Harvard if and only if he would dedicate himself to defending our persecuted faith, Trinitarianism, in those halls.
+
+Anwen said, "You know, getting a right-winger elected student body president at our school—that never would've happened ten years ago. People took notice. It was really good for him."
+
+"Sure, great," I said. "But in real, actual life, this guy has no charisma. He’s such a nobody."
+
+"I guess," she said. "But I don't know if that really matters."
+
+"Well, it does because...people will know they can push him around. Like, he shouldn't be testing someone like me unless he knows that he can make it stick."
+
+"But these guys are always testing people. I think that’s how they operate.”
+
+"Sure, but when you can’t really back up what you’re saying then it's a hollow authority. Really these guys, what they need to do, is get together in a gang and just beat up people like me."
+
+"Excuse me?"
+
+"Yeah like you have to project power in real life, to make people afraid of you."
+
+"But how would that work?" she said. "At school, they would...what, jump you?"
+
+"Or here. I mean that's what you were worried about at the Colonial, right? That if they were around, they might jump me if I came in. But look, here I am at Haus. If they came in and beat my ass, what would anyone do? They wouldn’t get arrested. They could just ask their friends, ‘Where is he?’ And then they could hop in their cars and come here and beat me up."
+
+"Yeah..." she said. "But that probably won't happen."
+
+"And that’s exactly why this world is so confusing. It is absurd that guys too stupid or cowardly to jump someone and beat them up, even in a mob, are somehow able to take over an entire country."
+
+"But..." she said. "I don’t know. I feel like…there’s more to what’s happening than that.”
+
+“What more? Explain it to me.”
+
+“The people. Ordinary people…they want their country back.”
+
+“Okay, sure. So Geraint is going to give it to them? But who knows, maybe they’ll get me anyway. Maybe someone will get a screenshot, and people will post about me online, and my dad will get fired, and we’ll get evicted—and whatever else happens to people who get called out."
+
+"No—no, because things don't just happen to go viral on the internet. Sometimes they do, but usually it's these big accounts, and they run things past my dad first. And I've told him that...you know...that if something happened with you...it wouldn't be good."
+
+"What did you tell him?"
+
+Now Anwen blushed the deepest crimson you could imagine.
+
+"What did you tell him?"
+
+"That...you know...you're my boy..." Her lip trembled. "My, umm, my boyf...oh my god." And now her eyes went wide, and she fluttered her lashes. She started to breathe very deeply.
+
+"Are you okay?"
+
+"This is just the most...oh my god..." she said.
+
+I honestly don't know how we got out of that moment. We were both just trapped in it forever, with nobody to rescue us. I will remember it for the rest of my life, but I have no ability to describe the strange, seized-up 'please kill me now’ expression on her face or my own complete inability to form a thought.
+
+"Umm," I said. "I've never kissed anyone before."
+
+"Really?" she said. "Not even Sarah?"
+
+This was the girl from last year who'd really liked me.
+
+"Nope," I said. "Not even her. I mean...I...am really happy that you're texting me. And that you're...you know...that this is happening."
+
+"Me too," she said.
+
+And then I awkwardly changed the topic, and we talked some more. Her friends descended upon us too, and she beamed at them, showing me off.
+
+[
+
+![](https://substackcdn.com/image/fetch/$s_!mCId!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F159dff99-3de3-48ff-be0a-d75a898afbd3_1456x150.png)
+
+
+
+](https://substackcdn.com/image/fetch/$s_!mCId!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F159dff99-3de3-48ff-be0a-d75a898afbd3_1456x150.png)
+
+### Q&A
+
+**Where did your family's money come from?**
+
+Our country has a long and rich history. I know...some of this history. Not as much as I'd like to.
+
+My family also has a very long history. And my family history contains some murky aspects. With all upper-middle-class families in our country, the story is never as simple as "I studied hard, got into a great school, and I made good."
+
+That's because most of our country is very poor. This is less true than it used to be, but much of our country still can’t afford a bicycle or a second pair of shoes.
+
+But whenever I hear about my family's history, we always seem like the kinds of people who could at least afford shoes. Like, going as far back as I've heard about them, we were never people who went barefoot.
+
+Some people would say maybe our family was genetically superior, so we invariably ended up on top. Other people would say that we benefited from a system of oppression, in which we became the middle-managers, helping a ruling class to extract wealth from the poor.
+
+In our case, we were basically a civil service family. My great-grandfather, my grandfather, and my father were all in the civil service. But when you're in the civil service, you have to move around a lot, and when my mom got her professorship, my dad left the civil service and got a job with this treaty organization, so we could stay here in the capital for her job. His new position pays much better, but I think sometimes he regrets leaving the civil service, because the civil service is really an identity—you're involved in directly administering this country, you have a lot of power. He is always saying I should someday take the civil service exam.
+
+Theoretically this exam is fair and based on merit, but it really seems like the same families end up sending their kids into the civil service, and how could that be true if it was all about merit? But that's another thing my dad says I’m wrong about.
+
+Anyway...many commenters have said that my family is probably evil or corrupt in some way.
+
+Maybe that's true. But if we are corrupt, I wish we were *more* corrupt. We do not seem to be that rich—my parents have said that they can contribute a little bit towards the cost of a foreign college, but once that’s gone they have nothing more to give me.
+
+\---
+
+**If you live under fascism, why aren't you more scared?**
+
+That's a valid question. My answer is that if you live in this country and you have something to lose, then you are probably scared. We have all incorporated this baseline fear into our lives in various ways. I agree that I am not afraid of being killed or thrown into prison. And maybe that means things aren't so bad.
+
+Certainly, this episode with Dafydd and Geraint has made me think...we really should be standing up to these guys a little bit more.
+
+On the other hand, I would also be reluctant to post this publicly, under my own name. I do feel like...if I pushed them harder, these guys would *need* to respond. Like, as I know these days from Anwen, there are a lot of undercurrents in this fascist world. These guys are always jostling with each other, competing with each other. Dafydd and Geraint probably have some rivals that are talking about how some fat loser is 'mogging' them.
+
+But I remain convinced that the baseline level of testosterone is quite low. Maybe it’s true there’s a masculinity crisis—Because what I've read about how boys in high school are supposed to act, it really bears no resemblance to the dull, lifeless world that I inhabit.
+
+If anything, Dafydd and Geraint have distinguished themselves because they still have some energy and ambition. The rest of the guys at our school don't even have that. I guess that's really why fascism has succeeded—however weak the fascists are, people like me seem even weaker.
+
+\---
+
+**I hear your country is full of scary armed lawless fascist goons. Where are those guys?**
+
+Where indeed! I read the same newspaper reports. I think they're probably true. But I don't know those goons. What I know are a distinctly different class of people that is attempting to somehow whip up and control those goons. Maybe this effort will work out, maybe it won't. It's possible that the goons will someday get the upper hand—maybe in twenty years some goon whose name I don't know—some Idi Amin—will arrest Geraint, try him for treason, and then the goon will be in charge. That seems likely. If you're a coward like Geraint, you probably shouldn't try to inaugurate a regime where the strong can openly dominate the weak.
+
+\---
+
+**You’re so pathetic. How can you possibly have a girlfriend?**
+
+See the masculinity crisis, above. Unless you want to be with a smug fascist, I am apparently the best option. I guess by this standard I can honestly say that fascism has been good to me.
+
+[
+
+![](https://substackcdn.com/image/fetch/$s_!ZOOF!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F52579982-9a4b-4a7e-a50b-0ec281122664_1456x150.png)
+
+
+
+](https://substackcdn.com/image/fetch/$s_!ZOOF!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F52579982-9a4b-4a7e-a50b-0ec281122664_1456x150.png)
+
+### Fourth Update
+
+Anwen has been encouraging me to think about my future. Personally, I have been more focused on trying to have sex with her. It really seems like something I ought to do.
+
+I've often thought that my libido might not be typical—I get really horny, but somehow my horniness doesn’t have that extra level of urgency that would make me actually do something, make a move. But in reading online, I've discovered that many guys feel the same. They feel inadequate, like there is something wrong with them.
+
+In my case, with Anwen, I've been thinking about how to get her alone. We're a very crowded country, it's hard to get people alone. At my house, there’s a gate guard, a driver, and a cook—all these people have really traditional values, they would tell my parents if I had a girl over. But maybe I should brazen it out: what would actually happen?
+
+After school we usually drive to Haus to study. But today I said, "Let's go to my place."
+
+"Y—yeah?" she said.
+
+"Just more private. We can take my car."
+
+I knew that my parents weren't home, but she texted her dad that she was having dinner at my place (not untrue). And because I lived close to school, within thirty minutes we were there, in my apartment. She was in my living room.
+
+Our cook said, "Can I prepare anything?"
+
+"No," I said. "Or...do you want anything?"
+
+Anwen was red. "No."
+
+"You can go," I said. "You can be done. For today, I mean."
+
+Okay, I was a little rude. I am sorry for that, but our cook got the hint, and she went to her quarters back beyond the kitchen, where she was probably furiously texting my parents.
+
+And now Anwen and I were alone. I will spare you the details of my various moves, but I made some progress. She was on top of me, grinding against me, and we were making out, and I felt much more life than I had heretofore. This felt different, more unrestrained, than our sessions in the car.
+
+We just did that for a while, and...things happened for me. Like, I...I happened. It was so intense, fully worth all the trouble. I guess I hadn't really expected that, from dry-humping.
+
+Her eyes went wide, "Oh my god," she said. "Did you really?"
+
+"I mean...yeah," I said.
+
+"Wow," she said.
+
+I felt very accomplished. Like, what do I know about girls—just what I read online—but she seemed to be getting a lot out of this. Whatever I was doing, it really seemed to be working, manhood-wise. Which was a lot more than Dafydd and Geraint could say (I had confirmed they did not have girlfriends).
+
+\---
+
+Anwen liked compliments. Loved to hear that I thought she was beautiful, that I had fantasized about her forever. That this was a dream come true. I kept thinking maybe I was feeding her too much—like all this was true, but maybe she'd start thinking she was too good for me. I did my best not to seem too insecure around her.
+
+Once she said, "I feel like I never know what you're thinking."
+
+"Really?" I said.
+
+"I don't even know if you’re into me..."
+
+"Of course I am," I said. "You're objectively...like...you're so fantastic."
+
+"Tell me more."
+
+"I mean...you're so insightful," I said. “You see clearly. Just like I do. That's so rare."
+
+"Really?" she said. "So...you don't think...like you don't think you're smarter than me?"
+
+"No, definitely not. Don't you have, like a 5.1? I think I've got a 3.8—terrible."
+
+"Yeah but everyone knows you're the smartest. I mean…in our class."
+
+I laughed. This was indeed something people said in our class. But they'd really started to say it more and more now that I had a girlfriend. Somehow the two things were connected. They needed to think I was exceptional somehow, and there were no other obvious ways I was exceptional, so they said I was smart.
+
+[
+
+![](https://substackcdn.com/image/fetch/$s_!1EO6!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fb3c4cd3c-bcfe-41f6-b611-2382cb2c63f2_1456x150.png)
+
+
+
+](https://substackcdn.com/image/fetch/$s_!1EO6!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fb3c4cd3c-bcfe-41f6-b611-2382cb2c63f2_1456x150.png)
+
+### Final Update
+
+Over the last few years I've had many comments and emails. Folks want to how it all turned out, but I held off posting because I didn't really know. We were still dating—I was still in high school.
+
+There was never a direct confrontation or break. Certainly not with her father (which I know some people were worried about). Her father, Bleddyn, liked me just fine. He never got territorial about the fact that I was laying his daughter. This guy was a little pudgy, kind of genial, vapid. I got used to having dinner with their family, and I even took a few trips with them.
+
+After Anwen and I had been together for a few months, Bleddyn said, "So let's think about your future, no? What do you intend doing?"
+
+"I don't know," I said.
+
+"Well I am not a genie," Bleddyn said. "But what would be your wish?"
+
+"I guess...the civil service," I said.
+
+"Ahh! That though can happen," he said. And he outlined a path, various legal maneuvers that would allow him to pull strings, get me in through various quota categories. It was such a fascinating glimpse into how this meritocratic system got pulled to shreds.
+
+"But you don't feel like that's...dishonest?" I said. "People study so hard for this test, the civil service exam, they really feel like their future is at stake."
+
+"Merit is a secondary consideration. The primary consideration is making sure that our civil service is working for the benefit of this country and all its people. Merit got us into this mess. Merit is only selfishness. But if you can believe in something bigger, then that is more important."
+
+"Believe in...what?" I said.
+
+"You have seen now," he said. "That in our party, we allow dissent, but it is all done privately. It is just like in China—they have free speech, behind closed doors. There is debate, argumentation, but our dirty laundry isn't made public. Look, see now, are you afraid of talking honestly to me?"
+
+"No," I said.
+
+"Do you think I am a war criminal?" he said. "That I have done genocide?"
+
+"Yes," I said. "Or something bad."
+
+"Okay, and I know you believe that. Now what? Will you stop talking to me—stop coming to my house?"
+
+"I guess not."
+
+"So then what?" he said. "Whatever we are doing—be a part of it. If it is a crime, then argue against it and try to convince us to change."
+
+"But your power is rooted in hatred."
+
+"I disagree, I disagree. Nationalism is not hatred."
+
+"You say things that aren't true. That other people are trying to replace us—"
+
+"That is a metaphor," he said. "It is merely stating that through secularism, kow-towing to minorities, the majority is in danger of losing its identity."
+
+"But you don't say it like a metaphor. People out there feel like other people, because they're a different religion, don't deserve to be here."
+
+"That is a bad belief," he said. "Everyone born here deserves to be here. We can all work together. We just need to respect each other."
+
+"Okay, but...what about justice? Right now there's no justice—no equal treatment under the law."
+
+"This is an assertion," he said. “I disagree. There is still equal treatment. No change.”
+
+"Look at me. Would you let a Unitarian date your daughter?"
+
+"That is—"
+
+"Then, by dating your daughter, I can get into the civil service. That's a path to a good life, something I can access that Unitarians can't."
+
+"So I should allow them to date my daughter? That is justice?"
+
+"No, but when all the good things are controlled by these networks of friendship and kinship, then it's just a way of shutting people out. It's unjust. And it's not an injustice that you guys want to fix."
+
+"There is no fixing it," he said. "The majority will always rule for their own good."
+
+"Okay, great, so...you don't believe in fairness or equality. You don't believe in justice for all. It's just about taking what you can get."
+
+"All are the same," he said. "The previous party—they were the same, only the rhetoric was different."
+
+"That's what people tell me."
+
+"You will learn," he said. "You will learn what a good opportunity you have right now. This is a hard country—chances do not come twice. Either choose now, or fall behind, forever. Lose everything your parents and grandparents worked for.”
+
+\---
+
+Anwen got into Oberlin; I saved my parents' money and went to a local college. We didn’t even consider a long-distance relationship. She wanted to experience American college life without being held back by a boyfriend from home.
+
+We're still friends—she’ll sometimes text to say nobody in America is quite like me. I do think that if I’d taken her dad’s offer, maybe Anwen and I could’ve made things work somehow. But I am happy. It sounds incredibly uncool, but my life is really devoted now to this cause—to freeing our country. There are people here, at my college, who believe the same things that I do.
+
+But in college I’ve also met the real fascist goons—the kind of guys who would terrify Geraint and Dafydd.
+
+These real thugs are lower-middle-class guys who join the local fascist party organization, and they make their bones by jumping left-wing student activists. That’s how these thugs prove that they deserve to ascend in this fascist hierarchy. And sometimes people get beaten pretty badly. When I tried to tell this to my parents, they didn’t believe me. They didn’t think it could be so bad or dangerous. They think I'm alarmist.
+
+People like me generally don't go to these gigantic second-tier public universities like the one I am at.
+
+The people at this college, they are the future. They're the kind of people who fruitlessly study for the civil service exam and then get rejected. There is a lot of anger here, a lot of frustration—it's very exciting, nothing like high school. More and more people like me—the losers under the current regime—will collect in this place, and we'll simmer in our anger.
+
+And something will happen here, I am sure.
+
+\---
+
+\---
+
+[
+
+![](https://substackcdn.com/image/fetch/$s_!Zurf!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Ff5845e72-a0b3-4ecd-8937-835c330da8c5_1456x1080.png)
+
+
+
+](https://substackcdn.com/image/fetch/$s_!Zurf!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Ff5845e72-a0b3-4ecd-8937-835c330da8c5_1456x1080.png)
+*Life Is A Struggle (The Golden Knight). Gustav Klimt. 1903. [Source](https://www.gustav-klimt.com/Life-is-a-Struggle.jsp)*

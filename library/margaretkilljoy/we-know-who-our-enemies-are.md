@@ -1,0 +1,72 @@
+---
+title: "We Know Who Our Enemies Are"
+author: "Margaret Killjoy"
+publication: "Birds Before the Storm"
+publication_slug: "margaretkilljoy"
+published_at: "2025-08-20T14:14:59.000Z"
+source_url: "https://margaretkilljoy.substack.com/p/we-know-who-our-enemies-are"
+word_count: 1413
+estimated_read_time: 8
+---
+
+*I’ll be presenting about radical fiction alongside [Madeline Ffitch](https://www.madelineffitch.com/) at the [Black Cat Book Fair](https://bsky.app/profile/blackcatbookfair.bsky.social) in Belfast, Maine this Saturday (August 23rd, 2025) and tabling with [Strangers in a Tangled Wilderness](https://www.tangledwilderness.org/) all day, so come say hi.*
+
+*I just signed up to take an online six-week memoir class from [Raechel Anne Jolie](https://raechelannejolie.substack.com/), because I like her writing and she’s an experienced teacher and memoirist. I believe there are still spots available for that, and maybe will interest you too.*
+
+# We Know Who Our Enemies Are
+
+“Deescalate all conflict that isn’t with the enemy.”
+
+That eight word slogan is, most likely, the most widely circulated thing I’ve ever written, and I don’t hate that. To be clear, it’s actually me sort of rewriting a tweet written by [MC Sole](https://www.soleone.org/), who announced awhile back that his new year’s resolution was to “deescalate every conflict that’s not with fascists” or something to that effect, and the idea stuck with me. I wanted it more generalized though. I have enemies who aren’t fascists.
+
+The main thing I’ve seen people argue about, as regards that quote, is who counts as “the enemy.”
+
+Today, as an example, I heard about someone who quoted me (with attribution) to say we can’t get mad at the Democratic governor of California for evicting homeless encampments and destroying people’s lives. I suppose the logic here is that since Gavin Newsom isn’t a republican, he isn’t “the enemy,” and therefore it would be wrong to see ourselves in conflict with him.
+
+First and foremost, of course, I would like to say I was happier when I thought Gavin Newsom was the lead singer of the mediocre 90s radio rock band Bush (it turns out that more than one mother has looked at her child and thought “I shall name him ‘Gavin,”’ and maybe it’s even some kind of common name and I just never knew that.). But beyond that, it’s just… astounding to me that someone would look at a politician who systematically destroys people's lives, murdering the most vulnerable people in our society, and not think “that man is my enemy.”
+
+It likely won’t do any good for me to clarify this point. People will continue to misuse my words, and I will continue to find sorrow in the imperfection of language as a tool for communication. I will write uncountable words in my lifetime, but I will never truly be able to express what I feel, what I know, and what I would like to say. I can only try.
+
+So let me be clear:
+
+**People who sweep homeless encampments are the enemy.** The enemy did not arrive with the first election of Donald Trump and will not be defeated when Donald Trump discovers the same oblivion of death that awaits us all (may he discover it sooner than most).
+
+The fact that I am opposed to many things aside from “fascism” is the reason I broadened the original quote in the first place.
+
+Because the thing is, I know who my enemies are.
+
+\---
+
+I’m not big on telling people what to do (I am an anarchist, after all), so I’m not really big into telling people who they, personally, should define as an enemy. Myself, I use different metrics on different days. Sometimes I think to myself “if this country broke into a civil war, would the person I am arguing with be trying to kill me?” Sometimes it’s a broader “would this person kill me if they got the chance or it were politically convenient to do so?” Sometimes it’s narrower: “is this person trying to destroy my life or the lives of people I care about?”
+
+A lot of people use my quote as a way to say “the Left should avoid infighting,” but the thing is, by most metrics, a lot of people who call themselves Leftists are, or would be, my enemies. I read history for a living, and I know that authoritarianism is vile and murderous regardless of the political label attached to it. People who believe that they alone have the True Answers will, absolutely, kill you and everyone you love if it serves their political interests.
+
+I frankly define more people as “the enemy” than most of the people who read what I write, and I don’t really want to convince you to join me in my cynical worldview.
+
+But, presumably, anyone who wields the power of the state to destroy people’s lives is the enemy.
+
+In fact, I tend to assume that it’s access to institutional power that makes people capable of becoming my enemy.
+
+This does mean, though, that I always believe that people have the capacity to cease being my enemy.
+
+\---
+
+The man who has cut me off in traffic is not my enemy, even if I’m angry, even if he’s angry. He’ll disregulate my nervous system if he flips me off and screams, but I will attempt to get out of that situation, deescalate, or defend myself as necessary. He’s still not the enemy.
+
+The liberal who wants to keep every protest peaceful and non-disruptive, despite the severity of the situation, is not my enemy—not unless they try to wield the state against those of us who desire to act more directly. Which is to say, not unless they call the cops.
+
+I worry, as I write this, that a list of examples won’t do any good. It will never be exhaustive, and frankly, setting up a series of classifications by which to define someone as “the enemy” is what creates ideas like “institutional power” in the first place. If we come up with rules by which to declare someone the enemy, we begin the process of dehumanization, the process that has led revolutionaries into some dark places.
+
+So in my heart, I believe that we should keep our list of enemies short. I believe that we should be looking to find common ground with most people, most of the time, that we should deescalate conflicts most of the time. This doesn’t mean we shouldn’t confront people, or call people on their shit, or work to stop people from doing things we disagree with, just that we should be trying to, you know, keep our conflicts from escalating.
+
+But for fuck’s sake, the politicians working actively to destroy the lives of the most disenfranchised people in our society are the enemy. The police who do their dirty work are the enemy. It is worthwhile and ethical to work to stop those people, and to see ourselves in conflict with those people, the same as it’s worthwhile to understand that fascists are the enemy.
+
+Even then, it’s worth understanding that our enemies are our enemies only so long as they wield power over us. My goal is “no more billionaires,” not “kill all billionaires." A billionaire without his billions is just a man. An ex-cop is not a cop. An ex-fascist is not a fascist. Certainly, violence is justified in the fight against fascism (we must never forget the rivers of blood it took to end chattel slavery in the US or the Nazi empire in Europe), but we must never institutionalize violence. We must never see “enemy” as some intrinsic quality inherent in a person.
+
+We must always leave people the option to cease being our enemies. This is a moral necessity, from my perspective, but it’s also a strategic one. In the Art of War, Sun Tzu writes: “When you surround an army, leave an outlet free. Do not press a desperate foe too hard.” You must always offer people the option of throwing down their spears.
+
+\---
+
+It’s strange to fantasize about how we can best navigate victory when victory currently feels far from us. But situations can change quickly, and we must always remember that we can win, and we must always be aware of how, when we can win, we ourselves can make sure we don’t become our own enemy, that we don’t create institutions of death and deprivation.
+
+I know what you’re thinking. You’re thinking “I bet Margaret is about to tie Lord of the Rings into this.” You’re thinking correctly. We must remember that the ring of power goes into the volcano. We must always remember that.
