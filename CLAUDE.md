@@ -94,9 +94,21 @@ Gemini 2.5 Flash API. Key in `~/.config/.env` (GEMINI_API_KEY). ImageMagick post
 | Database | Postgres | None (static HTML) |
 
 ### Regenerating the Static Site
+
+**Always use incremental generation** — never full regen for small changes.
+
 ```bash
-npm run static:generate   # Generate from current DB state
-npm run static:clean      # Clean and regenerate
+# Incremental (use these)
+npm run static:generate -- --article <id>      # Single article (0.4s)
+npm run static:generate -- --only weekly       # Just weekly page (0.5s)
+npm run static:generate -- --only home,tags    # Home + tag pages (15s)
+npm run static:generate -- --only assets       # CSS + images (2s)
+
+# Options: home, articles, wikipedia, publications, tags, weekly, about, search, assets
+
+# Full (only when needed)
+npm run static:generate   # Full generation (~3 min)
+npm run static:clean      # Clean and full regenerate
 npm run static:preview    # Preview at localhost:3000
 ```
 
@@ -179,10 +191,13 @@ npm run test               # Unit tests
 npm run gh:rate-limit      # Check API limits
 npm run gh:issue -- --title "..." --labels "..."
 
-# Static Site
-npm run static:generate    # Generate docs/ from DB
-npm run static:clean       # Clean and regenerate
-npm run static:preview     # Preview at localhost:3000
+# Static Site (always use incremental flags)
+npm run static:generate -- --article <id>      # Single article (0.4s)
+npm run static:generate -- --only weekly       # One section (0.5s)
+npm run static:generate -- --only home,tags    # Multiple sections (15s)
+npm run static:generate                        # Full regen (~3 min, rare)
+npm run static:clean                           # Clean + full regen
+npm run static:preview                         # Preview at localhost:3000
 
 # Jobs (manual)
 npm run job:model-report   # LLM performance report (last 24h)
