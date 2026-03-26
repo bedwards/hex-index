@@ -1035,7 +1035,7 @@ function generateWeeklyListingPage(weeks: WeekListItem[]): string {
           <input type="text" name="hp" style="display:none" tabindex="-1" autocomplete="off">
           <button type="submit" class="subscribe-btn">Subscribe</button>
         </div>
-        <p class="subscribe-note">Friday mornings, US Central. Unsubscribe anytime.</p>
+        <p class="subscribe-note">Delivered Fridays at 7:30 AM Central. Unsubscribe anytime.</p>
       </form>
       <div id="subscribe-success" style="display:none">
         <p class="subscribe-confirmed">You're in! First edition arrives Friday.</p>
@@ -1063,6 +1063,11 @@ function generateWeeklyListingPage(weeks: WeekListItem[]): string {
     }
 
     var SUBSCRIBE_URL = '${SUBSCRIBE_URL}';
+    // Show subscribed state from localStorage
+    if (localStorage.getItem('hex-subscribed')) {
+      document.getElementById('subscribe-form').style.display = 'none';
+      document.getElementById('subscribe-success').style.display = '';
+    }
     document.getElementById('subscribe-form').addEventListener('submit', function(e) {
       e.preventDefault();
       var form = e.target;
@@ -1079,6 +1084,7 @@ function generateWeeklyListingPage(weeks: WeekListItem[]): string {
         mode: 'no-cors',
         body: JSON.stringify(data)
       }).then(function() {
+        localStorage.setItem('hex-subscribed', '1');
         form.style.display = 'none';
         document.getElementById('subscribe-success').style.display = '';
       });
