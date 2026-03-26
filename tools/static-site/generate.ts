@@ -9,8 +9,14 @@
  * - Paginated listings
  *
  * Usage:
- *   npx tsx tools/static-site/generate.ts
- *   npx tsx tools/static-site/generate.ts --clean   # Remove existing docs/ first
+ *   npx tsx tools/static-site/generate.ts                    # Full regeneration
+ *   npx tsx tools/static-site/generate.ts --clean            # Clean and regenerate
+ *   npx tsx tools/static-site/generate.ts --only weekly      # Just the weekly page
+ *   npx tsx tools/static-site/generate.ts --only home,tags   # Home + tag pages
+ *   npx tsx tools/static-site/generate.ts --article <id>     # Single article + listings
+ *
+ * --only options: home, articles, wikipedia, publications, tags, weekly, about, search, assets
+ * --article <uuid>: regenerates one article page + search index
  */
 
 import { config } from 'dotenv';
@@ -33,14 +39,42 @@ config();
 const OUTPUT_DIR = join(process.cwd(), 'docs');
 const PUBLIC_DIR = join(process.cwd(), 'public');
 
+// ── CLI parsing ──────────────────────────────────────────────────────
+
+const args = process.argv.slice(2);
+const shouldClean = args.includes('--clean');
+
+const onlyIdx = args.indexOf('--only');
+const onlySet = onlyIdx >= 0 && args[onlyIdx + 1]
+  ? new Set(args[onlyIdx + 1].split(',').map(s => s.trim().toLowerCase()))
+  : null;
+
+const articleIdx = args.indexOf('--article');
+const singleArticleId = articleIdx >= 0 ? args[articleIdx + 1] : null;
+
+function shouldRun(name: string): boolean {
+  if (singleArticleId) {
+    // --article mode: only run articles + search
+    return name === 'articles' || name === 'search';
+  }
+  if (onlySet) {
+    return onlySet.has(name);
+  }
+  return true; // full generation
+}
+
+// ── Main ─────────────────────────────────────────────────────────────
+
 async function main(): Promise<void> {
-  const args = process.argv.slice(2);
-  const shouldClean = args.includes('--clean');
+  const mode = singleArticleId
+    ? `article ${singleArticleId}`
+    : onlySet
+      ? `only: ${[...onlySet].join(', ')}`
+      : 'full';
 
   console.info('Static Site Generator');
-  console.info('=====================\n');
+  console.info(`===================== [${mode}]\n`);
 
-  // Check database connection
   const databaseUrl = process.env.DATABASE_URL;
   if (!databaseUrl) {
     console.error('Error: DATABASE_URL not set');
@@ -61,7 +95,6 @@ async function main(): Promise<void> {
         if ((err as NodeJS.ErrnoException).code !== 'ENOENT') {
           throw err;
         }
-        // CNAME doesn't exist, nothing to preserve
       }
       await rm(OUTPUT_DIR, { recursive: true, force: true });
       if (cnameContent !== null) {
@@ -71,81 +104,79 @@ async function main(): Promise<void> {
       }
     }
 
-    // Ensure output directory exists
     await ensureDir(OUTPUT_DIR);
 
     // Copy static assets
-    console.info('Copying static assets...');
-    await cp(join(PUBLIC_DIR, 'styles.css'), join(OUTPUT_DIR, 'styles.css'));
-    console.info('  Copied styles.css');
+    if (shouldRun('assets') || (!onlySet && !singleArticleId)) {
+      console.info('Copying static assets...');
+      await cp(join(PUBLIC_DIR, 'styles.css'), join(OUTPUT_DIR, 'styles.css'));
+      console.info('  Copied styles.css');
 
-    // Copy article images from library/images/ to docs/images/
-    const libraryImagesDir = join(process.cwd(), 'library', 'images');
-    const outputImagesDir = join(OUTPUT_DIR, 'images');
-    if (existsSync(libraryImagesDir)) {
-      await ensureDir(outputImagesDir);
-      const imageFiles = await readdir(libraryImagesDir);
-      const webpFiles = imageFiles.filter(f => f.endsWith('.webp'));
-      for (const file of webpFiles) {
-        await cp(join(libraryImagesDir, file), join(outputImagesDir, file));
+      const libraryImagesDir = join(process.cwd(), 'library', 'images');
+      const outputImagesDir = join(OUTPUT_DIR, 'images');
+      if (existsSync(libraryImagesDir)) {
+        await ensureDir(outputImagesDir);
+        const imageFiles = await readdir(libraryImagesDir);
+        const webpFiles = imageFiles.filter(f => f.endsWith('.webp'));
+        for (const file of webpFiles) {
+          await cp(join(libraryImagesDir, file), join(outputImagesDir, file));
+        }
+        console.info(`  Copied ${webpFiles.length} article images\n`);
+      } else {
+        console.info('  No article images found\n');
       }
-      console.info(`  Copied ${webpFiles.length} article images\n`);
-    } else {
-      console.info('  No article images found\n');
     }
 
-    // Generate home pages
-    console.info('Generating home pages...');
-    const homeResult = await generateHomePages(pool, OUTPUT_DIR);
-    console.info(`  ${homeResult.pagesGenerated} pages, ${homeResult.articlesProcessed} articles\n`);
+    // Generate pages based on mode
+    if (shouldRun('home')) {
+      console.info('Generating home pages...');
+      const homeResult = await generateHomePages(pool, OUTPUT_DIR);
+      console.info(`  ${homeResult.pagesGenerated} pages, ${homeResult.articlesProcessed} articles\n`);
+    }
 
-    // Generate article pages
-    console.info('Generating article pages...');
-    const articleResult = await generateArticlePages(pool, OUTPUT_DIR);
-    console.info(`  ${articleResult.pagesGenerated} pages\n`);
+    if (shouldRun('articles')) {
+      console.info('Generating article pages...');
+      const articleResult = await generateArticlePages(pool, OUTPUT_DIR, singleArticleId ?? undefined);
+      console.info(`  ${articleResult.pagesGenerated} pages\n`);
+    }
 
-    // Generate Wikipedia pages
-    console.info('Generating Wikipedia pages...');
-    const wikiResult = await generateWikipediaPages(pool, OUTPUT_DIR);
-    console.info(`  ${wikiResult.pagesGenerated} pages\n`);
+    if (shouldRun('wikipedia')) {
+      console.info('Generating Wikipedia pages...');
+      const wikiResult = await generateWikipediaPages(pool, OUTPUT_DIR);
+      console.info(`  ${wikiResult.pagesGenerated} pages\n`);
+    }
 
-    // Generate publication pages
-    console.info('Generating publication pages...');
-    const pubResult = await generatePublicationPages(pool, OUTPUT_DIR);
-    console.info(`  ${pubResult.publicationsGenerated} publications, ${pubResult.pagesGenerated} pages\n`);
+    if (shouldRun('publications')) {
+      console.info('Generating publication pages...');
+      const pubResult = await generatePublicationPages(pool, OUTPUT_DIR);
+      console.info(`  ${pubResult.publicationsGenerated} publications, ${pubResult.pagesGenerated} pages\n`);
+    }
 
-    // Generate tag pages
-    console.info('Generating tag pages...');
-    const tagResult = await generateTagPages(pool, OUTPUT_DIR);
-    console.info(`  ${tagResult.tagsGenerated} tags, ${tagResult.pagesGenerated} pages\n`);
+    if (shouldRun('tags')) {
+      console.info('Generating tag pages...');
+      const tagResult = await generateTagPages(pool, OUTPUT_DIR);
+      console.info(`  ${tagResult.tagsGenerated} tags, ${tagResult.pagesGenerated} pages\n`);
+    }
 
-    // Generate weekly epubs
-    console.info('Generating weekly epubs...');
-    const weeklyResult = await generateWeeklyEpubs(pool, OUTPUT_DIR);
-    console.info(`  ${weeklyResult.weeksGenerated} new epubs generated\n`);
+    if (shouldRun('weekly')) {
+      console.info('Generating weekly pages...');
+      const weeklyResult = await generateWeeklyEpubs(pool, OUTPUT_DIR);
+      console.info(`  ${weeklyResult.weeksGenerated} new epubs generated\n`);
+    }
 
-    // Generate about page
-    console.info('Generating about page...');
-    await generateAboutPage(OUTPUT_DIR);
-    console.info('');
+    if (shouldRun('about')) {
+      console.info('Generating about page...');
+      await generateAboutPage(OUTPUT_DIR);
+      console.info('');
+    }
 
-    // Generate search index
-    console.info('Generating search index...');
-    const searchResult = await generateSearchIndex(pool, OUTPUT_DIR);
-    console.info('');
+    if (shouldRun('search')) {
+      console.info('Generating search index...');
+      await generateSearchIndex(pool, OUTPUT_DIR);
+      console.info('');
+    }
 
-    // Summary
-    console.info('=====================');
-    console.info('Generation complete!\n');
-    console.info('Summary:');
-    console.info(`  Home pages: ${homeResult.pagesGenerated}`);
-    console.info(`  Article pages: ${articleResult.pagesGenerated}`);
-    console.info(`  Wikipedia pages: ${wikiResult.pagesGenerated}`);
-    console.info(`  Publication pages: ${pubResult.pagesGenerated}`);
-    console.info(`  Tag pages: ${tagResult.pagesGenerated}`);
-    console.info(`  Weekly epubs: ${weeklyResult.weeksGenerated}`);
-    console.info(`  Search index: ${searchResult.articlesIndexed} articles`);
-    console.info(`\nOutput: ${OUTPUT_DIR}`);
+    console.info('Done.');
 
   } finally {
     await pool.end();

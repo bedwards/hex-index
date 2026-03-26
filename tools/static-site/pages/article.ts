@@ -335,9 +335,11 @@ async function findWikiSlugForBook(
  */
 export async function generateArticlePages(
   pool: Pool,
-  outputDir: string
+  outputDir: string,
+  articleId?: string
 ): Promise<{ pagesGenerated: number }> {
-  const articles = await getAllArticles(pool);
+  const allArticles = await getAllArticles(pool);
+  const articles = articleId ? allArticles.filter(a => a.id === articleId) : allArticles;
   const affiliateBooksMap = await loadAffiliateBooks(pool);
   let pagesGenerated = 0;
 
