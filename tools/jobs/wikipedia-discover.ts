@@ -47,7 +47,7 @@ if (USE_CLAUDE) {
 }
 const DISCOVER_MODEL = USE_CLAUDE
   ? (process.env.CLAUDE_MODEL || 'claude-sonnet-4-6')
-  : (process.env.OLLAMA_MODEL || 'qwen3.5:122b-a10b');
+  : (process.env.OLLAMA_MODEL || 'qwen3.5:122b-a10b-q8');
 
 const articleIdIdx = args.indexOf('--article-id');
 const ARTICLE_IDS: string[] = [];
