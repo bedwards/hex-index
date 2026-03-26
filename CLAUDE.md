@@ -47,12 +47,12 @@ Job schedule (even/odd hour pattern):
 ```
 EVEN HOURS (00, 02, 04, ..., 22):
   :00  ingest + yt-ingest + gen-images    [no GPU]
-  :05  wiki-discover                       [Qwen, 25 min]
-  :35  article-rewrite                     [Qwen, 25 min]
+  :05  wiki-discover                       [Qwen, 10 min]
+  :15  article-rewrite                     [Qwen, 45 min]
 
 ODD HOURS (01, 03, 05, ..., 23):
-  :05  wiki-rewrite                        [Qwen, 25 min]
-  :35  affiliate-suggest                   [Qwen, 25 min]
+  :05  affiliate-suggest                   [Qwen, 10 min]
+  :15  wiki-rewrite                        [Qwen, 45 min]
 
 WEEKLY:
   Thu 22:00  Stop Qwen, consolidate

@@ -11,8 +11,8 @@ LOG_FILE="$PROJECT_DIR/logs/affiliate-suggest-$(date +%Y%m%d-%H%M%S).log"
 OLLAMA_URL="${OLLAMA_URL:-http://127.0.0.1:11434}"
 OLLAMA_MODEL="${OLLAMA_MODEL:-qwen3.5:122b-a10b}"
 
-TIME_BUDGET=1500        # 25 minutes — fits odd-hour Qwen slot
-SECS_PER_ITEM=10
+TIME_BUDGET=600         # 10 minutes — fast job, runs first at :05, done by :15
+SECS_PER_ITEM=7
 
 mkdir -p "$PROJECT_DIR/logs"
 cd "$PROJECT_DIR"

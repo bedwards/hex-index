@@ -11,8 +11,8 @@ LOG_FILE="$PROJECT_DIR/logs/wiki-rewrite-$(date +%Y%m%d-%H%M%S).log"
 OLLAMA_URL="${OLLAMA_URL:-http://127.0.0.1:11434}"
 OLLAMA_MODEL="${OLLAMA_MODEL:-qwen3.5:122b-a10b}"
 
-TIME_BUDGET=1500        # 25 minutes — fits odd-hour Qwen slot
-SECS_PER_ITEM=80
+TIME_BUDGET=2700        # 45 minutes — starts at :15 after affiliate-suggest finishes
+SECS_PER_ITEM=140
 
 mkdir -p "$PROJECT_DIR/logs"
 cd "$PROJECT_DIR"
