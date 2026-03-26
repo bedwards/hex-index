@@ -346,9 +346,10 @@ export async function generateArticlePages(
     const hasRewrite = !!article.rewritten_content_path;
     const rawContent = await loadArticleContent(article.content_path);
     const isYouTube = article.original_url.includes('youtube.com') || article.original_url.includes('youtu.be');
-    const rawExcerpt = extractHtmlExcerpt(rawContent, 400);
-    // Clean speech artifacts from YouTube transcript excerpts
-    const excerpt = isYouTube ? cleanTranscript(rawExcerpt) : rawExcerpt;
+    // Clean speech artifacts from YouTube transcripts before excerpting,
+    // so cleaning operates on plain text and excerpt boundary is computed on cleaned result
+    const contentForExcerpt = isYouTube ? cleanTranscript(rawContent) : rawContent;
+    const excerpt = extractHtmlExcerpt(contentForExcerpt, 400);
 
     let displayContent: string;
     if (hasRewrite) {

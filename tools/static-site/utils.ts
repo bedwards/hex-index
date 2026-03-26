@@ -256,8 +256,9 @@ export function cleanTranscript(text: string): string {
   return text
     // Remove >> speaker change markers
     .replace(/>>/g, '')
-    // Remove bracketed annotations like [Music], [Laughter], [Applause]
-    .replace(/\[(?:Music|Laughter|Applause|Inaudible|Crosstalk)\]/gi, '')
+    // Remove bracketed annotations like [Music], [Laughter], [Speaking in foreign language]
+    // Cap at 40 chars to avoid swallowing long bracket spans in non-transcript content
+    .replace(/\[[^\]]{1,40}\]/g, '')
     // Remove standalone filler words (case-insensitive, word boundaries)
     // Multi-word fillers first (uh huh before uh)
     .replace(/\buh huh,?\s*/gi, '')
