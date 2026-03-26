@@ -806,11 +806,11 @@ export async function generateWeeklyEpubs(
           seenPubs.add(`done:${matchedCons.publication_id}`);
 
           // Use consolidated content if available, otherwise fall back to first article
-          let content: string;
+          let content: string | undefined;
           if (matchedCons.consolidated_content_path) {
             content = await loadContent(matchedCons.consolidated_content_path);
           }
-          if (!content!) {
+          if (!content) {
             content = row.rewritten_content_path
               ? await loadContent(row.rewritten_content_path)
               : await loadContent(row.content_path);
@@ -849,10 +849,11 @@ export async function generateWeeklyEpubs(
           byTopic.get(topicKey)!.push(entry);
         } else if (!matchedCons) {
           // Article not in any consolidated entry — include as-is
-          let content: string;
+          let content: string | undefined;
           if (row.rewritten_content_path) {
             content = await loadContent(row.rewritten_content_path);
-          } else {
+          }
+          if (!content) {
             content = await loadContent(row.content_path);
           }
           if (!content) { continue; }
@@ -886,10 +887,11 @@ export async function generateWeeklyEpubs(
       for (const row of articles) {
         const topicKey = row.tag_slug || 'culture';
 
-        let content: string;
+        let content: string | undefined;
         if (row.rewritten_content_path) {
           content = await loadContent(row.rewritten_content_path);
-        } else {
+        }
+        if (!content) {
           content = await loadContent(row.content_path);
         }
         if (!content) {continue;}
