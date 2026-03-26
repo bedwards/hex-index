@@ -126,7 +126,7 @@ If the database is empty, that's a bug. Test with actual content, not mocks. No 
 - Include **4-8 direct quotes** from the original author
 - Add **counterpoints** the author didn't address
 - Include **1-2 pull quotes**
-- **Never delete content** — mark dirty for re-processing instead
+- **Never delete content** — Claude loops fix problems in-place (never mark dirty for Qwen re-processing)
 
 ## Code Standards
 

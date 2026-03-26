@@ -43,10 +43,11 @@ ORDER BY at.score DESC
    - Very short content
    - Duplicate paragraphs
 
-3. **Fix problems** by marking articles dirty:
-```sql
-UPDATE app.articles SET rewrite_dirty = true WHERE id = '<id>';
-```
+3. **Fix problems in-place** — do NOT mark articles dirty or defer to Qwen. Edit the HTML files directly:
+   - Read the file from `library/{rewritten_content_path}`
+   - Strip think tags, LLM preambles, refusal text, repeated paragraphs
+   - Fix encoding issues (mojibake)
+   - Save the cleaned file
 
 4. **Regenerate the epub**: After fixing, regenerate:
 ```bash
