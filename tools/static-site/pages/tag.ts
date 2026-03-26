@@ -217,7 +217,7 @@ export async function generateTagPages(
   let pagesGenerated = 0;
 
   // Generate tag index page
-  const indexHtml = generateTagIndexPage(tags, '../../');
+  const indexHtml = generateTagIndexPage(tags, '../');
   await writeFile(join(outputDir, 'tag', 'index.html'), indexHtml);
   pagesGenerated++;
 
