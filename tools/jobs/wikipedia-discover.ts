@@ -61,10 +61,6 @@ interface TopicResult {
   reason: string;
 }
 
-interface LlmResponse {
-  topics: TopicResult[];
-}
-
 // ── Main ────────────────────────────────────────────────────────────
 async function main(): Promise<void> {
   const dbUrl = process.env.DATABASE_URL;
@@ -147,7 +143,7 @@ async function main(): Promise<void> {
           continue;
         }
 
-        // Step 1: Try to get topics from existing wikipedia links in the article (no LLM)
+        // Step 1: Extract existing wikipedia links from the article HTML (no LLM)
         const existingWikiLinks = extractWikipediaLinks(articleHtml);
         const validatedTopics: Array<{ topic: string; url: string; reason: string }> = [];
 
@@ -160,45 +156,46 @@ async function main(): Promise<void> {
         `, [article.id]);
         const linkedUrls = new Set(alreadyLinked.map(r => r.original_url));
 
+        // Collect topics from article HTML links (reasons will be filled by LLM below)
+        const articleLinkTopics: Array<{ topic: string; url: string }> = [];
         for (const link of existingWikiLinks) {
-          if (validatedTopics.length >= slotsNeeded) {break;}
+          if (articleLinkTopics.length >= slotsNeeded) {break;}
           try {
             const normalized = normalizeWikipediaUrl(link);
             if (linkedUrls.has(normalized)) {continue;}
             const topicMatch = link.match(/\/wiki\/([^#?]+)/);
             if (topicMatch) {
               const topic = decodeURIComponent(topicMatch[1].replace(/_/g, ' '));
-              validatedTopics.push({
-                topic,
-                url: normalized,
-                reason: `Referenced in the article`,
-              });
+              articleLinkTopics.push({ topic, url: normalized });
               linkedUrls.add(normalized);
               console.info(`  From article links: ${topic}`);
             }
           } catch { /* invalid url, skip */ }
         }
 
-        // Step 2: If we still need more, ask the LLM
-        if (validatedTopics.length < slotsNeeded) {
-          const remaining = slotsNeeded - validatedTopics.length;
-          const keyTerms = extractKeyTerms(articleHtml);
+        // Step 2: Always call the LLM to get proper reasons and fill remaining slots
+        const keyTerms = extractKeyTerms(articleHtml);
 
-          const $ = (await import('cheerio')).load(articleHtml);
-          $('.subscribe-widget, .subscription-widget, .share, .button-wrapper').remove();
-          const articleText = $('body').text().slice(0, 3000);
+        const $ = (await import('cheerio')).load(articleHtml);
+        $('.subscribe-widget, .subscription-widget, .share, .button-wrapper').remove();
+        const articleText = $('body').text().slice(0, 3000);
 
-          const alreadyUsed = validatedTopics.map(t => t.topic);
+        const alreadyUsed = articleLinkTopics.map(t => t.topic);
+        const additionalNeeded = slotsNeeded - articleLinkTopics.length;
 
-          const prompt = `Select ${remaining} Wikipedia articles that give readers essential context for this piece. Your picks should be specific, nuanced, and slightly esoteric — the kind of topic a curious reader would be glad to discover, not one they already know about.
+        // Build the prompt: ask for reasons for article-extracted topics + additional suggestions
+        const articleTopicsSection = articleLinkTopics.length > 0
+          ? `\nTOPICS ALREADY FOUND IN ARTICLE (provide a "reason" for each, and do NOT repeat them in "additional_topics"):\n${articleLinkTopics.map(t => `- "${t.topic}"`).join('\n')}\n`
+          : '';
 
+        const prompt = `You are selecting Wikipedia deep dives for a news article. ${additionalNeeded > 0 ? `Select ${additionalNeeded} additional Wikipedia articles that give readers essential context.` : ''} Your picks should be specific, nuanced, and slightly esoteric — the kind of topic a curious reader would be glad to discover, not one they already know about.
+${articleTopicsSection}
 ARTICLE: "${article.title}" from ${article.publication_name}
 
 EXCERPT:
 ${articleText}
 
 KEY TERMS: ${keyTerms.join(', ')}
-${alreadyUsed.length > 0 ? `ALREADY SELECTED (do not repeat): ${alreadyUsed.join(', ')}` : ''}
 
 SELECTION RULES:
 - NEVER pick a person who is a main subject of the article. If the article is about Trump, do NOT pick "Donald Trump." Pick a specific policy, event, or concept mentioned in passing instead.
@@ -207,87 +204,99 @@ SELECTION RULES:
 - DO pick specific events, laws, treaties, battles, obscure historical figures, technical concepts, or niche phenomena that illuminate the article's argument
 - Prefer topics where the Wikipedia article would teach the reader something surprising
 
-GOOD EXAMPLES:
-- {"topic": "Smoot–Hawley Tariff Act", "reason": "The article references 1930s trade wars"}
-- {"topic": "Overton window", "reason": "The author argues this policy was once unthinkable"}
-- {"topic": "Buchanan v. Warley", "reason": "A 1917 case central to the housing argument"}
-- {"topic": "Goodhart's law", "reason": "The metrics problem described follows this pattern"}
+REASON RULES:
+- Each "reason" must be a specific sentence explaining why THIS topic illuminates THIS article
+- Do NOT write generic reasons like "Referenced in the article", "Mentioned in the article", "Related to the topic", or "Relevant background"
+- The reason should tell the reader what they'll learn and why it matters for understanding the article
 
-BAD EXAMPLES (never pick these):
+GOOD EXAMPLES:
+- {"topic": "Smoot–Hawley Tariff Act", "reason": "The article references 1930s trade wars as a cautionary parallel to today's tariff proposals"}
+- {"topic": "Overton window", "reason": "The author argues this policy was once unthinkable but has shifted into mainstream debate"}
+- {"topic": "Buchanan v. Warley", "reason": "This 1917 Supreme Court case is central to the housing discrimination argument the author builds"}
+- {"topic": "Goodhart's law", "reason": "The metrics problem the author describes — where targets become gamed — follows this well-known pattern"}
+
+BAD EXAMPLES (never produce these):
 - {"topic": "Donald Trump", "reason": "Article is about Trump's policy"} — too obvious
-- {"topic": "Economics", "reason": "Related to the topic"} — too broad
+- {"topic": "Economics", "reason": "Related to the topic"} — too broad, too vague
 - {"topic": "United States Congress", "reason": "Legislation discussed"} — too generic
-- {"topic": "Climate change", "reason": "Environmental topic"} — too well-known
+- {"topic": "Climate change", "reason": "Referenced in the article"} — lazy, says nothing specific
 
 Output ONLY the JSON object. No explanation, no preamble, no markdown fences.
-{"topics": [{"topic": "Exact Wikipedia Article Title", "reason": "One sentence"}]}`;
+${articleLinkTopics.length > 0
+  ? `{"existing_topic_reasons": [{"topic": "Topic From Article", "reason": "Specific reason"}], "additional_topics": [{"topic": "Exact Wikipedia Article Title", "reason": "Specific reason"}]}`
+  : `{"topics": [{"topic": "Exact Wikipedia Article Title", "reason": "Specific reason"}]}`}`;
 
-          const responseText = await generateText(prompt, {
-            temperature: 0.3,
-            numPredict: 2000,
-          });
+        const responseText = await generateText(prompt, {
+          temperature: 0.3,
+          numPredict: 2000,
+        });
 
-          // Parse LLM JSON response
-          let llmTopics: TopicResult[] = [];
+        // Parse LLM JSON response
+        let llmTopics: TopicResult[] = [];
+        const existingReasons: Map<string, string> = new Map();
+        try {
+          // Strip markdown code fences and any residual think tags
+          let cleaned = responseText.trim();
+          cleaned = cleaned.replace(/<think>[\s\S]*?<\/think>/g, '').trim();
+          cleaned = cleaned.replace(/^```\w*\n?/, '').replace(/\n?```\s*$/, '').trim();
+          // Try to extract JSON object from the text
+          const jsonMatch = cleaned.match(/\{[\s\S]*\}/);
+          if (jsonMatch) {
+            const parsed = JSON.parse(jsonMatch[0]) as {
+              topics?: TopicResult[];
+              existing_topic_reasons?: TopicResult[];
+              additional_topics?: TopicResult[];
+            };
+            // Handle both response formats
+            if (parsed.existing_topic_reasons) {
+              for (const r of parsed.existing_topic_reasons) {
+                existingReasons.set(r.topic.toLowerCase(), r.reason);
+              }
+            }
+            llmTopics = parsed.additional_topics ?? parsed.topics ?? [];
+          } else {
+            throw new Error('No JSON object found');
+          }
+        } catch {
+          // Skip additional topics when JSON parsing fails — inserting without a real reason
+          // would re-introduce the lazy summaries this fix eliminates
+          console.warn(`  [wiki-discover] LLM returned invalid JSON for article ${article.id}, skipping additional topics`);
+          llmTopics = [];
+        }
+
+        // Add article-extracted topics with LLM-generated reasons
+        for (const at of articleLinkTopics) {
+          const llmReason = existingReasons.get(at.topic.toLowerCase());
+          if (!llmReason) {
+            console.warn(`  [wiki-discover] LLM did not return reason for "${at.topic}", using template fallback`);
+          }
+          const reason = llmReason ?? `Directly referenced in the article's discussion of ${article.title}`;
+          validatedTopics.push({ topic: at.topic, url: at.url, reason });
+          console.info(`    With reason: ${at.topic} — ${reason}`);
+        }
+
+        console.info(`  LLM suggested: ${llmTopics.map(t => t.topic).join(', ')}`);
+
+        // Validate each LLM topic against Wikipedia
+        for (const lt of llmTopics) {
+          if (validatedTopics.length >= slotsNeeded) {break;}
+          if (alreadyUsed.some(t => t.toLowerCase() === lt.topic.toLowerCase())) {continue;}
+
+          const url = await searchWikipedia(lt.topic);
+          if (!url) {
+            console.info(`    Not found on Wikipedia: ${lt.topic}`);
+            continue;
+          }
+
           try {
-            // Strip markdown code fences and any residual think tags
-            let cleaned = responseText.trim();
-            cleaned = cleaned.replace(/<think>[\s\S]*?<\/think>/g, '').trim();
-            cleaned = cleaned.replace(/^```\w*\n?/, '').replace(/\n?```\s*$/, '').trim();
-            // Try to extract JSON object from the text
-            const jsonMatch = cleaned.match(/\{[\s\S]*\}/);
-            if (jsonMatch) {
-              const parsed = JSON.parse(jsonMatch[0]) as LlmResponse;
-              llmTopics = parsed.topics ?? [];
-            } else {
-              throw new Error('No JSON object found');
-            }
-          } catch {
-            console.info(`  LLM returned invalid JSON, falling back to line parsing`);
-            // Fallback: try to extract topic names from plain text
-            // Filter out think-tag residue, short lines, JSON fragments
-            const lines = responseText
-              .replace(/<think>[\s\S]*?<\/think>/g, '')
-              .split('\n')
-              .map(l => l.replace(/^```\w*/, '').replace(/^\d+[.)]\s*/, '').replace(/^[-*]\s+/, '').trim())
-              .filter(l =>
-                l.length > 3 &&
-                l.length < 150 &&
-                !l.startsWith('{') && !l.startsWith('}') &&
-                !l.startsWith('<') &&
-                !l.startsWith('The user') &&
-                !l.startsWith('Looking at') &&
-                !l.startsWith('I ') &&
-                !l.includes('```') &&
-                !l.includes('topic') &&
-                !l.includes('reason')
-              );
-            llmTopics = lines.slice(0, remaining).map(t => ({ topic: t, reason: 'Related topic' }));
-          }
+            const normalized = normalizeWikipediaUrl(url);
+            if (linkedUrls.has(normalized)) {continue;}
 
-          console.info(`  LLM suggested: ${llmTopics.map(t => t.topic).join(', ')}`);
-
-          // Validate each LLM topic against Wikipedia
-          for (const lt of llmTopics) {
-            if (validatedTopics.length >= slotsNeeded) {break;}
-            if (alreadyUsed.some(t => t.toLowerCase() === lt.topic.toLowerCase())) {continue;}
-
-            const url = await searchWikipedia(lt.topic);
-            if (!url) {
-              console.info(`    Not found on Wikipedia: ${lt.topic}`);
-              continue;
-            }
-
-            try {
-              const normalized = normalizeWikipediaUrl(url);
-              if (linkedUrls.has(normalized)) {continue;}
-
-              validatedTopics.push({ topic: lt.topic, url: normalized, reason: lt.reason });
-              linkedUrls.add(normalized);
-              alreadyUsed.push(lt.topic);
-              console.info(`    Validated: ${lt.topic}`);
-            } catch { /* invalid url */ }
-          }
+            validatedTopics.push({ topic: lt.topic, url: normalized, reason: lt.reason });
+            linkedUrls.add(normalized);
+            alreadyUsed.push(lt.topic);
+            console.info(`    Validated: ${lt.topic}`);
+          } catch { /* invalid url */ }
         }
 
         if (validatedTopics.length === 0) {
