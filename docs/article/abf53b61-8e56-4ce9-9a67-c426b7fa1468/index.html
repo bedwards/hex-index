@@ -42,14 +42,14 @@
 <p>Chase's roundup of ten command-line tools for Claude Code arrives at a moment when the AI coding ecosystem is undergoing a quiet but significant architectural shift. The thesis is straightforward: Claude Code lives in the terminal, CLI tools live in the terminal, and the friction of Model Context Protocol servers is increasingly unnecessary overhead. Whether that thesis holds up under scrutiny depends on what kind of work developers are actually doing.</p>
 
 <p>The most striking claim in the piece is the directional one about MCPs versus CLIs:</p>
-<figure class="inline-illustration">
-    <img src="../../images/abf53b61-8e56-4ce9-9a67-c426b7fa1468.webp" alt="" loading="lazy" width="600" height="315">
-  </figure>
-
 
 <blockquote>We're moving away from MCPs. We're moving into CLIs because it just makes sense. Cloud code lives in the terminal. CLIs live in the terminal. There's no overhead. It's like just a straight connection and allows cloud code to do the most with the least amount of tokens.</blockquote>
 
 <p>This framing deserves some pushback. MCPs were designed to solve a real problem: giving language models structured, discoverable access to external services with well-defined schemas. CLI tools solve a different problem: giving humans (and now AI agents) scriptable access to services through text commands. The fact that Claude Code can use both does not make them interchangeable. A CLI tool that outputs unstructured text requires the model to parse that output, which is itself a source of errors and token consumption. The "90,000 fewer tokens" figure Chase cites from the Playwright comparison is compelling, but a single benchmark does not establish a universal principle.</p>
+<figure class="inline-illustration">
+    <img src="../../images/abf53b61-8e56-4ce9-9a67-c426b7fa1468.webp" alt="" loading="lazy" width="600" height="315">
+  </figure>
+
 
 <h2>The Meta-Tool and the Bootstrapping Problem</h2>
 

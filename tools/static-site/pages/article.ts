@@ -103,16 +103,28 @@ function injectImageIntoText(html: string, imageSrc: string): string {
     <img src="${imageSrc}" alt="" loading="lazy" width="600" height="315">
   </figure>`;
 
-  // Find the end of the 2nd </p> tag and insert after it
+  // Find the end of the 2nd </p> tag and insert after it,
+  // but skip positions where a <blockquote> immediately follows
   let count = 0;
   const closingP = /<\/p>/gi;
   let match: RegExpExecArray | null;
+  let fallbackPos: number | null = null;
   while ((match = closingP.exec(html)) !== null) {
     count++;
-    if (count === 2) {
+    if (count >= 2) {
       const insertPos = match.index + match[0].length;
-      return html.slice(0, insertPos) + '\n' + imgTag + '\n' + html.slice(insertPos);
+      const afterInsert = html.slice(insertPos).trimStart();
+      if (!afterInsert.startsWith('<blockquote')) {
+        return html.slice(0, insertPos) + '\n' + imgTag + '\n' + html.slice(insertPos);
+      }
+      // Remember first valid position in case all remaining have blockquotes
+      if (fallbackPos === null) fallbackPos = insertPos;
     }
+  }
+
+  // All positions after 2nd paragraph had blockquotes — use the first one we found
+  if (fallbackPos !== null) {
+    return html.slice(0, fallbackPos) + '\n' + imgTag + '\n' + html.slice(fallbackPos);
   }
 
   // Fewer than 2 paragraphs — put it at the end

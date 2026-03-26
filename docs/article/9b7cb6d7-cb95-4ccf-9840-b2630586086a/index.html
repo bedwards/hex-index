@@ -42,14 +42,14 @@
 <p>Uber's microservices infrastructure processes millions of authorization decisions every day. Each Application Programming Interface call, database query, and Kafka message requires an access check, and those checks must resolve in microseconds. The ByteByteGo team lays out how Uber's engineering organization outgrew basic access control and built something far more flexible in its place.</p>
 
 <p>The system Uber built is called Charter, a centralized policy repository that distributes authorization rules to individual services. At its foundation, every authorization request reduces to a single question: can an actor perform an action on a resource in a given context? Actors are identified using the Secure Production Identity Framework for Everyone (SPIFFE) format, resources use Uber Object Name (UON) URIs, and actions cover the standard create, read, update, and delete operations plus custom verbs like "invoke" and "subscribe."</p>
-<figure class="inline-illustration">
-    <img src="../../images/9b7cb6d7-cb95-4ccf-9840-b2630586086a.webp" alt="" loading="lazy" width="600" height="315">
-  </figure>
-
 
 <blockquote>Uber's infrastructure runs on thousands of microservices, each making authorization decisions millions of times per day. This includes every API call, database query, and message published to Kafka.</blockquote>
 
 <p>The early policy model was straightforward. A YAML file would declare that service-bar could invoke a method on service-foo, or that employees in a particular group could read and write certain reports. Simple, declarative, easy to audit.</p>
+<figure class="inline-illustration">
+    <img src="../../images/9b7cb6d7-cb95-4ccf-9840-b2630586086a.webp" alt="" loading="lazy" width="600" height="315">
+  </figure>
+
 
 <p>But simple is not the same as sufficient.</p>
 
