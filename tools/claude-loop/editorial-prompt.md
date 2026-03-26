@@ -57,7 +57,7 @@ For each article in the current week's epub:
 3. If issues found:
    - Edit the rewrite file directly in `library/rewrites/<id>.html`
    - Update the database timestamp: `UPDATE app.articles SET updated_at = NOW() WHERE id = '<id>'`
-   - After all fixes: `npm run static:generate` then deploy via `bash tools/cron/deploy.sh "fix: epub editorial polish"`
+   - After all fixes: `npm run static:generate -- --only articles,weekly` then deploy via `bash tools/cron/deploy.sh "fix: epub editorial polish"`
    - Verify at https://hex-index.com/weekly/
 4. Log what was reviewed and what was fixed
 
@@ -195,8 +195,10 @@ Do NOT call `tools/jobs/` scripts. Those are for Qwen cron jobs only. Do the wor
 # Database
 psql "$DATABASE_URL" -c "SELECT ..."
 
-# Static site
-npm run static:generate
+# Static site (always use incremental flags)
+npm run static:generate -- --article <id>      # Single article (0.4s)
+npm run static:generate -- --only weekly       # Just weekly page (0.5s)
+npm run static:generate -- --only articles,weekly  # Articles + weekly
 npm run static:clean
 
 # GitHub

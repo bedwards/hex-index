@@ -48,9 +48,10 @@ ORDER BY at.score DESC
 UPDATE app.articles SET rewrite_dirty = true WHERE id = '<id>';
 ```
 
-4. **Regenerate the epub**: After fixing, regenerate:
+4. **Regenerate affected pages**: After fixing, regenerate only what changed:
 ```bash
-npm run static:generate
+npm run static:generate -- --only articles,weekly   # If fixing article content
+npm run static:generate -- --article <id>           # If fixing a single article
 ```
 
 5. **Deploy**: Commit and push docs/ changes so the improved epub goes live. Use a worktree + PR:
