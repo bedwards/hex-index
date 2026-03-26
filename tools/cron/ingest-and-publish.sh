@@ -124,8 +124,9 @@ else
 fi
 
 # ── Summary ──────────────────────────────────────────────────────────
-# NOTE: Static site generation and deploy are handled by auto-deploy.sh
-# which runs every 30 minutes. This script only writes to DB + library/.
+# NOTE: Static site generation and deploy are handled by the Claude monitoring
+# loop, which checks for library/ changes every 5 minutes. This script only
+# writes to DB + library/.
 RUN_ELAPSED=$(( $(date +%s) - RUN_START ))
 RUN_MINS=$(( RUN_ELAPSED / 60 ))
 RUN_SECS=$(( RUN_ELAPSED % 60 ))
