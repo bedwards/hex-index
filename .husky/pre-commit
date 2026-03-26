@@ -99,11 +99,79 @@ if [ $? -ne 0 ]; then
     exit 1
 fi
 
-# Regenerate static site docs/ if DB is accessible
+# Regenerate static site docs/ if needed and DB is accessible
 echo "Checking if static site needs regeneration..."
-if docker exec hex-index-postgres pg_isready >/dev/null 2>&1; then
-    echo "Database is up — regenerating static site..."
-    npm run static:generate
+
+# Determine which --only flags are needed based on staged file changes
+STAGED_ALL=$(git diff --cached --name-only || true)
+STATIC_ONLY_FLAGS=""
+NEED_FULL_REGEN=false
+NEED_REGEN=false
+
+if [ -n "$STAGED_ALL" ]; then
+    # Files that affect everything → full regen
+    if echo "$STAGED_ALL" | grep -qE '^tools/static-site/templates\.ts$|^tools/static-site/utils\.ts$|^tools/static-site/generate\.ts$'; then
+        NEED_FULL_REGEN=true
+        NEED_REGEN=true
+    fi
+
+    if [ "$NEED_FULL_REGEN" = false ]; then
+        # Map specific files to --only sections
+        if echo "$STAGED_ALL" | grep -qE '^tools/static-site/pages/article\.ts$'; then
+            STATIC_ONLY_FLAGS="${STATIC_ONLY_FLAGS},articles"
+            NEED_REGEN=true
+        fi
+        if echo "$STAGED_ALL" | grep -qE '^tools/static-site/pages/wikipedia\.ts$'; then
+            STATIC_ONLY_FLAGS="${STATIC_ONLY_FLAGS},wikipedia"
+            NEED_REGEN=true
+        fi
+        if echo "$STAGED_ALL" | grep -qE '^tools/static-site/pages/home\.ts$'; then
+            STATIC_ONLY_FLAGS="${STATIC_ONLY_FLAGS},home"
+            NEED_REGEN=true
+        fi
+        if echo "$STAGED_ALL" | grep -qE '^tools/static-site/pages/tag\.ts$'; then
+            STATIC_ONLY_FLAGS="${STATIC_ONLY_FLAGS},tags"
+            NEED_REGEN=true
+        fi
+        if echo "$STAGED_ALL" | grep -qE '^tools/static-site/pages/weekly\.ts$'; then
+            STATIC_ONLY_FLAGS="${STATIC_ONLY_FLAGS},weekly"
+            NEED_REGEN=true
+        fi
+        if echo "$STAGED_ALL" | grep -qE '^tools/static-site/pages/about\.ts$'; then
+            STATIC_ONLY_FLAGS="${STATIC_ONLY_FLAGS},about"
+            NEED_REGEN=true
+        fi
+        if echo "$STAGED_ALL" | grep -qE '^tools/static-site/pages/publication\.ts$'; then
+            STATIC_ONLY_FLAGS="${STATIC_ONLY_FLAGS},publications"
+            NEED_REGEN=true
+        fi
+        if echo "$STAGED_ALL" | grep -qE '^tools/static-site/pages/search-index\.ts$'; then
+            STATIC_ONLY_FLAGS="${STATIC_ONLY_FLAGS},search"
+            NEED_REGEN=true
+        fi
+        if echo "$STAGED_ALL" | grep -qE '^src/shared/affiliate-utils\.ts$'; then
+            STATIC_ONLY_FLAGS="${STATIC_ONLY_FLAGS},articles,wikipedia"
+            NEED_REGEN=true
+        fi
+        if echo "$STAGED_ALL" | grep -qE '^docs/styles\.css$|^src/public/styles\.css$'; then
+            STATIC_ONLY_FLAGS="${STATIC_ONLY_FLAGS},assets"
+            NEED_REGEN=true
+        fi
+        # Remove leading comma and deduplicate
+        STATIC_ONLY_FLAGS=$(echo "$STATIC_ONLY_FLAGS" | sed 's/^,//' | tr ',' '\n' | sort -u | tr '\n' ',' | sed 's/,$//')
+    fi
+fi
+
+if [ "$NEED_REGEN" = false ]; then
+    echo "No static site source files changed — skipping regeneration."
+elif docker exec hex-index-postgres pg_isready >/dev/null 2>&1; then
+    if [ "$NEED_FULL_REGEN" = true ]; then
+        echo "Database is up — core static site files changed, running full regeneration..."
+        npm run static:generate
+    else
+        echo "Database is up — regenerating: $STATIC_ONLY_FLAGS"
+        npm run static:generate -- --only "$STATIC_ONLY_FLAGS"
+    fi
     git add docs/
     echo "Static site regenerated and staged."
 else
