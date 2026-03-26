@@ -45,6 +45,9 @@ const generateText = USE_CLAUDE ? generateTextClaude : generateTextOllama;
 if (USE_CLAUDE) {
   console.info('Using Claude API for topic discovery');
 }
+const DISCOVER_MODEL = USE_CLAUDE
+  ? (process.env.CLAUDE_MODEL || 'claude-sonnet-4-6')
+  : (process.env.OLLAMA_MODEL || 'qwen3.5:122b-a10b');
 
 const articleIdIdx = args.indexOf('--article-id');
 const ARTICLE_IDS: string[] = [];
@@ -368,12 +371,13 @@ ${articleLinkTopics.length > 0
             // Link to article
             await pool.query(`
               INSERT INTO app.article_wikipedia_links (
-                article_id, wikipedia_id, relevance_rank, topic_summary
-              ) VALUES ($1, $2, $3, $4)
+                article_id, wikipedia_id, relevance_rank, topic_summary, discovered_by
+              ) VALUES ($1, $2, $3, $4, $5)
               ON CONFLICT (article_id, relevance_rank) DO UPDATE SET
                 wikipedia_id = EXCLUDED.wikipedia_id,
-                topic_summary = EXCLUDED.topic_summary
-            `, [article.id, wikiId, rank, vt.reason]);
+                topic_summary = EXCLUDED.topic_summary,
+                discovered_by = EXCLUDED.discovered_by
+            `, [article.id, wikiId, rank, vt.reason, DISCOVER_MODEL]);
             rank++;
           } catch (err) {
             console.info(`    Failed: ${vt.topic} — ${err instanceof Error ? err.message : String(err)}`);

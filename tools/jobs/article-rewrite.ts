@@ -310,9 +310,10 @@ Output ONLY the JSON. No preamble, no explanation, no markdown fences.
         await writeFile(rewriteFullPath, html, 'utf-8');
 
         // Update DB
+        const modelName = process.env.OLLAMA_MODEL ?? 'unknown';
         await pool.query(
-          'UPDATE app.articles SET rewritten_content_path = $1, rewrite_dirty = false, updated_at = NOW() WHERE id = $2',
-          [rewritePath, article.id]
+          'UPDATE app.articles SET rewritten_content_path = $1, rewrite_dirty = false, rewrite_model = $3, rewritten_at = NOW(), updated_at = NOW() WHERE id = $2',
+          [rewritePath, article.id, modelName]
         );
 
         const wordCount = countWords(rewrittenText);
@@ -390,10 +391,10 @@ Return ONLY tags scoring 30+. Output valid JSON, no explanation:
               if (!validSlugs.has(ts.slug)) {continue;}
               if (ts.score < 30 || ts.score > 100) {continue;}
               await pool.query(
-                `INSERT INTO app.article_tags (article_id, tag_slug, score)
-                 VALUES ($1, $2, $3)
-                 ON CONFLICT (article_id, tag_slug) DO UPDATE SET score = EXCLUDED.score`,
-                [article.id, ts.slug, ts.score]
+                `INSERT INTO app.article_tags (article_id, tag_slug, score, tagged_by)
+                 VALUES ($1, $2, $3, $4)
+                 ON CONFLICT (article_id, tag_slug) DO UPDATE SET score = EXCLUDED.score, tagged_by = EXCLUDED.tagged_by`,
+                [article.id, ts.slug, ts.score, modelName]
               );
             }
 
