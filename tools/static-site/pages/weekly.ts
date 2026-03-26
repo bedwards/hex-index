@@ -979,22 +979,6 @@ interface WeekListItem {
 function generateWeeklyListingPage(weeks: WeekListItem[]): string {
   const pathToRoot = '../';
 
-  const weekItems = weeks.map(w => {
-    const epubUrl = `https://hex-index.com/weekly/${w.label}.epub`;
-    const coverImg = w.hasCover
-      ? `<img class="weekly-cover" src="cover-${w.label}.webp" alt="" width="120" height="160">`
-      : '';
-    return `
-    <div class="weekly-item">
-      ${coverImg}
-      <div class="weekly-info">
-        <h2>${escapeHtml(w.display)}</h2>
-        <p class="weekly-item-meta">${w.articleCount} article${w.articleCount !== 1 ? 's' : ''} &middot; ${formatFileSize(w.fileSize)}</p>
-        <a href="${escapeHtml(epubUrl)}" class="copy-url-btn" download>Download</a>
-      </div>
-    </div>`;
-  }).join('\n');
-
   const subscribeSection = `
     <section class="subscribe-card">
       <h2>Get the Reader</h2>
@@ -1022,13 +1006,49 @@ function generateWeeklyListingPage(weeks: WeekListItem[]): string {
       </div>
     </section>`;
 
+  // Split latest epub from older ones
+  const latestWeek = weeks.length > 0 ? weeks[0] : null;
+  const olderWeeks = weeks.slice(1);
+
+  const latestEpubHtml = latestWeek ? (() => {
+    const epubUrl = `https://hex-index.com/weekly/${latestWeek.label}.epub`;
+    const coverImg = latestWeek.hasCover
+      ? `<img class="weekly-cover" src="cover-${latestWeek.label}.webp" alt="" width="120" height="160">`
+      : '';
+    return `
+    <div class="weekly-item weekly-latest">
+      ${coverImg}
+      <div class="weekly-info">
+        <h2>${escapeHtml(latestWeek.display)}</h2>
+        <p class="weekly-item-meta">${latestWeek.articleCount} article${latestWeek.articleCount !== 1 ? 's' : ''} &middot; ${formatFileSize(latestWeek.fileSize)}</p>
+        <a href="${escapeHtml(epubUrl)}" class="copy-url-btn" download>Download Latest</a>
+      </div>
+    </div>`;
+  })() : '';
+
+  const olderWeekItems = olderWeeks.map(w => {
+    const epubUrl = `https://hex-index.com/weekly/${w.label}.epub`;
+    const coverImg = w.hasCover
+      ? `<img class="weekly-cover" src="cover-${w.label}.webp" alt="" width="120" height="160">`
+      : '';
+    return `
+    <div class="weekly-item">
+      ${coverImg}
+      <div class="weekly-info">
+        <h2>${escapeHtml(w.display)}</h2>
+        <p class="weekly-item-meta">${w.articleCount} article${w.articleCount !== 1 ? 's' : ''} &middot; ${formatFileSize(w.fileSize)}</p>
+        <a href="${escapeHtml(epubUrl)}" class="copy-url-btn" download>Download</a>
+      </div>
+    </div>`;
+  }).join('\n');
+
   const content = `
     <h1 class="section-title">Hex Index Reader</h1>
-    <p class="reader-recommendation">For the best reading experience, we recommend <a href="https://readest.com/" target="_blank" rel="noopener">Readest</a> — a free, open-source epub reader. For text-to-speech, try the <a href="https://speechify.com/" target="_blank" rel="noopener">Speechify</a> Chrome extension.</p>
+    ${latestEpubHtml}
+    <p class="reader-recommendation">We recommend <a href="https://readest.com/" target="_blank" rel="noopener">Readest</a> and <a href="https://speechify.com/" target="_blank" rel="noopener">Speechify</a> for reading our epub files.</p>
     ${subscribeSection}
-    <div class="weekly-list">
-      ${weeks.length > 0 ? weekItems : '<p style="color:var(--ink-muted)">No weekly editions available yet.</p>'}
-    </div>
+    ${olderWeekItems.length > 0 ? `<h2 class="section-subtitle">Previous Editions</h2><div class="weekly-list">${olderWeekItems}</div>` : ''}
+
     <script>
     function copyUrl(btn) {
       var url = btn.getAttribute('data-url');
