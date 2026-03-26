@@ -57,7 +57,10 @@ async function main(): Promise<void> {
       let cnameContent: string | null = null;
       try {
         cnameContent = await readFile(cnameFile, 'utf-8');
-      } catch {
+      } catch (err: unknown) {
+        if ((err as NodeJS.ErrnoException).code !== 'ENOENT') {
+          throw err;
+        }
         // CNAME doesn't exist, nothing to preserve
       }
       await rm(OUTPUT_DIR, { recursive: true, force: true });
