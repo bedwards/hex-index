@@ -258,32 +258,19 @@ ${articleLinkTopics.length > 0
             throw new Error('No JSON object found');
           }
         } catch {
-          console.info(`  LLM returned invalid JSON, falling back to line parsing`);
-          // Fallback: try to extract topic names from plain text
-          // Filter out think-tag residue, short lines, JSON fragments
-          const lines = responseText
-            .replace(/<think>[\s\S]*?<\/think>/g, '')
-            .split('\n')
-            .map(l => l.replace(/^```\w*/, '').replace(/^\d+[.)]\s*/, '').replace(/^[-*]\s+/, '').trim())
-            .filter(l =>
-              l.length > 3 &&
-              l.length < 150 &&
-              !l.startsWith('{') && !l.startsWith('}') &&
-              !l.startsWith('<') &&
-              !l.startsWith('The user') &&
-              !l.startsWith('Looking at') &&
-              !l.startsWith('I ') &&
-              !l.includes('```') &&
-              !l.includes('topic') &&
-              !l.includes('reason')
-            );
-          llmTopics = lines.slice(0, additionalNeeded > 0 ? additionalNeeded : 0).map(t => ({ topic: t, reason: 'Related topic' }));
+          // Skip additional topics when JSON parsing fails — inserting without a real reason
+          // would re-introduce the lazy summaries this fix eliminates
+          console.warn(`  [wiki-discover] LLM returned invalid JSON for article ${article.id}, skipping additional topics`);
+          llmTopics = [];
         }
 
         // Add article-extracted topics with LLM-generated reasons
         for (const at of articleLinkTopics) {
-          const reason = existingReasons.get(at.topic.toLowerCase())
-            ?? `Directly referenced in the article's discussion of ${article.title}`;
+          const llmReason = existingReasons.get(at.topic.toLowerCase());
+          if (!llmReason) {
+            console.warn(`  [wiki-discover] LLM did not return reason for "${at.topic}", using template fallback`);
+          }
+          const reason = llmReason ?? `Directly referenced in the article's discussion of ${article.title}`;
           validatedTopics.push({ topic: at.topic, url: at.url, reason });
           console.info(`    With reason: ${at.topic} — ${reason}`);
         }
