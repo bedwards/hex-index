@@ -7,6 +7,9 @@ Every 20 minutes you pick ONE task, dispatch it as a background Agent with
 You run in ~/vibe/hex-index-clones/claude-ops. All code changes go through PRs.
 You NEVER start Ollama/Qwen jobs. You NEVER push directly to main.
 
+**NEVER call `npx tsx tools/jobs/...` scripts.** Those are Qwen batch jobs managed by launchctl.
+Claude loops do the work themselves or spawn background Agent workers.
+
 ## Step 1: Check the Clock
 
 ```bash
@@ -28,7 +31,6 @@ gh run list --branch main --limit 3 --json conclusion,name
 If any check on main is failing, this overrides everything. Spawn an agent:
 - Read the failure logs
 - Create a fix PR from a worktree
-- Post to Discord: "Scheduler: fixing broken main"
 
 ### P1: Epub Review (Thu 22:00 -- Fri 07:00 only)
 
@@ -48,13 +50,12 @@ psql "$DATABASE_URL" -c "
 ```
 
 The agent should:
-- Pick the next unreviewed article (track what was reviewed via Discord messages)
+- Pick the next unreviewed article
 - Read the HTML, check against The Week magazine standard
 - Fix issues: hook, voice (third person), quotes (4-8 attributed), counterpoints,
   Bottom Line section, typography, Speechify flow, clean HTML
 - Edit files directly in library/rewrites/
 - After fixes, trigger deploy: `cd ~/vibe/hex-index-clones/auto-deploy && bash tools/cron/auto-deploy.sh`
-- Post to Discord: "Epub review: polished [article title], fixed [N] issues"
 
 ### P2: PR Pipeline (always)
 
@@ -104,13 +105,12 @@ psql "$DATABASE_URL" -c "
 ```
 
 Spawn an agent to pick the OLDEST-updated article and polish it:
-- Run commentary audit: `npx tsx tools/jobs/commentary-audit.ts --article-id <id>`
-- If score < 80, edit the HTML file directly in library/rewrites/
+- Read the rewrite yourself and evaluate against editorial guidelines
+- If it scores poorly, edit the HTML file directly in library/rewrites/
 - Focus: hook paragraph, quote attribution, counterpoints, sentence rhythm,
   Bottom Line synthesis, first-person slips
 - This is COMMENTARY on the article, not plagiarism. The rewrite must have
   its own analytical voice with attributed quotes from the original author.
-- Post to Discord what was polished and the before/after audit score
 
 ### P5: Legacy Content Cleanup (older articles)
 
@@ -141,11 +141,11 @@ Spawn an agent to pick ONE old article and bring it up to current standards:
 2. **Missing features**: Does it have all 3 Wikipedia deep dives? An image?
    Affiliate links for any books mentioned? Tags? Fix the first missing item.
 
-3. **HTML quality**: Run `npx tsx tools/jobs/audit-html.ts --article-id <id>`.
-   Fix any Speechify-incompatible markup.
+3. **HTML quality**: Read the HTML yourself and check for Speechify-incompatible markup
+   (empty paragraphs, widget cruft, non-semantic elements, excessive whitespace).
 
 4. **Editorial guidelines**: Third person? Counterpoints? Varied typography?
-   Run the commentary audit and fix if score < 80.
+   Read the rewrite and evaluate against editorial standards. Fix if it falls short.
 
 Only fix ONE article per cycle. Depth over breadth.
 
@@ -213,7 +213,7 @@ psql "$DATABASE_URL" -c "
   WHERE a.published_at > NOW() - INTERVAL '30 days';
 "
 ```
-Post dashboard to Discord if any counts are concerning.
+Log dashboard if any counts are concerning.
 
 **D. GPU observation:**
 ```bash
@@ -227,7 +227,7 @@ $HOME/vibe/sea-gang/tools/svc ls
 ```bash
 npm run gh:rate-limit
 ```
-If <100 remaining, post warning to Discord. Scale back PR operations.
+If <100 remaining, scale back PR operations.
 
 ### P8: Memory Consolidation (Thu 22:00)
 
@@ -236,7 +236,6 @@ memory bloat and keeps future sessions fast.
 
 Spawn an agent to:
 1. Run `/dream` (the custom command handles all phases)
-2. Post to Discord: "Scheduler: memory consolidation complete"
 
 This task is low priority and only needs to run once per week during the
 Thursday consolidation window. Skip if higher-priority tasks have work to do.
@@ -248,7 +247,7 @@ After picking a task:
 1. **Spawn a background Agent** with `isolation: "worktree"` for code changes,
    or without isolation for read-only/content-edit tasks
 2. **Wait for completion** (agents return results)
-3. **Log to Discord**: `npm run discord:send -- --message "Scheduler [HH:MM]: <task> — <result>"`
+3. **Log what you did** — keep output minimal
 
 Keep your own output minimal. The agents do the work. You coordinate.
 
