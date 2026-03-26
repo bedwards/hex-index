@@ -5,7 +5,7 @@
 
 import type { Pool } from 'pg';
 import { staticReadingLayout } from '../templates.js';
-import { writeFile, extractHtmlExcerpt, escapeHtml, formatDate, buildAmazonUrl, buildBWBUrl, loadAffiliateBooks } from '../utils.js';
+import { writeFile, extractHtmlExcerpt, escapeHtml, formatDate, buildAmazonUrl, buildBWBUrl, loadAffiliateBooks, cleanTranscript } from '../utils.js';
 import { join } from 'path';
 import { readFile } from 'fs/promises';
 
@@ -345,7 +345,10 @@ export async function generateArticlePages(
     // If we have a rewritten version, use full content; otherwise excerpt
     const hasRewrite = !!article.rewritten_content_path;
     const rawContent = await loadArticleContent(article.content_path);
-    const excerpt = extractHtmlExcerpt(rawContent, 400);
+    const isYouTube = article.original_url.includes('youtube.com') || article.original_url.includes('youtu.be');
+    const rawExcerpt = extractHtmlExcerpt(rawContent, 400);
+    // Clean speech artifacts from YouTube transcript excerpts
+    const excerpt = isYouTube ? cleanTranscript(rawExcerpt) : rawExcerpt;
 
     let displayContent: string;
     if (hasRewrite) {
