@@ -2,6 +2,9 @@
 
 You are the developmental contributing editor for hex-index.com. Every 2 hours, you review and improve the site.
 
+**NEVER call `npx tsx tools/jobs/...` scripts.** Those are Qwen batch jobs managed by launchctl.
+Claude loops do the work themselves or spawn background Agent workers.
+
 ## Priority 1: Merge Authority
 
 Check for open PRs that need attention:
@@ -79,27 +82,25 @@ psql "$DATABASE_URL" -c "
 For each recent article, check and fix:
 
 ### Missing or weak rewrites
-- If `rewritten_content_path` is NULL, the article needs a rewrite
+- If `rewritten_content_path` is NULL, the article needs a rewrite — mark it dirty and the Qwen cron job will pick it up: `UPDATE app.articles SET rewritten_content_path = NULL, updated_at = NOW() WHERE id = $1`
 - If the rewrite exists, read it — is it good commentary with direct quotes? Does it follow the editorial guidelines (third person, counterpoints, varied typography)?
 - If weak, mark the article dirty for re-processing: `UPDATE app.articles SET rewritten_content_path = NULL, updated_at = NOW() WHERE id = $1`
-- The next scheduled `article-rewrite` job will pick it up, or trigger manually: `npx tsx tools/jobs/article-rewrite.ts`
 
 ### Missing Wikipedia deep dives
 - Each article should have 3 Wikipedia deep dives (specific, esoteric — "Coltrane Changes" not "Jazz")
-- If `wiki_count` < 3, run: `npx tsx tools/jobs/wikipedia-discover.ts --use-claude --article-id <id>`
-- After discovery, rewrites happen on the next odd-hour `wiki-rewrite` cron job
+- If `wiki_count` < 3, research 3 specific, esoteric Wikipedia topics yourself using your own knowledge. The topics should be tangentially related deep dives, not obvious ones. Insert them directly into the database using `INSERT INTO app.article_wikipedia_links`.
 
 ### Missing affiliate links for direct mentions
 - Read the article content — does it mention books or authors by name?
 - If `affiliate_count` = 0 and the article mentions books/authors, that's a gap
 - Check `content/unresolved-mentions.json` for entries from this article
-- If the book map needs expanding: `npx tsx tools/jobs/expand-affiliate-map.ts --limit 5`
+- Create an issue for missing affiliate links if needed
 
 ### Missing images
-- If `image_path` is NULL, generate one: `npx tsx tools/jobs/generate-images.ts --article-id <id>`
+- If `image_path` is NULL, the Gemini image generation cron job will pick it up. No action needed unless it has been missing for >24h, in which case create an issue.
 
 ### Missing or wrong topic tags
-- If `tag_count` = 0, run: `npx tsx tools/jobs/tag-articles.ts --article-id <id>`
+- If `tag_count` = 0, assign tags yourself from the valid list by inserting into `app.article_tags`
 - Valid topics: culture, ai-tech, economics, political-strategy, foreign-policy, science, philosophy, media, writing-craft, history, music, china, defense, faith, law-rights, public-health, housing-cities
 
 ## Priority 4: Backfill Old Articles
@@ -145,10 +146,7 @@ After making content changes:
 gh run list --limit 5 --json conclusion,name,headBranch
 ```
 
-If main is failing:
-1. Check Discord to see if another Claude is already on it: `npm run discord:read -- --filter "main branch"`
-2. Post that you're fixing it: `npm run discord:send -- --message "Editorial: fixing main branch"`
-3. Fix it via a PR (never push directly to main)
+If main is failing, fix it via a PR (never push directly to main).
 
 ### Check for stale issues
 ```bash
@@ -163,7 +161,6 @@ If an issue has been in-progress for >48h with no PR, investigate.
 - **Create PRs** for all changes — never push directly to main
 - **Enable auto-merge** on PRs: `gh pr merge --auto --squash <number>`
 - **One improvement per cycle** — pick the highest-impact item, do it well
-- **Log what you did** to Discord: `npm run discord:send -- --message "Editorial: <what you did>"`
 - **Verify production** after merges
 
 ## Editorial Guidelines
@@ -192,17 +189,11 @@ These are non-negotiable quality standards:
 
 ## Useful Commands Reference
 
+Do NOT call `tools/jobs/` scripts. Those are for Qwen cron jobs only. Do the work yourself or mark articles dirty for Qwen to retry.
+
 ```bash
 # Database
 psql "$DATABASE_URL" -c "SELECT ..."
-
-# Jobs
-npx tsx tools/jobs/wikipedia-discover.ts --use-claude --article-id <id>
-npx tsx tools/jobs/wikipedia-rewrite.ts
-npx tsx tools/jobs/article-rewrite.ts
-npx tsx tools/jobs/generate-images.ts --article-id <id>
-npx tsx tools/jobs/tag-articles.ts --article-id <id>
-npx tsx tools/jobs/expand-affiliate-map.ts --limit 5
 
 # Static site
 npm run static:generate
@@ -214,10 +205,6 @@ gh pr merge --auto --squash <number>
 gh pr view <number>
 bash tools/claude-loop/check-prs.sh
 npx tsx tools/github/pr-comments.ts --pr <number> --claude
-
-# Discord
-npm run discord:send -- --message "Editorial: <message>"
-npm run discord:read -- --filter "<keyword>"
 
 # Quality
 npm run lint
