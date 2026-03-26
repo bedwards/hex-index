@@ -179,24 +179,25 @@ function generateArticlePage(
 
   const bookItems = bookDeepDives
     .map((b) => {
-      let inner: string;
+      let titleLink: string;
+      let amazonBadge = '';
       if (b.wikiSlug) {
-        inner = `<a href="${pathToRoot}wikipedia/${b.wikiSlug}/index.html">
-          <strong>${escapeHtml(b.title)}</strong> by ${escapeHtml(b.author)}
+        titleLink = `<a href="${pathToRoot}wikipedia/${b.wikiSlug}/index.html">
+          <strong>${escapeHtml(b.title)}</strong>
         </a>`;
       } else if (b.asin && affiliateTag) {
-        inner = `<a href="${buildAmazonUrl(b.asin, affiliateTag)}" target="_blank" rel="noopener">
-          <strong>${escapeHtml(b.title)}</strong> by ${escapeHtml(b.author)}
-        </a>
-        <span class="read-time">view on Amazon</span>`;
+        titleLink = `<a href="${buildAmazonUrl(b.asin, affiliateTag)}" target="_blank" rel="noopener">
+          <strong>${escapeHtml(b.title)}</strong>
+        </a>`;
+        amazonBadge = `<span class="read-time">view on Amazon</span>`;
       } else {
-        inner = `<span>
-          <strong>${escapeHtml(b.title)}</strong> by ${escapeHtml(b.author)}
-        </span>`;
+        titleLink = `<strong>${escapeHtml(b.title)}</strong>`;
       }
       return `
       <li class="deep-dive-item">
-        ${inner}
+        ${titleLink}
+        ${amazonBadge}
+        <span class="deep-dive-author">by ${escapeHtml(b.author)}</span>
         <p class="topic-summary">${escapeHtml(b.description)}</p>
       </li>`;
     })
