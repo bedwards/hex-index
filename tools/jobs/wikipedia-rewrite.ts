@@ -357,6 +357,7 @@ async function saveRewrite(
   const wordCount = countWords(textOnly);
   const readTime = Math.ceil(wordCount / 200);
 
+  const modelName = process.env.OLLAMA_MODEL ?? 'unknown';
   await pool.query(`
     UPDATE app.wikipedia_articles
     SET content_path = $1,
@@ -365,9 +366,11 @@ async function saveRewrite(
         affiliate_links = $4::jsonb,
         status = 'complete',
         rewrite_dirty = false,
+        rewrite_model = $6,
+        rewritten_at = NOW(),
         updated_at = NOW()
     WHERE id = $5
-  `, [contentPath, wordCount, readTime, JSON.stringify(affiliateLinks), stub.wiki_id]);
+  `, [contentPath, wordCount, readTime, JSON.stringify(affiliateLinks), stub.wiki_id, modelName]);
   return htmlCleaned;
 }
 

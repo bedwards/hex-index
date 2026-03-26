@@ -126,11 +126,12 @@ Return ONLY tags scoring 30+. Output valid JSON, no explanation:
           if (ts.score < 30 || ts.score > 100) {continue;}
 
           try {
+            const modelName = process.env.OLLAMA_MODEL ?? 'unknown';
             await pool.query(
-              `INSERT INTO app.article_tags (article_id, tag_slug, score)
-               VALUES ($1, $2, $3)
-               ON CONFLICT (article_id, tag_slug) DO UPDATE SET score = EXCLUDED.score`,
-              [article.id, ts.slug, ts.score]
+              `INSERT INTO app.article_tags (article_id, tag_slug, score, tagged_by)
+               VALUES ($1, $2, $3, $4)
+               ON CONFLICT (article_id, tag_slug) DO UPDATE SET score = EXCLUDED.score, tagged_by = EXCLUDED.tagged_by`,
+              [article.id, ts.slug, ts.score, modelName]
             );
             inserted++;
           } catch { /* skip duplicates */ }
