@@ -1,0 +1,266 @@
+---
+title: "The EvanMiya.com Bracket Primer"
+author: "Evan Miyakawa"
+publication: "The EvanMiya Blog"
+publication_slug: "evanmiya"
+published_at: "2026-03-16T20:22:18.000Z"
+source_url: "https://blog.evanmiya.com/p/the-evanmiyacom-bracket-primer-5f7"
+word_count: 2146
+estimated_read_time: 11
+---
+
+The bracket is here, and it is beautiful! To give you the best advice for filling out your bracket, I’ve boiled down all the analysis at EvanMiya.com into the most valuable graphics and tools you need.
+
+In this bracket primer, we will discuss:
+
+-   Who are the true title favorites?
+    
+-   Which teams have the most value based on where they are seeded?
+    
+-   Who are this year’s cinderellas?
+    
+-   What can the “Kill Shot” tell us about tournament success?
+    
+-   Which teams have high ceilings and low floors?
+    
+-   Which teams are the most consistent game-to-game?
+    
+
+Without further ado, let’s dive in!
+
+### Predicted Efficiency Landscape
+
+The place to start is by examining each tournament team’s predicted strength at EvanMiya.com and comparing offensive and defensive efficiency. These ratings are **adjusted for current injuries**, which means teams like Texas Tech (JT Toppin), Duke (Caleb Foster, Patrick Ngongba), UNC (Caleb Wilson), and BYU (Richie Saunders) are appropriately docked for the uncertainty surrounding their players’ availability. You can find complete injury reports, updated daily, in the Matchup Previews tool at EvanMiya.com.
+
+The graph below shows every team’s predicted offensive rating and defensive rating, with teams split into tiers based on their tournament potential:
+
+[
+
+![](https://substackcdn.com/image/fetch/$s_!zcNd!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F13637f68-c8d7-4c41-8e8a-fc08eeb938bc_4000x3700.png)
+
+
+
+](https://substackcdn.com/image/fetch/$s_!zcNd!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F13637f68-c8d7-4c41-8e8a-fc08eeb938bc_4000x3700.png)
+
+### Title Favorites
+
+As mentioned in a [previous article](https://blog.evanmiya.com/i/157929167/picking-title-winners), teams heading into the tournament in the “Title Favorites” tier have won the last 10 national titles. This year, eight teams qualify: Michigan (1 seed), Duke (1), Florida (1), Arizona (1), Iowa State (2), Houston (2), Purdue (2), and Illinois (3).
+
+The four 1-seeds, in particular, are strong again this year. According to bracket simulations at EvanMiya.com (at the bottom of the article), there is a 78% chance that a 1-seed will win the title, which is even better than the actual track record of 1-seeds. Since 2000, 18 of the 25 national champs (72%) have been 1-seeds. There is a 9.1% chance that we get consecutive Final Fours with all 1-seeds.
+
+### Tournament Team Strength vs Bracket Seed
+
+To better understand how these team ratings compare to each team’s seed, I present the graph below, which highlights teams that are much stronger or weaker than usual for their seed. This is really where we can find value in the predictive analytics. Teams highlighted in orange are considered “underseeded” and [advance 69% further](https://blog.evanmiya.com/i/157929167/identifying-under-seeded-teams) than other teams with the same seed.
+
+This year, 13 teams qualify as underseeded because they are much better than their seed would suggest. Of these teams, the ones that really stick out are 5-seed St. John’s, 6-seed Tennessee, 11-seed Texas, and 13-seed Hofstra, all of which have a predicted team strength much better than their seed.
+
+[
+
+![](https://substackcdn.com/image/fetch/$s_!_zxn!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F8b6db0a7-c0ed-49ee-b6a7-b2a11d0d5153_5200x4030.png)
+
+
+
+](https://substackcdn.com/image/fetch/$s_!_zxn!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F8b6db0a7-c0ed-49ee-b6a7-b2a11d0d5153_5200x4030.png)
+
+[
+
+![](https://substackcdn.com/image/fetch/$s_!svCO!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F70e9e4e9-11c0-4da6-bb05-cbd2174b0364_1862x2148.png)
+
+
+
+](https://substackcdn.com/image/fetch/$s_!svCO!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F70e9e4e9-11c0-4da6-bb05-cbd2174b0364_1862x2148.png)
+
+This year, the group of 11 seeds is particularly strong relative to other teams around them. VCU is favored to beat 6-seed UNC in their first-round matchup, and the winner of Texas and NC State will be in a pick-em game versus BYU in the first round. Ohio State was always going to have a tough time getting to a Sweet 16, but if there’s any 8-seed to it this year, it’s the Buckeyes.
+
+St. John’s has the best chances of advancing to the Final Four (8.9%) of any team not in the top three seed lines. If they advance past Northern Iowa, they would face the winner of Kansas/Cal Baptist, with a likely Sweet 16 matchup against Duke after that.
+
+On the flip side, some overseeded teams are likelier to come up short in the tournament than usual expectations for their seeds: 5-seed Texas Tech (JT Toppin out), 6-seeds BYU (Richie Saunders out) and North Carolina (Caleb Wilson out), and 8-seed Villanova.
+
+### The Kill Shot
+
+This wouldn’t be an EvanMiya.com article without analyzing the “Kill Shot”, any time a team scores 10 or more unanswered points in a game. Teams that go on many of these 10-0 scoring runs are more able to erase a deficit quickly and can also easily close the door on an opponent in a tight contest. Similarly, teams that limit opponents’ “Kill Shots” are more likely to hold on to a lead rather than allow another team back into the game.
+
+Before we jump into analyzing individual tournament teams, here are the stats about scoring runs that you need to know:
+
+-   A team with at least one 10-0 run wins 71% of the time
+    
+-   A team with more Kill Shots than the opponent wins 81% of the time
+    
+-   A team with 2 Kill Shots in a game wins 88% of the time
+    
+-   A 15-0 run leads to a win 86% of the time
+    
+-   A 20-0 run leads to a win 91% of the time
+    
+
+The graph below shows the landscape of tourney teams in 2026 in terms of scoring runs per game and scoring runs conceded per game, adjusted for opponent quality:
+
+[
+
+![](https://substackcdn.com/image/fetch/$s_!_Y0M!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F4178866e-3c37-43f5-986b-9521979a5c62_5200x4030.png)
+
+
+
+](https://substackcdn.com/image/fetch/$s_!_Y0M!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F4178866e-3c37-43f5-986b-9521979a5c62_5200x4030.png)
+
+As shown on the graph, I like to put teams in four categories: “Strong” teams, “Streaky” teams, “Least Streaky” teams, and “Suspect” teams.
+
+[
+
+![](https://substackcdn.com/image/fetch/$s_!13__!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F93ecb67a-33f1-42f0-839b-2ab4a1d40fbb_1640x1006.png)
+
+
+
+](https://substackcdn.com/image/fetch/$s_!13__!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F93ecb67a-33f1-42f0-839b-2ab4a1d40fbb_1640x1006.png)
+
+All the major title favorites fall in the “Strong Teams” category, but Saint Mary’s and Nebraska are here as well.
+
+Michigan is the best team overall at going on 10-0 runs and not giving them up in return. Meanwhile, Arizona has only given up a single Kill Shot in a meaningful game all season.
+
+Illinois has the best adjusted Kill Shot rating of any team, meaning that they are more likely to generate a 10-0 run than any team in the field.
+
+[
+
+![](https://substackcdn.com/image/fetch/$s_!YouT!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F7150fef6-96a1-4fe2-aaa7-d8b602998d09_1640x1088.png)
+
+
+
+](https://substackcdn.com/image/fetch/$s_!YouT!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F7150fef6-96a1-4fe2-aaa7-d8b602998d09_1640x1088.png)
+
+This is where we can really have some fun with this metric. The nine tournament teams in the “streaky” category are all very capable of going on scoring runs… but they also give them up just as quickly. Games with these teams are often wild, with quick lead changes back and forth. No game with a “streaky” team is over, win or lose, until the very end.
+
+There are two main takeaways for teams in the “streaky” category. First, they are vulnerable as a favored team but have greater upset potential when they are the underdog. Because scoring spurts can happen at any time in either direction, their games are very unpredictable. A team like Iowa State could either flame out in an early round or get hot and go deep in the tournament. And you really don’t know which one will happen.
+
+The other takeaway is that live spreads for games involving these teams could be less accurate, as any lead could be vaporized quickly. If a team like Saint Louis is down 10 at halftime, they will be more likely to mount a comeback than most other teams of similar quality.
+
+In contrast to the last category, we now look at teams in the “least streaky” group, which are more boring by nature. These teams have not had as many 10-0 runs this season, but they rarely give them up.
+
+[
+
+![](https://substackcdn.com/image/fetch/$s_!kAlJ!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F8a0b2c89-af8b-4b4b-b7d7-728ff5d2c19f_1640x1372.png)
+
+
+
+](https://substackcdn.com/image/fetch/$s_!kAlJ!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F8a0b2c89-af8b-4b4b-b7d7-728ff5d2c19f_1640x1372.png)
+
+Teams in the “least streaky” category are pretty trustworthy when they have a lead, since they are not very likely to allow the opposition back into the game quickly. However, teams like SMU and Miami FL often struggle to overcome a deficit quickly. Look to rely more on these teams when they are favored, but be cautious about counting on them to win several games as underdogs.
+
+Lastly, we touch on the “suspect” group, which comprises teams prone to giving up scoring runs to the opposition while struggling to counter on their own. There are a lot of bad teams on this list, but it also notably includes Villanova and UCLA, who have given up a ton of 10-0 runs against high-major opponents.
+
+[
+
+![](https://substackcdn.com/image/fetch/$s_!rojG!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F1241961e-dd6a-47e7-b5fe-e2173caceca4_1640x2052.png)
+
+
+
+](https://substackcdn.com/image/fetch/$s_!rojG!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F1241961e-dd6a-47e7-b5fe-e2173caceca4_1640x2052.png)
+
+**Now, what does all of this mean for your team’s chances of reaching a Final Four?**
+
+Let me first state that while the Kill Shot is a helpful tool, it can’t be used in a vacuum to determine the best teams in the country. Instead, I view it as a useful companion to other metrics, providing more nuance on the characteristics of each team.
+
+With that said, since the 2018-19 season (which is as far back as my Kill Shot database goes), heading into the tournament, every national champion has had an Adjusted Kill Shots Per Game of at least 0.47, an Adjusted Kill Shots Conceded Per Game under 0.34, and an Adjusted Kill Shots Margin of at least 0.28.
+
+13 teams qualify using this year’s statistics: Michigan, Arizona, Illinois, Florida, Duke, Saint Mary’s, Nebraska, St. John’s, Michigan State, Arkansas, Virginia, Vanderbilt, and Tennessee.
+
+In general, I have found that preventing 10-0 runs is the more predictive stat of teams that advance the furthest in the tournament. While it’s great to be able to put up scoring runs in a hurry, the best teams are the ones who can hold a lead and not quickly allow an opponent back in the game.
+
+### Opponent Strength Adjustment
+
+This is a new graphic this year that looks at how much better teams play in elite competition compared to when they play weaker teams on their schedule. The Opponent Strength Adjustment metric, which you can find on the Team Ratings page at EvanMiya.com, measures how well each team performs above or below expectations based on whether they are playing a really good opponent or a really bad opponent. Some teams perform better than usual when they face really tough opponents, but struggle to dismantle weaker opponents. This concept is sometimes referred to as “playing up/down to competition”. Other teams are the opposite: they can easily crush inferior opponents but are disappointing against higher-quality teams on their schedule. Each team has a variable that measures where they are on this spectrum of playing up or down to their competition.
+
+This graph compares each tournament team’s predictive team efficiency rating on the horizontal axis with their Opponent Strength Adjustment on the vertical Axis. Teams way above the middle line save their best performances for really good teams, but are more lackluster as comfortable favorites. Teams way below the middle line often beat up on inferior opponents, but have not consistently performed as well as expected against the elite teams on their schedule.
+
+[
+
+![](https://substackcdn.com/image/fetch/$s_!jUSC!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fe6cde2c4-0f35-4076-abc0-8481f3a8cecb_5200x3250.png)
+
+
+
+](https://substackcdn.com/image/fetch/$s_!jUSC!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fe6cde2c4-0f35-4076-abc0-8481f3a8cecb_5200x3250.png)
+
+All of the 1-seeds are at or above the middle line, which means that they all play well in big-time matchups, which is a characteristic consistent with most of the title-winners in recent years going into the tournament.
+
+There’s a group of dangerous teams in the “High Ceiling Low Floor” group: Wisconsin, Michigan State, Nebraska, Texas Tech, and TCU. These teams have all been pretty awesome in big-time games but have often struggled against the weaker teams on their schedules. They are potentially more upset-prone in the first round or two, but if they can make it past those games, they could cause real problems as an underdog against an elite team.
+
+Several Cinderella candidates have played really well against the best teams on their schedule: Hofstra, Miami OH, Troy, and Kennesaw State.
+
+On the flip side, there are five teams in the “High Floor Low Ceiling” group: Alabama, Kentucky, Louisville, NC State, and Villanova. These teams, Louisville and NC State in particular, have really struggled to put up convincing performances against great teams. They are probably more upset-proof than other teams on their seed line, but haven’t shown the capability of proving themselves against the top-tier teams in the sport.
+
+### Consistent or Volatile
+
+Last big chart, but one, I find very interesting as well: tracking game-to-game consistency in teams. The “Game-to-Game Volatility” metric measures how much a team’s performance level fluctuates between games. Teams higher on this metric are more volatile, while teams in the lower area of the graph are more consistent in their performance.
+
+[
+
+![](https://substackcdn.com/image/fetch/$s_!bzjU!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fda24e749-f242-4d06-945e-95c472e98835_5200x4130.png)
+
+
+
+](https://substackcdn.com/image/fetch/$s_!bzjU!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fda24e749-f242-4d06-945e-95c472e98835_5200x4130.png)
+
+Arizona and Duke are among the more consistent teams in the nation, which is probably a good thing for their title hopes, given they are way more talented than pretty much everyone else.
+
+The most volatile teams in this tournament are Utah State, NC State, Saint Louis, Texas Tech, Georgia, and Wisconsin. They all have pretty big swings between their best performances and their worst. As an underdog, this is probably a good thing as it gives them a better chance of causing an upset if they are at their best. However, it does make them less reliable over multiple games to sustain a high performance level.
+
+### Matchup Previews
+
+To dig more into the individual matchups, the Matchup Preview Tool at EvanMiya.com lets you analyze any hypothetical matchup in the tournament. It gives you score predictions, injury adjustments, other matchup-specific adjustments, a team comparison, a roster breakdown, and a daily updated injury report.
+
+This preview shows the potential top-10 matchup in the 2nd round between Iowa State and Kentucky:
+
+[
+
+![](https://substackcdn.com/image/fetch/$s_!vJec!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F6b8433a3-839c-4410-a6d3-baed2fc4dd57_2698x2476.png)
+
+
+
+](https://substackcdn.com/image/fetch/$s_!vJec!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F6b8433a3-839c-4410-a6d3-baed2fc4dd57_2698x2476.png)
+
+### Tournament Probabilities By Region
+
+The tables below show each team’s chances of advancing to each round of the tournament, which you can also find at EvanMiya.com, updated daily as the tourney progresses.
+
+[
+
+![](https://substackcdn.com/image/fetch/$s_!1BgG!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fa35c2268-90a7-434f-8d39-75373743ab00_2800x2090.png)
+
+
+
+](https://substackcdn.com/image/fetch/$s_!1BgG!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fa35c2268-90a7-434f-8d39-75373743ab00_2800x2090.png)
+
+[
+
+![](https://substackcdn.com/image/fetch/$s_!XnHf!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F67099f65-85bc-4e97-a5e6-160f8d15f513_2800x2174.png)
+
+
+
+](https://substackcdn.com/image/fetch/$s_!XnHf!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F67099f65-85bc-4e97-a5e6-160f8d15f513_2800x2174.png)
+
+[
+
+![](https://substackcdn.com/image/fetch/$s_!OQeX!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F7f567ae1-74d8-4a19-b41a-94f945ffd6c4_2800x2174.png)
+
+
+
+](https://substackcdn.com/image/fetch/$s_!OQeX!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F7f567ae1-74d8-4a19-b41a-94f945ffd6c4_2800x2174.png)
+
+[
+
+![](https://substackcdn.com/image/fetch/$s_!xyy0!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fd7b91ddb-40ea-4628-a120-4d946513a4d2_2800x2296.png)
+
+
+
+](https://substackcdn.com/image/fetch/$s_!xyy0!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fd7b91ddb-40ea-4628-a120-4d946513a4d2_2800x2296.png)
+
+### Mega Bracket Breakdown Episode
+
+Tomorrow morning, I’ll be releasing a massive region-by-region breakdown of the NCAA tournament bracket, along with extended analysis on many of these graphics here. Be sure to [subscribe on podcast platforms or on Youtube](https://show.evanmiya.com/)!
+
+[
+
+![](https://substackcdn.com/image/fetch/$s_!qzdk!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fc9cd98a3-9150-4294-a9fd-5d0985fd5d98_3494x1754.png)
+
+
+
+](https://substackcdn.com/image/fetch/$s_!qzdk!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fc9cd98a3-9150-4294-a9fd-5d0985fd5d98_3494x1754.png)
