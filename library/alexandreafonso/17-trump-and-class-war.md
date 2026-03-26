@@ -1,0 +1,40 @@
+---
+title: "#17 Trump and Class War"
+author: "Alexandre Afonso"
+publication: "Alexandre Afonso's Political Economy Newsletter"
+publication_slug: "alexandreafonso"
+published_at: "2025-02-07T06:02:14.000Z"
+source_url: "https://alexandreafonso.substack.com/p/trump-and-class-war"
+word_count: 997
+estimated_read_time: 5
+---
+
+*I have been invited to contribute to a short symposium in Socio-Economic Review on Philip Rathgeb’s great [book](https://global.oup.com/academic/product/how-the-radical-right-has-changed-capitalism-and-welfare-in-europe-and-the-usa-9780192866332) on how the radical right has reshaped welfare and capitalism in Europe and the US. This led me to think about the class politics of Donald Trump after the 2024 US election. I though I could leave some thoughts here. I don’t think a lot of it hasn’t been said elsewhere but it helped me a bit to structure some thoughts on paper.*
+
+The political rise of Donald Trump has fundamentally reshaped the American electoral alignments. The Republican Party, once firmly associated with the economic elite, has transformed into a party that commands substantial support from the working class. Meanwhile, the Democratic Party, historically aligned with labor and progressive redistribution, now finds increasing support among wealthier, college-educated voters.
+
+In past decades, lower-income and non-college-educated voters tended to favor the Democratic Party. However, this pattern has changed dramatically. Exit polls from the 2024 election indicate that a majority of voters earning less than $50,000 a year backed Trump. Conversely, those making more than $100,000 tended to support Kamala Harris. This economic realignment has been a long time coming but has now fully materialized. Even more than income, education has become a stark dividing line. Nearly two-thirds of non-college-educated voters supported Trump, while college-educated voters leaned Democratic. An underlying mechanism is that cultural and identity-based issues—particularly immigration —play a pivotal role in determining political alignments in place of economic and redistribution issues.
+
+!function(){"use strict";window.addEventListener("message",(function(e){if(void 0!==e.data\["datawrapper-height"\]){var t=document.querySelectorAll("iframe");for(var a in e.data\["datawrapper-height"\])for(var r=0;r<t.length;r++){if(t\[r\].contentWindow===e.source)t\[r\].style.height=e.data\["datawrapper-height"\]\[a\]+"px"}}}))}();
+
+Immigration is a major mechanism diverting the attention of low-income voters from economic issues and channeling it to the right. Polling before the 2024 election revealed that voters saw immigration as the most pressing issue, with 55% viewing it as a “critical threat” to the country. Accordingly, Trump’s messaging focused on border security, presenting the Biden administration’s approach as chaotic and ineffective.
+
+Surprisingly, this rhetoric resonated particularly in Hispanic-majority areas along the U.S.-Mexico border, where Trump made notable gains. In Texas, for example, he managed to flip counties that had consistently voted Democratic since the 1970s. Immigration policy does not divide voters along simple ethnic lines; rather, concerns about border security and economic displacement influence voting choices across racial demographics.
+
+### **Converting Poor Votes into Pro-Rich Policies**
+
+While Trump’s populist appeal draws in working-class voters, his economic policies overwhelmingly benefit the wealthy. His first administration pursued aggressive tax cuts, deregulation, and reductions in corporate oversight, all of which disproportionately favor high-income individuals and large businesses.
+
+This pattern will continue in his second term, with deregulation efforts expanding into the tech sector, financial markets, and energy industries. Tech billionaires such as Elon Musk, Marc Andreessen, and Mark Zuckerberg, who had initially been skeptical of Trump, began openly supporting him. Their grievances stemmed from what they perceived as excessive regulatory interference by the Biden administration, particularly in areas such as AI, social media, and cryptocurrency.
+
+Marc Andreessen, a prominent venture capitalist considered very influential in Silicon Valley, makes it clear that his support is driven by what he perceived as regulatory overreach, arguing that that the Biden administration was stifling innovation through overregulation. His interview in NYT and podcast with Rogan is quite instructive:
+
+"The problem is the raw application of the power of the administrative state, the raw application of regulation and then the raw arbitrary enforcement and promulgation of regulation (…) Direct phone calls from senior members of the administration. Screaming executives ordering them to do things. Just full-on ‘\[F\*\*\*\*\] you. We own you. We control you. You’re going to do what we want or we’re going to destroy you.’”
+
+"Basically we saw the beginnings of what we thought was going to be applied to A.I. So A.I. needs to be very carefully controlled by the government or by adjuncts of the government to make sure that there’s no hate speech or misinformation, which is to say it has to be completely politically controlled. (…) We basically relayed our concerns about A.I., and their response to us was, 'Yes, the national agenda on A.I. We will implement it in the Biden administration and in the second term. We are going to make sure that A.I. is going to be a function of two or three large companies. We will directly regulate and control those companies. This whole thing where you guys think you can just start companies and write code and release code on the internet — those days are over”
+
+Elon Musk, for his part, supports Trump’s crackdown on clean energy, even though it could hurt Tesla, because the rollback of government incentives and regulations will disproportionately harm his competitors. Tesla, as an established leader in EV production, is less reliant on subsidies and regulatory support compared to legacy automakers transitioning from internal combustion engines. If Trump eliminates tax credits and emissions rules, companies like Ford and GM, which depend on government aid to build their EV capacity, will struggle more than Tesla. Musk sees this as an opportunity for Tesla to strengthen its market dominance, even if it comes at some cost to the company in the short term.
+
+The alignment of radical right-wing populism with the interests of billionaires is not an accident. Rather, it is a strategic alliance. Trump provides cultural and political cover for policies that serve elite interests by redirecting working-class frustration towards issues such as immigration, crime, and “woke” cultural politics. Meanwhile, the economic policies pursued by his administration systematically favor the ultra-wealthy and roll back government intervention into area they want to have free reign in.
+
+The long-term implications of this political realignment are profound. If the Republican Party cements itself as the party of the working class while continuing to implement policies that benefit the wealthy, it will create a paradox where the economic interests of its base are systematically undermined by the policies it supports. I am not sure how sustainable that can be.

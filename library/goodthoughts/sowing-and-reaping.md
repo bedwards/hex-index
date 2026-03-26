@@ -1,0 +1,36 @@
+---
+title: "Sowing and Reaping"
+author: "Richard Y. Chappell"
+publication: "Good Thoughts"
+publication_slug: "goodthoughts"
+published_at: "2021-09-10T17:34:13.000Z"
+source_url: "https://goodthoughts.substack.com/p/sowing-and-reaping"
+word_count: 970
+estimated_read_time: 5
+---
+
+Tomorrow will mark 20 years since the terrorist attacks on our nation on September 11, 2001. I have written recently concerning my personal experience on that day, so I will not attempt to do that again here. I simply want to say that what should have been a time of thankfulness for God’s gracious protection over us since those terrible events, has, instead, turned to another time of grief and pain due to the recent decisions of this present administration and the debacle that took place in Afghanistan. Instead of reaping the harvest of peace and freedom for us and the world, now we have sown seeds of discourse and animosity that will no doubt reap the fruits of those seeds. This is an incredible lesson for us to learn as believers when examining this situation, as well as others that have happened lately, because this is the reality of life in a fallen world.
+
+The Apostle Paul makes it clear in Galatians 6:7-9 the significance of sowing and reaping only what is good and eternal.
+
+> *“Do not be deceived: God is not mocked, for whatever one sows,*
+> 
+> *that will he also reap. For the one who sows to his own flesh will*
+> 
+> *from the flesh reap corruption, but the one who sows to the Spirit*
+> 
+> *will from the Spirit reap eternal life. And let us not grow weary of*
+> 
+> *doing good, for in due season we will reap, if we do not give up.”*
+
+Add this to the warning given by the Old Testament prophet Hosea, “For they sow the wind, and they shall reap the whirlwind.” (Hosea 8:7a) And the instruction from God for the believer is made clear, **be careful what you sow, because there will come a time of reaping.**
+
+This is why the events that have transpired in recent weeks and months are so important for Christians to take note of, because inevitably the consequences of the decisions will bear fruit. Sure, the actions of the president in regard to Afghanistan led to the loss of military life and human life, but what will the long-term affects of that decision also lead to? The rise of ISIS in the region? Empowering our enemies? More war? Less peace? Undoubtedly the fruit of what has been sown, will not lead to reaping good things.
+
+Similarly, take the actions of our government in response to the law passed in Texas stopping the murdering of babies after the detection of a heartbeat. Instead of rejoicing over the saving of innocent lives, they have sought to sue the state of Texas to continue to allow for the murdering of unborn children. What good can come of more children being murdered? How does that bring glory to God? The pursuit of human autonomy at all costs is evil and upsetting because it reminds us of the seeds of sin sown by our first parents that lead to separation from God and death to us spiritually and physically.
+
+Another example is the seeds of distrust, disinformation, and doubt that have been constantly sown by our media and government officials over Covid. Undoubtedly the issue is complicated, but never providing information for what people could actively do to prevent, slow, or limit the effects of the virus (other than wear masks and social distance); have led to all types of false narratives and conspiracy theories being disseminated because of the lost of trust in our most important societal institutions. Many encouragements to lose weight, get in better health, take a vitamin regiment that could booster your immune system, or look for other recommendations to fight off the virus; would have been much more productive in helping people feel optimistic about surviving a virus that is still 99% survivable! But the seeds sown, only led to fear, pessimism, and division that could have easily been defeated with hope, wisdom, and patience.
+
+Sadly, all we see is more of the intimidation and fear-mongering with the most recent unconstitutional executive order by our president now mandating vaccines for business with over 100 employees. No doubt this comes at the request of many of these big businesses because they do not want their employees thinking they forced this decision, yet still it is a huge overreach by our federal government and only sows more seeds of doubt and distrust in such an important institution.
+
+However, I must provide a solution to all of these problems, or else all I have done in this piece is simply sow my own seeds of discouragement and frustration. So, let me sow seeds of love and hope. The Church is the body of Christ. She is the institution that God has ordained to be the means through which the Gospel is preached, believers share in the ordinances of the faith, saints are equipped for life in a fallen world, and those who God will bring to full glorification in the age to come. At all times we are the most optimistic and hopeful of all people, because our hope is not in man, man’s wisdom, or man’s rule. We know that a believer of no account filled with the Holy Spirit and led by the Word of God has more wisdom, goodness, and courage in his pinky, than all the godless kings of the earth combined. In that we can always take heart. Our plan to defeat the enemy and overcome the world is secure in the one who has already defeated death and Satan. Jesus Christ the Great King of all is ruling and reigning and putting all things under his feet, right now. Let us sow seeds of Gospel confidence, eternal hope, and abounding love so that when the harvest comes time to reap, we can reap with joy and thankfulness for a bountiful blessing for the Glory of God.

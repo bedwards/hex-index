@@ -1,0 +1,185 @@
+---
+title: "Why Don’t We Take Stalking More Seriously?"
+author: "The Walrus"
+publication: ""
+publication_slug: "thewalrusca"
+published_at: "2025-11-28T12:03:25.000Z"
+source_url: "https://thewalrusca.substack.com/p/why-dont-we-take-stalking-more-seriously"
+word_count: 4900
+estimated_read_time: 25
+---
+
+[
+
+![](https://substackcdn.com/image/fetch/$s_!mHKN!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F0a0bae16-6722-401a-9df0-899983b77d21_1536x1024.jpeg)
+
+
+
+](https://substackcdn.com/image/fetch/$s_!mHKN!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F0a0bae16-6722-401a-9df0-899983b77d21_1536x1024.jpeg)
+
+*iStock*
+
+***This story was originally published on [thewalrus.ca](https://thewalrus.ca/)***
+
+**By [Sheima Benembarek](https://thewalrus.ca/author/sheima-benembarek/)**
+
+*This story contains details about sexual assault and violence that some readers may find disturbing.*
+
+\---
+
+**Colette Martin first met** the man who nearly murdered her in 1997 at the Opera House, a now-defunct nightclub in Miramichi, New Brunswick. Then twenty-six, Martin lived in the nearby town of Baie-Saint-Anne, where she worked for her family’s fish- and lobster-buying company. She knew everyone in the small Acadian community, and everyone knew her.
+
+But the man she met that January night was originally from Montreal and visiting from Moncton, where he went to university and played for a senior hockey league team. He was in town for a game. She found him good looking and noted that he was younger than her. The two began dating, and for the first few months, “things were really good. I didn’t see any red flags,” Martin says. They saw each other in person whenever she travelled with his hockey team for games, as most of the players’ wives and girlfriends did.
+
+After seven months together, and at the boyfriend’s repeated requests, Martin let him move in with her. But soon, she began noticing things she didn’t like. His moods shifted unpredictably, and he displayed controlling behaviour. “I was always on pins and needles. He would call me twenty times a day, checking to see where I was. He would watch what I ate and wanted me to exercise. He tried to isolate me from my friends and family,” she says. And though Martin didn’t fully understand the psychology of abuse, she knew she had to protect her six-year-old son, from a previous relationship. So, after three months of living together, she ended things.
+
+At first, her ex seemed to take the breakup well. He packed most of his belongings and returned to Montreal. But a couple of months later, he was back in New Brunswick. “I found out because he started writing love letters and calling every day, telling me he wanted me back,” says Martin. Though she never responded to his letters, and even though when he called, she made sure to explain firmly that she was not interested, he didn’t stop contacting her.
+
+Martin didn’t alert the authorities at any point. This is something she’s been questioned on often over the years: Why didn’t she report her ex’s behaviour? “I didn’t realize that it was stalking,” she says. “It was frustrating, but I thought it was out of love. I had no education on that stuff.”
+
+\---
+
+#### **You can’t share stories from** ***thewalrus.ca*** **on Facebook or Instagram because of Meta’s response to the [Online News Act](https://thewalrus.ca/why-you-might-stop-seeing-canadian-news/), but you can share this Substack article there**
+
+\---
+
+**Why do stalkers** stalk? The answer isn’t simple, says Randall Kropp, a clinical and forensic psychologist specializing in the assessment and management of violent offenders. To some extent, he suggests, we all resort to a form of stalking given the right circumstances. When he asks people in a casual setting if they’ve ever stalked anyone, they usually say, “Of course not.”
+
+Working for the Forensic Psychiatric Services Commission of British Columbia, Kropp has trained mental health professionals, police officers, and corrections staff in understanding criminal harassment, the legal term for stalking. It’s defined in the Criminal Code as unwanted, repeated conduct that makes a person fear for their own safety or that of someone known to them. Stalkers can develop an unhealthy fixation on anyone, from complete strangers—including public figures—to acquaintances, co-workers, and family members.
+
+But the most dangerous cases tend to be those known as intimate partner stalking, where the perpetrators act out of a supposed amorous interest. The romantic intent, says Kropp, “can turn dark quite quickly.” Declarations along the lines of “I love you and I want you back” can turn into variations of “You can’t see anybody else but me.” These cases are most likely to turn deadly.
+
+**On the evening** of April 30, 1997, Martin’s ex made one last call, declaring that he was coming by her house to pick up the remainder of his belongings. By then, this wasn’t unusual; he’d said this many times before and not shown up. Still, Martin invited her cousin, who was visiting from Fredericton, to stay over. Probably an overreaction, she thought, but having company was reassuring.
+
+Around 11 p.m., Martin, her son, and her cousin went to bed. Her cousin slept in Martin’s son’s room. Martin and her son slept in hers. At 11:40 p.m.—“I still see that clock,” Martin says—she heard a loud bang. She stepped out of her room, closing the door behind her, and saw her ex standing there. He’d kicked open the front door. Martin remembers staring at him in confusion and shock. She barely recognized him. “He didn’t even have eyes in his head, they looked like two black holes,” she says. “And he told me, ‘Tonight’s the night you’re going to die.’” Anticipating what he was about to do, Martin ran to her kitchen’s knife drawer, but he got to it first. He took hold of the biggest knife in her set, caught her, spun her around, and slashed her throat.
+
+But when he presses them to consider a difficult breakup, either in their lives or in the life of someone they know, he asks, “What’s the typical reaction to a situation like that? Do you just give up?” Breakups can be traumatic. “And so a basic human instinct is to try to preserve that relationship. You’ll make the phone calls, send some emails, some texts. It’s a fairly natural thing.”
+
+Such obsessive behaviour is often seen as funny or harmless—how many of us joke about stalking our crushes or dates on social media? “We romanticize, even glorify, stalking,” says Kropp. Pop culture reinforces the myth that if you keep pursuing your love interest, you’ll win them over in the end—like Ryan Gosling’s character in *The Notebook* precariously dangling off a Ferris wheel until his love interest, who previously rejected him, agrees to a date. “I’ve worked with a lot of stalkers,” says Kropp, “and they buy into that myth.”
+
+The lack of seriousness many attach to stalking means it’s often hard to recognize, even when it’s clearly wrong. Sometimes it becomes entertainment: *You*, a Netflix thriller about a bookstore manager and serial killer who secretly monitors the women he dates, has been criticized for glamorizing stalking by framing it as misguided desire.
+
+\---
+
+### “I used to \[wonder\]: How does a person get out of this?”
+
+\---
+
+“It was like a movie, everything’s in slow motion,” she says. “I don’t know how I did it, but I ran past him out the door.” Martin’s cousin, having been awakened by all the noise and witnessing the scene, called the police while Martin tried to get to her parents’ house next door. “But he grabbed me and dragged me back, held me against the veranda, and then stabbed me thirty-seven times, all over,” she says. “He stabbed me in the chest. He stabbed me in the back, my bum, and slashed my legs. He told me if he couldn’t have me, nobody else would. And then he slit his throat and cut his wrists. He said we were going to die together.”
+
+But the police got to Martin in time. She was quickly taken to the hospital, where she underwent difficult surgeries but ultimately survived. Her ex was charged, convicted, and sentenced to nine years for attempted murder and two years for breaking and entering and forcible confinement. And although Martin was present during the trial, the only thing she remembers is having to identify him in court. (For the safety of Martin and the other harassment survivors in this article, I did not reach out to any of the people accused or convicted.) He ended up serving six years in prison and was released in August 2003. For a long time after that, Martin anxiously waited to see if he might come back and finish what he had started. “I really thought he was going to. And I used to \[wonder\]: How does a person get out of this?”
+
+**Criminal harassment** was codified as an offence in 1993, at a time when the behaviour was increasingly recognized as a form of gender-based violence. (Eight out of ten victims are women, according to Statistics Canada.) The decision followed legislative changes in the US, where similar laws were passed, and a series of highly publicized cases of Canadian women murdered by stalkers. In 1991, Colin McGregor killed his wife, thirty-one-year-old Patricia Allen, with a crossbow, during the day, in downtown Ottawa after several months of calling her incessantly, threatening her, and entering her home without permission. According to *Le Verdict*, Université Laval’s student law journal, she’d been trying to divorce him just before her murder.
+
+In 1993, Ronald Bell shot and killed twenty-five-year-old Terri-Lyn Babb, who had been a patient at the hospital where Bell worked and with whom he’d become infatuated; she had reported him to the police for following her and recording her movements for several months. In a horrifying coincidence, Bell murdered Babb outside a hospital where Sherry Paul, another soon-to-be victim in a separate case, worked.
+
+Paul had previously reported Andre Ducharme, her husband’s childhood friend, to police. Ducharme had uttered threats against her after she rejected his advances. Though he was charged, he was released from custody on the condition that he not contact Paul. But after Babb was killed, Paul feared for her life and requested then that Ducharme’s case be dealt with in criminal court. Within a week, Ducharme broke into her St. Eustache, Manitoba, home and murdered Paul and her husband before killing himself.
+
+Victim advocates and academics stress that stalking shouldn’t have to escalate to murder to be recognized as dangerous. Linking it “to the potential risk of homicide can deflect our attention from the seriousness of the problem,” says Diane Crocker, professor in the department of criminology at Saint Mary’s University in Halifax. “It’s horrendous, it undermines someone’s freedom to move, and think, and feel safe.”
+
+Statistics Canada, in its 2019 General Social Survey, found that of the 1.35 million surveyed, more than 80,000 had experienced stalking in the previous twelve months. The number is likely an undercount. Some, like Martin, don’t know how to identify the behaviour while it’s happening; others assume their concerns might be seen as trivial or fabricated. “A ton of victims that we support are very reluctant to come forward, due to the fear of not being believed,” says Carly Kalish, chief executive officer at Victim Services Toronto.
+
+That’s partly because stalking often goes hand in hand with intimate partner violence. It often takes IPV survivors seven tries to leave an abusive relationship, says Kalish, and even after severing ties, they’re frequently harassed by their exes, making it nearly impossible for them to move on or feel safe. VST sees thousands of such cases every year. As a result of the abuse, some victims express feeling shame and guilt for what they’re going through, even blaming themselves for their stalker’s behaviour. For many, going to the authorities, under those circumstances, feels out of the question.
+
+Those who do come forward have to meet specific, and somewhat subjective, criteria. To successfully get their stalkers charged and ultimately convicted for criminal harassment, victims have to convince the police and then a judge, through a Crown prosecutor, that the behaviour was unwelcome, that it displayed a pattern, and that a reasonable person—legally defined as someone of “ordinary intelligence and prudence”—would feel unsafe under the same circumstances. That last part can be difficult to demonstrate: “There’s very much a gendered sense—sexist and heteronormative—of what is and isn’t safe,” says Crocker. “It’s just so hard to prove in a legal way.”
+
+As part of her research, Crocker has spoken with police officers about why they chose not to charge in certain cases. One of the examples they shared was of someone leaving flowers daily on another person’s car. In their opinion, “‘Having flowers left on your car every day is nice!’” says Crocker. “Sure, if my husband left me flowers every day on my car, that would be nice.” But unwanted flowers from an ex or a stranger are a different story. “Flowers being left on the car are not the incident,” Crocker adds. “It’s the context, it’s how often, it’s a lot of variables, and the law is not very good at dealing with that.”
+
+“The ‘fear for your safety’ part is so subjective,” says Julie S. Lalonde, an Ottawa-based women’s rights advocate and sexual violence, harassment, and bystander intervention educator who has been working to combat stalking for the past two decades following her own ordeal. Crown prosecutors and police and legal experts may claim that a case isn’t strong enough because the victim “didn’t demonstrate that \[they\] were afraid.”
+
+Lalonde, who in early 2024 founded the Canadian Anti-Stalking Association—the only non-profit advocacy organization in Canada dedicated to ending stalking—points to the publicized case of Sue Montgomery, the former mayor of Montreal’s Côte-des-Neiges–Notre-Dame-de-Grâce borough. A man who had been allegedly harassing Montgomery for over two decades was charged with criminal harassment in 2018. But the accused was acquitted, based on a video of Montgomery yelling at him. To authorities, it proved that she couldn’t have feared him.
+
+“We have a law that is just weak in terms of capturing the reality,” says Lalonde. She suggests there are better indicators, such as the quantifiable changes in routine that a victim undertakes when being stalked. They may be forced to alter their everyday lives to avoid being followed, such as by resigning from their jobs or withdrawing from school.
+
+And yet victim perception, or the extent to which a victim feels they might be at risk of further harm, is “one of the best predictors of future behaviour in partner violence,” says Sandy Jung, psychology professor at MacEwan University in Edmonton. In her Psychology Crime Lab, she maintains an active research program that focuses on the prevention of IPV and other forms of gendered violence. “And it’s often dismissed because—‘It’s in your head. How do you *know* this?’”
+
+\---
+
+-   [She Wanted to End Her Pregnancy. Her Abusive Partner Took Her to Court](https://thewalrus.ca/she-wanted-to-end-her-pregnancy-her-abusive-partner-took-her-to-court/)
+    
+-   [Why the Law Fails Victims of Violent Partners](https://thewalrus.ca/why-the-law-fails-victims-of-violent-partners/)
+    
+-   [The RCMP’s Rent-a-Cop Policing Led to the Worst Killing Spree in Canada](https://thewalrus.ca/the-rcmps-rent-a-cop-policing-led-to-the-worst-killing-spree-in-canada/)
+    
+
+\---
+
+**One fall afternoon** in 2019, Anastasia Boldireff, who at the time was one year into her PhD studies at Montreal’s Concordia University, was on her way to campus, waiting for the light to change at a crowded intersection. Suddenly, a man she didn’t recognize waved at her from the other side of the street. “His light turns green,” she says, “and he starts walking towards me and signalling for me to pull my headphones out of my ears. And I said, ‘Excuse me, do I know you?’” But the man didn’t answer her question, instead launching a litany of compliments about her smile and her jacket. “And I got the ick,” she says.
+
+Boldireff wanted to get away from him. The man asked her out on a date. She told him she was not interested. “But he kept on repeating, and he kept on following, and he kept on insisting. And I didn’t know how to manage the situation.” By the time they reached the entrance of the university building, Boldireff was distressed and didn’t know what to do, having said “No” to him several times. Suddenly, the man lunged at her and grabbed her wrist, his hand wrapping around her jacket sleeve. She slipped out of the jacket and tumbled into the building, then rushed into the elevator and got away.
+
+The incident drove Boldireff into a general sense of hypervigilance and panic. She tried to downplay her own stress. But twelve days later, she was at a cafe when she noticed the same man staring and waving at her through a window.
+
+As she left, he began walking alongside her and spoke to her in a relaxed manner, as though they knew each other: *How are you? Where are you off to now?* He told her he’d been watching her, that she worked too much. He knew her name, that she was a postgraduate student at Concordia. Eventually, he backed her up against the exterior wall of a Pharmaprix. The only way he’d let her leave was if they exchanged phone numbers; he grabbed her hand and squeezed it to make that clear. He watched her call his phone with hers before he let her go.
+
+\---
+
+### “I went to the station feeling terrified for my life, but I left feeling ashamed.”
+
+\---
+
+Two days later, Boldireff went to the police station. Even after describing why she wanted to file a report, she was made to wait, then told to come back later. In the meantime, Boldireff went to Concordia University’s Prevention and Protection desk and reported the incident to a security officer. He escorted her when she went back to the police a couple of hours later. But the police didn’t seem to believe her or take her seriously.
+
+“You should consider what you were wearing,” she remembers one of the officers saying. When she described her stalker as having a soccer player’s build, the police officer on duty suggested she consider dating him. “I went to the station feeling terrified for my life, but I left feeling ashamed” and more terrified, she says. “I felt like I had nowhere to turn to. I felt a sort of terror that nobody should ever experience.”
+
+A few days after Boldireff tried reporting her stalker, she caught him following her around campus again, and when she arrived at her apartment, the front door was open. She called 9-1-1 and reported him again. She then went to Montreal’s southern division police headquarters and said she wouldn’t leave until she spoke to a detective, because she was scared for her life. On November 12, 2019, her stalker was finally arrested.
+
+In 2022, after Boldireff’s stalker pleaded guilty to criminal harassment, he was sentenced to two years of probation with conditional discharge, requiring him to reside at a mental health facility and receive treatment during that time. He’s since been released, and Boldireff says he hasn’t contacted her so far.
+
+In the spring of 2020, she lodged a complaint with the police ethics commissioner, alleging that five Montreal police officers displayed an insensitive, inappropriate, and neglectful attitude when she reported her experience of criminal harassment. The matter was resolved through conciliation—a form of settlement—with three of the police officers. One was found to not have violated the police code of ethics, while the other was sanctioned for his comments and has since retired. Boldireff also connected with the Center for Research-Action on Race Relations, which filed complaints of gender discrimination with the police ethics commissioner and the Quebec Human Rights and Youth Rights Commission on her behalf. Her case is moving forward to the provincial human rights tribunal, with trial dates scheduled for early 2026.
+
+She says not being believed and adequately supported has left a mark on her. “My sense of normal won’t ever return.”
+
+**Though stalking** can’t be chalked up to a mental health illness, perpetrators “aren’t necessarily healthy either,” says Kropp, the BC-based psychologist. “A lot of these individuals have attachment disorders, problems with their personality that basically causes them to have problems negotiating life generally. Because to the average person, it’s a really stupid idea to threaten to kill the person you want to have a relationship with.” Still, he says, “no matter how unstable they appear to be, they are making a choice to engage in stalking behaviour.”
+
+Kropp says there aren’t very many good studies to draw firm conclusions from about how to stop stalkers from reoffending. “It depends on context, and it depends on the stalker’s mindset,” he says. If a stalker can clearly see how their behaviour has hurt them and hurt others, they may be more likely to stop. If they’re isolated, have no employment, no relationships, are not concerned about social disapproval, it becomes more difficult to deter them. According to Kropp, a lot of stalking is about obsession and rumination and preoccupation. “So the more we can get people engaged in other distractions, the better,” he says. “But there’s been no demonstrated treatments that can reliably work for stalking.”
+
+For some, incarceration isn’t the answer. “Not every type of person who’s been charged with criminal harassment is automatically going to jump to murdering somebody. That’s very rare,” says Jasmine Mann, a Toronto-based criminal defence lawyer at Pyzer Criminal Lawyers. “I’m not trying to minimize it, but at the same time, we cannot tailor an entire system just to address that 1 percent of the criminal harassment that leads to death.”
+
+Mann believes incarcerating offenders makes things worse. “If you’re not giving these low-level offenders the opportunity to be diagnosed, to get connected with a psychiatrist, be put on appropriate medication, then you’re exaggerating the problem. Then I promise you that person will start escalating and escalating and escalating, and then maybe one day we’ll come to the point where he does kill somebody because we didn’t nip it in the bud.”
+
+“The solution is not criminal law, no matter how frustrating it is for someone experiencing it,” says Crocker. The only way to stop stalking behaviour is to prevent it, “which then leaves people right now with no good solution.”
+
+Crocker advocates for long-term strategies, like teaching young men and boys about gender-based violence. Another is changing how they think about their relationships with women. And when it comes to young women and girls and gender-diverse people: teaching them to be able to notice and understand patterns of abuse—empowering them to turn down unwanted advances or get out of a dangerous situation.
+
+**Tiana met a** man, who worked as a medical professional, through a dating app in the summer of 2023. They spoke for several months and went on five dates. He showed her poems he’d written, some of which were about how he was affected by patients passing away; one was about his struggle with a breakup eight years before. To Tiana, he came across as sensitive and empathetic. (She requested a pseudonym for safety reasons.)
+
+But during some dates, at her apartment, he suddenly became angry, controlling, and physically and emotionally aggressive during intimacy—pushing her to perform certain acts, accusing her of sleeping with other men, choking her without her consent. Afterward, though she tried to talk to him a couple of times about what happened, he refused, and they never spoke again.
+
+Two months later, Tiana noticed a deeply unsettling reel he’d posted on Instagram. It featured a poem that described his inability to stop thinking about someone and wondering if it was the end of “us.” The video in the reel featured footage from inside her living room. “You could see the street across my house, you could see the buildings,” says Tiana. “It felt so violating.” She says he paid to promote the reel, targeting people her age in her region, so it kept appearing in her feed multiple times a day. At the time, she was an actor looking for work and couldn’t afford to shut down her public-facing platforms to stay out of his orbit. (She has since left the profession, in part because of the harassment.) Some friends considered the Instagram reels to be romantic, she says. Others told her to ignore him, that he was seeking attention.
+
+According to the Canadian Women’s Foundation, one in five women in Canada have experienced harassment online. A US Department of Justice bulletin on the prevalence of stalking victimization reported that 80 percent of respondents experienced stalking with technology in 2019. And a systematic review of the mental health impacts of cyberstalking and harassment, published in 2020, found that victims experience physical and emotional symptoms on par with victims of in-person stalking.
+
+And sometimes, cyberstalking and in-person harassment go hand in hand. Once, while on a walk in her neighbourhood, Tiana saw her ex drive by, and their eyes met. This was followed by another promoted poem reel about seeing her on the street. In recent months, Tiana has come to understand this behaviour as a form of stalking. “It’s not okay to keep taunting someone like that and writing, especially as a white man, about a racialized woman and sharing where she lives,” she says. “I didn’t report it, because I feel so crazy, because I’m talking about an Instagram reel. It sounds insane, but because I know how he was intimately with me, it genuinely scares and upsets me.”
+
+Tiana didn’t think there was a recourse for her that didn’t involve contacting her ex. She ended up moving out of her home.
+
+**Among marginalized** communities, the concern isn’t simply for oneself but for the group as a whole. When Ayesha, who identifies as queer, was in her thirties, her ex would text and email her repeatedly after their breakup and got mutual friends to report on her whereabouts. One night, Ayesha says, her ex broke into her house and attempted to rape her. When Ayesha confronted her, her ex highlighted a sobering reality about the LGBTQ+ community. “She literally said, ‘What are you going to do? Call the police? I’m queer.’ And she was right. My politic was never to call the police.” Ayesha knew very well what queer people frequently suffer at the hands of law enforcement.
+
+The idea of not airing your community’s laundry was further emphasized to her through conversations with others. “I had bruises on my body, my hips had fingerprints on them.” At a community event, when she ran into someone who had been a mentor to her and her former partner, the mentor didn’t believe Ayesha’s story. “In queer relationships, the community is so small—if you’re seen as a problem, it’s harder to get the support that you need,” says Ayesha. (She requested a pseudonym, fearing professional repercussions.)
+
+Some within the community tried to intervene when Ayesha and her ex were still dating, and the relationship was, to them, clearly abusive. Ayesha’s roommates slipped pamphlets on violence against women under her bedroom door, as a gentle way of helping her recognize the danger she was facing. After the breakup, a friend of Ayesha’s, who also knew her ex, even offered direct intervention, composing emails to try to defuse the situation.
+
+Theirs was the only help Ayesha was willing to accept. She couldn’t reach out to her biological family members for support, fearing that doing so would only reinforce their negative assumptions about LGBTQ+ people. “Systemic racism and homophobia shaped how I was so much more isolated,” she says.
+
+\---
+
+### “Until the systemic issues are fixed, nothing will change.”
+
+\---
+
+“It reminds me very much of my own culture, Asian culture,” says Jung, the psychology professor at MacEwan University. “The last thing you want to do is tell anyone. You have to save face, because it’s going to shame everybody. But the interesting thing about abuse is that it doesn’t discriminate against socioeconomic status, race, gender, or immigration status. It affects everyone. But we seem to have it in our head that we’ve got to protect our own. No, this is just unacceptable behaviour, regardless.”
+
+Ayesha knew that, as a queer person who is not white, she wouldn’t be seen—whether by police or society at large—as a “good victim” or a “survivor” of sexual violence, as she puts it. “Marginalized communities need to do the work,” Ayesha says. “But until the systemic issues are fixed, nothing will change.”
+
+**For about twenty** years, Martin wasn’t able to get back to the life she had planned for herself or speak about what happened to her. When Martin’s mother was dying of pancreatic cancer, in 2019, “she told me to get rid of everything that hurt me. She knew that I was carrying all that pain.”
+
+Martin posted a video of herself on Instagram saying that, despite a brutal stalking attack, with “strength, support, and perseverance, I made it through and so can you. Don’t ever give up.” The Why Campaign, a Melbourne-based initiative to raise awareness about domestic violence, saw it and recruited her as a volunteer. Martin has since told her story in *She Is Your Neighbour*, a 2023 documentary by the Women’s Crisis Services of Waterloo Region, and in 2024, she was named Advocate of the Year for *DomesticShelters.org*, one of the largest online directories of domestic violence shelters and programs in North America.
+
+“There’s no feeling like being able to recognize that you give others hope. That’s what keeps me going,” she says. “This is why I survived.”
+
+In 2022, she played a pivotal lobbying role in helping pass Bill 17, the Disclosure to Protect Against Intimate Partner Violence Act, in New Brunswick, into law. It gives police the legal right to share with individuals whether a current or former partner has a history of IPV if they have reason to believe that person is at risk. Alternatively, if someone feels they are at risk of IPV, they can contact the authorities and request that information. Had Martin known that her ex-boyfriend had been previously charged for breaking a former girlfriend’s jaw, she would have been more informed about his violent tendencies and perhaps not dated him at all.
+
+Strangers online have reached out to Martin to thank her for speaking so openly. I ask if she’s ever concerned, because of her public profile, her stalker might find her again. “I’m not worried about him,” she says. “I’m not going to waste the rest of my life in fear.” Martin’s ex has not tried contacting her again.
+
+**[Sheima Benembarek](https://thewalrus.ca/author/sheima-benembarek/) is a contributing writer for The Walrus.**

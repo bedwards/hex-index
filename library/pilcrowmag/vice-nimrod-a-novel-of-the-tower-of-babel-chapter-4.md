@@ -1,0 +1,179 @@
+---
+title: "Vice Nimrod (A Novel of the Tower of Babel) Chapter 4"
+author: "PILCROW"
+publication: ""
+publication_slug: "pilcrowmag"
+published_at: "2026-02-14T18:56:52.000Z"
+source_url: "https://www.pilcrowmag.com/p/vice-nimrod-a-novel-of-the-tower-736"
+word_count: 4112
+estimated_read_time: 21
+---
+
+We conclude the first week of the second iteration of [PILCROW’s Serialized Novel Contest](https://www.pilcrowmag.com/p/what-is-pilcrow), with our first Finalist’s fourth chapter. Over the next two weeks, we’ll serialize the first few chapters of our remaining Finalist’s unpublished novels, and then subscribers (both free and paid) will vote on a Winner to be fully serialized here on the Substack. Finalists are awarded $500; the Winner $1,000.
+
+Our Finalists are:
+
+-   *Vice Nimrod* by Colin Dodds
+    
+    -   [Chapter 1](https://www.pilcrowmag.com/p/onboarding-in-the-tower-of-babel)
+        
+    -   [Chapter 2](https://www.pilcrowmag.com/p/vice-nimrod-chapter-2)
+        
+    -   [Chapter 3](https://www.pilcrowmag.com/p/vice-nimrod-a-novel-of-the-tower)
+        
+-   *Still Soft With Sleep* by Vincenzo Barney
+    
+-   *Don’t Disappoint* by Martin Van Cooper
+    
+
+While the traditional organs of American letters [continue to wither](https://www.metropolitanreview.org/p/the-washington-post-killed-their), we recognize the need [to forge a new path](https://substack.com/home/post/p-186997650?selection=a3450331-4e51-4fec-927b-624f18b6316e#:~:text=We%20need%20to%20build%20our%20networks%2C%20fund%20what%20we%20can%20if%20we%20have%20the%20resources%2C%20and%20steal%20what%20we%20can%20from%20institutions%20while%20we%20can%2C%20knowing%20those%20resources%20will%20always%20be%20ephemeral). If you believe in what we’re doing, PLEASE share and subscribe and spread the word.
+
+⚬─────────✧─────────⚬
+
+*In Vice Nimrod, a young refugee from a brimstone-wrecked small town, Ishkebek finds his way to Nimrod’s Mighty Tower, where he lands a job. Through a mix of savvy alliances and good luck, he rises through the ranks, and survives a professionally disastrous friendship with an idol-smashing protege, to reach the rank of Vice Nimrod, Communications. In his words, we learn how Nimrod’s Communications Group deftly handles the inquiries of the neighboring kingdoms, how it spins the burning of Sodom & Gomorrah, and how it finally flounders through the varied crises that make up the Confusion of Tongues.*
+
+⚬─────────✧─────────⚬
+
+*Managing Nimrod - Divine Compliance, Workplace Piety & Communications*
+
+The fight would come down to the mathematicians against the youngest and dumbest of the Hundred Righteous Men, like it always does. But that didn’t mean we could ignore it, Jerr said.
+
+The Great and Holy God of Utter Cataclysm was something even Nimrod could not manage. The best that the risk-management priests in Divine Compliance could do to hedge against Him was to keep righteous men on the payroll. They were supposedly impeccable characters from almost all walks of life (though, it’s worth noting, never from Communications). They served as our hostages against an angry God, or gods. Like all tower departments, it hedged its bets in that regard.
+
+My hometown of Shinursba had ten such men, supposedly. The lesser capitals and larger cities kept 25 righteous men on their payrolls. Neighboring Sodom liked to boast that you couldn’t find ten righteous men in its precincts if you tried. Not to be outdone, Gomorrah claimed that every righteous man to enter its gates certainly hadn’t left that way. These were mostly tourism come-ons for frustrated farmers and horny rich kids. Each city had its own ceremonies and prayers long and tortuous as to test the sanity of an honest man, who are commoner than you might think in those districts of iniquity.
+
+Nimrod’s Mighty Tower, which even some of the lowliest executives suspected might be a direct provocation to Him, supported 100 righteous men. As with any cross-your-fingers-and-wish-on-a-shooting-star insurance policy against utter ruin, management liked to keep it quiet.
+
+Every few years, the tower’s Hundred Righteous Men and the Tower Operating Committee met to renegotiate privileges and stipulations. The righteous hosted the negotiations in their lavish complex, which took up an entire floor, with some of the highest apartments in the tower, right below the offices and meeting rooms of Nimrod and his Operating Committee.
+
+The Hundred Righteous Men wanted, among other things, another floor. And after the fiery desolation of Shinursba, they had good reason to believe they had the bargaining power. Jerr was an old hand at these negotiations, which occurred every 19 years, at the coincidence of the tower’s lunar and solar calendars. He chose me as his deputy this time around.
+
+The floor the righteous men kept was stunning, all white walls, with tasteful, idol-bearing niches or mirror-clear, silver-backed torch sconces. All of it was bright and caressed by the ample yet gentle breezes, courtesy of some of the most senior curtainmen in the tower.
+
+At this time, I lived in a world of small tower apartments, cubicles, cramped and windowless temple boudoirs. Occasionally, I could spread my arms in a mid-level conference room or market floor. The residence of the Hundred Righteous Men seemed a profligate, conspicuous expanse. It was pleasantly cool, dry and so quiet that our half-whispered conversation and the occasional bird cry seemed to echo.
+
+On the lower floors, everyone who didn’t dream of escape dreamt of living in the upper floors, despite the high rents and the elevation taxes that doubled the price of nearly everything. *More light*, is how we’d phrase the wish, though the windows on the lower floors weren’t smaller than those above, and after a dozen or so landings there were no other buildings to cast a shadow. But the light on the higher floors was finer, and ampler. It filtered through less breath, fewer eyeballs, was absorbed by fewer brick and stone supports. That other meaning of the word *light* applied to our wishes as well—you felt lighter up there. It was as if the body could feel the hundreds of stories above, and the mind took some of the responsibility for holding them aloft.
+
+The Hundred Righteous Men started negotiations by requesting a second entire floor for themselves, their families and support staff. That wasn’t going to happen, Jerr said, during a break. Look around, he said quietly to me—if the floor space they had was farmland, they could support a hundred families on it. In addition to their floor, the Hundred Righteous Men enjoyed privileges and luxuries meant to keep them sated and righteous. But they had acquired the desire for more.
+
+The mathematicians had just begun working, but Jerr and the Operating Committee had one number already on hand – 16.4 million – that was the raw square footage the Hundred Righteous Men possessed. Shame was one of the Operating Committee’s primary negotiating levers, Jerr explained. If the Hundred Righteous Men asked for too much, then they weren’t exactly righteous, were they? If they negotiated too hard, then they weren’t righteous. In the end, however, management would have to give them whatever they demanded. The great flood, of four or forty generations ago, was a bigger negotiating lever than shame.
+
+The Operating Committee relied on mathematicians from the priesthood to set the framework of what was reasonable and appropriate. The tower employed all kinds of priests and astronomers. And among the astronomers, some withdrew to deeper, more inscrutable abstractions. It was to those intense, oddball priests that their high priest Melchi Zedek would put the question “How much luxury can a man enjoy and still be righteous?”
+
+The priests set to work, making inquiries all over the tower. They were among the few who took its true measure, I suppose. Their search for information took on the appearance of the wildest of rituals. With Nimrod’s sanction, they stormed about, counting the kernels of corn in a sack, the running sores on the bodies of interns, weighing the femur of a newborn ox for density, measuring the level of sediment in the wine served in the top levels of the tower, the age of the five youngest grandmothers on each residential floor, the length of time it took an express elevator to run the heighth of the tower, the scent of wastewater at the bottom of the bottom floors, the cost to rent a studio apartment in the four city quadrants around the tower, Nimrod’s hairline and weight, the hue of the clay used in the bricks, the transit of Venus, the opacity of the smoke coming from the brick-baking furnaces, the date since the last war among the five adjacent kingdoms, the annual catering expenses of the Operating Committee, and so on.
+
+Their calculations took a full year and burned through what was, to my scribe’s eyes, a heart-breaking amount of papyrus. The numbers they arrived at would be final, and would, if not conclude the debate, tightly circumscribe it.
+
+The Hundred Righteous Men sent a five-man Accord Delegation to the negotiations, which were referred to, when referred to at all, as the Colloquy on Continuous Virtue. No one from either side would dare to call the meetings a *negotiation*. It made the righteous sound unsavory and management sound like they didn’t have the situation entirely in hand.
+
+The negotiation began. The righteous looked righteous—very clean, with bland faces and a tendency to look whoever was speaking in the eye until they felt they’d received permission to look away. Probably to disperse the faint odium of negotiating at all, they took turns speaking.
+
+The extra floor they wanted was for their growing families, one said, and for ill-defined “health and ritual purposes.” Their delegation consisted, oddly I thought, of only very young men. They spoke, one then the next around their side of the table, as if reading aloud. Their list of proposals included more servants, higher stipends, one less workday per week in their respective jobs, and the right to third wives.
+
+The list went on. One thing that they repeated in different ways throughout their requests was that something be done about the birds.
+
+Once I had accustomed myself to the Righteous Men’s huge spaces, clean air, spacious bathrooms and panoramic views, what really struck me were how many birds and how many kinds of birds there were, flapping about the floor. Chirping, squawking, defecating, strutting, pecking birds and the harried servants perpetually cleaning up after them were the only blemish on impeccable home of the Hundred Righteous Men.
+
+The birds, numbering in the hundreds, are trapped, one of the righteous explained. His skin was clear and reflective as wax, his eyes were perfect almonds and the ringlets of his pale oiled beard were perfect circles. His face was practically a wallpaper design. He explained that the birds can still fly—they fly all around the floor. But when they should glide or be chased out of one of the floor’s 2,700 large windows, the tremendous height terrifies them, and they rarely fly more than five feet out before scrambling back.
+
+As the righteous man with the meticulously cared-for beard spoke of the droppings, the noisy dawns and dusks, and the tremendous strain on the servants, my thoughts wandered to the storms, foolhardy courage and misplaced faith that brought them so much higher than they could tolerate. I despised the birds at the time. I had no choice.
+
+After a few hours, we broke for coffee and pastry in the sprawling reception hall outside the cavernous meeting room. I followed Jerr to a table in the corner. He predicted that the back-and-forth would drag on, and that the Operating Committee would cave on everything but the real estate. That was the way it went. He lowered his voice, and said the Operating Committee would appear to cave in to their demands, and a few months later, it would brings in some righteous men from the countryside and reshuffle the deck: Out go the righteous with double-digit families; Out go the ones who jump too quickly on the new three-day work week, and of course, out go the negotiators. It always went the same, he said.
+
+I asked why any of these guys would risk their positions by playing negotiator. Jerr said they were righteous, but no one said they were smart. Anyway, people forget. Everyone does, except management.
+
+I asked if the Operating Committee could do that. Sure, he said, it’s Nimrod’s tower. Everyone else is replaceable. But support staff is something they relish replacing. Jerr advised me to always keep that last part in mind.
+
+I asked about the birds, and he commended my keen ear. The story for the newsreaders, and the gossip that I would have my staff plant would all be about the birds, he said, his eyes widening slightly like they did when he got idea he liked. The birds will stick in the mind, leave people with the vivid picture that would take the place of knowing what’s going on or thinking of what’s at stake.
+
+Plus, he said, talking fast, the idea of a floor so high that it scares even birds speaks to the glorious scale of the tower. He told me to be sure I made the story long enough that people would forget what the Hundred Righteous Men protect us from, how much we pay them, and why we need so many.
+
+I said I’d get someone from engraving to come up and sketch the birds. And? he asked. And I’ll make sure they don’t sketch anything on the floor but the birds, I said. Jerr nodded.
+
+[
+
+![](https://substackcdn.com/image/fetch/$s_!rNJE!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fac5e474e-9e44-46dd-8899-23b0c8fa2d20_383x648.png)
+
+
+
+](https://substackcdn.com/image/fetch/$s_!rNJE!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fac5e474e-9e44-46dd-8899-23b0c8fa2d20_383x648.png)
+
+*Associate Executive Managing Vice Nimrod, Divine Compliance, Workplace Piety & Communications*
+
+The operating committee once more smiled on Jerr, and he smiled on me. My identity badge was brass now, with my name and title in larger letters at the bottom. There were fewer names and ranks between my name and the image of Nimrod with the animals bowing to him at its top.
+
+I didn’t mind working nearly every waking hour, along with some that rightfully belonged to sleep. So each promotion improved virtually every aspect of my life. More money, more authority, more people laughed at my jokes. By this time, I was the funniest guy in my department, just behind the twenty men and women above me.
+
+The promotions gave me the kind of stature and income where it would look strange if I didn’t marry. Nimrod was a family man, as everybody knew.
+
+Looking back, my attraction to Clauvia, who was born to the tower, at a secure and uninterrupted remove from the dusty earth, never less than a hundred floors up, makes more sense. The mystery that persists is why she took an interest.
+
+But she was a Chaldean, from an old tower family with deep roots in diplomacy and astrology. Who knew what whispers she listened to?
+
+The day we met, I was in Clauvia’s family apartments to talk to her father, an astrologer of august enough rank to resent having to speak with a mere Associate Executive Managing Vice Nimrod. The family apartments would have impressed me if I hadn’t arrived there from another tedious meeting in the acres of spacious sofas, pillows and roasted meats that belonged to the Hundred Righteous Men.
+
+I was there for rumor patrol after an accident—the astronomers that Clauvia’s father commanded had spilled a lot of blood. On the roof of the newly completed topmost level, the astronomers had set up their usual gear—mirrors, pipes and so on, watching for fresh terrors in the shimmering ink of the night sky. This was standard practice whenever the intern-beaters from Ascension completed a new level.
+
+The astronomers set up camp for a month to make the observations that would inform their barrel-thick scrolls of tables, numbers, crocodiles, bears, bisected and trisected circles, crabs, vases, dates circled in red ink and dates circled in green ink, all accompanied by even more bizarre and incomprehensible shorthand. Because the Chaldean astrologers were an essential line of business for the tower, their work had won them a limited amnesty from the tower’s One Language policy.
+
+While conducting their regular observations on the effect of planetary movements on the blood of the innocents, a massive vat had broken. When the gallons of blood spilled down the side of the building, it understandably revived a number of disowned rumors and spooked a great many residents.
+
+Specifically, rumor had it that a spearman had poked the belly of the sky and drawn first blood in a war with the heavens. For us, it was the usual rumor-control work, a yawn. I was called in because the old man had already ejected one of my juniors. He was a prima donna. And I was bringing on a protégé, to show him exactly how we would cobbled together a sunny and picayune story explaining the viscera, whose dried residue stained the top few stories of the tower.
+
+The old stargazer, naturally, kept us waiting. That’s when I first met her. I don’t want you to think I was a neophyte in these matters. I worked with women, and for women, every day in communications. And I had a twice-weekly standing appointment at the Hospital of Ishtar, the good one, above the Kishar market floor. I thought I knew women.
+
+But Clauvia, Clauvia. Like the tower, I feel I only really saw her those first few times. Then she became submerged in the echo of my first urgent infatuation. Who she was, how we left things, what she must think of me, what she meant, how we fit together, what must people think—it pulled me on rippling waves from her, even then, when she was right in front of me.
+
+This implacable distance infests every moment. Maybe that’s just the sad, shadowy part of reality that precludes reality. It’s what all people in all times who have spoken of *reality* without ecstasy cracking their voice have meant by the word. But Clauvia, more than the tower, makes me regret that it is so.
+
+Her gray eyes looked direct, and at me. Sure, rich girl, she can afford to stare direct. That’s what you’re thinking. That’s what I thought. But there was a bravery, too. There was something that stopped me in my tracks.
+
+We only sat together for a few minutes in that sprawling apartment foyer with its knotted quartz pillars, mosaics and embroidered red-clay walls. But it’s something I’ll always carry—a sudden mountain among the unremarkable. I still feel how she startled me with those eyes, with her hard but effortless talk. She shocked me to a dead stop simply by saying hello. I simply tried to keep up.
+
+We exchanged small talk. But until she fixed me in one place like she did, I never realized how I was being pulled in so many directions. She stood still against the endlessly unfurling agendas, high desires, low cunning, major connivances, minor ambitions and numbing fashions.
+
+Her father shouted from down the hall. He was a major trader in gossip celestial and otherwise, an Executive Vice Nimrod for gods’ sake, he had little time for me. I was just an Associate Executive Managing Vice Nimrod of Communications, and Internal Communications at that. It was a support function and subject to general disdain from anyone involved with gathering money, materials and manpower from surrounding kingdoms, propitiating the always-skittish gods, maintaining order, collecting rent, mixing bitumen, ensuring luxuries, or the baking, counting, testing, hauling or stacking of bricks.
+
+Clauvia’s father, who told me pointedly at the outset of our interview that he resented having to speak with me during the day, was no different.
+
+We got the story together nonetheless: The “blood” was actually a container of rare red palm oil used to lubricate the lenses in a viewing pipe. It had broken as the astronomers celebrated the discovery of a new star. That much was true—they’d found a new one, so faint that the old man said no one could’ve detected it from even one floor lower. And they named it Heinekuk— after Nimrod’s teenage son who’d died in a chariot wreck last year, coming back from a week in Sodom.
+
+The story worked—it elided the vat of the blood of the innocent. And a new star is always a nice thing—as long as you don’t know how court astrologers work. With each new star, they have to reshuffle their charts, recalculate their peculiar equations. When they do, they inevitably arrive at another two or three or a hundred men who, based on the time and place of their birth, would grow up to challenge and possibly supplant one of the nearby kings, perhaps even Nimrod himself.
+
+Every king for hundreds of miles subscribed to these charts. The tower’s astrological expertise was one of the main inducements that kept them funding and staffing the tower. After all, regents had to rule, usurpers had to be eliminated. The kings, many of them former usurpers themselves knew that much better than they knew anything. And whom can a jealous king trust, except numbers and stars?
+
+Ancient observations and daylong equations weren’t the same thing as faith. But for the powerful and insecure, they filled the gap well enough. That’s why astrologers are paid so well, and are so incredibly arrogant.
+
+But no astrologer could guess what would come next. Because, as I left the sumptuous apartments of that cranky, imperious, puffy-eyed man, his daughter waited for me by the door, where she followed up on her unnerving hello with an even more unnerving goodbye kiss on the cheek.
+
+It was the first of several preposterous events that clustered suddenly at the midpoint of my life.
+
+[
+
+![](https://substackcdn.com/image/fetch/$s_!NqB4!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F2e438ef2-17a7-43d4-9b68-18dd8c72c20b_383x648.png)
+
+
+
+](https://substackcdn.com/image/fetch/$s_!NqB4!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F2e438ef2-17a7-43d4-9b68-18dd8c72c20b_383x648.png)
+
+*Associate Executive Managing Vice Nimrod, Divine Compliance, Communications & Facilities Maintenance*
+
+“You ever sit in a meeting until the people become a collection of geometric shapes?” That was how Avram introduced himself. He was tall and lean, a bag of elbows who always seemed to talk just a hair too loud.
+
+His glibness startled me after the dry, careful formality of the negotiations. I’d seen him before, and only knew him as a young priest who chimed in here and there during the preliminary negotiations with the Hundred Righteous Men. Those meetings took place in a conference room with floor-high porticos from which the distant mountains looked like a wrinkled bed sheet. Throughout those long hours, Avram seemed to escape the room, getting lost in the daunting distances beyond the windows or in the twisting low-relief patterns and friezes on the walls. He’d occasionally speak from his cloud of abstracted aggravation to correct a small point about the scheduling of a ceremony or the ways that the righteous jointed animals for sacrifice, before vanishing again.
+
+That day, I supposed I was a bit flattered that I gave off a half-thoughtful spark beyond my buttoned-down appearance. Still, I wondered if I could have the young man fired.
+
+We talked for a little while about the slow death inflicted by the negotiation ceremony’s hoary formula. These months of negotiation were, after all, nothing more than perfunctory preamble and box checking. Low-level functionaries read through old pacts between management and the Hundred Righteous Men, updating a phrase here and a clause there to reflect changes in law, fashion or leadership of the surrounding kingdoms since the last negotiation. Heck, I was probably the most senior person there.
+
+To their credit, the Hundred Righteous Men handled the catering, I said to Avram, tossing a shrimp into my mouth. I must have missed the testament about appetizers, Avram said, too loud. My cheeks burned and my eyes darted. I cautioned Avram to be more politic, or at least quieter, but couldn’t restrain a smile.
+
+He apologized and said he’d been up all night, hanging laundry on the roof. He explained that it was a ritual. After every floor is completed, they send a priest to the top of the tower, every night for a month. The priest goes up alone and strings up lines and dries his laundry up there, when the roof is bare, without even a low lip of brick. It’s the kind of dangerous ritual they assign to a junior priest they don’t really like, Avram said, shrugging. If you fold a big sheet when the right wind comes along, he said, you’re gone. He traced the trajectory of just such a tragedy with an agitated hand, punctuating the drop with the information that it had happened to an unlucky priestess two weeks ago.
+
+Some of these rituals don’t make any sense, I said. Seems like they could stop that one, or just not use real laundry.
+
+But it has to be real laundry, and it has to dry up on the roof, Avram said. The idea is to convince the gods that everything is business as usual, that the tower is just an implement of domestic convenience, and nothing more. Lowering his voice, Avram said with most of these rituals, by the time we finish them, no one can tell whom we’re fooling, the gods or ourselves.
+
+I know the feeling, I said, surprising myself. Which gods are you trying to fool? I asked. Depends on the night, he said, smiling at me like a friend. Then he confided that he was in line for a transfer to another god. I nodded, asked if it was a step up. Who knows, Avram said, conspiratorially, they all claim to be foremost, when they’re not calling themselves the only true god. The priesthood just cleans up after the rituals and tries to keep the genealogy straight, he said.
+
+That was the first time I met Avram. And all these years later, I still can’t decide whether to curse or cherish the day. It’s always one or the other, though.

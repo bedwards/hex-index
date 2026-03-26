@@ -1,0 +1,217 @@
+---
+title: "Still Soft With Sleep (A Novel based on a true story) - Part One: Six Months"
+author: "PILCROW"
+publication: ""
+publication_slug: "pilcrowmag"
+published_at: "2026-02-19T23:05:24.000Z"
+source_url: "https://www.pilcrowmag.com/p/still-soft-with-sleep-a-novel-based-a1c"
+word_count: 4376
+estimated_read_time: 22
+---
+
+We continue the second week of the second round of [PILCROW’s Serialized Novel Contest](https://www.pilcrowmag.com/p/what-is-pilcrow), with our second Finalist’s first chapter. Over the week and a half, we’ll serialize excerpts from of our remaining Finalist’s unpublished novels, and then subscribers (both free and paid) will vote on a Winner to be fully serialized here on the Substack. Finalists are awarded $500; the Winner $1,000.
+
+Our Finalists are:
+
+-   *Vice Nimrod* by Colin Dodds
+    
+    -   [Chapter 1](https://www.pilcrowmag.com/p/onboarding-in-the-tower-of-babel)
+        
+    -   [Chapter 2](https://www.pilcrowmag.com/p/vice-nimrod-chapter-2)
+        
+    -   [Chapter 3](https://www.pilcrowmag.com/p/vice-nimrod-a-novel-of-the-tower)
+        
+    -   [Chapter 4](https://www.pilcrowmag.com/p/vice-nimrod-a-novel-of-the-tower-736)
+        
+-   *Still Soft With Sleep* by Vincenzo Barney
+    
+    -   [Prologue](https://www.pilcrowmag.com/p/still-soft-with-sleep-a-novel-based)
+        
+-   *Don’t Disappoint* by Martin Van Cooper
+    
+
+While the traditional organs of American letters [continue to wither](https://www.metropolitanreview.org/p/the-washington-post-killed-their), we recognize the need [to forge a new path](https://substack.com/home/post/p-186997650?selection=a3450331-4e51-4fec-927b-624f18b6316e#:~:text=We%20need%20to%20build%20our%20networks%2C%20fund%20what%20we%20can%20if%20we%20have%20the%20resources%2C%20and%20steal%20what%20we%20can%20from%20institutions%20while%20we%20can%2C%20knowing%20those%20resources%20will%20always%20be%20ephemeral). If you believe in what we’re doing, PLEASE share and subscribe and spread the word.
+
+⚬─────────✧─────────⚬
+
+*Vincenzo Barney is a Vanity Fair contributor. He wrote Still Soft With Sleep for his senior thesis at Bennington in 2018. He is working on a book about Cormac McCarthy and Augusta Britt, a story he broke for Vanity Fair last year.*
+
+⚬─────────✧─────────⚬
+
+PART ONE: SIX MONTHS
+
+That day at high noon Elvis and I took a ride across the Vineyard Sound to Chappaquiddick beach. Chappaquiddick is the easternmost shoreline of Martha’s Vineyard, the Massachusetts island where Elvis and I had spent the month of June together in his house called Mayflower. Elvis and I were coming back from a quick trip to New York City without our phones or belongings, depending entirely on the clothes at Elvis’s brownstone on the Upper West Side, and I entirely on Elvis’s money which paid for my flight both ways. We dove through the clouds and by the time we landed the sun parted them above us. We would have flown back directly to the Vineyard except we were to spend a day in Falmouth where Elvis’s girlfriend Astana had a summer home and then boat over with her father. While Astana’s father gave Elvis a tour of his house, a mansion not as big or shiplike as Mayflower, and of an inferior tax bracket, they left me to my own devices on the dock. Happily, I put my shoes on the pylon and climbed through the open hatch of the sixty-foot catamaran and laid on my back in the pristinely made bed below.
+
+The master bed had no personality to it, and I found no evidence of a woman. I uprooted its blanket and laid looking up through the hatch at the sky and the blue sail wrapped around the mast going up to where the weathervane pointed South. The clouds were wrinkled and pulled apart and showed what the wind had done to them. Some of this warm wind came over me through the hatch and I looked at how golden against the white blanket the hair on my forearms had become. My brown hair had turned blonde in so much sun and the sea had come into its waves and I had begun to feel that in some way I was the summer. Always in May I’d want to be in the sea breeze that came in at my window and on the Vineyard you felt you were really in the summer and not just sweating it out. You were a participant. It was still now and I thought of how at night the boats passed Mayflower silent with the lights of the docks and anchored boats smearing and wrinkling below their bows and then I didn’t think anything.
+
+I was not sure if I was asleep or not, but I knew I had nearly dropped down to where I wanted to be when footsteps came along the dock to find me. But the light airy steps of Astana were not amongst them and they were the footsteps of Elvis and Astana’s father alone, who had decided to tell us just now after wrapping up the tour and refilling his drink that Astana had gone ahead of us with her brothers to the Vineyard to drive the sand dunes of Chappaquiddick. Because Elvis and I had not taken our phones with us on our trip, we had missed Astana’s text.
+
+I wasn’t surprised. I’d learned early that summer that the disclosure of time sensitive information is entirely at the leisure of the millionaire. One submits to their timescale and your own personal schedule is supposed to dissolve blissfully within it. I raised up out of the hatch and the face of Astana’s father, who had not given me his name nor had I asked for it, did not alter when he saw that I had been laying in his bed but stared around me, and then at Elvis. The alcoholic blush across his cheeks, purple veins riverring his nostrils. I thought perhaps he had clocked that I was not of wealth and this was why he had not invited me to tour his grounds, but I’d just proved I was. The brazen violation of decorum is the return serve of the younger American scion, and I knew some part of Astana’s father respected my entitlement to his possessions. I knew it put a rush into his imagination, wondering what kind of wealth I came from. Wondering who my father was.
+
+“Stana’s had a fine summer. Disembarked this morning for the dunes.”
+
+Now he was eying me, offering me whiskey from his boat house and he wouldn’t stop saying disembark, the way the vapid become obsessed with particular words. He bid us into the shade of the boat house’s front porch.
+
+I didn’t like his face at all. He was bald and his forehead was huge. There was too much space between his nose and his top lip and the rest of his head seemed to recess from this point. It was a rich man’s face. It was a miracle he had such a beautiful daughter.
+
+“We can disembark after a drink. Neat or on the rock?”
+
+“Ah, bit too late in the day to start drinking now,” I said.
+
+But he put four fingers of Old Rip Van Winkle in my hand and smiled. It was a way of keeping me in his orbit, now that he’d seen I was worthy. Now he was sharing, and I had to look to him as the source of what he shared. Keep me close.
+
+“On the rock, eh? The size of it. Thank you.”
+
+Elvis, eye-roller extraordinaire, gave me a look that took in everything: the father, the mansion, the dock, the fleet of boats, the power flip, the “on the rock.” I gave him one back. Elvis’s cheeks bulged with trapped laughter.
+
+We were trespassers that summer in a world of boundless wealth. Wealth that didn’t put any tethers on us but was ours to exploit because we could look and play the part, even though I alone hailed from nothing. It was my more humble origins which evened us, made Elvis see and sneer and pilfer with antipathy the wealth he had been born within as if for the first time that summer. He had been born into a webbing that shouldn’t have been there, and through me the deep resentment for the safety net that would never let him fail or fail in interesting ways was reborn and stretching its legs wide across the summer with me at his side. I had never seen Elvis as happy as those lengthening days of June, alone with him at Mayflower.
+
+But we had passed the equinox, and now the days were shortening, imperceptibly.
+
+[
+
+![](https://substackcdn.com/image/fetch/$s_!GeqY!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fb59713ac-fae6-4bc5-aa28-7822163d3cb5_383x648.png)
+
+
+
+](https://substackcdn.com/image/fetch/$s_!GeqY!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fb59713ac-fae6-4bc5-aa28-7822163d3cb5_383x648.png)
+
+From the edge of Astana’s dock the island of Martha’s Vineyard looked so close you expected to run your eyes along its coastline and see it merge smoothly into the mainland of Cape Cod, where I was born and my family lived in an old cottage. But as Astana’s father boated us over in his Grady White, his second of three boats, he kept inexpertly cutting the boat Southeast and parallel to the waves and away from the island, keeping my eyes from playing at joining the two coastlines and putting us in an uncomfortable and avoidable rocking. Like most wealthy men, Astana’s father had no skill with a boat and no eye to read the sea. He was not of the fathoms of Cape Cod. He was the kind of guy who crosses the tight parallel formation of fishermen trolling off Monomoy in pursuit of some other fishing ground, cutting dozens of lines and thousands of dollars of tackle, scaring the fish and leaving the boats throbbing in his wealthy wake.
+
+Though this was my first summer on the Vineyard, I knew the waters off the island well from fishing black bass and bonito here with my own father. There are rips about a mile off the coast that pick up in the flood and ebb tides and froth in the wind. Rips are formed when the seafloor shifts dramatically in elevation. The tide pushes against a wall of sand and creates a formation of white caps on the surface, a long ribboning line of what look like endlessly unbreaking waves, rips in the surface. The waves crash onto the water like onto the shore. Bait fish are pushed up in this flow and the larger stripers and blues wait on the other side with open mouths you try to tempt a lurer into, and Astana’s father took these rips at unskilled angles. The color of the water is often different on either side like a pulsing, living borderline. They mesmerize and even the air feels different on the other side. You breathe more deeply in the calm. After pussyfooting we finally crossed the rips and were within the waters of the Vineyard.
+
+There is no greater comfort on a center console than to lay on the floor, the low center of gravity removing any but the slightest, most comfortable jostles and cradle rocks, and the T-top putting you in the shade so that there is nothing but comfort and rest in keeping your eyes open, and you feel like you could fall asleep that way, with open eyes. I couldn’t watch Astana’s father drive any longer and laid with a cushion under my head on the floor.
+
+Elvis had cottoned on and was about to lay down on the other side of the console when Astana’s father began complaining about currents and bottoming out even though we were 32 feet above the floor. I told him this, getting to my feet in order to pretend to consult his radar. I told him that there were no sandbars off this coast of the island. It took some convincing to get him to take us closer to the island and when he saw he wasn’t going to get any commiseration from me and his reputation with a boat was on the line he pushed forward like it was his own idea.
+
+By the time Astana’s father skirted Edgartown, the seas had picked up and the beaches of Chappaquiddick relaxed our eyes, looking like a line of dark against the sky until we got closer and it yellowed and smoothed into something coherent. He dropped us a little further from land than we would have liked, and we swam the quarter mile from his boat to the shore, fighting little pools of fish larvae floating by the thousand and really churning at the shoreline. Astana’s father didn’t wait for us to reach land before he left, nor say much in the way of parting, but the wake of his boat reached us, outpacing us to shore where we couldn’t tell its sound from the other waves crashing against the sand.
+
+We left even our shirts and shoes on the boat, happy to shock him. All of Elvis’s clothes were waiting for us in Mayflower.
+
+[
+
+![](https://substackcdn.com/image/fetch/$s_!RS1U!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F2f47c05e-74ba-48aa-8f8d-efe08a6d8939_383x648.png)
+
+
+
+](https://substackcdn.com/image/fetch/$s_!RS1U!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F2f47c05e-74ba-48aa-8f8d-efe08a6d8939_383x648.png)
+
+Astana was nowhere to be found and the beach was nearly deserted, except for a few scattered sunbathers and one elderly woman holding a camera with a foot-long telescopic lens pointing diagonally from her lap. Perhaps curled in her lens were frames of Elvis and I forward crawling to shore.
+
+Elvis grinned at her, the sunshine wet in his wet black hair, his curls having found their true curvatures in the saltwater. The tattoo of the Guiness harp which he’d done on his forearm for his father looked dark and just inked in. “Talk about overcompensation,” he said, nodding in the direction of the woman and the long black lens poking into the air.
+
+We waited until our backs had dried and laid down on the sand. I closed my eyes and the sun looked bright orange under my lids and I could hear Elvis sliding his heel through the sand with my ear pressed to it. I rolled over and he cracked my back and I rolled over again and in a near whisper I bet him 20 dollars he couldn’t put me to sleep sprinkling dry sand on me and telling the beginning of a fake Kerouac novel.
+
+Undaunted, he began.
+
+The sun turned turquoise under my eyes and I looked up at the real one to capture its true color again and closed my eyes with it safely orange and thought about the funeral and could only see Her lying there on the cot covered to Her neck and glowing orange in the mortician’s makeup, Her face ending and candling. I put my lips against Hers and there was no push, no give to them and they were cold and the cold travelled across my lips and down into my chest and I felt dead and spent eight hours crying and sitting on my heels and knees by Her body and then standing outside pressing my boot into the same footprint over and over again in the dirty halfmelted snow, and at this moment under the summer sun I was breathing so slowly I couldn’t tell that I was breathing at all, and Elvis was massaging me so gently that I fell away from the caviling orange ball under my lids and deeper into the blackness of It than I do when I sleep, that lost dead clarity It, and the sun laid just so on the seal of my eyes that they began to ease open into the yellowbluenesses of the light.
+
+[
+
+![](https://substackcdn.com/image/fetch/$s_!bJrr!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fa7a2792e-3765-410f-9044-bcfd2e603ff0_383x648.png)
+
+
+
+](https://substackcdn.com/image/fetch/$s_!bJrr!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fa7a2792e-3765-410f-9044-bcfd2e603ff0_383x648.png)
+
+*“First I took the A to the C to the G.”*
+
+*“Then I took the 7 to the 2 to the 3.”*
+
+This was a little song Elvis and I made up in the city about taking the trains. We walked down the beach throwing in numbers and letters that were not trains in New York, like the 9 or the H or the “dub,” for W. Elvis put in all this fake flair like it was some 90’s hip-hop boyband song, trying and comically failing to flash the correct numbers and letters of the trains with his hands as quickly as he sang them in perfect parody. I was dying.
+
+*“I took the dub to the T to the 9.”*
+
+“Ok.”
+
+*“And then I took the H to the U to the I.”*
+
+“Uh-huh. *And did you get there on time?”*
+
+*“Damn right. And you know I don’t lie.”*
+
+*“And I know you got high.”*
+
+*“And you know I ain’t bi.”*
+
+*“And I know you ain’t bi. But I heard you took the S to the T to the I.”*
+
+*“And I heard you took the G to the A to the Y.”*
+
+*“So you took the dub to the T to the 9…?”*
+
+“That’s right.”
+
+*“And then the H to the U to the I…?”*
+
+“Uh-huh.”
+
+“Sigh…”
+
+“Why…?”
+
+*“Cuz I took the K to the V to the Y.”*
+
+“Ohhh!”
+
+We went in and out of the water, heading down the beach every twenty minutes or so when we had warmed in the sun and the first beads of sweat budded our hairlines, halflooking for Astana as well as a patch of water without the floating larval eggs. The ocean had calmed since we arrived. Or at least it appeared that way, because now the tide was going out and the wind was blowing with it so that the water fell back along the shore towards the sea with such force that the returning waves threaded through the oncoming ones. The larvae rested there at the shoreline, and you could see them in the water being pulled towards the open water and overlapping back through the waves. A gust came and curled the falling waves away from the beach like a woman pushing her hair behind her ears.
+
+“Fuck it man, they’re everywhere. Let’s just go in here,” I said.
+
+*“...then I took the N to the Q to the R, then I took the 1 train real real far.”*
+
+Chappaquiddick is technically an island, though it is connected by a thin curling whisp of beach to the mainland. This wet thread of beach traces the island North and spirals in on itself into a small bay called Cape Poge. The name is Wampanoag, and means “separate island.” Like Monomoy off of Chatham, every few years a storm breaches this thread and makes of Chappaquiddick a true island. One can live completely off the grid on its shores, and you can only reach the mainland of the Vineyard and its stores and gas stations by the Chappy Ferry or one’s own boat.
+
+The beaches here are the work of glaciers and currents and we walked up and down them. They have no roots in the bedrock and look new, like a storm has just pushed a long sandbar round the island, tracing the shape of something below. If they were the work of one storm then they could be taken away in one storm and one had the feeling of walking a beach pushed up into the sun for the first time. Something which might not stick around but has revealed itself just for the dream of it.
+
+Chappaquiddick is also the island where Teddy Kennedy killed his secret girlfriend, Mary Jo Kopechne, in the Summer of Love. The two got bombed at a fundraiser and Teddy lost control of his car on Dike Bridge driving her to the ferry and dove into eight feet of water. He extricated himself and claimed to have dove down to rescue her a dozen times before sitting on the beach in exhaustion under the moonlight. He called his lawyers rather than police at the payphone and then tucked his boat shoes into his belt and swam across Edgartown Harbor to his hotel room and slept. The next day a resident called in the car and Kopechne was found in the backseat. According to the autopsy she survived for an hour in an air pocket in the back of the car. If Ted had called the police she might have lived.
+
+We stood to our shins cupping the eggs, looking at their translucent shapes in our hands, and then swam past them to where the shore dropped off into nothing and the water had that cold open-sea energy to it. Finding my feet again on the steep shore I counted again all the people I knew with dead fathers. I don’t know why but out of nowhere I counted eight begetterless people and got to wondering whether it was a coincidence I knew so many of them, or maybe some subtle message telling me I would die a father with young sons and young daughters, that I was supposed to get to know and love these people to see in what shape I might leave my own children, or by doing so I was paying my penance now for leaving in the future, I didn’t know.
+
+Elvis’s head rose seal-like out of the water, his small Irish freckles browned and faded away into his tan, all the grace and poise of a sea-kept secret revealing itself to you without any reason at all.
+
+Then I thought of my own father. Lying back down in the sand I remembered that I had had a dream that morning that my father died, either a drumming up of tragedy so my eyes could come crying through the lids - because I couldn’t cry when I was awake anymore - or a way of preparing me for the pain when that death eventually comes. The body gets used to death, and wants that muscle worked so that it is ready for the sadness at any time. And the sadness of the dream was that pure worst sadness that feels each time like it is irretrievable and only possible to feel once. That sadness that brings you so completely down within your own body that there is not an inch of yourself that you do not feel, and there is some bizarre pleasure in how in-and-out of you it comes, in how whole and throbbing it leaves you feeling afterwards. You feel complete and then, if you are lucky, ashamed you have made yourself feel this without reason, and you tell yourself not to want that feeling again. And if you are really lucky, you are not ashamed afterwards but you feel clean and whole, and you do not need that pain anymore to feel the person within you. I felt nothing as yet. I was still appraising my own luck.
+
+Then, I felt I wanted it. My body wanted it.
+
+“When you close your eyes under the sun, do you see cells?” I asked.
+
+“Yeah, sometimes,” Elvis said.
+
+“Like, little cells with tails? I see one with a little tail. What do you see?”
+
+“Loads of things.”
+
+Elvis had been rubbing the edge of a flat stone against his inner thigh. I watched him close his eyes and pinch them against the sun, scrutinizing the darkness beneath his lids and the sun shining through them, and I watched him thinking toward that tight close of his eyes until some bug or horsefly came toward me out of the sustained silence of the waves and I closed mine.
+
+I opened them again and watched Elvis brush something away from his nose. Maybe the same fly, passing from my nose to his. His hand lingered on his face, scratching the parts of his futbol beard that needed trimming, and then worked its way down his body, lightly scratching the brief spates of stick-and-poke tattoos he or Astana had done along his arms and chest. He seemed to touch them unconsciously with his hand, points of contact or chakra, words I could not read with backwards E’s, a woman with a baseball bat along the pale bicep. That and the small shining pendant in his right nostril made him look like a pirate or some bohemian belonging to another century, decorated by his own hand in the right, natural doses.
+
+I began clicking my tongue in the back of my throat. When I was a child I woke an hour before dawn with a high fever to the sound of jumbled, ecstatic voices conversing not so much in words but direct vibrations and my tongue was clicking along and I was twitching my nose. The voices came in waves of intensity and I listened very curiously and when they dimmed I called for my mother. My fever was so high I felt like the bed was pitched forward and I might fall onto my face. Lying on my back in the sloped sand I clicked and twitched my nose and thought myself back into that moment and could hear the voices again.
+
+“You usually make that sound when you’re falling asleep.”
+
+“I could fall asleep right now. Could you?”
+
+“Maybe.”
+
+“Elvis, tell your fake Kerouac story again.”
+
+“It doesn’t sound much like Kerouac. ‘sides, I forgot it.”
+
+I didn’t say anything for a moment, pinching the light blue smears under my eyes until they turned orange, verging on a deeper hue, and then, before I pinched the colors red, I said, “I remember. It’s about some guy in the city, and he’s all upset because he’s just had a falling out with his unrequited love, or had this realization or something, this total moment that it’s never going to happen, this person he’s put so much stock into. And he’s out with his friends and he meets a girl and her friends at a bar or something - or she’s a mutual friend of his friends or something - and they’re walking down the street on this little adventure all drunk and he realizes this new girl is his soulmate, and the person he’s supposed to be with forever. In all of the universe and all of the world he’s supposed to meet this person. All of time has come forward for this, and even though he’s just met her their love is like some memory he’s always had but could never pin down or understand until now, and he tells the girl this and she says she feels the exact same way, like it’s Deja-Vu. But a continuous Deja-Vu, one that isn’t ending when you put your finger on it, isn’t fading away like it’s supposed to, and she says she felt it as soon as she laid eyes on him. They go down to the docks, some docks somewhere in the city, I don’t know, and they’re kissing and holding each other, and holding their lips together so slowly and then he realizes he can’t be with her, he realizes he has to leave her, he has to leave the country. He doesn’t know why, just that he has to. His body rejects the feeling, the ‘Deja-Vu of fate’ you called it. And that’s how the novel begins, him on a plane over the ocean and all of it behind him.”
+
+“Mmm,” Elvis said up at the sun, smiling, his eyes closed. “That sounds about right.”
+
+“Yeah, but I didn’t say it right. I didn’t say it how you did. I just summarized it.”
+
+“I dunno. It didn’t really sound like Kerouac. It wasn’t that good.”
+
+“No, it was. I liked how they’re both each other’s true love and how it’s fate and all that, and the guy feels it so strongly, but he has to leave her. He knows he has to and he does. Like, if Jesus or Moses had just said, ‘Fuck it’ and stayed home and fished or something. If Achilles didn’t go to war and didn’t do shit. The freedom to walk away.”
+
+“I think I was just feeling inspired by the Malamud I’ve been reading.”
+
+“Yeah, but your story was better than anything that guy ever wrote. Ever. 100 percent.”
+
+“100 p?”
+
+“Hundred p.”

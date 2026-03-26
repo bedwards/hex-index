@@ -1,0 +1,233 @@
+---
+title: "Water on Stone"
+author: "The Metropolitan Review"
+publication: ""
+publication_slug: "metropolitanreview"
+published_at: "2025-11-29T17:42:22.000Z"
+source_url: "https://www.metropolitanreview.org/p/water-on-stone"
+word_count: 4399
+estimated_read_time: 22
+---
+
+[
+
+![](https://substackcdn.com/image/fetch/$s_!0KEi!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Ff5b717c6-3418-4730-8089-3383a9beff0c_1600x1068.jpeg)
+
+
+
+](https://substackcdn.com/image/fetch/$s_!0KEi!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Ff5b717c6-3418-4730-8089-3383a9beff0c_1600x1068.jpeg)
+**Flowstone and Stalactites in Halong Bay, Vietnam*, 2021, Photograph, Getty Images*
+
+She had been telling me a story for most of our date, a story that seemed half-truth, half-lie. I wasn’t sure how we got on the topic, but I didn’t dislike listening to her speak. The woman was a lover, but she was not a friend. She existed in that hazy space between passion and convenience.
+
+She twirled her little brown braid around her index finger — she had pianist hands — and looked at me with her wet, green eyes. Her eyes had a certain blank hopefulness that reminded me of cow eyes. “I wasn’t sure what to expect when I went to Vietnam. Not that I was that interested in speaking the language. It’s very hard. But really the culture . . . I thought the culture was interesting since I took all those history classes on the Vietnam War.”
+
+“And what did you not expect?” I asked. We had met two months ago through a mutual friend who knew she liked Asian men and had seen each other only a few times. I had never been with a white woman before her. She had asked if I was Vietnamese and I had shaken my head. I was not sure why I lied, because she probably knew that I was.
+
+“Well, I’m getting there.” She took a sip of her coffee, filled to the brim with steamed milk and whipped cream and noted with a smirk, “This coffee is good, but it’s not as good as the coffee in Vietnam.”
+
+An employee bussed her empty plate. I handed him mine. The coffee shop was small and only had enough seating for a few people. We sat at a table by the window.
+
+“I wanted to take a vacation, because work generally is terrible. I’ve told you all about my awful manager. So I planned this whole trip with these friends so we could all catch up and take some time off.
+
+We went to these caves in the middle of Vietnam. They have these limestone caves that are massive and you can hire a guide. We went to Hang Sơn Đoòng, the ten of us. We swam into the cave, which was probably the coolest thing I’ve ever done, but hopefully won’t be the coolest thing I’ll ever do. It felt very spiritual.”
+
+I smiled. I didn’t tell her I had been to that exact cave. I had seen the limestone cascade downwards toward the cave bottom; water that drips long enough can penetrate any stone. In fact, I still remembered swimming in and the exact moment when all the light from the entrance had abated and I reached the rocky beach deep inside.
+
+“I was having fun with the group. We were friends from college, but we’d all ended up in different cities. And I’m not sure what I said, but I somehow became the butt of all the jokes. Like they were making fun of my job and my hair and I don’t know if I would have minded it years ago, because we used to be mean like that all the time in college, but I did in Vietnam.” I took a bite of my chocolate chip scone.
+
+“Like, my friend had a picture on her phone of my ex-boyfriend’s new tattoo. And I asked if I could see it and they all said ‘don’t show it to her,’ and what else was I supposed to do except play along? Even though I really wanted to see it.”
+
+The coffee shop door had a bell attached to the top and it would ring whenever someone came in. She put a little bit of hair into her mouth and sucked on the ends for a second. When she took it out, the hair was compressed and tight, all the pieces coming together in one big strand. I hoped I would remember not to run my hands through her hair when we slept together that evening.
+
+“Seriously, I’m a nice person,” she said, “You know I give pizza slices to homeless people every week. You’re still coming with me to do it this Thursday, right?”
+
+I nodded. A woman accidentally bumped into my chair on her way out and did not apologize. I closed my eyes for a moment.
+
+“Anyways, our tour guide, Khanh, would always eat with us and play cards with us at night. He told us he was from Cát Bà Island and that Cát Bà really meant ‘woman’ in Vietnamese. Which is very romantic. My best friend or maybe former best friend, I’m not sure, thought he was cute. He was really ripped, but he had these teensy tiny little nipples.”
+
+We only had sex in the dark. I liked to shut off the lights so that I could feel the soft skin of her thighs without knowing whether she closed her mouth when she moaned or whether her eyes had a look of boredom or yearning when I moved inside of her. When she turned on the lights after, everything would jump into a sharp clarity that hurt my eyes. The sheets had been scratchy, and they had smelled like her dog. Her sink had been unclean with brown flecks in it. But sex was sex, and I took it when I got it. It was all disappointingly familiar.
+
+“And none of the people around me would talk to me. It was like I was sitting in my tent and they would all go play cards and then I would see them later and they would invite me to join. But Khanh would come over and sit with me or he would watch me when I rinsed myself in the water. You know how you know when someone is watching you?”
+
+I nodded. I remembered when I had been at a concert a year ago, how I could tell someone had their eyes on me. It was almost a paranoid feeling like someone was breathing on your neck; it was a vibration that seemed to bore into your back until it moved up your spine and reached the tip of your tongue. When I turned around, I saw an older man watching me, and I stopped dancing and instead felt odd and ashamed. It was, at the time, a fear and a comfort that I was invisible, but after the concert, I realized that I did not like the rawness of being seen and enjoyed the privilege of an unassuming existence. I did not see the man when I left.
+
+“At the end of the first week, on Sunday night, he was passing by my tent and saw that I was still up and scrolling on my phone. So he asked if I wanted to have tea to help me sleep. We sat at the little table, there’s one at every campsite, and he kissed me. He tasted good, like sweat.
+
+And we ended up having sex, protected of course, that week. But it was discreet. It only happened late at night and I was tired the next day, but the raw energy we had. It was there.”
+
+“Did he ever do it with other women on the tour group?”
+
+“Well, I’m getting there and you don’t need to be crass. It’s not called ‘doing it,’” she reprimanded me. She had told me some story about her sexual escapade at 18 with a 70-year-old man a week ago, although I was not sure if it was more exaggeration or truth. I balled my hands into fists and then released. An odd, sour taste rose up in my mouth, but I swallowed it and took another sip of my coffee.
+
+I finished my scone, but a few crumbs fell down my chin and onto the table. I hated when that happened, so I scooped them all up and collected them on a napkin. I didn’t know what time it was, but I could see that the coffee shop was clearing out and the employees were washing all the mugs and machines.
+
+When I had visited family in Vietnam as a teenager, I liked going to the jungles the most. I remembered when we had been on a tour and I had seen a viper. It had small, slit eyes and was passive, almost relaxed in the way it looked at me. That same tour, a leech had attached to my hand and the guide had torn it off and dropped it on the ground.
+
+“He was very sweet. He went down on me a lot. And he seemed grateful when he did it. You know how you can tell when someone is grateful? I thought I was falling in love with him. He saw me. Because he was so different from other men I had been with.”
+
+“I think I understand,” I said, although I wasn’t sure if I’d ever had someone be grateful for sex with me; I wondered if I was always the grateful one. Did she think about him when she was fucking me? Was I more satisfying, more pleasurable for her?
+
+The bell on the door rang. A man walked in and the employees at the counter waved him away. It was too late for new orders. They began stacking up chairs on the table.
+
+“And you know what he did at the end of the trip? He asked me for money, can you believe that? He asked me for money on the last night and I gave it to him, because he started crying. I felt cheated, because he was just preying on my pity and discretion. He didn’t threaten me or anything, but he definitely took advantage of me, you know? It was very toxic. I cried when I got home and never told anyone else about this. Well, except my therapist. Of course I told my therapist but nobody else.” She laughed when she said this.
+
+I was not sure if I believed it all. She told stories like these all the time. She liked to go for the shock factor. I was not even sure she had been to Vietnam, although I knew she had gone to Japan the year before. All white women loved Japan, because it was safe and palatable. The people there were cute and harmless and not dirty and angry like the rest of Asia.
+
+I rubbed my thumb against my temple in a circular motion and nodded.
+
+“I looked him up on Facebook recently. Khanh has a child! A child. And a wife. They were married when we had sex. Isn’t that terrible?”
+
+I shrugged my shoulders, and licked the edge of my coffee mug. Our relationship was not serious. It was definitively casual.
+
+“Seriously, he had a kid. And he was off having sex with some twenty-year-old. And he was crying and crying, you know, just begging me for money.” She scoffed and tucked a strand of her hair behind her ear.
+
+“That’s horrible,” I agreed, soothing her even as my leg shook up and down with an irrepressible restlessness.
+
+When she went to the bathroom, I paid the check. I saw that she left an inch of coffee at the bottom of her cup, so I downed it quickly. I left a 25 percent tip, even though nobody was watching.
+
+What did it matter whether it was true or not? She would take me home that night; we would have sex. It would be neither inspired nor dramatic, but confused and fumbling, an unusual self-inflicted wound, and then I would put my clothes back on and leave before midnight.
+
+\---
+
+Over dinner, my friends asked me how things were going with the green-eyed girl. I picked a thin strip of meat out of the hot pot and popped it into my mouth. The water bubbled.
+
+I hesitated for a moment, chewing the meat. “I’m not sure if we click,” I said.
+
+“Right, but have you had sex?” My friend called over the waitress and ordered another round of pork. I drank some of the corn tea and swished it around in my mouth.
+
+“Yeah. It wasn’t terrible, but it wasn’t good,” I said.
+
+“But, you did it,” he noted, his cheeks ruddy from the steam of the soup. “I mean, you’re not doing too bad with a white girl chasing after you.”
+
+I felt a dull pain in my forehead. I wondered if the heat from the soup was making me dizzy.
+
+“What’s wrong with her?” another friend asked. “She seemed nice when we met her.”
+
+“She is,” I agreed, and considered the woman’s niceness, “I’m going with her to hand out pizza to the homeless this week.” Every Thursday evening, she would order a whole pie from the Italian place on King Street and hand out slices to homeless people. Sometimes, she taped the entire thing on Instagram Live, so everybody could see what she was doing.
+
+More meat came out, a see-through red on a white platter. I took one out from the pot that was half-raw, and the rawness made it taste like nothing at all.
+
+The conversation shifted to my friend’s new apartment and how he intended to furnish it. I twirled a noodle around my chopstick and emptied my mind.
+
+\---
+
+In the morning, the light came into my room in fitful shards, but the air was pale and fresh as if after a storm.
+
+The day passed. I felt a churning in my stomach, and thought about canceling the date with the woman. I wrote out the text, but did not send it.
+
+We met at the pizza place at seven in the evening. She was standing at the corner and waved me over. When we hugged, I felt her press her chin on my shoulder. She was wearing a heavy perfume, a mumbling and confused odor that reminded me of department stores. It crossed my mind that I should try to kiss her more often, but I hesitated and the moment was lost.
+
+At the counter, I offered to pay for the whole pie. She paused, and did not reach for her wallet, so my card hovered over the counter until the man took it and handed me the check. A vein on my forehead pulsed.
+
+We waited at one of the three tables inside. A group of teenage boys was sitting behind us talking about how Lance had finally felt up Anna at a party, but she had small breasts so it really wasn’t as great as he thought it would be. I could see how the conversation disturbed the woman — she had her fingers wrapped up in a fist — and tried talking over them, asking her how her day had been.
+
+She nodded and smiled, but stared up at the empty bulbs above us, spreading a harsh, yellow-tinted light. The left edge of the woman’s mouth twitched.
+
+I was glad when the pizzas arrived. I took out a slice. We walked down the street to search for homeless people. The sky was colorless. The air had the thick odor of urine.
+
+I sometimes found it hard to see the people who could be sitting on a corner in shaggy clothing, blending into the background as if they existed in some murky fog. Or perhaps I did not want to see them, because what would seeing them do? Sometimes I found myself walking too close to one of them and would realize with an odd and painful twinge, as if a needle had punctured my skin, that they were there, always looming in the background like a darkness pressing in.
+
+She handed out the slices, always with a neat, pretty smile.
+
+A man thanked her and called her beautiful, told her that she was an angel. He stretched the “a” out so the word sounded a few syllables long. He asked her if she had any spare change. He said he needed to pay for a hotel so he could take a shower. I winced at how the teeth in his mouth were crusted with black.
+
+She nodded and began to take out her wallet.
+
+“You’re going to give him money, too?” I asked, incredulous, as she handed over a pressed $20 bill to the man.
+
+“Yes, of course,” she whispered under her breath. The man grasped it and tucked it into his jacket pocket.
+
+“Why did you give money to him and not the rest?” We continued walking. We passed by another homeless man, but she must not have noticed him, or if she noticed, she did not care.
+
+“Well, why not?”
+
+“He didn’t even do anything.”
+
+“He said something nice to me. And you don’t know that. Don’t you donate money?”
+
+“I do. But only to old Asian people.” She stopped by a homeless woman and handed her two slices. The woman’s nails had dirt underneath them, and she was holding a cardboard sign that said, *Need money kicked out of house* in strong, black block letters. The homeless woman thanked her and began to cry, but we were already moving down the street. She was just a shadow in the day now.
+
+“That seems problematic.”
+
+“Why?” I asked, even though I knew that pressing the conversation was going to be fruitless.
+
+“You don’t give money to any other type of person?” Her mouth was in this little downwards pout so that her upper lip looked puffier than it really was.
+
+“Nope.” A fly buzzed close to my ear, and I smacked myself trying to get at it. But like all flies that buzz close to ears, it evaded me and flew away to buzz close to someone else’s ear. We passed by an Asian American man, thin and tiny like a baby bird, pushing along a cart of bottles. One of them oozed onto the sidewalk, causing a small trail of fluid to follow him.
+
+“Why not?” she said.
+
+“Because I want to help Asian American people like me. Like those old people collecting cans in grocery carts.”
+
+I snatched the pizza box, ran after the Asian American bottle man, and handed it to him, but he ignored me. I followed him, and he declined again, saying he did not take food from strangers. The woman called to me, saying that I should leave him alone.
+
+Instead, I held his shoulder and said, “Look, this is charity. I’m helping you.” But when he turned his face up to me, his eyes had the blackness of fear. The wrinkles around his eye were filled with a viscous, clear liquid that was not tears, but the leftover gel that came out of the eyes of unclean people. I let him go, and walked back to the woman. He shuffled along, sometimes looking back at me. When we made eye contact, he turned away. I stared at the ground.
+
+The woman shook her head and told me to calm down. We were supposed to be helping people, not harassing them. I took a slice out, rolled it up into a greasy ball, and put the entire thing in my mouth.
+
+After we finished handing out the pizza slices, she asked me if I wanted to go to her favorite bar. She touched my shoulder with the tips of her fingers. The bar was only a few blocks away, and she knew it would be a slow night so we wouldn’t have to be knee-to-knee with other patrons. I acquiesced even though I was tired and my head felt a light thudding, as if somebody was knocking against the skin of my forehead.
+
+In the bar, the wooden table had water stains on it. I looked up at the ceiling fan spinning lazily. It smelled like old cigarette smoke.
+
+“Did you resolve things with all your friends?” I asked her, ripping up a paper napkin into small, orderly pieces.
+
+“From the Vietnam trip?”
+
+I nodded.
+
+“When I got back home, I talked to my friends. I said I felt bullied and they said they didn’t think they were bullying me. They didn’t even know they were bullying me! When I told them about how they would all have tea without me, they said they just thought I was in a bad mood and wanted space. Do I seem like the type of person to want space? I never want space.” The woman spoke so quickly it was as if she was saying one long sentence.
+
+“They didn’t know they were making you feel that way?”
+
+“It was like I was trapped and everybody apologized and we’re all still friends, but it’s like something will always be off or I’ll always worry that I’m invisible. It’s like they spoke in this code I couldn’t decipher.” The woman looked not at me, but beyond me as if there were somebody else standing right behind. “So of course I had to talk to the guide. He was the only person who wasn’t ostracizing me. I thought maybe they would notice or say something or do *something*, but nothing. I don’t think they even know.”
+
+She picked at the skin around her nails, and took such a small sip of her drink it looked like she had only wet her lips with the gleam of alcohol.
+
+“I looked up the man again and thought about friending him on Facebook. But you know, what would be the point? I was going to send him a long, angry message about how he extorted me, but it was only a hundred dollars. That’s probably a million dollars in Vietnamese money. How could he even have returned me the money?”
+
+“That’s not that much money.” I said. We listened to the music on the speakers for a second. It was a nice melody, only a guitar playing, although I wished somebody was singing as well.
+
+“What did you think of that story?” she asked me.
+
+“It was good. It was a good story.”
+
+“Yes, but what did you think?” She looked at my face, scanning it for any hint of emotion, but I kept my eyes blank.
+
+“I’m trying not to think too much right now.” I nodded my head to the music, and imagined the goo of my brain falling out of my right ear in thick, pink tendrils to the floor. I stared at a tattoo of a butterfly on the bartender’s right arm and in that moment, it seemed as if it was the most comforting thing in the world.
+
+“But do you think I’m right to be upset?”
+
+I hesitated. The thudding in my forehead returned. I examined the patrons at the bar, how they were all stitched together in a cluster of blood and bone until I could examine no longer and my mind was spent and the air began to move again. The bartender’s tattoo fluttered away.
+
+“Yes, you’re right,” I reassured her.
+
+She looked down. Her eyes flickered, and she crept her tiny, pink hand up my thigh.
+
+I didn’t sleep with her that night. I was tired and cranky and had an open canker sore, a raw, pink wound in my cheek, which stung every time I sipped my drink. Tonight, her body did not provoke lust in me.
+
+She kissed me before we parted ways, but the taste was sour and bitter and reminded me of how my aunt used to kiss me on the lips even when I tried giving her my cheek.
+
+I dreamt of the viper in Vietnam. It was enormous and I was riding it, whipping it so that sweat ran down its back. But it kept going, smiling even, wrapping around me tenderly like I was a precious thing it needed to protect.
+
+When I woke up, I wrote the woman an email. It seemed too informal to send a text and nobody made phone calls anymore. If I had called, she might have thought I was out of fashion. It took me two hours to write the email and I told myself I would not do anything else until it was done, but I sent it without checking. When I read it back to myself later, I noticed three typos.
+
+That evening, my friends wanted to see a horror movie. We had all seen one together the month before. One that they all loved. It was about a woman going to a festival where her shitty boyfriend got raped and then she murdered him. They all said it was culturally significant, but I did not think it was. I had hidden behind my hands when the gory scenes came on.
+
+Even though I didn’t like horror movies and certainly hadn’t enjoyed the last one, I agreed to go, because everyone else was going and I liked how my elbows would sometimes touch my friends’ and that light heat in a half-full theater.
+
+At the movie theater, we sat in the back. The screen had a little black spot by the upper right hand corner. Someone coughed.
+
+I felt my phone vibrate in my pocket, and saw that the woman replied to my email. I stepped outside, shuffling over the lines of legs and stepping on dropped popcorn kernels. Tension was rising in the movie. Discordant music played.
+
+In the hallway, I saw that she wrote back: *I’m sorry you feel that way*.
+
+I paced back and forth. What did I expect? I had written her three paragraphs. The night before, I deliberated on the exact phrasing of the first sentence. At first, I wrote “I don’t like how condescending you are.” But that felt too aggressive. I changed it to “I don’t think we’re a good match,” but that was meek. “I don’t like how you treat other people.” Too passive-aggressive. “You don’t need to pity me.” None of them seemed right, so instead, I kept “I don’t think we’re a good match,” a meek statement for my dissatisfaction.
+
+Had I even wanted to read three paragraphs worth of response? It did not matter. The heat of embarrassment rose to my cheeks. I made an effort to push her face out of my mind but could still smell her perfume.
+
+It was mutual. There was no reason to account for why my face was hot and palms moist.
+
+I was not certain whether I should go back in. A family walked into another theater with 3-D glasses on. The boy was jumping up and down and punching his fists in the air. There was nothing else to do. When I re-entered the theater, my friends were watching a scene with a lot of screaming and blood. I looked directly at the screen, and did not turn away.
+
+**Olivia Cheng is a 2025-26 Steinbeck Fellow. She received her MFA in prose from the University of Michigan. Her fiction can be found in** ***The Threepenny Review*****,** ***The Georgia Review*****,** ***Guernica*****, and more.**

@@ -1,0 +1,1139 @@
+<div class="mw-content-ltr mw-parser-output" lang="en" dir="ltr"><div class="shortdescription nomobile noexcerpt noprint searchaux" style="display:none">Linear circuit that produces an output voltage that is a fraction of its input voltage</div>
+<p>
+
+In <a href="/wiki/Electronics" title="Electronics">electronics</a>, a <b>voltage divider </b> (also known as a <b>potential divider</b>) is a <a href="/wiki/Passivity_(engineering)" title="Passivity (engineering)">passive</a> <a href="/wiki/Linear_circuit" title="Linear circuit">linear circuit</a> that produces an output <a href="/wiki/Voltage" title="Voltage">voltage</a> (<i>V</i><sub>out</sub>) that is a fraction of its input voltage (<i>V</i><sub>in</sub>). <b>Voltage division</b> is the result of distributing the input voltage among the components of the divider. A simple example of a voltage divider is two <a href="/wiki/Resistor" title="Resistor">resistors</a> connected in <a href="/wiki/Series_and_parallel_circuits" title="Series and parallel circuits">series</a>, with the input voltage applied across the resistor pair and the output voltage emerging from the connection between them.
+</p><p>Resistor voltage dividers are commonly used to create reference voltages, or to reduce the magnitude of a voltage so it can be measured, and may also be used as signal <a href="/wiki/Attenuator_(electronics)" title="Attenuator (electronics)">attenuators</a> at low <a href="/wiki/Alternating_current" title="Alternating current">alternating current</a> frequencies. For <a href="/wiki/Direct_current" title="Direct current">direct current</a> and relatively low alternating current frequencies, a voltage divider may be sufficiently accurate if made only of resistors; where <a href="/wiki/Frequency_response" title="Frequency response">frequency response</a> over a wide range is required (such as in an <a href="/wiki/Oscilloscope" title="Oscilloscope">oscilloscope</a> probe), a voltage divider may have <a href="/wiki/Capacitor" title="Capacitor">capacitive</a> elements added to compensate load capacitance. In <a href="/wiki/Electric_power_transmission" title="Electric power transmission">electric power transmission</a>, a capacitive voltage divider is used for measurement of high voltage.
+</p>
+<meta property="mw:PageProp/toc" />
+<div class="mw-heading mw-heading2"><h2 id="General_case">General case</h2><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Voltage_divider&amp;action=edit&amp;section=1" title="Edit section: General case"><span>edit</span></a><span class="mw-editsection-bracket">]</span></span></div>
+<figure class="mw-default-size" typeof="mw:File/Thumb"><a href="/wiki/File:Impedance_voltage_divider.svg" class="mw-file-description"><img src="//upload.wikimedia.org/wikipedia/commons/thumb/3/31/Impedance_voltage_divider.svg/250px-Impedance_voltage_divider.svg.png" decoding="async" width="250" height="321" class="mw-file-element" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/3/31/Impedance_voltage_divider.svg/500px-Impedance_voltage_divider.svg.png 1.5x" data-file-width="137" data-file-height="176" /></a><figcaption>Figure&#160;1: A simple voltage divider</figcaption></figure>
+<p>A voltage divider referenced to <a href="/wiki/Ground_(electricity)" title="Ground (electricity)">ground</a> is created by connecting two <a href="/wiki/Electrical_impedance" title="Electrical impedance">electrical impedances</a> in series, as shown in Figure&#160;1. The input voltage is applied across the series impedances <i>Z</i><sub>1</sub> and <i>Z</i><sub>2</sub> and the output is the voltage across <i>Z</i><sub>2</sub>.
+<i>Z</i><sub>1</sub> and <i>Z</i><sub>2</sub> may be composed of any combination of elements such as <a href="/wiki/Resistor" title="Resistor">resistors</a>, <a href="/wiki/Inductor" title="Inductor">inductors</a> and <a href="/wiki/Capacitor" title="Capacitor">capacitors</a>.
+</p><p>If the current in the output wire is zero then the relationship between the input voltage, <i>V</i><sub>in</sub>, and the output voltage, <i>V</i><sub>out</sub>, is:
+</p>
+<dl><dd><span class="mwe-math-element mwe-math-element-inline"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle V_{\mathrm {out} }={\frac {Z_{2}}{Z_{1}+Z_{2}}}\cdot V_{\mathrm {in} }}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msub>
+          <mi>V</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mrow class="MJX-TeXAtom-ORD">
+              <mi mathvariant="normal">o</mi>
+              <mi mathvariant="normal">u</mi>
+              <mi mathvariant="normal">t</mi>
+            </mrow>
+          </mrow>
+        </msub>
+        <mo>=</mo>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mfrac>
+            <msub>
+              <mi>Z</mi>
+              <mrow class="MJX-TeXAtom-ORD">
+                <mn>2</mn>
+              </mrow>
+            </msub>
+            <mrow>
+              <msub>
+                <mi>Z</mi>
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mn>1</mn>
+                </mrow>
+              </msub>
+              <mo>+</mo>
+              <msub>
+                <mi>Z</mi>
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mn>2</mn>
+                </mrow>
+              </msub>
+            </mrow>
+          </mfrac>
+        </mrow>
+        <mo>&#x22C5;<!-- ⋅ --></mo>
+        <msub>
+          <mi>V</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mrow class="MJX-TeXAtom-ORD">
+              <mi mathvariant="normal">i</mi>
+              <mi mathvariant="normal">n</mi>
+            </mrow>
+          </mrow>
+        </msub>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle V_{\mathrm {out} }={\frac {Z_{2}}{Z_{1}+Z_{2}}}\cdot V_{\mathrm {in} }}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/87a064548a3f0245508a1dca24782acf863b9947" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -2.171ex; width:20.659ex; height:5.509ex;" alt="{\displaystyle V_{\mathrm {out} }={\frac {Z_{2}}{Z_{1}+Z_{2}}}\cdot V_{\mathrm {in} }}"></span></dd></dl>
+<p>Proof (using <a href="/wiki/Ohm%27s_law" title="Ohm&#39;s law">Ohm's law</a>):<br /> 
+</p>
+<dl><dd><span class="mwe-math-element mwe-math-element-inline"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle V_{\mathrm {in} }=I\cdot (Z_{1}+Z_{2})}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msub>
+          <mi>V</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mrow class="MJX-TeXAtom-ORD">
+              <mi mathvariant="normal">i</mi>
+              <mi mathvariant="normal">n</mi>
+            </mrow>
+          </mrow>
+        </msub>
+        <mo>=</mo>
+        <mi>I</mi>
+        <mo>&#x22C5;<!-- ⋅ --></mo>
+        <mo stretchy="false">(</mo>
+        <msub>
+          <mi>Z</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>1</mn>
+          </mrow>
+        </msub>
+        <mo>+</mo>
+        <msub>
+          <mi>Z</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>2</mn>
+          </mrow>
+        </msub>
+        <mo stretchy="false">)</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle V_{\mathrm {in} }=I\cdot (Z_{1}+Z_{2})}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/756a45dae64d7590e40724bcb9426a6ed0edc3d4" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.838ex; width:18.841ex; height:2.843ex;" alt="{\displaystyle V_{\mathrm {in} }=I\cdot (Z_{1}+Z_{2})}"></span></dd>
+<dd><span class="mwe-math-element mwe-math-element-inline"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle V_{\mathrm {out} }=I\cdot Z_{2}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msub>
+          <mi>V</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mrow class="MJX-TeXAtom-ORD">
+              <mi mathvariant="normal">o</mi>
+              <mi mathvariant="normal">u</mi>
+              <mi mathvariant="normal">t</mi>
+            </mrow>
+          </mrow>
+        </msub>
+        <mo>=</mo>
+        <mi>I</mi>
+        <mo>&#x22C5;<!-- ⋅ --></mo>
+        <msub>
+          <mi>Z</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>2</mn>
+          </mrow>
+        </msub>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle V_{\mathrm {out} }=I\cdot Z_{2}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/443464ad9de6bb61c5a7a27df94600a9f8740fc5" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -0.671ex; width:12.554ex; height:2.509ex;" alt="{\displaystyle V_{\mathrm {out} }=I\cdot Z_{2}}"></span></dd>
+<dd><span class="mwe-math-element mwe-math-element-inline"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle I={\frac {V_{\mathrm {in} }}{Z_{1}+Z_{2}}}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>I</mi>
+        <mo>=</mo>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mfrac>
+            <msub>
+              <mi>V</mi>
+              <mrow class="MJX-TeXAtom-ORD">
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mi mathvariant="normal">i</mi>
+                  <mi mathvariant="normal">n</mi>
+                </mrow>
+              </mrow>
+            </msub>
+            <mrow>
+              <msub>
+                <mi>Z</mi>
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mn>1</mn>
+                </mrow>
+              </msub>
+              <mo>+</mo>
+              <msub>
+                <mi>Z</mi>
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mn>2</mn>
+                </mrow>
+              </msub>
+            </mrow>
+          </mfrac>
+        </mrow>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle I={\frac {V_{\mathrm {in} }}{Z_{1}+Z_{2}}}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/d43f4ac035223d16d249d0428c9bdf89a36e6e75" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -2.171ex; width:13.23ex; height:5.509ex;" alt="{\displaystyle I={\frac {V_{\mathrm {in} }}{Z_{1}+Z_{2}}}}"></span></dd>
+<dd><span class="mwe-math-element mwe-math-element-inline"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle V_{\mathrm {out} }=V_{\mathrm {in} }\cdot {\frac {Z_{2}}{Z_{1}+Z_{2}}}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msub>
+          <mi>V</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mrow class="MJX-TeXAtom-ORD">
+              <mi mathvariant="normal">o</mi>
+              <mi mathvariant="normal">u</mi>
+              <mi mathvariant="normal">t</mi>
+            </mrow>
+          </mrow>
+        </msub>
+        <mo>=</mo>
+        <msub>
+          <mi>V</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mrow class="MJX-TeXAtom-ORD">
+              <mi mathvariant="normal">i</mi>
+              <mi mathvariant="normal">n</mi>
+            </mrow>
+          </mrow>
+        </msub>
+        <mo>&#x22C5;<!-- ⋅ --></mo>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mfrac>
+            <msub>
+              <mi>Z</mi>
+              <mrow class="MJX-TeXAtom-ORD">
+                <mn>2</mn>
+              </mrow>
+            </msub>
+            <mrow>
+              <msub>
+                <mi>Z</mi>
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mn>1</mn>
+                </mrow>
+              </msub>
+              <mo>+</mo>
+              <msub>
+                <mi>Z</mi>
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mn>2</mn>
+                </mrow>
+              </msub>
+            </mrow>
+          </mfrac>
+        </mrow>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle V_{\mathrm {out} }=V_{\mathrm {in} }\cdot {\frac {Z_{2}}{Z_{1}+Z_{2}}}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/383eca51771be935269ef23324f10f70ac0189e7" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -2.171ex; width:20.659ex; height:5.509ex;" alt="{\displaystyle V_{\mathrm {out} }=V_{\mathrm {in} }\cdot {\frac {Z_{2}}{Z_{1}+Z_{2}}}}"></span></dd></dl>
+<p>The <a href="/wiki/Transfer_function" title="Transfer function">transfer function</a> (also known as the divider's <b>voltage ratio</b>) of this circuit is:
+</p>
+<dl><dd><span class="mwe-math-element mwe-math-element-inline"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle H={\frac {V_{\mathrm {out} }}{V_{\mathrm {in} }}}={\frac {Z_{2}}{Z_{1}+Z_{2}}}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>H</mi>
+        <mo>=</mo>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mfrac>
+            <msub>
+              <mi>V</mi>
+              <mrow class="MJX-TeXAtom-ORD">
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mi mathvariant="normal">o</mi>
+                  <mi mathvariant="normal">u</mi>
+                  <mi mathvariant="normal">t</mi>
+                </mrow>
+              </mrow>
+            </msub>
+            <msub>
+              <mi>V</mi>
+              <mrow class="MJX-TeXAtom-ORD">
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mi mathvariant="normal">i</mi>
+                  <mi mathvariant="normal">n</mi>
+                </mrow>
+              </mrow>
+            </msub>
+          </mfrac>
+        </mrow>
+        <mo>=</mo>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mfrac>
+            <msub>
+              <mi>Z</mi>
+              <mrow class="MJX-TeXAtom-ORD">
+                <mn>2</mn>
+              </mrow>
+            </msub>
+            <mrow>
+              <msub>
+                <mi>Z</mi>
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mn>1</mn>
+                </mrow>
+              </msub>
+              <mo>+</mo>
+              <msub>
+                <mi>Z</mi>
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mn>2</mn>
+                </mrow>
+              </msub>
+            </mrow>
+          </mfrac>
+        </mrow>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle H={\frac {V_{\mathrm {out} }}{V_{\mathrm {in} }}}={\frac {Z_{2}}{Z_{1}+Z_{2}}}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/63c7adc601c285073d79a16e2d27482e336fffa1" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -2.171ex; width:22.02ex; height:5.509ex;" alt="{\displaystyle H={\frac {V_{\mathrm {out} }}{V_{\mathrm {in} }}}={\frac {Z_{2}}{Z_{1}+Z_{2}}}}"></span></dd></dl>
+<p>In general this transfer function is a <a href="/wiki/Complex_variable" class="mw-redirect" title="Complex variable">complex</a>, <a href="/wiki/Rational_function" title="Rational function">rational function</a> of <a href="/wiki/Frequency" title="Frequency">frequency</a>.
+</p>
+<div class="mw-heading mw-heading2"><h2 id="Examples">Examples</h2><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Voltage_divider&amp;action=edit&amp;section=2" title="Edit section: Examples"><span>edit</span></a><span class="mw-editsection-bracket">]</span></span></div>
+<div class="mw-heading mw-heading3"><h3 id="Resistive_divider">Resistive divider</h3><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Voltage_divider&amp;action=edit&amp;section=3" title="Edit section: Resistive divider"><span>edit</span></a><span class="mw-editsection-bracket">]</span></span></div>
+<figure class="mw-default-size" typeof="mw:File/Thumb"><a href="/wiki/File:Resistive_divider2.svg" class="mw-file-description"><img src="//upload.wikimedia.org/wikipedia/commons/thumb/2/21/Resistive_divider2.svg/250px-Resistive_divider2.svg.png" decoding="async" width="250" height="321" class="mw-file-element" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/2/21/Resistive_divider2.svg/500px-Resistive_divider2.svg.png 1.5x" data-file-width="137" data-file-height="176" /></a><figcaption>Figure&#160;2: Simple resistive voltage divider</figcaption></figure>
+<p>A resistive divider is the case where both impedances, <i>Z</i><sub>1</sub> and <i>Z</i><sub>2</sub>, are purely resistive (Figure&#160;2).
+</p><p>Substituting <i>Z</i><sub>1</sub>&#160;= <i>R</i><sub>1</sub> and <i>Z</i><sub>2</sub>&#160;= R<sub>2</sub> into the previous expression gives:
+</p>
+<dl><dd><span class="mwe-math-element mwe-math-element-inline"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle V_{\mathrm {out} }={\frac {R_{2}}{R_{1}+R_{2}}}\cdot V_{\mathrm {in} }}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msub>
+          <mi>V</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mrow class="MJX-TeXAtom-ORD">
+              <mi mathvariant="normal">o</mi>
+              <mi mathvariant="normal">u</mi>
+              <mi mathvariant="normal">t</mi>
+            </mrow>
+          </mrow>
+        </msub>
+        <mo>=</mo>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mfrac>
+            <msub>
+              <mi>R</mi>
+              <mrow class="MJX-TeXAtom-ORD">
+                <mn>2</mn>
+              </mrow>
+            </msub>
+            <mrow>
+              <msub>
+                <mi>R</mi>
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mn>1</mn>
+                </mrow>
+              </msub>
+              <mo>+</mo>
+              <msub>
+                <mi>R</mi>
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mn>2</mn>
+                </mrow>
+              </msub>
+            </mrow>
+          </mfrac>
+        </mrow>
+        <mo>&#x22C5;<!-- ⋅ --></mo>
+        <msub>
+          <mi>V</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mrow class="MJX-TeXAtom-ORD">
+              <mi mathvariant="normal">i</mi>
+              <mi mathvariant="normal">n</mi>
+            </mrow>
+          </mrow>
+        </msub>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle V_{\mathrm {out} }={\frac {R_{2}}{R_{1}+R_{2}}}\cdot V_{\mathrm {in} }}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/5d55415f24b63635bc017c3287b406c480a54472" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -2.171ex; width:21.013ex; height:5.509ex;" alt="{\displaystyle V_{\mathrm {out} }={\frac {R_{2}}{R_{1}+R_{2}}}\cdot V_{\mathrm {in} }}"></span></dd></dl>
+<p>If <i>R</i><sub>1</sub>&#160;= <i>R</i><sub>2</sub> then
+</p>
+<dl><dd><span class="mwe-math-element mwe-math-element-inline"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle V_{\mathrm {out} }={\frac {1}{2}}\cdot V_{\mathrm {in} }}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msub>
+          <mi>V</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mrow class="MJX-TeXAtom-ORD">
+              <mi mathvariant="normal">o</mi>
+              <mi mathvariant="normal">u</mi>
+              <mi mathvariant="normal">t</mi>
+            </mrow>
+          </mrow>
+        </msub>
+        <mo>=</mo>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mfrac>
+            <mn>1</mn>
+            <mn>2</mn>
+          </mfrac>
+        </mrow>
+        <mo>&#x22C5;<!-- ⋅ --></mo>
+        <msub>
+          <mi>V</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mrow class="MJX-TeXAtom-ORD">
+              <mi mathvariant="normal">i</mi>
+              <mi mathvariant="normal">n</mi>
+            </mrow>
+          </mrow>
+        </msub>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle V_{\mathrm {out} }={\frac {1}{2}}\cdot V_{\mathrm {in} }}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/9653d19766ad1ec5f2b78c8a9aab1ec3ad17958f" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -1.838ex; width:13.698ex; height:5.176ex;" alt="{\displaystyle V_{\mathrm {out} }={\frac {1}{2}}\cdot V_{\mathrm {in} }}"></span></dd></dl>
+<p>If <i>V</i><sub>out</sub>&#160;= 6&#160;V and <i>V</i><sub>in</sub>&#160;= 9&#160;V (both commonly used voltages), then:
+</p>
+<dl><dd><span class="mwe-math-element mwe-math-element-inline"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle {\frac {V_{\mathrm {out} }}{V_{\mathrm {in} }}}={\frac {R_{2}}{R_{1}+R_{2}}}={\frac {6}{9}}={\frac {2}{3}}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mrow class="MJX-TeXAtom-ORD">
+          <mfrac>
+            <msub>
+              <mi>V</mi>
+              <mrow class="MJX-TeXAtom-ORD">
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mi mathvariant="normal">o</mi>
+                  <mi mathvariant="normal">u</mi>
+                  <mi mathvariant="normal">t</mi>
+                </mrow>
+              </mrow>
+            </msub>
+            <msub>
+              <mi>V</mi>
+              <mrow class="MJX-TeXAtom-ORD">
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mi mathvariant="normal">i</mi>
+                  <mi mathvariant="normal">n</mi>
+                </mrow>
+              </mrow>
+            </msub>
+          </mfrac>
+        </mrow>
+        <mo>=</mo>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mfrac>
+            <msub>
+              <mi>R</mi>
+              <mrow class="MJX-TeXAtom-ORD">
+                <mn>2</mn>
+              </mrow>
+            </msub>
+            <mrow>
+              <msub>
+                <mi>R</mi>
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mn>1</mn>
+                </mrow>
+              </msub>
+              <mo>+</mo>
+              <msub>
+                <mi>R</mi>
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mn>2</mn>
+                </mrow>
+              </msub>
+            </mrow>
+          </mfrac>
+        </mrow>
+        <mo>=</mo>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mfrac>
+            <mn>6</mn>
+            <mn>9</mn>
+          </mfrac>
+        </mrow>
+        <mo>=</mo>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mfrac>
+            <mn>2</mn>
+            <mn>3</mn>
+          </mfrac>
+        </mrow>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle {\frac {V_{\mathrm {out} }}{V_{\mathrm {in} }}}={\frac {R_{2}}{R_{1}+R_{2}}}={\frac {6}{9}}={\frac {2}{3}}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/58b2fc5ce772a18ba4c11578c5fb9adbe1b99337" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -2.171ex; width:27.405ex; height:5.509ex;" alt="{\displaystyle {\frac {V_{\mathrm {out} }}{V_{\mathrm {in} }}}={\frac {R_{2}}{R_{1}+R_{2}}}={\frac {6}{9}}={\frac {2}{3}}}"></span></dd></dl>
+<p>and by solving using <a href="/wiki/Algebra" title="Algebra">algebra</a>, <i>R</i><sub>2</sub> must be twice the value of <i>R</i><sub>1</sub>.
+</p><p>To solve for <i>R</i><sub>1</sub>:
+</p>
+<dl><dd><span class="mwe-math-element mwe-math-element-inline"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle R_{1}={\frac {R_{2}\cdot V_{\mathrm {in} }}{V_{\mathrm {out} }}}-R_{2}=R_{2}\cdot \left({{\frac {V_{\mathrm {in} }}{V_{\mathrm {out} }}}-1}\right)}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msub>
+          <mi>R</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>1</mn>
+          </mrow>
+        </msub>
+        <mo>=</mo>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mfrac>
+            <mrow>
+              <msub>
+                <mi>R</mi>
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mn>2</mn>
+                </mrow>
+              </msub>
+              <mo>&#x22C5;<!-- ⋅ --></mo>
+              <msub>
+                <mi>V</mi>
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mrow class="MJX-TeXAtom-ORD">
+                    <mi mathvariant="normal">i</mi>
+                    <mi mathvariant="normal">n</mi>
+                  </mrow>
+                </mrow>
+              </msub>
+            </mrow>
+            <msub>
+              <mi>V</mi>
+              <mrow class="MJX-TeXAtom-ORD">
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mi mathvariant="normal">o</mi>
+                  <mi mathvariant="normal">u</mi>
+                  <mi mathvariant="normal">t</mi>
+                </mrow>
+              </mrow>
+            </msub>
+          </mfrac>
+        </mrow>
+        <mo>&#x2212;<!-- − --></mo>
+        <msub>
+          <mi>R</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>2</mn>
+          </mrow>
+        </msub>
+        <mo>=</mo>
+        <msub>
+          <mi>R</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>2</mn>
+          </mrow>
+        </msub>
+        <mo>&#x22C5;<!-- ⋅ --></mo>
+        <mrow>
+          <mo>(</mo>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mrow class="MJX-TeXAtom-ORD">
+              <mfrac>
+                <msub>
+                  <mi>V</mi>
+                  <mrow class="MJX-TeXAtom-ORD">
+                    <mrow class="MJX-TeXAtom-ORD">
+                      <mi mathvariant="normal">i</mi>
+                      <mi mathvariant="normal">n</mi>
+                    </mrow>
+                  </mrow>
+                </msub>
+                <msub>
+                  <mi>V</mi>
+                  <mrow class="MJX-TeXAtom-ORD">
+                    <mrow class="MJX-TeXAtom-ORD">
+                      <mi mathvariant="normal">o</mi>
+                      <mi mathvariant="normal">u</mi>
+                      <mi mathvariant="normal">t</mi>
+                    </mrow>
+                  </mrow>
+                </msub>
+              </mfrac>
+            </mrow>
+            <mo>&#x2212;<!-- − --></mo>
+            <mn>1</mn>
+          </mrow>
+          <mo>)</mo>
+        </mrow>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle R_{1}={\frac {R_{2}\cdot V_{\mathrm {in} }}{V_{\mathrm {out} }}}-R_{2}=R_{2}\cdot \left({{\frac {V_{\mathrm {in} }}{V_{\mathrm {out} }}}-1}\right)}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/bd9f9ac116b6ce45ed90f375b4c5b0e7bac1df87" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -2.505ex; width:39.687ex; height:6.176ex;" alt="{\displaystyle R_{1}={\frac {R_{2}\cdot V_{\mathrm {in} }}{V_{\mathrm {out} }}}-R_{2}=R_{2}\cdot \left({{\frac {V_{\mathrm {in} }}{V_{\mathrm {out} }}}-1}\right)}"></span></dd></dl>
+<p>To solve for <i>R</i><sub>2</sub>:
+</p>
+<dl><dd><span class="mwe-math-element mwe-math-element-inline"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle R_{2}=R_{1}\cdot {\frac {1}{\left({{\frac {V_{\mathrm {in} }}{V_{\mathrm {out} }}}-1}\right)}}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msub>
+          <mi>R</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>2</mn>
+          </mrow>
+        </msub>
+        <mo>=</mo>
+        <msub>
+          <mi>R</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>1</mn>
+          </mrow>
+        </msub>
+        <mo>&#x22C5;<!-- ⋅ --></mo>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mfrac>
+            <mn>1</mn>
+            <mrow>
+              <mo>(</mo>
+              <mrow class="MJX-TeXAtom-ORD">
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mfrac>
+                    <msub>
+                      <mi>V</mi>
+                      <mrow class="MJX-TeXAtom-ORD">
+                        <mrow class="MJX-TeXAtom-ORD">
+                          <mi mathvariant="normal">i</mi>
+                          <mi mathvariant="normal">n</mi>
+                        </mrow>
+                      </mrow>
+                    </msub>
+                    <msub>
+                      <mi>V</mi>
+                      <mrow class="MJX-TeXAtom-ORD">
+                        <mrow class="MJX-TeXAtom-ORD">
+                          <mi mathvariant="normal">o</mi>
+                          <mi mathvariant="normal">u</mi>
+                          <mi mathvariant="normal">t</mi>
+                        </mrow>
+                      </mrow>
+                    </msub>
+                  </mfrac>
+                </mrow>
+                <mo>&#x2212;<!-- − --></mo>
+                <mn>1</mn>
+              </mrow>
+              <mo>)</mo>
+            </mrow>
+          </mfrac>
+        </mrow>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle R_{2}=R_{1}\cdot {\frac {1}{\left({{\frac {V_{\mathrm {in} }}{V_{\mathrm {out} }}}-1}\right)}}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/80b9b6c4ed9db743097f939c93c4d239c6ecfaeb" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -4.505ex; width:21.916ex; height:7.843ex;" alt="{\displaystyle R_{2}=R_{1}\cdot {\frac {1}{\left({{\frac {V_{\mathrm {in} }}{V_{\mathrm {out} }}}-1}\right)}}}"></span></dd></dl>
+<p>Any ratio <i>V</i><sub>out</sub>&#160;/ <i>V</i><sub>in</sub> greater than 1 is not possible. That is, using resistors alone it is not possible to either invert the voltage or increase <i>V</i><sub>out</sub> above <i>V</i><sub>in</sub>.
+</p>
+<div class="mw-heading mw-heading3"><h3 id="Low-pass_RC_filter">Low-pass RC filter</h3><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Voltage_divider&amp;action=edit&amp;section=4" title="Edit section: Low-pass RC filter"><span>edit</span></a><span class="mw-editsection-bracket">]</span></span></div>
+<figure typeof="mw:File/Thumb"><a href="/wiki/File:RC_Divider.svg" class="mw-file-description"><img src="//upload.wikimedia.org/wikipedia/commons/thumb/3/3b/RC_Divider.svg/250px-RC_Divider.svg.png" decoding="async" width="200" height="187" class="mw-file-element" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/3/3b/RC_Divider.svg/330px-RC_Divider.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/3/3b/RC_Divider.svg/500px-RC_Divider.svg.png 2x" data-file-width="172" data-file-height="161" /></a><figcaption>Figure&#160;3: Resistor/capacitor voltage divider</figcaption></figure>
+<p>Consider a divider consisting of a resistor and <a href="/wiki/Capacitor" title="Capacitor">capacitor</a> as shown in Figure&#160;3.
+</p><p>Comparing with the general case, we see <i>Z</i><sub>1</sub>&#160;= <i>R</i> and <i>Z</i><sub>2</sub> is the impedance of the capacitor, given by
+</p>
+<dl><dd><span class="mwe-math-element mwe-math-element-inline"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle Z_{2}=-\mathrm {j} X_{\mathrm {C} }={\frac {1}{\mathrm {j} \omega C}}\ ,}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msub>
+          <mi>Z</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>2</mn>
+          </mrow>
+        </msub>
+        <mo>=</mo>
+        <mo>&#x2212;<!-- − --></mo>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mi mathvariant="normal">j</mi>
+        </mrow>
+        <msub>
+          <mi>X</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mrow class="MJX-TeXAtom-ORD">
+              <mi mathvariant="normal">C</mi>
+            </mrow>
+          </mrow>
+        </msub>
+        <mo>=</mo>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mfrac>
+            <mn>1</mn>
+            <mrow>
+              <mrow class="MJX-TeXAtom-ORD">
+                <mi mathvariant="normal">j</mi>
+              </mrow>
+              <mi>&#x03C9;<!-- ω --></mi>
+              <mi>C</mi>
+            </mrow>
+          </mfrac>
+        </mrow>
+        <mtext>&#xA0;</mtext>
+        <mo>,</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle Z_{2}=-\mathrm {j} X_{\mathrm {C} }={\frac {1}{\mathrm {j} \omega C}}\ ,}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/3a9db207e91cd0a8cb177260d44761e0a153cbd3" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -2.338ex; width:20.689ex; height:5.676ex;" alt="{\displaystyle Z_{2}=-\mathrm {j} X_{\mathrm {C} }={\frac {1}{\mathrm {j} \omega C}}\ ,}"></span></dd></dl>
+<p>where <i>X</i><sub>C</sub> is the <a href="/wiki/Reactance_(electronics)" class="mw-redirect" title="Reactance (electronics)">reactance</a> of the capacitor, <i>C</i> is the <a href="/wiki/Capacitance" title="Capacitance">capacitance</a> of the capacitor, <i>j</i> is the <a href="/wiki/Imaginary_unit" title="Imaginary unit">imaginary unit</a>, and <i>ω</i> (omega) is the <a href="/wiki/Radian_frequency" class="mw-redirect" title="Radian frequency">radian frequency</a> of the input voltage.
+</p><p>This divider will then have the voltage ratio:
+</p>
+<dl><dd><span class="mwe-math-element mwe-math-element-inline"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle {\frac {V_{\mathrm {out} }}{V_{\mathrm {in} }}}={\frac {Z_{\mathrm {2} }}{Z_{\mathrm {1} }+Z_{\mathrm {2} }}}={\frac {\frac {1}{\mathrm {j} \omega C}}{{\frac {1}{\mathrm {j} \omega C}}+R}}={\frac {1}{1+\mathrm {j} \omega RC}}\ .}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mrow class="MJX-TeXAtom-ORD">
+          <mfrac>
+            <msub>
+              <mi>V</mi>
+              <mrow class="MJX-TeXAtom-ORD">
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mi mathvariant="normal">o</mi>
+                  <mi mathvariant="normal">u</mi>
+                  <mi mathvariant="normal">t</mi>
+                </mrow>
+              </mrow>
+            </msub>
+            <msub>
+              <mi>V</mi>
+              <mrow class="MJX-TeXAtom-ORD">
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mi mathvariant="normal">i</mi>
+                  <mi mathvariant="normal">n</mi>
+                </mrow>
+              </mrow>
+            </msub>
+          </mfrac>
+        </mrow>
+        <mo>=</mo>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mfrac>
+            <msub>
+              <mi>Z</mi>
+              <mrow class="MJX-TeXAtom-ORD">
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mn>2</mn>
+                </mrow>
+              </mrow>
+            </msub>
+            <mrow>
+              <msub>
+                <mi>Z</mi>
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mrow class="MJX-TeXAtom-ORD">
+                    <mn>1</mn>
+                  </mrow>
+                </mrow>
+              </msub>
+              <mo>+</mo>
+              <msub>
+                <mi>Z</mi>
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mrow class="MJX-TeXAtom-ORD">
+                    <mn>2</mn>
+                  </mrow>
+                </mrow>
+              </msub>
+            </mrow>
+          </mfrac>
+        </mrow>
+        <mo>=</mo>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mfrac>
+            <mfrac>
+              <mn>1</mn>
+              <mrow>
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mi mathvariant="normal">j</mi>
+                </mrow>
+                <mi>&#x03C9;<!-- ω --></mi>
+                <mi>C</mi>
+              </mrow>
+            </mfrac>
+            <mrow>
+              <mrow class="MJX-TeXAtom-ORD">
+                <mfrac>
+                  <mn>1</mn>
+                  <mrow>
+                    <mrow class="MJX-TeXAtom-ORD">
+                      <mi mathvariant="normal">j</mi>
+                    </mrow>
+                    <mi>&#x03C9;<!-- ω --></mi>
+                    <mi>C</mi>
+                  </mrow>
+                </mfrac>
+              </mrow>
+              <mo>+</mo>
+              <mi>R</mi>
+            </mrow>
+          </mfrac>
+        </mrow>
+        <mo>=</mo>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mfrac>
+            <mn>1</mn>
+            <mrow>
+              <mn>1</mn>
+              <mo>+</mo>
+              <mrow class="MJX-TeXAtom-ORD">
+                <mi mathvariant="normal">j</mi>
+              </mrow>
+              <mi>&#x03C9;<!-- ω --></mi>
+              <mi>R</mi>
+              <mi>C</mi>
+            </mrow>
+          </mfrac>
+        </mrow>
+        <mtext>&#xA0;</mtext>
+        <mo>.</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle {\frac {V_{\mathrm {out} }}{V_{\mathrm {in} }}}={\frac {Z_{\mathrm {2} }}{Z_{\mathrm {1} }+Z_{\mathrm {2} }}}={\frac {\frac {1}{\mathrm {j} \omega C}}{{\frac {1}{\mathrm {j} \omega C}}+R}}={\frac {1}{1+\mathrm {j} \omega RC}}\ .}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/5f588f7c733ff141258814e890af54897876c805" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -3.838ex; width:43.86ex; height:8.843ex;" alt="{\displaystyle {\frac {V_{\mathrm {out} }}{V_{\mathrm {in} }}}={\frac {Z_{\mathrm {2} }}{Z_{\mathrm {1} }+Z_{\mathrm {2} }}}={\frac {\frac {1}{\mathrm {j} \omega C}}{{\frac {1}{\mathrm {j} \omega C}}+R}}={\frac {1}{1+\mathrm {j} \omega RC}}\ .}"></span></dd></dl>
+<p>The product <i>τ</i> (tau)&#160;= <i>RC</i> is called the <i><a href="/wiki/Time_constant" title="Time constant">time constant</a></i> of the circuit.
+</p><p>The ratio then depends on frequency, in this case decreasing as frequency increases. This circuit is, in fact, a basic (<a href="/wiki/First-order" title="First-order">first-order</a>) <a href="/wiki/Low-pass_filter" title="Low-pass filter">low-pass filter</a>. The ratio contains an imaginary number, and actually contains both the amplitude and <a href="/wiki/Phase_(waves)" title="Phase (waves)">phase shift</a> information of the filter. To extract just the amplitude ratio, calculate the <a href="/wiki/Magnitude_(mathematics)" title="Magnitude (mathematics)">magnitude</a> of the ratio, that is:
+</p>
+<dl><dd><span class="mwe-math-element mwe-math-element-inline"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle \left|{\frac {V_{\mathrm {out} }}{V_{\mathrm {in} }}}\right|={\frac {1}{\sqrt {1+(\omega RC)^{2}}}}\ .}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mrow>
+          <mo>|</mo>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mfrac>
+              <msub>
+                <mi>V</mi>
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mrow class="MJX-TeXAtom-ORD">
+                    <mi mathvariant="normal">o</mi>
+                    <mi mathvariant="normal">u</mi>
+                    <mi mathvariant="normal">t</mi>
+                  </mrow>
+                </mrow>
+              </msub>
+              <msub>
+                <mi>V</mi>
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mrow class="MJX-TeXAtom-ORD">
+                    <mi mathvariant="normal">i</mi>
+                    <mi mathvariant="normal">n</mi>
+                  </mrow>
+                </mrow>
+              </msub>
+            </mfrac>
+          </mrow>
+          <mo>|</mo>
+        </mrow>
+        <mo>=</mo>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mfrac>
+            <mn>1</mn>
+            <msqrt>
+              <mn>1</mn>
+              <mo>+</mo>
+              <mo stretchy="false">(</mo>
+              <mi>&#x03C9;<!-- ω --></mi>
+              <mi>R</mi>
+              <mi>C</mi>
+              <msup>
+                <mo stretchy="false">)</mo>
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mn>2</mn>
+                </mrow>
+              </msup>
+            </msqrt>
+          </mfrac>
+        </mrow>
+        <mtext>&#xA0;</mtext>
+        <mo>.</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \left|{\frac {V_{\mathrm {out} }}{V_{\mathrm {in} }}}\right|={\frac {1}{\sqrt {1+(\omega RC)^{2}}}}\ .}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/276b4e520a298f8cc3b3828d23a9b39aea969cbb" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -3.171ex; width:25.421ex; height:6.509ex;" alt="{\displaystyle \left|{\frac {V_{\mathrm {out} }}{V_{\mathrm {in} }}}\right|={\frac {1}{\sqrt {1+(\omega RC)^{2}}}}\ .}"></span></dd></dl>
+<div class="mw-heading mw-heading3"><h3 id="Inductive_divider">Inductive divider</h3><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Voltage_divider&amp;action=edit&amp;section=5" title="Edit section: Inductive divider"><span>edit</span></a><span class="mw-editsection-bracket">]</span></span></div>
+<p><a href="/wiki/Inductor" title="Inductor">Inductive</a> dividers split AC input according to <a href="/wiki/Inductance" title="Inductance">inductance</a>:
+</p><p><span class="mwe-math-element mwe-math-element-inline"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle V_{\mathrm {out} }={\frac {L_{2}}{L_{1}+L_{2}}}\cdot V_{\mathrm {in} }}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msub>
+          <mi>V</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mrow class="MJX-TeXAtom-ORD">
+              <mi mathvariant="normal">o</mi>
+              <mi mathvariant="normal">u</mi>
+              <mi mathvariant="normal">t</mi>
+            </mrow>
+          </mrow>
+        </msub>
+        <mo>=</mo>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mfrac>
+            <msub>
+              <mi>L</mi>
+              <mrow class="MJX-TeXAtom-ORD">
+                <mn>2</mn>
+              </mrow>
+            </msub>
+            <mrow>
+              <msub>
+                <mi>L</mi>
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mn>1</mn>
+                </mrow>
+              </msub>
+              <mo>+</mo>
+              <msub>
+                <mi>L</mi>
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mn>2</mn>
+                </mrow>
+              </msub>
+            </mrow>
+          </mfrac>
+        </mrow>
+        <mo>&#x22C5;<!-- ⋅ --></mo>
+        <msub>
+          <mi>V</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mrow class="MJX-TeXAtom-ORD">
+              <mi mathvariant="normal">i</mi>
+              <mi mathvariant="normal">n</mi>
+            </mrow>
+          </mrow>
+        </msub>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle V_{\mathrm {out} }={\frac {L_{2}}{L_{1}+L_{2}}}\cdot V_{\mathrm {in} }}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/0ca15180850132a4abe66810146d3917fcd17c4b" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -2.171ex; width:20.65ex; height:5.509ex;" alt="{\displaystyle V_{\mathrm {out} }={\frac {L_{2}}{L_{1}+L_{2}}}\cdot V_{\mathrm {in} }}"></span>
+</p><p>(with components in the same positions as Figure&#160;2.)
+</p><p>The above equation is for non-interacting inductors; <a href="/wiki/Mutual_inductance" class="mw-redirect" title="Mutual inductance">mutual inductance</a> (as in an <a href="/wiki/Autotransformer" title="Autotransformer">autotransformer</a>) will alter the results.
+</p><p>Inductive dividers split AC input according to the reactance of the elements as for the resistive divider above.
+</p>
+<div class="mw-heading mw-heading3"><h3 id="Capacitive_divider">Capacitive divider</h3><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Voltage_divider&amp;action=edit&amp;section=6" title="Edit section: Capacitive divider"><span>edit</span></a><span class="mw-editsection-bracket">]</span></span></div>
+<p>Capacitive dividers do not pass DC input.
+</p><p>For an AC input a simple capacitive equation is:
+</p><p><span class="mwe-math-element mwe-math-element-inline"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle V_{\mathrm {out} }={\frac {Xc_{2}}{Xc_{1}+Xc_{2}}}\cdot V_{\mathrm {in} }={\frac {1/C_{2}}{1/C_{1}+1/C_{2}}}\cdot V_{\mathrm {in} }={\frac {C_{1}}{C_{1}+C_{2}}}\cdot V_{\mathrm {in} }}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msub>
+          <mi>V</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mrow class="MJX-TeXAtom-ORD">
+              <mi mathvariant="normal">o</mi>
+              <mi mathvariant="normal">u</mi>
+              <mi mathvariant="normal">t</mi>
+            </mrow>
+          </mrow>
+        </msub>
+        <mo>=</mo>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mfrac>
+            <mrow>
+              <mi>X</mi>
+              <msub>
+                <mi>c</mi>
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mn>2</mn>
+                </mrow>
+              </msub>
+            </mrow>
+            <mrow>
+              <mi>X</mi>
+              <msub>
+                <mi>c</mi>
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mn>1</mn>
+                </mrow>
+              </msub>
+              <mo>+</mo>
+              <mi>X</mi>
+              <msub>
+                <mi>c</mi>
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mn>2</mn>
+                </mrow>
+              </msub>
+            </mrow>
+          </mfrac>
+        </mrow>
+        <mo>&#x22C5;<!-- ⋅ --></mo>
+        <msub>
+          <mi>V</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mrow class="MJX-TeXAtom-ORD">
+              <mi mathvariant="normal">i</mi>
+              <mi mathvariant="normal">n</mi>
+            </mrow>
+          </mrow>
+        </msub>
+        <mo>=</mo>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mfrac>
+            <mrow>
+              <mn>1</mn>
+              <mrow class="MJX-TeXAtom-ORD">
+                <mo>/</mo>
+              </mrow>
+              <msub>
+                <mi>C</mi>
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mn>2</mn>
+                </mrow>
+              </msub>
+            </mrow>
+            <mrow>
+              <mn>1</mn>
+              <mrow class="MJX-TeXAtom-ORD">
+                <mo>/</mo>
+              </mrow>
+              <msub>
+                <mi>C</mi>
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mn>1</mn>
+                </mrow>
+              </msub>
+              <mo>+</mo>
+              <mn>1</mn>
+              <mrow class="MJX-TeXAtom-ORD">
+                <mo>/</mo>
+              </mrow>
+              <msub>
+                <mi>C</mi>
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mn>2</mn>
+                </mrow>
+              </msub>
+            </mrow>
+          </mfrac>
+        </mrow>
+        <mo>&#x22C5;<!-- ⋅ --></mo>
+        <msub>
+          <mi>V</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mrow class="MJX-TeXAtom-ORD">
+              <mi mathvariant="normal">i</mi>
+              <mi mathvariant="normal">n</mi>
+            </mrow>
+          </mrow>
+        </msub>
+        <mo>=</mo>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mfrac>
+            <msub>
+              <mi>C</mi>
+              <mrow class="MJX-TeXAtom-ORD">
+                <mn>1</mn>
+              </mrow>
+            </msub>
+            <mrow>
+              <msub>
+                <mi>C</mi>
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mn>1</mn>
+                </mrow>
+              </msub>
+              <mo>+</mo>
+              <msub>
+                <mi>C</mi>
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mn>2</mn>
+                </mrow>
+              </msub>
+            </mrow>
+          </mfrac>
+        </mrow>
+        <mo>&#x22C5;<!-- ⋅ --></mo>
+        <msub>
+          <mi>V</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mrow class="MJX-TeXAtom-ORD">
+              <mi mathvariant="normal">i</mi>
+              <mi mathvariant="normal">n</mi>
+            </mrow>
+          </mrow>
+        </msub>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle V_{\mathrm {out} }={\frac {Xc_{2}}{Xc_{1}+Xc_{2}}}\cdot V_{\mathrm {in} }={\frac {1/C_{2}}{1/C_{1}+1/C_{2}}}\cdot V_{\mathrm {in} }={\frac {C_{1}}{C_{1}+C_{2}}}\cdot V_{\mathrm {in} }}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/5081b5716241cb370b0cd4385ca28600bfc94073" class="mwe-math-fallback-image-inline mw-invert skin-invert" aria-hidden="true" style="vertical-align: -2.671ex; width:61.798ex; height:6.509ex;" alt="{\displaystyle V_{\mathrm {out} }={\frac {Xc_{2}}{Xc_{1}+Xc_{2}}}\cdot V_{\mathrm {in} }={\frac {1/C_{2}}{1/C_{1}+1/C_{2}}}\cdot V_{\mathrm {in} }={\frac {C_{1}}{C_{1}+C_{2}}}\cdot V_{\mathrm {in} }}"></span>
+</p><p>(with components in the same positions as Figure&#160;2.)
+</p><p>Any leakage current in the capactive elements requires use of the generalized expression with two impedances. By selection of parallel <i>R</i> and <i>C</i> elements in the proper proportions, the same division ratio can be maintained over a useful range of frequencies. This is the principle applied in compensated <a href="/wiki/Oscilloscope" title="Oscilloscope">oscilloscope</a> probes to increase measurement bandwidth.
+</p>
+<div class="mw-heading mw-heading2"><h2 id="Loading_effect">Loading effect</h2><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Voltage_divider&amp;action=edit&amp;section=7" title="Edit section: Loading effect"><span>edit</span></a><span class="mw-editsection-bracket">]</span></span></div>
+<p>The output voltage of a voltage divider will vary according to the electric current it is supplying to its external <a href="/wiki/Electrical_load" title="Electrical load">electrical load</a>. The effective source impedance coming from a divider of <i>Z</i><sub>1</sub> and <i>Z</i><sub>2</sub>, as above, will be <i>Z</i><sub>1</sub> in <a href="/wiki/Parallel_circuits" class="mw-redirect" title="Parallel circuits">parallel</a> with <i>Z</i><sub>2</sub> (sometimes written <i>Z</i><sub>1</sub> <a href="/wiki/Parallel_(operator)" title="Parallel (operator)">||</a> <i>Z</i><sub>2</sub>), that is: (<i>Z</i><sub>1</sub> <i>Z</i><sub>2</sub>)&#160;/ (<i>Z</i><sub>1</sub>&#160;+ <i>Z</i><sub>2</sub>)&#160;= <i>HZ</i><sub>1</sub>.
+</p><p>To obtain a sufficiently stable output voltage, the output current must either be stable (and so be made part of the calculation of the potential divider values) or limited to an appropriately small percentage of the divider's input current. Load sensitivity can be decreased by reducing the impedance of both halves of the divider, though this increases the divider's quiescent input current and results in higher power consumption (and wasted heat) in the divider.<sup id="cite&#95;ref-TI&#95;2020&#95;1-0" class="reference"><a href="#cite_note-TI_2020-1"><span class="cite-bracket">&#91;</span>1<span class="cite-bracket">&#93;</span></a></sup> <a href="/wiki/Voltage_regulator" title="Voltage regulator">Voltage regulators</a> are often used in lieu of passive voltage dividers when it is necessary to accommodate high or fluctuating load currents.
+</p>
+<div class="mw-heading mw-heading2"><h2 id="Applications">Applications</h2><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Voltage_divider&amp;action=edit&amp;section=8" title="Edit section: Applications"><span>edit</span></a><span class="mw-editsection-bracket">]</span></span></div>
+<p>Voltage dividers are used for adjusting the level of a signal, for bias of active devices in amplifiers, and for measurement of voltages. A <a href="/wiki/Wheatstone_bridge" title="Wheatstone bridge">Wheatstone bridge</a> and a <a href="/wiki/Multimeter" title="Multimeter">multimeter</a> both include voltage dividers. A <a href="/wiki/Potentiometer" title="Potentiometer">potentiometer</a> is used as a variable voltage divider in the volume control of many radios.
+</p>
+<div class="mw-heading mw-heading3"><h3 id="Sensor_measurement">Sensor measurement</h3><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Voltage_divider&amp;action=edit&amp;section=9" title="Edit section: Sensor measurement"><span>edit</span></a><span class="mw-editsection-bracket">]</span></span></div>
+<p>Voltage dividers can be used to allow a microcontroller to measure the resistance of a sensor.<sup id="cite&#95;ref-R1&#95;2-0" class="reference"><a href="#cite_note-R1-2"><span class="cite-bracket">&#91;</span>2<span class="cite-bracket">&#93;</span></a></sup> The sensor is wired in series with a known resistance to form a voltage divider and a known voltage is applied across the divider. The microcontroller's analog-to-digital converter is connected to the center tap of the divider so that it can measure the tap voltage and, by using the measured voltage and the known resistance and voltage, compute the sensor resistance. This technique is commonly used to measure the resistance of temperature sensors such as <a href="/wiki/Thermistor" title="Thermistor">thermistors</a> and <a href="/wiki/Resistance_temperature_detector" class="mw-redirect" title="Resistance temperature detector">RTDs</a>.
+</p><p>Another example that is commonly used involves a potentiometer (variable resistor) as one of the resistive elements. When the shaft of the potentiometer is rotated the resistance it produces either increases or decreases, the change in resistance corresponds to the angular change of the shaft. If coupled with a stable voltage reference, the output voltage can be fed into an analog-to-digital converter and a display can show the angle. Such circuits are commonly used in reading control knobs.
+</p>
+<div class="mw-heading mw-heading3"><h3 id="High_voltage_measurement">High voltage measurement</h3><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Voltage_divider&amp;action=edit&amp;section=10" title="Edit section: High voltage measurement"><span>edit</span></a><span class="mw-editsection-bracket">]</span></span></div>
+<figure class="mw-default-size" typeof="mw:File/Thumb"><a href="/wiki/File:HighVoltageDividerProbe.jpg" class="mw-file-description"><img src="//upload.wikimedia.org/wikipedia/commons/thumb/3/3b/HighVoltageDividerProbe.jpg/250px-HighVoltageDividerProbe.jpg" decoding="async" width="250" height="179" class="mw-file-element" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/3/3b/HighVoltageDividerProbe.jpg/500px-HighVoltageDividerProbe.jpg 1.5x" data-file-width="4438" data-file-height="3173" /></a><figcaption>High voltage (HV) resistor divider probe. The HV to be measured (<i>V</i><sub>in</sub>) is applied to the <a href="/wiki/Corona_cap" class="mw-redirect" title="Corona cap">corona ball</a> probe tip and ground is connected to the other end of the divider via the black cable. The divider output (<i>V</i><sub>out</sub>) appears on the connector adjacent to the cable.</figcaption></figure>
+<p>A voltage divider can be used to scale down a very <a href="/wiki/High_voltage" title="High voltage">high voltage</a> so that it can be measured by a <a href="/wiki/Volt_meter" class="mw-redirect" title="Volt meter">volt meter</a>. The high voltage is applied across the divider, and the divider output&#8212;which outputs a lower voltage that is within the meter's input range&#8212;is measured by the meter. High voltage resistor divider probes designed specifically for this purpose can be used to measure voltages up to 100&#160;kV. Special high-voltage resistors are used in such probes as they must be able to tolerate high input voltages and, to produce accurate results, must have matched <a href="/wiki/Temperature_coefficient" title="Temperature coefficient">temperature coefficients</a> and very low voltage coefficients. Capacitive divider probes are typically used for voltages above 100&#160;kV, as the heat caused by power losses in resistor divider probes at such high voltages could be excessive.
+</p>
+<div class="mw-heading mw-heading3"><h3 id="Logic_level_shifting">Logic level shifting</h3><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Voltage_divider&amp;action=edit&amp;section=11" title="Edit section: Logic level shifting"><span>edit</span></a><span class="mw-editsection-bracket">]</span></span></div>
+<p>A voltage divider can be used as a crude <a href="/wiki/Logic_level_shifter" class="mw-redirect" title="Logic level shifter">logic level shifter</a> to interface two circuits that use different operating voltages. For example, some logic circuits operate at 5&#160;V whereas others operate at 3.3&#160;V. Directly interfacing a 5&#160;V logic output to a 3.3&#160;V input may cause permanent damage to the 3.3&#160;V circuit. In this case, a voltage divider with an output ratio of 3.3/5 might be used to reduce the 5&#160;V signal to 3.3&#160;V, to allow the circuits to interoperate without damaging the 3.3&#160;V circuit. For this to be feasible, the 5&#160;V source impedance and 3.3&#160;V input impedance must be negligible, or they must be constant and the divider resistor values must account for their impedances. If the input impedance is capacitive, a purely resistive divider will limit the data rate. This can be roughly overcome by adding a capacitor in series with the top resistor, to make both legs of the divider capacitive as well as resistive.
+</p>
+<div class="mw-heading mw-heading2"><h2 id="See_also">See also</h2><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Voltage_divider&amp;action=edit&amp;section=12" title="Edit section: See also"><span>edit</span></a><span class="mw-editsection-bracket">]</span></span></div>
+<ul><li><a href="/wiki/Current_divider" title="Current divider">Current divider</a></li>
+<li><a href="/wiki/DC-to-DC_converter" title="DC-to-DC converter">DC-to-DC converter</a></li>
+<li><a href="/wiki/Voltage_amplifier" class="mw-redirect" title="Voltage amplifier">Voltage amplifier</a></li></ul>
+<div class="mw-heading mw-heading2"><h2 id="References">References</h2><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Voltage_divider&amp;action=edit&amp;section=13" title="Edit section: References"><span>edit</span></a><span class="mw-editsection-bracket">]</span></span></div>
+<div class="mw-references-wrap"><ol class="references">
+<li id="cite&#95;note-TI&#95;2020-1"><span class="mw-cite-backlink"><b><a href="#cite_ref-TI_2020_1-0">^</a></b></span> <span class="reference-text"><style data-mw-deduplicate="TemplateStyles:r1333433106">.mw-parser-output cite.citation{font-style:inherit;word-wrap:break-word}.mw-parser-output .citation q{quotes:"\"""\"""'""'"}.mw-parser-output .citation:target{background-color:rgba(0,127,255,0.133)}.mw-parser-output .id-lock-free.id-lock-free a{background:url("//upload.wikimedia.org/wikipedia/commons/6/65/Lock-green.svg")right 0.1em center/9px no-repeat}.mw-parser-output .id-lock-limited.id-lock-limited a,.mw-parser-output .id-lock-registration.id-lock-registration a{background:url("//upload.wikimedia.org/wikipedia/commons/d/d6/Lock-gray-alt-2.svg")right 0.1em center/9px no-repeat}.mw-parser-output .id-lock-subscription.id-lock-subscription a{background:url("//upload.wikimedia.org/wikipedia/commons/a/aa/Lock-red-alt-2.svg")right 0.1em center/9px no-repeat}.mw-parser-output .cs1-ws-icon a{background:url("//upload.wikimedia.org/wikipedia/commons/4/4c/Wikisource-logo.svg")right 0.1em center/12px no-repeat}body:not(.skin-timeless):not(.skin-minerva) .mw-parser-output .id-lock-free a,body:not(.skin-timeless):not(.skin-minerva) .mw-parser-output .id-lock-limited a,body:not(.skin-timeless):not(.skin-minerva) .mw-parser-output .id-lock-registration a,body:not(.skin-timeless):not(.skin-minerva) .mw-parser-output .id-lock-subscription a,body:not(.skin-timeless):not(.skin-minerva) .mw-parser-output .cs1-ws-icon a{background-size:contain;padding:0 1em 0 0}.mw-parser-output .cs1-code{color:inherit;background:inherit;border:none;padding:inherit}.mw-parser-output .cs1-hidden-error{display:none;color:var(--color-error,#bf3c2c)}.mw-parser-output .cs1-visible-error{color:var(--color-error,#bf3c2c)}.mw-parser-output .cs1-maint{display:none;color:#085;margin-left:0.3em}.mw-parser-output .cs1-kern-left{padding-left:0.2em}.mw-parser-output .cs1-kern-right{padding-right:0.2em}.mw-parser-output .citation .mw-selflink{font-weight:inherit}@media screen{.mw-parser-output .cs1-format{font-size:95%}html.skin-theme-clientpref-night .mw-parser-output .cs1-maint{color:#18911f}}@media screen and (prefers-color-scheme:dark){html.skin-theme-clientpref-os .mw-parser-output .cs1-maint{color:#18911f}}</style><cite class="citation book cs1">"9.2.1 Design Requirements". <a rel="nofollow" class="external text" href="https://www.ti.com/lit/ds/symlink/sn74hcs72.pdf?ts=1689858603618&amp;ref_url=https%25253A%25252F%25252Fwww.ti.com%25252Fproduct%25252Fde-de%25252FSN74HCS72"><i>SN74HCS72 Schmitt-Trigger Input Dual D-Type Negative-Edge-Triggered Flip-Flops With Clear and Preset</i></a> <span class="cs1-format">(PDF)</span>. <a href="/wiki/Texas_Instruments_Incorporated" class="mw-redirect" title="Texas Instruments Incorporated">Texas Instruments Incorporated</a>. June 2020 [February 2020]. p.&#160;11. SCLS801A. <a rel="nofollow" class="external text" href="https://web.archive.org/web/20230720172310/https://www.ti.com/lit/ds/symlink/sn74hcs72.pdf?ts=1689858603618&amp;ref_url=https%25253A%25252F%25252Fwww.ti.com%25252Fproduct%25252Fde-de%25252FSN74HCS72">Archived</a> <span class="cs1-format">(PDF)</span> from the original on 2023-07-20<span class="reference-accessdate">. Retrieved <span class="nowrap">2023-07-20</span></span>. p.&#160;11: <q>It is required for the R1 resistor to be at least ten times larger than R2 to avoid a divider circuit (R2&#160;≤ 10&#160;R1).</q></cite><span title="ctx&#95;ver=Z39.88-2004&amp;rft&#95;val&#95;fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=bookitem&amp;rft.atitle=9.2.1+Design+Requirements&amp;rft.btitle=SN74HCS72+Schmitt-Trigger+Input+Dual+D-Type+Negative-Edge-Triggered+Flip-Flops+With+Clear+and+Preset&amp;rft.pages=11&amp;rft.pub=Texas+Instruments+Incorporated&amp;rft.date=2020-06&amp;rft&#95;id=https%3A%2F%2Fwww.ti.com%2Flit%2Fds%2Fsymlink%2Fsn74hcs72.pdf%3Fts%3D1689858603618%26ref&#95;url%3Dhttps%2525253A%2525252F%2525252Fwww.ti.com%2525252Fproduct%2525252Fde-de%2525252FSN74HCS72&amp;rfr&#95;id=info%3Asid%2Fen.wikipedia.org%3AVoltage+divider" class="Z3988"></span> (23 pages)</span>
+</li>
+<li id="cite&#95;note-R1-2"><span class="mw-cite-backlink"><b><a href="#cite_ref-R1_2-0">^</a></b></span> <span class="reference-text"><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r1333433106" /><cite class="citation web cs1"><a rel="nofollow" class="external text" href="http://www.ieec.uned.es/investigacion/Dipseil/PAC/archivos/How%20sensors%20and%20actuators%20work%20and%20how%20to%20hook%20them%20up%20to%20a%20microcontroller.pdf">"A very quick and dirty introduction to Sensors, Microcontrollers, and Electronics; Part Three: how sensors and actuators work and how to hook them up to a microcontroller"</a> <span class="cs1-format">(PDF)</span>. 2014-07-02. <a rel="nofollow" class="external text" href="https://web.archive.org/web/20230720180132/http://www.ieec.uned.es/investigacion/Dipseil/PAC/archivos/How%20sensors%20and%20actuators%20work%20and%20how%20to%20hook%20them%20up%20to%20a%20microcontroller.pdf">Archived</a> <span class="cs1-format">(PDF)</span> from the original on 2023-07-20<span class="reference-accessdate">. Retrieved <span class="nowrap">2015-11-02</span></span>.</cite><span title="ctx&#95;ver=Z39.88-2004&amp;rft&#95;val&#95;fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=unknown&amp;rft.btitle=A+very+quick+and+dirty+introduction+to+Sensors%2C+Microcontrollers%2C+and+Electronics%3B+Part+Three%3A+how+sensors+and+actuators+work+and+how+to+hook+them+up+to+a+microcontroller&amp;rft.date=2014-07-02&amp;rft&#95;id=http%3A%2F%2Fwww.ieec.uned.es%2Finvestigacion%2FDipseil%2FPAC%2Farchivos%2FHow%2520sensors%2520and%2520actuators%2520work%2520and%2520how%2520to%2520hook%2520them%2520up%2520to%2520a%2520microcontroller.pdf&amp;rfr&#95;id=info%3Asid%2Fen.wikipedia.org%3AVoltage+divider" class="Z3988"></span></span>
+</li>
+</ol></div>
+<div class="mw-heading mw-heading2"><h2 id="External_links">External links</h2><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Voltage_divider&amp;action=edit&amp;section=14" title="Edit section: External links"><span>edit</span></a><span class="mw-editsection-bracket">]</span></span></div>
+<style data-mw-deduplicate="TemplateStyles:r1314755338">.mw-parser-output .side-box{margin:4px 0;box-sizing:border-box;border:1px solid #aaa;font-size:88%;line-height:1.25em;background-color:var(--background-color-interactive-subtle,#f8f9fa);color:inherit;display:flow-root}.mw-parser-output .infobox .side-box{font-size:100%}.mw-parser-output .side-box-abovebelow,.mw-parser-output .side-box-text{padding:0.25em 0.9em}.mw-parser-output .side-box-image{padding:2px 0 2px 0.9em;text-align:center}.mw-parser-output .side-box-imageright{padding:2px 0.9em 2px 0;text-align:center}@media(min-width:500px){.mw-parser-output .side-box-flex{display:flex;align-items:center}.mw-parser-output .side-box-text{flex:1;min-width:0}}@media(min-width:640px){.mw-parser-output .side-box{width:238px}.mw-parser-output .side-box-right{clear:right;float:right;margin-left:1em}.mw-parser-output .side-box-left{margin-right:1em}}</style><style data-mw-deduplicate="TemplateStyles:r1311551236">@media print{body.ns-0 .mw-parser-output .sistersitebox{display:none!important}}@media screen{html.skin-theme-clientpref-night .mw-parser-output .sistersitebox img[src*="Wiktionary-logo-en-v2.svg"]{filter:invert(1)brightness(55%)contrast(250%)hue-rotate(180deg)}}@media screen and (prefers-color-scheme:dark){html.skin-theme-clientpref-os .mw-parser-output .sistersitebox img[src*="Wiktionary-logo-en-v2.svg"]{filter:invert(1)brightness(55%)contrast(250%)hue-rotate(180deg)}}</style><div class="side-box side-box-right plainlinks sistersitebox"><style data-mw-deduplicate="TemplateStyles:r1126788409">.mw-parser-output .plainlist ol,.mw-parser-output .plainlist ul{line-height:inherit;list-style:none;margin:0;padding:0}.mw-parser-output .plainlist ol li,.mw-parser-output .plainlist ul li{margin-bottom:0}</style>
+<div class="side-box-flex">
+<div class="side-box-image"><span class="noviewer" typeof="mw:File"><a href="/wiki/File:Commons-logo.svg" class="mw-file-description"><img alt="logo" src="//upload.wikimedia.org/wikipedia/en/thumb/4/4a/Commons-logo.svg/40px-Commons-logo.svg.png" decoding="async" width="30" height="40" class="mw-file-element" srcset="//upload.wikimedia.org/wikipedia/en/thumb/4/4a/Commons-logo.svg/60px-Commons-logo.svg.png 1.5x" data-file-width="1024" data-file-height="1376" /></a></span></div>
+<div class="side-box-text plainlist">Wikimedia Commons has media related to <span style="font-weight: bold; font-style: italic;"><a href="https://commons.wikimedia.org/wiki/Category:Voltage_dividers" class="extiw" title="commons:Category:Voltage dividers">Voltage dividers</a></span>.</div></div>
+</div>
+<ul><li><a rel="nofollow" class="external text" href="https://web.archive.org/web/20240207165825/https://ohmslawcalculator.com/voltage-divider-calculator">Voltage Divider Calculator</a></li></ul>
+<div class="navbox-styles"><style data-mw-deduplicate="TemplateStyles:r1333133064">.mw-parser-output .hlist dl,.mw-parser-output .hlist ol,.mw-parser-output .hlist ul{margin:0;padding:0}.mw-parser-output .hlist dd,.mw-parser-output .hlist dt,.mw-parser-output .hlist li{margin:0;display:inline}.mw-parser-output .hlist.inline,.mw-parser-output .hlist.inline dl,.mw-parser-output .hlist.inline ol,.mw-parser-output .hlist.inline ul,.mw-parser-output .hlist dl dl,.mw-parser-output .hlist dl ol,.mw-parser-output .hlist dl ul,.mw-parser-output .hlist ol dl,.mw-parser-output .hlist ol ol,.mw-parser-output .hlist ol ul,.mw-parser-output .hlist ul dl,.mw-parser-output .hlist ul ol,.mw-parser-output .hlist ul ul{display:inline}.mw-parser-output .hlist .mw-empty-li{display:none}.mw-parser-output .hlist dt::after{content:": "}.mw-parser-output .hlist dd::after,.mw-parser-output .hlist li::after{content:"\a0 · ";font-weight:bold}.mw-parser-output .hlist dd:last-child::after,.mw-parser-output .hlist dt:last-child::after,.mw-parser-output .hlist li:last-child::after{content:none}.mw-parser-output .hlist dd dd:first-child::before,.mw-parser-output .hlist dd dt:first-child::before,.mw-parser-output .hlist dd li:first-child::before,.mw-parser-output .hlist dt dd:first-child::before,.mw-parser-output .hlist dt dt:first-child::before,.mw-parser-output .hlist dt li:first-child::before,.mw-parser-output .hlist li dd:first-child::before,.mw-parser-output .hlist li dt:first-child::before,.mw-parser-output .hlist li li:first-child::before{content:" (";font-weight:normal}.mw-parser-output .hlist dd dd:last-child::after,.mw-parser-output .hlist dd dt:last-child::after,.mw-parser-output .hlist dd li:last-child::after,.mw-parser-output .hlist dt dd:last-child::after,.mw-parser-output .hlist dt dt:last-child::after,.mw-parser-output .hlist dt li:last-child::after,.mw-parser-output .hlist li dd:last-child::after,.mw-parser-output .hlist li dt:last-child::after,.mw-parser-output .hlist li li:last-child::after{content:")";font-weight:normal}.mw-parser-output .hlist ol{counter-reset:listitem}.mw-parser-output .hlist ol>li{counter-increment:listitem}.mw-parser-output .hlist ol>li::before{content:" "counter(listitem)"\a0 "}.mw-parser-output .hlist dd ol>li:first-child::before,.mw-parser-output .hlist dt ol>li:first-child::before,.mw-parser-output .hlist li ol>li:first-child::before{content:" ("counter(listitem)"\a0 "}</style><style data-mw-deduplicate="TemplateStyles:r1314944253">.mw-parser-output .navbox{box-sizing:border-box;border:1px solid #a2a9b1;width:100%;clear:both;font-size:88%;text-align:center;padding:1px;margin:1em auto 0}.mw-parser-output .navbox .navbox{margin-top:0}.mw-parser-output .navbox+.navbox,.mw-parser-output .navbox+.navbox-styles+.navbox{margin-top:-1px}.mw-parser-output .navbox-inner,.mw-parser-output .navbox-subgroup{width:100%}.mw-parser-output .navbox-group,.mw-parser-output .navbox-title,.mw-parser-output .navbox-abovebelow{padding:0.25em 1em;line-height:1.5em;text-align:center}.mw-parser-output .navbox-group{white-space:nowrap;text-align:right}.mw-parser-output .navbox,.mw-parser-output .navbox-subgroup{background-color:#fdfdfd;color:inherit}.mw-parser-output .navbox-list{line-height:1.5em;border-color:#fdfdfd}.mw-parser-output .navbox-list-with-group{text-align:left;border-left-width:2px;border-left-style:solid}.mw-parser-output tr+tr>.navbox-abovebelow,.mw-parser-output tr+tr>.navbox-group,.mw-parser-output tr+tr>.navbox-image,.mw-parser-output tr+tr>.navbox-list{border-top:2px solid #fdfdfd}.mw-parser-output .navbox-title{background-color:#ccf;color:inherit}.mw-parser-output .navbox-abovebelow,.mw-parser-output .navbox-group,.mw-parser-output .navbox-subgroup .navbox-title{background-color:#ddf;color:inherit}.mw-parser-output .navbox-subgroup .navbox-group,.mw-parser-output .navbox-subgroup .navbox-abovebelow{background-color:#e6e6ff;color:inherit}.mw-parser-output .navbox-even{background-color:#f7f7f7;color:inherit}.mw-parser-output .navbox-odd{background-color:transparent;color:inherit}.mw-parser-output .navbox .hlist td dl,.mw-parser-output .navbox .hlist td ol,.mw-parser-output .navbox .hlist td ul,.mw-parser-output .navbox td.hlist dl,.mw-parser-output .navbox td.hlist ol,.mw-parser-output .navbox td.hlist ul{padding:0.125em 0}.mw-parser-output .navbox .navbar{display:block;font-size:100%}.mw-parser-output .navbox-title .navbar{float:left;text-align:left;margin-right:0.5em}body.skin--responsive .mw-parser-output .navbox-image img{max-width:none!important}@media print{body.ns-0 .mw-parser-output .navbox{display:none!important}}</style></div><div role="navigation" class="navbox authority-control" aria-labelledby="Authority&#95;control&#95;databases&#95;frameless&amp;#124;text-top&amp;#124;10px&amp;#124;alt=Edit&#95;this&#95;at&#95;Wikidata&amp;#124;link=https&amp;#58;//www.wikidata.org/wiki/Q466758#identifiers&amp;#124;class=noprint&amp;#124;Edit&#95;this&#95;at&#95;Wikidata376" style="padding:3px"><table class="nowraplinks hlist navbox-inner" style="border-spacing:0;background:transparent;color:inherit"><tbody><tr><th id="Authority&#95;control&#95;databases&#95;frameless&amp;#124;text-top&amp;#124;10px&amp;#124;alt=Edit&#95;this&#95;at&#95;Wikidata&amp;#124;link=https&amp;#58;//www.wikidata.org/wiki/Q466758#identifiers&amp;#124;class=noprint&amp;#124;Edit&#95;this&#95;at&#95;Wikidata376" scope="row" class="navbox-group" style="width:1%"><a href="/wiki/Help:Authority_control" title="Help:Authority control">Authority control databases</a> <span class="mw-valign-text-top noprint" typeof="mw:File/Frameless"><a href="https://www.wikidata.org/wiki/Q466758#identifiers" title="Edit this at Wikidata"><img alt="Edit this at Wikidata" src="//upload.wikimedia.org/wikipedia/en/thumb/8/8a/OOjs_UI_icon_edit-ltr-progressive.svg/20px-OOjs_UI_icon_edit-ltr-progressive.svg.png" decoding="async" width="10" height="10" class="mw-file-element" data-file-width="20" data-file-height="20" /></a></span></th><td class="navbox-list-with-group navbox-list navbox-odd" style="width:100%;padding:0"><div style="padding:0 0.25em"><ul><li><span class="uid"><a rel="nofollow" class="external text" href="https://d-nb.info/gnd/4182089-7">GND</a></span></li></ul></div></td></tr></tbody></table></div>
+<!-- 
+NewPP limit report
+Parsed by mw‐web.codfw.main‐7c755747f7‐vqxt7
+Cached time: 20260324022022
+Cache expiry: 79200
+Cache expiry source: Module:Citation/CS1 (os.date(%Y))
+Reduced expiry: true
+Complications: [vary‐revision‐sha1, prevent‐selective‐update, show‐toc]
+CPU time usage: 0.280 seconds
+Real time usage: 0.393 seconds
+Preprocessor visited node count: 769/1000000
+Revision size: 13901/2097152 bytes
+Post‐expand include size: 13767/2097152 bytes
+Template argument size: 1488/2097152 bytes
+Highest expansion depth: 13/100
+Expensive parser function count: 3/500
+Unstrip recursion depth: 1/20
+Unstrip post‐expand size: 15595/5000000 bytes
+Lua time usage: 0.186/10.000 seconds
+Lua memory usage: 4192987/52428800 bytes
+Number of Wikibase entities loaded: 1/500
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%  297.605      1 -total
+ 26.79%   79.742      1 Template:Authority_control
+ 25.40%   75.600      1 Template:Cite_book
+ 24.80%   73.805      1 Template:Short_description
+ 16.01%   47.638      2 Template:Pagetype
+ 13.19%   39.266      1 Template:Commons_category
+ 12.65%   37.639      1 Template:Sister_project
+ 12.21%   36.325      1 Template:Side_box
+  5.06%   15.058      1 Template:Use_dmy_dates
+  5.00%   14.876      3 Template:Main_other
+-->
+
+<!-- Saved in parser cache with key enwiki:pcache:393519:|#|:idhash:canonical and timestamp 20260324022022 and revision id 1329288422. Rendering was triggered because: page_view
+ -->
+</div>

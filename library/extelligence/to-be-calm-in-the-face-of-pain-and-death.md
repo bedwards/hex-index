@@ -1,0 +1,80 @@
+---
+title: "To Be Calm in the Face of Pain and Death"
+author: "Some Guy"
+publication: ""
+publication_slug: "extelligence"
+published_at: "2026-01-17T13:39:26.000Z"
+source_url: "https://extelligence.substack.com/p/to-be-calm-in-the-face-of-pain-and"
+word_count: 2582
+estimated_read_time: 13
+---
+
+[
+
+![](https://substackcdn.com/image/fetch/$s_!ft3R!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F889443a7-771c-422c-9c81-a4939466c230_1536x1024.png)
+
+
+
+](https://substackcdn.com/image/fetch/$s_!ft3R!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F889443a7-771c-422c-9c81-a4939466c230_1536x1024.png)
+
+I have many thoughts, many of them increasingly schizophrenic upon the creation of a first draft, but I’ll start with this one:
+
+The courage to be calm in the face of pain and death is of vital importance to all human flourishing.
+
+[Here’s a clip](https://youtube.com/shorts/oUf9Dv6R8io?si=eGL48iHeuFIrwMIE) from the depths of the Content Pit, served up by the Algorithm Demons on YouTube, about a Navy Seal failing drown-proofing. Drown-proofing is when your Navy Seal instructors throw you into a swimming pool in scuba gear and then repeatedly tamper with said scuba gear so you can’t breathe. The job of the candidate is to calmy repair his scuba equipment even when he’s about to black out. Three times the instructors threw this man into the water and three times he had the very human reaction of involuntarily fighting for air when he started to pass out. Three times, his basic survival instinct led to failure.
+
+On the fourth attempt, this man understands if he doesn’t immediately conquer his fear of death that his dreams of being a Navy Seal will be over. This is his biggest goal in life and not something he can walk away from. He describes a switch flipping in his brain. He makes the powerful determination that he is willing to die rather than fail. The only way he’s coming out of that swimming pool is as a Navy Seal or a corpse.
+
+Paradoxically, this willingness to die leads him to have a much easier time completing the course. It’s barely even hard now that his fear is gone. He succeeds and becomes a Navy Seal. As far as motivational content slop goes that I’ve seen while using the private facilities in my home, this one was pretty good.
+
+If society was arrayed with a bunch of meters and gauges, I would say that that “Willingness to be Calm in the Face of Pain and Death” is running low. If there were such a gauge, it would be flashing all kinds of emergency lights. The gears of the nation would be grinding against themselves without this vital lubricant. Pain and death would be higher than ever because of the willingness to be calm in the face of pain and death being low.
+
+I have no fear of pain or death, but the calm part escapes me. The older I get the more I find myself stuck in furious reveries. This happened to my father and it is something I observe in myself with a sense of alarm. They come on me like flashes. Whenever someone does something to a kid or laughs off something done to a woman, my first thought is to skin them alive and stretch their hide over some kind of wooden hoop and then put this macabre dreamcatcher in some place of public focus as an example. When people ask what that guy had done to have been turned into a piece of pig-leather, people would only say, “He hurt a kid. Or a woman. I forget which one.” And everyone would nod and go, “Oh yup, well, Some Guy definitely won’t let you do that.”
+
+In my defense, these thoughts come far less often when I’ve slept more than four hours a night.
+
+These are also ridiculous thoughts for a middle-aged man trying to be a good Christian to have, but whenever someone tries to edge-lord about women and kids I forget that I am no longer twenty years old and capable of throwing a high school football player down a hallway. Even ignoring the second order effects that make this kind of thought very bad and focusing purely on my physical being, I have spent the better part of ten years at a desk leading meetings and answering emails. I am no longer a strangely large young man in a small town who is the physical equivalent of Captain America compared to his peers. Plus, the whole thing where it’s wrong to kill people unless you have no choice let alone turn them into a dreamcatcher.
+
+The mind is willing and the flesh is weak, so I still sometimes find myself wishing I could challenge members of the pundit class to a duel on the high seas in international waters. Both sides of the political aisle, make no mistake, and in my elaborate violent fantasies I let them both choose the weapon and work together as a team to kill me on an abandoned oil derrick or something. I’m still young enough to roll my eyes at myself a few seconds after these thoughts cross through my mind, but I worry that when I’m an old man I’ll just get stuck in these thoughts forever like my father.
+
+I am furious for two reasons, primarily. One, because of what the pundit class has done to you, my beloved American public. Or rather, what you have allowed them to do to you if we’re being honest. And two, I cannot abide a leader who will not stand by his or her duty. If you want to stand up in front of a bunch of people and do something like claim to speak for their beliefs, or their understanding of moral truth, you’re a leader whether you want to be or not. A leader should do his or her best to lead their people to good things. America drowns in shitty demure “I’m just some guy” and “I have problems too” leadership. And yes, as I point my finger at all those others, lo, as it was written, I point three fingers back at myself.
+
+Allow me to be completely consistent with past posts in reporting that I was deeply saddened and depressed to see Renee Good get shot and killed. If I’d had even a few minutes to write about it before now, I would have. Whatever else she believed, whatever else she did in her life, she was doing what she thought was right and she was someone’s mother. I don’t need to know more than that to feel deeply, sincerely bad she’s dead.
+
+Much like the Kirk assassination, I don’t like what it means for the country and I don’t like how comfortable social media has made everyone with picking up the pieces of a corpse and using them to score political points. It’s making us sick. This is the same darkness people indulged in the middle ages at public executions. Except now it’s public executions every day, as many as you can see on your social media scroll, as the world’s every evil is distilled into a river wider than you could ever swallow. Perhaps it has always been this way, but then it has always been wrong.
+
+Before I finish that thought, here is another: America is the most “Be Totally Willing to Die for a Cause in Order to Protect Yourself from Danger” country in the history of the world.
+
+We are the abundant nation of the Denny’s Grand Slam and the Big Gulp Slurpee because we are the land of the free and the home of the brave. We sell Reese’s Pieces whipped cream in a can because we also spend the most money on our military. The two things go hand in hand. Our amazing abundance is a symptom of the people who say “Not on my fucking watch” and go out and cause a scene and die on a hill. As I’ve gotten older and worked on big systems at scale, I’ve realized… it almost doesn’t even matter what they’re protesting for beyond a certain point. The simple fact people say stuff when they’re unhappy gets calculated into everyone’s willingness to make other people unhappy.
+
+This adult, rational, discerning thought is what allows me to find the crack to love people again even if I don’t agree with them. Even if I have to squint and look beyond a lot of shit to see that crack of light shining through. I respect people who are willing to stand up for what they believe in, even if I think it’s really dumb and bad and has to be actively resisted.[1](#footnote-1)
+
+The capacity of Americans to protest almost anything is a constant and powerful message to leaders in our country and around the world to say, “hey, we will not tolerate this. You really need to think about how we will respond before you decide to do something I’m not going to like.” This is the very real and very practical way the American polity shapes American politics. You have to do stuff we don’t like in the dark, because otherwise you’ll be hearing about how much we don’t like it… from *us*.
+
+Tyranny is the natural state of human affairs and passive people naturally end up in these systems. I regret to say I agree that the reason Britain is struggling at the moment is because it’s full of British people. America can’t have a migrant rape crisis like Britain because America is full of Americans and Americans insist on certain things. One of those things being the second amendment. Left or Right, we stand up as a people to raise our middle finger and say, “The fuck did you just say to me?” If a whole group of people started attacking kids in Texas and the sheriff tried to cover it up *and* the mayor? The death toll in that town would make the national news. We want everyone to know that if you hurt one of us, it’s going to cost you something.
+
+So, let’s stitch the two things together. Courage and grace through pain and death, and America’s loud and direct speech and protest environment.
+
+I have all kinds of complicated thoughts on ICE,[2](#footnote-2) but one thing I firmly believe is that if you’re going to go door to door, with maximum invasiveness, and start asking people for their papers, then you should feel an enormous social cost for that action. Nobody gets to do that with no pushback. I get why ICE agents wear masks and as much as I don’t like large parts of what they’re doing I also don’t want them to be killed in their personal lives. But when you’re organization is doing things like going to a Target and abducting a minor teenager and then not even returning him back to that Target when it turns out he’s a citizen, you don’t get to act bewildered and say, “come on, how could people not think I’m a great guy?”
+
+Of course people are going to have a problem with that, and I love the fabric of the country that rises up, however inarticulately, to say “tap the brakes, chief, this is America.”
+
+Still, the world longs for clear-headed discernment, and action not motivated by fear or panic.
+
+So, let me set my feelings aside and do my best to be calm in the face of so much pain and death. I’ll do my best to speak the facts clearly as I see them. Renee Good should still be alive. From a God’s eye point of view it was almost certainly not her intention to strike an ICE agent with her vehicle. She did hit him but it didn’t look serious and she probably got caught up in the moment. Those are unfortunate and if she was alive she should probably have some kind of culpability for that, but she’s dead so she’s already paid the ultimate price. The ICE agent, however, is not God and does not have a God’s eye point of view. His understanding of her intent was likely to have been different given he’d been dragged by a vehicle before. The fact that he’s now been struck by two vehicles probably means there’s something wrong with the way he was trained or the way he’s behaving and not that he should continue to put himself in front of cars. The question of his criminal culpability and his fitness to continue to serve as an ICE agent are two separate questions and both should be reviewed separately. The outcome of both should depend on what he understood from his training to be appropriate and his state of understanding at the time of the killing. That said, I imagine he would be acquitted but that also doesn’t mean that his training shouldn’t be changed. You absolutely have to put up with people non-violently protesting your actions, and you have to give a lot of latitude. On the protestor side, if a cop announces he wants to arrest you or search you, or whatever, you should just comply and announce that anything he is doing is done under protest.
+
+What I still hate and find depressing is how easy this would be to resolve if someone was willing to lead instead of chase poll numbers. Instead, everyone is an actor for the social media feeds. Except I think now it all rings strangely hollow and we might finally all be getting sick of it. What if Trump or Vance said they were going to be conducting investigations and raids with maximal discernment and laid out a clear understanding that would be harder to object to? What if Governor Walz told people to really watch themselves when they’re confronting ICE, and do things like put their hands on top of their heads even when they’re doing strong civil disobedience, or not resisting arrest as soon as the ICE agent has stated this intention? Or you, reader, simply decided that while you might have violent or uncharitable thoughts you have to choose to love people anyway.
+
+I know, at times, it can feel like we’re drowning in filth. We are drowning in depressing attention-grabbing garbage. Some of it needs your attention and some of it is only a distraction. But the way through that isn’t to panic or to give into fear. It’s to be very calm and reset ourselves and the world around us, moving steadily even as consequences loom larger and larger. It’s to say true things whether or not they make anyone happy, including you. It’s to find fault in people you like more often than you would prefer, and to find virtue in people you don’t like, also more often than you’d prefer.
+
+I’ve been praying a lot lately because the world feels heavy. My son’s autism diagnosis wasn’t the most uplifting experience of my life and I still can’t help but feel I am personally responsible for a lot of the bad things in the world because I’m not being brave enough. And in the way that God whispers to all of us, the thought occurred to me, “those with the best excuse have the power to set the greatest example.”
+
+We all have to try and be better than we are.
+
+[1](#footnote-anchor-1)
+
+I really, really wish we did a better job in this country of educating youth about economics. We’ve really screwed over whole generations. There are versions of this that are nobler than just telling someone to be happy their boss hired them in the first place. There are versions of it where you help people make a lot of money and have a successful life.
+
+[2](#footnote-anchor-2)
+
+They’re actually not super complicated. The Biden administration seemed to be unable to distinguish between people who wanted to quietly make money for their families and violent criminals. While there are much more of the former than the latter, you can’t just shrug and say, “Eh, is it really worth it to do something?” Unfortunately, it seems the Trump administration is also unable to make this distinction but in the other direction.

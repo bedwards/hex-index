@@ -1,0 +1,70 @@
+---
+title: "O! Enkidu!"
+author: "Chris Smaje"
+publication: "Chris's Substack"
+publication_slug: "chrissmaje"
+published_at: "2025-07-12T17:14:17.000Z"
+source_url: "https://chrissmaje.substack.com/p/o-enkidu"
+word_count: 1251
+estimated_read_time: 7
+---
+
+Happy news if you’re bored of me trailing my new book – I’m shortly going to hand over to a much valued long-term commenter here at Small Farm Future, Eric Farnsworth, so that he can trail his instead. But, lest you fear my powers of self-promotion are waning, let me also draw your attention in passing to this [TBLI podcast](https://open.spotify.com/episode/5DzhlEXhhtnvvJm7dB0hfV?si=buc34dOdS1y-08niZNB6CAFood-Still-Matters-e34us79&nd=1&dlsi=0aa022950e0d4c23) I recently did with Robert Rubinstein.
+
+Also, before we get to Eric’s book, I just want to thank commenters for the multiple discussions under my [clown and two romances](https://chrissmaje.com/2025/06/a-clown-and-two-romances/) post. Apologies I didn’t have the time to respond much. Just to pick out a few threads that I’d have liked to engage with more, [Philip](https://chrissmaje.com/2025/06/a-clown-and-two-romances/#comment-267302) made some good points about regulation in the food and forestry sector as a form of corporate capture. And about the way that, here in the UK, a Conservative government with an almost unsurpassable hostility and indifference to agrarian, rural and ecological matters has in fact been surpassed by the succeeding Labour government with an even greater hostility/indifference.
+
+I won’t revert to old battles and name names, but I think it’s safe to say the idea floated by various prominent opinion-formers around election time that the arrival of the new Labour administration signalled better times for nature and environmental protection can safely be consigned to the bin. The fundamental problem, I’d suggest, is not the Conservative Government or the Labour Government. The problem is the Government.
+
+That touches on another point in the comments. [John](https://chrissmaje.com/2025/06/a-clown-and-two-romances/#comment-267301) writes that it’s “the “State” that ultimately grants ownership of land. Once “the law” is no longer enforceable, what’s stopping someone else deciding they want your plot?” A good deal of my forthcoming book *Finding Lights in a Dark Age* is devoted to exactly this question, so I won’t get into it right now. In brief, I’d say that John’s question points to the fact that societies need governance, but they don’t need The Government. Indeed, it’s often The Government – the “State” – that decides it wants your plot, your body, or your work.
+
+On that note, apologies to [Walter](https://chrissmaje.com/2025/06/a-clown-and-two-romances/#comment-267290) if I mischaracterised his position around grain states and unfree labourers or citizens. A topic that I hope to revisit soon.
+
+Hell, why don’t we revisit it now? The Epic of Gilgamesh is probably the oldest surviving story about the state, freedom and civilisation. And it’s also the topic of Eric’s new book, which I’m looking forward to reading. So … over to Eric.
+
+\---
+
+Chris has graciously offered me a guest spot on this blog to talk about a topic that has occupied a fair bit of my time recently – even to the point of producing a little book of historical fiction. I’ll try not to waste everyone’s time here, so it should be noted that I have no claim to actually know anything about this topic. I just read some things and filter them through my biases. Feel free to tell me how wrong I might be.
+
+But one day I picked up the Epic of Gilgamesh. I recommend it.
+
+When human written language began to take a particular standardized form, a little more than 5,000 years ago in Sumeria, most of the writing had to do with trade and accounting. Gilgamesh was one of the very first pieces of writing done for the purpose of telling a story. The Gilgamesh narrative can be credited as the (written) starting point for many of the stories we (especially in the West) tell ourselves even today, about society and the state and power and what it means to be human. And when I read the Gilgamesh epic it made me angry.
+
+So if you haven’t read it, I believe Gilgamesh is really helpful to understand Western Civilization.
+
+But — Spoiler Alert– Gilgamesh is a creep. A tyrant writ large. He dragoons the men of Uruk to do the labor of building the city walls and other public works (that Gilgamesh then takes credit for). He rapes the virgin brides of all the new husbands in the city. He doesn’t listen when the people of the city beg for relief. So the people of Uruk call out to the gods for relief, and the gods hear them.
+
+The solution the gods come up with is to create a rival for Gilgamesh who will distract him from bothering the people of the city. They create Enkidu, the wild man. Enkidu is large and hairy and naked, running with the gazelle and eating grass. Does this sound familiar?
+
+When the settled people on the fringes of Uruk finally see Enkidu, they are afraid, and send word to Gilgamesh, since he styles himself the protector of Uruk. Gilgamesh sends Shamhat the harlot out to the countryside to lay in wait for Enkidu and seduce him. This works, and after having sex for six days and seven nights, Enkidu goes back to his gazelle pals, but they don’t recognize him anymore.
+
+So Enkidu hangs around with Shamhat for a while, until he hears about a wedding in Uruk where Gilgamesh is scheduled to rape the virgin bride. Enkidu is so angry about this that he runs down to Uruk and has a colossal fight with Gilgamesh which neither of them really wins. But afterward Gilgamesh and Enkidu are best friends and wander off to have adventures together.
+
+Tellingly, their first big adventure is going to the sacred cedar forest, killing the forest’s guardian monster, and cutting down the mother tree.
+
+Okay, fine, nice epic. But I can’t see it happening that way in real life.
+
+There is some reason to believe that Uruk might have actually had a king named Gilgamesh somewhere around 2800 BCE. There were also nomadic tribes living outside the settled agricultural areas.
+
+And the Gilgamesh epic as we have received it from the ancient cuneiform tablets is excellent propaganda supporting the idea that cities are better than nomadism and we must have kings ruling us. But my question is: What is a more realistic story about how the conflict played out between the city states in Mesopotamia and the older nomadic culture of the surrounding area?
+
+We know who won that conflict, mostly. The cities took the best land, and nomadic subsistence living got much more difficult. Except that periodically a nomadic leader would sweep out of the steppes and set himself up as king of one of the cities or empires. And so, after many iterations of this, here we are today.
+
+So I wrote a little story trying to see the events of the Epic of Gilgamesh from Enkidu’s point of view, unassisted by supernatural gods and monsters. I have to say that at no time did I feel particularly competent at this task. I just made some guesses and tried to have it all make some kind of internal sense.
+
+But I do think the underlying issues are important, and if telling stories about them can help us understand how to deal with this crazy human urge to be tyrants, then I think fiction can be useful. Or maybe even beyond that, telling stories that draw attention to the fact that we don’t need to live the way we are living right now.
+
+And I would certainly be interested to hear any ideas about what could have caused Enkidu to act the way he did.
+
+I called my book O! Enkidu!
+
+And I really don’t care if anyone buys it, but I’d like people to read it. I’d be especially happy if all my friends asked their local public library to buy a copy.
+
+There is a publisher page:
+
+[https://sulbooks.com/bookstore/p/o-enkidu-eric-farnsworth-print](https://sulbooks.com/bookstore/p/o-enkidu-eric-farnsworth-print)
+
+And a Goodreads page:
+
+[https://www.goodreads.com/book/show/236805993-o-enkidu](https://www.goodreads.com/book/show/236805993-o-enkidu)
+
+Thanks.

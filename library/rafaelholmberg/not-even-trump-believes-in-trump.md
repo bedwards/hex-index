@@ -1,0 +1,38 @@
+---
+title: "Not Even Trump Believes in Trump"
+author: "Rafael Holmberg"
+publication: "Antagonisms of the Everyday"
+publication_slug: "rafaelholmberg"
+published_at: "2025-03-22T17:20:05.000Z"
+source_url: "https://rafaelholmberg.substack.com/p/not-even-trump-believes-in-trump"
+word_count: 1079
+estimated_read_time: 6
+---
+
+[
+
+![File:Donald-trump-secim-840x420.jpg](https://substackcdn.com/image/fetch/$s_!FlM1!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F3619e244-7d01-4089-8cb5-eb9d27dc12f2_960x640.jpeg "File:Donald-trump-secim-840x420.jpg")
+
+
+
+](https://substackcdn.com/image/fetch/$s_!FlM1!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F3619e244-7d01-4089-8cb5-eb9d27dc12f2_960x640.jpeg)
+
+\---
+
+US Attorney General Pam Bondi described the recent public burning of Tesla cars, in protest against Elon Musk and DOGE, an act of "[domestic terrorism](https://abcnews.go.com/US/tesla-vehicles-vandalized-us-musk-began-white-house/story?id=119910817)". The New Republicans seemingly pride themselves on their free-speech enthusiasm. And yet it is interesting to see such sharp limits drawn to this free speech when it gets uncomfortably close to the administration’s private interests. Storming Capitol Hill is, according to Trumpian logic, a reasonable expression of discontent with representative democracy, but burning a few electric vehicles produced by Elon Musk is a clear act of terrorism. The Trump administration draws an almost comically clear distinction: if it serves private financial interests, it is an exercise in freedom of speech – if it threatens the private financial interests of the international oligarch team that Trump wants to appease, it is a clear act of terrorism.
+
+It is becoming clearer than ever that the free-market, openly capitalist-libertarian system that Trump espoused is a system that he himself does not believe in. Take for example his very quick reversal of the unregulated free-market economy that – following Argentina and Javier Milei – Trump’s team were so certain about implementing. Despite the plummeting shares of Tesla due to Musk's antics, they promise us that the company's car production will [double by 2027](https://fortune.com/2025/03/12/elon-musk-double-tesla-us-car-production/). In other words, regardless of a market trend dictating a potential demise in Tesla, the White House will intervene in the production of Tesla products, in order to overrule the laws of the market and protect their vested interest in the rise of Tesla stock.
+
+The free market that the New Republicans so proudly defended is therefore clearly only defended when it suits their private needs – where the market dictates that Tesla will go under, the bureaucratic face of State interventionism once again rears its head. When Gandhi was asked what he thought of Western civilisation, he gave the wonderful answer that “it sounds like a good idea.” ‘West’ and ‘civilised’ were for Gandhi mutually exclusive terms. When Noam Chomsky was asked what he thought about capitalism, he gave the same response, a response which reaches into the core of the fragile economic ideals of the Trump administration. “Capitalism sounds like an interesting idea”, because we’ve yet to experience a State-independent, unregulated capitalist market. In fact, US capitalists such as Trump and Musk would never accept the instability of a genuinely free market. Indeed they’ve made this very clear, by resorting to State-dictated manufacture whenever market laws don’t go the way they want to. The greatest economic libertarians are often nothing more than vulgar Stalinists in disguise.
+
+If the Trump-Dream is to envisage a bureaucracy-free, transparent market-economy, then it is becoming clearer than ever that this alternative vision of America pedalled by Trump is quickly collapsing. And yet it is collapsing according to Trump’s own terms: to no great surprise, the trust-fund billionaire does not seem to believe in a truly ‘democratic’ market rule, nor he does he seem to truly believe in the working-class, Midwestern sentimentalist American Dream with which he won two elections. Trump’s tariff wars and estrangement from other Western countries do not speak of anything other than his contempt for whatever does not make him wealthier. What makes sense to Trump is what makes money, and what makes such bureaucratically backed oligarchs money is neither socialism nor free markets.
+
+The same populist appeal to domestic and market freedom that mobilised the US Midwest in support of Trump is an ideal that Trump himself is rejecting. Yet this should come as no great surprise – the same Trump who spoke of the ‘self-made millionaire’ appeal of Wall Street in the 90s also spoke of the “small loan of a million dollars” that he received from his father. The great paradox of Trump is that he functions by avowing an economic and political principle that he simultaneously rejects.
+
+In a strange turn, Trump becomes the perfect accomplice to the ideological forms of 13th and 14th century scholastic theology. For the Christian philosophy of Thomas Aquinas, as well as for his more mystic counterparts such as Pseudo Dionysus and Meister Eckhart, *genuine faith* in one’s own ideas can often inadvertently corrupt these ideas. Much like a young political figure who truly believes in the government of his country, and is all too disappointed when he witnesses first-hand the corruption underlying this system, medieval theologians understood that dogmatic faith could be counterproductive, and were instead forced to critically and sceptically approach the idea of God. The immanence of divine revelation is a surprisingly short-lived type of faith – it is instead not by directly knowing, but by “knowing that one knows” (as Meister Eckhart puts it), or by adopting a speculative distance towards one’s own faith, that this faith can be perpetuated. In order for Aquinas’ critical assessments of Christian ethics and ontology to be possible, he had to first adopt enough of a distance from his faith to be able to neutrally assess it.
+
+If there is *one* avatar of this theological *modus operandi*, it is Trump. In order for Trump to maintain the ‘democratic’ ideas of America First, he must simultaneously abandon them. The free market is for Trump simply a case of more unjust market intervention. This same contradictory doctrine operates in Trump's self-proclaimed control over Putin, whilst Putin continuously disregards Trump’s diplomacy efforts. Trump’s free-market, domestic freedom politics are a comical cover-up for a globalisation of bureaucratic market manipulation.
+
+As Max Weber argued in *[Economy and Society](https://www.jstor.org/stable/j.ctv24trdzh)*, the height of modern capitalist development becomes indistinguishable from a bureaucratic administration, and Trump simply displaces this bureaucracy from the national to the international stage. Trump’s rejection of Washington bureaucracy with the Department of Government Efficiency is nothing more than a re-branding of plutocracy. Far from eliminating the power than money holds over US politics, Trump uses it against itself – he sees allies where he sees money, and any ethical considerations are a weak performative spectacle. The international bureaucracy is only rendered more impenetrable by Trump’s shaking up of classical national allegiances. We might still try to claim that Trump stands for *something*, but whatever this *something* is, it is clear that Trump himself does not believe in it.
+
+\---

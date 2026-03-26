@@ -1,0 +1,55 @@
+<h2>The Case Against Claude.md: When Guardrails Become Guardrails Against Yourself</h2>
+
+<p>Chase H makes a provocative argument that resonates with a growing contingent of AI-native developers: the claude.md file, that sacred instruction manual everyone insists should accompany every Claude Code project, might actually be making the AI dumber. The claim draws on a research paper from ETH Zurich, and while the headline finding is genuinely interesting, the practical takeaway deserves more scrutiny than a YouTube video can provide.</p>
+
+<p>The core finding from the ETH Zurich paper is striking on its face. Across multiple coding agents and benchmarks, context files like claude.md and agents.md tended to reduce task success rates while inflating inference costs by over 20 percent. Chase quotes the researchers directly:</p>
+
+<blockquote>Across multiple coding agents and large language models, we find that context files tend to reduce task success rates compared to providing no repository context while also increasing inference cost by over 20%.</blockquote>
+
+<p>That finding is worth sitting with. The instinct to give an AI agent more context, more scaffolding, more hand-holding feels so obviously correct that most developers never question it. The research suggests that instinct can backfire, at least under specific conditions.</p>
+
+<h2>Context Pollution Is Real, But the Diagnosis Is Incomplete</h2>
+
+<p>Chase identifies several mechanisms by which claude.md files hurt performance: redundant documentation, excessive tool calling, and what he aptly calls "context pollution." The argument goes like this: Claude Code already traverses the codebase, already reads files, already figures out the architecture. Layering a bloated instruction file on top of that natural exploration process just creates noise.</p>
+
+<blockquote>When I tell cloud code to do something, what is it going to do? It's already going to go through the codebase. It's already going to go through the search process and find out what it needs. So, it's doing that. Plus, it's taking a look at this bloated document you gave it, right? It's just excessive.</blockquote>
+
+<p>There is truth here, but it is a partial truth. The problem is not that context files exist. The problem is that most context files are poorly written. They are either auto-generated kitchen-sink documents produced by <code>/init</code>, or they are wish lists of every convention a developer has ever cared about, most of which are irrelevant to any given task. The ETH Zurich paper itself acknowledges this distinction. The researchers concluded that context files should describe "only minimal requirements" and that manually written files outperformed auto-generated ones in stripped-down repositories.</p>
+
+<p>This is not a finding against claude.md. It is a finding against bad claude.md files.</p>
+
+<h2>The Exception That Swallows the Rule</h2>
+
+<p>Chase acknowledges an important exception buried in the research: when all other documentation was removed from a repository, LLM-generated context files actually improved performance by about 2.7 percent and outperformed developer-written documentation. He frames this as a narrow edge case, applicable mainly to "personal assistant type agents" like Obsidian vaults:</p>
+
+<blockquote>This is for stuff that is huge. Also, when we're talking about very large code bases, the chances are that there is no documentation in any form whatsoever in there at all is highly unlikely. So, this scenario is almost somewhat an unrealistic scenario.</blockquote>
+
+<p>But this framing undersells the finding. Many real-world projects have documentation that is stale, scattered, or misleading. A well-crafted claude.md that captures the actual architectural truths of a project, the conventions that cannot be inferred from code alone, can serve as the single source of reliable context. The question is not whether documentation helps, but whether the documentation is accurate and minimal.</p>
+
+<p>Consider a project where the test runner is Vitest but the package.json still references Jest scripts from an old template. Or a monorepo where the deployment target for one service is GitHub Pages and another is Vercel. These are exactly the kinds of facts that Claude Code cannot reliably infer from traversing the codebase, and where a tight claude.md file pays for itself many times over.</p>
+
+<h2>The Skill of Writing Good Instructions</h2>
+
+<p>Chase makes a telling observation about the audience most likely to be harmed by claude.md files:</p>
+
+<blockquote>That requires a certain level of knowledge and technical knowhow that many people who are just stepping into the Vibe coding space with cloud code don't have. They don't come from a technical background. They're really just figuring this all out. If that's you, then I think the answer probably is delete the cloud MD.</blockquote>
+
+<p>This is fair advice for beginners, but it reveals a deeper truth: the problem is not the tool, it is the skill of using the tool. Writing effective instructions for an AI agent is itself a skill, one that Anthropic's own engineering blog has written about extensively under the banner of "context engineering." The solution for most developers is not to abandon context files but to learn to write better ones.</p>
+
+<p>The research finding that "stronger models didn't generate better context files" actually supports this point. Auto-generation, even by frontier models, produces bloat. Human curation, by someone who understands both the project and how language models consume context, produces signal. The failure mode is not the existence of the file but the abdication of editorial judgment about what belongs in it.</p>
+
+<h2>Skills and Hooks Are Not a Substitute</h2>
+
+<p>Chase suggests that many conventions currently stuffed into claude.md files should instead be implemented as skills or hooks. This is partly right. A pre-commit hook that runs linting is more reliable than an instruction that says "always lint before committing." But there is a category of guidance that does not fit neatly into hooks or skills: architectural context, naming conventions, deployment topology, the reasons behind technical decisions. These are the things a claude.md file should contain, and only these things.</p>
+
+<p>The new interactive <code>/init</code> flow that Anthropic shipped is a step toward this philosophy, pushing developers to think about whether a convention belongs in global context or in a more targeted mechanism. But as Chase himself notes, it is not a silver bullet.</p>
+
+<h2>What the Research Actually Shows</h2>
+
+<p>The ETH Zurich paper is valuable, but its findings need to be read carefully. The benchmarks tested coding agents on discrete tasks in existing repositories, a scenario where the agent's built-in code search is indeed sufficient for most needs. The findings do not directly address long-running projects where a developer (human or AI) returns to the same codebase hundreds of times, accumulating context about decisions that are invisible in the code itself.</p>
+
+<p>The 20 percent cost increase is real and worth attending to. Every token in a claude.md file gets processed on every interaction. That is an argument for ruthless brevity, not for deletion. A ten-line claude.md that captures the three things Claude Code would otherwise get wrong is worth its weight in tokens. A two-hundred-line claude.md that restates what the code already says is actively harmful.</p>
+
+<h2>Bottom Line</h2>
+
+<p>Chase H is right that most claude.md files are too long, too redundant, and too reflexively created. The ETH Zurich research provides genuine evidence that auto-generated context files hurt more than they help. But the conclusion "you probably don't need a claude.md file" oversimplifies the finding. The research actually shows that bad context files are worse than no context files, which is a very different claim from saying context files are inherently harmful. For developers willing to treat their claude.md as a curated, minimal document containing only what the AI cannot infer on its own, the file remains one of the most powerful tools in the Claude Code workflow. The discipline is in knowing what to leave out.</p>

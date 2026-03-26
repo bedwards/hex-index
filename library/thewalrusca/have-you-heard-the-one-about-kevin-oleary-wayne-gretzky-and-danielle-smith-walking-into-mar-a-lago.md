@@ -1,0 +1,111 @@
+---
+title: "Have You Heard the One about Kevin O’Leary, Wayne Gretzky, and Danielle Smith Walking into Mar-a-Lago?"
+author: "The Walrus"
+publication: ""
+publication_slug: "thewalrusca"
+published_at: "2025-12-07T12:01:32.000Z"
+source_url: "https://thewalrusca.substack.com/p/have-you-heard-the-one-about-kevin"
+word_count: 3561
+estimated_read_time: 18
+---
+
+[
+
+![](https://substackcdn.com/image/fetch/$s_!A8ur!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F5cdf1ff2-e06d-4ed9-8f53-5ce4535fe726_1536x1024.jpeg)
+
+
+
+](https://substackcdn.com/image/fetch/$s_!A8ur!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F5cdf1ff2-e06d-4ed9-8f53-5ce4535fe726_1536x1024.jpeg)
+
+*Christinne Muschi, Chris Young (Canadian Press) / Chuck Burton, AP Photo / Wikimedia Commons / Ana Luisa O. J.*
+
+***This story was originally published on [thewalrus.ca](https://thewalrus.ca/)***
+
+**By [Mark Critch](https://thewalrus.ca/author/mark-critch/)**
+
+**In December 2024,** when United States president-elect Donald Trump started making implicit threats of annexation, Canadians became suspicious of the outside world. It’s not just America that put us on edge. We used to be friends with everyone. Who didn’t like Canada? We were peaceful, funny, and everyone’s pal. Everyone wanted to sit with us at the United Nations cafeteria. But then it started to feel like people were using us. Maybe because we were pals with the popular kid, America. But then he turned on us, and we couldn’t tell who our real friends were anymore.
+
+In January, Justice Marie-Josée Hogue delivered a report on foreign interference in Canada’s electoral process. The public inquiry was called in 2023 to investigate allegations of meddling by China, Russia, India, and other so-called foreign actors. The witch hunt began when a parliamentary intelligence report flagged that some members of Parliament were “witting or semi-witting” participants in foreign meddling. I’d never heard the phrase “semi-witting” before, but it did seem apt. After all, I know a couple of MPs that I’d consider halfwits. At the time, many MPs called on the government to release the names of these traitors. But were they pointing the finger to stop interference or pointing the finger to avoid being fingered themselves? Paranoia ran wild, even for a country that had legalized weed.
+
+However, the inquiry found no evidence of traitors in Canada’s Parliament plotting with foreign governments to interfere with elections. Hogue did express “legitimate concerns about parliamentarians potentially having problematic relationships with foreign officials, exercising poor judgment, behaving naively and perhaps displaying questionable ethics.” Tell us something we don’t know! Hogue found it wasn’t spies that were the problem. In her report, she said that “information manipulation” posed the biggest single threat to our democracy. In other words, fake news. Maybe Trump had a point after all.
+
+There were some things to be worried about, however. She found that China “clandestinely leveraged” Canadian officials to help its “favoured” candidates win office in 2019. India, she learned, was the “second-most active country engaging in electoral foreign interference in Canada.” But, in my opinion, the people that Canadians should be most worried about meddling in our affairs are Canadians. You don’t need to search the dark corners of the Parliament Buildings for double agents. You don’t need to bug the Chinese embassy to find evidence of someone who is betraying their country. All you must do is turn on the TV or scroll through your social media feed. They’re right there, plain as day.
+
+When the trade war started, and Trump told then prime minister Justin Trudeau that he wanted to make Canada the fifty-first state, most Canadians were shocked, hurt, and angry. But not everyone saw this as a breach of trust. There are those among us who see every crisis as an opportunity. Like the type of people who got rich in the pandemic by hoarding N95 masks and buying stock in hand sanitizer companies. All the hand sanitizer in the world won’t get their hands clean now.
+
+Julius Caesar once said, “I love treason but hate a traitor.” And with good reason. We all know what happened to him. He had one bad opinion poll and ended up a pincushion. But he has a point. Undermining authority is cool, but betrayal is unforgivable. History often chooses who the heroes and the traitors are once the battles are won. Some would look at a treasonous act as a person merely seizing an opportunity. Those people would most likely be traitors.
+
+\---
+
+#### **You can’t share stories from** ***thewalrus.ca*** **on Facebook or Instagram because of Meta’s response to the [Online News Act](https://thewalrus.ca/why-you-might-stop-seeing-canadian-news/), but you can share this Substack article there**
+
+\---
+
+**“Treason” is a** dramatic word. It should never be thrown around willy-nilly, like “hangry,” “rizz,” or “sus.” Those words will not stand the test of time. But treason is timeless. It has a weight to it. It must be handled with care, like a loaded pistol. If it goes off at the wrong time or if it falls into the wrong hands, it can be deadly.
+
+In Canada, treason is defined as acts against the authority of the Canadian government. This could mean trying to overthrow the government or assisting an enemy at war with Canada. High treason is more serious. That means attempting to kill the king or prime minister. High treason could get you life imprisonment. Regular old run-of-the-mill treason could get you fourteen years or an invitation to Mar-a-Lago.
+
+The moment Trump started to talk about annexation, the *Dragon’s Den* and *Shark Tank* star Kevin O’Leary ran for the border. As soon as he could, he appeared on whatever Fox News program would take him. He was desperate to get some attention from his idol.
+
+Canadians often describe their entertainers as “Canada’s answer to.” Bryan Adams is the Canadian version of Bruce Springsteen. Rick Mercer is a Canadian Jon Stewart. And O’Leary is Canada’s answer to Trump. Not that anyone asked for one. He’s like the *wish.com* version of Trump. He’s a little cheaper, a little smaller, not as successful. He’d be like Trump without all the redeeming qualities, if Trump had redeeming qualities. Trump and O’Leary are both rich blowhards who gained fame on reality TV. They are both known for terrible hairstyles. They both claim to be financial geniuses despite having run businesses that tanked. And they both tried to leverage their TV fame into political careers. Trump was successful, but, thank God, O’Leary was not.
+
+In 2017, O’Leary ran to become the leader of the Conservative Party and to defeat Trudeau. He dropped out before the final debate, blaming his inability to gain traction in Quebec and his poor French-language skills. Yes, his French was terrible, but that’s to be expected. To truly master French, you need to spend some time immersed in Quebec culture. To spend time in Quebec, you’d have to spend time in Canada. And, yes, O’Leary wanted to be prime minister of Canada, but he didn’t want to *live* here! O’Leary was often criticized for not taking the leadership seriously. He spent much of the race in the US, selling his own brand of wine on the home-shopping channel QVC. Sounds pretty Trumpy, right?
+
+After voters spat him out like a sensible person would spit out bad wine after tasting it, he threw his weight behind Maxime Bernier. Of Bernier, he said, “I want the DNA of my policies and objectives to survive into the general election. The candidate that best mirrors my policies is Maxime Bernier.” Of O’Leary, Bernier said at the time, “O’Leary is a loser.” At least O’Leary was right. Bernier was the candidate most like him because he was a loser too. Bernier went on to form the People’s Party of Canada. It may not actually be the party of the people, but it is the party of anti-vaccination, anti-immigration voters, and those who are so far right they’re almost left again. In the 2025 federal election, the PPC gained just 0.7 percent of the national vote, and Bernier came fourth in his own riding, losing by 34,000 votes. O’Leary’s political predictions are almost as bad as the financial ones made by his now defunct mutual fund company O’Leary Funds.
+
+They call him Mr. Wonderful. They only do that because he gave himself the nickname. So is it any wonder that when Trump turned on Canada, O’Leary ran to Mar-a-Lago like Jack up the beanstalk? In this version of the fairy tale, Trump was the giant, and the beans were bitcoin. Before you could say “fifty-first state,” O’Leary was on Fox News telling every redneck and fundamentalist Christian watching (and likely Trump himself) that Canadians were ready to roll out the red carpet for the invading hordes. He told Fox that “Canadian people are intrigued with Trump’s suggestions.” I think he must have meant “person” when he said “people.” Namely, the only person whose opinion he usually considers: himself.
+
+O’Leary couldn’t wait to tell the Foxes in the Canadian henhouse that he had been at Mar-a-Lago and had spoken with the president himself. O’Leary is one of the many sycophants who pay top dollar to sit in the ballroom there, waiting for Trump to shuffle by, hoping to touch the edge of his garment. Think of Mar-a-Lago as Jabba the Hutt’s palace in *Star Wars*. Trump would be Jabba and O’Leary would be the dancer in the metal bikini chained to his barge.
+
+O’Leary went on to tell our invaders that Canadians were interested in the “low-hanging fruit like combining the currency.” Yes, that’s exactly what Canadians want, Kevin. We want Trump on our dollar. At least we could still call it a loonie. When I heard about O’Leary having dinner at Mar-a-Lago, I couldn’t help but think of another dinner, many years ago: the Last Supper. Can’t you just imagine O’Leary as an apostle? If they had Fox News back then, O’Leary would be right there on the news desk on Good Friday. “Look, I had no trouble turning Jesus in. The guy was a disaster. His economic policy was crucifying us. He said, ‘It is easier for a camel to go through the eye of a needle than it is for a rich man to enter the kingdom of God’? Then get a bigger door! It’s heaven, for Christ’s sake! Look, the Romans are good people. I think Christians are intrigued by what Caesar Augustus has to say. I like Pontius Pilate. He has some great policies. He didn’t want to crucify the guy. He washed his hands of it.”
+
+O’Leary was speaking to the Americans, but he did have a message for Canadians. “Everyone in Canada should understand that Trump is bombastic and controversial,” he said, “and they have to learn how to distinguish between the signal and the noise.” *Oh, so it’s not Trump’s fault for threatening to annex us. It’s our fault for “listening wrong.” Got it.* He continued, “The noise is: ‘I want to buy Canada, and I want it for a discounted price, and everybody’s going to lose their sovereignty.’” *Well, that’s pretty noisy.* He added, “The signal is, ‘I want a strong economic union.’ Don’t get caught up with the noise and miss the opportunity the signal provides, is my message to Canadians.”
+
+That’s like saying “Don’t get caught up in the mugging. Yes, the guy in the ski mask is saying, ‘I’m going to kill you if you don’t give me all your money,’ but that’s just the noise. The signal is, ‘Let’s do business. In exchange for your wallet and watch, I will provide you with fifty more years of life.’ That is a good deal! What an opportunity!”
+
+Canada wasn’t the only topic on the table when O’Leary visited Trump. He said he also talked about his plan to develop the world’s largest artificial intelligence data centre near Grande Prairie, Alberta. As well as a proposal by a syndicate he’s part of to purchase TikTok. So the noise is “I’m a traitor selling my country out,” and the signal is “If I help you get Canada, you help me get TikTok.” O’Leary visiting Trump at Mar-a-Lago is like going to see the Godfather on the day of his daughter’s wedding. “Kevin,” Trump might say from behind his desk as O’Leary grovels in tears, “someday, and that day may never come, I’ll call upon you to do a service for me. But until that day—accept this app as a gift on my election day.”
+
+We had a public inquiry into the Chinese, Russians, and Indians where we looked for traitors that weren’t really there in the shadows. In my opinion, O’Leary did more damage to this country right out in the open on Fox News. But he wasn’t the only Canadian eager to kiss the ring. Alberta premier Danielle Smith flew down to the seventh level of hell to join O’Leary in the heat. She said she had a “friendly and constructive conversation” with the former host of *The Apprentice*. Most conversations where one side only ever says “yes, sir” are considered friendly. Smith and O’Leary danced along the yellow brick road to see the Wizard, just like the Lion, Tin Man, and Scarecrow. Without brains, hearts, or courage.
+
+At the time, Canadians were in an election. Trump’s rhetoric was causing a tidal wave of patriotism that the governing Liberals were beginning to surf by standing up to Trump. After she was blessed by his Holiness the Dope, Smith spoke to American news outlet Breitbart News. They’re sort of a Fox News for people who think Fox News is too liberal. Smith warned that Trump’s tariffs “actually caused an increase in the support for the Liberals. And so that’s what I fear, is that the longer this dispute goes on, politicians posture, and it seems to be benefiting the Liberals right now. So I would hope that we could put things on pause, is what I’ve told administration officials. Let’s just put things on pause so we can get through an election.” So, in other words, “The more you threaten our sovereignty, the less likely Conservatives are to win, so could you pretend to not want to annex us for a while so we can win, and then you can do whatever you want? Thanks. Oh, is that prosecco?”
+
+**But when it comes** to people who have turned their back on their country to serve their own self-interest, one name rises above the rest. When it comes to being a traitor, you could say this guy is “The Great One.” When I was a kid, Wayne Gretzky was a god. The greatest hockey player of all time. His was the only hockey card that a Canadian kid would never trade. Mattel, the makers of Barbie, even manufactured a doll in his image. He made a guest appearance on *The Young and the Restless*, playing himself. He was not very convincing in the part, but, nevertheless, Gretzky remained the pride of the nation. There was no one more admired. No one that Canadians were more proud of. He was our hero. These days, however, the most popular Gretzky Google search is “Wayne Gretzky traitor.”
+
+Gretzky is a Canadian icon, but he’s an American citizen. He has lived in the States ever since 1988, when he was traded to the Los Angeles Kings and broke every Canadian’s heart. But we didn’t give up on him. He might live in the US, but he was still Canadian, right? We even awarded him Canada’s highest civilian honour, the Order of Canada, in 2009. But he didn’t bother to come pick it up. Maybe that should have been our first clue.
+
+\---
+
+-   [First, the Tariffs. Then, the Threats. Then, the Hockey Gloves Came Off](https://thewalrus.ca/first-the-tariffs-then-the-threats-then-the-hockey-gloves-came-off/)
+    
+-   [Why Won’t Trump Shut Up about Canada?](https://thewalrus.ca/why-wont-trump-shut-up-about-canada/)
+    
+-   [Trump Revives Talk of 51st State. It’s Not Funny Anymore](https://thewalrus.ca/how-to-save-canada/)
+    
+
+\---
+
+Gretzky has new friends now. One of whom is the Not So Great One, Trump. Of Gretzky, Trump said, “I have so many great friends. One of them is the Great One, Wayne Gretzky. I said, ‘Run for prime minister, you’ll win in a—it’ll take two seconds.’ He said, ‘Well, am I gonna run for prime minister or governor? You tell me.’ I said, ‘Let’s make it governor. I like it better.’” Hilarious. Gretzky may have the Order of Canada, but it seems he takes his orders from America these days.
+
+Canadians had been giving Gretzky the benefit of the doubt for years. But things bubbled over during the National Hockey League’s 4 Nations Face-Off final between Canada and the US in February. Things had been getting heated on the ice. Canadians, enraged by Trump’s comments, had begun to boo the American anthem before hockey games. This was very unCanadian. Hockey rinks are like churches for Canucks. Anthems as revered as hymns. For us to be booing the American anthem at a hockey game meant the gloves were off like never before. Gretzky didn’t seem to get that. Maybe because he’s been away so long, he’s lost touch? Maybe it’s heatstroke from playing too much golf at Mar-a-Lago? Maybe too much Wayne Gretzky Estates wine? That would do it. Whatever the reason, Gretzky was not stickhandling his dual citizenship very well.
+
+Before the puck drop in Boston, Gretzky wore a suit and tie—American honorary captain Mike Eruzione wore a US jersey. This was a chance for Gretzky to show his colours, but he wouldn’t even wear them. To add insult to injury, he gave a thumbs-up to the US team as he walked to the ice from their bench. A week later, nearly 15,000 people had signed a petition to change the name of Wayne Gretzky Drive in Edmonton.
+
+It wasn’t just hockey fans that were upset. New Democratic Party MP Charlie Angus went off on the Great One, saying, “Wayne Gretzky should be ashamed of himself. Absolutely ashamed of himself. Don’t bother coming back to Canada.” It takes a lot to piss off the NDP! But just like on the ice, Gretzky was not without his defenders. His wife, Janet, posted that it had broken her husband’s heart to read “mean comments.” Well, welcome to the internet, Wayne. It’s pretty much just mean comments and cat videos.
+
+Another great hockey player, Boston Bruins legend Bobby Orr, wrote an op-ed for the *Toronto Sun* to say how disappointed he was in his fellow Canadians. He said that he could not “understand why the ‘haters’ have decided to go after Wayne.” No wonder Orr defended Gretzky. Just like him, Orr packed off to Florida years ago. He decided to pound sand along with the rest of the MAGA-loving Trump bootlickers who don’t give a puck about this country anymore.
+
+Orr even took out a full-page ad to help get Trump re-elected in 2020. In the ad, Orr said, “I am greatly concerned for the country in which I have raised my family,” and that Trump is “the kind of teammate I want.” Okay, Bobby, you picked your team. You’re an American now. Don’t be telling us who we can or can’t be pissed off at because guess what, Bobby, we’re pissed off at you now too!
+
+They say Gretzky skates to where the puck is going. And apparently, that’s Florida, because he’s been hanging around Mar-a-Lago more than Smith with an unlimited Sunwing voucher. He won’t put on a Team Canada jersey, but he’ll jam his hockey hair into a MAGA hat no problem. Maybe that’s why broken-hearted Gretzky ran to big daddy Trump to defend him too. Some liquor stores started pulling Gretzky wines from the shelves and #GretzkyTraitor was trending on X.
+
+So Trump came to the rescue. He posted, “Wayne is my friend, and he wants to make me happy, and is therefore somewhat ‘low key’ about Canada remaining a separate Country, rather than becoming a cherished and beautiful 51st State, paying much Lower Taxes, a Free and Powerful Military, NO TARIFFS, and having a Booming Economy. Wayne and Janet, his wonderful wife, love Canada, and they should only support Canada, and whatever else makes the Canadian People, and Governor Justin Trudeau, happy. He’s the Greatest Canadian of them all, and I am therefore making him a ‘free agent,’ because I don’t want anyone in Canada to say anything bad about him. He supports Canada the way it is, as he should, even though it’s not nearly as good as it could be as part of the Greatest and Most Powerful Country in the World, the Good Ole’ U.S.A.!” Or, to paraphrase, “You’re a good boy, Wayne! A very good boy. Daddy fixed it for you.”
+
+Yes, Gretzky had his defenders, and that’s the saddest part. Canadians didn’t want Gretzky to leave it up to his wife, or Orr, or big daddy Trump to defend him. They wanted to hear it from the man himself. And maybe, just maybe, he should be defending us. Gretzky famously said, “You miss 100 percent of the shots you don’t take.” I wish he would stop hiding behind defencemen, take his own advice, and take the shot.
+
+When Smith came back to Canada following her American tour, she faced a lot of criticism. She stood in Alberta’s legislature to defend herself. “It’s apparently treason to talk to American media personalities that we disagree with,” she said. “I will not be silent. Alberta will not be silent. We will not be pushed around and called traitors.”
+
+Maybe I’m being hard on O’Leary, Smith, and Gretzky. But if they asked me for advice, which I can’t see them doing because they only seem interested in receiving advice from Trump, I’d say, “If you don’t like being called a traitor, maybe stop acting like one.”
+
+*Excerpted from* [Sorry, Not Sorry: An Unapologetic Look at What Makes Canada Worth Fighting For](https://www.penguinrandomhouse.ca/books/747434/sorry-not-sorry-by-mark-critch/9780735249547) *by Mark Critch. Copyright © 2025 Mark Critch. Published by Viking Canada, a division of Penguin Random House Canada Limited. Reproduced by arrangement with the publisher. All rights reserved.*
+
+**[Mark Critch](https://thewalrus.ca/author/mark-critch/) is a national bestselling author and one of the most recognizable names in Canadian comedy. For twenty-three years, he has starred on the CBC’s popular** ***This Hour Has 22 Minutes*****. He adapted his first book,** ***Son of a Critch*****, into a hit TV series, airing on the CBC in Canada and Netflix in the United States.**

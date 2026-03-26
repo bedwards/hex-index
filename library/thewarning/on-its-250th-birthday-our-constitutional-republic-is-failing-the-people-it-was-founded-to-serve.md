@@ -1,0 +1,58 @@
+---
+title: "On its 250th birthday, our constitutional republic is failing the people it was founded to serve"
+author: "Lucian K. Truscott IV"
+publication: "The Warning"
+publication_slug: "thewarning"
+published_at: "2026-01-03T01:09:46.000Z"
+source_url: "https://luciantruscott.substack.com/p/on-its-250th-birthday-our-constitutional"
+word_count: 1928
+estimated_read_time: 10
+---
+
+We have become way too accustomed to the idea that the founders of this country did not foresee the damage that could be done by a madman serving as president. Our problem isn’t just the unhinged lunatic whom 77 million of our fellow citizens saw fit to elect in 2024. It’s the whole fucking system.
+
+This country is supposed to be comprised of three essential elements: The Constitution, our set of governing laws, which is written on paper and is kept in Washington D.C., the only piece of land in the United States that is not a state, but the “District of Columbia.”
+
+The second element is the land. The United States started out with the 13 states that had been colonies of the British Empire. The country expanded as land was seized by force from indigenous people whose presence here predated settlers from Europe by thousands of years. It was further expanded by the Louisiana Purchase, which was not a transfer of title to land, much of which was unexplored at the time of its sale, but instead a granting by sale of the right to take lands controlled by indigenous tribes by treaty or conquest by war. The rest of the land we now consider the Continental United States was seized forcibly from Indian peoples or gained by war with Mexico or treaties and purchases from Spain.
+
+The third element is people. I don’t use the term “citizens” here, because the founders did not grant citizenship except to white men. Citizenship had to be gained for slaves by fighting a Civil War with slave-owning states, and by amendments to the Constitution granting citizenship to former slaves and those born within the boundaries of the country and by the 19th Amendment granting women the right to vote.
+
+Our constitutional republic is failing because the Constitution is failing the other two elements or our country, the land and the people. The Constitution has been chipped away by the Supreme Court, which has imposed limits on citizenship of people by restricting the right to vote. The Congress, another branch, has abdicated its responsibility to provide a check on the other two branches by refusing to write laws limiting the power of either the judiciary or the executive.
+
+This has left the executive – the president – unbound. The Supreme Court quite literally removed one check on the executive – the laws of the land – by granting the president immunity from prosecution for official acts taken as president. The Supreme Court, in *Trump v. United States,* did not immunize the president for private or unofficial conduct, but the Congress has done that already in requiring everyone serving in the government to abide by ethics laws barring conflicts of interest and self-dealing…except for the president.
+
+What sense does it make that no one can engage in corruption and self-enrichment from public service, but the president can? It doesn’t make sense, but self-enrichment by powerful people, beginning with politicians, at the public trough has been baked into our constitutional republic from the beginning.
+
+Take, for example, surveying. Land does not have value unless it can be defined, and boundaries defining pieces of land are determined by surveyors. George Washington and Thomas Jefferson, our first and third presidents, were famously surveyors before they were presidents. This gave them enormous power to draw land boundaries that would become political lines of demarcation such as counties and towns and cities. And it enabled both men to favor friends over enemies in the defining of land on the basis of value beyond its worth in a sale and in disputes over boundaries that might involve water resources or agricultural land utility.
+
+When Thomas Jefferson set out to explore the land beyond the Mississippi River that had been purchased from the French, he put his cousin Meriwether Lewis in charge of the expedition, promoting him for that purpose from lieutenant to Captain, and reducing in grade William Clark from captain to lieutenant. He made certain that Lewis was educated in science and navigation, ensuring he was taught the use of a sextant and giving him access to his own library at Monticello that was filled with maps and books on American geography.
+
+Privilege by virtue of wealth and family connections was baked into our constitutional republic from its beginning. I’ll give you a more recent example of manipulation of American land for profit by the men who run our government. When President Eisenhower, working with Senator Albert Gore Sr. from Tennessee, got the Federal Aid Highway Act passed in 1956, surveyors set out to map it. Decisions were made within states about where the highway would go. This involved, in many cases, which farms would be bisected by the road that became Interstate 70 as it ran through, for example, Ohio, Indiana, Illinois, and Missouri, just to list four of the ten states it passes through. So farms that were bisected would cost more money to run because the land was divided and farm equipment would have to cross the highway. Farm equipment might have to move miles and miles to reach bridges over the highway, costing money in fuel and wear on equipment, not to mention the farmers’ time. Farms that the highway avoided would be worth more money.
+
+And crucially, everywhere a highway exit was to be established, the land around it would become extremely valuable because of businesses that over time would spring up, such as gas stations, convenience stores, motels, and later, office complexes.
+
+These were political decisions with winners and losers. Anyone with advance knowledge of the route the road would take and the location of interchanges could buy land cheaply that would be worth much more when the road went through and exits to local roads were established.
+
+The corruption we see today with Donald Trump is nothing new. The only change might be that Trump has had to move overseas to ply much of his corrupt self-enrichment because so much of what we have here in this country has already been carved up by powerful men at the expense of the less powerful. A good example of this was the way interstate highways were surveyed to pass through poorer neighborhoods of cities, sparing more wealthy areas. Much later it would become known that highways brought pollution in the form of car and truck exhaust that would affect poorer areas much worse than wealthier ones. And this doesn’t even get into who got the construction contracts, who provided concrete and asphalt, who put up light poles in urban areas and around interchanges…
+
+You get the picture. It’s never been of the people, by the people, and for the people. It’s been of the wealthy, by the well connected, and for their friends and children and relatives right from the start.
+
+It was worse in the beginning, as indigenous people were killed and forcibly removed from their land when territories and states were being carved out of wilderness and land was surveyed for government-granted homesteads and sale. This kind of extraordinary corruption continued when, after the Civil War, slaves were not granted land on which to farm and build businesses but were rather sold land by the plantation owners who had owned them.
+
+How about that? You’re a slave, you can’t own anything but the clothes on your back, you aren’t allowed to own land, even freed slaves had difficulty buying land, and freed slaves were not permitted to own land collectively on which to build a church, for example. Groups like the KKK terrorized Black citizens to keep them from voting. They burned Black businesses and Black churches. The Tulsa riots burned to the ground an entire neighborhood of homes and businesses owned by Blacks to terrorize them into submission and control by whites.
+
+This is what our constitutional republic has wrought in our tortured past. Today, what we have is what you might call continuation of the same terror by other means. Supreme Court decisions have reduced the meaning and power of the citizenship of Black Americans by, piece by piece, destroying the Voting Rights Act. The Citizens United decision reduced the power of everyone’s citizenship by allowing corporations to buy and sell not just individual politicians, but an entire political party. One man, Elon Musk, spent $300 million of his own enormous fortune to buy the presidency for a man who in return, granted him the unconstitutional power to formulate a government department, DOGE, without Congressional authority, and conduct unconstitutional raids on government departments and services that bedevil us nearly a year later.
+
+The bought-and-paid-for political party has carried out the commands of its corporate and billionaire masters in other unconstitutional ways. The Republican-controlled Senate denied President Obama his right to appoint a member of the Supreme Court by simply sitting on its constitutional duty to advise and consent for nearly a year until Obama was out of office, then turning around and granting votes on nominees by Trump within a few months.
+
+This is not the way that our system of government is supposed to work. We are seeing not just the flaunting of laws and constitutional norms but their end.
+
+I know what you’re thinking: What can we do in the face of this continual corruption and lawlessness? In the short term, we can refuse to be a part of it. The musicians and actors and dancers who have cancelled their appearances at the Kennedy Center are providing a good example of what it means to refuse. That place clearly means so much to Trump that he went to the trouble of illegally – as if that even means anything – put his name on it. So hit him where it hurts. Don’t let him present a single act or production or event that is of any quality or talent at all.
+
+What can we do? Don’t watch CBS News. The takeover of CBS by the Ellison family and their hand-puppet Bari Weiss will not work if we don’t let it. CBS Evening News is already in third place. Weiss just put what Gary Legum at “Wonkette” called “a jar of mayonnaise” in the anchor chair. Send Weiss and her new jar to the basement.
+
+Do you know what today is? It’s January 2. It’s time to get ready for the midterm elections. With everything the Republicans are doing, and with the evident diminishment of Trump’s power and his physical and mental state, we can win back the House, and we stand a chance to control the Senate.
+
+Our constitutional republic is groaning under the weight of 250 years of unconscionable political and moral mendacity. On July 4, Trump will make as big of a fool of himself as he did with his incredibly misbegotten parade last summer. We can do just the opposite. We can transform the celebration of our country’s 250th birthday by turning out in all our diversity as the people who made this country what it is today. We don’t own this country like the Republican Party thinks it does, and the Supreme Court wants it to. But we live here. We are citizens. We are proud of being Americans, and we have the ability and the power to show them what that means.
+
+Tomorrow, I will have a few ideas of how we can do this. Until then, chin up and chest out. This is going to be our year.

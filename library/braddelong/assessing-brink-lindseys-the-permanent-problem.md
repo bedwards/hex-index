@@ -1,0 +1,174 @@
+---
+title: "Assessing Brink Lindsey's \"the Permanent Problem\""
+author: "Brad DeLong"
+publication: "DeLong's Grasping Reality"
+publication_slug: "braddelong"
+published_at: "2026-02-09T19:28:34.000Z"
+source_url: "https://braddelong.substack.com/p/assessing-brink-lindseys-the-permanent"
+word_count: 2869
+estimated_read_time: 15
+---
+
+###### The Enlightenment and modernity have, Brink Lindsey argues, led to mass society and mass affluence. But their overrun has also created a world where individuals are buffeted by strange alien and alienating systems—market, bureaucratic, ideological, algorithmic—that barely register them as people. *The Permanent Problem* traces a polycrisis: inclusion collapses as the educated meritocracy hardens into caste, dynamism slows in the “world of atoms,” and politics degenerates into multi‑elite culture war, while the attention economy corrodes the “constitution of knowledge.” Lindsey’s answer is an abundance agenda plus a connection agenda: more growth where it matters, and more human‑scale power over how we live together by nurturing a flourishing of intermediary institutions in which people can do things and live lives that matter. Far from succumbing to post‑liberal despair, Brink Lindsey proposes an attempt to make liberal modernity finally fit for human flourishing…
+
+-   **Lindsey, Brink**. 2026. *The Permanent Problem: The Uncertain Transition from Mass Plenty to Mass Flourishing*. New York: Oxford University Press. <[https://brinklindsey.substack.com/](https://brinklindsey.substack.com/)\> <[https://www.niskanencenter.org/the-permanent-problem/](https://www.niskanencenter.org/the-permanent-problem/)\>.
+    
+
+\---
+
+[
+
+![](https://substackcdn.com/image/fetch/$s_!kbXd!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F76d5b7f7-eb82-4e38-8221-d1ab4c9077f2_1346x954.png)
+
+
+
+](https://substackcdn.com/image/fetch/$s_!kbXd!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F76d5b7f7-eb82-4e38-8221-d1ab4c9077f2_1346x954.png)
+
+\---
+
+My friend Brink Lindsey is unhappy: Two reviewers of his book—Michael Strain and Jonathan Rauch—seem not to have read his book with enough attention to understand it.
+
+Rauch <[https://www.theunpopulist.net/p/lets-not-grant-the-postliberal-critique](https://www.theunpopulist.net/p/lets-not-grant-the-postliberal-critique?utm_source=multiple-personal-recommendations-email&utm_medium=email&triedRedirect=true&fbclid=IwY2xjawPuhpdleHRuA2FlbQIxMQBicmlkETFkalRuZ2NYS0ZrTFZXa2VCc3J0YwZhcHBfaWQQMjIyMDM5MTc4ODIwMDg5MgABHkHNbShbKU2JeEYHAm5vHCNR3t99kId8GvMnkMFb4qACtzrG94ISM_3BwFZ__aem_jGTuDQVR8pGC37a1OfXGlQ)\> dismisses it with “had I stopped reading after Chapter 7, I would take the book for a postliberal screed that outdoes anything by [Patrick Deneen](https://yalebooks.yale.edu/2019/02/20/why-liberalism-failed/)….”, titles his harsh review “Let’s Not Grant the Postliberal Critique of Market Liberalism”, and grudgingly concludes “If you mentally dial down its excesses, you will find ideas that might measurably improve the quality of modern life” without every mentioning what those ideas are.
+
+Strain <[https://www.aei.org/op-eds/is-affluence-a-barrier-to-living-well/](https://www.aei.org/op-eds/is-affluence-a-barrier-to-living-well/)\> dismisses Lindsey as a confused writer who falsely thinks that “affluence \[is\] a barrier to living well”, and classifies his argument as “consistent with post-liberal commentators’ arguments that democratic capitalism is exhausted, a failed experiment and an obstacle to human flourishing”. He ripostes that his complaints spring simply from the fact that “we are a fallen people in a fallen world” and that any special “anxiety… seems wildly misplaced in our current age of… GLP-1 \[agonist\] drugs for diabetes and weight loss… rapid progress on treatments for… Alzheimer’s and cancer… \[and\] generative AI, which even the most pessimistic… expect will increase trend productivity growth noticeably…. American society was much less affluent and in much worse shape in the 1850s”.
+
+\---
+
+And so Brink protests:
+
+> **Brink Lindsey**: Links & Some Thoughts About Early Critics <[https://brinklindsey.substack.com/p/links-and-some-thoughts-about-early](https://brinklindsey.substack.com/p/links-and-some-thoughts-about-early?__readwiseLocation=)\>: ‘Mike Tyson put it, “Everyone has a plan until they get punched in the mouth.”… The… left-right… that threw me for a loop was getting lumped in with… post-liberals… who regard the whole of post-Enlightenment liberal modernity as a tragic mistake…. Jonathan Rauch:\] “Had I stopped reading after Chapter 7, I would take the book for a postliberal screed that outdoes anything by [Patrick Deneen](https://yalebooks.yale.edu/2019/02/20/why-liberalism-failed/)”… \[Michael Strain:\] “Lindsey’s assessment is consistent with post-liberal commentators’ arguments that democratic capitalism is exhausted, a failed experiment and an obstacle to human flourishing”….
+> 
+> What leads… \[them\] to swing so wildly?… I believe… a newish intellectual fault line… the division between the “brokenists” and the “anti-brokenists…. Brokenists, like myself, regard the political upheavals of the past decade as an understandable but misguided reaction to serious underlying maladies…. Anti-brokenists… insist… \[on\] “derangement syndromes” that render people unable to handle living in a fallen, messy world…. In… \[my\] view… dismissing widespread disaffection… as so much hysteria and entitled whining is doomed to failure…. I’ll stick to my guns…. But it is dispiriting that, after a decade of populist distempers, so many of my fellow liberals still don’t understand the nature of the challenge that confronts them…
+
+Brink needs help. Let me try to provide some:
+
+\---
+
+First, let me set out my understanding of what the book is:
+
+Brink Lindsey’s *The Permanent Problem* argues that rich liberal democracies have solved the “economic problem” of material scarcity but are now failing at what John Maynard Keynes called humanity’s “permanent problem”: how to use our freedom and abundance “to live wisely and agreeably and well.” Lindsey’s central claim is that we have entered a “middle flourishing trap.” At precisely the point when material scarcity recedes, our social arrangements, institutions, and culture start working against flourishing—both by fraying human connections and by sapping dynamism. The book diagnoses a triple crisis of inclusion, dynamism, and politics inside advanced capitalism. It seeks to refocus and rebalance so that technological progress and human-scale flourishing reinforce rather than undermine each other.
+
+Lindsey’s definition of individual flourishing centers on close relationships (family, friends, community), meaningful projects (work or nonwork efforts that demand skill and conscientiousness), and rich experiences (the cultivated ability to attend to the world’s “miracle of consciousness”). Flourishing societies combine inclusiveness (dense webs of belonging and status for most people) with dynamism (the capacity to explore, experiment, and innovate, and to turn new capabilities into better lives). Judged by this standard advanced societies fall short.
+
+The crisis of inclusion springs from the new class divide along educational lines. Relative demand for labor, bargaining power, and the relative social status of ordinary people have been sharply downgraded by the coming of the Second Gilded Age. A “meritocratic” elite grows, concentrates residentially and maritally, and intergenerationally hardens into a quasi‑caste, while the would‑be working class is scattered through low‑status service jobs, with thinning prospects and fraying social ties, with this economic realignment of inequality mirrored in private life as marriage, stable two‑parent families, church attendance, and embedded community life hold up among the highly educated but collapse elsewhere. The old working‑class ecosystem of unions, neighborhood institutions, and religious congregations has largely disappeared, and nothing comparably binding has replaced it.
+
+The crisis of dynamism is the slowing of total factor productivity growth in the “world of atoms” since the 1970s, masked only by the exceptional boom in information technology. Big growth contributors—rising female labor‑force participation, mass educational upgrading, the “two big waves” of first Applied-Science and later Mass -roduction technologies—were once‑only transitions that have largely played out. A pervasive NIMBYism arises as people who feel they have more to lose become more risk‑averse, and the political system responds by multiplying veto points. That is then reinforced by an aging society.
+
+The crisis of politics is the replacement of democratic politics focused on promoting the use of industrial-era technologies to create and distribute mass wealth has been replaced by “multi‑elite” professionalized performative identity politics, with Thomas Piketty’s classification of a culturally progressive, highly educated “Brahmin left” and a culturally conservative, wealthy “merchant right” vying for different segments of the electorate, leaving ordinary workers’ material interests by the wayside as status conflicts, expressive identity, and media spectacle become overwhelming.
+
+These are then supercharged by the attention info-bio tech economy’s focus on attention harvesting, as first television and then the internet and social media erode “deep literacy,” shorten attention spans, and encourage politics as entertainment. Thus the “constitution of knowledge” that liberal democracy depends on—shared facts and trust in epistemic institutions—decays. The result is a fertile habitat for authoritarian populism, and symbolic victories and expressive gestures routinely drowning out actual governance.
+
+In sum, as Lindsey put it elsewhere, the complete victory of individuality-centered wealth creation has the result that:
+
+> All the intermediate social structures that grew up over centuries are dismantled, the structure of society radically simplifies: what once was a complicated, often convoluted amalgam of overlapping and competing hierarchies and authorities and loyalties resolves into an undifferentiated mass of subjects under a single rationalizing central authority….
+> 
+> All the intermediate institutions that lend structure and coherence and solidarity and workable consensus to the superhuman scale of contemporary mass society are in decline. You can see it in the steadily dropping numbers for [public trust](https://news.gallup.com/poll/1597/confidence-institutions.aspx) in most major social institutions. The result is progressive atomization, as people’s connections to anything other than the market and state loosen and fray. Under these circumstances, as the bottom-up structures of mass society disintegrate, the only thing holding the social order together is top-down control…
+
+In Lindsey’s view, we need more than:
+
+-   negative freedom from constraint,
+    
+-   and positive freedom in the sense of the power to manipulate nature to suit all purposes,
+    
+-   all structured and watched over by the institutions we have built,
+    
+-   the societal-scale institutions that enable 8.3 billion East African Plains Apes to carry out a physical and a cognitive distributed division of labor at scale.
+    
+
+We also need:
+
+-   positive freedom in the sense of the ability to form groups,
+    
+-   groups at human scale,
+    
+-   so that we can do things that matter to us,
+    
+-   both individually and communally.
+    
+
+Hence Lindsey then proposes a two‑part response:
+
+-   First, embrace an “abundance agenda” that restores technological dynamism in energy, housing, physical infrastructure, and food, using both state capacity and market competition to drive down the cost of living and decarbonize and “de‑animalize” production.
+    
+-   Second, embrace an “egalitarian-connection agenda” by equalizing societal power in the form of wealth to command the attention of the market and creating societal power in the form of enabling “abundance at human scale” via shifting responsibilities back from market capitalism and state bureaucracy to chosen face‑to‑face community association, via webs of relationship and agency.
+    
+
+Thus Lindsey’s answer to Keynes’s <[https://www.econ.yale.edu/smith/econ116a/keynes1.pdf](https://www.econ.yale.edu/smith/econ116a/keynes1.pdf)\> permanent problem of how to enable people to live “wisely and agreeably and well” is not to overthrow capitalism. It is to use its extraordinary capacity for innovation and wealth creation to boost our collective societal power. It is then to distribute that power to make more people independent of the market’s harshest disciplines. And it is then to cultivate social forms and cultural values that channel autonomy and independence into richer lives of connection, purpose, and shared stewardship of both society and the natural world.
+
+So what does Brink think is the relationship between his position and the post-liberalism box into which Rauch and Strain are so eager to put him?
+
+It is this:
+
+> **Brink Lindsey**: Life Under “An Immense & Tutelary Power” <[https://brinklindsey.substack.com/p/life-under-an-immense-and-tutelary](https://brinklindsey.substack.com/p/life-under-an-immense-and-tutelary)\>: ‘I reject this post-liberal position completely and unreservedly…. There are totalitarian tendencies in modernity…. But the dominant tendencies have surely been liberating and humanitarian… dramatic uplift in material living standards… explosion in scientific knowledge and technological capabilities… mass literacy and schooling… governments subject to popular control and the rule of law… the stigmatization of war… widespread embrace of… universal human dignity. I find it genuinely hard to understand how \[post-liberal\] thinkers… can fail to recognize the profoundly anti-human implications of their ideas…
+
+Brink Lindsey no like post-liberalism at all. He rejects it “completely and unreservedly”.
+
+For Brink Lindsey, the problem is not the Enlightenment. The problem, rather, is that our abilities to manipulate nature and collectively organize ourselves have become too powerful. They have given us mass society. And mass society is too massive. Our abilities to manipulate nature, communicate across the world, and organize ourselves have left us with autonomous individuals on the one hand. And they have left us with massive and massively efficient and effective societal mechanisms for coordination on the other.
+
+We have market economies with their price signals and their equilibria. We have states—democratic states, for now at least—setting-up rules of interaction and issuing commands via what really is a tremendously efficient bureaucratic order. We have ideologies creating and enforcing common values and orientations and operating procedures to a degree that the Prussian General Staff college dreamed of but never managed to attain. And we always have the possibility of a charismatic personalist dictatorship, law-abiding or not, giving mass society direction. on the other—whether by a market equilibrium, a bureaucratic command, an ideological conformity-enforcement, or an overmighty authoritarian personalist dictator. And that is not the human scale we need for autonomy and agency, and thus for human flourishing.
+
+These societal-scale institutions squash the individual: liberate us from material scarcity and personal hierarchical domination and empower us to control nature and organize ourselves on the one hand, but subject us to the dominion of extraordinary strong powers—market systems, bureaucratic systems, ideological systems, and now algorithmic systems—that seem arbitrary and alien. They seem so because they are. They make us their playthings, controlling us by making us offers we dare not refuse, for refusing them hobbles our very valuable extraordinary material prosperity.
+
+Perhaps we should look back at Franklin Delano Roosevelt and his “Four Freedoms” <[https://www.archives.gov/milestone-documents/president-franklin-roosevelts-annual-message-to-congress](https://www.archives.gov/milestone-documents/president-franklin-roosevelts-annual-message-to-congress)\>:
+
+-   Freedom from want,
+    
+-   Freedom from fear,
+    
+-   Freedom of speech,
+    
+-   Freedom of religion.
+    
+
+Freedom from want has been granted to us by modernity: its market economy, its resulting highly productive division of labor, its science, and its technology.
+
+Freedom from fear has been granted us by the rule of law established and then managed by the framework of majority rule and minority rights—or, in the United States, had been established until the coming of ICE.
+
+Freedom of religion is itself one of the greatest treasures we have from the Enlightenment.vFreedom of speech as well.
+
+Missing, however, from Roosevelt’s list are two more freedoms:
+
+-   Freedom to govern oneself at human scale—rather than finding oneself the puppet of market, bureaucratic, and ideological forces.
+    
+-   Freedom to connect and act with others and so make a difference—at a human scale.
+    
+
+These freedoms are not Roosevelts freedoms “of” and “from”. These missing freedoms are freedoms “to”. To be more than the mere plaything of alien powers—markets, bureaucracies, ideologies, and algorithms—as they do not listen to us as individuals, even though they are aspects of us considered as an anthology intelligence
+
+Perhaps the best way to grok what Brink is saying here is to consider him as the Second Coming of Alexis de Toqueville. He is a thinker in the Tocquevillian <[https://en.wikipedia.org/wiki/Alexis\_de\_Tocqueville](https://en.wikipedia.org/wiki/Alexis_de_Tocqueville)\> mode, deploying Tocqueville’s concepts of the “tyranny of the majority” and “aristocracy of manufactures” as descriptions of our societal pathologies today—the pathologies internal to our liberal democratic capitalist order now in transition from the globalized value-chain to the attention info-bio tech economy.
+
+For Tocqueville, remember, a democratic majority is not some mystical embodiment of “the people”; it is, as he puts it, “only an individual” scaled up, with its own interests and passions opposed to those of each of its minorities. Thus he worries about its “irresistible strength.” His observations of the United States in the 1830s impress upon him that when someone is wronged in the United States there is nowhere outside the majority to appeal. Moreover, majority power becomes moral and psychological. A king’s authority is “purely physical”: he can coerce actions but not inner convictions. A democratic majority, by contrast, exercises “a power which is physical and moral at the same time”. And so via social pressure he sees “no country in which there is so little independence of mind and real freedom of discussion as in America”, it being mightier than censorship.
+
+As for the “aristocracy of manufactures”, Tocqueville asks how democracy’s own industrial tendencies can generate a new, truncated aristocracy inside an egalitarian society. The (1) division of labor, where the worker repeats a tiny task and becomes exquisitely skilled at it; and (2) economies of scale are essential to modern prosperity. But that produces workers “more adroit and less industrious” as the industrial regime “binds him to a craft, and frequently to a spot, which he cannot leave”: “The art advances, the artisan recedes.” No longer a maker of things and so changing the world, workers become increasingly cogs, and paper- (or rather electron-) shuffling cogs.
+
+The missing intermediary organizations and associations that Brink Lindsey wants to revive are keys to resisting the tyranny of the majority and also providing space for agency, autonomy, and meaning in a word dominated by the unfeeling aristocracy of manufactures.
+
+Thus the right way to read Brink Lindsey’s *The Permanent Problem* is this: The book argues that rich liberal democracies have solved material scarcity but stumbled into a “middle flourishing trap,” where the very institutions that delivered abundance now undermine inclusion, dynamism, and democratic politics.
+
+Michael Strain and Jonathan Rauch read the book as post‑liberal fatigue with democratic capitalism, or even as hostility to affluence itself.
+
+That is almost exactly wrong.
+
+Lindsey’s villain is not the Enlightenment. It is not even the societal-scale institutions that enable our extraordinarily productive physical and cognitive divisions of labor: markets, bureaucracies, ideologies, and algorithms.
+
+Lindsey is trying to salvage liberal modernity by rebuilding the human‑scale connective tissue—families, communities, associations—that mass markets, bureaucracies, and now algorithms have thinned out. The goal is not less capitalism but using capitalism’s surplus to buy more autonomy, connection, and meaning. Only then can we learn to live “wisely and agreeably and well” in our world in which scarcity has receded. But to live wisely and well, we need more than freedoms “of”—speech and religion. We need more than freedoms “from”—fear and want. We need freedoms “to”, the freedoms provided by decayed intermediating institutions that once gave ordinary people status, solidarity, and leverage. Seen through a Tocquevillian lens of “tyranny of the majority” and “aristocracy of manufactures,” Lindsey’s project is to civilize a mass society that has become too massive, not to overthrow it.
+
+What do I think of Lindsey’s diagnosis, assessment, and project? I will have to leave that for another time.
+
+I do have a day job, after all.
+
+##### ***If reading this gets you Value Above Replacement, then become a free subscriber to this newsletter. And forward it! And if your VAR from this newsletter is in the three digits or more each year, please become a paid subscriber! I am trying to make you readers—and myself—smarter. Please tell me if I succeed, or how I fail…***
+
+\---
+
+###### ##assessing-brink-lindseys-the-permanent-problem  
+##public-reason  
+#brink-lindsey  
+#the-permanent-problem  
+#mass-affluence  
+#capitalist-modernity  
+#middle-flourishing-trap  
+#inclusion-crisis  
+#dynamism-slowdown  
+#meritocratic-caste  
+#intermediary-institutions

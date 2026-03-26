@@ -1,0 +1,44 @@
+---
+title: "You Can’t Break the Laws of Economics"
+author: "Brian Albrecht"
+publication: "Economic Forces"
+publication_slug: "economicforces"
+published_at: "2025-09-18T09:23:17.000Z"
+source_url: "https://www.economicforces.xyz/p/economics-isnt-broken-we-just-stopped"
+word_count: 784
+estimated_read_time: 4
+---
+
+This newsletter originally appeared in the *[Wall Street Journal](https://www.wsj.com/opinion/you-cant-break-the-laws-of-economics-supply-and-demand-a6786d1d)* with links added back, a defense of economics.
+
+\---
+
+Nearly every week, someone writing for a major news outlet argues that economics has failed. Our models are too abstract. Our predictions are always wrong. President Trump’s recent firing of Bureau of Labor Statistics Commissioner Erika McEntarfer is the latest notable example of this anti-economics sentiment.
+
+Let me make what appears to have become a radical argument: Simple economics is surprisingly good at making real-world predictions.
+
+When Mr. Trump imposed steel and aluminum tariffs in 2018, the [University of Chicago surveyed](https://kentclarkcenter.org/surveys/steel-and-aluminum-tariffs/) dozens of top economists. These weren’t partisan hacks; they included Nobel laureates and advisers to both parties. Not one of them thought that Americans would be better off because of the tariffs.
+
+Seven years later, what have we learned? Sure enough, [study](https://www.nber.org/system/files/working_papers/w26396/w26396.pdf) [after](https://www.aeaweb.org/articles?id=10.1257%2Fjep.33.4.187) [study](https://direct.mit.edu/rest/article-abstract/doi/10.1162/rest_a_01498/124420/Disentangling-the-Effects-of-the-2018-2019-Tariffs?redirectedFrom=fulltext)—using customs data, retail prices and scanner data from stores—has found that American businesses and consumers bore virtually 100% of the tariff burden. The economists were right: As consumers, Americans weren’t better off.
+
+Americans were also hurt as workers. Economists have discovered that about half of U.S. imports are used as inputs in the production of other goods. Aluminum goes into beer cans. If the price of aluminum rises, beer companies will buy fewer cans. Fewer cans mean fewer workers. [Researchers found](https://direct.mit.edu/rest/article-abstract/doi/10.1162/rest_a_01498/124420/Disentangling-the-Effects-of-the-2018-2019-Tariffs?redirectedFrom=fulltext) that because of the 2018 tariffs, downstream American industries—the companies that use aluminum to make everything from beer cans to car parts—lost jobs, swamping any gains to aluminum producers. Tariffs intended to protect American workers destroyed more jobs than they created. Empirical studies confirm a basic idea from economics: If you tax something, the price rises, and people use less of it.
+
+We don’t need fancy statistics to see the predictive power of simple supply and demand. Take the recent controversy over egg prices. After egg prices roughly doubled at the start of this year, Sen. Elizabeth Warren (D., Mass.) urged the Justice Department to investigate price gouging. Alvaro Bedoya of the Federal Trade Commission called for a probe into “anticompetitive conduct” in the egg industry. Their theory mostly involved blaming Big Egg.
+
+But the boring story proved more accurate. The supply side collapsed when avian flu killed more than 100 million birds. When supply shrinks and consumers aren’t very price-sensitive (there aren’t many other options for your morning omelette), the price will rise significantly. That’s a textbook case of supply and demand.
+
+The power of economics comes from using supply and demand to predict what happens next. We know that a high price for eggs is an incentive to do two things: import eggs and rebuild the supply of chickens. The latter can’t happen immediately. Farmers who lose flocks wait months for new chicks to mature before they begin laying new eggs. But understanding this process provides a time frame for when prices will fall again.
+
+Economists’ prediction of recovery through imports and restocking has come true, with egg prices falling in recent months.
+
+No model captures everything. Sometimes, supply and demand aren’t the only factors at play. When Russia invaded Ukraine, a simple supply-and-demand model wasn’t enough to predict what would happen. But even with something as uncertain as war, the basics went a long way. To predict what would happen, [economist Rüdiger Bachmann and colleagues](https://econtribute.de/RePEc/ajk/ajkpbs/ECONtribute_PB_028_2022.pdf) constructed a model to map how gas flowed through Europe’s economy.
+
+The model was intricate, but its foundations came straight from Economics 101: When prices rise, people and businesses economize. The feared catastrophe never materialized. European gas storage filled ahead of schedule, and the Continent avoided the worst outcomes. Markets didn’t erase the pain, but they softened it, as many economists had predicted.
+
+The simple economic idea in these examples is that prices change, and those changes in turn change people’s behavior. Supply and demand give us the tools to understand those price changes. Understanding economics helps not only with prediction but also with designing policies.
+
+When the late Nobel laureate Ronald Coase first proposed auctioning the electromagnetic spectrum to the highest bidder instead of giving it away, a member of the Federal Communications Commission asked, “Is this all a big joke?” Coase prevailed. Since then, U.S. spectrum auctions [have generated more than $200 billion](https://docs.fcc.gov/public/attachments/DOC-391576A1.pdf) while accelerating wireless innovation.
+
+More recently, New York City’s congestion-pricing scheme confirmed that pricing scarce road space reduces traffic and improves commute speeds—as economics predicts.
+
+Rather than abandoning economics because it’s politically inconvenient, we should celebrate its remarkable ability to explain how the world works. There’s always more to learn. But the basics aren’t broken; they’re underappreciated.

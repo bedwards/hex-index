@@ -1,0 +1,36 @@
+---
+title: "VERSIONS OF ABJECT: UGLY, CREEPY, DISGUSTING (PART ONE) "
+author: "Slavoj Žižek"
+publication: "ŽIŽEK GOADS AND PRODS"
+publication_slug: "slavoj"
+published_at: "2025-11-29T15:02:32.000Z"
+source_url: "https://slavoj.substack.com/p/versions-of-abject-ugly-creepy-disgusting"
+word_count: 991
+estimated_read_time: 5
+---
+
+[
+
+![](https://substackcdn.com/image/fetch/$s_!W2VM!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fcf7a7d23-11ac-4167-a342-cbab8f797b93_1208x1736.png)
+
+
+
+](https://substackcdn.com/image/fetch/$s_!W2VM!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fcf7a7d23-11ac-4167-a342-cbab8f797b93_1208x1736.png)
+
+***Welcome to the desert of the real!***
+
+***If you desire the comfort of neat conclusions, you are lost in this space. Here, we indulge in the unsettling, the excessive, the paradoxes that define our existence.***
+
+***Below, an older text. To be published in parts.***
+
+**(Painting: Quinten Massys’ An Old Woman (known as The Ugly Duchess, 1513)**
+
+What happens when we stumble upon a decaying human corpse or, in a more ordinary case, upon an open wound, shit, vomit, brutally torn-out nails or eyes, or even the skin that forms on the surface of warm milk? What we experience in such situations is not just a disgusting object but something much more radical: the disintegration of the very ontological coordinates that enable us to locate an object in external reality “out there.” The phenomenological description of such experiences is Julia Kristeva’s starting point in her elaboration of the notion of the abject: the reaction of horror, disgust, withdrawal, ambiguous fascination, and so on, triggered by objects or occurrences that undermine the clear distinction between subject and object, between “myself” and reality “out there.” The abject is definitely external to the subject, but it is also more radically external to the very space within which the subject can distinguish itself from reality “out there.” Maybe Lacan’s neologism “extimate” can be applied here: the abject is so thoroughly internal to the subject that this very over-intimacy makes it external, uncanny, inadmissible. For this reason, the status of the abject with regard to the pleasure principle is profoundly ambiguous: it is repulsive, provoking horror and disgust, but at the same time exerting an irresistible fascination and attracting our gaze to its very horror: “One thus understands why so many victims of the abject are its fascinated victims—if not its submissive and willing ones.”[1](#footnote-1) Such a mixture of horror and pleasure points towards a domain beyond the pleasure principle, the domain of jouissance: “One does not know it, one does not desire it, one enjoys it \[on en jouit\], violently and painfully. A passion” .​
+
+Is the abject, then, close to what Lacan calls objet petit a, the “indivisible remainder” of the process of symbolic representation that functions as the always-already lost object-cause of desire? Objet petit a as the object-cause of desire is, in its very excessive nature, an immanent part of the symbolic process, the spectral/eluding embodiment of lack that motivates desire sustained by the (symbolic) Law. In contrast to objet a, which functions within the order of meaning as its constitutive blind spot or stain, the abject “is radically excluded \[from the space of symbolic community\] and draws me toward the place where meaning collapses” (: “Abjection preserves what existed in the archaism of pre-objectal relationship, in the immemorial violence with which a body becomes separated from another body in order to be” . The experience of abjection thus comes before the big distinctions between culture and nature, inside and outside, consciousness and the unconscious, repression and the repressed, etc. Abjection stands not for immersion into nature, the “primordial Mother,” but for the very violent process of differentiation; it is the “vanishing mediator” between nature and culture, a “culture in becoming” that disappears from view once the subject dwells within culture. The abject is “what disturbs identity, system, order; what does not respect borders, positions, rules,” but not in the sense of the flow of nature undermining all cultural distinctions; it renders palpable the “fragility of the law,” including the laws of nature, which is why, when a culture endeavors to stabilize itself, it does so by referring to the laws (regular rhythms) of nature (day and night, regular movement of stars and sun, etc.) The encounter with the abject arouses fear, not so much fear of a particular actual object (snakes, spiders, height, etc.), but a much more basic fear of the breakdown of what separates us from external reality: what we fear in an open wound or a dead body is not its ugliness but the blurring of the line between inside and outside.​
+
+The underlying conceptual matrix of the notion of the abject is that of a dangerous ground: the abject points towards a domain that is the source of our life-intensity—we draw our energy out of it, but we have to keep it at the right distance. If we exclude it, we lose our vitality, but if we get too close to it, we are swallowed by the self-destructive vortex of madness—this is why abjection does not step out of the Symbolic but plays with it from within: “The abject is perverse because it neither gives up nor assumes a prohibition, a rule, or law, but turns them aside, misleads, corrupts, uses them, and takes advantage of them, the better to deny them”.​
+
+This abjectal excess can also appear in the guise of an “indivisible remainder” of the Real that resists the process of idealization/symbolization—in this sense Kristeva mentions the pagan opponents of Western monotheism who praise the notion of remainder as that which prevents the teleological closure of creation, keeping the movement forever open: “the poet of the Atharva Veda extols the defiling and regenerating remainder (uchista) as precondition for all form. ‘Upon remainder the name and the form are founded, upon remainder the world is founded. . . . Being and non-being, both are in the remainder, death, vigor’”[2](#footnote-2). The remainder is here the support of the cyclic notion of the universe: it enables the rebirth of the universe. (We find the last traces of this logic even in the Kaballah, where the evil in our universe is accounted for as the remainder of the previous universes created and then annihilated by God, since he was dissatisfied with the result of his creation—remainder thus grounds repeated creation.) Hegel and Christian monotheism are here easy targets: they allegedly tend to abolish the remainder in a complete sublation of Evil in the Good, in a fulfilled teleology that redeems all previous, lower stages.[3](#footnote-3)
+
+[Read more](https://slavoj.substack.com/p/versions-of-abject-ugly-creepy-disgusting)

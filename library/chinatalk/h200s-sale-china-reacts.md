@@ -1,0 +1,184 @@
+---
+title: "H200s Sale: China Reacts"
+author: "Jordan Schneider"
+publication: "ChinaTalk"
+publication_slug: "chinatalk"
+published_at: "2025-12-12T11:17:25.000Z"
+source_url: "https://www.chinatalk.media/p/h200s-sale-china-reacts"
+word_count: 3510
+estimated_read_time: 18
+---
+
+President Trump announced that he will permit Nvidia’s H200 chips to be sold to China on Monday, December 8th. Beijing’s official response to this is extremely understated. This is the entirety of Spokesperson Guo Jiakun’s response to a question from Bloomberg on the H200 sale at the regular foreign ministry [press conference](https://www.fmprc.gov.cn/eng/xw/fyrbt/202512/t20251209_11769586.html) on December 9th:
+
+> We have noticed the reports. China always advocates that China and the United States achieve mutual benefit through cooperation.
+
+Since then, however, a range of commentary and opinions have come out of Chinese media, reflecting varied opinions. Some are excited, while others are deeply wary; most lie somewhere in between. We’ve selected four commentaries from the Chinese media landscape to excerpt, translate, and feature, as a way to encapsulate the debate happening inside China regarding GPU reliance. They include…
+
+-   How cloud providers helped Chinese AI labs access top-tier compute, even while restrictions were in place;
+    
+-   Why transitioning from Hopper to Blackwell is labor-intensive, and how this shapes Chinese compute demand;
+    
+-   How inference differs from training, and where Chinese chipmakers might shine in the market;
+    
+-   And Taiwanese chip makers having a brief panic attack amid the crossfire.
+    
+
+*Translations of the original Chinese were done by ChatGPT 5.1 Thinking, then verified manually by the* ChinaTalk *team for accuracy and fluency. Hyperlinks were added by Irene where context is useful.*
+
+[
+
+![](https://substackcdn.com/image/fetch/$s_!2TPv!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F00dc144b-abe4-4d94-84bf-41308ffdd377_2048x1536.jpeg)
+
+
+
+](https://substackcdn.com/image/fetch/$s_!2TPv!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F00dc144b-abe4-4d94-84bf-41308ffdd377_2048x1536.jpeg)
+*Huawei’s Atlas 900 A3 SuperPoD, displayed at the World AI Conference in Shanghai in July 2025. Source: *China Business Journal* via [Sina](https://finance.sina.com.cn/jjxw/2025-09-27/doc-infrwira0211030.shtml).*
+
+\---
+
+# Secrets of the Cloud
+
+*This first [analysis](https://mp.weixin.qq.com/s/aZM9l2aCVJYcxWyeDq4VUw) is by* Xinzhi Observatory 心智观察所*, a media brand covering high-tech that’s owned by Shanghai-based news site* Guancha 观察网. Guancha *is on the nationalistic end of the Chinese media spectrum, with a penchant for virality.* Xinzhi Observatory*’s reporting on tech has a more nuanced style, but its assertions should still be taken with a grain of salt. Nevertheless, the piece is a useful read because it reflects popular mainstream attitudes towards the H200s deal: **that it is a temporary compromise that benefits Chinese development in the short run, but does not undercut China’s progress in indigenizing the chip supply chain.** Its insights into how Chinese labs have managed to access advanced compute via cloud service providers is also revealing.*
+
+In Nvidia’s AI product lineup, the Hopper series (including the H100 and H200) represents the previous-generation “ace,” focused on data-center-class AI acceleration and already widely used in supercomputers and AI training clusters around the world. Although the H200 is not based on the latest Blackwell architecture (B100/B200, released in 2024 and more focused on multimodal AI and energy efficiency), its memory advantage makes it a “transitional trump card.” While it far exceeds the performance threshold of domestic Chinese chips, it does not reach the most sensitive cutting-edge technologies that the United States is trying to protect. It was precisely on the basis of the H200’s “moderate firepower” that Nvidia CEO Jensen Huang persuaded Trump.
+
+But for China, the introduction of this chip fills the performance gap between the H20 (the specially downgraded version for China) and Blackwell. We cannot look only at the talking points Jensen Huang used in his lobbying: the H200 is, after all, the pinnacle of Nvidia’s Hopper architecture. According to estimates by Georgetown University’s Center for Security and Emerging Technology (CSET), the H200’s total processing performance (TPP) is nearly ten times the previous export-control ceiling for sales to China. When training and serving large models with more than 175 billion parameters, the H200’s performance is more than six times that of the H20. It is a “previous-generation flagship,” not a “downgraded product.”
+
+Over the past two years, 99% of Chinese AI companies have only been able to use the neutered H20 or domestic chips. Through CSP channels, however, frontier model makers have already been training at scale on clusters of original, advanced chips. Therefore, when Trump suddenly opened the door to the legal sale of the H200, the market reaction was not particularly dramatic, because China’s top players have been using the highest-end compute available via CSP for quite a while already.
+
+CSP is currently an important business model in China’s AI chip ecosystem; it refers to AI chips sold specifically for Cloud Service Providers. Put simply, Nvidia (and to some extent AMD and Intel) sell their top-of-the-line, uncut AI chips exclusively to a handful of leading Chinese cloud providers through special channels, and these cloud providers then offer the compute power to domestic AI companies and research institutes in a “cloud rental” model. What the United States has banned is “direct sales to Chinese enterprises.” Under the CSP model, however, ownership of the chips resides with the cloud providers, so technically it does not violate the ban.
+
+Former TSMC engineer and current Ronghe Semiconductor CEO Wu Zihao told *Xinzhi Observatory*: “Based on the current performance of various domestic AI chip manufacturers, none of them have yet broken through shipments of 100,000 cards, with the exception of Ascend. Ascend’s shipments are between 500,000 and 1 million cards, but they rely heavily on the ‘IT indigenization’ (*[xinchuang](https://www.uschina.org/articles/understanding-chinas-xinchuang-initiative/)*) market, and CSP purchases of Ascend are not large. In other words, shipments of domestic chips basically depend on *xinchuang*, with CSP accounting for a very small share. Nvidia’s H200 mainly targets the CSP market; Nvidia cannot enter the *xinchuang* market. The only point of overlap between the two is in CSP, and judging from the fact that each domestic GPU vendor has shipped only tens of thousands of cards, not a single Chinese CSP treats domestic chips as its mainstay.”
+
+Wu Zihao believes: “Precisely because the base is low, even if the H200 comes in, domestic GPUs still have considerable room for growth. For example, Cambricon shipped 70,000–80,000 GPUs this year. Next year they are expected to reach 150,000 cards, nearly 100% growth, but a base of 150,000 is still very low, and for domestic CSPs’ total demand of at least 4 million cards, the share is not high. In the short term, this may not affect domestic cards, but Nvidia resuming sales of relatively high-performance high-end GPUs to China is not a good thing for Chinese AI chips in the long run; the dependence on the Nvidia ecosystem may prove impossible to reverse.”
+
+Views like Wu Zihao’s—that Nvidia’s renewed sales are not a good thing for Chinese AI chips in the long term—are somewhat representative. But we need to look at the issue more comprehensively: potential gains always come hand in hand with risks. For AI startups like DeepSeek, being able to rapidly deploy H200 clusters can boost model-training efficiency and help overcome compute bottlenecks. The H200’s 141 GB of memory can easily handle RAG (retrieval-augmented generation) and LoRA fine-tuning for models with more than 175 billion parameters. China has the world’s largest pool of AI researchers, and using more advanced technology allows them to translate research into commercial value more quickly.
+
+After Trump announced that the H200 could be “legally sold directly,” the CSP model will not disappear in the short term; on the contrary, it might be upgraded. Previously, CSP arrangements existed with the United States turning a blind eye. Now that direct sales of the H200 have been legalized, the CSP channel may be further extended to more advanced lines like Blackwell, continuing to serve as a “valve” and “observation window” for the United States to monitor China’s AI development.
+
+In the short term, China can temporarily rely on the H200 to train models, but in the long term it must feed back into domestic chip firms to accelerate their iteration. Chinese companies can use more advanced compute to “nurture” models and “accumulate” data, while at the same time feeding back into the domestic chip ecosystem. If China can substitute a narrative of diversified sourcing for a narrative of “decoupling” from the United States, then a “bad thing” can also be turned into a “good thing.”
+
+This is what it truly means to “sustain war through war.” As a former Council on Foreign Relations official lamented in an [interview](https://www.ft.com/content/ac63139d-5143-4aed-a1e4-980a06551b51) with the *FT*, “Selling large numbers of H200s to China will give rocket fuel to the Chinese AI industry,” giving them enough compute to dramatically narrow the gap within two years. *\[Irene note: The expert quoted here is Chris Mcguire who joined* ChinaTalk *as a podcast guest to talk about Huawei [in October](https://www.chinatalk.media/p/why-huawei-cant-catch-nvidia)!\]*
+
+…
+
+As things stand, Trump, for the sake of corporate interests and fiscal revenue, has had to compromise with China—and in doing so has made a crucial choice between the two camps. In terms of performance, the H200 is “the most dangerous yet also the safest compromise product” for the United States, while for China it is “just enough to be usable without forcing a rupture.”
+
+# Hopper vs. Blackwell, and what China actually wants
+
+*In [this piece](https://mp.weixin.qq.com/s/u2otfRKo1Y1mHsfXEg8-NA),* Tencent Technology 腾讯科技 *writer Su Yang* 苏扬 *explores why more advanced isn’t always better. Even though Blackwell chips are a generation ahead of Hoppers (including the H200), **Su argues that Nvidia’s Chinese customers currently rely heavily on the Hopper architecture. Even in a world where Nvidia gains permission to sell Blackwells to China, it’s possible that demand for Hopper chips will remain much higher for quite a while still.***
+
+In November 2023, Nvidia officially launched the H200. Shipments to global customers and cloud service providers began in the second quarter of 2024, with mass production starting in the latter part of that quarter and large-scale deliveries rolling out after the third quarter. A single GPU sells for around $30,000–$40,000, and an 8-GPU server comes in at roughly $300,000.
+
+The chip uses TSMC’s advanced 4N process, with a GH100 GPU at its core, integrating 80 billion transistors and a thermal design power (TDP) of 700W. It is also equipped with NVLink 4 interconnect technology, offering 18 links and 900GB/s of interconnect bandwidth. The GPU paired with HBM3e has 141GB of memory, with memory bandwidth as high as 4.8TB/s.
+
+In 2024, the H200 was an unequivocally cutting-edge product, with FP16 performance reaching 1,979 teraFLOPS, compared to just 148 teraFLOPS for the H20 custom-made for the Chinese market. Its FP8 performance is an even more impressive 3,958 teraFLOPS, while the H20 has only 296 teraFLOPS. The H200’s interconnect bandwidth is also double that of the H20, reaching 900GB/s.
+
+But by the end of 2025, products such as the B200 based on the Blackwell architecture had come online and become the new industry standard at the top end. The H200 was pushed into second place, turning into a product whose performance is “relatively behind the curve.”
+
+“As expected,” an industry analyst said when talking about the lifting of export controls on the H200. “Letting Hopper chips out, but not Blackwell, still allows them to tell their domestic audience, ‘we’re still a generation and a half ahead,’ while Chinese customers can still buy what they want.”
+
+Overall, Trump’s announcement on social media that he would allow H200 exports has basically dispelled most concerns. At its core, it just means that the H200 no longer represents truly cutting-edge computing power.
+
+…
+
+Previously, Jensen Huang had repeatedly stated in various settings that “our market share in mainland China is zero.” The approval of H200 exports will bring new opportunities for Nvidia, especially because its performance is far ahead of the downgraded H20, making it much more attractive to customers.
+
+“Chinese customers’ models are all built to run on Hopper-architecture GPUs,” the aforementioned industry analyst emphasized.
+
+In his view, at this stage Hopper has even more pull than the Blackwell architecture: “No one has adapted their models to the B-series yet. Otherwise you’d have to redo all the operators, the toolchain, and the underlying software from scratch—that’s an even bigger engineering effort.”
+
+Put simply, for model developers, migrating from the Hopper architecture to any new architecture requires redeveloping computation modules, building dedicated tooling pipelines, and restructuring the low-level integration code—all of which demand large amounts of manpower, engineering work, and time.
+
+From Nvidia’s standpoint, the profit margin on H200 sales is also much better than for the H20. The H20 is derived from a cut-down H100, which raises manufacturing costs, whereas the H200 does not need to be “neutered” in any way. As an older product, its average gross margin is expected to approach—or even exceed—80%.
+
+[
+
+![undefined](https://substackcdn.com/image/fetch/$s_!LMxI!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F7e68055a-4f80-40ed-9fce-93c6109b222c_2560x1440.png "undefined")
+
+
+
+](https://substackcdn.com/image/fetch/$s_!LMxI!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F7e68055a-4f80-40ed-9fce-93c6109b222c_2560x1440.png)
+*Four Hopper H100s. Source: [Wikimedia Foundation/极客湾Geekerwan](https://en.wikipedia.org/wiki/Hopper_%28microarchitecture%29#/media/File:NVIDIA_H100_\(%E6%9E%81%E5%AE%A2%E6%B9%BEGeekerwan\)_025.png).*
+
+# Securitization Will Not Be Undone
+
+*This [commentary](https://mp.weixin.qq.com/s/-QPd1LXd-PeUTUSnWOdqug) was published by* DeepTech 深科技*, the China-specific media brand of* MIT Technology Review*. The writer is very bullish on economies of scale being favorable for Chinese domestic chipmakers. **Most importantly, the piece argues that the impacts of the last two years of American export controls are lasting. China’s technology industry has internalized that it cannot rely on American giants for compute in the long run, and the state will not roll back extensive effects to support indigenization.***
+
+The back-and-forth swings of the past two years have already made Chinese companies acutely aware of how important supply chain security is. No one can guarantee that what is allowed today won’t be revoked tomorrow with a single tweet.
+
+Morgan Stanley estimated that China’s AI chip self-sufficiency rate was 34% in 2024 and is expected to reach 82% by 2027. TrendForce data indicate that in China’s AI server market in 2025, domestic chips are likely to account for as much as 40%.
+
+Mizuho Securities forecasts that shipments of Huawei’s Ascend 910 series will exceed 700,000 units this year. Huawei’s own roadmap already extends to 2028, with the Ascend 950, 960, and 970 lined up in sequence, and in-house HBM also on the agenda. Admittedly, domestic chips still have clear shortcomings in areas such as ecosystem maturity, development toolchains, and support for high-end training scenarios. But the industry has already hit its stride: large-scale training and the migration of large models onto domestic platforms are accelerating. The further the market moves forward, the more likely it is that the ecosystem will be backfilled and completed in turn. As a result, this path toward autonomy and control will not be brought to a halt just because a few foreign chips have been cleared for sale.
+
+…
+
+For Nvidia, returning to the Chinese market means a revenue opportunity worth several billion dollars; for the U.S. government, a 25% cut of sales is a sizable source of fiscal income; and for the Chinese market, the H200 provides a channel for obtaining advanced computing power in the short term.
+
+But in the long run, this may be just a minor episode in the larger tech contest between China and the United States. China’s AI industry has already embarked on a path of autonomy and control, and that path will not be reversed by the approval of a few chip models.
+
+On the battlefield of chips, genuine security can only come from one’s own capabilities, not from the grace of a rival. The green light for the H200 is merely the starting point for a new round of competition.
+
+# Inference vs. Training
+
+*This last take is a [commentary](https://mp.weixin.qq.com/s/EB9vErgwl27vjuw9G9h91g) from the editorial staff at the Wu Xiaobo Channel 吴晓波频道. Wu Xiaobo is a prominent finance and economics writer in China, having worked for Xinhua, Hangzhou Daily, and the Shanghai-based Oriental Morning Post.* Wu Xiaobo Channel *is his personal media venture.*
+
+***The piece is most notable for its discussion of how China’s domestic chip supply is reshaping the inference landscape, providing needed granularity into where H200s fall within the market for compute demand.** It echoes many points made by previous commentators about the long shadow of securitization as well, arguing that China will continue to aggressively pursue domesticization regardless of American policy.*
+
+Right now, China’s large models and domestic chips have already become deeply intertwined. During the “blockade” phase, the two grew side by side, with their level of mutual adaptation steadily improving.
+
+This relationship has become even closer since DeepSeek burst onto the scene.
+
+If, in the past, training on Nvidia chips was essentially a contest of raw compute, DeepSeek has changed the structure of compute demand: for some smaller companies, compute has shifted from training to inference.
+
+And because inference has lower compute requirements, it has created real room for mid- and lower-end domestic AI chips to shine.
+
+In terms of ecosystem compatibility, it’s difficult during the training phase to build a single resource pool mixing Nvidia and domestic chips, but inference workloads can run on domestic chips.
+
+Data show that in 2024, 57.6% of accelerator cards in Chinese data centers were used for inference, surpassing the 33% used for training. Platforms like Tencent and Baidu integrating DeepSeek have also greatly boosted the growth of inference-oriented chips.
+
+Industrial integration has also brought a shift in market preferences: as China’s large-model and domestic chip industries grow more deeply intertwined, more and more major tech firms and state-owned enterprises are leaning toward buying domestic chips. For example, ByteDance accounts for more than 50% of Cambricon’s total orders; similarly, in 2024, 42% of Moore Threads’ revenue came from government-led intelligent computing center projects, and Huawei’s Ascend chips captured 60% of the orders in such computing centers.
+
+Although these domestic AI chips still lag behind Nvidia’s latest high-end products in absolute top-tier performance, they are sufficient to meet the needs of most inference scenarios. This also means that even if the H200 enters the Chinese market, it will be difficult for it to rapidly achieve “reverse substitution,” and the scale at which it can displace domestic chips will be limited.
+
+Of course, the core advantage of domestic chips at this stage lies precisely in the word “domestic.” These “leading lights of domestic manufacturing” come with no backdoors, are secure and controllable, and leave the [power of discourse](https://chinamediaproject.org/the_ccp_dictionary/discourse-power/) firmly in Chinese hands—without any need to worry about supplies suddenly being cut off one day.
+
+…
+
+Although the narrative of “domestic substitution” is attractive, once news broke that the U.S. government would allow H200 exports, share prices of domestic chipmakers such as Cambricon and Hygon saw a clear pullback—the challenge is self-evident.
+
+Overall, compared with domestic chips, Nvidia’s products still have advantages in raw compute, ecosystem maturity, and cluster scale—especially the CUDA ecosystem, whose level of development represents a chasm that domestic chips find hard to cross. The migration cost within the CUDA ecosystem is almost zero, whereas domestic chip ecosystems still need another two to three years to catch up.
+
+From the product standpoint itself, the H200’s advantages are also very prominent: not only does its performance far exceed that of the H20, but more importantly, it is highly compatible with existing systems—most of China’s current AI models are already adapted to the Hopper architecture, so there is no need to rebuild operators, toolchains, or underlying software; it can be put to work directly. By contrast, moving straight to the most advanced Blackwell architecture could actually lead to acclimatization problems.
+
+At the same time, from a market and capacity perspective, the current supply of domestic chips is still insufficient to meet the surging demand in the Chinese market. For example, SMIC’s 7 nm chips reportedly have a yield rate of only 20%, which further exacerbates this supply–demand imbalance. Nvidia’s chips, by contrast, are manufactured by TSMC, with a yield rate reaching 60%, providing much stronger assurance on production capacity.
+
+The most direct impact may come from the release of pent-up demand: there were reports that in early 2025, several major companies placed orders worth 16 billion yuan with Nvidia to purchase H20 chips, but these ultimately could not be fulfilled. With the H200 now cleared for export, that demand may be converted into new orders and released in concentrated form in 2026.
+
+But in any case, Nvidia has long since missed the best window to enter the Chinese market—especially China’s AI sector. This approval has come too late.
+
+China is no longer the market that “can’t live without Nvidia.” It’s like a couple separated for a long time who have each grown on their own before meeting again: even if they get back together, it’s hard to recapture the original passion and dependence. Put more plainly, it’s now a relationship where “if it works, we can make it work; if it doesn’t, we can just walk away.”
+
+# The Taiwan Situation
+
+Regarding how the US government’s 25% cut will be collected, per *[Reuters](https://www.reuters.com/world/china/us-open-up-exports-nvidia-h200-chips-china-semafor-reports-2025-12-08/)*:
+
+> A White House official said that the 25% fee would be collected **as an import tax from Taiwan**, where the chips are made, to the United States, where the chips will undergo a security review by U.S. officials before being exported to China.
+
+This vague description inspired some sudden panic among manufacturers in Taiwan, who worried that they would have to pay an additional fee to the US. Tzu-Hsien Tung 童子賢, chairman of Taiwanese electronics giant Pegatron and cofounder of Asus, [told](https://money.udn.com/money/story/5612/9194951) Taiwan’s *Economic Daily News* that this is most likely a confused misinterpretation: “If Taiwanese firms are paying anything at all, it’s only in a pass-through capacity—collecting and remitting on behalf of someone else, since contract manufacturers aren’t the owners of the product. … My instinct is it’s just pass-through payments; they’re not going to count that as ‘Taiwan paying.’”
+
+The confusion is now mostly cleared up, but a lack of effective communication to Taiwan is probably not a positive indicator for US-Taiwan relations.
+
+[
+
+![](https://substackcdn.com/image/fetch/$s_!LI96!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F6d04fc7e-28fa-46dc-a439-5cc641acd3b2_800x618.jpeg)
+
+
+
+](https://substackcdn.com/image/fetch/$s_!LI96!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F6d04fc7e-28fa-46dc-a439-5cc641acd3b2_800x618.jpeg)
+*Jensen Huang, confronted with a Taiwanese biography of him that calls him “the Genghis Khan of AI chips,” in Taipei, June 2024. Source: [CNA](https://www.taipeitimes.com/News/taiwan/archives/2024/06/09/2003819096).*
+
+\---
+
+ChinaTalk is a reader-supported publication. To receive new posts and support our work, consider becoming a free or paid subscriber.

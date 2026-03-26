@@ -1,0 +1,54 @@
+---
+title: "Attempting a \"reverse Kissinger\" will fail"
+author: "Joseph Webster"
+publication: "China-Russia Report"
+publication_slug: "chinarussiareport"
+published_at: "2025-02-24T20:07:26.000Z"
+source_url: "https://chinarussiareport.substack.com/p/attempting-a-reverse-kissinger-will"
+word_count: 1244
+estimated_read_time: 7
+---
+
+As you’ve likely seen by now, the US and Russia [conducted bilateral negotiations](https://apnews.com/article/russia-ukraine-war-riyadh-talks-trump-putin-rubio-0c3beebfef5839e9d509ff58239a6bc5) over Ukraine in Saudi Arabia, all without any European participation – including from Ukraine. According to [the Washington Post](https://www.washingtonpost.com/national-security/2025/02/24/united-nations-ukraine-russia-trump/), today the US has also voted with Russia, North Korea, Belarus, and 14 other Moscow-friendly countries Monday on a resolution condemning Russian aggression in Ukraine and calling for its occupied territory to be returned that passed overwhelmingly in the U.N. General Assembly on Monday.”
+
+It’s not clear what the strategy is. Some are wondering if the Trump administration is attempting a “[reverse Kissinger](https://x.com/EvanFeigenbaum/status/1891913423320981804),” whereby the U.S. creates a wedge in the China-Russia axis by extending sanctions relief and other measures to Moscow, detaching it from Beijing.
+
+This approach is highly unlikely to succeed in driving a wedge between Moscow and Beijing, at least in any meaningful way, and will alienate US allies and friends across Europe and beyond.
+
+## **Why a reverse Kissinger won’t work**
+
+The US won’t be able to detach Russia from China. The convergence between Moscow and Beijing is real, primarily motivated by politics, and only weakly tied to economics.
+
+Economic fundamentals have not deterred Russia from rupturing ties with the West. Russia’s economic and cultural center of gravity are all in “European Russia,” or west of the Ural Mountains. About 75% of Russians live west of the Ural Mountains, while EU member states [accounted](https://publications.parliament.uk/pa/ld201415/ldselect/ldeucom/115/11505.htm?utm_source=chatgpt.com) for 57% of Russian exports and 46.5% of Russian imports in 2013, before Putin’s illegal annexation of Crimea damaged Western-Russia trade. While Russia has a complicated historical relationship with the West, to say the least, it was nevertheless recently a part of various European cultural institutions such as Eurovision, the European division for [World Cup qualification](https://www.uefa.com/european-qualifiers/news/0253-0d7f2afdcea1-fd09600b1517-1000--reality-check-for-eliminated-russia/), and more. Until very recently, Russian elites like Vladimir Putin and Dmitry Peskov [sent their children](https://www.cnn.com/2022/04/12/us/kremlin-kids-in-the-west-invs/index.html) to study or live in Europe. Despite the straightforward economic logic of bolstering trade and investment with Europe, not to mention deep and longstanding cultural ties, Moscow has utterly rejected the West.
+
+While Moscow and Beijing benefit from stable borders, energy trade, and diplomatic alignment, their partnership is primarily driven by mutual hostility toward the West, especially the U.S. Indeed, Moscow’s anti-Western antipathy is perhaps even more pronounced than Beijing’s, as revealed by its willingness to adopt junior status in the partnership with China.
+
+While Russian leaders have traditionally prized autonomy and sovereignty, Russia economic and security dependence on China is stark. China accounted for [over half](https://x.com/gdp1985/status/1781411634784739507) of Russian imports in 2023 and continues to have an outsized economic role, especially if [indirect trade](https://chinarussiareport.substack.com/p/central-asia-and-belarus-role-in) via Central Asia and Belarus is taken into account.
+
+Russia is also [providing](https://chinarussiareport.substack.com/p/us-says-beijing-providing-very-substantial) China with some of its most closely-guarded military technologies in exchange for Beijing’s implicit support in the invasion of Ukraine. Although there are [some indications](https://www.politico.eu/article/china-state-hackers-russia-targeting-aerospace-and-defense-firms/) that Chinese security services continue to conduct espionage against Russian aerospace and defense firms, Moscow is nevertheless [integrating Chinese technology](https://www.rusi.org/explore-our-research/publications/commentary/hi-tech-high-risk-russo-chinese-cooperation-emerging-technologies) into critical military and intelligence applications, including 5G and satellite communications. Moscow is deepening its full-spectrum partnership with Beijing, despite the manifest risks.
+
+The Kremlin tolerates dependency on China because it believes it is at war with the West. Putin and most of the Russian leadership have made a strategic choice to align with Beijing despite the considerable risks this poses to Russia’s autonomy.
+
+Additionally, while Putin and the Russian elite regard the Trump administration’s pivot to Russia very favorably, they doubt the staying power of US – Russia ties. Over 85 percent of Americans have an unfavorable view of Russia, according to a [July 2024 Pew poll](https://www.pewresearch.org/global/2024/07/02/views-of-russia-and-putin-july-24/). Americans – including its President – are undoubtedly fickle, and a [pro-Putin figure](https://www.nbcnews.com/news/world/tucker-carlson-interviewed-russian-president-vladimir-putin-rcna137420) like Tucker Carlson could very well become the next US leader. Still, Russian leadership won’t divorce Beijing for a very likely temporary arrangement with the United States. Wedging Beijing and Moscow via economic outreach to the Kremlin is highly unlikely to succeed.
+
+## **At what cost?**
+
+Even seeking détente with Moscow at the expense of Europe will prove costly for the United States. Even leaving aside abstract matters such as shared values or longstanding cultural ties, Europe is vital for tangible US security interests. US – European Union [total trade](https://crsreports.congress.gov/product/pdf/IF/IF10931#:~:text=In%202023%2C%20top%20U.S.%20goods,key%20sector%20of%20manufacturing%20investment.) in goods and services stood at $1.4 trillion in 2023, with the US enjoying a $77 billion surplus in services; European allies are some of the world’s leading technological powers, [boosting the US](https://digital-strategy.ec.europa.eu/en/library/ai-public-good-eu-us-research-alliance-ai-public-good#:~:text=05%20April%202024-,AI%20for%20Public%20Good:%20EU%2DU.S.%20Research%20Alliance%20in%20AI,research%20to%20address%20global%20challenges.) in the all-important artificial intelligence competition with China; and European military and intelligence assets are important force multipliers across the world.
+
+Concretely, détente with Russia at the expense of Europe could impose discrete costs on US oil and gas exporters, as Russia and the US [directly compete](https://www.atlanticcouncil.org/blogs/new-atlanticist/trumps-clear-path-to-securing-us-oil-and-gas-dominance/) in global and European oil and gas markets. US liquefied natural gas (LNG) exporters may be particularly impacted, as [more than half](https://www.eia.gov/dnav/ng/hist/n9133us2m.htm) of all US LNG exports are directed to Europe.
+
+Most alarmingly, the betrayal of Ukraine and the corrosion of NATO and the US-led alliance system would substantially raise the probability of armed conflict between nuclear-armed powers across Europe and the Indo-Pacific.
+
+Given that Russia has launched the largest land war in Europe since Nazi Germany, US allies in Europe will be understandably unnerved if DC makes major concessions to Moscow over the heads of Kyiv, Brussels, and other European capitals. In the face of uncertain US commitments, European countries may consider a more aggressive nuclear weapons posture; some European states may ultimately acquire the ultimate deterrent. Vladimir Putin is largely rational, on his own terms, and would attempt to undermine Europe indirectly (perhaps including in the 2027 French election) rather than attack it directly. Still, the risk of miscalculation and military confrontation is not low, particularly as Putin ages and grows ever-more disconnected from reality.
+
+The erosion of the global, US-led alliance system will also hold disastrous consequences for US interests in the Indo-Pacific. If Ukraine is thrown to the wolves, US allies in the Indo-Pacific will doubt the staying power of US commitments. They will become more likely to acquire their own independent strategic deterrents, seek accommodation with the PRC, or perhaps both. While it seems increasingly appropriate for Japan and the Republic of Korea to acquire independent nuclear weapons, given the geopolitical realities they face, any accommodation with Beijing could enable the PRC to supplant the United States as the world’s most powerful country, with disastrous consequences for US interests – and the future of global constitutional democracy.
+
+## **The China-Russia partnership won’t break any time soon**
+
+No amount of personal charisma can disentangle the deep ties between China and Russia. While the two sides do not share identical interests, Moscow and Beijing both fundamentally value their bilateral partnership as a means to check their main adversary, the United States, as well as other countries in the constitutional democracy orbit.
+
+Moscow chooses to be junior partner in the China-Russia axis because it regards the arrangement as uniquely valuable. Moreover, aiming at détente with Moscow while it seeks to subjugate a European democracy with brutal military force cannot but alarm US allies across Europe and the Indo-Pacific. Attempting a “reverse Kissinger” at the expense of US-Europe ties won’t detach Moscow from Beijing, but it might break the Western alliance system.
+
+Joe Webster is a senior fellow at the Atlantic Council and editor of the China-Russia Report. This article represents his own personal opinion.
+
+The China-Russia Report is an independent, nonpartisan newsletter covering political, economic, and security affairs within and between China and Russia. All articles, comments, op-eds, etc represent only the personal opinion of the author(s) and do not necessarily represent the position(s) of The China-Russia Report.

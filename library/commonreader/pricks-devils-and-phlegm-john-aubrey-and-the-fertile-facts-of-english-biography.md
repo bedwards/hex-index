@@ -1,0 +1,224 @@
+---
+title: "Pricks, Devils, and Phlegm. John Aubrey and the Fertile Facts of English Biography."
+author: "Henry Oliver"
+publication: ""
+publication_slug: "commonreader"
+published_at: "2026-02-14T21:00:52.000Z"
+source_url: "https://www.commonreader.co.uk/p/pricks-devils-and-phlegm-john-aubrey"
+word_count: 4051
+estimated_read_time: 21
+---
+
+#### A Genius for History
+
+In about a month’s time, on 12th March, it will be the four hundredth anniversary of the birth of John Aubrey. Aubrey is not one of the most prominent names in English Literature, but he is among the most curious. Born in 1626, Aubrey lived through the tumult of the seventeenth century—his time at Oxford University was interrupted by the Civil War. He is known to us today as one of the great preservers of information of that period.
+
+In an age when everything was new—the New Learning, the New World, the New Science, the new commonwealth, the new politics, the new religion—the age of Bacon, Hobbes, Hooke, Locke, and Coke—Aubrey was a dedicated hunter and preserver of the old.
+
+An antiquarian rather than a writer, Aubrey wished to collect the world’s fragments before they went to dust. He spent his life gathering material to be deposited in the Ashmolean Museum (later transferred to the Bodleian Library). He was, according to Adam Fox’s *Oxford Dictionary of National Biography* profile, “the author of the first English books entirely devoted to archaeology, place names, and folklore.” He was also interested in astronomy, navigation, and applied mathematics and knew many of the great scientists of the time.
+
+Aubrey was a restless collector of information: we would call him an infovore. His work covered a scientific commonplace book, a work of natural history, drawings of buildings to be demolished, two plays, a miscellany of supernatural phenomena, an essay on educational reform, among many others.
+
+As his friend George Ent said, he was one “whose boundlesse mind / Scarce within Learnings compasse is confin’d.” In his huge capacity for saving and collecting information and manuscripts, Aubrey had a genius for history.
+
+\---
+
+#### Aubrey’s Fertile Facts
+
+Foremost among his literary accomplishments, Aubrey is a seminal biographer—one the greatest tellers of anecdotes in English Literature. Among his many manuscripts is *Brief Live*s*,* which is full of stories which might otherwise be lost about interesting and eminent men and women of his time, including Bacon, Hobbes, and Hooke.
+
+Aubrey has a special talent for finding what Virginia Woolf called—in an essay about biography—“the creative fact; the fertile fact.” It is in the little things that Aubrey’s subjects live most vividly, such as the fact that Thomas Hobbes sang to himself when he thought he could not be overheard, or that flies landed on his head when he was old, irritating him.
+
+\---
+
+#### Small touches
+
+One of my own favourite examples of Aubrey’s biographical instinct for such details is from the life of Thomas Fuller who had “a very working head, in so much that, walking and meditating before dinner, he would eate-up a penny loafe, not knowing that he did it. His naturall memorie was very great, to which he had added the *art of memorie*: he would repeate to you forwards and backwards all the signes from Ludgate to Charing-crosse.”
+
+In her superb scholarly edition, Kate Bennett notes that Aubrey’s list of Fuller’s preferments is “severely incomplete”; comparison to another contemporary biography offers useful additional details (as well as corroboration).
+
+But what I find most indispensable about Aubrey is that penny loaf, which Fuller ate while pacing around waiting for dinner, “not knowing that he did it”. That pacing is then paralleled in his ability to recite the street signs both “forwards and backwards”. This is a small touch, but it is in the small touches that Aubrey’s work lives as literature, not just a gathering of facts.
+
+In *The Obituary of Richard Smyth,* which is a catalogue of all the people who died in Smyth’s parish between 1627-1674, the ones that are most affecting are those with just a little detail, such as “Mr. Leeche’s wife (minister at Bow Church), drowned herself in the Thames; taken up at Cuckold’s Point.” Bow Church is still there, as is Cuckold’s Point. One cannot read Smyth without noting that several of the priestly suicides happen on holy days.
+
+There is a strangeness in these details, which we cannot resolve or investigate, just as there is a charming “in-itself-ness” about Fuller eating the bread and reciting the shop signs.
+
+\---
+
+#### “much troubled with flegme”
+
+Another splendid moment in Aubrey comes in the life of Walter Rumsey, a barrister at Gray’s Inn and a judge. Rumsey, we are told,
+
+> was an ingeniose man, and had a philosophicall head; he was most curious for graffing, inoculating, and planting, and ponds. If he had any old dead plumbe-tree, or apple-tree, he lett them stand, and planted vines at the bottome, and lett them climbe up, and they would beare very well.
+
+This ingenuity was deployed upon himself, as well,
+
+> He was much troubled with flegme, and being so one winter at the court at Ludlowe (where he was one of the councesellours), sitting by the fire, spitting and spawling, he tooke a fine tender sprig, and tied a ragge at the end, and conceited he might putt it downe his throate, and fetch-up the flegme, and he did so. Afterwards he made this instrument of whale-bone. I have oftentimes seen him use it. I could never make it goe downe my throat, but for those that can ’tis a most incomparable engine. If troubled with the wind it cures you *immediately*.
+
+In another account of this delightfully disgusting trick, recorded in his *Natural History of Wiltshire*, Aubrey says that “if there be Wind in the Stomach, that does immediately give it vent, with a blast as when as Bottle is un-stopp’t.” Robert Hooke is said to have used this technique to clear phlegm as well. In all the lives of all the justices, has there ever been such a compelling detail as this one?
+
+\---
+
+#### Kate Bennett: Aubrey as a social writer
+
+At the end of the acknowledgments to Bennett’s edition, appears this terribly poignant note:
+
+> ‘Brief Lives’ proved an ironic title: at its latter stage my husband, Josh, died at the age of 43, shortly after becoming a father for the second time.
+
+Bennett dedicates the edition to him and their sons. Perhaps one needs to be of such an age, and to have children, to feel the sharpness of this little sentence, but it is an example of the power of biographical writing: the sorrow is all conveyed in simpleness, no poetry, no elaboration is needed. A little detail makes a large sorrow.
+
+What catches us about Bennett’s husband’s death is that it comes at the end of the acknowledgements as well as the “latter stage” of the work itself. We feel the pain of death and the pain of the broken family left behind.
+
+Coming at the start of *Brief Lives*, Bennett’s note gave me a shock of realizing there would be no more anecdotes for that family about that man.
+
+Bennett sees Aubrey as a fundamentally social author, recording his anecdotes not mere as the entertaining ephemera and materials for future biographers, but as a means of studying “the relationship of societies to their anecdotes.”
+
+She calls *Brief Lives* “not a closed literary text in the making, but a Baconian survey and map of the areas to be explored; a visual diagram of the state of learning, and of its desiderata, or of the advancement of his social project.”
+
+> Aubrey implies that communities may be sustained, increased, and fortified under stress, in exile, or over time through the telling of “diverting” stories about their members; and that these stories are traditions which preserve historical information that no other form of record could. True or not, fair or not, these were the stories told about such a person in such a place by such a person.
+
+We all live like this. Aubrey knew the importance of such “diverting” anecdotes to the cohesion and therefore the functioning of a culture. Ruth Scurr (a modern biographer of Aubrey) wrote in her *TLS* review of Bennett’s edition, that this was a major step forward in the way Aubrey is understood: “until Kate Bennett came along, no one properly understood what the Brief Lives are.”
+
+\---
+
+#### Tell all the truth — in manuscript
+
+Aubrey was a collaborator. As well as studying people in their groups (his lives are also ordered by their social and professional groups), he himself worked as part of a network. As well as working with Anthony Wood to ensure manuscripts were saved for the archives, his life of Hobbes was written with other people.
+
+Aubrey was appalled at all the errors introduced into the printed edition. Thus began his work on *Brief Lives*, a project concerned with the irreducibility of manuscript. Bennett notes, in a chapter about her work in *Ma(r)king the Text* just how precise Aubrey was—he not only added marginal notes to the manuscript of Hobbes’ life about printing errors, but was careful to preserve sources.
+
+He notes next to a letter from Isaac Walton (one of the great English biographers) with information about Ben Jonson that this is Walton’s own handwriting—something print can never capture. Aubrey loved these things not merely for their own sake, but because they told the truth.
+
+Bennett writes:
+
+> Neither Richard Blackboume nor John Dryden liked the information that Hobbes used to go birding at Oxford, nor that after he went bald, he was troubled by flies pitching on his head.6 ‘Pox take your Orators and poets’, Aubrey complained, ‘they spoile lives and histories’. He adopted Bacon’s traditional definition, in book 2 of the Advancement of Learning, of biography as a branch of antiquities — history rather than literature — and developed it along Baconian lines, preferring not only factual and intimate detail, but things — documents and objects — before the restriction of elegant language, and high genres. The implication of the Hobbes life was that truth could only be preserved or circulated by networks of sociability, or their textual equivalents: the private manuscript and the manuscript letter.
+
+In the letter Aubrey attached to the first volume of *Brief Lives* he wrote to Wood “I here laye-downe to you \[...\] the Trueth, the naked and plaine trueth.” Printed history, he said, either treads “too neer on the heeles of trueth, that they dare not speake plaine; or els for want of intelligence (things being antiquated) become too obscure and darke!”
+
+\---
+
+#### Truth? Or personality?
+
+This remains a crucial problem for biography, one which slightly dogs Aubrey himself: “On the one hand there is truth,” said Virginia Woolf about this dilemma of biography, “on the other, there is personality.” Aubrey does not really meet modern standards of accuracy, as Bennett’s footnotes demonstrate.
+
+He *is* accurate, but he is accurate about the most condensed, compelling, aspects of character. This is why, to my mind, Aubrey remains a great literary biographer, as well as an antiquarian and historian.
+
+This was also a time when life-stories were being told in sermons. The church insisted that these biographies were kept strictly to the details of Christian virtue, but what congregations wanted to hear was the story of the dead person’s personality. At the same time, a tradition of Puritan self-examination arose in diaries. The first guide for writing such a diary appeared in 1649.
+
+The Aubrean genre of short, vivid, compelling portraits of character is part of a wider seventeenth-century turn to personality.
+
+\---
+
+#### Not histories, but lives
+
+In his biography of Alexander the Great, Plutarch wrote that he was not writing history but “Lives”. He would not, he said, describe all the great battles and sieges. The “manifestation of virtue or vice” was often better demonstrated in things like a phrase or a jest. “I must be permitted to devote myself rather to the signs of the soul in men, and by means of these to portray the life of each, leaving to others the description of their great contests.”
+
+This is the tradition of biography that Aubrey revived, along with Izaac Walton.
+
+Walton’s *Live*s is a marvellous work of life writing, too often overlooked or discounted as partisan. (Walton was an Anglican Tory and wrote about Anglican Tories.) It was Walton who taught English biographers to quote directly from letters, to write about people you knew, to show us the person.
+
+It has been said Walton is all surface. Well, so he is, but read this and tell me it doesn’t bring George Herbert’s personality to life.
+
+> In another walk to Salisbury, he saw a poor man with a poorer horse, that was fallen under his load: they were both in distress, and needed present help; which Mr. Herbert perceiving, put off his canonical coat, and helped the poor man to unload, and after to load, his horse. The poor man blessed him for it, and he blessed the poor man; and was so like the Good Samaritan, that he gave him money to refresh both himself and his horse; and told him, “That if he loved himself he should be merciful to his beast.” Thus he left the poor man; and at his coming to his musical friends at Salisbury, they began to wonder that Mr. George Herbert, which used to be so trim and clean, came into that company so soiled and discomposed: but he told them the occasion. And when one of the company told him, “He had disparaged himself by so dirty an employment,” his answer was, “That the thought of what he had done would prove music to him at midnight; and that the omission of it would have upbraided and made discord in his conscience, whensoever he should pass by that place: for if I be bound to pray for all that be in distress, I am sure that I am bound, so far as it is in my power, to practice what I pray for. And though I do not wish for the like occasion every day, yet let me tell you, I wou1d not willingly pass one day of my life without comforting a sad soul, or shewing mercy; and I praise God for this occasion. And now let’s tune our instruments.”
+
+Walton was one of Samuel Johnson’s favourite writers, especially his *Life of Donne*. In that book, Walton shows us the virtues, the talents, which enabled John Donne to evolve from a young Catholic who wrote secret poetry and made a controversial marriage, to become a leading member of the Anglican hierarchy.
+
+It is so splendid a piece of work that in her recent biography of Donne, Katherine Rundell quoted an entire page of Walton.
+
+> To this place Sir Robert returned within half an hour; and as he left so he found, Mr. Donne alone; but in such an ecstasy, and so altered as to his looks, as amazed Sir Robert to behold him; insomuch that he earnestly desired Mr. Donne to declare what had befallen him in the short time of his absence. To which Mr. Donne was not able to make a present answer: but after a long and perplexed pause, did at last say, “I have seen a dreadful vision since I saw you: I have seen my dear wife pass twice by me through this room, with her hair hanging about her shoulders, and a dead child in her arms: this I have seen since I saw you.” To which Sir Robert replied, “Sure, Sir, you have slept since I saw you; and this is the result of some melancholy dream, which I desire you to forget, for you are now awake.” To which Mr. Donne’s reply was: “I cannot be surer that I now live, that that I have not slept since I saw you: and am as sure, that at her second appearing, she stopped, and looked me in the face, and vanished.”––Rest and sleep had not altered Mr. Donne’s opinion the next day: for he then affirmed this vision with a more deliberate, and so confirmed a confidence, that he inclined Sir Robert to a faint belief that the vision was true.––It is truly said, that desire and doubt have no rest; and it proved so with Sir Robert; for he immediately sent a servant to Drewry-house with a charge to hasten back, and bring him word, whether Mrs. Donne were alive; and if alive, in what condition she was as to her health. The twelfth day the messenger returned with this account––That he found and left Mrs. Donne very sad, and sick in her bed; and that after a long and dangerous labour, she had been delivered of a dead child. And, upon examination, the abortion proved to be the same day, and about the very hour, that Mr. Donne affirmed he saw her pass by him in his chamber.
+
+Boswell records Johnson getting angry that this scene was left out of an edition of the *Lives*. No-one will ever tell the tale of Donne seeing his wife’s ghost any better.
+
+\---
+
+#### Biography must be useful
+
+Johnson is one of the most important theorists of biography. “There has rarely passed a life of which a judicious and faithful narrative would not be useful,” he said. We are all so similar to each other, our “mistakes and miscarriages, escapes and expedients” that to hear about other people’s lives is of “immediate and apparent use.” How Aubrean!
+
+Walton and Aubrey and Johnson developed a vision of life writing that preserves a sense of a person’s virtues—their talents, abilities, as wrapped up within their personality. Boswell’s *Life of Johnson* is the great achievement of this tradition. No-one realised the Johnsonian view of biography better than Boswell.[1](#footnote-1)
+
+Boswell obeyed his master’s command that biographers “regard the manners or behaviour of their heroes” and not “hide the faults or failings” of their subjects. All the way through, we see Johnson cultivating his virtues, his *areté*. And struggling with his vices.[2](#footnote-2)
+
+\---
+
+#### Which truths matter most?
+
+In the nineteenth century, biography sought to preserve men’s virtues without their vices. As Virginia Woolf said, “the majority of Victorian biographies are like… effigies that have only a smooth superficial likeness to the body in the coffin.”
+
+Then Froude’s *Life of Carlyle* showed the full force of Carlyle’s misanthropy and sternness and the controversial treatment he meted out to his long-suffering but independently-minded wife Jane. Society was shocked and a discourse erupted about the state of marriage.
+
+As Trev Broughton says, ‘If Thomas Carlyle, one of the foremost advocates of stoic virtue, could be proved routinely to lose his temper over a missing window wedge, then the future of matrimony was parlous indeed.’[3](#footnote-3)
+
+The Victorians had preferred Great Man biographies, which showed heroes at their best, concealed their flaws, and eased them out of the world in gracious, almost saintly, death scenes.
+
+After Froude, that tradition was smashed. Edmund Gosse told the truth about his religiously claustrophobic upbringing. Lytton Strachey punctured the pomposity of an entire era in his short polemic *Eminent Victorians*, which was so sharply ironic it made Bertrand Russell laugh so much in his jail cell that he was admonished by the gaoler.
+
+“At last”, said Woolf, “it was possible to tell the truth about the dead.”
+
+\---
+
+#### Too much truth?
+
+Aubrey and Walton’s short, vivid style was back in fashion with Strachey, but the twentieth century saw a turn to in-depth biography. Page counts swelled.
+
+Michael Holroyd wrote about Bloomsbury homosexuality in his life of Lytton Strachey, much to the displeasure of Geoffrey Keynes, the economist’s brother. (The letters in which Geoffrey Keynes makes his anger about this clear are in the British Library and are written in Geoffrey Keynes’ beautiful old-fashioned script.)
+
+Walton and Johnson were the models no longer. They had kept the balance on the side of discretion. Boswell failed to mention Johnson’s sexual proclivities, for example, but notes were found in his papers about Johnson fondling another woman while married.
+
+\---
+
+#### The accuracy of many footnotes
+
+Writers like Jane Ridley and Charles Moore know all the sources, provide all the context. But the extent of the historical narrative can take focus away from the person.
+
+Many modern biographers include both truth and personality. But where we have to choose, we choose truth. The fertile facts are lost in the mass of boring ones.
+
+The Victorians replaced Aubrey and Walton’s plural virtues, the broad idea of talents and character, with the singular idea of virtue, the quest to present good, respectable people to society. We have replaced that with the accuracy of many footnotes.
+
+\---
+
+#### Aubrey’s strange sagacity for personality
+
+Whenever I read Aubrey, I wish for a revival the art of biography as the exposition of character. I wish for those carefully preserved fragments of lives that tell of people like Sir Henry Saville, Warden of Merton college, who “could not abide *witts*: when a young scholar was recommended to him for a good witt, '*Out upon him, I'le have nothing to doe with him; give me the ploding student. If I would look for witts I would goe to Newgate, there be the witts”.*
+
+Though he was a Baconian in his quest for knowledge, Aubrey is at the heart of an English tradition which respects the most exceptional, telling, strange, and curious aspects of personality. He tells of William Holder’s wife who has “a strange sagacity as to curing of wounds”. When Charles II had a swollen hand, which was made worse by his own physicians, she was sent for.
+
+> She presently made ready a pultisse, and applyed it, and gave his majestic sudden ease, and he slept well; next day she dressed him, and in ... perfectly cured him, to the great griefe of all the surgeons, who envy and hate her.
+
+This lacks all context, cannot be fitted to any scheme. Such is the pleasure of Aubrey, who is almost Borgesian in these moments with his strange sagacity for recording personality.
+
+\---
+
+#### A compendious mind
+
+Bennett says,
+
+> From the age of sixteen, Aubrey had begun to fill pocket-books with memoranda of all aspects of antiquities and natural philosophy. As Aubrey’s collections grew, so did the problem of finding forms compendious enough to contain this mass of information; and every time he began on a new work it was with the intention of preserving and disseminating his existing memoranda as well as of compiling new material. Hence, new texts constituted fresh catalogues and taxonomies of his collections, and referred explicitly to his other manuscripts, as well as to his annotated books, printed and manuscript papers, his paintings, rarities, Roman antiquities and specimens of minerals.
+
+It is in this inclination to the compendium that Aubrey gets closest to life, life as it really is—a strange expansive uncontrollable thing, which we can categorize, taxonomize, and regularize to great use—but only so much. In the *Oxford Dictionary of National Biography*, Adam Fox writes:
+
+> For all his prolific note-taking, minute observation, original insights, and capacity for natural prose, Aubrey often lacked the ability to organize, edit, and shape his materials into the coherent and polished form necessary for publication. He made repeated efforts, especially towards the end of his life when he became worried about the fate of his manuscripts and the future of his reputation, to 'methodise' his works, but these met with only partial success.
+
+Aubrey was one of nature’s disorganized geniuses. In Aubrey, we find so many of the facts of life that we cannot quite gather into any regular system. Aubrey has a genius for the marginal as well as the essential. It is in Aubrey that we see a doctor curing an ague by throwing the man into the Thames, a lawyer who “got more by his Prick than by his practice”, and two frightened Elizabethan housemaids throwing a watch out of a window, convinced that its ticking noise is being made by a devil trapped inside. However many footnotes our lives accrue it is in the distracted eating of a penny loaf that we are known most memorably.
+
+[
+
+![](https://substackcdn.com/image/fetch/$s_!uyrQ!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Feea9fd22-20d6-42aa-8c98-8d0ce6098645_861x994.jpeg)
+
+
+
+](https://substackcdn.com/image/fetch/$s_!uyrQ!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Feea9fd22-20d6-42aa-8c98-8d0ce6098645_861x994.jpeg)
+
+[1](#footnote-anchor-1)
+
+Although Boswell’s book is long where Johnson’s are short, loosely structured where Johnson’s are strictly controlled, discursive and occasionally pretentious where Johnson’s are declamatory and learned — the essence of Johnson’s character and talents comes through on every page.
+
+[2](#footnote-anchor-2)
+
+Much scholarly time is spent debating just how accurate Boswell’s book can possibly be. What’s most important is that Johnson’s core virtues, his talents, of curiosity, charity, and motivating despair, come through cogently and coherently.
+
+We really see what character traits he preserved and worked on to enable him to be who he was — a famous scholar, a devoted friend, a man who was kind to strangers, who adopted a freed slave.
+
+[3](#footnote-anchor-3)
+
+Broughton, Trev “The Froude-Carlyle Embroilment: Married Life as a Literary Problem” *Victorian Studies* Vol. 38, No. 4 (Summer, 1995), pp. 551-585

@@ -1,0 +1,187 @@
+---
+title: "How to write a short story"
+author: "Naomi Kanakia"
+publication: ""
+publication_slug: "woman-of-letters"
+published_at: "2025-11-13T15:01:52.000Z"
+source_url: "https://www.woman-of-letters.com/p/how-to-write-a-short-story"
+word_count: 2230
+estimated_read_time: 12
+---
+
+My opinion is that **a short story should start right away with some kind of desire**. Right away, from the very first line. There’s no need to be coy.
+
+“Ellie wanted to marry a wealthy man.”
+
+Then, as you’re writing the story, you think, *What would be an extremely boring way to tell this story?* And you **don’t tell it the boring way**. You subvert the boring-story expectation and do something different instead.
+
+For instance, if Ellie was some upper-middle-class girl who’d gotten tired of the career treadmill and decided to go ‘trad’ then that would be extremely boring, so I won’t write it that way. Instead I’ll do something different:
+
+> Ellie wanted to marry a wealthy man, but she couldn’t find any. She lived in SF, and everyone here was supposedly so rich, but all the guys she matched with online were townies, like her, still lived with their parents, worked at Best Buy. What about these guys who drove Teslas? Or even just those expensive e-bikes—she’d looked up some of these bikes. They could cost $6,000. The guys on these e-bikes wouldn’t even look at her!
+
+So now it’s a story about a lower-middle-class girl who’s trying to crack the code on these nerdy engineer types. Which seems pretty funny. Like, that’s a good story right there. At each stage, **you just think, “What do readers expect?” And then you don’t do that thing.**
+
+Also, **pretty early on, you should introduce some other characters and create a milieu.**
+
+[
+
+![](https://substackcdn.com/image/fetch/$s_!qmM9!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fec61e83c-d3dc-42db-9fdb-5f6e7989c475_1456x150.png)
+
+
+
+](https://substackcdn.com/image/fetch/$s_!qmM9!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fec61e83c-d3dc-42db-9fdb-5f6e7989c475_1456x150.png)
+
+Ellie was part of a Discord server where girls traded tips on how to catch classy guys. This forum had its own lingo. And in this Discord there was a lot of debate on who to go for. Some people said you needed to look for Safe Bets—guys who were in a business where someday they’d make a lot of money. Like someone who was in med school. Other people said no, you needed a Sure Thing. That was somebody who *already* had money.
+
+The girls in this forum spent a lot of time psychoanalyzing these guys and figuring out what they wanted from a woman. They had developed this whole ideology that actually these high-earning guys were tired of these career women, who were ugly, sort of frigid, poorly-dressed. Really they were attracted to girls like Ellie: traditional, hot, feminine girls. But they felt punished by society for that attraction, so they denied it and wouldn’t look at girls like Ellie. What you needed, if you were Ellie, was to give a guy something called ‘A Permission Slip.’ Basically you needed to use various techniques to give the man mental permission to be attracted to a real woman.
+
+Ellie started going out to bars with some other girls in this group, and they began strategizing how to give permission slips. And Ellie tried to get acculturated, learning to talk about movies and neighborhoods and bars and restaurants and apps and business and all the things these guys liked. It was an interesting world, right here in the same city, there were bars and restaurants she had walked past a hundred times but never gone in. Crazy how your eyes got opened just by talking to someone new.
+
+But Ellie realized these guys were weird. They were too awkward, too shy. They would look away from her when she talked to them, visibly anxious, scanning the bar looking for people more to their taste. The server was wrong, they didn’t actually want people like her at all, she could feel that contempt radiating off them for every second she impinged on their attention.
+
+They could talk, but these guys could never really see her. They lived in the same city, but they were kept forever apart, like fish in separate bowls.
+
+[
+
+![](https://substackcdn.com/image/fetch/$s_!gXQX!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F8559e9cd-d456-4fc7-b9ee-7477fe58f4f7_1456x150.png)
+
+
+
+](https://substackcdn.com/image/fetch/$s_!gXQX!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F8559e9cd-d456-4fc7-b9ee-7477fe58f4f7_1456x150.png)
+
+**The middle part of the story is where you develop its themes**. You see, hopefully there is embedded in your story a theme: some kind of truth about the human condition.
+
+In this case, the truth is that marriage in the United States is defined by class endogamy: men almost never date women from a lower social class. You never see Ellies get together with techie types, not even as casual flings! I have lived in the Bay Area for twenty years, and none of my male techie friends has ever introduced me to a townie girlfriend.[1](#footnote-1) It just doesn’t happen.
+
+But...nothing is forever. Things change. And there’s more than one kind of rich guy in this city of ours.
+
+[
+
+![](https://substackcdn.com/image/fetch/$s_!-Tlf!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F334ad6d7-3433-43f0-b1f5-16519572bcb5_1456x150.png)
+
+
+
+](https://substackcdn.com/image/fetch/$s_!-Tlf!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F334ad6d7-3433-43f0-b1f5-16519572bcb5_1456x150.png)
+
+One night Ellie was out at her regular neighborhood bar, and she finally let herself get talked into bed by this big, stocky guy with a deep voice. This guy caught her eye and he came right up to her, said, “What’re you doing out alone?”
+
+She smiled at him, and he bought her a drink, and then he took her home. In the morning he gushed about how hot she was, how cool—he seemed giddy and very young.
+
+For the next month they kept hanging out. She would go out drinking all night. He did everything she wanted, took her to whatever trendy spots she asked for, paid for everything, and told her constantly she was stunning, beautiful. She asked sometimes about his job, but he said, “Oh, you know. Let’s not talk about that right now.”
+
+She ran into one of her old friends, from this Discord server, and they asked what she was doing with this guy: what happened to finding a rich guy?
+
+And she said, “I’ve been to his apartment.”
+
+“What do you mean?”
+
+“He’s got two computer screens.”
+
+“So?”
+
+“And a lot of books.”
+
+She didn’t tell them her secret: she had discovered another server, just like the one where she met her girlfriends. This server was populated by lonely men. And on this server, these techie guys complained that there aren’t enough girls in the Bay Area, and that all the girls are prissy and don’t want to be approached. She made an account on this server where she pretended to be a man. And using this account, she told them about some townie pickup spots, and she also told them where to go and how to act and what lines to use.
+
+And there was one guy who’d been posting online about how he’d followed these tips, and it’s been fantastic—he was a virgin before, and now he’s getting laid by this incredible girl. And that guy was Ellie’s new boyfriend. He was so proud of himself, like a cat with his first kill. The other guys were saying bullshit, and he was inviting them to come out too and see.
+
+And when these other guys met Ellie, she talked to them about their work and about politics and movies and all the things these people liked talking about—showing her man she could have fun, yeah, but she could also measure up, not embarrass him around his sort. Then she smiled at her man, and she said, “Let’s go,” and they left all these men to flounder and flail in that bar, getting nowhere with girls.
+
+Afterward, something changed in the man—something turned. They weren’t exclusive yet, but she could tell that he wasn’t having much luck with girls aside from her.
+
+[
+
+![](https://substackcdn.com/image/fetch/$s_!S-1q!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F0e5d9b89-e340-48d8-9e79-4ebe0d840b87_1456x150.png)
+
+
+
+](https://substackcdn.com/image/fetch/$s_!S-1q!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F0e5d9b89-e340-48d8-9e79-4ebe0d840b87_1456x150.png)
+
+As I’ve mentioned in a few previous posts, there’s a whole 20th-century middlebrow short story writing tradition that’s just like this. **It’s about clear, recognizable conflicts**—it’s firmly anchored in a time and place—and **it tries to say something true, but in an entertaining way**.
+
+These kinds of stories were told simply—there was no appeal to any deeper aesthetic principle. You did not read these stories expecting the kind of chilly, austere pleasure that you’ll get from, say, a Raymond Carver story. Instead, you read these kinds of stories with the expectation that you’d be entertained and diverted.
+
+Of course, there’s an art to these stories. **To make a middlebrow story work, you’ve got to have a good ending**. With this kind of story, people will read to the end, and if the ending isn’t good, they’ll be unconsciously disappointed. But if the ending is interesting, then they’ll remember it, and they’ll remember you. An ending has to be surprising, but it also needs to tie up the story’s themes. Whatever weird, complex thing the story is *about*, that thing needs to be expressed by the ending.
+
+What’s great about short stories, is you can just steal the endings. For instance, the ending to this story ending is adapted from an O. Henry story called “[Lost on Dress Parade](https://americanliterature.com/author/o-henry/short-story/lost-on-dress-parade)”. But since you haven’t read (much) O. Henry, you still won’t see the surprise coming.[2](#footnote-2)
+
+[
+
+![](https://substackcdn.com/image/fetch/$s_!JEz9!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fb9dce549-ee0a-400b-85da-c4ff52f3e572_1456x150.png)
+
+
+
+](https://substackcdn.com/image/fetch/$s_!JEz9!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fb9dce549-ee0a-400b-85da-c4ff52f3e572_1456x150.png)
+
+Ellie asked to be exclusive, but the guy said not yet. She asked, “Is it cause I never got my degree?” He went dead silent, and she said, “You’re not gonna find another girl like me. All your life will go by, and there’ll never be another one.”
+
+After they split up, she waited, and she waited, and she waited, knowing that this guy would eventually realize the mistake he’d made.
+
+But in the meantime, she told this story to some friends of hers, and it started circulating around town. And an acquaintance from high school, Byron, thought this was the funniest thing on earth. Ellie had groomed some poor sucker into becoming the perfect boyfriend.
+
+Byron ran across Ellie one day at the bar and he said, “Hey I know about you.”
+
+“What do you know?”
+
+“I know you’re a gold-digger,” he said, smiling.
+
+“You asshole,” she said. “It’s not about money. It’s about culture. You’ve got none.”
+
+“Whatever, you would’ve got bored.”
+
+“Oh yeah because this is so much better. I’m so turned on right now by this shiny wonderful sparkling talk we’re having. It’s so wonderful. So great. Just really doing it for me.”
+
+Well, things progressed from there, and the two of them started hanging out. Byron considered trying to break free, but Ellie’s parents knew his parents, all their friends knew each other. And she was the kind of girl he always pictured being with, really smart, edgy, different from other girls.
+
+Ellie was pretty hooked too. Hard to admit, but it was a lot easier, being with someone who really knew you. He didn’t ever call her beautiful, and he didn’t take her out anywhere new. Always every week they went to the same bar, the same friends. But that was okay. He really knew her. And nobody else had really known her before. He knew the specialness of her, and that’s all she’d really been looking for.
+
+\---
+
+Even better, Byron was an apprentice electrician, and within ten years he was making good money. They bought a place together that needed some fixing up, and Ellie helped out, building it up.
+
+Fifteen years later, she and the electrician were proud owners of eight units, spread across two buildings, and those two squeezed the land for all it was worth.
+
+One day they got a rental application from a single guy, just divorced. Decent credit, but his income pretty low.
+
+It was her old techie boyfriend; artificial intelligence had taken his job, and now he did some consulting work (whatever that was), for a lot less than Ellie and Byron earned.
+
+The electrician slid the application across to her, “Should I toss it out?”
+
+“Why?”
+
+“He doesn’t make enough.”
+
+That was true, but they both knew this kind of guy was so proud of his credit that he would never risk an eviction. No matter what happened, he would pay up, and he would pay bigly too, on a really terrible run-down place, because all the nicer spots would go to richer guys.
+
+On the other hand…
+
+“Yeah, okay. Get rid of him. We’ll find another one. Lot of these guys out here,” she said.
+
+“Aww you’re cold. What about your perfect little guy with his money and his culture. Thought he was your dreamboat.”
+
+“That was all just a joke.”
+
+And Ellie believed it too. Yeah she’d hung out with this engineer guy, and had a little fun. But she’d never trusted that computer stuff—it wasn’t real work.
+
+\---
+
+[
+
+![](https://substackcdn.com/image/fetch/$s_!46J4!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F9c0c4a54-73e5-4333-9370-b0b208635a3a_1456x1080.png)
+
+
+
+](https://substackcdn.com/image/fetch/$s_!46J4!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F9c0c4a54-73e5-4333-9370-b0b208635a3a_1456x1080.png)
+**A Bar at the Folies-Bergère.* Edouard Manet. 1882. [Source](https://en.wikipedia.org/wiki/A_Bar_at_the_Folies-Berg%C3%A8re).*
+
+[1](#footnote-anchor-1)
+
+The reverse *does* happen: upper-middle-class women sometimes date lower-middle-class men, especially when they’re linked by culture, ethnicity, or religion.
+
+[2](#footnote-anchor-2)
+
+In the O. Henry story. a poor clerk dresses up in fine clothes and goes out for a nice dinner. He meets a poor shopgirl on the street, and he pretends to be a swell, taking her out to a fancy dinner and impressing her with his fine manners. She goes away thinking he’s an idle gentleman. But after they part, the shopgirl goes back to her fancy mansion—she was really a rich debutante who was slumming it.
+
+Then she sighs and says to her sister:
+
+> I could love a man with dark and kind blue eyes, who is gentle and respectful to poor girls, who is handsome and good and does not try to flirt. But I could love him only if he had an ambition, an object, some work to do in the world. I would not care how poor he was if I could help him build his way up. But, sister dear, the kind of man we always meet—the man who lives an idle life between society and his clubs—I could not love a man like that, even if his eyes were blue and he were ever so kind to poor girls whom he met in the street.

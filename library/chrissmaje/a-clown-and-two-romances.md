@@ -1,0 +1,68 @@
+---
+title: "A clown and two romances"
+author: "Chris Smaje"
+publication: "Chris's Substack"
+publication_slug: "chrissmaje"
+published_at: "2025-06-23T08:25:44.000Z"
+source_url: "https://chrissmaje.substack.com/p/a-clown-and-two-romances"
+word_count: 1901
+estimated_read_time: 10
+---
+
+A commenter under my last post wrote ‘all eyes on Gaza from now on’. I’m not sure exactly what he meant, but recent world events suggest that all eyes also need to be on Washington, DC as well as Tehran and Jerusalem. Probably Moscow, Kyiv, Beijing and the Straits of Hormuz as well.
+
+It’s hard to keep your eyes on all these places all at the same time. And, even if you do, there’s very little impact you can have on the decisions that are made in and about them. In fact, I’d argue that giving our attention to the power plays of global political centres can help feed their pathologies, which is one reason I don’t write about them much anymore. That and the fact that I don’t have much to say about their specifics that other more expert commentators don’t say better.
+
+I do have some things to say about the generalities of political power centres, and I say them in my forthcoming book. So enough on that for now. Perhaps the only opinion I’ll venture on current world events is that the view I’ve often heard about Donald Trump being different from other US presidents in his domestic focus and refusal to play global war games is now safely in the bin.
+
+Okay, perhaps just one other opinion – current events aren’t really helping the case of those who think nuclear energy has a big role to play in tackling global environmental problems.
+
+But instead of all that, I’m going to focus in this post on more local and parochial matters, emerging from [this comment](https://chrissmaje.com/2025/06/root-and-branch/#comment-267162) from Walter under my last one: “By the way, I don’t know what a clown farmer is. Perhaps it is someone who has to have a second income and goes to festivals and the like?”
+
+My intention isn’t to single out this remark for criticism so much as just to use it as a point of departure, but I guess I’d say that in my experience most farmers across most scales have a second income of one sort or another – part and parcel of the desperate economics of the food sector and, by extension, the modern world. Going to festivals and the like I confess is rarer within the profession, and perhaps a little more clownish. I’m not much of a festival goer myself, so I’d have happily been able to exempt myself from such accusations of clownery but for the fact that, as you can see, I’m going to the Glastonbury Festival next week.
+
+[
+
+![](https://substackcdn.com/image/fetch/$s_!HRu8!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fdd327489-c51c-4fe6-831f-f190f3053251_2560x1920.jpeg)
+
+
+
+](https://substackcdn.com/image/fetch/$s_!HRu8!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fdd327489-c51c-4fe6-831f-f190f3053251_2560x1920.jpeg)
+
+All I’ll say in my defence is that I’m in the fortunate position of having a free ‘Performer’ ticket, and I’ll be making the case for small-scale agrarian localism in a couple of talks there. I never dreamed when I started this blog that it would lead to a Glastonbury performance, but there we have it. So, if you happen to be at the festival do join me to discuss finding lights in a dark age at the Speaker’s Forum at 11am on Friday. And also talking about ‘Food Security in a Changing Climate’ at 2pm next Sunday. Originally this was slated to be a discussion between me and the Labour MP Clive Lewis, one of the best among that bad bunch, but it now looks like it’s just going to be me on my lonesome. So do join if you can.
+
+But let me get back to this question of who qualifies as a ‘real’ farmer, rather than merely one of the clowning variety. This is something I’ve wrestled with in my writing and in my self-identity over the years. In ways I won’t rehash again here, I think our society puts too much weight on the term ‘farmer’, and still more on ‘real farmer’. One reason I’ve embraced the identity of ‘farmer’ is to push back against this, but I’ve sometimes felt uncomfortable when others represent me as an example of that revered and semi-mythical being, the real farmer. Clown farmer is probably closer to the mark, to be honest.
+
+A point I make in my forthcoming book is that comedy and clownery are serious things, so perhaps ‘clown farmer’ is in any case an identity I can seriously embrace. There’s a lot of online chat in the alternative farming space that dismisses people as hobbyists who, in contemporary parlance, are seen as merely ‘larping’ or ‘cosplaying’ at farming. But why stop at farming? The modern world and the kinds of things it places value on is one big cosplay as far as I can see. At least cosplaying as a farmer is kind of on the right track.
+
+Anyway, I don’t mean to sound too defensive about all this. The superpower of the clown is the ability to laugh at themselves. I could do with a bit more of that, and so could our society. A clown farmer in a clown society is good enough for me.
+
+Still, as I said, clowning is a serious matter. The late, great anarchist anthropologist David Graeber has had a big influence on me in his view that the modern epoch erred when it forgot about the comedy of political power claims ([Mikhail Bakhtin](https://chrissmaje.com/2023/05/rabelais-in-russia-or-the-man-on-a-chair-in-a-hat/) is another influence along those lines). Perhaps the idea of being a ‘real farmer’ involves something similar, albeit further down the power hierarchy than such comic claims as being ‘prime minister’, ‘president for life’, or ‘his excellency’.
+
+Another influence on me and another late and great was my permaculture teacher, Patrick Whitefield. I liked his definition of ‘farming’ – not a job, not physical work, not some time-honoured country club with exclusive membership, but a way of observing the landscape and thinking through the intertwined human and natural ecologies lying latent within it.
+
+Which neatly segues into my second general theme for this post. Last weekend I went hiking and bird-watching in Eryri (Snowdonia, North Wales) with my son. Then on Sunday (father’s day) we went rock-climbing. It wasn’t exactly a festival, but it certainly involved some clowning around on my part. Here’s a picture my son took of me on the route. I’m the guy in the white hat, because – clown or not – I’m always the good guy in all of my stories. And actually it’s a helmet, not a hat, because it’s the good guys that get all the flak.
+
+[
+
+![](https://substackcdn.com/image/fetch/$s_!1nuS!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F9dc50e0e-b62c-4eea-8cb4-c17cc2d83968_1200x1600.jpeg)
+
+
+
+](https://substackcdn.com/image/fetch/$s_!1nuS!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F9dc50e0e-b62c-4eea-8cb4-c17cc2d83968_1200x1600.jpeg)
+
+The route is graded ‘Very Difficult’, which in the strange world of British climbing grades means it’s very easy. It was first climbed in 1905, when it probably *was* very difficult with the knowledge and equipment available then. The last time I was there was thirty-odd years ago when I tried leading it with ice axes and crampons as a winter route. It was too warm, wet and unfrozen, and I was beaten back by a waterfall pouring through a gully I had to climb. Still, that effort was way more badass than my exploits last weekend, where I wobbled up the route with a tight top rope from above courtesy of my fearless son. So maybe there’s a theme here along the lines that the good clown needs to grow old gracefully and learn when it’s time to hand on the clowning to younger generations. Anyway, I’m glad I did the route with him. Though next father’s day I might just ask for a bottle of whisky instead.
+
+Another theme emerges from the historical timing of the route’s first ascent. Mountaineering developed as a leisure pursuit in Britain in late Victorian and Edwardian times. This was partly because Britain’s industrial and colonial economy had only then accumulated enough surplus for some people at least to be able to fritter away their time climbing mountains for no practical purpose (climbing remained an upper-class pastime until after World War II, when a new generation of working-class climbers from the northern cities pushed standards forward).
+
+But the emergence of mountaineering in that era was also partly a Romantic reaction to the march of that very industrial economy that made it possible – finding a peace and a meaning in nature and wild spaces, and in testing oneself against non-human forces like rock and gravity, with their beautiful indifference to our human sense of self-importance and progress. Also, escaping the restricted, tamed and monolithic routines of an over-humanised and consumption-oriented everyday life. In that sense, mountaineering sits within a Romantic tradition that also invests the contemporary conservation and rewilding movement (note the capital ‘R’, by the way – it’s important!)
+
+Heading down from the climb through Cwm Llugwy, our main companions on the mountainside were sheep, some of them nosing around ruined old stone pens. The long association in these parts between human, dog and sheep that’s enabled people to coax high-quality food and fibre from these wet, infertile hills is to my mind one of the more awe-inspiring achievements of human science.
+
+Across the other side of the Ogwen Valley, my son and I had hiked up Y Garn through Cwm Idwal the previous day. Cwm Idwal, as I understand it, has been cleared of its sheep for the last twenty odd years to protect its subarctic flora and promote the regrowth of trees. It did seem slightly more scrubby than when I used to visit in the salad days of my youthful climbing exploits. Only slightly, but then nature moves to a different rhythm than impatient humans. Also, contrary to the billing, we saw quite a lot of sheep in the cwm. Somebody is paid, I think, to keep clearing these marauders from the cwm, but I daresay it’s not an easy task.
+
+On my way home, I saw a roadside sign – ‘NO to Rewilding: Save Taxpayers Money’. I’ve written before about the great rewilding debate and I don’t plan to rehearse all the issues here. Suffice to say I’m not averse to the idea of cutting sheep numbers in the Welsh hills, provided there’s some like-for-like redress elsewhere in the economy – cutting traders in the City of London, for example. But I do wish the pro-rewilding camp would take more trouble to see the Romantic roots of their own position, and the oddness from an agrarian perspective of paying farmers not to practice forms of local farming that cannot be dismissed themselves as a romantic carryover from the past.
+
+A final observation to close. I’ve been making some modest efforts to learn Welsh lately for various reasons. One of them arose from Carwyn Graves’s book *[Tir](https://chrissmaje.com/2024/06/c-wrecked-agrarian-transition-as-politics-part-2/)* and his remarks in it about the Welsh language and the way it richly encodes knowledges of nature and human implication in the landscape (I have quite some way to go before I’m in a position to comment further about that). Another is that I’ve visited Wales often for many years without ever feeling the need to learn anything about this other and more ancestral language of southern Britain. Alas only recently has that struck me as quite arrogant.
+
+As I said, I have a long way to go yet, but I was pleased to be able to pick out a few words on this recent trip. A man in a whitewashed cottage called Tŷ Gwyn was pottering around its small ornamental garden as I passed. How on earth have I spent all these years in this country without even knowing what that meant? Coming back to the theme of my opening sentences, I only wish other men in other Tŷ Gwyns (sorry, Tai Gwyn) were likewise tending to their own gardens.

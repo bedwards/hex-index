@@ -1,0 +1,42 @@
+---
+title: "HOISTED FROM THE ARCHIVES: Cognition & \"Active Reading\""
+author: "Brad DeLong"
+publication: "DeLong's Grasping Reality"
+publication_slug: "braddelong"
+published_at: "2025-12-08T14:30:02.000Z"
+source_url: "https://braddelong.substack.com/p/hoisted-from-the-archives-cognition"
+word_count: 1078
+estimated_read_time: 6
+---
+
+###### From 2025-01-13 “very briefly noted”: here so I can quickly put my hands on it in the future...
+
+\---
+
+“Active reading” has long been THE way that those super-skilled in utilizing the technologies of writing and printing we have had for 5000 and 500 years, respectively, to supercharge the intellectual powers these technologies enable. It is in sharp contrast to passive readings, in which the words wash over you—as in listening to a speech, but with your eyes rather than your ears. This form of passive reading has all the flaws Platon’s Sokrates puts in the mouth of King Thamos in his response to the God Theuth in the “Phaidros”—that it creates the *trompe l’oeil* appearance of thinking, but not the reality. (Not said in the Phaidros, but a subtext in much of Platon, is that the speechifyin’ rhetoric of the sophist suffers from much the same problem: rather than helping you think, the speeches of the demagogue drive you like cattle to his desired conclusion).
+
+In active reading, however, you are the master of the book. You dogear pages to return to them. You flip back and you flip forward. You write in the margins. And so, in fact, the good active reader will argue with the book: will take the codex, spend maybe three or four hours interacting with it, and from the black marks on the page spin up a sub-Turing instantiation of the author’s mind, run it on their own wetware, and have in their mind’s eye—and who is to say that is not as real as the actual eye—a Sokrates on the other end of the log, answering questions. As Machiavelli wrote in 1513, when he goes into his library: “I step inside the venerable courts of the ancients... where I am unashamed to converse with them and to question them about the motives for their actions, and they, out of their human kindness, answer me...”.
+
+But for only a small slice of society, only for the truly hyperliterate, is it the case that they—we—have managed to train our brains to make active reading second nature. The rest of humanity cannot do it.
+
+The right use of GPT LLM technology is to provide a route-around: rather than having to train yourself for years to become a hyperliterate active reader and spinner-up of sub-Turing instantiations of authors’ minds, you can have a dialogue with Sub-TuringAuthorBot(TM):
+
+> **Alex Tolley**: ‘There is a perfectly profitable market for bespoke information - books, textbooks, taught courses. The relevant intelligences behind these artifacts are authors, teachers, etc. Publishers are already adding media interfaces to these works - CD inserts, eTextbook links to online tests, etc. Publishers should find it easy to add value by grafting on AIs to summarize material and arguments for both individual books and aggregate books (e.g. for a subject)., as well as teachers doing the same for the aggregate materials for a course. This strikes me as the better way to go, and then the many competing domain-specific AIs can be rated, just like authors.
+> 
+> As for the current high market cap values and well-paid “leaders”, I couldn’t care less about their fortunes. Their hubris went for huge sums to achieve the AGI and superintelligent AI goals. It looks like that was a bridge too far, and that a bust will happen. Nemesis. We will be better off without AIs with the possible existential threat of the fictional “Colossus” computer. Bespoke AI assistants will better meet humanity’s needs, by becoming “bicycles for the mind” for each domain. Consider the recent doorstop econ books, including yours. It is large, yet you admit you had to pare it down. An AI trained on the totality of material could become a tutor, both summarizing the arguments and fleshing them out where desired. Even better would be an AI that could answer questions beyond the material, explaining why certain approaches were taken rather than others. The result might be a richer experience for the interested reader. It’s more like a multi-track video game than a linear movie. \[Also movies are now sold with director voiceover tracks to explain the director’s thoughts as the movie unfolds. Multiple voices are preferable to one overarching voice in most subjects, whether science or arts. Domain-specific AIs could be a useful interface for books and other media, and their competing voices would allow for variety and potential progress. \[Competing AIs in a political debate might shed more light than rhetorical heat in these debates, with facts rather than misinformation and slogans in a good debate.\]
+> 
+> Let’s not forget that LLMs, however hooked up to RAGs, are just the current AI technology. They are unlikely to be the last. Ideally, they should be as flexible as a human mind, with infinitely better recall, low resource use, and preferably better logical analysis of the data before responding. Less like the drunk at the bar mouthing off an opinion, and more like an expert with lower latency deliberation. IOW, intelligent experts on tap. \[I appreciate this can all be gamed, but I prefer that the technology is accessible to the many, rather than the few, or the one\]...
+> 
+> \[Commenting on **DeLong**:\] ”There now appear to be two possible roads: —Back up, and train a GPT LLM as a summarization engine on an authoritative set of information both through pre-training and RAG, and so produce true natural-language interfaces to structured and unstructured knowledge databases. That would be wonderful. But it is best provided not by building a bigger, more expensive model but rather by slimming down to keep linguistic fluency while reducing costs. Moreover, that would be profitable to provide: it would essentially be performing the service of creating a bespoke intellectual Jeeves for each use case. Doing that would produce profitable businesses. But it would not validate $3 trillion corporate market cap expectations. —Keep building bigger and more expensive models, but then thwack them to behave by confining them to domains—Tim Lee says coding, and mathing—where you can automate the generation of near-infinite amounts of questions with correct answers for reinforcement learning. That would be a tremendous boon for programmers and mathematical modelers. But expensive…”… <[https://braddelong.substack.com/p/weekly-briefly-noted-for-2025-01](https://braddelong.substack.com/p/weekly-briefly-noted-for-2025-01)\> <[https://braddelong.substack.com/p/weekly-briefly-noted-for-2025-01-a7a](https://braddelong.substack.com/p/weekly-briefly-noted-for-2025-01-a7a)\>
+
+##### ***If reading this gets you Value Above Replacement, then become a free subscriber to this newsletter. And forward it! And if your VAR from this newsletter is in the three digits or more each year, please become a paid subscriber! I am trying to make you readers—and myself—smarter. Please tell me if I succeed, or how I fail…***
+
+\---
+
+###### #cognition-active-reading  
+#hoisted-from-the-archives  
+#mamlms  
+#active-reading  
+#front-end-to-the-real-asi  
+#asi  
+#anthology-super-intelligence

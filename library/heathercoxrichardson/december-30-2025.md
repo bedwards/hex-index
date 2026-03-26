@@ -1,0 +1,178 @@
+---
+title: "December 30, 2025"
+author: "Heather Cox Richardson"
+publication: "Letters from an American"
+publication_slug: "heathercoxrichardson"
+published_at: "2025-12-31T09:31:22.000Z"
+source_url: "https://heathercoxrichardson.substack.com/p/december-30-2025"
+word_count: 2148
+estimated_read_time: 11
+---
+
+The hallmark of the first year of President Donald J. Trump’s second term has been the attempt of the president and his cronies to dismantle the constitutional system set up by the framers of that document when they established the United States of America. It’s not simply that they have broken the laws. They have acted as if the laws, and the Constitution that underpins them, don’t exist.
+
+As soon as the 2024 election results were clear, billionaire Elon Musk, who had supported Trump’s campaign both through his purchase of Twitter—now X—and with $290 million in cash, posted on social media: “Novus Ordo Seclorum,” Latin for “New World Order.” Although he won with less than 50% of the vote, Trump announced that he had an “unprecedented and powerful mandate.” Musk would head a new “Department of Government Efficiency” that Musk vowed would cut at least $2 trillion from the federal budget.
+
+Musk and his operatives muscled their way into government offices and gained access to computer systems. With strokes of a keyboard they eliminated jobs and programs, including, as Musk put it, feeding “into the wood chipper” most of the U.S. Agency for International Development, the government agency aimed at combating disease and malnutrition around the globe. That dismantling has caused the deaths of hundreds of thousands of people.
+
+The Cato Institute, a libertarian think tank, recently concluded that while the Department of Government Efficiency did not actually reduce spending, it did cut almost 10% of federal employees, a key goal of Office of Management and Budget director Russell Vought, a key author of Project 2025.
+
+And, crucially, it put operatives in virtually all government departments and agencies, where they gained access to privileged information about Americans, including citizens, legal residents, and undocumented immigrants.
+
+Musk and DOGE also established the idea that the unelected officials in the Trump administration could do whatever they wished, without regard to the laws or the Constitution. The Constitution, judicial precedent, and the 1974 Impoundment Control Act all make it very clear that the power of the purse belongs to Congress. As the elected representatives of the American people, only members of the House of Representatives and the Senate can determine how the nation’s money is spent. Then the president must “take Care that the laws be faithfully executed.”
+
+Democrats objected to the administration’s dramatic usurpation of the power of Congress, but Republicans did not complain. Most backed the administration’s claims it was eliminating “waste, fraud, and abuse.”
+
+Although Republicans controlled both chambers of Congress, meaning that Trump should have been able to get any legislation he wanted, he continued to try to get around the Constitution by declaring nine “emergencies” that would permit him to act without congressional oversight. This reliance on emergencies reflected the ideas of Nazi political theorist Carl Schmitt, whose writings were followed by right-wing leaders, including billionaire Peter Thiel and the man who influenced him, Curtis Yarvin. Schmitt argued that power belongs to the leader who can exploit emergencies that create exceptions to the constitutional order, enabling him to exercise power without regard to the law.
+
+Trump asserted this view on August 26, claiming “the right to do anything I want to do. I’m the president of the United States. If I think our country’s in danger—and it is in danger in these cities—I can do it.” As now–Vice President J.D. Vance described Schmitt’s ideas in 2024: “There’s no law, there’s just power.”
+
+Under these so-called emergencies, Trump launched a tariff war in April, taking from Congress a right the Constitution reserves to it alone. When lawmakers moved to challenge those tariffs, House Republicans, led by Speaker Mike Johnson (R-LA), declared the rest of the session a single day with regard to legislation that could challenge Trump’s declaration of an emergency so that a required number of days could not pass before a vote to end that emergency.
+
+With momentum still seeming to be behind Trump, Republicans delivered an omnibus law in July that put into practice the ideology Republicans had promised for a generation. The measure that Trump called the “One Big Beautiful Bill” extended the 2017 tax cuts that benefited primarily the wealthy and corporations while cutting Medicaid, Supplemental Nutrition Assistance Program (SNAP) benefits, and support for the purchase of healthcare insurance on the Affordable Care Act marketplace. By passing it under the terms of budget reconciliation, which cannot be filibustered, the Republicans pushed it through without any Democratic votes. In the Senate, three Republicans voted against the bill, requiring Vance to cast the deciding vote.
+
+Meanwhile, administration policies put money into the pockets of the rich, especially Trump, who leveraged tariff discussions to win permissions to build golf courses, invested in cryptocurrency, and received donations to various projects from people with business before the government. When Congress tried to exercise its duty of oversight, administration officials treated the members with contempt, refusing to appear or declining to answer questions, talking over them, or insulting them.
+
+But despite the administration’s attempt to act extraconstitutionally and outside the law, the law began to assert itself. Beginning in February 2024, long before the election, Democratic attorneys general had begun to write lawsuits challenging the executive orders and policies Trump’s appointees had boasted would be coming. Judges began to decide against the administration in those lawsuits at the same time that Americans vocally objected to the dramatic cuts to the civil service, the breaching of privacy laws by DOGE staffers, and the end of government services they had never imagined losing.
+
+Then, in March, the government rendered more than 230 immigrants, mostly Venezuelans and nearly half with legal status in the U.S., to the notorious CECOT terrorist prison in El Salvador after a federal judge told them not to. Among those sent was Maryland man Kilmar Ábrego García, whom a judge had ordered not be returned to El Salvador out of concern for his safety. The administration’s consistent refusal to bring Ábrego García back, despite the orders of a federal judge and the U.S. Supreme Court, helped to focus anger at the administration.
+
+The slow pace of the law inspired the American people to speak out against the administration. Protests had begun with “Tesla Takedowns” to weaken Musk, and they continued to grow as people watched their public services and government agencies dismantled. On April 5 a coalition of civil rights organizations, women’s rights’ groups, labor unions, and protesters participated in “Hands Off” rallies around the country.
+
+Meanwhile, sweeping deportation raids illustrated that Trump’s promise to deport “the worst of the worst” criminal undocumented immigrants he insisted were raping and murdering U.S. citizens was a lie. Masked agents from Immigration and Customs Enforcement (ICE) and the U.S. Border Patrol were arresting foreign students who had spoken out against U.S. policy on Israel/Palestine and all the undocumented immigrants they could find. By definition, this meant they were grabbing people who were well integrated into communities. Few had been charged or convicted of crimes.
+
+Trump’s 79th birthday fell on the same day as the 250th anniversary of the U.S. Army—June 14—and he planned a military parade around that event in Washington, D.C. Protesters organized their own events that day, announcing they wanted “No Kings” in the United States of America. Trump’s popularity was dropping.
+
+In June, Trump sent federalized National Guard troops to Los Angeles along with Marines, against the wishes of Democratic California governor Gavin Newsom, allegedly to protect federal officials and buildings from violence by those protesting deportation raids. In September, Trump deployed National Guard troops to Portland, Oregon, and in October, to Chicago.
+
+Support for Trump’s policies continued to drop. And then, over Labor Day weekend, Trump disappeared for several days. Whatever had happened passed, but the president’s deteriorating health, both physical and mental, was an increasingly major story.
+
+In September, the administration began the bombing of small boats apparently coming from Venezuela, declaring that the men on them were “narco-terrorists” that threatened the U.S. Once again, officials ignored the law, in this case the 1973 War Powers Act, to strike without input from Congress, killing more than 100 individuals to date on the president’s authority alone.\*
+
+But the momentum that had appeared to carry the Trump administration forward had stopped. In October, Gil Duran of *The Nerd Reich* highlighted that Yarvin thought nothing had gone far enough or fast enough and feared that the “second Trump revolution…is failing. It is failing because it deserves to fail. It is failing because it spends all its time patting itself on the back. It is failing because its true mission, which neither it nor (still less) its supporters understand, is still as far beyond its reach as algebra is beyond a cat.”
+
+On Saturday, October 18, more than seven million people took to the streets in another “No Kings” day to demonstrate their opposition to the Trump administration. On Monday, October 20, Trump began to bulldoze the East Wing of the White House, the People’s House.
+
+With disapproval of the president at near-historic levels, voters in the November elections strongly backed Democrats. They elected Democratic governors in Virginia and New Jersey by double-digit margins, with nearly every district moving away from the Republicans. Voters in New York City and Miami elected Democratic mayors, Miami for the first time in nearly 30 years. They broke Republican supermajorities in the Iowa and Mississippi state senates and, over the entire course of 2025, flipped 21% of the Republican-held seats on ballots during the year.
+
+Meanwhile, the refusal of Attorney General Pam Bondi to release the Epstein files—materials from the FBI’s investigation into the activities of sex abuser Jeffrey Epstein—had created significant pressure on Congress to force the administration’s hand. Many MAGA Republicans had backed Trump in 2024 because of what they thought was a promise to release those files, and yet House speaker Johnson refused to allow the House to vote on a measure requiring their release.
+
+A bipartisan team of representatives launched a discharge petition to bring such a measure to a vote, and they overrode his objection. On November 19, Congress passed the Epstein Files Transparency Act, requiring the Department of Justice to release the Epstein files to the public no later than December 19. The vote was overwhelming—a significant break of Republicans from Trump.
+
+The administration failed to meet that legal deadline. But even the material that the Department of Justice has released and that has emerged from additional reporting since then offers evidence that Trump was more deeply involved with Epstein and his activities than he has admitted. Just tonight, the *Wall Street Journal* revealed that in the late 1990s and early 2000s, Trump’s Mar-a-Lago spa sent young women to perform massages, manicures, and spa services at Epstein’s nearby house, where Epstein would expose himself and pressure them for sex, and that Epstein’s associate Ghislaine Maxwell used the spa to recruit women to give Epstein massages.
+
+On December 22 a federal judge ordered the Trump administration to file a plan to return the men it sent to CECOT or to hold hearings to permit them to challenge their detention, insisting they have the right to due process.
+
+On December 23 the Supreme Court issued a preliminary rejection of Trump’s justification for deploying National Guard troops in Illinois.
+
+As we reach the end of 2025, it appears the law is catching up to an administration that began the year by acting as if the law and the Constitution didn’t exist.
+
+More than that, though, over the course of 2025, the administration’s refusal to recognize the tenets of American democracy has roused the American people to defend that democracy.
+
+It appears that as we approach the 250th anniversary of the Declaration of Independence, when British colonists on the North American continent took the radical step of rejecting the idea not just of King George III but of all kings, and launched the experiment of government based on the rule of law created by the people themselves, the American people are reclaiming that history.
+
+—
+
+\*I added this paragraph on the morning of December 31. This is the first time I have added to a letter the following morning, but this was too important to leave off. It was in my notes but by the time I finished this morning I was so tired I overlooked it. My apologies.
+
+—
+
+Notes:
+
+[https://www.cnn.com/2025/02/01/politics/elon-musk-2024-election-spending-millions](https://www.cnn.com/2025/02/01/politics/elon-musk-2024-election-spending-millions)
+
+[https://www.nytimes.com/2025/08/26/us/politics/trump-national-guard-chicago-dictator.html](https://www.nytimes.com/2025/08/26/us/politics/trump-national-guard-chicago-dictator.html)
+
+[https://www.cgdev.org/blog/update-lives-lost-usaid-cuts](https://www.cgdev.org/blog/update-lives-lost-usaid-cuts)
+
+[https://hsph.harvard.edu/news/usaid-shutdown-has-led-to-hundreds-of-thousands-of-deaths/](https://hsph.harvard.edu/news/usaid-shutdown-has-led-to-hundreds-of-thousands-of-deaths/)
+
+[https://www.cnn.com/2024/12/29/politics/democratic-attorneys-general-donald-trump](https://www.cnn.com/2024/12/29/politics/democratic-attorneys-general-donald-trump)
+
+[https://talkingpointsmemo.com/news/one-agency-has-been-calling-out-trumps-illegal-impoundment-that-may-soon-change](https://talkingpointsmemo.com/news/one-agency-has-been-calling-out-trumps-illegal-impoundment-that-may-soon-change)
+
+[https://www.nytimes.com/2024/07/13/books/review/carl-schmitt-jd-vance.html](https://www.nytimes.com/2024/07/13/books/review/carl-schmitt-jd-vance.html?unlocked_article_code=1.kE8.Hkoo.spEtwyCbIvUq&smid=url-share)
+
+[https://www.ama-assn.org/health-care-advocacy/federal-advocacy/changes-medicaid-aca-and-other-key-provisions-one-big](https://www.ama-assn.org/health-care-advocacy/federal-advocacy/changes-medicaid-aca-and-other-key-provisions-one-big)
+
+[https://www.brookings.edu/articles/snap-cuts-in-the-one-big-beautiful-bill-act-will-significantly-impair-recession-response/](https://www.brookings.edu/articles/snap-cuts-in-the-one-big-beautiful-bill-act-will-significantly-impair-recession-response/)
+
+[https://www.theguardian.com/technology/2025/dec/30/elon-musk-doge-impact-us-government](https://www.theguardian.com/technology/2025/dec/30/elon-musk-doge-impact-us-government)
+
+[https://www.washingtonpost.com/politics/2025/12/27/kennedy-trump-officials-testimony/](https://www.washingtonpost.com/politics/2025/12/27/kennedy-trump-officials-testimony/)
+
+[https://ash.harvard.edu/resources/understanding-doge-and-your-data/](https://ash.harvard.edu/resources/understanding-doge-and-your-data/)
+
+[https://www.npr.org/2025/06/14/nx-s1-5429660/military-parade-trump-army-anniversary-birthday](https://www.npr.org/2025/06/14/nx-s1-5429660/military-parade-trump-army-anniversary-birthday)
+
+[https://www.npr.org/2025/03/29/nx-s1-5343986/anti-musk-protests-planned-worldwide](https://www.npr.org/2025/03/29/nx-s1-5343986/anti-musk-protests-planned-worldwide)
+
+[https://www.npr.org/2025/04/05/nx-s1-5353388/hands-off-protests-washington-dc](https://www.npr.org/2025/04/05/nx-s1-5353388/hands-off-protests-washington-dc)
+
+[https://www.theguardian.com/world/2025/aug/11/farmers-displaced-trump-golf-course](https://www.theguardian.com/world/2025/aug/11/farmers-displaced-trump-golf-course#:~:text=4%20months%20old-,Farmers%20displaced%20by%20$1.5bn%20Trump%20golf%20course%20reportedly%20being,that%20villagers%20would%20be%20reimbursed)
+
+[https://time.com/7342470/trump-net-worth-wealth-crypto/](https://time.com/7342470/trump-net-worth-wealth-crypto/)
+
+[https://www.cbsnews.com/news/trump-ballroom-donors-white-house-stand-to-gain/](https://www.cbsnews.com/news/trump-ballroom-donors-white-house-stand-to-gain/)
+
+[https://www.newsweek.com/donald-trump-national-emergencies-how-many-10946698](https://www.newsweek.com/donald-trump-national-emergencies-how-many-10946698)
+
+[https://www.nytimes.com/2025/04/10/us/congress-johnson-calendar.html](https://www.nytimes.com/2025/04/10/us/congress-johnson-calendar.html)
+
+[https://www.kcra.com/article/big-beautiful-bill-tax-cuts-vote/65291875](https://www.kcra.com/article/big-beautiful-bill-tax-cuts-vote/65291875)
+
+[https://www.politico.com/news/2024/11/06/trump-cusp-victory-lap-00187777](https://www.politico.com/news/2024/11/06/trump-cusp-victory-lap-00187777)
+
+[https://www.npr.org/2025/05/09/nx-s1-5393055/tufts-student-rumeysa-ozturk-ordered-freed-from-immigration-detention](https://www.npr.org/2025/05/09/nx-s1-5393055/tufts-student-rumeysa-ozturk-ordered-freed-from-immigration-detention)
+
+[https://www.propublica.org/article/chicago-venezuela-immigration-ice-fbi-raids-no-criminal-charges](https://www.propublica.org/article/chicago-venezuela-immigration-ice-fbi-raids-no-criminal-charges)
+
+[https://www.opb.org/article/2025/11/28/donald-trump-national-guard-portland-oregon-ice/](https://www.opb.org/article/2025/11/28/donald-trump-national-guard-portland-oregon-ice/)
+
+[https://www.wral.com/story/fact-check-did-the-white-house-suspend-trump-s-labor-day-weekend-schedule/22143963/](https://www.wral.com/story/fact-check-did-the-white-house-suspend-trump-s-labor-day-weekend-schedule/22143963/)
+
+[https://www.thenerdreich.com/panicked-curtis-yarvin-jd-vance-guru-plans-to-flee-usa/](https://www.thenerdreich.com/panicked-curtis-yarvin-jd-vance-guru-plans-to-flee-usa/#:~:text=Panicked%20Curtis%20Yarvin%E2%80%94JD%20Vance)
+
+[https://www.cbsnews.com/news/judge-orders-trump-administration-venezuelans-el-salvador-prison-cecot-hearings/](https://www.cbsnews.com/news/judge-orders-trump-administration-venezuelans-el-salvador-prison-cecot-hearings/)
+
+[https://www.texastribune.org/2025/08/06/immigrants-imprisoned-trump-el-salvador-cecot/](https://www.texastribune.org/2025/08/06/immigrants-imprisoned-trump-el-salvador-cecot/)
+
+[https://abcnews.go.com/US/judge-orders-administration-submit-plans-return-migrants-deported/story?id=128632777](https://abcnews.go.com/US/judge-orders-administration-submit-plans-return-migrants-deported/story?id=128632777)
+
+[
+
+![](https://substackcdn.com/image/fetch/$s_!vEC3!,w_56,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2F8cbe1ea0-c31e-479b-9808-6db76cda8477_402x402.png)Law Dork
+
+Supreme Court, on a 6-3 vote, rejects Trump's effort to deploy National Guard in Illinois for now
+
+The U.S. Supreme Court on Tuesday issued a 6-3 decision rejecting for now President Donald Trump’s effort to deploy National Guard troops in Illinois…
+
+Read more
+
+10 days ago · 266 likes · 41 comments · Chris Geidner
+
+](https://www.lawdork.com/p/supreme-court-illinois-national-guard-order?utm_source=substack&utm_campaign=post_embed&utm_medium=web)
+
+[https://www.wsj.com/us-news/trump-epstein-mar-a-lago-ban-2011dc53](https://www.wsj.com/us-news/trump-epstein-mar-a-lago-ban-2011dc53?st=VdFzuc&reflink=article_copyURL_share)
+
+[
+
+![](https://substackcdn.com/image/fetch/$s_!JQvb!,w_56,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fe752f21d-596f-41f4-b182-9436fc77af2d_600x600.png)Strength In Numbers
+
+Seven data-driven lessons from the 2025 elections
+
+The headline story from this year’s elections is simple: Democrats increased their support across the country and swept all the marquee contests in key states. Democratic Governor-elect Abigail Spanberger won Virginia by ~14 points, while Mikie Sherrill kept New Jersey blue by a double-digit margin. Georgia delivered two more statewide wins for Democrat…
+
+Read more
+
+2 months ago · 312 likes · 25 comments · G. Elliott Morris
+
+](https://www.gelliottmorris.com/p/seven-data-driven-takeaways-from?utm_source=substack&utm_campaign=post_embed&utm_medium=web)
+
+[https://boltsmag.org/legislative-elections-results-2025/](https://boltsmag.org/legislative-elections-results-2025/)
+
+[https://www.npr.org/2025/12/10/g-s1-101511/democrat-wins-miami-mayor-race](https://www.npr.org/2025/12/10/g-s1-101511/democrat-wins-miami-mayor-race)
+
+X:
+
+[elonmusk/status/1854313368401613146](https://x.com/elonmusk/status/1854313368401613146?lang=en)

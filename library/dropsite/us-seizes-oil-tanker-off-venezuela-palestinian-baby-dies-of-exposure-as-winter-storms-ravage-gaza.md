@@ -1,0 +1,130 @@
+---
+title: "U.S. seizes oil tanker off Venezuela; Palestinian baby dies of exposure as winter storms ravage Gaza"
+author: "Ryan Grim & Jeremy Scahill"
+publication: "Drop Site News"
+publication_slug: "dropsite"
+published_at: "2025-12-11T15:01:20.000Z"
+source_url: "https://www.dropsitenews.com/p/united-states-oil-tanker-venezuela-palestinian-baby-exposure-winter-storm-gaza-drop-site-daily"
+word_count: 3216
+estimated_read_time: 17
+---
+
+[
+
+![](https://substackcdn.com/image/fetch/$s_!ygQr!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F49ae581e-2938-4125-b944-5e64af30691c_1456x609.webp)
+
+
+
+](https://substackcdn.com/image/fetch/$s_!ygQr!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F49ae581e-2938-4125-b944-5e64af30691c_1456x609.webp)
+
+*Three Palestinians are killed by Israel west of the Yellow Line. A nine-month-old dies of [exposure](https://x.com/DropSiteNews/status/1999035068548022346) in Khan Younis. Aid groups [report](https://x.com/DropSiteNews/status/1998841558267781337?s=20) that they are unable to reach Gaza with supplies necessary to withstand the effects of its winter storms. Israel approves construction of an additional 764 houses in illegal West Bank settlements. The U.S. seizes a Venezuelan oil tanker. The U.S. is considering designating UNRWA a “foreign terrorist organisation.” The Pentagon spent $2 billion on anti-immigrant operations. House approves the $901 billion National Defense Authorization Act. A U.S. citizen was [assaulted and kidnapped](https://x.com/DropSiteNews/status/1998950508883751015?s=20) by ICE in Minnesota. President Donald Trump [threatens](https://x.com/DropSiteNews/status/1998802563764728024) more sanctions on the International Criminal Court. Bolivia’s former President Luis Arce is [arrested](https://x.com/DropSiteNews/status/1998934002267197536). Violence is [surging](https://x.com/DropSiteNews/status/1998960015583879204) in Sudan. Israeli soldiers [fire](https://x.com/DropSiteNews/status/1998958232400716103) at a UN convoy in Lebanese territory. Unidentified gunmen kill three soldiers in southeastern Iran. Burkina Faso releases its captive Nigerian soldiers. Fighting between Cambodia and Thailand enters its third day. Southern separatists threaten to attack Yemen’s capital. **Drop Site [releases](https://www.dropsitenews.com/p/israel-organized-settler-militias-west-bank-palestinians-funding-arms) a new report that shows how the Israeli state supports its settler militias as they terrorise Palestinians in the West Bank.***
+
+**This is Drop Site Daily, our new, free daily news recap.** We send it Monday through Friday.
+
+[
+
+![](https://substackcdn.com/image/fetch/$s_!VWuw!,w_2400,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F90ae600c-d95f-4359-859f-e220ab442b38_6000x4000.jpeg)
+
+
+
+](https://substackcdn.com/image/fetch/$s_!VWuw!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F90ae600c-d95f-4359-859f-e220ab442b38_6000x4000.jpeg)
+*Venezuelan President Nicolás Maduro (center) greets supporters at a rally in Caracas on December 10, 2015, while the U.S. government asserted that it had seized a tanker off Venezuela’s coast (Photo by Jesus Vargas/picture alliance via Getty Images).*
+
+## The Genocide in Gaza
+
+-   **Casualty counts in the last 24 hours:** Over the past 24 hours, the bodies of four Palestinians arrived at hospitals, while 10 Palestinians have been injured, according to the Gaza Ministry of Health. The total recorded death toll since October 7, 2023 is now 70,373 killed, with 171,079 injured.
+    
+-   **Total casualty counts since ceasefire:** Since October 11, the first full day of the ceasefire, Israel has killed at least 383 Palestinians in Gaza and wounded 1002, while 627 bodies have been recovered from under the rubble, according to the Ministry of Health.
+    
+-   **Two Palestinians killed by Israeli forces west of the “Yellow Line”:** Two Palestinians, including a child, were [killed](https://x.com/DropSiteNews/status/1998800897829196003) by Israeli fire west of the Yellow Line in Jabaliya on Wednesday. The director of Al-Shifa Hospital said doctors on Wednesday received the body of a 17-year-old boy who had been run over and crushed to death by an Israeli tank in the Jabaliya refugee camp, according to the Associated Press. Another child was rushed to the hospital with a gunshot wound to the head, according to journalist Momin Abu Owda. The Israeli army acknowledged the incident, but claimed its troops had “eliminated” two alleged “terrorists” who had crossed the Yellow Line and posed an “immediate threat.”
+    
+-   **Palestinian man killed by the IDF west of Khan Younis:** Israeli forces [shot and killed](https://x.com/DropSiteNews/status/1998924434141336060) a Palestinian man in the coastal Mawasi area west of Khan Younis, according to Al Jazeera. Troops opened fire on people gathered at the al-‘Alam traffic circle, killing one and injuring several others. The site is well outside the Yellow Line marking Israeli control.
+    
+-   **Winter storm kills an infant in Gaza:** A baby girl died of the extreme cold in a flooded tent in Khan Younis overnight as storm Byron continues to ravage Gaza. The family of the nine-month-old was displaced and living in a tent. The mother told Al Jazeera “It was raining, fiercely cold, and I had very little to keep her warm. I fed her and put her to sleep. I wrapped her up the best I could, but it wasn’t enough,” she said. “It kept raining, and the cold was getting worse. I was panicking all night, as the cold kept creeping in. Then, suddenly, I found my little baby motionless, dead.”
+    
+-   **Israel continues to restrict aid into Gaza:** US Ambassador to the United Nations Mike Waltz visited the Karam Abu Salem/Kerem Shalom crossing in Rafah on Wednesday and [claimed](https://x.com/USAmbUN/status/1998904959350284483) that over 600 trucks a day were entering Gaza since the so-called ceasefire went into effect. However, the Israeli military’s own figures of the number of aid trucks entering Gaza fall short of that amount, according to a new [analysis](https://apnews.com/article/gaza-food-aid-trucks-ceasefire-7e6ea6dd3ef32928f791af0f690b7d88) by the Associated Press (AP). Under the deal, Israel agreed to allow 600 trucks of aid a day into Gaza. COGAT, the Israeli military wing in charge of coordinating aid entry, provided figures to AP that show an average of only 459 trucks a day since October 12, when the flow of aid restarted. The Israeli military’s figures themselves are highly disputed. Gaza’s Government Media Office said no more than 234 trucks per day have entered Gaza on average since the ceasefire. The office said Waltz’s claim was a “blatant attempt to exonerate the occupation from the crime of the blockade and starving the civilian population.”
+    
+-   **Distress signals climb amid winter storm:** Gaza’s Civil Defense said it has received “more than 2,500 distress signals” from Palestinians whose tents and shelters have been damaged since the heavy winter rains began. Rescue teams found entire displacement camps flooded in the areas of Khan Younis, Deir el-Balah, Nuseirat, and Gaza City.
+    
+-   **International aid groups are unable to deliver supplies to a storm-ravaged Gaza:** Israel insists there are “no supply restrictions” and that a “broad winter response” is underway, yet the Norwegian Refugee Council [says](https://x.com/DropSiteNews/status/1998841558267781337?s=20) international aid groups remain blocked from bringing relief and nearly 4,000 pallets of shelter materials have been rejected, leaving only a “trickle” of supplies available for the storm-battered residents of the Strip.
+    
+-   **UN updates on Gaza:** In its Wednesday [briefing](https://x.com/DropSiteNews/status/1998956618965266841), the UN says about 65 former shelter classrooms in Gaza have been cleared for use, even as Israel prevents education materials from entering the stripe, while 260,000 people have received food parcels this month across 60 distribution points, including a newly opened site in Beit Lahiya. Veterinary kits entered for the first time since August, and OCHA reported continuing “security incidents,” including bullets striking UNRWA’s Maghazi Health Center near the yellow line with no injuries reported.
+    
+-   **Unidentified bodies from Al-Shifa Hospital are buried:** Fifteen unidentified Palestinians whose bodies were recovered yesterday from the courtyard of al-Shifa Hospital in western Gaza City were buried yesterday. **Dr. Omar Shaban in northern Gaza shared photos of the burial with Drop Site, available [here](https://x.com/DropSiteNews/status/1998811895500005745).**
+    
+-   **Hamas leader once again rejects the viability of disarmament:** Hamas Political Chief Khaled Meshaal told Al Jazeera on Wednesday that the group would work to prevent future attacks on Israel, but he warned that full disarmament would be like “removing the soul” of the movement. He also rejected any non-Palestinian governing authority in Gaza and urged increased aid flows as a precondition for Phase Two. A summary of his interview with Al Jazeera can be read [here](https://aje.io/citcri).
+    
+-   **Airwars reconstructs GHF sites and shows how they were turned into “militarized death traps”**: A new [visual investigation](https://x.com/DropSiteNews/status/1998825943800906136) from Airwars reconstructs two Gaza Humanitarian Foundation aid sites, demonstrating how the U.S.- and Israel-backed operation effectively turned food distribution into a “militarized death trap.” Drawing on extensive footage and interviews with Palestinian aid seekers and former GHF contractors, it illustrates how, during five months in 2025, more than 1,000 people were killed trying to reach sites whose very design made “deaths and injuries inevitable.”
+    
+-   **Trump delays “Board of Peace” rollout:** President Donald Trump [delayed announcing](https://x.com/DropSiteNews/status/1998903735179727012) Gaza’s proposed “Board of Peace,” after a weekend in which foreign ministers warned that the fragile truce could collapse within weeks. Earlier, U.S. officials signalled interest in a Phase Two transition occurring by December, and now Trump says the board will be named “early next year.” No country has yet committed to the planned International Stabilization Force—another of the ceasefire’s more controversial provisions.
+    
+
+## West Bank and Israel
+
+-   **Israel approves nearly 800 more houses in three settlements:** Israel approved the construction of 764 houses in three Jewish settlements in the occupied West Bank on Wednesday. Israeli Finance Minister Bezalel Smotrich, who is a settler himself, said that the Higher Planning Council approved the units in the Hashmonaim, Beitar Illit, and Givat Ze’ev settlements. The settlements are illegal under international law. In a statement, Smotrich said a total of 51,370 housing units have been approved in the West Bank since he assumed his post in late 2022.
+    
+-   **Israeli soldiers fire at a UNIFIL convoy:** Israeli soldiers in a Merkava tank [fired](https://x.com/DropSiteNews/status/1998958232400716103) several ten-round bursts above and near a UN convoy patrolling the Blue Line in Lebanese territory on Wednesday, according to the United Nations Interim Force in Lebanon (UNIFIL). No casualties were reported in the incident. The UN noted that the IDF had advance notice of the patrol’s timing and location, and it said that firing on, or near, peacekeepers violates Security Council Resolution 1701, while calling upon Israel to halt its aggressive actions.
+    
+
+## **U.S. News**
+
+-   **U.S. seizes a Venezuelan oil tanker:** The U.S. seized a Venezuelan oil tanker off the coast of Venezuela, President Donald Trump said Wednesday, touting the “very large” vessel’s capture as part of a broader pressure campaign against Venezuelan President Nicolás Maduro. U.S. officials said the tanker—accused of helping move oil for Hezbollah and Iran’s IRGC-QF—was headed to Cuba, and was in international waters at the time of its seizure. Venezuela denounced the move as “international piracy” in a statement. “In these circumstances, the true reasons for the prolonged aggression against Venezuela have finally been revealed,” the Venezuelan government’s statement said. “It is not migration. It is not drug trafficking. It is not democracy. It is not human rights. It has always been about our natural wealth, our oil, our energy, the resources that belong exclusively to the Venezuelan people.” Nobel Peace Prize winner and opponent of Maduro, María Corina Machado, said she supports the US seizure of the tanker, calling it a “very necessary step” to confront Maduro’s “criminal” regime. She made the comments in Oslo where she traveled to receive the Nobel Peace Prize.
+    
+-   **House passes massive defense policy bill:** The U.S. House of Representatives passed the National Defense Authorization Act (NDAA) on Wednesday, authorizing a record $901 billion in annual military spending. The vote was 312-112 in favor of the bill and has been sent for consideration by the U.S. Senate, which is expected to pass it next week.
+    
+-   **The Fed cuts interest rates for the third time this year:** The Federal Reserve cut interest rates by a quarter point Wednesday, lowering borrowing costs for the third time this year. The Federal Open Market Committee voted to cut its benchmark rate by a quarter percentage point to between 3.5 and 3.75 percent.
+    
+-   **Trump administration considers slapping “terrorism” sanctions on UNRWA:** Trump administration officials [held](https://www.reuters.com/world/middle-east/us-weighs-hitting-un-palestinian-refugee-agency-with-terrorism-related-sanctions-2025-12-10/) advanced internal discussions about imposing terrorism-related sanctions on UNRWA, the UN agency that provides essential services to millions of Palestinian refugees, a deliberation that prompted major legal and humanitarian concerns within the State Department, Reuters reported. The Trump administration reportedly considered options that include targeting specific officials or even labelling the entire agency a foreign terrorist organisation—an unprecedented step that critics warn would further cripple Gaza’s already vulnerable aid infrastructure.
+    
+-   **The Pentagon is spending $2 billion on anti-immigration operations, report says:** A new report by Democratic lawmakers [says](https://www.nytimes.com/2025/12/10/us/politics/defense-department-funds-immigration.html?smid=url-share) the Pentagon diverted at least $2 billion from core missions this year to support President Donald Trump’s immigration crackdown. As a result of this, projects ranging from building pilot training facilities to the repairs of schools and barracks have been paused or canceled. In the report, lawmakers warn that the shift is degrading military readiness and using troops on missions for which they “have neither signed up, nor been trained.”
+    
+-   **Republicans block Senator Van Hollen’s bid to restrict U.S. military action in Venezuela:** Senate Republicans [blocked](https://x.com/DropSiteNews/status/1998893446510137558) Sen. Chris Van Hollen’s effort to forward a bill that would bar the Pentagon from using taxpayer funds for U.S. hostilities in Venezuela without explicit congressional approval. Van Hollen, backed by Sens. Tim Kaine and Jeff Merkley, argued on the floor that the measure is essential to prevent unilateral wars.
+    
+-   **U.S. citizen assaulted by ICE agents in Minnesota:** A U.S. citizen named Mobashir says ICE agents tackled him, put him in a chokehold, and ignored his repeated pleas to check his digital passport before abducting him and driving him seven miles away before releasing him. His account of his treatment is available [here](https://x.com/DropSiteNews/status/1998950508883751015?s=20).
+    
+-   **Trump threatens new sanctions against the ICC:** President Donald Trump is now [threatening](https://x.com/DropSiteNews/status/1998802563764728024) new sanctions against the International Criminal Court (ICC), unless it guarantees that neither he nor other U.S. officials can ever be prosecuted. Such a change would require the unlikely backing from two-thirds of ICC member states and comes after ICC judges issued arrest warrants for Israeli Prime Minister Benjamin Netanyahu and former Defense Chief Yoav Gallant for war crimes and crimes against humanity in Gaza.
+    
+-   **Congress held a hearing on “Judea and Samaria” without inviting a single Palestinian to testify:** Congress held a Wednesday hearing on “Judea and Samaria”—the Israeli name for the occupied West Bank—without inviting a single Palestinian witness. The panel instead featured representatives from the Heritage Foundation, the Zionist Organization of America, and the Center for Strategic and International Studies. Activists with Code Pink attended the hearing and confronted lawmakers. Watch [here](https://x.com/codepink/status/1998910391305302024).
+    
+
+## International News
+
+-   **Left-wing former Bolivian president arrested:** Bolivia’s former President Luis Arce [was arrested](https://x.com/DropSiteNews/status/1998934002267197536) in La Paz on Wednesday. Authorities say the case concerns alleged irregularities and a $700 million embezzlement scheme tied to an Indigenous rural-development program. The arrest came just a month after Arce left office and has raised fears the new government is targeting political rivals. Newly-elected President Rodrigo Paz has already launched multiple “truth commissions” scrutinising Arce’s party, Movimiento al Socialismo (MAS), and its affiliated institutions. Arce’s former Minister María Nela Prada called the operation a “kidnapping.”
+    
+-   **Violence is surging in Sudan, the UN says:** The UN [warned](https://x.com/DropSiteNews/status/1998960015583879204) yesterday that violence is sharply escalating across Darfur and Kordofan, with drone strikes killing and injuring civilians in Kutum, Kabkabiya, and Nyala. New RSF advances—including the seizure of the Heglig oil field—have triggered fresh waves of displacement, the UN says, and the International Organization for Migration (IOM) says 185 people fled Kadugli on Wednesday alone. The IOM also reports that newly displaced families from El Fasher continue arriving in Tawila, and that they relayed stories of robbery, looting and gunfire along their route.
+    
+-   **19,000 are being held in RSF detention sites, according to the SDN:** A new Sudan Doctors Network report [says](https://x.com/DropSiteNews/status/1998961107726209293) more than 19,000 people are being held by the Rapid Support Forces (RSF) across Darfur, including thousands of police, army personnel, civilians, and 73 medical workers. Detention site conditions have fueled a deadly cholera outbreak. The group urges the UN to pressure the RSF to release civilians, halt arbitrary arrests, publish detainee lists, and allow family members access to those detained.
+    
+-   **Gunmen kill three soldiers in southeastern Iran:** Gunmen ambushed and killed three members of Iran’s Revolutionary Guard while they were patrolling near the city of Lar in Sistan and Baluchistan, close to the Pakistan border, the Associated Press [reported](https://apnews.com/article/iran-attack-revolutionary-guard-20ffc6a4c61190b989097eb9dcbecfbd?utm_source=copy&utm_medium=share). The attackers, whom the Revolutionary Guard labeled “terrorists,” remain at large, and no group has claimed responsibility for the attack. The underdeveloped province bordering Afghanistan and Pakistan has long been the site of sporadic, deadly clashes involving militant groups, armed drug smugglers, and Iranian security forces.
+    
+-   **Burkina Faso releases its captive Nigerian soldiers:** Authorities in Burkina Faso released 11 Nigerian military personnel after their “unauthorized” emergency landing yesterday, according to [The Guardian](https://www.theguardian.com/world/2025/dec/10/burkina-faso-releases-nigerian-troops-unauthorised-emergency-landing). Nigeria says the diversion was a standard safety procedure due to a technical issue, and the incident has drawn heightened scrutiny as the Economic Community of West African States and the breakaway Alliance of Sahel States trade accusations amid mounting regional instability.
+    
+-   **Ukraine drones disable a Russian “shadow fleet” tanker:** Ukraine struck a sanctioned Russian “shadow fleet” tanker in its Black Sea economic zone using sea drones, the third Ukrainian strike using sea drones in two weeks, Reuters [reported](https://www.reuters.com/world/europe/ukraine-disables-shadow-fleet-vessel-with-sea-drones-black-sea-2025-12-10/). The Dashan tanker was hit by explosions at its stern while sailing with disabled transponders. Kyiv says these “shadow fleet” vessels help Moscow evade sanctions and fund its war, and attacks like these have caused war insurance costs on ships in the region to spike.
+    
+-   **Ukraine responds to the Trump peace plan:** Ukraine delivered its point-by-point response to President Donald Trump’s 20-point peace plan on Wednesday, Axios [reported](https://www.axios.com/2025/12/10/ukraine-response-peace-plan-trump-kushner), proposing amendments after consultations with European allies. President Trump, who discussed the plan with E3 leaders the same day, said the sides may be “closer than ever,” with further U.S.–Ukrainian military talks scheduled for Thursday.
+    
+-   **Cambodia-Thailand fighting enters its third day:** Renewed border fighting between Thailand and Cambodia has intensified, with over 400,000 people evacuated in Thailand and more than 127,000 displaced in Cambodia, according to the [Associated Press](https://apnews.com/article/thailand-cambodia-border-dispute-fighting-displaced-3f6300a3e77bbf0479acc6f8ceace12d?utm_source=copy&utm_medium=share). The countries have traded airstrikes, rockets, and artillery, and over a dozen people have been killed in the renewed conflict. President Donald Trump, who oversaw a truce in the summer, claims he can restore the truce and indicated plans to contact both governments for meditation; leaders in Bangkok and Phnom Penh, however, have vowed to continue combat.
+    
+-   **STC threatens Sana’a:** Aidarous al-Zubaidi, separatist leader of the United Arab Emirates-backed Southern Transitional Council (STC) in Yemen, said his forces’ next objective should be Sana’a, according to the [New York Times](https://www.nytimes.com/2025/12/10/world/middleeast/yemen-separatists.html?smid=url-share). After seizing parts of Hadramout and al-Mahra in an offensive earlier this week, the STC is openly pursuing its breakaway ambitions and building a parallel state structure. On Tuesday, a Saudi delegation met with tribal leaders in Seiyun—the southern Yemeni city recently seized by STC forces—and urged the separatists to withdraw.
+    
+-   **UN: Afghanistan faces a “severe humanitarian crisis”:** The UN [warned](https://x.com/DropSiteNews/status/1998952813154471989) Wednesday that Afghanistan is facing a “severe humanitarian crisis.” The country’s women and girls remain barred from nearly all public life, and UN officials tell the Security Council that mass returns from Iran and Pakistan, vanishing press freedoms, and the Taliban ban on female UN staff are straining civil society in the country. Emergency Relief Coordinator Tom Fletcher urged member states to work to ensure women aid workers can operate and to adequately fund the UN’s Afghanistan efforts.
+    
+-   **Spanish PM meets with President Mahmoud Abbas and reaffirms his support for a two-state solution:** Spanish Prime Minister Pedro Sánchez [urged](https://x.com/DropSiteNews/status/1998838512980828282) Europe to “raise its voice” and not let the “tragic situation of Palestinians” fade from view as he met President of the Palestinian Authority Mahmoud Abbas in Madrid. He reaffirmed that a two-state solution is “the only possible path,” insisting the ceasefire “must be real, not merely formal,” and added that Spain “will not look away” as attacks and casualties continue to rise.
+    
+
+## More From Drop Site
+
+-   **How Israel Organizes and Arms Settler Militias to Terrorize Palestinians in the West Bank:** A new report from contributor David Schutz reveals the organizational structures of Israeli settler militias operating in the occupied West Bank. While settler violence against Palestinians often appears sporadic, it is in fact an official government system that is armed and funded by the state and that has an organized structure that is fully operating as intended. **Read the piece in full [here](https://www.dropsitenews.com/p/israel-organized-settler-militias-west-bank-palestinians-funding-arms).**
+    
+
+**Programming note:** [You can sign up here to get updates from us](https://whatsapp.com/channel/0029Vb6VmnSHrDZWpCqcrS2e) on our WhatsApp channel.
+
+If you want to continue getting this newsletter, you don’t have to do anything. But if this is too much—we do try to be mindful of your inbox—you can unsubscribe from this newsletter while continuing to get the rest of our reporting. Just go into [your account here at this link, scroll down,](https://www.dropsitenews.com/account) and toggle the button next to “Drop Site Daily” to the off setting. **It looks like this**:
+
+[
+
+![](https://substackcdn.com/image/fetch/$s_!SDDv!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F7f175df4-fd54-48fc-b3ee-5638d4a552c1_1028x72.png)
+
+
+
+](https://substackcdn.com/image/fetch/$s_!SDDv!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F7f175df4-fd54-48fc-b3ee-5638d4a552c1_1028x72.png)

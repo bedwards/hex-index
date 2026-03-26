@@ -1,0 +1,40 @@
+---
+title: "The Art of The Steal: When Foreign Policy Becomes a Business"
+author: "Dan Perry"
+publication: "Dan Perry"
+publication_slug: "danperry"
+published_at: "2025-12-01T22:40:39.000Z"
+source_url: "https://danperry.substack.com/p/the-art-of-the-steal-when-foreign"
+word_count: 846
+estimated_read_time: 5
+---
+
+**In the latest** ***Critical Conditions*** **podcast, Claire Berlinski and I concluded that there are moments in history when the absurd stops being funny — when corruption becomes so open, so shameless, so contemptuous of both law and reason that public indifference becomes a second scandal. That is the feeling one gets reading the recent Wall Street Journal investigation into the real motives behind Donald Trump’s approach to Russia and Ukraine. The revelations have hit Europe like a bombshell; Americans, meanwhile, seem barely aware of the explosion. SAD!**
+
+***THE FULL AUDIO PODCAST IS ACCESSIBLE AT THE END OF THIS WRITEUP. Join our growing community and unlock full access by upgrading to a Paid Subscription or Board Membership. And spread the word by inviting friends and colleagues! The sums are small. The significance is big.***
+
+The reporting describes a now-infamous gathering where Kremlin fixers met Trumpworld emissaries to craft what the Journal puckishly labels the DimWit Plan. Jared Kushner casually dropped in from his billionaire bunker nearby. The scheme sounded like something dreamed up by a kleptocrat with a NASA hobby: redirect the $300 billion in frozen Russian central bank funds — legally earmarked for Ukraine’s reconstruction — into joint U.S.-Russian business ventures in the Arctic, exploiting mineral wealth in the melting ice, reviving the notorious Nord Stream pipeline (a presently defunct vehicle for subordinating Europe to Russian energy domination), even collaborating with Elon Musk on a mission to Mars. It would be laughable if it weren’t deadly serious.
+
+The cast of characters involved reads like a sanctioned oligarch roll call. Exxon secret-meets with Rosneft. Trump family friends angling for slices of Russian gas projects, while other donors pay handsomely to pry Russian pipelines out of sanctions and into profit. The brazenness is almost refreshing in its transparency: foreign policy not as geopolitical doctrine, but as get-rich-quick scheme.
+
+And yet the larger shock is how few Americans seem to care. The rest of the world stares in open-mouthed disbelief; too many Americans change the channel.
+
+Meanwhile, delusion and coercion have become the governing principles of US power. In just the span of days, Trump has threatened wars, closed skies over foreign countries as if the planet were his fiefdom, and instructed voters in Honduras to elect his preferred candidate or suffer U.S. reprisal. He pardoned a Honduran drug lord who once bragged about stuffing cocaine up gringos’ noses, all while proclaiming a grand crusade against narcotrafficking. It is a spectacle of dominance with no concern for legality or propriety.
+
+Trump’s interference extends everywhere, including Israel. It was just weeks ago that he appeared in the Knesset and demanded President Isaac Herzog preemptively pardon Netanyahu before conviction — a legal impossibility in Israel. Undeterred, Netanyahu has now asked for precisely that, contradicting his own earlier commitments to face the charges and respect the courts. His government has spent years waging a coordinated propaganda war against the entire rule-of-law infrastructure in Israel; now he cites the resulting distrust as justification to halt his trial. And Trump stands ready — one can almost script the threat — to condition US aid on delivering Netanyahu from accountability.
+
+Layer onto this the reports — credibly documented — that US granted a “no quarter” order in the field, [resulting in the execution](https://www.washingtonpost.com/national-security/2025/11/28/hegseth-kill-them-all-survivors-boat-strike/) of two men clinging to a boat in the Caribbean. This is one of the clearest war crimes recognized by US and international law alike, the kind for which Americans once hanged Japanese commanders. Yet we debate whether it might be politically impolite to investigate.
+
+When I recently appeared in a televised debate with former John Bolton aide and current Trumpist Fred Fleitz, I witnessed a live demonstration of the Orwellian mechanism that makes all this possible. Biden is attacked for failing to arm Ukraine quickly enough, and in the same breath attacked for arming Ukraine too much. When contradictions are pointed out, the pivot is instantaneous: blame “fake news journalists like you” (he said to me). The position is the point.
+
+Republican lawmakers will eventually claim they never went along with this, Claire suggested. I basically agree, having seen how this movie ends. I arrived in Romania weeks after Ceausescu fell and could not locate a single person who admitted to having supporting the regime — even those who had had a hand in running it. Survival trumps shame no less than Trump himself.
+
+But we are not yet at the reckoning phase. We are still in the descent.
+
+Trump’s foreign policy is a global bribery operation — an attempt to turn the United States into a mafia state, its power wielded for personal gain and aggrandizement. And it is succeeding largely because millions of Americans treat the resulting madness as background noise. Or have given up. We will be back on Thursday. Who knows what will happen by then! We are living in strange and dynamic times.
+
+To read on and access the full podcast, upgrade to Paid Subscription here.
+
+***THE FULL PODCAST:***
+
+***Critical Conditions is a co-production of Ask Questions later and Claire’s The Cosmopolitan Globalist. The CG is well worth checking out.***

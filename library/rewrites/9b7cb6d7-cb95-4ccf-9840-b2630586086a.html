@@ -1,0 +1,67 @@
+<h2>From Simple Rules to Smart Policies</h2>
+
+<p>Uber's microservices infrastructure processes millions of authorization decisions every day. Each Application Programming Interface call, database query, and Kafka message requires an access check, and those checks must resolve in microseconds. The ByteByteGo team lays out how Uber's engineering organization outgrew basic access control and built something far more flexible in its place.</p>
+
+<p>The system Uber built is called Charter, a centralized policy repository that distributes authorization rules to individual services. At its foundation, every authorization request reduces to a single question: can an actor perform an action on a resource in a given context? Actors are identified using the Secure Production Identity Framework for Everyone (SPIFFE) format, resources use Uber Object Name (UON) URIs, and actions cover the standard create, read, update, and delete operations plus custom verbs like "invoke" and "subscribe."</p>
+
+<blockquote>Uber's infrastructure runs on thousands of microservices, each making authorization decisions millions of times per day. This includes every API call, database query, and message published to Kafka.</blockquote>
+
+<p>The early policy model was straightforward. A YAML file would declare that service-bar could invoke a method on service-foo, or that employees in a particular group could read and write certain reports. Simple, declarative, easy to audit.</p>
+
+<p>But simple is not the same as sufficient.</p>
+
+<h2>When Identity Is Not Enough</h2>
+
+<p>Three scenarios exposed the limitations of basic policies. The first involved payment support: customer service representatives needed access to payment records, but only for customers in their assigned geographic region. The second was employee data, where workers should be able to edit their own profiles while managers could also view them. The third concerned analytics reports restricted to users belonging to multiple groups simultaneously.</p>
+
+<blockquote>The basic policy syntax can only specify that a representative can access a payment profile by its UUID. It cannot express the requirement that the rep's region must also match the customer's region.</blockquote>
+
+<p>None of these could be expressed with the original model. The policies could say who you are and what you can touch, but they could not reason about relationships between the requester and the resource. Uber needed Attribute-Based Access Control (ABAC).</p>
+
+<h2>Bolting Conditions Onto Policies</h2>
+
+<p>ABAC extends the basic model by adding a condition field to each permission. A condition is a Boolean expression evaluated against attributes drawn from four categories: actor attributes like department or location, resource attributes like owner or sensitivity level, action attributes, and environment attributes such as the current timestamp or request IP address.</p>
+
+<blockquote>A condition is a Boolean expression that evaluates to true or false based on attributes. If a permission includes a condition, that permission only grants access when the condition evaluates to true.</blockquote>
+
+<p>The sources that provide attribute values at runtime are called attribute stores, or in formal authorization terminology, Policy Information Points. Uber defined four interfaces for these stores: ActorAttributeStore, ResourceAttributeStore, ActionAttributeStore, and EnvironmentAttributeStore. Each store declares which attributes it can provide via a SupportedAttributes function, allowing the authorization engine to validate conditions at compile time rather than failing at runtime.</p>
+
+<blockquote>The design allows a single service to use multiple attribute stores, and a single attribute store can be shared across multiple services for reusability.</blockquote>
+
+<p>This is a clean separation of concerns. Policy authors write conditions. Service owners implement attribute stores. The authorization engine wires them together.</p>
+
+<h2>Why Google's Expression Language Won</h2>
+
+<p>Rather than inventing a domain-specific language, Uber's engineers evaluated existing open-source options and chose the Common Expression Language (CEL), developed by Google. CEL offered a familiar syntax, support for strings, numbers, booleans, and lists, plus built-in functions for common operations.</p>
+
+<blockquote>Expression evaluation typically takes only a few microseconds. Both Go and Java implementations of CEL are available, meeting Uber's backend service requirements.</blockquote>
+
+<p>The performance profile mattered enormously. With millions of authorization checks per day, even a few extra milliseconds per evaluation would compound into real latency. CEL's lazy attribute fetching was a particularly smart choice: the engine only requests the attribute values actually needed to evaluate a given expression, skipping unnecessary calls to attribute stores.</p>
+
+<p>One counterpoint worth noting: adopting CEL means Uber's security policies are now expressed in a language that most security auditors and compliance teams will not know. The article does not address how non-engineering stakeholders review or approve these condition expressions, which is a gap in the governance story.</p>
+
+<h2>One Policy to Rule Thousands of Kafka Topics</h2>
+
+<p>The Kafka use case is where ABAC's value becomes most concrete. Uber operates thousands of Kafka topics for event streaming, and each topic needs access controls specifying which services can publish and which can subscribe. Managing individual policies for every topic would have been impractical.</p>
+
+<blockquote>Using ABAC, the Uber engineering team created a single generic policy that applies to all Kafka topics.</blockquote>
+
+<p>The solution relies on a service called uOwn that tracks ownership and roles for technological assets. A single wildcard policy covers every Kafka topic, with a CEL condition checking whether the requesting employee belongs to any Active Directory group that holds the "Develop" role for that specific topic. When ownership changes in uOwn, authorization adjusts automatically. No policy updates. No code deployments.</p>
+
+<blockquote>Instead of managing thousands of individual policies, they maintain one generic policy. As ownership changes in uOwn, authorization automatically adjusts without any policy updates.</blockquote>
+
+<p>This is elegant, though it raises a question the article leaves unanswered: what happens when uOwn itself is wrong? A single point of truth for ownership means a single point of failure for access control. If stale or incorrect data in uOwn grants access that should have been revoked, the wildcard policy amplifies that error across every Kafka topic simultaneously.</p>
+
+<h2>The Numbers</h2>
+
+<p>Since implementing ABAC, 70 Uber services have adopted attribute-based policies. The article reports that authorization decisions still complete in microseconds despite the added complexity of condition evaluation and attribute fetching. Local evaluation through the authfx library keeps network round-trips out of the critical path.</p>
+
+<blockquote>A single well-designed ABAC policy can govern authorization for thousands or even millions of resources.</blockquote>
+
+<p>Seventy services is a meaningful adoption number, but it is worth contextualizing against Uber's "thousands of microservices." That suggests ABAC adoption is still in its early stages, covering perhaps a few percent of the total service fleet. Whether the remaining services do not need ABAC or simply have not migrated yet is left unsaid.</p>
+
+<h2>Bottom Line</h2>
+
+<p>Uber's Charter system demonstrates a mature approach to a problem that afflicts every large microservices architecture: access control that is both fine-grained and manageable at scale. The progression from basic identity-based policies to attribute-based conditions is a well-trodden path in enterprise security, but the execution details matter. Choosing CEL over a custom language, distributing policies locally through authfx rather than making remote calls, and integrating with existing ownership systems like uOwn all reflect practical engineering judgment.</p>
+
+<p>The article is most valuable as a reference architecture. Teams building their own authorization systems will find the four-store attribute model, the CEL integration pattern, and the Kafka wildcard policy particularly instructive. What it does not cover, notably operational challenges like debugging denied requests, handling attribute store failures gracefully, and managing policy migrations, would make for an equally important follow-up.</p>

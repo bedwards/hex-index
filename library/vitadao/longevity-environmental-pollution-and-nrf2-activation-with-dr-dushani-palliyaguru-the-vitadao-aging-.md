@@ -1,0 +1,65 @@
+---
+title: "Longevity, Environmental Pollution, and Nrf2 Activation with Dr. Dushani Palliyaguru - The VitaDAO Aging Science Podcast "
+author: "VitaDAO"
+publication: "VitaDAO Newsletter"
+publication_slug: "vitadao"
+published_at: "2024-07-21T22:40:57.000Z"
+source_url: "https://vitadao.substack.com/p/longevity-environmental-pollution"
+word_count: 1083
+estimated_read_time: 6
+---
+
+[
+
+![](https://substackcdn.com/image/fetch/$s_!wnWN!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F5336402c-8f91-426d-bad5-4f8a6f9487d0_1920x1080.png)
+
+
+
+](https://substackcdn.com/image/fetch/$s_!wnWN!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F5336402c-8f91-426d-bad5-4f8a6f9487d0_1920x1080.png)
+
+  
+[Podcast link:](https://podcasters.spotify.com/pod/show/theagingsciencepodcast/episodes/Longevity--Environmental-Pollution--and-Nrf2-Activation-with-Dr--Dushani-Palliyaguru---The-VitaDAO-Aging-Science-Podcast-e2m9niu/a-abep1r7)
+
+  
+In this episode of the Aging Science Podcast by VitaDAO, we explore the connection between environmental pollution and longevity with Dr. Dushani Palliyaguru. Delve into the Nrf2 pathway, a critical mechanism for cellular defense, and discover the benefits of sulforaphane from broccoli as a potent Nrf2 activator. Dr. Palliyaguru, a renowned expert in aging and disease prevention, shares her extensive research on how environmental toxins affect health and longevity. Learn about innovative strategies to combat pollution-related health risks and enhance lifespan through nutritional interventions and scientific advancements. Join us for an insightful conversation on promoting longevity in a polluted world.
+
+**Dushani Palliyaguru – brief CV** 
+
+Dushani is an expert in aging and longevity, disease prevention and environmental health. She has over a decade of experience in scientific research and leadership at top-tier institutions in the US. Dushani completed her Ph.D. in Environmental and Occupational Health at University of Pittsburgh focusing on liver disease and cancer prevention using nutritional and natural compounds (with Dr. Thomas W. Kensler). Nrf2-mediated environmental stress response pathways was a major focus of this work. Subsequently, she completed a Postdoctoral fellowship at the National Institute on Aging focusing on metabolic and molecular biomarkers of aging and Alzheimer’s disease, and pharmacological/nutritional interventions to target these.   
+Her current project:
+
+https://www.healthsurveil.us/
+
+**Pollution, environmental exposure, health and what we can do about it** 
+
+Concerns include heavy metals, volatile organic compounds, endocrine disruptors like bisphenol a (BPA), phthalates, polychlorinated biphenyls (PCBs), and per- and polyfluoroalkyl substances (PFAS). While the evidence is often weak for the harms of specific substances, the precautionary principle should be applied to these chemicals, commonly termed persistent organic pollutants (POPs). Because these are so persistent they might have unanticipated health effects and it might be too late when we first see warning signs of those health effects, because by then the POPs would have accumulated to very high levels in the environment and the human body. 
+
+Dushani started her company HealthSurveil, in part, because she was fed up with the slow translation of research findings. She thinks that we have the tools available now to improve the lives of people. One of the themes of her company includes monitoring environmental exposures, e.g. to airborne pollutants. Air pollution is responsible for many premature deaths and certain aspects of lung aging, especially in Asia and in large cities across the globe. 
+
+**Nrf2 signaling, sulforaphane and other molecules** 
+
+In the podcast we discuss the mounting evidence for the health benefits of sulforaphane which is one of the best studied Nrf2 activators.  
+
+The transcription factor Nuclear factor erythroid 2-related factor 2 (NFE2L2; often abbreviated as Nrf2) regulates a host of cytoprotective proteins, including antioxidants, heatshock proteins, metal-binding proteins and the unfolded protein response (Ibrahim et al. 2020). 
+
+Under normal conditions, Nrf2 resides in the cytoplasm and is bound to its inhibitor, Keap1. However, when a cell is under oxidative stress, Nrf2 dissociates from Keap1, translocates into the nucleus, and binds to the antioxidant response element (ARE) located in the promoter region of many cytoprotective genes. It also promotes the hepatic detoxification of carcinogens and pollutants, linking back to our initial topic of environmental exposure. 
+
+Nrf2 is one of the best studied putative pro-longevity pathways, although the jury is still out whether elevated Nrf2 extends lifespan in mice. Regardless, Nrf2 activation has been found to promote multistress resistance, which is a conserved trait of most long-lived animals and genetic models of longevity (Hamilton and Miller 2016). Nrf2 activity is also elevated in the liver of long-lived rodent species (Lewis et al. 2015). 
+
+We also discuss CDDO-Me (aka Bard-Me), astaxanthin, withaferin A (found in ashwagandha and part of Protandim) and a host of other putative Nrf2 inducers. Dushani mentions that these work at very different doses. We agree that researchers should avoid creating hype around potential Nrf2 activators. If these fail, it might set back the whole field. Better to pursue solid candidates from the start like sulforaphane. The major issue, however, with the isothiocyantes like sulforaphane is their instability and lack of patent protection. Thus they are quite unattractive compounds for large studies and companies. 
+
+**Understanding zero-sum games and the geroscience hypothesis**   
+   
+A zero-sum game or situation occurs when “an advantage for one side \[is\] an equivalent loss for the other”. I like using this term to describe some of the problems we face. There are many such examples pertinent to longevity research. For example, when a decrease in age-related cancer leads to an increase in age-related cardiovascular disease due to so called competing risks and Taeuber’s paradox. This may be one of the reasons why it is so hard to improve all-cause mortality with drugs that target cause specific mortality. One is also reminded of the situation with statins. There is concern that adverse effects of statins will outweigh their benefits in people at sufficiently low risk of CVD, hence no population wide recommendations have been made for primary prevention in low risk individuals, to the best of my knowledge. 
+
+When it comes to public health policy we may also encounter such zero sum situations, although it is hard to predict which policy will lead to such an issue. We discuss this fine balance in the podcast as well. Sure, lowering lead and cadmium levels in produce is good and important. But how low do we need to go? For some chemicals there may be no safe level per se. Theoretically we should eliminate them, but at some point there will be diminishing returns to the health benefits of further reductions while the costs explode. At that point the money would be better spent on aging research or something else. 
+
+How can we avoid zero-sum situations? The geroscience hypothesis is one out. It states that a drug that slows aging, if such a drug exists, automatically benefits all diseases and all-cause mortality, even in the healthiest of the healthy. Biologically young people tend to be more resilient against environmental exposures as well. It still remains to be seen if we can make the geroscience promise come true, but we will certainly try. 
+
+**References and further reading** 
+
+Ibrahim, Lara, et al. "Defining the functional targets of Cap ‘n’collar transcription factors NRF1, NRF2, and NRF3." Antioxidants 9.10 (2020): 1025. 
+
+Hamilton, Karyn L., and Benjamin F. Miller. "What is the evidence for stress resistance and slowed aging?." Experimental Gerontology 82 (2016): 67-72. 
+
+Lewis, Kaitlyn N., et al. "Regulation of Nrf2 signaling and longevity in naturally long-lived rodents." Proceedings of the National Academy of Sciences 112.12 (2015): 3722-3727.

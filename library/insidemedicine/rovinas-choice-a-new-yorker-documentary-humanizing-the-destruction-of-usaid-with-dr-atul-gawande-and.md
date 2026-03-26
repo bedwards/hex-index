@@ -1,0 +1,96 @@
+---
+title: "Rovina’s Choice, a New Yorker Documentary humanizing the destruction of USAID. With Dr. Atul Gawande and Dr. Jeremy Faust."
+author: "Jeremy Faust"
+publication: "Inside Medicine"
+publication_slug: "insidemedicine"
+published_at: "2025-11-26T12:02:31.000Z"
+source_url: "https://insidemedicine.substack.com/p/rovinas-choice-a-new-yorker-documentary"
+word_count: 1287
+estimated_read_time: 7
+---
+
+Yesterday, Dr. Atul Gawande (Surgeon, book author, *New Yorker* staff writer, and former lead for global health at USAID) joined me to discuss his new short documentary *[Rovina’s Choice](https://www.youtube.com/watch?v=Oj0PsaP2ZqQ),* a highly impactful film that humanizes the toll of the Trump administration’s tragic decision to destroy most of USAID—which, with the stroke of a pen, spelled the deaths of what will likely end up being millions of people around the world.
+
+The *Inside Medicine* community has been fortunate to have Atul as a frequent guest this year. This conversation is probably our most detailed one yet. We cover what has happened over the last 10 months, some of which is covered in the film.
+
+I’m grateful for the opportunity to have had this conversation, and the chance to share it with you, in hopes that you will share it with others.
+
+\---
+
+This post is public so feel free to share it.
+
+*Closed captions (㏄) for the above video and a transcript option (📄) can be found beneath the video playback control bar above. A summary with timecodes can be found below.*
+
+\---
+
+**Just a quick reminder that this is all entirely free for everyone, thanks to the subset of people who upgrade to premium...**
+
+### Summary & Highlights from the conversation with Atul Gawande on *Rovina’s Choice* and the destruction of USAID :
+
+*(aided by ChatGPT).*
+
+-   **Setting the stage & Dr. Gawande’s role at USAID — 00:32**  
+    We introduce Dr. Atul Gawande as surgeon, writer, and former lead for global health aid at USAID during the Biden administration, noting that his role ended at 11:59 a.m. on the day of Trump’s second inauguration.
+    
+-   **Why** ***Rovina’s Choice*** **and why now — 01:20**  
+    We explain that nine months after the pause in aid became a full USAID shutdown and U.S. withdrawal from WHO, the administration insists “nobody’s hurt,” which motivates Dr. Gawande to go to Kenya with a film crew to see the real-world consequences on the ground.
+    
+-   **Oops. We had a live tech glitch. So, we pivoted to the trailer — 04:39**  
+    We hit a brief technical problems with Dr. Gawande’s video feed. We run the *Rovina’s Choice* preview while he reconnected. Thank you for your patience!
+    
+-   **Trailer reaction: a system collapsing fast — 05:45**  
+    We return from the preview and describe how the 20-minute film powerfully captures USAID’s long history of impact and how quickly the cuts have produced dramatic, “brisk” damage for people who depended on those systems.
+    
+-   **Making distant suffering concrete and personal — 06:48**  
+    We reflect on seeing Trump sign the order that leads to mass death, and we talk about our own culpability as Americans. We frame the film as a way to move beyond abstract images of starving people to specific, personal responsibility.
+    
+-   **What the clinic really looks like without USAID — 07:27**  
+    We walk through how local Kenyan nurses and doctors—not Americans “swooping in”—ran clinics USAID helped train and equip, and what it means when nearly an entire nursing staff is dismissed and medicines on the shelves suddenly can’t be used.
+    
+-   **Rovina’s daily choices under scarcity — 08:42**  
+    We describe Rovina as a mother in a refugee setting who skips her own meals so her children get protein and has to decide how far to walk, what to forgo, and what risks to take when one of her kids falls ill.
+    
+-   **The quiet revolution in treating malnutrition — 09:30**  
+    We dive into how community health workers with tapes and scales now catch malnutrition early and use fortified therapeutic foods like peanut-based products that rescue 85% of children before hospitalization, efforts which have cut mortality from ~20% to under 1%.
+    
+-   **The “bomb blast”: systems dismantled in layers — 10:45**  
+    We lay out the stages of harm: immediate deaths from missing midwives and undelivered medicines, then rising severe malnutrition as rations are cut and clinic staff vanish, followed by delayed shocks in HIV, TB, childbirth, and vaccines that will take months or years to fully emerge.
+    
+-   **Rubio, Musk, and two kinds of betrayal — 12:46**  
+    We contrast Elon Musk’s incurious zeal to “shut it down” with Marco Rubio’s knowing obfuscation. We emphasize that Rubio supported these programs in the past, has seen their impact firsthand, and now denies harm despite conservative estimates of ~600,000 deaths so far, two-thirds of them children.
+    
+-   **Why we can’t “see” hundreds of thousands of deaths — 16:39**  
+    We talk about how dispersed, incremental public deaths differ from war or mass graves, and we compare COVID excess deaths and life-expectancy losses to show how something huge can still feel abstract at the individual level.
+    
+-   **Historical parallels: Myanmar and hidden famines — 18:20**  
+    We compare the U.S. pullback to Myanmar’s collapse in vaccination after a military coup and note that when data systems and inspectors are dismantled, mortality is both higher and harder to measure—just as China hid Great Leap Forward famine deaths for decades.
+    
+-   **When the “hard numbers” will arrive (and why they may not) — 26:32**  
+    We outline how excess mortality data in low- and middle-income countries usually take about two years via WHO, UN, and Demographic and Health Surveys—and why U.S. withdrawal, laid-off statisticians, and shuttered monitoring systems mean even 2024 data may be delayed or suppressed.
+    
+-   **Modeling the death toll: conservative but chilling — 30:55**  
+    We walk through Brooke Nichols’ modeling, stressing that assumptions—like only a 25% HIV funding cut and fully effective use of impounded funds—are conservative, yet still project hundreds of thousands of deaths now and potentially tens of millions by 2030.
+    
+-   **Why philanthropy can’t simply “replace” USAID — 33:04**  
+    We acknowledge that philanthropy (including the Gates Foundation’s decision to spend down in 20 years) has enormous resources, but we underscore that money without USAID’s relationships, local networks, and oversight infrastructure can’t replicate what was built and has now been dismantled.
+    
+-   **USAID as the highest-impact bargain in government — 34:49**  
+    We highlight that USAID cost roughly $24 per American per year and helped save an estimated 90+ million lives in two decades—arguably the greatest impact per dollar of any U.S. agency—while waste was tiny compared with the U.S. health-care system’s.
+    
+-   **Self-interest: why this was good for America too — 36:03**  
+    We argue that global health investments also protected U.S. interests—stabilizing economies, blunting drug-resistant HIV and malaria at their source, and building soft power. We worry aloud that we’re trading admiration and partnership for resentment and radicalization.
+    
+-   **Marshall Plan vs. “America First” in Gaza and beyond — 37:14**  
+    We contrast the post-WWII Marshall Plan’s “triple win” with today’s failed “America First” experiments, from Gaza contracting fiascos to places like Mozambique where ISIS has stepped into the void left by USAID.
+    
+-   **How the world now sees the U.S. — 40:15**  
+    We share the three main reactions we hear abroad—mourning the loss of a flawed but reliable partner, “good riddance” from those who always doubted U.S. motives, and a fatalistic majority who see this as just another calamity to endure—plus a fourth group that asks how to avoid our anti-science, anti-altruism turn.
+    
+-   **Could anything have prevented this? — 45:08**  
+    We link the political backdrop to long-standing economic abandonment of non-college Americans, noting that both parties failed to deliver a credible path to a decent life, leaving communities ripe for demagogues promising easy answers and scapegoats.
+    
+-   **Medicine and public health as proof of what’s possible — 46:58**  
+    We argue that health and public health are some of the clearest demonstrations that collective investment works, at home and abroad, and that we should lean into these stories rather than hide them as “foreign aid” that voters won’t understand.
+    
+-   **Call to action for viewers — 47:27**  
+    We close by asking viewers to like, share, and subscribe so we can elevate voices like Dr. Gawande’s, and we give clear directions to watch *Rovina’s Choice* on YouTube or at The New Yorker—framing it as essential viewing to grasp the human cost of dismantling USAID.

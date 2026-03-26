@@ -1,0 +1,51 @@
+<h2>Two Minds, Two Machines</h2>
+
+<p>Kenny Easwaran's lecture on symbolic and neural approaches to artificial intelligence opens with an analogy that cognitive scientists have been refining for decades: Daniel Kahneman's distinction between fast and slow thinking. System one is instinctive, automatic, and opaque. System two is deliberate, sequential, and explainable. Easwaran uses this framework not merely as a teaching device but as the structural backbone of the entire lecture, mapping each cognitive mode onto its corresponding school of AI development.</p>
+
+<p>The mapping is elegant but raises an immediate question: if the human mind integrates these two systems seamlessly, why has artificial intelligence spent seven decades failing to do the same?</p>
+
+<h2>The Symbolic Tradition and Its Quiet Hubris</h2>
+
+<p>Easwaran traces the symbolic lineage from Joseph Jacquard's 1804 punch-card loom through Alan Turing's 1936 formalization of computation to Grace Hopper's invention of the compiler. The narrative is familiar to anyone who has studied computer science history, but the lecture frames it with a particular emphasis on composability -- the ability to name a procedure and then use it as a building block for something larger.</p>
+
+<blockquote>Programmers call these frequent operations routines and they call the earlier routine a sub routine when they use it in higher level work.</blockquote>
+
+<p>This capacity for hierarchical abstraction is presented as symbolic AI's great strength, and it genuinely is. The entire edifice of modern software engineering rests on the principle that verified components can be composed into larger systems without requiring the user to understand every layer beneath. But Easwaran also identifies the trap: recursion. A tic-tac-toe game tree is small enough that a computer can explore every branch. Chess is not. Go is vastly worse.</p>
+
+<p>What goes unspoken is that this limitation is not merely computational but conceptual. Symbolic AI's deepest assumption -- that intelligence consists of following rules that can be written down in words -- turns out to describe only a narrow slice of what minds actually do. The irony, which Easwaran surfaces with admirable clarity, is that the things humans find hardest to explain are often the things that require the most computational power to replicate.</p>
+
+<blockquote>Historically people have tended to think of these system 2 processes or the slow methodical thinking as the domain of intelligence but one of the recurring features in the history of computation is the discovery that the system one processes these fast instinctive thinking has turned out to require far more computational power and Ingenuity in order to program into a machine.</blockquote>
+
+<p>This is sometimes called Moravec's paradox, after the roboticist Hans Moravec, who observed in the 1980s that it is comparatively easy to give computers the ability to pass an IQ test but nearly impossible to give them the perceptual and motor skills of a one-year-old. Easwaran does not name the paradox explicitly, but his lecture circles it repeatedly.</p>
+
+<h2>Neural Networks and the Return of the Black Box</h2>
+
+<p>The neural side of the story begins with McCulloch and Pitts in 1943, moves through Frank Rosenblatt's perceptron in 1959, hits the wall erected by Marvin Minsky's critique in the late 1960s, and then resurfaces with the deep learning revolution led by Rumelhart, Hinton, and LeCun in the 1980s and beyond. Easwaran describes the basic mechanism with admirable directness: neurons have weights and biases, input signals are multiplied by weights and summed, and if the result exceeds a threshold, the neuron fires.</p>
+
+<blockquote>There's no code there's no explicit instructions there's just these weights and biases on the neurons and we can't understand how it works but that is everything about how the neural net works.</blockquote>
+
+<p>This is the statement around which the entire lecture pivots. Neural networks work, often spectacularly well, but nobody can fully explain why they produce the outputs they do. Easwaran frames this as analogous to human system one cognition -- an expert chess player who "just knows" the right move without being able to articulate the reasoning.</p>
+
+<p>The analogy is useful but imperfect. A chess grandmaster's intuition was built on thousands of hours of deliberate practice, much of it involving explicit symbolic reasoning about positions, tactics, and strategy. The intuition is compressed knowledge, not an alternative to knowledge. Whether neural networks undergo an analogous process during training -- distilling something like understanding from statistical regularities in data -- remains one of the central open questions in AI research. Easwaran's lecture, being introductory, does not wade into the interpretability literature that has exploded since 2020, but the question hangs over every claim about neural networks' opacity.</p>
+
+<h2>The Minsky Bottleneck and Its Long Shadow</h2>
+
+<p>One of the lecture's more interesting historical details is the role Marvin Minsky played in suppressing neural network research. Minsky showed in the late 1960s that two-layer networks could not learn certain kinds of patterns -- specifically, the XOR function -- and that no one knew how to train networks with three or more layers. This triggered what is now called the first AI winter for connectionism, a period lasting roughly from the early 1970s to the mid-1980s.</p>
+
+<p>What deserves more emphasis than the lecture gives it is how much of this stagnation was sociological rather than technical. Minsky's result was mathematically correct but narrowly scoped. The conclusion that neural networks were fundamentally limited was an inference that went well beyond the proof. Research funding dried up not because the approach was shown to be impossible but because an influential figure declared it unpromising. The backpropagation algorithm that eventually broke the impasse had been independently discovered multiple times before Rumelhart, Hinton, and Williams popularized it in 1986. The ideas were there; the institutional will was not.</p>
+
+<p>This pattern -- a dominant paradigm dismissing a rival, only to be overtaken when computational resources catch up to the rival's requirements -- has repeated itself enough times in AI history to qualify as a structural feature of the field rather than an accident.</p>
+
+<h2>The Synthesis That Has Not Arrived</h2>
+
+<p>Easwaran closes by noting that some researchers believe the future of AI lies in a synthesis of symbolic and neural approaches, but that no such synthesis currently exists. This was a defensible claim when the lecture was presumably recorded, but it understates the degree to which modern large language models already blur the boundary. Systems like GPT-4 and Claude are neural networks that manipulate symbols -- they generate code, follow logical chains of reasoning, and even perform the kind of recursive problem decomposition that Easwaran identifies as uniquely symbolic.</p>
+
+<blockquote>Some researchers are now convinced that the future will have to involve some sort of synthesis of the symbolic and the neural approaches to artificial intelligence but at the moment that synthesis has not been developed.</blockquote>
+
+<p>Whether these systems achieve synthesis or merely simulate it is a matter of vigorous debate. Critics point out that large language models still struggle with tasks requiring reliable multi-step logical reasoning and that their apparent symbolic competence may be a sophisticated form of pattern matching rather than genuine rule following. Defenders counter that the distinction between "real" and "simulated" reasoning may not be as meaningful as it sounds -- if the outputs are indistinguishable, the internal mechanism matters less than skeptics claim.</p>
+
+<p>Easwaran's lecture also raises the important point that explainability is not merely a technical desideratum but a legal one, citing European Union regulations that require AI systems to justify their decisions. This is a genuine constraint that favors symbolic approaches, or at the very least hybrid systems that can produce post-hoc explanations of neural network outputs. The tension between capability and explainability is likely to shape AI regulation for years to come.</p>
+
+<h2>Bottom Line</h2>
+
+<p>Easwaran delivers a clear, historically grounded introduction to AI's two founding traditions. The lecture's greatest strength is its insistence that the distinction between symbolic and neural AI is not merely technical but maps onto a deep feature of human cognition itself. Its greatest limitation is that it treats the two paradigms as more separate than they currently are. The modern landscape is already producing systems that combine pattern recognition with symbolic manipulation, even if the theoretical framework for understanding that combination remains incomplete. For anyone seeking a foundation in how artificial intelligence arrived at its current moment, this is a solid starting point -- but the chapter Easwaran says has not yet been written is, in fact, being drafted in real time.</p>

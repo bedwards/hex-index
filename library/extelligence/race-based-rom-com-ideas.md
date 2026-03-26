@@ -1,0 +1,144 @@
+---
+title: "Race-Based Rom Com Ideas"
+author: "Some Guy"
+publication: ""
+publication_slug: "extelligence"
+published_at: "2025-08-31T15:30:39.000Z"
+source_url: "https://extelligence.substack.com/p/race-based-rom-com-ideas"
+word_count: 4108
+estimated_read_time: 21
+---
+
+[
+
+![](https://substackcdn.com/image/fetch/$s_!ucjA!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F78bf2cc6-dd39-432a-9bb1-6333b93594c3_1024x1536.png)
+
+
+
+](https://substackcdn.com/image/fetch/$s_!ucjA!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F78bf2cc6-dd39-432a-9bb1-6333b93594c3_1024x1536.png)
+
+Like most Americans, I like to write movies in my head. It’s too central a part of my development to not be doing this all the time. While some of these cultural touchstones now belong to the internet, my everyday conversational foundation is still television and movie based. If you don’t like that idea, one of my favorite movie references is, “you know that scene in Jurassic Park where they throw the stick at the electric fence and it just falls to the ground? That’s about how well the idea was received.”[1](#footnote-1)
+
+Feel free to be the stick.
+
+I have another more unique set of references. I come from an oddly racially diverse family. My wife is a gypsy, my kid brother and sister are Micronesian, my nephews are Quinault Indians, one cousin is an handsome Italian dentist, and through sheer statistics I somehow have an identical Mexican firefighter cousin.[2](#footnote-2) The weird “terrified hostage filming a video while their captor points a gun at them off-screen when talking about other races” vibe a lot of caucasian people get when talking about other ethnic groups just doesn’t naturally happen to me. I’m sure I felt that way at some point, but I have close to ten billion cousins, so for me these racial tensions quickly devolve into something like familial bickering.
+
+Being able to have fun with different racial and cultural backgrounds is vital for a healthy society. We have to continuously figure each other out. All that talking and hollering is how we keep the American ethnogenic miracle alive so that we can keep being one people.[3](#footnote-3) I wasn’t really a fan of that part of the “woke stuff” from a few years ago and it struck me as similar to when people give their kids a peanut allergy by keeping them away from peanuts. Not in the sense that people can’t be massively rude on the topic of race or that people can’t be allergic to peanuts, which of course they can, but in the sense you need a better plan for a bunch of people of different backgrounds to get along than “well, they just should get along because I am a wonderful decent person who can do it no problem, and everyone else should be a wonderful decent person like me.” Getting along with other people at scale is *always* messy.
+
+We’re living through a very strange time and a lot of things that we once took for granted are different. One of those things is racism. I find it utterly bizarre, yet strangely appropriate, not only that a man named Enrique Tarrio is the head of the Proud Boys but that the same people who decry him as a white supremacist[4](#footnote-4) never stop to wonder at the fact that he is Puerto Rican. Or that Kanye West, an African American, seems to be a Nazi of some sort. Or that Candace Owens has taken on a cultural relevance once held by Alex Jones, and that America now turns to a black woman to tell us not only about the greatness of the white race but also that Emmanuel Macron is married to a transgender woman that is somehow also his own father.[5](#footnote-5) You want it to be the white guy with a crew cut you can easily imagine from a couple decades ago causing cultural havoc, and sure that guy still exists, but he’s not shifting the culture anymore! White supremacy has become bizarrely diverse.
+
+I snoop an ex-trans liberal turned cis scientific racist on twitter to keep my fingers on the pulse of this transformation. I consider him to be a sort of bellwether for where the larger cultural trends are going. It’s like whatever the prevailing psychotic trend happens to be moment to moment becomes manifest in him. Whenever he becomes an actual killer, I’ll know it’s time to go buy a gun.
+
+Until then, we need new actual load-bearing stories that tell us what this all means and how to love one another, and that show us what really matters across every color of American. We need those stories to be the sorts of obdurate messy things that stick in your head long after you’ve seen them. You need a movie that you can go watch with your friends that is actually entertaining and that you remember so later on you can use it as a shortcut to describe some weird new paradigm.
+
+Without further ado, here is one of my race-based romcom ideas. I’m really exhausted lately and this is basically stream of conscious stuff, but I think you’ll find it funny.
+
+### Movie #1, Red, Woke, and Blue (or something to that effect, you get the idea, blame AI that the image title isn’t the same)
+
+The most stereotypical thing ever happens. A white guy and an Asian woman who work in tech fall in love. Yawn. Boring. We pass over this whole sequence of them going from making eyes, to finding ways to work on the same projects, to falling in love while talking about code requirements, to him proposing with some big social media thing. All this happens the first few minutes of the opening credits. This happy couple is not the focus of our film.
+
+The opening credits end with them blissfully looking at one another and realizing, “we have to tell our parents!”
+
+Now we get into the actual good movie, where Jackie Chan —a widower— has taken leave of his job as a no-nonsense artisan woodworker who builds custom houses in China to travel to the United States in order to see his daughter. She told him she’s engaged, catching him by surprise! We travel with him all through customs and the airport where he goes from a world where everyone is fairly soft-spoken, polite, and thin to a world where everyone is loud, overweight, and eating Cinnabon. He should have a white guy sitting next to him on the flight who gets married and divorced a half dozen times on the way to America.[6](#footnote-6) We play this up for gags. He is disgusted to leave his orderly home country, but he will do anything for his daughter.
+
+Similarly, Kristin Chenoweth —a widow—is the star of her local church, singing up a storm in Texas, attending a barbecue reception, when she gets a message from her son that he needs to see her right away. He’s engaged! She drops everything. He’s all she has left, her world. We see a similar scene of her traveling from the south where everyone is fat and polite to San Francisco where everyone has blue hair and whatever other gags we can pull off.
+
+Chan and Chenoweth both use the same uber share to ride from the airport to the restaurant where their children asked to meet, not knowing the significance they will have in each other’s lives. Neither of them have social media so they haven’t seen any pictures. They are both slightly off put by the other and they try to make polite small talk about cowboys and Chinese food but otherwise have nothing to say to each other. They’re surprised when the wait staff shows them to the same table and are sure the waiter is mistaken. Both of them stand up to look for their respective child. The son is named Lee and the daughter is some phonetic equivalent of Sue, so each of them has a false expectation of who they’re going to meet, as in they expect to see a member of their own ethnic group.
+
+The kids finally arrive together, with sparklers and rings showing, declaring this is the only blended American BBQ and Chinese food restaurant in North America. They awkwardly share the food around the table because they took the privilege of ordering mixed culture meals. Each child snaps pictures of the food for social media and Jackie Chan has the most not-smiling face in the history of not-smiling faces. Kristin Chenoweth is also smiling the most not real smile to match his own. Neither parent knows what to say but their body language clearly communicates they think their kids are making a huge mistake. They both sit on one side of the table, their children on the other.
+
+Jackie Chan sees some disgusting American muck bang YouTube star in the next stall gorging him self social media likes, and you can tell he’s sick at the idea of his grandchildren being raised in this culture. A young boy stands up to tell the muck bang eater that he wants to be just like him when he grows up and it’s made worse by the fact the boy is ethnically Chinese. That his daughter doesn’t even notice is evidence of the corruption. Similarly, Chenoweth has a false impression that there is dog on the menu and both parents begin to feel the need to communicate a hard no to their child.
+
+Jackie Chan is openly racist while speaking Chinese where the only English words Lee and his mom can understand are things like “Reddit” and “Onlyfans” which Chan is certain are such strong cultural influences that will turn any children they have into perverts or prostitutes. He tells his daughter that American culture is corrupt and she should come back with him to China. This marriage will never work. He should have known she would make this kind of mistake when she refused to become a doctor or a lawyer.
+
+Similarly when a distraught Sue goes to the bathroom to collect herself Chenoweth suggests that birds of a feather should flock together and reminds Lee of his many girlfriends where he thought he was going to be serious and backed out. If he couldn’t commit to someone from his own culture how was this going to work? And would his babies even be Christian? She dares him to name one half Asian man who is considered a sex symbol, insisting this is a gamble he cannot take.
+
+The young couple exchanges notes when Sue returns and both blow up on their parents. Chenoweth and Chan find themselves on the same side, her agreeing that it’s better to be a doctor or a lawyer, and him that tradition is very important. Their children express they make double that salary being Product Managers but it doesn’t seem to land. Chan and Chenwoth agree that “Product Manager Level III is not a real job. I love you, but it just isn’t.” It’s a gag throughout this scene that Chan and Chenoweth always agree with each other for wildly different reasons, each coming in to seamlessly rescue the argument of the other.
+
+The children storm off and Chan and Chenoweth are stunned commiserating over the weird hybrid food. The meal is bad and off-putting. They agree they don’t have anything against the other type of food, but putting them together doesn’t make any sense. Nobody wants a sushi hamburger or Chinese noodle spaghetti with meatballs. It should all be one thing or the other thing. They try to separate the food out so they can eat, but can’t quite get it right.
+
+They share stories about raising their children and how each culture gave them strength because it helped them know what to do after they lost their spouse. For Chan it was the rising industry and opportunities he had to spend his time making money so that he could give his daughter a better life. For Chenoweth, the church opened itself up to her and helped her raise her boy when they would have had nothing otherwise. They agree what is being planned by their children can never possibly work based on this experience. They talk about their deceased spouses and how they can’t believe their children would throw away their heritage like it was nothing. One of them relates a story about how they had to drive off a bad romantic partner when their child was young, and the other has a similar story. They look at each at the same time realizing what has to happen.
+
+They’re going to sabotage their children’s relationship.
+
+They make it sound more polite than that but if their kids can just see what they’re losing, they’ll figure it out on their own. It’s their job as parents to help them see. They become allies by the end of the meal.
+
+I don’t really know what happens during this part of the movie other than a few things like Jackie Chan driving his daughter around various downtown areas showing her how terrible Americans are at taking care of their people (I agree with this, by the way). All this can happen under the cover of preparing for the wedding. He insists they will be stabbed at any moment, but some of the homeless people are very nice to him and congratulate his daughter on her engagement, in his mind ruining the point of the exercise. He is certain the America where race crimes occur on every street corner all the time that he’s seen on social media must be somewhere he can walk in five minutes. During the crescendo he takes his daughter to see a few nice-seeming girls who are actually OnlyFans stars that do simulated step-sibling porn. This causes her to have her first real doubts about raising a child in America.
+
+Chenoweth meanwhile tries to give her son a rundown of every atrocity ever committed by the Chinese government. She lays out a seemingly plausible series of events that suggest Sue is a spy after his Product Management secrets. When this doesn’t land because he does something like sell dog food… we’ll have to figure out what some of the good calls out of Chinese culture are because I honestly don’t know the best ones. I know “negative things” but not enough to know which would be the funniest to call out. Maybe eating bugs? She could challenge him to eat some kind of an insect. It would be funny if she tried to force him to eat a chocolate covered grasshopper, ate it herself, found out that she really liked them, and tried to keep inconspicuously eating them the rest of the movie whenever she’s stressed. Anyway, you get the idea.
+
+On the positive side of things, they try to show their children why their own culture is the best only for it to fall strangely flat. Southern Christianity doesn’t have root in Silicon Valley, and it’s not going to help the homeless people there even though Chenoweth has set up an admirable food drive. All the homeless people say they already have all the food they need and they’re just taking extras. Similarly, Chan tries to show his daughter her very hardworking cousin who is a doctor, but the cousin breaks down sobbing about how she never had time to start a family because she worked too much. Her cousin sobs and tells her that love and family is the most important thing.
+
+The obvious structure of this is 1. Negative tour of the opposite culture by the parent 2. Positive tour of the aligned culture by the parent 3. Negative tour of the aligned culture by the opposite parent. You need that for symmetry and narrative completeness. So now Chenoweth will take Sue around and explain why it would be a terrible idea to become part of the Southern Christian culture and Chan will do the same for Lee. Each parent trashing their own culture to make it sound terrible to an outsider. Absurd, ridiculous nitpicking.
+
+This fails to work, and oh no! Along the way, Chenoweth and Lee have accidentally fallen in love with each other. It was all that talk about tradition and caring about your family and children. This becomes obvious during an assault by a homeless person that initially makes Chan very excited, shouting “See? See!” when he sees Chenoweth in danger and moves quickly to protect her with his own body. Lee, for his part, tried to be in both places at once and now Sue feels rejected like he wasn’t going to protect her. The couple breaks up.
+
+Chan and Chenoweth both draw close, moments from kissing, but start telling each other really touching stories about their deceased partners and draw apart, feeling totally lost. And this is really the thing we stopped putting in a lot of movies. The pathos. The part where we’re all just people who have feelings that have to be cared for and all the other stuff is getting you to lower your shields enough to remember it and share in that feeling with another person. They are both so lonely and have kept themselves apart from even thinking about that for so long it’s hard to even imagine having it ever again. And it’s all so complicated.
+
+This could be a big musical number where Chan walks around the homeless camps in San Francisco and Chenoweth strolls around China Town. They find all sorts of things that make them feel like they’re not at home. The cultures seem too strange, too alienating. To Chan, who speaks English with difficulty, it sounds like all the Americans are just saying “Coca Cola” and ‘Hey, fuck you!” back and forth to each other. People walk up to each other and say “Hey! Coca Cola! Go fuck yourself!” Or they hug goodbye and whisper “Coca Cola” into each other’s ears. Chenoweth just sees dogs being disappeared into building after building, even in situations where it seems like they should be exiting immediately afterward. The music starts with these scenes but now Chan and Chenoweth sing as each makes their respective journey learning how to admire something in the other culture.
+
+Chan sees a missionary helping a homeless man who insists that he’s not worth helping, and the missionary insists that he chooses to believe everyone is worth helping. Chenoweth sees a family helping their child with homework. Chan sees tech teams working at late night dinners trying to layout plans to help people and all the ideas sound really innovative and useful. Chenoweth sees the parents who are working long hours and the pictures of family members in every home, where there is clear respect for those who sacrificed for their descendants. Chan sees a racially diverse group of people lecturing a younger staff member that the only thing that matters is integrity and ability. Chenoweth sees people ordered, working hard, actually building things.
+
+We enter hyper-reality again and Chan is suddenly in the middle of a big parade where there are Stars and Stripes everywhere, and every icon of American culture is marching proudly through the street. The themes are bombastic and patriotic. The cowboy, the soldier, the sailor, the lumberjack, Uncle Sam, the Hollywood actor, the superhero. All dancing around him. Chenoweth is likewise whirled through a parade even though it’s not New Year’s. There’s a dragon float spinning around her. She sees the martial artist, the monk, the rice farmer. At some point Chan is wearing a red white and blue cowboy outfit, dancing with the whole parade. Chenoweth is likewise attired in traditional Chinese garb.
+
+They sing and sing about their differences and how much there was to admire that they had previously refused to see. They arrive at a taco truck in downtown San Francisco. Chinese tacos. BBQ Kung Pao shrimp. They’re both hungry and in a daze they order only seeing each other after they get their food. It’s incredible food. The best food in the world. The owner/operator is a half American half Chinese young man who excitedly announces he’s been funded to open fifteen more food trucks. His white dad and Asian mom are there and couldn’t be happier. Chan and Chenoweth watch with tears in their eyes. The owner/operators super, super hot Mexican girlfriend gives him a hug and a kiss.
+
+Chan and Chenoweth sit down and a voice says, “May I join you?”
+
+It’s me, the King of America.
+
+I don’t wait for them to say yes, and my surprisingly racially diverse family controls themselves into a chair. My identical Mexican cousin kneels to become my armrest, his brother who only looks 70% like me, my other armrest. Everyone is decked out in cultural specific garb but out of red, white, and blue flag-themed cloth. Many nations, one people.
+
+My throne of relatives cries out, “Behold! The Buffalo-Headed Rider of Buffaloes! North Star of the Constellation America, Father of the Founding Fathers, Amberer of the Waves of Grain, the Trunk which Upholds the Three Branches of Government, All-Powerful Separater of Powers, the William of Rights, His Purple Mountain Majesty, the King of America!”
+
+I hand Chan and Chenoweth some napkins.
+
+“Seems like there’s a little mess you have to clean up,” I say, each of them somehow knowing I’m not referring to the bbq sauce on their faces.
+
+I look over the happy owner/operator and his family and smile. They kneel to me as does everyone else, but I shake my head no. A king of a free people is not a king to be bowed to.
+
+“America is a grand experiment, or have you forgotten? If not for the coming together of many peoples my own Slavic-Irish-Norwegian heritage might never have been realized. So much of what we have built would be lost.”
+
+Chan and Chenoweth nod, dumbly.
+
+“That would have been very bad.”
+
+They each complain that they never asked for *these* challenges or for the world to be *this* way. It’s too confusing. Too complicated.
+
+“Did I ask to be born on the Fourth of July when lightning struck the Statue of Liberty!” I roar. “We face those challenges we are given, not others.”
+
+I sigh.
+
+“Nothing is ever the same as it was. It must be built anew in each life, each moment, off the eternal bones of being. There is no tradition save that one, in the end. Pursue what is right and good. Listen always for the voice of God. Place your feet in time to the moral music of the universe and dare to dance the dance of a life well lived. Fail and the same life of a willfully blind coward will be your only reward. I think you both have somewhere to be tonight.”
+
+I leave, my throne standing up and dissolving into the crowd as if nothing happened.
+
+This is never referenced again in the entire movie.
+
+Both parents go out and find their children, manufacturing some reason they need to see them urgently. They push them back together, explaining all the reasons they have to be together. Chan and Chenoweth confess their part in trying to drive them apart. They’re pushing them together at the wedding day they’ve been prepping for while doing all of those explanations of cultures, and they both tell their children to work hard, be part of a community, and build a new culture based on what is right and good. This will be their challenge they must face but they must pick it up for no generation or people can ever shirk this duty.
+
+The kids say their vows and when the bouquet is thrown, Chenoweth catches it. She looks to Chan. He kneels to her. Both their children are horrified, they’re going to be step-siblings.
+
+[1](#footnote-anchor-1)
+
+The hidden meaning is that the idea doesn’t land at first leading people to believe they don’t have to worry about the idea, only for it to explode and almost kill them later.
+
+[2](#footnote-anchor-2)
+
+I went to his barber shop once and they gave me his haircut without asking me who I was or what I wanted. We didn’t realize this until years later. It was Javier’s International Barber Shop in Aberdeen, WA for anyone who wants to know. I don’t like when people don’t spill names in these situations, because it’s not like this was illegal or anything.j
+
+[3](#footnote-anchor-3)
+
+If you don’t think you have anything in common with the other side of the aisle, consider that you like to yell a lot and you’re dead certain that you I know the one true, correct way to live. And you feel at liberty to say “no” to anyone in any circumstance, as if you were a lordly person who had the divine right of a king. Ask anyone who isn’t an American how they recognize us. Whatever the color, we’re loud.
+
+[4](#footnote-anchor-4)
+
+I think this is a mostly fair description while at the same time being utterly bizarre
+
+[5](#footnote-anchor-5)
+
+The father part is way, way worse than anything else she claims in that story and I don’t know how people just lock in on the trans issue. I think I am cursed to perceive reality in a way other people simply cannot.
+
+[6](#footnote-anchor-6)
+
+I hate movie criticisms where people say “but would that happen in real life?” The whole fucking point of a movie is to exist in a hyper-reality.

@@ -1,0 +1,116 @@
+---
+title: "The High School Graduates Are Not All Right"
+author: "Natalie Wexler"
+publication: "Natalie Wexler"
+publication_slug: "nataliewexler"
+published_at: "2025-09-27T17:06:17.000Z"
+source_url: "https://nataliewexler.substack.com/p/the-high-school-graduates-are-not"
+word_count: 2405
+estimated_read_time: 13
+---
+
+[
+
+![](https://substackcdn.com/image/fetch/$s_!1MwH!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fb5f2973f-d83f-40e6-bec6-4e4c0409bd0b_5832x4000.jpeg)
+
+
+
+](https://substackcdn.com/image/fetch/$s_!1MwH!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fb5f2973f-d83f-40e6-bec6-4e4c0409bd0b_5832x4000.jpeg)
+
+\---
+
+Problems with K-12 education are increasingly affecting students after they graduate from high school. Schools can address those problems, but we need to be clear on what they are.
+
+We’ve been hearing for months about how college students [“can’t read books.”](https://www.theatlantic.com/magazine/archive/2024/11/the-elite-college-students-who-cant-read-books/679945/) Now the *New York Times* [is taking notice](https://www.nytimes.com/2025/09/25/us/reading-math-scores-declines-impact.html) of another problem: many high school graduates don’t have the “fundamental reading and math skills” needed for jobs in fields like health care and construction—jobs that often don’t require a college degree.[1](#footnote-1)
+
+The *Times* article focuses mostly on math, but it also lumps together “fundamental reading and math skills” in a way that suggests that what’s needed is a “back to basics” approach in K-12 schools. The issues go much deeper than that.
+
+While there are some similarities between the problems in reading and math instruction, there are also important differences. As Holly Korbey [has noted](https://hollykorbey.substack.com/p/disappointed-but-not-surprised-on), on the math side, one factor is that it’s hard to find qualified teachers (if you’re a math whiz, you can probably make a lot more money doing something else). Another is that commonly used curricula and teaching techniques don’t line up with what science has discovered about how people learn.
+
+That can mean children never master basic concepts like multiplication or even just how numbers relate to one another. But they get passed on from grade to grade, and the curriculum assumes they’ve already learned that stuff. As Korbey observes, students who struggle with reading are more likely to get tutoring or other support than those who struggle with math. So kids may never get the clear, explicit instruction and practice in the fundamentals that would enable them to understand more complex math concepts.
+
+A lack of math skills may be most obvious in the kinds of jobs mentioned in the *Times*: if you’re a health care worker, for example, you need to be able to calculate the dosage of a medication. If you’re a truck driver, you need to be able to calculate the weight distribution on your truck.
+
+But in many fields, you also need to be able to read and understand a job manual or write a report, especially if you want to move up the career ladder. Even if you rely on AI, as the article points out, you need to be able to determine if whatever the bot spits out makes sense.
+
+#### Deeper Problems with Literacy Instruction
+
+The same issues affecting math education present obstacles in other areas of instruction as well. But when it comes to “reading” or literacy, a fundamental problem is that the predominant approach treats reading comprehension—and writing—as sets of skills that can be taught in the abstract. Rather than teaching students to mine texts for whatever meaning they might have, most schools try to use them as vehicles for teaching skills like making inferences, finding the main idea of a text, or thinking critically. These are the skills that standardized reading tests purport to measure.
+
+Surely, you may be thinking, those skills are worth teaching. It’s impossible to provide kids with all the information they’ll need to know in the future. Anyway, they can always use Google or AI to get answers to factual questions. Why not teach them skills they’ll be able to apply for the rest of their lives?
+
+The problem is that skills like making inferences aren’t transferable. Readers can apply them only if they have enough relevant knowledge. It’s easy to make an inference about a text on a topic you know a lot about—so easy you may not realize you’re doing it. And it might be impossible to make an inference if the text is on a topic you’ve never heard of. So the key to developing those comprehension abilities is developing knowledge, which—especially at the elementary level—most schools [have failed to do](https://nataliewexler.substack.com/p/whats-washington-dc-whos-thomas-jefferson).[2](#footnote-2)
+
+Teachers on the literacy side, like almost all teachers, are generally unfamiliar with [instructional principles grounded in cognitive science](https://www.aft.org/sites/default/files/Rosenshine.pdf). That’s not part of their training. In fact, they often learn things during their training that contradict those principles. But even if literacy teachers do manage to learn about these principles, they’re unlikely to be able to use them.
+
+That’s because the cognitive scientists who formulated the principles assumed they would be applied to teaching either a transferable skill, like decoding words or multiplying numbers, or something substantive, like history or science. The principles don’t work for instruction in nontransferable skills like making inferences.
+
+#### What’s Behind Reading Difficulties
+
+Speaking of decoding words, it’s important to distinguish between two basic components of reading: decoding and comprehension. With all the recent emphasis on problems with phonics instruction, I’ve seen commentators opine that college students can’t read books because they never learned phonics.
+
+I doubt that’s the problem at elite colleges. It’s hard to ace the SAT or ACT if you’re struggling to decode words in the reading passages. It could be part of the problem at community colleges and in jobs like those mentioned in the *Times* article.
+
+Still, it’s not that kids are graduating from high school unable to read a word like *cat.* Perhaps a few are. But more likely, those who are struggling on the job are having trouble reading a word like *catastrophe*, or even *education* (both of which have *cat* in them, but pronounced differently). It’s generally assumed that if kids get good phonics instruction in kindergarten through second grade, they’re good to go. But many [will still need help](https://nataliewexler.substack.com/p/how-to-help-older-students-who-struggle) decoding complex, multisyllabic words—help that teachers at higher grade levels are often ill-equipped to provide.
+
+That might sound similar to a problem on the math side: not enough instruction in the basics making it hard to move on to more complex concepts. But kids who are struggling to decode words in eleventh grade don’t just need more of the phonics instruction they may or may not have gotten in first grade. They also need to learn about things like prefixes and suffixes and the origins of words—concepts that make it easier to decode the complex words they’re expected to read at their current grade level.
+
+Another significant barrier to comprehension is sentence structure, which is more complex in written language than spoken language. Kids don’t necessarily just pick up those more complex constructions, like subordinating conjunctions. Many need to be explicitly taught how to understand them—and a great way to do that is to teach them [how to](https://nataliewexler.substack.com/p/to-help-students-read-and-write-shower) *[use](https://nataliewexler.substack.com/p/to-help-students-read-and-write-shower)* [complex sentence structure in their own writing](https://nataliewexler.substack.com/p/to-help-students-read-and-write-shower).
+
+A lack of familiarity with complex sentence structure can hold back high school graduates regardless of what they do next. It can prevent workers from understanding regulations or instruction manuals and college students [from understanding 19th\-century novels](https://muse.jhu.edu/article/922346).
+
+But, as with supposed skills like “finding the main idea,” it doesn’t really work to teach any of these things in the abstract. In order to stick in long-term memory, they need a meaningful context—which is why it’s important to focus on building kids’ knowledge and vocabulary through a focus on content, ideally presented in a logical order through a curriculum.
+
+Especially if we start early, we can enable kids from all backgrounds to understand what they’re expected to read, whatever path they choose in life. Not to mention to understand news reports and debates on current events in a way that enables them to participate responsibly in a democratic society.
+
+#### Even High Achievers Are Struggling
+
+I’ve long been concerned about the reading problems of kids at the lower end of the socioeconomic spectrum—the ones who generally don’t make it to college. The workforce problems the *Times* article reports on aren’t new, although they may be growing. The newer wrinkle, it seems, is what’s happening at the higher end of the spectrum.
+
+As I noted in [my last post](https://nataliewexler.substack.com/p/testing-testing), the recent NAEP scores show declines even among the top achievers, with much of that drop attributable to students from middle-class or wealthier families. Around 40 percent of those in the bottom quarter of the score distribution have parents who graduated from college, with about the same proportion coming from middle-class families. If these lower-scoring students go on to college, they’re unlikely to be equipped to handle college-level work.
+
+But the problem doesn’t affect only students with low test scores. Even professors at selective schools are [seeing a difference](https://nataliewexler.substack.com/p/the-college-kids-are-not-all-right) in what their students can read. These students have almost certainly done well on standardized reading tests like the NAEP. A professor quoted in the *Times* article laments that his students—at Case Western Reserve, where the average SAT score is a respectable 1440 to 1520—lack the capacity to read a 25-page article. Professors at Ivy League and other elite colleges are also finding they need to lower their expectations.
+
+Clearly, our system is producing kids who can read the kinds of short passages used on tests and answer the comprehension questions correctly. But that doesn’t ensure they can read and understand what they’re expected to read in college—or used to be expected to read.
+
+I’ve spoken to at least a dozen professors at the college or even graduate level, and all but one has echoed these observations.[3](#footnote-3) But it’s not just that students lack reading stamina, as has been widely reported. Even when they do read an article, I was told, they often fail to grasp the main idea—which is ironic, considering many have probably spent years practicing that very “skill.”
+
+For instance, a history professor at a flagship state university told me his students did read the text he’d assigned on the [Dreyfus affair](https://en.wikipedia.org/wiki/Dreyfus_affair) but missed a key point: They thought Dreyfus was *guilty* of the charges against him, when in fact he was innocent.
+
+Students also struggle to dig deeply into a text. An English professor at another well-regarded public university told me his students can only come to quick and superficial judgments. If asked about a character in a novel, for example, they’ll trot out something they were told in high school—like, “the monster in *Frankenstein* is sympathetic”—or repeat what the professor himself has said.
+
+Like many of the other professors I spoke with, the English professor said his students essentially expect to be spoon-fed the material—“just tell me what I need to know”—rather than being willing or able to engage in analysis or critical thinking themselves. Several professors said their students don’t see the point of reading a complex text itself as opposed to a simple summary, perhaps one generated by AI.
+
+I suspect this is partly the result of a system that sees texts as a means to acquiring skills. You skim the text to find whatever skill the text is supposedly being used to teach, or whatever you need to answer a generic comprehension question, and then you’re done.
+
+#### Don’t Give Up on K-12 Schools
+
+Of course screens and phones and social media have encouraged skimming and superficial reading as well. And yes, the pandemic didn’t help. But that doesn’t mean schools should simply admit defeat.
+
+The education system is actually in the best position to fight back against those social forces by immersing students in engaging whole texts, showing them there can be rewards to sustained effort, and building the knowledge that enables reading comprehension—and additional learning in general. We have kids in school for 13 years. Let’s stop wasting their time and setting them up for failure after they graduate, whatever they choose to do.
+
+We seem to have given up on the idea that education can be reformed. Although the *Times* article links the workforce problems it details to recent dismal twelfth-grade test scores, it doesn’t suggest anything K-12 schools could do about them. Instead, it implies that employers need to address the deficits in knowledge and skills they’re confronting in their workers, perhaps starting while kids are still in high school.
+
+But *schools* are supposed to be preventing those deficits—and they could, if only we could focus on fundamental problems in curriculum and instruction that go way beyond a failure to teach phonics effectively. Other English-speaking countries whose education systems suffer from many of the same flaws as ours are beginning to do that. England has been in the vanguard and is now being joined by [New Zealand](https://nataliewexler.substack.com/p/what-new-zealand-can-teach-us-about), Northern Ireland, and parts of Australia.
+
+These efforts are all still very much works in progress. But at least people in those countries are *talking* about bringing their education systems in line with what science indicates will work. In this country that conversation has barely begun, at least among policymakers.[4](#footnote-4)
+
+Thanks for reading Minding the Gap! This post is public so feel free to share it.
+
+If we don’t act soon—or at least start talking—our society as a whole is likely to suffer, whether it’s because of medical workers who can’t calculate dosages (a specter that has been [raised by others](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5250447)) or “thought workers” who can’t engage in independent analytical thinking.
+
+[1](#footnote-anchor-1)
+
+The Times is also [soliciting information](https://www.nytimes.com/2025/09/24/us/education-books-callout.html) from the public about whether high school students are being assigned full books.
+
+[2](#footnote-anchor-2)
+
+An elementary educator recently sent me the results of an informal survey she conducted at three high-poverty schools in California with 4th and 5th graders. When asked whether California was a city, a state, a country, or a continent, only about 48% of 4th graders chose the correct answer. For 5th graders, the percentage was 78%. Many chose the “not sure” option. The other question was “Do you agree with this statement: ‘Martin Luther King Jr. and Abraham Lincoln were alive at the same time.” Only about 42% of 4th graders and 59% of 5th graders got that one right. I wish I could say I was surprised by these results.
+
+[3](#footnote-anchor-3)
+
+The one who didn’t has a PhD from a school of education and as a result is well-versed in the kinds of pedagogical techniques used in K-12 classrooms, which she has found successful in engaging students in the assigned reading. Most professors aren’t familiar with those techniques, which provide students with more support. You could argue they should be. You could also argue that by the time students get to college, they should be able to learn more independently.
+
+[4](#footnote-anchor-4)
+
+Some educators in the US are very interested in bringing teaching in line with cognitive science. You can find them, for example, at [researchED conferences](https://researched.org.uk/). But they’re still a small minority, and as far as I know, no US state or school district has embraced the idea, let alone any education officials at the federal level. And teachers and administrators who want to infuse cognitive science principles into instruction often feel they have to keep their interest on the down-low because so many teachers view them with suspicion.

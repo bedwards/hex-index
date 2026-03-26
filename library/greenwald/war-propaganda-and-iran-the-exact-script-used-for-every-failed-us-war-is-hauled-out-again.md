@@ -1,0 +1,138 @@
+---
+title: "War Propaganda and Iran: The Exact Script Used for Every Failed US War Is Hauled Out Again"
+author: "Glenn Greenwald"
+publication: ""
+publication_slug: "greenwald"
+published_at: "2026-02-23T23:20:26.000Z"
+source_url: "https://greenwald.substack.com/p/war-propaganda-and-iran-the-exact"
+word_count: 3912
+estimated_read_time: 20
+---
+
+[
+
+![](https://substackcdn.com/image/fetch/$s_!oqcv!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F67d050c8-69eb-4b6b-841e-a1d5701f932d_1280x720.heic)
+
+
+
+](https://substackcdn.com/image/fetch/$s_!oqcv!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F67d050c8-69eb-4b6b-841e-a1d5701f932d_1280x720.heic)
+
+**When President Lyndon B. Johnson decided** in 1965 to significantly increase the number of American troops to fight the growing war in Vietnam, he felt obligated to justify this major escalation to the American people (this was from a quaint, obsolete era when Washington believed public support was mildly important for starting or escalating American wars). On April 7 of that year, Johnson went to Johns Hopkins University to [present his definitive case](https://www.presidency.ucsb.edu/documents/address-johns-hopkins-university-peace-without-conquest) for why the U.S. must fight a war on the other side of the world, against a country that had not attacked and could not meaningfully threaten the U.S.
+
+Johnson presented the American war as one of benevolence, selflessness, and a noble desire to liberate the world’s oppressed peoples from a uniquely murderous, tyrannical regime. “Tonight Americans and Asians are dying for a world where each people may choose its own path to change,” Johnson proclaimed. He compared American motives in Vietnam to those of the freedom-craving American Founders who waged the Revolutionary War to liberate themselves from the British Crown: ”This is the principle for which our ancestors fought in the valleys of Pennsylvania. It is the principle for which our sons fight tonight in the jungles of Viet-Nam.”
+
+While Johnson invoked some geo-political justifications, he emphasized that the U.S. was deploying and putting at risk tens of thousands of young American soldiers in Vietnam simply because we wanted to help the Vietnamese people be free. “We want nothing for ourselves — only that the people of South Viet-Nam be allowed to guide their own country in their own way,” Johnson said.
+
+Central to this propagandistic narrative was the repeated parading around by the American media of a handful of South Vietnamese activists with deep connections to the West. These camera-ready “natives” assured Americans that the Vietnamese people — on whose behalf they claimed to speak — desperately craved American invasion and bombing of their country in order to liberate them. Individuals like Phan Quang Da, a Harvard-educated physician, and CIA-fronted groups, like The American Friends of Vietnam, were used as battering rams against American opponents of the war to accuse them of being indifferent, even contemptuous, of the desire of the Vietnamese people to have the U.S. military free the population. “The Vietnamese people are asking for this, but you do not care about them,” was the refrain war opponents invariably confronted.
+
+Central to this pro-war campaigning were claims that the Vietnamese enemy did not merely use violence and repression as other bad governments do, but rather engaged in unprecedented, unfathomable, inhuman, and Nazi-like barbarism and savagery rarely seen in human history. An oft-cited book from American pro-war voices was Tom Dooley’s best-selling “Deliver Us From Evil,” which [claimed](https://www.truthdig.com/articles/how-the-u-s-navy-made-tom-dooley-a-tool-to-sell-the-vietnam-war/) that the North Vietnamese routinely used violence so sadistic and inhumane that only the Nazis could compete with such sadism:
+
+> It told of the Viet Minh having partially torn off the ears of several teenagers with pliers and left them dangling—supposedly as punishment for their having listened to the Lord’s Prayer. And he described the Viet Minh taking seven youths out of their classroom and forcing wooden chopsticks through their eardrums…As for the teacher, Dooley claimed the Viet Minh had used pliers to pull out his tongue, as punishment for having taught the religious class.
+
+The consensus of historians is that much, if not all, of the most lurid stories were fabricated. Such inventions were necessary because the CIA and Pentagon understood that Americans could be convinced to support virtually any new war if they believed that the enemy’s crimes were not ordinary but of the greatest historical evil. (This same recognition is what motivated the series of Israeli lies regarding October 7: Hamas beheading babies and cutting them out of wombs to justify Netanyahu’s [description of Hamas](https://x.com/netanyahu/status/1712070444713468034?lang=en) as “worse than ISIS”; who could possibly oppose or even care about the unleashing of infinite violence against a group that is *worse than ISIS?*)
+
+And then there was the very orchestrated vilification of those who opposed the U.S. war in Vietnam. Such anti-war activists clearly loved and supported the North Vietnamese Communists (if not, why would they oppose a war to remove them from power?). Even worse, American war opponents stood accused of being indifferent to the cries of the Vietnamese people to be rescued and to enjoy the same freedoms that these selfish American war opponents enjoy. Anyone opposing the U.S. war in Vietnam hated not just the Vietnamese people (whom they did not want to bomb and kill) but also hated America itself, since they rejected America’s singular mission to spread freedom and democracy around the world.
+
+To say that the U.S. war in Vietnam helped nobody beyond the U.S. military industrial complex — and that it certainly did not “help” the Vietnamese people — is a drastic understatement. The bloody, savage fighting, bombing, and use of chemical agents [meant](https://theintercept.com/2025/04/30/vietnam-war-anniversary-landmines-bombs/) that “at least 3.8 million Vietnamese died violent war deaths, an estimated [11.7 million](https://www.thenation.com/wp-content/uploads/2015/03/2391211001A1.pdf) South Vietnamese were forced from their homes, and up to [4.8 million](http://www.nature.com/nature/journal/v422/n6933/full/nature01537.html) were sprayed with toxic herbicides like Agent Orange.” Chemical agents [harmed generations](https://www.science.org/content/article/vietnam-health-effects-agent-orange-remain-uncertain-50-years-later) of the Vietnamese people we were told our war would rescue.
+
+And, of course, the U.S. — despite fighting for more than a decade, with 58,000 Americans dead and countless more permanently wounded and scarred — lost the war. Daniel Ellsberg’s leak of the Pentagon Papers proved that the U.S. Government was systematically lying to the public for years about the prospects of victory. And, perhaps worst of all, it was ultimately revealed that the stated 1964 *casus belli* for the war — that the North Vietnamese had attacked American ships in the Gulf of Tonkin — was a complete fabrication, as even the U.S. Naval Institute now [documents](https://www.usni.org/magazines/naval-history-magazine/2008/february/truth-about-tonkin).
+
+[
+
+![](https://substackcdn.com/image/fetch/$s_!4tZP!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F7e7ae969-85cb-41dd-897f-e0e50c6b85cd_1772x1176.png)
+
+
+
+](https://substackcdn.com/image/fetch/$s_!4tZP!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F7e7ae969-85cb-41dd-897f-e0e50c6b85cd_1772x1176.png)
+**Screenshot from the U.S. Naval Institute’s “Truth About Tonkin” release.**
+
+Americans — including a majority of veterans of the war — now [overwhelmingly (62%) view](https://www.axios.com/2025/04/30/poll-vietnam-war-americans-50th-anniversary) U.S. involvement in the Vietnam War as a mistake. Indeed, “nearly 3 in 4 (74%) Vietnam veterans say Johnson misled people, while 10% say he was truthful.”
+
+Despite all of this, the same exact propaganda and deceitful tactics used to sell, justify, and glorify that war have been used for selling every new American war since then. As discredited as these war justifications proved to be, those in the American government and media have never changed the script even slightly for subsequent wars: from Iraq and Afghanistan to Libya and Syria, and now the latest ones in Venezuela and Iran.
+
+Two months ago, we were subjected to exactly these tactics to gin up support for the U.S. bombing of boats off the coast of Venezuela. Maduro was an incomparably cruel and repressive tyrant. The U.S. media endlessly featured a handful of carefully selected and homogenized Venezuelan exiles in Miami, who were anointed spokespeople for all Venezuelans actually living in that country, to assuage American voters that the population craves U.S. war. Anyone questioning American war operations thus became pro-Maduro,” accused of selfishly disregarding the “desire of Venezuelans” to have the U.S. military come to “free” them, etc.
+
+And now the full panoply of these decades-old ploys is raining down upon Americans with more intensity than at any point since the run-up to the Iraq War; indeed, the current campaign to drive the U.S. to full-scale war with Iran seems even more intense than the avalanche of propaganda of 2002 and 2003. As President Trump has ordered the largest military build-up in the Middle East since the Iraq War, all aimed at threatening Iran, Americans are being bashed over the head with the moral imperative of fighting a new American regime-change war (the exact type of war that President Trump was elected to avoid), this time in Iran, a country three times the population of Iraq.
+
+Iran, just coincidentally, happens to be Israel’s top adversary. Just as coincidentally, having the U.S. go fight a regime-change war in Iran to rid Israel of its main enemy has been the supreme wet dream of Israeli Prime Minister Benjamin Netanyahu and his horde of Israel loyalists in the U.S. going back many decades. Indeed, their plan was to have the U.S. military exploit the fallout from the September 11 attack by marching from Baghdad, once one of Israel’s top enemies was taken care of by the U.S. (Saddam Hussein), onto Tehran.
+
+Because the Iraq War did not exactly work as promised (Americans were not, in fact, welcomed as liberators, and the war was not exactly over in weeks or even years), the U.S. never made it to Iran. But the dream of a U.S. war in Iran has never died among the neocon crew, arguably more empowered now than at any point since the War on Terror glory days.
+
+The U.S. is closer than ever to carrying out the neocons’ primary goal. None of those actual motives for wanting regime-change war in Iran make an appearance in the war propaganda pushing this war. In lieu of those truths about why so many want the Iranian government changed, we have the same series of deceitful claims and manipulative, heart-tugging clichés that have ushered in every American war since at least Vietnam:
+
+**The U.S. Just Wants to Help Free the Oppressed Peoples of the World**
+
+Although false claims about Iraqi WMDs are understandably most associated with the case for invading Iraq, it is hard to overstate how prominent the claims of humanitarianism and liberation were. In George W. Bush’s [address to the nation](https://georgewbush-whitehouse.archives.gov/infocus/iraq/news/20030319-17.html) on the eve of the attack, he echoed, close to verbatim, Lyndon Johnson’s claims about the purity of U.S. motives: “We have no ambition in Iraq, except to remove a threat and restore control of that country to its own people.”  
+  
+Appearing on Meet the Press earlier that month, Vice President Dick Cheney assured everyone that Iraqis hated Saddam and thus wanted the U.S. to go liberate them. “My belief is we will, in fact, be greeted as liberators,” Cheney said. “The read is that the vast majority of them would respond favorably to an effort to rid the country of Saddam Hussein’s regime.”
+
+Groups of pro-war Western liberals issued [pompous manifestos](https://eustonmanifesto.org/the-euston-manifesto/) denouncing any left-liberal opposition to the war, arguing that war opponents callously disregarded their moral responsibility to support freedom for all people. These left-liberal war advocates for Iraq declared themselves united in the view that the U.S. overthrow of Saddam was “a liberation of the Iraqi people.” The pro-war left-wing journalist Niall Stanage said in [an email](https://archive.nytimes.com/www.nytimes.com/iht/2006/12/30/world/IHT-30globalist.html?_r=1&oref=login) to *The New York Times*: “The resistance in Iraq is engaged in a battle to liberate the country,” and added: “The Iraqi resistance deserves the support of the international antiwar movement.”
+
+When President Obama [addressed the nation](https://obamawhitehouse.archives.gov/the-press-office/2011/03/28/remarks-president-address-nation-libya#:~:text=We%20had%20a%20unique%20ability,from%20the%20Libyan%20people%20themselves.) on March 28, 2011 — to explain why the U.S. was joining the U.K. and France in bombing Libya — he assured everyone that the war operations were based not on a desire to control Libyan crude oil (perish the thought), but rather due to a “a plea for help from the Libyan people themselves.” Yet again, American selflessness and benevolence toward the world’s oppressed peoples were the driving forces for our wars, as Obama said it was all part of the “broader goal of a Libya that belongs not to a dictator, but to its people.”
+
+Every time the U.S. Government is gearing up for a new war, it assures Americans that the war will free the oppressed peoples of that country from their never-before-seen evil dictators, so everyone can feel good about the bombs falling and the resulting carnage. Indeed, not only will the U.S. war liberate the population, but they themselves know this, and desperately want the U.S. military to come and bomb their country and destroy its infrastructure — just like we are told the Vietnamese and Iraqis craved this, and we are being told the Iranians are craving American bombs as well.
+
+**The Proof That We Will Be Seen as Liberators Are These Camera-Friendly Exiles!**
+
+In literally every country on earth, you can find citizens who have pure contempt and deep loathing for their government and its leaders. Certainly in the U.S., it is extremely easy to find Americans who not only oppose Trump, but believe his evil and tyranny is on par with Hitler’s. Just last year, millions of them marched in the streets around the country to denounce the U.S. Government as authoritarian and Trump as a fascist.
+
+Most rational people understand that hatred for the government by a large portion of the citizenry does not remotely mean such sentiments are shared by the majority. And virtually everyone understands — rational or not — that one’s ability to find some individuals in a country who claim they speak for a majority in wanting their government deposed is not even close to compelling evidence that this is true. It is a very rare case, if it ever happens, that most people in a country want a foreign power to come bomb and invade them and impose a new government.
+
+Yet when it comes to new American wars, somehow these obvious truths instantly evaporate. Someone sees a Venezuelan living in Miami who says that everyone hates Maduro and wants the U.S. to depose him, and suddenly that becomes proof that the 27 million people who actually live in that country share that sentiment. Rational or not, this propaganda is powerful, which is why the CIA spends so much time, energy, and money on manufacturing pro-war exile groups whom they know the U.S. media will repeatedly and credulously interview as proof that the people in the targeted country are begging for an American invasion and bombing campaign.
+
+The CIA’s “American Friends of Vietnam” was replicated in every country the U.S. has since bombed or invaded, including Venezuela and now Iran. Throughout 2002, neocons propped up someone named Ahmed Chalabi: a career criminal and fraudster whom the CIA re-branded as “the George Washington of Iraq.” Chalabi — despite living in the West and having never set foot in Iraq for decades — was ubiquitous in the American media in the lead-up to the invasion of Iraq. He was the representative of the Iraqi people — the one who would lead them after Saddam was gone — and he was constantly assuring Americans that Iraqis (with whom he had almost nothing in common) would welcome the U.S. military as liberators.
+
+When it came time for the war on Libya, the U.S. Security State and its media allies paraded around something called the National Transitional Council (NTC), whose leader, Mustafa Abdul Jalil, called for U.S. bombing based on his expectation that with Gaddafi gone, he’d rule Libya. As it turned out, his efforts failed, and nobody ruled Libya as it descended into anarchy, slavery, and ISIS domination once Gaddafi was raped to death on the streets of Tripoli by a savage mob. Behold the inspiring outcome of “American war liberation.”
+
+However one wishes to describe the aftermath of the U.S./France/U.K. bombing of Libya, “liberation” would not be among them. But at least the war-making leaders who attacked Libya convinced their own population that it was a benevolent mission: all accomplished by parading around selected pro-Western dissidents to assure everyone they spoke for the Libyan people in wanting NATO members to rescue their country with bombs and missiles.
+
+**The Targeted Regime Has Committed Unprecedented Atrocities Equal to or Worse Than Hitler**
+
+To justify a new U.S. war, it is woefully inadequate to simply allege that the government to be attacked is repressive or even violent. After all, the U.S. has long not only supported but *installed and propped up* some of the most savage tyrannies on the planet, and still does: from Saudi Arabia and Egypt to Rwanda and Uganda. As a result, the evil of the targeted country in the new war must be in a different stratosphere of previously unseen evil — or at least on par with Hitler (or worse) — to justify why the newly targeted regime should be deposed while America’s numerous tyrant friends should not be.
+
+Given the monstrous regimes the U.S. installed and supported throughout the 1950s and 1960s, it was no easy task for President Johnson to claim this about the North Vietnamese. But he knew he had to try:
+
+> It is a war \[in Vietnam\] of unparalleled brutality. Simple farmers are the targets of assassination and kidnapping. Women and children are strangled in the night because their men are loyal to their government. And helpless villages are ravaged by sneak attacks. Large-scale raids are conducted on towns, and terror strikes in the heart of cities.
+
+Much, if not all, of Johnson’s claims of this extreme savagery against Vietnamese innocents proved true, but it was often [perpetrated](https://engagement.virginia.edu/learn/thoughts-from-the-lawn/20240314-Borch) by the U.S. itself.
+
+In the first Gulf War against Iraq, President George H.W. Bush and his top officials repeatedly [equated](https://www.smh.com.au/world/middle-east/saddam-the-new-hitler-bush-tells-europeans-20021122-gdfum6.html) Saddam with Hitler (that the CIA under Bush’s management was in a close alliance with Saddam seemed to be no impediment to this claim). As part of that campaign to equate Saddam with history’s worst monsters, a notorious CIA fraud was perpetrated on the American public, which became some of the most effective war propaganda in the history of that dark art.
+
+Nayirah al-Ṣabaḥ was called to testify before Congress, where she claimed in detail to have seen Saddam’s soldiers pull babies out of incubators and throw them on the floor. For obvious reasons, those tales of mass infanticide spread immediately all over the world and, as intended, such unspeakable horrors deterred most Americans from even thinking about opposing the war against Iraq. After the war, all involved [admitted that Nayirah lied](https://www.csmonitor.com/2002/0906/p25s02-cogn.html) about literally everything and that *none* of her claims actually happened.
+
+Bush 41’s son, George W. Bush, also [invoked](https://georgewbush-whitehouse.archives.gov/infocus/iraq/news/20030319-17.html) the necessary tactic of arguing that Saddam was not just evil but so far beyond what humans can fathom that such barbarism has rarely been seen in the world:
+
+> In this conflict, America faces an enemy who has no regard for conventions of war or rules of morality. Saddam Hussein has placed Iraqi troops and equipment in civilian areas, attempting to use innocent men, women and children as shields for his own military -- a final atrocity against his people.
+
+As was true for the war by Bush 41 against Saddam, Bush 43’s war also entailed the rolling out of “experts” [to insist](https://www.cbsnews.com/news/expert-likens-saddam-to-1930s-hitler/) that Saddam was no ordinary evil but rather the new Hitler.
+
+All of this should also appear instantly familiar as part of the new campaign to do to Iran what the U.S. had done to all of these other countries. In countless tyrannies throughout the region which the U.S. supports — Saudi Arabia, Egypt, UAE, etc. — protesters are indiscriminately gunned down; dissidents are thrown into dungeons; journalists and bloggers are murdered for the slightest critiques of the autocrats. So what justifies leaving those regimes in place while starting a massive, dangerous war to depose the Iranian government?
+
+Given the sheer barbarism of the U.S.’s closest allies in that region, it is quite a difficult task to depict Iran as uniquely repressive. That is why we are now hearing that Iran gunned down [3,000](https://www.usatoday.com/story/news/world/2026/02/20/how-many-protesters-have-been-killed-in-iran/88784701007/) — 7,000 — 14,000 — [30,000](https://www.usatoday.com/story/news/world/2026/02/20/how-many-protesters-have-been-killed-in-iran/88784701007/) — 73,000 — [80,000](https://x.com/__Injaneb96/status/2014484450315293173) — 160,000 innocent peaceful protesters, with some even [disgustingly claiming](https://x.com/KweenInYellow/status/2012606141595820381) that Iran killed more of its own citizens in two weeks than the number of Gazans killed by Israel during its 2+ year daily ritual of indiscriminate slaughter. To justify the war, the evil of the enemy must be of a strain rarely seen in human history.
+
+**Those Opposing the New American War Love the Targeted Regime and Hate the People of the Targeted Country**
+
+This tactic is so transparent that it hardly requires elaboration. Everyone paying minimal attention to our war debates will instantly recognize it as a universal, reflexive accusatory tactic from war supporters.
+
+If you opposed the Vietnam War, it meant that you loved Ho Chi Minh and were indifferent to the desires of the Vietnamese people for freedom and liberation from Communist tyranny. If you opposed the war in Afghanistan, it meant that you supported the Taliban and did not care about the ability of Afghan women to be educated (a goal of feminist liberation, which First Lady Laura Bush [assured everyone](https://www.latimes.com/archives/la-xpm-2001-nov-18-mn-5602-story.html) in an op-ed was a key aim of the U.S. war against the Taliban).
+
+Opposition to the war in Iraq made opponents “objectively pro-Saddam,” and they were accused of being sociopathically indifferent to the yearnings of Iraqis to be freed of Saddam’s oppression. Those opposed to bombing Libya were pro-Saddam. Those opposed to Obama’s years-long dirty CIA regime-change war in Syria were pro-Assad. Those opposed to U.S. financing and arming of Ukraine are pro-Putin and contemptuous of the desire of Ukrainians to remain democratic. Opposing U.S. regime change in Venezuela means you love Maduro and hate those craving democracy. And now, of course, opposing a risky, dangerous, protracted regime-change war in Iran makes you an admirer of the mullahs and someone coldly indifferent to cries for freedom (meaning: restoration of the tyrannical reign of the Israeli and American puppet referred to as the Shah and “The Pahlavi Dynasty”).
+
+Polls overwhelmingly show that Americans view virtually every one of these past American debacles as a horrific error. Americans have been making it crystal clear for years now that they do not want more regime-change wars, endless wars, or having the U.S. act as the world’s police. The promise to end such wars was as central to Trump’s electoral victory as any promise other than perhaps his immigration policies. And, consistent with all of that, polls now show an overwhelming majority of Americans in steadfast opposition to new regime-change wars of the kind many are pushing for in Iran:
+
+[
+
+![](https://substackcdn.com/image/fetch/$s_!IcGJ!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F21207403-6de0-4706-b12f-b67c183b51b6_1368x722.png)
+
+
+
+](https://substackcdn.com/image/fetch/$s_!IcGJ!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F21207403-6de0-4706-b12f-b67c183b51b6_1368x722.png)
+**Most recent poll results from the Washington Post, indicating majority American opposition to American interventionism.**
+
+But when it comes to new American wars, few things matter less than American political opinion. Perhaps the only thing more irrelevant is the views of Congress, notwithstanding the sole and exclusive power to declare new wars assigned to it by Article I of the Constitution.
+
+In fact, very little about public opinion or public debate matters. When the U.S. Government wants a new war, it enlists its partners in the U.S. corporate media to pound Americans over the head with these same war-mongering tactics, narratives, and propaganda that have done so much damage to the U.S. in so many ways over the past seven decades at least.
+
+But enough people are cowed by these tactics — and understandably so: who wants to be accused of being pro-Saddam or pro-Putin or pro-Ayatollah? — for just long enough that the U.S. can launch the new war without substantial resistance. By the time the war begins, Americans’ regrets — which are inevitable — are too late to stop it. And no matter how many times these tactics have proven to be deceitful lies and manipulative propaganda, enough pro-war advocates will convince enough people to believe: *maybe this is finally the good war, where some of these claims will finally come true?*
+
+Once you look for these tactics, you will see them everywhere. And it is hard to recall a time when they were more visible, and being more aggressively pushed, than in the attempt to convince Americans to support a new regime-change war in Iran. There are so many powerful factions, including one specific foreign country, whose interests will be advanced by this war, that the American people — who, as always, will pay the price — are being steamrolled by the same propagandistic rituals as always. The war propagandists do not even respect Americans enough to change the script even slightly.

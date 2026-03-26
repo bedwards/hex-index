@@ -1,0 +1,82 @@
+---
+title: "A LIGHT IN THE TREES"
+author: "Walter Kirn"
+publication: ""
+publication_slug: "walterkirn"
+published_at: "2021-12-21T05:15:00.000Z"
+source_url: "https://walterkirn.substack.com/p/a-light-in-the-trees"
+word_count: 2512
+estimated_read_time: 13
+---
+
+[
+
+![](https://substackcdn.com/image/fetch/$s_!67fK!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2F4a74d5ea-b18a-4744-8328-67f5e3e71db3_800x830.jpeg)
+
+
+
+](https://substackcdn.com/image/fetch/$s_!67fK!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2F4a74d5ea-b18a-4744-8328-67f5e3e71db3_800x830.jpeg)
+
+PART ONE
+
+It’s Christmas Eve a few years back and I’m shopping for presents for my wife and kids in a Flying J truck stop near Idaho Falls, Idaho, choosing among an array of camo hoodies, American eagle-themed insulated cups, Duck Dynasty ball caps, saw-back hunting knives, and heavy-duty jumper cables. Poor holiday planning has put me in a jam. I’m bound for my home in Montana, hours away, and I’ve already been on the road for a full day since leaving California, where I had business. The weather turned desperate when I reached Utah -- blowing snow and black ice, jackknifed semis in the ditches, far-off police lights revolving red and blue -- and my muscles are so cramped from vigilant driving that picking up items from the shelves is painful. I suppose it’s just as well. There’s not much in stock here that my family will cherish. A lamb’s-wool steering wheel cover? Tire chains?
+
+I call my wife, who’s waiting for me at home, and tell her I screwed up.
+
+“I bought a few things. I expected this,” she says. She pauses to let me admire her omniscience. “The problem is we still need a Christmas tree. Maybe you could get one on your drive.”
+
+“Everything’s closed. I’m in a truck stop.”
+
+“The kids will want one. Aren’t Walmarts open late? Just try, Walt.”
+
+”Sure,” I say. “I’ll try.”
+
+By the time I’m off the phone I have a plan, a way to redeem myself for my Yuletide carelessness. On one of the racks I saw a folding saw, on another some coils of nylon rope. I’ll cut my own tree and lash it to the car. I even know the perfect place. An hour north of here, the two-lane highway mounts a plateau and enters a dense wilderness that runs to the western boundary of Yellowstone Park. The woods there were devastated years ago by an infestation of deadly beetles that caused the US Forest Service to replant the area with seedlings that have yet to grow to their full height and many of which have dropped pinecones, creating smaller trees. As shapely as trees from a commercial nursery, they stand in endless dazzling rows, like tombstones in a veterans’ cemetery, and I’ll have thousands of them from which to choose. Harvesting one may even help the forest, and I certainly won’t be noticed while I work; the highway is as lonesome as they come and tonight, lit only by the Star of Bethlehem and a frozen, ghostly partial moon, it should be deserted.
+
+It’s ten at night and six degrees when I reach the alpine forest. With my high beams switched on, all alone on the dark road, I cruise along and look for a good spot to park on the shoulder and launch my hunt. No spot appears much better than any other, so I pull off at random and search inside my car for gloves or mittens and a winter hat. No luck; I didn’t need them in California. I decide this is fine because I shouldn’t be out long. I unfold the saw and zip up my light coat and step out into the powdery new snow. It’s packed flat near the car, but once I enter the woods it reaches almost to my knees.
+
+The profusion of suitable trees which I expected isn’t evident at first. Some are the proper height but they lack girth. Others have girth but are only three feet tall. Most are ten feet tall, or taller, and block the pale trickle of moonlight as I trudge on. Up ahead, I discern a promising candidate, but when I walk up beside it and examine it, I discover it has no boughs on its back side. Luckily, there’s a nicer one further on, so I head off in its direction. By now I’m suppressing shivers, and my sneakers – canvas; I put them on when I left Malibu -- are icy stiff and hard to lift. And the tree turns out to be ugly. Hideous. My grandparents always bought plastic ones. Smart people.
+
+I am not so smart. This realization strikes me when I notice that my bare right hand, which holds the saw, can no longer feel the saw. I tuck the tool up under my left armpit and blow on the hand, then put it in my pocket. I need to turn back; I’ll warm up and try again. But which way is back? I have no way to tell. The long straight lines of trees all look identical and lead off in every direction, a nightmare scene. That’s when my Cub Scout experience comes back to me: follow your footsteps. I do so. In a circle. I know it’s a circle because five minutes later I’m standing beside the ugly tree again.
+
+The moment when you know you’re lost – not merely disoriented or confused but truly, irrevocably lost – brings with it a sort of humiliating thrill. Can this really be? You’re alive, your brain is working, and you’re still the same person you were a moment earlier, but suddenly the world itself has changed. It is your foe, and you are not its equal. It requires your surrender. Silence falls.
+
+As a boy, Christmas spooked me. The candles flickering. The formal outfits, the hymns, the organ music. It felt like a funeral, not a birthday party. It felt like the solemn departure of life and light. I loved the gifts, the excitement around the tree, but the approach to this orgy of unwrapping resembled a procession through a graveyard. One Christmas Eve when I was eight or nine, my parents fought loudly while I was in bed and then I heard my father’s car drive off. It drove off with that sound of a thing that won’t return, which intends to disappear. In the morning, the early morning, before dawn, my mother materialized in my dark room and quietly ordered me to go on sleeping. “Santa needs more time,” she whispered. I lay there starkly awake for two more hours, aware of a turbulent, lengthy, muffled phone call occurring down the hall. I prayed and prayed. My prayers felt poignant, they touched me with their sweet sadness, and I knew myself as a tiny, noble soul carrying on in a cosmos beyond his reckoning. Then suddenly I smelled bacon frying downstairs. Bacon and eggs, my father’s favorite breakfast! And a radio playing carols! Oh, Tannenbaum!
+
+I decide to keep walking; otherwise I’ll freeze. I understand I’ll freeze anyway, eventually, but it seems crucial not to freeze immediately. At least when they find my body, they’ll know I’d tried. I hope my children will respect me for it. Amanda, my wife, their step-mom, will know the truth, of course – their dad was a fool who’d worn gym shoes into the mountains – but hers is a tender heart, so she’ll keep quiet. One step. Two steps. Lift those numb, doomed feet. The indomitable human spirit and all that. Even in death my ego is on the job, considering the legend I’ll leave behind. He wrote a few books. Two movies were made from them. He bought a nice house and managed to pay it off.
+
+I hear then the soft, far-off rumble of a large truck. I halt. The noise grows louder and changes pitch. From where is it coming? Or going? The Doppler Effect. How does it work, again? What are its rules? Then the sound dies away, a spirit leaving earth, but just as it does I have a brilliant thought: if I keep moving and hear a second truck I can judge by its volume relative to the first one if my steps have led me toward the highway or away from it. It doesn’t matter which direction I go, only that I cover sufficient ground. I set off like a bull, leaning hard into the snow. It occurs to me then that I haven’t thought things through. If I happen to be moving further from the highway, I may be unable to hear a second truck, assuming there ever is one.
+
+Around this time I see a a light. No noise yet, just a light. I have no idea what to make of this development. I’ve reached that stage of hypothermia when brain activity turns to heavy labor, like carrying a mattress or stacking logs. As the light sweeps through the woods it strobes and stutters, which strikes me as potentially instructive, if only I can decode the spectacle. It turns out that I don’t have to. Because that’s when the sound arrives, the engine roar, stronger, stronger, stronger than the last time, until its intensity matches the brightening light’s and the truth of my situation is revealed: I’m twenty yards from the highway, no more than that. What’s even more astonishing is that I’ve made another circle and am standing again beside the ugly tree, precisely at the point where I first panicked. My mind has tricked me. I wasn’t lost at all. Or I was lost, subjectively, but not objectively – not as seen from above, from an aerial perspective.
+
+If only I’d had an aerial perspective. If only we human beings ever did.
+
+I solve the remaining puzzles from my adventure once I’ve climbed back in the car and turned the heat on and taken off my shoes to warm my toes. Why did the two trucks have different sonic profiles if both were equally near to me? Not hard. The first truck must have been a small one, a pick-up rather than a semi, and I mistook its quietness for distance. Also, because it was lower to the ground, its lights, for some reason, didn’t pierce the forest. Or maybe I was facing the wrong way. It hardly matters now. I’ve survived. I’ve won.
+
+There is only one problem. I still don’t have a tree.
+
+PART TWO
+
+Ten or fifteen miles down the road, I come to a T-junction with a lesser road which runs off to my right into the woods. I see an opportunity and turn. Instead of having to walk to find a tree, I can drive along in comfort and survey my prospects from the car. I’ll hop out with my little saw and cut it down, lay it on the roof, uncoil the rope, and complete the whole chilly chore in a few minutes, emerging a hero from a night of troubles, with a wonderful story to tell my wife and kids. What’s more, if the gifts my wife already bought prove unworthy of my children’s hopes, the story will compensate. If I tell it well.
+
+The road into the forest is smooth and snow-packed, creating a pleasing crunch beneath my tires. I tool along, scanning. The trees are better here. I pass a dozen good ones, nicely conical, just tall enough to place a star on top of, but my saga deserves the climax of finding a great one. I drive a bit further, my radio playing carols, considering and rejecting pretty trees. The snow on their boughs brings partridge nests to mind. Does Amanda, my wife, have a bird-shaped ornament? She must, I conclude. She thinks of everything.
+
+A moment later my tires stops rolling.  A moment after that, my lights go out as my car seat jerks and shudders. I rapidly interpret these odd developments. My car has sunk straight down into the snow and is sinking still. But then it stops. I pass through amazement to the action stage, my emergency reflexes tuned by recent experience. I push at my door and meet extreme resistance, suggesting I’ve sunken fairly deep. I roll down my window, lean over and look down, confirming my analysis. Then I climb through the window and drop onto the road, afraid I might sink too. I don’t. The snow feels firm and it supports my weight.
+
+The road, upon inspection, is not a road. It’s a snowmobile trail, professionally groomed and covered in a grid of little squares. Beneath it is a good four feet of snow. My car has penetrated three of these, enough to entirely cover all four wheels as well as the tail pipe. A true disaster. Without a flow of exhaust into the air, I can’t climb back inside it and leave it running so as to maintain my body temperature through what I now know will be an endless night. I console myself by acting logically, the way an intelligent adult might act. I reach through the window and turn off the ignition, rezip my jacket, look off in every direction, and tilt back my head to admire the midnight sky. NORAD is tracking Santa’s sleigh right now, which is making deliveries in the western time zones. Except to one house. The house without a tree.
+
+On the console between my front car seats I glimpse my phone, which I doubt gets a signal here. It didn’t earlier. I lean back through the window and reach and grab it. Astonishingly, it turns on and shows one bar. I wait for the bar to vanish but it doesn’t, though I’m sure that it will the moment I try a call. I tap in the relevant numbers: 911.
+
+“Fremont County Sheriff,” says a voice. An Idaho sheriff, a mythic hero figure.
+
+After this, it’s mechanical. A series of chores. A tow truck is called with a winch and a long cable, longer than I imagined a cable could be. It takes about an hour to arrive, during which time I phone Amanda and quell her panic by speaking calmly and clearly and leaving out the dark details of my story. The truck follows my tire tracks along the trail and stops at the point where they deepen, where it might sink. Then the driver unfurls the cable, which has a hook, and latches it to a spot near my rear bumper. I expect that the process of winching my car backwards through four feet of snow will tear apart the chassis, but my car is a German model, so maybe not. In the middle of this a deputy arrives, a moon-faced blonde young woman in a black ski cap. We chat while the cable tugs my car along, slowly at first but then with real momentum, causing it to rise up atop the snow and skid along quite nicely. She asks me why I’m out here this late at night and I wonder if I should answer truthfully, as maybe it’s illegal to cut a tree here. Then again, it’s Christmas. I’d best not lie.
+
+“That was stupid,” she says when I finish.
+
+“Yes. It was.” I don’t tell her about the first part of the stupidity.
+
+“You could have found one back along the highway.”
+
+And once I’m safely driving behind her cruiser, again on my way, I spot it, stop my car, wait until she’s gone, and claim my prize. By three in the morning, it’s standing in my house, and at eight in the morning, before my kids come over, I wake up Amanda to decorate its boughs.
+
+Our Christmas trees have been plastic ever since

@@ -1,0 +1,43 @@
+<h2>A Linguist's Window Into the Machine</h2>
+
+<p>Kenny Easwaran's lecture on large language models stands out from the flood of AI explainers for one reason: it comes from a philosopher of science who understands both what linguists have historically believed about language and why those beliefs turned out to be wrong. Rather than offering the usual "neural networks are like brains" hand-waving, Easwaran grounds his explanation in a specific claim that deserves more scrutiny than it typically receives.</p>
+
+<blockquote>An LLM is a way to guess the probability of what word comes next. And there's three important words here: the probability of what word comes next.</blockquote>
+
+<p>This framing is deliberately reductive, and Easwaran knows it. The power of the lecture lies in how he unpacks the implications of that simple definition, particularly the ways it confounded decades of linguistic orthodoxy. Twentieth-century linguists, he explains, were convinced that probabilistic prediction of language was a dead end. Language was too complex, too entangled with world knowledge, too dependent on deep grammatical structures that surface word order could never capture. The transformer architecture proved them wrong, and Easwaran is refreshingly honest about what that means for his own field.</p>
+
+<h2>The Markov Chain Trap</h2>
+
+<p>The strongest section of the lecture walks through why simple probabilistic models fail and how transformers fix them. Easwaran presents a clean dilemma: a Markov process with three words of memory can produce grammatical-sounding text but will inevitably lose track of subject-verb agreement and other long-range dependencies. Expand the memory window and a different problem emerges — the sequences become so specific that they never appeared in the training data at all.</p>
+
+<blockquote>If you have too few words you can't ensure that it's grammatical. If you have too many you too often run into sequences that have never occurred before.</blockquote>
+
+<p>This is where attention mechanisms enter the picture. Rather than looking at every word in a long sequence, transformers learn to attend selectively to specific features of specific words — femaleness, verb tense, semantic relatedness to food. Easwaran's toy example of "she" triggering a search for a female referent, which in turn activates context about drinking, is an effective illustration even if it dramatically simplifies the actual multi-head attention mechanism. The key insight he conveys is that attention allows matching on abstract features rather than exact word sequences, sidestepping the data sparsity problem entirely.</p>
+
+<h2>Where the Lecture Pulls Its Punches</h2>
+
+<p>For all its strengths, the lecture underplays several important developments. Easwaran describes reinforcement learning from human feedback as a relatively thin layer applied on top of the base model, noting that "it apparently doesn't take a lot of RLHF in order to train it to do a pretty good job." This was arguably true for early ChatGPT, but the alignment landscape has shifted considerably. Constitutional AI, direct preference optimization, and iterative refinement processes now represent substantial engineering efforts, not minor tweaks. The suggestion that RLHF is a small addition risks leaving students with an outdated mental model of how modern systems are built.</p>
+
+<p>There is also a notable absence of any discussion of scaling laws, emergent capabilities, or the relationship between model size and performance. When Easwaran says the training data "may include almost everything that's on the internet," he skips over the fundamental question of why more data and more parameters produce qualitatively different behavior. The jump from GPT-2 to GPT-4 was not simply a matter of better next-token prediction on more text — or if it was, explaining why that produces reasoning-like behavior is the central mystery of the field, and it deserves more than a passing mention.</p>
+
+<h2>Confabulation and the Human Analogy</h2>
+
+<p>The most thought-provoking section compares LLM hallucination to human confabulation. Easwaran points out that people routinely misremember famous movie lines — "Houston, we have a problem" and "Play it again, Sam" are both fabrications that entered cultural memory through collective misremembering. He extends this to children who confidently explain things they do not understand.</p>
+
+<blockquote>Kids will often give really interesting answers to that question that they're just making up. Now they don't realize that there's a difference between making things up and actually knowing the truth because they don't know that very much of the truth.</blockquote>
+
+<p>This analogy is illuminating but also somewhat dangerous. Human confabulation occurs within a system that has genuine world models, embodied experience, and the capacity for self-correction when confronted with evidence. LLM hallucination occurs within a system that has statistical patterns and no grounding mechanism whatsoever. Drawing too tight a parallel risks anthropomorphizing the failure mode in ways that obscure its actual cause. When a person misremembers a movie quote, they are retrieving from a corrupted but genuine memory trace. When an LLM fabricates a court case, it is generating a plausible-sounding token sequence that was never grounded in any fact to begin with. The surface similarity masks a fundamental difference in mechanism.</p>
+
+<p>That said, Easwaran's broader point has merit. Both humans and LLMs produce confident-sounding output that blends accurate information with fabrication, and neither system always knows which parts are which. The practical implication — that users should verify LLM outputs just as they should verify human claims — is sound advice regardless of whether the underlying mechanisms are truly analogous.</p>
+
+<h2>The Chomsky Question</h2>
+
+<p>Running beneath the entire lecture is an implicit argument against Noam Chomsky's framework. Chomsky famously argued that surface-level statistical patterns could never capture the deep structure of language, that sentences like "where is he going?" require transformational rules operating on an underlying representation. Easwaran acknowledges this directly:</p>
+
+<blockquote>Large language models don't worry about the deep structure. They just go word by word and yet they manage to get these patterns just right. And so the fact that it works somehow tells us something really deep and powerful.</blockquote>
+
+<p>This is a significant claim that Easwaran somewhat buries in a transitional moment. If next-token prediction on sufficient data can produce grammatically correct language without any explicit representation of deep structure, it challenges one of the foundational assumptions of generative linguistics. Whether it actually refutes Chomsky or merely shows that deep structure can be implicitly learned through statistical patterns is a debate that continues in computational linguistics. Easwaran, perhaps wisely for an introductory lecture, does not take a strong position, but the implication hangs in the air.</p>
+
+<h2>Bottom Line</h2>
+
+<p>Easwaran delivers one of the more intellectually honest introductions to large language models available. His willingness to explain what linguists got wrong, rather than simply celebrating what engineers got right, gives the lecture a depth that most AI explainers lack. The treatment of RLHF and scaling is thin, and the human-LLM analogy needs more caveats than it receives, but the core explanation of attention mechanisms and why probabilistic prediction works despite decades of expert skepticism is both accessible and genuinely informative. For readers encountering these concepts for the first time, this is a strong starting point — provided they follow it with material that covers the developments Easwaran leaves out.</p>

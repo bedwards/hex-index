@@ -1,0 +1,122 @@
+---
+title: "What Canada Gets Wrong in Its Reset with China"
+author: "The Walrus"
+publication: ""
+publication_slug: "thewalrusca"
+published_at: "2026-01-29T12:03:21.000Z"
+source_url: "https://thewalrusca.substack.com/p/what-canada-gets-wrong-in-its-reset"
+word_count: 2828
+estimated_read_time: 15
+---
+
+[
+
+![](https://substackcdn.com/image/fetch/$s_!USX_!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F07e98c37-1d8d-4a2a-bef4-2c840fef92c1_1536x1024.jpeg)
+
+
+
+](https://substackcdn.com/image/fetch/$s_!USX_!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F07e98c37-1d8d-4a2a-bef4-2c840fef92c1_1536x1024.jpeg)
+
+*Sean Kilpatrick/Canadian Press*
+
+***This story was originally published on [thewalrus.ca](https://substack.com/redirect/6724e0ea-b2cc-4ca3-a9ad-5eee939a79f1?j=eyJ1IjoiMTE4NDZqIn0.ozA5PSxbSN0x16bPpbCD5X5fFnr356iXYFCWdWvHSLk)***
+
+**By [Vikram Nijhawan](https://thewalrus.ca/author/vikram-nijhawan/) and [Dan Wang](https://thewalrus.ca/author/dan-wang/)**
+
+**During his recent delegation** to Beijing—the first by a Canadian prime minister since relations between the two countries became strained in 2018—Mark Carney agreed to allow 49,000 Chinese electric vehicles into the Canadian market at a reduced tariff rate. The move was presented as a pragmatic reset that could draw joint-venture capital back into Canada’s auto corridor and offer relief to an industry squeezed by United States president Donald Trump’s trade war.
+
+With Ottawa attempting to patch its trade relationship with Beijing, it felt like the right moment to speak with Dan Wang.
+
+Wang is a Canadian writer who covers technological, macroeconomic, and geopolitical dynamics between China and the US. His book *Breakneck: China’s Quest to Engineer the Future* was one of last year’s most talked-about works of nonfiction.
+
+At its core, *Breakneck* argues that political power in the US is dominated by lawyers, while, in China, it is largely held by engineers—and that these contrasting professional cultures produce profoundly different approaches to industrial policy and trade: regulatory caution and incremental growth on one side, rapid manufacturing scale and infrastructure build-out on the other.
+
+As Canada tests a recalibrated relationship with China, I wanted Wang’s perspective on how a middle power can navigate an era of intensifying great-power rivalry—and what trade deals can realistically achieve. He spoke to me over video call from his home in Palo Alto, California, about all of this and more. The conversation has been lightly edited for length and clarity.
+
+\---
+
+#### **You can’t share stories from** ***thewalrus.ca*** **on Facebook or Instagram because of Meta’s response to the [Online News Act](https://thewalrus.ca/why-you-might-stop-seeing-canadian-news/), but you can share this Substack article there**
+
+\---
+
+**To start, I wanted to talk a bit about this concept you popularized: the lawyer/engineer binary. There are people I speak to who have no real investment in great-power competition, but they’ve nonetheless heard about the concept through the ether. It strikes me as kind of like a Malcolm Gladwell “10,000 hours” thing. I’m curious about how you found this framing.**
+
+You may not be invested in great-power competition, but great-power competition is interested in you. That’s the first thing. Maybe that’s part of why this idea has reached “the ether.” My feeling in writing a book about China is that, in the wrong hands, China is a super boring subject because of how complicated everything is. I think we need to do better, because we need to understand this big place.
+
+I was very deliberate in not trying to under-explain China and the US through boring political science terms like “capitalist,” or “socialist,” or “democratic,” or “authoritarian.” They’re all correct in many ways, and we didn’t necessarily need another framework that suffers a lot of flaws and can be reductive—but my concept is probably no worse than trying to understand countries through this idea that they’re socialist or capitalist. And so, I think what we need are new angles, new lenses, to think about both the US and China. This was my attempt to make a playful contribution.
+
+**You’ve used adjectives like “tidy” and “[reasonable](https://www.theglobeandmail.com/business/article-business-brief-canadas-other-deficit/)” to describe Canada and its governing mentality. Speak a little bit more about that. Where do you see Canada along this lawyer/engineer continuum?**
+
+Canada, as “peace, order, and good government,” is as good an encapsulation as any. But I think it is still a bit of a boring encapsulation. If the US is a lawyerly society, I don’t know what that makes Canada—a fur-trading society?
+
+But I think the problem is that it’s a privilege of the great powers to have some sort of specialization, and maybe it doesn’t even make sense for any other country to be quite dominated in a similar way. I am just reluctant to extend my framing of lawyers and engineers anywhere in industrialized Western countries beyond the US and China. I think all these middle powers are more reasonable, but they’re also weaker in substantial ways.
+
+**Can you just speak a little bit more to that point of specialization and how it’s harnessed by the great powers?**
+
+There’s a term from Edward Luttwak, a Romanian-American political theorist, called “great-power autism.” He means great powers don’t really have a good theory of mind for how other countries are. I think the Americans are better at understanding the rest of the world than the Chinese are. But still, America sometimes just thinks about itself and treats itself as being a great power and sees other countries as having to bow down to it.
+
+I think the Chinese are even more so, and they have this kind of raw craving for geopolitical power in a way that’s not available to Canada or Denmark or South Korea. Given that these smaller countries must be mindful of where they fit within the ruthless Darwinian ecosystem, they just have to get along a little bit more, whereas the great powers are more willing to run roughshod over others.
+
+**Your family moved from China to Canada during your childhood and then to the US during your early teenage years. How do you look back on your life here in Canada, in a sense, being between these two powers that you speak about—China and the US—and how did that shape your view on them?**
+
+I’m very fond of my Canadian childhood, and I’m very fond of Canada, as well as the idea of Canada. We moved to Mississauga when I was seven. Shortly after that, we moved to Ottawa, which is where I lived until age sixteen, when we moved to the suburbs of Philadelphia.
+
+What I am grateful for was to have grown up among a very multicultural, multinational community in Ottawa. It was really striking. I split high school halfway, between Ottawa and Bucks County. Lisgar Collegiate Institute, where I went to high school, was super diverse, and I moved to a high school that was right beside a cornfield in Pennsylvania that was, I believe, 96 percent white, according to the official statistics. And so, Canada felt much more multicultural to me.
+
+And the other part that I really appreciated about Canada was that I was a Royal Canadian Army Cadet. I remember marching in the Remembrance Day ceremony at the national cenotaph, and that was where I learned a lot of good life skills. I’m fond of Canada in all sorts of ways. I want the country to do well.
+
+**There’s a quote from your most [recent letter](https://danwang.co/) where you say, “After a man turns thirty, he has to choose between specializing in the history of the Roman Empire or the world wars.” I’m sure you didn’t mean that as a literal imperative, but I’m just curious to know how that informs your view on the US and China’s conflict?**
+
+I read books about the world wars because, first of all, it’s just incredible history. These are the two most titanic struggles that humanity has ever engaged in. So how can one *not* think about this whole societal and economic mobilization in both world wars across all these different regions?
+
+Distressingly, we are moving into a world in which there is this potential rising power, China, confronting the dominant power, the US. Nothing is a foregone conclusion, but at the very least, we can say these two powers have an adversarial relationship. The biggest thing that we should think about—that most of the population in the world ought to think about—is how to make sure that there is no hot conflict between these two great powers. A few million people died over the course of World War I, and many more millions died in World War II. You don’t want to get in a situation where the order of magnitude rises one more time.
+
+**I’m sure that you have been following the details of the newest bilateral trade deal between Canada and China. I’d love to hear your initial thoughts on that, based on some of the things you’ve written about in terms of larger economic and industrial trends.**
+
+The first thing to try getting a grip on is how big a trade deal this is. A lot of the headlines are focused on the 49,000 electric vehicles coming into Canada and whether this becomes the beachhead for much greater Chinese investment into the country and how the US is going to react to the Chinese automotive supply chain embedded within North America. But there are also all sorts of questions about the extent to which China can actually become more integrated into Canada—not least because Canada has been one of the sharp tips of the spear, along with Australia and a couple of other countries—in being fairly confrontational against China over the last couple of years. The Chinese aren’t going to forget that, and no Canadian can forget that China [detained two hostages](https://thewalrus.ca/canadians-killed-in-china/) as part of the drama over Huawei. So, these things aren’t easily put to bed.
+
+China is also not a friendly power in many ways. So, when Carney cites Václav Havel in his Davos speech, one has to ask: What would Havel, a famously anti-communist leader, say about the Chinese Communist Party right now? Would he encourage Canada to embrace a regime that is nominally communist and definitely authoritarian?
+
+**What are your other takeaways from the [speech](https://thewalrus.ca/carney-speech-world-economic-forum/) the prime minister gave on Tuesday at Davos?**
+
+First, it seems to have gone very viral. A lot of my American friends in California, who have nothing to do with Canada, have been sending it to me. It seems like a great inspirational speech—compared to Trump’s rambling speech, Carney’s feels very sane. Carney is highly technocratic. I’d always thought, “Which country would willingly elect the International Monetary Fund to govern it?” but it seems like Canada has made that choice. Maybe technocratic leadership is what the electorate really craves at the moment. If so, great, let’s see if Carney can deliver.
+
+**Even before his appearance at Davos, there’s been a lot of talk recently about how we’re returning to a world of multipolarity, where no single nation can consistently set the rules—a view Carney seemed to confirm in his speech. Would you agree with that?**
+
+Maybe. I think “multipolarity” is more of a rhetorical term than anything that actually reflects real power in the world. So, is the European Union a great power? On paper, yes—with over 400 million people, it’s a giant economy with a big population. In practice, it’s twenty-seven countries that cannot get a consensus and that have been pushed around pretty extensively by both Beijing and Washington, DC.
+
+Canada can make appeals to multipolarity and maybe band together with Europe and parts of rich Asia. But in practice, how do we actually achieve a more balanced order? The US and China are very powerful and are also willing to throw their weight around, with Trump simply abducting the head of state of Venezuela. Is this an achievement of multipolarity? It seems like an achievement of bullying to me. Multipolarity is not the product of rhetorical appeal; it is the product of raw power. I want to see if the middle powers can achieve that.
+
+**To return to this trade deal, what do you think each side—Canada and China—is getting out of it, and who do you think might be more advantaged?**
+
+If we look at Canada’s exports to China, nearly 90 percent of it consists of some form of commodities: food, canola, and ore. When we took a look at the big headline—Canada is getting electric vehicles, and China is getting canola—you have to wonder, which is the developing country here, and which is the developed country?
+
+I have been a technology analyst. I worked in China. I used to work in Silicon Valley. I’m now at Stanford, where I still spend a lot of time thinking about technology. I think that Silicon Valley understands the political elements of technological power, and China understands the political elements of technological power. And I think that, somehow, it is still understated. I would like to see if Canada can build greater technological power, whether that is through something like artificial intelligence or quantum computing. Maybe China can invest more in Canadian electromagnetic capabilities through EVs, as well as everything else.
+
+As I’ve [recently written](https://www.nytimes.com/2026/01/19/opinion/trump-energy-china-future.html?unlocked_article_code=1.FlA.7OU4.ln7f8bK207An&smid=nytcore-ios-share) elsewhere, Trump attacked Venezuela to seize oil that it doesn’t really need, while China is trying to build the electric age. Is Canada going to be part of the electric age or is it still going to be dependent on the age of hydrocarbons, which feels like the past not the future? How does Canada become more future-looking?
+
+**Where do you see the potential growth opportunities for Canada in those ways?**
+
+What I value is technological power. Canada has trends in AI and quantum, and maybe it can get aboard the electric train too. But as an outside observer, who hasn’t lived in the country for a long time, I’ve mostly watched Canada with concern over the Justin Trudeau years. What I see is that investment has collapsed. That its economy has been weak and heavily dependent on extractive industries. It did not seem to me as if Trudeau was even aware of this problem. I found it odd that as soon as Trudeau was elected, he spoke to the *[New York Times](https://www.nytimes.com/2015/12/13/magazine/trudeaus-canada-again.html?_r=1)* and said, “Canada is a post-national power,” that “we have no mainstream, no core Canadian identity.” That’s where you wonder: Would someone like Trump or Chinese president Xi Jinping go to a foreign newspaper to say, “Yeah, we don’t really have mainstream values”?
+
+That is just a fantastically Canadian thing to do, and it seems like Trudeau, in particular, was much more concerned with saying the right things on Indigenous rights or other social issues, which are all important things, but to not have a conception of economic growth or national power? This is something that you cannot accuse the Chinese or the Americans of not valuing. They crave power. They enjoy economic growth. They are societies that lionize entrepreneurs. And ultimately, this is how you build a lot of power. This is something that middle powers need to understand, rather than being mostly focused on social issues.
+
+**I imagine you know a lot of people who still live here in Canada. How are they reacting to everything that’s unfolding?**
+
+I’ll share a sense of how Canadians in Silicon Valley and New York are reacting; I think that there is a sense of fondness about what Canada has been doing and a sense of hope that it could do better. Canada has great universities that produce a lot of very talented people, but the salary differentials in California and New York are just so much higher than what even Toronto can offer.
+
+I’ll speak again for myself; one interesting thing about Canada is that it hasn’t produced a lot of really important brands or companies. I’m not talking about the past few years but over the past few decades. And I say this as someone who worked at Shopify, so I think we can identify some exceptions. Shopify, Lululemon—these are more or less household names in the US. But with one-tenth of the US population, Canada has not produced one-tenth of the number of comparable brands that even Canadians can name. So, I think, coming back to technological, economic, and corporate power, that is where Canada needs to build better.
+
+**In the context of this trade deal and Carney’s speech and recognition of realignment, do you think that Canada has evinced an understanding of where this new global system is going? Is it doing a good thing to hedge between these two systems, the US and China?**
+
+Yes, I think that there is a good understanding of what the new world is. The question is, what will it do about it? Because building power is challenging. Increasing investment and building greater brands, companies, and technologies—that’s something that lasts decades.
+
+“Hedging” is a great term, but what does it actually mean? How is Canada going to properly hedge? If it hedges more towards being closer to China, what is going to happen to the Ontario automotive sector? One could imagine that Washington gets irate about Chinese electric vehicles in North America, which the Joe Biden administration, a few years ago, declared to be a national security risk. So, hedging sounds great as an idea, but something that’s difficult to achieve in practice, just as hard work and capacity-building are as well.
+
+**There was a line from** ***Breakneck*** **where you’re talking about a lesson you learned from your time in the cadets: that the hardest problems have the simplest solutions, or something along those lines. That feels apt for your prescription for Canada.**
+
+The hardest problems don’t have the simplest solutions. But rather, if we can just consider them to be the easiest, then we need to tackle them first—to treat the most difficult things as the most simple things. That’s what the cadets helped me learn.
+
+**[Vikram Nijhawan](https://thewalrus.ca/author/vikram-nijhawan/) is an editorial fellow at The Walrus.**
+
+**[Dan Wang](https://thewalrus.ca/author/dan-wang/) is a research fellow at the Hoover Institution at Stanford University. His book** ***Breakneck: China’s Quest to Engineer the Future*** **came out in 2025.**

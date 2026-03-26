@@ -1,0 +1,128 @@
+---
+title: "DeepSeek distilling Open AI?; Japan seizes PRC fishing boat; US-China; CIA video targets PLA; Spring Festival Internet cleanup "
+author: "Bill Bishop"
+publication: ""
+publication_slug: "sinocism"
+published_at: "2026-02-13T00:36:46.000Z"
+source_url: "https://sinocism.com/p/deepseek-distilling-open-ai-japan"
+word_count: 2321
+estimated_read_time: 12
+---
+
+The newsletter will be off next week as all of China is on vacation for the long Spring Festival holiday. But if anything particularly interesting happens I will be back in your inbox, and of course you can always check in on the Sinocism [chat](https://substack.com/chat/2). Happy Year of the Horse! 马年大吉!
+
+I did an interview with Isaac Chotiner of the New Yorker magazine to discuss “[Xi Jinping’s Purge and What Trump’s Foreign Policy Means for China](https://www.newyorker.com/news/q-and-a/what-does-xi-jinping-want?_sp=92c6cfbf-1fd4-4182-9786-43a61d5654ca.1770931529737)“. It is behind the paywall, but here is an excerpt:
+
+> Q: Does the purging of Zhang Youxia make sense within this strategy, or does it seem like something new?  
+>   
+> Zhang was promoted and thrived during the incredibly corrupt era of Hu’s leadership. He oversaw, for a period of time, the P.L.A.’s equipment department and its weapons-development and -acquisition programs, which, given how much the P.L.A.’s budget has increased over the past several decades, had massive graft opportunities. And, since that Gutian meeting, the C.C.P. has been rooting through the top ranks of the P.L.A. Now, the Central Military Commission has been reduced from seven members to Xi and one vice-chairman: Zhang Shengmin.  
+>   
+> But why now, and why so quickly? That is something that I don’t have a great answer for. And I have not found anybody who has a great answer. Some people argue that, in order to make an accusation like this, you have to work up the vine, and you have to build cases, which becomes harder and harder the more senior they are. There are rumors that Zhang was building a putsch against Xi. But I think that’s bullshit, and ultimately we really don’t know. It is such a black box.  
+>   
+> One theory behind Xi’s military purges you did not bring up was that he wants people who are in line with his foreign-policy priorities.  
+>   
+> I talked about how he needed to clean out corruption because he wanted to build a professional fighting force. That is absolutely one of the reasons. It’s about the combination of control over the P.L.A. and ensuring the P.L.A. leadership has the right political standing or political positioning, but it is also about having an actually competent P.L.A. that has good weapons, and can fight. The leadership is constantly talking about fighting and winning. Xi’s stated goals for the P.L.A. are all about actually being able to fight and win wars and becoming a world-class army.  
+>   
+> Q: Sure, but any leader of any country, democratic, nondemocratic, whatever else, is going to want a military that’s competent. But you may also want a military leadership explicitly aligned with your foreign-policy priorities, whatever those may be. And those strike me as different things.  
+>   
+> A: I think what you’re getting at is the speculation out there that perhaps this latest round of purges was triggered by the fact that Zhang Youxia was not aligned with Xi on Taiwan, for example, and that there was some sort of discord between what Xi thought the P.L.A. should do and what the generals wanted. It’s possible, but I am skeptical of that because I think that the way the system is structured, it would be pretty shocking if the most senior generals had been really pushing back on Xi around that. It’s possible, but we just don’t know, and that’s the problem...  
+>   
+> Q: How much harder is it to get information about Xi than it was about his predecessors?  
+>   
+> A: It’s much harder now, but it’s not just harder for foreigners; it’s also harder for people in China. The information flows have been massively constricted by design, both internally and externally. He is a leader at a unique time in Chinese history where you could argue it’s, at least in the modern era, the richest and most powerful it’s ever been. And so it has capacities and capabilities and resources that his predecessors could only dream about.  
+>   
+> It doesn’t really get talked about much in the media, or the Western media, but—leaving aside China’s push for economic decoupling and their requests for self-reliance in a whole bunch of areas, which are completely legitimate, especially given the way the U.S. has restricted China’s access to certain key technologies—China is also undergoing a significant push to decouple intellectually, led by Xi. They are very much talking about this idea of Chinese modernization, and it’s very explicitly presented as modernization that is not Western modernization. Western modernization led to all sorts of colonial, imperialist predation. They’re trying to build a whole Chinese knowledge system, whether it’s economics, philosophy, or social sciences, to effectively decouple from the Western systems that have dominated intellectual thought for the last decades or centuries. And so there’s something deeper there than simply wanting to have a big and powerful country with a really strong military and be really rich.
+
+You can read the whole interview [here](https://www.newyorker.com/news/q-and-a/what-does-xi-jinping-want?_sp=92c6cfbf-1fd4-4182-9786-43a61d5654ca.1770931529737).
+
+**Today’s top items:**
+
+**1\. [DeepSeek stealing from OpenAI?](https://sinocism.com/i/187772206/1-deepseek-stealing-from-openai) -** Bloomberg [reports](https://www.bloomberg.com/news/articles/2026-02-12/openai-accuses-deepseek-of-distilling-us-models-to-gain-an-edge) that OpenAI has sent a memo to the House Select Committee on China accusing DeepSeek of surreptitiously distilling OpenAI models to “free-ride on the capabilities developed by OpenAI and other US frontier labs.” I thought this was an open secret? And yes, I understand the irony of industrial-scale copyright violating OpenAI accusing another firm of IP theft. But if true, it does dent the narrative around DeepSeek, especially as everyone expects their next model within the next few days, which is probably why OpenAI sent (and leaked?) this memo now. But it is not just DeepSeek; Kimi’s latest model was [caught referring](https://x.com/ohlennart/status/2022052342292787213?s=20) to itself as Claude. **Update: Here is OpenAI’s full [memo](https://assets.bwbx.io/documents/users/iqjWHBFdfxIU/rRmql_jJcxb4/v0).**
+
+**2\. [Japan seizes PRC fishing boat](https://sinocism.com/i/187772206/2-japan-seizes-prc-fishing-boat) \-** Japanese media is reporting that Japan’s Fisheries Agency has [seized](https://english.kyodonews.net/articles/-/70463) a PRC fishing vessel and arrested its captain inside its EEZ. This has happened occasionally in years past, but given the current of the PRC-Japan relationship this is worth watching, and hoping it does not escalate.
+
+**3\. [Directive to curb excessive price competition in the auto sector](https://sinocism.com/i/187772206/3-directive-to-curb-excessive-price-competition-in-the-auto-sector) -** On Thursday, the State Administration for Market Regulation (SAMR) issued the “Guidelines for Price Compliance in the Automotive Industry,” a direct response to the central leadership’s call to stamp out “involution-style” competition. The regulator is effectively trying to put a floor under the market, explicitly targeting “significantly low prices” and mandating that manufacturers and dealers stop the bloodletting that has defined the NEV and internal combustion sectors alike.
+
+The guidelines cover everything from component sourcing to the showroom floor. Manufacturers are being told to establish “whole-chain” price management and avoid “unfair” pricing—regulatory code for dumping cars below cost to kill competitors. For dealers, the focus is on transparency and ending the bait-and-switch tactics of false promotions. Notably, the rules encourage platforms to issue “risk warnings” when prices dip too low, framing deep discounts not as a consumer win, but as a potential trap for buyers and an operational risk for sellers. This is another clear signal that the government views the current race to the bottom as a systemic threat to the industry’s “high-quality development.”
+
+I have posted a translation of the guidelines [here](https://docs.google.com/document/d/1miGPASNztKccb3Q-B8-VQt2l61-ZB7y-U8H3OyhU8ZE/edit?tab=t.0).
+
+**4\. [US-China ahead of the Trump-Xi meeting](https://sinocism.com/i/187772206/4-us-china-ahead-of-the-trump-xi-meeting) -** The South China Morning Post [reports](https://www.scmp.com/news/china/diplomacy/article/3343240/trump-and-xi-expected-extend-trade-truce-beijing-summit?module=top_story&pgtype=subsection) that President Trump may travel to Beijing as early as March 31. Is the Chinese side still considering some sort of military parade for Trump?
+
+**5\. [CIA recruiting video targeting PLA officers](https://sinocism.com/i/187772206/5-cia-recruiting-video-targeting-pla-officers) -** The CIA has issued another Chinese-language video encouraging unhappy insiders in the PRC to spy for the US. This latest one targets PLA officers.
+
+The narration:
+
+> This is the world I know. Protecting our homes and defending our country. Protecting the people. 这是我熟悉的世界. 保家卫国. 保护人民
+> 
+> Yet day after day, the truth becomes increasingly clear. What the leaders are truly protecting is only their own self-interest. Their power is built on countless lies. 然而日复一日 真相越发显而易见, 领导们真正正在保护的只有他们自己的私利. 他们的权力建筑在无数的谎言上
+> 
+> But now, these ramparts of lies are crumbling, leaving us to pick up the pieces. Anyone with leadership ability is viewed as a threat and ruthlessly eliminated. 但现在这些谎言壁垒逐渐坍塌, 最后留下给我们的就是收拾残局. 任何有领导能力的 人必定遭受忌惮 被无情绞杀.
+> 
+> I cannot let these madmen shape the world of my daughter’s future. 我不能让这些狂人来塑造我女儿未来的世界
+> 
+> Experience tells us that the greatest victors are those who win without fighting. But these men, who have never seen war, cannot wait to send us to the battlefield. 经验告诉我们不战而胜者才是最大的赢家. 但这些未经战火的人却迫不及待想让我们投身沙场.
+> 
+> I am a soldier. My duty is to protect the people and guard the motherland. 我是个战士 我的职责是保卫人民 守护祖国.
+> 
+> Choosing this path is how I fight for my family and my country. 选择这条道路就是我为家为国的战斗方式
+
+It seems strange the PLA would display a map of China that does not include Taiwan. Did the CIA do it intentionally to attract criticism, and thus more attention, to the video?
+
+[
+
+![](https://substackcdn.com/image/fetch/$s_!DQeF!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fe7b4da75-fad0-4949-a2b2-fd1ae8d8de0e_1130x626.png)
+
+
+
+](https://substackcdn.com/image/fetch/$s_!DQeF!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fe7b4da75-fad0-4949-a2b2-fd1ae8d8de0e_1130x626.png)
+
+**6\. [Spring Festival Internet cleanup](https://sinocism.com/i/187772206/6-spring-festival-internet-cleanup) -** China’s internet watchdog has kicked off its annual pre-Spring Festival cleanup, and this time, AI is in the crosshairs. The Cyberspace Administration of China (CAC) launched a month-long “Qinglang” campaign to ensure a “festive” atmosphere for the 2026 holidays, but the standout feature this year is a crackdown on generative AI. The goal is to scrub platforms of the low-quality, nonsensical “slop” that mass production tools are churning out. Among the targets:
+
+> Maliciously inciting negative emotions. First, promoting and advocating bad values such as no marriage and no childbearing, or anti-marriage and anti-childbearing, provoking gender opposition, and playing up “marriage fear” and “childbearing anxiety”. Second, showing off wealth and fighting for wealth in the name of “New Year’s goods procurement” or “Spring Festival custom competition”, maliciously provoking comparison and opposition. Third, organizing and participating in online “fan circle” activities under the guise of the Spring Festival Gala, Spring Festival movies, popular sports events, etc., provoking stepping on each other and tearing each other apart.
+> 
+> Generating and spreading “digital swill” and other garbage information. First, using new technologies and applications such as AI to mass-generate low-quality content that is logically chaotic, empty of information, and highly identical. Second, abusing AI technology to implant vulgar and violent content into classic animations, film and television works, etc., for playful spoofs. Third, “magically changing” literary classics, historical allusions, etc., distorting and deconstructing excellent traditional culture. Fourth, mass-concocting copy and plots such as “parental partiality”, “mother-in-law and daughter-in-law conflicts”, and “siblings fighting each other” that play up family conflicts and intergenerational conflicts to market hype and gain traffic. Fifth, using AI to mass-generate so-called “chicken soup online articles”, “domineering CEO cool dramas”, “expert popular science” and other graphic and short video content, affecting netizens’ cognitive judgment.
+
+The CAC also recently penalized tens of thousands of social media accounts on platforms including Weibo, Wechat and Douyin for failing to label AI-generated content. Some were accused of creating fictional stories — such as a dog rescuing a baby at a train station or defusing a bomb. Others were accused of using AI to impersonate celebrities sending New Year’s greetings, and some peddled AI courses and software.
+
+Thanks for reading.
+
+\---
+
+#### 1\. DeepSeek stealing from OpenAI?
+
+**[OpenAI Accuses China’s DeepSeek of Distilling US AI Models to Gain an Edge - Bloomberg](https://www.bloomberg.com/news/articles/2026-02-12/openai-accuses-deepseek-of-distilling-us-models-to-gain-an-edge)**
+
+> OpenAI has warned US lawmakers that its Chinese rival DeepSeek is using unfair and increasingly sophisticated methods to extract results from leading US AI models to train the next generation of its breakthrough R1 chatbot, according to a memo reviewed by Bloomberg News.  
+>   
+> In the memo, sent Thursday to the House Select Committee on China, OpenAI said that DeepSeek had used so-called distillation techniques as part of “ongoing efforts to free-ride on the capabilities developed by OpenAI and other US frontier labs.” The company said it had detected “new, obfuscated methods” designed to evade OpenAI’s defenses against misuse of its models’ output.  
+>   
+> OpenAI began privately raising concerns about the practice shortly after the R1 model’s release last year, when it opened a probe with partner Microsoft Corp. into whether DeepSeek had obtained its data in an unauthorized manner, Bloomberg previously reported. In distillation, one AI model relies on the output of another for training purposes to develop similar capabilities...  
+>   
+> “DeepSeek should have been a wake-up call about the dangers of selling advanced semiconductor chips to the CCP. Using less powerful Nvidia chips, China developed the most advanced open-source models on the planet,” Republican Representative Michael McCaul, who formerly led a House panel with export control oversight, said last year in the wake of the H200 decision. “I shudder to think of what they might do with more advanced hardware like the H200 chips.”
+
+**Related: [Caixin Analysis: China Bets on Chip Clusters to Survive U.S. Sanctions](https://www.caixinglobal.com/2026-02-12/analysis-china-bets-on-chip-clusters-to-survive-us-sanctions-102413919.html)**
+
+> the push for massive supernodes has drawn skepticism regarding its technical viability and market demand. A source at a domestic AI chip manufacturer said that due to restrictions on advanced manufacturing processes and HBM purchases, Chinese firms are forced to stack more chips to bridge the performance gap with global leaders. While understandable as a technical workaround, this approach dramatically increases system complexity.  
+>   
+> Expanding a cluster to hundreds of chips multiplies the requirements for heat dissipation, power supply, communication and system stability, making the engineering challenge immense, the source said. These large-scale systems, often costing tens of millions of yuan, are primarily targeted at specific inference scenarios for big state-owned enterprises rather than the broader commercial market.
+
+**[Applied Materials to pay $252 million over illegal exports to China - Reuters](https://finance.yahoo.com/news/applied-materials-pay-252-million-013041374.html)**
+
+> The U.S. Department of Commerce on Wednesday announced a $252 million settlement with Applied ‌Materials for illegally exporting chipmaking equipment to China’s top chipmaker Semiconductor ‌Manufacturing International Corp.  
+>   
+> In documents released on Wednesday, the Commerce Department said Applied Materials shipped ion implanters - ​a critical piece of equipment for chip manufacturing - first to AMK in Korea for assembly and then onward to China without applying for and receiving the required export license.
+
+**[UNITED STATES DEPARTMENT OF COMMERCE - ORDER RELATING TO APPLIED MATERIALS INC. AND APPLIED MATERIALS KOREA](https://www.bis.gov/media/documents/2026.02.11-amat-settlement-documents-combined.pdf)**
+
+[
+
+![](https://substackcdn.com/image/fetch/$s_!aJEc!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Ffb37ce72-d076-447c-8721-cc7c8775bb38_1238x2816.png)
+
+
+
+](https://substackcdn.com/image/fetch/$s_!aJEc!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Ffb37ce72-d076-447c-8721-cc7c8775bb38_1238x2816.png)
+
+**Comment: This is a slap on the wrist; responsible executives should be going to jail. The US export controls on semiconductor equipment exports deserve robust and honest debate, but anyone who says those controls have failed but does not also discuss both the loopholes built into the controls by industry lobbying and the cheating by some companies is not worth listening to.**
+
+[Read more](https://sinocism.com/p/deepseek-distilling-open-ai-japan)

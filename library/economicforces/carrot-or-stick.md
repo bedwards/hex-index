@@ -1,0 +1,54 @@
+---
+title: "Carrot or Stick?"
+author: "Brian Albrecht"
+publication: "Economic Forces"
+publication_slug: "economicforces"
+published_at: "2025-08-14T12:12:31.000Z"
+source_url: "https://www.economicforces.xyz/p/carrot-or-stick"
+word_count: 1474
+estimated_read_time: 8
+---
+
+If you have been reading Economic Forces for any reasonable length of time you know that we love to write about externalities. For the uninitiated, externalities are benefits (positive) or costs (negative) created by market interactions, but that are not internalized by the participants in the market. I think that the reason that we write so much about externalities is that once you start to really think about the topic, you continue to uncover unanswered questions.
+
+We usually start with the question of how we deal with externalities. Sometimes this is a question about whether externalities should be handled privately through the courts or publicly via taxes, subsidies, or government regulation. I have **[addressed](https://www.economicforces.xyz/p/externalities-and-the-numbers-problem)** some of that before. Today, what I would like to address is the question of whether externalities should be handled using a carrot (reward) or a stick (punishment).
+
+Let’s think about a simple example. Consider a farm located next to a ranch. The farmer is growing crops. The rancher is raising cattle. Their day-to-day business is taking place in different markets. However, the rancher’s production decisions might affect the production of the farmer because the rancher’s cattle might trample the farmer’s crops.
+
+This raises a question about how this potential cost of trampled crops should be dealt with. Non-economic arguments usually entail something like punishing whoever is to blame for the problem. In this case, one might say that the cattle (and thus the rancher) are to blame. After all, if not for the cattle, there would be no trampling. However, it is unclear what that means. For example, one useful way to frame this is that both the cattle and the crops are inputs into the destruction. It is true that the amount of destruction could be reduced by the rancher having fewer cattle. It is also true that the amount of destruction could be reduced if the farmer plants fewer crops. In other words, just as one could argue that “if not for the cattle, there would be no trampling,” one could also argue that “if not for the crops, there would be no trampling.”
+
+It is not clear what blame means without defining property rights. Yet, how to define property rights is the fundamental economic question here. For example, there are a couple possible solutions to this problem. One might say that the rancher should compensate the farmer for any damage caused by the cattle (a stick). Others might say that the farmer should pay the rancher for preventing the trampling of the crops (a carrot).
+
+The Coase Theorem tells us that this is an issue of property rights. Do the rancher’s cattle have a right to roam or does the farmer have the right to crops that are not trampled? In the absence of transaction costs, we will get the same outcome either way, so the assignment of property rights is irrelevant. However, Coase’s insight is that transactions costs are not negligible and therefore the assignment of property rights actually matters.
+
+Donald Wittman **[offers](https://www.jstor.org/stable/724342)** a particularly insightful way of determining whether one should use a carrot or a stick. In particular, he argues that the answer depends on whichever option minimizes administrative costs. Along these lines, he argues that negative externalities should entail a punishment and positive externalities should result in a reward.
+
+To some extent this helps to rationalize people’s instinct to go with non-economic arguments. As I noted above, people tend to think that rancher should be punished because his cows trampled the crops. But are the cattle really any more to blame than the farmer who planted his crops next to the ranch? Regardless, this instinct *seems* correct. It seems more appropriate to punish the rancher for his cattle’s roaming behavior. Yet, this isn’t about blame, it is about administrative costs.
+
+Compare the following situations. In one scenario, the rancher can be charged with negligence. This rule gives the rancher the incentive to take the necessary steps to prevent the cattle from trampling the crops. Furthermore, in order to be compensated for damage to his crops, the farmer has to demonstrate that the rancher’s negligence is what led to the damage, the farmer has an incentive to take actions that limit the rancher’s ability to blame the farmer for any trampling.
+
+Under an alternative scenario, the farmer must compensate the rancher for the benefit of crops that were not trampled by the cattle. Again, the rancher has an incentive to prevent trampling. However, the farmer has two conflicting incentives. Damage to the farmer’s crops impose a cost on the farmer. At the same time, damage to the farmer’s crops (potentially) release the farmer from having to compensate the rancher.
+
+Administrative costs are clearly different in these scenarios. In the first scenario, the farmer merely has to provide evidence that his crops were trampled. The trampling of the crops is evidence of the rancher’s negligence. Since both parties have an incentive to limit actions that would make trampling more likely, actual trampling will be rare. In the rare instances in which trampling occurs, it will be easy to demonstrate that damage has been done and the farmer must be compensated.
+
+On the other hand, the second scenario is likely to result in a considerable number of lawsuits by the ranchers to earn compensation for the benefits provided in the form of crops that were not trampled. Unlike in the first scenario, evidence of trampling is not sufficient to prevent the farmer from having to compensate the rancher. Because damage to the crops under this scenario confer both a cost and a benefit on the farmer, one should expect some damage to occur. Ranchers who are not compensated could argue that the damage done was due to the negligence of the *farmer* in this case and that the rancher is still entitled to compensation.
+
+In short, the administrative costs are much higher in the second scenario relative to the first scenario. The reason is that damage is rare in the first scenario and evidence of damage is sufficient to prove negligence. This means fewer lawsuits are brought to course and fewer resources are expended per lawsuit.
+
+Wittman extends this line of reasoning to make a general argument. Negative externalities should be dealt with via punishment, but positive externalities should be dealt with via reward. To understand why, consider the following example of a positive externality.
+
+Suppose that there is a company that operates along a river and needs to filter water for its production. The filtering of the water conveys a benefit on anyone who is using water downstream. Consider possible carrots and sticks. A carrot would be something like a government subsidy. The government could offer to subsidize the company’s production in order to get the company to provide the benefits to those using water downstream. Alternatively, the government could also levy a tax on the company if it does not provide this filtration.
+
+Again, the instinctual, non-economic argument seems to be that the firm filtering the water is creating a benefit for others and should be compensated. However, if other firms don’t locate downstream, there is no added benefit to the filtration system. In other words, the water-filtering firm upstream and the other firms operating downstream are joint inputs in creating an additional benefit to filtration.
+
+What is relevant, however, are the administrative costs. The tax scheme is likely to be more costly. In thinking about the tax, an attempt to minimize the cost of administering the tax would be to simply levy a tax on any firm located upstream that doesn’t filter the water or any firm that would filter the water, but is not located upstream. The latter entails significant administrative costs. The former punishes firms that locate upstream, but do not need to filter the water for their production.
+
+In addition, the fact that those who should be engaged in filtration would be subject to a tax creates a problem. Filtration is costly. Locating upstream and using some filtration method requires paying the costs associated with filtration. This reduces or eliminates the tax liability, but replaces this cost with the cost of filtration. Exemptions to the tax would therefore distort land valuation upstream. Firms with lower valued use of the land might have a higher valuation of the land because they are exempt from the tax. The tax might therefore perversely discourage firms that use this filtration that benefits others from ever operating in the first place. Subsidization (reward) is therefore the better solution.
+
+In short, Wittman offers a compelling argument. In the presence of externalities, whether to use a carrot or a stick will depend on what minimizes the administrative costs. He suggests that generally this will result in punishments for negative externalities and rewards for positive externalities.
+
+\---
+
+This week, Will Luther and I appeared on the Macro Musings podcast, hosted by David Beckworth, to discuss various topics related to bitcoin. You can find that episode **[here](https://www.mercatus.org/macro-musings/will-luther-and-josh-hendrickson-future-bitcoin)**.
+
+\---

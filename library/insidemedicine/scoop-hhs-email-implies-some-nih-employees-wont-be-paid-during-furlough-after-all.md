@@ -1,0 +1,64 @@
+---
+title: "Scoop: HHS email implies some NIH employees won't be paid during furlough after all. "
+author: "Jeremy Faust"
+publication: "Inside Medicine"
+publication_slug: "insidemedicine"
+published_at: "2025-10-30T02:47:30.000Z"
+source_url: "https://insidemedicine.substack.com/p/scoop-some-nih-employees-told-they"
+word_count: 813
+estimated_read_time: 5
+---
+
+**UPDATE: I’ve edited the headline to reflect some nuance. I've also added some new information and context in the article below, which are in bold.**
+
+*We have some breaking news that I believe we are first to report, right here in Inside Medicine. My thanks to the HHS employees who continue to bravely speak out. It is important that we amplify them. Thank you for your help doing that—by reading, sharing, and supporting this work.*
+
+\---
+
+Earlier today, some NIH employees received emails **implying** that they will not be paid during the shutdown. **If that interpretation is correct**, it would be an unexpected, and likely unlawful, change in federal government policy.
+
+An NIH scientist shared with *Inside Medicine* both the original email he received when the shutdown began and the one he received today. With permission, I am posting slightly modified screenshots of both of those emails. Both emails were sent from the HHS deputy assistant secretary for human resources, Thomas J. Nagy, Jr, a figure who has often been [associated](https://www.politico.com/newsletters/politico-pulse/2025/03/28/hhs-aftershocks-00255723) with Trump-era federal employee terminations.
+
+In the first email, dated October 1, the memorandum clearly stated that HHS employees would receive full pay for the entirety of the shutdown period once it ends—that is, paid furloughs.
+
+The highlighted paragraph (see below) specifies that standard rates of pay would apply, and cited the relevant US code.
+
+[
+
+![](https://substackcdn.com/image/fetch/$s_!dlKz!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F553ba729-bac6-4389-b8a1-507a4f9c72f9_1968x1274.png)
+
+
+
+](https://substackcdn.com/image/fetch/$s_!dlKz!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F553ba729-bac6-4389-b8a1-507a4f9c72f9_1968x1274.png)
+
+In the second email, dated October 30, but sent October 29, that paragraph had been replaced with new language, now stating that employees receiving the notice would be in “nonduty, nonpayment status,” and that recipients may not work (from anywhere) unless specifically recalled—that is, *unpaid* furloughs.
+
+\---
+
+**Update: Some NIH employees, including those I spoke to for this story, interpreted the second email to mean that they will not be paid, even after the shutdown ends. But an observer on Bluesky pointed out that a direct statement to that effect was not been made in that email, and that the non-duty, nonpayment status could be interpreted to apply only to the shutdown period itself, rather than backpay, which is a fair point.**
+
+**I asked one of my initial sources and another HHS employee at another agency (not quoted in the original versions of this story) what they thought. Both believe that the language may have been intentionally vague. “I think it’s clear that they removed those sentences for a reason,” the HHS employee said. “The sentences they removed \[in the new version\] clearly stated that people would be paid. So, it quietly sends a message in alignment with the things \[White House Director of the Office of Management and Budget\] Russell Vought has said,” he added.**
+
+\---
+
+[
+
+![](https://substackcdn.com/image/fetch/$s_!qvpf!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F778fe358-f2c5-4a0c-9639-f3e9650ce0e9_2044x1346.png)
+
+
+
+](https://substackcdn.com/image/fetch/$s_!qvpf!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F778fe358-f2c5-4a0c-9639-f3e9650ce0e9_2044x1346.png)
+
+There was no explanation for the second email, but the message was clearly received, at least to the recipients of the email I spoke to. A second NIH source (who did not receive the email themself, but knows several people who did) said that, because of the same US code mentioned in the October 1 email, that this latest email might not really lead to NIH staffers not being paid when the shutdown ends. “It’s just an attempt to scare the Democrats and rile us up,” the source told me. But, nobody actually knows. The new email also states that the new furlough notice will expire on November 30th. The original email did not provide an expiration date, but said that the shutdown was expected to last 30 days or less.
+
+It is unclear how many NIH employees received such notices, but I saw four different versions of such emails (which is one reason I altered the screenshots above—to make them less trackable, after ensuring that metadata had been cleared). Such notices were sent to employees in multiple states, I learned.
+
+So far, it is unknown whether HHS employees in other agencies received similar notices. I reached out to several FDA employees but did not receive responses. A few CDC employees said that they had *not* received such notices. That said, the emails that went out today were dated for tomorrow, so things could change.
+
+As ever, the HHS employees I’ve spoken to remain mission-driven, despite the incredible strains they have been under since President Trump’s administration began attacking our national public health and science infrastructure early in his second term. Our first source told me that he has been already recalled to NIH premises on a couple of occasions to do “essential work.” He is now unsure whether he will be paid for that labor.
+
+That seems to bother him less than you might think.
+
+“Honestly even when I’m not recalled, I still try to get things done,” he told me.
+
+***If you have information** about any of the unfolding stories we are following, please email me or find me on Signal at InsideMedicine.88.*

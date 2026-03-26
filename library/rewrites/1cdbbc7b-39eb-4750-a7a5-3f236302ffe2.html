@@ -1,0 +1,53 @@
+<h2>Eighty Thousand Cameras Nobody Audited</h2>
+
+<p>Benn Jordan, a musician and independent researcher, presents what amounts to a citizen-led security audit of Flock Safety, the company behind more than 80,000 automated license plate reader cameras deployed across the United States. Working alongside security researcher John Gaines and open-source intelligence expert Joshua Michael, Jordan demonstrates that the devices can be compromised with startling ease -- in some cases requiring nothing more than pressing a button sequence on the back of the camera. The findings are not theoretical. They prompted U.S. senators and representatives to draft a formal letter requesting an FTC investigation on national security grounds.</p>
+
+<p>The central question the investigation raises is not whether surveillance technology can reduce crime. It is whether a $7.5 billion private company should be trusted with mass public surveillance when its hardware and software have never undergone a single independent public audit.</p>
+
+<h2>A Shell in Under a Minute</h2>
+
+<p>The most alarming vulnerability is also the simplest. Security researcher John Gaines discovered that pressing a button on the back of a Flock Safety camera in a particular sequence creates a wireless access point. From there, an attacker can enable Android Debug Bridge, connect to the device, and obtain full shell access -- meaning complete remote control, data exfiltration, and privilege escalation. Gaines packaged the exploit into a tool simple enough for a novice to use.</p>
+
+<blockquote>The longest part actually is waiting for the hotspot to turn on. But realistically in about 5 seconds. And in fact with the compute box you don't need to hit the buttons because the USB-C ports are exposed. So you can just plug in a rubber ducky and then walk away.</blockquote>
+
+<p>A rubber ducky -- a USB device that mimics a keyboard and executes scripts automatically -- costs as little as five dollars. The implications are sweeping. A compromised camera could be turned into a malware host, a credential-stealing honeypot, a cryptocurrency miner, or a tool for intercepting and modifying surveillance footage. That last possibility is particularly troubling for the justice system: if camera footage can be tampered with undetectably, its admissibility as evidence in court becomes fundamentally questionable.</p>
+
+<p>Jordan also demonstrated a Tempest attack -- a Cold War-era technique for decoding electromagnetic radiation leaking from electronic devices. Using a software-defined radio and a directional antenna, he was able to reconstruct what the camera was seeing from six feet away by exploiting RF leakage between 592 and 594 MHz. While this attack requires specialized equipment and expertise, it underscores that the cameras were never designed with the level of security appropriate for devices handling sensitive public data.</p>
+
+<h2>The Android Things Problem</h2>
+
+<p>Perhaps the most straightforward indictment of Flock Safety's security posture is the operating system running on its cameras. The devices use Android Things 8 or 8.1, an operating system Google discontinued in 2021 -- including all security updates. At the time of Jordan's investigation, more than 900 published vulnerabilities existed for this OS.</p>
+
+<blockquote>Someone please explain to me why there are even cameras in the wild recording public activity that aren't even running on supported software.</blockquote>
+
+<p>The comparison Jordan draws is apt: most consumers would discard a phone or home security system that stopped receiving security patches. Yet tens of thousands of government-funded surveillance cameras continue operating on abandoned software, collecting and transmitting data about millions of Americans daily. Hard-coded credentials, unencrypted data at runtime, and images retained well beyond the company's stated seven-day deletion window compound the picture of a product rushed to market without adequate security engineering.</p>
+
+<h2>Misleading Claims and Questionable Efficacy</h2>
+
+<p>The investigation's second major thread concerns whether Flock Safety's cameras actually deliver on the company's crime-reduction promises. Jordan methodically dismantles several of the company's public claims. Flock Safety's website states that 10% of all crime in America is solved using its services, but the source cited is a research paper authored by two Flock Safety employees that lacks regional analysis. Crime has been dropping nationally since 2021, making broad claims about any single technology's contribution nearly impossible to substantiate without rigorous controlled studies.</p>
+
+<p>The case of Bakersfield, California, is particularly damaging. Flock Safety claimed credit for a 33% decrease in motor vehicle thefts, but Jordan found the company was citing data from years before the cameras were installed. The Berkeley Police Accountability Board went further, finding that automated license plate readers in some California communities were correlated with increases in vehicle theft and lower crime clearance rates.</p>
+
+<blockquote>Over 5,000 cities leveraged Flock to solve north of 14% of all crimes in America. But Flock's story is an Atlanta story. We can now rest assured that if a crime happens in South Downtown, it will be solved.</blockquote>
+
+<p>Jordan notes dryly: it was not solved. The gap between marketing rhetoric and verifiable outcomes is a recurring theme. In Oakland, Flock Safety claimed an 11% rise in violent crime clearance rates while failing to mention that violent crime decreased 19% overall -- consistent with national trends -- and that Oakland's 2023 violent crime clearance rate of 3% was later acknowledged as an error by the police department itself.</p>
+
+<h2>Denver and the Limits of Democratic Oversight</h2>
+
+<p>The Denver saga illustrates how surveillance technology can resist democratic accountability even when elected officials push back. Mayor Mike Johnston initially claimed that Denver's Flock cameras were walled off from federal agencies and accessible only to Denver Police Department officers. Jordan's research suggested otherwise: in just over a year, queries openly associated with immigration services numbered over 1,800.</p>
+
+<p>When the Denver City Council overwhelmingly voted to not renew the Flock Safety contract -- going so far as to question the company's ethics and credibility -- Mayor Johnston signed the contract anyway. Council members called it a backroom deal with a known bad actor. The episode is a case study in how procurement decisions involving surveillance technology can bypass the very democratic processes that are supposed to authorize them.</p>
+
+<blockquote>We do not believe that the city and county of Denver should continue doing business with a company that has demonstrated such disregard for honesty and accountability.</blockquote>
+
+<p>In a particularly grim footnote, Jordan highlights the case of Jax Grafton, a trans woman whose murder Mayor Johnston cited as having been solved through Flock camera data. Grafton's mother publicly contradicted the claim, saying Flock had nothing to do with her daughter being found. Using a murder victim's story to justify surveillance spending -- inaccurately -- represents a rhetorical low point that even sympathetic observers would struggle to defend.</p>
+
+<h2>Counterpoints Worth Considering</h2>
+
+<p>Fair-minded critics of Jordan's investigation might raise several points. The devices he tested were acquired secondhand; Flock Safety could argue that cameras deployed in the field run different firmware or have been patched since these vulnerabilities were discovered. Jordan acknowledges this possibility, though he notes it would be unusual for hardware to vary so fundamentally between units. The responsible disclosure process was followed, and Flock Safety was given the standard 90-day window to address the issues -- a window the company used to release a PR statement without referencing the researchers or confirming any fixes.</p>
+
+<p>There is also a reasonable argument that license plate readers, properly implemented and audited, could be a legitimate law enforcement tool. The National Policing Institute found that the technology can improve public safety, albeit with the critical caveat that its impact depends on implementation. The problem Jordan identifies is not the concept of automated surveillance per se, but the complete absence of independent oversight, the use of abandoned operating systems, and a business model that prioritizes growth over security fundamentals like multifactor authentication.</p>
+
+<h2>Bottom Line</h2>
+
+<p>Jordan's investigation reveals a surveillance infrastructure built on consumer-grade Android hardware, abandoned operating systems, and unencrypted data -- deployed at massive scale with no independent security audit ever conducted. The vulnerabilities are not sophisticated zero-day exploits requiring nation-state resources; they are elementary failures that any competent penetration test would have caught on day one. Jordan's proposed solution -- requiring private surveillance vendors to undergo independent security certification before receiving government contracts, much like health inspections for restaurants or safety inspections for vehicles -- is so plainly reasonable that its absence from current policy is itself an indictment. The question is not whether 80,000 cameras can help solve crimes. It is whether a society that requires a license to cut hair but not to surveil millions of citizens has its priorities in order.</p>

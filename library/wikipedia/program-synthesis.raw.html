@@ -1,0 +1,270 @@
+<p>In computer science, program synthesis is the task to construct a program that provably satisfies a given high-level formal specification. In contrast to program verification, the program is to be constructed rather than given; however, both fields make use of formal proof techniques, and both comprise approaches of different degrees of automation. In contrast to automatic programming techniques, specifications in program synthesis are usually non-algorithmic statements in an appropriate logical calculus.</p>
+<p>The primary application of program synthesis is to relieve the programmer of the burden of writing correct, efficient code that satisfies a specification. However, program synthesis also has applications to superoptimization and inference of loop invariants.</p>
+<p>During the Summer Institute of Symbolic Logic at Cornell University in 1957, Alonzo Church defined the problem to synthesize a circuit from mathematical requirements. Even though the work only refers to circuits and not programs, the work is considered to be one of the earliest descriptions of program synthesis and some researchers refer to program synthesis as &quot;Church&#039;s Problem&quot;. In the 1960s, a similar idea for an &quot;automatic programmer&quot; was explored by researchers in artificial intelligence.</p>
+<p>Since then, various research communities considered the problem of program synthesis. Notable works include the 1969 automata-theoretic approach by Büchi and Landweber, and the works by Manna and Waldinger (c. 1980). The development of modern high-level programming languages can also be understood as a form of program synthesis.</p>
+<p>The early 21st century has seen a surge of practical interest in the idea of program synthesis in the formal verification community and related fields. Armando Solar-Lezama showed that it is possible to encode program synthesis problems in Boolean logic and use algorithms for the Boolean satisfiability problem to automatically find programs.</p>
+<p>In 2013, a unified framework for program synthesis problems called Syntax-guided Synthesis (stylized SyGuS) was proposed by researchers at UPenn, UC Berkeley, and MIT. The input to a SyGuS algorithm consists of a logical specification along with a context-free grammar of expressions that constrains the syntax of valid solutions. For example, to synthesize a function f that returns the maximum of two integers, the logical specification might look like this:</p>
+<p>(f(x,y) = x ∨ f(x,y) = y) ∧ f(x,y) ≥ x ∧ f(x,y) ≥ y</p>
+<p>and the grammar might be:</p>
+<p>where &quot;ite&quot; stands for &quot;if-then-else&quot;. The expression</p>
+<p>would be a valid solution, because it conforms to the grammar and the specification.</p>
+<p>From 2014 through 2019, the yearly Syntax-Guided Synthesis Competition (or SyGuS-Comp) compared the different algorithms for program synthesis in a competitive event. The competition used a standardized input format, SyGuS-IF, based on SMT-Lib 2. For example, the following SyGuS-IF encodes the problem of synthesizing the maximum of two integers (as presented above):</p>
+<p>A compliant solver might return the following output:</p>
+<p>Counter-example guided inductive synthesis (CEGIS) is an effective approach to building sound program synthesizers. CEGIS involves the interplay of two components: a generator which generates candidate programs, and a verifier which checks whether the candidates satisfy the specification.</p>
+<p>Given a set of inputs I, a set of possible programs P, and a specification S, the goal of program synthesis is to find a program p in P such that for all inputs i in I, S(p, i) holds. CEGIS is parameterized over a generator and a verifier:</p>
+<ul><li>The generator takes a set of inputs T, and outputs a candidate program c that is correct on all the inputs in T, that is, a candidate such that for all inputs t in T, S(c, t) holds.</li><li>The verifier takes a candidate program c and returns true if the program satisfies S on all inputs, and otherwise returns a counterexample, that is, an input e in I such that S(c, e) fails.</li></ul>
+<p>CEGIS runs the generator and verifier run in a loop, accumulating counter-examples:</p>
+<p>Implementations of CEGIS typically use SMT solvers as verifiers.</p>
+<p>CEGIS was inspired by counterexample-guided abstraction refinement (CEGAR).</p>
+<p>The framework of Manna and Waldinger, published in 1980, starts from a user-given first-order specification formula. For that formula, a proof is constructed, thereby also synthesizing a functional program from unifying substitutions.</p>
+<p>The framework is presented in a table layout, the columns containing:</p>
+<ul><li>A line number (&quot;Nr&quot;) for reference purposes</li><li>Formulas that already have been established, including axioms and preconditions, (&quot;Assertions&quot;)</li><li>Formulas still to be proven, including postconditions, (&quot;Goals&quot;),</li><li>Terms denoting a valid output value (&quot;Program&quot;)</li><li>A justification for the current line (&quot;Origin&quot;)</li></ul>
+<p>Initially, background knowledge, pre-conditions, and post-conditions are entered into the table. After that, appropriate proof rules are applied manually. The framework has been designed to enhance human readability of intermediate formulas: contrary to classical resolution, it does not require clausal normal form, but allows one to reason with formulas of arbitrary structure and containing any junctors (&quot;non-clausal resolution&quot;). The proof is complete when 
+  
+    
+      
+        
+          
+            t
+            r
+            u
+            e
+          
+        
+      
+    
+    {\displaystyle {\it {true}}}
+  
+ has been derived in the Goals column, or, equivalently, 
+  
+    
+      
+        
+          
+            f
+            a
+            l
+            s
+            e
+          
+        
+      
+    
+    {\displaystyle {\it {false}}}
+  
+ in the Assertions column. Programs obtained by this approach are guaranteed to satisfy the specification formula started from; in this sense they are correct by construction. Only a minimalist, yet Turing-complete, purely functional programming language, consisting of conditional, recursion, and arithmetic and other operators is supported.
+Case studies performed within this framework synthesized algorithms to compute e.g. division, remainder, square root, term unification, answers to relational database queries and several sorting algorithms.</p>
+<p>Proof rules include:</p>
+<ul><li>Non-clausal resolution (see table).</li></ul>
+<ul><li>Logical transformations.</li></ul>
+<ul><li>Splitting of conjunctive assertions and of disjunctive goals.</li></ul>
+<ul><li>Structural induction.</li></ul>
+<p>Murray has shown these rules to be complete for first-order logic.
+In 1986, Manna and Waldinger added generalized E-resolution and paramodulation rules to handle also equality; later, these rules turned out to be incomplete (but nevertheless sound).</p>
+<p>As a toy example, a functional program to compute the maximum 
+  
+    
+      
+        M
+      
+    
+    {\displaystyle M}
+  
+ of two numbers 
+  
+    
+      
+        x
+      
+    
+    {\displaystyle x}
+  
+ and 
+  
+    
+      
+        y
+      
+    
+    {\displaystyle y}
+  
+ can be derived as follows.</p>
+<p>Starting from the requirement description &quot;The maximum is larger than or equal to any given number, and is one of the given numbers&quot;, the first-order formula 
+  
+    
+      
+        ∀
+        X
+        ∀
+        Y
+        ∃
+        M
+        :
+        X
+        ≤
+        M
+        ∧
+        Y
+        ≤
+        M
+        ∧
+        (
+        X
+        =
+        M
+        ∨
+        Y
+        =
+        M
+        )
+      
+    
+    {\displaystyle \forall X\forall Y\exists M:X\leq M\land Y\leq M\land (X=M\lor Y=M)}
+  
+ is obtained as its formal translation. This formula is to be proved. By reverse Skolemization, the specification in line 10 is obtained, an upper- and lower-case letter denoting a variable and a Skolem constant, respectively.</p>
+<p>After applying a transformation rule for the distributive law in line 11, the proof goal is a disjunction, and hence can be split into two cases, viz. lines 12 and 13.</p>
+<p>Turning to the first case, resolving line 12 with the axiom in line 1 leads to instantiation of the program variable 
+  
+    
+      
+        M
+      
+    
+    {\displaystyle M}
+  
+ in line 14. Intuitively, the last conjunct of line 12 prescribes the value that 
+  
+    
+      
+        M
+      
+    
+    {\displaystyle M}
+  
+ must take in this case. Formally, the non-clausal resolution rule shown in line 57 above is applied to lines 12 and 1, with</p>
+<ul><li>@media screen{html.skin-theme-clientpref-night .mw-parser-output div:not(.notheme)&gt;.tmp-color,html.skin-theme-clientpref-night .mw-parser-output p&gt;.tmp-color,html.skin-theme-clientpref-night .mw-parser-output table:not(.notheme) .tmp-color{color:inherit!important}}@media screen and (prefers-color-scheme:dark){html.skin-theme-clientpref-os .mw-parser-output div:not(.notheme)&gt;.tmp-color,html.skin-theme-clientpref-os .mw-parser-output p&gt;.tmp-color,html.skin-theme-clientpref-os .mw-parser-output table:not(.notheme) .tmp-color{color:inherit!important}}p being the common instance x=x of A=A and x=M, obtained by syntactically unifying the latter formulas,</li><li>F[p] being true ∧ x=x, obtained from instantiated line 1 (appropriately padded to make the context F[⋅] around p visible), and</li><li>G[p] being x ≤ x ∧ y ≤ x ∧ x = x, obtained from instantiated line 12,</li></ul>
+<p>yielding</p>
+<p>  
+    
+      
+        ¬
+        (
+      
+    
+    {\displaystyle \lnot (}
+  
+true ∧ false) ∧ (x ≤ x ∧ y ≤ x ∧ true
+  
+    
+      
+        )
+      
+    
+    {\displaystyle )}
+  
+,
+which simplifies to 
+  
+    
+      
+        x
+        ≤
+        x
+        ∧
+        y
+        ≤
+        x
+      
+    
+    {\displaystyle x\leq x\land y\leq x}
+  
+.</p>
+<p>In a similar way, line 14 yields line 15 and then line 16 by resolution. Also, the second case, 
+  
+    
+      
+        x
+        ≤
+        M
+        ∧
+        y
+        ≤
+        M
+        ∧
+        y
+        =
+        M
+      
+    
+    {\displaystyle x\leq M\land y\leq M\land y=M}
+  
+ in line 13, is handled similarly, yielding eventually line 18.</p>
+<p>In a last step, both cases (i.e. lines 16 and 18) are joined, using the resolution rule from line 58; to make that rule applicable, the preparatory step 15→16 was needed. Intuitively, line 18 could be read as &quot;in case 
+  
+    
+      
+        x
+        ≤
+        y
+      
+    
+    {\displaystyle x\leq y}
+  
+, the output 
+  
+    
+      
+        y
+      
+    
+    {\displaystyle y}
+  
+ is valid (with respect to the original specification), while line 15 says &quot;in case 
+  
+    
+      
+        y
+        ≤
+        x
+      
+    
+    {\displaystyle y\leq x}
+  
+, the output 
+  
+    
+      
+        x
+      
+    
+    {\displaystyle x}
+  
+ is valid; the step 15→16 established that both cases 16 and 18 are complementary. Since both line 16 and 18 comes with a program term, a conditional expression results in the program column. Since the goal formula 
+  
+    
+      
+        
+          
+            true
+          
+        
+      
+    
+    {\displaystyle {\textit {true}}}
+  
+ has been derived, the proof is done, and the program column of the &quot;
+  
+    
+      
+        
+          
+            true
+          
+        
+      
+    
+    {\displaystyle {\textit {true}}}
+  
+&quot; line contains the program.</p>
+<ul><li>Inductive programming</li><li>Metaprogramming</li><li>Program derivation</li><li>Natural language programming</li><li>Reactive synthesis</li><li>Structural synthesis of programs</li></ul>
+<ul><li>David, Cristina; Kroening, Daniel (2017-10-13). &quot;Program synthesis: challenges and opportunities&quot;. Philosophical Transactions of the Royal Society A: Mathematical, Physical and Engineering Sciences. 375 (2104) 20150403. Bibcode:2017RSPTA.37550403D. doi:10.1098/rsta.2015.0403. ISSN 1364-503X. PMC 5597726. PMID 28871052.</li><li>Alur, Rajeev; Singh, Rishabh; Fisman, Dana; Solar-Lezama, Armando (2018-11-20). &quot;Search-based program synthesis&quot;. Communications of the ACM. 61 (12): 84–93. doi:10.1145/3208071. ISSN 0001-0782.</li><li>Zohar Manna, Richard Waldinger (1975). &quot;Knowledge and Reasoning in Program Synthesis&quot;. Artificial Intelligence. 6 (2): 175–208. doi:10.1016/0004-3702(75)90008-9.</li><li>Solar-Lezama, Armando (2008). Program synthesis by sketching (PDF) (Ph.D.). University of California, Berkeley.</li></ul>

@@ -1,0 +1,101 @@
+---
+title: "Good Reads"
+author: "Roger Pielke Jr."
+publication: "The Honest Broker"
+publication_slug: "thehonestbroker"
+published_at: "2025-11-04T15:03:42.000Z"
+source_url: "https://rogerpielkejr.substack.com/p/good-reads"
+word_count: 2311
+estimated_read_time: 12
+---
+
+[
+
+![](https://substackcdn.com/image/fetch/$s_!HxPj!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fe134c0fa-8f73-4b94-ac85-fed8b20d92dd_514x627.png)
+
+
+
+](https://substackcdn.com/image/fetch/$s_!HxPj!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fe134c0fa-8f73-4b94-ac85-fed8b20d92dd_514x627.png)
+
+*This is an ungated edition of the THB Insider, which are typically for THB paid subscribers. All of the content available exclusively to them can be found at the [All Access For Paid Subscribers](https://rogerpielkejr.substack.com/p/thb-pro) page.*
+
+My fall university tour continues with a visit to [Johns Hopkins](https://publichealth.jhu.edu/events/2025/11/06/bridging-perspectives-in-covids-wake-science-policy-and-public-trust-in-crisis-response) this week, [Cornell](https://events.cornell.edu/event/climate-impact-seminar-roger-pielke-jr-the-honest-broker) next week, and the University of Wyoming on November 19. If you are local please come and say Hello, and a few of my talks will be live-streamed and/or recorded. In addition, I’ll be posting on some of my lectures.
+
+Today, I share some great essays that have crossed my desk this week. After that I share the full text of my first energy piece for *[The Dispatch](https://rogerpielkejr.substack.com/p/thb-pro)* which synthesizes for a broader audience the ongoing turn to climate pragmatism and energy realism around the world.
+
+### **Recommended Good Long Reads**
+
+-   As some may recall, I have edited an anthology of the career work of science policy scholar Dan Sarewitz and we just shipped off the final text to the publisher. Yay! The book — **How Good is Science? Truth and Progress in a Quarrelsome World** — will be out in 2026, and I’ll be discussing it more next year.
+    
+    Meantime, Dan has a pull-no-punches new essay out at *The New Atlantis*, [The Party of Science Is Over: Democrats became so caught up appealing to experts that they forgot to appeal to voters.](https://www.thenewatlantis.com/publications/the-party-of-science-is-over) Here is an excerpt:
+    
+    -   “The scientific community, to the extent such a thing exists, embraced the alliance with the Democrats. Shortly after Obama took office, the weekly editorial in Science magazine declared: “The Enlightenment Returns.” In 2012, a letter from 68 Nobel-winning scientists supporting Obama’s re-election stated — almost certainly incorrectly — that his Republican opponent, Mitt Romney, would “devastate a long tradition of support for public research and investment in science.” The letter said nothing about the political affiliation of the signatories, as if that were an irrelevance, but, writing for Nature magazine at the time, I found that of 43 who had made political donations, only five had ever contributed to a Republican candidate.”
+        
+-   Over at SCOTUSBlog my AEI colleague Adam White, one of the nation’s most astute observers of the Supreme Court, has an excellent analysis of the potentially landmark case to be heard tomorrow over President Trump’s use of emergency powers to set tariffs — [President Trump’s tariffs v. the Supreme Court’s duties](https://www.scotusblog.com/2025/11/president-trumps-tariffs-v-the-supreme-courts-duties/). Here is how Adam starts his analysis:
+    
+    -   When President Donald Trump announced a new era of tariffs in his “**[Liberation Day](https://www.whitehouse.gov/videos/my-fellow-americans-this-is-liberation-day-april-2-2025-president-donald-j-trump-%F0%9F%87%BA%F0%9F%87%B8%F0%9F%A6%85/)**” event, he singlehandedly created a new era of American economic policy and temporarily crashed global markets. The president himself **[declared](https://www.presidency.ucsb.edu/documents/remarks-announcing-additional-united-states-tariff-actions-foreign-imports)** it “one of the most important days, in my opinion, in American history.”
+        
+        Since then, **[markets have recovered](https://www.jpmorgan.com/insights/markets-and-economy/top-market-takeaways/tmt-liberation-day-in-retrospect-6-things-that-surprised-investors)**, and we’ve grown accustomed – maybe numb – to the spectacle of a president constantly making, unmaking, and remaking tariffs in response to everything from **[Chinese negotiations](https://www.whitehouse.gov/fact-sheets/2025/05/fact-sheet-president-donald-j-trump-secures-a-historic-trade-win-for-the-united-states/)** to **[Canadian TV commercials](https://www.cnn.com/2025/10/25/business/trump-tariffs-canada-reagan)**.
+        
+        But when those tariffs reach the Supreme Court on Nov. 5 in ***[Learning Resources v. Trump](https://www.scotusblog.com/cases/case-files/learning-resources-inc-v-trump/)***, these controversies will be just background for a very specific legal question: Does the president’s statutory power to “regulate” imports include the power to *tax* them?
+        
+-   Dan Williams, a brilliant writer and [Substacker](https://www.conspicuouscognition.com/), takes a deep dive into what he calls “[highbrow misinformation](https://www.conspicuouscognition.com/p/on-highbrow-misinformation),” explaining, “On issues like climate change, gender, race, and crime, establishment journalism and punditry are often misleading. One can acknowledge this without becoming a “contrarian”, conspiracist, or bigot.” Williams post and the Sarewitz essay linked above explore similar themes. It would be fair to say that one of the recurring themes here at THB is on “highbrow misinformation” actively promoted by some scientists and institutions of expertise.
+    
+-   Finally, for those following the [sordid saga of climate scientist Michael Mann](https://rogerpielkejr.substack.com/p/in-bad-faith) (speaking of highbrow misinformation), *[National Review](https://www.nationalreview.com/2025/10/michael-mann-finally-goes-away/)* [reports](https://www.nationalreview.com/2025/10/michael-mann-finally-goes-away/) this week that Mann has, after 12 years, dropped his suit against the magazine Mann’s decision to drop the suit follows a judgment against him totaling about a half million dollars, which has gone away with the settlement. As *National Review* concludes, “[Mann Finally Goes Away](https://www.nationalreview.com/2025/10/michael-mann-finally-goes-away/),” as well. The [original blog post Mann sued the magazine over remains up](https://www.nationalreview.com/corner/football-and-hockey-mark-steyn/) and Mann’s lawfare continues against others, following a series of [other legal setbacks](https://rogerpielkejr.substack.com/p/in-bad-faith) against him, leaving him still penalized more than $600,000.
+    
+
+Now, on to my first column at *T[he Dispatch,](https://thedispatch.com/energy/)* [where I’ve joined a fantastic team of writers on energy](https://thedispatch.com/energy/) and beyond . . .
+
+### **A New Climate Consensus**
+
+As my fellow **Dispatch Energy** contributor Alex Trembath [has noted](https://thedispatch.com/newsletter/dispatch-energy/innovation-deployment-energy-regulation-climate-emissions/), talk of emissions reductions at any cost is out, and political and economic realism is in. The only surprise is how long the shift took.
+
+Take Canadian Prime Minister Mark Carney, for example. A decade ago, while governor of the Bank of England, Carney [warned](https://www.bankofengland.co.uk/-/media/boe/files/speech/2015/breaking-the-tragedy-of-the-horizon-climate-change-and-financial-stability.pdf) that remaining fossil fuel reserves may become “unburnable” if the world wants to avoid a climate catastrophe. In stark contrast, Carney has in recent months fast-tracked approval of a new liquified natural gas export terminal in British Columbia, [promising](https://www.wsj.com/world/americas/mark-carneys-shift-from-climate-change-warrior-to-fossil-fuel-cheerleader-97d17782) to “transform our country into an energy superpower.”
+
+Carney is far from alone. In the United Kingdom, Prime Minister Keir Starmer must soon decide whether to relax aggressive climate targets—including Britain’s effort to rid its energy supply of fossil fuels by 2030—in the face of [rapidly increasing](https://www.theguardian.com/money/2025/oct/15/britain-biggest-energy-supplier-octopus-bills-on-track-to-rise-by-fifth-in-next-four-years) energy costs. “There is a choice about what price you’re willing to pay for the next \[renewables\] auction round, which is key to hitting 2030,” a government insider [told](https://www.theguardian.com/politics/2025/oct/22/keir-starmer-green-pledge-2030-energy-bills) *[The Guardian](https://www.theguardian.com/politics/2025/oct/22/keir-starmer-green-pledge-2030-energy-bills)*. “If it comes to a choice between hitting the target and overpaying, or missing it and keeping costs down, we will miss it.”
+
+Even in Europe, which has promoted climate policy more than any other bloc, economic realities have crashed the climate party. German Chancellor Friedrich Merz recently [acknowledged](https://www.reuters.com/sustainability/cop/eu-leaders-debate-conditions-keeping-up-climate-ambition-2025-10-23/) the competing economic objectives that accompany an ambitious climate agenda: “None of us are questioning the goal of climate protection. All of us are of the opinion that we must combine this with the competitiveness of European industry.”
+
+But Chancellor Merz is incorrect about the unanimity of European leaders. Earlier this month, Greek Prime Minister Kyriakos Mitsotakis, writing for the *[Financial Times](https://www.ft.com/content/ff3ceb63-1cb0-4828-846c-40a03f219a7a)*, argued in favor of a more pragmatic energy transition. “If we must accept some emissions for a bit longer to save our industries or to maintain social cohesion, so be it,” he wrote. “We must have these debates honestly. We cannot begin with climate neutrality and hope everything else falls into place.”
+
+Mitsotakis walked the talk last week when [Greece vetoed](https://www.politico.eu/article/trumps-anti-climate-crusade-crashes-eus-cop30-preparations/) a European Union proposal to place a carbon fee on shipping emissions. Explaining his opposition to the levy, the prime minister said, “We want to be ambitious about the energy transition, but we must be realistic, not undermine the competitiveness of European industry, and certainly not cause social unrest by imposing unbearable costs on our households and businesses.”
+
+In the United States, much attention has been rightly paid to the Trump administration’s hostility to climate science and outright opposition to solar and wind energy. But the climate conversation has changed among Democrats as well.
+
+For instance, Sen. Chris Coons of Delaware recently [told](https://www.politico.com/news/magazine/2025/10/16/democrats-climate-change-affordability-trump-column-00609841) *[Politico](https://www.politico.com/news/magazine/2025/10/16/democrats-climate-change-affordability-trump-column-00609841)* that climate is “not a top three issue right now.” Sen. Brian Schatz of Hawaii went even further, [arguing](https://www.nytimes.com/live/2025/09/24/climate/climate-forward-conference/senator-schatz-says-democrats-should-drop-planetary-emergency-talk-and-focus-on-the-cost-of-living?smid=url-share) at a *New York Times* event last month that costs need to be front and center when talking about energy: “You could talk about the planetary emergency and mitigation and adaptation, and you could throw in some environmental justice rhetoric, and by the time you’re done talking, people think you don’t care about them.” Instead, he added, “The way to victory is to talk about price.”
+
+China reached such clarity on energy and climate years ago. Since 2021, President Xi Jinping has often explained that China should “establish the new before destroying the old,” invoking [Mao Zedong from 1940](https://www.carbonbrief.org/china-issues-new-single-game-instructions-to-guide-its-climate-action/), who cautioned to “build before breaking.” China’s logic of developing alternative energy technologies *before* shutting down the energy sources that power our economies has taken hold around the world. Since then, China has [raced ahead](https://www.nytimes.com/interactive/2025/10/22/climate/china-us-nuclear-energy-race.html) to lead the world in many energy technologies.
+
+For decades, conventional wisdom among climate policy elites was that deep decarbonization would be achieved by making fossil energy substantially more expensive—through policies such as taxes, tradable emissions permits, regulation, litigation, and supply-side constraints—thus providing fossil fuel alternatives with an economic advantage.
+
+But there is little evidence that such efforts have accelerated the decarbonization of global or national economies. To the extent that efforts to make fossil energy more expensive have succeeded, when people notice higher priced energy, goods, and services, they do indeed respond—not by becoming champions of wind and solar projects, but by putting on yellow vests to protest, as happened [in France](https://www.npr.org/2018/12/03/672862353/who-are-frances-yellow-vest-protesters-and-what-do-they-want) in 2018 following a small increase in a fuel tax, and more generally by voting into office populist candidates who promise lower prices (recent examples include [Donald Trump](https://www.cnn.com/2025/09/04/business/power-prices-trump-inflation) and Italy’s [Giorgia Meloni](https://www.theguardian.com/world/2022/oct/01/giorgia-meloni-says-she-will-put-italy-first-in-tackling-high-energy-costs)).
+
+In my 2010 book *The Climate Fix*, I called this dynamic the iron law of climate policy. While some people have the means and interest to pay a bit more in support of an energy transition, that willingness is limited, even among the wealthy.
+
+Before the 2024 election, at the American Enterprise Institute along with electoral politics scholar Ruy Teixeira, I conducted [a survey](https://www.aei.org/research-products/report/the-science-vs-the-narrative-vs-the-voters-clarifying-the-public-debate-around-energy-and-climate/) of how Americans viewed energy and climate issues. We asked if people would support a $40 monthly fee on their energy bills to support climate policies. Large majorities across demographics opposed such a fee; even those making more than $100,000 opposed it by almost three to one. Less than half of respondents favored even a $1-per-month fee.
+
+The economics behind making fossil energy more expensive to motivate energy system transformation works in theory. However, theory fails when it encounters political reality. The iron law remains undefeated.
+
+The sweetener that was supposed to help citizens swallow the costs of higher-priced energy has always been promises of the avoidance of the “[existential threat](https://bidenwhitehouse.archives.gov/briefing-room/speeches-remarks/2023/11/14/remarks-by-president-biden-on-actions-to-address-the-climate-crisis/)” of climate change. As United Nations Secretary-General António Guterres [warned](https://news.un.org/en/story/2024/11/1156831) last year, “The world must pay up, or humanity will pay the price.”
+
+However, science does not always conform to political expectations. Over the past 20 years, projections of massive future carbon dioxide emissions from a world powered increasingly and mainly by coal have [faded away](https://www.sciencedirect.com/science/article/abs/pii/S0140988317301226), as the world turns toward other sources of energy. Natural gas, solar, wind, and even nuclear energy are [in the ascendancy](https://www.iea.org/reports/world-energy-outlook-2024). Apart from India and China, global coal consumption peaked almost 20 years ago.
+
+About a decade ago, climate policy advocates adopted increases in global average temperatures as the central metric of climate policy. A 2 degree Celsius increase above 1850-1900 global average temperatures by 2100 constituted a “dangerous” increase under [the architecture](https://rogerpielkejr.substack.com/p/the-two-degree-temperature-target) of the U.N. Framework Convention on Climate Change. Much higher temperature increases by 2100—warming of 4-5°C—were viewed to be both plausible and apocalyptic.
+
+The projections of a global [return to coal](https://www.sciencedirect.com/science/article/abs/pii/S0360544217314597) that have underpinned global climate projections for the past several decades have proven unfounded, as coal has fallen out of favor in most places around the world due to its high costs and environmental impacts. As a result, the most extreme temperature increases in modeled futures have become increasingly implausible with every additional year of unfolding reality.
+
+Today, a consensus exists in the scientific community that on our current policy trajectory, the world is headed for less than a 3°C warming by 2100, and such estimates have been revised downward each year. For instance, the Norwegian group [DNV projects](https://rogerpielkejr.substack.com/p/net-zero-2093) that net-zero emissions by 2050 is impossible, but hitting that target later this century is “most likely” with an associated warming of 2.2°C—certainly disruptive, but not civilization-threatening.
+
+Century-scale predictions are always highly uncertain, and often wrong, especially when it comes to energy futures. However, the momentum of the global energy economy is such that if most nations were indeed to return to carbon-intensive coal over natural gas, petroleum, nuclear, wind, solar, electrification, and other lower-carbon energy sources, we would have plenty of advance warning. At present, massive carbon dioxide emissions from a coal-dominated future are not remotely plausible.
+
+Rather than welcome the optimistic turn in the scenarios that underlie climate science, climate advocates have chosen to double down on the promised apocalypse. Not long ago, 4°C or 5°C were the thresholds of doom. Today, climate advocates hoping to sustain projected apocalyptic futures have repeatedly defined down the threshold of catastrophe as projected futures have become less extreme. We now see claims that 3°C, 2°C, 1.5°C, and even [1°C](https://www.nature.com/articles/d41586-025-03316-w) are the new demarcations of existential threat.
+
+Human-caused climate change is of course real and poses risks worth mitigating. However, in a world that has already warmed by 1.5°C without apocalyptic consequences, extreme scare tactics have lost their potency. The rising costs of energy further erode support for expensive emergency measures to reduce emissions.
+
+Climate change is not going to go away, and concerted action to continue or improve upon historical rates of the decarbonization of the economy makes good sense—so long as policies can be implemented in a way that enhances energy security, access, and reliability, and of course in a manner that contributes to growing wealth for people around the world, particularly those who have yet to reach a level of energy services enjoyed by the wealthy.
+
+Effective climate policy is a marathon, not a sprint. The ongoing reset of expectations about energy and climate is an opportunity to reject apocalyptic fatalism and to embrace realism and pragmatism.
+
+*Comments welcomed! What did you think about these long reads? What else do you recommend that we read this week? As usual, no comments of a personal nature about anyone (even Professor Mann), thanks!*
+
+*Before you go — Please click that “❤️ Like” to let everyone know that THB is worth their time. More likes mean that THB rises in the Substack algorithm and gets in front of more readers. More readers mean that THB reaches more people in more places, broadening understandings and discussions of complex issues where science meets politics. Thanks!*

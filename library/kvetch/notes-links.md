@@ -1,0 +1,134 @@
+---
+title: "Notes & Links"
+author: "Nachman Oz"
+publication: ""
+publication_slug: "kvetch"
+published_at: "2025-11-29T10:00:26.000Z"
+source_url: "https://www.kvetch.au/p/notes-and-links"
+word_count: 2682
+estimated_read_time: 14
+---
+
+“\[H\]e would call me on the telephone while soaking like a cowboy in the bath”
+
+— Harold Bloom on Cormac McCarthy
+
+## Podcasts / Substacks
+
+**[Crosby AI](https://open.spotify.com/episode/1LyG69nhm8mxCeWGgplR1K?si=11472f093a2b4f8f&nd=1&dlsi=abc9a0a94312460b):** Have spent most of my time lately thinking about AI transformation in the real economy. Really admire what Crosby are up to. This pod was great — on the broken incentives in current service models, the opportunity to refashion business models and entire industries, on the huge opportunity ahead.
+
+**[Bending Spoons](https://open.spotify.com/episode/2IzQkJp2qewOCPMXRQJIsx):** Hugely inspirational story. Building a new format national champion from first principles.
+
+**[Palmer Luckey](https://www.thefp.com/p/palmer-luckey-and-the-future-of-american-c51)**: No surprises, but there is only one Palmer Luckey.
+
+**[Google’s TPU behemoth](https://newsletter.semianalysis.com/p/tpuv7-google-takes-a-swing-at-the):** Google is all the rage, but is it still massively undervalued? If it has an Nvidia inside it waiting to get out…
+
+**[Joe Walker interviews Hugh White](https://josephnoelwalker.com/hughwhite/):** A wonderful format. I enjoyed Hugh White calling AJP Taylor “edgy” — I’m also a big fan of *The Origins of the Second World War.* I would have asked White about [Pat Buchanan’s](https://www.kvetch.au/p/what-ive-been-reading) perspective as a follow-up. Meta narrative about how conservative history can be as a field and as subject to social pressures as any other endeavour.
+
+Hugh White is a national treasure. I loved his book *How to Defend Australia*, which is essential reading. I bought a bunch of books off the back of his [recommendations](https://josephnoelwalker.com/hugh-whites-strategy-reading-list/). He himself is such an Australian intelligentsia archetype — smart, measured, godless, left-of-centre. He is cautious about invoking the Great Man theory of history — then accepts that the decisions that matter really do end up being made in a room with a few key individuals.
+
+White is scathing of our current crop of leaders, portraying them as totally uninterested in grappling with Australian strategic questions. He basically observes they’re unread and uncurious. Memories of WWII have faded, and these leaders are the children of a post-Cold War world. They know not the sting of stark choices, only the machinations of the news cycle and domestic politicking.
+
+White calling for Australia to tell Washington that it will not go to war with China over Taiwan is undoubtedly brave.
+
+It’s interesting that White would inject agency into Australian foreign policy (we did not and need not blindly follow our senior allies, Britain and now America), but rejects agency on Australian identity and demographics. He claims Australia ‘becoming more Asian’ is inevitable:
+
+> That’s going to require us to think of ourselves as Asians, and to identify ourselves with our region. Keating and Hawke used to capture something of this idea when they spoke about Australia looking for its security not *from* Asia but *in* Asia. But we need to go a lot further than that.
+> 
+> Of course, in a sense this is already happening, because demographically we are becoming more Asian and that’s not going to stop.
+
+I remember this idea floating around growing up. This was the water of polite Australian society through the ‘90s (a hangover from the ‘80s?).
+
+I’m really not sure that thinking of ourselves as Asian is a coherent concept at all. What would a Chinese or Japanese or Thai person think of this for us?
+
+It’s striking how insistent a generation of Australian thinkers are that we need to become something else. Vietnam has spent a millennium explicitly resisting Sinification. How would the Japanese react to someone insisting they ought to become more Chinese or Indian?
+
+Maybe this idea springs from a sense of civilisational illegitimacy. A settler-colony emerging over two centuries, clinging to the skirts of distant Britain then America. But of course, over that time more or less every Asian country has collapsed and re-emerged or reconfigured from one thing to another. Our institutions and polity have endured (isolation helps). We are our own thing. Australians are a real and distinct polity and people. We need not be so shy about it.
+
+Demographically — which is what White specifically refers to — Australians do in fact have a choice. We are an island continent. The defining feature of our geography is that we (should!) have more say over our immigration and demographic destiny than basically anyone else in the world. Immigration is a choice. The current unprecedentedly high immigration policy setting is a new thing, rather than the eternal word of God. The nature of Australian immigration is a choice. Australia need not become more Chinese or Indian or Norwegian or Anglo or Syrian or Jewish for the same reasons Japan need not become more Chinese or Indian or Norwegian or Anglo or Syrian or Jewish. It can choose to go down any of those paths. And it can choose not to.
+
+[Politicians may have abrogated responsibility for immigration levels to bureaucrats](https://www.kvetch.au/p/australias-rule-by-bureaucrat). But a new generation of leaders could very well reconsider this question and decide [what Australia wants to become](https://www.kvetch.au/p/fumbling-for-an-australian-identity).
+
+## Books
+
+#### ***The Journalist and the Murderer*** **by Janet Malcolm**
+
+Janet Malcolm is a wonderful writer. Her opening paragraph is one for the ages.
+
+> Every journalist who is not too stupid or too full of himself to notice what is going on knows that what he does is morally indefensible. He is a kind of confidence man, preying on people’s vanity, ignorance, or loneliness, gaining their trust and betraying them without remorse. Like the credulous widow who wakes up one day to find the charming young man and all her savings gone, so the consenting subject of a piece of nonfiction writing learns—when the article or book appears—his hard lesson. Journalists justify their treachery in various ways according to their temperaments. The more pompous talk about freedom of speech and “the public’s right to know”; the least talented talk about Art; the seemliest murmur about earning a living.
+
+Whilst nominally about the derangements of journalism, it’s really about more. Lawyers, publishers, psychiatrists, jurors — all subject to some pettiness or broken incentives or other derangement that lies at the heart of man. We might consider something an institution or sacred or lofty (like ‘justice’), but it’s just grubby men and their grubby ways all the way down.
+
+#### *In The Arena, A Memoir of Victory, Defeat, and Renewal* by Richard Nixon
+
+How powerful is the US President really? Nixon couldn’t get his own aides to tear down a tennis court. Imagine the friction in getting anything done through a self-interested bureaucracy.
+
+> One of the first orders I issued as President in 1969 was to tear down the World War I-era “temporary” buildings on the Mall, which were an eyesore in the very heart of the nation’s capital. Even though they now had the world’s largest office building, the Pentagon, to house all their services and agencies, officials at the Navy Department dragged their feet. No bureaucrat ever voluntarily gives up office space, no matter how ugly. Nevertheless, I followed up with oral and written orders to the White House staff and other agencies. Virtually every time I flew in to the White House by helicopter and saw the buildings still standing, I would mention my interest in getting them removed, each time with no results.
+> 
+> I soon found that even an order to the military from the commander-in-chief would not be carried out if military bureaucrats could find a way to avoid doing so. Several years passed before the buildings were finally torn down and the Mall restored to its pristine, pre-World War I beauty. So far as I have been able to determine, our military readiness did not suffer.
+> 
+> Not even White House aides are immune from letting self-interest get in the way of following orders. I do not play tennis, and besides, I felt that the tennis court on the White House grounds marred the original simplicity and elegance of the South Lawn. I ordered it removed, thus sparking a crisis among my aides, many of whom did play tennis and enjoyed using the White House court. Each time I would mention tearing it up, they would resolve to study the matter for a few months and then see whether I mentioned it again. When I did, there would be yet another study. Eventually, I realized that the only way to get rid of the White House tennis court would be if I rented a bulldozer one night and did it myself. President Bush, who enjoys playing tennis, can thank my staff for not carrying out my order!
+
+#### ***The Glorious Cause: The American Revolution, 1763-1789*** **by Robert Middlekauff**
+
+The parallels between pre-revolution America and modern conspiratorial eddies in the US are striking. All these dudes from hundreds of years ago would have made excellent Twitter poasters.
+
+> In this environment conventional wisdom came to hold that plots and conspiracy always ruled political action. This had not been an original discovery of the colonists. At least fifty years before the American Revolution they had in fact begun to absorb the ideas and assumptions of the radical opposition in England, the so-called eighteenth-century commonwealthmen…
+> 
+> While Whigs and English governments sang the praises of English institutions, English history, and English liberty, the radicals chanted hymns of mourning, dirges for the departing liberty of England and the rising corruption in English politics and society. Within all states, from ancient Rome to the present, they argued, there had been attempts to enslave the people. The history of politics was nothing other than the history of the struggle between power and liberty. Trenchard and Gordon called one of Cato’s Letters: Essays on Liberty (1721) “Cautions against the Natural Encroachments of Power”; in that essay they declared that “it is natural for Power to be striving to enlarge itself, and to be encroaching upon those that have none.” Cato’s Letters likens power to fire— “it warms, scorches, or destroys, according as it is watched, provoked, or increased. It is as dangerous as it is useful...it is apt to break its bounds.” There was in the radical ideology a profound distrust of power, then, power as force, as coercion, as aggression. What did power coerce or encroach upon? Liberty, usually defined as the use and enjoyment of one’s natural rights within the limits of law made in civil society. In the radicals’ understanding of history, England had enjoyed liberty for so long because her constitution, her laws, and her institutions had successfully checked power and confined it to useful functions. But these writers did not share the general confidence that liberty would continue to flourish, for they detected relentless plots against it. Their writings from the late seventeenth century to the American Revolution are studded with laments for the vanishing liberties of England. In a typical warning, “Cato” declared that “public corruptions and abuses have grown upon us… the necessities of the public have made greater impositions unavoidable, and yet the public has run very much in debt, and as those debts have been increasing, and the people growing poor, salaries have been augmented, and pensions multiplied.”
+> 
+> “Public corruptions and abuses”: the phrase or similar ones appeared repeatedly in the oppositionist literature. Just as frequently the radicals bewailed the growing “luxury,” officeholding by “wicked men,” the degeneration of manners, the bribery of officeholders and the electorate. The climax of all this corruption, this pervasive moral decline, according to these political Jeremiahs, would be the destruction of liberty, and its replacement by a ministerial tyranny.
+
+#### ***Fairness and Freedom: A History of Two Open Societies: New Zealand and the United States*** **by David Hackett Fischer**
+
+What a remarkable aside:
+
+> America’s political parties have always divided on immigration policy. In general, Federalists, Whigs, and Republicans tried to keep people out, or stop them from voting. Democrats wanted to let them in, and marched them to the polls.
+
+Also I have no idea what Fischer is referring to here?
+
+> Roosevelt manipulated Hitler into declaring war on the United States
+
+I will have much more to say about this book…
+
+#### ***History Of The Decline And Fall Of The Roman Empire*** **by Edward Gibbon**
+
+I didn’t make it through, but I did notice the steady sprinkling of snide observations about the fairer sex. Perhaps standard for a gentleman of 1782. I include some here:
+
+> “Female courage, however it may be raised by fanaticism, or confirmed by habit, can be only a faint and imperfect imitation of the manly valour that distinguishes the age or country in which it may be found.”
+> 
+> “But as female fortitude is commonly artificial, so it is seldom steady or consistent.”
+> 
+> “It was to their counsels, which governed the weakness of her sex, that she imputed the guilt of her obstinate resistance.”
+> 
+> “Instead of the little passions which so frequently perplex a female reign, the steady administration of Zenobia was guided by the most judicious maxims of policy.”
+> 
+> “Zenobia is perhaps the only female whose superior genius broke through the servile indolence imposed on her sex by the climate and manners of Asia… Zenobia was esteemed the most lovely as well as the most heroic of her sex.”
+> 
+> “She possessed, even in advanced age, the attractions of beauty, and united to a lively imagination a firmness of mind, and strength of judgment, seldom bestowed on her sex.”
+> 
+> “Those who believe that the female mind is totally depraved by the loss of chastity will eagerly listen to all the invectives… which have dissembled the virtues of Theodora, exaggerated her vices, and condemned with rigour the venal or voluntary sins of the youthful harlot.”
+
+#### *The Sword of Freedom: Israel, Mossad, and the Secret War* by Yossi Cohen
+
+Clearly a political platform by a former Mossad chief. Has a nice dig at the IDF and the Shin Bet for letting October 7 happen (“I will never forgive them”).
+
+Working for the Mossad is a genuine ‘mission-driven’ career choice. He read and responded to reports from 11pm - 4am Friday nights. (A bit aggressive for a formerly religious Jew?)
+
+Calling climate change the world’s most existential threat was a curve ball. Not sure how much that is poor judgement, business interests, or a function of some other domestic politics.
+
+It was Mossad that informed the Australian authorities in 2017 that ISIS was planning to bomb an Etihad flight out of Sydney ([more details here](https://ctc.westpoint.edu/operation-silves-inside-the-2017-islamic-state-sydney-plane-plot/)). Thanks!
+
+#### ***The Netanyahus*** **by Joshua Cohen**
+
+I resented the meta-narrative: a farcical portrayal of the Netanyahus and Revisionism. It felt like a literary equivalent of the Book of Mormon musical but skewering the Israeli Right: an appropriate object of ridicule for a Jewish American academic. Enough historical and cultural detail and Jewish in-jokes to earn points, enough mocking of the Israeli Right to signal appropriate tribal allegiance. I don’t mean to sound too hagiographical, but I also wince at the ridicule heaped on a (barely teenage) Yoni Netanyahu. Even if the portrait is true (it did have the ring of truth), it doesn’t sit right. Also, contra the author, Israeli Revisionism was not in fact discredited. Israeli Revisionism survived Labor’s one party state rule and came to utterly dominate Israeli politics as Labor idealism careened into Palestinian intransigence and bloodlust.
+
+That said, the afterword was worth it all: a gorgeous portrait of Harold Bloom (where the story apparently originated). Bloom on Cormac McCarthy: “he would call me on the telephone while soaking like a cowboy in the bath”.
+
+#### *Moby Dick* by Herman Melville
+
+I’m reading Moby Dick to my boy. Probably a little trickier than expected for a nine-year-old, but otherwise as excellent as I remember. Loved this aside on the illusion of free will:
+
+> Though I cannot tell why it was exactly that those stage managers, the Fates, put me down for this shabby part of a whaling voyage, when others were set down for magnificent parts in high tragedies, and short and easy parts in genteel comedies, and jolly parts in farces — though I cannot tell why this was exactly; yet, now that I recall all the circumstances, I think I can see a little into the springs and motives which, being cunningly presented to me under various disguises, induced me to set about performing the part I did, besides cajoling me into the delusion that it was a choice resulting from my own unbiased freewill and discriminating judgment.
+
+My boy did literally laugh out loud at Ishmael lying down to bed with Queequeg only to wake up and find himself in a matrimonial embrace. It’s working!

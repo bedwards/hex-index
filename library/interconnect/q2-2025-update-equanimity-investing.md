@@ -1,0 +1,111 @@
+---
+title: "Q2 2025 Update: Equanimity Investing"
+author: "Kevin Xu"
+publication: ""
+publication_slug: "interconnect"
+published_at: "2025-07-20T12:26:19.000Z"
+source_url: "https://interconnect.substack.com/p/q2-2025-update-equanimity-investing"
+word_count: 1873
+estimated_read_time: 10
+---
+
+Welcome to the Q2 2025 update of Interconnected Capital.
+
+To new and old readers alike, a friendly reminder: I run a global technology long-only fund focused on investing in both the hardware and software “picks and shovels” of the interconnected global digital AI economy. I draw on my technology business operator's experience and geopolitical antennas to bring an edge to how I assess a tech company’s rhythm and prospects in a constantly changing world \[1\]. (*If you are an accredited investor as defined by the US SEC or equivalent standard in your country of residence, and interested in getting more information about the fund, e.g. audited performance report from 2023 and 2024, feel free fill out this [short Google form](https://forms.gle/81ZfEEsMuPVRpiCG8).*)
+
+As always, first the numbers, then the reflection.
+
+[
+
+![](https://substackcdn.com/image/fetch/$s_!AEwe!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F203d0a7d-613d-42f4-a24c-d9f3fc17b88a_1868x582.png)
+
+
+
+](https://substackcdn.com/image/fetch/$s_!AEwe!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F203d0a7d-613d-42f4-a24c-d9f3fc17b88a_1868x582.png)
+
+###### **\[1\]** ***My past experiences include: senior leadership position at GitHub (the world’s largest developer and open source technology platform, now owned by Microsoft), a unicorn database startup, early stage VC, and the White House and Department of Commerce during the Obama administration. I studied law and computer science at Stanford; international relations at Brown.***
+
+###### **\[2\]** ***Includes April 1 - June 30, 2025 gross returns. Unaudited.***
+
+###### **\[3\]** ***Includes January 1 - June 30, 2025 gross returns. Unaudited.***
+
+**Portfolio positions listed in random order (as of July 1, 2025):**
+
+-   INTEL CORP
+    
+-   NEBIUS GROUP NV
+    
+-   OKTA INC
+    
+-   WERIDE INC ADR
+    
+-   ALIBABA GROUP ADR
+    
+
+## Equanimity
+
+Q2 was a helluva quarter.
+
+Reflecting back on all the ups and downs (and ups), the one word that keeps popping into my head is “equanimity”. The Wikipedia definition is: “*a state of [psychological stability](https://en.wikipedia.org/wiki/Inner_peace) and composure which is undisturbed by the experience of or exposure to emotions, pain, or other phenomena that may otherwise cause a loss of mental balance.*” The Latin root of the word is a combination of two concepts: *aequus* or “equal” and *animus* or “mind”.
+
+An equal mind.
+
+Had we all known everything that was about to happen during Q2, maintaining an equal mind would’ve been easy. But no one knows what the future holds, especially these days. That’s part of the fun of investing, and living. Experiencing and navigating all the emotions, turbulence, and a (hopefully temporary) loss of mental balance is a necessary path to forging a stronger sense of equanimity. There is only so much that reading books on bubbles, crashes, and wars can do for you; you have to *feel* it.
+
+One mental exercise I sometimes like to do is: had I done nothing, what would’ve happened? This exercise can be especially illuminating after a period of extraordinary volatility. So I went through the exercise recently with this premise: had we held our portfolio exactly the way it was at the end of day on March 31, 2025, went to a cave with no Internet access or any modern tools of communication for the next three months, then came back online at the end of day on June 30, 2025, what would have happened?
+
+As it turns out, the portfolio would have been up around 15%.
+
+Admittedly, it was a simplistic test where lots of variables were ignored, for example, fresh capital coming in during the quarter, which we did have some from both new and existing investors. But the learning was nevertheless instructive.
+
+In the “cave scenario”, we would have still outperformed two of the three major benchmarks but only by a little. For some, that would have been a more than satisfactory result. Of course, comparing that hypothetical outcome to reality, we would have *foregone* an extra 18% of gain. Whether an additional 18% is worth all the stomach churning stress is an entirely personal question. I can see most people answering that question with a resounding “no”. But for me, it was absolutely worth it!
+
+I’m glad whatever skill, insight, and temperament I was equipped with on March 31 were deployed to productive effect for our portfolio and our investors’ capital. And I’m grateful that Q2 2025 happened relatively early in my investing career. I’m sure another similar period will happen many times in the future, quite possibly again in the *near* future, when my ability to maintain an equal mind will be stronger and called upon again.
+
+## Poorly Understood and Misunderstood
+
+A big part of being able to *afford* the mental space for equanimity when investing is sticking to the table stakes standard of “know what you own”. For Interconnected Capital, I stay within the picks and shovel layers in the AI tech stack, start by knowing the technology well first, then knowing the business well, then finally exercising discipline (in practice, this means waiting and waiting) to establish a position at an entry price that builds in a fat margin of safety.
+
+This process – which I rinse, repeat, and improve constantly – sounds straightforward and painfully obvious. But in practice, it can be quite tricky. Finding great technology businesses is actually *not* that hard; they are everywhere! But finding great technology businesses that I somehow understand *better* than the rest of the market *is* hard. Finding them during a mispricing is *extra* hard. Finding them during a mispricing, when I happen to have enough patient capital to buy an outsized chunk to meaningfully move the needle and see the investment through, is *even* harder still.
+
+To make this difficult process work repeatedly, I have gravitated towards two groups of companies: the poorly understood and the misunderstood.
+
+For the poorly understood group to work, it requires a lot of educating and waiting.
+
+For the misunderstood group to work, it requires a lot of convincing and correcting.
+
+I have names in both groups. [Nebius](https://interconnect.substack.com/p/nebius-part-1-the-smooth-developer?utm_source=publication-search) and WeRide represent the poorly understood group. Both possess technologies and businesses that are barely understood and hardly analyzed by the market as a whole, yet are occupying industries and use cases in the AI stack that will likely become pervasive in the next five to ten years. (A heuristic I sometimes use to gauge the level of poorly understoodness is less than five sell-side price targets.)
+
+Intel, Okta, and Alibaba, represent the misunderstood group. All three were high flyers once upon a time, have since fallen from grace, and are seeking a turnaround and a new inflection point. For Intel, there is still plenty of innovative juice left in both its chip design business and semiconductor manufacturing processes that are misunderstood and discounted. [Lip-Bu Tan](https://interconnect.substack.com/p/lip-bu-tan-the-tiger-dad-intel-needs)’s track record as a humble and *[humbling](https://www.oregonlive.com/silicon-forest/2025/07/intels-ceo-we-are-not-in-the-top-10-of-leading-chip-companies.html)* turnaround maestro is the right antidote for Intel and its last hope. For Okta, despite lackluster growth and self-inflicted wounds, it has emerged as one of the few brands in cybersecurity where you don’t get fired for using. That is a rare status to reach. From that enviable position, it is tackling head-on the demand of AI agent identity security – a secular tailwind. For Alibaba, after surviving a rough regulatory environment and its own ill-conceived corporate reorganization, its decade-plus investment in cloud infrastructure and open source is, perhaps, finally enabling it to tap into the [structural advantages of China’s tech and research ecosystem](https://interconnect.substack.com/p/chinas-structural-advantage-in-open) to become a leader in AI, starting with its Qwen model series.
+
+Generally, I prefer the poorly understood ones more than the misunderstood ones. The reason has less to do with technology or company fundamentals, more to do with human nature. I find that it is much harder and takes longer to change people’s mind about something they misunderstand or are wrong about. It is somewhat easier to tell people about something new and educate them about it. (Neither is easy per se.)
+
+The reaction you tend to get when mentioning a name in the poorly understood group is a quizzical look – confused but curious. The reaction you tend to get when mentioning a name in the misunderstood group is an opinion or argument – a bit defensive if not stubborn. That stubbornness, rooted in strongly-held priors, can take years to soften and correct, if ever. A small case in point: the Interconnected newsletter stands alone as one of the only resources on the Internet that did [deep dives on Alibaba Cloud](https://interconnect.substack.com/p/alibaba-cloud-no-longer-ignored) as a division worth watching; my first AliCloud analysis was published [five years ago](https://interconnected.blog/alibaba-cloud-the-ignored-cloud/). That business is still misunderstood and undervalued today, and may continue to be so for years to come.
+
+Sadly, poorly understood companies are harder to find, though their upside is higher and more enduring. Misunderstood companies are slightly easier to find, but the upside is more capped, and a company can stay misunderstood longer than a portfolio can endure underperformance. Both groups are full of traps that lead to mistakes. One example of a mistake I made was thinking late last year that the category of cloud software infrastructure companies are misunderstood, should do better as AI agents become more prevalent, and thus is a good source of opportunities. As this year progressed, it became increasingly clear to me that, because of the growing acceptance of AI coding agents, *all* future software will be written and deployed in a completely different way. No one knows what that will look like yet, but what is clear is that the previous way and the previous stack won’t be the obvious beneficiary, unless it evolves and adapts quickly to the changing times. Recognizing this mistake, I have cut out cloud software names aggressively from our portfolio, as I continue to learn and gain clarity.
+
+Mistakes will be made, while the hunt continues. As a professional investor, the hunt for the next target is arguably the most rewarding part of the journey. There are ideas in both groups that I am actively working on right now. Some may become members of our portfolio, some may never see the light of day, as they get worked through my process. Nevertheless, I will continue to strive to hunt with equanimity, invest with equanimity.
+
+Until next quarter,
+
+Kevin S. Xu
+
+July 20, 2025
+
+(You can access the original letter in a view-only Google Doc link [HERE](https://docs.google.com/document/d/1Gf0k5CI2KKkdaXbXkXH1GQ0lThTSRYJfpUS8s1Q_tbw/edit?usp=sharing).)
+
+\---
+
+**LEGAL INFORMATION AND DISCLOSURE**
+
+*This letter expresses the views of the author as of the date indicated and such views are subject to change without notice. Interconnected Capital, LLC (“Interconnected”) has no duty or obligation to update the information contained herein.*
+
+*Further, Interconnected makes no representation, and it should not be assumed that past investment performance is an indication of future results. Moreover, wherever there is the potential for profit there is also the possibility of loss.*
+
+*This letter is being made available for educational purposes only and should not be used for any other purpose. The information contained herein does not constitute and should not be construed as an offering of advisory services or an offer to sell or solicitation to buy any securities or related financial instruments in any jurisdiction. Certain information contained herein concerning economic trends and performance is based on or derived from information provided by independent third-party sources.*
+
+*Interconnected believes that the sources from which such information has been obtained are reliable; however, it cannot guarantee the accuracy of such information and has not independently verified the accuracy or completeness of such information or the assumptions on which such information is based.*
+
+*All figures are unaudited. Interconnected does not undertake to update any information contained herein as a result of audit adjustments or other corrections. Past performance is not indicative of future results.*
+
+*This letter, including the information contained herein, may not be copied, reproduced, republished, or posted in whole or in part, in any form without the prior written consent of Interconnected.*

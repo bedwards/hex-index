@@ -1,0 +1,86 @@
+---
+title: "Silicon Valley's capture of our political institutions is all but complete"
+author: "Brian Merchant"
+publication: ""
+publication_slug: "bloodinthemachine"
+published_at: "2025-10-16T20:27:11.000Z"
+source_url: "https://www.bloodinthemachine.com/p/silicon-valleys-capture-of-our-political"
+word_count: 2500
+estimated_read_time: 13
+---
+
+Greetings all,
+
+Well it’s officially fall here in LA. You can tell because we have experienced our annual day of rain and the city’s infrastructure nearly collapsed in on itself as a result. Always a good time. This week, we tally up the AI law scorecard in California and consider Silicon Valley’s era of total political dominance. For paying subscribers, a roundup of critical AI stories, including how Sam Altman rolled Hollywood with Sora, the rise of a youth movement to mass delete social media apps, and more.
+
+A bit back, I [wrote about the various California AI and tech policy bills](https://www.bloodinthemachine.com/p/were-about-to-find-out-if-silicon) that were sitting on governor Gavin Newsom’s desk, awaiting his signature or veto. As my headline \*provocatively\* insisted, we were about to find out whether Silicon Valley owned Newsom. The verdict is in, and, surprise, it (mostly) does. With two exceptions, things broke just the way I expected them to: Newsom signed the toothless bills and vetoed those the tech industry took issue with.
+
+In fact, especially given that California’s size and economy makes it a crucial arena for piloting laws that impact the whole nation, there’s a case to be made that this legislative session has left us all \*worse off\* when it comes to AI than if nothing had been passed at all. I’m not exaggerating, and I’ll explain in a minute. It’s also a reminder that even in liberal states, Silicon Valley’s institutional political power has, for now, become all but insurmountable.
+
+Quickly, a reminder that this issue of BITM is made possible 100% by paid subscribers, who chip in a few bucks each month to help me keep the lights on and do things like report on state-level AI policy, which most mainstream tech pubs won’t bother to do. But people need, and *do* want to hear this stuff! I was invited onto [Ed Zitron’s Better Offline show](https://www.youtube.com/watch?v=SXzgYGSLmHU) to discuss the piece, Silicon Valley’s lobbying power, and AI governance (or lack thereof). And then I got word[1](#footnote-1) that Natasha Lyonne had used the story to help prepare for a speech at a TIME AI event, in which she called on leaders to get serious about regulating AI, and about passing California’s AB 1064, one of the only AI laws that Silicon Valley was really afraid of. (I’ll post the full thing below.) Anyway, the only reason I can get the word out about the AI industry’s political machinations is because a small percentage of you readers lend me the material support necessary to do so. If you too find value in this work, and you’re able, please consider doing the same. OK OK enough of that; onwards, and hammers up.
+
+Let’s start with the good news. It’s brief, and won’t take up much of your time, promise.
+
+One bill whose fate I considered somewhat up in the air was AB 325, a common sense effort to rein in dynamic pricing aka algorithmic price-fixing. (This is landlords using a platform to set rents to the maximum amount it thinks renters will pay, retailers using an algorithm to calculate how much they can push up prices for different consumers, and so on.) On the one hand, the California Chamber of Commerce, landlords, and the tech lobby wanted it dead; on the other, it’s hard to make the case that large price-fixing platforms that raise rents and gouge consumers are in any way defensible. But this kind of algorithmic price-setting also isn’t really the arena in which Silicon Valley tech giants have a ton of skin in the game—it’s mostly third-party [companies like RealPage](https://www.justice.gov/archives/opa/pr/justice-department-sues-realpage-algorithmic-pricing-scheme-harms-millions-american-renters) (which is based in Texas) affected here—and thus the pressure on Newsom wasn’t quite as concentrated as it was elsewhere. He signed the bill, meaning that this practice will be regulated if not snuffed out entirely in California. This is good!
+
+“We’re thrilled that California will make abundantly clear that whether or not you shake hands on a back room deal or use an algorithm to artificially increase prices, California will hold you accountable,” asmSamantha Gordon, Chief Advocacy Officer at TechEquity, which backed the law, told me.
+
+Sadly, this is where the silver lining peels off.
+
+In the other move that surprised me just a little bit, for the opposite reason, Newsom vetoed SB7 aka the No Robo Bosses Act. This is no *great* shock or anything; it’s only surprising because after a robust lobbying effort from Silicon Valley, the bill had been whittled down to the point that there was little controversial about it before it passed. The law would have prevented an employer from rely *solely* on an automated decision-making system like AI to fire or discipline workers. Pretty sensible! Of course, even that was too much for many tech companies, who chafed at both the idea itself and the nominal costs of compliance. I guess I just held out some hope that such gripes would not be enough to earn a veto of a rather straightforward law that says ‘bosses can’t use AI to auto-fire workers’, but that’s exactly what happened: Silicon Valley lobbied for the right for its AI to fire you without a human manager in the loop, and won.
+
+More predictably, Newsom vetoed AB 1064, aka the LEAD Act, which would have mandated that AI companies ensure chatbots wouldn’t cause harm to children before putting them on the market. This was the one that Natasha Lyonne called on people to support in her speech, and that, somewhat ironically and unbeknownst to her, Newsom may well have been vetoing at about the same time in Sacramento. This was the one the tech industry was actually worried about, and enlisted its flacks to pen op-eds lamenting the damage it could do to California innovators and how it could deprive poor children of their access to corporate AI companions.
+
+Here’s a local [ABC station reporting on the veto](https://abc7.com/post/california-gov-newsom-vetoes-bill-restrict-kids-access-ai-chatbots/18001782/):
+
+> The bill would have banned companies from making AI chatbots available to anyone under 18 years old unless the businesses could ensure the technology couldn’t engage in sexual conversations or encourage self-harm.
+> 
+> “While I strongly support the author’s goal of establishing necessary safeguards for the safe use of AI by minors, (the bill) imposes such broad restrictions on the use of conversational AI tools that it may unintentionally lead to a total ban on the use of these products by minors,” Newsom said.
+
+Heaven forbid. What if, in the process of trying to ban AI products that quite actually encourage children to kill and harm themselves, we wind up banning chatbots that help children cheat on their homework, [diminish their propensity for critical thought](https://www.cnbc.com/2025/10/13/experts-warn-ai-llm-chatgpt-gemini-perplexity-claude-grok-copilot-could-reshape-teen-youth-brains.html), and lead to the development of other forms of AI psychosis?
+
+I really find Newsom’s excuse here infuriating. It’s not only bad faith—he caved to Silicon Valley, plain and simple—but he echoes the industry’s talking points while positioning the very idea that it might be better to test, interrogate and attempt to understand a technology before it’s sold for profit by enormous firms as simply off the table. Like, what if we subjected a new highly addictive consumer technology to rigorous examination *first*, and *then* allowed it to be marketed to children? Perhaps we might avoid more of the tragic fallout we’re already seeing, and the kind of widespread harassment and depression unleashed by social media platforms that marked the last decade of unregulated tech? Unthinkable. The kids *must* have access to the latest tech products sold by companies aspiring to multiple trillion dollar valuations.
+
+So that’s two vetoes of bipartisan-passed AI bills, on behalf of Valley interests.
+
+Now wait, you might say, I swear I saw some headlines about how [California signed some “sweeping”](https://www.nytimes.com/2025/09/29/technology/california-ai-safety-law.html) [“first-in-the-nation”](https://www.politico.com/news/2025/09/29/newsom-signs-ai-law-00585348) AI regulations into law. You would be correct, you did see those headlines. But they’re weak and dare I say nearly pointless laws. And here’s the part where I’ll argue that they’re worse than if California had passed nothing at all.
+
+[
+
+![](https://substackcdn.com/image/fetch/$s_!5sao!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Ff1a2f043-3612-4182-94af-539ba0cf52b6_1544x1314.png)
+
+
+
+](https://substackcdn.com/image/fetch/$s_!5sao!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Ff1a2f043-3612-4182-94af-539ba0cf52b6_1544x1314.png)
+
+From [the New York Times](https://www.nytimes.com/2025/09/29/technology/california-ai-safety-law.html):
+
+> The Transparency in Frontier Artificial Intelligence Act, or S.B. 53, requires the most advanced A.I. companies to report safety protocols used in building their technologies and forces the companies to report the greatest risks posed by their technologies. The bill also strengthens whistle-blower protections for employees who warn the public about potential dangers the technology poses.
+
+Got that? The largest AI companies (with annual revenues of over $500 million) must “report safety protocols” aka create a website with the AI version of workplace safety signage on it, and self-report “catastrophic risks” they pose. If a large AI company fails to do so, it will be forced to pay a fine of… $1 million, or less than the wire transfer fee from OpenAI’s latest SoftBank loan distribution. This is almost comically pointless, if you ask me.
+
+The law defines catastrophic risk as “foreseeable and material risk” of an event that kills 50 people or does $1 billion in damage. Remember, SB 53 was written by people who are legitimately worried AI might become sentient, so we can at least suppose that the bill’s authors’ are well meaning. But even if you think this is the biggest risk of AI—I would not rank these theoretical catastrophes in my top 100 AI concerns—then this seems like a profoundly silly way to deal with it. We’re supposed to trust large AI companies, run by some of the most [demonstrably](https://www.cnbc.com/2024/05/29/former-openai-board-member-explains-why-ceo-sam-altman-was-fired.html) [untrustworthy](https://futurism.com/sam-altman-silencing-former-employees) people on the planet, to self-report “catastrophic risks” and if they do not, and, what, a catastrophic risk is realized and it kills 50 people… they have to pay a fine less than the cost of running their data centers for a second or two?
+
+The way it’s really supposed to work is to encourage whistleblowers to come forward and alert the state to those risks, and provide them with some new protections with which to do so. Yet those protections are [so narrow and byzantine](https://www.techpolicy.press/californias-new-ai-law-misses-the-mark-on-whistleblower-protections-/) that they’re unlikely to empower anyone at all to feel confident legally about coming forward. Same goes for the catastrophic risk assessments themselves, the frameworks for which are just as tangled: We are going to ask a state auditor to not only assess a speculative “catastrophic risk” that could lead to 50+ deaths but did not, and prove this in court to extract a $1 million fine from OpenAI? Do we see this ever working at all?
+
+I would honestly not be surprised in the slightest if no “catastrophic risk” ever gets successfully reported to the state, no whistleblower comes forward under the new protections, and no fines are ever issued. That may in fact be the most likely outcome.
+
+There was one other AI bill, too. Regrettably. As I feared, instead signing the LEAD Act, Newsom signed [SB 243](https://leginfo.legislature.ca.gov/faces/billTextClient.xhtml?bill_id=202520260SB243), a law that is so toothless I’m embarrassed even to have to mention it. Instead of forcing AI companies to ensure their products are safe, it makes AI companies publish a protocol on their websites—honestly what is up with lawmakers and their insisting AI companies post protocols—about how they engage in queries related to suicide and self harm, inform users that it is AI and not real, ask users to take breaks every \*three hours\*, and send users self-help info in certain situation. If an AI company does not do these things, and someone is harmed, well then, they are “authorized” to take the AI company to civil court to the tune of, I shit you not, $1,000. $1,000! I cannot imagine a less consequential sum to companies that have eaten the entire American economy. It’s a joke.
+
+Hence why I think these bills are worse than nothing. Newsom won himself some press and political cover by doing the barest of the bare minimum, while shirking most meaningful reforms. Newsom signed two laws that, to those only following the headlines, make him look like a thoughtful leader who’s addressing AI with “sweeping regulations” and is unafraid of taking on Silicon Valley. In reality, he is very, very much afraid!
+
+The industry bullied him into vetoing an AI safety law last year that at least required actual transparency, and instead handed him this year’s shell of a bill. Silicon Valley pushed Newsom to kill a law making it illegal for AI systems to auto-fire people on behalf of their employers—a move that quite literally only protects tech companies selling AI systems and bosses seeking to dodge accountability. It pushed him to scrap an important law that says companies selling AI chatbots to kids need to be able to ensure they’re safe, because the industry doesn’t want to invest the money required to do that, or risk losing a key consumer demographic (actual children).
+
+The bills he did sign, will, upon close inspection, do nearly nothing to even minimally restrain the excesses of AI companies. Those companies will hire consultants to make a webpage on which to publish some protocols and tick some boxes and that will be that. Meanwhile, the appearance of having passed meaningful laws around AI risks sapping the political will to meaningfully tackle actual AI social and labor issues, making it all the more difficult for legislators and groups trying to do good work here. Many will be undeterred; bills tackling workplace AI surveillance and limiting automated decision-making systems will be back next year.
+
+But we must take stock of the fact that even in one of the most nominally liberal legislatures in the nation, Silicon Valley’s interests dominate utterly. The [tech lobby stalled out a bill in Colorado](https://www.techpolicy.press/in-delaying-its-ai-law-colorado-shows-tech-lobbys-power-in-state-politics/), too, hundreds of miles away from Palo Alto. Federal legislation has become unthinkable. With the failure of the courts to break up Google’s monopoly taken into account, too, we have to start thinking about what it means that at least for now, US citizens effectively have no meaningful democratic input into how technology shapes our workplaces, institutions, and civil society. Silicon Valley’s capture of our institutions is all but complete.
+
+I’ll end with a quick note or two of hope: The *desire* for change is stronger than ever. There’s [a bona fide Luddite renaissance afoot](https://www.bloodinthemachine.com/p/the-luddite-renaissance-is-in-full), remember, and anti-AI sentiment is through the roof for a reason. That change is going to have to come through the grassroots, through organizing, through networks of solidarity. And there remain open avenues; for instance, California legislators can override a governor’s veto with 2/3rds of the vote, [they simply haven’t done it since 1979](https://calmatters.org/politics/2024/10/californa-veto-overrides/). For the right bill, that’s certainly worth a look.
+
+\---
+
+## Natasha Lyonne’s speech calls on AI leaders and lawmakers to get serious about protecting workers, society
+
+A while back, the widely beloved actress Natasha Lyonne caught flack for starting [an AI production company](https://deadline.com/2025/04/natasha-lyonne-uncanny-valley-directorial-debut-copyright-clean-ai-1236382007/). (She licenses the works in the datasets the company uses in a bid to ethically source the material and compensate artists, but faced criticisms over job automation and AI’s environmental impacts.) She now appears to have [reflected on the effort](https://www.thewrap.com/natasha-lyonne-time100-ai-regulation-speech/). At least, Lyonne took the opportunity of being invited to speak before scores of AI luminaries at the annual TIME AI 100 event to take them to task, even singling Sam Altman out by name:
+
+[Read more](https://www.bloodinthemachine.com/p/silicon-valleys-capture-of-our-political)

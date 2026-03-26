@@ -1,0 +1,148 @@
+---
+title: "History Book Club I, Grandin, America América"
+author: "Jeff Rich"
+publication: ""
+publication_slug: "jeffrich"
+published_at: "2026-01-31T22:00:44.000Z"
+source_url: "https://jeffrich.substack.com/p/history-book-club-i-grandin-america"
+word_count: 1822
+estimated_read_time: 10
+---
+
+Welcome to the first instalment of the monthly History Book Club. This post provides a reader’s guide and discussion questions for Greg Grandin, *America América: a New History of the New World*
+
+## Ten Books to Change Your World History View
+
+As set out in my [January announcement](https://jeffrich.substack.com/p/your-personal-history-curriculum?r=azb1g), here is the schedule for the ten core books we will read and discuss together in the book club.
+
+-   **February**: Greg Grandin, *America América: a New History of the New World*
+    
+-   **March**: Fernando Cervantes, *Conquistadores: A New History*
+    
+-   **April**: Felipe Fernández-Armesto, *Straits: Beyond the Myth of Magellan,* together with the movie, [Magellan](https://www.imdb.com/title/tt36456563/)
+    
+-   **May**: Mark Mazower, *Anti-Semitism: The History of a Word*
+    
+-   **June**: Sophia Rosenfeld, *The Age of Choice: A History of Freedom in Modern Life*
+    
+-   **July**: Mark B. Smith, *Exit Stalin: The Soviet Union as a Civilization, 1953-1991*
+    
+-   **August**: Lyndal Roper, *Summer of Fire and Blood: The German Peasants War*
+    
+-   **September**: Robert Darnton, *The Revolutionary Temper: Paris, 1748-1789*
+    
+-   **October**: Martin Thomas, *The End of Empires and a World Remade: A Global History of Decolonization*
+    
+-   **November**: David van Reybrouck, *Revolusi: Indonesia and the Birth of the Modern World.*
+    
+
+## How You Can Participate in the Discussion
+
+*On the first day of each month*, I will post a **short reader’s guid**e and set of d**iscussion questions**.
+
+*Over the whole month*, you can share **your ideas, comments, questions, responses and media recommendations** in the **comments section of this post**.
+
+I am looking forward to reading and responding to all of your comments. I am reading these books for the first time and so I expect to learn a lot from your conversation.
+
+I have made this feature available for *paid subscribers* so I can commit the time and attention to ensure the book club is a history salon experience. So if you have not already, why not upgrade now?
+
+*Mid-month*, I will post an essay on a classic history text that has influenced me and is complementary to the core book. In February, I will share the insights I gained from Felipe Fernández-Armesto, *Civilizations* and his other historical work on the Americas, including his biography of the man whose name was given to the continent, Amerigo Vespucci.
+
+*At the end of the month,* there will be a live call via Zoom. For the initial meeting, available for paid subscribers, I am proposing that we meet on Saturday 28 February at 10:00 AM Melbourne time.
+
+## Grandin, *America América* Overview
+
+### The Historian
+
+Greg Grandin (born 1962) is an American historian of Latin America, U.S. foreign relations, and empire. He is Professor of History at Yale University. Grandin also served as a consultant to Guatemala’s Historical Clarification Commission, the UN‑backed truth commission on the Guatemalan civil war.
+
+His books include *Blood of Guatemala: A History of Race and Nation*, *The Last Colonial Massacre*, *Empire’s Workshop: Latin America, the United States, and the Making of an Imperial Republic*, *Kissinger’s Shadow: The Long Reach of America’s Most Controversial Statesman*, and *The End of the Myth: From the Frontier to the Border Wall in the Mind of America*,
+
+*America América* was shortlisted for the Cundill History Prize. That is how I discovered Grandin, and I am so glad that I did.
+
+### The Book
+
+*America, América* invites readers to rethink the New World, the Americas, as a single, entangled historical space rather than the narrow story of the USA expanding and rebelling in opposition to Old Europe.
+
+Greg Grandin traces five centuries of conflict, diplomacy, and ideas between “America” and “América,” arguing that their mutual confrontations and borrowings shaped not only national identities but also the institutions, laws, and political imaginaries of the modern world. For example, Latin America taught North America as much about international law as the USA used South America as a workshop of imperial covert operations.
+
+Grandin writes that:
+
+> “*America, América* argues that the New World’s magpie rivalry, its immanent critique, played a vital role in the creation of the modern world, shaping its economics, politics and moralities. The Protestant settlers who colonized, followed by the republicans who revolutiuonized, North America looked to Spanish America not as an alien other but as a competitor, a contendor in an epic struggle to define a set of nominally shared but actually contested ideals: Christianity, freedom, law, sovereignty, property, equality, liberalism, democracy, and, above all, the very meaning of America.” (p. xxiii)
+
+Moving from the Spanish conquest and independence movements through the Monroe Doctrine, Cold War interventions, and to the cusp of the current crisis in Venezuela, he shows how U.S. expansionism and Latin American projects of social democracy continually defined themselves against each other. The post-Cold War suppression of Latin America’s democratic and internationalist traditions have unleashed North America’s worst military, libertarian and imperial instincts.
+
+### Structure of *America, América*
+
+*America América* is divided into eight parts that include fifty brief chapters. This organisation makes the book easy to read, and less dense than many academic histories. There is lots of follow-up material in the endnotes, but academic scholarship does not weight the narrative down.
+
+**Part I – To Begin in Wonder: the Spanish**  
+This part opens in the Spanish world of conquest and theology, asking what it meant to “discover” an already-inhabited hemisphere and whether more than one moral and legal world could exist. Grandin tracks debates around Las Casas, natural law, and the “New Laws” to show how early questioning of conquest seeded later Latin American arguments about common humanity and rights.
+
+**Part II – Empty Houses: The English**  
+Grandin then turns to the English in the Americas, emphasizing merchants, investors, and imperial strategists rather than Pilgrim piety, and the fiction of “empty” land that underwrote settlement. He follows how English expansion and the idea of vacancy - of houses, landscapes, and legal obligations - created a different but equally violent template for dispossession and profit.
+
+**Part III – American Revolutions**  
+This section braids together the late eighteenth‑ and early nineteenth‑century revolutions in North and South America as a series of interlocking struggles over sovereignty, slavery, and empire rather than isolated national epics. Grandin highlights how independence projects in Spanish America, the Caribbean, and the United States borrowed from and contested each other’s visions of liberty, race, and republican order.
+
+**Part IV – Union/Desunión**  
+Here Grandin explores the long nineteenth century of union-building and fragmentation, from attempts to imagine hemispheric federations to the sharpening asymmetry between a rising U.S. power and more precarious Latin American republics. The section foregrounds doctrines, treaties, and “sister nation” rhetoric, showing how ideas of pan-American law and solidarity coexisted with repeated interventions and unequal integration.
+
+**Part V – Young Americans**  
+This part follows the age of U.S. expansionism, from Manifest Destiny through the Civil War and its memory, as Americans cast themselves and their southern neighbours as contrasting “young” peoples with different futures. Grandin reads figures like Lincoln and Latin American liberals together to show how competing democratic, abolitionist, and imperial projects defined what “America” and “América” might mean.
+
+**Part VI – Toward a World Doctrine**  
+Grandin traces how the Monroe Doctrine was reinterpreted across the early twentieth century, especially through the Mexican Revolution and Woodrow Wilson’s dilemmas, to justify both U.S. intervention and Latin American claims to reshape international order. The section emphasizes ideas like “subsoil socialism” and anti‑imperial legalism, arguing that Latin American actors used the language of hemispheric doctrine to press for a more egalitarian global system.
+
+**Part VII – Laboratory of the World**  
+In this part the Americas become a testing ground for mid‑twentieth‑century experiments in development, dictatorship, social democracy, and anti‑fascist alliance, especially around the Good Neighbour era and World War II. Grandin shows how policies tried out in Latin America fed directly into the making of post-war global institutions and norms.
+
+**Part VIII – The Killing of Jorge Eliécer Gaitán**  
+The book climaxes with the 1948 assassination of Colombian leader Jorge Eliécer Gaitán, read as a condensation of mid‑century Latin American social‑democratic hopes and the violent onset of the Cold War in the hemisphere. Grandin stages Bogotá, during the founding of the Organization of American States, as the moment when hemispheric dreams of a more equal “America/América” collide with a new age of cold, covert war.
+
+I shared a [bookshop discussion](https://www.youtube.com/watch?v=KAko46HvZSQ) with Greg Grandin a couple of weeks ago. Here is another discussion with him that offers another way into the book.
+
+## Highlighted Excerpt
+
+Let me share a brief passage from near the end of the book. You will see how this book helps us all respond to deep dilemmas in both Americas.
+
+> “It’s probably too late to recrate the protocols by which Latin America, in criticizing U.S. power, helped focus that power and socialize liberalism. That bird has flown.
+> 
+> In the 1930s, the best of the Americas converged. Now, the worst, despite efforts by good people in both sides of the border to hold off the eclipse. If the Conquest inaugurated the “slow creation of humanity,” we, America, América, seem to be living through its dismantling.”
+> 
+> Grandin, *America, América,* p. 630
+
+## Discussion Questions
+
+1.  Grandin argues that the self-understanding of the Americas is emerged in dialogue between North and South, rather than in rebellion against Europe or Britain alone. What do you think about this reframing of the history of the ‘New World?
+    
+2.  The book might change your understanding of many well-known figures and Presidents in USA history, George Washington, James Monroe, Theodore Roosevelt, Woodrow Wilson, Franklin Delaware Roosevelt and George Kennan. How did Grandin’s new history challenge your assumptions about these figures?
+    
+3.  Similarly, the book presents more rounded portraits of many key figures in Américan (Las Casas, Bolívar, Martí) and lesser-known actors like Francisco de Miranda or Jorge Eliécer Gaitán. Who surprised you and why?
+    
+4.  How does the Spanish conquest, “the greatest mortality event in human history,” echo through the book, and what did you learn that was different about how people from Europe and the Americas responded to that event over time? \[Note: A reminder we will get another angle on this story next month with Fernando Cervantes, *Conquistadores: A New History\]*
+    
+5.  What do you think about Grandin’s contrast between Spanish and British/US imperial traditions, and between the America-inspired “American international law” and the British derived doctrines of conquest and dispossession?
+    
+6.  How does Grandin’sbook change your understanding of American democracy and empire?
+    
+7.  Grandin highlights a Latin American “culture of social democracy” and confederations of equal states. In an era of the “Donroe doctrine” how do you respond to these projects? Are they a genuine alternative to U.S. hegemony?
+    
+8.  What echoes of this history do you see in current events, whether in Venezuela, Mexico, Greenland or Minnesota?
+    
+
+## The Monroe Doctrine Mini-Series
+
+My Monroe Doctrine Mini-Series explored aspects of Grandin’s book. They are another launching pad for the discussion.
+
+You might also want to check back on my recap of the America World History Tour
+
+## Now It’s Your Turn to Discuss the Book
+
+Over the rest of the month let us discuss *America América*.
+
+Share your ideas, comments, questions, or suggestions for extra reading/viewing in the comments section of this post.
+
+I am looking forward to all your comments since I am learning about this history, book and running a book club all at once together with you.
+
+*The comments this feature available for paid subscribers so please upgrade now to enjoy the full book club or history salon experience.*

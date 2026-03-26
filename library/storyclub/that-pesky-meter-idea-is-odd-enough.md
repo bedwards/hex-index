@@ -1,0 +1,160 @@
+---
+title: "That Pesky Meter Idea is Odd Enough..."
+author: "George Saunders"
+publication: "Story Club"
+publication_slug: "storyclub"
+published_at: "2025-11-06T21:01:09.000Z"
+source_url: "https://georgesaunders.substack.com/p/that-pesky-meter-idea-is-odd-enough"
+word_count: 1942
+estimated_read_time: 10
+---
+
+[
+
+![](https://substackcdn.com/image/fetch/$s_!RqAa!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fbacf2d77-0429-42ec-a347-6785782c251b_2500x427.jpeg)
+
+
+
+](https://substackcdn.com/image/fetch/$s_!RqAa!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fbacf2d77-0429-42ec-a347-6785782c251b_2500x427.jpeg)
+
+*Dear George,  
+  
+Thanks for all you do here at Story Club. Your outlook on writing and life is such a gift to all of us. Plus you’ve created such a lovely and supportive community.  
+  
+Your concepts of the P/N meter and radical preference have helped me stay much more present while writing, and in turn, make the whole process more joyful. I’ve been evangelizing them all over the place, including to people I collaborate with (co-writers, editors, mentors, etc). Which led to an interesting impasse:*
+
+*If everything is subjective, what happens when people disagree? If everyone’s preference is equally valid, who wins?*
+
+*There are definitely times when I feel like I’m seeing the thing more clearly, that I have a higher perceptual resolution if you will, and in those situations, I can try to make my case. But other times, it really is just a matter of opinion. And somehow, those disagreements end up being the most impassioned. Is stubbornness a good measure of artistic vision? Because the most obstinate person usually ends up winning those.  
+  
+Add to that the different relationship dynamics like collaborating writers, writer–editor, writer–powerful movie producer dangling lots of money in front of you, and it’s easy to lose track of the P/N meter’s guiding light. Curious how you approach conflict when your only argument is “I like it that way.”  
+  
+Sincerely,  
+Anonymous Writer Who Wants To Be Respectful Without Getting Bowled Over*
+
+[
+
+![](https://substackcdn.com/image/fetch/$s_!5fOW!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Faf545b38-3a95-4710-9354-96fb59d3eeb2_2121x1414.jpeg)
+
+
+
+](https://substackcdn.com/image/fetch/$s_!5fOW!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Faf545b38-3a95-4710-9354-96fb59d3eeb2_2121x1414.jpeg)
+*I could have made this look more like “our” meter (with simple “P” on the right, for a “Positive” reaction, and an “N” on the left, for “Negative”) but then I would have had to use AI, and burned through a bunch of fresh water that some fish somewhere needs. Which would make me feel very “N.”*
+
+A.
+
+Ah, thank you, *Anonymous*, for this great (and, I am finding, strangely difficult) question.
+
+Let me start by proposing a slight modification to something you’ve said. Might we modify “everything is subjective” to “everything is *personal*?”
+
+We’re not making a claim, when we write a sentence, that it is more “valid” than some other version (there is no ultimate arbiter). We’re just saying: “I’m choosing to say *this*, and in *this* particular way: I prefer it.” (Or: “I prefer it *as of right now*.”)
+
+So, yes, it is (always) a matter of opinion but since the work is going to have your name on it, your opinion does (actually does) matter more than anyone else’s. Your editor, if she is a good editor, will, I bet, agree with me on this: she will also feel that your opinion is the one that matters, but will recognize that your opinion, being an opinion, is prone to keep changing over time, and from draft to draft, and she will understand that her role is to help you to find your (true, ultimate) opinion (i.e., the one that, in the end, best serves your work of art).
+
+This gets tricky, of course, if you’re co-writing (and more about that in a bit).
+
+But I think it’s important to try to imagine that someone weighing in on your work is trying to do the same positive thing you are, which is *find* the work. You’re not in opposition (though it will sometimes feel that you are). The ultimate work is not the work in its current form; it’s out there in the woods, longing to be found.
+
+[
+
+![](https://substackcdn.com/image/fetch/$s_!Gnau!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F46b4fe83-c295-44c6-af96-c20e289b3234_2912x332.png)
+
+
+
+](https://substackcdn.com/image/fetch/$s_!Gnau!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F46b4fe83-c295-44c6-af96-c20e289b3234_2912x332.png)
+
+So, we want, I think, to move away from a model based on ideas of winning and conflict and seeing who is right and so forth and think that, among all of the people involved in a work of art (the writer, the co-writer, the editor, the agent, the producer) none of them knows, yet, its full potential. While the work is unfinished, its true nature is hidden. All of them, with the writer leading the way, are trying to find that best version.
+
+In a sense, when the writer enters the editing process, the work is less *his* - it’s a thing in the world, that now has a team working on it and ideally, they all love what it might become and wish the best for it and have its best interests in mind.
+
+And yet, it is the writer’s work, so he is in a tricky position, as you suggest in your question: both in control of it and allowing it to change.
+
+[
+
+![](https://substackcdn.com/image/fetch/$s_!Gnau!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F46b4fe83-c295-44c6-af96-c20e289b3234_2912x332.png)
+
+
+
+](https://substackcdn.com/image/fetch/$s_!Gnau!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F46b4fe83-c295-44c6-af96-c20e289b3234_2912x332.png)
+
+The great editors I’ve known edit as if they are serving the artist’s view - they are offering their highly developed textual sense in that cause. They edit with certainty. But they are also always revising their edits in light of the writer’s response.
+
+When I’m being edited, I try to keep in mind that old New York State Lottery motto: “Hey, you never know.” (I felt sure yesterday but that was yesterday and the story’s moment is *now*.) I try to keep in mind how irregular and changeable my meter has been all along - it had differing opinions every day I was working on the story, so why not today, too?
+
+And yet, as your question suggests: there has to be a final decision.
+
+[
+
+![](https://substackcdn.com/image/fetch/$s_!Gnau!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F46b4fe83-c295-44c6-af96-c20e289b3234_2912x332.png)
+
+
+
+](https://substackcdn.com/image/fetch/$s_!Gnau!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F46b4fe83-c295-44c6-af96-c20e289b3234_2912x332.png)
+
+I’ve been wrestling with your question for a few days now and have found it hard to answer, honestly. The best answer I’ve come up with so far (that I suspect you might already know) is: keep your work to yourself for as long as you can before involving someone else.
+
+Let me explain how this relates to your dilemma.
+
+As soon as someone starts commenting on my work, I lose some part of my agency. If they like it, I’m afraid to change it; if they don’t like it, I feel like scrapping it and starting over.
+
+If I keep it to myself for as long as possible, my P/N meter gets *a lot of* shots at the thing, and can recalibrate with each new draft, and I can take big swings, and start over, and all of that good stuff, all in privacy, so to speak, without needing to really question the validity of the meter (and without having to justify what I’m doing to anyone.)
+
+And by the time I’m done, I’m pretty sure that I’m right - all of that back-and-forth finagling I’ve done with this thing we’re calling “the meter” has built up an accrued confidence in my judgement of the work.
+
+I’m not positive I’m right, but I’m ready to start the discussion from a more solid place.
+
+So: if you keep a project to yourself for a long time, you’re getting the benefit of many more exposures to your meter; if you keep it a short time, fewer (therefore less confidence).
+
+And (as in life!) less confidence means that your interactions with others are going to be more contentious….more about “defending” than “cooperating.”
+
+[
+
+![](https://substackcdn.com/image/fetch/$s_!Gnau!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F46b4fe83-c295-44c6-af96-c20e289b3234_2912x332.png)
+
+
+
+](https://substackcdn.com/image/fetch/$s_!Gnau!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F46b4fe83-c295-44c6-af96-c20e289b3234_2912x332.png)
+
+I sometimes say that editing is like redecorating an apartment an item at a time - replacing something that’s already in there with something else you prefer, item after item after item. The longer you do this, the more sure you’re going to be (that’s the hope, anyway).
+
+When we read one of our sentences and see what we think about it (on, say, Friday), we have an opinion. We change it or let it stand based on that opinion. Coming back to it on Saturday, we might have a different feeling, and change it again. As we all know here at Story Club, this can go on for weeks (months! years!). But eventually (in my experience and, I think, with *experience*) the story starts to stabilize - decisions will start to hold. (The apartment looks, again and again, pretty darn good, and every time you think of changing something, you prefer not to.)
+
+If we go through that process, alone, for a long time, we arrive at the editorial conversation in a better mental place, better prepared to have the conversation (and more open to that having conversations).
+
+We’re like an inventor who has been in his garage for a long time, tinkering - when the investors show up, we know our invention thoroughly - we can defend what needs defending but also, perhaps paradoxically, we will also see and accede to any actual flaws in the thing that are pointed out - we know it that thoroughly and love it that well.
+
+In story terms, we’ve been through many of the embedded editorial micro-decisions so many times (in solitude) that we understand our story and its inner interdependencies better. We’ve already tried all the “lesser” solutions, and we know the way that different parts of the story are connected, and so on.
+
+Or, to pile on one more metaphor: we’re like a doctor who’s had this patient for many years and our anxiety is somewhat reduced by that familiarity, and our diagnoses are colored by curiosity, rather than the fear of failure.
+
+[
+
+![](https://substackcdn.com/image/fetch/$s_!Gnau!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F46b4fe83-c295-44c6-af96-c20e289b3234_2912x332.png)
+
+
+
+](https://substackcdn.com/image/fetch/$s_!Gnau!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F46b4fe83-c295-44c6-af96-c20e289b3234_2912x332.png)
+
+This meter idea is, of course, just a metaphor. We’re really just talking about trying to see our work with *freshness*. We read a bit, see how we like it, change it, then do that over and over. One part of the mind is watching another part, to see how that second part is liking the story. (We do this all the time, quite naturally - when we eat at a new restaurant, for example.) This process can lead to big transformations in a story; a story can become something entirely different and better than what we might have had planned for it.
+
+You ask if stubbornness a good measure of artistic vision. I think it depends on the source. If the stubbornness emanates from the writer’s long connection with her story, then it’s really not stubbornness, but confidence - it is a form of artistic vision. If it’s just stubbornness (a desire to retain control, even though we don’t have strong “meter-related” feelings about a thing) then I’d say it’s the opposite of vision - it’s a sort of blindness (“I can’t read that meter, or haven’t let the system stabilize, but, damn it, it’s my system!”)
+
+[
+
+![](https://substackcdn.com/image/fetch/$s_!Gnau!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F46b4fe83-c295-44c6-af96-c20e289b3234_2912x332.png)
+
+
+
+](https://substackcdn.com/image/fetch/$s_!Gnau!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F46b4fe83-c295-44c6-af96-c20e289b3234_2912x332.png)
+
+One last thought, and I’m sorry - I’m aware that I’m not really answering this one and will, trust me, keep thinking about it…
+
+But: when you’re sitting with a co-writer or editor or producer and that person makes a suggestion - your “meter” is still in play. As you re-read or re-imagine that section with the suggestion in place, you feel something. You like it, you don’t like it, you’re not sure. That’s your meter talking.
+
+What I’ll sometimes do, if I’m in disagreement with someone, is let them have their way, knowing that we’ll get another run at it in our next read. And sometimes, something else will have changed, that will affect how, tomorrow, we read the bit in question. Or sometimes, the other person will come around to my way of thinking.
+
+In the end (the very end, when time is running out) I will do my best to insist on my way and I am very lucky because I work with people who allow and trust this. I don’t think I’ve ever put out a story or book in which there was something I really wished was otherwise.
+
+A few months later, re-reading, I might feel differently, of course. :) But by then I’m on to something new and tend to regard that old thing as a relic of that moment in a time during which I, and my editor, were bent over the thing together in a state of high concentration, doing the very best we could.
+
+So…help me out, Story Club? What thoughts do you have for our very frank and articulate *Anonymous Writer?*

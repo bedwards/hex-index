@@ -1,0 +1,1258 @@
+<p>In statistics, the Kendall rank correlation coefficient, commonly referred to as Kendall&#039;s τ coefficient (after the Greek letter τ, tau), is a statistic used to measure the ordinal association between two measured quantities. A τ test is a non-parametric hypothesis test for statistical dependence based on the τ coefficient. It is a measure of rank correlation: the similarity of the orderings of the data when ranked by each of the quantities. It is named after Maurice Kendall, who developed it in 1938, though Gustav Fechner had proposed a similar measure in the context of time series in 1897.</p>
+<p>Intuitively, the Kendall correlation between two variables will be high when observations have a similar or identical rank (i.e. relative position label of the observations within the variable: 1st, 2nd, 3rd, etc.) between the two variables, and low when observations have a dissimilar or fully reversed rank between the two variables.</p>
+<p>Both Kendall&#039;s 
+  
+    
+      
+        τ
+      
+    
+    {\displaystyle \tau }
+  
+ and Spearman&#039;s 
+  
+    
+      
+        ρ
+      
+    
+    {\displaystyle \rho }
+  
+ can be formulated as special cases of a more general correlation coefficient. Its notions of concordance and discordance also appear in other areas of statistics, like the Rand index in cluster analysis.</p>
+<p>Let  
+  
+    
+      
+        (
+        
+          x
+          
+            1
+          
+        
+        ,
+        
+          y
+          
+            1
+          
+        
+        )
+        ,
+        .
+        .
+        .
+        ,
+        (
+        
+          x
+          
+            n
+          
+        
+        ,
+        
+          y
+          
+            n
+          
+        
+        )
+      
+    
+    {\displaystyle (x_{1},y_{1}),...,(x_{n},y_{n})}
+  
+ be a set of observations of the joint random variables X and Y, such that all the values of (
+  
+    
+      
+        
+          x
+          
+            i
+          
+        
+      
+    
+    {\displaystyle x_{i}}
+  
+) and (
+  
+    
+      
+        
+          y
+          
+            i
+          
+        
+      
+    
+    {\displaystyle y_{i}}
+  
+) are unique. (See the section Accounting for ties for ways of handling non-unique values.) Any pair of  observations 
+  
+    
+      
+        (
+        
+          x
+          
+            i
+          
+        
+        ,
+        
+          y
+          
+            i
+          
+        
+        )
+      
+    
+    {\displaystyle (x_{i},y_{i})}
+  
+ and 
+  
+    
+      
+        (
+        
+          x
+          
+            j
+          
+        
+        ,
+        
+          y
+          
+            j
+          
+        
+        )
+      
+    
+    {\displaystyle (x_{j},y_{j})}
+  
+, where 
+  
+    
+      
+        i
+        &lt;
+        j
+      
+    
+    {\displaystyle i&lt;j}
+  
+, are said to be concordant if the sort order of 
+  
+    
+      
+        (
+        
+          x
+          
+            i
+          
+        
+        ,
+        
+          x
+          
+            j
+          
+        
+        )
+      
+    
+    {\displaystyle (x_{i},x_{j})}
+  
+ and 
+  
+    
+      
+        (
+        
+          y
+          
+            i
+          
+        
+        ,
+        
+          y
+          
+            j
+          
+        
+        )
+      
+    
+    {\displaystyle (y_{i},y_{j})}
+  
+ agrees: that is, if either both 
+  
+    
+      
+        
+          x
+          
+            i
+          
+        
+        &gt;
+        
+          x
+          
+            j
+          
+        
+      
+    
+    {\displaystyle x_{i}&gt;x_{j}}
+  
+ and 
+  
+    
+      
+        
+          y
+          
+            i
+          
+        
+        &gt;
+        
+          y
+          
+            j
+          
+        
+      
+    
+    {\displaystyle y_{i}&gt;y_{j}}
+  
+ holds or  both 
+  
+    
+      
+        
+          x
+          
+            i
+          
+        
+        &lt;
+        
+          x
+          
+            j
+          
+        
+      
+    
+    {\displaystyle x_{i}&lt;x_{j}}
+  
+ and 
+  
+    
+      
+        
+          y
+          
+            i
+          
+        
+        &lt;
+        
+          y
+          
+            j
+          
+        
+      
+    
+    {\displaystyle y_{i}&lt;y_{j}}
+  
+; otherwise they are said to be discordant.</p>
+<p>In the absence of ties, the Kendall τ coefficient is defined as:</p>
+<p>for 
+  
+    
+      
+        i
+        &lt;
+        j
+        &lt;
+        n
+      
+    
+    {\displaystyle i&lt;j&lt;n}
+  
+ where 
+  
+    
+      
+        
+          
+            
+              (
+            
+            
+              n
+              2
+            
+            
+              )
+            
+          
+        
+        =
+        
+          
+            
+              n
+              (
+              n
+              −
+              1
+              )
+            
+            2
+          
+        
+      
+    
+    {\displaystyle {n \choose 2}={n(n-1) \over 2}}
+  
+ is the binomial coefficient for the number of ways to choose two items from n items.</p>
+<p>The number of discordant pairs is equal to the inversion number that permutes the y-sequence into the same order as the x-sequence.</p>
+<p>The denominator is the total number of pair combinations, so the coefficient must be in the range −1 ≤ τ ≤ 1.</p>
+<ul><li>If the agreement between the two rankings is perfect (i.e., the two rankings are the same) the coefficient has value 1.</li><li>If the disagreement between the two rankings is perfect (i.e., one ranking is the reverse of the other) the coefficient has value −1.</li><li>If X and Y are independent random variables and not constant, then the expectation of the coefficient is zero.</li><li>An explicit expression for Kendall&#039;s rank coefficient is </li><li>  </li><li>    </li><li>      </li><li>        τ</li><li>        =</li><li>        </li><li>          </li><li>            2</li><li>            </li><li>              n</li><li>              (</li><li>              n</li><li>              −</li><li>              1</li><li>              )</li><li>            </li><li>          </li><li>        </li><li>        </li><li>          ∑</li><li>          </li><li>            i</li><li>            &lt;</li><li>            j</li><li>          </li><li>        </li><li>        sgn</li><li>        ⁡</li><li>        (</li><li>        </li><li>          x</li><li>          </li><li>            i</li><li>          </li><li>        </li><li>        −</li><li>        </li><li>          x</li><li>          </li><li>            j</li><li>          </li><li>        </li><li>        )</li><li>        sgn</li><li>        ⁡</li><li>        (</li><li>        </li><li>          y</li><li>          </li><li>            i</li><li>          </li><li>        </li><li>        −</li><li>        </li><li>          y</li><li>          </li><li>            j</li><li>          </li><li>        </li><li>        )</li><li>      </li><li>    </li><li>    {\displaystyle \tau ={\frac {2}{n(n-1)}}\sum _{i&lt;j}\operatorname {sgn}(x_{i}-x_{j})\operatorname {sgn}(y_{i}-y_{j})}</li><li>  </li><li>.</li></ul>
+<p>The Kendall rank coefficient is often used as a test statistic in a statistical hypothesis test to establish whether two variables may be regarded as statistically dependent. This test is non-parametric, as it does not rely on any assumptions on the distributions of X or Y or the distribution of (X,Y).</p>
+<p>Under the null hypothesis of independence of X and Y, the sampling distribution of τ has an expected value of zero. The precise distribution cannot be characterized in terms of common distributions, but may be calculated exactly for small samples; for larger samples, it is common to use an approximation to the normal distribution, with mean zero and variance 
+  
+    
+      
+        2
+        (
+        2
+        n
+        +
+        5
+        )
+        
+          /
+        
+        9
+        n
+        (
+        n
+        −
+        1
+        )
+      
+    
+    {\textstyle 2(2n+5)/9n(n-1)}
+  
+.</p>
+<p>Theorem. If the samples are independent, then the variance of 
+  
+    
+      
+        
+          τ
+          
+            A
+          
+        
+      
+    
+    {\textstyle \tau _{A}}
+  
+ is given by 
+  
+    
+      
+        V
+        a
+        r
+        [
+        
+          τ
+          
+            A
+          
+        
+        ]
+        =
+        2
+        (
+        2
+        n
+        +
+        5
+        )
+        
+          /
+        
+        9
+        n
+        (
+        n
+        −
+        1
+        )
+      
+    
+    {\textstyle Var[\tau _{A}]=2(2n+5)/9n(n-1)}
+  
+.</p>
+<p>If 
+  
+    
+      
+        (
+        
+          x
+          
+            1
+          
+        
+        ,
+        
+          y
+          
+            1
+          
+        
+        )
+        ,
+        (
+        
+          x
+          
+            2
+          
+        
+        ,
+        
+          y
+          
+            2
+          
+        
+        )
+        ,
+        .
+        .
+        .
+        ,
+        (
+        
+          x
+          
+            n
+          
+        
+        ,
+        
+          y
+          
+            n
+          
+        
+        )
+      
+    
+    {\textstyle (x_{1},y_{1}),(x_{2},y_{2}),...,(x_{n},y_{n})}
+  
+ are independent and identically distributed samples from the same jointly normal distribution with a known Pearson correlation coefficient 
+  
+    
+      
+        r
+      
+    
+    {\textstyle r}
+  
+, then the expectation of Kendall rank correlation has a closed-form formula.</p>
+<p>The name is credited to Richard Greiner (1909) by P. A. P. Moran.</p>
+<p>A pair 
+  
+    
+      
+        {
+        (
+        
+          x
+          
+            i
+          
+        
+        ,
+        
+          y
+          
+            i
+          
+        
+        )
+        ,
+        (
+        
+          x
+          
+            j
+          
+        
+        ,
+        
+          y
+          
+            j
+          
+        
+        )
+        }
+      
+    
+    {\displaystyle \{(x_{i},y_{i}),(x_{j},y_{j})\}}
+  
+ is said to be tied if and only if 
+  
+    
+      
+        
+          x
+          
+            i
+          
+        
+        =
+        
+          x
+          
+            j
+          
+        
+      
+    
+    {\displaystyle x_{i}=x_{j}}
+  
+ or 
+  
+    
+      
+        
+          y
+          
+            i
+          
+        
+        =
+        
+          y
+          
+            j
+          
+        
+      
+    
+    {\displaystyle y_{i}=y_{j}}
+  
+; a tied pair is neither concordant nor discordant. When tied pairs arise in the data, the coefficient may be modified in a number of ways to keep it in the range [−1, 1]:</p>
+<p>The Tau statistic defined by Kendall in 1938 was retrospectively renamed Tau-a. It represents the strength of positive or negative association of two quantitative or ordinal variables without any adjustment for ties. It is defined as:</p>
+<p>where nc, nd and n0 are defined as in the next section.</p>
+<p>When ties are present, 
+  
+    
+      
+        
+          n
+          
+            c
+          
+        
+        +
+        
+          n
+          
+            d
+          
+        
+        &lt;
+        
+          n
+          
+            0
+          
+        
+      
+    
+    {\displaystyle n_{c}+n_{d}&lt;n_{0}}
+  
+, and the coefficient can never be equal to +1 or −1. Even a perfect equality of the two variables (X=Y) leads to a Tau-a &lt; 1.</p>
+<p>The Tau-b statistic, unlike Tau-a, makes adjustments for ties.
+This Tau-b was first described by Kendall in 1945 under the name Tau-w as an extension of the original Tau statistic supporting ties.
+Values of Tau-b range from −1 (100% negative association, or perfect disagreement) to +1 (100% positive association, or perfect agreement). In case of the absence of association, Tau-b is equal to zero.</p>
+<p>The Kendall Tau-b coefficient is defined as :</p>
+<p>where</p>
+<p>A simple algorithm developed in BASIC computes Tau-b coefficient using an alternative formula.</p>
+<p>Be aware that some statistical packages, e.g. SPSS, use alternative formulas for computational efficiency, with double the &#039;usual&#039; number of concordant and discordant pairs.</p>
+<p>Tau-c (also called Stuart-Kendall Tau-c) was first defined by Stuart in 1953.
+Contrary to Tau-b, Tau-c can be equal to +1 or −1 for non-square (i.e. rectangular) contingency tables, i.e. when the underlying scales of both variables have different number of possible values. For instance, if the variable X has a continuous uniform distribution between 0 and 100 and Y is a dichotomous variable equal to 1 if X ≥ 50 and 0 if X &lt; 50, the Tau-c statistic of X and Y is equal to 1 while Tau-b is equal to 0.707. A Tau-c equal to 1 can be interpreted as the best possible positive correlation conditional to marginal distributions while a Tau-b equal to 1 can be interpreted as the perfect positive monotonic correlation where the distribution of X conditional to Y has zero variance and the distribution of Y conditional to X has zero variance so that a bijective function f with f(X)=Y exists.</p>
+<p>The Stuart-Kendall Tau-c coefficient is defined as:</p>
+<p>where</p>
+<p>When two quantities are statistically dependent, the distribution of 
+  
+    
+      
+        τ
+      
+    
+    {\displaystyle \tau }
+  
+ is not easily characterizable in terms of known distributions. However, for 
+  
+    
+      
+        
+          τ
+          
+            A
+          
+        
+      
+    
+    {\displaystyle \tau _{A}}
+  
+ the following statistic, 
+  
+    
+      
+        
+          z
+          
+            A
+          
+        
+      
+    
+    {\displaystyle z_{A}}
+  
+, is approximately distributed as a standard normal when the variables are statistically independent:</p>
+<p>where 
+  
+    
+      
+        
+          v
+          
+            0
+          
+        
+        =
+        n
+        (
+        n
+        −
+        1
+        )
+        (
+        2
+        n
+        +
+        5
+        )
+      
+    
+    {\displaystyle v_{0}=n(n-1)(2n+5)}
+  
+.</p>
+<p>Thus, to test whether two variables are statistically dependent, one computes 
+  
+    
+      
+        
+          z
+          
+            A
+          
+        
+      
+    
+    {\displaystyle z_{A}}
+  
+, and finds the cumulative probability for a standard normal distribution at 
+  
+    
+      
+        −
+        
+          |
+        
+        
+          z
+          
+            A
+          
+        
+        
+          |
+        
+      
+    
+    {\displaystyle -|z_{A}|}
+  
+. For a 2-tailed test, multiply that number by two to obtain the p-value. If the p-value is below a given significance level, one rejects the null hypothesis (at that significance level) that the quantities are statistically independent.</p>
+<p>Numerous adjustments should be added to 
+  
+    
+      
+        
+          z
+          
+            A
+          
+        
+      
+    
+    {\displaystyle z_{A}}
+  
+ when accounting for ties. The following statistic, 
+  
+    
+      
+        
+          z
+          
+            B
+          
+        
+      
+    
+    {\displaystyle z_{B}}
+  
+, has the same distribution as the 
+  
+    
+      
+        
+          τ
+          
+            B
+          
+        
+      
+    
+    {\displaystyle \tau _{B}}
+  
+ distribution, and is again approximately equal to a standard normal distribution when the quantities are statistically independent:</p>
+<p>where</p>
+<p>This is sometimes referred to as the Mann-Kendall test.</p>
+<p>The direct computation of the numerator 
+  
+    
+      
+        
+          n
+          
+            c
+          
+        
+        −
+        
+          n
+          
+            d
+          
+        
+      
+    
+    {\displaystyle n_{c}-n_{d}}
+  
+, involves two nested iterations, as characterized by the following pseudocode:</p>
+<p>Although quick to implement, this algorithm is 
+  
+    
+      
+        O
+        (
+        
+          n
+          
+            2
+          
+        
+        )
+      
+    
+    {\displaystyle O(n^{2})}
+  
+ in complexity and becomes very slow on large samples. A more sophisticated algorithm built upon the Merge Sort algorithm can be used to compute the numerator in 
+  
+    
+      
+        O
+        (
+        n
+        ⋅
+        log
+        ⁡
+        
+          n
+        
+        )
+      
+    
+    {\displaystyle O(n\cdot \log {n})}
+  
+ time.</p>
+<p>Begin by ordering your data points sorting by the first quantity, 
+  
+    
+      
+        x
+      
+    
+    {\displaystyle x}
+  
+, and secondarily (among ties in 
+  
+    
+      
+        x
+      
+    
+    {\displaystyle x}
+  
+) by the second quantity, 
+  
+    
+      
+        y
+      
+    
+    {\displaystyle y}
+  
+. With this initial ordering, 
+  
+    
+      
+        y
+      
+    
+    {\displaystyle y}
+  
+ is not sorted, and the core of the algorithm consists of computing how many steps a Bubble Sort would take to sort this initial 
+  
+    
+      
+        y
+      
+    
+    {\displaystyle y}
+  
+. An enhanced Merge Sort algorithm, with 
+  
+    
+      
+        O
+        (
+        n
+        log
+        ⁡
+        n
+        )
+      
+    
+    {\displaystyle O(n\log n)}
+  
+ complexity, can be applied to compute the number of swaps, 
+  
+    
+      
+        S
+        (
+        y
+        )
+      
+    
+    {\displaystyle S(y)}
+  
+, that would be required by a Bubble Sort to sort 
+  
+    
+      
+        
+          y
+          
+            i
+          
+        
+      
+    
+    {\displaystyle y_{i}}
+  
+. Then the numerator for 
+  
+    
+      
+        τ
+      
+    
+    {\displaystyle \tau }
+  
+ is computed as:</p>
+<p>where 
+  
+    
+      
+        
+          n
+          
+            3
+          
+        
+      
+    
+    {\displaystyle n_{3}}
+  
+ is computed like 
+  
+    
+      
+        
+          n
+          
+            1
+          
+        
+      
+    
+    {\displaystyle n_{1}}
+  
+ and 
+  
+    
+      
+        
+          n
+          
+            2
+          
+        
+      
+    
+    {\displaystyle n_{2}}
+  
+, but with respect to the joint ties in 
+  
+    
+      
+        x
+      
+    
+    {\displaystyle x}
+  
+ and 
+  
+    
+      
+        y
+      
+    
+    {\displaystyle y}
+  
+.</p>
+<p>A Merge Sort partitions the data to be sorted, 
+  
+    
+      
+        y
+      
+    
+    {\displaystyle y}
+  
+ into two roughly equal halves, 
+  
+    
+      
+        
+          y
+          
+            
+              l
+              e
+              f
+              t
+            
+          
+        
+      
+    
+    {\displaystyle y_{\mathrm {left} }}
+  
+ and 
+  
+    
+      
+        
+          y
+          
+            
+              r
+              i
+              g
+              h
+              t
+            
+          
+        
+      
+    
+    {\displaystyle y_{\mathrm {right} }}
+  
+, then sorts each half recursively, and then merges the two sorted halves into a fully sorted vector. The number of Bubble Sort swaps is equal to:</p>
+<p>where 
+  
+    
+      
+        
+          Y
+          
+            
+              l
+              e
+              f
+              t
+            
+          
+        
+      
+    
+    {\displaystyle Y_{\mathrm {left} }}
+  
+ and 
+  
+    
+      
+        
+          Y
+          
+            
+              r
+              i
+              g
+              h
+              t
+            
+          
+        
+      
+    
+    {\displaystyle Y_{\mathrm {right} }}
+  
+ are the sorted versions of 
+  
+    
+      
+        
+          y
+          
+            
+              l
+              e
+              f
+              t
+            
+          
+        
+      
+    
+    {\displaystyle y_{\mathrm {left} }}
+  
+ and 
+  
+    
+      
+        
+          y
+          
+            
+              r
+              i
+              g
+              h
+              t
+            
+          
+        
+      
+    
+    {\displaystyle y_{\mathrm {right} }}
+  
+, and 
+  
+    
+      
+        M
+        (
+        ⋅
+        ,
+        ⋅
+        )
+      
+    
+    {\displaystyle M(\cdot ,\cdot )}
+  
+ characterizes the Bubble Sort swap-equivalent for a merge operation. 
+  
+    
+      
+        M
+        (
+        ⋅
+        ,
+        ⋅
+        )
+      
+    
+    {\displaystyle M(\cdot ,\cdot )}
+  
+ is computed as depicted in the following pseudo-code:</p>
+<p>A side effect of the above steps is that you end up with both a sorted version of 
+  
+    
+      
+        x
+      
+    
+    {\displaystyle x}
+  
+ and a sorted version of 
+  
+    
+      
+        y
+      
+    
+    {\displaystyle y}
+  
+. With these, the factors 
+  
+    
+      
+        
+          t
+          
+            i
+          
+        
+      
+    
+    {\displaystyle t_{i}}
+  
+ and 
+  
+    
+      
+        
+          u
+          
+            j
+          
+        
+      
+    
+    {\displaystyle u_{j}}
+  
+ used to compute 
+  
+    
+      
+        
+          τ
+          
+            B
+          
+        
+      
+    
+    {\displaystyle \tau _{B}}
+  
+ are easily obtained in a single linear-time pass through the sorted arrays.</p>
+<p>Efficient algorithms for calculating the Kendall rank correlation coefficient as per the standard estimator have 
+  
+    
+      
+        O
+        (
+        n
+        ⋅
+        log
+        ⁡
+        
+          n
+        
+        )
+      
+    
+    {\displaystyle O(n\cdot \log {n})}
+  
+ time complexity. However, these algorithms necessitate the availability of all data to determine observation ranks, posing a challenge in sequential data settings where observations are revealed incrementally. Fortunately, algorithms do exist to estimate the Kendall rank correlation coefficient in sequential settings. These algorithms have 
+  
+    
+      
+        O
+        (
+        1
+        )
+      
+    
+    {\displaystyle O(1)}
+  
+ update time and space complexity, scaling efficiently with the number of observations. Consequently, when processing a batch of 
+  
+    
+      
+        n
+      
+    
+    {\displaystyle n}
+  
+ observations, the time complexity becomes 
+  
+    
+      
+        O
+        (
+        n
+        )
+      
+    
+    {\displaystyle O(n)}
+  
+, while space complexity remains a constant 
+  
+    
+      
+        O
+        (
+        1
+        )
+      
+    
+    {\displaystyle O(1)}
+  
+.</p>
+<p>The first such algorithm presents an approximation to the Kendall rank correlation coefficient based on coarsening the joint distribution of the random variables. Non-stationary data is treated via a moving window approach. This algorithm is simple and is able to handle discrete random variables along with continuous random variables without modification.</p>
+<p>The second algorithm is based on Hermite series estimators and utilizes an alternative estimator for the exact Kendall rank correlation coefficient i.e. for the probability of concordance minus the probability of discordance of pairs of bivariate observations. This alternative estimator also serves as an approximation to the standard estimator. This algorithm is only applicable to continuous random variables, but it has demonstrated superior accuracy and potential speed gains compared to the first algorithm described, along with the capability to handle non-stationary data without relying on sliding windows. An efficient implementation of the Hermite series based  approach is contained in the R package package hermiter.</p>
+<ul><li>R implements the test for </li><li>  </li><li>    </li><li>      </li><li>        </li><li>          τ</li><li>          </li><li>            B</li><li>          </li><li>        </li><li>      </li><li>    </li><li>    {\displaystyle \tau _{B}}</li><li>  </li><li> cor.test(x, y, method = &quot;kendall&quot;) in its &quot;stats&quot; package (also cor(x, y, method = &quot;kendall&quot;) will work, but the latter does not return the p-value). All three versions of the coefficient are available in the &quot;DescTools&quot; package along with the confidence intervals: KendallTauA(x,y,conf.level=0.95) for </li><li>  </li><li>    </li><li>      </li><li>        </li><li>          τ</li><li>          </li><li>            A</li><li>          </li><li>        </li><li>      </li><li>    </li><li>    {\displaystyle \tau _{A}}</li><li>  </li><li>, KendallTauB(x,y,conf.level=0.95) for </li><li>  </li><li>    </li><li>      </li><li>        </li><li>          τ</li><li>          </li><li>            B</li><li>          </li><li>        </li><li>      </li><li>    </li><li>    {\displaystyle \tau _{B}}</li><li>  </li><li>, StuartTauC(x,y,conf.level=0.95) for </li><li>  </li><li>    </li><li>      </li><li>        </li><li>          τ</li><li>          </li><li>            C</li><li>          </li><li>        </li><li>      </li><li>    </li><li>    {\displaystyle \tau _{C}}</li><li>  </li><li>. Fast batch estimates of the Kendall rank correlation coefficient along with sequential estimates are provided for in the package hermiter.</li><li>For Python, the SciPy library implements the computation of </li><li>  </li><li>    </li><li>      </li><li>        </li><li>          τ</li><li>          </li><li>            B</li><li>          </li><li>        </li><li>      </li><li>    </li><li>    {\displaystyle \tau _{B}}</li><li>  </li><li> in scipy.stats.kendalltau</li><li>In Stata is implemented as ktau varlist.</li></ul>
+<ul><li>Correlation</li><li>Kendall tau distance</li><li>Kendall&#039;s W</li><li>Spearman&#039;s rank correlation coefficient</li><li>Goodman and Kruskal&#039;s gamma</li><li>Theil–Sen estimator</li><li>Mann–Whitney U test - it is equivalent to Kendall&#039;s tau correlation coefficient if one of the variables is binary.</li></ul>
+<ul><li>Abdi, H. (2007). &quot;Kendall rank correlation&quot; (PDF). In Salkind, N.J. (ed.). Encyclopedia of Measurement and Statistics. Thousand Oaks (CA): Sage.</li><li>Daniel, Wayne W. (1990). &quot;Kendall&#039;s tau&quot;. Applied Nonparametric Statistics (2nd ed.). Boston: PWS-Kent. pp. 365–377. ISBN 978-0-534-91976-4.</li><li>Kendall, Maurice; Gibbons, Jean Dickinson (1990) [First published 1948]. Rank Correlation Methods. Charles Griffin Book Series (5th ed.). Oxford: Oxford University Press. ISBN 978-0195208375.</li><li>Bonett, Douglas G.; Wright, Thomas A. (2000). &quot;Sample size requirements for estimating Pearson, Kendall, and Spearman correlations&quot;. Psychometrika. 65 (1): 23–28. doi:10.1007/BF02294183. S2CID 120558581.</li></ul>
+<ul><li>Tied rank calculation</li><li>Software for computing Kendall&#039;s tau on very large datasets</li><li>Online software: computes Kendall&#039;s tau rank correlation</li></ul>

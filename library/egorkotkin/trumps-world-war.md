@@ -1,0 +1,113 @@
+---
+title: "Trump's World War"
+author: "Egor Kotkin"
+publication: ""
+publication_slug: "egorkotkin"
+published_at: "2025-04-13T21:21:26.000Z"
+source_url: "https://egorkotkin.substack.com/p/trumps-world-war"
+word_count: 2710
+estimated_read_time: 14
+---
+
+**From an interpersonal perspective**, of course, the pain already reaches human limits: the “doged” by Musk $4 billion per year on programs to combat malaria, HIV, tuberculosis, hunger, illiteracy, etc. in the poorest countries of the world that were counted on by millions of children, without which [tens of thousands will die](https://firstfocus.org/resource/fact-sheet-usaid-cuts-total-4-billion-for-children-tens-of-thousands-of-lives/), alone is enough—and it'll get worse.
+
+But **from a historical perspective**, the outlook of "seems like we dodged it" is becoming clearer.
+
+Since 2019, I've been writing that the wheels of history are turning toward repeating the collapse of capitalism into fascism of the 1920s—only this time, 1) neoliberal America plays the role of Weimar Germany, and 2) there’s no USSR.
+
+The possibility of history on such a path became a fact when Biden-Harris skillfully handed over to Trump the turn to have his own way with the hollowed out by neoliberalism United States corpse — and to watch the rise of fascist power in the United States as in the 1930s, but without seeing an opposing leftist force to fight back, was a terrifying prospect.
+
+But from day one of Trump's return, the process of turning Trump's power into a Trump regime caused mixed feelings: on one hand, all elements of classical fascism are in place—first and foremost, the program of racially-driven mass deportations. On the other, even its execution feels like some kind of clown show. This duality is perfectly embodied in its media face, Trump’s border czar Tom Homan, who voices Himmler-like soul-chilling rhetoric on American TV being barely able to move his tongue drunk, and getting drunker with each appearance.
+
+And finally, with Trump's declaration of a trade war on the whole world, the picture clicked for me: we (all of humanity) got lucky—the 1930s are indeed repeating, but this time—as a farce.
+
+Paraphrasing a [certain German writer](https://www.marxists.org/archive/marx/works/1852/18th-brumaire/ch01.htm), *in history, all great events and personalities appear twice: first as tragedy, second as farce—Caussidière instead of Danton, Louis Blanc instead of Robespierre, Donald Trump instead of Adolf Hitler, Elon Musk instead of Henry Ford, and Stephen Miller instead of Adolf Eichmann.*
+
+In a waltz-like tempo, Trump shows how attempts to pin down the failures of capitalism on an arbitrary group of people (and not even capitalists) and to offset the pain they cause by inflicting more pain on them inevitably results in pain for everyone.
+
+This doesn't mean that we got off scot-free: the remake of the 1930s, one way or another, must end with a world war. This follows from the logic of fascism as such.
+
+### Understanding fascism
+
+Fascism is an attempt to stop the disintegration of capitalism when the force of economic coercion can no longer hold it together, replacing the distributed force of economic coercion of the market with centralized coercion by force, which only further disempowers the markets, completing the disintegration of capitalism, leaving fascism eventually directionless.
+
+#### Fascist motive:
+
+Driven by the need to dominate, fascism cannot exist without enemies to dominate. Which is fascism is constantly in search of enemies, and if it does not find them, it creates them—until either everyone else is the enemy and it fights against the whole world, or it turns on itself, to fight the enemy from within (usually both)—all of which makes fascism fundamentally incapable of peace, inherently hostile to peace, and thus ultimately self-destructive phenomenon.
+
+#### Dialectics of the fascist power:
+
+Fascism, being a creature of the collective unconscious shadow, utilizes the power of the state to turn a nightmare into all encompassing reality.
+
+1.  People: unresolved class tensions in the society create and provide fascist political energy and support
+    
+2.  State: destroying actual political opposition and forcibly maintaining out-group of designated enemies to keep class hidden and tensions unresolvable
+    
+
+The fascist motive to dominate for the sake of domination fits perfectly with Trump's psychological need to assert himself over others. It allowed Trump to embody the developing fascist energy of the masses, which, in the neoliberal dead end of history, propelled him to the top. Rise of Trump and readiness of American institutions and American masses (plurality of American population) are terrifyingly similar to the rise of Hitler and the conditions of the Weimar Germany in 1933.
+
+However, from the dialectical nature of fascists power follows that riding a fascist wave is just a prologue. Actual fascism only begins after taking over the state. And here’s where the farce begins: Trump's character, ideally suited to take the place of the Fuhrer, that he plays on television, is also hinders for the development of fascism in its most dangerous phase, where it requires to perform the functions of the Fuhrer in reality.
+
+Once in power, Hitler begun the work of rebuilding his popularity into his cult. Which is how he managed to did what he did—making an entire country to submit, to the point of being ready to be destroyed, to his ego. For Trump his struggle is over, he won all the titles, survived all the enemies, now it's time to cash the check. This difference is what turns a grim prospects of two snapshots of similarly inhumane people in the similar historical conditions in the similarly high positions of power into very different movies once unpaused: there’s no doubt that Trump is willing to follow Hitler’s ethnonationalist path and that he has the power to do as much harm along the way—but he has no intent or capability to transform the state and the people accordingly. Which leads to reperating both 1933 and 1942 at the same time: as if Hitler tried to carry out “the final solution” right after the Reichstag fire—that is what turns the same components of the historical tragedy into a farce.
+
+But, farcical as it maybe, Trumpism is still on the same path of self-destruction in the war against all, as Hitlerism was, and given the American might, much less restrained than Germany was in 1933. And the question is not whether the escalation happens, or war happens, or will the American fascism be destroyed in one of the wars it started or not—those dice have been all casted already. Trump’s expansionist plans regarding Canada, Greenland, the Panama Canal, and intentions to deal with Iran, Trump voiced as clearly as his trade war plans. As public realization of trade war failure grows, impulses toward a “small victorious war” with Iran (Mexico, Denmark, Canada) in Trump’s entourage will only be strengthening.
+
+The question is how far will Trump's farce and the pain it causes go to meet a boss that the Trump Reich will break against in its attempt to defeat, and how much pain it will cause along the way.
+
+## The end of American fascism
+
+How far Trump’s fascism will come depends on how he manages his popular and institutional support.
+
+**Level-1: Trade war.** Trump’s trade war with the world may end up being the Trump‘s world war, that will end his regime, if Trump is met by the united resistance of the rest of the world in a trade war, losing which will erode both popular and institutional support for Trump enough that when Trump tries to resort to military force to assert his power domestically and/or to steer out of an economic dive through a military adventure, the people and the military revolt against him, ending his regime.  
+However, it’s unlikely—the military that materially supports and covers the Holocaust of the Palestinian people in Palestine, in case of popular uprising—will stand to quell the American uprising as well.
+
+**L-2: Starting a war.** To conduct a trade war Trump utilizes the same popular fascist energy that gives him political power, and could fuel support for an actual war. But unlike actual war which consequences can reinforce the fascist sentiment, consequences of trade war expose fascist sentiment to the class reality. When Trump inevitably arrives to the option of a “small victorious war” to offset the failure in the trade war, he might find that **the fascist steam has gone to the whistle of trade war:** the fascists chauvinistic public sentiment neutralized by the material effects of the trade war, and people instead of rallying behind the flag are revolting against the war, leaving to the military decide if Trump stays in power. The deeper the mark left by the trade war gets, the harder it will be for Trump to start an actual war without also using military force domestically to suppress the opposition.
+
+**L-3: Losing a conventional war**. The failures and casualties of a military adventure launched by Trump without popular support, which he would have lost either way during the war due to the incompetence and disorganization of his leadership, well known from Covid, will probably have the same political consequences for Trump as Covid, increasing the likelihood that it will end for him the same way as the “small victorious” Russo-Japanese War turned out for Tsar Nicholas II - triggering the First Russian Revolution.
+
+**L-4.** **Losing a conventional war on two fronts.** A classic war on two fronts—for example, occupation of Greenland or Panama plus a large-scale air attack on Iran, which is currently being actively prepared. But no war can be won in the air—it can only be started there. Attacking Iran, Trump steps on the escalation ladder to hell: the most he can achieve from the air is to make Iran respond with blowing up Saudis oil facilities and blocking the gulf of Persia. At this point the US can either retreat due to the global and domestic economy collapse, or go all-in. Defeating Iran will require the ground invasion and the first large-scale mobilization since Vietnam, to execute which Trump will need to impose a martial law, turning the US into military dictatorship first - the levels of fascism that are unachievable for Trump. And not because of any particular love of freedom of the American people, that makes them invulnerable to military dictatorship, or the magic of “different era”, but because of Trump, who’s instead of using the state to drive the public energy more fascist, reinforcing the popular support behind him, is already spending both the popular support and the US institutional capacity to sustain the tariff race to the bottom against the entire planet.
+
+This is the competency tax that makes the second edition of the global fascist takeover a farce compared to the tragedy of the first one. The intent might be the same, the potential to do harm might be even greater, but as long as current generation of fascists is that much more inept in comparison, limited in their capability to utilize the energy of the historical momentum that got them on top once again long before they will reach the highest damage levels, the pain they will cause will also be limited.  
+  
+In Trump’s case, his persona basically excludes two of the worst possible scenarios:
+
+-   domestically—full dictatorship with the fuhrer Trump (executive branch fully legally unaccountable to no one but him)
+    
+-   internationally—war with China.
+    
+
+(As long as he in power until his regime collapses).
+
+### “Thank you, God, that you took it in money,”
+
+Right now the most of the work to protect Americans from the full-blown fascist dictatorship is being done by Donald Trump.
+
+The trade world war that shocked so many is the best news that could happen when the fascists are already in power. It is important to call the things by their names: applying terms correctly grants us with their predictive power. Accepting the fascist nature of the second Trump term i.e. driven by the incessant search for enemy to defeat and humiliate in order to assert domination, grants understanding that there’s no path non-escalatory path forward, and there’s no other way out (barred for Trump’s physical demise) of this than via Trump losing the war started by Trump.
+
+In other words, there’s no painless way out of this historical moment. The painless way out of fascism is preventing it to take hold. When that window of opportunity has been closed, before fascism has grown into full power, the only choice that remains is what kind of pain it will be.
+
+On the scale of fascist wars, where the worst cases are a war on the scale of WWII or worse, an economic pain from a trade war ends up being one of the least painful of all available options. Yet it takes many of the same political, labor and mental resources that a regular war takes: the political capital, time and energy Trump is only beginning to spend on the trade war are the resources that are not being spent on the war with Mexico, or Denmark, or Iran, or the US (purging the bureaucracy and destroying the institutions).
+
+This does not prevent them entirely - the severe course of the trade war, on the contrary, increases the chances that Trump will try to get even externally, with a "small victorious war" or internally, by establishing a political or even military dictatorship. But the more Trump is busy with the trade war - the less he is busy preparing any of these, and the longer Trump plays the trade war - the weaker he will be by the time he tries to break the impasse of the trade war by escalating on the foreign or domestic political front - to the point that the very attempt at escalation will break his regime's neck.
+
+Which means that engaging Trump in the stupidest possible war on the biggest possible scale is actually postpones real wars and limits his ability to wage them in the future. And it just so happens that Trump got himself involved in just such a war. Trump’s trade war is preventing Trump’s dictatorship.
+
+There is an expression in Russian, “Thank you, God, that you took it in money,” which suggests seeing a loss of money as a payment for averting some other form of blow from fate. Economic pain of Trump’s trade war is paying a waiver of the pain of real war.
+
+## Helping Trump to end American fascism
+
+Which doesn’t mean that the trade war itself should be supported. This way to self-destruct or at least weaken itself significantly to decrease the danger and the damage of the big war, should be supported, i.e. whatever keeps Trump on track spending his political capital and institutional resource in the trade war must be supported.
+
+And the way to do it is to fight him back and accept the race to the bottom, that against the whole world America will inevitably lose. However painful it may be, it will be less painful than allowing American fascism to live long enough to find his end in an actual war.
+
+And the more powerful, organized, and coordinated the global resistance is, the faster and with less pain this race to the bottom will end.
+
+Essentially, Trump has offered the world a noose against America, being completely sure that the world will budge and bow—and which the world instead of shying away, must accept and strangle Trump's America with it as hard as possible as soon as possible. It won’t kill America or the world, it will only break the neck of American fascism, which actually can kill America and the world as long as it’s existence is tolerated.
+
+If the half truth of “Hitler built autobahns” still was enough to carry Hitler Germany far enough to end up starting World War II, Trump might not even make it to the end of his second term.
+
+## A chance for humanity
+
+Given how things unfolded last time (1933-1945), it is indeed an incredible stroke of luck—instead of a full (or even worse) repeat, we are getting a light version to reinforce the lesson why fascism, chauvinism, racial supremacy, ethnic cleansings, etc., are bad not just from the healthy person's value system (humanism) perspective, but also from the fascist own stated goals and motives (safety and well-being of an arbitrary group of people, for whose "care" the fascists took responsibility).
+
+It seems civilization has a chance to pass this turn of the history spiral without USSR, because the answer to the challenge of the current historical moment does not require a gigantic military-industrial machine—the new challenge is more introspective, it’s the challenge of Western society to itself—requiring awakening of collective consciousness and conscious consolidation of the anti-fascist, anti-capitalist lesson of the 20th century.

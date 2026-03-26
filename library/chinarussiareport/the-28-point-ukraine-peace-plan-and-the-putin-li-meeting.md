@@ -1,0 +1,60 @@
+---
+title: "The 28-point Ukraine peace plan and the Putin-Li meeting"
+author: "Joseph Webster"
+publication: "China-Russia Report"
+publication_slug: "chinarussiareport"
+published_at: "2025-11-23T00:42:00.000Z"
+source_url: "https://chinarussiareport.substack.com/p/the-28-point-ukraine-peace-plan-and"
+word_count: 1221
+estimated_read_time: 7
+---
+
+A quick update due to the news cycle. Former Ambassador Daniel Fried published [an analysis](https://www.justsecurity.org/125365/ukraine-us-russia-peace-plan-options/) with Just Security on the proposed 28-point “peace plan” for Ukraine. It’s worth your time, especially if you’re a European policymaker. Earlier this week, Premier Li Qiang met with Russian President Vladimir Putin and others in Moscow. PRC authoritative readouts + my initial reactions below.
+
+###   
+  
+**Li-Putin meeting**
+
+[Li Qiang Meets with Russian President Putin – People’s Daily \[Chinese-language, machine-translated\]](http://politics.people.com.cn/n1/2025/1119/c1024-40606618.html)
+
+Xinhua News Agency, Moscow, November 18 (Reporters Ding Deqi and Zhang Chaoqun) On the afternoon of November 18, local time, Premier Li Qiang of the State Council met with Russian President Vladimir Putin at the Kremlin in Moscow.
+
+Li Qiang first conveyed President Xi Jinping’s cordial greetings and best wishes to President Putin. Li Qiang stated that under the strategic guidance of the two heads of state, the China-Russia comprehensive strategic partnership of coordination in the new era has maintained a high level of operation. This year, President Xi Jinping and President Putin have met twice, charting the course for the further development of China-Russia relations. Facing a complex and volatile international situation, China is willing to work with Russia to uphold the original aspiration of generational friendship, strengthen the alignment of development strategies, deepen cooperation in various fields, achieve more practical results, and better serve the development and revitalization of both countries.
+
+Li Qiang pointed out that China’s determination and position on developing mutually beneficial cooperation with Russia are consistent. China is willing to further enhance the resilience of cooperation with Russia and consolidate and maintain the steady development momentum of bilateral cooperation. The two sides should jointly organize the new China-Russia national-level theme year, make good use of people-friendly policies such as visa-free travel, promote greater mutual understanding and affinity between the two peoples, and solidify the foundation of people-to-people friendship in bilateral relations. China is willing to continue to work closely with Russia to implement the outcomes of the SCO Tianjin Summit, promote the “Shanghai Spirit,” deepen unity and cooperation, create a model for implementing global governance initiatives, promote the high-quality development of the SCO, and make greater contributions to regional and world peace and development.
+
+Putin asked Li Qiang to convey his cordial greetings and best wishes to President Xi Jinping, congratulated the successful convening of the Fourth Plenary Session of the 20th Central Committee of the Communist Party of China, and expressed his firm belief that under the strong leadership of President Xi Jinping, China will successfully complete the development goals set forth in the 15th Five-Year Plan and achieve even more significant economic and social development achievements. The Russia-China comprehensive strategic partnership of coordination in the new era is at its highest historical level. Russia is willing to maintain close high-level exchanges with China, expand cooperation in areas such as trade, energy, agriculture, and infrastructure construction, and increase personnel exchanges. He congratulated China on the successful hosting of the SCO Tianjin Summit, and Russia is willing to further strengthen communication and cooperation with China within multilateral frameworks such as the SCO and BRICS, maintain regional and world peace and stability, and promote common development.
+
+**Five comments:**
+
+1) Bloomberg ran a [very interesting piece](https://www.bloomberg.com/news/articles/2025-11-18/xi-is-making-china-s-premier-his-top-messenger-on-world-stage?sref=lDgLmqjg) this week on Xi Jinping’s curtailment of foreign travel, while Dylan Loh suggested that Li Qiang’s economic background and technocratic mien could “be useful in keeping talks away from more sensitive diplomatic issues.” Still, it seems very likely that Ukraine came up in talks.
+
+2) Li Qiang mentioned “世代友好” (or “generational friendship”) in the context of China-Russia relations. This is an allusion to the two sides’ [2001 joint statement](https://www.gov.cn/gongbao/content/2001/content_60963.htm) at Treaty of Good-Neighborliness and Friendly Cooperation which called for “永久和平、世代友好” or “enduring peace and generational friendship.” I don’t quite know how to parse this yet, but it’s worth keeping an eye on.
+
+3) Interestingly, Li also didn’t include any framing of China-Russia relations around “人民根本利益” (the fundamental interests of the two peoples), or “发展中俄关系是两国基于各自国家和人民根本利益作出的战略选择” (strategic choice made by the two countries based on the fundamental interests of their respective countries and peoples). As a reminder, Beijing has been seeking to [depersonalize and institutionalize](https://chinarussiareport.substack.com/p/chinas-russia-strategy-after-the) ties with Moscow ever since the Prigozhin mutiny indicated that Putin’s hold on power – while seemingly firm – was more fragile than they had previously realized. For more on recent Xi-Putin interactions at the SCO, you can see a related analysis [at WOTR](https://warontherocks.com/2025/09/key-outcomes-from-the-shanghai-cooperation-organization-summit/).
+
+4) The Chinese readout of the meeting with Putin didn’t mention energy cooperation, or indeed any tangible economic projects, outside of visa-free travel. However, Li did mention a desire to deepen investment, energy, agricultural, and other ties in a [readout](https://paper.people.com.cn/rmrb/pc/content/202511/18/content_30115425.html) of a separate meeting with Prime Minister Mishustin.
+
+5) No mention of the Power of Siberia-2 project, although that’s [not surprising](https://www.atlanticcouncil.org/blogs/new-atlanticist/why-china-and-russia-are-unlikely-to-move-the-power-of-siberia-2-pipeline-forward/).
+
+### **Russian MFA on the Japan - PRC spat over Taiwan**
+
+[Russia Again Strongly Criticizes Sanae Takaichi’s Erroneous Remarks on Taiwan – People’s Daily \[Chinese-language, machine-translated\]](http://world.people.com.cn/n1/2025/1121/c1002-40608577.html)
+
+Xinhua News Agency, Moscow, November 20 (Reporters Zhao Bing, Liu Kai) Russian Foreign Ministry spokesperson Maria Zakharova on the 20th once again condemned Japanese Prime Minister Sanae Takaichi’s recent seriously provocative remarks on the situation in the Taiwan Strait, pointing out that Japan has still not reflected on its own mistakes.
+
+At the regular press conference of the Russian Foreign Ministry that day, regarding Takaichi’s blatant and provocative remarks on Taiwan, and her continued obstinacy and refusal to retract them even after China expressed serious representations and strong protests, Zakharova commented: “The Japanese side not only fails to reflect on the errors of its recent remarks, but also refuses to acknowledge the results of the Second World War even 80 years later.”
+
+Zakharova stated that some countries, while loudly proclaiming their adherence to the one-China principle, are “shamelessly and continuously escalating tensions in the Taiwan Strait, hindering China’s peaceful reunification.” These countries provide weapons to Taiwan, strengthen military and political ties with Taiwan, incite separatist sentiments, and use the Taiwan issue as a tool to pressure China and conduct geopolitical containment.
+
+Zakharova emphasized that Russia’s principled position on the Taiwan issue is well-known and consistent, and Russia strongly condemns the hypocritical stance of some countries on the Taiwan issue. She reiterated that Taiwan is an inalienable part of China, and Russia opposes any form of seeking “Taiwan independence.” The Taiwan issue is China’s internal affair, and China has every right to defend its sovereignty and territorial integrity. She also stated that as a true friend and reliable partner of China, Russia is willing to continue to firmly support China on issues of sovereignty and territorial integrity, including the Taiwan issue.
+
+On November 18, Zakharova told Xinhua News Agency in an exclusive interview in Moscow that Japanese politicians such as Sanae Takaichi should deeply reflect on history and be wary of the serious consequences that erroneous words and actions may cause.
+
+Until next time,
+
+Joe
+
+Joe Webster is a senior fellow at the Atlantic Council and editor of the China-Russia Report. This article represents his own personal opinion.
+
+The China-Russia Report is an independent, nonpartisan newsletter covering political, economic, and security affairs within and between China and Russia. All articles, comments, op-eds, etc represent only the personal opinion of the author(s) and do not necessarily represent the position(s) of The China-Russia Report.

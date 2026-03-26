@@ -1,0 +1,61 @@
+---
+title: "Win A Dream Date With A Litigious Douchebag!"
+author: "Ken White"
+publication: "The Popehat Report"
+publication_slug: "popehat"
+published_at: "2024-01-12T17:27:24.000Z"
+source_url: "https://popehat.substack.com/p/win-a-dream-date-with-a-litigious"
+word_count: 1812
+estimated_read_time: 10
+---
+
+*Housekeeping note: The Popehat Report is moving to a different platform later this month. It should be seamless for subscribers: the mailing list should transfer. It’s possible you’ll need to fish it out of junk mail the first time. I’ll let you know.*
+
+What makes a good lawyer? Is it arrogance? Peevishness? Obsession with minutiae? Capacity to endure being yelled at by elderly white men? At least one good suit? It is all of these things. But being a good lawyer shares a fundamental rule with being a good doctor: *first, do no harm.* Lawyers encounter people in crisis, and their first duty is *not to make the crisis much worse.*
+
+This is a straightforward task if you stay in your own lane by practicing the sort of law you know, or relying heavily on more experienced lawyers to learn a new area. But lawyers who blunder alone into unfamiliar areas of law can make things catastrophically worse for clients. My favorite example is defamation law. Under exceptionally speech-protective American law, any defamation lawsuit faces a daunting array of legal barriers and pitfalls. It’s not rocket science, but a lawyer who doesn’t know the law will fail in flamboyant, expensive, and humiliating ways. Moreover, defamation cases proceed under the looming shadow of a crucial *social* law — the [Streisand Effect.](https://www.techdirt.com/2015/01/08/10-years-everyones-been-using-streisand-effect-without-paying-now-im-going-to-start-issuing-takedowns/) That’s the proposition that if you sue, or threaten to sue, over a nasty thing someone said about you, it will inevitably draw orders of magnitude more attention to that nasty thing.
+
+It’s common — mundane, really — to see lawyers try their hand at a defamation case, fail miserably because they don’t understand the law, and utterly destroy their client’s reputation in the process. Today’s story is a prime example.
+
+Nikko D’Ambrosio is a Chicago 33-year-old [employed in the age-appropriate activity of wandering about society in a backwards hat trying to get laid.](https://www.cbsnews.com/chicago/news/chicago-man-sues-disparaging-facebook-group-dating/) One of the young women he dated wrote about him on the Chicago chapter of a popular Facebook group called [“Are We Dating The Same Guy,”](https://www.facebook.com/groups/315938570542151/) a forum for women to commiserate about the men they date. Her gripes (as reflected in the exhibits to his eventual lawsuit, linked below) were, to my taste, rather mild: unflattering, but not outside what’s expected of modern manchildren. She said he was “clingy very fast,” that he “flaunted money very awkwardly,” that he “kept talking about how I don’t want to see his bad side,” and that he texted her from a different number after she blocked the first one. Another woman claimed D’Ambrosio had slept with her and then ghosted her. Yet another said she had heard that he sent a bunch of rude texts after a women declined to sleep with him. Still another referred to him as a “psycho.”
+
+Most of these were statements of opinion (“psycho” without more is an opinion-based epithet, “clingy” and “awkward” are thoroughly opinion-based) and very difficult to establish as defamatory statements of fact. The claims that D’Ambrosio ghosted a woman after sleeping with her or texted another rudely after being rejected could be false statements of fact, and therefore potentially defamatory, but a sensible grown-up would walk them off.
+
+Nikko D’Ambrosio was aggrieved. He needed good, competent advice. A sensible, competent lawyer would advise him that any defamation claim would face substantial legal challenges, that recovery was unlikely, and that the cost of litigation would be heavy. Just as importantly, a competent attorney would advise Nikko D’Ambrosio that suing over these statements would be permanently disastrous for his reputation, and that any such lawsuit would go viral. A competent defamation attorney would point out that this particular factual scenario — a dudebrah with a not-common name suing women for more or less calling him a dudebrah — would be *unusually* bad for his online reputation, elevating him into the immortal pantheon of permanently infamous dudebrahs, a sort of Pluto of Petulance, an Ares of Assholery. Nikko D’Ambrosio needed a wise counselor.
+
+But Nikko D’Ambrosio went to [The Trent Firm](https://trentlawfirm.com/) and hired two guys named Marc Trent and Daniel Nikolic, and they gave him absolutely abysmal advice. If they told him about the Streisand Effect — *if* — he didn’t listen. Instead, they filed a stunningly terrible federal lawsuit on his behalf on the United States District Court for the Northern District of Illinois, suing a few dozen people and entities.
+
+![](https://substackcdn.com/image/fetch/$s_!0Cy0!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack.com%2Fimg%2Fattachment_icon.svg)
+
+Very Dumb Lawsuit
+
+5.15MB ∙ PDF file
+
+[Download](https://popehat.substack.com/api/v1/file/4fd8f56b-b1c4-49ab-ae5a-592c824265df.pdf)
+
+[Download](https://popehat.substack.com/api/v1/file/4fd8f56b-b1c4-49ab-ae5a-592c824265df.pdf)
+
+The complaint that the Trent Law Firm filed for Nikko D’Ambrosio is astoundingly sloppy and incompetent — and that assessment comes from *me*, an aficionado of bad lawyering, a misanthrope who seeks out and grumbles about amusingly incompetent lawsuits as a form of ritual self-abuse. It takes a lot to shock me, but these guys managed. They sued not just the disappointed woman who made the key comments about him, but two of her relatives, a host of other people with unspecified roles, and a long series of entities associated with Facebook. It is impossible to exaggerate how badly drafted this complaint is. These are just a few of its deficits:
+
+-   The caption of the lawsuit proclaims that it’s a class action, and D’Ambrosio’s lawyers have made [comments suggesting that they see themselves as suing on behalf of “victims” other than D’Ambrosio.](https://www.facebook.com/groups/315938570542151/) But other than the caption, the lawsuit contains not a single relevant allegation about being a class action. It doesn’t plead [any of the factors necessary to qualify as a class action.](https://www.law.cornell.edu/rules/frcp/rule_23) It’s also obviously unsuited to be a class action: a class action requires a pool of plaintiffs with factually and legally similar claims, but defamation claims are by their nature very individual and context-specific, and each aggrieved man’s case would be very different depending on what was said about them.
+    
+-   A federal court can only hear a case when it has jurisdiction over the case under federal law. The most common forms of federal jurisdiction are *federal question jurisdiction* — when the lawsuit asserts a federal statute as the basis for the claim — or *diversity jurisdiction —* when the plaintiffs come from a different state than the defendants and more than $75,000 is in dispute.[1](#footnote-1) D’Ambrosio’s lawyers assert diversity jurisdiction but make an utter dumpster fire out of it. They admit that both D’Ambrosio and at least one of the defendants come from Illinois, which defeats diversity jurisdiction. They admit they don’t know what state a bunch of the defendants come from. They identify a bunch of the defendants as limited liability companies, but don’t plead the facts necessary to identify those entities’ citizenship for purposes of diversity. This is the kind of thing that makes federal judges issue orders of their own accord saying, in judicial terms, “what the fuck is this shit?”
+    
+-   The entire premise of the lawsuit is that a wide array of people and entities are legally responsible for unflattering things that a few women posted about Nikko D’Ambrosio. This theory ignores the existence of [Section 230,](https://popehat.substack.com/p/section-230-is-the-subject-of-the) the federal law that says that websites and their proprietors are not responsible for what users post there, even if they engage in moderation. Under Section 230, each woman who posts to “Are We Dating the Same Guy” can be held liable for what she posts, but Facebook, and the entities associated with Facebook, and moderators on Facebook groups, and people merely associated with the group, cannot be liable for what she posts. This complaint does not suggest that the lawyers who drafted it are familiar with Section 230, which would be the *most important legal issue* *facing them*.
+    
+-   The complaint attaches screenshots of some posts — that’s how we know what the women said — but it utterly fails to specify what statements are alleged to be defamatory. The lawsuit claims that *multiple* women made defamatory statements, but doesn’t specify which defendants did what. Vagueness in legal threats is the hallmark of meritless thuggery. More importantly, the lawsuit claims in very general terms that the roughly 30 individual defendants and dozen entities are personally responsible for the (unspecified) defamatory statements, and implies it’s because the individuals were responsible for moderating or running the Facebook groups, but offers absolutely no specific facts supporting that legal conclusion. You can try that shit in state court, or maybe a food court, but in federal court you have to plead specific facts that plausibly support your legal conclusions. They haven’t. Just as one example, they’ve sued two people with the same last name as the woman in question — her parents? siblings? — but offer no facts to explain why they are named or what they did or how they could be liable.
+    
+
+The incompetence doesn’t end there, but I will. This may be the most badly drafted complaint by a lawyer I have seen this millennium. It will probably get dismissed for jurisdictional defects, quite possibly by the federal judge without anyone’s request. It is bad to the level of warranting sanctions, and likely to draw them even with a federal judiciary famously reluctant to sanction. If they fix the jurisdictional issue (probably by re-filing in state court or by ditching the defendants who defeat diversity jurisdiction) they’ll face an implacable host of other legal issues.
+
+That’s the legal result. The social result is predictable. Nikko D’Ambrosio has gone viral. He is now That Guy. He will remain That Guy. He was concerned about his reputation as a member of the dating pool; now his reputation is a sullen narcissist who will bring a lunatic class action against you and your relatives if you say he’s clingy. I don’t pretend to be an expert on women but I think that may be a red flag. If there are any women attracted to it they have a *really extremely specific kink*.
+
+Why is this happening? There are plenty of reasons. There’s a culture of entitlement and ego, among both litigants and lawyers. There’s the trend towards performative, headline-grabbing, but thoroughly bogus lawsuits as a lawyer marketing tool, encouraged by some of the most prominent politicians in the country. There’s the failure of courts to sanction lawyers who act like this. There’s the lack of a federal anti-SLAPP law that would allow the defendants to force these dipshits to pay their legal fees. There’s *so much wrong with us.*
+
+Nikko D’Ambrosio was upset, but now he’s permanently infamous and likely to get poorer.
+
+Members of the Trent Law Firm, dismiss this atrocity before you get sanctioned so hard your great-grandkids will come out with the judge’s bootprint on their asses. Nikko D’Ambrosio, go get a good malpractice lawyer.
+
+[1](#footnote-anchor-1)
+
+Diversity jurisdiction reflects an ancient fear that judges and juries of one state might not treat a litigant from another state fairly, and that somehow federal judges and federal juries will be more fair. Now we cosmopolitan Americans have evolved beyond such petty regionalism and only prejudge litigants based on race, class, culture, occupation, appearance, and vibe.

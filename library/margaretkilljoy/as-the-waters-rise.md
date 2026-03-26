@@ -1,0 +1,62 @@
+---
+title: "As the Waters Rise"
+author: "Margaret Killjoy"
+publication: "Birds Before the Storm"
+publication_slug: "margaretkilljoy"
+published_at: "2025-07-10T13:02:40.000Z"
+source_url: "https://margaretkilljoy.substack.com/p/as-the-waters-rise"
+word_count: 1368
+estimated_read_time: 7
+---
+
+I think about floods probably more than I should. I didn’t used to, but I do these days.
+
+I spent about five years living on a land project in Western North Carolina, built in a tiny valley along a low and lazy creek. Most days, the creek’s bed rose a good six feet or so from the six inches of water that ran through it. By most every map, we weren’t a flood zone at all. By some, we were a one-hundred year flood plain, which meant that the water should break the bank and flood the fields every hundred years or so.
+
+The thing about climate change is that nothing works the way that it’s supposed to, and the floods got worse and worse, higher and higher, more and more frequent. We’d bring inspectors out to look at our creek beds, and for the most part, they’d shake their heads—nothing works like it’s supposed to, anymore, and the solutions that we could have relied on in the 20th century weren’t going to work for us in the 21st.
+
+Anticipating the once-a-century floods (or even small yearly floods), people built their cabins and put their trailers up on platforms and stilts, but every few months the water would move another step closer to people’s floors.
+
+I wish I could tell you that I built high on the hill at the back of the property because I was a good prepper, that I’d anticipated this problem and taken steps to protect myself and my home. That would be a lie, though. I built where I built because I’m a strange introvert and I wanted a cabin in the woods where I couldn’t see any other houses. Which meant carrying every piece of my cabin up the hill by hand. So it goes.
+
+I think about floods because I’ve spent too much time in them already, wading through waters that I shouldn’t to move equipment out from under the barn.
+
+\---
+
+We’re at an impasse in American society right now, about a lot of things, but disaster preparedness is one of them. For individuals, or even small communities, I can offer ideas like: “build on the hill, not in the valley,” or “make sure your house has adequate drainage.” I could tell you to keep an axe in your attic, like people do down along the gulf coast, so that if you’re ever trapped in your attic you can cut a hole in your roof to escape if the waters reach you.
+
+I could tell you to think about how to get on your roof from the windows in your house. I could tell you to keep sandbags around to fill with dirt and block doors. I could tell you not to drive through standing water. I could tell you that, ironically, electric cars can drive through higher water than gas ones can (though still you ought not drive through flood waters).
+
+I can tell you not to go wading through flood waters to save the liquor stash you left under the barn, and I can tell you that because I think I deleted the photo off my Instagram that shows me doing just that, the one I had on my Tinder account years ago. Since that photo is gone and there’s no proof it ever existed, I can tell you not to do that without sounding like a hypocrite.
+
+I can tell you to [keep a go bag](https://margaretkilljoy.substack.com/p/get-yourself-a-go-bag), and as I type this I can think about how p-cord could save your life with the right knots, since so many people have survived floods by clinging to trees and chimneys. I can tell you that life preservers are cheap as hell and worth having in your house.
+
+I can tell you all of these individual steps. But they’re individual steps.
+
+Structural problems demand structural solutions. I don’t know what all of those solutions will be, but I can tell you that the US has never been particularly good at building disaster-resilient infrastructure. Our power lines, for example, are aboveground, where wind and trees can take them down easily enough.
+
+Still, there’s an incredible amount of engineering going on all around us, from how roads are crowned to shed water to how building codes differ by region. When you build a house in a storm-prone area, there’s a reason you use things called “hurricane ties” when you attach joist to beam.
+
+We scarcely build well enough for 20th-century conditions, and we clearly don’t build anywhere near well enough for 21st-century conditions. We need to institute better engineering, but that’s hard to do in the US currently. It was hard under the previous administration, but right now in particular it’s less that we have a government and more that we have fascist thieves in the walls stripping out the copper. Every useful bit of social infrastructure that the government used to provide is being taken from us (like the NOAA, to use an example relevant to the topic of flood forecasting), leaving only the infrastructure of repression.
+
+What we need are systemic solutions to the changing ecology of our world, if we’re going to do anything to mitigate global warming or even to just survive as a species in our changing climate.
+
+We need to build resilient communities. Our communities need to have social infrastructure that fosters resilience, like local assemblies and decisionmaking, like mutual aid, like conflict resolution, like webs of trust.
+
+They also, though, need to have physical infrastructure that fosters resilience like more robust power grids, better stormwater mitigation, accurate weather forecasting, affordable storm-resilient housing, and marked and maintained evacuation routes.
+
+We also need to have a reason to trust that the people making policy decisions actually care whether or not we live or die. Personally, I struggle to imagine how any of these things, especially that last point, could be brought about without some sort of fundamental restructuring of society—a revolution, as it were.
+
+Because the waters are going to keep rising. There are so, so many people around you, strangers and friends alike, who care whether you live or die. But the government sure doesn’t, and our economic system sure doesn’t, and both of those points were just about as true fifteen years ago as they are today.
+
+Every story of disaster contains within it countless stories of heroism and resilience. Countless people—first responders and civilians alike—risk or lose their lives saving people, every time. People from all walks of life get together to share water, food, power, coffee, chainsaws, gasoline, and everything else freely. Folks embedded within power structures risk their jobs to do the right thing and get resources where they need to go. Political lines often disappear under the weight of the moment.
+
+But every natural disaster I’ve personally seen or read about was less “natural” than you might think. Floods kill people in trailers more than brick houses, and those who were already struggling before the storm have a much harder time recovering after the waters recede. Disaster capitalism swoops in and buys up property cheap and destroys communities at least as efficiently as winds and fires.
+
+So with that in mind, what can I tell you about prepping for floods?
+
+I can tell you that it’s never a bad idea to do the basics: get to know your neighbors; keep a go bag; keep your vehicle packed with some basic emergency supplies; keep three days work of food, water, and backup cell phone power at home.
+
+I can tell you that once you’ve dealt with floods, you’ll never think about rivers the same way again and that you’ll take elevation into serious consideration when you think about where to park, camp, rent, or buy.
+
+And I can tell you that unless we fundamentally change the way that decisions are made in our society, begin to prioritize public safety over private property, and learn to break down the social barriers between people, that we’ll never be able to build the kind of society that can adapt to the waters that are going to rise.

@@ -1,0 +1,152 @@
+---
+title: "How to Live Like the World is Ending"
+author: "Margaret Killjoy"
+publication: "Birds Before the Storm"
+publication_slug: "margaretkilljoy"
+published_at: "2025-07-23T13:09:22.000Z"
+source_url: "https://margaretkilljoy.substack.com/p/how-to-live-like-the-world-is-ending"
+word_count: 2759
+estimated_read_time: 14
+---
+
+*I’ll be in **Waynesboro, Virginia** this Saturday at the [A Better World is Possible Anarchist Bookfair](https://linktr.ee/shenandoahliberation) this Saturday if you’d like to come see me speak or pick up whatever I manage to scrounge up to table with. The bookfair runs 10-Dusk on **July 26** at **565 Pine Ave**. I’ll be speaking sometime during or shortly after lunch.*
+
+*This is a lightly edited repost of an essay I wrote in 2019 on my old blog. Its title is where I wound up with the name of the podcast* Live Like the World is Dying*, which a friend of mine suggested as better wordplay than “ending.” Since I’ll be speaking this weekend about why we envision and fight for better worlds, it felt like an appropriate thing to post this week, especially since my blog has been down for awhile.*
+
+# How to Live Like the World is Ending
+
+The world might be ending.
+
+\---
+
+There’s a commonly replicated piece of anarchist folk art that means a lot to me. I don’t know who drew it. It’s a drawing of a tree with a circle-A superimposed. The text of it reads “even if the world was to end tomorrow I would still plant a tree today.”
+
+[
+
+![](https://substackcdn.com/image/fetch/$s_!HSKL!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F8edbcf5c-0efa-41e9-8ce5-270697aad418_600x728.png)
+
+
+
+](https://substackcdn.com/image/fetch/$s_!HSKL!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F8edbcf5c-0efa-41e9-8ce5-270697aad418_600x728.png)
+
+I grew up into anarchy around this piece of art. It was silkscreened as patches and posters and visible on the backs of hoodies and the walls of collective houses. It was graffitied through stencils and it was photocopied in the back of zines. It’s a paraphrasing of a quote misattributed to Martin Luther (the original protestant Martin Luther, not Martin Luther King, Jr., although plenty of people misattribute the quote to him as well). The original quote is something like “Even if I knew that tomorrow the world would go to pieces, I would still plant my apple tree.” The earliest reference to it anyone can seem to find is from the German Confessing Church, a Christian movement within Nazi Germany that sought to challenge Nazi power. The quote was used to inspire hope, to inspire people to action. I’ve learned that it is a paraphrasing of a hadith: “If the Resurrection were established upon one of you while he has in his hand a sapling, then let him plant it.”
+
+That’s something I can get behind.
+
+\---
+
+There’s this book that means a lot to me, *On the Beach*, by Nevil Shute. I’ve never read it. I can’t bring myself to. I think about it quite often, regardless.
+
+The novel describes a nuclear war destined to kill all life on earth, and it describes the last days of people living in Australia waiting for the inevitable death of all things. It describes how they live their lives, how they find meaning during the apocalypse. It’s a book about how to live without hope. It’s a book of resignation.
+
+It’s too much for me, I think, at least right now.
+
+\---
+
+The world might be ending.
+
+A lot of people will argue with me about that. They will correctly point out that for large numbers of people all over the world, especially in the parts of the world long ravaged by Western imperialism, the world has been ending for a long time. They will correctly point out that the world itself isn’t going anywhere, that change is constant, and even if what is left behind by climate catastrophe and war is a scorched desert, it’s probable that life will continue. Human life, non-human animal life, and plant life will all, in some form or another, survive all of this.
+
+People will argue, correctly once more, that most every generation has believed that the world was ending. The machine gun slaughter of World War I, the genocide of World War II, the Doomsday Clock of the Cold War, the AIDS epidemic, those all must have felt like the apocalypse. For entire peoples, they were. Yet here some of us are today, alive.
+
+None of those arguments detract from the fact that it sure feels like the world is ending.
+
+Mountains are blown up for coal to pump poison into the air, pipelines clearcut the last vestiges of the wild to help us pump more poison into the air. Oceans are swallowing islands, hundred-year storms happen every year, and it feels like every day we break new climate records. A sense of urgency about coming disaster is fueling a rise of “I got mine, fuck you” nationalism, and climate scientists are being ignored to an unconscionable degree.
+
+The world is ending.
+
+It’s always ending, but it’s ending a lot right now. For me and the people I’m close to, it’s ending more dramatically than it was when I was born thirty-seven years ago.
+
+That’s fucking paralyzing.
+
+The news is full of extinction and fascism and death and death and death.
+
+And we’re expected to get up in the morning and go to work.
+
+\---
+
+For awhile, I coped by means of a cycle of denial and panic. The potential apocalypse was, basically, too-much-problem. I couldn’t wrap my head around it or its ramifications, so I acted like it wasn’t happening. Until, of course, some horrible event or reminder of the apocalypse broke over a certain threshold and sent me spiraling into despair. Then numbness took over once more and the cycle began again.
+
+That didn’t do me much good.
+
+About a year ago, I decided to embrace four different, often contradictory, priorities for my life. I run my decisions past all of them and try to keep them in balance.
+
+Act like we’re about to die. Act like we might not die right away. Act like we might have a chance to stop this. Act like everything will be okay.
+
+## Act like we’re about to die
+
+Every breath we take is the last breath we take. You Only Live Once. Smoke em if you got em. Do As Thou Wilt. Memento Mori. Our culture is full of euphemisms and clever sayings that focus around one simple idea: we’re mortal, so we might as well try to make the most of the time we have.
+
+Embracing hedonism has a lot to recommend it these days. It’s completely possible that the majority of us won’t be alive ten or twenty years from now. It’s completely possible, although a lot less likely, that a lot of us won’t be alive in a year.
+
+I used to think, when I was younger, that I was a terrible hedonist. As a survivor of sexual and psychological assault and abuse, I’ve never had much luck with drug use or casual sex. But fucking and getting wasted, while perfectly worthwhile pastimes, aren’t the only ways to live in the moment. Hedonism is about the pursuit of pleasure and joy. The trick is to find out what gives you pleasure and joy.
+
+For myself, this has meant giving myself permission to pursue music, to sing even though I’m not trained, to play piano and harp. To travel, to wander. To seek beautiful moments and accept that they might be fleeting. I’ll rudely paraphrase the host of the rather wholesome podcast Ologies, Alie Ward, and say “we might die, so cut your bangs and tell your crush you like them.”
+
+My hedonism is a cautious one. I’m not looking to take up smoking or other addictions. I’m not trying to live like there’s a guarantee of no tomorrow, just a solid chance of no tomorrow. Frankly, this would be true regardless of the current crisis, but it feels especially important to me just now.
+
+## Act like we might not die right away
+
+Preppers have a bad reputation for a good reason. The people stockpiling ammunition and food in doomsday bunkers by-and-large don’t have anyone else’s best interests at heart. Still, being prepared for a slow apocalypse, or dramatic interruptions in the status quo, makes more and more sense to more and more of us.
+
+Preparing for the apocalypse is going to look different to every person and every community. For some people it will mean stockpiling necessities. For other people, securing the means to grow food.
+
+One thing I’ve learned from my friends who study community resilience and disaster relief, however, is that the most important resource to shore up on isn’t a tangible one. It’s not bullets, it’s not rice, it’s not even land or water. It’s connections with other people. The most effective means of survival in crisis is to create community disaster plans. To practice mutual aid. To build networks of resilience.
+
+Every apocalypse movie has it all backwards when the plucky gang of survivors holes up in a cabin and fends off the ravaging chaotic hordes. The movies have it backwards because the ravaging hordes are, in the roughest possible sense, the ones doing survival right. They’re doing it collectively. Obviously, I’m not advocating we wear the skulls of our enemies and cower at the feet of warlords (though wearing the skulls of would-be warlords has its appeal). I’m advocating staying open to opportunity and building collective power.
+
+There are infinite reasons not to count on holing up in a cabin with your six friends as an apocalypse plan, but I’ll give you two of them. First, because living a worthwhile and long life as a human animal requires connections with a diverse collection of people with diverse collections of skills, ideas, and backgrounds. It’s all fun and games in your cabin until your appendix bursts and none of you are surgeons—or you’re the only surgeon. Likewise, small groups of people who tend to agree with one another are subject to the dangers of groupthink and the echo chamber effect, which will limit your ability to intelligently meet challenges that face you.
+
+Second, because by removing yourself from society, you’re removing your ability to shape the changes that society will go through during crisis. If you go hide in the woods with your stockpile and your buddies, and fascists take over, guess what? It’s kind of your fucking fault. Because you weren’t at the meeting when everyone decided whether to be egalitarians or fascists. And guess what? Now that rampaging horde is at your doorstep, and they want your ammo and your antibiotics, and they’re going to get it one way or the other. Fascism is always best stamped out when it starts. It’s never safe to ignore it. Not now, not during any Mad Max future.
+
+Tangible resources do matter, of course. Any likely scenario that prepping is good for won’t be so dramatic as an utter restructuring or collapse of society. It might mean food shortages, power outages, water contamination. It never hurts to keep nonperishable food, backup sources of power, and water filtration systems around for yourself and your neighbors.
+
+Still, this is a terrible basket to put all your eggs into. You probably shouldn’t live out your days, whether they’re your last ones or not, over-preparing for something that may or may not come to pass.
+
+## Act like we might have a chance to stop this
+
+We can and we should stop the worst excesses of climate catastrophe. We can and should stop fascism by whatever means necessary. Throwing up our hands and walking away from the problem is no solution.
+
+It’s hard to remember that we have agency. Unless we were raised ultra-rich, we’ve had the concept of political and economic agency stripped from us at every turn. We’ve been told there are two ways to effect change: vote for politicians or vote with our dollars. Politicians in western democracies are likely incapable of changing things as dramatically as they need to be changed, and they certainly won’t bother trying unless we motivate them to do so in fairly dramatic ways. As for economic agency, there is a small handful of men with more wealth—and therefore power—than the rest of us combined.
+
+We’ve been told we cannot take matters into our own hands, politically or economically. We’re not allowed to have a revolution. We’re not allowed to redistribute the wealth of the elite.
+
+You’ll be shocked to know that I don’t put a lot of stock in what we are and aren’t allowed to do.
+
+Still, even if we give ourselves permission to undertake it, revolution feels like an insurmountable challenge. We’ve got, optimistically, ten years to completely overhaul the economic system of the planet *\[five now, revisiting this piece in 2025\]*. It can be done. It has to be done. Yet it feels like it won’t be done.
+
+We’re all running the cost/benefit analysis of acting directly. We all have different “fuck it” points—the point beyond which we can no longer prioritize our immediate wellbeing but instead must act regardless of the outcome. In the meantime, we’re waiting until it seems like we can act and actually have a chance of winning.
+
+All over the world, even in some Western countries, people are no longer waiting. They’re acting. We need to be helping them, supporting them with words and actions, while we get ready to act here as well.
+
+The revolution needs mediators and facilitators, medics and brawlers. It needs hackers and propagandists and it needs financiers and smugglers and thieves. It needs scouts and coordinators and it needs musicians and it needs people invested in the system to turn traitor. It needs lawyers and scientists and bookkeepers and copyeditors and cooks and it needs almost everyone, almost every skill.
+
+One thing it doesn’t need, though, is would-be managers. The people who claim to know how to run a revolution don’t know how to run a revolution or they would have done it by now. The authoritarian urge, to decide what the revolution should and shouldn’t look like, how people should and shouldn’t express their rage and reclaim their agency, will fail us every time. Authoritarian communism is the death of any revolution. Authoritarian liberalism is the death of any revolution. Even the more dogmatic anarchists will get in the way if given a chance. The revolution cannot be branded. Despite Hollywood representations of rebellions, they don’t work as well under a single banner. They are diverse, or they are not revolutions.
+
+The revolution cannot be controlled by a vanguard of activists; if it is, it will fail. The revolution must be controlled by its participants, because only then will we learn how to claim agency over our own lives and futures.
+
+We have a chance to stop this.
+
+I forget that sometimes, but I shouldn’t.
+
+Still, I can’t count on hope alone, or the days when hope fails me would lay me low.
+
+## Act like everything will be okay
+
+All the times the world has come close to ending before, it hasn’t. It’s ended for some people, some cultures. Civilizations have collapsed. Ecosystems have radically shifted. Species have gone extinct—including the species of humans before homo sapiens. Colonization was an apocalypse. Some people survived those apocalypses, but plenty more didn’t.
+
+Still, the world is still here and we’re still here.
+
+Capitalism is a sturdy beast, quite adept at adaptation. Marx was wrong about a lot of things, and one of those things was the inevitability of the collapse of capitalism under the weight of its own contradictions. With or without capitalism, the society we live in might stagger on. We might curb the worst excesses of climate catastrophe through economic change or wild feats of geoengineering.
+
+I won’t bet on it, but I won’t bet entirely against it either.
+
+As much as I need to live like I might die tomorrow, I need to live like I might see a hundred years on this odd green and blue planet. Unless things change, I’m not burning every bridge. I’m trying to maintain a career. If I was certain to die under a fascist regime by 2021, there wouldn’t be much point in writing novels: they take too long to write, publish, and reach their audience. I get some joy from the writing itself, sure, but I get more joy from putting my art in front of people, of letting it influence the cultural landscape. With novel writing in particular, that takes time. That takes there being a future. I want there to be a future. Almost desperately. Not enough to bank on it completely.
+
+Keeping some small portion of my time and resources invested in the potential for there to be a future is important for my mental health, because it keeps me invested in maintaining that health.
+
+\---
+
+The world might end tomorrow, and it might not. If we can help it, at all, we shouldn’t let it end. We still ought to act like it might.
+
+We ought to figure out what trees we would plant either way.

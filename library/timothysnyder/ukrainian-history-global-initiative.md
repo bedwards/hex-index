@@ -1,0 +1,75 @@
+---
+title: "Ukrainian History Global Initiative"
+author: "Timothy Snyder"
+publication: "Timothy Snyder"
+publication_slug: "timothysnyder"
+published_at: "2025-12-06T13:07:36.000Z"
+source_url: "https://snyder.substack.com/p/ukrainian-history-global-initiative"
+word_count: 1964
+estimated_read_time: 10
+---
+
+Amidst a war of aggression, scholars in Ukraine have undertaken one of the most ambitious knowledge projects of our time. Over the course of three years, more than a hundred Ukrainian and international scholars are together creating a long-durée history of the lands and peoples of the territories of today’s Ukraine [from the formation of the earth](https://www.youtube.com/watch?v=Lw_r0urxAys) to the present. The goal is to bring together knowledge about a crucial part of the world, and make it accessible to everyone in the world.
+
+This endeavor, [Ukrainian History Global Initiative](https://uhgi.org/), recalls some of the great encyclopedic ambitions of past centuries -- while bringing to bear the technological advances of our own. It’s an attempt to write interpretive history that people will want to read, made possible by the findings, sometimes quite spectacular, of recent decades. The goal is to bring knowledge about some of the great themes of the past to a very large global audience. At a time when specialization can separate scholars from audiences (and from one another!), we are working together to bring knowledge to everyone.
+
+I’ve been privileged to be involved with Ukrainian History Global Initiative from its beginnings. The thought process began back in 2019, well before the full-scale invasion of 2022. So it would be a mistake to think of this project as a reaction to the current war. But the fact that the project has proceeded, with two major conferences in wartime Kyiv in 2023 and 2024 as well as other meetings around the world, is a sign to me of how important the humanities are in a time of crisis.
+
+We are told that, under stress, the humanities must be sacrificed -- of what use are literature, philosophy, and history when we have problems to solve right now? And yet colleagues meeting in wartime Kyiv have a clearer sense of purpose, more *esprit de corps,* , and a better instinct for the essential. And soldiers on the front (as they tell me) want to talk about history and culture. In traumatic conditions, people think about where they stand amidst larger forces -- and they think about the *why* as well as the *how* of life.
+
+The humanities offer that. The more extreme the circumstances, the more important they are. Which is why, of course, the enemies of freedom are the enemies of history, and the enemies of the humanities generally -- an association that is on display, all too graphically, in Russian book burnings on occupied Ukrainian territories, Russian destruction of Ukrainian libraries, Russian bombings of Ukrainian publishing houses, and Russian looting of Ukrainian museums.
+
+At the same time, [Ukrainian History Global Initiative](https://uhgi.org/) has taught me how much technology can aid us where the traditional tools of the humanities -- written sources -- fade away. In this project we have a biologist, paleontologists, and archaeologists. The technology applied today in archaeology has vastly improved our understanding of prehistory and early history. As a modern historian, I have been humbled to see how quickly discussions of the earlier periods have moved in recent years.
+
+To an almost uncanny degree, the new technological methods and findings point us towards the centrality of Ukraine in world history, and thus the sense of Ukrainian History Global Initiative. Some of the methods are discussed in [this video](https://www.youtube.com/watch?v=fuWhVyhu6oQ) about the project. We are taking seriously the long-term ecological side of history: the specificities of Ukraine -- its rivers flowing southward to a sea that connects to the world, with its unusually fertile soil, with its mountains to the west and the steppe extending almost endlessly to the east -- have invited both innovation and invasion since pre-history. Perhaps by no coincidence, it was a [Ukrainian scientist](https://www.amazon.ca/Biosphere-Vladimir-I-Vernadsky/dp/038798268X) who invented the idea of the [biosphere](https://uhgi.org/news/life-as-a-geological-force-olivia-judsons-lecture-at-the-ukrainian-history-global-initiative-conference/), a topic with which we begin the project.
+
+It is far too soon to discuss findings and conclusions, as a hundred or so of us continue our research and writing. And I wouldn’t want to give the impression that my own views as expressed here capture the ideas of my colleagues. But there is absolutely no doubt that this huge collaborative project will bring into focus some extraordinary findings of Ukrainian and international scholars, beginning from the deep past. There are extraordinary findings about history, including ancient history, known now only to circles of scholars. We aim to made this knowledge accessible to all. A few examples...
+
+How did humans begin to build shelters for themselves? We know now of a Mezyrich culture, about twenty thousand years ago, that built dwellings from mammoth bones during the ice age. The houses themselves, as well as the artefacts within them, display a sense of [symmetry](https://www.researchgate.net/publication/387946852_Symmetry_and_Regularity_in_the_Behaviour_of_the_Epigravettian_Hunters_in_Eastern_Europe_The_Mezhyrich_Case_of_Study) that forces us to reflect on aesthetics and symbolic meanings. These are among the oldest known built dwellings in Europe. The people who built them seem to have cared about beauty as well as survival.
+
+[
+
+![](https://substackcdn.com/image/fetch/$s_!zw5u!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F30d2ae16-4e3a-40f7-b8f6-3d272308204a_1759x932.png)
+
+
+
+](https://substackcdn.com/image/fetch/$s_!zw5u!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F30d2ae16-4e3a-40f7-b8f6-3d272308204a_1759x932.png)
+*Decorated mammoth tusk, Ukraine, c. 22,000 years old*
+
+The history of the city also seems to begin in Ukraine. Thanks to LiDAR and advanced carbon dating, we are now aware of a complex of [ancient cities](https://www.degruyterbrill.com/document/doi/10.1515/9783110664959/html?lang=en&srsltid=AfmBOooirRf6aufiL7HvlXjsJBIo885lKvbnco-yJjAOwCzsLfo8KAmo) in what is now central Ukraine, [Nebelivka](https://www.taylorfrancis.com/books/edit/10.4324/9781315630731/trypillia-mega-sites-european-prehistory-johannes-m%C3%BCller-knut-rassmann-mykhailo-videiko) and others, which are some six thousand years old. These seem to be the oldest large human settlements, older than ancient Mesopotamian cities which we have been taught to see as the cradle of civilization. Their [arrangement](https://forensic-architecture.org/investigation/the-nebelivka-hypothesis) suggests an interesting form of urban life -- no walls or temple or obvious centers of power, only avenues and gathering places and houses and lodges.
+
+Even the communication between us now, the language on the screen that I write and you read, has to do with the lands of Ukraine. The words I am writing now, and the languages that half the world speaks, also, it appears, descend from the Ukrainian steppe. English is an Indo-European language. One of most important debates in the history of the sciences and the humanities is the [origins](https://en.wikipedia.org/wiki/The_Horse,_the_Wheel,_and_Language) of the Indo-European languages. The discussion of why we speak the languages we do and where they come from has been going on for well over two hundred years in a modern scholarly form, and of course for much longer. And now the Indo-European part, the biggest part, [seems](https://www.thamesandhudsonusa.com/books/the-indo-europeans-rediscovered-how-a-scientific-revolution-is-rewriting-their-story-hardcover) to have been settled. And as a result of evidence from [ancient DNA](https://www.nature.com/articles/s41586-024-08372-2), it is [reasonable](https://www.thamesandhudsonusa.com/books/the-indo-europeans-rediscovered-how-a-scientific-revolution-is-rewriting-their-story-hardcover) to conclude that the peoples who spread Indo-European languages, now spoken by about half the world, originated some five thousand years ago in the south Ukrainian steppe.
+
+Although all of this is still in discussion, and I certainly won’t claim that all involved in the project hold the same views as I do on all these questions, it appears that he encounter of the people who generated the languages with the people who built the cities seems led to a synthesis that is at the very foundation of European history -- thousands of years before the Romans and the Greeks and everything that is more familiar. If you did not know these things, you are not alone -- I didn’t know them when this project started. The point is: when you look hard at the Ukrainian past, the history of the world starts to make more sense.
+
+Starting from the deep past shows how the sciences and the humanities work together. It also helps us to see the global relevance of what might seem like local events. From a Ukrainian perspective major traditions that might seem familiar, like the ancient Greek and the Viking Nordic, take on a new and unfamiliar form, before resolving themselves into something more interesting -- and more plausible.
+
+[
+
+![](https://substackcdn.com/image/fetch/$s_!NCTB!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F6bd4035c-53aa-4af9-95c8-a7bfc5bde506_4032x3024.png)
+
+
+
+](https://substackcdn.com/image/fetch/$s_!NCTB!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F6bd4035c-53aa-4af9-95c8-a7bfc5bde506_4032x3024.png)
+*Hilt of a Viking Sword, Ukraine*
+
+Everything that we know of Greek civilization depended on contacts with the northern coast of the Black Sea, which fed Athens, and provided Athens with the basis of foundational stories that we still tell. We talk about Amazons and make movies about them -- but only if we learn about the Ukrainian past do we realize that such women actually lived. Thanks to Ukrainian archaeologists (and ancient DNA technology) we can now say with confidence that the Scythian warriors of the Ukrainian steppe did include biologically female mounted archers.
+
+The same holds for the history of Judaism, Islam, and Christianity. The history of each is enriched when Ukraine is included. In important respects Ukraine also sits at the center of the imperial period of modern history, the time of enormous land empires, expansive maritime empires, and their totalitarian challengers. Ukraine is central to the history of both world wars. These are themes that I picked up in my own books, *[Bloodlands](https://www.hachettebookgroup.com/titles/timothy-snyder/bloodlands/9780465032976/?lens=basic-books)* and *[Black Earth](https://www.penguinrandomhouse.com/books/251753/black-earth-by-timothy-snyder/)*; thanks to colleagues in the project, I am coming to understand that the centrality of Ukraine in global conflicts begins well before the twentieth century.
+
+The national history of Ukraine is fascinating. [National activists](https://books.huri.harvard.edu/books/ivan-franko-and-his-community) always go looking for a past; what the Ukrainians encountered was spectacularly rich. When the Ukrainian ethnographers went to collect folk tales and songs in the late nineteenth century, they found incredible layers of memory: vampires and werewolves that likely connect to Viking or perhaps slavic pagan beliefs; dualist ideas of Christianity that draw on apocryphal texts that themselves go back all the way to ancient Egypt or Mesopotamia; stories of creation that invoke common Indo-European themes and perhaps still older layers than that -- there are intriguing commonalities, as the ethnographers noticed back then, between Ukrainian and indigenous North American creation stories. What’s more, the scholars doing the ethnography, and national activists generally in the late nineteenth century, were intensely aware of these layers of the past. They could recognize them because they already saw the history of their land in people in multiple contexts and ancient settings. And so when we engage in the history of the formation of the Ukrainian nation, we do not leave behind the ancient past -- instead, we find it again.
+
+The Ukrainian nation emerges therefore within [settings](https://www.hachettebookgroup.com/titles/serhii-plokhy/the-gates-of-europe/9781541675643/?lens=basic-books) that are both ancient and global. As a national movement it was quite typical; what was unusual was the difficulties it faced in the twentieth century. It is hard to speak of the Ukrainian nation, especially today, without speaking of war. I was tempted to start this little note by mentioning that the public sessions of both Kyiv conferences were interrupted by Russian missile attacks. I could have mentioned that the panels at the Kyiv conferences take place underground, or that colleagues often have to get to work after spending a night in a bomb shelter. It matters, of course, and deeply, that some colleagues in the project are in active military service, sometimes on the front.
+
+[
+
+![](https://substackcdn.com/image/fetch/$s_!X2bk!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F47c604d6-7341-4b53-83db-ac24d1a63f2f_3715x1865.png)
+
+
+
+](https://substackcdn.com/image/fetch/$s_!X2bk!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F47c604d6-7341-4b53-83db-ac24d1a63f2f_3715x1865.png)
+*Part of the display at the public event of Ukrainian History Global Initiative, Kyiv, September 2023. There is no one between the photographer and the objects because of the missile.*
+
+In this war, Russia is trying to kill a culture. But what is far more interesting is the work that is being done within that culture -- which has implications for all of the rest of us: in the form of self-organization, as well as in the products, which in our case should be a vast public digital resource and a shorter book or two. During the war we have seen a renaissance in Ukrainian film, music, art, and publishing. [Ukrainian History Global Initiative](https://uhgi.org/) began before the full-scale invasion, but working in Ukraine I feel the warm support of energetic friends in neighboring pursuits.
+
+Speaking of film: I was prompted to write about Ukrainian History Global Initiative because of this [video](https://www.youtube.com/watch?v=fuWhVyhu6oQ), which emerged from our September gathering in Kyiv. It might give you a sense of the significance of the project, and of the work of some colleagues. I hope you enjoy it, and pass it on to others who might be interested.

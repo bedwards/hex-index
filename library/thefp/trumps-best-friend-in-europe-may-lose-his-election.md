@@ -1,0 +1,108 @@
+---
+title: "Trump’s Best Friend in Europe May Lose His Election"
+author: "Bari Weiss"
+publication: "The Free Press"
+publication_slug: "thefp"
+published_at: "2026-02-02T22:04:11.000Z"
+source_url: "https://www.thefp.com/p/trumps-best-friend-in-europe-may"
+word_count: 2272
+estimated_read_time: 12
+---
+
+BUDAPEST — An Arctic wave swept across Hungary in early January, dumping more snow than the country had seen in more than a decade. The temperature lingered below freezing, and people struggled to keep warm in rural villages, where many homes still rely on wood-burning stoves.
+
+Help arrived at one remote location in the middle of the storm. But it didn’t come from the government, which since 2010 has been led by Prime Minister Viktor Orbán, Donald Trump’s top ally in Europe.
+
+It came from Péter Magyar, Orbán’s chief political rival. Magyar showed up in Nógrád County, Hungary’s poorest region, with free firewood, snow shovels, and volunteers from the party he leads, known by its Hungarian initials, Tisza. The name—derived from the Hungarian for “Respect and Freedom”—is an unsubtle riposte to Orbán’s signature concept, “illiberal democracy,” and the corruption that has allegedly crept into his government.
+
+“Action comes first, words come second,” Magyar wrote on his [Facebook page](https://www.facebook.com/peter.magyar.102/), which has more than 750,000 followers. “Thousands of Tisza volunteers are already helping in hundreds of locations with snow removal, transportation, shopping, and distributing firewood.”
+
+Magyar said he would “pause” campaigning during the blizzard so his party could focus on aid delivery. This wasn’t 100-percent true: Magyar’s firewood distribution, carefully staged and packaged for social media, was itself a smart campaign move—and an indication of why Orbán might be at risk of losing power in elections scheduled for April 12.
+
+An Orbán defeat would be a political earthquake in Europe and a setback for Trump’s national security strategy, a key element of which is support for right-wing populists in the European Union—of whom Orbán is his closest partner. Trump’s demands for Greenland alienated some on the European right, but not Orbán, who helped Trump during that now-abated crisis by vetoing a proposed EU statement that would have taken Denmark’s side.
+
+The contest is just beginning in earnest and Orbán has been counted out many times before. But with Tisza leading the prime minister’s Fidesz party, 51 percent to 39 percent, in [the most recent poll](https://www.reuters.com/business/media-telecom/hungarys-main-opposition-widens-lead-over-pm-orbans-fidesz-two-surveys-show-2026-01-14/#:~:text=Tisza%2C%20a%20centre%2Dright%20party,December%2031%20and%20January%206.), “The chance of an opposition victory is the highest in the past 15 years,” Zselyke Csaky, who monitors Hungarian politics for the Centre for European Reform, a Brussels-based think tank, told me.
+
+To be sure, Orbán’s vulnerability was not the impression I was supposed to get from my visit to Hungary during the first full week of 2026. The trip was organized by Hungary’s embassy in London and paid for by pro-government, private sector sources. I generally avoid press junkets but made an exception for this one because it offered the equivalent of a backstage pass to Orbán’s government, and a chance to see the man himself up close.
+
+The Viktor Orbán I saw is still a force to be reckoned with. I sat a few feet away from him for all two and a half hours of his annual press conference with the international media on January 5. At no point during the fusillade of questions did the prime minister lose his cool, go off message, or fumble for words.
+
+After years during which Viktor Orbán has repeatedly made his political opponents look like fools, they had, for once, made a fool out of him.
+
+Although grayer and much thicker around the middle than he was as a student activist in the late 1980s, when he helped lead the movement against Hungary’s communist regime, there is still something of the rebel about Orbán, 62. Now it’s the liberal West that he seeks to defy, not Moscow.
+
+Again and again, Orbán and his allies reverted to the talking points that have made Hungary a pariah within the European Union, but which have also earned them favor with Trump, along with the leaders of Russia and China. The EU, Orbán says, is a misguided elite project that pursued a “crazy” green energy policy, allowed a flood of migrants to destabilize Europe, and now plots an endless war in Ukraine.
+
+“In this election, what’s at stake is whether there will be pro-war Brusselite policy, pro-Ukrainian, Brussels-friendly government, or a peace-loving government that protects Hungarian sovereignty,” Orbán [said](https://miniszterelnok.hu/en/prime-minister-viktor-orbans-answers-to-journalists-questions-2026-01-05/). “This election has great importance for Brussels, as Hungary is a living example that the strategy of the Brussels war elite isn’t the only possible strategy.”
+
+It’s been a winning narrative for Orbán because it’s at least partly true. Migration is the clearest example of how Hungary has seemed to benefit from bucking the liberal European consensus. When hundreds of thousands of migrants from the Middle East began pouring through Hungary en route to Germany and other receptive countries in 2015, German chancellor Angela Merkel said, “We can handle this.” But Orbán sent guards to stop the migrants and erected a razor-wire barrier at the border with Serbia. Since then, Orbán’s government has tightened the border even further, and has stuck to its zero-tolerance policy despite [expensive penalties](https://apnews.com/article/eu-migration-hungary-fines-funds-asylum-bef928922abffa280bb1bb245fd5f448#:~:text=Brussels%20is%20taking%20the%20money%20anyway.,-Hungarian%20Prime%20Minister&text=BRUSSELS%20\(AP\)%20%E2%80%94%20The%20European,Hungary's%20funding%20could%20be%20deducted.) from the EU.
+
+Today, he has reason to crow. Hungary’s borders are secure. Budapest is clean, safe, and orderly in a way that numerous Western European capitals no longer are. And traditional political parties across the continent have shifted toward Orbán’s position, which is popular among Hungarians.
+
+Orbán can also plausibly claim to have limited the damage to Hungary from the war in Ukraine next door. Hungary has absorbed refugees, predominantly ethnic Hungarians, while avoiding the resource-straining spillover seen in countries such as Poland and the Czech Republic. Morally, Orbán’s apologia for Vladimir Putin is repugnant. But it makes sense as realpolitik, given Hungary’s dependence on Russian oil and gas.
+
+And Orbán’s narrative has taken hold because it taps into a deep part of the country’s identity. Hungary is the oft-invaded homeland of a linguistically unique people, descended from Asian nomads, and distinctly proud of their past as a bulwark of Christendom. Orbán’s seemingly contradictory foreign policy—accepting protection and money from the North Atlantic Treaty Organization (NATO) and the EU while playing footsie with Moscow and Beijing—makes a certain amount of sense in light of Hungary’s historical experience, which includes losing most of its territory and much of its population [after World War I](https://www.ebsco.com/research-starters/diplomacy-and-international-relations/treaty-trianon).
+
+Orbán’s top political strategist, Balázs Orbán (no relation), has argued that Hungary’s survival as a nation-state calls for a “connectivity” strategy—maintaining relations with every power center in the world, on the basis not of ideals but naked Hungarian self-interest, flexibly defined.
+
+Thus, Orbán dispatched [his foreign minister](https://www.facebook.com/szijjarto.peter.official/posts/pfbid0BENtxdr2TLd3CFPw54h4RVayGcEmRnaoCB3pTwA8WZFPhNT8CZr6PMXodwFsJMLCl?locale=hu_HU) to Caracas in 2023 to meet then-President Nicolás Maduro and tout the two countries’ belief that “the main responsibility of elected officials is to defend their country’s sovereignty and to resist external attempts at interference.” Then he did a complete 180 the day after Trump sent troops to capture Maduro. By increasing Venezuela’s oil output, Orbán argued, the U.S. intervention could create “a more favorable global energy situation . . . for Hungary.”
+
+Balázs Orbán, who is running Viktor Orbán’s campaign, told my group that he expects to win by “a surprisingly big” margin. Fidesz’s internal data shows that undecided voters will eventually gravitate to a known quantity rather than experiment with “a pro-war government,” he said.
+
+“People look around and see a time of uncertainty, and they need a safe choice,” Balázs Orbán said. “Someone who is capable, talented, and we know what we will get from them.”
+
+Certainly the results of the last election, in 2022, support that. Orbán trailed in early polls four years ago but came from behind to win a two-thirds majority of the 199-member parliament.
+
+And yet—signs are everywhere that Orbán might be losing his mojo. Last year, his government tried to ban a June 28 gay pride march in Budapest, invoking a new law against promoting or displaying homosexuality or gender change to persons under the age of 18. Orbán had publicly told the organizers “not to bother preparing for this year’s parade. It would be a waste of money and time.” But the march went on anyway, with more than 100,000 people turning out. (Federal prosecutors charged Budapest mayor Gergely Karacsony in late January for his role in the parade, saying the event violated assembly law.)
+
+Orbán might be punching above his country’s weight in international politics, but Hungarians are focused on their sluggish economy and the unexplained wealth enjoyed by a narrow circle around the prime minister.
+
+At his press conference, the only questions Orbán struggled with were the ones reporters from independent local media posed about hundreds of millions of dollars in public assets that [have gone missing](https://www.direkt36.hu/en/hatalmas-vagyonvesztest-es-mas-sulyos-problemakat-talalt-az-asz-matolcsyek-alapitvanyanal-a-kiszivargott-jelentestervezet-szerint/) from Hungary’s central bank, as well as a recent scandal over [brutal beatings of youths](https://www.facebook.com/dailynewshungary/posts/the-sz%C5%91l%C5%91-street-juvenile-detention-centre-scandal-is-escalating-after-videos-em/1673203850674739/) by guards in government-run juvenile detention centers. After months-long supposed investigations into these scandals, plausible explanations are still not forthcoming.
+
+The dynamic resembles the evolution of politics in Israel after decades of dominance by Benjamin Netanyahu.
+
+One Hungarian, watching our group of journalists being escorted from one government briefing to the next, pulled me aside to murmur that we were not getting the real story.
+
+“Three thousand people live very well because they are close to Orbán’s party,” this man told me, insisting that I not mention his name. “Everyone else is struggling with high prices. The educational system is not good. The health system is not good.”
+
+I heard similar gripes when I used some free time to take soundings (with the help of a translator) among commuters in downtown Budapest’s Nyugati Square.
+
+A 29-year-old teacher, who gave her name only as Neomi, told me she was pleased with the large salary increase Orbán ordered for public school educators, his response to complaints about the poor quality of instruction. Orbán probably assumed this measure, along with pension increases he recently approved, would buy him support. But the teacher did not sound like a Fidesz voter.
+
+“In the last 15 years there were so many controversial things that the government said. I believe they stole way more than would be understandable, and after 15 years of absolute power, it makes people crazy,” she said. “No one’s absolute power is a good thing.”
+
+Magyar’s poll numbers are especially impressive given that he’s registering them even after the Hungarian media’s dominant Fidesz-aligned outlets have been bombarding voters with the message that he is “pro-war” and “pro-Brussels.”
+
+One reason it doesn’t stick is that Magyar himself is not a product of Hungary’s liberal opposition parties, but someone who made his career in Orbán’s own “illiberal” movement.
+
+Until 2024, he was a mid-ranking Fidesz insider. He defected after Hungary’s pro-Orbán president pardoned a man convicted of covering up sexual abuse at a state-run children’s home. Magyar helped organize protests against the decision, capitalizing on public outrage at a case that showed Orbán’s system as arrogant and morally careless.
+
+In important respects, a win for Tisza would still be a victory for Orbánism. Magyar is running primarily on an anti-corruption platform. He might move Hungary slightly closer to the EU but is unlikely to abandon Orbán’s position on migration, for which he has pointedly expressed admiration.
+
+Magyar stayed on the sidelines of the controversy over the Budapest gay pride march, mindful that the upcoming election would be decided not in the cosmopolitan, reliably anti-Orbán capital but the conservative countryside. (Prosecuting the mayor might be Orbán’s way of putting Magyar on the spot again.) If anything, he often attacks Orbán from the right—accusing him of failing to defend Hungarian interests in Brussels, or of being insufficiently assertive on behalf of ethnic Hungarians in neighboring Slovakia.
+
+What Magyar’s rise really shows is that there is almost no remaining constituency for liberal or left-wing politics in Hungary. The parties on that part of the political spectrum have withered under Orbán’s reign and poll in the single digits. They seem unlikely to win seats in the next parliament.
+
+The dynamic resembles the evolution of politics in Israel after decades of dominance by Benjamin Netanyahu, where traditional progressive parties have collapsed and new ones, led by the prime minister’s former allies, have arisen to challenge him—often claiming to be “right-wing” in some fashion.
+
+Magyar, for all his momentum, has real vulnerabilities. The 44-year-old is politically inexperienced, a fact that his boyish looks reinforce in the public mind. He gained some of his knowledge about corruption by secretly recording conversations with his then-wife, Judit Varga, who served as Orbán’s justice minister—a method that many Hungarians find unsavory.
+
+And even if he wins, he is unlikely to secure the two-thirds parliamentary majority that allowed Fidesz to rewrite Hungary’s constitution and govern without compromise. Any Magyar-led government could be more constrained and fragile than the Fidesz-led ones have been.
+
+Magyar cannot match Orbán’s international connections, which the prime minister is exploiting to the max. He recently made public [a letter from Trump](https://miniszterelnok.hu/en/prime-minister-viktor-orbans-bold-leadership-serves-as-an-example-for-the-rest-of-the-world/#:~:text=%E2%80%9CYour%20bold%20leadership%20serves%20as,his%20Facebook%20account%20on%20Friday.) in which the president stopped short of a “total and complete endorsement” but said Orbán’s “leadership serves as an example to others around the world,” and hinted he would soon visit him in Budapest.
+
+Orbán also released [video endorsements](https://x.com/PM_ViktorOrban/status/2010424569228841019?s=20) from the populist leaders of Argentina and the Czech Republic, as well as Italy’s prime minister Giorgia Meloni, Israel’s Netanyahu and—of all people—ex-*Saturday Night Live* cast member and *Deuce Bigalow: Male Gigolo* star Rob Schneider.
+
+Still, it’s Fidesz that has been making blunders lately, not Tisza. At its January 11 party Congress in Budapest, Orbán delivered his campaign kickoff speech standing at a podium emblazoned with his new slogan, “*A Biztos Választás*”—“The Safe Choice.”
+
+Unfortunately, his staff forgot to register the domain name associated with the phrase. Magyar’s team snapped it up and turned [BiztosValasztas.hu](http://biztosvalasztas.hu) into an opposition site where you can read about how Fidesz is “only a safe choice for . . . the corrupt Orbán oligarchs.” Magyar has been appearing on social media wearing a sweatshirt printed with the URL.
+
+After years during which Viktor Orbán has repeatedly made his political opponents look like fools, they had, for once, made a fool out of him.
+
+[
+
+![](https://substackcdn.com/image/fetch/$s_!RpbP!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F0fec0e94-8138-4834-bec3-b8facc2180ad_1320x30.png)
+
+
+
+](https://substackcdn.com/image/fetch/$s_!RpbP!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F0fec0e94-8138-4834-bec3-b8facc2180ad_1320x30.png)

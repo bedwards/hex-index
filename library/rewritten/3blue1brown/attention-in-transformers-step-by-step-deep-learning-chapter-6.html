@@ -1,0 +1,23 @@
+<p>You know what&#039;s rare in a technical explanation? An author who makes you visualize the problem before solving it. Grant Sanderson does exactly that here — using concrete examples like &quot;mole&quot; (the animal vs. the chemical element) to ground abstract concepts in meaning. This is chapter six of a deep learning series, and it&#039;s doing something most technical writing fails at: giving readers a mental picture before diving into matrices.</p>
+<h2>The Setup</h2>
+<p>Sanderson opens with the core goal that&#039;s easy to forget amid the math: transformers aim to predict the next word. Not classify sentiment, not generate poetry — just predict what comes next. This simplicity is the anchor that makes everything else make sense.</p>
+<p>The key insight he wants readers to carry: embeddings start generic and contextless. The word &quot;mole&quot; gets the same vector whether it&#039;s in &quot;American true mole&quot; or &quot;take a biopsy of the mole.&quot; That&#039;s intentional — it&#039;s only after attention updates these vectors that they become specific. Sanderson writes:</p>
+<blockquote>&quot;after the first step of a transformer... the vector that&#039;s associated with mole would be the same in all three of these cases because this initial token embedding is effectively a lookup table with no reference to the context&quot;</blockquote>
+<p>This is the foundation: embeddings are dumb until attention makes them smart.</p>
+<h2>The Mechanism</h2>
+<p>Now enters the real magic. Sanderson walks through query, key, and value matrices — but first, he sets up what these should <em>do</em>. He imagines a single attention head where nouns ask: &quot;hey, are there any adjectives sitting in front of me?&quot;</p>
+<p>The query matrix compresses embeddings into a smaller space (say, 128 dimensions). The key matrix does the same. Then comes the dot product alignment:</p>
+<blockquote>&quot;the bigger dots correspond to the larger dot products... this means the embeddings of fluffy and blue attend to the embedding of creature&quot;</blockquote>
+<p>That phrase — <em>attend to</em> — is doing real work. It makes the mechanism feel like a conversation rather than a computation.</p>
+<p>Then softmax normalizes everything between 0 and 1, making each column sum to one &quot;as if they were a probability distribution.&quot; This is crucial: Sanderson isn&#039;t just describing math, he&#039;s explaining why numerical stability matters during training.</p>
+<h2>The Training Secret</h2>
+<p>Here&#039;s where most explanations fail. Sanderson explains masked attention clearly:</p>
+<blockquote>&quot;you never want to allow later words to influence earlier words since otherwise they could kind of give away the answer for what comes next&quot;</blockquote>
+<p>This is elegant — he frames it as a narrative problem, not an algorithm. The masking ensures columns stay normalized even after setting future entries to negative infinity.</p>
+<p>The piece also names a structural bottleneck that gets overlooked:</p>
+<blockquote>&quot;its size is equal to the square of the context size... this is why context size can be a really huge bottleneck for large language models&quot;</blockquote>
+<p>This matters because it explains why scaling isn&#039;t trivial — and why recent variations like sparse attention exist.</p>
+<h2>Counterpoints</h2>
+<p>Critics might note that Sanderson&#039;s adjective-noun example, while effective, oversimplifies how real attention heads actually behave. The true behavior is &quot;much harder to parse because it&#039;s based on tweaking and tuning a huge number of parameters&quot; — and his hypothetical example could mislead readers into thinking attention is more interpretable than it actually is. Real models don&#039;t neatly map to linguistic analogies.</p>
+<h2>Bottom Line</h2>
+<p>Sanderson&#039;s strongest move is the narrative framing: making abstract matrices feel like agents in conversation (&quot;hey, are there any adjectives sitting in front of me?&quot;). His biggest vulnerability is that the adjective-noun example implies attention heads are more interpretable than they actually are — which works as a teaching device but glosses over how messy real transformer behavior actually gets. The piece succeeds because it gives readers a mental picture before showing them the math.</p>

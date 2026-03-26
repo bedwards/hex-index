@@ -1,0 +1,154 @@
+---
+title: "Why Everything You Know About the Nativity is Probably Wrong"
+author: "Sarah Bessey"
+publication: "Sarah Bessey's Field Notes"
+publication_slug: "sarahbessey"
+published_at: "2025-12-04T14:54:17.000Z"
+source_url: "https://sarahbessey.substack.com/p/why-everything-you-know-about-the-5af"
+word_count: 2553
+estimated_read_time: 13
+---
+
+*Before we begin, I wanted to invite you to download the free Advent resource from Red Letter Christians called **[God With Us: Faith in the Face of Genocide](https://redletterchristians.org/advent-2025/)** which features the voices of our Palestinian Christian kin alongside prayers from allies. Together, we’ll listen, lament, hope, and stand in solidarity with those bearing witness in the face of violence and oppression. I was honoured to contribute one prayer to the project.*
+
+\---
+
+# Why Everything You Know About the Nativity is Probably Wrong
+
+Sometimes it is terrifying and disorienting to realize you got something wrong about God or theology or scripture.
+
+And then other times, it’s pure joy.
+
+Almost ten years ago now, **I reorganized my understanding of the nativity story.** And that has been an experience in the latter.
+
+The Christmas story isn’t one of loneliness and quiet isolation in the darkness. **This is a story of welcome and hospitality, of companionship and family, and of birth in all its incredible sacred humanness, all entrenched in a culture and a time and a people.**
+
+[
+
+![The Nativity set figurine](https://images.unsplash.com/photo-1512266152198-e90ed3389be2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wzMDAzMzh8MHwxfHNlYXJjaHw0fHxuYXRpdml0eXxlbnwwfHx8fDE3NjMyNzQ1MTZ8MA&ixlib=rb-4.1.0&q=80&w=1080 "The Nativity set figurine")
+
+
+
+](https://images.unsplash.com/photo-1512266152198-e90ed3389be2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wzMDAzMzh8MHwxfHNlYXJjaHw0fHxuYXRpdml0eXxlbnwwfHx8fDE3NjMyNzQ1MTZ8MA&ixlib=rb-4.1.0&q=80&w=1080)
+*You knew this post needed Willow Tree figurines, didn’t you? // Photo by [Dan Kiefer](https://unsplash.com/@bunnyslayer) on [Unsplash](https://unsplash.com)*
+
+**Isn’t it nice to know that there is still so much to learn in this old world?** That there is so much we don’t know or can’t know? I used to feel sad when I went to bookstores or libraries because, well, *look at all the books I won’t ever get to read*! But if there is one gift that deconstruction/reconstruction/reimagining continues to give to me, it is the opportunity to be wrong (or at least incomplete or unexpectedly unaware) and to embrace the joy of learning again. Now faith feels like standing in that same bookstore and thinking, *“Look at how much I still have to learn!”*  
+  
+As a woman who has given birth a time or four, **I have long been able to fully attest that there are aspects of the Christmas story we know and love that do not - let’s say it gently -** ***quite line up*** **with reality**. I suppose this is the problem when most of our interpretations of the Christmas story are filtered through specific experiences - and for too long those experiences were primarily dominantly western and dominantly male.  
+  
+**And we miss so much if we only think like westerners and we only think like men. Especially at Christmastime.**  
+  
+Of all my experiences giving birth, I have most often written of my experience giving birth to my son almost eighteen years ago now.[1](#footnote-1) **Our Joe was an unintended, unattended birth in our building’s parkade.** My labour went much faster than we had expected and, well, I delivered him into my own hands, standing next to our Chevy Trailblazer with my husband there (and a whole crowd of horrified strangers). One can only be thankful this was the exact second before smartphones became ubiquitous. We wrapped him up in clean paint cloths from my husband’s trunk while we waited for the arrival of the ambulance.
+
+**To me, Joe’s birth gave me an insight to the birth of Jesus I had never expected.**  
+  
+So even way back in my first book, *[Jesus Feminist](https://amzn.to/2UXUnEk)*, I explored this idea a bit when I wrote about the intersections I found between my own experience giving birth without a midwife present and the Christmas story:
+
+*“If more mothers were pastors or preachers, we would likely have a lot more sermons and books about the metaphors of pregnancy and birth connecting us to the story of God. I am rather tired of sports and war metaphors. **If more mothers were pastors or preachers, perhaps the beautiful creche scenes of Christmas wouldn’t be quite so immaculate.** We wouldn’t sing songs of babies who don’t cry. And maybe we wouldn’t mistake quiet for peace. As it is, we take on a properly antiseptic and churchy view of birth, arranged as high art to convey the seriousness and sacredness of the incarnation. It is as though the truth of birth is too secular for Emmanuel. Birth doesn’t look like our concept of “holy” in its real state. So we think the first days of the God-with-us require the dignity afforded by our careful editing.”\**  
+  
+Some of this reorienting work has been going on in my mind and heart for a while. And then because of the work of scholars like Dr. Christena Cleveland and many others, I’ve already thoroughly disabused myself of the notion of white baby Jesus.[2](#footnote-2) **Whitewashing Jesus, let alone pretending he isn’t a first century Jew, is an act of erasure to his actual incarnation.**  
+  
+**Jesus was not white and Jesus was a first century Jew. And so hallelujah.**  
+  
+(Don’t even get me started about how we put the Wise Men at the nativity scene.)  
+  
+But **I was still thinking like a westerner about Christmas.** I was still fully entrenched then in the notion of the nativity as I understood it.  
+  
+**And so my grief for Mary, the Mother of God, was acute.**  
+  
+**As someone who has experienced an unintended unattended birth myself, I was well aware of the fear and the loneliness of those moments.** I imagined a teenaged Mary, alone in a smelly cold barn just as I had been in a smelly cold parkade, struggling to give birth on her own with only an ignorant and likely overwhelmed Joseph at her side (thankfully my husband Brian was practically a doula himself by this point and so I wasn’t as on my own as I imagined Mary to be).
+
+Also, I was hardly a teenager and had the benefit of practically memorizing Dr. Sears’ *Birth Book.*  
+  
+But I have been so fortunate to learn that I was wrong.  
+  
+Oh, it’s fun to be wrong! It means we get to learn!  
+  
+It all began when I picked up “[Jesus Through Middle Eastern Eyes: Cultural Studies in the Gospels](https://amzn.to/2GtlKTh)“ by renowned theologian and scholar Kenneth E. Bailey for a leisurely read one winter. (*I know, I know* - I’m a lot of fun at parties, I promise!) As someone who lived and worked in the Middle East for more than forty years while studying theology and scripture, he wrote a surprisingly accessible book for those of us who are theology geeks peering over the fence at the smart people. It was in the very early pages of that book that I realized, oh, **I had completely misunderstood the Nativity.**
+
+In fact, most of us have completely misunderstood the Nativity.  
+  
+And I’m so glad.  
+**  
+This is the fun part of an evolving faith that no one told me about.** I was told to fear “the slippery slope” as if it was to be avoided. “*You might backslide! you might slide into liberalism! you might be damned! you might go too far!”* but the truth is that in my experience the slippery slope has been that it’s actually a lot of fun. I’ve careened down, like a kid in a toboggan on a perfect winter day, with exhilaration and disorientation right into wholeness and life, good news and great joy. **I’ve found the joy of being a learner again, of unlearning and relearning God.  
+  
+It turns out Jesus is even better than we dreamed.**  
+  
+It turns out the Story is bigger and wilder and more generous.  
+  
+It turns out the Gospel is truly The Best News for all of us. It turns out these are tidings of great joy, this is peace and good will for us all.  
+  
+It turns out that Jesus did not come to steal, kill, or destroy but to give us life and life most abundant!  
+  
+**The real Christmas story right there in the scriptures is actually more beautiful.** It’s perhaps not represented in our carols or our Willow Tree Nativity sets but it’s the story I want to remember and the story I want to tell because truth matters. We missed it because we imposed our traditions and our way of being onto Jesus’ life instead of reading the story in context and placed within his culture.  
+  
+**For starters, Jesus wasn’t born in a barn, folks.** Middle Eastern homes of that time did not have the stable for the animals separate from the home at all. Instead, the home was usually made of two rooms: one for the family and the animals and another one at the back or on the roof for the guests. Joseph wasn’t turned away from a hotel; he was told that the guest room was already taken. Even there the text has even been misinterpreted itself - it’s not that there was no room at “the inn” as we understand a bed and breakfast or a hotel but rather the word is “a place to stay” meaning a guest room as part of an actual home.  
+  
+**So the story is actually one of hospitality - the home where Mary and Joseph stayed was not a guest room but** ***an actual family room***. They were welcomed into the family’s quarters. They weren’t even in the guest room but in the main room of the home.  
+  
+Besides, **Mary and Joseph were not alone**, they were part of a caravan. And they were not travelling alone to Bethlehem as strangers. This was their family ancestral home. They were likely part of a travelling community of family members all headed to a place ready to welcome them for the census. It would have been unheard for them to be alone on the road, let alone be utterly friendless in Bethlehem. Joseph and Mary probably would have been welcomed immediately into almost every single home in the town given their lineage, let alone the standards of hospitality at the time. They were well known, well respected, and likely well loved.  
+  
+And let’s finish off with what was **my biggest ache for Mary, her loneliness and isolation at the time of birth.** Birth is a thin place. It’s always too much - too much pain, too much waiting, too much joy or sorrow, too much love, and far too messy with too little control. So I couldn’t wipe the smile off my face when I read Bailey’s assertion that ***Mary was absolutely not alone at the moment of birth***. **She was almost certainly and absolutely attended by local women, likely even skilled community midwives**. In fact, she probably had *too many* helpers given the circumstances.  
+  
+Mary wasn’t alone. She was in a warm home, surrounded by women who had walked the road ahead of her, who were able to care for her.
+
+**Mary’s birth** ***wasn’t*** **like my birth with my son.**
+
+**Perhaps Mary’s birth was actually more like my experience delivering my third child.**
+
+In contrast, Evelynn was born at home in our living room in an atmosphere of total peace and trust as I was guided and supported by calm and skilled midwives towards that thin place of birth, attended by my husband, held by competent loving hands.  
+  
+One of the most precious memories of my life, the one I hope I have until the very last day of my life, is of the hours just after her birth. Our midwives gently bathed me while Brian held our new daughter and then they tucked my weary body into bed. They cleaned up the house while we were warm and nestled in our bed. They brought me tea and toast, a meal that I hope is at the heavenly Supper of the Lamb. Soon after that, our then-four year old and two year old were ushered into the room by my mother and my father who had been their caregivers throughout my labour and delivery. I leaned back in my bed, my husband at my side, our new baby in my arms, my children awestruck with wonder at the new baby in our midst, my parents there with smiles on their faces and tears in their eyes. The moment when I told my mother that we were giving our daughter her name as a middle name was incredibly precious to me.
+
+Evelynn came into the world surrounded by those who loved her in an atmosphere of home and welcome and family.
+
+She was part of our story already.  
+  
+Jesus had a similar story, wonder of wonders. **He came into the world, not isolated and alone and apart, but fully embedded within a family and a culture, surrounded by women.** Jesus was warm, Mary was supported, and they welcomed the shepherds there to that place, as a family.  
+  
+The Christmas story isn’t one of loneliness and quiet isolation in the darkness. **This is a story of welcome and hospitality, of lamplight and family, of birth in all its incredible sacred humanness, entrenched in a culture and in a time and within a family.**  
+  
+**This is what I mean about the joy of an evolving faith.** So often the edifices we build for God are of our own construction. Enjoy the slippery slope when you can, love the learning, enjoy the moment of seeing the picture more clearly and understanding God from a new line of sight unfamiliar to you.  
+  
+And even about something as small as this - as small as a wee babe - is an opportunity to reorient ourselves to Jesus and to the steady ground of his abundant life.
+
+**The incarnation** ***is*** **the miracle: it’s not only Jesus’ otherness but also his us-ness, his human-ness, his full experience as fully human and fully God together that is the miracle.** He wasn’t separate and unique and different from the usual story of birth; he was welcomed and warm within a story already being lived, just like any kid in a loving community.
+
+I think I’ll reorganize our nativity scene on the mantle. A beautifully brown family as the the centrepiece, absolutely, but then I’ll throw in a few Barbies in scrubs, a few Little People ladies, and a warm doll bed with bright flowered sheets and a crocheted blanket for the warm and welcomed King of Kings.
+
+  
+  
+(Occasionally) wrong and loving it,
+
+S.
+
+**My [Books](https://www.sarahbessey.com/books) | [Field Notes](https://sarahbessey.substack.com/) | [Instagram](https://www.instagram.com/sarahbessey/) | [Facebook](https://www.facebook.com/sarah.styles.bessey) | [SarahBessey.com](https://www.sarahbessey.com/)**
+
+*Note: This is one of my most popular essays, written in 2018, but it hasn’t been available online for a few years. After many requests, it’s a joy to bring it back for you as we journey through Advent and prepare for Christmas.*
+
+[
+
+![](https://substackcdn.com/image/fetch/$s_!3bFi!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F42c9bc86-453d-49f1-a2af-b3a4a81ac6c4_600x200.heic)
+
+
+
+](https://substackcdn.com/image/fetch/$s_!3bFi!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F42c9bc86-453d-49f1-a2af-b3a4a81ac6c4_600x200.heic)
+
+-   **[Does Advent even matter when the world is on fire?](https://sarahbessey.substack.com/p/does-advent-even-matter)** [But here’s the thing: we enter into Advent precisely because we are paying attention.](https://sarahbessey.substack.com/p/does-advent-even-matter)
+    
+-   **[A Simple Advent for the Exhausted Ones](https://sarahbessey.substack.com/p/exhausted-advent)**[: A minimal guide for all of us who know the dark nights, who know what it means to wait, who know what it means to yearn for love and for light and also for a freaking break](https://sarahbessey.substack.com/p/exhausted-advent)
+    
+-   **[The Christian Bookstore Rejects](https://sarahbessey.substack.com/p/christian-bookstore-rejects)**[: A few messy thoughts on being a devout Christian author who writes books geared for Christians and yet almost never stocked in the Christian bookstore](https://sarahbessey.substack.com/p/christian-bookstore-rejects)
+    
+-   **[A Prayer for the ones who were turned into an object lesson](https://sarahbessey.substack.com/p/prayer-object-lessons)**: A Prayer/Meditation inspired by Part 8 of our Unexpected Jesus Series
+    
+-   **[The Woman Who Was Not Collateral Damage: The Unexpected Jesus](https://sarahbessey.substack.com/p/unexpected-jesus-part8)**[: Part 8 on The Woman Saved From Stoning](https://sarahbessey.substack.com/p/unexpected-jesus-part8)
+    
+
+[1](#footnote-anchor-1)
+
+\*faint\* HOW?!?
+
+[2](#footnote-anchor-2)
+
+**[Why Jesus’ Skin Colour Matters](https://www.christianitytoday.com/2016/03/why-jesus-skin-color-matters/)** by Christena Cleveland

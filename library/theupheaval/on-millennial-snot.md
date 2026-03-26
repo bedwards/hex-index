@@ -1,0 +1,248 @@
+---
+title: "On Millennial Snot"
+author: "Dudley Newright"
+publication: ""
+publication_slug: "theupheaval"
+published_at: "2024-10-09T13:30:52.000Z"
+source_url: "https://theupheaval.substack.com/p/on-millennial-snot"
+word_count: 4587
+estimated_read_time: 23
+---
+
+[
+
+![](https://substackcdn.com/image/fetch/$s_!-P-O!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Ff1f1f2c1-3519-4ceb-8e1e-c17568fc5fe9_975x521.png)
+
+
+
+](https://substackcdn.com/image/fetch/$s_!-P-O!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Ff1f1f2c1-3519-4ceb-8e1e-c17568fc5fe9_975x521.png)
+
+*is the author of the* *, a newsletter diligently cataloguing and curating the latest and best – and most hilarious and/or cringeworthy – content, personalities, and internet drama bubbling up out of the so-called “New Right.” It’s fun, irreverent, refreshingly light-hearted, and actually quite useful for those like me who’re not on social media but still somehow a part of this political and cultural space or otherwise interested in keeping track of it.*
+
+*Dudley himself is also consistently well-written and thoughtful, and I’ve encouraged him to try branching out into writing his own essays. So when he sent me a draft of this piece on the distinctively juvenile style of language adopted by the professional managerial class in recent decades I was happy to publish it here as a guest post. It gets at what I think is really a very deep question: why has all our political and cultural discourse, and especially that of our alleged governing elite, become so utterly unserious? I hope you enjoy Dudley’s humorous take on answering this. And if you do then I encourage you to subscribe to the New Right Poast for more.*
+
+*Mandatory disclaimer that Dudley’s views, language, and tone are all his own and not mine, so if you have any snotty complaints you’ll need to subscribe to him to deliver them directly. – N.S. Lyons*
+
+\---
+
+Back in May, a black studies professor – an academic of the type who writes dissertations about the semiotics of Beyonce – “clapped back” at one of her peers, a white man who had dared complain that all the jobs in his corner of academia had been given to minorities. [Their grating exchange](https://x.com/RichardHanania/status/1795087824678498803) went viral, and the poor schmuck certainly won’t be finding work now.
+
+Setting aside the content of the argument, I was struck by how these people spoke to one another:
+
+> "I mean, I'm sorry --"
+> 
+> "Let's be \*very\* clear here"
+> 
+> "So true 🙄"
+> 
+> "You're so right 🙄"
+> 
+> "This is an \*extremely\* bad look for you"
+> 
+> "Umm, frankly..."
+
+These are middle-aged PhDs with prestigious careers, talking like snotty teenagers or sassy black drag queens. Note the overuse of sarcasm, emphasizing asterisks, exclamation points, and pregnant pause ellipses to denote how “over it” they are. They all speak in the dramatic tone of the mean girl.
+
+> "History PhD here, and uh, this thread is...a lot!"
+
+You see this language, and these people, everywhere today. You know them by the “fluent in sarcasm” in bio. The PhDs, the columnists, the policy wonks and Wonkettes, the assorted professional quippers and clappers back – public intellectuals did not talk this way twenty years ago. Lionel Trilling did not call things “brat.” This is new. Yet this bumptious patois is how our ascendant elites talk now.
+
+I call it “Millennial Snot.”
+
+It’s the defining feature of our degraded public discourse, and the apotheosis of secular enlightenment liberalism. The last 20 years of economic decline and consolidation of blue America into fake laptop work culminated in tweets like this:
+
+[
+
+![](https://substackcdn.com/image/fetch/$s_!D9Ot!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fc437ce5c-0829-466d-9844-f917020fc5f0_787x195.png)
+
+
+
+](https://substackcdn.com/image/fetch/$s_!D9Ot!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fc437ce5c-0829-466d-9844-f917020fc5f0_787x195.png)
+
+What is Millennial Snot? Where did it come from? How did it become the prevailing liberal voice? What exactly is the matter with these people? And are we going to have to suffer this obnoxious style forever?
+
+## The nerds who never got over high school
+
+Liberals who have time to goof around on social media all day are probably nerds with more-or-less fake laptop jobs. They aren’t working class, otherwise they’d be working all day, but they aren’t terribly successful either, otherwise they’d have better things to do. The Bluesky-American sits awkwardly in the middle, and this feeds his resentment. He got good grades. He’s credentialed, and believes he’s smarter than his boss. He should be running things. If only society weren’t so dumb. If only society were fair, like when he was in school, when a kind teacher rewarded his intelligence and punished ne’erdowells.
+
+Pity the “front row kid,” the wordcel who grinds his youth away for straight A’s only to find that the spoils of the market go to the back row goober who inherits his dad’s used car lot. If only there was some way to turn society upside down, so the front row kid could be on top. If only society could be more like grade school…
+
+That would be a start, but the nerd doesn’t just want to be recognized for his intelligence. He also desperately wants to be cool. He wants to prove to the world that he won’t be shoved into a locker any more. He’s with it now, he uses the latest teen slang, he “understands the assignment.” This is how you get balding hetero professors saying stuff like “she ate and left no crumbs,” and “big mad” and other phrases that will sound embarrassingly dated in a few weeks.
+
+The liberal has developed an argot that combines everything he thinks is cool. And what is that, exactly?
+
+Libs know they’re smarter than you but they’re often not as successful as they’d like to be. The resulting inferiority and superiority complexes send the liberal into convulsions of contempt toward healthy, well-adjusted, normal people, along with an attendant parasocial identification with figures they think of as downtrodden underdogs. Underdogs are cool.
+
+They hate the straight, successful white man, and love everything else – want to *be* everything else. So they talk like everything and anything else. Their speech and writing is characterized by diction, syntax, and tone that reflects their resentment, and their writing has evolved into a nauseating melange of underdog-speak. They’re LARPing as snotty teenage girls, sassy black ladies, tongue-rolling drag queens, blue-collar whites (paging hicklib Tim Walz), or potty-mouthed children. Underdogs, all.
+
+How else can you explain a middle-aged white woman typing this:
+
+[
+
+![](https://substackcdn.com/image/fetch/$s_!aaXM!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F727a95ef-b5ba-4ff5-a315-777d5fb47dc1_606x650.png)
+
+
+
+](https://substackcdn.com/image/fetch/$s_!aaXM!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F727a95ef-b5ba-4ff5-a315-777d5fb47dc1_606x650.png)
+
+Yeah, let’s check in with Snoop Dogg about this. Or [ask an 11-year-old about Kamala](https://x.com/JoJoFromJerz/status/1815093085132722245). Or ask a congressman who thinks [Kamala’s fundraising is bussin fr](https://pbs.twimg.com/media/GT53hrOXkAAnl44?format=jpg&name=large).
+
+[
+
+![](https://substackcdn.com/image/fetch/$s_!6mvQ!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F0a89cc3c-3987-4a65-9f77-d3336117519f_581x600.png)
+
+
+
+](https://substackcdn.com/image/fetch/$s_!6mvQ!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F0a89cc3c-3987-4a65-9f77-d3336117519f_581x600.png)
+
+Ted graduated *magna cum laude* from Georgetown Law. He was born in Taipei. It’s impossible to overstate how thoroughly AAVE and gay slang have penetrated the chattering classes, even if they’re saying it with a wink. When a tweedy white professor tweets an epic “clapback,” it’s as if he imagines an audience of marginalized folx nodding their heads along with him. “Mm-hmm. Tell ‘em!”
+
+What’s more, middle-aged academics and politicians did not used to be [so sweary](https://x.com/GovWhitmer/status/1807776977924792657). People with advanced degrees did not say “what the actual fuck” and “fuck right off” and deem their lessers “fuckwits” and “fucktards” 20 years ago. But today they love to cuss, liberals. They especially enjoy doing the high-low thing where they pair a beefy vocab word like “[unreconstructed](https://x.com/whstancil/status/1750220199385534582),” with a snippy teengirl-ism like “creepy,” or a working-class swear like “dipshit” or “shitheel.” This is supposed to say, *I’m smart, but I’m also cool*.
+
+Excessive use of “like,” uptalk, and vocal fry – these were once considered unprofessional ways of speaking. But in the early 2010s a handful feminist linguists with Tumblr accounts wrote opinion pieces arguing that the way teen girls talk is actually like, totally valid. “Like” isn’t just a crutch, a semantically empty filler word for someone who’s not in command of her ideas, it’s a “lexical hedge.” Talking like a teen girl or catty gay became a way for boring straight white people to reposition themselves as youthful rebels.
+
+[
+
+![](https://substackcdn.com/image/fetch/$s_!ZBHo!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F8d4ea1ce-43ec-4815-8c90-dbe6caf58e7f_795x889.png)
+
+
+
+](https://substackcdn.com/image/fetch/$s_!ZBHo!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F8d4ea1ce-43ec-4815-8c90-dbe6caf58e7f_795x889.png)
+
+Let’s walk through [the example above](https://x.com/LeenMcBeans/status/1778403443528413479):
+
+-   “Flex” (hood slang)
+    
+-   “y’know” (folksy passive aggression).
+    
+-   “It’s like” (valley girl)
+    
+-   “...” pause to convey just how over-it she is
+    
+-   “Fuck right off” reflexive profanity
+    
+-   “I’m published in peer reviewed journals” appeal to credentials
+    
+-   “Kissy-face emoji”: cutesy sarcasm
+    
+
+You need to be dropping devastating truthbombs, but with [quirky, girlish ‘tude](https://pbs.twimg.com/media/FetuBvmXoAMYoJC?format=jpg&name=small). You have to be a [cocky teenage Latina](https://preview.redd.it/y7sydvjiynr51.png?width=716&format=png&auto=webp&s=5b3a67297d0f490bd21e35cff889d6bb517e94eb). You have to talk like a [badass kid](https://x.com/JessicaValenti/status/1649029080161853441) in a Joss Whedon script who outsmarts the adults with clever wordplay. You need to be processing your childhood trauma through a filter of [tired Hollywood tropes](https://x.com/OhNoSheTwitnt/status/898131462939193344), like the [rich-kid 80s movie bully](https://x.com/plantationdrip/status/1841376427025068195). Remember, Biden is “[Joebi Wan Kenobi](https://www.youtube.com/watch?v=XP0MFvuVGs0).” Tim Walz is the [Ted Lasso veep](https://x.com/nycjayjay/status/1821209094184743044). He’s your dad, and Kamala’s your fun aunt and they’re gonna do [some hardcore Tarantino stuff](https://i.redd.it/5x44ey5lq9hd1.jpeg) to the bad guys. The Dems are the Avengers, and the Republicans are the Sith. The world is your stage. You must [ENTHUSE](https://x.com/GeogSara/status/1833529110032953491). You need to be GUSHING. You need to be a bald freak [obsessing over celebs](https://x.com/brianstelter/status/1833706645479669862) like you’re paging through Tiger Beat. You need to be saying “[y’all](https://i.kym-cdn.com/news/images/desktop/000/002/435/Screenshot_2024-09-20_at_11.26.30_AM.png)” and “sis” and “bb” and “hunty” and “mother” like you’re in the front row in a drag ball. You, the Vice President of the United States, need to be [mothering](https://x.com/beyoncegarden/status/1815405348955836606).
+
+[
+
+![](https://substackcdn.com/image/fetch/$s_!rNOK!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F6800e826-4f02-4206-a235-cbb58174a3ed_777x726.png)
+
+
+
+](https://substackcdn.com/image/fetch/$s_!rNOK!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F6800e826-4f02-4206-a235-cbb58174a3ed_777x726.png)
+
+A lot of this boils down to an inability to age with grace. Millennials are now moving into their 40s and growing old and frumpy is especially difficult for them because the cultural distance between millennials and their parents was wider than any generational divide since the 60s. Millennials grew up with the internet and access to digital communities their clueless parents didn’t know about. They took pride in being “in the know” in a way that their parents were not, and as millennials grew up, this need for knowingness extended beyond fashion and into politics. On top of this, they are the first generation to grow up alongside social media and selfies. A new digital panopticon constantly gazes upon them, and forces them to compare themselves with ever younger, fresher faces.
+
+Meanwhile, millennials got shafted by a number of economic trends outside their control (9/11, the 2007-2008 financial crisis, a pandemic and an ongoing housing shortage – this rundown will be familiar to anyone who’s read an article about the generation), which hamstrung their ability to achieve traditional life milestones like marriage and procreation on time. How does one cope with the economic stasis or even downward mobility that results? They know that they’re supposed to be growing up and taking on responsibility, but they can’t, so many seem to live in a perpetual adolescence. They literally [look younger](https://www.vogue.com/article/why-do-millennials-seem-younger-than-they-are) than previous generations, with neotenous faces and fashions like pink hair and piercings that their elders were more likely to shelve as they transitioned into adulthood. Elder millennials (now in their 40s) don’t just listen to but identify with and parasocially “stan” teen pop stars. Maybe writing like a sassy teenager is just another expression of this desire to stay young at all costs. Maybe because worshiping an increasingly distant youth is less painful than facing the reality that you’re middle aged and still treading water.
+
+Downwardly mobile young people have long turned to hipster sneering as a way to signal status. But the internet exploded hipsters’ ability to territorialize pop culture. While Gen Xers spent their youth thrifting and curating the perfect record collections and movie taste, a world of Spotify and Netflix left broke millennials with fewer ways to signal their superiority and flaunt their cultural cred.
+
+Many of them turned to politics, which for them became their aesthetic. A personality, even. Instead of curating impeccable taste in French New Wave or shoegaze, millennials cultivated a fierce loyalty to “being a decent human being.” Millennial libs have not only the proper *takes* on a given issue, but also the proper aesthetic moral and political *taste.* They don’t just vote for the right candidate, they laugh at the right jokes, watch the right movies, deploy and retract the right symbols and signifiers at the right time (e.g. blacked-out Instagram grids).
+
+Conservatives, on the other hand, don’t just have the wrong politics. More importantly, they aren’t cool. They are “having a normal one,” and need to “read the room.”
+
+[
+
+![](https://substackcdn.com/image/fetch/$s_!LjxJ!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F127c2820-b53a-4faa-b9a9-7ce0c64ca509_975x179.png)
+
+
+
+](https://substackcdn.com/image/fetch/$s_!LjxJ!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F127c2820-b53a-4faa-b9a9-7ce0c64ca509_975x179.png)
+**On the nose? 15 different levels? Um, \*chef’s kiss\* much? I didn’t have this level of fuckwittery on my bingo card!**
+
+As millennial libs age, their desperation to stay cool and “in the know” is manifesting in all kinds of weird pathologies, but most notably in the way they talk, and in the way they talk *down* to the out group.
+
+But how did this happen? How did the party of cigar chompers and dick swingers like Lyndon B. Johnson, Ted Kennedy, and Rahm Emmanuel turn into a bunch of smarty-pants theater kids and debate club geeks?
+
+## The smarts party
+
+A few boomers may still think of the Democrats as the working man’s party, but this hasn’t been true for about 50 years, and it’s been laughably, obviously untrue since the turn of the century. In the 40s, between 60-70% of the working class voted Dem. Now it’s less than half that.
+
+Globalization, deindustrialization, the resulting decline of unions, and the ascendancy of neoliberalism under Clinton – these interlocking economic transformations hurt the party’s ability to mobilize their historic working-class base by appealing to their economic interests.
+
+The smartest heartland kids guessed correctly that their only hope for upward mobility would be to flee to the coasts and conform to the cultural milieu of the growing professional managerial class (PMC), performing administrative “knowledge work” in corporations, government, academia, and media. These jobs require not just raw talent for a specific set of tasks, but an ability to accumulate credentials and manipulate the organizational environment, rewarding not just raw talent but lawyerly persuasion and social maneuvering.
+
+Nobody excels in such “front-row” skills like women, which is probably the main reason why women now outnumber men in both as students in the academy, and in managerial roles. It also explains why women are now overwhelmingly liberal. The social incentives that encouraged them to move to the coast and take a laptop job are the same ones that encouraged them to turn being a lib into their personality: It’s simply how you get ahead in the world.
+
+So the Dems gradually pivoted away from labor concerns toward issues that mattered to the feminized PMC, like education, climate change, and, most importantly, identity politics (Note that these causes don’t require the PMC to relinquish substantial resources or power, they are simply about believing, knowing, feeling, and affirming the right things). Values like “science is real” appeal to this class, alongside other unhelpful tautologies like “love is love” and “no human is illegal,” because they shift the discussion away from the arena of *politics* – thorny resource and power struggle – into the pseudo-political kindergarten of word games and vibes.
+
+I mean, *obviously* science is real. Duh. What, you want trans kids to just…die?
+
+Just as the corporate world has come to rely on “data-driven” decision-making, so too have our liberal technocrats. So to support a moral assertion like “no human is illegal,” liberals draw from an infinite well of academic studies about the economic benefits of immigration – conducted by people like themselves. *Didn’t you read the study? Aren’t you following the latest research?*
+
+[
+
+![](https://substackcdn.com/image/fetch/$s_!GkI7!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fdec3112d-49f1-4a13-afae-4a8e49e2088a_605x578.png)
+
+
+
+](https://substackcdn.com/image/fetch/$s_!GkI7!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fdec3112d-49f1-4a13-afae-4a8e49e2088a_605x578.png)
+
+This technocratic bent is part of what makes the millennial generation of libs distinct. Their rise accelerated an abandonment of the romanticism that helped define the sexual revolution of their parents, with its focus on individual enlightenment and self-actualization. Millennials saw what this did to their parents, who leveraged their newfound freedom to have extramarital affairs but accomplished nothing in moving toward a more egalitarian society. The rationalistic millennial lib therefore hopes to deal only in policy, regulation, and governance, not in myths, heroes, or transcendent values. But this leaves him unable to make absolute moral assertions. Authority now flows from science and data – from the status of being *correct*. The truth, uncertain as it always is, becomes a matter of rhetorical prowess – a game of owning and dunking. In this game, nothing is capital-T True, and opinions need only be validated by The ScienceTM – that is to say the managerial consensus – which becomes a moral cudgel rather than a quest for understanding.
+
+The obsession with data is a pretext for the reality of the liberal position, which is that any grievance expressed in terms that lie outside the current window of acceptable liberal discourse is simply not valid – it’s false consciousness, it’s mis/disinformation, it’s problematic, it’s stochastic terror. Political difference is a matter of some people being *incorrect* – If you only possessed the right knowledge, saw the right charts, the right facts, you’d change your mind. Political conflict, to the modern liberal, is not about struggle for finite resources, insoluble moral differences, or fundamental divergences in our conception of what America ought to be. It’s only a failure of half the country – a bunch of dumb hicks – to know what’s good for them. The grand liberal challenge has been recast as an effort not to improve the material conditions of the unwashed masses “clinging to their guns and religion,” but to enlighten them so hard that they rewire their minds. Compromise is now impossible, because only one position is correct. And when reality does not comport with the liberal worldview, when data fails to tell the story liberals want to tell, when the chuds stubbornly refuse to get with the program, the only tactic that remains is policing group boundaries via shame and ridicule of the outgroup. If I can’t persuade you to agree, I’ll publically humiliate you until you learn your lesson.
+
+If old school Dem strategist James Carville had any hair, you could [watch him yank it out over this stuff](https://www.businessinsider.com/james-carville-democrats-preachy-females-male-voters-biden-polling-2024-3). But guys like Carville have long since been swapped out for spreadsheet nerds who were born with a silver lanyard around their neck. People who think that “joy” is a compelling message to families who are eating hot dogs on Wonderbread for dinner because dad’s been feeding an oxy habit since the forklift accident. It’s OK, he probably deserves it – he once told a woman on the street that she should smile more often.
+
+The modern lib thinks she knows better, and her primary praxis is to shame and humiliate her lessers into submission. To shame them for not knowing, and for not *educating themselves.* And one man, more than any other, taught them how.
+
+## Smug, snark, smarm, and Snot
+
+Jon Stewart didn’t invent the smug liberal voice—Rush Limbaugh joked about latte-sipping liberals a decade earlier, and Tom Wolfe critiqued self-satisfied elite libs decades before that. But after Stewart took the reins of the Daily Show, the sort of condescending chatter that was once confined to Upper West Side cocktail parties went mainstream. The nihilistic 90s were coming to a close, and the world seemed ready for a newsman who’d openly express how stupid everything is. The Daily Show’s original host Craig Kilbourne satirized the format of the news, skewering public figures regardless of political orientation. Stewart took a more partisan approach, and after George W. Bush came to power – and especially after 9/11 – intuited that a portion of America longed to be told that everything sucked and the world was falling apart because of the stupid people in power and their dumb redneck supporters. So the show became about validating the superior intelligence of the liberal PMC. More than any other figure, Stewart shaped the liberal attitude toward conservative voters as contemptible, hapless rubes who deserve relentless mockery. His Daily Show run normalized bitchy snark as the default mode of liberal discourse. Watching Stewart get big “clapter” for this stuff every weeknight trained a whole generation to “dunk” as praxis.
+
+Jon Stewart’s subsequent imitators – the execrable Colbert, Oliver, Bee – aren’t his true successors. The artisans of the dunk went online, where they could do it at scale. First, the blogosphere spawned an ecosystem of snarky commentators, many of them millennials raised on the Daily Show. Some of the best went pro, writing for sites like Gawker, a blog dedicated to media commentary with a snarky sensibility inspired by trenchant satire mag *Spy*. Early on it employed 80s kids to hound behind-the-scenes media figures like Roger Ailes, Rupert Murdoch, Anna Wintour, and Graydon Carter. But because the audience for that kind of high-minded – in their words, “insidery” – commentary is quite small, they expanded the coverage to include celebs, politicians, techies – really any kind of important person.
+
+A lot of those bloggers typing in their underwear in shoebox Brooklyn apartments are now running newsrooms at major papers. Choire Sicha, Gawker’s second editor, spent half a decade editing The *New York Times* Style section, and is now an editor-at-large at *New York* magazine. Nobody did more to shape the Gawker voice than he. If you have ever wondered why libs do that annoying thing where they add an exclamation point on a parenthetical aside, it’s detailed in a [2013 New Yorker profile](https://www.newyorker.com/books/page-turner/choire-sicha-the-anti-blogger):
+
+> Sicha has spent the past decade developing what has become the lingua franca of the Internet: un-snobbish endorsements, presented in a candid, self-consciously hysterical tone. (A recent tweet: “Vicious news cycle today! Like many others, I just got bumped by Weiner.”) His humorously helpful parentheticals, doubt-inducing scare quotes, casual “like”s dropped carefully amidst otherwise competent sentences, and gratuitous exclamation points litter the online landscape.
+
+Around this time, another Gawkeroid wrote a [manifesto for snark](https://www.gawkerarchives.com/on-smarm-1476594977) by describing it as a reaction against “smarm,” which he defined as a sanctimonious appeal to civility deployed to redirect attention away from misdeeds. Instead of grappling with a critique, smarm says “How dare you, sir?” focusing on the presentation of the critique rather than its substance. What they really mean is “How dare you attack me?”
+
+In order to cut through the bullshit of smarm, the author argues, one must be mercilessly biting, or snarky. He was right. You do have to get a little mean when you’re dealing with manipulative people who weaponize moral concern to deflect criticism. That’s why Gawker’s writing was so potent. Its broke-ass writers had nothing to lose, and were thus free to critique power with weaponry it wasn’t yet equipped to handle.
+
+Now it is, although you still see smarm all over the place. In Biden’s last big debate showing before lurching off into the sunset, he responded to Trump with a chest full of umbrage and the phrase “The idea that…” a total of 24 times. “*The idea that* I did anything wrong relative to what you’re talking about is outrageous.” The very idea! How dare Trump even utter the thought. Smarmfest.
+
+But the people who read Gawker are not nearly as smart as the people who once wrote it, and the snark we see daily on Twitter pales in comparison to the brilliant takedowns that bloggers executed in the ‘00s. Nor are they so consistent. Today’s lib is just as likely to say “How dare you sir” while simultaneously deploying a limp clapback. I call this posting style “Snot,” which is now so totalizing that it’s hard to imagine what a liberal even is without this voice. It’s simultaneously smug and sanctimonious, with sneering barbs and pearl-clutching deployed by the same individual, often in the same conversation.
+
+[
+
+![](https://substackcdn.com/image/fetch/$s_!_NLt!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F5f878e71-66d6-498f-9470-2a3cb097d388_605x616.png)
+
+
+
+](https://substackcdn.com/image/fetch/$s_!_NLt!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F5f878e71-66d6-498f-9470-2a3cb097d388_605x616.png)
+
+It’s juvenile and snotty like Bart Simpson, while also impressed by its own knowingness like Lisa. It’s lazily quippy, like Sorkin or Whedon dialogue, bolting a facsimile of wit onto otherwise unimpressive, self-flattering platitudes. It’s an establishment shill who thinks she’s a rebel. It’s the teacher’s pet who thinks she’s the class clown. It is the voice of a person whose morality can be reduced to whether or not something is a “good look.”
+
+The egalitarian utopia of secular enlightenment liberalism has not arrived and never will, and the resentful sense of superiority that results in the modern liberal is all he’s got left. Liberalism has no moral lodestar, no ideal to point toward. It doesn’t really believe in anything. It purports to love everyone, but it can only love a faceless abstracted other. It can’t love its own drunk uncle, not even at Thanksgiving. All it has is bitterness toward the outgroup, who are defined by their wrongness. Whether it’s the soviets executing capitalist “wreckers” in the street, or skinnyfat libs owning the chuds on Twitter, the animus is the same. It’s all they’ve got. Millennial snot is the apotheosis of this resentment, the terminus of liberalism: A sadistic, juvenile sneer that serves to belittle and patronize the other – no longer as a means to some higher ideal, but as an end in itself.
+
+## Snot gonna last forever
+
+Fortunately for all of us, the fact that this style of speaking is codified enough for someone to write an article about it means that Millennial Snot has probably peaked. You can already see libs starting to make fun of each other for speaking with excessive snot. Zoomers have picked up on millennial speech patterns and have started to [openly mock them as “millennial core.”](https://www.businessinsider.com/what-is-millennial-core-2023-11) Trust that Gen Alpha is looking at their dork-ass parents who tweet like this and thinking “I will never say y’all.” I will never write “um…” for emphasis. I will never speak like a GPT trained on Chandler Bing dialogue. I will never, ever call someone a “douche canoe.”
+
+Maybe this is simply the generational turnover of slang. But it may represent more than that. Gen Z, having tasted the bitter fruit of rationalism, are [far less interested](https://nealsivadas.medium.com/does-gen-z-hate-twitter-why-we-use-twitter-way-less-than-other-platforms-10a1cb6f1dfd) in debating or clapping back on Twitter. Even more strikingly, they’re [returning to God](https://nypost.com/2023/04/26/why-generation-z-is-returning-to-religion/), and seeking a reenchantment of the world. In liberal eschatology, this wasn’t really supposed to happen. The world was supposed to get ever more secular and rational until utopia happened somehow. Zoomers seem to be looking for something realer than the rational, something more authentic and human.
+
+Either way, none of these clapter-seeking comedians like John Oliver or Samantha Bee are going to be on TV for long. Young people are bored of this stuff. Jon Stewart’s been trotting out the same bit since longer than Zoomers have been alive. What a millennial might consider to be a perfect Snotty dunk is to the Zoomer simply cringe. And since millennials care so much about looking cool to young people, we can expect them to dial back the Snot too.
+
+It’s going to take a few more years, but Snot will pass away. It has to. The Dems, and more broadly the political Left, aren’t going to survive another decade of talking down to a majority of the country. Two decades of pervasive Snot resulted in the rise of MAGA and potentially two presidential terms for Trump. Meanwhile the actually-hip kids, like effortlessly cool Dasha and Anna of the buzzy and transgressive [Red Scare podcast](https://redscarepodcast.com/), have already broken the spell. The downtown duo hearken back to a time before oversocialized, neurotic nerds ran everything. Like them, you too can pierce through Snot with plain-spoken sincerity. If someone gets snotty with you, you can simply shrug your shoulders and call them “retarded” now. You can stand up to Snot and survive.
+
+Millennial Snot rests upon a foundation of shared understanding that there is nothing less cool than being a conservative, and for a long time libs had the institutional power to perpetuate this belief. This dominance felt increasingly unshakeable throughout the Obama years and into the pandemic. But now it feels like this hegemony is crumbling. The left-liberal coalition isn’t what it used to be, and the Dems are [scrambling to pander to “White Dudes” and other moderates with ads](https://www.youtube.com/watch?v=OJbIMF8dTVA) that try to pretend the libs haven’t spent the last 20 years exclusively trying to shame them into submission. Whether this works or not, the age of Jon Stewart liberalism is coming to a close.
+
+One day, we will speak to one another like adults. We will yank the theater kids off the stage and stuff them back into the lockers where they belong. We’ll make it illegal to say “my dude” or “my guy.” A new age of sincerity and clarity is nigh. We’re going to make discourse great again.
+
+\---
+
+*If you enjoyed this piece by Dudley be sure to check out more from him at the New Right Poast:*
+
+[![](https://substackcdn.com/image/fetch/$s_!T5LN!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2F24042522-0260-4990-a40e-c40d82557a08_600x600.png)New Right Poast
+
+Making sense of the New Right. The best tweets, threads, video, audio, and longreads -- all in one cozy newsletter. Publishing biweekly.
+
+By Dudley Newright
+
+](https://newrightpoast.substack.com?utm_source=substack&utm_campaign=publication_embed&utm_medium=web)

@@ -1,0 +1,176 @@
+---
+title: "The AGs reveal their hand against Meta"
+author: "Casey Newton"
+publication: "Platformer"
+publication_slug: "platformer"
+published_at: "2023-11-29T01:02:51.000Z"
+source_url: "https://platformer.substack.com/p/the-ags-reveal-their-hand-against"
+word_count: 2212
+estimated_read_time: 12
+---
+
+[
+
+![](https://substackcdn.com/image/fetch/$s_!mdsj!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F262f4669-a42c-4e72-9786-2c4af469a558_7306x4870.jpeg)
+
+
+
+](https://substackcdn.com/image/fetch/$s_!mdsj!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F262f4669-a42c-4e72-9786-2c4af469a558_7306x4870.jpeg)
+*Meta’s headquarters in Melo Park. (Tayfun Coskun / Getty Images)*
+
+On October 24, [41 states and the District of Columbia sued Meta](https://www.platformer.news/p/the-states-sue-meta-over-child-safety). Attorneys general alleged that the company hurts younger users by intentionally designing addictive and harmful products at the expense of their privacy and well being.
+
+At the time, the lawsuits’ merits were difficult to assess, since much of the evidence in the 233-page complaint was redacted. But this week, with Meta’s approval, the full complaint was made public. And what we could only speculate about last month now seems ripe for a fuller discussion.
+
+Writing about the subject last month, I divided the complaint into two big parts. One is focused on privacy; the other on everything else. Let’s take privacy first.
+
+**I.**
+
+The [Children’s Online Privacy Protection Act](https://www.ecfr.gov/current/title-16/chapter-I/subchapter-C/part-312) (COPPA) places several requirements on platforms that collect data on users under the age of 13. Chief among these is the need to obtain verifiable parental consent for the user; it also puts restrictions on how data on younger users can be collected and used.
+
+In practice, all of this is more trouble than it’s worth. And so most major platforms prohibit under-13s from signing up, while remaining well aware that underage users are using their services daily. This means platforms get to have their cake and eat it too: reap the rewards of the engagement and ad revenue that comes with younger users on the platform, while also insisting that they’re not there, or that if they *are* there they shouldn’t be, and also look at how many under-13 accounts we remove every year.
+
+Platforms’ wink-wink, nudge-nudge relationship with COPPA has been mostly tolerated until now. But the unredacted lawsuit lays out what appears to be a straightforward case of a company well aware it is collecting reams of data on underage users and not seeking parental permission as required.
+
+The [lawsuit alleges](https://oag.ca.gov/system/files/attachments/press-docs/Less-redacted%20complaint%20-%20released.pdf):
+
+> Within the company, Meta’s actual knowledge that millions of Instagram users are under the age of 13 is an open secret that is routinely documented, rigorously analyzed and confirmed, and zealously protected from disclosure to the public.
+> 
+> Meta’s extensive internal records documenting its actual knowledge of its under-13 Instagram users and collection of data from those users include the following: (1) charts boasting Instagram’s penetration into 11- and 12-year-old demographic cohorts; (2) an internal report presented to Zuckerberg regarding the four million under-13 users on Instagram; (3) emails and policies documenting Meta’s mishandling of known under-13 user accounts; (4) discussions among Meta’s researchers taking pains to avoid uncovering Instagram’s under-13 users through their studies; (5) documents admitting that Instagram’s registration process regularly elicits false self-reported ages from its under-13 users; and (6) data from Meta’s age-estimation algorithms confirming that millions of individual Instagram accounts belong to children under the age of 13.
+
+Let’s stipulate that age verification is difficult, controversial, and has even been [held in some cases to be unconstitutional](https://reason.org/commentary/californias-online-age-verification-law-is-unconstitutional/#:~:text=U.S.%20courts%20have%20repeatedly%20rejected,does%20not%20pass%20constitutional%20muster.). Forcing children to verify their ages can also mean placing undue burdens on adults. (Which frankly seems to be a primary objective in the spate of anti-porn bills passed by legislatures this year.)
+
+I’ve talked with several trust and safety executives this year who are all but begging for a workable solution to age verification, which will likely involve linking your online life to some trusted authority who knows your true age and silently passes that information along as a token to the apps on your devices.
+
+It’s no coincidence that two weeks ago, in the run-up to the release of the unredacted lawsuit, Meta called on the two biggest app store operators — Apple and Google — [to assume responsibility for age verification at the device level](https://www.washingtonpost.com/technology/2023/11/15/meta-law-parental-controls-apple-google-apps/). On the [most recent episode of Moderated Content](https://law.stanford.edu/podcasts/mc-weekly-update-11-21-closedai-happy-thanksgiving/), Alex Stamos called for a modified version of this approach that would allow parents to input their children’s ages upon setting up their devices. All of these approaches are worth discussion, and arguably all are better than the current system.
+
+In the meantime, though, the law is the law. And it looks like the attorneys general have Meta dead to rights.
+
+I ran all this by Meta, and the company shared a statement beginning “Instagram’s Terms of Use prohibit users under the age of 13 (or higher in certain countries) and we have measures in place to remove these accounts when we identify them.” It did not address any of the specific claims or evidence in the unredacted lawsuit, but it did once again say that there should be a law making all of this the responsibility of Apple and Google.
+
+**II.**
+
+That leads to the second, more dramatic set of allegations against Meta: that it engaged in a “scheme to exploit young users for profit,” routinely ignoring its own research on product changes that would improve the well being of younger users for fear of losing out on revenue and engagement.
+
+When the redacted lawsuit appeared, the public claims related largely to Meta’s use of push notifications and other strategies to get young people to open their apps repeatedly. This can be annoying, I wrote at the time, and on the margins can encourage overuse of the apps. But it has also become the industry standard for all kinds of apps, and it was not clear to me how the AGs could get from there to a conviction.
+
+The redacted lawsuit adds significant evidence to the claims. By focusing on a handful of key battles inside the company, it identifies cases where Meta found useful strategies for improving user well being and then chose not to implement them for business reasons.
+
+The most fascinating of these case studies might be the lawsuit’s look at Project Daisy, Instagram’s much-ballyhooed experiment with hiding like counts for public posts. After two years of study and user testing, in May 2021 the company announced it would allow users to hide their likes — but would make the feature opt-in rather than opt-out. [Hiding likes had no clear effect on well-being, we were told at the time](https://www.theverge.com/2021/5/27/22456206/instagram-hiding-likes-experiment-results-platformer), and wouldn’t it be better to give users the choice?
+
+The AGs lawsuit alleges that Meta lied to us about the conclusions it had drawn. Visible like counts can heighten what the company calls “negative social comparison” — the feeling of inferiority that comes from seeing friends, family members, and influencers whose lives appear more glamorous, and whose posts are receiving more engagement than your own. That visible like counts would make many people feel worse about themselves is intuitive, and yet when Meta discussed the issue in 2021 it effectively threw its hands up and said there was no making sense of how likes made people feel.
+
+In reality, the AGs found, the company had documented the effect that visible likes has on well being with admirable precision. They write:
+
+> A January 2020 study that Meta conducted noted that “\[s\]ocial comparison is . . . higher among younger than older people. Younger people are more susceptible to peer influence and social comparison.”
+> 
+> Just three months later, Meta conducted another internal study that revealed that:
+> 
+> -   “About 1 out of 10 people experience negative social comparison on Instagram often or always” (emphasis in original);
+>     
+> -   “About 1 in 4 people think that Instagram makes social comparison worse”;
+>     
+> -   “People receive about 5% as many Likes on their own posts as those they see on IG”; and
+>     
+> -   “Seeing high Like counts is associated with feeling worse (more negative, less positive comparison).”
+>     
+> 
+> Researchers at Meta documented that appearance-based comparison on Instagram was worse for teenagers and young adults compared to older adults, and worse for female users across all age groups 60 and under. The highest rates of negative appearance-based comparison on Instagram were for teen girls, aged 13 to 18.
+> 
+> In an internal presentation from 2021, Meta employee noted that teens suffered from “constant negative comparisons” on Instagram because Meta recommended triggering content to them and continued showing them Like counts.
+
+Moreover, the company found, Meta is aware that “66% of teen girls on IG experience negative social comparison,” along with “40% of teen boys.”
+
+This week, I talked to someone who used to work on these issues at Meta who told me that when the company rolled out the neutered, opt-in version of Project Daisy, it knew that doing so would have negligible effects on well being.
+
+But the non-neutered version *did* decrease revenue around 1 percent, the AGs report, because despite the harm it causes, people really do like browsing Instagram to see how many likes posts get.
+
+Asked about all this, the company repeated what it told me in 2021: that results from Project Daisy were inconclusive.
+
+A similarly compelling case study comes with the AGs recounting of an internal battle over augmented reality beauty filters. In 2019, the company debated whether to permit AR filters that simulate plastic surgery. After an outcry over the potential effect of these filters on young girls in particular, the company temporarily banned them.
+
+After consulting with global experts on well being, the company’s head of responsible design argued that Meta should ban the filters permanently. “When it comes to products or technology that are used extensively by minors (under 18), I do believe we have an obligation to act more proactively in mitigating potential harm,” she wrote. Instagram’s head of policy agreed that the ban should be extended, noting that the filters are “actively encouraging young girls into body dysmorphia and enabling self-view of an idealized face (and very western definition of that face by the way) that can result in serious issues.”
+
+In the end, though, CEO Mark Zuckerberg overturned the ban, saying he found it overly “paternalistic,” according to the lawsuit. The company did later approve more limited restrictions on the filter.
+
+“While filters exist across every major social platform and smartphone camera, Meta bans those that directly promote cosmetic surgery, changes in skin color or extreme weight loss,” the company told me.
+
+There’s much more in the lawsuit; for further details I recommend reading [Jeff Horwitz’s piece in the](https://www.wsj.com/business/media/meta-designed-products-to-capitalize-on-teen-vulnerabilities-states-allege-6791dad5) *[Wall Street Journal](https://www.wsj.com/business/media/meta-designed-products-to-capitalize-on-teen-vulnerabilities-states-allege-6791dad5)* and [Devin Coldewey’s in](https://techcrunch.com/2023/11/27/meta-turned-a-blind-eye-to-kids-on-its-platforms-for-years-unredacted-lawsuit-alleges/) *[TechCrunch](https://techcrunch.com/2023/11/27/meta-turned-a-blind-eye-to-kids-on-its-platforms-for-years-unredacted-lawsuit-alleges/)*.
+
+As distasteful as some of these anecdotes are, it’s still uncertain whether the AGs will be able to prove their claim that Meta knowingly built addictive and harmful products. The “knowingly” aspect is famously hard to prove, and after the release of Frances Haugen’s Facebook Files, the company wound up dismantling many of the research projects that would have led it to know about potential harms in advance.
+
+But is there evidence here that in at least some cases, the company pursued growth and revenue at the clear expense of user safety? It sure seems that way to me. A month ago, it was possible to believe that the AGs may have overplayed their hand. Today, I’d say Meta is in for a very tough fight.
+
+*This article has been updated to reflect that it is the original version of Project Daisy that was found to reduce revenue.*
+
+\---
+
+### Governing
+
+-   [The UK’s Competition and Markets Authority provisionally found Adobe’s acquisition of Figma will likely harm innovation in software.](https://www.wsj.com/tech/adobes-20b-purchase-of-figma-would-harm-innovation-u-k-regulator-provisionally-finds-19f28b72?mod=followamazon) I love the Figma people, but is there any argument that the acquisition isn’t going to make the cost of Creative Cloud go up? Who are the other challengers on the horizon? (Joseph Hoppe / *The Wall Street Journal*)
+    
+-   [There’s no widespread harm to mental health from internet use, including social media and gaming, a group of researchers at the Oxford Internet Institute found, though more data was needed from tech companies to confirm a connection.](https://www.ft.com/content/e5dcdbf4-a914-4216-b212-ec1b362692e2) (Tim Bradshaw / *Financial Times*)
+    
+-   [Teenagers and children in the UK are more likely to embrace generative AI than adults, new research shows, with Snapchat’s MyAI being the most popular tool among younger people.](https://www.ofcom.org.uk/news-centre/2023/gen-z-driving-early-adoption-of-gen-ai) (*Ofcom*)
+    
+-   [While Telegram has “restricted” some extremist channels, including two used by Hamas, content shared within those channels is still accessible to the public.](https://www.wired.com/story/telegram-hamas-channels-deplatform/) (Vittoria Elliot / *WIRED*)
+    
+-   [An increasing number of white-supremacist, neo-Confederate, and explicitly Nazi newsletters are being hosted on Substack, taking advantage of its lax content moderation policies.](https://www.theatlantic.com/ideas/archive/2023/11/substack-extremism-nazi-white-supremacy-newsletters/676156/) The correct number of newsletters using Nazi symbols that you host and profit from on your platform is zero. Here’s hoping Substack takes decisive action here, which would be consistent with their written anti-hate speech policies. (Jonathan M. Katz / *The Atlantic*)
+    
+
+\---
+
+### Industry
+
+-   [Some major advertisers have not only paused their campaigns on X, but also stopped posting on the site altogether, reportedly due to concerns around brand safety.](https://www.cnn.com/2023/11/27/media/elon-musk-x-ads-reliable-sources/) (Oliver Darcy / *CNN*)
+    
+    -   [Elon Musk posted a meme on X supporting the far-right conspiracy theory Pizzagate, that alleged Democratic leaders ran a satanic child sex ring out of a pizzeria in D.C.](https://www.washingtonpost.com/technology/2023/11/28/pizzagate-musk-twitter-x-controversy/) He later deleted it. (Drew Harwell / *Washington Post*)
+        
+-   [Google DeepMind’s chief scientist, Jeff Dean, discusses strategies to combat misinformation fueled by AI, preventing hallucinations, and Google’s cautious approach to generative AI.](https://economictimes.indiatimes.com/tech/technology/genai-models-not-always-factual-issue-needs-to-be-worked-on-fixed-googles-jeff-dean/articleshow/105541416.cms) (Samidha Sharma / *The Economic Times*)
+    
+-   [Google’s first geothermal project, which aims to power data centers with clean energy, is up and running in Nevada.](https://www.theverge.com/2023/11/28/23972940/google-data-center-geothermal-energy) (Justine Calma / *The Verge*)
+    
+-   [Sports Illustrated reportedly published articles that were attributed to AI-generated authors, complete with AI-generated headshots.](https://www.theverge.com/2023/11/27/23978389/sports-illustrated-ai-fake-authors-advon-commerce-gannett-usa-today) The bylines have since changed its attribution to “a 3rd party.” This kind of sludge is about to make up 80 percent of the internet, just watch. (Mia Sato / *The Verge*)
+    
+    -   [See also David Roth at](https://defector.com/scorn-illustrated?utm_source=substack&utm_medium=email) *[Defector](https://defector.com/scorn-illustrated?utm_source=substack&utm_medium=email)* [on this debacle](https://defector.com/scorn-illustrated?utm_source=substack&utm_medium=email).
+        
+
+\---
+
+### Those good posts
+
+[
+
+![](https://substackcdn.com/image/fetch/$s_!RXrV!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F22cf75a2-4d09-4811-aa61-eb732447d1ab_1196x542.png)
+
+
+
+](https://substackcdn.com/image/fetch/$s_!RXrV!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F22cf75a2-4d09-4811-aa61-eb732447d1ab_1196x542.png)
+
+([Link](https://bsky.app/profile/illumi.me/post/3kfbaeaonnf2s))
+
+[
+
+![](https://substackcdn.com/image/fetch/$s_!gcqy!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F3f444ce8-48c0-4be9-b4e0-163190d58edf_1240x604.png)
+
+
+
+](https://substackcdn.com/image/fetch/$s_!gcqy!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F3f444ce8-48c0-4be9-b4e0-163190d58edf_1240x604.png)
+
+([Link](https://bsky.app/profile/durandal.bsky.social/post/3kfaylmigvu2s))
+
+[
+
+![](https://substackcdn.com/image/fetch/$s_!9EGa!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F10ef1272-c8c5-411b-b195-1c530a7c081d_1210x674.png)
+
+
+
+](https://substackcdn.com/image/fetch/$s_!9EGa!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F10ef1272-c8c5-411b-b195-1c530a7c081d_1210x674.png)
+
+([Link](https://bsky.app/profile/historiographos.bsky.social/post/3kf773oytqd2k))
+
+\---
+
+### Talk to us
+
+Send us tips, comments, questions, and posts: [casey@platformer.news](mailto:casey@platformer.news) and [zoe@platformer.news](mailto:zoe@platformer.news).

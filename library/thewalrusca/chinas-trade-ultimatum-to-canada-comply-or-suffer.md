@@ -1,0 +1,185 @@
+---
+title: "China’s Trade Ultimatum to Canada: Comply or Suffer"
+author: "The Walrus"
+publication: ""
+publication_slug: "thewalrusca"
+published_at: "2025-12-22T12:02:36.000Z"
+source_url: "https://thewalrusca.substack.com/p/chinas-trade-ultimatum-to-canada"
+word_count: 3417
+estimated_read_time: 18
+---
+
+[
+
+![](https://substackcdn.com/image/fetch/$s_!SNEc!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fbeea879e-321e-4089-b53e-e9a0bd747f65_1536x1024.jpeg)
+
+
+
+](https://substackcdn.com/image/fetch/$s_!SNEc!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fbeea879e-321e-4089-b53e-e9a0bd747f65_1536x1024.jpeg)
+
+*Illustration by Adam Mazur*
+
+***This story was originally published on [thewalrus.ca](https://thewalrus.ca/)***
+
+**By ,**
+
+**The core assumption** behind Canada’s China policy was simple: trade and politics could be kept in separate lanes. But China’s tariffs on Canadian canola, imposed earlier this year, show how that separation is collapsing. Markets are being used as instruments of intimidation, leaving middle-sized economies, like ours, to discover just how exposed they really are.
+
+Few people grasp that shift more viscerally than Michael Kovrig. The former diplomat, who spent nearly three years detained in China, has since emerged as one of the sharpest critics of how Beijing uses economic leverage to shape political behaviour abroad. In our conversation, Kovrig steps back from any single dispute to examine China’s methods and long-term ambitions. The question he keeps circling isn’t just what China wants, but whether Canada has fully understood the game it’s already playing.
+
+The interview, held over email, was edited for clarity and length.
+
+**Did Canada misread China’s willingness to retaliate?**
+
+After Canada, in 2024, imposed necessary import duties on China’s heavily state-supported electric vehicles, steel, and aluminum, it shouldn’t have surprised anyone that the People’s Republic of China’s government would retaliate by targeting vulnerable agri-food sectors, particularly canola.
+
+We’ve seen this movie before. In 2018, when Canada arrested Huawei’s Meng Wanzhou, Beijing retaliated by taking Canadian citizens—like me—hostage and, economically, doing the same to agri-food companies by blocking imports. That inflicted losses on them of around [$2 billion](https://www.canolacouncil.org/china-update/) because they had to sell to other buyers at lower prices.
+
+Canadian canola businesses, such as Richardson and Viterra, apparently dreamed that the 2018–2021 dispute was a one-off. After it ended, they ramped up and sold even more to China, only to now lose most of a [$5 billion market](https://www.canolacouncil.org/china-update/). I hope they finally understand that, as long as they have excessive exposure to China, they’ll be targets anytime the Chinese Communist Party wants to coerce changes in Canadian policy and behaviour. As the saying goes: “Fool me once, shame on you. Fool me twice, shame on me!”
+
+**The CCP has a history of using access to China’s vast market as a disciplinary tool.**
+
+Yes, and it’s getting more aggressive. More than a dozen countries have been targeted in recent years: Japan suffered consumer boycotts due to a maritime dispute with Beijing, as did South Korea because it installed an American missile defence system. Norway was no longer able to export salmon to China after a Nobel Peace Prize was awarded to a Chinese dissident, and Australian agricultural products were banned because its government called for an investigation into COVID-19’s origin. Lithuania was excised out of China’s customs clearance system over its relations with Taiwan, and now Japan, again, is the target of economic coercion for stating that its security is intricately linked with that of Taiwan.
+
+**Do you believe this is the start of a more dangerous rupture between Ottawa and Beijing?**
+
+The current trade dispute is not the cause of rupture. It’s a side effect of a much larger strategic divergence in which Western countries and China are decoupling from each other in critical sectors and adjusting to a new high-tech cold war. It’s also taking place in the intensely fraught context of United States president Donald Trump’s efforts to transform the US economy and role in the world, including capricious tariffs on Canada and reckless dismantling—or at least disruption—of the rules-based international order and Western political and economic alliances embedded in it.
+
+As that order weakens, states are increasingly weaponizing markets and supply chains as instruments for geopolitical control. Without adherence to rules and norms, economic interaction creates opportunities for coercion. The illusion that national security and international economics could operate independently has been shattered. Tariff standoffs with China are now entangled in those dynamics in ways that disagreements before 2017 were not.
+
+\---
+
+#### **You can’t share stories from** ***thewalrus.ca*** **on Facebook or Instagram because of Meta’s response to the [Online News Act](https://thewalrus.ca/why-you-might-stop-seeing-canadian-news/), but you can share this Substack article there**
+
+\---
+
+**How should we understand the logic behind China’s actions?**
+
+The CCP’s grand strategy centres on its relentless, solipsistic pursuit of political, economic, and technological supremacy by building up what it calls “[Comprehensive National Power](https://jamestown.org/prc-conceptions-of-comprehensive-national-power-part-1/).” Key [geoeconomic policies](https://substack.com/home/post/p-181031334), such as “[Made in China 2025](https://rhg.com/research/was-made-in-china-2025-successful/)” and “[Dual Circulation](https://www.csis.org/analysis/dual-circulation-and-chinas-new-hedged-integration-strategy),” prioritize production and exports over consumption in a drive to create a complete, self-contained industrial system that dominates the commanding heights of advanced technology and manufacturing.
+
+**Can you walk me through an example of that strategy?**
+
+For the past decade, the CCP has been hardening China’s own self-sufficiency and cutting dependence on imports, while trying to make others asymmetrically dependent on China. It’s “you have to buy from me, but I don’t need you.” Massive subsidies and other market distortions incentivize many Chinese firms to overproduce and export the surplus, which is subjecting the rest of the world to a [Second China Shock](https://substack.com/home/post/p-181031334). Other countries now face a choice: be relegated to deindustrialized, middle-income suppliers of energy and commodities to the PRC’s manufacturing juggernaut, or band together to maintain a tech stack and industrial ecosystems largely decoupled from China’s.
+
+If Canadian governments do nothing, our export profile with China will increasingly resemble that of Russia and other subordinate natural resource economies, plus some services. So far, China’s various trading partners have employed different, and not entirely effective, tactics in response. A [coordinated](https://www.noahpinion.blog/p/what-would-a-real-anti-china-trade) and [comprehensive](https://www.brookings.edu/articles/how-the-us-should-address-chinese-overcapacity-and-its-impact-on-international-trade/) effort is necessary.
+
+**So only part of this is actually about trade?**
+
+Viewed solely through a trade lens, one might think it was a disagreement over market distortions resulting from different economic policies that both sides could take to the World Trade Organization for adjudication. But that would be a category error based on delusional tunnel vision.
+
+**Okay, explain that.**
+
+For the CCP, it’s about using China’s power to condition submission. The Party-state’s worldview is that great powers, like China, call the shots, middle powers adjust, and small states acquiesce. It’s trying to establish a new geopolitical and economic hierarchy and to constrain the strategic posture of Canada and other countries within that hierarchy. The Party understands that market structures aren’t politically neutral. Economic policies are instruments of power. Trade is war by other means. China’s been working its way up the power ladder, and now even weaponizes interdependence with the European Union and US, as we’ve seen this year though its stranglehold on rare earth supply chains.
+
+Beijing promises “win-win” equality but actually defines co-operation in terms of aligning with its interests. It punishes deviations through trade barriers, supply chain slowdowns, regulatory inspections, withholding approvals, and consumer boycotts.
+
+The current tariff standoff is just the latest example of its playbook. The message is that resistance is futile and expensive. Relief is available as soon as Ottawa “[corrects](https://michaelkovrig.substack.com/p/a-correct-perception-of-china?triedRedirect=true)” its wrong practices and accepts—at least tacitly—the CCP’s framework.
+
+**What would that so-called “correction” look like for Canada?**
+
+Not only immediate trade concessions but also long-term behavioural conditioning of Canadian elites in business and government so that they implicitly acknowledge China’s dominant status and internalize compliance with the CCP’s preferences and terms.
+
+As a US ally suffering Trump’s trade tempest, Canada is a prime target: small enough to coerce, but important enough to serve as an example to others. And as a mid-size open economy with business and political constituencies that depend on access to global markets for prosperity, Canada is vulnerable. If China can bend America’s neighbour, what chance do others have?
+
+**But what exactly does China want from us?**
+
+The CCP is exploiting the situation to pressure Ottawa into making three strategic adjustments. First, abandon efforts to align with American and European attempts to defend domestic industries and workers from Chinese overproduction. Second, roll back the Indo-Pacific Strategy, which prioritizes ties with others in the region, particularly Taiwan. And third, stifle Canadian opposition to a host of harmful PRC actions, such as aggressive moves in East Asia, support for Russia’s invasion of Ukraine, ongoing massive human rights violations, efforts to subvert global governance institutions, espionage and IP theft, transnational repression, foreign interference, and elite capture. Tariffs on agri-food are just one means toward the end of conditioning behaviour.
+
+**And the other means?**
+
+If you think canola is a problem now, imagine if China were able to integrate Canadian manufacturers into its production and supply chains for advanced technology, like green energy and electric vehicles. It could then align the economic interests of industrial ridings with the CCP’s. It already has leverage over Western provinces through energy and commodities and Atlantic provinces through seafood. Mining could do the same in the North. Manufacturing integration plus further Canadian financial sector investments in China would grow pressure points in Ontario and Quebec and help capture Laurentian elites.
+
+The CCP likes to create “reciprocity traps” for influential people through aligned interests and dependence that it can then weaponize for political obedience. It’s like that line from *The Godfather*: “Someday . . . I’ll call upon you to do a service for me.”
+
+The examples of [foreign influence and interference](https://probemedia.ca/2025/04/09/dotting-the-map/) exposed in Canadian inquiries and in books, such as Jonathan Manthorpe’s *[Claws of the Panda](https://opencanada.org/claws-of-the-panda/)* and Dennis Molinaro’s new *[Under Assault](https://thewalrus.ca/how-china-courted-cultivated-and-cornered-ottawa/)*, are just a warm-up act.
+
+\---
+
+-   [How China Courted, Cultivated, and Cornered Ottawa](https://thewalrus.ca/how-china-courted-cultivated-and-cornered-ottawa/)
+    
+-   [China Secretly Executed Four Canadians. A Former Prisoner Explains Why](https://thewalrus.ca/canadians-killed-in-china/)
+    
+-   [As Foreign Interference Takes Hold, Ottawa Looks Away](https://thewalrus.ca/as-foreign-interference-takes-hold-ottawa-looks-away/)
+    
+
+\---
+
+**Why is it that every Canadian government vows to diversify away from China, only to end up dragged back into its orbit?**
+
+Much responsibility lies with Canadian firms, many of which are so used to relying on the US and a few other countries that they lack the knowledge, expertise, and determination to do the harder work of developing new markets.
+
+Business incentives, short-term thinking, and the structural composition of Canadian exports to China—mainly commodities such as food, metals, seeds, and wood products—all make diversification challenging. China’s such a huge market for those exports that alternatives look small by comparison and require additional negotiations and relationships. China is the world’s biggest buyer of canola, accounting for about 40 percent of seed imports, of which 90 percent came from Canada until the recent blocks. No other market can absorb that much. Rerouting imposes lower prices and structural costs.
+
+**In what way?**
+
+Canola is more profitable than the few alternative crops the prairies are suitable for growing. Farmers and traders prioritize quarterly profits; so as long as China buys canola, they prefer to sell it. Once supply chains become structured toward China, it takes effort to shift them to serve a wider range of clients. The rest of East Asia combined has a smaller population and requires knowledge of multiple markets, languages, and political and regulatory systems. Many Canadian companies can’t be bothered. So, they get stuck with a single-buyer problem—what economists call a monopsony.
+
+Canadian policy making on trade and investment is further hampered by fragmentation among ministries and provinces. And since the first Trump administration, government and trade-dependent businesses have also been preoccupied with the much larger challenge of managing relations with Washington. That’s taken capacity and top-level attention away from dealing with Beijing, and so policy on China has tended to be reactive, not strategic.
+
+**And I imagine fear is a factor?**
+
+The fear factor too often goes unmentioned but is critical to understanding behaviour. Many governments and businesses are afraid to take measures they imagine could invite Chinese punishment, so they self-censor and try to avoid moves that could make the CCP angry—which demonstrates that its behavioural conditioning is quietly working. Fear is also an impediment to collective action among countries: they face a prisoner’s dilemma in which there’s a real risk their allies could defect in return for preferential treatment from China.
+
+It’s a problem not just in Canada but across democratic societies and corporate boardrooms. When China closes its doors or chokes supply, everyone goes into crisis-management mode and scrambles to reduce the immediate pain rather than taking long-term measures to reduce vulnerability. But that just treats the symptoms while the disease gets worse. The result is strategic fragility.
+
+**Does Ottawa have real leverage against China?**
+
+China’s economy is at least eight times the size of Canada’s, and that obviously gives it advantages in negotiating market access and inflicting pain. But it only accounts for 4 percent of Canadian goods exports. That’s obviously dwarfed by trade with the US, but it’s also less than what the EU buys or the over 6 percent that goes to members of the Trans-Pacific Partnership.
+
+China’s leverage is deep but narrowly concentrated in a few sectors—mainly agri-food and seafood, wood products, and metals—where it’s often the price-setting marginal buyer.
+
+If Beijing decided to increase pressure, it could extend and raise barriers to other crops and foods, restrict tourism and students, or choke supply chains for key components. But the impact of blocking trade tends to be one-shot, limited term, and self-harming. Pull those triggers too many times and Canada, like others, will take measures to reduce exposure over time; for example, building up domestic canola-crushing capacity so we export more processed meal and oil and less raw seed.
+
+**Ah, so there are countermeasures?**
+
+There’s an old Chinese saying, *shang you zhengce, xia you duice*: “Above there are measures, below there are countermeasures.” Experience shows that, if the targeted country holds to a clear, consistent policy line, diversifies economically, and hardens politically against foreign interference, Beijing tends to quietly de-escalate and roll back once its officials internalize that the punishment is not only failing to change policies but also making them look bad. That’s more likely to happen if Party-state officials have an off-ramp and a face-saving narrative in which they can say the other guys “corrected their mistakes.”
+
+China’s import tariffs hurt its own businesses and consumers too. Chinese companies buy Canadian commodities, unless their government blocks them from doing so, because they’re competitively priced. They can find alternative sources for canola, wheat, barley, pork, and pulses, but often at higher prices, which can affect food security and drive up inflation, especially when markets are tight.
+
+**So, our markets** ***are*** **valuable to them?**
+
+Their economic value is modest. The additional value is political and symbolic. Chinese manufacturers—particularly electric vehicle makers—really want access to the Canadian market, particularly as tariff barriers rise elsewhere. Granting BYD, Chery, Geely, and others access would legitimize the PRC’s narrative, which denies that its EV makers benefit from massive market distortions, and provide an example for other countries. Conversely, blocking these national champions, just as with Huawei and Hikvision, causes a loss of face for the CCP. Its opposition to Canadian tariffs on Chinese steel and aluminum is likewise more about symbolism than economic impact.
+
+**Say you have Canadian prime minister Mark Carney’s ear. What’s your advice?**
+
+For Canadian exports, the way to reduce Chinese leverage and increase our own is diversification. The government needs to treat that as not only trade promotion but also a key element of national security policy, just as China has been doing for decades. Businesses need to invest in capacity to serve new markets. Resilience doesn’t come from autarky—with that, you end up like North Korea. It comes from having multiple, deeper relationships with more reliable, trustworthy partners that share most of your values and agree on following the letter and the spirit of common rules.
+
+Canada’s other sources of leverage are political, not economic. They require coordinating with allies and like-minded partners to apply consistent collective limits on Chinese dumping, shared safeguards for supply chains, as well as common anti-coercion tools and technology restrictions.
+
+**How effective would that be, really?**
+
+A critical mass of middle powers coordinating their economic policy on China is a real problem for Beijing. With the US and EU on board, it’s a nightmare scenario. The G7, EU, and members of Trans-Pacific Partnership have important roles to play in crafting institutional mechanisms to overcome obstacles to collective action. That’s the real challenge: the ability of smaller countries to coordinate responses that resist bullying by great powers. If the WTO can’t constrain CCP policy distortions, and we can’t kick China out of the WTO, then we need to knit together a new rules-based trading network that excludes the PRC.
+
+Everyone’s watching how Canada handles these challenges. Standing firm in the face of coercion undermines the CCP’s narrative of rising influence. Canadians can also generate leverage by refusing to let China make an example of us, by enduring short-term pain for long-term autonomy. That imposes a reputational cost on a regime that’s obsessed with status, hierarchy, and deference. It’s about denying the CCP a political victory: “you can hurt me, but you cannot break me.”
+
+**Are there alternative tools Canada can use instead of tit‑for‑tat trade measures?**
+
+Canada has many under-used options. One of the books I read during my long, enforced “sabbatical” in Beijing was Nicholas Nassim Taleb’s *Antifragile*. He argues we need to design our systems to benefit from volatility. Applying his framework, Canada’s export position with China is fragile: it’s concentrated in a few sectors and susceptible to political shocks. That causes policy makers to be reactive. Let’s work to become antifragile by demonstrably diversifying, being strategic and consistent with policy lines, and coordinating closely with genuinely rule-abiding partners.
+
+The goal should be ensuring that no single buyer can weaponize market access to demand political compliance. The prime minister could lead a whole-of-government diversification strategy that reduces not only exposure to the US but also to China.
+
+**How would that play out?**
+
+Eliminate foreseeable vulnerabilities. Governments and businesses can work together to determine acceptable ceilings for sales to China as a proportion of the total for any company or sector. For canola and similar commodities, developing more processing and refining capacity, either in Canada or in partner countries, would help producers sell more sophisticated export products that appeal to a wider range of markets less vulnerable to political interference. Prioritize more extensive marketing to a wider range of buyers, negotiating better terms of access to those markets, and for farmers, growing crops that depend less on Chinese buyers.
+
+Next, invest in projects that facilitate shipping to multiple countries. That would enable sellers to more easily switch customers. More capacity to bring oil and natural gas to both Pacific and Atlantic tidewater would strengthen Canada’s position. There’s a lot of work to be done to improve efficiency and capacity at Canadian ports. Build it before you need it to create options and the ability to readjust quickly.
+
+**This sounds like advice for playing the long game.**
+
+You respond to pressure asymmetrically and through small, incremental adjustments, using institutions and mechanisms that are hard to retaliate against. Give me a one-time shock, and I build a long-term capability to shrug it off. It’s about shifting the arena of the contest away from vulnerable commodity trade toward areas where G7 countries and their allies and partners have advantages using alliances, legitimacy, norms, and standards. This will provide collective deterrence and raise political costs for the CCP.
+
+**That would help Canada absorb shocks. How do we counter threats directly?**
+
+The government can develop a [China strategy](https://macleans.ca/politics/canada-china-relations/), based on principled realism, to bring coherence to policy making, clarify priorities, and guide decision makers when they face difficult trade-offs. Canadians can also do more to combat CCP propaganda narratives and expose influence operations, cyberespionage, and other nefarious activities. A robust [foreign agent registry](https://gowlingwlg.com/en/insights-resources/articles/2025/canadas-foreign-agent-registry) and related monitoring and enforcement would help close off hidden channels of influence. The threat of exposing shameful behaviour can be a source of leverage. Fund civil society efforts to promote transparency and independent reporting on China.
+
+Every time China applies a punitive measure on Canada, take material steps in the other direction, like enhancing ties with Taiwan and other Indo-Pacific partners. Take measures that complicate PRC access to the Arctic, where it’s trying to expand its presence and influence. Incentivize pension funds to reweight their exposure away from China.
+
+Steps like those are most effective when applied by multiple countries in coordination. Forming and hardening coalitions would help curtail backfilling in cases where China blocks imports from one country, like Canada, and then [buys more from others, like Australia](https://www.reuters.com/world/china/china-buys-first-australian-canola-cargo-since-2020-traders-say-2025-08-18/). Beijing uses bilateral leverage to achieve submission. Multilateral responses can thwart that.
+
+**If Canadian negotiators took away just one working rule from this exchange, what should it be?**
+
+Study the tactics of your Chinese counterparts, both in the past and at every step of current discussions, and game out your own strategies and countermoves. Right now, PRC officials are playing a “relationship game” of setting political ground rules for negotiations. Canadian representatives shouldn’t accept any premises that could subsequently disadvantage Canada or limit its options.
+
+**[Carmine Starnino](https://thewalrus.ca/author/carmine-starnino/) ([@cstarnino](https://twitter.com/cstarnino)) is editor-in-chief of The Walrus.**
+
+**[Michael Kovrig](https://thewalrus.ca/author/michael-kovrig/) is executive director of StrategicEffects, chief executive of Kovrig Group, and a senior adviser to the International Crisis Group. He is a Canadian former diplomat who served at the United Nations and in Beijing.**

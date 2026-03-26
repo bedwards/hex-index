@@ -1,0 +1,65 @@
+---
+title: "Day 5: Another Bad Day for Google as the Spirit of De Tocqueville Looms"
+author: "Jerry Cayford"
+publication: ""
+publication_slug: "bigtechontrial"
+published_at: "2025-09-28T17:42:31.000Z"
+source_url: "https://www.bigtechontrial.com/p/day-5-another-bad-day-for-google"
+word_count: 1879
+estimated_read_time: 10
+---
+
+Day Five of the Google ad tech remedy trial—the end of week one and almost the end of the Department of Justice presenting its side—saw two very solid witnesses cementing DOJ’s case. Or at least cementing one important part of its case: the feasibility of its structural remedies. **Michael Racic, President of Prebid.org,** which offers publishers an alternative to Google-run auctions, testified to Prebid’s readiness to take on administration of the Final Auction Logic (the code that makes the final determination on which ads get placed and where), should Judge Brinkema order it divested from Google. And **Goranka Bjedov** extended and strengthened the testimony we heard Thursday from Jon Weissman on the technical feasibility of all the proposed divestitures.
+
+It was less a display of eye-catching, guns-blazing virtuosity than of unflappable, irresistible competence. And that can be surprisingly entertaining.
+
+[
+
+![](https://substackcdn.com/image/fetch/$s_!Su84!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fc0dfd640-3bae-47c1-88ff-2abfda15282e_890x598.png)
+
+
+
+](https://substackcdn.com/image/fetch/$s_!Su84!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fc0dfd640-3bae-47c1-88ff-2abfda15282e_890x598.png)
+*Engineering whiz Goranka Bjedov enthralled the court.*
+
+Michael Racic was first up, questioned by the Justice Department’s Julia Wood. Prebid has been mentioned a lot here, but I’ll recap, because it is a vital piece of the puzzle. Prebid was started ten years ago to implement an effective version of “header bidding” (which I described on day one of the trial). Header bidding is an attempt by all the rest of the advertising technology world to find a workaround for Google’s abusive monopoly, essentially setting up an auction to let multiple ad buyers bid for the same ad inventory. Friday, the court got a thorough introduction to this unique member of that ad tech world.
+
+Prebid.org is a non-profit that administers a bunch of open-source software on behalf of internet advertisers. (Rather, it’s almost a non-profit. Racic says they’ve applied for non-profit status, but the government is being slow to understand how an organization serving for-profit advertisers could possibly be “non-profit.”) Prebid’s main software enables publishers to hold auctions of their advertising space, and those auctions must conform to a set of rules designed to ensure a fair process. In particular, the auctions are fully transparent, in opposition to Google’s opaque system. Racic called the Prebid software “pipes” through which auction communications flow. He said that pipes should not be making decisions, and that ad servers should not be calling auctions. Prebid itself is shielded and does not see or know auction results.
+
+Prebid’s software is free, and no fees are charged in the auctions. One of the first things Judge Brinkema asked Racic is how Prebid is funded. He said it is funded entirely by membership dues, which are a flat rate, not scaled by the member’s revenue. So, small companies can use the software free while larger companies pay membership dues, if they want to. Ninety percent of open-web publishers are members, including all the big tech companies, except Google. Prebid has about ten employees and a fluctuating number of volunteers, averaging around a hundred, some on permanent loan from supportive companies.
+
+Listening to Racic describe all the structure and procedures—the Ethical Agreement and the Structural Agreement, the Header Bidding Code of Conduct, the various committees with their comment periods, the rules and rights and obligations—I was seeing a 21st\-century example of an old-fashioned civic organization. It confirmed for me the connection to Alexis de Tocqueville that Tom Blakely wrote about in Big Tech on Trial’s remedy phase [primer](https://www.bigtechontrial.com/p/the-stakes-of-the-third-google-antitrust). I felt on Friday like de Tocqueville and *Democracy in America* were not 200 years away but here in this courtroom, blending with the wooden benches and all the ceremony, the business dress and rising for the judge’s entrance and exit. “All who have business before this court draw nigh.”
+
+It was the vibrancy of our civic organizations that most struck [Tocqueville](https://thegreatthinkers.org/tocqueville/introduction/) (a French sociologist and political theorist) about Americans. He marveled at our engagement with local affairs and the way every American town had a local newspaper. As Blakely said, that heritage and its loss are a lot of what this trial is about. More visible than usual on Friday, it is always present in the arguments over whether open-web display ads are disappearing—and journalism with them—or whether a certain decline can be remedied.
+
+It was moving to hear Racic speak un-self-consciously of Prebid’s commitment to democracy. And then there’s the list the bylaws that put it into practice: the Auction Layer must provide equal opportunity for Demand Partners to bid, either by randomizing call order or by calling in the order the publisher requests; users may not favor one entity over another; and so on. Concern with “supply path optimization” can sit comfortably beside “change will have an impact that will cascade far beyond programmatic media.”
+
+During cross-examination, Google lawyer Bill Isaacson spent some time grilling Racic about who could sit on committees at Prebid, how their chairs and vice-chairs were elected, for what terms, how the board of directors was chosen, and similar inquiries. At one time, he even asked directly if majority control of a committee with authority to change Prebid’s software might be manipulated by an outside entity (such as one of the other tech giants). The plain subtext was a search for weaknesses in such a democratic organization, weaknesses that would allow Prebid to be corrupted by money. It was a perversely appropriate line of cross-examination because, really, the ability of the many to organize ourselves democratically for our collective betterment is in question here. Prebid says we can, but Google is betting it’s a pipe dream.
+
+Racic was followed on the witness stand by **Goranka Bjedov**, who was equally clear and impressively in command of her field. She had been senior performance test engineer for Google from 2005 to 2010 and Facebook from 2010 to 2019. There were fireworks happening just out of sight, where Google has been fighting to keep her testimony out of court. As [The National Law Journal](https://www.law.com/nationallawjournal/2025/09/02/google-opposes-doj-expert-divestiture-witness-for-ad-tech-remedies-trial/) put it earlier this month, “Google moved to exclude Goranka Bjedov’s expert opinion as inadmissible under Federal Rule of Evidence 702, arguing ‘she lacks the relevant experience to provide such opinions’ on the feasibility of a divestiture remedy in this case.” It made for some interesting moments.
+
+On Day Four, I told you about tests that Google had run, years before being charged with monopolization, to see if divesting themselves of AdX and/or DFP was technically feasible—Projects Sunday, Monday, and more. Google fought to prevent disclosure to the court of their internal reports on those projects. They [lost that battle](https://www.courthousenews.com/facing-breakup-google-must-disclose-divestment-plans/), but those reports are under seal to the court, so lots of information will not be disclosed publicly. Consequently, questioning about the reports, and about Bjedov’s deposition in pretrial discovery, was carefully choreographed. Lawyers would instruct the witness to answer certain questions only in “high level terms” without specific numbers or other details; some documents would be put up on the public video screens with redactions, or not at all, while the participants’ screens had unredacted versions.
+
+Google’s lawyer Jeannie Rhee seemed to have a standing objection to the admission of these reports that she and Judge Brinkema understood as for-the-record, requiring her to formally raise it each time the sealed documents were discussed. At one point, a new person on the sidelines jumped up to object to discussing some particular topic. This was literally the sideline, as the jury box (since we have no jury) has been reserved for State Attorneys General, and we have not heard a word until now from those seats occupied by litigation staff from the seventeen states who are joint plaintiffs. It all made for a different court experience.
+
+If testimony Thursday from Jon Weissman, DOJ’s computer science expert, was a deeper dive than previous ones into the details of the technical feasibility of migrating large and distributed computer systems from one platform to another (clouds, in this case), Bjedov’s testimony dove deeper still. Weissman is an academic expert, but Bjedov is the person who actually does this: she oversaw the migration of Instagram, with its 20 billion photographs, when it was bought by Meta (Facebook), which is probably the reason that Meta, also, sought to have Bjedov’s testimony sealed from the public. She has overseen many such projects, including for Google, and her authority as an experienced, hands-on insider showed. She came across as a complete techy, with no interest in questions outside of how one solves an enormous technical puzzle.
+
+**Bjedov told the court, in no uncertain terms, that DOJ’s divestiture remedies are eminently solvable puzzles.** She estimated how many engineers would be needed, and described the four steps: identify the source and its dependencies; do the work of adapting; reassemble and test; then deploy the product. She explained “parallelizing” so steps could be undertaken simultaneously, showed graphically how much they could overlap, and how long each should take: in total, 18 months to migrate AdX, and 24 months for the remainder of DFP, that is, after the Final Auction Logic has been converted to open source. She was clear and detailed, and spoke straight to Judge Brinkema, who sometimes questioned her directly. No one is surprised that Google fought to keep her from testifying.
+
+And so ended week one of the Google ad tech remedies trial. Google will mount its defense next week. See you then!
+
+**Editor’s Addition*****:*** Doha Mekki, the former Acting Assistant Attorney General for Antitrust under President Biden—one of the individuals most responsible for bringing *and winning* this case—recently [opined](https://x.com/dohamekki/status/1972006530246451401) on the significance of these remedies proceedings.
+
+This is what she had to say:
+
+> The Google ad tech remedies trial kicked off this week. The remedy isn’t just about the future (and effectiveness) of antitrust enforcement. It’s also about who controls the future of the internet—whether the web will work for content creators, publishers, and independent voices.
+> 
+> Advertising underwrites content creation, free expression, independent journalism, and the exchange of viewpoints on the internet. Whether you’re a recipe blogger or a major newspaper, you rely on ad tech to help monetize your website and keep your business running. When one firm controls so much of the basic infrastructure of the open internet, it can control who survives and what gets funded. The second-order consequences of that kind of control are extraordinary.
+> 
+> In April, a federal court ruled that Google illegally monopolized key parts of the ad tech stack. It used its dominance to eliminate competition, strip customers of choice, and enrich itself to the tune of billions of dollars while amassing data about internet users, advertisers, bids, and more.
+> 
+> Now, the government and Google are locked in a dispute about how to fix it. DOJ is asking for divestitures of key parts of this tech stack, behavioral relief, data transparency measures, anti-retaliation provisions, and disgorgement of future profits into an escrow to help fix the badly broken publisher side of the market. Google is seeking an order that tells it to go and sin no more.
+> 
+> The stakes are high. For years, newsrooms have confronted a painful economic reality, including changes to search rankings and AI overviews that have caused traffic to dwindle even as their content gets scraped to train artificial intelligence products and services. Advertising can help support a pluralistic, more sustainable media ecosystem—but only if the markets for buying and selling digital ads are vibrant, open, and competitive.
+> 
+> This one is worth watching.

@@ -1,0 +1,124 @@
+---
+title: "When collectivity is confused with compliance"
+author: "Sara Ahmed"
+publication: "feministkilljoys"
+publication_slug: "feministkilljoys"
+published_at: "2025-07-18T23:02:12.000Z"
+source_url: "https://feministkilljoys.substack.com/p/when-collectivity-is-confused-with"
+word_count: 1948
+estimated_read_time: 10
+---
+
+In *[No is Not a Lonely Utterance](https://www.penguin.co.uk/books/470363/no-is-not-a-lonely-utterance-by-ahmed-sara/9780241759271)*, I consider how and why collectivity is sometimes confused with compliance.
+
+One example: I communicated with a student who made a complaint about bullying and harassment by a lecturer who was also the convenor of her MA programme. The other students on the cohort agreed his conduct was abusive. But they positioned her as being “selfish” for complaining because “their education was now being disrupted.”
+
+Complaints can be treated as causing disruption not only to the person who acted abusively but to everyone *who accepted the abuse as a condition of access*.
+
+When those who complain are understood to be setting themselves apart, *collectivity is confused with compliance*. It is assumed that for more people to access education, those collective resources, you should not complain about the conduct of those who provide these resources. It is an assumption that comes from somewhere (or someone). Those who abuse the power given to them by institutions often do what they can to convince other people that the only way they can continue to access collective resources (often treating themselves as one such resource) is to accept their conduct.
+
+Even if this point sounds extreme or overstated, what I am describing is all too common.
+
+That a person acquires more power the more other people are invested in them is obvious. What is less obvious is that power, once so invested, ends up seeming less concentrated or more diffused. When “powerful people” are brought down, it becomes clear *that power does not reside in just one person*, *magically*, *as a possession*. It becomes clear that every Weinstein has an army of assistants, giving that person access to other people whose careers are made dependent on saying *yes*. We learn that those who said *no*, who refused or complained, were likely silenced by another army, this time of lawyers, through secret deals, sealed by NDAs.
+
+But mostly they are not “brought down.”
+
+Some people stop themselves from being “brought down” because of how many other people would go down with them.
+
+An abuser can appear not just as charming but as being for a collective.
+
+Held up by one.
+
+When compliance with a collective is deemed necessary for being in it, those who are not compliant are treated as being individualistic. And yet, my research has taught me, that many people who complain about abuse do so because they do not want other people to have to go through what they went through.
+
+If an “I” can be hidden by a “we,” a “we” can be treated as an “I,” reversing not just power but position.
+
+It can be hard to see how the system is working because of how it is working.
+
+And for whom.
+
+Systems: they can take the form of bureaucracy.
+
+An organisation has to comply with rules and regulations in order not to be issued with penalties. Compliance might be enforced by an officer.
+
+[
+
+![Compliance Officer: Definition, Job ...](https://substackcdn.com/image/fetch/$s_!WOma!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fbb5097f3-d202-453e-a60c-1821612a3cab_273x184.jpeg "Compliance Officer: Definition, Job ...")
+
+
+
+](https://substackcdn.com/image/fetch/$s_!WOma!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fbb5097f3-d202-453e-a60c-1821612a3cab_273x184.jpeg)
+
+Or compliance can be a culture, one of compliance.
+
+“Tighten your belt!”
+
+“Keep calm!”
+
+“Carry on!”
+
+These can be commands that once you are compliant you might stop hearing as commands. Just gentle nudges. Ways of being in a nation. Or for it.
+
+Compliance can function as an imperative to all the people employed within an organisation, but especially to those who are lower down its ranks. Those who issue instructions don’t have to obey them. The more power you have, the more you can disregard the rules that other people have to follow.
+
+It is not just those employed by an organisation who have to comply with it. I think of all the students I know who were told they must complete their dissertations within such-and-such time frame because otherwise their departments would not fulfil the targets set by funders. The students were being told that if they did not comply (despite whatever reason they might have for not complying including the precarity of their circumstances) they would deprive future students of the opportunity of receiving funding.
+
+That can be an order or directive, to do certain things not just so you can get certain things but so that other people can also get them. Orders can be subtle and also continuous: messages that you keep receiving, which tell you that if you are not compliant *other people will suffer the consequences*.
+
+Hence you might not think of yourself as complying when you comply. You might think of yourself as acting on behalf of others. And you might indeed be acting on behalf of others.
+
+Noncompliance can be hard: you can be made to feel you are depriving other people of what they want or need. You can be doing so.
+
+A complaint can be how you learn compliance.
+
+In the new book (I am thinking of it now as my *No!* book), I wrote about the first complaint I remember making. It was after a sports class. The teacher did not think we were paying attention to her properly. She suspected some students were causing a disruption. Some of us probably were. Her punishment was to cancel the whole class. We were sent from an outdoor sports field to the library and told to write essays about sport instead. I happened to prefer the new activity to the cancelled one. I wrote an essay on horse riding; the books piling up, shiny pictures of horses. I could hear the sounds of annoyance, shuffled papers, and sensed sideways glances, directed at those of us who had deprived others of an activity they would have enjoyed. I am not sure who was being disruptive on that day. I am not sure anyone was sure. So, the sideways glances fell on those assumed to be the likely cause.
+
+I felt them fall on me.
+
+The annoyance of my classmates helped me to understand how discipline is achieved by encouraging people to adopt the attitude that those who disobey are in the way, stopping them from getting what they want. It was not just that the other students were *not* annoyed with the teacher but that they identified with her, sharing her annoyance with the students who were disruptive.
+
+I did not identify with the teacher because I thought she was wrong. So, in a paragraph in the middle of the essay, I made a complaint. I wrote that it was unjust to punish everyone for the misdemeanours, whether real or perceived, of a few.
+
+The teacher read the essay and found the complaint. I was sent to the headmistress’s office. I defended my action: I said that I had complied with the punishment, but that I thought it was wrong and that I had a right to say what was wrong. I learnt authority meant the right to be wrong. The headmistress said I would not be allowed to go to an art class unless I apologized to the teacher. I really wanted to go to the art class so I apologized to the teacher. I got to go to the class.
+
+It was one of many lessons I’ve been taught about compliance: that we need to protect our relationships to those with authority or to be willing to repair any damage to those relationships to get where we want to go. If I hid my complaint in an act of compliance, I withdrew my complaint because of the consequences of not hiding it well enough.
+
+Compliance can just be more *practical,* how you maximise your chances of getting where you want or need to go.
+
+Conventions can be maintained through small acts of compliance. When not following a convention is sufficient to be judged as being noncompliant, noncompliance can be assumed to be the source of your motivation and thus a character fault: as if you don’t comply because you don’t want to comply rather than you don’t comply because of what else you want. I think of how as queer people we might assumed to be trying to destroy the family just by arranging our lives in another way. Like you are cutting up the family with scissors: snap, snap.
+
+Noncompliance can be judged not just as selfish but as imposing your will upon others. Not going along with the collective will means being assigned willful. That was one of my arguments in *[Willful Subjects](https://www.dukeupress.edu/willful-subjects)*[.](https://www.dukeupress.edu/willful-subjects)
+
+[Feminist killjoys and other willful subjects](https://sfonline.barnard.edu/polyphonic/print_ahmed.htm): I have thought of these figures together because they are together.
+
+Let’s say you do *not* want to get married and have children. You might be told you are being selfish, putting your own happiness first, depriving your parents of their grandchildren. You are also being told your duty is to put other people’s happiness first.
+
+I developed an argument about “conditional happiness,” with reference to *[Emile](https://www.penguin.co.uk/books/35188/emile-or-on-education-by-jean-jacques-rousseau-introduction-translation-and-notes-by-allan-bloom/9780140445633)*, a book of educational philosophy by Rousseau. It is about teaching Emile, but also Sophie, who is to become his wife. Sophie “finds her chief happiness in the hope of just making \[her parents\] happy.” If she can only be happy if they are happy then she must do what makes them happy. But then Sophie discovers books. And so, she becomes curious. And she activates her imagination. Also, grief. For what: for what she might have given up? And then, her father speaks to her, “you are a big girl now, Sophie, you will soon be a woman. We want you to be happy, for our sakes as well as yours, for our happiness depends on yours. A good girl finds her own happiness in the happiness of a good man.”
+
+Feminism: we might tell the girls not to be so good and to read the books even if they end up being overwhelmed with grief for what they could have given up. So they can sift through happiness, finding fragments of possibility and desire.
+
+But this is not a feminist story.
+
+So, Sophie gave up her books.
+
+And also: took up the cause of parental happiness as her own.
+
+Yes, reader, she married him.
+
+It might seem that “conditional happiness” involves a relationship of care and reciprocity as if to say, I will not be happy unless it is shared; I will not be happy unless you are. But the terms of conditionality are unequal. When certain people come first, parents, also hosts or citizens, their happiness comes first.
+
+For those who come after, *happiness means following somebody else’s goods.* And that is another way of thinking about compliance: how some people end up following other people’s goods.
+
+What if you judge that other people’s goods are the cause of harm? What then? Those who fight to remedy harm, against injustice, become those familiar figures, the feminist killjoys, as if their aim is to deprive other people of their goods.
+
+Remember: a complaint about an abusive professor can be judged as disrupting other people’s education. You might be told (as so many people are told) don’t complain because they will use the complaint to close the programme.
+
+And that your education depends on it. Your happiness depends on it. Not closing the programme. Accepting the abuse.
+
+We might have to be noncompliant and risk the consequences they threaten us with: if stopping abuse means closing the programme, then close the fucking programme.
+
+Because there is a problem with a programme if its continuation requires accepting the abuse.
+
+Which does not mean we do not know that what counts as abuse is contested.
+
+It is important to remember when we critique individualism, as indeed we must, that those who say no are often called punitive, as well as individualistic, acting as one with an intent to hurt many. It is also important to remember that those who use rules to demand we say yes to their demands, what we call compliance, are often assumed to be acting on behalf of a collective, whatever they do.

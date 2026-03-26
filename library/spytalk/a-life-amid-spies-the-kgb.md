@@ -1,0 +1,141 @@
+---
+title: "A Life Amid Spies: The KGB"
+author: "Jeff Stein"
+publication: "SpyTalk"
+publication_slug: "spytalk"
+published_at: "2025-12-04T10:01:27.000Z"
+source_url: "https://www.spytalk.co/p/a-life-amid-spies-the-kgb"
+word_count: 2525
+estimated_read_time: 13
+---
+
+[
+
+![](https://substackcdn.com/image/fetch/$s_!Eh5e!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fd55e1fde-ec2d-4a2d-853b-a009cbbcaa34_1000x667.heic)
+
+
+
+](https://substackcdn.com/image/fetch/$s_!Eh5e!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fd55e1fde-ec2d-4a2d-853b-a009cbbcaa34_1000x667.heic)
+
+My first run in with Soviet intelligence was when I was in my 20s and went looking for my relatives in the Soviet Union. I had joined a citizen’s exchange group in 1969 that participated in dialogues with Russian citizens in different cities. One of those cities, Kharkiv, now in Ukraine, was of special interest because my grandmother Sarah’s relatives lived there after migrating from Lithuania in 1905.
+
+I was close to Sarah as a child in the Bronx. I remember sitting next to her by the radio in her small, cramped apartment, listening to some kind of foreign station reporting the names of Jewish people murdered village by village in Lithuania and Ukraine. She would cry and light a *[yahrzeit](https://en.wikipedia.org/wiki/Yahrzeit_candle),* a Jewish memorial candle, when she recognized a name, and its glow would light up the room. Not hearing the names of her relatives meant they might still be alive.
+
+I kept photos of three of them—her nephew Maxim Perlstein, a medical student to whom Sarah sent money when she could; and two twin girls, Dorina and Mary, both with black bangs, white angora collars, and sweet smiles.
+
+In Kharkiv, I found no phone books, and directory assistance operators (common in America then) were not available to us. I was also told that looking for one’s relatives should be “above board,” so I approached the Intourist guide assigned to our group for help, even though it was known the official Soviet travel agency worked with the KGB.
+
+“Could you please find out if there is a medical doctor in Kharkiv with the name Maxim Perlstein?” I asked. “He might be a relative.”
+
+“I’ll inquire,” she said.
+
+At the same time, I headed toward the main square of the city hoping I might meet Russians who could help me faster than [Intourist](https://en.wikipedia.org/wiki/Intourist), set up in 1929 to guide—and keep an eye on—foreigners visiting the USSR. At the time, there was a thaw in East-West relations and Russians were approaching tourists in the street without fear of arrest.
+
+I chose a spot by a park to stand. Because of my distinct Western clothing, hairstyle, and jewelry, Russians began to stop and ask me questions about the West or practice their English. When an old man who spoke Yiddish came by and struck up a conversation, I felt I could trust him and handed him a slip of paper with Maxim’s name on it.
+
+He needed no explanation and motioned for me to wait. He then went to a booth down the block and some minutes later returned with an address. My heart pounded when I realized that Maxim was alive and in Kharkiv.
+
+[
+
+![](https://substackcdn.com/image/fetch/$s_!052w!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fa0512818-966e-40f0-8759-d12ea6f04845_1366x768.heic)
+
+
+
+](https://substackcdn.com/image/fetch/$s_!052w!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fa0512818-966e-40f0-8759-d12ea6f04845_1366x768.heic)
+*Kharkiv before the 2022 Russian invasion. It’s been reduced to ruins from Vladimir Putin’s artillery, missiles and drones*
+
+**The Search**
+
+A Russian-speaking American professor from my group accompanied me to the building where Maxim lived. A young man—his stepson, it turned out— opened the door and invited us in. Right away he told us that Maxim was one of the chief tuberculosis doctors in the city. But when the stepson told me Maxim would not be in Kharkiv that week, I felt a big letdown. Then I learned that Maxim had a sister, Rachel, in Kharkiv, whose address he gave me.
+
+At Rachel’s apartment, a heavy-set elderly woman came to the door and gazed at us. The professor then whispered, “How do you know she’s your relative?” “I know,” I said with a sudden smile: On the living room wall behind her was the same picture of the twins I had, the one with the black bangs and coquettish smiles. Rachel was their mother and invited me back the next evening to meet more of my relatives.
+
+Once back at the hotel, brimming with excitement, I told my travel group about my afternoon’s discoveries. But suddenly the Intourist guide, who called herself Svetlana, took me aside to tell me: “There is no such person as Maxim Perlstein in Kharkiv.”
+
+Intourist and the KGB were obviously discouraging family contacts, notwithstanding the thaw. Worse, an academic in our group had been arrested in an obvious setup after reuniting with her parents in Kharkiv, I learned from one of the group. Released to an American official, she now had to stay in the U.S. embassy until cleared for departure.
+
+So, it was not entirely surprising that when I headed for the hotel door the next evening to visit my relatives, a man and a woman blocked my path.
+
+“You must come back into the lobby and sit down,” they said to me and a Russian-speaking student from the group accompanying me. “We would like to ask you some questions.”
+
+Introducing themselves as Intourist “guides,” they were in their late 30s or early 40s, spoke English fluently, and had an air of police toughness about them.
+
+“Where did you go yesterday afternoon?” they asked.
+
+“Out,” I responded. A best selling book back in America crossed my mind— *Where did you go? Out. What did you do? Nothing.* It was about teenagers and their parents. I decided to try that.
+
+“And where are you going now?”
+
+“Out,” I repeated.
+
+“And what will you be doing?”
+
+“Nothing. We’ll go walking.”
+
+“Where will you walk?”
+
+“Nowhere in particular.”
+
+It was a preposterous conversation, because I had with me two big shopping bags filled with gifts provided by members of my group for my family, to which I’d added jewelry and clothing of my own.
+
+My inquisitors’ faces began to sour, so I quickly changed the subject. “We visited a fantastic science exhibit yesterday, ” I said. It was actually a shameful assault on Christianity, having been built in a church deliberately destroyed by the Soviets, but I praised the science I saw, by implication embracing the progressive socialist thinking behind it. They seemed to take well to that and I peppered them with as many questions as I could.
+
+When the conversation thinned, I said, as cordially as I could, “It’s been so nice talking with you, but now we’re going to take our walk.”
+
+Hiding my nervousness with a tiny smile, I lifted the bags, motioned to Andy, and headed for the big glass hotel door. It opened, we rushed outside and got on a nearby tram. I was able to spend the evening with eight relatives, including the twins with the black bangs, now women in their 40s. They had survived the Nazis by escaping to Kyrgyzstan in Central Asia, whereas those who remained in Lithuania had been murdered. Now I worried that my relatives were going to become suspect because of my visit, but they went unharmed, their professions—architect, doctor, engineers, biologists—and their contacts likely protecting them.
+
+Although four of them said they would come to see me off the next morning, only one showed up. When we embraced, I noticed Intourist’s Svetlana standing nearby and wondered how many lies it would take before she became a broken person.
+
+It was not until 2005, 36 years later, that I again saw my relatives, this time in New York City. The Soviet Union had disintegrated and Dorina, one of the twins, and her family decided to leave the country. They looked for me for years in New York until the United Nations and a Jewish refugee agency, the Hebrew Immigrant Aid Society (HIAS), found me in Washington. When I saw them they spoke of why they left—antisemitism, lack of job opportunities, and the danger that Dorina’s grandson would be drafted—all issues they were too afraid to raise when I visited in 1969. They also told me that my mother’s letters had arrived but with the envelopes opened. They were forbidden from writing back on “security” grounds. None of our gifts ever reached them. From our end, I explained, my mother had stopped writing because she feared hurting them. But it was primarily my human rights work that interfered because it began to involve the Soviet Union.
+
+**KGB Encounters in Manhattan**
+
+In 1971, I’d become executive director of the International League for Human Rights, which was the first nongovernmental organization to affiliate with a counterpart in the USSR. The Moscow Human Rights Committee had been set up the year before by the internationally prominent scientist Andrei Sakharov and the theoretical physicist Valery Chalidze. Each month, the League would telephone the committee, and, at its request, would read aloud in Russian the provisions of U.N. human rights agreements the Soviet Union had signed—copies of which the KGB confiscated from Chalidze’s apartment, calling them “anti-Soviet” material.
+
+To Chalidze, the calls were “a moral support lifeline.”
+
+“For the first time in half a century,” he said, “a non-governmental public association, not under the control of the Party or the government, has managed not only to survive for more than a half a year but also to establish contacts abroad.”
+
+[
+
+![](https://substackcdn.com/image/fetch/$s_!uqEz!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F7a266385-ccfb-40a4-b9af-92b9de3b4288_3909x2642.heic)
+
+
+
+](https://substackcdn.com/image/fetch/$s_!uqEz!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F7a266385-ccfb-40a4-b9af-92b9de3b4288_3909x2642.heic)
+*Roberta Cohen (l) with Andrei Sakharov and an interpreter (center) in 1988. Behind Cohen, the late ILHR chairman, Jerome J. Shestack.*
+
+To intimidate us, the KGB on occasion interrupted the calls with loud static or just disconnected them**.** They also sent all-too-obvious agents to my office asking for information about the League. One of them scanned our three small rooms, in the Church Center opposite U.N. headquarters and asked, “Where really is the League?” I could have laughed but to make the organization seem more substantial, I cited the various buildings where League officers and board members worked—the Pan Am building, Random House, the advertising giant [Doyle Dane Bernbach](https://en.wikipedia.org/wiki/Doyle_Dane_Bernbach), among others. I always wondered what that agent reported back to Moscow.
+
+The most threatening of them was one who walked in and snapped, “Why are you placing these calls? No one in the Soviet Union even knows who Sakharov and Chalidze are. They are of importance to no one.”
+
+“So why are you here?” I asked.
+
+**Spies in the U.N.**
+
+More concerning were officials of the U.N.’s Division of Human Rights, many of them clearly Soviet agents. They would sometimes telephone the League on the days when we called our Moscow affiliate, demanding information about the League, which they said had to be provided “immediately.” Once, I was told a senior official in the division wanted to see me, but when I went to his U.N. office, the staff pretended not to have called and blocked my entrance. This was hardly the way U.N. officials communicated with NGOs, which ignited our fears that the USSR might try again to threaten the League’s “consultative status” at the U.N.
+
+What challenged us the most was the fearsome spectre of KGB retaliation against the Russian dissidents themselves. When it looked as if Chalidze might be arrested, a member of the League board, Samuel Dash (soon to become chief counsel for the Senate Watergate Committee), who was in Moscow at the time, went to his apartment and wrote out an official looking invitation for him to lecture at Georgetown University. Chalidze got an exit visa, but upon his arrival in New York, the Soviet Union stripped him of his citizenship. He then joined the League board and helped design programs to assist those left behind and persecuted. “No efforts can be too great, however long the road may take,” said Sakharov.
+
+**Are KGB Agents Ever Funny?**
+
+Yes, sometimes. After hearing the head of the U.S. delegation deliver an idiotic address to the U.N. Commission on Human Rights in 1979 in Geneva, the KGB man in the Soviet group walked over to me—I was a member of the U.S. delegation— and said with droll sincerity, “I’m sorry, I know you take human rights seriously…It must be painful for you to hear this.” The chief U.S. delegate, a former member of Congress, had raised his voice to a near shriek when speaking about “man’s inhumanity to man” and also Argentina (then ruled by a brutal military regime). He shouted the country’s name three times, each time louder than the one before, together with other half-witted statements. They turned out to have been written by two college students whom he’d brought along to avoid having State Department texts foisted upon him. When I thought of all the meaningful points he might have made about the *desaparecidos* in Argentina, Chile and elsewhere in South America, it pained me. Noting my dispiritedness, the Soviet delegate offered me a chocolate chip cookie.
+
+[
+
+![](https://substackcdn.com/image/fetch/$s_!WPIB!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F21684819-1aef-4297-b6b7-f7f65cffe888_1300x956.heic)
+
+
+
+](https://substackcdn.com/image/fetch/$s_!WPIB!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F21684819-1aef-4297-b6b7-f7f65cffe888_1300x956.heic)
+*The KGB logo*
+
+The following year in Geneva, when the Soviet intelligence man came over to greet me at the beginning of the Human Rights Commission session, rather than hold out his hand to shake mine, he reached down, took my hand and quickly put it to his cheek. This was on the very day the American ambassador had instructed our delegation *not* to shake hands with any member of the Soviet delegation because of the USSR’s invasion of Afghanistan. I had the impression my interlocutor had known that and found a way to break some of the tension. Or maybe he was having a little fun. A decade earlier at the U.N. in New York, two Soviet delegates headed over to me after their government called for the expulsion of human rights and Jewish NGOs from the world body. I represented two of these groups and wondered whether they were coming over to propose a compromise or just threaten us. It was neither. With sheepish smiles, they asked, “Could you tell us the names of some good Jewish restaurants? We like Jewish food and a few of us would like to eat dinner on the lower East Side. We thought you would know the good ones.”
+
+Although surprised, especially that they might be Jewish, I tried not to miss a beat. “Well,” I asked, “do you like matzoh balls, pastrami, or what?” The exchange soon erupted into a fun conversation before we all went back to our respective ringsides.
+
+Then there was an incident in West Africa, in the Soviet Ambassador’s residence in Togo, in the late 1980s. I got locked in the bathroom during a dinner party. After hearing my shouts, a blond, well-built Russian James Bond-type in his 40s, went outside and slid through the narrow window into the tiny bathroom, suddenly putting us face to face by the toilet. With our noses practically touching, he looked me straight in the eye and said: “You’re now a prisoner of the Soviet Union!” We laughed out loud before he unjammed the lock.
+
+A few years earlier in Ethiopia in 1984, it hardly surprised me to learn that the KGB head in Addis brought champagne and caviar to the house of the CIA station chief during a political crisis for the U.S. The American was about to be expelled by Ethiopia’s pro-Soviet, anti-U.S. regime and the Russian was using the occasion to try to recruit him. He also gave the CIA man a friendly warning that his French girlfriend, who was then abroad, would be safer not returning to the country just yet. It was a friendly tip, from one pro to another—and maybe a chit that could be called in later.
+
+*Next: Korean spies from both sides of the 38th parallel.*

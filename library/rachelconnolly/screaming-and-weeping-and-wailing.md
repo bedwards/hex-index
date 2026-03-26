@@ -1,0 +1,70 @@
+---
+title: "Screaming and weeping and wailing "
+author: "Rachel Connolly"
+publication: "Rachel Connolly"
+publication_slug: "rachelconnolly"
+published_at: "2025-03-11T12:07:59.000Z"
+source_url: "https://rachelconnolly.substack.com/p/screaming-and-weeping-and-wailing"
+word_count: 2477
+estimated_read_time: 13
+---
+
+I read Septology by Jon Fosse at the start of this year. I was excited to read it but I saved it as a treat for a while. I have loved the shorter works by Fosse that I have read. I find his writing so distinctive and funny and fresh and real, totally free of what my friend Nicole Flattery calls “emotional contrivances” (“I lay on the floor and I wept and I wept”, “I found out about a traumatic event and I couldn’t get over it”, “he or she was my tormentor”) or overzealous thesaurus usage or humour which signposts itself so heavily it is simply not funny.
+
+Septology was no different. I don’t need to recommend it, he did just win the Nobel prize. But I thought I would say it is funny and fresh because work like this, which uses a different convention of syntax or grammar, tends to be described as challenging. I don’t agree, I think people adjust to the meaning of a new convention of full stops or commas or whatever after a few pages. Didn’t we all learn to read in the first place because we have the ability to do this?
+
+It is sometimes said in reviews that Fosse is hard to quote. Septology is told in eight units that each unfold over a single sentence. But obviously when writers do this the comma naturally serves a similar function to a full stop in some or many cases. Likewise there are a lot of young writers working at the minute who don’t really use commas very much at all, and in their work full stops have a comma-like role in some or many cases. I suppose the idea, though, is that the meandering character of his prose is hard to capture over a short quote. I actually don’t agree with this. Here is one which I think works well to show the humour and freshness:
+
+> “... the woman who’d lived with a fiddler who eventually just drank all the time and she told him to leave and he did which she’s really regretted since then…”
+
+I think that “challenging” label can put people who would enjoy certain books a great deal off reading them. There is a great scene in Septology which I read as being about this actually. A boy who has been a bad student and a delinquent talks about how much he loves Samuel Beckett because he can see something from real life, something that feels real to him, in Beckett’s writing. I often wonder what we use this word challenging to mean. Some books that get described this way are some of the most widely read books in history. Does it mean that the average person would find it challenging to read? Or that this kind of work is challenging to write about? A sly way of reframing the real challenge perhaps.
+
+There are a few scenes of Septology like this that keep coming back to me so I thought I would write about them here. It is one of those books which feels like it was written for me. The protagonist is Asle, an old painter whose wife died years before. He lives a fairly solitary existence. He sees a neighbour, occasionally his gallerist, and then another painter called Asle who is a strange mirror of his life. He meets a woman who claims to have known him from before and she appears again too. The other Asle is an alcoholic and at the start of the book he ends up in hospital. You sometimes see novels like this described as plotless but every novel has a plot. It is true Septology is absent what my boyfriend describes as “absurd storylines involving paedophiles and baby stealing and murders” (although actually now I write that there is a paedophile, but the book does not revolve around him being discovered or disgraced or whatever, he simply exists) but there are many storylines from different lives developed within Septology. I don’t know what else plot is supposed to be.
+
+Because Asle is a painter he thinks a lot about painting and I read sections of Septology as meditations on writing and art. I found them relevant to a lot of things I find myself talking about a lot at the minute. I read this essay last week about the [literalism of many films now](https://www.newyorker.com/culture/critics-notebook/the-new-literalism-plaguing-todays-biggest-movies), wherein the meaning of everything has to be both extremely clear and heavily signposted. (I actually disagree with Anora as an inclusion here but I agree with the argument and I’m glad it was written.) There is obviously a parallel in the world of novels. I’m thinking of searing satires about baddy bankers and so forth. Regular readers will know this trend has long been a preoccupation of mine. I find I talk about the overt messaging of films, books and so on literally all the time.
+
+And not only with other writer friends or whatever. I went to see the Brutalist with my mum and it ended with the familiar technique of a section explaining the themes and meaning and even adding new ones in, to enhance the social justice credentials of the film. In this case this took the form literally of a powerpoint and a speech. (An alternative popular method is a monologue delivered by a favourable character to a baddy character, the same thing they do in children's movies when they, say, rescue puppies.) As my mum pointed out: “If we’ve paid to watch a three hour film about brutalism, why do they think we want it explained to us with this speech at the end?” Why indeed? The cinema in Belfast was full when we saw it. It had been on for about a week. Part of the appeal seemed to be that people expected it to be a complicated film.
+
+I was thinking about this too when I watched the Bob Dylan film recently (as a huge Dylan fan I have to say I liked it much more than I expected to). You remember that his strange, cerebral music is some of the most popular music there has ever been. There is an argument that people can’t handle complexity or difficulty anymore because phones and the internet have ruined attention spans to the extent that all of our brains have been fundamentally altered. But I just don’t think people have really changed that much.
+
+If it was the case that people could not watch TV shows without passages explaining the themes repeatedly how would hospitals function? You would wander into the hospital and everyone would just be stroking each other with spoons. Cars would crash into each other on the motorway constantly. It would be impossible to buy anything from a shop because you would go in and just forget instantly who you were and what you were doing, meanwhile the cashier would have turned all the equipment upside down and nobody would remember how to put it back. I don’t think society would be able to function if people truly needed a powerpoint to explain the themes at the end of a film like the Brutalist.
+
+Back to Fosse. This is one section I keep thinking of which relates to this.
+
+> “... I think that I don’t like this picture, because I can’t stand pictures that directly paint feelings even if I’m the only one who knows it, that isn’t the kind of thing I paint, it’s not the kind of thing I want to paint, because a painting can certainly be filled with feelings but you shouldn’t paint feelings themselves, like screaming and weeping and wailing, I think, and I think that this is a truly bad painting, that’s what it is…”
+
+I think, parallel to the overt signposting of themes, there is a tendency to overtly signpost the feelings of characters and the emotional response the reader or viewer is supposed to have to the material. “I was crying, I was shaking!” (I liked Anora a lot because it very deliberately did not do this.) This too is catering to or presuming an audience who cannot handle any complexity. Or if trauma is on the agenda it must be presented in a very prescribed way, someone wandering around or lying on the floor saying “I can’t get over it, I can’t get over it” or “I can’t forget about it, I can’t forget about it.”
+
+I was thinking recently that I always say I hate trauma stuff but that actually isn’t true at all. I love reading about trauma but I want it to look as strange and unpredictable and unsympathetic as I have observed it to look in real life. I grew up in a post-conflict place surrounded by people with PTSD and I can tell you it did not look like lying on the floor saying “I can’t get over it”. When I think trauma I think drinking and violent outbursts and weird sex and people feeling endlessly lost. Lots of the things that might make a character scan as a baddy, I suppose. Traumatised people can be very funny about their experiences too. It may be the case that “I couldn’t get over it” is how trauma looks sometimes. But even if this is true occasionally, I think we can all agree it is not the only possible presentation. (And I must say I have never once in my real life seen this particular presentation.)
+
+And what does it mean to not get over something? Or to not forget about it? If you can build a good life for yourself does that mean you have forgotten all the bad things in your past? If you can be happy, in flashes, and financially successful does that mean you have no experience of trauma? If the answer is no, what kind of message is this to tell people about their lives? What kind of pose does it encourage them to take?
+
+There is a related tendency too, to draw far too straight a line between an event and an emotional response. An experience of X magnitude will herald X response and this will happen consciously. But think of, objectively, the worst thing that ever happened to you. Now think of the thing you felt worst about. Are these the same incident? I would guess no. Don’t you sometimes find a delayed response to one thing can be set off by something small? One thing that I find I talk about a lot in my analysis sessions is what a personality is and why we all respond to things so differently. We talk about this so much because there is no easy answer. There are people you meet who seem to find simply being alive traumatising. And why not? I don’t think this should be unsympathetic because the reason for it is unclear. I don’t think it should make this person with their special sensitivity a hero either, but these ideas have become so muddled.
+
+There is another scene from Septology I keep thinking of. Teenage Asle (I think he is 16 or 17) is about to leave Barmen for The Academic High School and his dad suggests he puts on a show in the Barmen Youth Centre with the paintings he has been working on. He has sold his paintings since he was a child, but these were paintings he did of the houses and farms of the villagers in Barmen: Cheerful representations of a familiar object. These farmhouse reproductions were beloved but since then he has started painting images from his head. Asle does not want to paint the farmhouses anymore because those paintings feel dishonest.
+
+Teenage Asle gets permission from The Man In Charge to set up his exhibition. He carefully chooses nine paintings he is proud of and sets up an exhibition in the Barmen Youth Centre. He hangs white sheets on the walls and arranges the paintings and sits waiting for people to come and see them. The Man in Charge promptly wanders in and tells him off for hanging them up even though he got permission and then tells him nobody is going to like the paintings.
+
+> “... he goes round and looks at the pictures and then stops and he looks at Asle and he says that these pictures were different from what he’d expected, Asle used to paint differently, he painted so that you could see what it was in the picture, sometimes you could even see that it was your own house he’d painted, but now, well now it was impossible to tell what any of the pictures was supposed to be of… no, they don’t look like anything, if he’d have known Asle was going to show paintings like these at his exhibition he doesn’t know if he’d have given him permission to show them at The Barmen Youth Centre…”
+
+Asle thinks:
+
+> “...The Man In Charge of the Barmen Youth Group doesn’t understand pictures and art any better than a cow…”
+
+All the villagers wander in and say basically the same thing as The Man In Charge:
+
+> “... they don’t understand these pictures, and he, Asle can paint so much better than this, because anyone can paint pictures like this, they say, you just smear some paint around…”
+
+I found this passage very funny but also heartbreaking. There is no weeping and wailing, but I pictured this 16 year old sitting, excited beside these things he has made that he feels so proud of and then everyone wandering in to insult him while he just has to sit there. Why would anyone do that? I wondered for a short while, before I thought: Actually, that is exactly what people are like. That hostility and even cruelty when presented with something which you don’t know how to respond to, that feels so true to life. But like any human impulse it can be challenged or it can be pandered to and indulged. The culture of literalism is pandering to this instinct, endlessly.
+
+It made me think of the delinquent who loved Samuel Beckett too. Maybe someone like this finds it easier to accept something which looks different because they have had that experience themselves, of being treated with hostility and cruelty because they don’t do what is expected of them. (And isn’t that a feeling many of us can relate to?)
+
+A little later Asle’s dad has the idea to put some “sold” signs up underneath some of the paintings:
+
+> “because people are like that, once one person wants something other people want it, Father says,
+> 
+> Yes that’s how people are, he said”
+
+A gallerist who had been in before and liked the paintings stops in and buys a few. Then some of the villagers come back and decide actually they would like to buy one afterall. Soon all the paintings are sold. Being challenged was not so bad, see.
+
+Till next time xxxxx

@@ -1,0 +1,51 @@
+<h2>The Rise and Fall of Expert Systems: A Cautionary Tale for Today's AI Boom</h2>
+
+<p>Kenny Easwaran's lecture on expert systems is a compact history lesson that every participant in today's AI discourse ought to absorb. The lecture traces the arc from Dendral and MYCIN through the commercial boom of the 1980s to the second AI winter, and in doing so, draws a line between the knowledge engineering bottleneck that killed expert systems and the data-driven paradigm that eventually replaced them. The parallels to the current moment are striking, even if Easwaran leaves most of them implicit.</p>
+
+<h2>When Knowledge Had to Be Hand-Crafted</h2>
+
+<p>The central tension of the expert systems era, as Easwaran frames it, was the gap between what computers could process and what humans could articulate. Expert systems worked by encoding domain knowledge into rule bases, then applying inference engines to reach conclusions. The approach was elegant in theory and genuinely effective in practice. MYCIN, for instance, outperformed human doctors on blood infection diagnoses:</p>
+
+<blockquote>Although MYCIN did make recommendations that on average got a rating of 65% from human judges, which is better than the ratings that actual human doctors were getting, which were more like 50 to 60%, because these are very hard problems, it still wasn't used much in practice because this is still the early 1970s. There weren't personal computers or desktop computers. Computers took up a whole room and they didn't have them in the hospital where it was needed.</blockquote>
+
+<p>This is a pattern worth dwelling on. A system that demonstrably outperformed humans at a safety-critical task went unused for reasons that had nothing to do with its technical merit. Infrastructure, not intelligence, was the bottleneck. The same dynamic plays out today: organizations that could benefit from AI capabilities fail to adopt them because of deployment friction, regulatory uncertainty, or institutional inertia.</p>
+
+<h2>The Knowledge Acquisition Problem</h2>
+
+<p>Easwaran identifies the fatal flaw of expert systems with admirable clarity. Building a knowledge base required sitting down with the most valuable employees at a company and extracting their tacit knowledge into formal rules. This was expensive, slow, and often politically fraught:</p>
+
+<blockquote>The knowledge base required sophisticated input from human experts. First you had to get all the experts together to figure out what's the right way to even represent knowledge in this domain. And then once you've done that, you have to sit down and talk with each of the experts to understand what are the rules that you're using, what circumstances do you use them in, how certain to be when you're using that rule. And this took a lot of hours of the expert's time, and these experts who were needed to be consulted to design the system were often the highest demand employees at the company.</blockquote>
+
+<p>The irony is thick. The people whose knowledge the system needed to capture were precisely the people the organization could least afford to pull away from their actual work. Expert systems promised to scale expertise, but the process of building them did not itself scale. Every new domain required starting the knowledge acquisition process from scratch, interviewing new experts, designing new ontologies, debugging new rule conflicts.</p>
+
+<p>What Easwaran might have emphasized more is just how brittle these systems proved once deployed. Expert systems were notoriously fragile at the boundaries of their knowledge. A rule base designed for one subdomain would fail silently when presented with edge cases its designers had not anticipated. Unlike a human expert who might say "I'm not sure, let me think about this," an expert system would confidently apply whatever rules seemed closest to applicable, often with disastrous results.</p>
+
+<h2>The DEC Boom and the Japanese Panic</h2>
+
+<p>The commercial success story that Easwaran highlights is Digital Equipment Corporation's adoption of expert systems for hardware configuration and chip design. DEC's experience demonstrated the genuine value proposition: aggregate the knowledge of many specialists into a single system that could be applied consistently across the organization. But the broader market dynamics are equally instructive:</p>
+
+<blockquote>In the early 1980s the Japanese government also got interested and they funded a project to design a whole new generation of computers that would make expert systems easier to implement. This being the early 1980s, American and British companies were at the time worried about Japanese companies taking over the entire economy, so they all started rushing in too.</blockquote>
+
+<p>Fear of falling behind drove investment, not sober assessment of what expert systems could actually deliver. The parallels to today's AI arms race, where companies pour billions into large language models partly because they are terrified of being left behind by competitors, are impossible to miss. Geopolitical anxiety has always been a powerful accelerant for technology investment, and it has always led to cycles of overinvestment followed by disillusionment.</p>
+
+<h2>Neural Networks as the Quiet Revolution</h2>
+
+<p>The most thought-provoking section of Easwaran's lecture is his framing of the transition from expert systems to neural networks. He presents neural networks as solving the knowledge acquisition problem by learning patterns directly from data rather than requiring human experts to articulate their reasoning. This is true as far as it goes, but it understates the tradeoff:</p>
+
+<blockquote>One of the things is they learn patterns that no human would generalize, which means often it's very hard to explain why they came to the decision they made. And furthermore, they sometimes make apparently crazy decisions that make no sense to humans because they're picking up on some pattern that may or may not be real, or maybe they're missing some background knowledge.</blockquote>
+
+<p>Expert systems were transparent but brittle and expensive to build. Neural networks are opaque but flexible and cheap to train (relatively speaking). The field essentially traded one set of problems for another. The explainability that made expert systems trustworthy to domain experts, the ability to trace a recommendation back to specific rules, is precisely what modern deep learning systems lack. In domains like medicine, law, and finance, this remains a serious obstacle to adoption, decades after the transition began.</p>
+
+<p>There is a counterpoint worth raising that Easwaran does not explore: the current generation of large language models arguably represents a partial synthesis of both traditions. Models like GPT-4 and Claude can articulate reasoning chains, cite evidence, and explain their conclusions in natural language. Whether this constitutes genuine explainability or merely a convincing simulation of it is one of the central open questions in AI research today. The expert systems community would likely argue that natural language explanations are no substitute for formal, auditable rule traces. They would have a point.</p>
+
+<h2>The Cycle of Winters and Springs</h2>
+
+<p>Easwaran's most valuable contribution may be his framing of AI history as a series of boom-bust cycles, with each winter producing the fundamental research that drives the next boom. Expert systems emerged from academic work during the first AI winter and produced a commercial boom in the 1980s. Neural networks, rehabilitated during the second AI winter of the 1990s, eventually drove the deep learning revolution of the 2010s. The pattern suggests that the technologies being developed during periods of reduced hype and funding may matter more than the ones attracting headlines during boom times.</p>
+
+<blockquote>Expert systems could often perform better than any individual expert by putting together the knowledge that different experts in different subparts of the problem had gathered. They very clearly couldn't come up with anything truly new. All they did was take the best of what humans already knew.</blockquote>
+
+<p>This limitation, the inability to generate genuinely novel knowledge, is the one criticism that modern AI systems have at least partially addressed. Large language models can combine ideas across domains in ways that sometimes produce genuinely novel syntheses. Whether this constitutes creativity or merely recombination is debatable, but it represents a qualitative shift from the expert systems era.</p>
+
+<h2>Bottom Line</h2>
+
+<p>Easwaran's lecture is a useful corrective for anyone who believes the current AI moment is unprecedented. Expert systems delivered real value, outperformed humans in specific domains, attracted enormous investment driven partly by geopolitical anxiety, and then collapsed under the weight of their own scaling limitations. The knowledge acquisition bottleneck that killed them has been replaced by the data acquisition and compute bottleneck that constrains today's systems. The explainability they offered has been sacrificed for the flexibility of neural approaches. Anyone building on or investing in today's AI technologies would do well to study this history carefully, not because the same failures will repeat exactly, but because the structural dynamics of hype, overinvestment, and disillusionment tend to rhyme.</p>

@@ -1,0 +1,245 @@
+---
+title: "Clearing Up Some Misconceptions About Mysticism"
+author: "Philosophize This!"
+publication: ""
+publication_slug: "philosophizethis"
+published_at: "2025-05-10T18:59:22.000Z"
+source_url: "https://philosophizethis.substack.com/p/clearing-up-some-misconceptions-about"
+word_count: 4989
+estimated_read_time: 25
+---
+
+[
+
+![](https://substackcdn.com/image/fetch/$s_!DVSp!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Faa482f5d-a556-4513-874b-93850c4bcd60_1400x1400.jpeg)
+
+
+
+](https://substackcdn.com/image/fetch/$s_!DVSp!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Faa482f5d-a556-4513-874b-93850c4bcd60_1400x1400.jpeg)
+
+Hello everyone! I’m Stephen West! This is Philosophize This!
+
+A lot of people believe that an important part of our thinking is to be able to have freedom *of* the will; to be able to will yourself onto situations whenever you choose to.
+
+But is it also just as important for a person to have freedom *from* the will?
+
+Last time we talked about Martin Heidegger, and a question like this is exactly the sort of thing he asked all throughout his later work. After *Being and Time*. After Dasein. After showing the limitations of only framing things in terms of subjects and objects, willing ourselves onto reality—he moves on to a very interesting stage of his philosophy where the main thing that he wants to explore in his work is what he calls “releasement” or “letting-be.”
+
+See to Heidegger: if the world around us is made up of a bunch of people that have a technological enframing of everything—where every thing and every one is just an object that we need to will ourselves onto, structure, manipulate, and optimize—and if by doing that it leads to a world where we’re constantly seeing everything in terms of how to manipulate it to produce the most efficient outcome, then what would happen if someone decided there was more to life than doing that all the time?
+
+What if someone didn’t buy the whole sales pitch that you’re a bad person if you aren’t constantly trying to educate yourself about the problems of seven and a half billion people? What if there’s more to what we are than constantly trying to save the world all the time through rational utilitarianism?
+
+What if somebody instead decided to focus on trying to understand the nature of their own being better—putting in the work to maybe try to uncover a far more meaningful, richer, fuller experience of what it is to even exist?
+
+Well, first of all: real question. Should this person have to apologize for spending their time in this way?
+
+In other words, is this just a poorly disguised move of a selfish person who’s ignoring all of the really important work we have to do of projecting ourselves onto the world and fixing it?
+
+Or could this more meaningful connection with the world be something that we’re sadly missing in the modern world—something people have not only forgotten as they spiritually drown every day in their political video game—and could it be something that explains why Heidegger’s Dasein we talked about last podcast could ever be such a foreign concept for most people to wrap their heads around?
+
+Is a pre-theoretical, more immediate connection with our existence just a bunch of religious nonsense? Or are there things specifically about the type of modern world that we’re living in that prevent people from accessing this kind of experience more often?
+
+Releasement, or letting-be, to Heidegger is going to involve us going from the standard subject/object framing of things—freedom of the will in the Nietzschean sense—to freedom from the will, more along the lines of the work of people like Simone Weil.
+
+Still someone might say: look if people are going to get on board with this whole idea, Heidegger, you’re still going to have to convince us all that this is possible. I mean, what evidence do we have of the fact that anyone is ever operating outside the framing of subject/object?
+
+What, a bunch of people reporting their own experience of it? Are we talking about religious mystics that take drugs and go horseback riding with Jesus in a vision?
+
+As a modern, scientifically minded person that *doesn’t* do drugs, how am I supposed to take any of this stuff seriously?
+
+Well, since you brought it up, hypothetical person, let’s talk about mysticism today.
+
+If you wanted to find a gateway *in* to this more immediate connection to being that people are claiming to have had throughout history—well, there’s many different gateways out there, you could say. And one of the pieces of low-hanging fruit here is going to be the long tradition of what’s come to be known as mysticism.
+
+There’s actually quite a lot to what mysticism is. You could spend decades reading about it and have only really touched a piece of the kinds of profound experiences that people have said they’ve gotten to.
+
+And to be clear: today’s episode is not supposed to be an overview of mysticism in full, as though that’s even possible. What it is, though, is an attempt to clear up some common misconceptions about mysticism—how it’s been framed as irrational, delusional, or the antonym to philosophy. And the hope is to open someone’s mind up to the importance of mysticism as one of these potential gateways out of some of these narrow-thinking traps we sometimes fall into, specifically in the modern world.
+
+We’re going into *all* of this in detail. And the vehicle today for doing this—to give this post some structure—are going to be some of the arguments making a case for mysticism from the philosopher Simon Critchley’s new book *on* mysticism. Always want to turn you onto great philosophy stuff I’m into.
+
+The book has a similar goal to his book on tragedy we recently talked about: in a world where we don’t have an idealistic way of framing reality anymore, does that sentence us to lives where we have no meaning or purpose connected to anything?
+
+Well, if you wanted to think in a different way where things didn’t seem so alienated, how would you do that in a secular way? Greek tragedy, Heidegger, mysticism—these are three approaches that Simon Critchley has dedicated a significant portion of his time here on this earth trying to open people’s minds up to.
+
+But how about this question that our hypothetical skeptic asked from before? As a modern person, how are you supposed to take anything someone says seriously who calls themselves a mystic? I mean, isn’t that the *last* thing you’d ever want to put on a job application?
+
+The first step in digging into this area is going to be to say that most of these people throughout history that we would call “mystics” today didn’t in fact think of *themselves* as mystics.
+
+Mystic is a word that was actually created fairly recently— around the 1700s. And it was created in a very specific cultural climate that was hostile towards the more religious approach that many of these “mystics” were immersed in.
+
+This is around the time of Immanuel Kant. Critchley says Kant and people like him around this time thought that philosophers were kind of like the policemen of thinking. That it’s a philosopher’s job to protect us from all the dogma and the fanaticism out there.
+
+So anybody claiming to be walking around having religious experiences that can’t even really be described using ordinary language—well, we’re skeptical of that kind of stuff as good philosophers, it was said. These people are going to be a problem.
+
+Critchley thinks this misunderstanding that was taken up by many thinkers from around this time has led to the term “mystic” being used, at least in philosophy circles, almost as an insult.
+
+Mystics are irrational! They can’t even explain what it is they’re experiencing! Mysticism is just where you go if you’re a charlatan that has nothing useful to say—you just go hide behind a bunch of flowery-sounding words and hock your latest video course.
+
+But again it should be said: the reality when it comes to mysticism is that almost all of these people that we would call mystics today didn’t call themselves that.
+
+And they also weren’t people that thought of themselves as opposed to reason in any way.
+
+None of these people were irrational. Most of these people were achieving what we now call “mystical experiences” by devoting themselves to a highly rational engagement with the texts and practices of their time.
+
+For example, medieval Christian mystics like St. Teresa of Ávila, St. John of the Cross—these are people that devoted multiple hours, every day of their life, to contemplative prayer and rational meditation. In the Jewish tradition, Kabbalists would spend years of their life decoding and contemplating the meanings hidden in Hebrew scriptures—deep rational engagement with these texts every day. Sufi mystics practiced dhikr, where they would repeat divine names over and over again in specific, highly structured ways, just to try to cultivate more clarity and stillness.
+
+Point is: this is not the picture of someone that’s *hostile* towards rationality. This is the picture of someone highly committed to a devotional practice that they gave everything they had to.
+
+So if mysticism isn’t about rejecting rationality like philosophers of the past might have us believe, then what is it really about if we’re clearing the air here?
+
+One of the things Critchley says that’s important to consider is just how difficult it is to define something like mysticism, because when we do it in such a general way, we’re always grouping together people from such different points in history with different cultures, religions, and languages.
+
+On the one hand, it’s difficult to put them all into one basket and say that they’re the same thing. But on the other hand, when you listen to what they were describing in their testimonies, there’s enough of an overlap *between* what they say that we can pretty confidently say there’s something these people were witnessing that’s along the same lines.
+
+And if we had to give an example of a type of common mystical experience just for the sake of this post: a starting point might be the description given by the theologian Bernard McGinn, who says that mystical experiences typically fall into two different categories:
+
+One is where someone transcends the self and experiences a feeling of unity or communion with the divine or something greater than themselves. The other is in the opposite direction—where the self dissolves or is pushed aside, similarly making room for an experience where the normal lines are blurred between ourselves and something greater that we’re all a part of.
+
+Now, after getting to here, mystics will often report all sorts of emotions that then flood over them—from a deep feeling of peace, to ecstasy, to love, to awe and connection, to even fear—as they are hit with something that feels, on one hand, so alien to their normal everyday experience, but also deeply real.
+
+Most of them say it feels more real than reality, and significant in a way that feels impossible to fully put into words.
+
+That said: there are also many different types of mysticism that approach these experiences from different premises than this one. Some types of mysticism will even steer *into* the self as a starting point.
+
+What we’re laying out here focusing on the boundaries of the self, is again, just a very common type of mystical experience that people all across history have described. And it’s arguably the best place to start if we want to have a frame of reference for opening people up to this being more than just religion.
+
+That said: no matter how scientific of a person you are, when you hear about so many people from history across cultures having a common experience like this one we just described, you have to ask: what explains this?
+
+Is the best theory that this is just a bunch of delusional monkey brains, collectively tripping on a hallucinogenic called religion? Or are these people really having an experience with something that they’re describing as the divine— with something beyond rational comprehension or words?
+
+And the question Simon Critchley wants to ask is just using secular language here to start out: if this was a type of aesthetic experience that was available to you as a person, in theory, would you be interested in experiencing it if you could?
+
+Would you want to feel an utterly transformative connection to the divine if that was something that was possible?
+
+And I gotta imagine a lot of skeptics out there might say back, “uh, yeah. I guess. But what are we even talking about here? The problem’s not that I don’t *want* to feel this way. The problem is that there’s nothing out there that’s what you’re calling the divine. If somebody says my self has dissolved away and I’m feeling a connection with God… show me the man in the sky with a staff that they’re talking to or else I’m tempted to file this one under the delusional monkey category myself!”
+
+In other words: show me the material, causal explanation for this divine thing that they’re experiencing. Because if they can’t, then are we just abandoning the notion that our experiences have to correspond to some reality? This is unscientific and dangerous.
+
+And while this is an understandable response from the subject/object framing of things, to Simon Critchley this misses the point of what’s even being talked about in this more phenomenological framing of things, where the subjective experience itself is what we’re studying—not how mental events correspond to some material cause.
+
+Put another way: when I am highly committed to a devotional practice for months or years of my life, and when I am doing deep readings of liturgical texts every day, when I am doing hundreds of hours of meditating, praying, visualizing, fasting, being in solitude, sitting in nature with the intention of surrendering the boundaries of my self over to allow space for something greater to reveal itself in a moment— and then when having done that I feel an overwhelming connection to everything and everyone around me, when time dilates and feels almost like it ceases to exist, when something expands out of me that feels not like I’m tripping but like I’m actually seeing things for the first time without the filters—something difficult for me to explain what it is I’m experiencing in rational terms— is that experience that I’m having *not real*?
+
+Is it less real than the objects that are in the world?
+
+Subjectively, this *is* a real experience I am having. It’s one that many other people have had historically. And from a phenomenological perspective, subjective experience is something that’s worthy of being studied simply in its own right.
+
+In other words, the validity of this type of experience comes down not to whether it connects to some cause in the material world. The reality of this goes on at the level of subjective transformation. So if you’re studying that transformation the more relevant question becomes: not what is the material cause of it, but is there a devotional practice that is possible that can reliably lead human beings to this type of subjective experience? Is a state of consciousness like this something that we can cultivate?
+
+But see: Critchley might want to stop you right there if you started using words like consciousness. Heidegger also wouldn’t want to bring this kind of word in to describe what it is we’re talking about. It just reduces what this is to something that brings in far too many dualistic assumptions about the mind being separate from the body.
+
+But maybe there’s a way here to use the idea of consciousness to open someone up that’s skeptical of this whole line of conversation to things that aren’t very easily described by rationality alone.
+
+Everybody that’s listened to the consciousness episodes of the podcast knows that consciousness is one of the most mysterious and exciting things that we have to study in the sciences these days. Tons of different theories about it, you can start to consider how mysterious the concept of consciousness even is, and then you can go a step further: you can realize that consciousness is really just a *word*.
+
+It’s a label we came up with that tries to rationally constrict something that’s possibly too complicated to ever tie down with rational language.
+
+It’s possible we’re using one word here to describe 100 different things that intersect and could be studied more accurately at an individual level. It’s possible there are things that we’re lumping in under the banner of “consciousness” that are just not things that can even be studied at the subject/object level—things like the existential structures of Dasein that we talked about in the last post on Heidegger.
+
+Now you can say back to this: well, so what? This is what we do in the sciences. We need a word that we can use to start having these conversations. And then, over time, with a better understanding, our words will improve, the way we talk about it will become more sophisticated. This is how the history of science works!
+
+None of this is to put science down. This is simply to illustrate that the universe out there, regardless of whether our words are sufficient to be able to describe it, in some other basic sense the universe is just *going on* all the time—always moving, in all of its unbridled, enormous complexity.
+
+And just because we have a word that we use to describe a particular set of phenomena doesn’t mean that it’s encapsulating all of it. In fact, rationality, just in general, is a constricting type of process. We are always trying to use rationality to create simplified abstractions about the universe that are manageable for human minds to comprehend and work with as we go throughout our lives.
+
+And here’s the larger point: not only do there seem to be hard limits to what rational parameters like words can ever hope to describe, but the type of rational terms we have to experience the world with play a part in determining the phenomenological experiences that are possible for us to have.
+
+And Simon Critchley makes the case that when you consider the list of people who have claimed to have these “mystic” experiences that we have records of—people like Julian of Norwich (she was a medieval Catholic), Meister Eckhart (he was a Dominican monk), Rumi (who was a Sufi mystic), Marguerite Porete (she was another Christian):
+
+One thing that starts to seem clear, he says, is that having a concept in the way that you frame the world—for the divine, or for God, or for something greater than yourself—just having the concept available to you in the way that you frame things seems to highly increase your chances of having one of these mystical experiences that lead to this deeper connection with being.
+
+If I’m a skeptic I say back, “Okay. And if I believe in a leprechaun, it’s way easier to believe there’s a pot o’ gold at the end of a rainbow. But what does that have anything to do with my reality?”
+
+Well, think about what our tendencies often are for categorizing the range of experiences that we have as modern, scientifically minded people.
+
+If you were out on a hike walking along a trail, sunlight breaks through the trees, wind lifts the smell of dirt from when it rained the night before as you come to a clearing at elevation. And when you witness the view of this clearing—rolling green hills as far as the eye can see, a thick carpet of life and beauty stirs in you a feeling of fear that you’re out stuck in the middle of it with no immediate way out— and if in that moment you were to feel a sense of overwhelm start to come over you, overwhelm that turns to humility, humility to wonder at what in the name of Christ all this even is; and if that feeling started to build into a direction that starts to get somewhere beyond words…what do we often do in this kind of moment as scientifically minded people?
+
+We instantly start trying to rationally subordinate the moment and the feelings going on, and turn them into things we can understand, manipulate, and optimize for efficiency.
+
+*“This feeling of overwhelm—well, I did only get about six hours of sleep last night, so everything’s a little much for me today. And that curiosity that I feel is really something that’s a survival mechanism for me trying to get knowledge about my environment. And that humility—well, my stepdad was pretty hard on me when I was a kid, so of course my first instinct would be to feel humble in the face of something so powerful.”*
+
+Nowhere here was there ever an opportunity for you to feel a part of anything deeper. You were always just keeping it at arm’s length through rationally categorizing it into something you can control.
+
+Simon Critchley has an entire confession section in the book *On Mysticism* where he describes one of these experiences of letting constant doubt prevent him from feeling something that could’ve otherwise been life-changing in one of these moments. This is a common place we can find ourselves in.
+
+Couple this with another place we often find ourselves in the modern world: any time you get five seconds to sit and just be with the world around you and pay attention to it— you’re often scrolling on your phone. The stuff we’re left to scroll through is often something that is such a shallow take of reality how could it ever offer a perspective shift? It’s often designed purposefully to reinforce your bias and get you even further locked in to the narrow way you’re framing things.
+
+The irony of you reading this right now is not lost on me. Shame on everyone else, am I right?
+
+With how much media is designed to just make you scared all the time and constantly worried about the future, how could you ever summon the vulnerability required to have one of these experiences if you are constantly needing to keep shields up?
+
+Critchley says that adulthood, at least as most people live these days, is the abdication of ecstasy. He thinks we live so much of our lives as adults obsessing over ourselves and our own egos that it makes it next to impossible for us to experience this entire other side of what life can be.
+
+His point is: for most people that are alive today that are what we call “responsible adults”; when are we ever in a place where we’re not doing something?
+
+When are we ever in a situation where we can just put aside everything for a while and feel some of this juicy, no-self ecstasy that Critchley’s talking about? It’s incredibly rare.
+
+Now contrast this with what it was like to live as some of these devoted religious followers that have claimed to have these mystic experiences.
+
+Imagine Julian of Norwich. She was someone who lived through the Bubonic Plague. All day for weeks she would be tucked away in a tiny cell as what’s called an anchoress, spending most of her time devoting herself to contemplation or prayer, life cut down to the absolute essentials—silence, solitude, scripture, and the rawness of her own thoughts.
+
+Imagine living a life like *that*. How much would insecurity rule your life?
+
+Or take Meister Eckhart. A Dominican monk who lived during a time where to be an intellectual close to the realm of philosophy involved you spending thousands of hours of your life deeply studying the religious texts that dominated the halls of thought at the time.
+
+In other words, you didn’t have a cellphone to turn to. You just sacrificed yourself over to this near constant process of religious contemplation.
+
+Part of the reason I even bring this up is to say that Critchely advises: if you have a hard time getting to a place that one of these people are describing—don’t be too hard on yourself. Truthfully, you’re living in a world that makes it incredibly difficult to gain access to this in the first place.
+
+But say you still really wanted to. You commit yourself and say I’m gonna find some time; I’m gonna make this whole experience happen.
+
+Still, what if you don’t believe in any sort of higher power? Critchley said it himself: this stuff is way easier if you already have a belief in a God, but what if I don’t? Look, I don’t believe in God objectively, phenomenologically, ergonomically, any of them.
+
+Well, one thing Critchley might recommend is to not see this as a zero-sum game, where you’re either having a mystical experience, feeling a total dissolution of the self, or else you’re not having anything. There are many different shades of mystical experiences, and it may, in fact, be necessary for you to experience these things at a lower level of intensity before it’s possible for you to navigate to the places of these famous mystics who people are still talking about.
+
+If you wanted to start somewhere, despite being in one of the worst times to stumble upon one of these experiences— Simon Critchley thinks you’re living in one of the most privileged times to access it with some effort.
+
+It used to be that to have one of these mystic experiences, you would need to be a devoted follower of a religion of some sort. But he says something happened— notably after the Protestant Reformation in the Western world—where these experiences became democratized in a way that had never really been available before.
+
+All of a sudden it was possible for someone to feel variations of these things through artwork and aesthetic experiences more generally. All of a sudden things like music and poetry became where most people interested could use it as an access point.
+
+And for the record: it’s no coincidence to Critchley that so many of the people we’d call mystics from the history of the world have turned to poetry, specifically, as a way to try to express these experiences when normal language doesn’t seem to do the trick.
+
+Heidegger also, in his later work, makes a similar move. He says so often the language that we use frames reality in terms of the ontic—where every sentence we say is structured in a way that is about subjects acting on and manipulating a realm of objects. John emptied the trash can. Susan got a new job.
+
+But see, poetry is a type of art that opens things up to a whole different kind of expression. So often poetry is written from a human, phenomenological point of view. In fact, the human experience is often *presupposed* when you’re reading a poem.
+
+Take one example of this from an excerpt called *The Great Wagon* by the legendary Sufi mystic known as Rumi. Compare the subject/object sentence structure that we usually speak in to the way that *he* writes when he describes this scene:
+
+> “Out beyond ideas of wrongdoing and rightdoing,  
+> there is a field. I'll meet you there.  
+> When the soul lies down in that grass,  
+> the world is too full to talk about.  
+> Ideas, language, even the phrase each other  
+> doesn’t make any sense.”
+
+The story’s the same from so many mystics over the course of history. Whatever it is they’re experiencing in this place where the self dissolves, where they’re always already a part of something bigger that they can’t really express— poetry just feels to them like it gets a bit closer than ordinary language does.
+
+But Simon Critchley says if you were a modern person, with all the resources typically available to us, there’s no reason for you to restrict yourself just to poetry if you wanted to explore this stuff more deeply.
+
+He says, “there’s no such thing as an atheist when you’re listening to music you love.”
+
+In other words, music, he thinks, is another very effective access point into the mystic. Because in a world that’s often completely shaped by money and disenchantment, music becomes something that reanimates it. You can just lose yourself listening to a song at a level that involves a kind of surrender of the ego. To Critchley this can be similar to a mystical experience.
+
+Now, don’t get him wrong. He’s not saying it’s the same. He’s not saying this equates to following a devotional practice. But look, if you wanted to use the tools you have as a modern person to start moving in this direction a bit more, you could do a lot worse than trying to push yourself aside and feel your favorite music as deeply as possible.
+
+Another access point he talks about is the power of a deep reading of a philosophical text as a substitute for one of these religious texts.
+
+Once again, it’s not the same thing. But taken seriously enough—if you read a work of philosophy with some humility, if you’re truly working to surrender yourself over to the process of internalizing these ideas, particularly the type of philosophy that tries to challenge the limits of human thought—this definitely has the potential to get you more into this place where you’re “letting-be” and allowing ideas and new ways of thinking to reveal themselves.
+
+I guess the throughline here that needs to be said is that it’s highly unlikely you’re just going to listen to a song one day or read some new philosophy book and just fall on the ground and start convulsing.
+
+Just like I was saying last time with Heidegger’s philosophy, this change often goes down most of the time in small increments, over the course of months or years, like a glacial drift in the direction of seeing things without so many filters on all the time. But isn’t that what all real change feels like sometimes.
+
+And for the record: yes, meditation, nature, fasting, prayer, religion, reading, music—any of these things and more can be a move towards a bit of freedom from the will. And it’s my belief that this book by Simon Critchley is written to be yet another one of these things that can start a shift in your thinking in this direction.
+
+Anything that leads to this religious kind of self-emptying will help here. Next post will be on a completely different type of self-emptying, what happens when we take Nihilism to the point that it gets us to question the foundation of the self.
+
+**Recommended Reading**
+
+1.  **Simon Critchley,** ***On Mysticism: The Experience of Ecstasy*** (Profile Books, 2024).
+    
+
+2.  **William James,** ***The Varieties of Religious Experience: A Study in Human Nature*** (orig. 1902; many in-print editions, e.g., Random House Modern Library, 1999).  
+      
+    
+3.  **Mirabai Starr,** ***Ordinary Mysticism: Your Life as Sacred Ground*** (HarperOne, 2024).
