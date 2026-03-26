@@ -68,7 +68,8 @@ export interface ArticleInfluence {
 }
 
 export interface AffiliateLink {
-  asin: string;
+  isbn10: string;
+  isbn13: string;
   title: string;
   author: string;
   description: string;
@@ -79,7 +80,8 @@ export interface AffiliateBookRow {
   id: number;
   title: string;
   author: string;
-  asin: string;
+  isbn10: string;
+  isbn13: string;
   category: string;
   description: string | null;
   gutenberg_url: string | null;
@@ -90,7 +92,8 @@ export interface AffiliateBookRow {
 export interface UpsertAffiliateBookInput {
   title: string;
   author: string;
-  asin: string;
+  isbn10: string;
+  isbn13?: string;
   category?: string;
   description?: string;
   gutenberg_url?: string;

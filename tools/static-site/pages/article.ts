@@ -5,7 +5,7 @@
 
 import type { Pool } from 'pg';
 import { staticReadingLayout } from '../templates.js';
-import { writeFile, extractHtmlExcerpt, escapeHtml, formatDate, loadAffiliateBooks, buildAmazonUrl } from '../utils.js';
+import { writeFile, extractHtmlExcerpt, escapeHtml, formatDate, buildAmazonUrl, buildBWBUrl, loadAffiliateBooks } from '../utils.js';
 import { join } from 'path';
 import { readFile } from 'fs/promises';
 
@@ -38,7 +38,7 @@ interface ArticleRow {
   rewritten_content_path: string | null;
   image_path: string | null;
   original_url: string;
-  affiliate_links: Array<{ asin: string; title: string; author: string; description: string }> | null;
+  affiliate_links: Array<{ isbn10: string; isbn13: string; title: string; author: string; description: string }> | null;
 }
 
 interface WikipediaLink {
@@ -141,7 +141,8 @@ interface BookDeepDive {
   author: string;
   description: string;
   wikiSlug: string | null;
-  asin: string | null;
+  isbn10: string | null;
+  isbn13: string | null;
 }
 
 /**
@@ -182,23 +183,31 @@ function generateArticlePage(
   const bookItems = bookDeepDives
     .map((b) => {
       let titleLink: string;
-      let amazonBadge = '';
+      const buyLinks: string[] = [];
       if (b.wikiSlug) {
         titleLink = `<a href="${pathToRoot}wikipedia/${b.wikiSlug}/index.html">
           <strong>${escapeHtml(b.title)}</strong>
         </a>`;
-      } else if (b.asin && affiliateTag) {
-        titleLink = `<a href="${buildAmazonUrl(b.asin, affiliateTag)}" target="_blank" rel="noopener">
+      } else if (b.isbn10 && affiliateTag) {
+        titleLink = `<a href="${buildAmazonUrl(b.isbn10, affiliateTag)}" target="_blank" rel="noopener">
           <strong>${escapeHtml(b.title)}</strong>
         </a>`;
-        amazonBadge = `<span class="read-time">view on Amazon</span>`;
       } else {
         titleLink = `<strong>${escapeHtml(b.title)}</strong>`;
       }
+      if (b.isbn10 && affiliateTag) {
+        buyLinks.push(`<a href="${buildAmazonUrl(b.isbn10, affiliateTag)}" target="_blank" rel="noopener sponsored" class="buy-link">Amazon</a>`);
+      }
+      if (b.isbn13) {
+        buyLinks.push(`<a href="${buildBWBUrl(b.isbn13)}" target="_blank" rel="noopener" class="buy-link">Better World Books</a>`);
+      }
+      const buyHtml = buyLinks.length > 0
+        ? `<span class="read-time">${buyLinks.join(' · ')}</span>`
+        : '';
       return `
       <li class="deep-dive-item">
         ${titleLink}
-        ${amazonBadge}
+        ${buyHtml}
         <span class="deep-dive-author">by ${escapeHtml(b.author)}</span>
         <p class="topic-summary">${escapeHtml(b.description)}</p>
       </li>`;
@@ -329,7 +338,7 @@ export async function generateArticlePages(
   outputDir: string
 ): Promise<{ pagesGenerated: number }> {
   const articles = await getAllArticles(pool);
-  const affiliateBooksMap = await loadAffiliateBooks(process.cwd());
+  const affiliateBooksMap = await loadAffiliateBooks(pool);
   let pagesGenerated = 0;
 
   for (const article of articles) {
@@ -359,7 +368,8 @@ export async function generateArticlePages(
         author: link.author,
         description: mapEntry?.description ?? link.description,
         wikiSlug,
-        asin: link.asin ?? mapEntry?.asin ?? null,
+        isbn10: link.isbn10 ?? mapEntry?.isbn10 ?? null,
+        isbn13: link.isbn13 ?? mapEntry?.isbn13 ?? null,
       });
     }
 

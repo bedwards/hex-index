@@ -200,7 +200,7 @@ export function createPagesRouter(pool: Pool): Router {
 
   // Load affiliate books map once at router creation
   let affiliateBooksMap: Map<string, ParsedAffiliateBook> = new Map();
-  void loadAffiliateBooks(process.cwd()).then(map => { affiliateBooksMap = map; });
+  void loadAffiliateBooks(pool).then(map => { affiliateBooksMap = map; });
 
   // Home page - list recent articles
   router.get('/', async (_req: Request, res: Response) => {
@@ -297,7 +297,7 @@ export function createPagesRouter(pool: Pool): Router {
     try {
       const { id } = req.params;
 
-      const result = await pool.query<Article & { affiliate_links: Array<{ asin: string; title: string; author: string; description: string }> | null }>(`
+      const result = await pool.query<Article & { affiliate_links: Array<{ isbn10: string; isbn13: string; title: string; author: string; description: string }> | null }>(`
         SELECT a.*, p.name as publication_name, p.slug as publication_slug
         FROM app.articles a
         JOIN app.publications p ON a.publication_id = p.id
@@ -353,8 +353,8 @@ export function createPagesRouter(pool: Pool): Router {
         let inner: string;
         if (wikiSlug) {
           inner = `<a href="/wikipedia/${escapeHtml(wikiSlug)}">${escapeHtml(link.title)}${link.author ? ` by ${escapeHtml(link.author)}` : ''}</a>`;
-        } else if (link.asin && affiliateTag) {
-          inner = `<a href="${buildAmazonUrl(link.asin, affiliateTag)}" target="_blank" rel="noopener">${escapeHtml(link.title)}${link.author ? ` by ${escapeHtml(link.author)}` : ''}</a> <span class="read-time">view on Amazon</span>`;
+        } else if (link.isbn10 && affiliateTag) {
+          inner = `<a href="${buildAmazonUrl(link.isbn10, affiliateTag)}" target="_blank" rel="noopener">${escapeHtml(link.title)}${link.author ? ` by ${escapeHtml(link.author)}` : ''}</a> <span class="read-time">view on Amazon</span>`;
         } else {
           inner = `<span>${escapeHtml(link.title)}${link.author ? ` by ${escapeHtml(link.author)}` : ''}</span>`;
         }
@@ -548,7 +548,7 @@ export function createPagesRouter(pool: Pool): Router {
       if (authorBooks.length > 0) {
         const bookItems = authorBooks
           .map((book) => {
-            const amazonUrl = affiliateTag ? buildAmazonUrl(book.asin, affiliateTag) : '';
+            const amazonUrl = affiliateTag && book.isbn10 ? buildAmazonUrl(book.isbn10, affiliateTag) : '';
             const link = amazonUrl
               ? `<a href="${amazonUrl}" target="_blank" rel="noopener">${escapeHtml(book.title)}</a>`
               : escapeHtml(book.title);

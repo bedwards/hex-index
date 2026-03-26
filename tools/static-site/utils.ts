@@ -241,6 +241,7 @@ export function estimateReadTime(content: string): number {
 // (moved there so the API server's tsconfig rootDir:"src" can import them)
 export {
   buildAmazonUrl,
+  buildBWBUrl,
   loadAffiliateBooks,
   renderBookPurchaseLinks,
 } from '../../src/shared/affiliate-utils.js';

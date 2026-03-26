@@ -4,20 +4,19 @@
  * Two-tier affiliate link system:
  *   Tier 1 — Direct mentions (MANDATORY):
  *     Extract books/authors explicitly named in article content and Wikipedia deep dives.
- *     These MUST have affiliate links. Unresolved mentions are logged prominently
- *     and written to content/unresolved-mentions.json for expand-affiliate-map.ts.
+ *     ISBNs resolved via Open Library API (free, no key, no rate limits).
  *
  *   Tier 2 — Curated recommendations (supplementary):
  *     Short LLM call: title + summary → 1-3 book suggestions (title + author only).
- *     Deterministic ASIN lookup from curated content/affiliate-books.json.
+ *     ISBNs resolved via Open Library API.
  *
- * The LLM does NOT generate ASINs — only book titles and authors.
- * ASINs come exclusively from the curated mapping file.
+ * The LLM does NOT generate ISBNs — only book titles and authors.
+ * ISBNs come exclusively from the Open Library API.
  */
 
 import 'dotenv/config';
 import { Pool } from 'pg';
-import { readFile, writeFile } from 'fs/promises';
+import { readFile } from 'fs/promises';
 import { join } from 'path';
 import { generateText } from '../../src/wikipedia/ollama.js';
 import type { AffiliateLink } from '../../src/db/types.js';
@@ -29,142 +28,109 @@ const LIMIT = limitIdx >= 0 ? parseInt(args[limitIdx + 1], 10) : 30;
 const wikiOnly = args.includes('--wiki-only');
 const articlesOnly = args.includes('--articles-only');
 const resetMode = args.includes('--reset');
+// const useClaude = args.includes('--use-claude');
 
-// ── Book mapping ────────────────────────────────────────────────────
+// ── Open Library ISBN lookup ────────────────────────────────────────
 
-interface BookEntry {
-  title: string;
-  author: string;
-  asin: string;
-  category: string;
-  description: string;
-  gutenberg_url?: string;
-  archive_url?: string;
+interface OpenLibraryResult {
+  isbn10: string;
+  isbn13: string;
 }
 
-type BookMap = BookEntry[];
+// Cache to avoid repeated API calls within a single run
+const isbnCache = new Map<string, OpenLibraryResult | null>();
 
-async function loadBookMapFromDb(pool: Pool): Promise<BookMap | null> {
+async function lookupISBN(title: string, author: string): Promise<OpenLibraryResult | null> {
+  const cacheKey = `${title.toLowerCase()}|${author.toLowerCase()}`;
+  if (isbnCache.has(cacheKey)) {return isbnCache.get(cacheKey)!;}
+
   try {
-    const { rows } = await pool.query<{
-      title: string;
-      author: string;
-      asin: string;
-      category: string;
-      description: string | null;
-      gutenberg_url: string | null;
-      archive_url: string | null;
-    }>('SELECT title, author, asin, category, description, gutenberg_url, archive_url FROM app.affiliate_books');
+    const params = new URLSearchParams({
+      title,
+      author,
+      limit: '3',
+      fields: 'isbn,title,author_name',
+    });
+    const url = `https://openlibrary.org/search.json?${params}`;
+    const response = await fetch(url, { signal: AbortSignal.timeout(10_000) });
+    if (!response.ok) {
+      console.info(`    Open Library API error: ${response.status}`);
+      isbnCache.set(cacheKey, null);
+      return null;
+    }
 
-    return rows.map(row => ({
-      title: row.title,
-      author: row.author,
-      asin: row.asin,
-      category: row.category,
-      description: row.description ?? '',
-      gutenberg_url: row.gutenberg_url ?? undefined,
-      archive_url: row.archive_url ?? undefined,
-    }));
-  } catch {
+    const data = await response.json() as {
+      docs: Array<{ isbn?: string[]; title?: string; author_name?: string[] }>;
+    };
+
+    if (!data.docs || data.docs.length === 0) {
+      isbnCache.set(cacheKey, null);
+      return null;
+    }
+
+    // Find the first doc with ISBNs
+    for (const doc of data.docs) {
+      if (!doc.isbn || doc.isbn.length === 0) {continue;}
+
+      let isbn10 = '';
+      let isbn13 = '';
+      for (const isbn of doc.isbn) {
+        if (isbn.length === 10 && !isbn10) {isbn10 = isbn;}
+        if (isbn.length === 13 && !isbn13) {isbn13 = isbn;}
+        if (isbn10 && isbn13) {break;}
+      }
+
+      if (isbn10 || isbn13) {
+        const result = { isbn10, isbn13 };
+        isbnCache.set(cacheKey, result);
+        return result;
+      }
+    }
+
+    isbnCache.set(cacheKey, null);
+    return null;
+  } catch (err) {
+    console.info(`    Open Library lookup failed for "${title}": ${err instanceof Error ? err.message : String(err)}`);
+    isbnCache.set(cacheKey, null);
     return null;
   }
 }
 
-async function loadBookMapFromJson(): Promise<BookMap> {
-  const mapPath = join(process.cwd(), 'content', 'affiliate-books.json');
+// Also check the DB for previously resolved books
+async function lookupFromDb(pool: Pool, title: string, author: string): Promise<OpenLibraryResult | null> {
   try {
-    const raw = await readFile(mapPath, 'utf-8');
-    return JSON.parse(raw) as BookMap;
-  } catch {
-    console.info('Warning: content/affiliate-books.json not found or invalid');
-    return [];
-  }
-}
-
-/**
- * Look up a book suggestion in the curated map.
- * Tries exact match first, then fuzzy title-only match.
- */
-function lookupBook(
-  bookMap: BookMap,
-  title: string,
-  author: string
-): BookEntry | null {
-  // Exact match on title + author
-  const titleLower = title.toLowerCase().trim();
-  const authorLower = author.toLowerCase().trim();
-  const exact = bookMap.find(
-    b => b.title.toLowerCase().trim() === titleLower && b.author.toLowerCase().trim() === authorLower
-  );
-  if (exact) {
-    return exact;
-  }
-
-  // Fuzzy: case-insensitive match on title only
-  const byTitle = bookMap.find(b => b.title.toLowerCase().trim() === titleLower);
-  if (byTitle) {
-    return byTitle;
-  }
-
+    const { rows } = await pool.query<{ isbn10: string; isbn13: string }>(
+      'SELECT isbn10, isbn13 FROM app.affiliate_books WHERE lower(title) = lower($1) AND lower(author) = lower($2)',
+      [title, author]
+    );
+    if (rows.length > 0 && rows[0].isbn10) {
+      return { isbn10: rows[0].isbn10, isbn13: rows[0].isbn13 ?? '' };
+    }
+  } catch { /* table may not exist */ }
   return null;
 }
 
-/**
- * Look up any book by a given author in the curated map.
- * Returns the first match found.
- */
-function lookupAuthor(
-  bookMap: BookMap,
-  author: string
-): BookEntry | null {
-  const authorLower = author.toLowerCase().trim();
-  return bookMap.find(b => b.author.toLowerCase().trim() === authorLower) ?? null;
-}
+async function resolveISBN(pool: Pool, title: string, author: string): Promise<OpenLibraryResult | null> {
+  // Try DB first (cached from previous runs)
+  const dbResult = await lookupFromDb(pool, title, author);
+  if (dbResult) {return dbResult;}
 
-// ── Unresolved mentions tracking ────────────────────────────────────
+  // Fall back to Open Library API
+  const apiResult = await lookupISBN(title, author);
 
-interface UnresolvedEntry {
-  type: 'book_mention' | 'author_mention';
-  mentioned_in: string[];
-  first_seen: string;
-}
-
-type UnresolvedMap = Record<string, UnresolvedEntry>;
-
-async function loadUnresolvedMentions(): Promise<UnresolvedMap> {
-  const filePath = join(process.cwd(), 'content', 'unresolved-mentions.json');
-  try {
-    const raw = await readFile(filePath, 'utf-8');
-    return JSON.parse(raw) as UnresolvedMap;
-  } catch {
-    return {};
+  // Cache in DB for future runs
+  if (apiResult) {
+    try {
+      await pool.query(
+        `INSERT INTO app.affiliate_books (title, author, isbn10, isbn13, category, description)
+         VALUES ($1, $2, $3, $4, 'books', '')
+         ON CONFLICT (lower(title), lower(author)) DO UPDATE SET isbn10 = $3, isbn13 = $4`,
+        [title, author, apiResult.isbn10, apiResult.isbn13]
+      );
+    } catch { /* ignore constraint violations */ }
   }
-}
 
-async function saveUnresolvedMentions(data: UnresolvedMap): Promise<void> {
-  const filePath = join(process.cwd(), 'content', 'unresolved-mentions.json');
-  await writeFile(filePath, JSON.stringify(data, null, 2) + '\n', 'utf-8');
-}
-
-function addUnresolvedMention(
-  unresolved: UnresolvedMap,
-  title: string,
-  author: string,
-  mentionType: 'book_mention' | 'author_mention',
-  sourceRef: string
-): void {
-  const key = `${title}|${author}`;
-  if (unresolved[key]) {
-    if (!unresolved[key].mentioned_in.includes(sourceRef)) {
-      unresolved[key].mentioned_in.push(sourceRef);
-    }
-  } else {
-    unresolved[key] = {
-      type: mentionType,
-      mentioned_in: [sourceRef],
-      first_seen: new Date().toISOString(),
-    };
-  }
+  return apiResult;
 }
 
 // ── LLM: Direct mention extraction ─────────────────────────────────
@@ -272,51 +238,36 @@ function htmlToSummary(html: string, maxWords: number = 300): string {
 }
 
 /**
- * Process direct mentions: resolve against book map, log unresolved.
- * Returns resolved AffiliateLink[] and updates unresolved map in-place.
+ * Process direct mentions: resolve ISBNs via Open Library.
+ * Returns resolved AffiliateLink[].
  */
-function resolveDirectMentions(
+async function resolveDirectMentions(
+  pool: Pool,
   mentions: DirectMention[],
-  bookMap: BookMap,
-  unresolved: UnresolvedMap,
-  sourceRef: string
-): AffiliateLink[] {
+  _sourceRef: string
+): Promise<AffiliateLink[]> {
   const links: AffiliateLink[] = [];
-  const seenAsins = new Set<string>();
+  const seenIsbns = new Set<string>();
 
   for (const mention of mentions) {
     if (mention.type === 'book_mention' && mention.title) {
-      // Try to find the specific book
-      const match = lookupBook(bookMap, mention.title, mention.author);
-      if (match && !seenAsins.has(match.asin)) {
-        seenAsins.add(match.asin);
+      const isbns = await resolveISBN(pool, mention.title, mention.author);
+      if (isbns && !seenIsbns.has(isbns.isbn10 || isbns.isbn13)) {
+        seenIsbns.add(isbns.isbn10 || isbns.isbn13);
         links.push({
-          asin: match.asin,
-          title: match.title,
-          author: match.author,
-          description: match.description,
-          category: match.category,
+          isbn10: isbns.isbn10,
+          isbn13: isbns.isbn13,
+          title: mention.title,
+          author: mention.author,
+          description: '',
+          category: 'books',
         });
-      } else if (!match) {
-        console.info(`    MUST_RESOLVE: "${mention.title}" by ${mention.author} — direct mention, no ASIN in map`);
-        addUnresolvedMention(unresolved, mention.title, mention.author, 'book_mention', sourceRef);
+      } else if (!isbns) {
+        console.info(`    NO_ISBN: "${mention.title}" by ${mention.author} — not found on Open Library`);
       }
     } else if (mention.type === 'author_mention' && mention.author) {
-      // Try to find any book by this author
-      const match = lookupAuthor(bookMap, mention.author);
-      if (match && !seenAsins.has(match.asin)) {
-        seenAsins.add(match.asin);
-        links.push({
-          asin: match.asin,
-          title: match.title,
-          author: match.author,
-          description: match.description,
-          category: match.category,
-        });
-      } else if (!match) {
-        console.info(`    MUST_RESOLVE: author "${mention.author}" — direct mention, no ASIN in map`);
-        addUnresolvedMention(unresolved, '', mention.author, 'author_mention', sourceRef);
-      }
+      // For author-only mentions, we can't look up a specific book without a title
+      console.info(`    AUTHOR_ONLY: "${mention.author}" — skipping (no specific book title)`);
     }
   }
 
@@ -344,21 +295,7 @@ async function main(): Promise<void> {
     return;
   }
 
-  // Try loading from DB first, fall back to JSON
-  const dbBookMap = await loadBookMapFromDb(pool);
-  const bookMap = dbBookMap ?? await loadBookMapFromJson();
-  const bookCount = bookMap.length;
-  const bookSource = dbBookMap ? 'database' : 'affiliate-books.json';
-
-  if (bookCount === 0) {
-    console.info(`No books in ${bookSource} — nothing to match against`);
-    await pool.end();
-    return;
-  }
-
-  console.info(`Loaded ${bookCount} books from ${bookSource}`);
-
-  const unresolved = await loadUnresolvedMentions();
+  console.info('Using Open Library API for ISBN resolution');
 
   try {
     let articlesProcessed = 0;
@@ -429,28 +366,29 @@ async function main(): Promise<void> {
             await new Promise(r => setTimeout(r, 500));
           }
 
-          // Combine all direct mentions and resolve
+          // Combine all direct mentions and resolve via Open Library
           const allMentions = [...articleMentions, ...wikiMentions];
-          const directLinks = resolveDirectMentions(allMentions, bookMap, unresolved, articleRef);
+          const directLinks = await resolveDirectMentions(pool, allMentions, articleRef);
 
-          // ── Tier 2: Curated suggestions (existing logic) ───────
+          // ── Tier 2: Curated suggestions ───────────────────────
           const suggestions = await suggestBooks(article.title, summary);
 
-          const seenAsins = new Set(directLinks.map(l => l.asin));
+          const seenIsbns = new Set(directLinks.map(l => l.isbn10 || l.isbn13));
           const curatedLinks: AffiliateLink[] = [];
           const missed: string[] = [];
           for (const suggestion of suggestions) {
-            const match = lookupBook(bookMap, suggestion.title, suggestion.author);
-            if (match && !seenAsins.has(match.asin)) {
-              seenAsins.add(match.asin);
+            const isbns = await resolveISBN(pool, suggestion.title, suggestion.author);
+            if (isbns && !seenIsbns.has(isbns.isbn10 || isbns.isbn13)) {
+              seenIsbns.add(isbns.isbn10 || isbns.isbn13);
               curatedLinks.push({
-                asin: match.asin,
-                title: match.title,
-                author: match.author,
-                description: match.description,
-                category: match.category,
+                isbn10: isbns.isbn10,
+                isbn13: isbns.isbn13,
+                title: suggestion.title,
+                author: suggestion.author,
+                description: '',
+                category: 'books',
               });
-            } else if (!match) {
+            } else if (!isbns) {
               missed.push(`${suggestion.title} by ${suggestion.author}`);
             }
           }
@@ -468,10 +406,10 @@ async function main(): Promise<void> {
             const curatedCount = curatedLinks.length;
             console.info(`  [${articlesProcessed}] ${article.title} → ${links.length} books (${directCount} direct, ${curatedCount} curated): ${links.map(l => l.title).join(', ')}`);
           } else {
-            console.info(`  [${articlesProcessed}] ${article.title} → no matches in book map`);
+            console.info(`  [${articlesProcessed}] ${article.title} → no ISBNs found`);
           }
           if (missed.length > 0) {
-            console.info(`    Missing from map: ${missed.join('; ')}`);
+            console.info(`    Not on Open Library: ${missed.join('; ')}`);
           }
         } catch (err) {
           console.info(`  [${articlesProcessed}] Error: ${err instanceof Error ? err.message : String(err)}`);
@@ -509,24 +447,25 @@ async function main(): Promise<void> {
           // ── Tier 1: Direct mention extraction ──────────────────
           const wikiRef = `wikipedia:${wiki.id}`;
           const mentions = await extractDirectMentions(wiki.title, summary);
-          const directLinks = resolveDirectMentions(mentions, bookMap, unresolved, wikiRef);
+          const directLinks = await resolveDirectMentions(pool, mentions, wikiRef);
           console.info(`    Direct mentions: ${mentions.length}, resolved: ${directLinks.length}`);
 
           // ── Tier 2: Curated suggestions ────────────────────────
           const suggestions = await suggestBooks(wiki.title, summary);
 
-          const seenAsins = new Set(directLinks.map(l => l.asin));
+          const seenIsbns = new Set(directLinks.map(l => l.isbn10 || l.isbn13));
           const curatedLinks: AffiliateLink[] = [];
           for (const suggestion of suggestions) {
-            const match = lookupBook(bookMap, suggestion.title, suggestion.author);
-            if (match && !seenAsins.has(match.asin)) {
-              seenAsins.add(match.asin);
+            const isbns = await resolveISBN(pool, suggestion.title, suggestion.author);
+            if (isbns && !seenIsbns.has(isbns.isbn10 || isbns.isbn13)) {
+              seenIsbns.add(isbns.isbn10 || isbns.isbn13);
               curatedLinks.push({
-                asin: match.asin,
-                title: match.title,
-                author: match.author,
-                description: match.description,
-                category: match.category,
+                isbn10: isbns.isbn10,
+                isbn13: isbns.isbn13,
+                title: suggestion.title,
+                author: suggestion.author,
+                description: '',
+                category: 'books',
               });
             }
           }
@@ -549,13 +488,6 @@ async function main(): Promise<void> {
 
         await new Promise(r => setTimeout(r, 500));
       }
-    }
-
-    // ── Save unresolved mentions ────────────────────────────────
-    const unresolvedCount = Object.keys(unresolved).length;
-    if (unresolvedCount > 0) {
-      await saveUnresolvedMentions(unresolved);
-      console.info(`\nWrote ${unresolvedCount} unresolved mentions to content/unresolved-mentions.json`);
     }
 
     console.info(`\nDone: ${articlesUpdated}/${articlesProcessed} articles, ${wikiUpdated}/${wikiProcessed} wikipedia updated`);

@@ -1,24 +1,33 @@
 /**
  * Affiliate book utilities shared between the API server and static site generator.
  *
- * Moved here from tools/static-site/utils.ts so that both src/ (rootDir "src")
- * and tools/ can import them without violating TypeScript's rootDir constraint.
+ * Uses ISBN-10 for Amazon links and ISBN-13 for Better World Books links.
+ * ISBNs are resolved via the Open Library API at suggest time.
  */
 
 /**
- * Build an Amazon affiliate URL from ASIN and tag
+ * Build an Amazon affiliate URL from ISBN-10 and tag.
+ * Amazon product pages work with ISBN-10 via /dp/{isbn10}.
  */
-export function buildAmazonUrl(asin: string, tag: string): string {
-  return `https://www.amazon.com/dp/${encodeURIComponent(asin)}?tag=${encodeURIComponent(tag)}`;
+export function buildAmazonUrl(isbn10: string, tag: string): string {
+  return `https://www.amazon.com/dp/${encodeURIComponent(isbn10)}?tag=${encodeURIComponent(tag)}`;
 }
 
 /**
- * Affiliate book entry from content/affiliate-books.json (array format)
+ * Build a Better World Books URL from ISBN-13.
+ */
+export function buildBWBUrl(isbn13: string): string {
+  return `https://www.betterworldbooks.com/product/detail/${encodeURIComponent(isbn13)}`;
+}
+
+/**
+ * Affiliate book entry
  */
 export interface AffiliateBook {
   title: string;
   author: string;
-  asin: string;
+  isbn10: string;
+  isbn13: string;
   category: string;
   description: string;
   gutenberg_url?: string;
@@ -26,57 +35,32 @@ export interface AffiliateBook {
 }
 
 /**
- * Alias kept for backward compatibility — AffiliateBook now includes title/author directly.
+ * Alias kept for backward compatibility
  */
 export type ParsedAffiliateBook = AffiliateBook;
 
 /**
- * Load and parse the affiliate books array from content/affiliate-books.json.
- * Call once at the top of a generation run, not per-page.
+ * Load affiliate books from the database.
  * Returns a Map keyed by lowercase book title for fast lookup.
  */
-export async function loadAffiliateBooks(projectRoot: string): Promise<Map<string, ParsedAffiliateBook>> {
-  const { readFile } = await import('fs/promises');
-  const { join } = await import('path');
-  const filePath = join(projectRoot, 'content', 'affiliate-books.json');
-  try {
-    const raw = await readFile(filePath, 'utf-8');
-    const data = JSON.parse(raw) as AffiliateBook[];
-    const map = new Map<string, ParsedAffiliateBook>();
-    for (const entry of data) {
-      if (entry.title && entry.author) {
-        map.set(entry.title.toLowerCase(), entry);
-      }
-    }
-    return map;
-  } catch {
-    console.warn('Warning: Could not load affiliate-books.json');
-    return new Map();
-  }
-}
-
-/**
- * Load affiliate books from the database.
- * Returns the same Map<string, ParsedAffiliateBook> format as loadAffiliateBooks.
- * Use this when a database connection is available (private library, jobs).
- * Falls back gracefully if the table doesn't exist yet.
- */
-export async function loadAffiliateBooksFromDb(pool: import('pg').Pool): Promise<Map<string, ParsedAffiliateBook>> {
+export async function loadAffiliateBooks(pool: import('pg').Pool): Promise<Map<string, ParsedAffiliateBook>> {
   const map = new Map<string, ParsedAffiliateBook>();
   try {
     const { rows } = await pool.query<{
       title: string;
       author: string;
-      asin: string;
+      isbn10: string;
+      isbn13: string;
       category: string;
       description: string | null;
       gutenberg_url: string | null;
       archive_url: string | null;
-    }>('SELECT title, author, asin, category, description, gutenberg_url, archive_url FROM app.affiliate_books ORDER BY title');
+    }>('SELECT title, author, isbn10, isbn13, category, description, gutenberg_url, archive_url FROM app.affiliate_books ORDER BY title');
 
     for (const row of rows) {
       map.set(row.title.toLowerCase(), {
-        asin: row.asin,
+        isbn10: row.isbn10,
+        isbn13: row.isbn13,
         category: row.category,
         description: row.description ?? '',
         gutenberg_url: row.gutenberg_url ?? undefined,
@@ -93,12 +77,10 @@ export async function loadAffiliateBooksFromDb(pool: import('pg').Pool): Promise
 
 /**
  * Render purchase links footer for a Wikipedia page about a book.
- * Subtle: small text, no heading, just links.
- * Free sources first, paid second.
+ * Free sources first, then Amazon (affiliate) and Better World Books.
  */
 export function renderBookPurchaseLinks(book: ParsedAffiliateBook, affiliateTag: string): string {
   const items: string[] = [];
-  const searchQuery = encodeURIComponent(`${book.title} ${book.author}`);
 
   // Free sources first
   if (book.gutenberg_url) {
@@ -108,12 +90,13 @@ export function renderBookPurchaseLinks(book: ParsedAffiliateBook, affiliateTag:
     items.push(`<li><a href="${book.archive_url}" target="_blank" rel="noopener">Internet Archive (free)</a></li>`);
   }
 
-  // Paid sources
-  if (affiliateTag) {
-    items.push(`<li><a href="${buildAmazonUrl(book.asin, affiliateTag)}" target="_blank" rel="noopener sponsored">Amazon (ebook) <small class="affiliate-disclosure">affiliate</small></a></li>`);
+  // Paid sources: Amazon + Better World Books
+  if (affiliateTag && book.isbn10) {
+    items.push(`<li><a href="${buildAmazonUrl(book.isbn10, affiliateTag)}" target="_blank" rel="noopener sponsored">Amazon <small class="affiliate-disclosure">affiliate</small></a></li>`);
   }
-  items.push(`<li><a href="https://www.kobo.com/search?query=${searchQuery}" target="_blank" rel="noopener">Kobo (ebook)</a></li>`);
-  items.push(`<li><a href="https://www.betterworldbooks.com/search/results?q=${searchQuery}" target="_blank" rel="noopener">Better World Books</a></li>`);
+  if (book.isbn13) {
+    items.push(`<li><a href="${buildBWBUrl(book.isbn13)}" target="_blank" rel="noopener">Better World Books</a></li>`);
+  }
 
   return `
     <footer class="book-links">

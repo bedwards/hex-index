@@ -1,0 +1,8 @@
+Given this PostgreSQL schema, write a query to find the 5 most recent articles that have Wikipedia deep dives linked but no affiliate links yet.
+
+Schema (all tables in 'app' schema):
+- app.articles: id (serial), title (text), slug (text), published_at (timestamp), affiliate_links (jsonb, nullable), rewritten_content_path (text, nullable)
+- app.article_wikipedia_links: article_id (int FK), wikipedia_article_id (int FK)
+- app.wikipedia_articles: id (serial), title (text), status (text: 'stub' or 'complete')
+
+Return ONLY the SQL query, no explanation.

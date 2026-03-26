@@ -4,11 +4,10 @@
 
 import type { Pool } from 'pg';
 import { staticReadingLayout } from '../templates.js';
-import { writeFile, escapeHtml, renderBookPurchaseLinks, loadAffiliateBooks } from '../utils.js';
+import { writeFile, escapeHtml, renderBookPurchaseLinks, loadAffiliateBooks, buildAmazonUrl, buildBWBUrl } from '../utils.js';
 import type { ParsedAffiliateBook } from '../utils.js';
 import { join } from 'path';
 import { readFile } from 'fs/promises';
-import { buildAmazonUrl } from '../utils.js';
 
 interface WikipediaRow {
   id: string;
@@ -18,7 +17,7 @@ interface WikipediaRow {
   original_url: string;
   estimated_read_time_minutes: number;
   status: string;
-  affiliate_links: Array<{ asin: string; title: string; author: string; description: string }> | null;
+  affiliate_links: Array<{ isbn10: string; isbn13: string; title: string; author: string; description: string }> | null;
 }
 
 interface RelatedArticle {
@@ -119,11 +118,15 @@ function generateWikipediaPage(
   if (authorBooks.length > 0) {
     const bookItems = authorBooks
       .map((book) => {
-        const amazonUrl = affiliateTag ? buildAmazonUrl(book.asin, affiliateTag) : '';
-        const link = amazonUrl
-          ? `<a href="${amazonUrl}" target="_blank" rel="noopener">${escapeHtml(book.title)}</a>`
-          : escapeHtml(book.title);
-        return `<li>${link} &mdash; ${escapeHtml(book.description)} <small>Affiliate link</small></li>`;
+        const links: string[] = [];
+        if (affiliateTag && book.isbn10) {
+          links.push(`<a href="${buildAmazonUrl(book.isbn10, affiliateTag)}" target="_blank" rel="noopener sponsored">Amazon</a>`);
+        }
+        if (book.isbn13) {
+          links.push(`<a href="${buildBWBUrl(book.isbn13)}" target="_blank" rel="noopener">Better World Books</a>`);
+        }
+        const buyText = links.length > 0 ? ` — ${links.join(' · ')}` : '';
+        return `<li>${escapeHtml(book.title)}${buyText} — ${escapeHtml(book.description)}</li>`;
       })
       .join('\n          ');
 
@@ -222,7 +225,7 @@ export async function generateWikipediaPages(
   outputDir: string
 ): Promise<{ pagesGenerated: number }> {
   const wikiArticles = await getAllWikipediaArticles(pool);
-  const affiliateBooksMap = await loadAffiliateBooks(process.cwd());
+  const affiliateBooksMap = await loadAffiliateBooks(pool);
   let pagesGenerated = 0;
 
   for (const wiki of wikiArticles) {

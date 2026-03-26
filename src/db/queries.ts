@@ -366,11 +366,11 @@ export async function upsertAffiliateBook(
   book: UpsertAffiliateBookInput
 ): Promise<AffiliateBookRow> {
   const { rows } = await client.query<AffiliateBookRow>(
-    `INSERT INTO app.affiliate_books (title, author, asin, category, description, gutenberg_url, archive_url)
-     VALUES ($1, $2, $3, $4, $5, $6, $7)
-     ON CONFLICT (asin) DO UPDATE SET
-       title = EXCLUDED.title,
-       author = EXCLUDED.author,
+    `INSERT INTO app.affiliate_books (title, author, isbn10, isbn13, category, description, gutenberg_url, archive_url)
+     VALUES ($1, $2, $3, $4, $5, $6, $7, $8)
+     ON CONFLICT (lower(title), lower(author)) DO UPDATE SET
+       isbn10 = EXCLUDED.isbn10,
+       isbn13 = EXCLUDED.isbn13,
        category = EXCLUDED.category,
        description = EXCLUDED.description,
        gutenberg_url = EXCLUDED.gutenberg_url,
@@ -379,7 +379,8 @@ export async function upsertAffiliateBook(
     [
       book.title,
       book.author,
-      book.asin,
+      book.isbn10,
+      book.isbn13 ?? '',
       book.category ?? 'books',
       book.description ?? null,
       book.gutenberg_url ?? null,

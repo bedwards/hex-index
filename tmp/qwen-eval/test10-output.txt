@@ -1,0 +1,8 @@
+SELECT a.id, a.title, a.slug, a.published_at
+FROM app.articles a
+JOIN app.article_wikipedia_links awl ON a.id = awl.article_id
+LEFT JOIN app.articles a2 ON a2.id = a.id AND a2.affiliate_links IS NOT NULL
+WHERE a.affiliate_links IS NULL
+  AND awl.wikipedia_article_id IS NOT NULL
+ORDER BY a.published_at DESC
+LIMIT 5;
