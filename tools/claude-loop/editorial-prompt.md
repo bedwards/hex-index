@@ -131,13 +131,12 @@ This is lower priority than new content — only do this when Priorities 1-3 hav
 ## Priority 5: Site Verification
 
 
-**Do NOT deploy directly.** The auto-deploy service (`tools/cron/auto-deploy.sh`) runs every 30 minutes and is the ONLY thing that regenerates the static site and deploys to GitHub Pages. All other jobs (including this editorial loop) should only write to DB + `library/`.
+**Do NOT deploy directly.** Content deployment is handled by the Claude monitoring loop in ~/hex-index. It checks for new `library/` changes every 5 minutes, creates PRs with incremental `docs/` regeneration, and merges when checks pass. All other jobs (including this editorial loop) should only write to DB + `library/`.
 
 After making content changes:
-1. The auto-deploy service will pick up changes within 30 minutes
-2. For urgent deploys (e.g., Friday epub fixes), call `bash tools/cron/auto-deploy.sh` directly
-3. After deploy, verify the production site: `curl -s https://hex-index.com | head -20`
-4. Check the most recently changed article renders correctly
+1. The monitoring loop will detect `library/` changes within 5 minutes and create a deploy PR
+2. After deploy, verify the production site: `curl -s https://hex-index.com | head -20`
+3. Check the most recently changed article renders correctly
 
 ## Priority 6: Housekeeping
 

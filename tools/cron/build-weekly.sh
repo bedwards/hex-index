@@ -24,10 +24,9 @@ trap 'rm -f "$LOCK_FILE"; exec 9>&-' EXIT
 RUN_START=$(date +%s)
 log "=== Build Weekly Reader Edition (PID $$) ==="
 
-bash "$PROJECT_DIR/tools/cron/auto-deploy.sh" 2>&1 | tee -a "$LOG_FILE" || {
-    EC=$?
-    die "auto-deploy.sh failed (exit $EC)"
-}
+# Deployment is now handled by the Claude monitoring loop, which detects
+# library/ changes every 5 minutes and creates deploy PRs automatically.
+log "Skipping auto-deploy — deployment handled by Claude monitoring loop"
 
 RUN_E=$(( $(date +%s) - RUN_START ))
 log "=== Build Weekly complete ($(( RUN_E/60 ))m $(( RUN_E%60 ))s) ==="
