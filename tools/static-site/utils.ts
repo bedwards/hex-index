@@ -248,6 +248,35 @@ export {
 export type { AffiliateBook, ParsedAffiliateBook } from '../../src/shared/affiliate-utils.js';
 
 /**
+ * Clean YouTube transcript text by removing speech artifacts.
+ * Strips filler words, speaker markers, stuttered/repeated words,
+ * and normalizes whitespace. Designed for Speechify TTS readability.
+ */
+export function cleanTranscript(text: string): string {
+  return text
+    // Remove >> speaker change markers
+    .replace(/>>/g, '')
+    // Remove bracketed annotations like [Music], [Laughter], [Speaking in foreign language]
+    // Cap at 40 chars to avoid swallowing long bracket spans in non-transcript content
+    .replace(/\[[^\]]{1,40}\]/g, '')
+    // Remove standalone filler words (case-insensitive, word boundaries)
+    // Multi-word fillers first (uh huh before uh)
+    .replace(/\buh huh,?\s*/gi, '')
+    .replace(/\byou know,?\s*/gi, '')
+    .replace(/\bI mean,?\s*/gi, '')
+    // Single-word fillers: um, uh, ah, er (unambiguous fillers)
+    .replace(/\b(?:um|uh|ah|er),?\s*/gi, '')
+    // Collapse stuttered/repeated words: "the the the" → "the"
+    .replace(/\b(\w+)(?:\s+\1){1,}\b/gi, '$1')
+    // Clean up resulting double punctuation
+    .replace(/,\s*,/g, ',')
+    .replace(/\.\s*\./g, '.')
+    // Normalize whitespace
+    .replace(/\s+/g, ' ')
+    .trim();
+}
+
+/**
  * Slugify a string for use in URLs
  */
 export function slugify(text: string): string {
