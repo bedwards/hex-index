@@ -19,7 +19,7 @@ LOG_FILE="$PROJECT_DIR/logs/ingest-$(date +%Y%m%d-%H%M%S).log"
 LATEST_LOG="$PROJECT_DIR/logs/ingestion-latest.log"
 ENRICHMENT_TIMEOUT=18000  # 5 hours
 OLLAMA_URL="${OLLAMA_URL:-http://127.0.0.1:11434}"
-OLLAMA_MODEL="${OLLAMA_MODEL:-qwen3:235b-a22b}"
+OLLAMA_MODEL="${OLLAMA_MODEL:-qwen3.5:122b-a10b}"
 
 mkdir -p "$PROJECT_DIR/logs"
 cd "$PROJECT_DIR"

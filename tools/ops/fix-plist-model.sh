@@ -3,8 +3,8 @@
 # Run manually: bash tools/ops/fix-plist-model.sh
 set -euo pipefail
 
-WRONG_MODEL="qwen3:235b-a22b"
-RIGHT_MODEL="qwen3:235b-a22b"
+WRONG_MODEL="qwen3.5:122b-a10b"
+RIGHT_MODEL="qwen3.5:122b-a10b"
 PLIST_DIR="$HOME/Library/LaunchAgents"
 
 for plist in \
