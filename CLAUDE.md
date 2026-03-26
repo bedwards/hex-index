@@ -26,7 +26,7 @@ All code changes go through PRs with Claude and Gemini code reviews. Wait for re
 Main branch is protected:
 - Required checks: Lint & Type Check, Unit Tests
 - Claude review: **enabled** via `.github/workflows/claude-code-review.yml`
-- Gemini review: **enabled** via `.github/workflows/gemini-code-review.yml`
+- Gemini review: **enabled** via Gemini Code Assist GitHub App (no workflow needed)
 - `enforce_admins: true` — everyone goes through PRs, no exceptions
 - `strict: false` — branches do not need to be up to date with main before merge
 - Auto-merge enabled
