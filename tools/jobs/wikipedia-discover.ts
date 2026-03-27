@@ -64,6 +64,12 @@ interface TopicResult {
   reason: string;
 }
 
+interface LlmResponse {
+  topics?: TopicResult[];
+  existing_topic_reasons?: TopicResult[];
+  additional_topics?: TopicResult[];
+}
+
 // ── Main ────────────────────────────────────────────────────────────
 async function main(): Promise<void> {
   const dbUrl = process.env.DATABASE_URL;
@@ -245,11 +251,7 @@ ${articleLinkTopics.length > 0
           // Try to extract JSON object from the text
           const jsonMatch = cleaned.match(/\{[\s\S]*\}/);
           if (jsonMatch) {
-            const parsed = JSON.parse(jsonMatch[0]) as {
-              topics?: TopicResult[];
-              existing_topic_reasons?: TopicResult[];
-              additional_topics?: TopicResult[];
-            };
+            const parsed = JSON.parse(jsonMatch[0]) as LlmResponse;
             // Handle both response formats
             if (parsed.existing_topic_reasons) {
               for (const r of parsed.existing_topic_reasons) {
