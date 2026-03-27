@@ -15,6 +15,7 @@ import { createHmac } from 'crypto';
 import { readFileSync } from 'fs';
 import { join } from 'path';
 import twilio from 'twilio';
+import RestException from 'twilio/lib/base/RestException';
 import { Pool } from 'pg';
 
 // ── Secret loading ──────────────────────────────────────────────────
@@ -68,6 +69,125 @@ function normalizePhone(raw: unknown): string | null {
     return `+${digits}`;
   }
   return null;
+}
+
+// ── Twilio error handling ───────────────────────────────────────────
+
+/**
+ * Known permanent Twilio error codes that should not be retried.
+ * See https://www.twilio.com/docs/api/errors
+ */
+const PERMANENT_TWILIO_ERRORS: Record<number, string> = {
+  21211: 'Invalid phone number',
+  21214: 'Phone number not owned by account',
+  21217: 'Phone number not verified',
+  21408: 'Permission not granted to send to this country',
+  21610: 'Recipient opted out (STOP)',
+  21612: 'Message body too long',
+  21614: 'Not a valid mobile number',
+  30003: 'Unreachable destination handset',
+  30004: 'Message blocked',
+  30005: 'Unknown destination handset',
+  30006: 'Landline or unreachable carrier',
+  30007: 'Message filtered by carrier',
+  30008: 'Unknown error (permanent)',
+  30032: 'Toll-free number not verified',
+  30034: 'A2P 10DLC campaign not registered',
+};
+
+/**
+ * Transient Twilio error codes that are worth retrying.
+ */
+const TRANSIENT_TWILIO_ERRORS: Record<number, string> = {
+  20429: 'Rate limit exceeded',
+  20500: 'Twilio internal server error',
+  20503: 'Twilio service temporarily unavailable',
+  30001: 'Queue overflow (temporary)',
+  30009: 'Missing segment (temporary)',
+  30010: 'Message price exceeds max price',
+};
+
+const SMS_MAX_RETRIES = 3;
+
+interface SmsFailure {
+  phone: string;
+  name: string;
+  code: number | undefined;
+  description: string;
+  permanent: boolean;
+}
+
+function isTwilioRestException(err: unknown): err is RestException {
+  return err instanceof RestException;
+}
+
+function isTransientError(err: unknown): boolean {
+  if (isTwilioRestException(err)) {
+    // Check if it's a known transient error code
+    if (err.code !== undefined && err.code in TRANSIENT_TWILIO_ERRORS) {
+      return true;
+    }
+    // Treat 5xx HTTP status as transient
+    if (err.status >= 500) {
+      return true;
+    }
+    // If it's a known permanent error, definitely not transient
+    if (err.code !== undefined && err.code in PERMANENT_TWILIO_ERRORS) {
+      return false;
+    }
+  }
+  // Network errors are transient
+  if (err instanceof TypeError && 'cause' in err) {
+    return true;
+  }
+  if (err instanceof Error && /ECONNRESET|ETIMEDOUT|ECONNREFUSED|socket hang up/i.test(err.message)) {
+    return true;
+  }
+  return false;
+}
+
+function describeTwilioError(err: unknown): string {
+  if (isTwilioRestException(err)) {
+    const code = err.code;
+    if (code !== undefined) {
+      const permanent = PERMANENT_TWILIO_ERRORS[code];
+      if (permanent) { return `[${code}] ${permanent}`; }
+      const transient = TRANSIENT_TWILIO_ERRORS[code];
+      if (transient) { return `[${code}] ${transient}`; }
+      return `[${code}] ${err.message}`;
+    }
+    return `[HTTP ${err.status}] ${err.message}`;
+  }
+  return err instanceof Error ? err.message : String(err);
+}
+
+/**
+ * Send SMS with retry for transient errors and exponential backoff.
+ */
+async function sendSmsWithRetry(
+  twilioClient: ReturnType<typeof twilio>,
+  messagingServiceSid: string,
+  to: string,
+  body: string,
+): Promise<void> {
+  for (let attempt = 1; attempt <= SMS_MAX_RETRIES; attempt++) {
+    try {
+      await twilioClient.messages.create({
+        messagingServiceSid,
+        to,
+        body,
+      });
+      return;
+    } catch (err) {
+      if (attempt < SMS_MAX_RETRIES && isTransientError(err)) {
+        const delayMs = 1000 * 2 ** (attempt - 1); // 1s, 2s, 4s
+        console.warn(`  SMS attempt ${attempt}/${SMS_MAX_RETRIES} failed (transient): ${describeTwilioError(err)} — retrying in ${delayMs}ms`);
+        await new Promise(r => setTimeout(r, delayMs));
+        continue;
+      }
+      throw err;
+    }
+  }
 }
 
 // ── Fetch subscribers via authenticated Apps Script endpoint ────────
@@ -361,10 +481,12 @@ async function main(): Promise<void> {
     loadSecret('TWILIO_AUTH_TOKEN')
   );
 
+  const messagingServiceSid = loadSecret('TWILIO_MESSAGING_SERVICE_SID');
   const subject = `Hex Index Reader \u2014 Week of ${week.display}`;
   let emailsSent = 0;
   let smsSent = 0;
-  let errors = 0;
+  let emailErrors = 0;
+  const smsFailures: SmsFailure[] = [];
 
   for (const sub of subscribers) {
     // Send email
@@ -380,24 +502,30 @@ async function main(): Promise<void> {
         emailsSent++;
         console.info(`  Email sent: ${sub.name || sub.email}`);
       } catch (err) {
-        errors++;
+        emailErrors++;
         console.error(`  Email failed (${sub.email}): ${err instanceof Error ? err.message : String(err)}`);
       }
     }
 
-    // Send SMS via Twilio
+    // Send SMS via Twilio (with retry for transient errors)
     if (sub.phone) {
       try {
-        await twilioClient.messages.create({
-          messagingServiceSid: loadSecret('TWILIO_MESSAGING_SERVICE_SID'),
-          to: sub.phone,
-          body: buildSmsText(sub.email, topBook),
-        });
+        await sendSmsWithRetry(twilioClient, messagingServiceSid, sub.phone, buildSmsText(sub.email, topBook));
         smsSent++;
         console.info(`  SMS sent: ${sub.name || sub.phone}`);
       } catch (err) {
-        errors++;
-        console.error(`  SMS failed (${sub.phone}): ${err instanceof Error ? err.message : String(err)}`);
+        const code = isTwilioRestException(err) ? err.code : undefined;
+        const permanent = code !== undefined && code in PERMANENT_TWILIO_ERRORS;
+        const description = describeTwilioError(err);
+        smsFailures.push({
+          phone: sub.phone,
+          name: sub.name || sub.phone,
+          code,
+          description,
+          permanent,
+        });
+        const retryNote = permanent ? ' (permanent, skipped retry)' : ` (failed after ${SMS_MAX_RETRIES} attempts)`;
+        console.error(`  SMS failed (${sub.phone}): ${description}${retryNote}`);
       }
     }
 
@@ -406,7 +534,24 @@ async function main(): Promise<void> {
   }
 
   transport.close();
-  console.info(`\nDone: ${emailsSent} emails, ${smsSent} SMS, ${errors} errors`);
+
+  // Log summary
+  const totalErrors = emailErrors + smsFailures.length;
+  console.info(`\nDone: ${emailsSent} emails, ${smsSent} SMS, ${totalErrors} errors`);
+
+  if (smsFailures.length > 0) {
+    console.info(`\nSMS failure summary (${smsFailures.length} failed):`);
+    const byType = new Map<string, string[]>();
+    for (const f of smsFailures) {
+      const key = f.description;
+      const list = byType.get(key) ?? [];
+      list.push(f.name);
+      byType.set(key, list);
+    }
+    for (const [desc, names] of byType) {
+      console.info(`  ${desc}: ${names.join(', ')}`);
+    }
+  }
 }
 
 main().catch((err: unknown) => {
