@@ -45,7 +45,7 @@ function loadSecrets(): Secrets {
 interface Subscriber {
   name: string;
   email: string;
-  phone: string;
+  phone: string | null;
   carrier: string;
 }
 
@@ -77,7 +77,7 @@ async function fetchSubscribers(): Promise<Subscriber[]> {
     .map(s => ({
       name: '',
       email: s.email ?? '',
-      phone: s.phone ?? '',
+      phone: s.phone || null,
       carrier: (s.carrier ?? '').toLowerCase(),
     }));
 }
@@ -145,40 +145,75 @@ async function getWeeklyAffiliateBooks(weekLabel: string): Promise<AffiliateBook
 
   const pool = new Pool({ connectionString: dbUrl });
   try {
-    // Get top affiliate books from this week's consolidated entries
-    const { rows } = await pool.query<{
-      affiliate_links: Array<{asin: string; title: string; author: string; description: string}>;
-      article_ids: string[];
-    }>(`
-      SELECT affiliate_links, article_ids
+    // Try to get article IDs from weekly_consolidated first
+    const { rows: consolidatedRows } = await pool.query<{ article_ids: string[] }>(`
+      SELECT article_ids
       FROM app.weekly_consolidated
       WHERE week_label = $1
-        AND jsonb_array_length(affiliate_links) > 0
-      ORDER BY created_at
     `, [weekLabel]);
 
-    // Flatten, dedupe, and resolve article page URLs
+    let articleRows: Array<{ id: string; affiliate_links: Array<{asin: string; title: string; author: string; description: string}> }>;
+
+    if (consolidatedRows.length > 0) {
+      // Get affiliate links from the articles referenced by weekly_consolidated
+      const allArticleIds = consolidatedRows.flatMap(r => r.article_ids);
+      if (allArticleIds.length === 0) { return []; }
+
+      const { rows } = await pool.query<{
+        id: string;
+        affiliate_links: Array<{asin: string; title: string; author: string; description: string}>;
+      }>(`
+        SELECT id, affiliate_links
+        FROM app.articles
+        WHERE id = ANY($1)
+          AND jsonb_array_length(affiliate_links) > 0
+      `, [allArticleIds]);
+      articleRows = rows;
+    } else {
+      // Fallback: query articles directly for the week's date range
+      // Week label format: hex-index-YYYY-MM-DD (Friday date)
+      const match = weekLabel.match(/^hex-index-(\d{4})-(\d{2})-(\d{2})$/);
+      if (!match) { return []; }
+
+      const friday = new Date(Date.UTC(Number(match[1]), Number(match[2]) - 1, Number(match[3])));
+      const saturday = new Date(friday);
+      saturday.setUTCDate(friday.getUTCDate() - 6);
+
+      const { rows } = await pool.query<{
+        id: string;
+        affiliate_links: Array<{asin: string; title: string; author: string; description: string}>;
+      }>(`
+        SELECT id, affiliate_links
+        FROM app.articles
+        WHERE published_at >= $1
+          AND published_at < ($2::timestamptz + interval '1 day')
+          AND jsonb_array_length(affiliate_links) > 0
+        ORDER BY published_at DESC
+      `, [saturday.toISOString(), friday.toISOString()]);
+      articleRows = rows;
+    }
+
+    // Flatten, dedupe, and pick top 3
     const seen = new Set<string>();
     const results: AffiliateBook[] = [];
 
-    for (const row of rows) {
+    for (const row of articleRows) {
       for (const link of row.affiliate_links) {
         if (!seen.has(link.asin) && results.length < 3) {
-          const articleId = row.article_ids?.[0];
-          if (articleId) {
-            seen.add(link.asin);
-            results.push({
-              title: link.title,
-              author: link.author,
-              description: link.description,
-              articlePageUrl: `https://hex-index.com/article/${articleId}/index.html`,
-            });
-          }
+          seen.add(link.asin);
+          results.push({
+            title: link.title,
+            author: link.author,
+            description: link.description,
+            articlePageUrl: `https://hex-index.com/article/${row.id}/index.html`,
+          });
         }
       }
     }
 
     return results;
+  } catch {
+    return [];
   } finally {
     await pool.end();
   }
