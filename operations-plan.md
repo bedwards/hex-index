@@ -230,7 +230,7 @@ If stashes exist:
 ## 5. GPU Status Check
 
 ```bash
-/Users/bedwards/vibe/sea-gang/tools/svc ls
+$HOME/vibe/sea-gang/tools/svc ls
 ```
 
 - Verify the expected Qwen job is running (check even/odd hour schedule)
@@ -453,11 +453,11 @@ through Friday morning.
 ## Check: Is It Epub Season?
 
 ```bash
-day=$(date +%u)  # 1=Mon, 4=Thu, 5=Fri
+day=$(date +%a)  # Mon, Thu, Fri
 hour=$(date +%H)
-if [ "$day" = "4" ] && [ "$hour" -ge "22" ]; then
+if [ "$day" = "Thu" ] && [ "$hour" -ge "22" ]; then
   echo "ACTIVE: Thursday evening review window"
-elif [ "$day" = "5" ] && [ "$hour" -lt "7" ]; then
+elif [ "$day" = "Fri" ] && [ "$hour" -lt "7" ]; then
   echo "ACTIVE: Friday morning review window"
 else
   echo "INACTIVE: Not epub season. Sleeping."

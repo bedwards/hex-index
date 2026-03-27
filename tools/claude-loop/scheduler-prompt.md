@@ -13,7 +13,7 @@ Claude loops do the work themselves or spawn background Agent workers.
 ## Step 1: Check the Clock
 
 ```bash
-echo "Day: $(date +%u) Hour: $(date +%H) Minute: $(date +%M)"
+echo "Day: $(date +%a) Hour: $(date +%H) Minute: $(date +%M)"
 echo "Day name: $(date +%A)"
 ```
 

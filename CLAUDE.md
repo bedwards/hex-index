@@ -64,7 +64,7 @@ ALWAYS:
   every 5m: postgres-watchdog
 ```
 
-Services managed via `svc` at `/Users/bedwards/vibe/sea-gang/tools/svc`.
+Services managed via `svc` at `$HOME/vibe/sea-gang/tools/svc`.
 
 ### Pipeline Steps
 1. **Ingest**: Scrape Substack RSS + YouTube transcripts → Postgres
