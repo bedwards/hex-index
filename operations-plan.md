@@ -742,7 +742,23 @@ ln -sf ~/hex-index/.secrets .secrets
 
 1. Each clone stays on main and uses worktrees for changes
 2. Worktrees target narrow, specific files
-3. If a PR has merge conflicts, ops loop rebases: `gh pr checkout <n> && git rebase main && git push -f`
+3. If a PR has merge conflicts, the ops loop attempts a rebase:
+   ```bash
+   gh pr checkout <n> && git rebase main
+   ```
+   - If the rebase **succeeds** (no conflicts), push with lease protection:
+     ```bash
+     git push --force-with-lease
+     ```
+   - If the rebase **fails** (conflict markers), abort immediately and file an issue:
+     ```bash
+     git rebase --abort
+     npm run gh:issue -- --title "Rebase conflict on PR #<n>" \
+       --labels "bug,ops-loop" \
+       --body "Automated rebase of PR #<n> onto main failed with conflicts. Requires manual resolution."
+     ```
+   - **Never use `git push -f` or `git push --force`** — always use `git push --force-with-lease` to avoid overwriting concurrent work.
+   - **Never force-push without human confirmation** when running inside the ops loop. If the push is non-trivial (e.g., rewriting history beyond a simple rebase), notify via Discord and wait for Brian to approve before proceeding.
 4. Branch protection's `strict: true` ensures PRs are up-to-date before merge
 
 ### Lost Work
