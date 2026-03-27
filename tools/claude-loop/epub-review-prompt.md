@@ -65,6 +65,31 @@ Do not push directly to main. All changes go through PRs.
 echo "$(basename "$LATEST_EPUB")" >> tools/claude-loop/.epub-reviewed
 ```
 
+## Content Scoring (REQUIRED)
+
+Every time you evaluate content, score it 0-100 and log to the database:
+
+| Score | Meaning |
+|-------|---------|
+| 90-100 | Publication ready. Strong voice, direct quotes, counterpoints, clean formatting |
+| 80-89 | Good but minor issues. Missing a counterpoint, weak Bottom Line, could be tighter |
+| 70-79 | Acceptable but needs work. Summary-style instead of commentary, few quotes |
+| 50-69 | Below standard. Missing sections, weak voice, formatting issues |
+| 0-49 | Reject. Refusal text, garbled output, think tags, completely off-topic |
+
+After reviewing each piece of content, INSERT an audit record:
+
+```sql
+INSERT INTO app.content_audits (content_type, content_id, audited_by, score_before, score_after, issues_found, changes_made, notes)
+VALUES ('article', '<id>', 'claude-epub', <score_before>, <score_after>, ARRAY['issue1', 'issue2'], ARRAY['change1'], 'notes');
+```
+
+- `score_before`: Score when you first read the content
+- `score_after`: Score after your improvements (NULL if you made no changes)
+- `issues_found`: Specific problems detected (e.g., 'llm_artifacts', 'encoding_issues', 'missing_headings', 'duplicate_paragraphs', 'too_short')
+- `changes_made`: What you fixed (e.g., 'marked_dirty', 'regenerated_page')
+- Always log an audit record for every article in the epub
+
 ## Important
 - The first draft epub goes live immediately when build-weekly runs Thursday night
 - Your improved version replaces it on the live site

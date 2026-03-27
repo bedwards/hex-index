@@ -45,6 +45,31 @@ UPDATE app.articles SET rewrite_dirty = true WHERE id = '{id}';
 UPDATE app.wikipedia_articles SET rewrite_dirty = true, status = 'stub' WHERE id = '{id}';
 ```
 
+## Content Scoring (REQUIRED)
+
+Every time you evaluate content, score it 0-100 and log to the database:
+
+| Score | Meaning |
+|-------|---------|
+| 90-100 | Publication ready. Strong voice, direct quotes, counterpoints, clean formatting |
+| 80-89 | Good but minor issues. Missing a counterpoint, weak Bottom Line, could be tighter |
+| 70-79 | Acceptable but needs work. Summary-style instead of commentary, few quotes |
+| 50-69 | Below standard. Missing sections, weak voice, formatting issues |
+| 0-49 | Reject. Refusal text, garbled output, think tags, completely off-topic |
+
+After reviewing each piece of content, INSERT an audit record:
+
+```sql
+INSERT INTO app.content_audits (content_type, content_id, audited_by, score_before, score_after, issues_found, changes_made, notes)
+VALUES ('article', '<id>', 'claude-quality', <score_before>, <score_after>, ARRAY['issue1', 'issue2'], ARRAY['change1'], 'notes');
+```
+
+- `score_before`: Score when you first read the content
+- `score_after`: Score after marking dirty or NULL if no action taken
+- `issues_found`: Specific problems detected (e.g., 'refusal_text', 'think_tags', 'mojibake', 'repeated_paragraphs', 'too_short', 'no_headings')
+- `changes_made`: What you fixed (e.g., 'marked_dirty', 'logged_warning')
+- Always log an audit record for every piece of content checked
+
 ## Step 4: Report
 
 Print a summary:
