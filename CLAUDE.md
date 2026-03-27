@@ -80,6 +80,48 @@ Services managed via `svc` at `/Users/bedwards/vibe/sea-gang/tools/svc`.
 ### Image Generation
 Gemini 2.5 Flash API. Key in `~/.config/.env` (GEMINI_API_KEY). ImageMagick post-processing for vignettes.
 
+### SMS & Email Delivery (send-weekly)
+Weekly Reader delivery uses Gmail SMTP for email and **Twilio** for SMS.
+
+**Twilio setup:**
+- **Account**: "My first Twilio account"
+- **Messaging Service**: "My New Notifications Service" (SID: `MG8d926dbb81d6988465a92c44b7bc1e5f`)
+- **Phone numbers**:
+  - `+1 855 588 0323` — Toll-free (verification in progress, do NOT rely on for sending until verified)
+  - `+1 737 299 0186` — Local (Lampasas, TX), named "Hex Index Notifications"
+- **Sender pool**: The Messaging Service sender pool determines which number sends texts. Check/manage at: Twilio Console → Messaging → Services → My New Notifications Service → Sender Pool
+- **Secrets** in `~/.config/.env`: `TWILIO_ACCOUNT_SID`, `TWILIO_AUTH_TOKEN`, `TWILIO_MESSAGING_SERVICE_SID`
+- **Cost**: ~$3.15/mo for both numbers + ~$0.008/outbound SMS
+
+**Current status (2026-03-27)**: SMS is blocked. Neither number can send yet:
+- Toll-free (`855`): **Toll-free verification IN_REVIEW** (SID: `HH9e90ce11ef1de07a070e693611d4f172`, submitted 2026-03-27). Error 30032 until approved. 1-3 business days.
+- Local (`737`): **Needs A2P 10DLC campaign registration**. Error 30034 without it. See issue #388.
+- Only the toll-free is currently in the Messaging Service sender pool.
+- Emails work fine — only SMS is affected.
+
+**Long-term plan**: Local number is the target. Steps:
+1. Register brand + A2P 10DLC campaign for local number (#388)
+2. Add local number to Messaging Service sender pool (#389)
+3. Remove/release toll-free to save $2/mo (#390)
+4. Add retry logic and error differentiation to send-weekly (#391)
+
+**Check status via CLI**:
+```bash
+# Toll-free verification status
+source ~/.config/.env && curl -s -u "$TWILIO_ACCOUNT_SID:$TWILIO_AUTH_TOKEN" \
+  "https://messaging.twilio.com/v1/Tollfree/Verifications/HH9e90ce11ef1de07a070e693611d4f172" \
+  | python3 -c "import sys,json; d=json.load(sys.stdin); print(f'Status: {d[\"status\"]}')"
+
+# List phone numbers
+twilio phone-numbers:list
+
+# List messaging services
+twilio api:messaging:v1:services:list
+```
+Twilio CLI profile: `hex-index` (already configured).
+
+**Subscriber list**: Managed externally in Google Sheet, fetched via authenticated Apps Script endpoint. Token: `SUBSCRIBER_TOKEN` in `~/.config/.env`.
+
 ## Two-Site Architecture
 
 **Do not confuse the two sites. Do not regress either.**
