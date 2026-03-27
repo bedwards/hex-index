@@ -140,12 +140,13 @@ function getWeekRange(date: Date): WeekRange {
 function getWeeksToGenerate(maxWeeks: number): WeekRange[] {
   const weeks: WeekRange[] = [];
   const now = new Date();
+  const PREVIEW_WINDOW_MS = 32 * 60 * 60 * 1000; // 32 hours before cutoff
   for (let i = 0; i < maxWeeks; i++) {
     const d = new Date(now);
     d.setUTCDate(d.getUTCDate() - i * 7);
     const week = getWeekRange(d);
-    // Only include if we're past the Friday 12:30 UTC cutoff
-    if (now >= week.end) {
+    // Include if past cutoff, or within preview window (allows Thursday night editorial review)
+    if (now >= week.end || (week.end.getTime() - now.getTime()) <= PREVIEW_WINDOW_MS) {
       weeks.push(week);
     }
   }
