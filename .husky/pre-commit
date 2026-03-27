@@ -117,8 +117,20 @@ NEED_FULL_REGEN=false
 NEED_REGEN=false
 
 if [ -n "$STAGED_ALL" ]; then
-    # Any static-site TypeScript file → full regen (resilient to new files)
-    if echo "$STAGED_ALL" | grep -qE '^tools/static-site/.*\.ts$'; then
+    # Any static-site TypeScript source file → full regen (excludes test files)
+    if echo "$STAGED_ALL" | grep -E '^tools/static-site/.*\.ts$' | grep -qvE '\.test\.ts$'; then
+        NEED_FULL_REGEN=true
+        NEED_REGEN=true
+    fi
+
+    # DB queries file affects static site output
+    if echo "$STAGED_ALL" | grep -qE '^src/db/queries\.ts$'; then
+        NEED_FULL_REGEN=true
+        NEED_REGEN=true
+    fi
+
+    # package.json version is read by templates at generation time
+    if echo "$STAGED_ALL" | grep -qE '^package\.json$'; then
         NEED_FULL_REGEN=true
         NEED_REGEN=true
     fi
