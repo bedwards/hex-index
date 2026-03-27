@@ -1,9 +1,13 @@
-#!/bin/sh
+#!/bin/bash
 # Start all Claude loops in separate tmux sessions
 # Usage: bash tools/ops/claude-all-hex-index
 set -eu
 
 CLONES="$HOME/vibe/hex-index-clones"
+SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
+
+# shellcheck source=tools/ops/sync-clone.sh
+source "$SCRIPT_DIR/sync-clone.sh"
 
 start_loop() {
   local name=$1
@@ -17,9 +21,7 @@ start_loop() {
   tmux kill-session -t "$name" 2>/dev/null || true
 
   # Update clone
-  cd "$CLONES/$clone"
-  git checkout main 2>/dev/null
-  git pull --ff-only origin main
+  sync_clone "$CLONES/$clone"
   npm ci --silent 2>/dev/null
 
   # Start session
