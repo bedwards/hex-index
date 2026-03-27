@@ -192,6 +192,10 @@ function generateArticlePage(
         titleLink = `<a href="${buildAmazonUrl(b.isbn10, affiliateTag)}" target="_blank" rel="noopener">
           <strong>${escapeHtml(b.title)}</strong>
         </a>`;
+      } else if (b.isbn13) {
+        titleLink = `<a href="${buildBWBUrl(b.isbn13)}" target="_blank" rel="noopener">
+          <strong>${escapeHtml(b.title)}</strong>
+        </a>`;
       } else {
         titleLink = `<strong>${escapeHtml(b.title)}</strong>`;
       }
