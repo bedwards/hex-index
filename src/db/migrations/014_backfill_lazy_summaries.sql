@@ -6,10 +6,10 @@
 -- The underlying wikipedia_articles are kept (they'll be reused via ON CONFLICT).
 
 DELETE FROM app.article_wikipedia_links
-WHERE topic_summary IN (
-  'Referenced in the article',
-  'Referenced in the article.',
-  'Mentioned in the article',
-  'Mentioned in the article.',
-  'Related topic'
+WHERE TRIM(LOWER(topic_summary)) IN (
+  'referenced in the article',
+  'referenced in the article.',
+  'mentioned in the article',
+  'mentioned in the article.',
+  'related topic'
 );
