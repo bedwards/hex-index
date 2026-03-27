@@ -1,8 +1,9 @@
-#!/bin/sh
+#!/bin/bash
 set -eux
-cd ~/vibe/hex-index-clones/claude-editorial
-git checkout main
-git pull --ff-only origin main
+SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
+# shellcheck source=tools/ops/sync-clone.sh
+source "$SCRIPT_DIR/sync-clone.sh"
+sync_clone ~/vibe/hex-index-clones/claude-editorial
 npm ci --silent
 tmux new-session -d -s claude-editorial -c ~/vibe/hex-index-clones/claude-editorial
 tmux send-keys -t claude-editorial "claude --dangerously-skip-permissions" Enter
