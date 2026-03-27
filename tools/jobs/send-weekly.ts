@@ -145,16 +145,19 @@ async function getWeeklyAffiliateBooks(weekLabel: string): Promise<AffiliateBook
 
   const pool = new Pool({ connectionString: dbUrl });
   try {
-    // Get top affiliate books from this week's consolidated entries
+    // Get affiliate books from articles included in this week's consolidated entries
     const { rows } = await pool.query<{
       affiliate_links: Array<{asin: string; title: string; author: string; description: string}>;
-      article_ids: string[];
+      article_id: string;
     }>(`
-      SELECT affiliate_links, article_ids
-      FROM app.weekly_consolidated
-      WHERE week_label = $1
-        AND jsonb_array_length(affiliate_links) > 0
-      ORDER BY created_at
+      SELECT a.affiliate_links, a.id AS article_id
+      FROM app.weekly_consolidated wc,
+           unnest(wc.article_ids) AS aid(id)
+      JOIN app.articles a ON a.id = aid.id
+      WHERE wc.week_label = $1
+        AND a.affiliate_links IS NOT NULL
+        AND jsonb_array_length(a.affiliate_links) > 0
+      ORDER BY wc.created_at
     `, [weekLabel]);
 
     // Flatten, dedupe, and resolve article page URLs
@@ -164,16 +167,13 @@ async function getWeeklyAffiliateBooks(weekLabel: string): Promise<AffiliateBook
     for (const row of rows) {
       for (const link of row.affiliate_links) {
         if (!seen.has(link.asin) && results.length < 3) {
-          const articleId = row.article_ids?.[0];
-          if (articleId) {
-            seen.add(link.asin);
-            results.push({
-              title: link.title,
-              author: link.author,
-              description: link.description,
-              articlePageUrl: `https://hex-index.com/article/${articleId}/index.html`,
-            });
-          }
+          seen.add(link.asin);
+          results.push({
+            title: link.title,
+            author: link.author,
+            description: link.description,
+            articlePageUrl: `https://hex-index.com/article/${row.article_id}/index.html`,
+          });
         }
       }
     }
