@@ -117,10 +117,19 @@ NEED_FULL_REGEN=false
 NEED_REGEN=false
 
 if [ -n "$STAGED_ALL" ]; then
-    # Any static-site TypeScript file → full regen (resilient to new files)
-    if echo "$STAGED_ALL" | grep -qE '^tools/static-site/.*\.ts$'; then
+    # Any static-site source file (excluding tests) → full regen
+    if echo "$STAGED_ALL" | grep -qE '^tools/static-site/.*\.ts$' && \
+       echo "$STAGED_ALL" | grep -E '^tools/static-site/.*\.ts$' | grep -qvE '\.test\.ts$'; then
         NEED_FULL_REGEN=true
         NEED_REGEN=true
+    fi
+
+    if [ "$NEED_FULL_REGEN" = false ]; then
+        # DB queries used by the static site generator
+        if echo "$STAGED_ALL" | grep -qE '^src/db/queries\.ts$'; then
+            NEED_FULL_REGEN=true
+            NEED_REGEN=true
+        fi
     fi
 
     if [ "$NEED_FULL_REGEN" = false ]; then
@@ -129,8 +138,12 @@ if [ -n "$STAGED_ALL" ]; then
             STATIC_ONLY_FLAGS="${STATIC_ONLY_FLAGS},articles,wikipedia"
             NEED_REGEN=true
         fi
-        if echo "$STAGED_ALL" | grep -qE '^docs/styles\.css$|^src/public/styles\.css$'; then
+        if echo "$STAGED_ALL" | grep -qE '^public/styles\.css$|^docs/styles\.css$|^src/public/styles\.css$'; then
             STATIC_ONLY_FLAGS="${STATIC_ONLY_FLAGS},assets"
+            NEED_REGEN=true
+        fi
+        if echo "$STAGED_ALL" | grep -qE '^package\.json$'; then
+            STATIC_ONLY_FLAGS="${STATIC_ONLY_FLAGS},home,about"
             NEED_REGEN=true
         fi
         # Remove leading comma and deduplicate
