@@ -18,7 +18,7 @@ import { parseArgs } from 'util';
 import { Pool } from 'pg';
 import { readdir, readFile } from 'fs/promises';
 import { join, dirname } from 'path';
-import { existsSync } from 'fs';
+import { access } from 'fs/promises';
 import { fileURLToPath } from 'url';
 import {
   createArticle,
@@ -176,7 +176,9 @@ async function main(): Promise<void> {
 
   for (const slug of slugs) {
     const pubDir = join(LIBRARY_DIR, slug);
-    if (!existsSync(pubDir)) {
+    try {
+      await access(pubDir);
+    } catch {
       console.error(`  Directory not found: library/${slug}/`);
       totalErrored++;
       continue;
@@ -242,22 +244,35 @@ async function main(): Promise<void> {
       let readTime: number | undefined;
 
       // Try reading .md frontmatter first
-      if (existsSync(mdPath)) {
+      let mdExists = false;
+      try {
+        await access(mdPath);
+        mdExists = true;
+      } catch {
+        // no .md file
+      }
+      if (mdExists) {
         try {
           const mdContent = await readFile(mdPath, 'utf-8');
           const fm = parseFrontmatter(mdContent);
           if (fm) {
-            title = (fm.title as string) || null;
-            originalUrl = (fm.source_url as string) || null;
-            authorName = (fm.author as string) || undefined;
-            if (fm.published_at) {
-              publishedAt = new Date(fm.published_at as string);
+            if (typeof fm.title === 'string' && fm.title) {
+              title = fm.title;
             }
-            if (fm.word_count) {
-              wordCount = fm.word_count as number;
+            if (typeof fm.source_url === 'string' && fm.source_url) {
+              originalUrl = fm.source_url;
             }
-            if (fm.estimated_read_time) {
-              readTime = fm.estimated_read_time as number;
+            if (typeof fm.author === 'string' && fm.author) {
+              authorName = fm.author;
+            }
+            if (typeof fm.published_at === 'string' && fm.published_at) {
+              publishedAt = new Date(fm.published_at);
+            }
+            if (typeof fm.word_count === 'number' && fm.word_count > 0) {
+              wordCount = fm.word_count;
+            }
+            if (typeof fm.estimated_read_time === 'number' && fm.estimated_read_time > 0) {
+              readTime = fm.estimated_read_time;
             }
           }
         } catch {
@@ -306,10 +321,22 @@ async function main(): Promise<void> {
 
       // Check for full-text and rewritten paths
       const fullTextPath = join(FULL_TEXT_DIR, slug, file);
-      const fullContentPath = existsSync(fullTextPath) ? `full-text/${slug}/${articleSlug}.html` : undefined;
+      let fullContentPath: string | undefined;
+      try {
+        await access(fullTextPath);
+        fullContentPath = `full-text/${slug}/${articleSlug}.html`;
+      } catch {
+        // no full-text file
+      }
 
       const rewrittenPath = join(REWRITTEN_DIR, slug, file);
-      const rewrittenContentPath = existsSync(rewrittenPath) ? `rewritten/${slug}/${articleSlug}.html` : undefined;
+      let rewrittenContentPath: string | undefined;
+      try {
+        await access(rewrittenPath);
+        rewrittenContentPath = `rewritten/${slug}/${articleSlug}.html`;
+      } catch {
+        // no rewritten file
+      }
 
       if (dryRun) {
         console.info(`  DRY-RUN would create: ${articleSlug}`);
@@ -348,14 +375,15 @@ async function main(): Promise<void> {
           console.info(`  CREATED ${articleSlug} (${wordCount ?? '?'} words)`);
         }
       } catch (err) {
-        const msg = err instanceof Error ? err.message : String(err);
-        // Handle unique constraint on original_url
-        if (msg.includes('unique') || msg.includes('duplicate')) {
+        // Handle unique constraint violation (Postgres error code 23505)
+        const pgErr = err as { code?: string; message?: string };
+        if (pgErr.code === '23505') {
           if (verbose) {
             console.info(`  SKIP ${articleSlug} (duplicate URL)`);
           }
           skipped++;
         } else {
+          const msg = err instanceof Error ? err.message : String(err);
           console.error(`  ERROR creating ${articleSlug}: ${msg}`);
           errored++;
         }
