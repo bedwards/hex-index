@@ -14,7 +14,7 @@ gh pr list --state open --json number,title,statusCheckRollup,reviews,createdAt,
 ```
 
 For each open PR:
-- **All checks green, no unresolved reviews** --> merge it: `gh pr merge --squash <number>`
+- **All checks green, no unresolved reviews** --> merge it: `gh pr merge --auto --squash <number>`
 - **Checks failing** --> read the failure, fix it in a worktree, push to the PR branch
 - **Claude/Gemini review feedback** --> read it: `npx tsx tools/github/pr-comments.ts --pr <number> --claude` and `gh api repos/bedwards/hex-index/pulls/<number>/comments --jq '.[] | select(.user.login | contains("gemini")) | {path: .path, body: .body[0:300]}'`
   - Security issues or critical bugs: fix immediately
