@@ -232,7 +232,8 @@ async function getWeeklyAffiliateBooks(weekLabel: string): Promise<AffiliateBook
     }
 
     return results;
-  } catch {
+  } catch (err) {
+    console.error(`Failed to fetch affiliate books for week ${weekLabel}: ${err instanceof Error ? err.message : String(err)}`);
     return [];
   } finally {
     await pool.end();
