@@ -154,6 +154,7 @@ function generateArticlePage(
   contentHtml: string,
   wikipediaLinks: WikipediaLink[],
   bookDeepDives: BookDeepDive[],
+  affiliateTag: string,
   isFullRewrite: boolean = false,
   excerptHtml: string = ''
 ): string {
@@ -178,26 +179,19 @@ function generateArticlePage(
     )
     .join('\n');
 
-  const affiliateTag = process.env.AMAZON_AFFILIATE_TAG ?? '';
-
   const bookItems = bookDeepDives
     .map((b) => {
+      const titleHtml = `<strong>${escapeHtml(b.title)}</strong>`;
       let titleLink: string;
       const buyLinks: string[] = [];
       if (b.wikiSlug) {
-        titleLink = `<a href="${pathToRoot}wikipedia/${b.wikiSlug}/index.html">
-          <strong>${escapeHtml(b.title)}</strong>
-        </a>`;
+        titleLink = `<a href="${pathToRoot}wikipedia/${b.wikiSlug}/index.html">${titleHtml}</a>`;
       } else if (b.isbn10 && affiliateTag) {
-        titleLink = `<a href="${buildAmazonUrl(b.isbn10, affiliateTag)}" target="_blank" rel="noopener">
-          <strong>${escapeHtml(b.title)}</strong>
-        </a>`;
+        titleLink = `<a href="${buildAmazonUrl(b.isbn10, affiliateTag)}" target="_blank" rel="noopener">${titleHtml}</a>`;
       } else if (b.isbn13) {
-        titleLink = `<a href="${buildBWBUrl(b.isbn13)}" target="_blank" rel="noopener">
-          <strong>${escapeHtml(b.title)}</strong>
-        </a>`;
+        titleLink = `<a href="${buildBWBUrl(b.isbn13)}" target="_blank" rel="noopener">${titleHtml}</a>`;
       } else {
-        titleLink = `<strong>${escapeHtml(b.title)}</strong>`;
+        titleLink = titleHtml;
       }
       if (b.isbn10 && affiliateTag) {
         buyLinks.push(`<a href="${buildAmazonUrl(b.isbn10, affiliateTag)}" target="_blank" rel="noopener sponsored" class="buy-link">Amazon</a>`);
@@ -345,6 +339,7 @@ export async function generateArticlePages(
   const allArticles = await getAllArticles(pool);
   const articles = articleId ? allArticles.filter(a => a.id === articleId) : allArticles;
   const affiliateBooksMap = await loadAffiliateBooks(pool);
+  const affiliateTag = process.env.AMAZON_AFFILIATE_TAG ?? '';
   let pagesGenerated = 0;
 
   for (const article of articles) {
@@ -383,7 +378,7 @@ export async function generateArticlePages(
       });
     }
 
-    const html = generateArticlePage(article, displayContent, wikipediaLinks, bookDeepDives, hasRewrite, hasRewrite ? excerpt : '');
+    const html = generateArticlePage(article, displayContent, wikipediaLinks, bookDeepDives, affiliateTag, hasRewrite, hasRewrite ? excerpt : '');
     const filePath = join(outputDir, 'article', article.id, 'index.html');
 
     await writeFile(filePath, html);
