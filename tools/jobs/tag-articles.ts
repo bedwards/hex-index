@@ -128,9 +128,9 @@ Return ONLY tags scoring 30+. Output valid JSON, no explanation:
 
           try {
             await pool.query(
-              `INSERT INTO app.article_tags (article_id, tag_slug, score, tagged_by)
+              `INSERT INTO app.article_tags (article_id, tag_slug, score, tag_model)
                VALUES ($1, $2, $3, $4)
-               ON CONFLICT (article_id, tag_slug) DO UPDATE SET score = EXCLUDED.score, tagged_by = EXCLUDED.tagged_by`,
+               ON CONFLICT (article_id, tag_slug) DO UPDATE SET score = EXCLUDED.score, tag_model = EXCLUDED.tag_model`,
               [article.id, ts.slug, ts.score, modelName]
             );
             inserted++;

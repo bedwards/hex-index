@@ -378,12 +378,12 @@ ${articleLinkTopics.length > 0
             // Link to article
             await pool.query(`
               INSERT INTO app.article_wikipedia_links (
-                article_id, wikipedia_id, relevance_rank, topic_summary, discovered_by
+                article_id, wikipedia_id, relevance_rank, topic_summary, discover_model
               ) VALUES ($1, $2, $3, $4, $5)
               ON CONFLICT (article_id, relevance_rank) DO UPDATE SET
                 wikipedia_id = EXCLUDED.wikipedia_id,
                 topic_summary = EXCLUDED.topic_summary,
-                discovered_by = EXCLUDED.discovered_by
+                discover_model = EXCLUDED.discover_model
             `, [article.id, wikiId, rank, vt.reason, DISCOVER_MODEL]);
             rank++;
           } catch (err) {
