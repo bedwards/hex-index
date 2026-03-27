@@ -49,7 +49,8 @@ function topicSortKey(slug: string): number {
 // ── Types ──────────────────────────────────────────────────────────
 
 interface AffiliateLink {
-  asin: string;
+  isbn10: string;
+  isbn13?: string;
   title: string;
   author: string;
   description: string;
@@ -600,12 +601,14 @@ ${navTocHtml}    </ol>
         const affiliateTag = process.env.AMAZON_AFFILIATE_TAG ?? '';
         let affiliateHtml = '';
         if (affiliateTag && article.affiliateLinks.length > 0) {
-          const bookItems = article.affiliateLinks.map(link => {
-            const url = `https://www.amazon.com/dp/${encodeURIComponent(link.asin)}?tag=${encodeURIComponent(affiliateTag)}`;
-            return `    <li><a href="${escapeXml(url)}"><strong>${escapeXml(link.title)}</strong></a> by ${escapeXml(link.author)}<br/><span class="affiliate-book-description">${escapeXml(link.description)}</span></li>`;
-          }).join('\n');
+          const validLinks = article.affiliateLinks.filter(link => link.isbn10);
+          if (validLinks.length > 0) {
+            const bookItems = validLinks.map(link => {
+              const url = `https://www.amazon.com/dp/${encodeURIComponent(link.isbn10)}?tag=${encodeURIComponent(affiliateTag)}`;
+              return `    <li><a href="${escapeXml(url)}"><strong>${escapeXml(link.title)}</strong></a> by ${escapeXml(link.author)}<br/><span class="affiliate-book-description">${escapeXml(link.description)}</span></li>`;
+            }).join('\n');
 
-          affiliateHtml = `
+            affiliateHtml = `
   <div class="affiliate-section">
     <p class="affiliate-label">Recommended Reading</p>
     <p class="affiliate-disclosure">As an Amazon Associate, Hex Index earns from qualifying purchases.</p>
@@ -613,6 +616,7 @@ ${navTocHtml}    </ol>
 ${bookItems}
     </ul>
   </div>`;
+          }
         }
 
         const topicHeaderHtml = isFirstInTopic
