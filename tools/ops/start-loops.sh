@@ -1,13 +1,15 @@
 #!/bin/bash
 set -euo pipefail
 
+SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
 SESSION="claude-loops"
 CLONE="$HOME/vibe/hex-index-clones/claude-ops"
 
+# shellcheck source=tools/ops/sync-clone.sh
+. "$SCRIPT_DIR/sync-clone.sh"
+
 # Sync clone before starting
-cd "$CLONE"
-git checkout main 2>&1 | grep -v "Already on"
-git pull --ff-only || git pull
+sync_clone "$CLONE"
 npm ci --silent
 
 # Kill existing session

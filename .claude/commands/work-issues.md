@@ -9,7 +9,7 @@ You do NOT write code yourself. You spawn background Agent workers with `isolati
 ## Step 0: Prepare
 
 ```bash
-git checkout main && git pull --ff-only
+git checkout main && git pull --ff-only || git reset --hard origin/main
 git status --short
 ```
 

@@ -3,7 +3,11 @@
 # Usage: bash tools/ops/claude-all-hex-index
 set -eu
 
+SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
 CLONES="$HOME/vibe/hex-index-clones"
+
+# shellcheck source=tools/ops/sync-clone.sh
+. "$SCRIPT_DIR/sync-clone.sh"
 
 start_loop() {
   local name=$1
@@ -17,9 +21,10 @@ start_loop() {
   tmux kill-session -t "$name" 2>/dev/null || true
 
   # Update clone
-  cd "$CLONES/$clone"
-  git checkout main 2>/dev/null
-  git pull --ff-only origin main
+  if ! sync_clone "$CLONES/$clone"; then
+    echo "SKIPPING $name — clone sync failed"
+    return 1
+  fi
   npm ci --silent 2>/dev/null
 
   # Start session

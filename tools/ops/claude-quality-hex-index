@@ -1,8 +1,9 @@
 #!/bin/sh
 set -eux
+SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
+. "$SCRIPT_DIR/sync-clone.sh"
+sync_clone ~/vibe/hex-index-clones/claude-quality
 cd ~/vibe/hex-index-clones/claude-quality
-git checkout main
-git pull --ff-only origin main
 npm ci --silent
 tmux new-session -d -s claude-quality -c ~/vibe/hex-index-clones/claude-quality
 tmux send-keys -t claude-quality "claude --dangerously-skip-permissions" Enter

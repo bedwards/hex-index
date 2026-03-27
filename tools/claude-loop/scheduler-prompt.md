@@ -186,13 +186,13 @@ for clone in qwen-batch auto-deploy claude-editorial claude-ops claude-epub; do
   git status --short
   git stash list
   git worktree list
-  git checkout main 2>/dev/null && git pull --ff-only 2>/dev/null
+  git checkout main 2>/dev/null && { git pull --ff-only 2>/dev/null || git reset --hard origin/main; }
 done
 ```
 - Uncommitted changes → commit to branch, push, create PR
 - Stashes → apply to branch, push, drop stash
 - Stale worktrees → remove if PR is merged
-- Failed pull → investigate
+- Failed pull → reset to origin/main (clones must not have local main changes); if reset fails, create a priority:high issue
 
 **B. Deploy check:**
 ```bash

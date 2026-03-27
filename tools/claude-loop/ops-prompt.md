@@ -48,7 +48,11 @@ for clone in qwen-batch auto-deploy claude-editorial claude-ops claude-quality c
       git status --short
     else
       git checkout main 2>/dev/null
-      git pull --ff-only 2>/dev/null || echo "WARN: $clone cannot fast-forward"
+      if ! git pull --ff-only 2>/dev/null; then
+        echo "ERROR: $clone cannot fast-forward — attempting reset to origin/main"
+        git fetch origin main
+        git reset --hard origin/main || echo "FATAL: reset failed for $clone — create a priority:high issue"
+      fi
     fi
     # Check for stale worktrees
     git worktree list
@@ -101,7 +105,7 @@ psql "$DATABASE_URL" -c "
 If content has changed since last deploy:
 ```bash
 cd ~/vibe/hex-index-clones/auto-deploy
-git checkout main && git pull --ff-only
+git checkout main && git pull --ff-only || git reset --hard origin/main
 bash tools/cron/auto-deploy.sh
 ```
 
