@@ -5,6 +5,7 @@
 set -euo pipefail
 
 REPO="git@github.com:bedwards/hex-index.git"
+SOURCE_REPO="$HOME/hex-index"
 BASE="$HOME/vibe/hex-index-clones"
 
 mkdir -p "$BASE"
@@ -16,8 +17,8 @@ for name in qwen-batch auto-deploy claude-ops claude-editorial claude-quality cl
     # Each clone needs its own node_modules
     (cd "$BASE/$name" && npm ci --silent)
     # Symlink shared config that isn't in git
-    ln -sf "$HOME/hex-index/.env" "$BASE/$name/.env"
-    ln -sf "$HOME/hex-index/.secrets" "$BASE/$name/.secrets"
+    ln -sf "$SOURCE_REPO/.env" "$BASE/$name/.env"
+    ln -sf "$SOURCE_REPO/.secrets" "$BASE/$name/.secrets"
     echo "Done: $BASE/$name"
   else
     echo "Already exists: $BASE/$name"
