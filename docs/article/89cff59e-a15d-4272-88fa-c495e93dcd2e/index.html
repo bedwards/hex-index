@@ -28,16 +28,45 @@
       </header>
 
       <div class="content-label">
-        <span class="label-text">Transcript excerpt from <a href="../../publication/twominutepapers/index.html">Two Minute Papers</a></span>
+        <span class="label-text">Commentary by <a href="../../about/index.html">Brian Edwards</a></span>
         <nav class="content-nav">
-          <a href="https://www.youtube.com/watch?v=fFL7la73RO4" target="_blank" rel="noopener">Watch on YouTube &rarr;</a>
+          
+          <a href="https://www.youtube.com/watch?v=fFL7la73RO4" target="_blank" rel="noopener">Original video &rarr;</a>
         </nav>
       </div>
 
       
+      <div class="article-content">
+        <p>Karoly Zsolnai-Feher drops a bombshell that challenges the very architecture of how we build artificial intelligence: the &quot;secret sauce&quot; behind top-tier reasoning is no longer a guarded corporate asset, but an open-source recipe available to anyone with a graphics card. While the industry obsesses over the black-box capabilities of proprietary models, Zsolnai-Feher argues that DeepSeek has just handed us the blueprint for a new era of transparency and reproducibility. This is not merely a technical update; it is a philosophical shift that suggests the future of intelligence may belong to the open community rather than a handful of Silicon Valley giants.</p>
+<h2>The End of the Expensive Teacher</h2>
+<p>The core of Zsolnai-Feher&#039;s argument rests on a radical departure from the standard training methods used by major AI labs. He contrasts the industry norm with DeepSeek&#039;s efficiency, noting that traditional models rely on a technique called Proximal Policy Optimization (PPO), which he describes as &quot;like an expensive private teacher who grades every single sentence a student writes.&quot; This method requires a second, equally massive AI model to critique the first, creating a computationally expensive bottleneck.</p>
+<figure class="inline-illustration">
+    <img src="../../images/89cff59e-a15d-4272-88fa-c495e93dcd2e.webp" alt="" loading="lazy" width="600" height="315">
+  </figure>
+
+<p>DeepSeek, however, has &quot;fired the teacher.&quot; Instead of constant external grading, the model generates sixteen different answers to a single prompt and then evaluates them against each other to determine which one is correct. Zsolnai-Feher calls this Group Relative Policy Optimization (GRPO), a method that allows for massive scale without the prohibitive cost of a &quot;teacher&quot; model. This approach is compelling because it democratizes the training process, removing the financial barrier that previously kept high-quality model development in the hands of the wealthiest corporations.</p>
+<p>Critics might argue that removing the &quot;teacher&quot; model risks reinforcing biases or hallucinations if the self-evaluation mechanism is flawed, yet the results suggest the model&#039;s internal logic is robust enough to self-correct.</p>
+<blockquote>&quot;Science is supposed to be open and reproducible for the benefit of humanity. This is a great step towards that.&quot;</blockquote>
+<h2>Emergent Reasoning and the &quot;Aha&quot; Moment</h2>
+<p>Perhaps the most startling claim in the coverage is the observation that DeepSeek&#039;s model learned to &quot;pause and think&quot; without explicit instruction. Zsolnai-Feher describes a scenario where the AI, facing a difficult problem, naturally began inserting phrases like &quot;wait&quot; or &quot;let me recalculate&quot; into its output. He notes, &quot;For the first time, I think researchers watched an AI naturally learn to think before speaking. Something some human beings could also learn from.&quot;</p>
+<p>This emergent behavior suggests that the model discovered that spending more time processing information led to higher accuracy, a strategy it adopted entirely on its own. The author frames this as a breakthrough in pure reinforcement learning, where the AI evolves from a &quot;stuttering mess into a math genius&quot; simply by playing against itself. The evidence presented shows the model&#039;s success rate on competition-level math problems jumping from 15% to nearly 80% without any human examples of how to solve the problems.</p>
+<blockquote>&quot;It found it out by itself. I think this is an absolute breakthrough.&quot;</blockquote>
+<p>This framing is effective because it moves the narrative from &quot;AI is getting better because we fed it more data&quot; to &quot;AI is getting better because it learned a new cognitive strategy.&quot; However, it is worth noting that while the model discovered the strategy, the initial architecture and reward functions were still designed by humans, meaning the &quot;emergence&quot; is guided, not entirely spontaneous.</p>
+<h2>Distillation: The Power of the Small Model</h2>
+<p>The final pillar of Zsolnai-Feher&#039;s analysis focuses on distillation, a process he likens to a Nobel Prize-winning physicist writing a &quot;Physics for Dummies&quot; book. DeepSeek used its massive, high-performing model to generate 800,000 examples of its own reasoning, creating a &quot;textbook&quot; that was then used to train much smaller, cheaper models. The results are staggering: a tiny 7-billion-parameter model, which can run on a laptop, was shown to outperform the previous state-of-the-art GPT-4 model by nearly six times on specific math benchmarks.</p>
+<blockquote>&quot;This used to be the state-of-the-art one and a half years ago. It needed billions and billions of dollars to train. And now you get something for free that is almost six times smarter on this data set.&quot;</blockquote>
+<p>Zsolnai-Feher emphasizes that this shift means the &quot;gold standard&quot; of AI intelligence is no longer locked behind a paywall. The ability to run a model of this caliber on consumer hardware fundamentally changes the accessibility of advanced AI. While the author is enthusiastic, a counterpoint is necessary: these benchmarks are specific to math and logic, and performance on creative or nuanced natural language tasks may not scale as perfectly in smaller models.</p>
+<blockquote>&quot;We are absolutely spoiled here. These things cost billions to train and we get them for free soon after.&quot;</blockquote>
+<h2>Bottom Line</h2>
+<p>Zsolnai-Feher&#039;s coverage succeeds in translating complex technical breakthroughs into a narrative of liberation, effectively arguing that the era of closed, proprietary AI dominance is being challenged by open, efficient, and reproducible methods. The strongest part of the argument is the evidence that high-level reasoning can emerge from self-play and that this intelligence can be distilled into models small enough for personal use. The biggest vulnerability remains the narrowness of the current benchmarks; while the math is undeniable, the broader implications for general-purpose AI remain to be seen as the community begins to stress-test these open models in the wild.</p>
+      </div>
+
       
 
-      <div class="excerpt-card">
+      <section id="excerpt" class="excerpt-card">
+        <div class="content-label">
+          <span class="label-text">Transcript excerpt on Two Minute Papers</span>
+        </div>
         <div class="article-excerpt">
           <p>Another long video here so you fellow scholars know something is going on. Okay, so Deepseek did something huge. I think for the first time ever we might have the full recipe to create Chad GPT like intelligence and it is out there in the open for free for everyone. Their new work I think might be the gold standard for open-source releases.</p> <p>Look, a year ago they published a 20page paper and now a year later they extend to 80 pages. And this is not some filler material. This is gold. Why does that matter?</p> <p>You see, OpenAI keeps important parts of the CED GPT recipe secret. We all know that it can do incredible things. Get a gold medal at the biological olympiad or it can study with you. It passes the bar exam, then looks at a screenshot and writes an app for you that looks just like it.</p> <p>It's a crazy world. Now, OpenAI publishes some research papers about their techniques, but for me, some of these feel more like marketing documents. They don't contain nearly enough information to be reproduced. Check this out.</p> <p>Given the competitive landscape, this report contains no further details about the architecture, hardware, training, compute, data set construction or training method. And this is not a media article criticizing OpenAI. These are their own words in their GPT4 paper. So, OpenAI in general is not very open.</p> <p>But, here I am with two minute papers and it's never 2 minutes. So, who am I to say anything here? Although, I also don't sell shares for shareholders for billions of dollars either. Now, finally, the folks at Deep Seek gave us the secret sauce to create such a model.</p> <p>Science is supposed to be open and reproducible for the benefit of humanity. This is a great step towards that. So, Deepseek is a smart and free AI model that you can run yourself. It needs lots of hardware power.</p> <p>So I usually just rent a GPU on Lambda and do it. It is super fast, reliable and private. I note that I don't have any relationship with the Deepseek people whatsoever. Now I'll tell you about five things from the paper that really surprised me and I think will surprise you too.</p> <p>I apologize as I don't have footage for everything here. So in the video part you'll see some LLM things, ...</p>
         </div>
@@ -45,9 +74,8 @@
           <a href="https://www.youtube.com/watch?v=fFL7la73RO4" class="read-button" target="_blank" rel="noopener">
             Watch on YouTube &rarr;
           </a>
-          <p class="cta-note">Watch the full video by Karoly Zsolnai-Feher on YouTube.</p>
         </div>
-      </div>
+      </section>
       
     </article>
   
