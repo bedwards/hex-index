@@ -123,7 +123,7 @@ function generateWikipediaPage(
           links.push(`<a href="${buildAmazonUrl(book.isbn10, affiliateTag)}" target="_blank" rel="noopener sponsored">Amazon</a>`);
         }
         if (book.isbn13) {
-          links.push(`<a href="${buildBWBUrl(book.isbn13)}" target="_blank" rel="noopener">Better World Books</a>`);
+          links.push(`<a href="${buildBWBUrl(book.isbn13)}" target="_blank" rel="noopener sponsored">Better World Books</a>`);
         }
         const buyText = links.length > 0 ? ` — ${links.join(' · ')}` : '';
         return `<li>${escapeHtml(book.title)}${buyText} — ${escapeHtml(book.description)}</li>`;

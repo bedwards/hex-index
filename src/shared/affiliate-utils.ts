@@ -95,7 +95,7 @@ export function renderBookPurchaseLinks(book: ParsedAffiliateBook, affiliateTag:
     items.push(`<li><a href="${buildAmazonUrl(book.isbn10, affiliateTag)}" target="_blank" rel="noopener sponsored">Amazon <small class="affiliate-disclosure">affiliate</small></a></li>`);
   }
   if (book.isbn13) {
-    items.push(`<li><a href="${buildBWBUrl(book.isbn13)}" target="_blank" rel="noopener">Better World Books</a></li>`);
+    items.push(`<li><a href="${buildBWBUrl(book.isbn13)}" target="_blank" rel="noopener sponsored">Better World Books</a></li>`);
   }
 
   return `

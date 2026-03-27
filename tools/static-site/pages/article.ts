@@ -203,7 +203,7 @@ function generateArticlePage(
         buyLinks.push(`<a href="${buildAmazonUrl(b.isbn10, affiliateTag)}" target="_blank" rel="noopener sponsored" class="buy-link">Amazon</a>`);
       }
       if (b.isbn13) {
-        buyLinks.push(`<a href="${buildBWBUrl(b.isbn13)}" target="_blank" rel="noopener" class="buy-link">Better World Books</a>`);
+        buyLinks.push(`<a href="${buildBWBUrl(b.isbn13)}" target="_blank" rel="noopener sponsored" class="buy-link">Better World Books</a>`);
       }
       const buyHtml = buyLinks.length > 0
         ? `<span class="read-time">${buyLinks.join(' · ')}</span>`
