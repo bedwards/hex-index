@@ -1,29 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Working set - Hex Index</title>
-  <link rel="stylesheet" href="../../styles.css">
-</head>
-<body class="reading-mode">
-  <header class="reading-header">
-    <a href="../../index.html" class="back-link" id="back-link">&larr; Back to Library</a>
-  </header>
-  <main class="reading-content">
-    
-    <article class="wikipedia-page">
-      <header class="wikipedia-header">
-        <div class="type-badge">Wikipedia Deep Dive</div>
-        <h1>Working set</h1>
-        <div class="article-meta">
-          <span class="read-time">14 min read</span>
-        </div>
-      </header>
-
-      
-
-      <div class="wikipedia-content"><p class="source-note">Based on <a href="https://en.wikipedia.org/wiki/Working_set">Wikipedia: Working set</a></p>
+<p class="source-note">Based on <a href="https://en.wikipedia.org/wiki/Working_set">Wikipedia: Working set</a></p>
 <p>In 1968, Peter Denning, a computer scientist at the time, articulated a principle that would become the heartbeat of modern operating systems. He defined the &quot;working set&quot; of a process not as a static collection of data, but as a dynamic, living entity: the specific collection of information referenced by a process during a specific time interval. This was not merely a theoretical observation; it was the key to unlocking the paradox of virtual memory. Before Denning&#039;s insight, computers struggled with a fundamental inefficiency. They could store vast amounts of data on slow auxiliary drives, yet when they tried to run multiple programs simultaneously, the system would grind to a halt. Denning&#039;s formulation provided the logic for knowing exactly what needed to be in the fast main memory (RAM) at any given moment to keep the machine running smoothly.</p>
 <p>The concept is deceptively simple yet profound in its application. Imagine a process as a worker at a massive, cluttered desk. The desk represents the computer&#039;s main memory, while the warehouse across the room represents the hard drive. The worker does not need every single file in the warehouse to complete their current task. They only need the documents they are actively reading, writing, or referencing. Denning&#039;s working set, denoted mathematically as $W(t, \tau)$, is essentially the pile of papers currently on the desk at time $t$, looking back at the interval $(t - \tau, t)$. If the worker is forced to keep running back to the warehouse for every single sheet of paper, the work stops. This state of constant fetching is known as &quot;thrashing,&quot; and it is the death knell of computer performance.</p>
 <p>The working set model operates on a strict, almost binary logic. A process can reside in the RAM only if <strong>all</strong> of the pages it is currently using can fit there simultaneously. This is an &quot;all or nothing&quot; proposition. It is not enough to keep the most critical 90% of a program in memory; if the remaining 10% is needed for the next instruction, the system must fetch it from the slow storage. If the system tries to run a process with an incomplete working set, the frequency of page faults—errors that occur when the requested data is not in RAM—skyrockets. The result is a catastrophic drop in throughput. The CPU, the brain of the machine, sits idle, waiting for data to arrive from the sluggish hard drive. In a heavily loaded system, if every process is allowed to run but none have their full working set in memory, the computer effectively freezes, spending more time swapping data than executing code.</p>
@@ -56,62 +31,4 @@
 <p>Understanding the working set helps developers write more efficient code. A programmer who understands locality of reference will structure their data to minimize the size of the working set. They will organize loops to access memory sequentially, ensuring that the pages needed are fetched in batches and stay in the cache longer. They will avoid random memory accesses that force the system to fetch pages from the slow storage. This is the art of writing for the working set.</p>
 <p>In the end, the working set is a testament to the power of abstraction. Denning took a complex, chaotic system of moving parts and distilled it into a simple, elegant model. He showed that to make a system run, you don&#039;t need to keep everything in memory. You just need to keep the <strong>right</strong> things in memory. The rest can wait. This principle of prioritization is not just applicable to computers; it is a lesson in efficiency for any complex system. By focusing on the essential subset of resources required for immediate progress, we can achieve a level of performance that seems impossible when trying to do everything at once.</p>
 <p>The working set model remains one of the most enduring ideas in computer science. It bridged the gap between theory and practice, turning the abstract concept of virtual memory into a reliable, high-performance reality. It taught us that in a world of limited resources, the key to speed is not having more memory, but knowing exactly which pages to keep. As we move into an era of exascale computing and quantum processors, the principles of the working set will continue to guide us, ensuring that our machines remain as efficient as the minds that designed them.</p>
-<p>The next time your computer seems to slow down, remember the invisible dance happening behind the scenes. Pages are being swapped, windows are shifting, and the operating system is making split-second decisions about what to keep and what to discard. It is a silent battle against thrashing, fought on the frontier of memory and time, guided by the simple, powerful logic of the working set.</p></div>
-
-      
-
-      <footer class="wikipedia-footer">
-        <p class="source-link">
-          <a href="https://en.wikipedia.org/wiki/Working_set" target="_blank" rel="noopener">
-            View original Wikipedia article &rarr;
-          </a>
-        </p>
-        <p class="rewrite-note">
-        This article has been rewritten from Wikipedia source material for enjoyable reading.
-        Content may have been condensed, restructured, or simplified.
-      </p>
-      </footer>
-
-      
-      <section class="related-articles">
-        <h2>Related Articles</h2>
-        <p class="related-intro">This deep dive was written in connection with these articles:</p>
-        <ul class="related-list">
-          
-      <li class="related-article-item">
-        <a href="../../article/6415608d-8d81-4e0c-a5f0-64f8d8b94724/index.html">
-          <strong>Your AI agent fails 97.5% of real work</strong>
-        </a>
-        <span class="article-meta">
-          by Nate B Jones in Nate B Jones
-        </span>
-      </li>
-        </ul>
-      </section>
-    
-    </article>
-  
-  </main>
-  <script>
-  (function() {
-    var params = new URLSearchParams(window.location.search);
-    var from = params.get('from');
-    if (from) {
-      var names = {
-        'foreign-policy':'Foreign Policy','ai-tech':'AI & Tech','housing-cities':'Housing & Cities',
-        'political-strategy':'Political Strategy','history':'History','science':'Science',
-        'culture':'Culture','economics':'Economics','faith':'Faith','writing-craft':'Writing & Craft',
-        'music':'Music','law-rights':'Law & Rights','public-health':'Public Health',
-        'philosophy':'Philosophy','media':'Media','defense':'Defense','china':'China'
-      };
-      var link = document.getElementById('back-link');
-      if (link) {
-        var name = names[from] || from;
-        link.href = '../../tag/' + from + '/index.html';
-        link.textContent = '\u2190 Back to ' + name;
-      }
-    }
-  })();
-  </script>
-</body>
-</html>
+<p>The next time your computer seems to slow down, remember the invisible dance happening behind the scenes. Pages are being swapped, windows are shifting, and the operating system is making split-second decisions about what to keep and what to discard. It is a silent battle against thrashing, fought on the frontier of memory and time, guided by the simple, powerful logic of the working set.</p>
