@@ -19,8 +19,8 @@ interface BookEntry {
   title: string;
   author: string;
   asin: string;
-  category: string;
-  description: string;
+  category?: string;
+  description?: string;
   gutenberg_url?: string;
   archive_url?: string;
 }
