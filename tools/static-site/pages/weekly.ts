@@ -985,6 +985,22 @@ interface WeekListItem {
   hasCover: boolean;
 }
 
+function renderLatestEpubCard(week: WeekListItem): string {
+  const epubUrl = `https://hex-index.com/weekly/${week.label}.epub`;
+  const coverImg = week.hasCover
+    ? `<img class="weekly-cover" src="cover-${week.label}.webp" alt="" width="120" height="160">`
+    : '';
+  return `
+    <div class="weekly-item weekly-latest">
+      ${coverImg}
+      <div class="weekly-info">
+        <h2>${escapeHtml(week.display)}</h2>
+        <p class="weekly-item-meta">${week.articleCount} article${week.articleCount !== 1 ? 's' : ''} &middot; ${formatFileSize(week.fileSize)}</p>
+        <a href="${escapeHtml(epubUrl)}" class="copy-url-btn" download>Download Latest</a>
+      </div>
+    </div>`;
+}
+
 function generateWeeklyListingPage(weeks: WeekListItem[]): string {
   const pathToRoot = '../';
 
@@ -992,21 +1008,7 @@ function generateWeeklyListingPage(weeks: WeekListItem[]): string {
   const latestWeek = weeks.length > 0 ? weeks[0] : null;
   const olderWeeks = weeks.slice(1);
 
-  const latestEpubHtml = latestWeek ? (() => {
-    const epubUrl = `https://hex-index.com/weekly/${latestWeek.label}.epub`;
-    const coverImg = latestWeek.hasCover
-      ? `<img class="weekly-cover" src="cover-${latestWeek.label}.webp" alt="" width="120" height="160">`
-      : '';
-    return `
-    <div class="weekly-item weekly-latest">
-      ${coverImg}
-      <div class="weekly-info">
-        <h2>${escapeHtml(latestWeek.display)}</h2>
-        <p class="weekly-item-meta">${latestWeek.articleCount} article${latestWeek.articleCount !== 1 ? 's' : ''} &middot; ${formatFileSize(latestWeek.fileSize)}</p>
-        <a href="${escapeHtml(epubUrl)}" class="copy-url-btn" download>Download Latest</a>
-      </div>
-    </div>`;
-  })() : '';
+  const latestEpubHtml = latestWeek ? renderLatestEpubCard(latestWeek) : '';
 
   const olderWeekItems = olderWeeks.map(w => {
     const epubUrl = `https://hex-index.com/weekly/${w.label}.epub`;
