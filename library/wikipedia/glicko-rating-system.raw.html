@@ -1,0 +1,1305 @@
+<p>The Glicko rating system and Glicko-2 rating system are methods of assessing a player&#039;s strength in zero-sum two-player games. The Glicko rating system was invented by Mark Glickman in 1995 as an improvement on the Elo rating system and initially intended for the primary use as a chess rating system. Glickman&#039;s principal contribution to measurement is &quot;ratings reliability&quot;, called RD, for ratings deviation.</p>
+<p>Mark Glickman created the Glicko rating system in 1995 as an improvement on the Elo rating system.</p>
+<p>Both the Glicko and Glicko-2 rating systems are under public domain and have been implemented on game servers online like Counter-Strike 2, Team Fortress 2, Dota 2, Guild Wars 2, Splatoon 2, Pokémon Showdown, Online-go.com, Lichess and Chess.com.</p>
+<p>The Ratings Deviation (RD) measures the accuracy of a player&#039;s rating, where the RD is equal to one standard deviation. 
+For example, a player with a rating of 1500 and an RD of 50 is expected to have a real strength between 1402 and 1598. To calculate this range, the RD is added and subtracted 1.96 times from their rating to arrive at the 95% confidence interval. After a game, the amount the rating changes depends on the RD: the change is smaller when the player&#039;s RD is low (since their rating is already considered accurate), and also when their opponent&#039;s RD is high (since the opponent&#039;s true rating is not well known, so little information is being gained).  
+The RD itself decreases after playing a game, but it will increase slowly over time of inactivity.</p>
+<p>The Glicko-2 rating system improves upon the Glicko rating system and further introduces the rating volatility σ. A very slightly modified version of the Glicko-2 rating system is implemented by the Australian Chess Federation.</p>
+<p>The new Ratings Deviation (
+  
+    
+      
+        R
+        D
+      
+    
+    {\displaystyle RD}
+  
+) is found using the old Ratings Deviation (
+  
+    
+      
+        R
+        
+          D
+          
+            0
+          
+        
+      
+    
+    {\displaystyle RD_{0}}
+  
+):</p>
+<p>R
+        D
+        =
+        min
+        
+          (
+          
+            
+              
+                
+                  
+                    R
+                    
+                      D
+                      
+                        0
+                      
+                    
+                  
+                  
+                    2
+                  
+                
+                +
+                
+                  c
+                  
+                    2
+                  
+                
+                t
+              
+            
+            ,
+            350
+          
+          )
+        
+      
+    
+    {\displaystyle RD=\min \left({\sqrt {{RD_{0}}^{2}+c^{2}t}},350\right)}</p>
+<p>where 
+  
+    
+      
+        t
+      
+    
+    {\displaystyle t}
+  
+ is the amount of time (rating periods) since the last competition and &#039;350&#039; is assumed to be the RD of an unrated player. If several games have occurred within one rating period, the method treats them as having happened simultaneously. The rating period may be as long as several months or as short as a few minutes, according to how frequently games are arranged. The constant 
+  
+    
+      
+        c
+      
+    
+    {\displaystyle c}
+  
+ is based on the uncertainty of a player&#039;s skill over a certain amount of time. It can be derived from thorough data analysis, or estimated by considering the length of time that would have to pass before a player&#039;s rating deviation would grow to that of an unrated player. If it is assumed that it would take 100 rating periods for a player&#039;s rating deviation to return to an initial uncertainty of 350, and a typical player has a rating deviation of 50 then the constant can be found by solving</p>
+<p>  
+    
+      
+        350
+        =
+        
+          
+            
+              50
+              
+                2
+              
+            
+            +
+            100
+            
+              c
+              
+                2
+              
+            
+          
+        
+      
+    
+    {\displaystyle 350={\sqrt {50^{2}+100c^{2}}}}
+  
+ for 
+  
+    
+      
+        c
+      
+    
+    {\displaystyle c}
+  
+.</p>
+<p>Or</p>
+<p>c
+        =
+        
+          
+            (
+            
+              350
+              
+                2
+              
+            
+            −
+            
+              50
+              
+                2
+              
+            
+            )
+            
+              /
+            
+            100
+          
+        
+        ≈
+        34.6
+      
+    
+    {\displaystyle c={\sqrt {(350^{2}-50^{2})/100}}\approx 34.6}</p>
+<p>The new ratings, after a series of m games, are determined by the following equation:</p>
+<p>r
+        =
+        
+          r
+          
+            0
+          
+        
+        +
+        
+          
+            q
+            
+              
+                
+                  1
+                  
+                    R
+                    
+                      D
+                      
+                        2
+                      
+                    
+                  
+                
+              
+              +
+              
+                
+                  1
+                  
+                    d
+                    
+                      2
+                    
+                  
+                
+              
+            
+          
+        
+        
+          ∑
+          
+            i
+            =
+            1
+          
+          
+            m
+          
+        
+        
+          g
+          (
+          R
+          
+            D
+            
+              i
+            
+          
+          )
+          (
+          
+            s
+            
+              i
+            
+          
+          −
+          E
+          (
+          s
+          
+            |
+          
+          
+            r
+            
+              0
+            
+          
+          ,
+          
+            r
+            
+              i
+            
+          
+          ,
+          R
+          
+            D
+            
+              i
+            
+          
+          )
+          )
+        
+      
+    
+    {\displaystyle r=r_{0}+{\frac {q}{{\frac {1}{RD^{2}}}+{\frac {1}{d^{2}}}}}\sum _{i=1}^{m}{g(RD_{i})(s_{i}-E(s|r_{0},r_{i},RD_{i}))}}</p>
+<p>where:</p>
+<p>g
+        (
+        R
+        
+          D
+          
+            i
+          
+        
+        )
+        =
+        
+          
+            1
+            
+              1
+              +
+              
+                
+                  
+                    3
+                    
+                      q
+                      
+                        2
+                      
+                    
+                    (
+                    R
+                    
+                      D
+                      
+                        i
+                      
+                      
+                        2
+                      
+                    
+                    )
+                  
+                  
+                    π
+                    
+                      2
+                    
+                  
+                
+              
+            
+          
+        
+      
+    
+    {\displaystyle g(RD_{i})={\frac {1}{\sqrt {1+{\frac {3q^{2}(RD_{i}^{2})}{\pi ^{2}}}}}}}</p>
+<p>E
+        (
+        s
+        
+          |
+        
+        
+          r
+          
+            0
+          
+        
+        ,
+        
+          r
+          
+            i
+          
+        
+        ,
+        R
+        
+          D
+          
+            i
+          
+        
+        )
+        =
+        
+          
+            1
+            
+              1
+              +
+              
+                10
+                
+                  
+                    (
+                    
+                      
+                        
+                          g
+                          (
+                          R
+                          
+                            D
+                            
+                              i
+                            
+                          
+                          )
+                          (
+                          
+                            r
+                            
+                              0
+                            
+                          
+                          −
+                          
+                            r
+                            
+                              i
+                            
+                          
+                          )
+                        
+                        
+                          −
+                          400
+                        
+                      
+                    
+                    )
+                  
+                
+              
+            
+          
+        
+      
+    
+    {\displaystyle E(s|r_{0},r_{i},RD_{i})={\frac {1}{1+10^{\left({\frac {g(RD_{i})(r_{0}-r_{i})}{-400}}\right)}}}}</p>
+<p>q
+        =
+        
+          
+            
+              ln
+              ⁡
+              (
+              10
+              )
+            
+            400
+          
+        
+        =
+        0.00575646273
+      
+    
+    {\displaystyle q={\frac {\ln(10)}{400}}=0.00575646273}</p>
+<p>d
+          
+            2
+          
+        
+        =
+        
+          
+            1
+            
+              
+                q
+                
+                  2
+                
+              
+              
+                ∑
+                
+                  i
+                  =
+                  1
+                
+                
+                  m
+                
+              
+              
+                (
+                g
+                (
+                R
+                
+                  D
+                  
+                    i
+                  
+                
+                )
+                
+                  )
+                  
+                    2
+                  
+                
+                E
+                (
+                s
+                
+                  |
+                
+                
+                  r
+                  
+                    0
+                  
+                
+                ,
+                
+                  r
+                  
+                    i
+                  
+                
+                ,
+                R
+                
+                  D
+                  
+                    i
+                  
+                
+                )
+                (
+                1
+                −
+                E
+                (
+                s
+                
+                  |
+                
+                
+                  r
+                  
+                    0
+                  
+                
+                ,
+                
+                  r
+                  
+                    i
+                  
+                
+                ,
+                R
+                
+                  D
+                  
+                    i
+                  
+                
+                )
+                )
+              
+            
+          
+        
+      
+    
+    {\displaystyle d^{2}={\frac {1}{q^{2}\sum _{i=1}^{m}{(g(RD_{i}))^{2}E(s|r_{0},r_{i},RD_{i})(1-E(s|r_{0},r_{i},RD_{i}))}}}}</p>
+<p>r
+          
+            i
+          
+        
+      
+    
+    {\displaystyle r_{i}}
+  
+ represents the ratings of the individual opponents.</p>
+<p>R
+        
+          D
+          
+            i
+          
+        
+      
+    
+    {\displaystyle RD_{i}}
+  
+ represents the rating deviations of the individual opponents.</p>
+<p>s
+          
+            i
+          
+        
+      
+    
+    {\displaystyle s_{i}}
+  
+ represents the outcome of the individual games. A win is 1, a draw is 
+  
+    
+      
+        
+          
+            1
+            2
+          
+        
+      
+    
+    {\displaystyle {\frac {1}{2}}}
+  
+, and a loss is 0.</p>
+<p>The function of the prior RD calculation was to increase the RD appropriately to account for the increasing uncertainty in a player&#039;s skill level during a period of non-observation by the model. Now, the RD is updated (decreased) after the series of games:</p>
+<p>R
+        
+          D
+          ′
+        
+        =
+        
+          
+            
+              
+                (
+                
+                  
+                    
+                      1
+                      
+                        R
+                        
+                          D
+                          
+                            2
+                          
+                        
+                      
+                    
+                  
+                  +
+                  
+                    
+                      1
+                      
+                        d
+                        
+                          2
+                        
+                      
+                    
+                  
+                
+                )
+              
+              
+                −
+                1
+              
+            
+          
+        
+      
+    
+    {\displaystyle RD&#039;={\sqrt {\left({\frac {1}{RD^{2}}}+{\frac {1}{d^{2}}}\right)^{-1}}}}</p>
+<p>Glicko-2 works in a similar way to the original Glicko algorithm, with the addition of a rating volatility 
+  
+    
+      
+        σ
+      
+    
+    {\displaystyle \sigma }
+  
+ which measures the degree of expected fluctuation in a player’s rating, based on how erratic the player&#039;s performances are. For instance, a player&#039;s rating volatility would be low when they performed at a consistent level, and would increase if they had exceptionally strong results after that period of consistency. A simplified explanation of the Glicko-2 algorithm is presented below:</p>
+<p>Across one rating period, a player with a current rating 
+  
+    
+      
+        μ
+      
+    
+    {\displaystyle \mu }
+  
+ and ratings deviation 
+  
+    
+      
+        ϕ
+      
+    
+    {\displaystyle \phi }
+  
+ plays against 
+  
+    
+      
+        m
+      
+    
+    {\displaystyle m}
+  
+ opponents, with ratings 
+  
+    
+      
+        
+          μ
+          
+            1
+          
+        
+        ,
+        .
+        .
+        .
+        ,
+        
+          μ
+          
+            m
+          
+        
+      
+    
+    {\displaystyle \mu _{1},...,\mu _{m}}
+  
+ and RDs 
+  
+    
+      
+        
+          ϕ
+          
+            1
+          
+        
+        ,
+        .
+        .
+        .
+        ,
+        
+          ϕ
+          
+            m
+          
+        
+      
+    
+    {\displaystyle \phi _{1},...,\phi _{m}}
+  
+, resulting in scores 
+  
+    
+      
+        
+          s
+          
+            1
+          
+        
+        ,
+        .
+        .
+        .
+        ,
+        
+          s
+          
+            m
+          
+        
+      
+    
+    {\displaystyle s_{1},...,s_{m}}
+  
+. We first need to compute the ancillary quantities 
+  
+    
+      
+        v
+      
+    
+    {\displaystyle v}
+  
+ and 
+  
+    
+      
+        Δ
+      
+    
+    {\displaystyle \Delta }
+  
+:</p>
+<p>v
+        =
+        
+          
+            [
+            
+              
+                ∑
+                
+                  j
+                  =
+                  1
+                
+                
+                  m
+                
+              
+              g
+              (
+              
+                ϕ
+                
+                  j
+                
+              
+              
+                )
+                
+                  2
+                
+              
+              E
+              (
+              μ
+              ,
+              
+                μ
+                
+                  j
+                
+              
+              ,
+              
+                ϕ
+                
+                  j
+                
+              
+              )
+              {
+              1
+              −
+              E
+              (
+              μ
+              ,
+              
+                μ
+                
+                  j
+                
+              
+              ,
+              
+                ϕ
+                
+                  j
+                
+              
+              )
+              }
+            
+            ]
+          
+          
+            −
+            1
+          
+        
+      
+    
+    {\displaystyle v=\left[\sum _{j=1}^{m}g(\phi _{j})^{2}E(\mu ,\mu _{j},\phi _{j})\{1-E(\mu ,\mu _{j},\phi _{j})\}\right]^{-1}}</p>
+<p>Δ
+        =
+        v
+        
+          ∑
+          
+            j
+            =
+            1
+          
+          
+            m
+          
+        
+        g
+        (
+        
+          ϕ
+          
+            j
+          
+        
+        )
+        {
+        
+          s
+          
+            j
+          
+        
+        −
+        E
+        (
+        μ
+        ,
+        
+          μ
+          
+            j
+          
+        
+        ,
+        
+          ϕ
+          
+            j
+          
+        
+        )
+        }
+      
+    
+    {\displaystyle \Delta =v\sum _{j=1}^{m}g(\phi _{j})\{s_{j}-E(\mu ,\mu _{j},\phi _{j})\}}</p>
+<p>where</p>
+<p>g
+        (
+        
+          ϕ
+          
+            j
+          
+        
+        )
+        =
+        
+          
+            1
+            
+              1
+              +
+              3
+              
+                ϕ
+                
+                  j
+                
+                
+                  2
+                
+              
+              
+                /
+              
+              
+                π
+                
+                  2
+                
+              
+            
+          
+        
+        ,
+      
+    
+    {\displaystyle g(\phi _{j})={\frac {1}{\sqrt {1+3\phi _{j}^{2}/\pi ^{2}}}},}</p>
+<p>E
+        (
+        μ
+        ,
+        
+          μ
+          
+            j
+          
+        
+        ,
+        
+          ϕ
+          
+            j
+          
+        
+        )
+        =
+        
+          
+            1
+            
+              1
+              +
+              exp
+              ⁡
+              {
+              −
+              g
+              (
+              
+                ϕ
+                
+                  j
+                
+              
+              )
+              (
+              μ
+              −
+              
+                μ
+                
+                  j
+                
+              
+              )
+              }
+            
+          
+        
+        .
+      
+    
+    {\displaystyle E(\mu ,\mu _{j},\phi _{j})={\frac {1}{1+\exp\{-g(\phi _{j})(\mu -\mu _{j})\}}}.}</p>
+<p>We then need to choose a small constant 
+  
+    
+      
+        τ
+      
+    
+    {\displaystyle \tau }
+  
+ which constrains the volatility over time, for instance 
+  
+    
+      
+        τ
+        =
+        0.2
+      
+    
+    {\displaystyle \tau =0.2}
+  
+ (smaller values of 
+  
+    
+      
+        τ
+      
+    
+    {\displaystyle \tau }
+  
+ prevent dramatic rating changes after upset results). Then, for</p>
+<p>f
+        (
+        x
+        )
+        =
+        
+          
+            1
+            2
+          
+        
+        
+          
+            
+              
+                e
+                
+                  x
+                
+              
+              (
+              
+                Δ
+                
+                  2
+                
+              
+              −
+              
+                ϕ
+                
+                  2
+                
+              
+              −
+              v
+              −
+              
+                e
+                
+                  x
+                
+              
+              )
+            
+            
+              (
+              
+                ϕ
+                
+                  2
+                
+              
+              +
+              v
+              +
+              
+                e
+                
+                  x
+                
+              
+              
+                )
+                
+                  2
+                
+              
+            
+          
+        
+        −
+        
+          
+            
+              x
+              −
+              ln
+              ⁡
+              (
+              
+                
+                  σ
+                  
+                    2
+                  
+                
+              
+              )
+            
+            
+              τ
+              
+                2
+              
+            
+          
+        
+        ,
+      
+    
+    {\displaystyle f(x)={\frac {1}{2}}{\frac {e^{x}(\Delta ^{2}-\phi ^{2}-v-e^{x})}{(\phi ^{2}+v+e^{x})^{2}}}-{\frac {x-\ln({\sigma ^{2}})}{\tau ^{2}}},}</p>
+<p>we need to find the value 
+  
+    
+      
+        A
+      
+    
+    {\displaystyle A}
+  
+ which satisfies 
+  
+    
+      
+        f
+        (
+        A
+        )
+        =
+        0
+      
+    
+    {\displaystyle f(A)=0}
+  
+. An efficient way of solving this would be to use the Illinois algorithm, a modified version of the regula falsi procedure (see Regula falsi § The Illinois algorithm for details on how this would be done). Once this iterative procedure is complete, we set the new rating volatility 
+  
+    
+      
+        
+          σ
+          ′
+        
+      
+    
+    {\displaystyle \sigma &#039;}
+  
+ as</p>
+<p>σ
+          ′
+        
+        =
+        exp
+        ⁡
+        {
+        A
+        
+          /
+        
+        2
+        }
+        .
+      
+    
+    {\displaystyle \sigma &#039;=\exp\{A/2\}.}</p>
+<p>We then get the new RD</p>
+<p>ϕ
+          ′
+        
+        =
+        1
+        
+          
+            /
+          
+        
+        
+          
+            
+              
+                1
+                
+                  
+                    ϕ
+                    
+                      2
+                    
+                  
+                  +
+                  
+                    σ
+                    
+                      ′
+                      
+                        2
+                      
+                    
+                  
+                
+              
+            
+            +
+            
+              
+                1
+                v
+              
+            
+          
+        
+        ,
+      
+    
+    {\displaystyle \phi &#039;=1{\Big /}{\sqrt {{\frac {1}{\phi ^{2}+\sigma &#039;^{2}}}+{\frac {1}{v}}}},}</p>
+<p>and new rating</p>
+<p>μ
+          ′
+        
+        =
+        μ
+        +
+        
+          ϕ
+          
+            ′
+            
+              2
+            
+          
+        
+        
+          ∑
+          
+            j
+            =
+            1
+          
+          
+            m
+          
+        
+        g
+        (
+        
+          ϕ
+          
+            j
+          
+        
+        )
+        {
+        
+          s
+          
+            j
+          
+        
+        −
+        E
+        (
+        μ
+        ,
+        
+          μ
+          
+            j
+          
+        
+        ,
+        
+          ϕ
+          
+            j
+          
+        
+        )
+        }
+        .
+      
+    
+    {\displaystyle \mu &#039;=\mu +\phi &#039;^{2}\sum _{j=1}^{m}g(\phi _{j})\{s_{j}-E(\mu ,\mu _{j},\phi _{j})\}.}</p>
+<p>These ratings and RDs are on a different scale than in the original Glicko algorithm, and would need to be converted to properly compare the two.</p>
+<ul><li>Chess rating system</li></ul>
+<ul><li>Professor Glickman&#039;s Glicko-Website Archived 2020-12-12 at the Wayback Machine</li><li>TrueSkill [1] Archived 2019-10-16 at the Wayback Machine rating system by Microsoft borrows many ideas from Glicko.</li><li>forwardloop/glicko2s Archived 2020-11-12 at the Wayback Machine Glicko-2 implementation for the JVM</li><li>RobKohr/glicko Archived 2019-10-16 at the Wayback Machine JavaScript Glicko-2 implementation.</li><li>mmai/glicko2js Archived 2020-12-12 at the Wayback Machine Client side javascript and node.js Glicko-2 implementation</li><li>deepy/glicko2 Archived 2020-09-12 at the Wayback Machine Python Glicko-2 implementation.</li><li>sublee/glicko2 Archived 2021-01-06 at the Wayback Machine Python Glicko-2 implementation.</li><li>PlayerRatings Archived 2020-05-14 at the Wayback Machine R Glicko implementation by Alec Stephenson and Jeff Sonas.</li><li>scala-glicko2 Archived 2019-10-16 at the Wayback Machine Scala Glicko-2 implementation.</li><li>dimos/glicko2 Archived 2022-02-16 at the Wayback Machine Glicko-2 implementation for  Scala and Scala.js</li></ul>
