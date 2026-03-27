@@ -295,6 +295,11 @@ ${articleLinkTopics.length > 0
             const normalized = normalizeWikipediaUrl(url);
             if (linkedUrls.has(normalized)) {continue;}
 
+            // Skip topics with empty reasons — the CHECK constraint requires non-empty topic_summary
+            if (!lt.reason || lt.reason.trim() === '') {
+              console.info(`    Skipping "${lt.topic}": LLM returned empty reason`);
+              continue;
+            }
             validatedTopics.push({ topic: lt.topic, url: normalized, reason: lt.reason });
             linkedUrls.add(normalized);
             alreadyUsed.push(lt.topic);
