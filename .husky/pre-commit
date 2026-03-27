@@ -75,6 +75,14 @@ if [ -n "$CONTENT_MD_FILES" ]; then
     done
 fi
 
+# Check source file alphabetical order
+echo "Checking source file order..."
+npm run lint:sources
+if [ $? -ne 0 ]; then
+    echo "❌ Source files are not sorted alphabetically. Sort them before committing."
+    exit 1
+fi
+
 # Run type checking
 echo "Running type check..."
 npm run typecheck

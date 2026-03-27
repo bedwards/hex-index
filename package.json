@@ -17,6 +17,7 @@
     "start": "node dist/api/index.js",
     "lint": "eslint . --ext .ts,.tsx --max-warnings 0 --report-unused-disable-directives",
     "lint:fix": "eslint . --ext .ts,.tsx --fix --max-warnings 0 --report-unused-disable-directives",
+    "lint:sources": "node -e \"const fs=require('fs'); const files=[{f:'content/ingest-subscribed.json',k:'publications'},{f:'content/youtube-sources.json',k:'channels'}]; let ok=true; for(const {f,k} of files){const arr=JSON.parse(fs.readFileSync(f,'utf8'))[k]; const names=arr.map(x=>x.name); const sorted=[...names].sort((a,b)=>a.localeCompare(b,'en',{sensitivity:'base'})); for(let i=0;i<names.length;i++){if(names[i]!==sorted[i]){console.error(f+' is not sorted alphabetically by name: '+JSON.stringify(names[i])+' should come after '+JSON.stringify(sorted[i]));ok=false;break;}}} if(!ok)process.exit(1); console.log('Source files are sorted alphabetically.');\"",
     "typecheck": "tsc --noEmit",
     "test": "vitest run",
     "test:watch": "vitest",
