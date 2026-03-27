@@ -50,6 +50,26 @@ interface Subscriber {
 }
 
 
+// ── Phone normalization ─────────────────────────────────────────────
+
+/**
+ * Normalize a phone number to E.164 format (+1XXXXXXXXXX for US numbers).
+ * Accepts strings, numbers, null, or undefined. Returns null if invalid.
+ */
+function normalizePhone(raw: unknown): string | null {
+  if (raw == null) {
+    return null;
+  }
+  const digits = String(raw as string | number).replace(/\D/g, '');
+  if (digits.length === 10) {
+    return `+1${digits}`;
+  }
+  if (digits.length === 11 && digits.startsWith('1')) {
+    return `+${digits}`;
+  }
+  return null;
+}
+
 // ── Fetch subscribers via authenticated Apps Script endpoint ────────
 
 async function fetchSubscribers(): Promise<Subscriber[]> {
@@ -77,7 +97,7 @@ async function fetchSubscribers(): Promise<Subscriber[]> {
     .map(s => ({
       name: '',
       email: s.email ?? '',
-      phone: s.phone ? String(s.phone) : null,
+      phone: normalizePhone(s.phone),
       carrier: (s.carrier ?? '').toLowerCase(),
     }));
 }
@@ -366,20 +386,17 @@ async function main(): Promise<void> {
 
     // Send SMS via Twilio
     if (sub.phone) {
-      const digits = sub.phone.replace(/\D/g, '');
-      const to = digits.startsWith('1') ? `+${digits}` : `+1${digits}`;
-
       try {
         await twilioClient.messages.create({
           messagingServiceSid: loadSecret('TWILIO_MESSAGING_SERVICE_SID'),
-          to,
+          to: sub.phone,
           body: buildSmsText(sub.email, topBook),
         });
         smsSent++;
         console.info(`  SMS sent: ${sub.name || sub.phone}`);
       } catch (err) {
         errors++;
-        console.error(`  SMS failed (${to}): ${err instanceof Error ? err.message : String(err)}`);
+        console.error(`  SMS failed (${sub.phone}): ${err instanceof Error ? err.message : String(err)}`);
       }
     }
 
