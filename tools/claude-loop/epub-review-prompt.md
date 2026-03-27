@@ -65,6 +65,28 @@ Do not push directly to main. All changes go through PRs.
 echo "$(basename "$LATEST_EPUB")" >> tools/claude-loop/.epub-reviewed
 ```
 
+## Content Scoring (REQUIRED)
+
+Every time you evaluate content, score it 0-100 and log to the database:
+
+| Score | Meaning |
+|-------|---------|
+| 90-100 | Publication ready |
+| 80-89 | Good but minor issues |
+| 70-79 | Acceptable but needs work |
+| 50-69 | Below standard |
+| 0-49 | Reject |
+
+After reviewing each article in the epub, INSERT an audit record:
+```bash
+psql "$DATABASE_URL" -c "INSERT INTO app.content_audits (content_type, content_id, audited_by, score_before, score_after, issues_found, changes_made, notes) VALUES ('article', '<article-id>', 'claude-epub-review', <score_before>, <score_after>, ARRAY['issue1','issue2'], ARRAY['change1','change2'], 'epub review for <epub-filename>');"
+```
+
+- `score_before`: score on first read, before any fixes
+- `score_after`: score after fixes (NULL if no fixes needed)
+- `issues_found`: list of problems detected
+- `changes_made`: list of actions taken (e.g., 'marked dirty for retry', 'regenerated page')
+
 ## Important
 - The first draft epub goes live immediately when build-weekly runs Thursday night
 - Your improved version replaces it on the live site
