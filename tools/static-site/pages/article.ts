@@ -98,9 +98,9 @@ async function getLinkedWikipedia(
  * Insert a generated image into the middle of article text
  * Places it after the 2nd paragraph as a floating illustration
  */
-function injectImageIntoText(html: string, imageSrc: string): string {
+function injectImageIntoText(html: string, imageSrc: string, altText: string): string {
   const imgTag = `<figure class="inline-illustration">
-    <img src="${imageSrc}" alt="" loading="lazy" width="600" height="315">
+    <img src="${imageSrc}" alt="${escapeHtml(altText)}" loading="lazy" width="600" height="315">
   </figure>`;
 
   // Find the end of the 2nd </p> tag and insert after it,
@@ -293,7 +293,7 @@ function generateArticlePage(
 
       ${isFullRewrite ? `
       <div class="article-content">
-        ${article.image_path ? injectImageIntoText(mainContent, `${pathToRoot}${article.image_path}`) : mainContent}
+        ${article.image_path ? injectImageIntoText(mainContent, `${pathToRoot}${article.image_path}`, article.title) : mainContent}
       </div>
 
       ${deepDivesHtml}

@@ -582,7 +582,7 @@ ${navTocHtml}    </ol>
           archive.append(article.imageData, { name: `OEBPS/${imgFile}` });
           const mediaType = article.imageExt === 'webp' ? 'image/webp' : `image/${article.imageExt}`;
           manifestItems.push(`<item id="${imgId}" href="${imgFile}" media-type="${mediaType}"/>`);
-          imageHtml = `<img src="../images/${imgId}.${article.imageExt}" alt="" />`;
+          imageHtml = `<img src="../images/${imgId}.${article.imageExt}" alt="${escapeXml(article.row.title)}" />`;
         }
 
         // Deep dives
