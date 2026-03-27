@@ -45,7 +45,7 @@ function loadSecrets(): Secrets {
 interface Subscriber {
   name: string;
   email: string;
-  phone: string;
+  phone: string | null;
   carrier: string;
 }
 
@@ -65,7 +65,7 @@ async function fetchSubscribers(): Promise<Subscriber[]> {
 
   const data = await response.json() as {
     status: string;
-    subscribers?: Array<{ email: string; phone: string; carrier: string }>;
+    subscribers?: Array<{ email: string; phone: string | number; carrier: string }>;
   };
 
   if (data.status !== 'ok' || !data.subscribers) {
@@ -77,7 +77,7 @@ async function fetchSubscribers(): Promise<Subscriber[]> {
     .map(s => ({
       name: '',
       email: s.email ?? '',
-      phone: s.phone ?? '',
+      phone: s.phone ? String(s.phone) : null,
       carrier: (s.carrier ?? '').toLowerCase(),
     }));
 }
