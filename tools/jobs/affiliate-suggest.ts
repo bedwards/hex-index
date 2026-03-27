@@ -188,11 +188,62 @@ If no books or authors are explicitly mentioned, output an empty array: []`;
   return [];
 }
 
+// ── Generic bestseller blocklist ─────────────────────────────────────
+// These books get recommended for everything. Block them unless the article
+// is specifically about the book or its core subject matter.
+const GENERIC_BESTSELLERS = new Set([
+  'thinking, fast and slow',
+  'sapiens',
+  'sapiens: a brief history of humankind',
+  'atomic habits',
+  'the art of war',
+  'how to win friends and influence people',
+  'freakonomics',
+  'outliers',
+  'the 48 laws of power',
+  'meditations',
+  'the prince',
+  'the lean startup',
+  'good to great',
+  'the 7 habits of highly effective people',
+  'rich dad poor dad',
+  'the power of habit',
+  'start with why',
+  'zero to one',
+  'the subtle art of not giving a f*ck',
+  'educated',
+  'becoming',
+  'quiet',
+  'grit',
+  'mindset',
+  'deep work',
+  'the four agreements',
+  'the alchemist',
+  'mans search for meaning',
+  "man's search for meaning",
+  'influence: the psychology of persuasion',
+  'influence',
+  'thinking in bets',
+  'antifragile',
+  'the black swan',
+  'nudge',
+  'predictably irrational',
+  'blink',
+  'the tipping point',
+  'guns, germs, and steel',
+  'a brief history of time',
+]);
+
+function isGenericBestseller(title: string): boolean {
+  return GENERIC_BESTSELLERS.has(title.toLowerCase().trim());
+}
+
 // ── LLM: Curated book suggestions (existing logic) ─────────────────
 
 interface BookSuggestion {
   title: string;
   author: string;
+  relevance?: string;
 }
 
 async function suggestBooks(
@@ -202,9 +253,20 @@ async function suggestBooks(
   const prompt = `Article: "${articleTitle}"
 Summary: ${summary}
 
-List 1-3 books directly relevant to this article. Only well-known, real books.
+Recommend 1-3 books that are SPECIFICALLY about the exact topic of this article.
+
+STRICT RULES:
+- Each book MUST be directly about the article's specific subject matter, not tangentially related
+- Do NOT recommend generic popular bestsellers (e.g., "Thinking, Fast and Slow", "Sapiens", "Atomic Habits", "The Art of War", "How to Win Friends and Influence People", "Freakonomics", "Outliers", "The 48 Laws of Power", "Meditations" by Marcus Aurelius) UNLESS the article is specifically about that book or its core topic
+- A book about "decision-making" is NOT relevant to an article about Ted Cruz. A book about "leadership" is NOT relevant to an article about cryptocurrency.
+- The book must be something a reader would seek out BECAUSE of the specific topic discussed in this article
+- Prefer niche, subject-specific books over broad popular titles
+- Only suggest real, published books
+
+For each suggestion, include a one-sentence "relevance" explanation connecting the book to the article's specific topic.
+
 Output ONLY a JSON array. No preamble.
-[{"title": "Book Title", "author": "Author Name"}]`;
+[{"title": "Book Title", "author": "Author Name", "relevance": "Why this book is specifically relevant to this article's topic"}]`;
 
   const response = await generateText(prompt, {
     temperature: 0.2,
@@ -219,7 +281,16 @@ Output ONLY a JSON array. No preamble.
     const arrMatch = cleaned.match(/\[[\s\S]*\]/);
     if (arrMatch) {
       const parsed = JSON.parse(arrMatch[0]) as BookSuggestion[];
-      return parsed.filter(b => b.title && b.author).slice(0, 3);
+      const filtered = parsed
+        .filter(b => b.title && b.author)
+        .filter(b => {
+          if (isGenericBestseller(b.title)) {
+            console.info(`    BLOCKED generic bestseller: "${b.title}" by ${b.author}`);
+            return false;
+          }
+          return true;
+        });
+      return filtered.slice(0, 3);
     }
     console.info(`    LLM response (no array found): ${cleaned.slice(0, 200)}`);
   } catch (err) {
