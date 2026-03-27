@@ -45,7 +45,7 @@ async function main(): Promise<void> {
 
     for (const entry of data) {
       if (!entry.title || !entry.author) {
-        console.info(`  SKIP: missing title or author in entry`);
+        console.warn(`  SKIP: missing title or author in entry`);
         continue;
       }
 

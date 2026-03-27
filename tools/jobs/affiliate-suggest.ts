@@ -285,7 +285,7 @@ Output ONLY a JSON array. No preamble.
         .filter(b => b.title && b.author)
         .filter(b => {
           if (isGenericBestseller(b.title)) {
-            console.info(`    BLOCKED generic bestseller: "${b.title}" by ${b.author}`);
+            console.warn(`    BLOCKED generic bestseller: "${b.title}" by ${b.author}`);
             return false;
           }
           return true;
@@ -334,11 +334,11 @@ async function resolveDirectMentions(
           category: 'books',
         });
       } else if (!isbns) {
-        console.info(`    NO_ISBN: "${mention.title}" by ${mention.author} — not found on Open Library`);
+        console.warn(`    NO_ISBN: "${mention.title}" by ${mention.author} — not found on Open Library`);
       }
     } else if (mention.type === 'author_mention' && mention.author) {
       // For author-only mentions, we can't look up a specific book without a title
-      console.info(`    AUTHOR_ONLY: "${mention.author}" — skipping (no specific book title)`);
+      console.warn(`    AUTHOR_ONLY: "${mention.author}" — skipping (no specific book title)`);
     }
   }
 
@@ -432,7 +432,7 @@ async function main(): Promise<void> {
               }
               console.info(`    Direct mentions from wiki "${wiki.title}": ${mentions.length}`);
             } catch (err) {
-              console.info(`    Error reading wiki content for "${wiki.title}": ${err instanceof Error ? err.message : String(err)}`);
+              console.warn(`    Error reading wiki content for "${wiki.title}": ${err instanceof Error ? err.message : String(err)}`);
             }
             await new Promise(r => setTimeout(r, 500));
           }
@@ -480,10 +480,10 @@ async function main(): Promise<void> {
             console.info(`  [${articlesProcessed}] ${article.title} → no ISBNs found`);
           }
           if (missed.length > 0) {
-            console.info(`    Not on Open Library: ${missed.join('; ')}`);
+            console.warn(`    Not on Open Library: ${missed.join('; ')}`);
           }
         } catch (err) {
-          console.info(`  [${articlesProcessed}] Error: ${err instanceof Error ? err.message : String(err)}`);
+          console.warn(`  [${articlesProcessed}] Error: ${err instanceof Error ? err.message : String(err)}`);
         }
 
         await new Promise(r => setTimeout(r, 500));
@@ -554,7 +554,7 @@ async function main(): Promise<void> {
             console.info(`  [${wikiProcessed}] ${wiki.title} → no matches`);
           }
         } catch (err) {
-          console.info(`  [${wikiProcessed}] Error: ${err instanceof Error ? err.message : String(err)}`);
+          console.warn(`  [${wikiProcessed}] Error: ${err instanceof Error ? err.message : String(err)}`);
         }
 
         await new Promise(r => setTimeout(r, 500));
