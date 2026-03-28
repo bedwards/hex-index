@@ -43,10 +43,9 @@ ORDER BY at.score DESC
    - Very short content
    - Duplicate paragraphs
 
-3. **Fix problems** by marking articles dirty:
-```sql
-UPDATE app.articles SET rewrite_dirty = true WHERE id = '<id>';
-```
+3. **Fix problems in place** — do NOT mark articles dirty for Qwen to retry. Edit the HTML files directly:
+   - Edit affected files in `library/rewrites/` to strip think tags, LLM preamble, refusal text, fix encoding, remove duplicates
+   - Use an Agent worker with `isolation: "worktree"` to create a branch, make fixes, and create a PR
 
 4. **Regenerate affected pages**: After fixing, regenerate only what changed:
 ```bash
@@ -85,7 +84,7 @@ psql "$DATABASE_URL" -c "INSERT INTO app.content_audits (content_type, content_i
 - `score_before`: score on first read, before any fixes
 - `score_after`: score after fixes (NULL if no fixes needed)
 - `issues_found`: list of problems detected
-- `changes_made`: list of actions taken (e.g., 'marked dirty for retry', 'regenerated page')
+- `changes_made`: list of actions taken (e.g., 'fixed in place via PR', 'regenerated page')
 
 ## Important
 - The first draft epub goes live immediately when build-weekly runs Thursday night
