@@ -23,7 +23,7 @@ ORDER BY type
 
 Read from `library/{content_path}`. Check for these problems:
 
-### Critical (mark dirty for retry)
+### Critical (fix in-place)
 - Refusal text: "I can't help", "I'm not comfortable", "I cannot assist"
 - Think tags: `<think>`, `</think>`
 - LLM preamble: "Here's the rewrite", "I've adapted", "Sure, here's", "Certainly"
@@ -35,15 +35,18 @@ Read from `library/{content_path}`. Check for these problems:
 - No section headings (no `<h2>` or `<h3>` tags in 1000+ word content)
 - Code fences in prose (`<code>` blocks that look like markdown artifacts)
 
-## Step 3: Fix problems
+## Step 3: Fix problems in-place
 
-For critical issues, mark the article dirty:
-```sql
--- For articles:
-UPDATE app.articles SET rewrite_dirty = true WHERE id = '{id}';
--- For Wikipedia:
-UPDATE app.wikipedia_articles SET rewrite_dirty = true, status = 'stub' WHERE id = '{id}';
-```
+Do NOT mark articles dirty or set rewrite_dirty=true. That sends work back to Qwen, which cannot fix its own mistakes. You are the quality layer — fix problems yourself.
+
+For each critical issue, use a background Agent worker with `isolation: "worktree"`:
+1. **Read** the HTML file from `library/{content_path}`
+2. **Edit** the file to remove the problem (strip think tags, remove LLM preambles, deduplicate repeated paragraphs, fix encoding)
+3. **Regenerate** the affected static page: `npm run static:generate -- --article {id}`
+4. **Commit, push, and create a PR** with the fix
+5. **Verify** the fix appears on https://hex-index.com after merge
+
+For Wikipedia articles, do the same: read `library/{content_path}`, fix the HTML, regenerate with `npm run static:generate -- --only wikipedia`, and deploy via PR.
 
 ## Step 4: Report
 
@@ -51,4 +54,4 @@ Print a summary:
 - Total items checked
 - Critical issues found (and which articles)
 - Warnings found
-- Items marked for retry
+- Items fixed and deployed
