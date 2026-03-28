@@ -124,6 +124,28 @@ gh issue list --state open --json number,title,labels,assignees,updatedAt
 
 If an issue has been in-progress for >48h with no PR, investigate.
 
+## Content Scoring (REQUIRED)
+
+Every time you evaluate content, score it 0-100 and log to the database:
+
+| Score | Meaning |
+|-------|---------|
+| 90-100 | Publication ready |
+| 80-89 | Good but minor issues |
+| 70-79 | Acceptable but needs work |
+| 50-69 | Below standard |
+| 0-49 | Reject |
+
+After reviewing, INSERT an audit record:
+```bash
+psql "$DATABASE_URL" -c "INSERT INTO app.content_audits (content_type, content_id, audited_by, score_before, score_after, issues_found, changes_made, notes) VALUES ('article', '<article-id>', 'claude-editorial', <score_before>, <score_after>, ARRAY['issue1','issue2'], ARRAY['change1','change2'], 'optional notes');"
+```
+
+- `score_before`: score on first read, before any fixes
+- `score_after`: score after fixes (NULL if no fixes needed)
+- `issues_found`: list of problems detected
+- `changes_made`: list of actions taken (can be empty array if report-only)
+
 ## Working Style
 
 - **Always use worktrees** for code changes: spawn Agent with `isolation: "worktree"`
