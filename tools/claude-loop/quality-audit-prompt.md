@@ -23,27 +23,33 @@ ORDER BY type
 
 Read from `library/{content_path}`. Check for these problems:
 
-### Critical (mark dirty for retry)
+### Critical (fix in place)
 - Refusal text: "I can't help", "I'm not comfortable", "I cannot assist"
 - Think tags: `<think>`, `</think>`
 - LLM preamble: "Here's the rewrite", "I've adapted", "Sure, here's", "Certainly"
 - Garbled/encoding issues: `â€™`, `â€"`, `Ã©` (mojibake)
 - Repeated paragraphs (same paragraph appears twice)
 
-### Warning (log but don't retry)
+### Warning (log but don't fix)
 - Very short content (< 500 words for articles, < 1000 for Wikipedia)
 - No section headings (no `<h2>` or `<h3>` tags in 1000+ word content)
 - Code fences in prose (`<code>` blocks that look like markdown artifacts)
 
-## Step 3: Fix problems
+## Step 3: Fix problems in place
 
-For critical issues, mark the article dirty:
-```sql
--- For articles:
-UPDATE app.articles SET rewrite_dirty = true WHERE id = '{id}';
--- For Wikipedia:
-UPDATE app.wikipedia_articles SET rewrite_dirty = true, status = 'stub' WHERE id = '{id}';
-```
+**Do NOT mark articles dirty for Qwen to retry.** Fix the HTML files directly.
+
+For critical issues, edit the file in `library/` to remove or fix the problematic content:
+- Strip think tags, LLM preamble, and refusal text
+- Fix encoding issues (replace mojibake with correct characters)
+- Remove duplicate paragraphs
+
+Use an Agent worker with `isolation: "worktree"` to:
+1. Create a branch (e.g., `fix/quality-audit-<date>`)
+2. Edit the affected HTML files directly in `library/rewrites/` or `library/wikipedia/`
+3. Regenerate affected static pages: `npm run static:generate -- --article <id>`
+4. Commit all changes (source HTML + regenerated docs/)
+5. Push and create a PR
 
 ## Step 4: Score and Log (REQUIRED)
 
@@ -63,9 +69,9 @@ psql "$DATABASE_URL" -c "INSERT INTO app.content_audits (content_type, content_i
 ```
 
 - `score_before`: score on first read, before any fixes
-- `score_after`: score after fixes (NULL if no fixes needed, NULL if marked dirty for retry)
+- `score_after`: score after fixes (NULL if no fixes needed)
 - `issues_found`: list of problems detected (from critical/warning checks above)
-- `changes_made`: list of actions taken (e.g., 'marked dirty for retry', 'no action needed')
+- `changes_made`: list of actions taken (e.g., 'fixed in place via PR', 'no action needed')
 
 ## Step 5: Report
 
@@ -73,4 +79,4 @@ Print a summary:
 - Total items checked
 - Critical issues found (and which articles)
 - Warnings found
-- Items marked for retry
+- Items fixed in place (with PR links)
