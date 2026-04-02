@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Order book - Hex Index</title>
+  <link rel="stylesheet" href="../../styles.css">
+</head>
+<body class="reading-mode">
+  <header class="reading-header">
+    <a href="../../index.html" class="back-link" id="back-link">&larr; Back to Library</a>
+  </header>
+  <main class="reading-content">
+    
+    <article class="wikipedia-page">
+      <header class="wikipedia-header">
+        <div class="type-badge">Wikipedia Deep Dive</div>
+        <h1>Order book</h1>
+        <div class="article-meta">
+          <span class="read-time">14 min read</span>
+        </div>
+      </header>
+
+      
+
+      <div class="wikipedia-content"><p class="source-note">Based on <a href="https://en.wikipedia.org/wiki/Order_book">Wikipedia: Order book</a></p>
+<p>In the milliseconds between a tweet about a tech giant&#039;s earnings and the resulting cascade of trades across global markets, a silent, digital architecture is doing the heavy lifting. It is not a human trader screaming on a floor, nor a high-speed algorithm acting on pure instinct, but a structured ledger known as the order book. This is the nervous system of modern finance, a dynamic list that records the precise interest of buyers and sellers in a particular financial instrument at any given nanosecond. When Jean-François Mertens, a giant in the field of game theory and economic equilibrium, looked at this mechanism, he saw more than just a queue; he saw a mathematical structure capable of extending far beyond simple exchanges. He constructed an order matching mechanism that works across specialists, where bids and offers are not merely static prices for a single item but can be expressed as linear functions of other traded items. This theoretical leap highlights the profound flexibility inherent in the concept, even as the practical application remains the bedrock of every stock exchange on Earth.</p>
+<p>To understand the order book, one must first strip away the jargon of Wall Street and look at the fundamental mechanics of exchange. At its core, a trading venue—be it the New York Stock Exchange, a cryptocurrency exchange, or a dark pool—requires a method to record the conflicting desires of market participants. On one side, there are buyers, eager to acquire a security at the lowest possible price. On the other, sellers, anxious to offload their holdings for the highest possible return. The order book is the list of these orders, whether they were entered manually by a broker in the 19th century or electronically by a high-frequency trading firm in the 21st. It is a living document, constantly shifting as new orders arrive, existing ones are cancelled, or trades are executed.</p>
+<p>The engine that drives this system is the matching engine. This software component is the arbiter of the market, using the data within the book to determine which orders can be fully or partially executed. In the context of securities trading, the book is bifurcated into two distinct lists: the list of buy orders, often called the bid side, and the list of sell orders, known as the ask or offer side. For every single entry in this ledger, the system must maintain a rigorous set of data points. It needs a means of identifying the party placing the order. This identification is critical for regulatory compliance and settlement, even if the identity is obscured from the public eye, as is the case in dark pools where liquidity is hidden to prevent market impact. Beyond the identity, the book must record the number of securities involved and the specific price at which the buyer is bidding or the seller is asking.</p>
+<p>When the volume of orders at a specific price point becomes significant, a unique phenomenon occurs. If several orders contain the same price, they are referred to as being on a price level. This concept is the granularity of the market. Practically, this means that if a new bid comes in at that specific price level, it does not just match with one seller; it interacts with the aggregate of all sell orders sitting on that level. The matching engine works through this list, satisfying the interest of buyers and sellers until the orders are fulfilled. The efficiency of this process is what allows millions of trades to occur daily without the market grinding to a halt under the weight of its own complexity.</p>
+<p>However, the order book is not merely a passive list; it is a reactive landscape. When the book is part of a functioning matching engine, orders are matched the moment the interest of buyers and sellers can be satisfied. This leads to a critical state of equilibrium or disequilibrium. If a buy order arrives with a bid price that is equal to or higher than the lowest available ask price, the trade happens instantly. These orders do not wait in the queue; they are executed immediately and will not be part of the open orders book. They vanish into the trade history, leaving the book to display only the orders that are waiting for a counterparty.</p>
+<p>But what happens when the logic of the market breaks down, or when a sudden surge in activity creates a temporary glitch? If a situation remains where the bid price is higher than the ask price, the order book is said to be crossed. This is an anomaly in a well-functioning market, often indicative of a data error, a lag in transmission, or a specific condition of the market where liquidity has momentarily evaporated on one side. In a crossed book, the fundamental rule of the market—that you cannot buy for more than you can sell—has been violated. While modern matching engines are designed to prevent this or resolve it instantly, the concept of a crossed book serves as a stark reminder of the fragility of the price discovery process.</p>
+<p>At the very front of this complex structure lies the most watched data point in finance: the top of the book. The highest bid and the lowest ask are collectively known as the top of the book. These two numbers are the heartbeat of the market. They are interesting because they signal the prevalent market sentiment and the exact bid and ask price that would be needed to get an order fulfilled right now. If you want to buy immediately, you pay the lowest ask. If you want to sell immediately, you accept the highest bid. The difference between these two figures is called the bid–ask spread. This spread is not merely a number; it is a measure of liquidity and risk. A narrow spread suggests a deep, liquid market where buyers and sellers are abundant and costs are low. A wide spread indicates a thin market, where the cost of entering or exiting a position is high, and the risk of price movement is greater.</p>
+<p>Beyond the top of the book lies the rest of the ledger, a concept known as book depth. This refers simply to the number of price levels available at a particular time in the book. Depth is the measure of the market&#039;s resilience. A deep book can absorb large orders without moving the price significantly. Imagine a large institutional investor trying to sell a million shares of a tech company. If the order book is shallow, that single sell order could eat through the asks at the top of the book and push the price down by several percent, simply by exhausting the available liquidity at each level. Conversely, a deep book offers a cushion, allowing the order to be filled gradually without causing a market panic.</p>
+<p>In practical applications, the representation of this depth varies. Sometimes the book is represented to a fixed depth, and orders beyond that depth are ignored or rejected by the data feed. This is often done to reduce the bandwidth required to transmit market data to traders. In other cases, the book can contain unlimited levels, offering a complete view of the market&#039;s supply and demand. The choice of depth is a strategic decision for exchanges and data vendors, balancing the need for transparency with the constraints of technology.</p>
+<p>The evolution of the order book has been inextricably linked to the evolution of technology. For decades, the order book was a numerical dataset, a stream of numbers that only the most trained eyes could interpret. The advent of retail trading software in the early 2000s changed this landscape forever. It enabled more complex charting options for what was previously numerical data. Suddenly, the abstract concept of the order book was visualized. Traders could see the &quot;walls&quot; of buy and sell orders as graphical bars, allowing them to intuitively grasp the pressure building at certain price levels. This democratization of data transformed the order book from a tool for specialists into a visual language for the masses, fueling the rise of the retail investor and the explosion of day trading.</p>
+<p>It is crucial to recognize that the term &quot;order book&quot; is not exclusive to the high-stakes world of securities. In the broader context of business, an order book might also refer to a company&#039;s list of open, unshipped, customer orders. This business order book is normally time-phased and valued at actual individual order prices. For a manufacturing firm, this list is a vital indicator of future revenue. It may include margin and profitability analysis, allowing executives to gauge not just the volume of future work, but the quality of it. A company with a massive order book of low-margin contracts may be in a different financial position than one with a smaller book of high-margin projects. The basic principle of the order book as used in financial securities, when used to gauge supply and demand, can also apply to the trade of other goods. In the realm of e-commerce, for instance, the concept of inventory availability and pricing tiers mirrors the mechanics of a financial order book. When a popular product sells out, the &quot;ask&quot; side of the market is exhausted, and the price often shifts, either through official channels or on secondary markets.</p>
+<p>The theoretical underpinnings of the order book continue to evolve, pushing the boundaries of what is possible in market design. Jean-François Mertens&#039; work stands as a testament to this potential. By constructing an order matching mechanism that works across specialists, he demonstrated that orders are not confined to a single silo. In his model, bids and offers can be expressed as a linear function of other traded items. This means that a trader could theoretically place an order that is contingent on the price of a related asset, or a basket of assets, creating a level of sophistication that goes far beyond the simple &quot;buy 100 shares at $50&quot; instruction. This cross-specialist matching allows for a more efficient allocation of capital and a more robust price discovery mechanism, as it connects markets that might otherwise remain isolated.</p>
+<p>The depth of the order book is also a reflection of the market&#039;s participants. In a market dominated by high-frequency trading firms, the book depth might be incredibly deep at the top, with thousands of orders appearing and disappearing in microseconds. These firms provide liquidity, narrowing the bid-ask spread and making it cheaper for everyone else to trade. However, this liquidity can be fleeting. In times of stress, these algorithms may pull back, causing the book depth to vanish instantly, leading to the flash crashes that have become a feature of modern markets. Understanding the order book, therefore, requires an understanding of the human and algorithmic psychology behind the numbers.</p>
+<p>The mechanics of the order book also dictate the nature of market impact. When an order is placed, it interacts with the existing book. If the order is small, it may be filled without moving the price, a phenomenon known as a &quot;fill.&quot; If the order is large, it may &quot;walk the book,&quot; consuming the liquidity at the best price, then the next best, and so on, until the entire order is filled or the limit is reached. This process is why large institutions often break their orders into smaller chunks or use algorithms designed to hide their intentions. They are essentially trying to navigate the order book without revealing their hand, lest other participants front-run their trades and drive the price against them.</p>
+<p>The concept of the &quot;price level&quot; is particularly fascinating in this context. It represents a zone of agreement. At a specific price, there is a consensus among a group of sellers that their asset is worth selling, and a group of buyers who are willing to pay that amount. The accumulation of orders at these levels creates a sense of support or resistance. In technical analysis, traders often look for these levels, believing that a price level with a large order book depth will act as a barrier. If the price approaches a level with a massive wall of sell orders, it may bounce back up, as buyers are unwilling to push through that volume. Conversely, a level with a massive wall of buy orders may act as a floor. These are not just mathematical coincidences; they are the result of collective human behavior encoded into the order book.</p>
+<p>The order book is also the primary source of truth for market transparency. In a fully transparent market, anyone can see the orders waiting to be filled. This transparency is what gives investors confidence. However, not all order books are transparent. Dark pools, for example, are private exchanges where order books are hidden from the public view. Orders are matched anonymously, and the details of the trade are often not reported until after the transaction is complete. The existence of dark pools is a response to the market impact problem. Large investors use them to trade without moving the price, effectively creating a shadow order book that operates parallel to the public one. This duality raises questions about fairness and efficiency, as the public market may not have a complete picture of the true supply and demand.</p>
+<p>As we look toward the future, the order book remains central to the financial ecosystem. The integration of blockchain technology, which the reader has already explored in the context of speed and scalability, promises to further decentralize and automate the order book. Smart contracts could replace traditional matching engines, executing trades based on pre-defined conditions with a level of trust and efficiency that current systems can only dream of. Yet, the fundamental logic will remain the same: a list of buyers and sellers, a mechanism for matching, and a price that reflects the equilibrium of the moment.</p>
+<p>The order book is more than a list; it is a narrative of the market&#039;s intent. It tells the story of who wants what, at what price, and when. It captures the tension between greed and fear, the balance of supply and demand, and the relentless drive for efficiency. From the manual ledgers of the past to the hyper-fast digital streams of today, the order book has evolved, but its purpose remains unchanged. It is the engine of capital allocation, the mechanism that turns individual desires into market reality. Understanding it is not just a matter of technical knowledge; it is a key to understanding how the modern economy functions.</p>
+<p>In the end, the order book is a testament to the power of information. In a world of uncertainty, it provides a momentary clarity. It shows the bid, the ask, and the spread, offering a snapshot of value that is constantly being rewritten. For the trader, the analyst, or the economist, the order book is the map. It reveals the terrain, the obstacles, and the opportunities. Whether it is a simple list of orders for a single stock or a complex, cross-specialist mechanism involving linear functions of multiple assets, the order book remains the fundamental structure upon which the edifice of finance is built. It is the place where the abstract concept of value meets the concrete reality of exchange, and where the future of the market is written, one order at a time.</p>
+<p>The persistence of the order book across centuries of technological change speaks to its robustness. It has survived the transition from open outcry to electronic trading, from paper tickets to fiber optics. It has adapted to the rise of dark pools, the proliferation of retail trading apps, and the challenges of high-frequency trading. It has even expanded beyond finance to encompass the logistics of global commerce. The order book is not just a tool; it is a fundamental aspect of how humans organize exchange. As long as there are buyers and sellers, and as long as there is a need to match their interests, the order book will exist. It is the silent partner in every transaction, the invisible hand made visible through data.</p>
+<p>For those seeking to navigate the complexities of modern finance, the order book is the first place to look. It is where the action is, where the decisions are made, and where the future is determined. It is a dynamic, living system that reflects the collective wisdom and folly of the market. To ignore it is to trade blind. To understand it is to hold a key to the kingdom of finance. As technology continues to advance, the order book will undoubtedly evolve, becoming faster, more complex, and more integrated. But its essence will remain: a list of orders, a matching engine, and the eternal dance of supply and demand.</p></div>
+
+      
+
+      <footer class="wikipedia-footer">
+        <p class="source-link">
+          <a href="https://en.wikipedia.org/wiki/Order_book" target="_blank" rel="noopener">
+            View original Wikipedia article &rarr;
+          </a>
+        </p>
+        <p class="rewrite-note">
+        This article has been rewritten from Wikipedia source material for enjoyable reading.
+        Content may have been condensed, restructured, or simplified.
+      </p>
+      </footer>
+
+      
+      <section class="related-articles">
+        <h2>Related Articles</h2>
+        <p class="related-intro">This deep dive was written in connection with these articles:</p>
+        <ul class="related-list">
+          
+      <li class="related-article-item">
+        <a href="../../article/c61ae04e-a3bf-4c12-b4e9-064fdb3c1cab/index.html">
+          <strong>Blockchains are fast enough for finance. Now what?</strong>
+        </a>
+        <span class="article-meta">
+          by a16z crypto in web3 with a16z
+        </span>
+      </li>
+        </ul>
+      </section>
+    
+    </article>
+  
+  </main>
+  <script>
+  (function() {
+    var params = new URLSearchParams(window.location.search);
+    var from = params.get('from');
+    if (from) {
+      var names = {
+        'foreign-policy':'Foreign Policy','ai-tech':'AI & Tech','housing-cities':'Housing & Cities',
+        'political-strategy':'Political Strategy','history':'History','science':'Science',
+        'culture':'Culture','economics':'Economics','faith':'Faith','writing-craft':'Writing & Craft',
+        'music':'Music','law-rights':'Law & Rights','public-health':'Public Health',
+        'philosophy':'Philosophy','media':'Media','defense':'Defense','china':'China'
+      };
+      var link = document.getElementById('back-link');
+      if (link) {
+        var name = names[from] || from;
+        link.href = '../../tag/' + from + '/index.html';
+        link.textContent = '\u2190 Back to ' + name;
+      }
+    }
+  })();
+  </script>
+</body>
+</html>

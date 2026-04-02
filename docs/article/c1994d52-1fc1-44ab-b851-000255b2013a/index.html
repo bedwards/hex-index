@@ -28,16 +28,41 @@
       </header>
 
       <div class="content-label">
-        <span class="label-text">Transcript excerpt from <a href="../../publication/thehatedone/index.html">The Hated One</a></span>
+        <span class="label-text">Commentary by <a href="../../about/index.html">Brian Edwards</a></span>
         <nav class="content-nav">
-          <a href="https://www.youtube.com/watch?v=XwJpf5kICeg" target="_blank" rel="noopener">Watch on YouTube &rarr;</a>
+          
+          <a href="https://www.youtube.com/watch?v=XwJpf5kICeg" target="_blank" rel="noopener">Original video &rarr;</a>
         </nav>
       </div>
 
       
+      <div class="article-content">
+        <p>In an era where digital footprints are often permanent, The Hated One presents a radical proposition: true security requires a system that refuses to remember you. This isn&#039;t just about hiding your location; it is about erasing the very existence of your session the moment you walk away. The author argues that for those facing physical threats, standard encryption is insufficient because memory can be recovered even from a locked device.</p>
+<h2>The Philosophy of Amnesia</h2>
+<p>The Hated One opens by dismantling the illusion of safety in modern computing. &quot;Regular operating systems are designed to store trowels of sensitive data on the hardware of your machine,&quot; the author notes, highlighting a fundamental design flaw that leaves users vulnerable to physical seizure. The solution proposed is Tails, described not merely as software but as a &quot;forensic eraser&quot; that leaves no files on the system whatsoever. This approach shifts the security paradigm from hiding data to ensuring no data exists to be found. The argument is compelling because it addresses the most dangerous threat model: an adversary with physical access to the hardware. By running entirely from a USB drive and routing all traffic through the Tor network, the system ensures that every user looks identical to an outside observer.</p>
+<figure class="inline-illustration">
+    <img src="../../images/c1994d52-1fc1-44ab-b851-000255b2013a.webp" alt="Become Anonymous &amp; Untraceable | How To Securely Install &amp; Use Tails" loading="lazy" width="600" height="315">
+  </figure>
+
+<p>However, the author is careful to temper expectations. &quot;No security tool can do everything for you,&quot; The Hated One warns, emphasizing that the software is only as strong as the user&#039;s operational security. This distinction is crucial; it prevents the dangerous misconception that installing a tool grants invincibility. Critics might note that for non-technical users, the sheer responsibility of managing one&#039;s own security posture can be overwhelming, potentially leading to user error that negates the software&#039;s benefits.</p>
+<blockquote>&quot;If your life depends on strong anonymity and security you need to acquire education and skills beyond the scope of this video.&quot;</blockquote>
+<h2>The Critical Role of Verification</h2>
+<p>The tutorial moves into the technical weeds, but the author&#039;s most vital advice is not about installation—it is about verification. The Hated One insists that users &quot;never skip verification completely otherwise you have to blindly trust your tails isn&#039;t compromised.&quot; This is the linchpin of the entire operation. The author details several methods, from simple JavaScript checks to complex OpenPGP signature verification, arguing that the method chosen should match the user&#039;s threat model.</p>
+<p>The coverage of OpenPGP verification is particularly dense, guiding readers through importing keys and checking for &quot;good signature&quot; outputs. The Hated One writes, &quot;if the tails image is in any way compromised the output of the verification will say bad signature and you shouldn&#039;t use this image to install tails.&quot; This binary outcome—good or bad—removes ambiguity. The author&#039;s insistence on manual verification, even when it is difficult, underscores a core tenet of security: trust but verify. While the tutorial simplifies the command-line steps for Linux users, it acknowledges the friction this creates for Windows and Mac users, suggesting third-party tools like GPG4Win. A counterargument worth considering is whether the complexity of manual verification acts as a barrier to entry for the very activists and journalists the tool is meant to protect.</p>
+<h2>Operational Risks and Persistent Storage</h2>
+<p>Once the image is verified and flashed, the author addresses the practicalities of using the system. The Hated One points out a common pitfall: &quot;Linux in general is not the best friends with wi-fi cards,&quot; advising users to have an Ethernet cable or a compatible adapter ready. This practical tip highlights the gap between theoretical security and real-world hardware compatibility. The tutorial then explores the optional feature of encrypted persistent storage, a double-edged sword. While it allows users to save files, the author warns that &quot;an adversary holding your usb drive wouldn&#039;t be able to read your data but it will see there is an encrypted partition and might force you to reveal your password.&quot;</p>
+<p>This nuance is often overlooked in security guides. The Hated One explains that while the data is hidden, the existence of the hidden volume is not, potentially inviting coercion. The author advises that this feature is best for beginners only if they strictly use the &quot;personal data&quot; option, avoiding more complex configurations that might reveal their intent. The text also covers metadata removal, noting that &quot;plenty of tor users have been identified by this offset mistake&quot; regarding photo uploads. This serves as a stark reminder that anonymity is a chain, and the weakest link is often the user&#039;s failure to scrub digital fingerprints from their content.</p>
+<blockquote>&quot;Every time you reboot plug out your usb or shut down all the information about your session activities is wiped from the usb flash drive as well as from the host&#039;s memory.&quot;</blockquote>
+<h2>Bottom Line</h2>
+<p>The Hated One delivers a masterclass in balancing technical instruction with a sobering reality check on operational security. The strongest part of the argument is the relentless focus on verification, treating the download process as the most critical vulnerability. However, the piece&#039;s biggest vulnerability lies in its assumption that users can successfully navigate complex cryptographic verification without advanced training. Readers should watch for the distinction between digital anonymity and physical safety, remembering that while Tails can wipe a hard drive, it cannot wipe the physical reality of the device itself.</p>
+      </div>
+
       
 
-      <div class="excerpt-card">
+      <section id="excerpt" class="excerpt-card">
+        <div class="content-label">
+          <span class="label-text">Transcript excerpt on The Hated One</span>
+        </div>
         <div class="article-excerpt">
           <p>online anonymity sometimes demands much more than just obfuscating your location in ip address some threat models require that you leave no trace of your activity on the device you're using the problem is that regular operating systems are designed to store trowels of sensitive data on the hardware of your machine even with full device encryption memory locks can often easily be recovered by an adversary with physical access to your device not everyone has the luxury of physical security and some people just have to assume that their computer will likely fall into the wrong hands this is why security experts with strong sense for protecting human rights in the digital world have been working on creating a system that doesn't remember anything about itself a system that forensically wipes all evidence of its use immediately after a user ends their session a system that looks exactly the same no matter who uses it or for what purpose and now such a system has a name tails the amnesic incognito live system a live system because it's an operating system designed to run off of a usb flash drive instead of being permanently installed on an internal drive incognito because its entire traffic is routed through tour and the default fingerprint of each tails installation matches perfectly with every other tails user on the planet music means every time you reboot plug out your usb or shut down all the information about your session activities is wiped from the usb flash drive as well as from the host's memory this forensic aser leaves no files on the whole system whatsoever tails is a security application and as such it's not just about the tool itself but also about your operation security how you obtain use and maintain tails for your particular situation can make or break your security no security tool can do everything for you if you want to make the most out of tales you have to educate yourself about the security precautions to take when obtaining and using tails and tory in general this tutorial will guide you through the official tails installation process as maintained at the time of making of this video use this tutorial as a reference only and always follow the official guidelines for maximum security the aim of this tutorial is to provide an obvious users with visual experience of ...</p>
         </div>
@@ -45,9 +70,8 @@
           <a href="https://www.youtube.com/watch?v=XwJpf5kICeg" class="read-button" target="_blank" rel="noopener">
             Watch on YouTube &rarr;
           </a>
-          <p class="cta-note">Watch the full video by The Hated One on YouTube.</p>
         </div>
-      </div>
+      </section>
       
     </article>
   
