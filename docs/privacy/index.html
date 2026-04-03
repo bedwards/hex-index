@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Privacy Policy - Hex Index</title>
+  <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <nav class="container">
+      <a href="../index.html" class="logo">Hex Index</a>
+      <a href="../tag/index.html" class="header-link">Topics</a>
+      <a href="../weekly/index.html" class="header-link">Reader</a>
+      <a href="../about/index.html" class="header-link">About</a>
+      <div class="search-wrap">
+        <input type="text" id="search" class="search-input" placeholder="Search" autocomplete="off" spellcheck="false">
+      </div>
+    </nav>
+  </header>
+  <main class="container">
+    <div id="search-results" class="article-list" style="display:none"></div>
+    <div id="main-content">
+      
+    <article class="about-page">
+      <h1>Privacy Policy</h1>
+
+      <p>
+        Hex Index Reader collects your email address and phone number when you
+        subscribe through the form on hex-index.com. That data is used for one
+        purpose: sending you the weekly Hex Index Reader notification every Friday.
+        One email and one SMS per week. Nothing else.
+      </p>
+
+      <h2>How Your Data Is Handled</h2>
+
+      <p>
+        Phone numbers are transmitted to <a href="https://www.twilio.com/legal/privacy" target="_blank" rel="noopener">Twilio</a>
+        for SMS delivery. Email addresses are transmitted to Gmail SMTP for email
+        delivery. Subscriber data is stored in a Google Sheet accessible only to the
+        site operator.
+      </p>
+
+      <p>
+        Your data is never sold, shared with third parties for marketing, or used
+        for any purpose beyond delivering the weekly Reader notification.
+      </p>
+
+      <h2>Opting Out</h2>
+
+      <p>
+        You can unsubscribe at any time. Reply STOP to any SMS to stop receiving
+        text messages. Click the unsubscribe link in any email to stop receiving
+        emails.
+      </p>
+
+      <h2>Contact</h2>
+
+      <p>
+        Questions about this policy: <a href="mailto:brian.mabry.edwards@gmail.com">brian.mabry.edwards@gmail.com</a>
+      </p>
+    </article>
+  
+    </div>
+  </main>
+  <footer class="site-footer">
+    <div class="container">
+      <p>A curated reading library &middot; v0.6.0</p>
+      <p><a href="../privacy/index.html">Privacy</a> &middot; <a href="../terms/index.html">Terms</a></p>
+    </div>
+  </footer>
+  <script src="https://cdn.jsdelivr.net/npm/fuse.js@7.1.0/dist/fuse.min.js"></script>
+  <script>
+  (function() {
+    var input = document.getElementById('search');
+    var results = document.getElementById('search-results');
+    var main = document.getElementById('main-content');
+    if (!input || !results || !main) return;
+
+    var fuse = null;
+    var indexLoaded = false;
+    var pathToRoot = '../';
+
+    function loadIndex() {
+      if (indexLoaded) return Promise.resolve();
+      indexLoaded = true;
+      return fetch(pathToRoot + 'search-index.json')
+        .then(function(r) { return r.json(); })
+        .then(function(data) {
+          fuse = new Fuse(data, {
+            keys: [
+              { name: 't', weight: 3 },
+              { name: 'a', weight: 2 },
+              { name: 'p', weight: 1 }
+            ],
+            threshold: 0.4,
+            distance: 300,
+            minMatchCharLength: 2,
+            ignoreLocation: true,
+          });
+        });
+    }
+
+    function renderResults(items) {
+      if (items.length === 0) {
+        results.innerHTML = '<p style="padding:1rem;color:var(--ink-muted)">No results</p>';
+        return;
+      }
+      results.innerHTML = items.slice(0, 30).map(function(r) {
+        var a = r.item;
+        return '<article class="article-card"><div>' +
+          '<a href="' + pathToRoot + 'article/' + a.i + '/index.html" class="article-link">' +
+          '<h2 class="article-title">' + esc(a.t) + '</h2></a>' +
+          '<div class="article-meta">' +
+          '<span class="author">' + esc(a.a) + '</span>' +
+          '<span class="separator">&middot;</span>' +
+          '<a href="' + pathToRoot + 'publication/' + a.s + '/index.html" class="publication">' + esc(a.p) + '</a>' +
+          (a.d ? '<span class="separator">&middot;</span><time>' + a.d + '</time>' : '') +
+          '<span class="separator">&middot;</span>' +
+          '<span class="read-time">' + a.r + ' min read</span>' +
+          '</div></div></article>';
+      }).join('');
+    }
+
+    function esc(s) {
+      var d = document.createElement('div');
+      d.textContent = s;
+      return d.innerHTML;
+    }
+
+    var debounce;
+    input.addEventListener('input', function() {
+      clearTimeout(debounce);
+      var q = input.value.trim();
+      if (q.length < 2) {
+        results.style.display = 'none';
+        main.style.display = '';
+        return;
+      }
+      debounce = setTimeout(function() {
+        loadIndex().then(function() {
+          if (!fuse) return;
+          var hits = fuse.search(q);
+          results.style.display = '';
+          main.style.display = 'none';
+          renderResults(hits);
+        });
+      }, 100);
+    });
+
+    input.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') {
+        input.value = '';
+        results.style.display = 'none';
+        main.style.display = '';
+      }
+    });
+  })();
+  </script>
+</body>
+</html>
