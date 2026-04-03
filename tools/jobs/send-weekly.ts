@@ -12,7 +12,7 @@
 import 'dotenv/config';
 import { createTransport } from 'nodemailer';
 import { createHmac } from 'crypto';
-import { readFileSync } from 'fs';
+import { existsSync, readFileSync, readdirSync } from 'fs';
 import { join } from 'path';
 import twilio from 'twilio';
 import RestException from 'twilio/lib/base/RestException';
@@ -162,22 +162,59 @@ function describeTwilioError(err: unknown): string {
 }
 
 /**
+ * Poll a Twilio message SID until it reaches a terminal status.
+ * Returns the final status. Gives up after maxWaitMs.
+ */
+async function pollMessageStatus(
+  twilioClient: ReturnType<typeof twilio>,
+  messageSid: string,
+  maxWaitMs: number = 15_000,
+  intervalMs: number = 2_000,
+): Promise<{ status: string; errorCode: number | null }> {
+  const terminalStatuses = new Set(['delivered', 'undelivered', 'failed', 'canceled']);
+  const start = Date.now();
+
+  while (Date.now() - start < maxWaitMs) {
+    const msg = await twilioClient.messages(messageSid).fetch();
+    if (terminalStatuses.has(msg.status)) {
+      return { status: msg.status, errorCode: msg.errorCode };
+    }
+    await new Promise(r => setTimeout(r, intervalMs));
+  }
+
+  // Timed out — fetch one last time
+  const msg = await twilioClient.messages(messageSid).fetch();
+  return { status: msg.status, errorCode: msg.errorCode };
+}
+
+/**
  * Send SMS with retry for transient errors and exponential backoff.
+ * After successful API acceptance, polls for delivery confirmation.
+ * Returns the message SID and final delivery status.
  */
 async function sendSmsWithRetry(
   twilioClient: ReturnType<typeof twilio>,
   messagingServiceSid: string,
   to: string,
   body: string,
-): Promise<void> {
+): Promise<{ sid: string; delivered: boolean; status: string; errorCode: number | null }> {
   for (let attempt = 1; attempt <= SMS_MAX_RETRIES; attempt++) {
     try {
-      await twilioClient.messages.create({
+      const message = await twilioClient.messages.create({
         messagingServiceSid,
         to,
         body,
       });
-      return;
+
+      // Poll for delivery confirmation
+      const result = await pollMessageStatus(twilioClient, message.sid);
+
+      return {
+        sid: message.sid,
+        delivered: result.status === 'delivered',
+        status: result.status,
+        errorCode: result.errorCode,
+      };
     } catch (err) {
       if (attempt < SMS_MAX_RETRIES && isTransientError(err)) {
         const delayMs = 1000 * 2 ** (attempt - 1); // 1s, 2s, 4s
@@ -188,6 +225,8 @@ async function sendSmsWithRetry(
       throw err;
     }
   }
+  // Should not reach here, but satisfy TypeScript
+  return { sid: '', delivered: false, status: 'failed', errorCode: null };
 }
 
 // ── Fetch subscribers via authenticated Apps Script endpoint ────────
@@ -360,6 +399,41 @@ async function getWeeklyAffiliateBooks(weekLabel: string): Promise<AffiliateBook
   }
 }
 
+// ── Cover image fallback ────────────────────────────────────────────
+
+/**
+ * Return the URL for this week's cover image, falling back to the most
+ * recent available cover if this week's hasn't been generated.
+ */
+function getCoverUrl(weekLabel: string): string {
+  const weeklyDir = join(process.cwd(), 'docs', 'weekly');
+  const currentCover = `cover-${weekLabel}.webp`;
+
+  // Check if this week's cover exists on disk
+  if (existsSync(join(weeklyDir, currentCover))) {
+    return `https://hex-index.com/weekly/${currentCover}`;
+  }
+
+  // Fall back to the most recent cover
+  console.warn(`  WARNING: No cover image for ${weekLabel} — falling back to most recent`);
+  try {
+    const covers = readdirSync(weeklyDir)
+      .filter(f => f.startsWith('cover-') && f.endsWith('.webp'))
+      .sort()
+      .reverse();
+
+    if (covers.length > 0) {
+      console.warn(`  Using fallback cover: ${covers[0]}`);
+      return `https://hex-index.com/weekly/${covers[0]}`;
+    }
+  } catch {
+    // ignore
+  }
+
+  // No covers at all — return the expected URL anyway (will show broken image)
+  return `https://hex-index.com/weekly/${currentCover}`;
+}
+
 // ── Email/SMS content ───────────────────────────────────────────────
 
 function escapeEmailHtml(s: string): string {
@@ -367,7 +441,8 @@ function escapeEmailHtml(s: string): string {
 }
 
 function buildEmailHtml(week: WeekInfo, subscriberName: string, subscriberEmail: string, books: AffiliateBook[] = []): string {
-  const coverUrl = `https://hex-index.com/weekly/cover-${week.label}.webp`;
+  // Use this week's cover, fall back to most recent available cover
+  const coverUrl = getCoverUrl(week.label);
   const weeklyUrl = 'https://hex-index.com/weekly/';
   const epubUrl = `https://hex-index.com/weekly/${week.label}.epub`;
   const unsubscribeUrl = subscriberEmail ? buildUnsubscribeUrl(subscriberEmail) : weeklyUrl;
@@ -507,12 +582,27 @@ async function main(): Promise<void> {
       }
     }
 
-    // Send SMS via Twilio (with retry for transient errors)
+    // Send SMS via Twilio (with retry and delivery verification)
     if (sub.phone) {
       try {
-        await sendSmsWithRetry(twilioClient, messagingServiceSid, sub.phone, buildSmsText(sub.email, topBook));
-        smsSent++;
-        console.info(`  SMS sent: ${sub.name || sub.phone}`);
+        const result = await sendSmsWithRetry(twilioClient, messagingServiceSid, sub.phone, buildSmsText(sub.email, topBook));
+        if (result.delivered) {
+          smsSent++;
+          console.info(`  SMS delivered: ${sub.name || sub.phone} (${result.sid})`);
+        } else {
+          const errorDesc = result.errorCode
+            ? (PERMANENT_TWILIO_ERRORS[result.errorCode] ?? TRANSIENT_TWILIO_ERRORS[result.errorCode] ?? `error ${result.errorCode}`)
+            : result.status;
+          const permanent = result.errorCode !== null && result.errorCode in PERMANENT_TWILIO_ERRORS;
+          smsFailures.push({
+            phone: sub.phone,
+            name: sub.name || sub.phone,
+            code: result.errorCode ?? undefined,
+            description: `[${result.errorCode ?? 'no code'}] ${errorDesc} (status: ${result.status})`,
+            permanent,
+          });
+          console.error(`  SMS NOT delivered (${sub.phone}): ${result.status} — error ${result.errorCode ?? 'none'} (${errorDesc})`);
+        }
       } catch (err) {
         const code = isTwilioRestException(err) ? err.code : undefined;
         const permanent = code !== undefined && code in PERMANENT_TWILIO_ERRORS;
