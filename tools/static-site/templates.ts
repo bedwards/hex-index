@@ -72,6 +72,7 @@ export function staticLayout(
   <footer class="site-footer">
     <div class="container">
       <p>A curated reading library &middot; v${VERSION}</p>
+      <p><a href="${pathToRoot}privacy/index.html">Privacy</a> &middot; <a href="${pathToRoot}terms/index.html">Terms</a></p>
     </div>
   </footer>
   <script src="https://cdn.jsdelivr.net/npm/fuse.js@7.1.0/dist/fuse.min.js"></script>
@@ -189,6 +190,11 @@ export function staticReadingLayout(
   <main class="reading-content">
     ${content}
   </main>
+  <footer class="site-footer">
+    <div class="container">
+      <p><a href="${pathToRoot}privacy/index.html">Privacy</a> &middot; <a href="${pathToRoot}terms/index.html">Terms</a></p>
+    </div>
+  </footer>
   <script>
   (function() {
     var params = new URLSearchParams(window.location.search);

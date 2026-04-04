@@ -15,7 +15,7 @@
  *   npx tsx tools/static-site/generate.ts --only home,tags   # Home + tag pages
  *   npx tsx tools/static-site/generate.ts --article <id>     # Single article + listings
  *
- * --only options: home, articles, wikipedia, publications, tags, weekly, about, search, assets
+ * --only options: home, articles, wikipedia, publications, tags, weekly, about, legal, search, assets
  * --article <uuid>: regenerates one article page + search index
  */
 
@@ -29,6 +29,7 @@ import { generateTagPages } from './pages/tag.js';
 import { generateSearchIndex } from './pages/search-index.js';
 import { generateWeeklyEpubs } from './pages/weekly.js';
 import { generateAboutPage } from './pages/about.js';
+import { generatePrivacyPage, generateTermsPage } from './pages/legal.js';
 import { ensureDir } from './utils.js';
 import { rm, cp, readFile, writeFile, readdir } from 'fs/promises';
 import { join } from 'path';
@@ -167,6 +168,13 @@ async function main(): Promise<void> {
     if (shouldRun('about')) {
       console.info('Generating about page...');
       await generateAboutPage(OUTPUT_DIR);
+      console.info('');
+    }
+
+    if (shouldRun('legal')) {
+      console.info('Generating legal pages...');
+      await generatePrivacyPage(OUTPUT_DIR);
+      await generateTermsPage(OUTPUT_DIR);
       console.info('');
     }
 
