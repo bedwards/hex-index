@@ -85,7 +85,7 @@ async function scanFile(filePath: string): Promise<FileError | null> {
     .filter(p => p.pattern.test(content))
     .map(p => p.name);
 
-  if (matched.length === 0) {return null;}
+  if (matched.length === 0) { return null; }
 
   return {
     file: filePath.replace(LIBRARY_DIR + '/', ''),
@@ -109,7 +109,7 @@ async function main(): Promise<void> {
     const filtered: string[] = [];
     for (const f of candidates) {
       const s = await stat(f);
-      if (s.mtime >= sinceDate) {filtered.push(f);}
+      if (s.mtime >= sinceDate) { filtered.push(f); }
     }
     candidates = filtered;
     console.info(`Filtered to ${candidates.length} files modified since ${SINCE}\n`);
@@ -122,7 +122,7 @@ async function main(): Promise<void> {
     const result = await scanFile(filePath);
     if (result) {
       errors.push(result);
-      if (LIMIT && errors.length >= LIMIT) {break;}
+      if (LIMIT && errors.length >= LIMIT) { break; }
     } else {
       cleanFiles.push(filePath.replace(LIBRARY_DIR + '/', ''));
     }

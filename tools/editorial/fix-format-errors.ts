@@ -194,7 +194,7 @@ async function processFile(filePath: string): Promise<FileResult | null> {
   const original = await readFile(filePath, 'utf-8');
   const { html: fixed, changes } = fixAll(original);
 
-  if (changes.length === 0) {return null;}
+  if (changes.length === 0) { return null; }
 
   if (!DRY_RUN) {
     await writeFile(filePath, fixed, 'utf-8');
