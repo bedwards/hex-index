@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { normalizePhone } from './send-weekly.js';
+import { normalizePhone } from './phone.js';
 
 describe('normalizePhone', () => {
   it('coerces a numeric phone (as returned by Apps Script when sheet cell is numeric) to E.164', () => {
