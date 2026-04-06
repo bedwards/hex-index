@@ -73,19 +73,7 @@
       </section>
     
 
-      <section id="excerpt" class="excerpt-card">
-        <div class="content-label">
-          <span class="label-text">Excerpt from the original article on The Kaitchup</span>
-        </div>
-        <div class="article-excerpt">
-          <div class="captioned-image-container"></div><p>Qwen3.5 offers an excellent family of models across a wide range of sizes, from 0.8B to 397B parameters. In practice, this means there is nearly a model for every budget. </p><p>Given such a broad lineup that can fit almost any hardware configuration, the value of model compression through quantization may seem questionable. For instance, if you do not have enough GPU memory to run Qwen3.5 27B, you could simply use Qwen3.5 9B instead. A few years ago, that would likely have been the best approach.</p><p>Today, quantization methods are accurate enough that 4-bit models can often come surprisingly close to matching the accuracy of the original model. For example, a 4-bit version of Qwen3.5 27B can still be substantially stronger than Qwen3.5 9B while using nearly the same amount of memory. In practice, however, achieving this is not always straightforward. Some parts of the model are especially sensitive to quantization and may need to remain in higher precision. When that happens, a nominally “4-bit” model can end up almost as large in memory as an FP8 model. One example is <a href="https://huggingface.co/Qwen/Qwen3.5-27B-GPTQ-Int4">Qwen3.5 27B GPTQ Int4</a>, whose memory footprint is nearly identical to <a href="https://huggingface.co/Qwen/Qwen3.5-27B-FP8">Qwen3.5 27B FP8</a> (30.3 GB vs. 30.9 GB).</p><p>In this article, I compare Qwen3.5 across several quantization formats, BF16, FP8, INT4, and NVFP4, to better understand the impact of quantization and help you choose the right format for deployment. I also take memory usage into account, since accuracy alone does not capture the full trade-off.</p><p>I then show how to quantize Qwen3.5 into INT4 and NVFP4 with AutoRound in just a few commands. These quantized models can be served with vLLM for high-throughput, low-latency inference in demanding production settings.</p><p>Finally, we will see which parts of the model can be safely quantized and which are better kept at 16-bit precision.</p><p>My quantization notebook is available here, along with the corresponding quantization logs:</p><blockquote><p><strong>Acknowledgments</strong></p><p>While quantization itself is relatively inexpensive, evaluation is not. This article would not have been possible without the compute sponsorship generously provided by <a href="https://verda.com/?utm_source=kaitchup.substack.com&amp;utm_content=qwen3.5&amp;utm_medium=email">Verda</a>, whose RTX Pro 6000, H200, and B200 GPUs I used throughout this work.</p><p>They provide access to high-end GPUs such as the B200 and B300, with GB300 support coming soon, as well as smaller GPUs such as the RTX Pro 6000 and RTX 6000 Ada, which are among the most affordable per hour on the market.</p><p>Verda is a European, </p>...</blockquote>
-        </div>
-        <div class="excerpt-card-cta">
-          <a href="https://kaitchup.substack.com/p/qwen35-quantization-similar-accuracy" class="read-button" target="_blank" rel="noopener">
-            Read the entire original on The Kaitchup &rarr;
-          </a>
-        </div>
-      </section>
+      
       
     </article>
   
