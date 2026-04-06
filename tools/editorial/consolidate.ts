@@ -20,7 +20,7 @@
 import 'dotenv/config';
 import { spawn } from 'child_process';
 import { randomUUID } from 'crypto';
-import { mkdir, readFile, writeFile } from 'fs/promises';
+import { appendFile, mkdir, readFile, writeFile } from 'fs/promises';
 import { dirname, join, resolve } from 'path';
 import type { Pool, PoolClient } from 'pg';
 import type { CandidateGroup, QueryableDb } from './consolidation-candidates.js';
@@ -35,6 +35,7 @@ import {
   buildSynthesisPrompt,
   containsTrumpMention,
   makeStubSynthesizer,
+  synthesizeWithRetry,
   mergeAffiliateLinks,
   mergeWikipediaLinks,
   verifyCandidateGroup,
@@ -113,24 +114,39 @@ function parseSynthesisJson(stdout: string): SynthesisResult {
 export function makeClaudeCliSynthesizer(): CommentarySynthesizer {
   return {
     async synthesizeCommentary(sources: SourceArticle[]): Promise<SynthesisResult> {
-      const prompt = buildSynthesisPrompt(sources);
-      const stdout = await runClaudeCli(prompt);
-      const result = parseSynthesisJson(stdout);
-      if (containsTrumpMention(result.title) || containsTrumpMention(result.html)) {
-        throw new Error('synthesis violates no-Trump policy');
-      }
-      return result;
+      const basePrompt = buildSynthesisPrompt(sources);
+      return await synthesizeWithRetry(basePrompt, async (prompt) => {
+        const stdout = await runClaudeCli(prompt);
+        return parseSynthesisJson(stdout);
+      });
     },
     async reviseCommentary(existingTitle, existingHtml, sources, newSource) {
-      const prompt = buildRevisionPrompt(existingTitle, existingHtml, sources, newSource);
-      const stdout = await runClaudeCli(prompt);
-      const result = parseSynthesisJson(stdout);
-      if (containsTrumpMention(result.title) || containsTrumpMention(result.html)) {
-        throw new Error('revision violates no-Trump policy');
-      }
-      return result;
+      const basePrompt = buildRevisionPrompt(existingTitle, existingHtml, sources, newSource);
+      return await synthesizeWithRetry(basePrompt, async (prompt) => {
+        const stdout = await runClaudeCli(prompt);
+        return parseSynthesisJson(stdout);
+      });
     },
   };
+}
+
+// ── Skipped-group log ───────────────────────────────────────────────
+
+/** Append a single skip record to library/consolidation-skipped.log. */
+export async function logSkippedGroup(
+  articleIds: string[],
+  reason: string,
+  libraryRoot?: string,
+): Promise<void> {
+  const root = libraryRoot ?? LIBRARY_ROOT;
+  const path = join(root, 'consolidation-skipped.log');
+  const line = `${new Date().toISOString()} | ${articleIds.join(',')} | ${reason}\n`;
+  try {
+    await mkdir(dirname(path), { recursive: true });
+    await appendFile(path, line, 'utf-8');
+  } catch (err) {
+    console.warn(`failed to write skipped log: ${String(err)}`);
+  }
 }
 
 // ── DB helpers ──────────────────────────────────────────────────────
@@ -251,9 +267,20 @@ export async function runModeA(opts: ModeAOptions): Promise<ConsolidationPlan | 
   const loadSources = opts.loadSources ?? (async (rs) => Promise.all(rs.map(rowToSourceArticle)));
   const sources = await loadSources(rows);
 
-  const synth = await synthesizer.synthesizeCommentary(sources);
+  let synth: SynthesisResult;
+  try {
+    synth = await synthesizer.synthesizeCommentary(sources);
+  } catch (err) {
+    const reason = `synthesis failed: ${err instanceof Error ? err.message : String(err)}`;
+    console.warn(`  skip group ${String(groupIndex + 1)}: ${reason}`);
+    await logSkippedGroup(rows.map((r) => r.id), reason, opts.libraryRoot);
+    return null;
+  }
   if (containsTrumpMention(synth.title) || containsTrumpMention(synth.html)) {
-    throw new Error(`group ${groupIndex + 1}: synthesis violates no-Trump policy`);
+    const reason = 'synthesis violates no-Trump policy after retries';
+    console.warn(`  skip group ${String(groupIndex + 1)}: ${reason}`);
+    await logSkippedGroup(rows.map((r) => r.id), reason, opts.libraryRoot);
+    return null;
   }
 
   const commentaryId = randomUUID();
@@ -552,16 +579,25 @@ async function cliMain(): Promise<void> {
 
     const capped = groups.slice(0, cli.limit);
     for (let i = 0; i < capped.length; i++) {
-      const plan = await runModeA({
-        db: pool,
-        synthesizer,
-        group: capped[i],
-        groupIndex: i,
-        apply: cli.apply,
-      });
-      if (plan) {
-        console.info(formatPlan(plan));
-        console.info('');
+      try {
+        const plan = await runModeA({
+          db: pool,
+          synthesizer,
+          group: capped[i],
+          groupIndex: i,
+          apply: cli.apply,
+        });
+        if (plan) {
+          console.info(formatPlan(plan));
+          console.info('');
+        }
+      } catch (err) {
+        const reason = err instanceof Error ? err.message : String(err);
+        console.warn(`  group ${String(i + 1)} failed unexpectedly: ${reason}`);
+        await logSkippedGroup(
+          capped[i].articles.map((a) => a.id),
+          `unexpected error: ${reason}`,
+        );
       }
     }
   } finally {
