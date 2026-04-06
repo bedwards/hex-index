@@ -310,7 +310,15 @@ async function ensureCoverImage(
 /**
  * Get articles for a given week, each assigned to its highest-scored tag.
  * Articles included if published_at >= saturday 00:00 UTC AND published_at < friday 12:30 UTC.
+ *
+ * Digest section assignment uses a stricter threshold (DIGEST_TAG_MIN_SCORE)
+ * than the Reader/private library tag pages (which include any tag scoring
+ * 30+ at insert time). This keeps weak tag matches out of premium-epub
+ * sections — articles whose top tag scores below the threshold fall back
+ * to the default "culture" bucket. See issue #349.
  */
+const DIGEST_TAG_MIN_SCORE = 50;
+
 async function getArticlesForWeek(
   pool: Pool,
   weekStart: Date,
@@ -326,11 +334,12 @@ async function getArticlesForWeek(
       a.affiliate_links
     FROM app.articles a
     JOIN app.publications p ON a.publication_id = p.id
-    LEFT JOIN app.article_tags at ON at.article_id = a.id
+    LEFT JOIN app.article_tags at
+      ON at.article_id = a.id AND at.score >= $3
     LEFT JOIN app.tags t ON t.slug = at.tag_slug
     WHERE a.published_at >= $1 AND a.published_at < $2
     ORDER BY a.id, at.score DESC NULLS LAST
-  `, [weekStart.toISOString(), weekEnd.toISOString()]);
+  `, [weekStart.toISOString(), weekEnd.toISOString(), DIGEST_TAG_MIN_SCORE]);
   return rows;
 }
 
