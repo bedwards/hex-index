@@ -163,6 +163,18 @@ Twilio CLI profile: `hex-index` (already configured).
 | Search | Full-text | None |
 | Database | Postgres | None (static HTML) |
 
+### Excerpt Formatting
+
+Source-article excerpts on hex-index.com must be **plain prose only**. The excerpt extractor (`tools/static-site/utils.ts::extractHtmlExcerpt`) strips everything except `<p>`, `<em>`, `<strong>`, `<i>`, `<b>`, `<br>`. Specifically removed:
+
+- All `<a>` tags (inner text preserved, URL dropped) — excerpts are **never** clickable
+- Headings, lists, blockquotes, tables, divs, spans, sections
+- Iframes, embeds, objects, videos, audio
+- Substack embedded-post wrappers, Spotify embeds, captioned-image containers
+- All class/style/id attributes
+
+Excerpts are bordered block quotes styled with `.article-excerpt` / `.source-excerpt` CSS. They should read like prose extracts from the source, with zero visual noise from the source's original formatting. When adding new excerpt rendering, copy from `extractHtmlExcerpt` — do not roll your own.
+
 ### Article Readiness Gate
 
 **Never show in-flight articles on the public site.** Every listing query (home, tag, publication, search, article generator) filters:

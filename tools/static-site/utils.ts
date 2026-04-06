@@ -114,9 +114,10 @@ export function extractHtmlExcerpt(htmlContent: string, wordLimit: number = 400)
     .replace(/<div[^>]*class="[^"]*spotify[^"]*"[^>]*>[\s\S]*?<\/div>/gi, '')
     // Strip headings, lists, blockquotes, tables, divs, spans — keep only text-level formatting
     .replace(/<\/?(h[1-6]|ul|ol|li|blockquote|table|thead|tbody|tr|td|th|div|span|section|article|header|footer|nav|aside)[^>]*>/gi, '')
-    // Strip attributes from remaining tags (keep only href on <a>)
-    .replace(/<a[^>]*href="([^"]*)"[^>]*>/gi, '<a href="$1">')
-    .replace(/<(p|em|strong|i|b|a|br)[^>]*>/gi, (m, tag) => `<${tag}>`)
+    // Strip <a> tags entirely (keep inner text) — excerpts are plain text, no links
+    .replace(/<a[^>]*>([\s\S]*?)<\/a>/gi, '$1')
+    // Strip attributes from remaining text-level tags
+    .replace(/<(p|em|strong|i|b|br)[^>]*>/gi, (m, tag) => `<${tag}>`)
     .trim();
 
   // Count words to find where to truncate
