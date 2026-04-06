@@ -8,13 +8,18 @@
 
 import type { Pool } from 'pg';
 import { staticLayout } from '../templates.js';
-import { writeFile, escapeHtml, ensureDir } from '../utils.js';
+import { writeFile, escapeHtml, ensureDir, extractHtmlExcerpt, cleanTranscript } from '../utils.js';
 import { join } from 'path';
 import { readFile, stat } from 'fs/promises';
 import archiver from 'archiver';
 import { createWriteStream, existsSync, readFileSync } from 'fs';
 import { execSync } from 'child_process';
-import { truncateDeepDive } from './epub-helpers.js';
+import {
+  truncateDeepDive,
+  renderEpubChapterBody,
+  type EpubChapterSource,
+  type EpubChapterDeepDive,
+} from './epub-helpers.js';
 
 // Placeholder — fill in when Brian creates the Google Sheet
 const SUBSCRIBE_URL = 'https://script.google.com/macros/s/AKfycbw484H_YXlBlQ5lFGmz4-6nOls4jEBU5lWGL3yf5ZTQpyihux47AcwZ2MN2F1R9eFfoxw/exec';
@@ -74,6 +79,7 @@ interface WeeklyArticleRow {
   tag_name: string;
   tag_score: number;
   affiliate_links: AffiliateLink[] | null;
+  is_consolidated: boolean;
 }
 
 interface WikipediaDeepDive {
@@ -332,16 +338,91 @@ async function getArticlesForWeek(
       a.published_at, a.estimated_read_time_minutes,
       a.content_path, a.rewritten_content_path, a.image_path, a.original_url,
       at.tag_slug, t.name AS tag_name, at.score AS tag_score,
-      a.affiliate_links
+      a.affiliate_links,
+      COALESCE(a.is_consolidated, false) AS is_consolidated
     FROM app.articles a
     JOIN app.publications p ON a.publication_id = p.id
     LEFT JOIN app.article_tags at
       ON at.article_id = a.id AND at.score >= $3
     LEFT JOIN app.tags t ON t.slug = at.tag_slug
     WHERE a.published_at >= $1 AND a.published_at < $2
+      AND a.consolidated_into IS NULL
     ORDER BY a.id, at.score DESC NULLS LAST
   `, [weekStart.toISOString(), weekEnd.toISOString(), DIGEST_TAG_MIN_SCORE]);
   return rows;
+}
+
+interface CommentarySourceRow {
+  source_article_id: string;
+  title: string;
+  author_name: string | null;
+  publication_name: string;
+  original_url: string;
+  content_path: string | null;
+  is_primary: boolean;
+  position: number;
+}
+
+/**
+ * Fetch commentary_sources for a consolidated commentary article.
+ * Returns rows ordered by position. Empty array for non-consolidated articles
+ * or when the table does not exist yet.
+ */
+async function getCommentarySourcesForEpub(
+  pool: Pool,
+  commentaryArticleId: string
+): Promise<CommentarySourceRow[]> {
+  try {
+    const { rows } = await pool.query<CommentarySourceRow>(`
+      SELECT
+        s.id AS source_article_id,
+        s.title,
+        s.author_name,
+        p.name AS publication_name,
+        s.original_url,
+        s.content_path,
+        cs.is_primary,
+        cs.position
+      FROM app.commentary_sources cs
+      JOIN app.articles s ON s.id = cs.source_article_id
+      JOIN app.publications p ON p.id = s.publication_id
+      WHERE cs.commentary_article_id = $1
+      ORDER BY cs.position ASC
+    `, [commentaryArticleId]);
+    return rows;
+  } catch {
+    return [];
+  }
+}
+
+/**
+ * Load commentary source rows + their content excerpts for a consolidated
+ * commentary. Returns [] for non-consolidated articles.
+ */
+async function loadEpubSources(
+  pool: Pool,
+  row: WeeklyArticleRow
+): Promise<EpubChapterSource[]> {
+  if (!row.is_consolidated) {return [];}
+  const sourceRows = await getCommentarySourcesForEpub(pool, row.id);
+  const out: EpubChapterSource[] = [];
+  for (const cs of sourceRows) {
+    const raw = await loadContent(cs.content_path);
+    const isYT = cs.original_url.includes('youtube.com') || cs.original_url.includes('youtu.be');
+    const cleaned = isYT ? cleanTranscript(raw) : raw;
+    const excerpt = extractHtmlExcerpt(cleaned, 200);
+    out.push({
+      articleId: cs.source_article_id,
+      title: cs.title,
+      author: cs.author_name ?? 'Unknown',
+      publicationName: cs.publication_name,
+      originalUrl: cs.original_url,
+      excerptHtml: htmlToXhtml(excerpt),
+      isPrimary: cs.is_primary,
+      position: cs.position,
+    });
+  }
+  return out;
 }
 
 async function getDeepDives(pool: Pool, articleId: string): Promise<WikipediaDeepDive[]> {
@@ -446,6 +527,12 @@ interface ArticleForEpub {
   imageData: Buffer | null;
   imageExt: string;
   affiliateLinks: AffiliateLink[];
+  /**
+   * Pre-loaded commentary source excerpts for consolidated commentaries.
+   * Empty for single-source articles. Loaded upstream (before buildEpub) so
+   * the synchronous archiver callback can render without awaiting.
+   */
+  epubSources: EpubChapterSource[];
 }
 
 async function buildEpub(
@@ -580,9 +667,6 @@ ${navTocHtml}    </ol>
       for (const article of articles) {
         const aid = `article-${articleIndex}`;
         const authorName = article.row.author_name ?? 'Unknown';
-        const date = article.row.published_at
-          ? new Date(article.row.published_at).toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' })
-          : '';
 
         // Charcoal illustration image — inline at top of article
         let imageHtml = '';
@@ -599,19 +683,22 @@ ${navTocHtml}    </ol>
         // epub with a link out to the full rewrite on hex-index.com (#454).
         // The public static site and private library continue to render the
         // full deep-dive content; only the epub is trimmed.
-        let deepDiveHtml = '';
+        const epubDeepDives: EpubChapterDeepDive[] = [];
         for (const dd of article.deepDives) {
           if (dd.content) {
             const fullUrl = `https://hex-index.com/wikipedia/${dd.slug}/`;
             const trimmed = truncateDeepDive(dd.content, 3, fullUrl);
-            deepDiveHtml += `
-  <div class="deep-dive">
-    <p class="deep-dive-label">Deep Dive</p>
-    <h3>${escapeXml(dd.title)}</h3>
-    ${htmlToXhtml(trimmed)}
-  </div>`;
+            epubDeepDives.push({
+              title: dd.title,
+              displayHtml: htmlToXhtml(trimmed),
+              slug: dd.slug,
+            });
           }
         }
+
+        // Commentary sources — pre-loaded upstream so this synchronous
+        // archiver callback doesn't need to await.
+        const epubSources = article.epubSources;
 
         // Affiliate book recommendations
         const affiliateTag = process.env.AMAZON_AFFILIATE_TAG ?? '';
@@ -639,19 +726,25 @@ ${bookItems}
           ? `\n  <h2 class="topic-header">${escapeXml(topicName)}</h2>`
           : '';
 
+        const chapterBody = renderEpubChapterBody({
+          title: article.row.title,
+          authorName,
+          publicationName: article.row.publication_name,
+          publishedAt: article.row.published_at,
+          estimatedReadTimeMinutes: article.row.estimated_read_time_minutes,
+          imageHtml,
+          bodyHtml: htmlToXhtml(article.content),
+          affiliateHtml,
+          topicHeaderHtml,
+          isConsolidated: article.row.is_consolidated,
+          sources: epubSources,
+          deepDives: epubDeepDives,
+        });
         const articleXhtml = `<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head><title>${escapeXml(article.row.title)}</title><link rel="stylesheet" type="text/css" href="style.css"/></head>
-<body>${topicHeaderHtml}
-  ${imageHtml}
-  <div class="article-header">
-    <h1>${escapeXml(article.row.title)}</h1>
-    <p class="article-meta">${escapeXml(authorName)} &#183; ${escapeXml(article.row.publication_name)}${date ? ` &#183; ${date}` : ''} &#183; ${article.row.estimated_read_time_minutes} min read</p>
-  </div>
-  ${htmlToXhtml(article.content)}
-  ${affiliateHtml}
-  ${deepDiveHtml}
+<body>${chapterBody}
 </body>
 </html>`;
 
@@ -864,7 +957,8 @@ export async function generateWeeklyEpubs(
 
           const topicKey = matchedCons.tag_slug ?? row.tag_slug ?? 'culture';
           const affiliateLinks: AffiliateLink[] = row.affiliate_links ?? [];
-          const entry: ArticleForEpub = { row, content, deepDives, imageData, imageExt, affiliateLinks };
+          const epubSources = await loadEpubSources(pool, row);
+          const entry: ArticleForEpub = { row, content, deepDives, imageData, imageExt, affiliateLinks, epubSources };
           if (!byTopic.has(topicKey)) { byTopic.set(topicKey, []); }
           byTopic.get(topicKey)!.push(entry);
         } else if (!matchedCons) {
@@ -897,7 +991,8 @@ export async function generateWeeklyEpubs(
 
           const topicKey = row.tag_slug || 'culture';
           const affiliateLinks2: AffiliateLink[] = row.affiliate_links ?? [];
-          const entry: ArticleForEpub = { row, content, deepDives, imageData, imageExt, affiliateLinks: affiliateLinks2 };
+          const epubSources2 = await loadEpubSources(pool, row);
+          const entry: ArticleForEpub = { row, content, deepDives, imageData, imageExt, affiliateLinks: affiliateLinks2, epubSources: epubSources2 };
           if (!byTopic.has(topicKey)) { byTopic.set(topicKey, []); }
           byTopic.get(topicKey)!.push(entry);
         }
@@ -936,7 +1031,8 @@ export async function generateWeeklyEpubs(
         }
 
         const affiliateLinks: AffiliateLink[] = row.affiliate_links ?? [];
-        const entry: ArticleForEpub = { row, content, deepDives, imageData, imageExt, affiliateLinks };
+        const epubSources = await loadEpubSources(pool, row);
+        const entry: ArticleForEpub = { row, content, deepDives, imageData, imageExt, affiliateLinks, epubSources };
         if (!byTopic.has(topicKey)) {
           byTopic.set(topicKey, []);
         }
