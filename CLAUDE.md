@@ -186,9 +186,15 @@ Excerpts are bordered block quotes styled with `.article-excerpt` / `.source-exc
 ```sql
 WHERE (rewritten_content_path IS NOT NULL OR is_consolidated = true)
   AND consolidated_into IS NULL
+  AND image_path IS NOT NULL
 ```
 
-An article is "ready" when Qwen has written its commentary rewrite OR when it's a consolidated commentary produced by `tools/editorial/consolidate.ts`. Absorbed source articles (those with `consolidated_into` set) must never appear as standalone cards — they live inside their consolidated commentary. When adding new listing queries, copy this filter verbatim.
+An article is "ready" when all three are true:
+1. It has a commentary rewrite (Qwen) OR is a consolidated commentary (Claude)
+2. It has not been absorbed into another consolidated commentary (`consolidated_into IS NULL`)
+3. It has an image (`image_path IS NOT NULL`)
+
+Articles without images look broken on cards; they must stay hidden until `gen-images` produces one. When adding new listing queries, copy this filter verbatim.
 
 The article generator also has a runtime skip: if the content/rewrite file on disk is missing or <200 chars, the individual page generation is skipped as belt-and-suspenders defense against broken DB paths.
 

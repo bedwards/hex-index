@@ -80,6 +80,7 @@ async function getArticlesForTagPage(
     WHERE at.tag_slug = $1
       AND (a.rewritten_content_path IS NOT NULL OR a.is_consolidated = true)
       AND a.consolidated_into IS NULL
+      AND a.image_path IS NOT NULL
   `, [tagSlug]);
   const total = parseInt(countRows[0].count, 10);
 

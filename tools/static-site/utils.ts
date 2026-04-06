@@ -127,6 +127,7 @@ export function extractHtmlExcerpt(htmlContent: string, wordLimit: number = 400)
     .replace(/<(p|br)[^>]*>/gi, (_m, tag) => `<${tag}>`)
     // Strip emoji + pictographs + dingbats + symbols. Covers the major Unicode blocks used
     // for emoji, plus variation selectors and zero-width joiners that stitch them together.
+    // eslint-disable-next-line no-misleading-character-class
     .replace(/[\u{1F300}-\u{1FAFF}\u{1F600}-\u{1F64F}\u{1F680}-\u{1F6FF}\u{2600}-\u{27BF}\u{FE00}-\u{FE0F}\u{200D}]/gu, '')
     .trim();
 

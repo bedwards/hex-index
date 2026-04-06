@@ -161,6 +161,7 @@ async function getAllArticles(pool: Pool): Promise<ArticleRow[]> {
     JOIN app.publications p ON a.publication_id = p.id
     WHERE (a.rewritten_content_path IS NOT NULL OR a.is_consolidated = true)
       AND a.consolidated_into IS NULL
+      AND a.image_path IS NOT NULL
     ORDER BY a.published_at DESC NULLS LAST
   `);
   return result.rows;

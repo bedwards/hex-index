@@ -120,17 +120,46 @@ describe('extractExcerpt', () => {
 });
 
 describe('extractHtmlExcerpt', () => {
-  it('preserves HTML structure within word limit', () => {
+  it('strips bold/strong — excerpts are plain prose', () => {
     const html = '<p>Hello <strong>bold</strong> world</p>';
     const result = extractHtmlExcerpt(html, 100);
-    expect(result).toContain('<strong>bold</strong>');
+    expect(result).toContain('Hello bold world');
+    expect(result).not.toContain('<strong>');
   });
 
-  it('closes unclosed tags after truncation', () => {
+  it('strips italics — no em/i', () => {
+    const html = '<p>Hello <em>stress</em> world</p>';
+    const result = extractHtmlExcerpt(html, 100);
+    expect(result).toContain('Hello stress world');
+    expect(result).not.toContain('<em>');
+  });
+
+  it('dissolves section headings into text', () => {
+    const html = '<h2>Section Title</h2><p>Body.</p>';
+    const result = extractHtmlExcerpt(html, 100);
+    expect(result).not.toContain('<h2>');
+    expect(result).toContain('Section Title');
+  });
+
+  it('strips <a> tags', () => {
+    const html = '<p>See <a href="http://example.com">the link</a> here</p>';
+    const result = extractHtmlExcerpt(html, 100);
+    expect(result).not.toContain('<a');
+    expect(result).toContain('the link');
+  });
+
+  it('strips horizontal rules and lists', () => {
+    const html = '<p>A</p><hr/><ul><li>one</li><li>two</li></ul><p>B</p>';
+    const result = extractHtmlExcerpt(html, 100);
+    expect(result).not.toContain('<hr');
+    expect(result).not.toContain('<ul');
+    expect(result).not.toContain('<li');
+  });
+
+  it('closes unclosed <p> tags after truncation', () => {
     const words = Array(20).fill('word').join(' ');
-    const html = `<p><strong>${words}</strong></p>`;
+    const html = `<p>${words}</p>`;
     const result = extractHtmlExcerpt(html, 5);
-    expect(result).toContain('</strong>');
     expect(result).toContain('</p>');
   });
 

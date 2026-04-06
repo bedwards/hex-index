@@ -53,6 +53,7 @@ interface ArticleRow {
 const READY_WHERE = `(
   (a.rewritten_content_path IS NOT NULL OR a.is_consolidated = true)
   AND (a.consolidated_into IS NULL)
+  AND (a.image_path IS NOT NULL)
 )`;
 
 async function getTotalArticleCount(pool: Pool): Promise<number> {

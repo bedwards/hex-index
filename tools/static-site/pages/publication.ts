@@ -82,6 +82,7 @@ async function getPublicationArticleCount(
     WHERE publication_id = $1
       AND (rewritten_content_path IS NOT NULL OR is_consolidated = true)
       AND consolidated_into IS NULL
+      AND image_path IS NOT NULL
   `, [publicationId]);
   return parseInt(result.rows[0].count, 10);
 }
@@ -110,6 +111,7 @@ async function getPublicationArticles(
     WHERE publication_id = $1
       AND (rewritten_content_path IS NOT NULL OR is_consolidated = true)
       AND consolidated_into IS NULL
+      AND image_path IS NOT NULL
     ORDER BY published_at DESC NULLS LAST
     LIMIT $2 OFFSET $3
   `, [publicationId, ARTICLES_PER_PAGE, offset]);
