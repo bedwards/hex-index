@@ -382,6 +382,85 @@ export async function findConsolidationCandidates(
   return groupArticles(articles);
 }
 
+// ── Backfill helpers (issue #452) ───────────────────────────────────
+
+export interface RangeOptions {
+  /** Inclusive lower bound (created_at >= start). */
+  start: Date;
+  /** Exclusive upper bound (created_at < end). */
+  end: Date;
+  /** Hard cap on rows pulled (default 1000). */
+  limit?: number;
+}
+
+/**
+ * Find candidate groups whose articles fall within an explicit
+ * `[start, end)` window. Skips articles already absorbed
+ * (`consolidated_into IS NOT NULL`) or marked `is_consolidated = true`.
+ *
+ * Used by the backfill driver in `consolidate.ts` to walk history in
+ * fixed 14-day chunks. Unlike `findConsolidationCandidates`, this does
+ * not depend on `NOW()`.
+ */
+export async function findCandidatesInRange(
+  db: QueryableDb,
+  opts: RangeOptions,
+): Promise<CandidateGroup[]> {
+  const limit = opts.limit ?? 1000;
+
+  const baseSelect = `
+    SELECT a.id, a.title, a.publication_id,
+           p.name AS publication_name,
+           a.created_at, a.word_count,
+           at.tag_slug
+    FROM app.articles a
+    JOIN app.publications p ON a.publication_id = p.id
+    LEFT JOIN app.article_tags at ON at.article_id = a.id
+  `;
+  const where = `WHERE a.created_at >= $1 AND a.created_at < $2`;
+  const order = `ORDER BY a.created_at DESC`;
+
+  let rows: DbRow[];
+  try {
+    const sql = `${baseSelect} ${where}
+      AND a.consolidated_into IS NULL
+      AND (a.is_consolidated IS NULL OR a.is_consolidated = false)
+      ${order}`;
+    const res = await db.query<DbRow>(sql, [opts.start, opts.end]);
+    rows = res.rows;
+  } catch {
+    const sql = `${baseSelect} ${where} ${order}`;
+    const res = await db.query<DbRow>(sql, [opts.start, opts.end]);
+    rows = res.rows;
+  }
+
+  const byId = new Map<string, Article>();
+  for (const r of rows) {
+    let a = byId.get(r.id);
+    if (!a) {
+      a = {
+        id: r.id,
+        title: r.title,
+        publication_id: r.publication_id,
+        publication_name: r.publication_name ?? undefined,
+        created_at: r.created_at instanceof Date ? r.created_at : new Date(r.created_at),
+        word_count: r.word_count,
+        tags: [],
+      };
+      byId.set(r.id, a);
+    }
+    if (r.tag_slug && !a.tags.includes(r.tag_slug)) {
+      a.tags.push(r.tag_slug);
+    }
+  }
+
+  const articles = [...byId.values()]
+    .sort((a, b) => b.created_at.getTime() - a.created_at.getTime())
+    .slice(0, limit);
+
+  return groupArticles(articles);
+}
+
 // ── CLI wrapper ─────────────────────────────────────────────────────
 
 async function cliMain(): Promise<void> {

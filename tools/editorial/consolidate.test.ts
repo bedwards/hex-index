@@ -11,9 +11,11 @@ import { describe, expect, it } from 'vitest';
 import type { CandidateGroup } from './consolidation-candidates.js';
 import {
   type ConsolidationPlan,
+  buildBackfillChunks,
   formatPlan,
   makeStubSynthesizer,
   parseArgs,
+  runBackfill,
   runModeA,
   runModeB,
 } from './consolidate.js';
@@ -50,10 +52,22 @@ interface WikiLinkRow {
   topic_summary: string;
 }
 
+interface FakeBackfillRow {
+  id: string;
+  publication_id: string;
+  publication_name: string;
+  title: string;
+  created_at: Date;
+  word_count: number | null;
+  tags: string[];
+}
+
 class FakeDb {
   articles = new Map<string, FakeArticle>();
   commentarySources: CommentarySourceRow[] = [];
   wikiLinks: WikiLinkRow[] = [];
+  /** Extra metadata only the backfill queries need. */
+  meta = new Map<string, { created_at: Date; word_count: number | null; tags: string[] }>();
 
   query<T extends Record<string, unknown> = Record<string, unknown>>(
     sql: string,
@@ -238,6 +252,62 @@ class FakeDb {
       return { rows: [] };
     }
 
+    if (s.startsWith('SELECT a.id, a.title, a.publication_id')) {
+      // Range query from findCandidatesInRange. Two param shapes:
+      //   [start, end]                              (with consolidated_into filter)
+      //   [start, end]                              (fallback)
+      const start = params[0] as Date;
+      const end = params[1] as Date;
+      const out: FakeBackfillRow[] = [];
+      for (const a of this.articles.values()) {
+        const m = this.meta.get(a.id);
+        if (!m) { continue; }
+        if (a.consolidated_into !== null || a.is_consolidated) { continue; }
+        if (m.created_at < start || m.created_at >= end) { continue; }
+        out.push({
+          id: a.id,
+          publication_id: a.publication_id,
+          publication_name: a.publication_name,
+          title: a.title,
+          created_at: m.created_at,
+          word_count: m.word_count,
+          tags: m.tags,
+        });
+      }
+      // Expand into one row per tag (matching the LEFT JOIN shape).
+      const flat: Record<string, unknown>[] = [];
+      for (const r of out) {
+        if (r.tags.length === 0) {
+          flat.push({ ...r, tag_slug: null });
+        } else {
+          for (const t of r.tags) { flat.push({ ...r, tag_slug: t }); }
+        }
+      }
+      return { rows: flat as unknown as T[] };
+    }
+
+    if (s.startsWith('SELECT MIN(created_at)')) {
+      let min: Date | null = null;
+      let max: Date | null = null;
+      for (const m of this.meta.values()) {
+        if (!min || m.created_at < min) { min = m.created_at; }
+        if (!max || m.created_at > max) { max = m.created_at; }
+      }
+      // Some callers select MIN only, others MIN+MAX. Both fields are
+      // safe to return.
+      return { rows: [{ min, max }] as unknown as T[] };
+    }
+
+    if (s.startsWith('SELECT COUNT(*)::text AS count FROM app.articles')) {
+      if (s.includes('WHERE')) {
+        const n = [...this.articles.values()].filter(
+          (a) => a.consolidated_into !== null || a.is_consolidated,
+        ).length;
+        return { rows: [{ count: String(n) }] as unknown as T[] };
+      }
+      return { rows: [{ count: String(this.articles.size) }] as unknown as T[] };
+    }
+
     throw new Error(`FakeDb: unhandled SQL: ${s.slice(0, 80)}`);
   }
 }
@@ -290,11 +360,30 @@ describe('parseArgs', () => {
       apply: false,
       limit: 10,
       addTo: undefined,
+      backfill: false,
+      backfillStatus: false,
     });
   });
   it('parses --apply --limit 3', () => {
     const p = parseArgs(['node', 'x', '--apply', '--limit', '3']);
-    expect(p).toEqual({ dryRun: false, apply: true, limit: 3, addTo: undefined });
+    expect(p).toEqual({
+      dryRun: false,
+      apply: true,
+      limit: 3,
+      addTo: undefined,
+      backfill: false,
+      backfillStatus: false,
+    });
+  });
+  it('parses --backfill --apply --limit 5', () => {
+    const p = parseArgs(['node', 'x', '--backfill', '--apply', '--limit', '5']);
+    expect(p.backfill).toBe(true);
+    expect(p.apply).toBe(true);
+    expect(p.limit).toBe(5);
+  });
+  it('parses --backfill-status', () => {
+    const p = parseArgs(['node', 'x', '--backfill-status']);
+    expect(p.backfillStatus).toBe(true);
   });
   it('parses --add-to', () => {
     const p = parseArgs(['node', 'x', '--add-to', 'com-1', 'src-2']);
@@ -482,6 +571,142 @@ describe('runModeA dry-run on a fixture group', () => {
       loadSources: () => Promise.resolve([]),
     });
     expect(plan).toBeNull();
+  });
+});
+
+describe('buildBackfillChunks', () => {
+  it('produces newest-first 14-day chunks within bounds', () => {
+    const earliest = new Date('2026-01-01T00:00:00Z');
+    const latest = new Date('2026-03-01T00:00:00Z');
+    const chunks = buildBackfillChunks(earliest, latest, 14);
+    expect(chunks.length).toBeGreaterThan(0);
+    expect(chunks[0].end.getTime()).toBe(latest.getTime());
+    // Each chunk's end must be >= start, all within bounds.
+    for (const c of chunks) {
+      expect(c.end.getTime()).toBeGreaterThan(c.start.getTime());
+      expect(c.start.getTime()).toBeGreaterThanOrEqual(earliest.getTime());
+      expect(c.end.getTime()).toBeLessThanOrEqual(latest.getTime());
+    }
+    // Last chunk must reach the floor exactly.
+    expect(chunks[chunks.length - 1].start.getTime()).toBe(earliest.getTime());
+  });
+
+  it('returns a single chunk when range is shorter than chunk size', () => {
+    const chunks = buildBackfillChunks(
+      new Date('2026-04-01T00:00:00Z'),
+      new Date('2026-04-05T00:00:00Z'),
+      14,
+    );
+    expect(chunks).toHaveLength(1);
+  });
+});
+
+describe('runBackfill --dry-run on multi-chunk fixture', () => {
+  function seedThreeChunks(db: FakeDb): void {
+    // Three groups, one per 14-day chunk, walking back from 2026-04-01.
+    const groups = [
+      { offset: 0, idPrefix: 'a' },
+      { offset: 20, idPrefix: 'b' },
+      { offset: 50, idPrefix: 'c' },
+    ];
+    const tags = ['energy', 'grid', 'policy'];
+    for (const g of groups) {
+      const created = new Date('2026-04-01T00:00:00Z');
+      created.setUTCDate(created.getUTCDate() - g.offset);
+      const mk = (
+        suffix: string,
+        pub: string,
+        author: string,
+        title: string,
+      ): void => {
+        const id = `${g.idPrefix}${g.idPrefix}${g.idPrefix}${g.idPrefix}${g.idPrefix}${g.idPrefix}${g.idPrefix}${g.idPrefix}-0000-0000-0000-00000000000${suffix}`;
+        db.articles.set(id, {
+          id,
+          title,
+          slug: id,
+          author_name: author,
+          publication_id: pub,
+          publication_name: `Pub-${pub}`,
+          original_url: `https://x.test/${id}`,
+          rewritten_content_path: null,
+          content_path: null,
+          full_content_path: null,
+          affiliate_links: [],
+          is_consolidated: false,
+          consolidated_into: null,
+        });
+        db.meta.set(id, { created_at: created, word_count: 1000, tags: [...tags] });
+      };
+      mk('1', `${g.idPrefix}-pub-alpha`, 'Alice', 'National power grid strain rising rapidly across regions');
+      mk('2', `${g.idPrefix}-pub-beta`, 'Bob', 'National power grid strain rising rapidly nationwide');
+      mk('3', `${g.idPrefix}-pub-gamma`, 'Carol', 'National power grid strain rising rapidly everywhere');
+    }
+  }
+
+  it('walks chunks, finds groups, and never mutates in dry-run', async () => {
+    const db = new FakeDb();
+    seedThreeChunks(db);
+
+    const result = await runBackfill({
+      db: db as unknown as Parameters<typeof runBackfill>[0]['db'],
+      synthesizer: makeStubSynthesizer(),
+      apply: false,
+      limit: 10,
+      now: new Date('2026-04-02T00:00:00Z'),
+      log: () => undefined,
+      loadSources: (rows) =>
+        Promise.resolve(rows.map((r) => ({
+          id: r.id,
+          title: r.title,
+          author_name: r.author_name,
+          publication_id: r.publication_id,
+          publication_name: r.publication_name,
+          original_url: r.original_url,
+          rewritten_html: '<p>stub rewrite</p>',
+          excerpt: `excerpt for ${r.id}`,
+        }))),
+    });
+
+    expect(result.chunksScanned).toBeGreaterThanOrEqual(3);
+    expect(result.groupsFound).toBe(3);
+    expect(result.groupsProcessed).toBe(3);
+    expect(result.plans).toHaveLength(3);
+    expect(result.hitLimit).toBe(false);
+
+    // Pure dry-run: no commentary_sources, no consolidated_into.
+    expect(db.commentarySources).toHaveLength(0);
+    for (const a of db.articles.values()) {
+      expect(a.is_consolidated).toBe(false);
+      expect(a.consolidated_into).toBeNull();
+    }
+  });
+
+  it('honors --limit by stopping early', async () => {
+    const db = new FakeDb();
+    seedThreeChunks(db);
+
+    const result = await runBackfill({
+      db: db as unknown as Parameters<typeof runBackfill>[0]['db'],
+      synthesizer: makeStubSynthesizer(),
+      apply: false,
+      limit: 1,
+      now: new Date('2026-04-02T00:00:00Z'),
+      log: () => undefined,
+      loadSources: (rows) =>
+        Promise.resolve(rows.map((r) => ({
+          id: r.id,
+          title: r.title,
+          author_name: r.author_name,
+          publication_id: r.publication_id,
+          publication_name: r.publication_name,
+          original_url: r.original_url,
+          rewritten_html: '<p>stub rewrite</p>',
+          excerpt: `excerpt for ${r.id}`,
+        }))),
+    });
+
+    expect(result.groupsProcessed).toBe(1);
+    expect(result.hitLimit).toBe(true);
   });
 });
 
