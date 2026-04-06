@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { normalizeTitle } from './title-normalizer.js';
+import { normalizeTitle, stripTrump } from './title-normalizer.js';
 
 describe('normalizeTitle', () => {
   it('fixes ALL CAPS titles', () => {
@@ -71,8 +71,8 @@ describe('normalizeTitle', () => {
   });
 
   it('strips parenthetical asides at end', () => {
-    expect(normalizeTitle('Trump Fires FBI Director (Full Interview)'))
-      .toBe('Trump Fires FBI Director');
+    expect(normalizeTitle('The Administration Fires FBI Director (Full Interview)'))
+      .toBe('The Administration Fires FBI Director');
   });
 
   it('keeps parenthetical in middle of title', () => {
@@ -101,5 +101,56 @@ describe('normalizeTitle', () => {
 
   it('handles whitespace-only string', () => {
     expect(normalizeTitle('   ')).toBe('');
+  });
+});
+
+describe('stripTrump (editorial policy)', () => {
+  it("removes leading possessive \"Trump's\"", () => {
+    expect(stripTrump("Trump's Tiger-Riding Predicament | Digest: March 2026"))
+      .toBe('Tiger-Riding Predicament | Digest: March 2026');
+  });
+
+  it('removes bare "Trump" mid-sentence', () => {
+    expect(stripTrump('What did Trump know about Epstein?'))
+      .toBe('What did know about Epstein?');
+  });
+
+  it('removes "Trump\'s" after a colon', () => {
+    expect(stripTrump("NEW POLL: Trump's approval stuck at record low"))
+      .toBe('NEW POLL: approval stuck at record low');
+  });
+
+  it('removes "Donald Trump" full name', () => {
+    expect(stripTrump('Donald Trump meets with European leaders'))
+      .toBe('meets with European leaders');
+  });
+
+  it("removes \"Donald Trump's\" full possessive", () => {
+    expect(stripTrump("Donald Trump's cabinet picks under fire"))
+      .toBe('cabinet picks under fire');
+  });
+
+  it('is case-insensitive but preserves surrounding casing', () => {
+    expect(stripTrump('TRUMP ANNOUNCES NEW TARIFFS'))
+      .toBe('ANNOUNCES NEW TARIFFS');
+  });
+
+  it('handles em-dash attached: "Trump\u2014" ', () => {
+    expect(stripTrump('Trump\u2014and his allies\u2014push new policy'))
+      .toBe('and his allies\u2014push new policy');
+  });
+
+  it('keeps original if stripping would empty the title', () => {
+    expect(stripTrump('Trump')).toBe('Trump');
+  });
+
+  it("handles curly-apostrophe possessive \"Trump\u2019s\"", () => {
+    expect(stripTrump('Trump\u2019s approval rating falls'))
+      .toBe('approval rating falls');
+  });
+
+  it('does not touch unrelated words like "trumpet"', () => {
+    expect(stripTrump('The trumpet player arrives'))
+      .toBe('The trumpet player arrives');
   });
 });

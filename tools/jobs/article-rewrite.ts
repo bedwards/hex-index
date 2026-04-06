@@ -190,6 +190,8 @@ async function main(): Promise<void> {
 
         const prompt = `You are a commentator at a curated reading library. Your readers are smart, busy people who use text-to-speech. Your job: write commentary on this piece that makes them glad they spent 15 minutes with you. You are not rewriting the article — you are commenting on the author's coverage, weaving in direct quotes and paraphrasing throughout.
 
+EDITORIAL POLICY: Do NOT mention "Trump" or "Donald Trump" in your commentary. If the source article centers on Trump's actions or reactions, reframe around the underlying news event, the policy effect, the stakeholders affected, or institutional dynamics. The reader wants analysis of what is happening in the world — not coverage of one politician's personality or reactions. Use "the administration", "the White House", "the executive branch", or the specific agency/official by name when referring to the actions of US government actors.
+
 TITLE: "${article.title}"
 AUTHOR: ${article.author_name ?? 'Unknown'}
 PUBLICATION: ${article.publication_name}
