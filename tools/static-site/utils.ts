@@ -117,7 +117,7 @@ export function extractHtmlExcerpt(htmlContent: string, wordLimit: number = 400)
     // Strip <a> tags entirely (keep inner text) — excerpts are plain text, no links
     .replace(/<a[^>]*>([\s\S]*?)<\/a>/gi, '$1')
     // Strip attributes from remaining text-level tags
-    .replace(/<(p|em|strong|i|b|br)[^>]*>/gi, (m, tag) => `<${tag}>`)
+    .replace(/<(p|em|strong|i|b|br)[^>]*>/gi, (_m, tag) => `<${tag}>`)
     .trim();
 
   // Count words to find where to truncate
