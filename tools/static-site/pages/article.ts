@@ -4,7 +4,7 @@
  */
 
 import type { Pool } from 'pg';
-import { staticReadingLayout } from '../templates.js';
+import { staticReadingLayout, renderArticleMeta, renderInterlacedSourcesAndDeepDives, type CommentarySource } from '../templates.js';
 import { writeFile, extractHtmlExcerpt, escapeHtml, formatDate, buildAmazonUrl, buildBWBUrl, loadAffiliateBooks, cleanTranscript } from '../utils.js';
 import { join } from 'path';
 import { readFile } from 'fs/promises';
@@ -39,6 +39,78 @@ interface ArticleRow {
   image_path: string | null;
   original_url: string;
   affiliate_links: Array<{ isbn10: string; isbn13: string; title: string; author: string; description: string }> | null;
+  is_consolidated: boolean;
+}
+
+interface CommentarySourceRow {
+  source_article_id: string;
+  title: string;
+  author_name: string | null;
+  publication_name: string;
+  publication_slug: string;
+  original_url: string;
+  content_path: string | null;
+  is_primary: boolean;
+  position: number;
+}
+
+/**
+ * Fetch commentary source rows for a consolidated commentary article.
+ * Returns an empty array for single-source articles (expected pre-#449).
+ */
+async function getCommentarySources(
+  pool: Pool,
+  commentaryArticleId: string
+): Promise<CommentarySourceRow[]> {
+  try {
+    const { rows } = await pool.query<CommentarySourceRow>(`
+      SELECT
+        s.id AS source_article_id,
+        s.title,
+        s.author_name,
+        p.name AS publication_name,
+        p.slug AS publication_slug,
+        s.original_url,
+        s.content_path,
+        cs.is_primary,
+        cs.position
+      FROM app.commentary_sources cs
+      JOIN app.articles s ON s.id = cs.source_article_id
+      JOIN app.publications p ON p.id = s.publication_id
+      WHERE cs.commentary_article_id = $1
+      ORDER BY cs.position ASC
+    `, [commentaryArticleId]);
+    return rows;
+  } catch {
+    // Table may not exist yet in some environments — degrade gracefully
+    return [];
+  }
+}
+
+async function buildCommentarySources(
+  pool: Pool,
+  commentaryArticleId: string
+): Promise<CommentarySource[]> {
+  const rows = await getCommentarySources(pool, commentaryArticleId);
+  const sources: CommentarySource[] = [];
+  for (const row of rows) {
+    const raw = await loadArticleContent(row.content_path);
+    const isYT = row.original_url.includes('youtube.com') || row.original_url.includes('youtu.be');
+    const cleaned = isYT ? cleanTranscript(raw) : raw;
+    const excerptHtml = extractHtmlExcerpt(cleaned, 200);
+    sources.push({
+      articleId: row.source_article_id,
+      title: row.title,
+      author: row.author_name ?? 'Unknown',
+      publicationName: row.publication_name,
+      publicationSlug: row.publication_slug,
+      originalUrl: row.original_url,
+      excerptHtml,
+      isPrimary: row.is_primary,
+      position: row.position,
+    });
+  }
+  return sources;
 }
 
 interface WikipediaLink {
@@ -51,7 +123,25 @@ interface WikipediaLink {
 /**
  * Get all articles for static generation
  */
+async function hasConsolidationColumn(pool: Pool): Promise<boolean> {
+  try {
+    const { rows } = await pool.query<{ exists: boolean }>(`
+      SELECT EXISTS (
+        SELECT 1 FROM information_schema.columns
+        WHERE table_schema = 'app' AND table_name = 'articles' AND column_name = 'is_consolidated'
+      ) AS exists
+    `);
+    return rows[0]?.exists ?? false;
+  } catch {
+    return false;
+  }
+}
+
 async function getAllArticles(pool: Pool): Promise<ArticleRow[]> {
+  const hasIsConsolidated = await hasConsolidationColumn(pool);
+  const isConsolidatedSelect = hasIsConsolidated
+    ? 'COALESCE(a.is_consolidated, false) AS is_consolidated'
+    : 'false AS is_consolidated';
   const result = await pool.query<ArticleRow>(`
     SELECT
       a.id,
@@ -65,7 +155,8 @@ async function getAllArticles(pool: Pool): Promise<ArticleRow[]> {
       a.rewritten_content_path,
       a.image_path,
       a.original_url,
-      a.affiliate_links
+      a.affiliate_links,
+      ${isConsolidatedSelect}
     FROM app.articles a
     JOIN app.publications p ON a.publication_id = p.id
     ORDER BY a.published_at DESC NULLS LAST
@@ -149,17 +240,22 @@ interface BookDeepDive {
  * Generate article excerpt page HTML
  * Layout order: Title/byline → Deep Dives → Excerpt → Link to original
  */
-function generateArticlePage(
+export function generateArticlePage(
   article: ArticleRow,
   contentHtml: string,
   wikipediaLinks: WikipediaLink[],
   bookDeepDives: BookDeepDive[],
   affiliateTag: string,
   isFullRewrite: boolean = false,
-  excerptHtml: string = ''
+  excerptHtml: string = '',
+  commentarySources: CommentarySource[] = []
 ): string {
   const date = formatDate(article.published_at);
   const pathToRoot = '../../';
+  const isConsolidated = article.is_consolidated && commentarySources.length > 1;
+  const primarySource = isConsolidated
+    ? (commentarySources.find(s => s.isPrimary) ?? commentarySources[0])
+    : null;
 
   // Merge Wikipedia links and books into a single deep dives list
   const wikiItems = wikipediaLinks
@@ -226,6 +322,35 @@ function generateArticlePage(
     `;
   }
 
+  // Per-item card HTMLs for interlacing with source excerpts in consolidated view.
+  // Each card is a mini "Deep Dives" section with a single item so the existing
+  // styling still applies.
+  const wikiCardHtmls = wikipediaLinks
+    .map((w) => {
+      const summary = w.topic_summary && w.topic_summary.trim()
+        ? `<p class="topic-summary">${escapeHtml(w.topic_summary)}</p>`
+        : '';
+      return `<section class="deep-dives deep-dive-card">
+        <ul class="deep-dive-list">
+          <li class="deep-dive-item">
+            <a href="${pathToRoot}wikipedia/${w.slug}/index.html"><strong>${escapeHtml(w.title)}</strong></a>
+            ${summary}
+          </li>
+        </ul>
+      </section>`;
+    });
+
+  const booksSectionHtml = bookItems.trim()
+    ? `<section class="deep-dives book-affiliates">
+        <h2>Books</h2>
+        <ul class="deep-dive-list">${bookItems}</ul>
+      </section>`
+    : '';
+
+  const interlacedHtml = isConsolidated
+    ? renderInterlacedSourcesAndDeepDives(commentarySources, wikiCardHtmls, pathToRoot)
+    : '';
+
   const authorName = article.author_name ?? 'Unknown';
   const pubName = escapeHtml(article.publication_name);
   const authorEsc = escapeHtml(authorName);
@@ -267,20 +392,23 @@ function generateArticlePage(
 
   // For non-rewrite, contentHtml IS the excerpt; for rewrite, load it separately
   const mainContent = isFullRewrite ? contentHtml : contentHtml;
+  // Silence unused-var lint for `date` in non-consolidated path (renderArticleMeta formats its own)
+  void date;
+  const metaHtml = renderArticleMeta(
+    authorName,
+    article.publication_name,
+    article.publication_slug,
+    article.published_at,
+    article.estimated_read_time_minutes,
+    pathToRoot,
+    primarySource ? { primary: primarySource } : null
+  );
+
   const content = `
-    <article class="article-page">
+    <article class="article-page${isConsolidated ? ' consolidated' : ''}">
       <header class="article-header">
         <h1>${escapeHtml(article.title)}</h1>
-        <div class="article-meta">
-          <span class="author">${authorEsc}</span>
-          <span class="separator">&middot;</span>
-          <a href="${pathToRoot}publication/${article.publication_slug}/index.html" class="publication">
-            ${pubName}
-          </a>
-          ${date ? `<span class="separator">&middot;</span><time>${date}</time>` : ''}
-          <span class="separator">&middot;</span>
-          <span class="read-time">${article.estimated_read_time_minutes} min read</span>
-        </div>
+        ${metaHtml}
       </header>
 
       ${contentLabel}
@@ -290,7 +418,12 @@ function generateArticlePage(
         ${article.image_path ? injectImageIntoText(mainContent, `${pathToRoot}${article.image_path}`, article.title) : mainContent}
       </div>
 
+      ${isConsolidated ? `
+      ${interlacedHtml}
+      ${booksSectionHtml}
+      ` : `
       ${deepDivesHtml}
+      `}
 
       ${excerptSection}
       ` : `
@@ -378,7 +511,11 @@ export async function generateArticlePages(
       });
     }
 
-    const html = generateArticlePage(article, displayContent, wikipediaLinks, bookDeepDives, affiliateTag, hasRewrite, hasRewrite ? excerpt : '');
+    const commentarySources = article.is_consolidated
+      ? await buildCommentarySources(pool, article.id)
+      : [];
+
+    const html = generateArticlePage(article, displayContent, wikipediaLinks, bookDeepDives, affiliateTag, hasRewrite, hasRewrite ? excerpt : '', commentarySources);
     const filePath = join(outputDir, 'article', article.id, 'index.html');
 
     await writeFile(filePath, html);
