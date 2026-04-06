@@ -57,7 +57,7 @@ interface Subscriber {
  * Normalize a phone number to E.164 format (+1XXXXXXXXXX for US numbers).
  * Accepts strings, numbers, null, or undefined. Returns null if invalid.
  */
-function normalizePhone(raw: unknown): string | null {
+export function normalizePhone(raw: unknown): string | null {
   if (raw == null) {
     return null;
   }
