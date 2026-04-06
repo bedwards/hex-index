@@ -14,6 +14,7 @@ import { readFile, stat } from 'fs/promises';
 import archiver from 'archiver';
 import { createWriteStream, existsSync, readFileSync } from 'fs';
 import { execSync } from 'child_process';
+import { truncateDeepDive } from './epub-helpers.js';
 
 // Placeholder — fill in when Brian creates the Google Sheet
 const SUBSCRIBE_URL = 'https://script.google.com/macros/s/AKfycbw484H_YXlBlQ5lFGmz4-6nOls4jEBU5lWGL3yf5ZTQpyihux47AcwZ2MN2F1R9eFfoxw/exec';
@@ -594,15 +595,20 @@ ${navTocHtml}    </ol>
           imageHtml = `<img src="../images/${imgId}.${article.imageExt}" alt="${escapeXml(article.row.title)}" />`;
         }
 
-        // Deep dives
+        // Deep dives — truncated to first 3 top-level paragraphs inside the
+        // epub with a link out to the full rewrite on hex-index.com (#454).
+        // The public static site and private library continue to render the
+        // full deep-dive content; only the epub is trimmed.
         let deepDiveHtml = '';
         for (const dd of article.deepDives) {
           if (dd.content) {
+            const fullUrl = `https://hex-index.com/wikipedia/${dd.slug}/`;
+            const trimmed = truncateDeepDive(dd.content, 3, fullUrl);
             deepDiveHtml += `
   <div class="deep-dive">
     <p class="deep-dive-label">Deep Dive</p>
     <h3>${escapeXml(dd.title)}</h3>
-    ${htmlToXhtml(dd.content)}
+    ${htmlToXhtml(trimmed)}
   </div>`;
           }
         }
