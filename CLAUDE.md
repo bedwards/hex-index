@@ -165,13 +165,17 @@ Twilio CLI profile: `hex-index` (already configured).
 
 ### Excerpt Formatting
 
-Source-article excerpts on hex-index.com must be **plain prose only**. The excerpt extractor (`tools/static-site/utils.ts::extractHtmlExcerpt`) strips everything except `<p>`, `<em>`, `<strong>`, `<i>`, `<b>`, `<br>`. Specifically removed:
+Source-article excerpts on hex-index.com must be **plain prose only**. The excerpt extractor (`tools/static-site/utils.ts::extractHtmlExcerpt`) keeps **only** `<p>` and `<br>`. Specifically removed:
 
 - All `<a>` tags (inner text preserved, URL dropped) — excerpts are **never** clickable
-- Headings, lists, blockquotes, tables, divs, spans, sections
+- All `<strong>`, `<b>`, `<em>`, `<i>` — no bold, no italics
+- All `<h1>..<h6>` dissolved into the next paragraph (the heading text becomes a sentence prefix, not a visual break)
+- All `<hr>` horizontal rules
+- Lists, blockquotes, tables, divs, spans, sections
 - Iframes, embeds, objects, videos, audio
 - Substack embedded-post wrappers, Spotify embeds, captioned-image containers
 - All class/style/id attributes
+- All emoji / pictographs / dingbats / variation selectors / ZWJ (Unicode blocks U+1F300–1FAFF, U+1F600–1F64F, U+1F680–1F6FF, U+2600–27BF, U+FE00–FE0F, U+200D)
 
 Excerpts are bordered block quotes styled with `.article-excerpt` / `.source-excerpt` CSS. They should read like prose extracts from the source, with zero visual noise from the source's original formatting. When adding new excerpt rendering, copy from `extractHtmlExcerpt` — do not roll your own.
 

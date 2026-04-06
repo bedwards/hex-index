@@ -112,12 +112,22 @@ export function extractHtmlExcerpt(htmlContent: string, wordLimit: number = 400)
     .replace(/<div[^>]*class="[^"]*embedded-post[^"]*"[^>]*>[\s\S]*?<\/div>/gi, '')
     .replace(/<div[^>]*class="[^"]*captioned-image[^"]*"[^>]*>[\s\S]*?<\/div>/gi, '')
     .replace(/<div[^>]*class="[^"]*spotify[^"]*"[^>]*>[\s\S]*?<\/div>/gi, '')
-    // Strip headings, lists, blockquotes, tables, divs, spans — keep only text-level formatting
-    .replace(/<\/?(h[1-6]|ul|ol|li|blockquote|table|thead|tbody|tr|td|th|div|span|section|article|header|footer|nav|aside)[^>]*>/gi, '')
+    // Dissolve section headings: turn h1-h6 into an opening paragraph marker so the heading
+    // text becomes a sentence prefix to the next paragraph, not a visual break.
+    .replace(/<h[1-6][^>]*>([\s\S]*?)<\/h[1-6]>/gi, '<p>$1. ')
+    // Strip horizontal rules
+    .replace(/<hr[^>]*\/?>/gi, '')
+    // Strip lists, blockquotes, tables, divs, spans, structural elements
+    .replace(/<\/?(ul|ol|li|blockquote|table|thead|tbody|tr|td|th|div|span|section|article|header|footer|nav|aside)[^>]*>/gi, '')
     // Strip <a> tags entirely (keep inner text) — excerpts are plain text, no links
     .replace(/<a[^>]*>([\s\S]*?)<\/a>/gi, '$1')
-    // Strip attributes from remaining text-level tags
-    .replace(/<(p|em|strong|i|b|br)[^>]*>/gi, (_m, tag) => `<${tag}>`)
+    // Strip inline emphasis entirely: no bold, no italics
+    .replace(/<\/?(em|strong|i|b)[^>]*>/gi, '')
+    // Strip attributes from remaining text-level tags (only <p> and <br> survive)
+    .replace(/<(p|br)[^>]*>/gi, (_m, tag) => `<${tag}>`)
+    // Strip emoji + pictographs + dingbats + symbols. Covers the major Unicode blocks used
+    // for emoji, plus variation selectors and zero-width joiners that stitch them together.
+    .replace(/[\u{1F300}-\u{1FAFF}\u{1F600}-\u{1F64F}\u{1F680}-\u{1F6FF}\u{2600}-\u{27BF}\u{FE00}-\u{FE0F}\u{200D}]/gu, '')
     .trim();
 
   // Count words to find where to truncate
