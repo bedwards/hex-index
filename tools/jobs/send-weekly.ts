@@ -26,7 +26,7 @@ interface Secrets {
 }
 
 const ENV_PATH = join(process.env.HOME ?? '/Users/bedwards', '.config', '.env');
-const ENV_CONTENT = readFileSync(ENV_PATH, 'utf-8');
+const ENV_CONTENT = existsSync(ENV_PATH) ? readFileSync(ENV_PATH, 'utf-8') : '';
 
 function loadSecret(key: string): string {
   const match = ENV_CONTENT.match(new RegExp(`^${key}=(.+)$`, 'm'));
@@ -53,23 +53,8 @@ interface Subscriber {
 
 // ── Phone normalization ─────────────────────────────────────────────
 
-/**
- * Normalize a phone number to E.164 format (+1XXXXXXXXXX for US numbers).
- * Accepts strings, numbers, null, or undefined. Returns null if invalid.
- */
-function normalizePhone(raw: unknown): string | null {
-  if (raw == null) {
-    return null;
-  }
-  const digits = String(raw as string | number).replace(/\D/g, '');
-  if (digits.length === 10) {
-    return `+1${digits}`;
-  }
-  if (digits.length === 11 && digits.startsWith('1')) {
-    return `+${digits}`;
-  }
-  return null;
-}
+export { normalizePhone } from './phone.js';
+import { normalizePhone } from './phone.js';
 
 // ── Twilio error handling ───────────────────────────────────────────
 
