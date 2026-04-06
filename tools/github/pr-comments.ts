@@ -65,7 +65,7 @@ export function getPrComments(prNumber: number): PrComment[] {
         c.author.login.toLowerCase().includes('claude'),
     }));
   } catch (err) {
-    throw new Error(`Failed to fetch PR #${prNumber} comments: ${err}`);
+    throw new Error(`Failed to fetch PR #${prNumber} comments: ${err}`, { cause: err });
   }
 }
 
@@ -111,7 +111,7 @@ export function getReviewComments(prNumber: number): PrComment[] {
         c.user.login.toLowerCase().includes('claude'),
     }));
   } catch (err) {
-    throw new Error(`Failed to fetch PR #${prNumber} review comments: ${err}`);
+    throw new Error(`Failed to fetch PR #${prNumber} review comments: ${err}`, { cause: err });
   }
 }
 

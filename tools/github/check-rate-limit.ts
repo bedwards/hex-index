@@ -73,7 +73,8 @@ export function checkRateLimit(): RateLimitInfo {
     };
   } catch (err) {
     throw new Error(
-      `Failed to check rate limit. Ensure gh CLI is authenticated: gh auth login\n${err}`
+      `Failed to check rate limit. Ensure gh CLI is authenticated: gh auth login\n${err}`,
+      { cause: err }
     );
   }
 }
