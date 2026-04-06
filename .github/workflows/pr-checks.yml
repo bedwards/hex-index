@@ -18,12 +18,12 @@ jobs:
         run: |
           PR_TITLE="${{ github.event.pull_request.title }}"
           # Allow common prefixes: fix:, feat:, docs:, refactor:, test:, chore:
-          if ! echo "$PR_TITLE" | grep -qE '^(fix|feat|docs|refactor|test|chore|build|ci|perf|style)(\(.+\))?: .+'; then
+          if ! echo "$PR_TITLE" | grep -qE '^(fix|feat|docs|refactor|test|chore|build|ci|perf|style|deps)(\(.+\))?: .+'; then
             echo "PR title should follow conventional commits format:"
             echo "  type(scope): description"
             echo "  e.g., 'feat(auth): add login page'"
             echo ""
-            echo "Types: fix, feat, docs, refactor, test, chore, build, ci, perf, style"
+            echo "Types: fix, feat, docs, refactor, test, chore, build, ci, perf, style, deps"
             exit 1
           fi
 
