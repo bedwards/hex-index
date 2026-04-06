@@ -28,6 +28,19 @@ interface Article {
   tags: Record<string, string>;
   publication_name: string;
   publication_slug: string;
+  is_consolidated?: boolean;
+}
+
+interface CommentarySourceRow {
+  source_article_id: string;
+  title: string;
+  author_name: string | null;
+  publication_name: string;
+  publication_slug: string;
+  original_url: string;
+  content_path: string | null;
+  is_primary: boolean;
+  position: number;
 }
 
 interface Publication {
@@ -146,19 +159,26 @@ function readingLayout(title: string, content: string): string {
 </html>`;
 }
 
-function renderArticleCard(article: Article): string {
+function renderArticleCard(article: Article & { source_count?: number }): string {
   const readTime = article.estimated_read_time_minutes
     ? `${article.estimated_read_time_minutes} min read`
     : '';
 
+  const isConsolidated = article.is_consolidated && (article.source_count ?? 0) > 1;
+  const displayAuthor = isConsolidated ? 'Brian Edwards' : article.author_name;
+  const badge = isConsolidated
+    ? `<span class="source-count-badge">${article.source_count} sources</span>`
+    : '';
+
   return `
-    <article class="article-card">
+    <article class="article-card${isConsolidated ? ' consolidated' : ''}">
       <h2 class="article-card-title">
         <a href="/article/${escapeHtml(article.id)}">${escapeHtml(article.title)}</a>
       </h2>
       <div class="article-card-meta">
         <a href="/publication/${escapeHtml(article.publication_slug)}">${escapeHtml(article.publication_name)}</a>
-        ${article.author_name ? `<span>by ${escapeHtml(article.author_name)}</span>` : ''}
+        ${displayAuthor ? `<span>by ${escapeHtml(displayAuthor)}</span>` : ''}
+        ${badge}
         ${article.published_at ? `<span>${formatDate(article.published_at)}</span>` : ''}
         ${readTime ? `<span>${readTime}</span>` : ''}
       </div>
@@ -211,8 +231,9 @@ export function createPagesRouter(pool: Pool): Router {
       const countResult = await pool.query<{ count: string }>('SELECT COUNT(*) FROM app.articles');
       const total = parseInt(countResult.rows[0].count, 10);
 
-      const result = await pool.query<Article>(`
-        SELECT a.*, p.name as publication_name, p.slug as publication_slug
+      const result = await pool.query<Article & { source_count?: number }>(`
+        SELECT a.*, p.name as publication_name, p.slug as publication_slug,
+               COALESCE((SELECT COUNT(*) FROM app.commentary_sources cs WHERE cs.commentary_article_id = a.id), 0)::int AS source_count
         FROM app.articles a
         JOIN app.publications p ON a.publication_id = p.id
         ORDER BY a.published_at DESC NULLS LAST
@@ -262,8 +283,9 @@ export function createPagesRouter(pool: Pool): Router {
 
       params.push(limit, offset);
 
-      const result = await pool.query<Article>(`
-        SELECT a.*, p.name as publication_name, p.slug as publication_slug
+      const result = await pool.query<Article & { source_count?: number }>(`
+        SELECT a.*, p.name as publication_name, p.slug as publication_slug,
+               COALESCE((SELECT COUNT(*) FROM app.commentary_sources cs WHERE cs.commentary_article_id = a.id), 0)::int AS source_count
         FROM app.articles a
         JOIN app.publications p ON a.publication_id = p.id
         ${whereClause}
@@ -298,7 +320,8 @@ export function createPagesRouter(pool: Pool): Router {
       const { id } = req.params;
 
       const result = await pool.query<Article & { affiliate_links: Array<{ isbn10: string; isbn13: string; title: string; author: string; description: string }> | null }>(`
-        SELECT a.*, p.name as publication_name, p.slug as publication_slug
+        SELECT a.*, p.name as publication_name, p.slug as publication_slug,
+               COALESCE(a.is_consolidated, false) AS is_consolidated
         FROM app.articles a
         JOIN app.publications p ON a.publication_id = p.id
         WHERE a.id = $1
@@ -320,6 +343,30 @@ export function createPagesRouter(pool: Pool): Router {
         ORDER BY awl.relevance_rank
       `, [id]);
       const wikiLinks = wikiResult.rows;
+
+      // Fetch commentary sources (multi-source consolidation, #450)
+      let commentarySources: CommentarySourceRow[] = [];
+      if (article.is_consolidated) {
+        try {
+          const csRes = await pool.query<CommentarySourceRow>(`
+            SELECT s.id AS source_article_id, s.title, s.author_name,
+                   p.name AS publication_name, p.slug AS publication_slug,
+                   s.original_url, s.content_path, cs.is_primary, cs.position
+            FROM app.commentary_sources cs
+            JOIN app.articles s ON s.id = cs.source_article_id
+            JOIN app.publications p ON p.id = s.publication_id
+            WHERE cs.commentary_article_id = $1
+            ORDER BY cs.position ASC
+          `, [id]);
+          commentarySources = csRes.rows;
+        } catch {
+          commentarySources = [];
+        }
+      }
+      const isConsolidated = (article.is_consolidated ?? false) && commentarySources.length > 1;
+      const primarySource = isConsolidated
+        ? (commentarySources.find(s => s.is_primary) ?? commentarySources[0])
+        : null;
 
       // Load article content from library
       let articleContent = '<p>Article content not available.</p>';
@@ -378,6 +425,39 @@ export function createPagesRouter(pool: Pool): Router {
         </nav>
       ` : '';
 
+      // Build the sources section (multi-source commentary only)
+      let sourcesSectionHtml = '';
+      if (isConsolidated) {
+        const parts: string[] = [];
+        for (const src of commentarySources) {
+          let excerpt = '';
+          if (src.content_path) {
+            try {
+              const raw = await readFile(join(libraryPath, src.content_path), 'utf-8');
+              // ~200 word excerpt, preserve a little HTML safety by stripping tags
+              const text = raw.replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim();
+              const words = text.split(' ').slice(0, 200).join(' ');
+              excerpt = `<p>${escapeHtml(words)}${text.split(' ').length > 200 ? '…' : ''}</p>`;
+            } catch {
+              excerpt = '';
+            }
+          }
+          parts.push(`
+            <article class="source-excerpt">
+              <h3>${escapeHtml(src.title)}</h3>
+              <div class="source-meta">by ${escapeHtml(src.author_name ?? 'Unknown')} · <a href="/publication/${escapeHtml(src.publication_slug)}">${escapeHtml(src.publication_name)}</a> · <a href="${escapeHtml(src.original_url)}" target="_blank" rel="noopener">Read full article</a></div>
+              ${excerpt}
+            </article>
+          `);
+        }
+        sourcesSectionHtml = `
+          <section class="source-excerpts">
+            <h2>Sources</h2>
+            ${parts.join('\n')}
+          </section>
+        `;
+      }
+
       // Optimized article layout for Speechify:
       // 1. Title (h1) - Speechify starts here by default
       // 2. Subtitle (if present)
@@ -390,6 +470,15 @@ export function createPagesRouter(pool: Pool): Router {
           <header class="article-header">
             <h1 class="article-title">${escapeHtml(article.title)}</h1>
             ${subtitle ? `<p class="article-subtitle">${escapeHtml(subtitle)}</p>` : ''}
+            ${isConsolidated && primarySource ? `
+            <p class="article-meta consolidated-meta">
+              <span class="author">by Brian Edwards</span> · multiple sources including
+              <a href="${escapeHtml(primarySource.original_url)}" target="_blank" rel="noopener">${escapeHtml(primarySource.author_name ?? 'Unknown')}</a>,
+              <a href="/publication/${escapeHtml(primarySource.publication_slug)}">${escapeHtml(primarySource.publication_name)}</a>
+              ${article.published_at ? ` · ${formatDate(article.published_at)}` : ''}
+              ${readTime ? ` · ${readTime}` : ''}
+            </p>
+            ` : `
             <p class="article-meta">
               ${escapeHtml(article.author_name || 'Unknown author')}
               ${article.published_at ? ` · ${formatDate(article.published_at)}` : ''}
@@ -398,11 +487,13 @@ export function createPagesRouter(pool: Pool): Router {
             <p class="article-source">
               <a href="${escapeHtml(article.original_url)}" target="_blank" rel="noopener">Read on ${escapeHtml(article.publication_name)}</a>
             </p>
+            `}
           </header>
           ${wikiSection}
           <div class="article-content">
             ${articleContent}
           </div>
+          ${sourcesSectionHtml}
         </article>
       `;
 
@@ -440,8 +531,9 @@ export function createPagesRouter(pool: Pool): Router {
       const total = parseInt(countResult.rows[0].count, 10);
 
       // Get articles
-      const articlesResult = await pool.query<Article>(`
-        SELECT a.*, p.name as publication_name, p.slug as publication_slug
+      const articlesResult = await pool.query<Article & { source_count?: number }>(`
+        SELECT a.*, p.name as publication_name, p.slug as publication_slug,
+               COALESCE((SELECT COUNT(*) FROM app.commentary_sources cs WHERE cs.commentary_article_id = a.id), 0)::int AS source_count
         FROM app.articles a
         JOIN app.publications p ON a.publication_id = p.id
         WHERE p.slug = $1

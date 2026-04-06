@@ -10,7 +10,7 @@ import {
   type StaticArticle,
 } from '../templates.js';
 import { writeFile, extractExcerpt } from '../utils.js';
-import { getDisplayTagsBulk } from './tag.js';
+import { getDisplayTagsBulk, getConsolidationBulk } from './tag.js';
 import { join } from 'path';
 import { readFile } from 'fs/promises';
 
@@ -85,10 +85,12 @@ async function getArticlesForPage(
 
   const articleIds = result.rows.map(r => r.id);
   const tagMap = await getDisplayTagsBulk(pool, articleIds);
+  const consolidationMap = await getConsolidationBulk(pool, articleIds);
 
   const articles: StaticArticle[] = [];
   for (const row of result.rows) {
     const content = await loadArticleContent(row.content_path);
+    const consolidation = consolidationMap.get(row.id);
     articles.push({
       id: row.id,
       title: row.title,
@@ -101,6 +103,8 @@ async function getArticlesForPage(
       url: row.original_url,
       imagePath: row.image_path,
       displayTag: tagMap.get(row.id) ?? null,
+      isConsolidated: consolidation?.isConsolidated ?? false,
+      sourceCount: consolidation?.sourceCount ?? 0,
     });
   }
   return articles;

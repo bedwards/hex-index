@@ -22,6 +22,112 @@ export interface StaticArticle {
   url: string;
   imagePath: string | null;
   displayTag: { slug: string; name: string } | null;
+  isConsolidated?: boolean;
+  sourceCount?: number;
+}
+
+/**
+ * A source article that was synthesized into a multi-source commentary.
+ * Position is 0-based and determines ordering + interlacing with deep dives.
+ */
+export interface CommentarySource {
+  articleId: string;
+  title: string;
+  author: string;
+  publicationName: string;
+  publicationSlug: string;
+  originalUrl: string;
+  excerptHtml: string;
+  isPrimary: boolean;
+  position: number;
+}
+
+/**
+ * Render the top article-meta line.
+ * For single-source articles: {author} · {publication} · {date} · {read-time}
+ * For consolidated commentary: by Brian Edwards · multiple sources including
+ *   {primary author}, {primary publication} · {date} · {read-time}
+ */
+export function renderArticleMeta(
+  author: string,
+  publicationName: string,
+  publicationSlug: string,
+  publishedAt: string | null,
+  readTimeMinutes: number,
+  pathToRoot: string,
+  consolidated?: { primary: CommentarySource } | null
+): string {
+  const date = formatDate(publishedAt);
+  const dateHtml = date ? `<span class="separator">&middot;</span><time>${date}</time>` : '';
+  const readHtml = `<span class="separator">&middot;</span><span class="read-time">${readTimeMinutes} min read</span>`;
+
+  if (consolidated && consolidated.primary) {
+    const p = consolidated.primary;
+    return `
+      <div class="article-meta consolidated-meta">
+        <span class="author">by Brian Edwards</span>
+        <span class="separator">&middot;</span>
+        <span class="multi-source-label">multiple sources including</span>
+        <a href="${p.originalUrl}" target="_blank" rel="noopener" class="primary-source">${escapeHtml(p.author)}</a>,
+        <a href="${pathToRoot}publication/${p.publicationSlug}/index.html" class="publication">${escapeHtml(p.publicationName)}</a>
+        ${dateHtml}
+        ${readHtml}
+      </div>`;
+  }
+
+  return `
+      <div class="article-meta">
+        <span class="author">${escapeHtml(author)}</span>
+        <span class="separator">&middot;</span>
+        <a href="${pathToRoot}publication/${publicationSlug}/index.html" class="publication">
+          ${escapeHtml(publicationName)}
+        </a>
+        ${dateHtml}
+        ${readHtml}
+      </div>`;
+}
+
+/**
+ * Render a single source excerpt block.
+ */
+export function renderSourceExcerpt(
+  source: CommentarySource,
+  pathToRoot: string
+): string {
+  return `<article class="source-excerpt">
+      <h3>${escapeHtml(source.title)}</h3>
+      <div class="source-meta">by ${escapeHtml(source.author)} &middot; <a href="${pathToRoot}publication/${source.publicationSlug}/index.html">${escapeHtml(source.publicationName)}</a> &middot; <a href="${source.originalUrl}" target="_blank" rel="noopener">Read full article</a></div>
+      ${source.excerptHtml}
+    </article>`;
+}
+
+/**
+ * Interlace source excerpts with deep dive card HTML fragments.
+ * Rule: source[0], deepdive[0], source[1], deepdive[1], ...
+ * Any leftover sources or deep dives are appended at the end.
+ */
+export function renderInterlacedSourcesAndDeepDives(
+  sources: CommentarySource[],
+  deepDiveHtmls: string[],
+  pathToRoot: string
+): string {
+  if (sources.length === 0) {return '';}
+
+  const ordered = [...sources].sort((a, b) => a.position - b.position);
+  const parts: string[] = [];
+  const max = Math.max(ordered.length, deepDiveHtmls.length);
+  for (let i = 0; i < max; i++) {
+    if (i < ordered.length) {
+      parts.push(renderSourceExcerpt(ordered[i], pathToRoot));
+    }
+    if (i < deepDiveHtmls.length) {
+      parts.push(deepDiveHtmls[i]);
+    }
+  }
+  return `<section class="source-excerpts">
+      <h2>Sources</h2>
+      ${parts.join('\n')}
+    </section>`;
 }
 
 export interface StaticWikipediaArticle {
@@ -235,13 +341,20 @@ export function renderStaticArticleCard(
     ? `<a href="${articleUrl}" class="article-thumb-link"><img class="article-thumb" src="${pathToRoot}${article.imagePath}" alt="${escapeHtml(article.title)}" loading="lazy" width="180" height="94"></a>`
     : '';
 
-  return `<article class="article-card">
+  const isConsolidated = article.isConsolidated && (article.sourceCount ?? 0) > 1;
+  const displayAuthor = isConsolidated ? 'Brian Edwards' : article.author;
+  const badgeHtml = isConsolidated
+    ? `<span class="source-count-badge">${article.sourceCount} sources</span>`
+    : '';
+
+  return `<article class="article-card${isConsolidated ? ' consolidated' : ''}">
   <div>
     <a href="${articleUrl}" class="article-link">
       <h2 class="article-title">${escapeHtml(article.title)}</h2>
     </a>
     <div class="article-meta">
-      <span class="author">${escapeHtml(article.author)}</span>
+      <span class="author">${escapeHtml(displayAuthor)}</span>${badgeHtml ? `
+      ${badgeHtml}` : ''}
       <span class="separator">&middot;</span>
       <a href="${pathToRoot}publication/${article.publicationSlug}/index.html" class="publication">
         ${escapeHtml(article.publicationName)}

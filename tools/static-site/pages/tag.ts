@@ -127,6 +127,37 @@ export async function getDisplayTag(
 }
 
 /**
+ * Get consolidation metadata (is_consolidated flag + source count) in bulk.
+ * Returns empty map if commentary_sources table doesn't exist yet.
+ */
+export async function getConsolidationBulk(
+  pool: Pool,
+  articleIds: string[]
+): Promise<Map<string, { isConsolidated: boolean; sourceCount: number }>> {
+  const map = new Map<string, { isConsolidated: boolean; sourceCount: number }>();
+  if (articleIds.length === 0) {return map;}
+  try {
+    const { rows } = await pool.query<{ id: string; is_consolidated: boolean; source_count: string }>(`
+      SELECT
+        a.id,
+        COALESCE(a.is_consolidated, false) AS is_consolidated,
+        COALESCE((SELECT COUNT(*) FROM app.commentary_sources cs WHERE cs.commentary_article_id = a.id), 0)::text AS source_count
+      FROM app.articles a
+      WHERE a.id = ANY($1)
+    `, [articleIds]);
+    for (const row of rows) {
+      map.set(row.id, {
+        isConsolidated: row.is_consolidated,
+        sourceCount: parseInt(row.source_count, 10),
+      });
+    }
+  } catch {
+    // Graceful degrade when column/table missing
+  }
+  return map;
+}
+
+/**
  * Get all display tags for articles in bulk (for home page performance)
  */
 export async function getDisplayTagsBulk(
@@ -229,9 +260,11 @@ export async function generateTagPages(
     for (let page = 1; page <= totalPages; page++) {
       const { articles } = await getArticlesForTagPage(pool, tag.slug, page);
 
+      const consolidationMap = await getConsolidationBulk(pool, articles.map(a => a.id));
       const staticArticles: StaticArticle[] = [];
       for (const a of articles) {
         const content = await loadContent(a.content_path);
+        const consolidation = consolidationMap.get(a.id);
         staticArticles.push({
           id: a.id,
           title: a.title,
@@ -244,6 +277,8 @@ export async function generateTagPages(
           url: a.original_url,
           imagePath: a.image_path,
           displayTag: a.display_tag_name ? { slug: a.display_tag_slug!, name: a.display_tag_name } : null,
+          isConsolidated: consolidation?.isConsolidated ?? false,
+          sourceCount: consolidation?.sourceCount ?? 0,
         });
       }
 
