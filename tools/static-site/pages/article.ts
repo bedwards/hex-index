@@ -401,7 +401,7 @@ export function generateArticlePage(
     article.published_at,
     article.estimated_read_time_minutes,
     pathToRoot,
-    primarySource ? { primary: primarySource } : null
+    primarySource ? { primary: primarySource, sourceCount: commentarySources.length } : null
   );
 
   const content = `

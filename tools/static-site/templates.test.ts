@@ -56,15 +56,23 @@ describe('renderArticleMeta', () => {
     expect(html).not.toContain('consolidated-meta');
   });
 
-  it('renders consolidated meta with "by Brian Edwards" and "multiple sources including"', () => {
+  it('renders consolidated meta with "multiple sources:" and N others suffix', () => {
     const primary = mkSource();
-    const html = renderArticleMeta('ignored', 'ignored', 'ignored', '2026-04-01T00:00:00Z', 12, PATH, { primary });
+    const html = renderArticleMeta('ignored', 'ignored', 'ignored', '2026-04-01T00:00:00Z', 12, PATH, { primary, sourceCount: 3 });
     expect(html).toContain('consolidated-meta');
-    expect(html).toContain('by Brian Edwards');
-    expect(html).toContain('multiple sources including');
+    expect(html).toContain('multiple sources:');
     expect(html).toContain('Jane Doe');
     expect(html).toContain('Example Pub');
-    expect(html).toContain('12 min read');
+    expect(html).toContain('and 2 others');
+    expect(html).not.toContain('by Brian Edwards');
+    expect(html).not.toContain('min read');
+  });
+
+  it('renders consolidated meta singular "other" for 2 sources', () => {
+    const primary = mkSource();
+    const html = renderArticleMeta('x', 'x', 'x', '2026-04-01T00:00:00Z', 12, PATH, { primary, sourceCount: 2 });
+    expect(html).toContain('and 1 other');
+    expect(html).not.toContain('and 1 others');
   });
 });
 

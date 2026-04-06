@@ -55,7 +55,7 @@ export function renderArticleMeta(
   publishedAt: string | null,
   readTimeMinutes: number,
   pathToRoot: string,
-  consolidated?: { primary: CommentarySource } | null
+  consolidated?: { primary: CommentarySource; sourceCount: number } | null
 ): string {
   const date = formatDate(publishedAt);
   const dateHtml = date ? `<span class="separator">&middot;</span><time>${date}</time>` : '';
@@ -63,15 +63,16 @@ export function renderArticleMeta(
 
   if (consolidated && consolidated.primary) {
     const p = consolidated.primary;
+    const others = Math.max(0, consolidated.sourceCount - 1);
+    const othersHtml = others > 0
+      ? ` and ${others} other${others === 1 ? '' : 's'}`
+      : '';
     return `
       <div class="article-meta consolidated-meta">
-        <span class="author">by Brian Edwards</span>
-        <span class="separator">&middot;</span>
-        <span class="multi-source-label">multiple sources including</span>
+        <span class="multi-source-label">multiple sources:</span>
         <a href="${p.originalUrl}" target="_blank" rel="noopener" class="primary-source">${escapeHtml(p.author)}</a>,
-        <a href="${pathToRoot}publication/${p.publicationSlug}/index.html" class="publication">${escapeHtml(p.publicationName)}</a>
+        <a href="${pathToRoot}publication/${p.publicationSlug}/index.html" class="publication">${escapeHtml(p.publicationName)}</a>${othersHtml}
         ${dateHtml}
-        ${readHtml}
       </div>`;
   }
 
