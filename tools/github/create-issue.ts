@@ -104,7 +104,8 @@ export function createIssue(options: IssueOptions): CreatedIssue {
     };
   } catch (err) {
     throw new Error(
-      `Failed to create issue. Ensure gh CLI is authenticated and has repo access.\n${err}`
+      `Failed to create issue. Ensure gh CLI is authenticated and has repo access.\n${err}`,
+      { cause: err }
     );
   }
 }
@@ -122,7 +123,7 @@ export function assignIssue(issueNumber: number, assignee: string): void {
       env: { ...process.env },
     });
   } catch (err) {
-    throw new Error(`Failed to assign issue #${issueNumber}: ${err}`);
+    throw new Error(`Failed to assign issue #${issueNumber}: ${err}`, { cause: err });
   }
 }
 
@@ -144,7 +145,7 @@ export function markInProgress(issueNumber: number): void {
       }
     );
   } catch (err) {
-    throw new Error(`Failed to mark issue #${issueNumber} in-progress: ${err}`);
+    throw new Error(`Failed to mark issue #${issueNumber} in-progress: ${err}`, { cause: err });
   }
 }
 

@@ -281,7 +281,7 @@ async function main(): Promise<void> {
       }
 
       // Read HTML for title fallback and word count
-      let htmlContent: string | null = null;
+      let htmlContent: string;
       try {
         htmlContent = await readFile(htmlPath, 'utf-8');
       } catch (err) {
