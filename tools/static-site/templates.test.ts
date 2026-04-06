@@ -83,6 +83,13 @@ describe('renderSourceExcerpt', () => {
     expect(html).toContain('<h3>Primary Source Title</h3>');
     expect(html).toContain('by Jane Doe');
     expect(html).toContain('Read full article');
+  });
+
+  it('renders "Watch video" label for YouTube sources', () => {
+    const src = { ...mkSource(), originalUrl: 'https://www.youtube.com/watch?v=abc123' };
+    const html = renderSourceExcerpt(src, PATH);
+    expect(html).toContain('Watch video');
+    expect(html).not.toContain('Read full article');
     expect(html).toContain('<p>Source excerpt text.</p>');
   });
 });

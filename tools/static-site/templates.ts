@@ -92,9 +92,11 @@ export function renderSourceExcerpt(
   source: CommentarySource,
   pathToRoot: string
 ): string {
+  const isYouTube = /(?:youtube\.com|youtu\.be)/i.test(source.originalUrl);
+  const linkLabel = isYouTube ? 'Watch video' : 'Read full article';
   return `<article class="source-excerpt">
       <h3>${escapeHtml(source.title)}</h3>
-      <div class="source-meta">by ${escapeHtml(source.author)} &middot; <a href="${pathToRoot}publication/${source.publicationSlug}/index.html">${escapeHtml(source.publicationName)}</a> &middot; <a href="${source.originalUrl}" target="_blank" rel="noopener">Read full article</a></div>
+      <div class="source-meta">by ${escapeHtml(source.author)} &middot; <a href="${pathToRoot}publication/${source.publicationSlug}/index.html">${escapeHtml(source.publicationName)}</a> &middot; <a href="${source.originalUrl}" target="_blank" rel="noopener">${linkLabel}</a></div>
       ${source.excerptHtml}
     </article>`;
 }

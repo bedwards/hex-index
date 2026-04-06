@@ -442,13 +442,14 @@ export function createPagesRouter(pool: Pool): Router {
 
       let sourcesSectionHtml = '';
       const parts: string[] = [];
+      const ytLabel = (url: string) => /(?:youtube\.com|youtu\.be)/i.test(url) ? 'Watch video' : 'Read full article';
       if (isConsolidated) {
         for (const src of commentarySources) {
           const excerpt = await renderExcerpt(src.content_path);
           parts.push(`
             <article class="source-excerpt">
               <h3>${escapeHtml(src.title)}</h3>
-              <div class="source-meta">by ${escapeHtml(src.author_name ?? 'Unknown')} · <a href="/publication/${escapeHtml(src.publication_slug)}">${escapeHtml(src.publication_name)}</a> · <a href="${escapeHtml(src.original_url)}" target="_blank" rel="noopener">Read full article</a></div>
+              <div class="source-meta">by ${escapeHtml(src.author_name ?? 'Unknown')} · <a href="/publication/${escapeHtml(src.publication_slug)}">${escapeHtml(src.publication_name)}</a> · <a href="${escapeHtml(src.original_url)}" target="_blank" rel="noopener">${ytLabel(src.original_url)}</a></div>
               ${excerpt}
             </article>
           `);
@@ -458,7 +459,7 @@ export function createPagesRouter(pool: Pool): Router {
         parts.push(`
           <article class="source-excerpt">
             <h3>${escapeHtml(article.title)}</h3>
-            <div class="source-meta">by ${escapeHtml(article.author_name ?? 'Unknown')} · <a href="/publication/${escapeHtml(article.publication_slug)}">${escapeHtml(article.publication_name)}</a> · <a href="${escapeHtml(article.original_url)}" target="_blank" rel="noopener">Read full article</a></div>
+            <div class="source-meta">by ${escapeHtml(article.author_name ?? 'Unknown')} · <a href="/publication/${escapeHtml(article.publication_slug)}">${escapeHtml(article.publication_name)}</a> · <a href="${escapeHtml(article.original_url)}" target="_blank" rel="noopener">${ytLabel(article.original_url)}</a></div>
             ${excerpt}
           </article>
         `);
