@@ -469,7 +469,7 @@ export async function generateArticlePages(
   const affiliateTag = process.env.AMAZON_AFFILIATE_TAG ?? '';
   let pagesGenerated = 0;
 
-  let skipped = 0;
+  let _skipped = 0;
   for (const article of articles) {
     // If we have a rewritten version, use full content; otherwise excerpt
     const hasRewrite = !!article.rewritten_content_path;
@@ -479,14 +479,14 @@ export async function generateArticlePages(
     // Consolidated commentary articles don't have a content_path (they synthesize from sources),
     // so they're exempt from this gate.
     if (!article.is_consolidated && !hasRewrite && rawContent.trim().length < 200) {
-      skipped++;
+      _skipped++;
       continue;
     }
     // Also skip if rewrite is claimed but the rewrite file is empty/missing.
     if (hasRewrite && !article.is_consolidated) {
       const rewriteCheck = await loadArticleContent(article.rewritten_content_path);
       if (rewriteCheck.trim().length < 200) {
-        skipped++;
+        _skipped++;
         continue;
       }
     }
