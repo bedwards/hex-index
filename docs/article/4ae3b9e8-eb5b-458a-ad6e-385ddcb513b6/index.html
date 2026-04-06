@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bayesian Performance Rating: The Best Player Metric in CBB - Hex Index</title>
+  <link rel="stylesheet" href="../../styles.css">
+</head>
+<body class="reading-mode">
+  <header class="reading-header">
+    <a href="../../index.html" class="back-link" id="back-link">&larr; Back to Library</a>
+  </header>
+  <main class="reading-content">
+    
+    <article class="article-page">
+      <header class="article-header">
+        <h1>Bayesian Performance Rating: The Best Player Metric in CBB</h1>
+        
+      <div class="article-meta">
+        <span class="author">Evan Miyakawa</span>
+        <span class="separator">&middot;</span>
+        <a href="../../publication/evanmiya/index.html" class="publication">
+          The EvanMiya Blog
+        </a>
+        <span class="separator">&middot;</span><time>Oct 20, 2025</time>
+        <span class="separator">&middot;</span><span class="read-time">24 min read</span>
+      </div>
+      </header>
+
+      <div class="content-label">
+        <span class="label-text">Commentary by <a href="../../about/index.html">Brian Edwards</a></span>
+        <nav class="content-nav">
+          
+          <a href="https://blog.evanmiya.com/p/bayesian-performance-rating" target="_blank" rel="noopener">Original article &rarr;</a>
+        </nav>
+      </div>
+
+      
+      <div class="article-content">
+        <p>Evan Miyakawa makes a bold claim that cuts through the noise of college basketball analytics: the most predictive metric for player value isn&#039;t a box score accumulation stat, but a complex Bayesian model that treats player evaluation as a continuous, evolving probability. While other metrics wait for a full season to stabilize, Miyakawa argues his Bayesian Performance Rating (BPR) offers immediate, actionable foresight by blending play-by-play data with historical priors. This isn&#039;t just another efficiency number; it is a structural attempt to solve the &quot;small sample size&quot; problem that plagues early-season analysis.</p>
+<h2>The Predictive Edge</h2>
+<p>The core of Miyakawa&#039;s argument rests on the distinction between describing the past and predicting the future. He writes, &quot;BPR doesn&#039;t just summarize how good a player has been in a given season, it actually predicts how productive that player will be going forward.&quot; This is a crucial differentiation. Traditional stats like Player Efficiency Rating (PER) are often criticized for being backward-looking summaries that fail to account for context. Miyakawa counters this by emphasizing that his model is &quot;optimized to achieve the best out-of-sample predictions, employing various cross-validation methods.&quot;</p>
+<figure class="inline-illustration">
+    <img src="../../images/4ae3b9e8-eb5b-458a-ad6e-385ddcb513b6.webp" alt="Bayesian Performance Rating: The Best Player Metric in CBB" loading="lazy" width="600" height="315">
+  </figure>
+
+<p>The practical implication here is significant for coaches and scouts who cannot afford to wait until February to identify a breakout star. Miyakawa explains that the rating represents &quot;how many points per 100 possessions better a player&#039;s team is expected to be than its opponent if that player were on the court with nine other average Division I players.&quot; By anchoring the metric to a hypothetical baseline of average teammates and opponents, the model isolates individual impact from team noise. Critics might note that this hypothetical scenario is a theoretical construct that rarely exists in reality, but the utility lies in the standardization it provides for comparison.</p>
+<blockquote>&quot;Every part of the BPR formula has been optimized to achieve the best out-of-sample predictions, employing various cross-validation methods.&quot;</blockquote>
+<h2>Deconstructing the Model</h2>
+<p>Miyakawa does not hide behind a black box; he explicitly details how he synthesizes three distinct modeling approaches to mitigate the weaknesses of each. He combines a Regularized Adjusted Plus-Minus (RAPM) model, a Box Plus-Minus (BPM) model, and a preseason projection model. He acknowledges the limitations of RAPM, noting that &quot;players on very good or very bad teams are often clustered together&quot; and that &quot;individual games can have a significant impact on the final player coefficients in ways that... lead to misleading results.&quot;</p>
+<p>To fix this, he leans on the strengths of BPM, which uses box score statistics to create stability, while admitting that &quot;almost all public BPM values come from a formula trained on years of NBA data,&quot; which is a poor fit for the unique dynamics of college basketball. Miyakawa&#039;s solution is to build a &quot;college-specific version of a Box Plus-Minus model&quot; that respects the specific skill sets valued in the NCAA. He writes, &quot;BPR uses all three model types together to form a superior final version.&quot; This hybrid approach attempts to capture the on-court impact of RAPM, the stability of BPM, and the early-season foresight of preseason projections.</p>
+<p>The Bayesian element is the glue that holds this together. Unlike standard regression that might force a rookie with ten minutes of play to have a wildly inflated or deflated rating based on luck, Miyakawa uses &quot;bayesian linear regression&quot; to apply &quot;shrinkage&quot; toward a prior distribution. He explains that &quot;we can be way more specific about player-level prior distributions,&quot; allowing the model to start with a best guess based on recruiting data or past performance and update it as new evidence arrives. This means a highly-touted recruit doesn&#039;t need to play 20 games to prove their worth; the model intelligently weights their potential against their actual output from day one.</p>
+<h2>Why It Matters for the Modern Game</h2>
+<p>The ultimate goal of this technical exercise is to strip away the noise of team quality and isolate individual value. Miyakawa asserts that &quot;a player&#039;s rating considers the scoring outcome of every possession played, adjusting for the strength of both teammates and opposition players faced on each possession.&quot; This granular adjustment is what separates BPR from simpler metrics that might credit a player for a win against a weak opponent or penalize them for a loss against a powerhouse.</p>
+<p>He highlights the instability of traditional models early in the season, stating that &quot;season-level RAPM coefficients aren&#039;t useful till a good portion of the way through the year.&quot; In contrast, his model is designed to be &quot;useful the entire year.&quot; By integrating preseason projections, he ensures that &quot;players even have BPR predictions in the preseason, which will start to go up or down as the model updates with current season performance data.&quot; This continuous feedback loop is the metric&#039;s strongest asset, turning player evaluation from a static report card into a dynamic dashboard.</p>
+<blockquote>&quot;BPR is a predictive stat, estimating how valuable a player will be going forward.&quot;</blockquote>
+<h2>Bottom Line</h2>
+<p>Miyakawa&#039;s strongest argument is his refusal to accept the trade-off between stability and timeliness; by using Bayesian priors, he delivers a metric that is both statistically rigorous and immediately relevant. The model&#039;s biggest vulnerability remains its complexity, as the reliance on proprietary play-by-play data and custom coefficients makes it difficult for casual fans to replicate or intuitively verify without access to the underlying code. For the serious analyst, however, BPR represents the current gold standard for isolating individual impact in a team sport.</p>
+      </div>
+
+      
+      
+      
+
+      <section id="excerpt"><section class="source-excerpts">
+      <h2>Sources</h2>
+      <article class="source-excerpt">
+      <h3>Bayesian Performance Rating: The Best Player Metric in CBB</h3>
+      <div class="source-meta">by Evan Miyakawa &middot; <a href="../../publication/evanmiya/index.html">The EvanMiya Blog</a> &middot; <a href="https://blog.evanmiya.com/p/bayesian-performance-rating" target="_blank" rel="noopener">Read full article</a></div>
+      <p>With a new season approaching, it’s finally time to dedicate a whole article to the flagship metric at EvanMiya.com, the Bayesian Performance Rating. When I first launched the website in 2020, BPR was the new metric that most provided something unique to the CBB advanced analytics landscape, and I still believe this to be the case today. The player evaluation metric has undergone many iterations as I’ve collected feedback over the years and seen it used in action. BPR has always been useful in its own right, but a lot of other features at EvanMiya.com also depend on it being accurate. Game predictions, lineup metrics, team ratings, injury adjustments, and other tools all use BPR as a key part of their internal formulation. </p><p>This offseason, I made some significant upgrades to the Bayesian Performance model that addressed some lingering biases and led to sharper model accuracy. Rather than just mentioning these changes quickly, I wanted to provide users with a complete technical examination of the model so that I can properly convince readers that Bayesian Performance Rating is the best all-in-one player metric publicly available in college basketball. </p><p>If you want to skip the explanation altogether, jump to the tables at the end or go view the full datasets on the Player Ratings page at EvanMiya.com. </p><p>The Goal of BPR. <p>In a nutshell, Bayesian Performance Rating reflects the offensive and defensive value that a player brings to his team when he is on the court, on a per-possession basis. This rating incorporates aspects such as individual efficiency statistics, on-court impact on team performance down to the play-by-play level, previous career performance, high school recruiting profiles, adjustments for opponent players and teammates, and more. All of this results in one offensive and defensive number, which can be added together to get a player’s overall Bayesian Performance Rating. </p><p>Here’s the technical interpretation of BPR:</p><p>Bayesian Performance Rating represents how many points per 100 possessions better a player’s team is expected to be than its opponent if that player were on the court with nine other average Division I players. For example, if a player has a BPR of +5.0, this means that if he were playing with average D1 teammates, against average D1 players, his team would be expected to outscore the opposition by 5 points in a 100 possession game. </p><p>Typically, the best player in the country each year finishes with </p>...</p>
+    </article>
+    </section></section>
+      
+    </article>
+  
+  </main>
+  <footer class="site-footer">
+    <div class="container">
+      <p><a href="../../privacy/index.html">Privacy</a> &middot; <a href="../../terms/index.html">Terms</a></p>
+    </div>
+  </footer>
+  <script>
+  (function() {
+    var params = new URLSearchParams(window.location.search);
+    var from = params.get('from');
+    if (from) {
+      var names = {
+        'foreign-policy':'Foreign Policy','ai-tech':'AI & Tech','housing-cities':'Housing & Cities',
+        'political-strategy':'Political Strategy','history':'History','science':'Science',
+        'culture':'Culture','economics':'Economics','faith':'Faith','writing-craft':'Writing & Craft',
+        'music':'Music','law-rights':'Law & Rights','public-health':'Public Health',
+        'philosophy':'Philosophy','media':'Media','defense':'Defense','china':'China'
+      };
+      var link = document.getElementById('back-link');
+      if (link) {
+        var name = names[from] || from;
+        link.href = '../../tag/' + from + '/index.html';
+        link.textContent = '\u2190 Back to ' + name;
+      }
+    }
+  })();
+  </script>
+</body>
+</html>
