@@ -14,6 +14,34 @@ There are two sites:
 
 Brian gives you tasks in Claude Code sessions. You do the work — research, code changes, issue creation, deployments, evaluations. Sometimes the task is small (fix a bug, update a config). Sometimes it's big (build a new feature, redesign a system). Scope depends on what Brian asks for.
 
+### Single Unified Claude Loop (current model — 2026-04-06)
+
+There is exactly **one** Claude Code session running at a time, driven by a 5-minute monitoring cron. That one session is responsible for **everything** that isn't handled by scheduled launchctl/svc/Qwen jobs. No more parallel specialized loops (ops / editorial / epub-review / quality-audit / scheduler / memory-consolidation). Their prompts in `tools/claude-loop/` are **kept** as reference in case the multi-loop model returns — do not delete them — but they are not run.
+
+**Scheduled jobs handle (do NOT invoke these manually, never run `npx tsx tools/jobs/...`):**
+- `ingest`, `yt-ingest` — article/video acquisition
+- `gen-images` — Gemini image generation
+- `wiki-discover`, `wiki-rewrite`, `article-rewrite`, `affiliate-suggest` — Qwen content generation
+- `build-weekly` (Thu 23:00), `send-weekly` (Fri 07:30) — weekly Reader pipeline
+- `postgres-watchdog` — DB health
+
+**This unified loop is responsible for everything else:**
+1. **Static site freshness** — detect new DB articles each cycle, regenerate `docs/`, commit + push. The top priority; articles in DB but not on hex-index.com are worthless.
+2. **Duplicate detection** — catch same-title articles across publications (cf. Sinocism/Sinification incident, 2026-04-06). Delete dups, remove offending feed from `tools/create-comprehensive-sources.ts`, delete publication row so ingest drops it.
+3. **Format error scanning** — run `tools/editorial/find-format-errors.ts` + `fix-format-errors.ts` on new content. Markdown artifacts in HTML break Speechify.
+4. **PR pipeline** — review open PRs, merge green ones, fix red ones, triage Claude/Gemini review comments (critical → fix; non-critical → file issue).
+5. **Main branch CI health** — if `gh run list --branch main` shows failures, fix.
+6. **Weekly epub verification** — Thursday night after 23:00, confirm build-weekly produced a current epub in `docs/weekly/` and it was committed + pushed. Before Friday 07:30 CT, do editorial review. After 07:30, confirm send-weekly fired (email + SMS).
+7. **Content quality audits** — periodically sample recent Qwen output for refusals, `<think>` tags, mojibake, LLM preamble, missing quotes/counterpoints/Bottom Line.
+8. **Issue triage** — create GH issues for things you notice but can't fix in-loop.
+9. **Dependabot / upgrades** — keep deps current.
+10. **Memory consolidation** — periodically prune stale memory files, update MEMORY.md index.
+11. **Ad-hoc work Brian drops in** — whatever he asks for this session.
+
+**Delegation:** For non-trivial multi-step work, spawn background Agent workers with `isolation: "worktree"`. Always tell the worker explicitly: **do not invoke launchctl, svc, Qwen, or `npx tsx tools/jobs/...` — do the work yourself.** The worker writes code, commits, pushes, opens a PR. You orchestrate and review.
+
+**Push directly to main** is allowed and expected for: static site regens, editorial format fixes, duplicate cleanups, CLAUDE.md/memory updates. Non-trivial code changes still go through PRs (via worktree agents).
+
 ### Code Changes
 
 For non-trivial changes, use background Agent workers with `isolation: "worktree"`. The worker creates a branch, writes code, commits, pushes, and creates a PR. You orchestrate and review.
