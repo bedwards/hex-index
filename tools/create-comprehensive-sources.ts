@@ -116,7 +116,6 @@ const allFeeds = [
   "https://seymourhersh.substack.com/feed",
   "https://www.natesilver.net/feed",
   "https://jessesingal.substack.com/feed",
-  "https://sinocism.com/feed",
   "https://www.slowboring.com/feed",
   "https://blog.spec.tech/feed",
   "https://eschwitz.substack.com/feed",
