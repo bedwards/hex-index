@@ -149,3 +149,166 @@ const VOID_ELEMENTS = new Set([
   'area', 'base', 'br', 'col', 'embed', 'hr', 'img', 'input',
   'link', 'meta', 'param', 'source', 'track', 'wbr',
 ]);
+
+// ── Epub chapter rendering ──────────────────────────────────────────
+//
+// Renders the <body>...</body> contents for one weekly-Reader chapter.
+// Pure function: no DB, no I/O. The caller is responsible for fetching
+// commentary sources, deep-dive content, and image bytes.
+//
+// For single-source articles (`is_consolidated=false`) the layout is the
+// existing one: header → image → commentary body → affiliate books → deep
+// dives.
+//
+// For consolidated commentary (`is_consolidated=true`) the layout follows
+// the public-site template from issue #450: header (with multi-source
+// attribution) → image → commentary body → interlaced source-excerpt /
+// truncated deep-dive blocks → affiliate books.
+
+function escAttr(s: string): string {
+  return s
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&apos;');
+}
+
+export interface EpubChapterSource {
+  articleId: string;
+  title: string;
+  author: string;
+  publicationName: string;
+  originalUrl: string;
+  /** Pre-extracted ~200-word excerpt HTML (already sanitized for XHTML). */
+  excerptHtml: string;
+  isPrimary: boolean;
+  position: number;
+}
+
+export interface EpubChapterDeepDive {
+  title: string;
+  /**
+   * Already-truncated, already-XHTML-sanitized deep dive body. Callers run
+   * `truncateDeepDive` then their own xhtml cleaner before handing it in;
+   * the chapter renderer embeds the string verbatim.
+   */
+  displayHtml: string;
+  slug: string;
+}
+
+export interface EpubAffiliateBook {
+  isbn10: string;
+  isbn13?: string;
+  title: string;
+  author: string;
+  description: string;
+}
+
+export interface EpubChapterInput {
+  title: string;
+  authorName: string;
+  publicationName: string;
+  publishedAt: string | null;
+  estimatedReadTimeMinutes: number;
+  /** Inline image tag (already built by caller, may be empty). */
+  imageHtml: string;
+  /** XHTML-ready commentary body. */
+  bodyHtml: string;
+  /** XHTML-ready affiliate books block (already built, may be empty). */
+  affiliateHtml: string;
+  /** XHTML-ready topic header (h2) for the first article in a topic group. */
+  topicHeaderHtml: string;
+  isConsolidated: boolean;
+  /** Sorted by position; ignored when isConsolidated is false. */
+  sources: EpubChapterSource[];
+  deepDives: EpubChapterDeepDive[];
+}
+
+function formatDate(iso: string | null): string {
+  if (!iso) {return '';}
+  return new Date(iso).toLocaleDateString('en-US', {
+    year: 'numeric',
+    month: 'short',
+    day: 'numeric',
+  });
+}
+
+function renderDeepDiveBlock(dd: EpubChapterDeepDive): string {
+  if (!dd.displayHtml) {return '';}
+  return `
+  <div class="deep-dive">
+    <p class="deep-dive-label">Deep Dive</p>
+    <h3>${escAttr(dd.title)}</h3>
+    ${dd.displayHtml}
+  </div>`;
+}
+
+function renderSourceExcerptBlock(src: EpubChapterSource): string {
+  const isYouTube = /(?:youtube\.com|youtu\.be)/i.test(src.originalUrl);
+  const linkLabel = isYouTube ? 'Watch video' : 'Read full article';
+  return `
+  <div class="source-excerpt">
+    <h3>${escAttr(src.title)}</h3>
+    <p class="source-meta">by ${escAttr(src.author)} &#183; ${escAttr(src.publicationName)} &#183; <a href="${escAttr(src.originalUrl)}">${linkLabel}</a></p>
+    ${src.excerptHtml}
+  </div>`;
+}
+
+/**
+ * Render the body XHTML for a single weekly-Reader chapter.
+ * Returns the HTML to place between `<body>` and `</body>`.
+ *
+ * Single-source: header → image → body → affiliates → deep dives.
+ * Consolidated: header (multi-source attribution) → image → body →
+ *   interlaced [source, deep-dive]* → affiliates.
+ */
+export function renderEpubChapterBody(input: EpubChapterInput): string {
+  const date = formatDate(input.publishedAt);
+
+  if (!input.isConsolidated) {
+    let deepDiveHtml = '';
+    for (const dd of input.deepDives) {
+      deepDiveHtml += renderDeepDiveBlock(dd);
+    }
+    return `${input.topicHeaderHtml}
+  ${input.imageHtml}
+  <div class="article-header">
+    <h1>${escAttr(input.title)}</h1>
+    <p class="article-meta">${escAttr(input.authorName)} &#183; ${escAttr(input.publicationName)}${date ? ` &#183; ${date}` : ''} &#183; ${input.estimatedReadTimeMinutes} min read</p>
+  </div>
+  ${input.bodyHtml}
+  ${input.affiliateHtml}
+  ${deepDiveHtml}`;
+  }
+
+  // Consolidated: build multi-source attribution + interlaced sources/dds.
+  const ordered = [...input.sources].sort((a, b) => a.position - b.position);
+  const primary = ordered.find(s => s.isPrimary) ?? ordered[0];
+  const attribution = primary
+    ? `by Brian Edwards &#8212; multiple sources including ${escAttr(primary.author)}, ${escAttr(primary.publicationName)}`
+    : `by Brian Edwards`;
+
+  const interlacedParts: string[] = [];
+  const max = Math.max(ordered.length, input.deepDives.length);
+  for (let i = 0; i < max; i++) {
+    if (i < ordered.length) {
+      interlacedParts.push(renderSourceExcerptBlock(ordered[i]));
+    }
+    if (i < input.deepDives.length) {
+      interlacedParts.push(renderDeepDiveBlock(input.deepDives[i]));
+    }
+  }
+  const sourcesAndDeepDives = interlacedParts.length > 0
+    ? `\n  <div class="source-excerpts">\n    <h2>Sources</h2>${interlacedParts.join('')}\n  </div>`
+    : '';
+
+  return `${input.topicHeaderHtml}
+  ${input.imageHtml}
+  <div class="article-header">
+    <h1>${escAttr(input.title)}</h1>
+    <p class="article-meta">${attribution}${date ? ` &#183; ${date}` : ''} &#183; ${input.estimatedReadTimeMinutes} min read</p>
+  </div>
+  ${input.bodyHtml}${sourcesAndDeepDives}
+  ${input.affiliateHtml}`;
+}
