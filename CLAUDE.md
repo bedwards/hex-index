@@ -163,6 +163,19 @@ Twilio CLI profile: `hex-index` (already configured).
 | Search | Full-text | None |
 | Database | Postgres | None (static HTML) |
 
+### Article Readiness Gate
+
+**Never show in-flight articles on the public site.** Every listing query (home, tag, publication, search, article generator) filters:
+
+```sql
+WHERE (rewritten_content_path IS NOT NULL OR is_consolidated = true)
+  AND consolidated_into IS NULL
+```
+
+An article is "ready" when Qwen has written its commentary rewrite OR when it's a consolidated commentary produced by `tools/editorial/consolidate.ts`. Absorbed source articles (those with `consolidated_into` set) must never appear as standalone cards — they live inside their consolidated commentary. When adding new listing queries, copy this filter verbatim.
+
+The article generator also has a runtime skip: if the content/rewrite file on disk is missing or <200 chars, the individual page generation is skipped as belt-and-suspenders defense against broken DB paths.
+
 ### Regenerating the Static Site
 
 **Always use incremental generation** — never full regen for small changes.
