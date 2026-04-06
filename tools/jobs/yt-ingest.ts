@@ -13,6 +13,7 @@ import { readFile, writeFile, mkdir } from 'fs/promises';
 import { readFileSync, unlinkSync } from 'fs';
 import { join } from 'path';
 import { execSync } from 'child_process';
+import { normalizeTitle } from '../../src/shared/title-normalizer.js';
 
 
 // ── CLI args ────────────────────────────────────────────────────────
@@ -244,7 +245,7 @@ async function main(): Promise<void> {
              VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, 'text', $11, $12)`,
             [
               pubId,
-              info.title,
+              normalizeTitle(info.title),
               articleSlug,
               videoUrl,
               contentPath,

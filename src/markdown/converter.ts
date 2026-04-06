@@ -12,6 +12,7 @@ import {
 } from './types.js';
 import { FeedItem } from '../feed/types.js';
 import { countWords, estimateReadTime } from '../feed/parser.js';
+import { normalizeTitle } from '../shared/title-normalizer.js';
 
 // Configure Turndown for clean markdown output
 const turndown = new TurndownService({
@@ -237,7 +238,7 @@ export function convertFeedItem(
   const links = extractLinks(item.contentHtml, item.url);
 
   const metadata: ArticleMetadata = {
-    title: item.title,
+    title: normalizeTitle(item.title),
     author: item.author,
     publication: publication.name,
     publication_slug: publication.slug,

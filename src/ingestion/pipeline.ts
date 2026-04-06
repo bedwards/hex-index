@@ -6,6 +6,7 @@
 import { fetchFeed } from '../feed/fetcher.js';
 import { FeedItem } from '../feed/types.js';
 import { convertFeedItem, slugify } from '../markdown/converter.js';
+import { normalizeTitle } from '../shared/title-normalizer.js';
 import { storeArticle, articleExists } from '../markdown/storage.js';
 import { LibraryConfig } from '../markdown/types.js';
 import { config } from '../config.js';
@@ -151,7 +152,7 @@ export async function processArticle(
         if (!existing) {
           await createArticle(options.db, {
             publication_id: publicationId,
-            title: item.title,
+            title: normalizeTitle(item.title),
             slug: articleSlug,
             original_url: item.url,
             content_path: stored.path,

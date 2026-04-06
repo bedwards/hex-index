@@ -2,8 +2,46 @@
  * Normalize article titles — deterministic rules, no LLM needed.
  * Applied at ingestion time and as a one-time backfill.
  */
+/**
+ * Editorial policy: strip "Trump" / "Donald Trump" / possessive and dash-attached
+ * variants from titles. Case-insensitive match, preserves surrounding casing.
+ *
+ * Matches (at word boundaries):
+ *   - "Donald Trump's", "Donald Trump"
+ *   - "Trump's", "Trump\u2019s", "Trump\u2014" (em dash), "Trump-", "Trump"
+ *
+ * Returns the input unchanged if the stripped result is empty (edge case —
+ * caller logs a warning).
+ */
+export function stripTrump(title: string): string {
+  // Order matters: match "Donald Trump" variants before bare "Trump".
+  // Trailing optional possessive ('s / \u2019s) or dash (-, \u2013, \u2014) absorbed
+  // into the match so it gets removed cleanly.
+  const trumpRegex = /\b(?:donald\s+)?trump(?:['\u2019]s|\s*[-\u2013\u2014]|'s)?\b/gi;
+  let out = title.replace(trumpRegex, '');
+
+  // Collapse multiple spaces left by the removal
+  out = out.replace(/\s{2,}/g, ' ');
+
+  // Strip leading/trailing stray punctuation & whitespace left orphaned
+  // (colons, dashes, pipes, commas) — e.g. "| foo" or ": foo"
+  out = out.replace(/^[\s:|\-\u2013\u2014,;]+/, '');
+  out = out.replace(/[\s:|\-\u2013\u2014,;]+$/, '');
+
+  out = out.trim();
+
+  if (out.length === 0 && title.trim().length > 0) {
+    console.warn(`stripTrump: normalization emptied title, keeping original: "${title}"`);
+    return title;
+  }
+  return out;
+}
+
 export function normalizeTitle(title: string): string {
   let t = title.trim();
+
+  // Editorial policy: strip Trump references before any other processing.
+  t = stripTrump(t);
 
   // Strip emoji prefixes (e.g., "🧠 Community Wisdom: ...")
   t = t.replace(/^(?:\p{Emoji_Presentation}|\p{Extended_Pictographic})+\s*/u, '');
