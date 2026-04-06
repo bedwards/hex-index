@@ -12,6 +12,15 @@
  *   tsx tools/editorial/consolidate.ts --apply --limit 3
  *   tsx tools/editorial/consolidate.ts --add-to <commentary_id> <source_id>
  *
+ * Backfill (issue #452) — walks historical articles in 14-day chunks
+ * (created_at DESC) and applies Mode A to anything still single-source.
+ * Idempotent: skips rows already marked is_consolidated or already
+ * absorbed (consolidated_into IS NOT NULL). Honors --limit and --dry-run.
+ *
+ *   tsx tools/editorial/consolidate.ts --backfill --dry-run
+ *   tsx tools/editorial/consolidate.ts --backfill --apply --limit 5
+ *   tsx tools/editorial/consolidate.ts --backfill-status
+ *
  * The LLM synthesis step is hidden behind the CommentarySynthesizer
  * interface (see consolidate-helpers.ts). The default implementation
  * spawns `claude -p` as a subprocess. Tests inject a fake.
@@ -24,7 +33,11 @@ import { mkdir, readFile, writeFile } from 'fs/promises';
 import { dirname, join, resolve } from 'path';
 import type { Pool, PoolClient } from 'pg';
 import type { CandidateGroup, QueryableDb } from './consolidation-candidates.js';
-import { findConsolidationCandidates } from './consolidation-candidates.js';
+import {
+  TIME_WINDOW_DAYS,
+  findCandidatesInRange,
+  findConsolidationCandidates,
+} from './consolidation-candidates.js';
 import {
   type AffiliateLink,
   type CommentarySynthesizer,
@@ -481,6 +494,207 @@ export async function runModeB(opts: ModeBOptions): Promise<void> {
   ]);
 }
 
+// ── Backfill (issue #452) ───────────────────────────────────────────
+
+export interface BackfillOptions {
+  db: DbClient;
+  synthesizer: CommentarySynthesizer;
+  apply: boolean;
+  /** Hard cap on groups processed per invocation (default 5). */
+  limit?: number;
+  /** Chunk size in days (default 14). */
+  chunkDays?: number;
+  /** Override "now" for deterministic tests. */
+  now?: Date;
+  /** Override the historical floor (default = oldest article in DB). */
+  earliest?: Date;
+  /** Injectable source loader for tests. */
+  loadSources?: ModeAOptions['loadSources'];
+  libraryRoot?: string;
+  /** Optional progress sink (defaults to console.info). */
+  log?: (msg: string) => void;
+}
+
+export interface BackfillResult {
+  chunksScanned: number;
+  groupsFound: number;
+  groupsProcessed: number;
+  plans: ConsolidationPlan[];
+  hitLimit: boolean;
+}
+
+interface ChunkRange { start: Date; end: Date }
+
+/** Inclusive earliest, exclusive latest — yields newest chunk first. */
+export function buildBackfillChunks(
+  earliest: Date,
+  latest: Date,
+  chunkDays: number,
+): ChunkRange[] {
+  const out: ChunkRange[] = [];
+  const ms = chunkDays * 24 * 60 * 60 * 1000;
+  let end = latest.getTime();
+  const floor = earliest.getTime();
+  while (end > floor) {
+    const start = Math.max(floor, end - ms);
+    out.push({ start: new Date(start), end: new Date(end) });
+    end = start;
+  }
+  return out;
+}
+
+async function fetchEarliestArticleDate(db: QueryableDb): Promise<Date | null> {
+  const { rows } = await db.query<{ min: Date | string | null }>(
+    `SELECT MIN(created_at) AS min FROM app.articles`,
+  );
+  const v = rows[0]?.min ?? null;
+  if (v === null) { return null; }
+  return v instanceof Date ? v : new Date(v);
+}
+
+/**
+ * Walk historical articles in 14-day chunks (newest first) and apply
+ * Mode A consolidation to each candidate group, up to `limit`. Idempotent:
+ * already-consolidated articles are excluded by `findCandidatesInRange`,
+ * and `runModeA` re-checks before mutating.
+ */
+export async function runBackfill(opts: BackfillOptions): Promise<BackfillResult> {
+  const limit = opts.limit ?? 5;
+  const chunkDays = opts.chunkDays ?? TIME_WINDOW_DAYS;
+  const now = opts.now ?? new Date();
+  const log = opts.log ?? ((m: string) => { console.info(m); });
+  const queryable = opts.db as unknown as QueryableDb;
+
+  const earliest =
+    opts.earliest ?? (await fetchEarliestArticleDate(queryable)) ?? new Date(now);
+  const chunks = buildBackfillChunks(earliest, now, chunkDays);
+
+  const result: BackfillResult = {
+    chunksScanned: 0,
+    groupsFound: 0,
+    groupsProcessed: 0,
+    plans: [],
+    hitLimit: false,
+  };
+
+  for (const chunk of chunks) {
+    result.chunksScanned++;
+    log(
+      `chunk ${result.chunksScanned}/${chunks.length}: ` +
+      `${chunk.start.toISOString().slice(0, 10)} → ${chunk.end.toISOString().slice(0, 10)}`,
+    );
+    const groups = await findCandidatesInRange(queryable, {
+      start: chunk.start,
+      end: chunk.end,
+    });
+    result.groupsFound += groups.length;
+    if (groups.length === 0) { continue; }
+    log(`  ${groups.length} candidate group(s)`);
+
+    for (const group of groups) {
+      if (result.groupsProcessed >= limit) {
+        result.hitLimit = true;
+        break;
+      }
+      const plan = await runModeA({
+        db: opts.db,
+        synthesizer: opts.synthesizer,
+        group,
+        groupIndex: result.groupsProcessed,
+        apply: opts.apply,
+        libraryRoot: opts.libraryRoot,
+        loadSources: opts.loadSources,
+      });
+      if (plan) {
+        result.plans.push(plan);
+        result.groupsProcessed++;
+        log(formatPlan(plan));
+        log('');
+      }
+    }
+    if (result.hitLimit) { break; }
+  }
+
+  return result;
+}
+
+export interface BackfillStatus {
+  totalArticles: number;
+  alreadyConsolidated: number;
+  estimatedRemainingGroups: number;
+  earliest: Date | null;
+  latest: Date | null;
+}
+
+/**
+ * Quick status report for the backfill driver. Counts use efficient
+ * aggregate queries; the "estimated remaining" walks chunks once with
+ * candidate detection but does not mutate.
+ */
+export async function getBackfillStatus(
+  db: DbClient,
+  opts: { chunkDays?: number; now?: Date } = {},
+): Promise<BackfillStatus> {
+  const queryable = db as unknown as QueryableDb;
+  const chunkDays = opts.chunkDays ?? TIME_WINDOW_DAYS;
+  const now = opts.now ?? new Date();
+
+  const totalRes = await queryable.query<{ count: string }>(
+    `SELECT COUNT(*)::text AS count FROM app.articles`,
+  );
+  const total = Number(totalRes.rows[0]?.count ?? 0);
+
+  let consolidated: number;
+  try {
+    const consRes = await queryable.query<{ count: string }>(
+      `SELECT COUNT(*)::text AS count FROM app.articles
+        WHERE consolidated_into IS NOT NULL OR is_consolidated = true`,
+    );
+    consolidated = Number(consRes.rows[0]?.count ?? 0);
+  } catch {
+    consolidated = 0;
+  }
+
+  const rangeRes = await queryable.query<{ min: Date | string | null; max: Date | string | null }>(
+    `SELECT MIN(created_at) AS min, MAX(created_at) AS max FROM app.articles`,
+  );
+  const minRaw = rangeRes.rows[0]?.min ?? null;
+  const maxRaw = rangeRes.rows[0]?.max ?? null;
+  const earliest = minRaw === null ? null : (minRaw instanceof Date ? minRaw : new Date(minRaw));
+  const latest = maxRaw === null ? null : (maxRaw instanceof Date ? maxRaw : new Date(maxRaw));
+
+  let estimated = 0;
+  if (earliest) {
+    const chunks = buildBackfillChunks(earliest, now, chunkDays);
+    for (const chunk of chunks) {
+      const groups = await findCandidatesInRange(queryable, {
+        start: chunk.start,
+        end: chunk.end,
+      });
+      estimated += groups.length;
+    }
+  }
+
+  return {
+    totalArticles: total,
+    alreadyConsolidated: consolidated,
+    estimatedRemainingGroups: estimated,
+    earliest,
+    latest,
+  };
+}
+
+export function formatBackfillStatus(s: BackfillStatus): string {
+  const fmt = (d: Date | null): string => d ? d.toISOString().slice(0, 10) : '(none)';
+  const lines: string[] = [];
+  lines.push('Backfill status:');
+  lines.push(`  total articles:           ${s.totalArticles}`);
+  lines.push(`  already consolidated:     ${s.alreadyConsolidated}`);
+  lines.push(`  est. remaining groups:    ${s.estimatedRemainingGroups}`);
+  lines.push(`  date range:               ${fmt(s.earliest)} → ${fmt(s.latest)}`);
+  return lines.join('\n');
+}
+
 // ── Plan printer ────────────────────────────────────────────────────
 
 export function formatPlan(plan: ConsolidationPlan): string {
@@ -505,6 +719,8 @@ interface CliArgs {
   apply: boolean;
   limit: number;
   addTo?: { commentaryId: string; sourceId: string };
+  backfill: boolean;
+  backfillStatus: boolean;
 }
 
 export function parseArgs(argv: string[]): CliArgs {
@@ -516,13 +732,22 @@ export function parseArgs(argv: string[]): CliArgs {
     if (!commentaryId || !sourceId) {
       throw new Error('--add-to requires <commentary_id> <source_id>');
     }
-    return { dryRun: false, apply: true, limit: 1, addTo: { commentaryId, sourceId } };
+    return {
+      dryRun: false,
+      apply: true,
+      limit: 1,
+      addTo: { commentaryId, sourceId },
+      backfill: false,
+      backfillStatus: false,
+    };
   }
   const apply = args.includes('--apply');
   const dryRun = args.includes('--dry-run') || !apply;
   const limitIdx = args.indexOf('--limit');
   const limit = limitIdx >= 0 ? Number(args[limitIdx + 1]) : 10;
-  return { dryRun, apply, limit, addTo: undefined };
+  const backfill = args.includes('--backfill');
+  const backfillStatus = args.includes('--backfill-status');
+  return { dryRun, apply, limit, addTo: undefined, backfill, backfillStatus };
 }
 
 async function cliMain(): Promise<void> {
@@ -536,6 +761,28 @@ async function cliMain(): Promise<void> {
   const synthesizer = makeClaudeCliSynthesizer();
 
   try {
+    if (cli.backfillStatus) {
+      const status = await getBackfillStatus(pool);
+      console.info(formatBackfillStatus(status));
+      return;
+    }
+
+    if (cli.backfill) {
+      const limit = cli.limit > 0 ? cli.limit : 5;
+      const result = await runBackfill({
+        db: pool,
+        synthesizer,
+        apply: cli.apply,
+        limit,
+      });
+      console.info(
+        `Backfill: scanned ${result.chunksScanned} chunk(s), ` +
+        `found ${result.groupsFound} group(s), processed ${result.groupsProcessed}` +
+        (result.hitLimit ? ' (limit reached)' : ''),
+      );
+      return;
+    }
+
     if (cli.addTo) {
       await runModeB({
         db: pool,
