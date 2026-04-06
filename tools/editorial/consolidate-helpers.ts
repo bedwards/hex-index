@@ -87,6 +87,48 @@ export function containsTrumpMention(text: string): boolean {
   return TRUMP_RE.test(text);
 }
 
+/** Explicit forbidden-terms list shown to the model. */
+export const FORBIDDEN_TERMS = [
+  'Trump',
+  'Donald Trump',
+  "Trump's",
+  'Trump administration',
+];
+
+/** Approved institutional substitutes. */
+export const APPROVED_SUBSTITUTES = [
+  'the administration',
+  'the White House',
+  'the executive branch',
+  'specific agency names (e.g. the State Department, the Pentagon)',
+];
+
+const NO_TRUMP_PREAMBLE = `SYSTEM POLICY (HARD CONSTRAINT, READ FIRST):
+You must NEVER use any of the following forbidden terms anywhere in the title or HTML body:
+${FORBIDDEN_TERMS.map((t) => `  - "${t}"`).join('\n')}
+Instead, refer to the executive only with institutional language:
+${APPROVED_SUBSTITUTES.map((t) => `  - ${t}`).join('\n')}
+Output containing any forbidden term will be rejected and you will be asked to rewrite.`;
+
+const NO_TRUMP_RULE = `Do NOT mention "Trump" or "Donald Trump" anywhere in the title or body. Forbidden terms: ${FORBIDDEN_TERMS.map((t) => `"${t}"`).join(', ')}. Use institutional language instead: ${APPROVED_SUBSTITUTES.join(', ')}.`;
+
+const NO_TRUMP_FOOTER_REMINDER = `
+
+FINAL REMINDER (do not ignore):
+Re-read your output before returning it. If it contains any of [${FORBIDDEN_TERMS.map((t) => `"${t}"`).join(', ')}], rewrite using institutional language (${APPROVED_SUBSTITUTES.join(', ')}). This is a hard policy gate — non-compliant output is discarded.`;
+
+/**
+ * Append a progressively stronger no-Trump reminder to a prompt for retries.
+ * attempt is 1-indexed; attempt 1 returns the prompt unchanged.
+ */
+export function appendRetryReminder(prompt: string, attempt: number): string {
+  if (attempt <= 1) { return prompt; }
+  const intensity = attempt === 2 ? 'IMPORTANT' : 'CRITICAL — FINAL ATTEMPT';
+  return `${prompt}
+
+${intensity}: your previous draft contained "Trump" which is forbidden by hard policy. Rewrite using institutional language only (${APPROVED_SUBSTITUTES.join(', ')}). Do NOT use any of [${FORBIDDEN_TERMS.map((t) => `"${t}"`).join(', ')}] anywhere in the title or body. This is attempt ${String(attempt)} of 3.`;
+}
+
 // ── Prompt construction ─────────────────────────────────────────────
 
 /**
@@ -95,10 +137,12 @@ export function containsTrumpMention(text: string): boolean {
  * source's attribution line are present.
  */
 export function buildSynthesisPrompt(sources: SourceArticle[]): string {
-  const header = `You are Brian Edwards, writing a consolidated "by Brian Edwards" commentary that synthesizes ${sources.length} source articles reporting on the same or similar story.
+  const header = `${NO_TRUMP_PREAMBLE}
+
+You are Brian Edwards, writing a consolidated "by Brian Edwards" commentary that synthesizes ${sources.length} source articles reporting on the same or similar story.
 
 EDITORIAL POLICY — NON-NEGOTIABLE:
-- Do NOT mention "Trump" or "Donald Trump" anywhere in the title or body. Reframe around the underlying news, policy, institutions, agencies, or officials (e.g. "the administration", "the White House", "the executive branch").
+- ${NO_TRUMP_RULE}
 - Write in the THIRD person. Never use "I", "we", or "you".
 - Preserve direct quotes from each source, attributed by author.
 - Explicitly contrast and integrate the diverse voices — do not simply summarize.
@@ -138,6 +182,7 @@ Return a JSON object (and nothing else) with exactly these keys:
   "html":  "<commentary HTML body — no wrapper tags>",
   "primarySourceId": "<id of the source whose voice dominates>"
 }
+${NO_TRUMP_FOOTER_REMINDER}
 `;
 
   return header + body + footer;
@@ -150,10 +195,12 @@ export function buildRevisionPrompt(
   sources: SourceArticle[],
   newSource: SourceArticle,
 ): string {
-  return `You are Brian Edwards. An existing consolidated commentary needs to be revised to incorporate a newly arrived source article on the same story.
+  return `${NO_TRUMP_PREAMBLE}
+
+You are Brian Edwards. An existing consolidated commentary needs to be revised to incorporate a newly arrived source article on the same story.
 
 EDITORIAL POLICY — NON-NEGOTIABLE:
-- Do NOT mention "Trump" or "Donald Trump" anywhere in the title or body.
+- ${NO_TRUMP_RULE}
 - Third person only. No "I"/"we"/"you".
 - Preserve direct quotes from every source, attributed by author.
 - Keep the Bottom Line section and counterpoints structure.
@@ -184,6 +231,7 @@ Return a JSON object (and nothing else):
   "html":  "<revised commentary HTML body>",
   "primarySourceId": "<id of dominant source; may be unchanged>"
 }
+${NO_TRUMP_FOOTER_REMINDER}
 `;
 }
 
@@ -244,6 +292,81 @@ ${quotes}
       return synth([...sources, newSource]);
     },
   };
+}
+
+/**
+ * Wrap a single-attempt synthesis function with a retry loop that
+ * re-checks the no-Trump policy. Up to `maxAttempts` calls; subsequent
+ * attempts get a progressively stronger reminder appended to the prompt.
+ *
+ * The runner is responsible for building the base prompt and parsing
+ * output; this helper just re-invokes with the (possibly augmented)
+ * prompt and validates.
+ *
+ * Throws after the final attempt if the output still violates policy.
+ */
+export async function synthesizeWithRetry(
+  basePrompt: string,
+  runOnce: (prompt: string) => Promise<SynthesisResult>,
+  maxAttempts = 3,
+): Promise<SynthesisResult> {
+  let lastErr: Error | null = null;
+  for (let attempt = 1; attempt <= maxAttempts; attempt++) {
+    const prompt = appendRetryReminder(basePrompt, attempt);
+    let result: SynthesisResult;
+    try {
+      result = await runOnce(prompt);
+    } catch (err) {
+      lastErr = err instanceof Error ? err : new Error(String(err));
+      continue;
+    }
+    if (
+      !containsTrumpMention(result.title) &&
+      !containsTrumpMention(result.html)
+    ) {
+      return result;
+    }
+    lastErr = new Error(
+      `attempt ${String(attempt)}/${String(maxAttempts)}: synthesis violates no-Trump policy`,
+    );
+  }
+  throw lastErr ?? new Error('synthesis failed after retries');
+}
+
+/**
+ * Test helper: a synthesizer whose outputs are programmable per-call.
+ * Each entry is either a SynthesisResult or 'trump' to emit a
+ * forbidden-term-containing payload. The synthesizer cycles through
+ * the entries; when exhausted it reuses the last entry.
+ */
+export function makeProgrammableSynthesizer(
+  outputs: Array<SynthesisResult | 'trump'>,
+): CommentarySynthesizer & { calls: number } {
+  const state = { calls: 0 };
+  function pick(sources: SourceArticle[]): SynthesisResult {
+    const idx = Math.min(state.calls, outputs.length - 1);
+    state.calls += 1;
+    const out = outputs[idx];
+    if (out === 'trump') {
+      return {
+        title: 'Trump policy explained',
+        html: '<p>The Trump administration announced new measures.</p>',
+        primarySourceId: sources[0]?.id ?? 'unknown',
+      };
+    }
+    return out;
+  }
+  const obj: CommentarySynthesizer & { calls: number } = {
+    calls: 0,
+    synthesizeCommentary(sources) {
+      return Promise.resolve(pick(sources));
+    },
+    reviseCommentary(_t, _h, sources, newSrc) {
+      return Promise.resolve(pick([...sources, newSrc]));
+    },
+  };
+  Object.defineProperty(obj, 'calls', { get: () => state.calls });
+  return obj;
 }
 
 function escapeHtml(s: string): string {

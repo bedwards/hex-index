@@ -3,9 +3,10 @@
  * fake DB and the stub synthesizer so it runs offline and without
  * Postgres.
  */
-import { mkdtemp } from 'fs/promises';
+import { mkdtemp, readFile } from 'fs/promises';
 import { tmpdir } from 'os';
 import { join } from 'path';
+import { makeProgrammableSynthesizer } from './consolidate-helpers.js';
 import { describe, expect, it } from 'vitest';
 import type { CandidateGroup } from './consolidation-candidates.js';
 import {
@@ -392,6 +393,46 @@ describe('runModeA dry-run on a fixture group', () => {
     );
     expect(primaryRows).toHaveLength(1);
     expect(primaryRows[0].source_article_id).toBe(p.primarySourceId);
+  });
+
+  it('skips and logs (does not throw) when synthesis always returns Trump output', async () => {
+    const db = new FakeDb();
+    const group = seedGroup(db);
+    const synth = makeProgrammableSynthesizer(['trump', 'trump', 'trump', 'trump']);
+    const libraryRoot = await mkdtemp(join(tmpdir(), 'consolidate-skip-'));
+
+    const plan = await runModeA({
+      db: db as unknown as Parameters<typeof runModeA>[0]['db'],
+      synthesizer: synth,
+      group,
+      groupIndex: 0,
+      apply: false,
+      libraryRoot,
+      loadSources: (rows) =>
+        Promise.resolve(rows.map((r) => ({
+          id: r.id,
+          title: r.title,
+          author_name: r.author_name,
+          publication_id: r.publication_id,
+          publication_name: r.publication_name,
+          original_url: r.original_url,
+          rewritten_html: '<p>stub</p>',
+          excerpt: 'x',
+        }))),
+    });
+
+    expect(plan).toBeNull();
+    // No DB mutations.
+    expect(db.commentarySources).toHaveLength(0);
+    for (const a of db.articles.values()) {
+      expect(a.consolidated_into).toBeNull();
+    }
+    // Skipped log written.
+    const logContent = await readFile(join(libraryRoot, 'consolidation-skipped.log'), 'utf-8');
+    expect(logContent).toMatch(/no-Trump policy/);
+    for (const a of group.articles) {
+      expect(logContent).toContain(a.id);
+    }
   });
 
   it('rejects a group where all sources share one publication', async () => {

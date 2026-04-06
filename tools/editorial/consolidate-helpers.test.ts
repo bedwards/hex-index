@@ -1,11 +1,15 @@
 import { describe, expect, it } from 'vitest';
 import {
+  FORBIDDEN_TERMS,
   type SourceArticle,
+  appendRetryReminder,
   buildSynthesisPrompt,
   containsTrumpMention,
+  makeProgrammableSynthesizer,
   makeStubSynthesizer,
   mergeAffiliateLinks,
   mergeWikipediaLinks,
+  synthesizeWithRetry,
   verifyCandidateGroup,
 } from './consolidate-helpers.js';
 
@@ -97,6 +101,96 @@ describe('buildSynthesisPrompt', () => {
     expect(prompt).toMatch(/"title"/);
     expect(prompt).toMatch(/"html"/);
     expect(prompt).toMatch(/"primarySourceId"/);
+  });
+  it('lists every forbidden term explicitly', () => {
+    for (const term of FORBIDDEN_TERMS) {
+      expect(prompt).toContain(term);
+    }
+  });
+  it('includes a closing reminder after the JSON spec', () => {
+    expect(prompt).toMatch(/FINAL REMINDER/);
+  });
+  it('opens with a system policy preamble', () => {
+    expect(prompt).toMatch(/SYSTEM POLICY/);
+  });
+});
+
+describe('appendRetryReminder', () => {
+  it('returns the prompt unchanged on attempt 1', () => {
+    expect(appendRetryReminder('base', 1)).toBe('base');
+  });
+  it('appends a stronger reminder on attempts 2 and 3', () => {
+    const a2 = appendRetryReminder('base', 2);
+    const a3 = appendRetryReminder('base', 3);
+    expect(a2).toMatch(/IMPORTANT/);
+    expect(a2).toMatch(/forbidden/);
+    expect(a3).toMatch(/CRITICAL/);
+    expect(a3).toMatch(/FINAL ATTEMPT/);
+  });
+});
+
+describe('synthesizeWithRetry', () => {
+  it('returns clean output on first attempt', async () => {
+    const calls: string[] = [];
+    const result = await synthesizeWithRetry('BASE', (prompt) => {
+      calls.push(prompt);
+      return Promise.resolve({
+        title: 'Clean title',
+        html: '<p>Clean body about the administration.</p>',
+        primarySourceId: 'src-1',
+      });
+    });
+    expect(result.title).toBe('Clean title');
+    expect(calls).toHaveLength(1);
+    expect(calls[0]).toBe('BASE');
+  });
+
+  it('retries when first output mentions Trump and accepts a clean second attempt', async () => {
+    const calls: string[] = [];
+    const result = await synthesizeWithRetry('BASE', (prompt) => {
+      calls.push(prompt);
+      if (calls.length === 1) {
+        return Promise.resolve({
+          title: 'Trump speaks',
+          html: '<p>The Trump administration responded.</p>',
+          primarySourceId: 'src-1',
+        });
+      }
+      return Promise.resolve({
+        title: 'Administration speaks',
+        html: '<p>The White House responded.</p>',
+        primarySourceId: 'src-1',
+      });
+    });
+    expect(result.title).toBe('Administration speaks');
+    expect(calls).toHaveLength(2);
+    expect(calls[1]).toMatch(/IMPORTANT/);
+  });
+
+  it('throws after 3 failed attempts', async () => {
+    let n = 0;
+    await expect(
+      synthesizeWithRetry('BASE', () => {
+        n += 1;
+        return Promise.resolve({
+          title: 'Trump again',
+          html: '<p>Trump.</p>',
+          primarySourceId: 'src-1',
+        });
+      }),
+    ).rejects.toThrow(/no-Trump/);
+    expect(n).toBe(3);
+  });
+});
+
+describe('makeProgrammableSynthesizer', () => {
+  it('can simulate a Trump-containing output', async () => {
+    const s = makeProgrammableSynthesizer(['trump']);
+    const result = await s.synthesizeCommentary([
+      mkSource('a', 'p1', 'Alice', 'A'),
+      mkSource('b', 'p2', 'Bob', 'B'),
+    ]);
+    expect(containsTrumpMention(result.title) || containsTrumpMention(result.html)).toBe(true);
   });
 });
 
