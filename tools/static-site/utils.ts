@@ -103,6 +103,20 @@ export function extractHtmlExcerpt(htmlContent: string, wordLimit: number = 400)
     // Remove original images — we use our own generated illustrations
     .replace(/<img[^>]*>/gi, '')
     .replace(/<figure[^>]*>[\s\S]*?<\/figure>/gi, '')
+    // Strip iframe/embed/object/video/audio and Substack/Spotify embed wrappers
+    .replace(/<iframe[^>]*>[\s\S]*?<\/iframe>/gi, '')
+    .replace(/<embed[^>]*>/gi, '')
+    .replace(/<object[^>]*>[\s\S]*?<\/object>/gi, '')
+    .replace(/<video[^>]*>[\s\S]*?<\/video>/gi, '')
+    .replace(/<audio[^>]*>[\s\S]*?<\/audio>/gi, '')
+    .replace(/<div[^>]*class="[^"]*embedded-post[^"]*"[^>]*>[\s\S]*?<\/div>/gi, '')
+    .replace(/<div[^>]*class="[^"]*captioned-image[^"]*"[^>]*>[\s\S]*?<\/div>/gi, '')
+    .replace(/<div[^>]*class="[^"]*spotify[^"]*"[^>]*>[\s\S]*?<\/div>/gi, '')
+    // Strip headings, lists, blockquotes, tables, divs, spans — keep only text-level formatting
+    .replace(/<\/?(h[1-6]|ul|ol|li|blockquote|table|thead|tbody|tr|td|th|div|span|section|article|header|footer|nav|aside)[^>]*>/gi, '')
+    // Strip attributes from remaining tags (keep only href on <a>)
+    .replace(/<a[^>]*href="([^"]*)"[^>]*>/gi, '<a href="$1">')
+    .replace(/<(p|em|strong|i|b|a|br)[^>]*>/gi, (m, tag) => `<${tag}>`)
     .trim();
 
   // Count words to find where to truncate
