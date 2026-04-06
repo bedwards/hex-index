@@ -78,6 +78,8 @@ async function getArticlesForTagPage(
     FROM app.articles a
     JOIN app.article_tags at ON at.article_id = a.id
     WHERE at.tag_slug = $1
+      AND (a.rewritten_content_path IS NOT NULL OR a.is_consolidated = true)
+      AND a.consolidated_into IS NULL
   `, [tagSlug]);
   const total = parseInt(countRows[0].count, 10);
 
@@ -101,6 +103,8 @@ async function getArticlesForTagPage(
       LIMIT 1
     ) alt_tag ON true
     LEFT JOIN app.tags alt_t ON alt_t.slug = alt_tag.tag_slug
+    WHERE (a.rewritten_content_path IS NOT NULL OR a.is_consolidated = true)
+      AND a.consolidated_into IS NULL
     ORDER BY a.published_at DESC NULLS LAST
     LIMIT $2 OFFSET $3
   `, [tagSlug, ARTICLES_PER_PAGE, offset]);

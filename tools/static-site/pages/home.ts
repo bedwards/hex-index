@@ -49,9 +49,15 @@ interface ArticleRow {
 /**
  * Get total article count
  */
+/** WHERE clause filtering out in-flight (not-yet-rewritten) articles and absorbed sources. */
+const READY_WHERE = `(
+  (a.rewritten_content_path IS NOT NULL OR a.is_consolidated = true)
+  AND (a.consolidated_into IS NULL)
+)`;
+
 async function getTotalArticleCount(pool: Pool): Promise<number> {
   const result = await pool.query<{ count: string }>(`
-    SELECT COUNT(*) as count FROM app.articles
+    SELECT COUNT(*) as count FROM app.articles a WHERE ${READY_WHERE}
   `);
   return parseInt(result.rows[0].count, 10);
 }
@@ -79,6 +85,7 @@ async function getArticlesForPage(
       a.original_url
     FROM app.articles a
     JOIN app.publications p ON a.publication_id = p.id
+    WHERE ${READY_WHERE}
     ORDER BY a.published_at DESC NULLS LAST
     LIMIT $1 OFFSET $2
   `, [ARTICLES_PER_PAGE, offset]);

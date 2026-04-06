@@ -159,6 +159,8 @@ async function getAllArticles(pool: Pool): Promise<ArticleRow[]> {
       ${isConsolidatedSelect}
     FROM app.articles a
     JOIN app.publications p ON a.publication_id = p.id
+    WHERE (a.rewritten_content_path IS NOT NULL OR a.is_consolidated = true)
+      AND a.consolidated_into IS NULL
     ORDER BY a.published_at DESC NULLS LAST
   `);
   return result.rows;
@@ -467,10 +469,27 @@ export async function generateArticlePages(
   const affiliateTag = process.env.AMAZON_AFFILIATE_TAG ?? '';
   let pagesGenerated = 0;
 
+  let skipped = 0;
   for (const article of articles) {
     // If we have a rewritten version, use full content; otherwise excerpt
     const hasRewrite = !!article.rewritten_content_path;
     const rawContent = await loadArticleContent(article.content_path);
+    // HIDE articles that aren't fully processed yet: no rewrite AND no readable source content.
+    // These show as empty pages with no commentary and no excerpt — worse than invisible.
+    // Consolidated commentary articles don't have a content_path (they synthesize from sources),
+    // so they're exempt from this gate.
+    if (!article.is_consolidated && !hasRewrite && rawContent.trim().length < 200) {
+      skipped++;
+      continue;
+    }
+    // Also skip if rewrite is claimed but the rewrite file is empty/missing.
+    if (hasRewrite && !article.is_consolidated) {
+      const rewriteCheck = await loadArticleContent(article.rewritten_content_path);
+      if (rewriteCheck.trim().length < 200) {
+        skipped++;
+        continue;
+      }
+    }
     const isYouTube = article.original_url.includes('youtube.com') || article.original_url.includes('youtu.be');
     // Clean speech artifacts from YouTube transcripts before excerpting,
     // so cleaning operates on plain text and excerpt boundary is computed on cleaned result

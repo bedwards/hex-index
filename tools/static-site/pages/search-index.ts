@@ -45,6 +45,8 @@ export async function generateSearchIndex(
       a.estimated_read_time_minutes
     FROM app.articles a
     JOIN app.publications p ON a.publication_id = p.id
+    WHERE (a.rewritten_content_path IS NOT NULL OR a.is_consolidated = true)
+      AND a.consolidated_into IS NULL
     ORDER BY a.published_at DESC NULLS LAST
   `);
 
