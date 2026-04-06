@@ -129,6 +129,7 @@ async function main(): Promise<void> {
         JOIN app.article_wikipedia_links awl ON awl.wikipedia_id = w.id
         JOIN app.articles a ON awl.article_id = a.id
         WHERE (w.status = 'stub' OR w.rewrite_dirty = true)
+          AND a.consolidated_into IS NULL
           AND a.id = ANY($1)
         ORDER BY a.published_at DESC NULLS LAST
       `;
@@ -143,6 +144,7 @@ async function main(): Promise<void> {
         JOIN app.article_wikipedia_links awl ON awl.wikipedia_id = w.id
         JOIN app.articles a ON awl.article_id = a.id
         WHERE (w.status = 'stub' OR w.rewrite_dirty = true)
+          AND a.consolidated_into IS NULL
         ORDER BY a.published_at DESC NULLS LAST
         LIMIT $1
       `;

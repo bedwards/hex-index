@@ -10,6 +10,7 @@ import {
   ArticleWithPublication,
   ArticleLink,
   AffiliateBookRow,
+  CommentarySource,
   UpsertAffiliateBookInput,
   CreatePublicationInput,
   CreateArticleInput,
@@ -403,3 +404,75 @@ export async function getMostLinkedArticles(
   );
   return rows;
 }
+
+// ============ Commentary Sources (multi-source consolidation) ============
+
+/**
+ * Fetch all source articles attached to a commentary article, ordered by position.
+ */
+export async function getCommentarySources(
+  client: Pool | PoolClient,
+  commentaryId: string
+): Promise<CommentarySource[]> {
+  const { rows } = await client.query<CommentarySource>(
+    `SELECT commentary_article_id, source_article_id, is_primary, position, added_at
+     FROM app.commentary_sources
+     WHERE commentary_article_id = $1
+     ORDER BY position ASC, added_at ASC`,
+    [commentaryId]
+  );
+  return rows;
+}
+
+/**
+ * Attach a source article to a commentary. If isPrimary is true, any existing
+ * primary source on the same commentary is first demoted (to satisfy the unique
+ * partial index). Max 4 sources is enforced by a database trigger.
+ */
+export async function addSourceToCommentary(
+  client: Pool | PoolClient,
+  commentaryId: string,
+  sourceId: string,
+  isPrimary = false,
+  position = 0
+): Promise<CommentarySource> {
+  if (isPrimary) {
+    await client.query(
+      `UPDATE app.commentary_sources
+         SET is_primary = false
+         WHERE commentary_article_id = $1 AND is_primary = true`,
+      [commentaryId]
+    );
+  }
+  const { rows } = await client.query<CommentarySource>(
+    `INSERT INTO app.commentary_sources
+       (commentary_article_id, source_article_id, is_primary, position)
+     VALUES ($1, $2, $3, $4)
+     ON CONFLICT (commentary_article_id, source_article_id)
+     DO UPDATE SET is_primary = EXCLUDED.is_primary,
+                   position   = EXCLUDED.position
+     RETURNING commentary_article_id, source_article_id, is_primary, position, added_at`,
+    [commentaryId, sourceId, isPrimary, position]
+  );
+  return rows[0];
+}
+
+/**
+ * Mark a source article as consolidated into another commentary article.
+ * The Qwen job SELECTs all filter `consolidated_into IS NULL` so it stops
+ * re-processing absorbed rows.
+ */
+export async function markAsConsolidated(
+  client: Pool | PoolClient,
+  sourceId: string,
+  intoCommentaryId: string
+): Promise<void> {
+  await client.query(
+    `UPDATE app.articles
+       SET consolidated_into = $2,
+           updated_at        = NOW()
+     WHERE id = $1`,
+    [sourceId, intoCommentaryId]
+  );
+}
+

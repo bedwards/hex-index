@@ -97,6 +97,7 @@ async function main(): Promise<void> {
           GROUP BY article_id
         ) wc ON wc.article_id = a.id
         WHERE a.content_path IS NOT NULL
+          AND a.consolidated_into IS NULL
           AND COALESCE(wc.cnt, 0) < 3
           AND a.id = ANY($1)
         ORDER BY a.published_at DESC NULLS LAST
@@ -116,6 +117,7 @@ async function main(): Promise<void> {
           GROUP BY article_id
         ) wc ON wc.article_id = a.id
         WHERE a.content_path IS NOT NULL
+          AND a.consolidated_into IS NULL
           AND COALESCE(wc.cnt, 0) < 3
         ORDER BY a.published_at DESC NULLS LAST
         LIMIT $1

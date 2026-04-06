@@ -44,6 +44,7 @@ async function main(): Promise<void> {
       FROM app.articles a
       JOIN app.publications p ON a.publication_id = p.id
       WHERE a.content_path IS NOT NULL
+        AND a.consolidated_into IS NULL
         AND (SELECT COUNT(*) FROM app.article_tags at WHERE at.article_id = a.id) < $1
       ORDER BY a.published_at DESC NULLS LAST
       LIMIT $2

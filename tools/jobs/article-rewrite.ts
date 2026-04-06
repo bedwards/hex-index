@@ -130,6 +130,7 @@ async function main(): Promise<void> {
       FROM app.articles a
       JOIN app.publications p ON a.publication_id = p.id
       WHERE a.full_content_path IS NOT NULL
+        AND a.consolidated_into IS NULL
         AND (a.rewritten_content_path IS NULL OR a.rewrite_dirty = true)
         ${ARTICLE_IDS.length > 0 ? `AND a.id = ANY($2)` : ''}
       ORDER BY a.published_at DESC NULLS LAST
