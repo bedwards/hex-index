@@ -384,6 +384,7 @@ async function main(): Promise<void> {
         SELECT id, title, rewritten_content_path
         FROM app.articles
         WHERE rewritten_content_path IS NOT NULL
+          AND consolidated_into IS NULL
           AND jsonb_array_length(affiliate_links) = 0
         ORDER BY published_at DESC NULLS LAST
         LIMIT $1

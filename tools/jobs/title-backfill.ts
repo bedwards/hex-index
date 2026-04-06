@@ -17,7 +17,7 @@ async function main(): Promise<void> {
 
   try {
     const { rows } = await pool.query<{ id: string; title: string }>(
-      'SELECT id, title FROM app.articles',
+      'SELECT id, title FROM app.articles WHERE consolidated_into IS NULL',
     );
 
     console.info(`Checking ${rows.length} articles...`);

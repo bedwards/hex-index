@@ -40,8 +40,18 @@ export interface Article {
   metadata: Record<string, unknown>;
   affiliate_links: AffiliateLink[];
   full_text_search: string | null;
+  is_consolidated?: boolean;
+  consolidated_into?: string | null;
   created_at: Date;
   updated_at: Date;
+}
+
+export interface CommentarySource {
+  commentary_article_id: string;
+  source_article_id: string;
+  is_primary: boolean;
+  position: number;
+  added_at: Date;
 }
 
 export interface ArticleWithPublication extends Article {
