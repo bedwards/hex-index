@@ -545,7 +545,7 @@ async function cliMain(): Promise<void> {
       return;
     }
 
-    const groups = await findConsolidationCandidates(pool as unknown as QueryableDb, {});
+    const groups = await findConsolidationCandidates(pool as unknown as QueryableDb, { limit: 2000 });
     console.info(`Found ${groups.length} candidate group(s)`);
 
     const capped = groups.slice(0, cli.limit);
