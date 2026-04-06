@@ -26,7 +26,7 @@ interface Secrets {
 }
 
 const ENV_PATH = join(process.env.HOME ?? '/Users/bedwards', '.config', '.env');
-const ENV_CONTENT = readFileSync(ENV_PATH, 'utf-8');
+const ENV_CONTENT = existsSync(ENV_PATH) ? readFileSync(ENV_PATH, 'utf-8') : '';
 
 function loadSecret(key: string): string {
   const match = ENV_CONTENT.match(new RegExp(`^${key}=(.+)$`, 'm'));
