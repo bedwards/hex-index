@@ -60,7 +60,7 @@ describe('renderArticleMeta', () => {
     const primary = mkSource();
     const html = renderArticleMeta('ignored', 'ignored', 'ignored', '2026-04-01T00:00:00Z', 12, PATH, { primary, sourceCount: 3 });
     expect(html).toContain('consolidated-meta');
-    expect(html).toContain('multiple sources:');
+    expect(html).toContain('Multiple sources:');
     expect(html).toContain('Jane Doe');
     expect(html).toContain('Example Pub');
     expect(html).toContain('and 2 others');
