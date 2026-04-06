@@ -318,9 +318,11 @@ export async function runModeA(opts: ModeAOptions): Promise<ConsolidationPlan | 
     );
   }
 
-  // Mark NON-primary sources as consolidated_into.
+  // Mark ALL sources (primary + non-primary) as consolidated_into so
+  // they don't double-count alongside the consolidated commentary on
+  // listings. is_primary on commentary_sources still distinguishes the
+  // dominant voice for attribution. (#461)
   for (const row of rows) {
-    if (row.id === synth.primarySourceId) { continue; }
     await db.query(
       `UPDATE app.articles SET consolidated_into = $1, updated_at = NOW() WHERE id = $2`,
       [commentaryId, row.id],
