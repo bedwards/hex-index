@@ -425,23 +425,26 @@ export function createPagesRouter(pool: Pool): Router {
         </nav>
       ` : '';
 
-      // Build the sources section (multi-source commentary only)
+      // Build the sources section. For multi-source commentary, render each
+      // contributing source. For single-source articles, render the article
+      // itself in the same source-excerpt style for visual consistency.
+      const renderExcerpt = async (contentPath: string | null): Promise<string> => {
+        if (!contentPath) {return '';}
+        try {
+          const raw = await readFile(join(libraryPath, contentPath), 'utf-8');
+          const text = raw.replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim();
+          const words = text.split(' ').slice(0, 200).join(' ');
+          return `<p>${escapeHtml(words)}${text.split(' ').length > 200 ? '…' : ''}</p>`;
+        } catch {
+          return '';
+        }
+      };
+
       let sourcesSectionHtml = '';
+      const parts: string[] = [];
       if (isConsolidated) {
-        const parts: string[] = [];
         for (const src of commentarySources) {
-          let excerpt = '';
-          if (src.content_path) {
-            try {
-              const raw = await readFile(join(libraryPath, src.content_path), 'utf-8');
-              // ~200 word excerpt, preserve a little HTML safety by stripping tags
-              const text = raw.replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim();
-              const words = text.split(' ').slice(0, 200).join(' ');
-              excerpt = `<p>${escapeHtml(words)}${text.split(' ').length > 200 ? '…' : ''}</p>`;
-            } catch {
-              excerpt = '';
-            }
-          }
+          const excerpt = await renderExcerpt(src.content_path);
           parts.push(`
             <article class="source-excerpt">
               <h3>${escapeHtml(src.title)}</h3>
@@ -450,13 +453,22 @@ export function createPagesRouter(pool: Pool): Router {
             </article>
           `);
         }
-        sourcesSectionHtml = `
-          <section class="source-excerpts">
-            <h2>Sources</h2>
-            ${parts.join('\n')}
-          </section>
-        `;
+      } else {
+        const excerpt = await renderExcerpt(article.content_path);
+        parts.push(`
+          <article class="source-excerpt">
+            <h3>${escapeHtml(article.title)}</h3>
+            <div class="source-meta">by ${escapeHtml(article.author_name ?? 'Unknown')} · <a href="/publication/${escapeHtml(article.publication_slug)}">${escapeHtml(article.publication_name)}</a> · <a href="${escapeHtml(article.original_url)}" target="_blank" rel="noopener">Read full article</a></div>
+            ${excerpt}
+          </article>
+        `);
       }
+      sourcesSectionHtml = `
+        <section class="source-excerpts">
+          <h2>Sources</h2>
+          ${parts.join('\n')}
+        </section>
+      `;
 
       // Optimized article layout for Speechify:
       // 1. Title (h1) - Speechify starts here by default

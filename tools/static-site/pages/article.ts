@@ -353,7 +353,6 @@ export function generateArticlePage(
 
   const authorName = article.author_name ?? 'Unknown';
   const pubName = escapeHtml(article.publication_name);
-  const authorEsc = escapeHtml(authorName);
   const isYouTube = article.original_url.includes('youtube.com');
 
   // Content section label + nav links
@@ -373,21 +372,24 @@ export function generateArticlePage(
         </nav>
       </div>`;
 
-  // If we have a rewrite, show excerpt + button together in a card at the bottom
-  const excerptSection = isFullRewrite && excerptHtml
-    ? `<section id="excerpt" class="excerpt-card">
-        <div class="content-label">
-          <span class="label-text">${isYouTube ? 'Transcript excerpt' : 'Excerpt from the original article'} on ${pubName}</span>
-        </div>
-        <div class="article-excerpt">
-          ${excerptHtml}
-        </div>
-        <div class="excerpt-card-cta">
-          <a href="${article.original_url}" class="read-button" target="_blank" rel="noopener">
-            ${isYouTube ? 'Watch on YouTube' : `Read the entire original on ${pubName}`} &rarr;
-          </a>
-        </div>
-      </section>`
+  // Build a single CommentarySource representing this article itself,
+  // used to render the unified source-excerpt block on non-consolidated pages.
+  const selfSource: CommentarySource = {
+    articleId: article.id,
+    title: article.title,
+    author: authorName,
+    publicationName: article.publication_name,
+    publicationSlug: article.publication_slug,
+    originalUrl: article.original_url,
+    excerptHtml: excerptHtml || (isFullRewrite ? '' : contentHtml),
+    isPrimary: true,
+    position: 0,
+  };
+
+  // If we have a rewrite, show the source excerpt block at the bottom of the page,
+  // styled the same way as consolidated commentary's "Sources" section.
+  const excerptSection = isFullRewrite && excerptHtml && !isConsolidated
+    ? `<section id="excerpt">${renderInterlacedSourcesAndDeepDives([selfSource], [], pathToRoot)}</section>`
     : '';
 
   // For non-rewrite, contentHtml IS the excerpt; for rewrite, load it separately
@@ -429,17 +431,7 @@ export function generateArticlePage(
       ` : `
       ${deepDivesHtml}
 
-      <div class="excerpt-card">
-        <div class="article-excerpt">
-          ${mainContent}
-        </div>
-        <div class="excerpt-card-cta">
-          <a href="${article.original_url}" class="read-button" target="_blank" rel="noopener">
-            ${isYouTube ? `Watch on YouTube` : `Continue reading on ${pubName}`} &rarr;
-          </a>
-          <p class="cta-note">${isYouTube ? `Watch the full video by ${authorEsc} on YouTube.` : `The full article by ${authorEsc} is available on ${pubName}.`}</p>
-        </div>
-      </div>
+      ${renderInterlacedSourcesAndDeepDives([selfSource], [], pathToRoot)}
       `}
     </article>
   `;
