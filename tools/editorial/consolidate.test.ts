@@ -3,6 +3,9 @@
  * fake DB and the stub synthesizer so it runs offline and without
  * Postgres.
  */
+import { mkdtemp } from 'fs/promises';
+import { tmpdir } from 'os';
+import { join } from 'path';
 import { describe, expect, it } from 'vitest';
 import type { CandidateGroup } from './consolidation-candidates.js';
 import {
@@ -342,6 +345,53 @@ describe('runModeA dry-run on a fixture group', () => {
     const formatted = formatPlan(p);
     expect(formatted).toContain('Group 1');
     expect(formatted).toContain('→ title:');
+  });
+
+  it('apply mode marks ALL sources (including primary) as consolidated_into (#461)', async () => {
+    const db = new FakeDb();
+    const group = seedGroup(db);
+    const synth = makeStubSynthesizer();
+    const libraryRoot = await mkdtemp(join(tmpdir(), 'consolidate-test-'));
+
+    const plan = await runModeA({
+      db: db as unknown as Parameters<typeof runModeA>[0]['db'],
+      synthesizer: synth,
+      group,
+      groupIndex: 0,
+      apply: true,
+      libraryRoot,
+      loadSources: (rows) =>
+        Promise.resolve(rows.map((r, i) => ({
+          id: r.id,
+          title: r.title,
+          author_name: r.author_name,
+          publication_id: r.publication_id,
+          publication_name: r.publication_name,
+          original_url: r.original_url,
+          // Make the first source the longest so the stub picks it as primary.
+          rewritten_html: '<p>stub</p>'.repeat(i === 0 ? 10 : 1),
+          excerpt: `excerpt for ${r.id}`,
+        }))),
+    });
+
+    expect(plan).not.toBeNull();
+    const p = plan as ConsolidationPlan;
+
+    // Every source (primary AND non-primary) should now be marked
+    // consolidated_into the new commentary.
+    for (const src of p.sources) {
+      const a = db.articles.get(src.id);
+      expect(a?.consolidated_into).toBe(p.commentaryId);
+    }
+    // Including the primary specifically.
+    expect(db.articles.get(p.primarySourceId)?.consolidated_into).toBe(p.commentaryId);
+
+    // commentary_sources still has exactly one is_primary row.
+    const primaryRows = db.commentarySources.filter(
+      (c) => c.commentary_article_id === p.commentaryId && c.is_primary,
+    );
+    expect(primaryRows).toHaveLength(1);
+    expect(primaryRows[0].source_article_id).toBe(p.primarySourceId);
   });
 
   it('rejects a group where all sources share one publication', async () => {
