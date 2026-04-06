@@ -7,10 +7,13 @@
 
 /**
  * Build an Amazon affiliate URL from ISBN-10 and tag.
- * Amazon product pages work with ISBN-10 via /dp/{isbn10}.
+ * Uses Amazon search rather than /dp/ direct ASIN because Qwen-suggested ISBN-10s
+ * often don't map to a live Amazon ASIN (reissues, Kindle editions, out-of-print
+ * hardcovers) — /dp/ returns 404 in those cases, while /s?k= always finds the
+ * book by ISBN search.
  */
 export function buildAmazonUrl(isbn10: string, tag: string): string {
-  return `https://www.amazon.com/dp/${encodeURIComponent(isbn10)}?tag=${encodeURIComponent(tag)}`;
+  return `https://www.amazon.com/s?k=${encodeURIComponent(isbn10)}&i=stripbooks&tag=${encodeURIComponent(tag)}`;
 }
 
 /**

@@ -620,7 +620,7 @@ ${navTocHtml}    </ol>
           const validLinks = article.affiliateLinks.filter(link => link.isbn10);
           if (validLinks.length > 0) {
             const bookItems = validLinks.map(link => {
-              const url = `https://www.amazon.com/dp/${encodeURIComponent(link.isbn10)}?tag=${encodeURIComponent(affiliateTag)}`;
+              const url = `https://www.amazon.com/s?k=${encodeURIComponent(link.isbn10)}&i=stripbooks&tag=${encodeURIComponent(affiliateTag)}`;
               return `    <li><a href="${escapeXml(url)}"><strong>${escapeXml(link.title)}</strong></a> by ${escapeXml(link.author)}<br/><span class="affiliate-book-description">${escapeXml(link.description)}</span></li>`;
             }).join('\n');
 
