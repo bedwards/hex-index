@@ -115,6 +115,7 @@ async function getArticlesForPage(
       displayTag: tagMap.get(row.id) ?? null,
       isConsolidated: consolidation?.isConsolidated ?? false,
       sourceCount: consolidation?.sourceCount ?? 0,
+      primarySourceAuthor: consolidation?.primaryAuthor ?? null,
     });
   }
   return articles;
@@ -174,6 +175,7 @@ export async function getTrendingConsolidations(
     displayTag: null,
     isConsolidated: true,
     sourceCount: parseInt(row.source_count, 10),
+    primarySourceAuthor: null,
     mostRecentSourceAt: row.most_recent_source_created_at,
   }));
 }

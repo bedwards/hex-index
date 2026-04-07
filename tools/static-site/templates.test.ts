@@ -165,14 +165,28 @@ describe('renderStaticArticleCard', () => {
     expect(html).not.toContain('Brian Edwards');
   });
 
-  it('consolidated card renders "Brian Edwards" author + N sources badge', () => {
+  it('consolidated card renders "Multiple sources" with primary author and other count, no read time', () => {
     const html = renderStaticArticleCard(
-      mkStaticArticle({ isConsolidated: true, sourceCount: 4 }),
+      mkStaticArticle({ isConsolidated: true, sourceCount: 4, primarySourceAuthor: 'Ada Lovelace' }),
       PATH
     );
-    expect(html).toContain('<span class="author">Brian Edwards</span>');
-    expect(html).toContain('<span class="source-count-badge">4 sources</span>');
+    expect(html).toContain('<span class="multi-source-label">Multiple sources:</span>');
+    expect(html).toContain('<span class="primary-source">Ada Lovelace</span>');
+    expect(html).toContain('and 3 others');
     expect(html).toContain('article-card consolidated');
+    expect(html).not.toContain('Brian Edwards');
+    expect(html).not.toContain('min read');
+    expect(html).not.toContain('source-count-badge');
+    expect(html).not.toContain('null');
+  });
+
+  it('consolidated card with 2 sources uses singular "other"', () => {
+    const html = renderStaticArticleCard(
+      mkStaticArticle({ isConsolidated: true, sourceCount: 2, primarySourceAuthor: 'Ada Lovelace' }),
+      PATH
+    );
+    expect(html).toContain('and 1 other');
+    expect(html).not.toContain('1 others');
   });
 
   it('does not mark as consolidated when only 1 source', () => {
@@ -180,8 +194,17 @@ describe('renderStaticArticleCard', () => {
       mkStaticArticle({ isConsolidated: true, sourceCount: 1 }),
       PATH
     );
-    expect(html).not.toContain('source-count-badge');
+    expect(html).not.toContain('Multiple sources');
     expect(html).not.toContain('Brian Edwards');
+  });
+
+  it('omits read-time span (no "null min read") when estimatedReadTimeMinutes is null', () => {
+    const html = renderStaticArticleCard(
+      mkStaticArticle({ estimatedReadTimeMinutes: null as unknown as number }),
+      PATH
+    );
+    expect(html).not.toContain('null min read');
+    expect(html).not.toContain('min read');
   });
 });
 
