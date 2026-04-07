@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home - Hex Index</title>
+  <link rel="stylesheet" href="../../styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <nav class="container">
+      <a href="../../index.html" class="logo">Hex Index</a>
+      <a href="../../tag/index.html" class="header-link">Topics</a>
+      <a href="../../weekly/index.html" class="header-link">Reader</a>
+      <a href="../../about/index.html" class="header-link">About</a>
+      <div class="search-wrap">
+        <input type="text" id="search" class="search-input" placeholder="Search" autocomplete="off" spellcheck="false">
+      </div>
+    </nav>
+  </header>
+  <main class="container">
+    <div id="search-results" class="article-list" style="display:none"></div>
+    <div id="main-content">
+      
+    
+    <section class="article-list">
+      <article class="article-card consolidated">
+  <div>
+    <a href="../../article/72cb1e46-76ee-4690-b7de-3c26bca6addd/index.html" class="article-link">
+      <h2 class="article-title">Probing the Blue Blob: How Russia&#039;s Drone and Jet Incursions Are Rewriting NATO&#039;s Rules</h2>
+    </a>
+    <div class="article-meta">
+      <span class="author">Brian Edwards</span>
+      <span class="source-count-badge">2 sources</span>
+      <span class="separator">&middot;</span>
+      <a href="../../publication/perun/index.html" class="publication">
+        Perun
+      </a>
+      
+      <span class="separator">&middot;</span>
+      <span class="read-time">null min read</span>
+    </div>
+  </div>
+  <a href="../../article/72cb1e46-76ee-4690-b7de-3c26bca6addd/index.html" class="article-thumb-link"><img class="article-thumb" src="../../images/c076628a-1c67-4c18-a2ac-426b5c70009b.webp" alt="Probing the Blue Blob: How Russia&#039;s Drone and Jet Incursions Are Rewriting NATO&#039;s Rules" loading="lazy" width="180" height="94"></a>
+</article>
+<article class="article-card consolidated">
+  <div>
+    <a href="../../article/95ba6651-c1ed-461a-a185-33e281ebce5b/index.html" class="article-link">
+      <h2 class="article-title">The Supreme Court Strikes Down Emergency Tariffs — And the White House Doubles Down</h2>
+    </a>
+    <div class="article-meta">
+      <span class="author">Brian Edwards</span>
+      <span class="source-count-badge">2 sources</span>
+      <span class="separator">&middot;</span>
+      <a href="../../publication/legaleagle/index.html" class="publication">
+        LegalEagle
+      </a>
+      
+      <span class="separator">&middot;</span>
+      <span class="read-time">null min read</span>
+    </div>
+  </div>
+  <a href="../../article/95ba6651-c1ed-461a-a185-33e281ebce5b/index.html" class="article-thumb-link"><img class="article-thumb" src="../../images/05a41c3c-7fd5-467a-ba60-6a376f274025.webp" alt="The Supreme Court Strikes Down Emergency Tariffs — And the White House Doubles Down" loading="lazy" width="180" height="94"></a>
+</article>
+<article class="article-card consolidated">
+  <div>
+    <a href="../../article/60b4eae9-fe03-4f59-b693-ed5bf1e7c7ba/index.html" class="article-link">
+      <h2 class="article-title">After the Raid: Venezuela&#039;s Hard Chapter Begins</h2>
+    </a>
+    <div class="article-meta">
+      <span class="author">Brian Edwards</span>
+      <span class="source-count-badge">2 sources</span>
+      <span class="separator">&middot;</span>
+      <a href="../../publication/caspianreport/index.html" class="publication">
+        CaspianReport
+      </a>
+      
+      <span class="separator">&middot;</span>
+      <span class="read-time">null min read</span>
+    </div>
+  </div>
+  <a href="../../article/60b4eae9-fe03-4f59-b693-ed5bf1e7c7ba/index.html" class="article-thumb-link"><img class="article-thumb" src="../../images/585a6725-9fc3-405b-bf94-dcba47f570c4.webp" alt="After the Raid: Venezuela&#039;s Hard Chapter Begins" loading="lazy" width="180" height="94"></a>
+</article>
+      <nav class="pagination"><a href="../../page/53/index.html" class="pagination-link prev">&larr; Newer</a><div class="pagination-pages"><a href="../../index.html" class="pagination-page">1</a><span class="pagination-ellipsis">...</span><a href="../../page/50/index.html" class="pagination-page">50</a><a href="../../page/51/index.html" class="pagination-page">51</a><a href="../../page/52/index.html" class="pagination-page">52</a><a href="../../page/53/index.html" class="pagination-page">53</a><span class="pagination-page current">54</span></div><span class="pagination-link next disabled">Older &rarr;</span></nav>
+    </section>
+  
+    </div>
+  </main>
+  <footer class="site-footer">
+    <div class="container">
+      <p>A curated reading library &middot; v0.6.0</p>
+      <p><a href="../../privacy/index.html">Privacy</a> &middot; <a href="../../terms/index.html">Terms</a></p>
+    </div>
+  </footer>
+  <script src="https://cdn.jsdelivr.net/npm/fuse.js@7.1.0/dist/fuse.min.js"></script>
+  <script>
+  (function() {
+    var input = document.getElementById('search');
+    var results = document.getElementById('search-results');
+    var main = document.getElementById('main-content');
+    if (!input || !results || !main) return;
+
+    var fuse = null;
+    var indexLoaded = false;
+    var pathToRoot = '../../';
+
+    function loadIndex() {
+      if (indexLoaded) return Promise.resolve();
+      indexLoaded = true;
+      return fetch(pathToRoot + 'search-index.json')
+        .then(function(r) { return r.json(); })
+        .then(function(data) {
+          fuse = new Fuse(data, {
+            keys: [
+              { name: 't', weight: 3 },
+              { name: 'a', weight: 2 },
+              { name: 'p', weight: 1 }
+            ],
+            threshold: 0.4,
+            distance: 300,
+            minMatchCharLength: 2,
+            ignoreLocation: true,
+          });
+        });
+    }
+
+    function renderResults(items) {
+      if (items.length === 0) {
+        results.innerHTML = '<p style="padding:1rem;color:var(--ink-muted)">No results</p>';
+        return;
+      }
+      results.innerHTML = items.slice(0, 30).map(function(r) {
+        var a = r.item;
+        return '<article class="article-card"><div>' +
+          '<a href="' + pathToRoot + 'article/' + a.i + '/index.html" class="article-link">' +
+          '<h2 class="article-title">' + esc(a.t) + '</h2></a>' +
+          '<div class="article-meta">' +
+          '<span class="author">' + esc(a.a) + '</span>' +
+          '<span class="separator">&middot;</span>' +
+          '<a href="' + pathToRoot + 'publication/' + a.s + '/index.html" class="publication">' + esc(a.p) + '</a>' +
+          (a.d ? '<span class="separator">&middot;</span><time>' + a.d + '</time>' : '') +
+          '<span class="separator">&middot;</span>' +
+          '<span class="read-time">' + a.r + ' min read</span>' +
+          '</div></div></article>';
+      }).join('');
+    }
+
+    function esc(s) {
+      var d = document.createElement('div');
+      d.textContent = s;
+      return d.innerHTML;
+    }
+
+    var debounce;
+    input.addEventListener('input', function() {
+      clearTimeout(debounce);
+      var q = input.value.trim();
+      if (q.length < 2) {
+        results.style.display = 'none';
+        main.style.display = '';
+        return;
+      }
+      debounce = setTimeout(function() {
+        loadIndex().then(function() {
+          if (!fuse) return;
+          var hits = fuse.search(q);
+          results.style.display = '';
+          main.style.display = 'none';
+          renderResults(hits);
+        });
+      }, 100);
+    });
+
+    input.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') {
+        input.value = '';
+        results.style.display = 'none';
+        main.style.display = '';
+      }
+    });
+  })();
+  </script>
+</body>
+</html>
