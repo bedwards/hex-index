@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nvidia – The Inference Kingdom Expands - Hex Index</title>
+  <link rel="stylesheet" href="../../styles.css">
+</head>
+<body class="reading-mode">
+  <header class="reading-header">
+    <a href="../../index.html" class="back-link" id="back-link">&larr; Back to Library</a>
+  </header>
+  <main class="reading-content">
+    
+    <article class="article-page">
+      <header class="article-header">
+        <h1>Nvidia – The Inference Kingdom Expands</h1>
+        
+      <div class="article-meta">
+        <span class="author">Dylan Patel</span>
+        <span class="separator">&middot;</span>
+        <a href="../../publication/semianalysis/index.html" class="publication">
+          SemiAnalysis
+        </a>
+        <span class="separator">&middot;</span><time>Mar 23, 2026</time>
+        <span class="separator">&middot;</span><span class="read-time">28 min read</span>
+      </div>
+      </header>
+
+      <div class="content-label">
+        <span class="label-text">Commentary by <a href="../../about/index.html">Brian Edwards</a></span>
+        <nav class="content-nav">
+          <a href="#deep-dives">Deep dives</a><span class="separator">&middot;</span>
+          <a href="https://newsletter.semianalysis.com/p/nvidia-the-inference-kingdom-expands" target="_blank" rel="noopener">Original article &rarr;</a>
+        </nav>
+      </div>
+
+      
+      <div class="article-content">
+        <p>Dylan Patel delivers a startling revelation that reshapes the AI infrastructure landscape: the industry&#039;s most dominant chipmaker has effectively acquired its most distinct architectural rival without triggering a single antitrust lawsuit. This piece is not merely a product recap; it is a forensic breakdown of how the executive branch&#039;s regulatory guardrails were navigated through a $20 billion licensing deal that functions as a full takeover, instantly merging two divergent philosophies of computing. For the busy strategist, the value lies in understanding how this maneuver bypasses the very supply chain bottlenecks that have choked global AI progress.</p>
+<h2>The Regulatory Loophole and the Groq Acquisition</h2>
+<p>Patel&#039;s most provocative claim centers on the legal architecture of the deal itself. He writes, &quot;Strictly speaking, Nvidia paid Groq $20B to license their IP and hire most the team. This functions almost as an acquisition, though its structure technically falls short of it being legally considered as one, thereby simplifying or obviating the need for regulatory approvals.&quot; This is a masterclass in corporate maneuvering. By avoiding the label of a merger, the administration sidesteps the inevitable, years-long antitrust review that would have likely blocked the consolidation of the world&#039;s largest GPU supplier with a leading inference specialist.</p>
+<figure class="inline-illustration">
+    <img src="../../images/0ded0317-41d4-4c13-8093-477ade968198.webp" alt="Nvidia – The Inference Kingdom Expands" loading="lazy" width="600" height="315">
+  </figure>
+
+<p>The author argues that this structure provided &quot;instant access to Groq&#039;s IP and people,&quot; a speed that a traditional merger could never achieve. The evidence suggests that the White House&#039;s current regulatory focus on market concentration was outpaced by a creative legal structure that achieved the same result: a unified stack. Critics might note that this sets a precedent where massive market consolidation occurs in the shadows of &quot;licensing agreements,&quot; potentially eroding the spirit of competition laws even if the letter of the law is satisfied.</p>
+<blockquote>&quot;Given Nvidia&#039;s market share, if this transaction were structured as a full acquisition and were put to anti-trust review, such a transaction would likely not go through.&quot;</blockquote>
+<p>Patel&#039;s analysis of the timing is particularly sharp. He notes that &quot;less than four months after the deal was announced, Nvidia already has a system concept that is being integrated into the Vera Rubin inference stack.&quot; This rapid integration underscores the strategic urgency. The goal was not just to buy a competitor, but to neutralize a specific architectural threat before it could mature.</p>
+<h2>Architectural Divergence: The SRAM Advantage</h2>
+<p>The commentary then pivots to the technical heart of the matter: why buy a chip that seems obsolete? Patel explains that Groq&#039;s LPU (Language Processing Unit) relies on a massive amount of on-chip SRAM (Static Random Access Memory) rather than the complex memory hierarchies found in standard GPUs. He writes, &quot;Groq opted for single-level scratchpad SRAM instead of multi-level memory hierarchy to make the hardware execution deterministic.&quot;</p>
+<p>This is a crucial distinction. While GPUs are general-purpose powerhouses, they suffer from latency when managing data flow. Groq&#039;s design, which Patel describes as a &quot;systolic array that pumps instructions vertically and data horizontally,&quot; guarantees that data arrives exactly when needed. This determinism is the secret sauce for high-speed inference. The author connects this to historical context, noting that Groq&#039;s original architecture was detailed in an ISCA 2020 paper, a time when the industry was still figuring out the basics of transformer models.</p>
+<p>However, Patel is quick to point out the fatal flaw that made the acquisition necessary for Nvidia: &quot;The standalone Groq LPU system is not economical for serving tokens at scale, but it can serve tokens very quickly which can demand a large market premium.&quot; The chip is fast, but it lacks the memory density to handle massive models alone. This is where the &quot;disaggregation&quot; strategy comes in.</p>
+<blockquote>&quot;SRAM machines such as Groq&#039;s LPU therefore enable very fast time to first token and tokens per second per user but at the expense of total throughput, as their limited SRAM capacity quickly gets saturated by weights, with little left over for KVcache that grows as more users are batched.&quot;</blockquote>
+<p>The author&#039;s insight here is that Nvidia isn&#039;t replacing its GPUs; it is augmenting them. By combining the GPU&#039;s massive memory capacity with the LPU&#039;s speed, they create a hybrid system that solves the &quot;memory wall&quot; problem. This approach mirrors the evolution of scratchpad memory discussed in related deep dives, where the industry realized that moving data is often more expensive than computing it.</p>
+<h2>The Supply Chain Pivot</h2>
+<p>Perhaps the most underappreciated aspect of Patel&#039;s analysis is the supply chain implication. He highlights that the new LPU generation, the LP30, is built on Samsung&#039;s SF4X node in Austin, Texas. &quot;One of the selling points is that the chip can be manufactured and packaged entirely in the United States compared to their competitors being heavily reliant on the Asia semiconductor supply chain,&quot; he writes.</p>
+<p>This is a strategic masterstroke for the domestic industry. While TSMC&#039;s advanced nodes in Taiwan are the bottleneck for high-end GPUs, Samsung&#039;s Austin fab offers a &quot;true incremental revenue and capacity that noone else can access.&quot; Patel notes that &quot;TSMC&#039;s N3, which is putting a cap on accelerator production and is a key reason why the industry remains compute constrained.&quot; By utilizing a different foundry and a different process node, Nvidia effectively unlocks a new production lane without cannibalizing its existing GPU allocation.</p>
+<p>Critics might argue that relying on Samsung&#039;s node, which has historically struggled with yield compared to TSMC, introduces new risks. Yet, Patel counters that the architectural efficiency of the LPU compensates for the process node gap. &quot;The 14nm node was mature... suitable for an initial chip where architectural differentiation mattered more than pushing its silicon to the leading edge,&quot; he recalls, suggesting that the design is so efficient it doesn&#039;t need the absolute cutting-edge process to compete.</p>
+<h2>The Hybrid Future: AFD and Speculative Decoding</h2>
+<p>The core of the article&#039;s technical argument rests on &quot;Attention FFN Disaggregation&quot; (AFD). Patel explains that LLM inference has two distinct phases: prefill (compute-heavy) and decode (memory-heavy). &quot;During decode phase, the GPU utilization of attention barely improves when scaling batch size due to being bounded by loading KV cache,&quot; he writes.</p>
+<p>This is the &quot;aha&quot; moment for the reader. By splitting the workload, Nvidia can assign the memory-hungry attention mechanisms to GPUs and the stateless, compute-heavy feed-forward networks to the LPUs. &quot;We map attention computations to GPUs, which handle dynamic workloads well. For FFNs, we map them to LPUs, since LPU architecture is inherently deterministic and benefits from static compute workloads,&quot; Patel states.</p>
+<p>This strategy is further enhanced by speculative decoding, where the LPU predicts multiple tokens ahead of time. &quot;Using this property, speculative decoding uses a small draft model or MTP layers to predict k new tokens, saving time since small models have lower latency per decode step,&quot; the author explains. The result is a system that feels instantaneous to the user, even as the underlying models grow exponentially larger.</p>
+<blockquote>&quot;To hide the communication latency of dispatch and combine, we employ ping pong pipeline parallelism. In addition to splitting batches into micro-batches and computation pipelining like standard pipeline parallelism, the tokens dispatched to the LPUs are combined back to the source GPUs, so they ping pong between the GPUs and the LPUs.&quot;</blockquote>
+<p>This level of orchestration is unprecedented. It transforms the data center from a collection of discrete servers into a single, cohesive supercomputer. The reference to &quot;MegaScale-Infer&quot; and &quot;Step-3&quot; in the text grounds this in recent academic and industry breakthroughs, showing that this is not theoretical but a direct application of the latest research.</p>
+<h2>Bottom Line</h2>
+<p>Patel&#039;s analysis succeeds in demystifying a complex acquisition, revealing it not as a hostile takeover but as a necessary evolution of the AI stack. The strongest part of the argument is the demonstration of how architectural diversity (SRAM vs. HBM) can be weaponized to solve the latency bottleneck that has plagued the industry. The biggest vulnerability lies in the execution risk of integrating two fundamentally different hardware ecosystems, a challenge that the &quot;ping pong&quot; pipeline must overcome to deliver on its promises. For the reader, the takeaway is clear: the future of AI inference is not a single chip, but a hybrid architecture where speed and scale are no longer mutually exclusive.</p>
+      </div>
+
+      
+      
+      <section id="deep-dives" class="deep-dives">
+        <h2>Deep Dives</h2>
+        <p class="deep-dives-intro">Explore these related deep dives:</p>
+        <ul class="deep-dive-list">
+          
+      <li class="deep-dive-item">
+        <a href="../../wikipedia/attention-machine-learning/index.html">
+          <strong>Attention (machine learning)</strong>
+        </a>
+        <p class="topic-summary">The text describes a novel &#039;disaggregation&#039; of attention and feed-forward networks, a specific architectural shift that allows different hardware units to specialize in distinct parts of the transformer model to maximize inference efficiency.</p>
+      </li>
+        </ul>
+      </section>
+    
+      
+
+      
+      
+    </article>
+  
+  </main>
+  <footer class="site-footer">
+    <div class="container">
+      <p><a href="../../privacy/index.html">Privacy</a> &middot; <a href="../../terms/index.html">Terms</a></p>
+    </div>
+  </footer>
+  <script>
+  (function() {
+    var params = new URLSearchParams(window.location.search);
+    var from = params.get('from');
+    if (from) {
+      var names = {
+        'foreign-policy':'Foreign Policy','ai-tech':'AI & Tech','housing-cities':'Housing & Cities',
+        'political-strategy':'Political Strategy','history':'History','science':'Science',
+        'culture':'Culture','economics':'Economics','faith':'Faith','writing-craft':'Writing & Craft',
+        'music':'Music','law-rights':'Law & Rights','public-health':'Public Health',
+        'philosophy':'Philosophy','media':'Media','defense':'Defense','china':'China'
+      };
+      var link = document.getElementById('back-link');
+      if (link) {
+        var name = names[from] || from;
+        link.href = '../../tag/' + from + '/index.html';
+        link.textContent = '\u2190 Back to ' + name;
+      }
+    }
+  })();
+  </script>
+</body>
+</html>
