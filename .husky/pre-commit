@@ -78,6 +78,26 @@ if [ -n "$CONTENT_MD_FILES" ]; then
     done
 fi
 
+# Banned publication slugs guard
+# Source of truth: src/shared/banned-publications.ts
+echo "Checking for banned publication slugs in content/ingest-subscribed.json..."
+if [ -f content/ingest-subscribed.json ] && [ -f src/shared/banned-publications.ts ]; then
+    BANNED_FOUND=$(node -e "
+        const fs = require('fs');
+        const src = fs.readFileSync('src/shared/banned-publications.ts', 'utf8');
+        const matches = src.match(/'([a-z0-9-]+)'/g) || [];
+        const banned = new Set(matches.map(m => m.slice(1, -1)));
+        const cfg = JSON.parse(fs.readFileSync('content/ingest-subscribed.json', 'utf8'));
+        const offenders = (cfg.publications || []).map(p => p.slug).filter(s => banned.has(s));
+        if (offenders.length) { console.log(offenders.join(',')); }
+    " 2>&1)
+    if [ -n "$BANNED_FOUND" ]; then
+        echo "❌ ERROR: Banned publication slugs found in content/ingest-subscribed.json: $BANNED_FOUND"
+        echo "   See src/shared/banned-publications.ts for the canonical list."
+        exit 1
+    fi
+fi
+
 # Check source file alphabetical order
 echo "Checking source file order..."
 npm run lint:sources

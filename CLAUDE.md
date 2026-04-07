@@ -150,6 +150,16 @@ Twilio CLI profile: `hex-index` (already configured).
 
 **Subscriber list**: Managed externally in Google Sheet, fetched via authenticated Apps Script endpoint. Token: `SUBSCRIBER_TOKEN` in `~/.config/.env`.
 
+## Banned Publications
+
+Some publications must never be ingested. The canonical list of banned slugs lives in `src/shared/banned-publications.ts` (`BANNED_SLUGS`). Enforcement:
+
+- `src/shared/banned-publications.test.ts` parses `content/ingest-subscribed.json` and fails CI if any publication has a banned slug.
+- The pre-commit hook greps `content/ingest-subscribed.json` for banned slugs and blocks commits.
+- Database deletion of any banned publications already present in `app.publications` is handled separately by the loop owner — do not add deletion logic here.
+
+To add a new banned slug, edit `src/shared/banned-publications.ts` and add it to the `BANNED_SLUGS` set. Nothing else is required.
+
 ## Two-Site Architecture
 
 **Do not confuse the two sites. Do not regress either.**
