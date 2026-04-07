@@ -765,11 +765,11 @@ describe('buildBackfillChunks', () => {
 
 describe('runBackfill --dry-run on multi-chunk fixture', () => {
   function seedThreeChunks(db: FakeDb): void {
-    // Three groups, one per 14-day chunk, walking back from 2026-04-01.
+    // Three groups, one per 21-day chunk, walking back from 2026-04-01.
     const groups = [
       { offset: 0, idPrefix: 'a' },
-      { offset: 20, idPrefix: 'b' },
-      { offset: 50, idPrefix: 'c' },
+      { offset: 25, idPrefix: 'b' },
+      { offset: 55, idPrefix: 'c' },
     ];
     const tags = ['energy', 'grid', 'policy'];
     for (const g of groups) {

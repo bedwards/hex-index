@@ -142,12 +142,12 @@ describe('groupArticles', () => {
     expect(groupArticles(articles)).toEqual([]);
   });
 
-  it('rejects pairs beyond 14-day window', () => {
+  it('rejects pairs beyond 21-day window', () => {
     const articles: Article[] = [
       mk('t1', 'China tightens rare earth export controls', 'pub1',
         ['china', 'geopolitics', 'trade'], 0),
       mk('t2', 'China tightens rare earth export rules', 'pub2',
-        ['china', 'geopolitics', 'trade'], 20),
+        ['china', 'geopolitics', 'trade'], 25),
     ];
     expect(groupArticles(articles)).toEqual([]);
   });

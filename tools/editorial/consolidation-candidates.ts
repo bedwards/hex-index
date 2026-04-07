@@ -20,9 +20,9 @@
  */
 
 // ── Tunable thresholds ──────────────────────────────────────────────
-export const TOPIC_JACCARD_MIN = 0.4;
-export const TITLE_COSINE_MIN = 0.5;
-export const TIME_WINDOW_DAYS = 14;
+export const TOPIC_JACCARD_MIN = 0.3;
+export const TITLE_COSINE_MIN = 0.4;
+export const TIME_WINDOW_DAYS = 21;
 export const MAX_GROUP_SIZE = 4;
 
 // ── Types ───────────────────────────────────────────────────────────
