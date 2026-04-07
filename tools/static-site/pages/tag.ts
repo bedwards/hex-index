@@ -138,15 +138,28 @@ export async function getDisplayTag(
 export async function getConsolidationBulk(
   pool: Pool,
   articleIds: string[]
-): Promise<Map<string, { isConsolidated: boolean; sourceCount: number }>> {
-  const map = new Map<string, { isConsolidated: boolean; sourceCount: number }>();
+): Promise<Map<string, { isConsolidated: boolean; sourceCount: number; primaryAuthor: string | null }>> {
+  const map = new Map<string, { isConsolidated: boolean; sourceCount: number; primaryAuthor: string | null }>();
   if (articleIds.length === 0) {return map;}
   try {
-    const { rows } = await pool.query<{ id: string; is_consolidated: boolean; source_count: string }>(`
+    const { rows } = await pool.query<{
+      id: string;
+      is_consolidated: boolean;
+      source_count: string;
+      primary_author: string | null;
+    }>(`
       SELECT
         a.id,
         COALESCE(a.is_consolidated, false) AS is_consolidated,
-        COALESCE((SELECT COUNT(*) FROM app.commentary_sources cs WHERE cs.commentary_article_id = a.id), 0)::text AS source_count
+        COALESCE((SELECT COUNT(*) FROM app.commentary_sources cs WHERE cs.commentary_article_id = a.id), 0)::text AS source_count,
+        (
+          SELECT s.author_name
+          FROM app.commentary_sources cs
+          JOIN app.articles s ON s.id = cs.source_article_id
+          WHERE cs.commentary_article_id = a.id
+          ORDER BY cs.is_primary DESC, cs.position ASC
+          LIMIT 1
+        ) AS primary_author
       FROM app.articles a
       WHERE a.id = ANY($1)
     `, [articleIds]);
@@ -154,6 +167,7 @@ export async function getConsolidationBulk(
       map.set(row.id, {
         isConsolidated: row.is_consolidated,
         sourceCount: parseInt(row.source_count, 10),
+        primaryAuthor: row.primary_author,
       });
     }
   } catch {
@@ -284,6 +298,7 @@ export async function generateTagPages(
           displayTag: a.display_tag_name ? { slug: a.display_tag_slug!, name: a.display_tag_name } : null,
           isConsolidated: consolidation?.isConsolidated ?? false,
           sourceCount: consolidation?.sourceCount ?? 0,
+          primarySourceAuthor: consolidation?.primaryAuthor ?? null,
         });
       }
 
