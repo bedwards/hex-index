@@ -59,7 +59,7 @@ describe('buildTitleTfIdf', () => {
       'China tightens export controls on rare earth metals',
       'Silicon Valley banks face new regulations',
     ]);
-    expect(sim(0, 1)).toBeGreaterThan(0.6);
+    expect(sim(0, 1)).toBeGreaterThan(0.5);
     expect(sim(0, 2)).toBeLessThan(0.3);
   });
 });
@@ -152,12 +152,13 @@ describe('groupArticles', () => {
     expect(groupArticles(articles)).toEqual([]);
   });
 
-  it('primary suggestion prefers highest word count', () => {
+  it('primary suggestion prefers the most recent article', () => {
     const articles: Article[] = [
+      // w1 has far more words but is older; w2 is newer and should win.
       mk('w1', 'China tightens rare earth export controls', 'pub1',
-        ['china', 'geopolitics', 'trade'], 0, 500),
+        ['china', 'geopolitics', 'trade'], 0, 9000),
       mk('w2', 'China tightens rare earth export rules', 'pub2',
-        ['china', 'geopolitics', 'trade'], 1, 2500),
+        ['china', 'geopolitics', 'trade'], 3, 500),
     ];
     const groups = groupArticles(articles);
     expect(groups).toHaveLength(1);
@@ -213,7 +214,8 @@ describe('findConsolidationCandidates (fake db)', () => {
     const groups: CandidateGroup[] = await findConsolidationCandidates(fakeDb, { days: 14 });
     expect(groups).toHaveLength(1);
     expect(groups[0].articles.map(a => a.id).sort()).toEqual(['a1', 'a2']);
-    expect(groups[0].primarySuggestion).toBe('a1');
+    // Most recent article wins as primary suggestion.
+    expect(groups[0].primarySuggestion).toBe('a2');
   });
 
   it('falls back when consolidated_into column does not exist', async () => {

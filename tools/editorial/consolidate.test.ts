@@ -12,12 +12,14 @@ import type { CandidateGroup } from './consolidation-candidates.js';
 import {
   type ConsolidationPlan,
   buildBackfillChunks,
+  findExtendMatches,
   formatPlan,
   makeStubSynthesizer,
   parseArgs,
   runBackfill,
   runModeA,
   runModeB,
+  runModeC,
 } from './consolidate.js';
 
 // ── Fake DB ─────────────────────────────────────────────────────────
@@ -68,6 +70,10 @@ class FakeDb {
   wikiLinks: WikiLinkRow[] = [];
   /** Extra metadata only the backfill queries need. */
   meta = new Map<string, { created_at: Date; word_count: number | null; tags: string[] }>();
+  /** article_id -> tag slugs (for Mode C extend tests) */
+  tags = new Map<string, string[]>();
+  /** article_id -> created_at override (for Mode C extend tests) */
+  createdAt = new Map<string, Date>();
 
   query<T extends Record<string, unknown> = Record<string, unknown>>(
     sql: string,
@@ -252,6 +258,69 @@ class FakeDb {
       return { rows: [] };
     }
 
+    // Mode C: recent un-consolidated articles with tags.
+    if (s.startsWith('SELECT a.id, a.title, a.publication_id, a.created_at, at.tag_slug')) {
+      const rows: Record<string, unknown>[] = [];
+      for (const a of this.articles.values()) {
+        if (a.is_consolidated) { continue; }
+        if (a.consolidated_into !== null) { continue; }
+        const tagList = this.tags.get(a.id) ?? [];
+        const createdAt = this.createdAt.get(a.id) ?? new Date();
+        if (tagList.length === 0) {
+          rows.push({
+            id: a.id, title: a.title, publication_id: a.publication_id,
+            created_at: createdAt, tag_slug: null,
+          });
+        } else {
+          for (const tag of tagList) {
+            rows.push({
+              id: a.id, title: a.title, publication_id: a.publication_id,
+              created_at: createdAt, tag_slug: tag,
+            });
+          }
+        }
+      }
+      return { rows: rows as unknown as T[] };
+    }
+
+    // Mode C: existing consolidations with <4 sources.
+    if (s.startsWith('SELECT c.id, c.title,')) {
+      const rows: Record<string, unknown>[] = [];
+      for (const a of this.articles.values()) {
+        if (!a.is_consolidated) { continue; }
+        if (a.consolidated_into !== null) { continue; }
+        const sourceRows = this.commentarySources.filter(
+          (cs) => cs.commentary_article_id === a.id,
+        );
+        const sourcePubs = [
+          ...new Set(
+            sourceRows
+              .map((cs) => this.articles.get(cs.source_article_id)?.publication_id)
+              .filter((p): p is string => !!p),
+          ),
+        ];
+        const tagList = this.tags.get(a.id) ?? [];
+        if (tagList.length === 0) {
+          rows.push({
+            id: a.id, title: a.title,
+            source_count: String(sourceRows.length),
+            source_pubs: sourcePubs,
+            tag_slug: null,
+          });
+        } else {
+          for (const tag of tagList) {
+            rows.push({
+              id: a.id, title: a.title,
+              source_count: String(sourceRows.length),
+              source_pubs: sourcePubs,
+              tag_slug: tag,
+            });
+          }
+        }
+      }
+      return { rows: rows as unknown as T[] };
+    }
+
     if (s.startsWith('SELECT a.id, a.title, a.publication_id')) {
       // Range query from findCandidatesInRange. Two param shapes:
       //   [start, end]                              (with consolidated_into filter)
@@ -362,6 +431,8 @@ describe('parseArgs', () => {
       addTo: undefined,
       backfill: false,
       backfillStatus: false,
+      extendRecent: false,
+      auto: false,
     });
   });
   it('parses --apply --limit 3', () => {
@@ -373,6 +444,8 @@ describe('parseArgs', () => {
       addTo: undefined,
       backfill: false,
       backfillStatus: false,
+      extendRecent: false,
+      auto: false,
     });
   });
   it('parses --backfill --apply --limit 5', () => {
@@ -384,6 +457,17 @@ describe('parseArgs', () => {
   it('parses --backfill-status', () => {
     const p = parseArgs(['node', 'x', '--backfill-status']);
     expect(p.backfillStatus).toBe(true);
+  });
+  it('parses --extend-recent --apply', () => {
+    const p = parseArgs(['node', 'x', '--extend-recent', '--apply']);
+    expect(p.extendRecent).toBe(true);
+    expect(p.apply).toBe(true);
+  });
+  it('parses --auto', () => {
+    const p = parseArgs(['node', 'x', '--auto', '--apply', '--limit', '1']);
+    expect(p.auto).toBe(true);
+    expect(p.apply).toBe(true);
+    expect(p.limit).toBe(1);
   });
   it('parses --add-to', () => {
     const p = parseArgs(['node', 'x', '--add-to', 'com-1', 'src-2']);
@@ -765,5 +849,176 @@ describe('runModeB trigger prevents a 5th source', () => {
     expect(db.commentarySources.length).toBe(before);
     // New source NOT marked consolidated.
     expect(db.articles.get(newSourceId)?.consolidated_into).toBeNull();
+  });
+});
+
+// ── Mode C: extend-recent ───────────────────────────────────────────
+
+function seedExtendScenario(): FakeDb {
+  const db = new FakeDb();
+  // Existing consolidation with 2 sources (room for 2 more).
+  const commentaryId = 'ccccccc1-0000-0000-0000-000000000001';
+  db.articles.set(commentaryId, {
+    id: commentaryId,
+    title: 'Power grid strain across the region',
+    slug: 'power-grid-strain',
+    author_name: 'Brian Edwards',
+    publication_id: 'pub-alpha',
+    publication_name: 'Pub-alpha',
+    original_url: `hex-index://consolidated/${commentaryId}`,
+    rewritten_content_path: `rewritten/consolidated-${commentaryId}.html`,
+    content_path: null,
+    full_content_path: null,
+    affiliate_links: [],
+    is_consolidated: true,
+    consolidated_into: null,
+  });
+  db.tags.set(commentaryId, ['energy', 'grid', 'policy']);
+  db.commentarySources.push(
+    {
+      commentary_article_id: commentaryId,
+      source_article_id: 'src-old-1',
+      is_primary: true,
+      position: 0,
+    },
+    {
+      commentary_article_id: commentaryId,
+      source_article_id: 'src-old-2',
+      is_primary: false,
+      position: 1,
+    },
+  );
+  // Stub-out the old source articles so publication_id is resolvable.
+  for (const [sid, pub] of [
+    ['src-old-1', 'pub-beta'],
+    ['src-old-2', 'pub-gamma'],
+  ] as const) {
+    db.articles.set(sid, {
+      id: sid,
+      title: 'old',
+      slug: sid,
+      author_name: 'x',
+      publication_id: pub,
+      publication_name: `Pub-${pub}`,
+      original_url: `https://x.test/${sid}`,
+      rewritten_content_path: null,
+      content_path: null,
+      full_content_path: null,
+      affiliate_links: [],
+      is_consolidated: false,
+      consolidated_into: commentaryId,
+    });
+  }
+  // New recent article from a different publication on the same topic.
+  const newId = 'fffffff1-0000-0000-0000-000000000001';
+  db.articles.set(newId, {
+    id: newId,
+    title: 'Power grid strain across the region deepens',
+    slug: newId,
+    author_name: 'D. Delta',
+    publication_id: 'pub-delta',
+    publication_name: 'Pub-delta',
+    original_url: `https://x.test/${newId}`,
+    rewritten_content_path: null,
+    content_path: null,
+    full_content_path: null,
+    affiliate_links: [],
+    is_consolidated: false,
+    consolidated_into: null,
+  });
+  db.tags.set(newId, ['energy', 'grid', 'policy']);
+  db.createdAt.set(newId, new Date('2026-04-05T00:00:00Z'));
+  return db;
+}
+
+describe('findExtendMatches', () => {
+  it('matches a recent un-consolidated article to an existing commentary with room', async () => {
+    const db = seedExtendScenario();
+    const matches = await findExtendMatches(
+      db as unknown as Parameters<typeof findExtendMatches>[0],
+    );
+    expect(matches).toHaveLength(1);
+    expect(matches[0].newSourceId).toMatch(/fffffff1/);
+    expect(matches[0].commentaryId).toMatch(/ccccccc1/);
+    expect(matches[0].score).toBeGreaterThan(0.4);
+  });
+
+  it('skips commentaries that already have 4 sources', async () => {
+    const db = seedExtendScenario();
+    // Push two more sources up to 4.
+    const commentaryId = 'ccccccc1-0000-0000-0000-000000000001';
+    db.commentarySources.push(
+      {
+        commentary_article_id: commentaryId,
+        source_article_id: 'src-old-3',
+        is_primary: false,
+        position: 2,
+      },
+      {
+        commentary_article_id: commentaryId,
+        source_article_id: 'src-old-4',
+        is_primary: false,
+        position: 3,
+      },
+    );
+    db.articles.set('src-old-3', {
+      ...db.articles.get('src-old-1')!, id: 'src-old-3', publication_id: 'pub-eps',
+    });
+    db.articles.set('src-old-4', {
+      ...db.articles.get('src-old-1')!, id: 'src-old-4', publication_id: 'pub-zeta',
+    });
+    const matches = await findExtendMatches(
+      db as unknown as Parameters<typeof findExtendMatches>[0],
+    );
+    expect(matches).toHaveLength(0);
+  });
+
+  it('skips when the new article shares a publication with an existing source', async () => {
+    const db = seedExtendScenario();
+    const newId = 'fffffff1-0000-0000-0000-000000000001';
+    const a = db.articles.get(newId)!;
+    a.publication_id = 'pub-beta'; // same as src-old-1
+    const matches = await findExtendMatches(
+      db as unknown as Parameters<typeof findExtendMatches>[0],
+    );
+    expect(matches).toHaveLength(0);
+  });
+});
+
+describe('runModeC apply', () => {
+  it('adds the new source to the commentary via Mode B and forces primary', async () => {
+    const db = seedExtendScenario();
+    const libraryRoot = await mkdtemp(join(tmpdir(), 'consolidate-c-'));
+    const commentaryId = 'ccccccc1-0000-0000-0000-000000000001';
+    const newId = 'fffffff1-0000-0000-0000-000000000001';
+
+    const applied = await runModeC({
+      db: db as unknown as Parameters<typeof runModeC>[0]['db'],
+      synthesizer: makeStubSynthesizer(),
+      apply: true,
+      libraryRoot,
+      limit: 5,
+    });
+    expect(applied).toHaveLength(1);
+    // New source marked consolidated into the commentary.
+    expect(db.articles.get(newId)?.consolidated_into).toBe(commentaryId);
+    // New source row appended to commentary_sources.
+    const cs = db.commentarySources.filter((c) => c.commentary_article_id === commentaryId);
+    expect(cs.map((c) => c.source_article_id)).toContain(newId);
+    // forcePrimary flipped the new source to is_primary=true.
+    const primary = cs.find((c) => c.is_primary);
+    expect(primary?.source_article_id).toBe(newId);
+  });
+
+  it('dry-run returns matches without mutating', async () => {
+    const db = seedExtendScenario();
+    const before = db.commentarySources.length;
+    const matches = await runModeC({
+      db: db as unknown as Parameters<typeof runModeC>[0]['db'],
+      synthesizer: makeStubSynthesizer(),
+      apply: false,
+    });
+    expect(matches.length).toBeGreaterThan(0);
+    expect(db.commentarySources.length).toBe(before);
   });
 });

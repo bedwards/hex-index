@@ -6,8 +6,8 @@
  * different publications).
  *
  * Scoring thresholds (tunable at the top of the file):
- *   - TOPIC_JACCARD_MIN   ≥ 0.5  — tag Jaccard similarity
- *   - TITLE_COSINE_MIN    ≥ 0.6  — title TF-IDF cosine similarity
+ *   - TOPIC_JACCARD_MIN   ≥ 0.4  — tag Jaccard similarity
+ *   - TITLE_COSINE_MIN    ≥ 0.5  — title TF-IDF cosine similarity
  *   - TIME_WINDOW_DAYS    ≤ 14   — created_at proximity
  *   - MAX_GROUP_SIZE      4      — hard cap per group
  *
@@ -20,8 +20,8 @@
  */
 
 // ── Tunable thresholds ──────────────────────────────────────────────
-export const TOPIC_JACCARD_MIN = 0.5;
-export const TITLE_COSINE_MIN = 0.6;
+export const TOPIC_JACCARD_MIN = 0.4;
+export const TITLE_COSINE_MIN = 0.5;
 export const TIME_WINDOW_DAYS = 14;
 export const MAX_GROUP_SIZE = 4;
 
@@ -257,12 +257,12 @@ export function groupArticles(articles: Article[]): CandidateGroup[] {
     }
     const score = count > 0 ? sum / count : 0;
 
-    // Primary suggestion: highest word count, tiebreak on most recent.
+    // Primary suggestion: most recent article, tiebreak on highest word count.
     const primary = [...groupArticles].sort((a, b) => {
-      const wa = a.word_count ?? 0;
-      const wb = b.word_count ?? 0;
-      if (wb !== wa) { return wb - wa; }
-      return b.created_at.getTime() - a.created_at.getTime();
+      const ta = a.created_at.getTime();
+      const tb = b.created_at.getTime();
+      if (tb !== ta) { return tb - ta; }
+      return (b.word_count ?? 0) - (a.word_count ?? 0);
     })[0];
 
     // Reasoning: shared tags, average title sim, source list.
