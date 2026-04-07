@@ -34,9 +34,13 @@ import { dirname, join, resolve } from 'path';
 import type { Pool, PoolClient } from 'pg';
 import type { CandidateGroup, QueryableDb } from './consolidation-candidates.js';
 import {
+  TOPIC_JACCARD_MIN,
+  TITLE_COSINE_MIN,
   TIME_WINDOW_DAYS,
+  buildTitleTfIdf,
   findCandidatesInRange,
   findConsolidationCandidates,
+  jaccard,
 } from './consolidation-candidates.js';
 import {
   type AffiliateLink,
@@ -296,6 +300,13 @@ export async function runModeA(opts: ModeAOptions): Promise<ConsolidationPlan | 
     return null;
   }
 
+  // Primary source = most recent article in the group (byline at top uses
+  // the most recent voice). Overrides whatever the synthesizer suggested.
+  const mostRecent = [...group.articles].sort(
+    (a, b) => b.created_at.getTime() - a.created_at.getTime(),
+  )[0];
+  synth.primarySourceId = mostRecent.id;
+
   const commentaryId = randomUUID();
   const htmlPath = join('rewritten', `consolidated-${commentaryId}.html`);
 
@@ -403,6 +414,8 @@ export interface ModeBOptions {
   commentaryId: string;
   newSourceId: string;
   libraryRoot?: string;
+  /** If true, force the new source to become the commentary's primary. */
+  forcePrimary?: boolean;
 }
 
 export async function runModeB(opts: ModeBOptions): Promise<void> {
@@ -470,9 +483,9 @@ export async function runModeB(opts: ModeBOptions): Promise<void> {
     [commentaryId, revised.title, relPath],
   );
 
-  // Insert new source (not primary unless it genuinely displaces — we
-  // only displace if the synthesizer says so).
-  const becomePrimary = revised.primarySourceId === newSourceId;
+  // Insert new source. Become primary when explicitly forced (Mode C
+  // recency rule) or when the synthesizer picks it as dominant.
+  const becomePrimary = opts.forcePrimary === true || revised.primarySourceId === newSourceId;
   await db.query(
     `INSERT INTO app.commentary_sources
        (commentary_article_id, source_article_id, is_primary, position)
@@ -722,6 +735,198 @@ export function formatBackfillStatus(s: BackfillStatus): string {
   return lines.join('\n');
 }
 
+// ── Mode C: extend existing consolidations with new recent articles ─
+
+export interface ExtendMatch {
+  commentaryId: string;
+  commentaryTitle: string;
+  newSourceId: string;
+  newSourceTitle: string;
+  score: number;
+}
+
+interface RecentArticleRow extends Record<string, unknown> {
+  id: string;
+  title: string;
+  publication_id: string;
+  created_at: Date | string;
+  tag_slug: string | null;
+}
+
+interface CommentaryRow extends Record<string, unknown> {
+  id: string;
+  title: string;
+  source_count: string;
+  source_pubs: string[] | null;
+  tag_slug: string | null;
+}
+
+/**
+ * Find pairings of (recent un-consolidated article, existing
+ * consolidated commentary with <4 sources) whose titles + tags overlap
+ * above the loosened thresholds.
+ */
+export async function findExtendMatches(
+  db: DbClient,
+  opts: { days?: number; limit?: number } = {},
+): Promise<ExtendMatch[]> {
+  const days = opts.days ?? TIME_WINDOW_DAYS;
+  const limit = opts.limit ?? 200;
+
+  // Load recent un-consolidated articles (the candidates to add).
+  const recentSql = `
+    SELECT a.id, a.title, a.publication_id, a.created_at, at.tag_slug
+      FROM app.articles a
+      LEFT JOIN app.article_tags at ON at.article_id = a.id
+     WHERE a.created_at >= NOW() - ($1 || ' days')::interval
+       AND a.consolidated_into IS NULL
+       AND COALESCE(a.is_consolidated, false) = false
+     ORDER BY a.created_at DESC
+  `;
+  const recentRes = await db.query<RecentArticleRow>(recentSql, [String(days)]);
+
+  const byId = new Map<string, {
+    id: string;
+    title: string;
+    publication_id: string;
+    created_at: Date;
+    tags: Set<string>;
+  }>();
+  for (const r of recentRes.rows) {
+    let a = byId.get(r.id);
+    if (!a) {
+      a = {
+        id: r.id,
+        title: r.title,
+        publication_id: r.publication_id,
+        created_at: r.created_at instanceof Date ? r.created_at : new Date(r.created_at),
+        tags: new Set(),
+      };
+      byId.set(r.id, a);
+    }
+    if (r.tag_slug) { a.tags.add(r.tag_slug); }
+  }
+  const recents = [...byId.values()];
+
+  // Load existing consolidations with <4 sources and their aggregated tags+pubs.
+  const commentarySql = `
+    SELECT c.id, c.title,
+           (SELECT COUNT(*)::text FROM app.commentary_sources cs
+              WHERE cs.commentary_article_id = c.id) AS source_count,
+           (SELECT array_agg(DISTINCT sa.publication_id)
+              FROM app.commentary_sources cs
+              JOIN app.articles sa ON sa.id = cs.source_article_id
+             WHERE cs.commentary_article_id = c.id) AS source_pubs,
+           at.tag_slug
+      FROM app.articles c
+      LEFT JOIN app.article_tags at ON at.article_id = c.id
+     WHERE COALESCE(c.is_consolidated, false) = true
+       AND c.consolidated_into IS NULL
+  `;
+  const cRes = await db.query<CommentaryRow>(commentarySql, []);
+
+  const byCid = new Map<string, {
+    id: string;
+    title: string;
+    sourceCount: number;
+    sourcePubs: Set<string>;
+    tags: Set<string>;
+  }>();
+  for (const r of cRes.rows) {
+    let c = byCid.get(r.id);
+    if (!c) {
+      c = {
+        id: r.id,
+        title: r.title,
+        sourceCount: Number(r.source_count),
+        sourcePubs: new Set(r.source_pubs ?? []),
+        tags: new Set(),
+      };
+      byCid.set(r.id, c);
+    }
+    if (r.tag_slug) { c.tags.add(r.tag_slug); }
+  }
+
+  const matches: ExtendMatch[] = [];
+  for (const rec of recents) {
+    for (const com of byCid.values()) {
+      if (com.sourceCount >= 4) { continue; }
+      if (com.sourcePubs.has(rec.publication_id)) { continue; }
+      const tj = jaccard(rec.tags, com.tags);
+      if (tj < TOPIC_JACCARD_MIN) { continue; }
+      const sim = buildTitleTfIdf([rec.title, com.title]);
+      const ts = sim(0, 1);
+      if (ts < TITLE_COSINE_MIN) { continue; }
+      matches.push({
+        commentaryId: com.id,
+        commentaryTitle: com.title,
+        newSourceId: rec.id,
+        newSourceTitle: rec.title,
+        score: (tj + ts) / 2,
+      });
+    }
+  }
+
+  matches.sort((a, b) => b.score - a.score);
+
+  // De-dupe so each recent article matches only one commentary (the best).
+  const seenSrc = new Set<string>();
+  const seenCom = new Set<string>();
+  const deduped: ExtendMatch[] = [];
+  for (const m of matches) {
+    if (seenSrc.has(m.newSourceId)) { continue; }
+    if (seenCom.has(m.commentaryId)) { continue; }
+    seenSrc.add(m.newSourceId);
+    seenCom.add(m.commentaryId);
+    deduped.push(m);
+    if (deduped.length >= limit) { break; }
+  }
+  return deduped;
+}
+
+export interface RunModeCOptions {
+  db: DbClient;
+  synthesizer: CommentarySynthesizer;
+  apply: boolean;
+  limit?: number;
+  libraryRoot?: string;
+  days?: number;
+}
+
+/**
+ * Mode C: scan recent un-consolidated articles; for each, try to extend
+ * an existing consolidation (<4 sources) whose topic matches. Applies
+ * Mode B per match.
+ */
+export async function runModeC(opts: RunModeCOptions): Promise<ExtendMatch[]> {
+  const limit = opts.limit ?? 10;
+  const matches = await findExtendMatches(opts.db, { days: opts.days, limit });
+  if (!opts.apply) { return matches; }
+
+  const applied: ExtendMatch[] = [];
+  for (const m of matches.slice(0, limit)) {
+    try {
+      await runModeB({
+        db: opts.db,
+        synthesizer: opts.synthesizer,
+        commentaryId: m.commentaryId,
+        newSourceId: m.newSourceId,
+        libraryRoot: opts.libraryRoot,
+        forcePrimary: true,
+      });
+      applied.push(m);
+    } catch (err) {
+      const reason = err instanceof Error ? err.message : String(err);
+      console.warn(`extend skip ${m.commentaryId} <- ${m.newSourceId}: ${reason}`);
+      await logSkippedGroup(
+        [m.commentaryId, m.newSourceId],
+        `mode C extend failed: ${reason}`,
+      );
+    }
+  }
+  return applied;
+}
+
 // ── Plan printer ────────────────────────────────────────────────────
 
 export function formatPlan(plan: ConsolidationPlan): string {
@@ -748,6 +953,8 @@ interface CliArgs {
   addTo?: { commentaryId: string; sourceId: string };
   backfill: boolean;
   backfillStatus: boolean;
+  extendRecent: boolean;
+  auto: boolean;
 }
 
 export function parseArgs(argv: string[]): CliArgs {
@@ -766,6 +973,8 @@ export function parseArgs(argv: string[]): CliArgs {
       addTo: { commentaryId, sourceId },
       backfill: false,
       backfillStatus: false,
+      extendRecent: false,
+      auto: false,
     };
   }
   const apply = args.includes('--apply');
@@ -774,7 +983,18 @@ export function parseArgs(argv: string[]): CliArgs {
   const limit = limitIdx >= 0 ? Number(args[limitIdx + 1]) : 10;
   const backfill = args.includes('--backfill');
   const backfillStatus = args.includes('--backfill-status');
-  return { dryRun, apply, limit, addTo: undefined, backfill, backfillStatus };
+  const extendRecent = args.includes('--extend-recent');
+  const auto = args.includes('--auto');
+  return {
+    dryRun,
+    apply,
+    limit,
+    addTo: undefined,
+    backfill,
+    backfillStatus,
+    extendRecent,
+    auto,
+  };
 }
 
 async function cliMain(): Promise<void> {
@@ -821,31 +1041,58 @@ async function cliMain(): Promise<void> {
       return;
     }
 
-    const groups = await findConsolidationCandidates(pool as unknown as QueryableDb, { limit: 2000 });
-    console.info(`Found ${groups.length} candidate group(s)`);
-
-    const capped = groups.slice(0, cli.limit);
-    for (let i = 0; i < capped.length; i++) {
-      try {
-        const plan = await runModeA({
-          db: pool,
-          synthesizer,
-          group: capped[i],
-          groupIndex: i,
-          apply: cli.apply,
-        });
-        if (plan) {
-          console.info(formatPlan(plan));
-          console.info('');
+    const runModeAPass = async (): Promise<void> => {
+      const groups = await findConsolidationCandidates(pool as unknown as QueryableDb, { limit: 2000 });
+      console.info(`Found ${groups.length} candidate group(s)`);
+      const capped = groups.slice(0, cli.limit);
+      for (let i = 0; i < capped.length; i++) {
+        try {
+          const plan = await runModeA({
+            db: pool,
+            synthesizer,
+            group: capped[i],
+            groupIndex: i,
+            apply: cli.apply,
+          });
+          if (plan) {
+            console.info(formatPlan(plan));
+            console.info('');
+          }
+        } catch (err) {
+          const reason = err instanceof Error ? err.message : String(err);
+          console.warn(`  group ${String(i + 1)} failed unexpectedly: ${reason}`);
+          await logSkippedGroup(
+            capped[i].articles.map((a) => a.id),
+            `unexpected error: ${reason}`,
+          );
         }
-      } catch (err) {
-        const reason = err instanceof Error ? err.message : String(err);
-        console.warn(`  group ${String(i + 1)} failed unexpectedly: ${reason}`);
-        await logSkippedGroup(
-          capped[i].articles.map((a) => a.id),
-          `unexpected error: ${reason}`,
-        );
       }
+    };
+
+    const runModeCPass = async (): Promise<void> => {
+      const matches = await runModeC({
+        db: pool,
+        synthesizer,
+        apply: cli.apply,
+        limit: cli.limit,
+      });
+      console.info(`Extend-recent: ${matches.length} match(es)`);
+      for (const m of matches) {
+        console.info(
+          `  ${m.commentaryId} <- ${m.newSourceId}  score=${m.score.toFixed(3)}`,
+        );
+        console.info(`    commentary: ${m.commentaryTitle}`);
+        console.info(`    new source: ${m.newSourceTitle}`);
+      }
+    };
+
+    if (cli.auto) {
+      await runModeAPass();
+      await runModeCPass();
+    } else if (cli.extendRecent) {
+      await runModeCPass();
+    } else {
+      await runModeAPass();
     }
   } finally {
     await pool.end();

@@ -221,6 +221,20 @@ npm run static:preview    # Preview at localhost:3000
 - **Substack articles**: ~200 word excerpts with "Read full article" links
 - **Wikipedia rewrites**: Full content (we own copyright on our rewrites)
 
+## Consolidation (Mode A / B / C)
+
+`tools/editorial/consolidate.ts` synthesizes multi-source "by Brian Edwards" commentaries. Three modes:
+
+- **Mode A** — find a new candidate group and create a fresh consolidation.
+- **Mode B** — add one source to an existing consolidation (`--add-to <commentary_id> <source_id>`).
+- **Mode C** — scan recent un-consolidated articles and extend existing consolidations (<4 sources) with them (`--extend-recent`).
+
+**Thresholds** (`tools/editorial/consolidation-candidates.ts`): tag Jaccard ≥ 0.4, title cosine ≥ 0.5, 14-day window, max 4 sources per consolidation.
+
+**Primary source = most recent article** (byline rule). Mode C forces the newly-added article to become primary since it is newer than the existing primary by construction.
+
+**The unified loop runs `--auto --apply --limit 1`** each cycle, which does Mode A followed by Mode C in one invocation.
+
 ## Wikipedia Integration
 
 Each article gets 3 related Wikipedia deep dives. Topic selection must be specific and esoteric — "Battle of Thermopylae" not "Ancient Greece". Rewrites should read like magazine features, not encyclopedia entries. Vary sentence/paragraph length, spell out acronyms, explain from first principles. Optimized for Speechify text-to-speech.
