@@ -26,6 +26,69 @@ async function loadArticleContent(contentPath: string | null): Promise<string> {
   }
 }
 
+interface QueryRunner {
+  query: (sql: string, params: unknown[]) => Promise<unknown>;
+}
+
+interface AutoNullPathsArgs {
+  pool: QueryRunner;
+  articleId: string;
+  isConsolidated: boolean;
+  contentPath: string | null;
+  rewrittenContentPath: string | null;
+  loadContent: (path: string | null) => Promise<string>;
+}
+
+interface AutoNullPathsResult {
+  contentNulled: boolean;
+  rewriteNulled: boolean;
+  rawContent: string;
+  rewriteContent: string;
+}
+
+/**
+ * Runtime defense against drifted DB paths: if `content_path` or
+ * `rewritten_content_path` reference missing/empty files, NULL them in the DB
+ * so the article cleanly hides (or downgrades to rewrite-only) until ingest
+ * reproduces the file. Exported for unit testing.
+ */
+export async function autoNullBrokenArticlePaths(
+  args: AutoNullPathsArgs,
+): Promise<AutoNullPathsResult> {
+  const { pool, articleId, isConsolidated, contentPath, rewrittenContentPath, loadContent } = args;
+  const result: AutoNullPathsResult = {
+    contentNulled: false,
+    rewriteNulled: false,
+    rawContent: '',
+    rewriteContent: '',
+  };
+
+  result.rawContent = await loadContent(contentPath);
+  if (rewrittenContentPath) {
+    result.rewriteContent = await loadContent(rewrittenContentPath);
+  }
+
+  if (!isConsolidated && contentPath && result.rawContent.trim().length < 200) {
+    await pool.query(
+      'UPDATE app.articles SET content_path = NULL WHERE id = $1',
+      [articleId],
+    );
+    result.contentNulled = true;
+    result.rawContent = '';
+  }
+
+  if (!isConsolidated && rewrittenContentPath && result.rewriteContent.trim().length < 200) {
+    await pool.query(
+      'UPDATE app.articles SET rewritten_content_path = NULL, rewrite_dirty = true WHERE id = $1',
+      [articleId],
+    );
+    result.rewriteNulled = true;
+    result.rewriteContent = '';
+  }
+
+  return result;
+}
+
 interface ArticleRow {
   id: string;
   title: string;
@@ -474,9 +537,25 @@ export async function generateArticlePages(
 
   let _skipped = 0;
   for (const article of articles) {
-    // If we have a rewritten version, use full content; otherwise excerpt
+    // Runtime defense: NULL out broken content/rewrite paths in the DB.
+    const auto = await autoNullBrokenArticlePaths({
+      pool,
+      articleId: article.id,
+      isConsolidated: article.is_consolidated,
+      contentPath: article.content_path,
+      rewrittenContentPath: article.rewritten_content_path,
+      loadContent: loadArticleContent,
+    });
+    if (auto.contentNulled) {
+      article.content_path = null;
+    }
+    if (auto.rewriteNulled) {
+      article.rewritten_content_path = null;
+    }
     const hasRewrite = !!article.rewritten_content_path;
-    const rawContent = await loadArticleContent(article.content_path);
+    const rawContent = auto.rawContent;
+    const rewriteContent = auto.rewriteContent;
+
     // HIDE articles that aren't fully processed yet: no rewrite AND no readable source content.
     // These show as empty pages with no commentary and no excerpt — worse than invisible.
     // Consolidated commentary articles don't have a content_path (they synthesize from sources),
@@ -485,32 +564,19 @@ export async function generateArticlePages(
       _skipped++;
       continue;
     }
-    // Also skip if rewrite is claimed but the rewrite file is empty/missing.
-    // SYSTEMIC: when this happens, NULL the path in the DB and mark rewrite_dirty
-    // so the scheduled rewrite job re-queues it. The DB and disk must agree.
-    if (hasRewrite && !article.is_consolidated) {
-      const rewriteCheck = await loadArticleContent(article.rewritten_content_path);
-      if (rewriteCheck.trim().length < 200) {
-        await pool.query(
-          'UPDATE app.articles SET rewritten_content_path = NULL, rewrite_dirty = true WHERE id = $1',
-          [article.id],
-        );
-        _skipped++;
-        continue;
-      }
+    // Also skip if rewrite was nulled by autoNullBrokenArticlePaths above.
+    if (auto.rewriteNulled) {
+      _skipped++;
+      continue;
     }
+
     const isYouTube = article.original_url.includes('youtube.com') || article.original_url.includes('youtu.be');
     // Clean speech artifacts from YouTube transcripts before excerpting,
     // so cleaning operates on plain text and excerpt boundary is computed on cleaned result
     const contentForExcerpt = isYouTube ? cleanTranscript(rawContent) : rawContent;
     const excerpt = extractHtmlExcerpt(contentForExcerpt, 400);
 
-    let displayContent: string;
-    if (hasRewrite) {
-      displayContent = await loadArticleContent(article.rewritten_content_path);
-    } else {
-      displayContent = excerpt;
-    }
+    const displayContent: string = hasRewrite ? rewriteContent : excerpt;
     const wikipediaLinks = await getLinkedWikipedia(pool, article.id);
 
     // Build book deep dives from affiliate_links on the article
