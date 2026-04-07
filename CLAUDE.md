@@ -179,6 +179,19 @@ Source-article excerpts on hex-index.com must be **plain prose only**. The excer
 
 Excerpts are bordered block quotes styled with `.article-excerpt` / `.source-excerpt` CSS. They should read like prose extracts from the source, with zero visual noise from the source's original formatting. When adding new excerpt rendering, copy from `extractHtmlExcerpt` — do not roll your own.
 
+### Library Files Are Source-of-Truth
+
+`library/rewritten/<pub>/<slug>.html`, `library/<pub>/<slug>.html` (source content), and `library/wikipedia/<slug>.html` are the files the static generator reads. The DB stores PATHS to those files; the files themselves are local to the host running scheduled jobs. **When DB and disk drift, the site breaks** — most "404" / "missing excerpt" / "no commentary" symptoms are DB-references-to-missing-files.
+
+**Critical rule for Claude background workers writing rewrites:** write the HTML file directly into the **main repo** at `/Users/bedwards/hex-index/library/rewritten/...` (NOT into the agent's worktree-local library/) and commit it as part of the same change. If a worker writes to its own worktree's `library/`, the file vanishes when the worktree is cleaned and the DB ends up pointing at nothing.
+
+**Self-healing**: the article and wiki generators detect missing/empty content files at generation time and:
+1. Skip the page (no broken HTML emitted)
+2. For article rewrites: NULL `rewritten_content_path` and set `rewrite_dirty = true` so the scheduled rewrite job re-queues it
+3. Wiki articles get a manual cleanup pass
+
+This means every regen reconciles DB ↔ disk. If a 404 appears on what should be a ready article, the next regen will requeue it.
+
 ### Article Readiness Gate
 
 **Never show in-flight articles on the public site.** Every listing query (home, tag, publication, search, article generator) filters:
@@ -194,9 +207,9 @@ An article is "ready" when all three are true:
 2. It has not been absorbed into another consolidated commentary (`consolidated_into IS NULL`)
 3. It has an image (`image_path IS NOT NULL`)
 
-Articles without images look broken on cards; they must stay hidden until `gen-images` produces one. When adding new listing queries, copy this filter verbatim.
+Plus runtime: the rewrite file at the path **must exist on disk and be ≥200 chars**, AND the source content file must exist if the article uses an excerpt section. The runtime skip auto-NULLs broken paths so the next ingest cycle requeues them.
 
-The article generator also has a runtime skip: if the content/rewrite file on disk is missing or <200 chars, the individual page generation is skipped as belt-and-suspenders defense against broken DB paths.
+When adding new listing queries, copy the SQL filter verbatim. Single ingest source file: `content/ingest-subscribed.json`. There is no `ingest-all-sources.json` anymore — adding sources to that file is a no-op.
 
 ### Regenerating the Static Site
 

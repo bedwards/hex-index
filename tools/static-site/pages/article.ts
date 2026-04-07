@@ -484,9 +484,15 @@ export async function generateArticlePages(
       continue;
     }
     // Also skip if rewrite is claimed but the rewrite file is empty/missing.
+    // SYSTEMIC: when this happens, NULL the path in the DB and mark rewrite_dirty
+    // so the scheduled rewrite job re-queues it. The DB and disk must agree.
     if (hasRewrite && !article.is_consolidated) {
       const rewriteCheck = await loadArticleContent(article.rewritten_content_path);
       if (rewriteCheck.trim().length < 200) {
+        await pool.query(
+          'UPDATE app.articles SET rewritten_content_path = NULL, rewrite_dirty = true WHERE id = $1',
+          [article.id],
+        );
         _skipped++;
         continue;
       }

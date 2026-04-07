@@ -72,17 +72,16 @@ async function getRelatedArticles(
 }
 
 /**
- * Read Wikipedia content from filesystem
- * Content paths are relative to library/ directory
+ * Read Wikipedia content from filesystem.
+ * Content paths are relative to library/ directory.
+ * Returns empty string if missing — caller must skip.
  */
 async function readWikipediaContent(contentPath: string): Promise<string> {
   try {
-    // Content paths are relative to library/ directory
     const fullPath = join(process.cwd(), 'library', contentPath);
     return await readFile(fullPath, 'utf-8');
   } catch {
-    console.warn(`  Warning: Could not read content at ${contentPath}`);
-    return '<p>Content not available.</p>';
+    return '';
   }
 }
 
@@ -228,8 +227,15 @@ export async function generateWikipediaPages(
   const affiliateBooksMap = await loadAffiliateBooks(pool);
   let pagesGenerated = 0;
 
+  let _skipped = 0;
   for (const wiki of wikiArticles) {
     const content = await readWikipediaContent(wiki.content_path);
+    // Skip wiki pages whose content file is missing or trivially small.
+    // Empty or near-empty pages look broken on the public site; better to 404.
+    if (content.trim().length < 200) {
+      _skipped++;
+      continue;
+    }
     const relatedArticles = await getRelatedArticles(pool, wiki.id);
 
     const html = generateWikipediaPage(wiki, content, relatedArticles, affiliateBooksMap);
