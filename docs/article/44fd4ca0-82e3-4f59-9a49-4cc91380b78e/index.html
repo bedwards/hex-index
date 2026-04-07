@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Regularized Adjusted Plus-Minus (RAPM) Metrics For NFL Players - Hex Index</title>
+  <link rel="stylesheet" href="../../styles.css">
+</head>
+<body class="reading-mode">
+  <header class="reading-header">
+    <a href="../../index.html" class="back-link" id="back-link">&larr; Back to Library</a>
+  </header>
+  <main class="reading-content">
+    
+    <article class="article-page">
+      <header class="article-header">
+        <h1>Regularized Adjusted Plus-Minus (RAPM) Metrics For NFL Players</h1>
+        
+      <div class="article-meta">
+        <span class="author">Ray Carpenter</span>
+        <span class="separator">&middot;</span>
+        <a href="../../publication/thespade/index.html" class="publication">
+          The Spade
+        </a>
+        <span class="separator">&middot;</span><time>Feb 25, 2026</time>
+        <span class="separator">&middot;</span><span class="read-time">10 min read</span>
+      </div>
+      </header>
+
+      <div class="content-label">
+        <span class="label-text">Commentary by <a href="../../about/index.html">Brian Edwards</a></span>
+        <nav class="content-nav">
+          
+          <a href="https://thespade.substack.com/p/regularized-adjusted-plus-minus-rapm" target="_blank" rel="noopener">Original article &rarr;</a>
+        </nav>
+      </div>
+
+      
+      <div class="article-content">
+        <p>Ray Carpenter attempts the impossible: translating the fluid, possession-based logic of basketball analytics into the chaotic, position-siloed reality of the NFL. In a field often obsessed with refining existing metrics, Carpenter&#039;s most distinctive claim is that the very structure of football data resists the &quot;plus-minus&quot; model that revolutionized basketball, forcing a complete reinvention of how we value individual contribution.</p>
+<h2>The Data Dilemma</h2>
+<p>Carpenter begins by acknowledging the structural mismatch between the two sports. He writes, &quot;Plus/minus ratings don&#039;t exactly translate perfectly to NFL play, but that&#039;s never stopped us from exploring the topic before.&quot; This admission sets the stage for a rigorous, iterative process rather than a simple copy-paste of NBA methodology. The author leverages a decade of snap participation data, merging it with play-by-play metrics like Expected Points Added (EPA) to create a baseline. By applying &quot;heavier weights to more recent data,&quot; he attempts to solve the problem of obsolescence, noting that &quot;good play in 2025 matters more than good play in 2019.&quot; This approach mirrors the temporal decay concepts found in broader sports modeling, similar to the exponential decay methods used in predicting Super Bowl outcomes, yet Carpenter pushes further by testing a &quot;ridge regression&quot; to prevent statistical noise from distorting player value.</p>
+<figure class="inline-illustration">
+    <img src="../../images/44fd4ca0-82e3-4f59-9a49-4cc91380b78e.webp" alt="Regularized Adjusted Plus-Minus (RAPM) Metrics For NFL Players" loading="lazy" width="600" height="315">
+  </figure>
+
+<p>The core of his argument rests on the &quot;shrinkage&quot; technique, which pulls extreme values toward the mean. Carpenter explains, &quot;The ridge portion of this pulls everyone&#039;s average down towards zero, to try and avoid the classic pitfalls of the NBA&#039;s RAPM like over-valuing a player who doesn&#039;t play many minutes at all.&quot; This is a critical distinction. In basketball, a player with limited minutes might still have a massive impact per possession. In football, a lineman who plays one snap and gets lucky with a touchdown play could skew the entire dataset without this correction. Critics might note that even with shrinkage, the model struggles to isolate individual impact in a sport where 11 players move as a single unit, making the &quot;plus-minus&quot; concept inherently noisy.</p>
+<blockquote>&quot;Working with NFL data is like trying to get blood from a turnip, especially from free sources.&quot;</blockquote>
+<h2>The Iterative Process</h2>
+<p>Carpenter does not present a finished product but rather a transparent journey through failure and refinement. His first version (V1) of the metric produced results that felt intuitively wrong, heavily favoring players like Stefon Diggs and Tua Tagovailoa. He attributes this to the model&#039;s inability to account for game context, writing, &quot;I think this original model liked Stefon Diggs a lot because he was one of the only players in almost every participation dataset since 2016.&quot; The metric also inadvertently rewarded players who missed time due to injury, as their teammates&#039; struggles while they were absent inflated their &quot;on/off&quot; differential. Carpenter admits, &quot;This original measure is extremely inflating Tua Tagovailoa because of the poor quarterback play that happens down in Miami when he misses time.&quot;</p>
+<p>To address this, he pivots to a second version (V2), scaling the metric to 75 plays instead of the NBA-standard 100, a decision driven by the reality that &quot;the average NFL game has roughly 153 plays in it.&quot; He combines EPA with Win Probability Added (WPA) to discount &quot;garbage time&quot; contributions, a nuance often missing in standard efficiency stats. However, even this refinement had flaws. Carpenter observes, &quot;This one might actually be slightly more suspect though, since TJ Bass played fewer than 400 snaps for the Cowboys this season.&quot; The model continued to favor low-snap players, suggesting that the weighting of recency was too aggressive. This iterative transparency is the piece&#039;s greatest strength; it shows that advanced metrics are not static truths but evolving hypotheses.</p>
+<h2>Structural Limitations</h2>
+<p>Despite the sophisticated modeling, Carpenter is candid about the fundamental barriers preventing a perfect metric. He highlights the &quot;democratic&quot; nature of basketball responsibility versus the rigid specialization of football. &quot;The NBA simply has a larger sample size than the NFL does, and the sport lends itself to a more democratic form of responsibility than football does,&quot; he notes. The current model cannot distinguish between a defensive lineman who bull-rushes a quarterback and a wide receiver on the opposite side of the field who had no involvement in the play. &quot;If he lined up off the left tackle, bull-rushed him, and sacked the QB, this current RAPM formula punishes every player equally for being on the field for that negative play,&quot; Carpenter writes. This is a significant blind spot that no amount of regression can fully resolve without granular tracking data that is not yet widely available.</p>
+<p>Furthermore, the model struggles with special teams, a crucial third phase of the game. &quot;Apologies to special teams, and I&#039;m bummed I couldn&#039;t produce something that yielded effective results for them,&quot; he admits. This limitation underscores the difficulty of applying a unified metric to a sport with such distinct, non-overlapping roles. While the author successfully isolates offensive and defensive contributions, the inability to integrate special teams means the metric remains incomplete.</p>
+<blockquote>&quot;To think I could create an entire advanced metric in under a week was bold, and I had fun trying.&quot;</blockquote>
+<h2>Bottom Line</h2>
+<p>Carpenter&#039;s exploration of Regularized Adjusted Plus-Minus for the NFL is a masterclass in methodological humility, proving that the most valuable insights often come from understanding where a model fails. While the current iteration still overvalues players with limited snap counts and struggles to isolate individual impact in a team sport, the framework provides a necessary foundation for future refinement. The strongest part of this argument is its rejection of the &quot;black box&quot; approach, offering readers a clear view of the statistical trade-offs involved in quantifying football performance. The biggest vulnerability remains the data&#039;s inability to capture the specific spatial dynamics of a play, a hurdle that will require more than just better math to overcome.</p>
+      </div>
+
+      
+      
+      
+
+      <section id="excerpt"><section class="source-excerpts">
+      <h2>Sources</h2>
+      <article class="source-excerpt">
+      <h3>Regularized Adjusted Plus-Minus (RAPM) Metrics For NFL Players</h3>
+      <div class="source-meta">by Ray Carpenter &middot; <a href="../../publication/thespade/index.html">The Spade</a> &middot; <a href="https://thespade.substack.com/p/regularized-adjusted-plus-minus-rapm" target="_blank" rel="noopener">Read full article</a></div>
+      <p>Good morning everyone,</p><p>It’s the NFL off-season and we’re heading for an amazing March Madness. If I had to explain why I’m on a basketball kick again, those are probably the two reasons why. And of course, the endless pool of knowledge in the world of basketball analytics. A couple of weeks ago, I attempted to calculate NFL on/off stats since nflreadR released their snap participation data for the season and freed me from the shackles of web scraping. That was me dipping my toes in the shallow end of basketball analytics, and this week’s edition is me diving head first into the deep end. We’re going to attempt to apply an NBA stat called Regularized Adjusted Plus-Minus (RAPM) to football. </p><p>You may be asking yourself, what is adjusted plus-minus?  did a better job explaining it than I ever could here, and here. The gist of adjusted plus-minus is that it’s a stat trying to measure the impact of individual NBA players. Plus/minus ratings don’t exactly translate perfectly to NFL play, but that’s never stopped us from exploring the topic before. </p><p>The Spade is a weekly football analytics newsletter covering the NFL, college football, and everything in between. Lately we’ve been focused on the landscape of the college football transfer portal and applying NBA stats to the NFL. In the coming weeks, I’ll be publishing some NFL draft content. If that stuff sounds interesting to you, I’d love to have you along for the ride as a subscriber for free:</p><p>There’s a paid option as well if you’d like access to my coding tutorials for R, Python SQL, and soon, D3. Let’s dig up some more football data visualizations. </p><p>Inputs. <p>We’re using nflreadR’s participation data back from 2016 until now to grab snap participation data and merge it to play-by-play data that has all the good stuff we’re looking for, like Expected Points Added (EPA) per play. Like NBA RAPM, we’re applying heavier weights to more recent data. That’s just a fancy way of saying that good play in 2025 matters more than good play in 2019. I got that idea of recency decay from this paper by Joseph Sill, and applied something similar. I was messing with concepts of exponential decay back when we were predicting the Super Bowl winning Gatorade Shower color.</p><p>I chose a ridge regression for version 1 of the NFL RAPM equivalent. Per 100 plays, </p>...</p>
+    </article>
+    </section></section>
+      
+    </article>
+  
+  </main>
+  <footer class="site-footer">
+    <div class="container">
+      <p><a href="../../privacy/index.html">Privacy</a> &middot; <a href="../../terms/index.html">Terms</a></p>
+    </div>
+  </footer>
+  <script>
+  (function() {
+    var params = new URLSearchParams(window.location.search);
+    var from = params.get('from');
+    if (from) {
+      var names = {
+        'foreign-policy':'Foreign Policy','ai-tech':'AI & Tech','housing-cities':'Housing & Cities',
+        'political-strategy':'Political Strategy','history':'History','science':'Science',
+        'culture':'Culture','economics':'Economics','faith':'Faith','writing-craft':'Writing & Craft',
+        'music':'Music','law-rights':'Law & Rights','public-health':'Public Health',
+        'philosophy':'Philosophy','media':'Media','defense':'Defense','china':'China'
+      };
+      var link = document.getElementById('back-link');
+      if (link) {
+        var name = names[from] || from;
+        link.href = '../../tag/' + from + '/index.html';
+        link.textContent = '\u2190 Back to ' + name;
+      }
+    }
+  })();
+  </script>
+</body>
+</html>
