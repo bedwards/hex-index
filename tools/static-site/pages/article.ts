@@ -87,6 +87,35 @@ async function getCommentarySources(
   }
 }
 
+/**
+ * Returns the most recent source date for a consolidated commentary article,
+ * computed as MAX(GREATEST(src.published_at, src.created_at)) across all
+ * commentary_sources rows. Returns null if no sources / table missing.
+ */
+async function getMostRecentSourceAt(
+  pool: Pool,
+  commentaryArticleId: string
+): Promise<string | null> {
+  try {
+    const { rows } = await pool.query<{ most_recent: string | null }>(`
+      SELECT MAX(GREATEST(
+        COALESCE(src.published_at, 'epoch'::timestamptz),
+        src.created_at
+      )) AS most_recent
+      FROM app.commentary_sources cs
+      JOIN app.articles src ON src.id = cs.source_article_id
+      WHERE cs.commentary_article_id = $1
+    `, [commentaryArticleId]);
+    const v: unknown = rows[0]?.most_recent;
+    if (!v) {return null;}
+    if (v instanceof Date) {return v.toISOString();}
+    if (typeof v === 'string') {return v;}
+    return null;
+  } catch {
+    return null;
+  }
+}
+
 async function buildCommentarySources(
   pool: Pool,
   commentaryArticleId: string
@@ -248,7 +277,8 @@ export function generateArticlePage(
   affiliateTag: string,
   isFullRewrite: boolean = false,
   excerptHtml: string = '',
-  commentarySources: CommentarySource[] = []
+  commentarySources: CommentarySource[] = [],
+  mostRecentSourceAt: string | null = null
 ): string {
   const date = formatDate(article.published_at);
   const pathToRoot = '../../';
@@ -401,7 +431,7 @@ export function generateArticlePage(
     article.published_at,
     article.estimated_read_time_minutes,
     pathToRoot,
-    primarySource ? { primary: primarySource } : null
+    primarySource ? { primary: primarySource, mostRecentSourceAt } : null
   );
 
   const content = `
@@ -514,8 +544,11 @@ export async function generateArticlePages(
     const commentarySources = article.is_consolidated
       ? await buildCommentarySources(pool, article.id)
       : [];
+    const mostRecentSourceAt = article.is_consolidated
+      ? await getMostRecentSourceAt(pool, article.id)
+      : null;
 
-    const html = generateArticlePage(article, displayContent, wikipediaLinks, bookDeepDives, affiliateTag, hasRewrite, hasRewrite ? excerpt : '', commentarySources);
+    const html = generateArticlePage(article, displayContent, wikipediaLinks, bookDeepDives, affiliateTag, hasRewrite, hasRewrite ? excerpt : '', commentarySources, mostRecentSourceAt);
     const filePath = join(outputDir, 'article', article.id, 'index.html');
 
     await writeFile(filePath, html);

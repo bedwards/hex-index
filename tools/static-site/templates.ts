@@ -43,10 +43,14 @@ export interface CommentarySource {
 }
 
 /**
- * Render the top article-meta line.
- * For single-source articles: {author} · {publication} · {date} · {read-time}
- * For consolidated commentary: by Brian Edwards · multiple sources including
- *   {primary author}, {primary publication} · {date} · {read-time}
+ * Render the top article-meta block. Returns the byline line followed by a
+ * separate `<div class="source-date">` line with the publication date.
+ *
+ * Single-source: date = the article's `publishedAt`.
+ * Consolidated: date = `consolidated.mostRecentSourceAt` (most recent source).
+ *
+ * The date is intentionally NOT rendered inline in the byline anymore — it
+ * lives on its own line directly under the byline.
  */
 export function renderArticleMeta(
   author: string,
@@ -55,11 +59,15 @@ export function renderArticleMeta(
   publishedAt: string | null,
   readTimeMinutes: number,
   pathToRoot: string,
-  consolidated?: { primary: CommentarySource } | null
+  consolidated?: { primary: CommentarySource; mostRecentSourceAt: string | null } | null
 ): string {
-  const date = formatDate(publishedAt);
-  const dateHtml = date ? `<span class="separator">&middot;</span><time>${date}</time>` : '';
   const readHtml = `<span class="separator">&middot;</span><span class="read-time">${readTimeMinutes} min read</span>`;
+
+  const dateSource = consolidated ? consolidated.mostRecentSourceAt : publishedAt;
+  const formattedDate = formatDate(dateSource);
+  const sourceDateHtml = formattedDate
+    ? `\n      <div class="source-date"><time>${formattedDate}</time></div>`
+    : '';
 
   if (consolidated && consolidated.primary) {
     const p = consolidated.primary;
@@ -70,9 +78,8 @@ export function renderArticleMeta(
         <span class="multi-source-label">multiple sources including</span>
         <a href="${p.originalUrl}" target="_blank" rel="noopener" class="primary-source">${escapeHtml(p.author)}</a>,
         <a href="${pathToRoot}publication/${p.publicationSlug}/index.html" class="publication">${escapeHtml(p.publicationName)}</a>
-        ${dateHtml}
         ${readHtml}
-      </div>`;
+      </div>${sourceDateHtml}`;
   }
 
   return `
@@ -82,9 +89,8 @@ export function renderArticleMeta(
         <a href="${pathToRoot}publication/${publicationSlug}/index.html" class="publication">
           ${escapeHtml(publicationName)}
         </a>
-        ${dateHtml}
         ${readHtml}
-      </div>`;
+      </div>${sourceDateHtml}`;
 }
 
 /**

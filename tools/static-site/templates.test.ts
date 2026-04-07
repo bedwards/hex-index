@@ -47,24 +47,64 @@ function mkStaticArticle(overrides: Partial<StaticArticle> = {}): StaticArticle 
 }
 
 describe('renderArticleMeta', () => {
-  it('renders single-source meta unchanged', () => {
+  it('renders single-source meta with date on its own line under the byline', () => {
     const html = renderArticleMeta('Jane Doe', 'Example Pub', 'example-pub', '2026-04-01T00:00:00Z', 7, PATH, null);
     expect(html).toContain('<span class="author">Jane Doe</span>');
     expect(html).toContain('class="publication"');
     expect(html).toContain('7 min read');
     expect(html).not.toContain('multiple sources');
     expect(html).not.toContain('consolidated-meta');
+    // date is on its own line under the byline, not inline in the meta
+    expect(html).toContain('<div class="source-date"><time>');
+    const metaEnd = html.indexOf('</div>');
+    const dateIdx = html.indexOf('source-date');
+    expect(dateIdx).toBeGreaterThan(metaEnd);
+    // should not double-render: only one <time> element
+    expect(html.match(/<time>/g)?.length ?? 0).toBe(1);
   });
 
-  it('renders consolidated meta with "by Brian Edwards" and "multiple sources including"', () => {
+  it('omits source-date line entirely when no date is provided', () => {
+    const html = renderArticleMeta('Jane Doe', 'Example Pub', 'example-pub', null, 7, PATH, null);
+    expect(html).not.toContain('source-date');
+    expect(html).not.toContain('<time>');
+  });
+
+  it('renders consolidated meta with "by Brian Edwards" and uses mostRecentSourceAt for date line', () => {
     const primary = mkSource();
-    const html = renderArticleMeta('ignored', 'ignored', 'ignored', '2026-04-01T00:00:00Z', 12, PATH, { primary });
+    const html = renderArticleMeta(
+      'ignored',
+      'ignored',
+      'ignored',
+      '2026-04-01T00:00:00Z',
+      12,
+      PATH,
+      { primary, mostRecentSourceAt: '2026-05-15T12:00:00Z' }
+    );
     expect(html).toContain('consolidated-meta');
     expect(html).toContain('by Brian Edwards');
     expect(html).toContain('multiple sources including');
     expect(html).toContain('Jane Doe');
     expect(html).toContain('Example Pub');
     expect(html).toContain('12 min read');
+    // date line uses the most-recent source date, not the commentary's publishedAt
+    expect(html).toContain('<div class="source-date"><time>');
+    expect(html).toContain('2026'); // formatted somewhere
+    // ensure the date line appears after the consolidated-meta div
+    const metaIdx = html.indexOf('consolidated-meta');
+    const dateIdx = html.indexOf('source-date');
+    expect(dateIdx).toBeGreaterThan(metaIdx);
+    expect(html.match(/<time>/g)?.length ?? 0).toBe(1);
+  });
+
+  it('consolidated with null mostRecentSourceAt omits the date line', () => {
+    const primary = mkSource();
+    const html = renderArticleMeta(
+      'ignored', 'ignored', 'ignored', '2026-04-01T00:00:00Z', 12, PATH,
+      { primary, mostRecentSourceAt: null }
+    );
+    expect(html).toContain('consolidated-meta');
+    expect(html).not.toContain('source-date');
+    expect(html).not.toContain('<time>');
   });
 });
 
