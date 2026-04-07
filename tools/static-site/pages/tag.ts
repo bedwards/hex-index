@@ -11,6 +11,7 @@ import {
   type StaticArticle,
 } from '../templates.js';
 import { writeFile, extractExcerpt } from '../utils.js';
+import { failedGateSqlFragment } from '../../editorial/publish-gate.js';
 import { join } from 'path';
 import { readFile } from 'fs/promises';
 
@@ -81,6 +82,7 @@ async function getArticlesForTagPage(
       AND (a.rewritten_content_path IS NOT NULL OR a.is_consolidated = true)
       AND a.consolidated_into IS NULL
       AND a.image_path IS NOT NULL
+      AND ${failedGateSqlFragment('a')}
   `, [tagSlug]);
   const total = parseInt(countRows[0].count, 10);
 
@@ -106,6 +108,7 @@ async function getArticlesForTagPage(
     LEFT JOIN app.tags alt_t ON alt_t.slug = alt_tag.tag_slug
     WHERE (a.rewritten_content_path IS NOT NULL OR a.is_consolidated = true)
       AND a.consolidated_into IS NULL
+      AND ${failedGateSqlFragment('a')}
     ORDER BY a.published_at DESC NULLS LAST
     LIMIT $2 OFFSET $3
   `, [tagSlug, ARTICLES_PER_PAGE, offset]);
