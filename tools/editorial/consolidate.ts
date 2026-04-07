@@ -74,6 +74,7 @@ interface ArticleRow {
   content_path: string | null;
   full_content_path: string | null;
   affiliate_links: AffiliateLink[] | null;
+  image_path: string | null;
 }
 
 /** What a dry-run prints (and what mode A applies). */
@@ -178,7 +179,7 @@ async function loadArticleRows(
             a.publication_id, p.name AS publication_name,
             a.original_url, a.rewritten_content_path,
             a.content_path, a.full_content_path,
-            a.affiliate_links
+            a.affiliate_links, a.image_path
        FROM app.articles a
        JOIN app.publications p ON p.id = a.publication_id
       WHERE a.id = ANY($1::uuid[])`,
@@ -339,12 +340,14 @@ export async function runModeA(opts: ModeAOptions): Promise<ConsolidationPlan | 
 
   // Insert commentary article row. Slug derived from commentary id.
   const slug = `consolidated-${commentaryId.slice(0, 8)}`;
+  // Inherit image_path from the primary source so the new commentary
+  // satisfies the public-site readiness gate immediately (#472).
   await db.query(
     `INSERT INTO app.articles
        (id, publication_id, title, slug, original_url,
         rewritten_content_path, author_name,
-        media_type, is_consolidated, affiliate_links)
-     VALUES ($1, $2, $3, $4, $5, $6, $7, 'text', true, $8)`,
+        media_type, is_consolidated, affiliate_links, image_path)
+     VALUES ($1, $2, $3, $4, $5, $6, $7, 'text', true, $8, $9)`,
     [
       commentaryId,
       primaryRow.publication_id,
@@ -354,6 +357,7 @@ export async function runModeA(opts: ModeAOptions): Promise<ConsolidationPlan | 
       htmlPath,
       'Brian Edwards',
       JSON.stringify([]),
+      primaryRow.image_path,
     ],
   );
 
@@ -502,6 +506,14 @@ export async function runModeB(opts: ModeBOptions): Promise<void> {
         WHERE commentary_article_id = $1 AND source_article_id = $2`,
       [commentaryId, newSourceId],
     );
+    // The new source displaced the prior primary — inherit its image
+    // onto the commentary so the readiness gate stays satisfied (#472).
+    if (newRows[0].image_path) {
+      await db.query(
+        `UPDATE app.articles SET image_path = $1 WHERE id = $2`,
+        [newRows[0].image_path, commentaryId],
+      );
+    }
   }
 
   // Mark the new source consolidated_into the commentary.

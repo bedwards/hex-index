@@ -38,6 +38,7 @@ interface FakeArticle {
   affiliate_links: unknown;
   is_consolidated: boolean;
   consolidated_into: string | null;
+  image_path: string | null;
 }
 
 interface CommentarySourceRow {
@@ -105,6 +106,7 @@ class FakeDb {
           content_path: a.content_path,
           full_content_path: a.full_content_path,
           affiliate_links: a.affiliate_links,
+          image_path: a.image_path,
         }));
       return { rows: rows as unknown as T[] };
     }
@@ -152,8 +154,27 @@ class FakeDb {
     }
 
     if (s.startsWith('INSERT INTO app.articles')) {
-      const [id, publication_id, title, slug, original_url, rewritten_content_path, author_name] =
-        params as [string, string, string, string, string, string, string];
+      const [
+        id,
+        publication_id,
+        title,
+        slug,
+        original_url,
+        rewritten_content_path,
+        author_name,
+        ,
+        image_path,
+      ] = params as [
+        string,
+        string,
+        string,
+        string,
+        string,
+        string,
+        string,
+        string,
+        string | null,
+      ];
       const pub = [...this.articles.values()].find((a) => a.publication_id === publication_id);
       this.articles.set(id, {
         id,
@@ -169,6 +190,7 @@ class FakeDb {
         affiliate_links: [],
         is_consolidated: true,
         consolidated_into: null,
+        image_path: image_path ?? null,
       });
       return { rows: [] };
     }
@@ -217,6 +239,13 @@ class FakeDb {
     if (s.startsWith('DELETE FROM app.article_wikipedia_links')) {
       const articleId = params[0] as string;
       this.wikiLinks = this.wikiLinks.filter((l) => l.article_id !== articleId);
+      return { rows: [] };
+    }
+
+    if (s.startsWith('UPDATE app.articles SET image_path')) {
+      const [imagePath, id] = params as [string | null, string];
+      const a = this.articles.get(id);
+      if (a) { a.image_path = imagePath; }
       return { rows: [] };
     }
 
@@ -398,6 +427,7 @@ function seedGroup(db: FakeDb): CandidateGroup {
       affiliate_links: [],
       is_consolidated: false,
       consolidated_into: null,
+      image_path: `images/${id}.webp`,
     });
   };
   mk('aaaaaaaa-0000-0000-0000-000000000001', 'pub-alpha', 'Alice Adams', 'Grid strain rising');
@@ -566,6 +596,53 @@ describe('runModeA dry-run on a fixture group', () => {
     );
     expect(primaryRows).toHaveLength(1);
     expect(primaryRows[0].source_article_id).toBe(p.primarySourceId);
+
+    // Commentary inherits the primary source's image_path (#472).
+    const commentary = db.articles.get(p.commentaryId);
+    const primary = db.articles.get(p.primarySourceId);
+    expect(primary?.image_path).toBeTruthy();
+    expect(commentary?.image_path).toBe(primary?.image_path);
+  });
+
+  it('inherits primary source image_path on the new commentary row (#472)', async () => {
+    const db = new FakeDb();
+    const group = seedGroup(db);
+    const synth = makeStubSynthesizer();
+    const libraryRoot = await mkdtemp(join(tmpdir(), 'consolidate-img-'));
+
+    // Give each source a distinct image so we can check the right one wins.
+    let i = 0;
+    for (const a of db.articles.values()) {
+      a.image_path = `images/source-${i++}.webp`;
+    }
+
+    const plan = await runModeA({
+      db: db as unknown as Parameters<typeof runModeA>[0]['db'],
+      synthesizer: synth,
+      group,
+      groupIndex: 0,
+      apply: true,
+      libraryRoot,
+      loadSources: (rows) =>
+        Promise.resolve(rows.map((r, idx) => ({
+          id: r.id,
+          title: r.title,
+          author_name: r.author_name,
+          publication_id: r.publication_id,
+          publication_name: r.publication_name,
+          original_url: r.original_url,
+          // First source is the longest → stub picks it as primary.
+          rewritten_html: '<p>stub</p>'.repeat(idx === 0 ? 10 : 1),
+          excerpt: `excerpt for ${r.id}`,
+        }))),
+    });
+
+    expect(plan).not.toBeNull();
+    const p = plan as ConsolidationPlan;
+    const commentary = db.articles.get(p.commentaryId);
+    const primary = db.articles.get(p.primarySourceId);
+    expect(commentary?.image_path).not.toBeNull();
+    expect(commentary?.image_path).toBe(primary?.image_path);
   });
 
   it('skips and logs (does not throw) when synthesis always returns Trump output', async () => {
@@ -626,6 +703,7 @@ describe('runModeA dry-run on a fixture group', () => {
         affiliate_links: [],
         is_consolidated: false,
         consolidated_into: null,
+        image_path: `images/${id}.webp`,
       });
     };
     mk('bbbbbbbb-0000-0000-0000-000000000001', 'One');
@@ -718,6 +796,7 @@ describe('runBackfill --dry-run on multi-chunk fixture', () => {
           affiliate_links: [],
           is_consolidated: false,
           consolidated_into: null,
+          image_path: `images/${id}.webp`,
         });
         db.meta.set(id, { created_at: created, word_count: 1000, tags: [...tags] });
       };
@@ -812,6 +891,7 @@ describe('runModeB trigger prevents a 5th source', () => {
       affiliate_links: [],
       is_consolidated: true,
       consolidated_into: null,
+      image_path: null,
     });
     for (let i = 0; i < 4; i++) {
       db.commentarySources.push({
@@ -836,6 +916,7 @@ describe('runModeB trigger prevents a 5th source', () => {
       affiliate_links: [],
       is_consolidated: false,
       consolidated_into: null,
+      image_path: null,
     });
 
     const before = db.commentarySources.length;
