@@ -195,6 +195,14 @@ Excerpts are bordered block quotes styled with `.article-excerpt` / `.source-exc
 
 **Critical rule for Claude background workers writing rewrites:** write the HTML file directly into the **main repo** at `/Users/bedwards/hex-index/library/rewritten/...` (NOT into the agent's worktree-local library/) and commit it as part of the same change. If a worker writes to its own worktree's `library/`, the file vanishes when the worktree is cleaned and the DB ends up pointing at nothing.
 
+**Pre-commit drift guard (issue #474)**: `tools/ops/check-library-drift.ts` runs from `.husky/pre-commit` and blocks any commit that:
+
+1. Stages files under `docs/article/` or `docs/wikipedia/`,
+2. Stages **zero** files under `library/`,
+3. Stages **zero** files under `src/` or `tools/` (i.e. it's a pure docs static-regen, not a real code change),
+
+…while leaving uncommitted (untracked or unstaged-modified) `library/rewritten/**.html` or `library/wikipedia/**.html` files lying on disk. Those files are almost certainly the source content for the regenerated docs pages and would be wiped by the next `static:clean` or worktree teardown, 404'ing the article. Stage them and commit again, or delete them if they aren't the source.
+
 **Self-healing**: the article and wiki generators detect missing/empty content files at generation time and:
 1. Skip the page (no broken HTML emitted)
 2. For article rewrites: NULL `rewritten_content_path` and set `rewrite_dirty = true` so the scheduled rewrite job re-queues it
