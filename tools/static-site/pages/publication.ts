@@ -10,6 +10,7 @@ import {
   type StaticArticle,
 } from '../templates.js';
 import { writeFile, extractExcerpt, escapeHtml } from '../utils.js';
+import { failedGateSqlFragment } from '../../editorial/publish-gate.js';
 import { getDisplayTagsBulk, getConsolidationBulk } from './tag.js';
 import { join } from 'path';
 import { readFile } from 'fs/promises';
@@ -78,11 +79,12 @@ async function getPublicationArticleCount(
   publicationId: string
 ): Promise<number> {
   const result = await pool.query<{ count: string }>(`
-    SELECT COUNT(*) as count FROM app.articles
-    WHERE publication_id = $1
-      AND (rewritten_content_path IS NOT NULL OR is_consolidated = true)
-      AND consolidated_into IS NULL
-      AND image_path IS NOT NULL
+    SELECT COUNT(*) as count FROM app.articles a
+    WHERE a.publication_id = $1
+      AND (a.rewritten_content_path IS NOT NULL OR a.is_consolidated = true)
+      AND a.consolidated_into IS NULL
+      AND a.image_path IS NOT NULL
+      AND ${failedGateSqlFragment('a')}
   `, [publicationId]);
   return parseInt(result.rows[0].count, 10);
 }
@@ -99,20 +101,21 @@ async function getPublicationArticles(
 
   const result = await pool.query<ArticleRow>(`
     SELECT
-      id,
-      title,
-      author_name,
-      published_at,
-      estimated_read_time_minutes,
-      content_path,
-      image_path,
-      original_url
-    FROM app.articles
-    WHERE publication_id = $1
-      AND (rewritten_content_path IS NOT NULL OR is_consolidated = true)
-      AND consolidated_into IS NULL
-      AND image_path IS NOT NULL
-    ORDER BY published_at DESC NULLS LAST
+      a.id,
+      a.title,
+      a.author_name,
+      a.published_at,
+      a.estimated_read_time_minutes,
+      a.content_path,
+      a.image_path,
+      a.original_url
+    FROM app.articles a
+    WHERE a.publication_id = $1
+      AND (a.rewritten_content_path IS NOT NULL OR a.is_consolidated = true)
+      AND a.consolidated_into IS NULL
+      AND a.image_path IS NOT NULL
+      AND ${failedGateSqlFragment('a')}
+    ORDER BY a.published_at DESC NULLS LAST
     LIMIT $2 OFFSET $3
   `, [publicationId, ARTICLES_PER_PAGE, offset]);
 

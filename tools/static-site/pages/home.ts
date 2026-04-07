@@ -12,6 +12,7 @@ import {
   type TrendingArticle,
 } from '../templates.js';
 import { writeFile, extractExcerpt } from '../utils.js';
+import { failedGateSqlFragment } from '../../editorial/publish-gate.js';
 import { getDisplayTagsBulk, getConsolidationBulk } from './tag.js';
 import { join } from 'path';
 import { readFile } from 'fs/promises';
@@ -51,16 +52,20 @@ interface ArticleRow {
 /**
  * Get total article count
  */
-/** WHERE clause filtering out in-flight (not-yet-rewritten) articles and absorbed sources. */
-const READY_WHERE = `(
-  (a.rewritten_content_path IS NOT NULL OR a.is_consolidated = true)
-  AND (a.consolidated_into IS NULL)
-  AND (a.image_path IS NOT NULL)
-)`;
+/** WHERE clause filtering out in-flight (not-yet-rewritten) articles, absorbed
+ *  sources, and articles that failed this run's publish gate. */
+function readyWhereSql(): string {
+  return `(
+    (a.rewritten_content_path IS NOT NULL OR a.is_consolidated = true)
+    AND (a.consolidated_into IS NULL)
+    AND (a.image_path IS NOT NULL)
+    AND ${failedGateSqlFragment('a')}
+  )`;
+}
 
 async function getTotalArticleCount(pool: Pool): Promise<number> {
   const result = await pool.query<{ count: string }>(`
-    SELECT COUNT(*) as count FROM app.articles a WHERE ${READY_WHERE}
+    SELECT COUNT(*) as count FROM app.articles a WHERE ${readyWhereSql()}
   `);
   return parseInt(result.rows[0].count, 10);
 }
@@ -88,7 +93,7 @@ async function getArticlesForPage(
       a.original_url
     FROM app.articles a
     JOIN app.publications p ON a.publication_id = p.id
-    WHERE ${READY_WHERE}
+    WHERE ${readyWhereSql()}
     ORDER BY a.published_at DESC NULLS LAST
     LIMIT $1 OFFSET $2
   `, [ARTICLES_PER_PAGE, offset]);
@@ -155,7 +160,7 @@ export async function getTrendingConsolidations(
       HAVING MAX(GREATEST(COALESCE(src.published_at, 'epoch'::timestamptz), src.created_at))
              >= NOW() - INTERVAL '7 days'
     ) mr ON mr.commentary_article_id = a.id
-    WHERE ${READY_WHERE}
+    WHERE ${readyWhereSql()}
       AND a.is_consolidated = true
     ORDER BY mr.most_recent_source_created_at DESC
   `);

@@ -6,6 +6,7 @@
 import type { Pool } from 'pg';
 import { staticReadingLayout, renderArticleMeta, renderInterlacedSourcesAndDeepDives, type CommentarySource } from '../templates.js';
 import { writeFile, extractHtmlExcerpt, escapeHtml, formatDate, buildAmazonUrl, buildBWBUrl, loadAffiliateBooks, cleanTranscript } from '../utils.js';
+import { computeFailedGateIds, getFailedGateIds, runPublishGate } from '../../editorial/publish-gate.js';
 import { join } from 'path';
 import { readFile } from 'fs/promises';
 
@@ -535,8 +536,32 @@ export async function generateArticlePages(
   const affiliateTag = process.env.AMAZON_AFFILIATE_TAG ?? '';
   let pagesGenerated = 0;
 
+  // Publish gate: ensure the failed-set is populated for batch runs.
+  // generate.ts populates this before page generation, but tests and
+  // direct callers may bypass that path. For --article single runs we
+  // run the gate inline below instead of pre-scanning the whole DB.
+  if (!articleId && getFailedGateIds().size === 0) {
+    await computeFailedGateIds(pool);
+  }
+  const failedSet = getFailedGateIds();
+
   let _skipped = 0;
   for (const article of articles) {
+    // Publish gate: skip articles with broken internal links, missing
+    // bodies, or (for consolidated commentaries) zero deep dives.
+    if (articleId) {
+      const gate = await runPublishGate(pool, article.id);
+      if (!gate.ok) {
+        console.warn(`publish-gate: skipping ${article.id}: ${gate.failures.join('; ')}`);
+        _skipped++;
+        continue;
+      }
+    } else if (failedSet.has(article.id)) {
+      console.warn(`publish-gate: skipping ${article.id} (failed pre-scan)`);
+      _skipped++;
+      continue;
+    }
+
     // Runtime defense: NULL out broken content/rewrite paths in the DB.
     const auto = await autoNullBrokenArticlePaths({
       pool,

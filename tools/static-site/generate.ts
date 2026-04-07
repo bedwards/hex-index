@@ -31,9 +31,11 @@ import { generateWeeklyEpubs } from './pages/weekly.js';
 import { generateAboutPage } from './pages/about.js';
 import { generatePrivacyPage, generateTermsPage } from './pages/legal.js';
 import { ensureDir } from './utils.js';
-import { rm, cp, readFile, writeFile, readdir } from 'fs/promises';
+import { computeFailedGateIds } from '../editorial/publish-gate.js';
+import { rm, cp, readFile, writeFile, readdir, stat } from 'fs/promises';
 import { join } from 'path';
 import { existsSync } from 'fs';
+import type { Pool } from 'pg';
 
 config();
 
@@ -107,6 +109,28 @@ async function main(): Promise<void> {
 
     await ensureDir(OUTPUT_DIR);
 
+    // Publish gate: pre-scan eligible articles so listing queries and the
+    // article generator can skip broken articles consistently. Skipped for
+    // single-article runs (article.ts handles those inline).
+    if (!singleArticleId) {
+      console.info('Running publish gate pre-scan...');
+      const failed = await computeFailedGateIds(pool);
+      console.info(`  ${failed.length} article(s) hidden by publish gate\n`);
+    }
+
+    // Wikipedia staleness check: if the caller didn't ask for wikipedia
+    // regen explicitly, but new wiki articles have landed since the
+    // newest file in docs/wikipedia/ — or any article body references a
+    // /wikipedia/<slug>/ that's missing on disk — force a wiki regen.
+    // This is the systemic root cause of HX-002/003/004.
+    let forceWikipedia = false;
+    if (!singleArticleId && onlySet && !onlySet.has('wikipedia')) {
+      forceWikipedia = await wikipediaIsStale(pool, OUTPUT_DIR);
+      if (forceWikipedia) {
+        console.info('Wikipedia pages are stale — forcing wikipedia regen this run.\n');
+      }
+    }
+
     // Copy static assets
     if (shouldRun('assets') || (!onlySet && !singleArticleId)) {
       console.info('Copying static assets...');
@@ -141,7 +165,7 @@ async function main(): Promise<void> {
       console.info(`  ${articleResult.pagesGenerated} pages\n`);
     }
 
-    if (shouldRun('wikipedia')) {
+    if (shouldRun('wikipedia') || forceWikipedia) {
       console.info('Generating Wikipedia pages...');
       const wikiResult = await generateWikipediaPages(pool, OUTPUT_DIR);
       console.info(`  ${wikiResult.pagesGenerated} pages\n`);
@@ -189,6 +213,72 @@ async function main(): Promise<void> {
   } finally {
     await pool.end();
   }
+}
+
+/**
+ * Detect whether docs/wikipedia/ is stale relative to the database.
+ *
+ * Returns true if EITHER:
+ *   (a) Any wikipedia_articles row has updated_at newer than the newest
+ *       index.html under docs/wikipedia/, OR
+ *   (b) Any rewritten article body references a /wikipedia/<slug>/ path
+ *       whose docs/wikipedia/<slug>/index.html is missing on disk.
+ *
+ * This protects against the HX-002/003/004 root cause: running
+ * `--only home,articles,tags` and forgetting `wikipedia`.
+ */
+async function wikipediaIsStale(pool: Pool, outputDir: string): Promise<boolean> {
+  const wikiDir = join(outputDir, 'wikipedia');
+  if (!existsSync(wikiDir)) {return true;}
+
+  // Newest mtime under docs/wikipedia/. We sample by reading the
+  // top-level entries' index.html mtimes — sufficient for staleness.
+  let newestMs = 0;
+  try {
+    const entries = await readdir(wikiDir);
+    for (const slug of entries) {
+      try {
+        const st = await stat(join(wikiDir, slug, 'index.html'));
+        if (st.mtimeMs > newestMs) {newestMs = st.mtimeMs;}
+      } catch { /* skip */ }
+    }
+  } catch {
+    return true;
+  }
+
+  // (a) Any wiki row updated since the newest file?
+  try {
+    const { rows } = await pool.query<{ count: string }>(
+      `SELECT COUNT(*) AS count FROM app.wikipedia_articles
+       WHERE COALESCE(status, 'complete') = 'complete'
+         AND content_path IS NOT NULL
+         AND updated_at > to_timestamp($1)`,
+      [newestMs / 1000],
+    );
+    if (parseInt(rows[0]?.count ?? '0', 10) > 0) {return true;}
+  } catch {
+    // Column may not exist in some envs — fall through to check (b).
+  }
+
+  // (b) Any inline /wikipedia/<slug>/ referenced by an article body that
+  //     doesn't exist on disk yet?
+  try {
+    const { rows } = await pool.query<{ slug: string }>(
+      `SELECT DISTINCT w.slug
+       FROM app.article_wikipedia_links awl
+       JOIN app.wikipedia_articles w ON w.id = awl.wikipedia_id
+       WHERE COALESCE(w.status, 'complete') = 'complete'
+         AND w.rewrite_dirty = false
+         AND w.content_path IS NOT NULL`,
+    );
+    for (const { slug } of rows) {
+      if (!existsSync(join(wikiDir, slug, 'index.html'))) {return true;}
+    }
+  } catch {
+    /* ignore */
+  }
+
+  return false;
 }
 
 main().catch((err: unknown) => {
