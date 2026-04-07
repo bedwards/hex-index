@@ -7,7 +7,9 @@ import {
   staticLayout,
   renderStaticArticleCard,
   renderStaticPagination,
+  renderTrendingHero,
   type StaticArticle,
+  type TrendingArticle,
 } from '../templates.js';
 import { writeFile, extractExcerpt } from '../utils.js';
 import { getDisplayTagsBulk, getConsolidationBulk } from './tag.js';
@@ -119,13 +121,72 @@ async function getArticlesForPage(
 }
 
 /**
+ * Get consolidated commentaries with at least one source article
+ * (published or created) within the last 7 days. Ordered by the
+ * most-recent source's created_at DESC.
+ */
+export async function getTrendingConsolidations(
+  pool: Pool
+): Promise<TrendingArticle[]> {
+  const result = await pool.query<ArticleRow & { most_recent_source_created_at: string; source_count: string }>(`
+    SELECT
+      a.id,
+      a.title,
+      a.author_name,
+      p.name as publication_name,
+      p.slug as publication_slug,
+      a.published_at,
+      a.estimated_read_time_minutes,
+      a.content_path,
+      a.image_path,
+      a.original_url,
+      mr.most_recent_source_created_at,
+      mr.source_count
+    FROM app.articles a
+    JOIN app.publications p ON a.publication_id = p.id
+    JOIN (
+      SELECT
+        cs.commentary_article_id,
+        MAX(src.created_at) AS most_recent_source_created_at,
+        COUNT(*) AS source_count
+      FROM app.commentary_sources cs
+      JOIN app.articles src ON src.id = cs.source_article_id
+      GROUP BY cs.commentary_article_id
+      HAVING MAX(GREATEST(COALESCE(src.published_at, 'epoch'::timestamptz), src.created_at))
+             >= NOW() - INTERVAL '7 days'
+    ) mr ON mr.commentary_article_id = a.id
+    WHERE ${READY_WHERE}
+      AND a.is_consolidated = true
+    ORDER BY mr.most_recent_source_created_at DESC
+  `);
+
+  return result.rows.map((row) => ({
+    id: row.id,
+    title: row.title,
+    author: row.author_name ?? 'Unknown',
+    publicationName: row.publication_name,
+    publicationSlug: row.publication_slug,
+    publishedAt: row.published_at,
+    estimatedReadTimeMinutes: row.estimated_read_time_minutes,
+    excerpt: '',
+    url: row.original_url,
+    imagePath: row.image_path,
+    displayTag: null,
+    isConsolidated: true,
+    sourceCount: parseInt(row.source_count, 10),
+    mostRecentSourceAt: row.most_recent_source_created_at,
+  }));
+}
+
+/**
  * Generate a single home page
  */
 function generateHomePage(
   articles: StaticArticle[],
   currentPage: number,
   totalPages: number,
-  pathToRoot: string
+  pathToRoot: string,
+  trending: TrendingArticle[] = []
 ): string {
   const articleCards = articles
     .map((article) => renderStaticArticleCard(article, pathToRoot))
@@ -133,7 +194,11 @@ function generateHomePage(
 
   const pagination = renderStaticPagination(currentPage, totalPages, pathToRoot);
 
+  // Only render the trending hero on page 1.
+  const heroHtml = currentPage === 1 ? renderTrendingHero(trending, pathToRoot) : '';
+
   const content = `
+    ${heroHtml}
     <section class="article-list">
       ${articleCards}
       ${pagination}
@@ -152,6 +217,7 @@ export async function generateHomePages(
 ): Promise<{ pagesGenerated: number; articlesProcessed: number }> {
   const totalArticles = await getTotalArticleCount(pool);
   const totalPages = Math.ceil(totalArticles / ARTICLES_PER_PAGE);
+  const trending = await getTrendingConsolidations(pool);
 
   let articlesProcessed = 0;
 
@@ -162,7 +228,7 @@ export async function generateHomePages(
     // Path to root differs based on page location
     const pathToRoot = page === 1 ? './' : '../../';
 
-    const html = generateHomePage(articles, page, totalPages, pathToRoot);
+    const html = generateHomePage(articles, page, totalPages, pathToRoot, trending);
 
     // Write to appropriate location
     const filePath =
