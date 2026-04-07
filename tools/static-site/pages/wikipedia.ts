@@ -43,6 +43,9 @@ async function getAllWikipediaArticles(pool: Pool): Promise<WikipediaRow[]> {
       COALESCE(status, 'complete') AS status,
       affiliate_links
     FROM app.wikipedia_articles
+    WHERE COALESCE(status, 'complete') = 'complete'
+      AND rewrite_dirty = false
+      AND content_path IS NOT NULL
     ORDER BY created_at DESC
   `);
   return result.rows;
@@ -231,8 +234,13 @@ export async function generateWikipediaPages(
   for (const wiki of wikiArticles) {
     const content = await readWikipediaContent(wiki.content_path);
     // Skip wiki pages whose content file is missing or trivially small.
-    // Empty or near-empty pages look broken on the public site; better to 404.
+    // SYSTEMIC: when this happens, mark the wiki article as pending+dirty so the
+    // scheduled wiki-rewrite job re-queues it. The DB and disk must agree.
     if (content.trim().length < 200) {
+      await pool.query(
+        `UPDATE app.wikipedia_articles SET status = 'pending', rewrite_dirty = true WHERE id = $1`,
+        [wiki.id],
+      );
       _skipped++;
       continue;
     }

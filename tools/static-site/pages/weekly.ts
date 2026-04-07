@@ -431,6 +431,8 @@ async function getDeepDives(pool: Pool, articleId: string): Promise<WikipediaDee
     FROM app.article_wikipedia_links awl
     JOIN app.wikipedia_articles w ON awl.wikipedia_id = w.id
     WHERE awl.article_id = $1
+      AND COALESCE(w.status, 'complete') = 'complete'
+      AND w.rewrite_dirty = false
     ORDER BY awl.relevance_rank
   `, [articleId]);
   return rows;
