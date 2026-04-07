@@ -98,6 +98,16 @@ if [ -f content/ingest-subscribed.json ] && [ -f src/shared/banned-publications.
     fi
 fi
 
+# Library drift guard (issue #474)
+# Block docs-only static regen commits when matching library/ files are
+# untracked on disk — they would vanish on the next static:clean, 404'ing
+# the article.
+echo "Checking for library/ drift vs docs/ regen..."
+npx tsx tools/ops/check-library-drift.ts
+if [ $? -ne 0 ]; then
+    exit 1
+fi
+
 # Check source file alphabetical order
 echo "Checking source file order..."
 npm run lint:sources
