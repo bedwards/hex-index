@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dissecting Nvidia Blackwell - Tensor Cores, PTX Instructions, SASS, Floorsweep, Yield - Hex Index</title>
+  <link rel="stylesheet" href="../../styles.css">
+</head>
+<body class="reading-mode">
+  <header class="reading-header">
+    <a href="../../index.html" class="back-link" id="back-link">&larr; Back to Library</a>
+  </header>
+  <main class="reading-content">
+    
+    <article class="article-page">
+      <header class="article-header">
+        <h1>Dissecting Nvidia Blackwell - Tensor Cores, PTX Instructions, SASS, Floorsweep, Yield</h1>
+        
+      <div class="article-meta">
+        <span class="author">Dylan Patel</span>
+        <span class="separator">&middot;</span>
+        <a href="../../publication/semianalysis/index.html" class="publication">
+          SemiAnalysis
+        </a>
+        <span class="separator">&middot;</span><time>Mar 31, 2026</time>
+        <span class="separator">&middot;</span><span class="read-time">19 min read</span>
+      </div>
+      </header>
+
+      <div class="content-label">
+        <span class="label-text">Commentary by <a href="../../about/index.html">Brian Edwards</a></span>
+        <nav class="content-nav">
+          
+          <a href="https://newsletter.semianalysis.com/p/dissecting-nvidia-blackwell-tensor" target="_blank" rel="noopener">Original article &rarr;</a>
+        </nav>
+      </div>
+
+      
+      <div class="article-content">
+        <p>In a field where manufacturers guard their silicon secrets like state assets, Dylan Patel has done the impossible: he reverse-engineered the Blackwell GPU&#039;s internal logic without a single official whitepaper. By measuring raw instruction performance and mapping the physical layout of the chip&#039;s defects, Patel provides the first hard data on how this new architecture actually behaves under load, moving the industry from marketing slides to engineering reality.</p>
+<h2>The Architecture of Defects</h2>
+<p>Patel&#039;s most striking revelation is that the physical reality of the chip often contradicts the software&#039;s view of it. He writes, &quot;Manufacturing of semiconductors results in defects and those defects can land all over the chip. As such Nvidia has to engineer their chips in a way such that they can still have those yielded units still exposed to software in a relatively uniform way.&quot; This is a critical insight for anyone building infrastructure, as it means two chips with identical model numbers may have different physical layouts, leading to unpredictable performance if the software isn&#039;t robust.</p>
+<figure class="inline-illustration">
+    <img src="../../images/df20de99-c89b-4a14-9f31-22cea6f2c745.webp" alt="Dissecting Nvidia Blackwell - Tensor Cores, PTX Instructions, SASS, Floorsweep, Yield" loading="lazy" width="600" height="315">
+  </figure>
+
+<p>To solve this, the author details how engineers use &quot;floorsweeping&quot;—a technique where the software dynamically adjusts to which processing units are actually working. Patel notes that &quot;the number of yielded SMs per GPCs is not fixed, not the same between GPCs on the same chip, and may not even be symmetrical between dies in the same package.&quot; This complexity forces kernel developers to adopt fallback strategies, launching kernels with multiple cluster sizes to ensure no processing power is wasted. It is a sophisticated dance between hardware imperfection and software adaptability.</p>
+<blockquote>The logical groupings of SMs into GPCs tells us nothing about which GPC is on each of the two dies in the B200 package.</blockquote>
+<p>Patel&#039;s team went further, using pointer-chase arrays to measure latency between processing units, effectively creating a map of the chip&#039;s internal geography. They discovered a &quot;die-to-die latency penalty is roughly 300 cycles,&quot; a significant hurdle for workloads that require constant communication across the chip&#039;s dual-die structure. This finding is particularly relevant when considering the evolution of processor registers; just as historical register files had to balance speed and capacity, modern architects must now balance the speed of on-die communication against the physical limitations of multi-chip packaging.</p>
+<h2>Memory Subsystem: The Battle for Bandwidth</h2>
+<p>The article shifts to the memory subsystem, where the choice of data movement strategy can make or break an AI workload. Patel contrasts two primary methods: the older asynchronous copy (LDGSTS) and the newer Tensor Memory Accelerator (TMA). He observes that &quot;TMA is good for large loads with regular access patterns but has higher latency, while async copy can handle irregular memory access patterns but has size limits.&quot; This distinction is vital for developers tuning large language models, where data access patterns vary wildly between training and inference.</p>
+<p>Patel&#039;s benchmarking reveals that while async copy saturates quickly, TMA scales much further. &quot;Peak throughput is reached far later than LDGSTS,&quot; he writes, noting that TMA can continue scaling to 128 KiB of data in flight. This capability is essential for the massive matrices used in modern deep learning. However, the author also highlights a trade-off: &quot;Latency-wise, we see async copy having slightly lower latency than TMA before 12 KiB in flight, but TMA latency greatly increases after that.&quot;</p>
+<p>This nuanced analysis challenges the assumption that newer always means better in every context. Patel suggests that the industry is moving toward a hybrid approach, where libraries like FlashInfer use async copy for dynamic page loading and TMA for static matrix operations. He writes, &quot;In reality, Blackwell MLA kernels use async copy for dynamically loading pages, while its MHA kernels use only TMA.&quot; This strategic division of labor mirrors the historical evolution of systolic arrays, where specialized hardware units were designed to handle specific data flow patterns to maximize efficiency.</p>
+<blockquote>We suspect that for dynamic page loading, those kernels follow Hopper kernels, where they use 4D TMA with page index as the last dimension and index into the TensorMap object when needed.</blockquote>
+<p>Critics might note that without access to the proprietary source code of major libraries like TRT-LLM, much of this analysis remains speculative. Patel acknowledges this gap, urging the community for more transparency: &quot;To understand the exact mechanics of the kernels, we urge NVIDIA to open source the FlashInfer TRT-LLM kernels for the benefit of the community.&quot; Until then, the industry must rely on these reverse-engineered insights to optimize their systems.</p>
+<h2>The Future of Microbenchmarking</h2>
+<p>Patel positions this work as the beginning of a broader effort to demystify AI accelerators. He outlines plans to expand this analysis to other architectures, stating, &quot;Furthermore, we have concrete plans to benchmark TPU Pallas kernels, Trainium NKI kernels, and AMD CDNA4 assemblies.&quot; This comparative approach is crucial for a market increasingly dominated by a single vendor. By establishing a common language for performance, Patel&#039;s work empowers engineers to make informed decisions about hardware procurement and software optimization.</p>
+<p>The article concludes with a call to action for the engineering community. &quot;Join us if you want to work on low level benchmarking, ClusterMAX, inference simulators, or other interesting technical work,&quot; Patel writes, inviting others to join the effort of peeling back the layers of these complex machines. This collaborative spirit is essential, as the complexity of modern AI hardware is becoming too great for any single entity to fully understand in isolation.</p>
+<h2>Bottom Line</h2>
+<p>Patel&#039;s dissection of the Blackwell architecture provides a rare, data-driven look at the inner workings of the world&#039;s most advanced AI chips, exposing the intricate relationship between hardware defects and software performance. While the lack of official documentation forces some reliance on speculation, the empirical evidence presented here offers a solid foundation for the next generation of kernel optimization. The biggest takeaway is that the future of AI efficiency lies not just in raw compute power, but in the ability of software to adapt to the messy, imperfect reality of physical silicon.</p>
+      </div>
+
+      
+      
+      
+
+      
+      
+    </article>
+  
+  </main>
+  <footer class="site-footer">
+    <div class="container">
+      <p><a href="../../privacy/index.html">Privacy</a> &middot; <a href="../../terms/index.html">Terms</a></p>
+    </div>
+  </footer>
+  <script>
+  (function() {
+    var params = new URLSearchParams(window.location.search);
+    var from = params.get('from');
+    if (from) {
+      var names = {
+        'foreign-policy':'Foreign Policy','ai-tech':'AI & Tech','housing-cities':'Housing & Cities',
+        'political-strategy':'Political Strategy','history':'History','science':'Science',
+        'culture':'Culture','economics':'Economics','faith':'Faith','writing-craft':'Writing & Craft',
+        'music':'Music','law-rights':'Law & Rights','public-health':'Public Health',
+        'philosophy':'Philosophy','media':'Media','defense':'Defense','china':'China'
+      };
+      var link = document.getElementById('back-link');
+      if (link) {
+        var name = names[from] || from;
+        link.href = '../../tag/' + from + '/index.html';
+        link.textContent = '\u2190 Back to ' + name;
+      }
+    }
+  })();
+  </script>
+</body>
+</html>
