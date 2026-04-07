@@ -202,6 +202,7 @@ export async function generatePublicationPages(
           displayTag: tagMap.get(row.id) ?? null,
           isConsolidated: consolidation?.isConsolidated ?? false,
           sourceCount: consolidation?.sourceCount ?? 0,
+          primarySourceAuthor: consolidation?.primaryAuthor ?? null,
         });
       }
 

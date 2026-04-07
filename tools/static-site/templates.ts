@@ -24,6 +24,7 @@ export interface StaticArticle {
   displayTag: { slug: string; name: string } | null;
   isConsolidated?: boolean;
   sourceCount?: number;
+  primarySourceAuthor?: string | null;
 }
 
 export interface TrendingArticle extends StaticArticle {
@@ -406,29 +407,49 @@ export function renderStaticArticleCard(
     ? `<a href="${articleUrl}" class="article-thumb-link"><img class="article-thumb" src="${pathToRoot}${article.imagePath}" alt="${escapeHtml(article.title)}" loading="lazy" width="180" height="94"></a>`
     : '';
 
-  const isConsolidated = article.isConsolidated && (article.sourceCount ?? 0) > 1;
-  const displayAuthor = isConsolidated ? 'Brian Edwards' : article.author;
-  const badgeHtml = isConsolidated
-    ? `<span class="source-count-badge">${article.sourceCount} sources</span>`
+  const isConsolidated = !!article.isConsolidated && (article.sourceCount ?? 0) > 1;
+
+  const dateHtml = date ? `<span class="separator">&middot;</span><time>${date}</time>` : '';
+  const tagHtml = article.displayTag
+    ? `
+      <span class="separator">&middot;</span>
+      <a href="${pathToRoot}tag/${article.displayTag.slug}/index.html" class="article-tag">${escapeHtml(article.displayTag.name)}</a>`
     : '';
+
+  let metaInner: string;
+  if (isConsolidated) {
+    const others = Math.max(0, (article.sourceCount ?? 0) - 1);
+    const primaryAuthor = article.primarySourceAuthor ?? 'Unknown';
+    metaInner = `
+      <span class="multi-source-label">Multiple sources:</span>
+      <span class="primary-source">${escapeHtml(primaryAuthor)}</span>${others > 0 ? `
+      <span class="other-sources">and ${others} other${others === 1 ? '' : 's'}</span>` : ''}
+      <span class="separator">&middot;</span>
+      <a href="${pathToRoot}publication/${article.publicationSlug}/index.html" class="publication">
+        ${escapeHtml(article.publicationName)}
+      </a>
+      ${dateHtml}${tagHtml}`;
+  } else {
+    const readHtml = typeof article.estimatedReadTimeMinutes === 'number' && !Number.isNaN(article.estimatedReadTimeMinutes)
+      ? `
+      <span class="separator">&middot;</span>
+      <span class="read-time">${article.estimatedReadTimeMinutes} min read</span>`
+      : '';
+    metaInner = `
+      <span class="author">${escapeHtml(article.author)}</span>
+      <span class="separator">&middot;</span>
+      <a href="${pathToRoot}publication/${article.publicationSlug}/index.html" class="publication">
+        ${escapeHtml(article.publicationName)}
+      </a>
+      ${dateHtml}${readHtml}${tagHtml}`;
+  }
 
   return `<article class="article-card${isConsolidated ? ' consolidated' : ''}">
   <div>
     <a href="${articleUrl}" class="article-link">
       <h2 class="article-title">${escapeHtml(article.title)}</h2>
     </a>
-    <div class="article-meta">
-      <span class="author">${escapeHtml(displayAuthor)}</span>${badgeHtml ? `
-      ${badgeHtml}` : ''}
-      <span class="separator">&middot;</span>
-      <a href="${pathToRoot}publication/${article.publicationSlug}/index.html" class="publication">
-        ${escapeHtml(article.publicationName)}
-      </a>
-      ${date ? `<span class="separator">&middot;</span><time>${date}</time>` : ''}
-      <span class="separator">&middot;</span>
-      <span class="read-time">${article.estimatedReadTimeMinutes} min read</span>${article.displayTag ? `
-      <span class="separator">&middot;</span>
-      <a href="${pathToRoot}tag/${article.displayTag.slug}/index.html" class="article-tag">${escapeHtml(article.displayTag.name)}</a>` : ''}
+    <div class="article-meta">${metaInner}
     </div>
   </div>
   ${thumbHtml}
