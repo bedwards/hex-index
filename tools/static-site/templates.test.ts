@@ -8,8 +8,11 @@ import {
   renderSourceExcerpt,
   renderInterlacedSourcesAndDeepDives,
   renderStaticArticleCard,
+  renderTrendingHero,
+  formatTimeAgo,
   type CommentarySource,
   type StaticArticle,
+  type TrendingArticle,
 } from './templates.js';
 
 const PATH = '../../';
@@ -179,5 +182,60 @@ describe('renderStaticArticleCard', () => {
     );
     expect(html).not.toContain('source-count-badge');
     expect(html).not.toContain('Brian Edwards');
+  });
+});
+
+function mkTrending(overrides: Partial<TrendingArticle> = {}): TrendingArticle {
+  return {
+    ...mkStaticArticle(),
+    isConsolidated: true,
+    sourceCount: 3,
+    imagePath: 'images/foo.jpg',
+    mostRecentSourceAt: new Date(Date.now() - 3 * 24 * 60 * 60 * 1000).toISOString(),
+    ...overrides,
+  };
+}
+
+describe('formatTimeAgo', () => {
+  const now = new Date('2026-04-06T12:00:00Z');
+  it('formats minutes', () => {
+    expect(formatTimeAgo('2026-04-06T11:55:00Z', now)).toBe('5 minutes ago');
+  });
+  it('formats hours', () => {
+    expect(formatTimeAgo('2026-04-06T09:00:00Z', now)).toBe('3 hours ago');
+  });
+  it('formats days', () => {
+    expect(formatTimeAgo('2026-04-03T12:00:00Z', now)).toBe('3 days ago');
+  });
+  it('singularizes 1 day', () => {
+    expect(formatTimeAgo('2026-04-05T12:00:00Z', now)).toBe('1 day ago');
+  });
+});
+
+describe('renderTrendingHero', () => {
+  it('returns empty string when there are no trending consolidations', () => {
+    expect(renderTrendingHero([], './')).toBe('');
+  });
+
+  it('renders a section with header, card, image, badge, author, and time ago', () => {
+    const html = renderTrendingHero([mkTrending({ id: 'abc', title: 'Big Story', sourceCount: 4 })], './');
+    expect(html).toContain('class="trending-hero"');
+    expect(html).toContain('Trending story lines');
+    expect(html).toContain('class="trending-card"');
+    expect(html).toContain('class="trending-grid"');
+    expect(html).toContain('href="./article/abc/index.html"');
+    expect(html).toContain('<h3 class="trending-title">Big Story</h3>');
+    expect(html).toContain('by Brian Edwards');
+    expect(html).toContain('4 sources');
+    expect(html).toContain('days ago');
+    expect(html).toContain('src="./images/foo.jpg"');
+  });
+
+  it('renders multiple cards in order', () => {
+    const html = renderTrendingHero([
+      mkTrending({ id: 'first', title: 'First Story' }),
+      mkTrending({ id: 'second', title: 'Second Story' }),
+    ], './');
+    expect(html.indexOf('First Story')).toBeLessThan(html.indexOf('Second Story'));
   });
 });

@@ -26,6 +26,71 @@ export interface StaticArticle {
   sourceCount?: number;
 }
 
+export interface TrendingArticle extends StaticArticle {
+  /** ISO timestamp of the most recent source's created_at (drives ordering + "time ago"). */
+  mostRecentSourceAt: string;
+}
+
+/**
+ * Format an ISO timestamp as a short relative phrase: "3 days ago", "5 hours ago", etc.
+ * Exported for tests.
+ */
+export function formatTimeAgo(iso: string, now: Date = new Date()): string {
+  const then = new Date(iso).getTime();
+  if (Number.isNaN(then)) {return '';}
+  const diffMs = Math.max(0, now.getTime() - then);
+  const mins = Math.floor(diffMs / 60000);
+  if (mins < 1) {return 'just now';}
+  if (mins < 60) {return `${mins} minute${mins === 1 ? '' : 's'} ago`;}
+  const hours = Math.floor(mins / 60);
+  if (hours < 24) {return `${hours} hour${hours === 1 ? '' : 's'} ago`;}
+  const days = Math.floor(hours / 24);
+  if (days < 7) {return `${days} day${days === 1 ? '' : 's'} ago`;}
+  const weeks = Math.floor(days / 7);
+  return `${weeks} week${weeks === 1 ? '' : 's'} ago`;
+}
+
+/**
+ * Render the "Trending story lines" hero section for the home page.
+ * Returns an empty string when there are no qualifying consolidations,
+ * so the home page renders identically to before.
+ */
+export function renderTrendingHero(
+  trending: TrendingArticle[],
+  pathToRoot: string = './'
+): string {
+  if (trending.length === 0) {return '';}
+
+  const cards = trending.map((a) => {
+    const articleUrl = `${pathToRoot}article/${a.id}/index.html`;
+    const imgHtml = a.imagePath
+      ? `<a href="${articleUrl}" class="trending-thumb-link"><img class="trending-thumb" src="${pathToRoot}${a.imagePath}" alt="${escapeHtml(a.title)}" loading="lazy"></a>`
+      : '';
+    const sourceCount = a.sourceCount ?? 0;
+    const timeAgo = formatTimeAgo(a.mostRecentSourceAt);
+    return `<article class="trending-card">
+  ${imgHtml}
+  <div class="trending-body">
+    <a href="${articleUrl}" class="trending-link">
+      <h3 class="trending-title">${escapeHtml(a.title)}</h3>
+    </a>
+    <div class="trending-meta">
+      <span class="trending-author">by Brian Edwards</span>
+      <span class="source-count-badge">${sourceCount} sources</span>
+      ${timeAgo ? `<span class="trending-time">${escapeHtml(timeAgo)}</span>` : ''}
+    </div>
+  </div>
+</article>`;
+  }).join('\n');
+
+  return `<section class="trending-hero" aria-label="Trending story lines">
+  <h2 class="trending-hero-title">Trending story lines</h2>
+  <div class="trending-grid">
+    ${cards}
+  </div>
+</section>`;
+}
+
 /**
  * A source article that was synthesized into a multi-source commentary.
  * Position is 0-based and determines ordering + interlacing with deep dives.
