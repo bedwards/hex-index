@@ -1,8 +1,12 @@
 name: Claude Code Review
 
 on:
-  pull_request:
-    types: [opened, synchronize]
+  # Disabled per editorial decision 2026-04-08: Gemini Code Assist is the
+  # only PR reviewer now. Claude review was too slow. Re-enable by restoring
+  # the pull_request trigger below.
+  workflow_dispatch:
+  # pull_request:
+  #   types: [opened, synchronize]
     # Optional: Only run on specific file changes
     # paths:
     #   - "src/**/*.ts"
