@@ -3,6 +3,7 @@
  * Applied at ingestion time and as a one-time backfill.
  */
 import { toSentenceCase } from './sentence-case.js';
+import { stripPublicationFromTitle } from './strip-publication.js';
 
 /**
  * Editorial policy: replace "Trump" / "Donald Trump" / possessive variants in
@@ -84,11 +85,24 @@ export function decodeHtmlEntities(input: string): string {
   return out;
 }
 
-export function normalizeTitle(title: string): string {
+export interface NormalizeTitleOptions {
+  /** When provided, strip a redundant publication-name prefix/suffix early. */
+  publicationName?: string;
+}
+
+export function normalizeTitle(title: string, opts: NormalizeTitleOptions = {}): string {
   // Decode HTML entities FIRST so every downstream rule sees real characters.
   let t = decodeHtmlEntities(title).trim();
 
-  // Editorial policy: strip Trump references before any other processing.
+  // Strip redundant publication-name prefix/suffix (e.g. "ChinaTalk: Iran").
+  // Must run BEFORE stripTrump: if a publication name contains "Trump"
+  // (e.g. "The Trump Report"), stripTrump would rewrite it to
+  // "the administration Report" and the publication-name match would fail.
+  if (opts.publicationName) {
+    t = stripPublicationFromTitle(t, opts.publicationName);
+  }
+
+  // Editorial policy: strip Trump references.
   t = stripTrump(t);
 
   // Strip emoji prefixes (e.g., "🧠 Community Wisdom: ...")

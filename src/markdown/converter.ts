@@ -238,7 +238,7 @@ export function convertFeedItem(
   const links = extractLinks(item.contentHtml, item.url);
 
   const metadata: ArticleMetadata = {
-    title: normalizeTitle(item.title),
+    title: normalizeTitle(item.title, { publicationName: publication.name }),
     author: item.author,
     publication: publication.name,
     publication_slug: publication.slug,

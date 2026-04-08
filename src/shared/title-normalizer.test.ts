@@ -132,6 +132,29 @@ describe('normalizeTitle', () => {
   it('handles whitespace-only string', () => {
     expect(normalizeTitle('   ')).toBe('');
   });
+
+  it('strips redundant publication-name prefix when publicationName is given', () => {
+    expect(normalizeTitle('ChinaTalk: Iran policy shift', { publicationName: 'ChinaTalk' }))
+      .toBe('Iran policy shift');
+  });
+
+  it('strips publication-name prefix with optional leading "The"', () => {
+    expect(normalizeTitle('The Cyber Why: What we read this week', { publicationName: 'The Cyber Why' }))
+      .toBe('What we read this week');
+  });
+
+  it('strips publication containing "Trump" BEFORE stripTrump rewrites it', () => {
+    // Regression: if stripTrump ran first, "The Trump Report" would become
+    // "The administration Report" and the publication-name match would fail,
+    // leaving a mangled title. The pub-name strip must run first.
+    expect(normalizeTitle('The Trump Report: Q3 earnings', { publicationName: 'The Trump Report' }))
+      .toBe('Q3 earnings');
+  });
+
+  it('leaves title unchanged when publicationName does not match', () => {
+    expect(normalizeTitle('Random title about cyberattacks', { publicationName: 'The Cyber Why' }))
+      .toBe('Random title about cyberattacks');
+  });
 });
 
 describe('stripTrump (editorial policy: replace with "the administration")', () => {
