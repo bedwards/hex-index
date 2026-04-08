@@ -2,34 +2,34 @@ import { describe, it, expect } from 'vitest';
 import { normalizeTitle, stripTrump } from './title-normalizer.js';
 
 describe('normalizeTitle', () => {
-  it('fixes ALL CAPS titles', () => {
+  it('fixes ALL CAPS titles to sentence case', () => {
     expect(normalizeTitle('WHY WE REMAIN ALIVE IN A DEAD INTERNET'))
-      .toBe('Why We Remain Alive In A Dead Internet');
+      .toBe('Why we remain alive in a dead internet');
   });
 
-  it('preserves common acronyms in title case conversion', () => {
+  it('preserves common acronyms in sentence case conversion', () => {
     expect(normalizeTitle('THE AI REVOLUTION IN THE USA'))
-      .toBe('The AI Revolution In The USA');
+      .toBe('The AI revolution in the USA');
   });
 
   it('strips YouTube channel suffixes', () => {
     expect(normalizeTitle('How Caligula Took Power | Kings and Generals'))
-      .toBe('How Caligula Took Power');
+      .toBe('How caligula took power');
   });
 
   it('truncates at first // for newsletter titles', () => {
     expect(normalizeTitle('BREAKING NEWS: THE LATEST STORY TODAY // STORY B // STORY C'))
-      .toBe('Breaking News: The Latest Story Today');
+      .toBe('Breaking news: The latest story today');
   });
 
   it('collapses excessive punctuation', () => {
     expect(normalizeTitle('DELETE WHATSAPP ALREADY!!!'))
-      .toBe('Delete Whatsapp Already!');
+      .toBe('Delete Whatsapp already!');
   });
 
   it('strips emoji prefixes', () => {
     expect(normalizeTitle('\u{1F9E0} Community Wisdom: Topic Here'))
-      .toBe('Community Wisdom: Topic Here');
+      .toBe('Community wisdom: Topic here');
   });
 
   it('caps at 100 chars with word boundary', () => {
@@ -38,61 +38,91 @@ describe('normalizeTitle', () => {
     expect(result.length).toBeLessThanOrEqual(101); // 100 + ellipsis char
   });
 
-  it('leaves good titles unchanged', () => {
-    expect(normalizeTitle("Why Net Zero Isn't Working"))
-      .toBe("Why Net Zero Isn't Working");
+  it('leaves good sentence-case titles unchanged', () => {
+    expect(normalizeTitle("Why net zero isn't working"))
+      .toBe("Why net zero isn't working");
   });
 
   it('handles pipe with long suffix (keeps it)', () => {
     expect(normalizeTitle('Topic | This Is A Very Long Channel Name That Has Many Words'))
-      .toBe('Topic | This Is A Very Long Channel Name That Has Many Words');
+      .toBe('Topic | this is a very long channel name that has many words');
   });
 
   it('does not strip pipe when suffix has more than 5 words', () => {
     expect(normalizeTitle('Title Here | One Two Three Four Five Six'))
-      .toBe('Title Here | One Two Three Four Five Six');
+      .toBe('Title here | one two three four five six');
   });
 
-  it('handles mixed case titles (not all caps)', () => {
-    expect(normalizeTitle('The Great Gatsby and American Dreams'))
-      .toBe('The Great Gatsby and American Dreams');
+  it('handles mixed case Title Case titles', () => {
+    expect(normalizeTitle('The Great Gatsby And American Dreams'))
+      .toBe('The great gatsby and American dreams');
   });
 
   it('strips trailing periods', () => {
-    expect(normalizeTitle('The End of History.')).toBe('The End of History');
+    expect(normalizeTitle('The End of History.')).toBe('The end of history');
   });
 
   it('strips trailing period with whitespace', () => {
-    expect(normalizeTitle('The End of History.  ')).toBe('The End of History');
+    expect(normalizeTitle('The End of History.  ')).toBe('The end of history');
   });
 
   it('strips multiple trailing periods', () => {
-    expect(normalizeTitle('The End of History..')).toBe('The End of History');
+    expect(normalizeTitle('The End of History..')).toBe('The end of history');
   });
 
   it('strips parenthetical asides at end', () => {
     expect(normalizeTitle('The Administration Fires FBI Director (Full Interview)'))
-      .toBe('The Administration Fires FBI Director');
+      .toBe('The administration fires FBI director');
   });
 
   it('keeps parenthetical in middle of title', () => {
     expect(normalizeTitle('The (Real) Story Behind AI'))
-      .toBe('The (Real) Story Behind AI');
+      .toBe('The (real) story behind AI');
   });
 
-  it('fixes individual ALL CAPS words in mixed-case titles', () => {
+  it('lowercases individual ALL CAPS words in mixed-case titles', () => {
     expect(normalizeTitle('How MASSIVELY Powerful AI Will Change Everything'))
-      .toBe('How Massively Powerful AI Will Change Everything');
+      .toBe('How massively powerful AI will change everything');
   });
 
   it('preserves known acronyms in mixed-case titles', () => {
     expect(normalizeTitle('The DOGE Movement and NASA Plans'))
-      .toBe('The DOGE Movement and NASA Plans');
+      .toBe('The DOGE movement and NASA plans');
   });
 
-  it('does not touch short uppercase words (3 or fewer letters)', () => {
+  it('preserves short uppercase acronyms (FBI, CIA)', () => {
     expect(normalizeTitle('The FBI and CIA Work Together'))
-      .toBe('The FBI and CIA Work Together');
+      .toBe('The FBI and CIA work together');
+  });
+
+  it('preserves proper nouns (countries) in ALL CAPS titles', () => {
+    expect(normalizeTitle('THE BATTLE FOR KENTUCKY AND THE RUSSIAN WINTER'))
+      .toBe('The battle for Kentucky and the Russian winter');
+  });
+
+  it('preserves NCAA acronym', () => {
+    expect(normalizeTitle('NCAA TOURNAMENT BRACKETS REVEALED'))
+      .toBe('NCAA tournament brackets revealed');
+  });
+
+  it("handles possessive proper nouns (russia's → Russia's)", () => {
+    expect(normalizeTitle("RUSSIA'S WINTER OFFENSIVE STALLS"))
+      .toBe("Russia's winter offensive stalls");
+  });
+
+  it('preserves intra-cap brand iPhone', () => {
+    expect(normalizeTitle('The new iPhone launch event'))
+      .toBe('The new iPhone launch event');
+  });
+
+  it("preserves McDonald's as intra-cap proper noun", () => {
+    expect(normalizeTitle("McDonald's new menu items"))
+      .toBe("McDonald's new menu items");
+  });
+
+  it('capitalizes after a colon (new sentence start)', () => {
+    expect(normalizeTitle('breaking: a new era begins'))
+      .toBe('Breaking: A new era begins');
   });
 
   it('handles empty string', () => {

@@ -2,6 +2,8 @@
  * Normalize article titles — deterministic rules, no LLM needed.
  * Applied at ingestion time and as a one-time backfill.
  */
+import { toSentenceCase } from './sentence-case.js';
+
 /**
  * Editorial policy: replace "Trump" / "Donald Trump" / possessive variants in
  * titles with the neutral noun phrase "the administration", so the resulting
@@ -104,31 +106,15 @@ export function normalizeTitle(title: string): string {
     t = t.split(' // ')[0].trim();
   }
 
-  // Fix ALL CAPS (3+ consecutive uppercase words) to Title Case
-  // Runs after pipe/slash cleanup so shortened titles get checked too
-  if (/^[A-Z][A-Z\s:!?,.'"-]{20,}$/.test(t) && !/[a-z]/.test(t)) {
-    t = t.toLowerCase().replace(/\b\w/g, c => c.toUpperCase());
-    // Keep common acronyms uppercase
-    t = t.replace(
-      /\b(Ai|Usa|Uk|Eu|Nato|Doge|Ice|Llm|Api|Gpt|Us|Cia|Fbi|Nsa|Doj|Gdp)\b/g,
-      m => m.toUpperCase(),
-    );
-  }
+  // Enforce sentence case: capitalize only the first word and proper nouns.
+  // Replaces the old ALL-CAPS-to-Title-Case and individual-ALL-CAPS-word blocks.
+  t = toSentenceCase(t);
 
   // Strip trailing periods
   t = t.replace(/\.+\s*$/, '');
 
   // Strip parenthetical asides at end
   t = t.replace(/\s*\([^)]{0,40}\)\s*$/, '').trim();
-
-  // Fix individual ALL CAPS words (4+ letters) in mixed-case titles
-  const knownAcronyms = new Set(['AIDS','API','BBC','CEO','CIA','CTO','DOGE','DOJ','EPA','EU','FBI','FEMA','FTC','GDP','GOP','GPT','ICE','IMF','IRAN','IRS','ISIS','LLM','NASA','NATO','NBA','NFL','NSA','OPEC','SEC','UK','UN','US','USA','WHO','CLAUDE']);
-  if (/[a-z]/.test(t)) {
-    t = t.replace(/\b([A-Z]{4,})\b/g, (match) => {
-      if (knownAcronyms.has(match)) { return match; }
-      return match.charAt(0) + match.slice(1).toLowerCase();
-    });
-  }
 
   // Collapse excessive punctuation
   t = t.replace(/!{2,}/g, '!').replace(/\?{2,}/g, '?');

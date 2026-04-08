@@ -150,6 +150,7 @@ EDITORIAL POLICY — NON-NEGOTIABLE:
 - Include 1–2 pull quotes.
 - Output clean, semantic HTML suitable for Speechify text-to-speech. No widgets, share buttons, empty paragraphs, or JavaScript.
 - Write an ORIGINAL title — do not lift a title from any source.
+- TITLE FORMAT: Use SENTENCE CASE for the title — capitalize only the first word and proper nouns (people, places, brands, acronyms like NASA or AI). Do NOT use Title Case. Example: "Three clocks and a closed strait: Why the Iran war resists a clean ending".
 
 SOURCES:
 `;
@@ -205,6 +206,7 @@ EDITORIAL POLICY — NON-NEGOTIABLE:
 - Preserve direct quotes from every source, attributed by author.
 - Keep the Bottom Line section and counterpoints structure.
 - Clean semantic HTML for Speechify.
+- TITLE FORMAT: Use SENTENCE CASE for the title — capitalize only the first word and proper nouns (people, places, brands, acronyms). Do NOT use Title Case. Example: "Three clocks and a closed strait: Why the Iran war resists a clean ending".
 
 EXISTING COMMENTARY:
 title: ${existingTitle}
