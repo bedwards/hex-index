@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Exposing The Flaw In Our Phone System - Hex Index</title>
+  <link rel="stylesheet" href="../../styles.css">
+</head>
+<body class="reading-mode">
+  <header class="reading-header">
+    <a href="../../index.html" class="back-link" id="back-link">&larr; Back to Library</a>
+  </header>
+  <main class="reading-content">
+    
+    <article class="article-page">
+      <header class="article-header">
+        <h1>Exposing The Flaw In Our Phone System</h1>
+        
+      <div class="article-meta">
+        <span class="author">Derek Muller</span>
+        <span class="separator">&middot;</span>
+        <a href="../../publication/veritasium/index.html" class="publication">
+          Veritasium
+        </a>
+        <span class="separator">&middot;</span><time>Sep 21, 2024</time>
+        <span class="separator">&middot;</span><span class="read-time">26 min read</span>
+      </div>
+      </header>
+
+      <div class="content-label">
+        <span class="label-text">Commentary by <a href="../../about/index.html">Brian Edwards</a></span>
+        <nav class="content-nav">
+          
+          <a href="https://www.youtube.com/watch?v=wVyu7NB7W6Y" target="_blank" rel="noopener">Original video &rarr;</a>
+        </nav>
+      </div>
+
+      
+      <div class="article-content">
+        <p>Most people assume their phone calls are private by default, protected by layers of modern encryption and corporate security. Derek Muller dismantles that assumption with a chilling demonstration: the entire global mobile network is built on a 40-year-old protocol that can be infiltrated for a few thousand dollars a month, allowing attackers to reroute calls, steal two-factor codes, and spy on anyone without ever touching their device.</p>
+<h2>The Ghost in the Machine</h2>
+<p>Muller begins not with a complex hack, but with a historical lesson that reframes the entire vulnerability. He traces the lineage of phone hacking back to the 1970s, when Steve Jobs and Steve Wozniak built &quot;blue boxes&quot; to exploit the analog signaling of the time. &quot;We were young and what we learned was that we could build something ourselves that could control billions of dollars worth of infrastructure in the world,&quot; Muller writes, quoting the founders. This historical context is crucial; it establishes that the phone network was never designed with security as a primary constraint, but rather with cost and automation in mind.</p>
+<figure class="inline-illustration">
+    <img src="../../images/454af5e2-5e0b-49e2-a243-0fcabda80074.webp" alt="Exposing The Flaw In Our Phone System" loading="lazy" width="600" height="315">
+  </figure>
+
+<p>The piece details how the transition from rotary dials to touch-tone phones introduced a fatal flaw: control signals were sent as audible tones within the voice band. &quot;When you made a long-distance call it was first routed to a central node... this would trick the remote node into thinking the call had been disconnected,&quot; Muller explains. This allowed early hackers to hijack lines simply by whistling a specific frequency. While the industry eventually moved to a digital protocol called Signaling System 7 (SS7) to separate control signals from voice, Muller argues that the fundamental trust model remained broken.</p>
+<blockquote>The whole system is designed to be a closed network with few barriers once inside.</blockquote>
+<p>This framing is effective because it shifts the blame from individual user error to systemic architectural failure. The network operates on a &quot;Walled Garden&quot; approach, where telecom operators trust each other implicitly. As Muller notes, &quot;Telcos generally accept messages only from Global titles with which they have agreements.&quot; The problem, he argues, is that the garden has become overrun. With over 1,200 operators and 4,500 networks today, the &quot;closed&quot; system is now a chaotic marketplace where trust is easily bought.</p>
+<h2>The Price of Access</h2>
+<p>The most disturbing revelation in the piece is the accessibility of the exploit. Muller doesn&#039;t describe a shadowy state actor with unlimited resources; he describes a commercial marketplace. &quot;Buying a single SS7 connection isn&#039;t that expensive we&#039;re talking a few thousand per month,&quot; he writes. The barrier to entry is so low that the network is vulnerable to anyone with a credit card and a grudge.</p>
+<p>Muller illustrates this by purchasing access to the network himself, paying for a valid Global Title to demonstrate how easily one can bypass firewalls. &quot;The people who do sell access I mean why why would they do it people sell SS7 access for one reason money,&quot; he observes. This commercialization of surveillance infrastructure is a stark departure from the era of state-sponsored hacking. The vulnerability isn&#039;t just a bug; it&#039;s a business model.</p>
+<p>Critics might note that major carriers have implemented firewalls to block suspicious traffic, and that this attack requires specific conditions to succeed. However, Muller counters this by showing that these defenses are inconsistent. &quot;There are probably thousands of ways into SS7 at reasonable effort or cost,&quot; he argues, pointing out that virtual operators and smaller providers often lack the security rigor of their larger counterparts.</p>
+<h2>The Demonstration of Failure</h2>
+<p>To prove the point, Muller stages a live attack on a willing participant, Lonus. The result is a masterclass in how invisible the breach is. &quot;I didn&#039;t get I mine didn&#039;t even ring we didn&#039;t touch his phone we didn&#039;t send him an email or a text nothing we did it all remotely,&quot; Muller recounts. The attacker, posing as a friend, calls Lonus, but the call is silently rerouted to Muller&#039;s computer. Lonus&#039;s phone remains silent, yet the attacker can speak to the caller and intercept the conversation.</p>
+<p>The mechanism relies on tricking the network into believing the target&#039;s phone is roaming in a different country. &quot;By tricking the network into thinking his phone is roaming we can rewrite the number he is calling to a number that we control,&quot; Muller explains. This allows the attacker to intercept calls even if the target is in their home country, effectively hijacking the identity of the SIM card without a SIM swap.</p>
+<blockquote>This is like freaking but on a completely different level.</blockquote>
+<p>The demonstration highlights a terrifying reality: two-factor authentication, which relies on SMS codes, is fundamentally compromised if the network itself can be hijacked. &quot;We intercepted his phone calls and stole his two Factor passcodes,&quot; Muller notes, showing that the very tool meant to secure accounts can be the vector for their destruction.</p>
+<h2>Bottom Line</h2>
+<p>Derek Muller&#039;s piece succeeds by stripping away the technical mystique to reveal a mundane, profit-driven vulnerability that has persisted for decades. The strongest part of the argument is the demonstration that the &quot;closed&quot; global network is actually a porous, commercialized marketplace where trust is a commodity. The biggest vulnerability in the current system is the lack of a unified, modern protocol to replace SS7, leaving billions of users exposed to low-cost, high-impact surveillance. Until the industry moves beyond this legacy architecture, every phone call remains a potential public broadcast.</p>
+      </div>
+
+      
+      
+      <section id="deep-dives" class="deep-dives">
+        <h2>Deep Dives</h2>
+        <p class="deep-dives-intro">Explore these related deep dives:</p>
+        <ul class="deep-dive-list">
+          
+      <li class="deep-dive-item">
+        <a href="https://www.amazon.com/s?k=0465050654&i=stripbooks&tag=hexindex0d-20" target="_blank" rel="noopener"><strong>The Design of Everyday Things</strong></a>
+        <span class="read-time"><a href="https://www.amazon.com/s?k=0465050654&i=stripbooks&tag=hexindex0d-20" target="_blank" rel="noopener sponsored" class="buy-link">Amazon</a> · <a href="https://www.betterworldbooks.com/product/detail/9780465050659" target="_blank" rel="noopener sponsored" class="buy-link">Better World Books</a></span>
+        <span class="deep-dive-author">by Don Norman</span>
+        <p class="topic-summary">Why some designs work and others don&#039;t — the psychology of good design.</p>
+      </li>
+        </ul>
+      </section>
+    
+      
+
+      <section id="excerpt"><section class="source-excerpts">
+      <h2>Sources</h2>
+      <article class="source-excerpt">
+      <h3>Exposing The Flaw In Our Phone System</h3>
+      <div class="source-meta">by Derek Muller &middot; <a href="../../publication/veritasium/index.html">Veritasium</a> &middot; <a href="https://www.youtube.com/watch?v=wVyu7NB7W6Y" target="_blank" rel="noopener">Watch video</a></div>
+      <p>this is lonus from lonus Tech tips and we hacked the phone network in order to spy on him that's pretty messed up Derek I slept easier not knowing that we intercepted his phone calls and stole his two Factor passcodes is that your number elus yeah but I didn't get I mine didn't even ring we didn't touch his phone we didn't send him an email or a text nothing we did it all remotely and the worst part is it could happen to you I think I'm really surprised that no offense but like you guys did it well you're not a career criminal hacker Mastermind necessarily indeed but here it is a normal looking and feeling device with no obvious problem with it and you just receive my call instead of me receiving it just what like on command you just it's an app on your computer or what I don't even know but before we explain how we did all that the first startup that Steve Jobs and Steve wak made wasn't Apple no they were tackling a different problem one where their product was actually illegal so back in the 1970s long-distance phone calls were really expensive adjusted for inflation a call from New York to London could run you $25 a minute so these two entrepreneurs created a little blue box and what it did was it hacked the telephone Network they could trick the telephone company into connecting the calls for free among other things we were young and what we learned was that we could build something ourselves that could control billions of dollars worth of infrastructure in the world I don't think there would have ever been an Apple computer had there not been blue boxing was said you called the pope yeah we did call the pope was pretended to be Henry Kissinger and we got the number of the Vatican and we called the pope and they started waking people up in the hierarchy I don't Cardinals and this and that and they actually sent someone to wake up the pope when finally we just burst out laughing and they realized that we weren't Henry Kissinger but how were they able to do all of this with one electronic box made from Radio Shack Parts until the mid 1920s most phones had no way of dialing when your phone ...</p>
+    </article>
+    </section></section>
+      
+    </article>
+  
+  </main>
+  <footer class="site-footer">
+    <div class="container">
+      <p><a href="../../privacy/index.html">Privacy</a> &middot; <a href="../../terms/index.html">Terms</a></p>
+    </div>
+  </footer>
+  <script>
+  (function() {
+    var params = new URLSearchParams(window.location.search);
+    var from = params.get('from');
+    if (from) {
+      var names = {
+        'foreign-policy':'Foreign Policy','ai-tech':'AI & Tech','housing-cities':'Housing & Cities',
+        'political-strategy':'Political Strategy','history':'History','science':'Science',
+        'culture':'Culture','economics':'Economics','faith':'Faith','writing-craft':'Writing & Craft',
+        'music':'Music','law-rights':'Law & Rights','public-health':'Public Health',
+        'philosophy':'Philosophy','media':'Media','defense':'Defense','china':'China'
+      };
+      var link = document.getElementById('back-link');
+      if (link) {
+        var name = names[from] || from;
+        link.href = '../../tag/' + from + '/index.html';
+        link.textContent = '\u2190 Back to ' + name;
+      }
+    }
+  })();
+  </script>
+</body>
+</html>
