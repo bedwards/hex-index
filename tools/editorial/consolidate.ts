@@ -199,6 +199,24 @@ async function loadWikiLinks(db: DbClient, articleId: string): Promise<WikiLinkR
   return rows;
 }
 
+/**
+ * Inherit tags for a consolidated commentary from the union of its source
+ * articles' tags. Safe to call repeatedly — uses ON CONFLICT DO NOTHING so
+ * running after each Mode B/C source addition merges new tags in. (#514)
+ */
+async function inheritTagsFromSources(db: DbClient, commentaryId: string): Promise<void> {
+  await db.query(
+    `INSERT INTO app.article_tags (article_id, tag_slug, score, tag_model)
+     SELECT $1::uuid, at.tag_slug, MAX(at.score), 'inherited'
+     FROM app.article_tags at
+     JOIN app.commentary_sources cs ON cs.source_article_id = at.article_id
+     WHERE cs.commentary_article_id = $1::uuid
+     GROUP BY at.tag_slug
+     ON CONFLICT DO NOTHING`,
+    [commentaryId],
+  );
+}
+
 async function countExistingSources(db: DbClient, commentaryId: string): Promise<number> {
   const { rows } = await db.query<{ count: string }>(
     `SELECT COUNT(*)::text AS count FROM app.commentary_sources
@@ -373,6 +391,9 @@ export async function runModeA(opts: ModeAOptions): Promise<ConsolidationPlan | 
     );
   }
 
+  // Inherit tags from union of source articles' tags (#514).
+  await inheritTagsFromSources(db, commentaryId);
+
   // Mark ALL sources (primary + non-primary) as consolidated_into so
   // they don't double-count alongside the consolidated commentary on
   // listings. is_primary on commentary_sources still distinguishes the
@@ -496,6 +517,10 @@ export async function runModeB(opts: ModeBOptions): Promise<void> {
      VALUES ($1, $2, $3, $4)`,
     [commentaryId, newSourceId, false, existingCount],
   );
+
+  // Re-inherit tags so the newly added source's tags merge in (#514).
+  await inheritTagsFromSources(db, commentaryId);
+
   if (becomePrimary) {
     await db.query(
       `UPDATE app.commentary_sources SET is_primary = false WHERE commentary_article_id = $1`,
