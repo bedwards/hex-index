@@ -9,6 +9,7 @@ import { describe, expect, it } from 'vitest';
 import {
   renderArticleMeta,
   renderSourceExcerpt,
+  renderSourceFooter,
   renderInterlacedSourcesAndDeepDives,
   renderStaticArticleCard,
   renderTrendingHero,
@@ -17,6 +18,7 @@ import {
   type StaticArticle,
   type TrendingArticle,
 } from './templates.js';
+import type { SourceBio } from '../../src/shared/source-bios.js';
 
 const PATH = '../../';
 
@@ -316,5 +318,89 @@ describe('renderTrendingHero', () => {
       mkTrending({ id: 'second', title: 'Second Story' }),
     ], './');
     expect(html.indexOf('First Story')).toBeLessThan(html.indexOf('Second Story'));
+  });
+});
+
+describe('renderSourceFooter', () => {
+  const bio: SourceBio = {
+    slug: 'chinatalk',
+    name: 'ChinaTalk',
+    type: 'independent newsletter',
+    country: 'United States',
+    funding_model: 'paid subscriptions',
+    affiliations: ['CSIS'],
+    political_leaning: 'Hawkish-curious on US-China tech competition.',
+    url: 'https://www.chinatalk.media/about',
+    bio_last_audited_at: '2026-04-08',
+  };
+
+  it('renders a semantic footer with all fields', () => {
+    const html = renderSourceFooter(bio);
+    expect(html).toContain('<footer class="source-bio"');
+    expect(html).toContain('About this source');
+    expect(html).toContain('independent newsletter');
+    expect(html).toContain('United States');
+    expect(html).toContain('paid subscriptions');
+    expect(html).toContain('CSIS');
+    expect(html).toContain('Hawkish-curious');
+    expect(html).toContain('Last reviewed:');
+    expect(html).toContain('2026-04-08');
+    expect(html).toContain('<time datetime="2026-04-08">2026-04-08</time>');
+    expect(html).toContain('https://www.chinatalk.media/about');
+  });
+
+  it('renders us_state alongside country when present', () => {
+    const html = renderSourceFooter({ ...bio, us_state: 'California' });
+    expect(html).toContain('United States, California');
+  });
+
+  it('omits affiliations block when empty', () => {
+    const html = renderSourceFooter({ ...bio, affiliations: [] });
+    expect(html).not.toContain('sb-affiliations');
+  });
+
+  it('renders nothing (empty string) when bio is null', () => {
+    expect(renderSourceFooter(null)).toBe('');
+  });
+
+  it('escapes HTML in fields', () => {
+    const html = renderSourceFooter({ ...bio, type: '<script>x</script>' });
+    expect(html).not.toContain('<script>');
+    expect(html).toContain('&lt;script&gt;');
+  });
+});
+
+describe('renderSourceExcerpt with bio', () => {
+  it('includes source-bio footer when publicationSlug has a bio', () => {
+    const src: CommentarySource = {
+      articleId: 'a',
+      title: 'T',
+      author: 'A',
+      publicationName: 'ChinaTalk',
+      publicationSlug: 'chinatalk',
+      originalUrl: 'https://example.test/a',
+      excerptHtml: '<p>x</p>',
+      isPrimary: true,
+      position: 0,
+    };
+    const html = renderSourceExcerpt(src, PATH);
+    expect(html).toContain('source-bio');
+    expect(html).toContain('About this source');
+  });
+
+  it('omits footer when publicationSlug has no bio', () => {
+    const src: CommentarySource = {
+      articleId: 'a',
+      title: 'T',
+      author: 'A',
+      publicationName: 'Unknown Pub',
+      publicationSlug: 'unknown-pub-xyz',
+      originalUrl: 'https://example.test/a',
+      excerptHtml: '<p>x</p>',
+      isPrimary: true,
+      position: 0,
+    };
+    const html = renderSourceExcerpt(src, PATH);
+    expect(html).not.toContain('source-bio');
   });
 });
