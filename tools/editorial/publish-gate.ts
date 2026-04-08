@@ -162,7 +162,22 @@ export async function runPublishGate(
     }
   }
 
-  // 3. Consolidated commentaries must have at least one wiki deep-dive
+  // 3. Every ready article must have at least one topic tag in
+  //    article_tags. A tagless article cannot be sorted into a section,
+  //    cannot be discovered by tag, and renders without a topic pill on
+  //    listing cards (regression: London Centric coffee piece, #494).
+  {
+    const { rows: tagRows } = await pool.query<{ count: string }>(
+      `SELECT COUNT(*) AS count FROM app.article_tags WHERE article_id = $1`,
+      [articleId],
+    );
+    const tagCount = parseInt(tagRows[0]?.count ?? '0', 10);
+    if (tagCount === 0) {
+      failures.push('article has zero topic tags (#494)');
+    }
+  }
+
+  // 4. Consolidated commentaries must have at least one wiki deep-dive
   //    linked via article_wikipedia_links (HX-001).
   if (article.is_consolidated) {
     const { rows: linkRows } = await pool.query<{ count: string }>(

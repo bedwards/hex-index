@@ -38,9 +38,15 @@ class FakePool {
   articles = new Map<string, FakeArticle>();
   wikis = new Map<string, FakeWiki>();
   deepDiveLinks = new Map<string, number>(); // article_id -> count
+  tagCounts = new Map<string, number>(); // article_id -> tag count (default 1)
 
   query(sql: string, params?: unknown[]): Promise<{ rows: unknown[] }> {
     const s = sql.replace(/\s+/g, ' ').trim();
+    if (s.startsWith('SELECT COUNT(*) AS count FROM app.article_tags')) {
+      const id = params?.[0] as string;
+      const n = this.tagCounts.has(id) ? (this.tagCounts.get(id) ?? 0) : 1;
+      return Promise.resolve({ rows: [{ count: String(n) }] });
+    }
     if (s.startsWith('SELECT id, rewritten_content_path')) {
       const id = params?.[0] as string;
       const a = this.articles.get(id);
@@ -182,6 +188,21 @@ describe('runPublishGate', () => {
     const r = await runPublishGate(asPool(pool), 'c1');
     expect(r.ok).toBe(false);
     expect(r.failures.some((f) => f.includes('HX-001'))).toBe(true);
+  });
+
+  it('fails when the article has zero topic tags (#494)', async () => {
+    const pool = new FakePool();
+    pool.articles.set('a1', {
+      id: 'a1',
+      rewritten_content_path: 'rewritten/a1.html',
+      is_consolidated: false,
+    });
+    pool.tagCounts.set('a1', 0);
+    await writeLibFile('rewritten/a1.html', `<p>${LONG_BODY}</p>`);
+
+    const r = await runPublishGate(asPool(pool), 'a1');
+    expect(r.ok).toBe(false);
+    expect(r.failures.some((f) => f.includes('zero topic tags'))).toBe(true);
   });
 
   it('passes when body + wiki links + deep-dive links are all healthy', async () => {
