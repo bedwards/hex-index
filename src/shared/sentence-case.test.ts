@@ -65,6 +65,63 @@ describe('toSentenceCase', () => {
     expect(toSentenceCase('')).toBe('');
   });
 
+  // ---- Multi-word proper nouns via leading particles (issue #501) ----
+
+  it('capitalizes San Francisco when lowercased in input', () => {
+    expect(toSentenceCase('san francisco weather'))
+      .toBe('San Francisco weather');
+  });
+
+  it('capitalizes Los Angeles when lowercased in input', () => {
+    expect(toSentenceCase('los angeles traffic'))
+      .toBe('Los Angeles traffic');
+  });
+
+  it('capitalizes Sao Paulo when lowercased in input', () => {
+    expect(toSentenceCase('sao paulo election'))
+      .toBe('Sao Paulo election');
+  });
+
+  it('capitalizes New York when lowercased in input', () => {
+    expect(toSentenceCase('new york news'))
+      .toBe('New York news');
+  });
+
+  it('handles all-caps San Francisco Bay', () => {
+    expect(toSentenceCase('THE SAN FRANCISCO BAY'))
+      .toBe('The San Francisco bay');
+  });
+
+  it('does not false-positive on "new" before a common word', () => {
+    expect(toSentenceCase('new things happen'))
+      .toBe('New things happen');
+  });
+
+  it('preserves San Francisco mid-sentence', () => {
+    expect(toSentenceCase('the san francisco bay area'))
+      .toBe('The San Francisco bay area');
+  });
+
+  it('handles Saint Louis as multi-word proper noun', () => {
+    expect(toSentenceCase('saint louis rally'))
+      .toBe('Saint Louis rally');
+  });
+
+  it('handles St Petersburg as multi-word proper noun', () => {
+    expect(toSentenceCase('st petersburg summit'))
+      .toBe('St Petersburg summit');
+  });
+
+  it('preserves already-cased San Francisco', () => {
+    expect(toSentenceCase('San Francisco earthquake'))
+      .toBe('San Francisco earthquake');
+  });
+
+  it('handles New Jersey as multi-word proper noun', () => {
+    expect(toSentenceCase('new jersey politics'))
+      .toBe('New Jersey politics');
+  });
+
   it('has non-empty acronym and proper-noun sets', () => {
     expect(KNOWN_ACRONYMS.size).toBeGreaterThan(20);
     expect(PROPER_NOUNS_LC.size).toBeGreaterThan(100);
