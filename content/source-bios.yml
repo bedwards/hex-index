@@ -1,0 +1,91 @@
+# source-bios.yml
+#
+# "About this source" footer data — rendered under every source excerpt on
+# consolidated commentary pages and on single-source article pages. Speechify
+# reads these aloud, so keep prose clean and factual.
+#
+# Schema (per entry, keyed by publication slug):
+#
+#   <publication-slug>:
+#     name:                  string   # Human-readable publication name (for sanity)
+#     type:                  string   # "independent newsletter" | "individual creator" |
+#                                     # "corporate outlet" | "academic" | "think-tank organ" |
+#                                     # "public broadcaster" | "nonprofit" | etc.
+#     country:               string   # ISO country name, e.g. "United States"
+#     us_state:              string?  # Optional, only if US-based and known
+#     funding_model:         string   # e.g. "paid subscriptions", "ads + Patreon",
+#                                     # "foundation grants", "university affiliation"
+#     affiliations:          string[] # Think tanks, parent companies, parties, etc.
+#     political_leaning:     string   # OPINIONATED sentence-form description. NOT a
+#                                     # left/center/right label. Editorially owned by
+#                                     # Hex Index, not outsourced to AllSides/Ad Fontes.
+#                                     # Example: "Center-left, skeptical of US foreign-
+#                                     # policy consensus, sympathetic to organized labor."
+#     url:                   string   # Canonical "about" or homepage URL cited for
+#                                     # the factual claims in this bio.
+#     bio_last_audited_at:   string   # ISO date (YYYY-MM-DD)
+#
+# Authoring rules:
+# - Stick to facts the source has published about itself. Cite `url` for each bio.
+# - Leaning is a 1-sentence editorial judgement, not a label. Own it.
+# - When a source's stance materially changes, update the entry and bump
+#   `bio_last_audited_at`.
+#
+# See issue #487 for background.
+
+chinatalk:
+  name: "ChinaTalk"
+  type: "independent newsletter"
+  country: "United States"
+  funding_model: "paid subscriptions (Substack) plus institutional sponsorships"
+  affiliations:
+    - "Center for Strategic and International Studies (contributor relationships)"
+  political_leaning: "Hawkish-curious on US-China technology competition, broadly aligned with the Washington national-security consensus but willing to platform heterodox voices on industrial policy and export controls."
+  url: "https://www.chinatalk.media/about"
+  bio_last_audited_at: "2026-04-08"
+
+stratechery:
+  name: "Stratechery"
+  type: "individual creator"
+  country: "Taiwan"
+  funding_model: "paid subscriptions"
+  affiliations:
+    - "Passport (podcast network, co-founder)"
+  political_leaning: "Pro-market and pro-platform, generally skeptical of antitrust intervention in tech, libertarian-leaning on regulation while sympathetic to US strategic concerns about Chinese tech."
+  url: "https://stratechery.com/about/"
+  bio_last_audited_at: "2026-04-08"
+
+pluralistic:
+  name: "Pluralistic"
+  type: "individual creator"
+  country: "United States"
+  us_state: "California"
+  funding_model: "reader donations; no ads, no tracking, Creative Commons licensed"
+  affiliations:
+    - "Electronic Frontier Foundation (special advisor)"
+    - "Open Rights Group (founding member)"
+  political_leaning: "Left-populist and anti-monopoly, hostile to platform capitalism and DRM, sympathetic to organized labor and aggressive antitrust enforcement."
+  url: "https://pluralistic.net/about/"
+  bio_last_audited_at: "2026-04-08"
+
+sinification:
+  name: "Sinification"
+  type: "independent newsletter"
+  country: "United Kingdom"
+  funding_model: "paid subscriptions (Substack)"
+  affiliations: []
+  political_leaning: "Analytically sympathetic to understanding Chinese elite discourse on its own terms, skeptical of Western framings that flatten Beijing's internal debates, broadly center and non-aligned."
+  url: "https://www.sinification.com/about"
+  bio_last_audited_at: "2026-04-08"
+
+wendover-productions:
+  name: "Wendover Productions"
+  type: "individual creator"
+  country: "United States"
+  funding_model: "YouTube ad revenue, Nebula subscriptions, sponsor reads"
+  affiliations:
+    - "Nebula (co-owner via Standard)"
+    - "Standard (production company)"
+  political_leaning: "Technocratic-liberal and infrastructure-optimistic, generally pro-globalization and pro-logistics-efficiency, avoiding partisan US politics in favor of systems explainers."
+  url: "https://www.wendover.productions/about"
+  bio_last_audited_at: "2026-04-08"

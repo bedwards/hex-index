@@ -116,6 +116,10 @@ if [ $? -ne 0 ]; then
     exit 1
 fi
 
+# Source bio coverage check (soft mode — warns only, see issue #487)
+echo "Checking source bio coverage..."
+npx tsx tools/editorial/check-source-bios.ts || true
+
 # Run type checking
 echo "Running type check..."
 npm run typecheck

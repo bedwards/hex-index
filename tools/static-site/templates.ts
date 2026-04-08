@@ -4,6 +4,7 @@
  */
 
 import { escapeHtml, formatDate } from './utils.js';
+import { findBio, type SourceBio } from '../../src/shared/source-bios.js';
 import { readFileSync } from 'fs';
 import { join } from 'path';
 
@@ -166,11 +167,49 @@ export function renderSourceExcerpt(
   const body = source.excerptHtml && source.excerptHtml.trim().length > 0
     ? source.excerptHtml
     : `<p><em>Excerpt unavailable. <a href="${safeUrl}" target="_blank" rel="noopener">${linkLabel} at ${escapeHtml(source.publicationName)}</a>.</em></p>`;
+  const bio = findBio(source.publicationSlug);
+  const footer = bio ? renderSourceFooter(bio) : '';
   return `<article class="source-excerpt">
       <h3>${escapeHtml(source.title)}</h3>
       <div class="source-meta">by ${escapeHtml(source.author)} &middot; <a href="${pathToRoot}publication/${source.publicationSlug}/index.html">${escapeHtml(source.publicationName)}</a> &middot; <a href="${safeUrl}" target="_blank" rel="noopener">${linkLabel}</a></div>
       ${body}
+      ${footer}
     </article>`;
+}
+
+/**
+ * Render the "About this source" footer for a source bio. Deterministic,
+ * Speechify-friendly, semantic HTML only. Returns an empty string when the
+ * bio is null (no entry yet in content/source-bios.yml) — callers do not
+ * need to guard.
+ *
+ * Layout of the meta line (all separated by " \u00b7 "):
+ *   type \u00b7 country[, us_state] \u00b7 funding \u00b7 affiliations \u00b7 leaning
+ * followed by a "Last reviewed: YYYY-MM-DD" line.
+ */
+export function renderSourceFooter(bio: SourceBio | null): string {
+  if (!bio) {return '';}
+  const location = bio.us_state
+    ? `${escapeHtml(bio.country)}, ${escapeHtml(bio.us_state)}`
+    : escapeHtml(bio.country);
+  const parts: string[] = [
+    `<span class="sb-type">${escapeHtml(bio.type)}</span>`,
+    `<span class="sb-country">${location}</span>`,
+    `<span class="sb-funding">${escapeHtml(bio.funding_model)}</span>`,
+  ];
+  if (bio.affiliations.length > 0) {
+    parts.push(
+      `<span class="sb-affiliations">${bio.affiliations.map(escapeHtml).join(' &middot; ')}</span>`
+    );
+  }
+  parts.push(`<span class="sb-leaning">${escapeHtml(bio.political_leaning)}</span>`);
+  const meta = parts.join(' &middot; ');
+  const url = escapeHtml(bio.url);
+  return `<footer class="source-bio" aria-label="About this source">
+      <p class="sb-heading">About this source</p>
+      <p class="sb-meta">${meta}</p>
+      <p class="sb-audit">Last reviewed: <time datetime="${escapeHtml(bio.bio_last_audited_at)}">${escapeHtml(bio.bio_last_audited_at)}</time> &middot; <a href="${url}" target="_blank" rel="noopener">source</a></p>
+    </footer>`;
 }
 
 /**
