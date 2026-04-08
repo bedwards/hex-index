@@ -63,8 +63,10 @@ async function getTagsWithCounts(pool: Pool): Promise<TagRow[]> {
 }
 
 /**
- * Get articles for a tag page, with display tag logic:
- * Show the highest-scored tag that ISN'T the current filter tag
+ * Get articles for a tag page. The display tag is always the page's own tag,
+ * so every card on a tag page shows that tag consistently (fixes #503 Gemini HIGH
+ * feedback: cards previously showed an unrelated alternate tag, or no tag at all
+ * when an article had only one tag).
  */
 async function getArticlesForTagPage(
   pool: Pool,
@@ -86,26 +88,19 @@ async function getArticlesForTagPage(
   `, [tagSlug]);
   const total = parseInt(countRows[0].count, 10);
 
-  // Get articles with their display tag (highest scored tag that isn't the filter)
+  // Display tag = the page's own tag (joined via article_tags + tags)
   const { rows } = await pool.query<TaggedArticleRow>(`
     SELECT
       a.id, a.title, a.author_name,
       p.name AS publication_name, p.slug AS publication_slug,
       a.published_at, a.estimated_read_time_minutes,
       a.content_path, a.image_path, a.original_url,
-      alt_tag.tag_slug AS display_tag_slug,
-      alt_t.name AS display_tag_name
+      at.tag_slug AS display_tag_slug,
+      t.name AS display_tag_name
     FROM app.articles a
     JOIN app.publications p ON a.publication_id = p.id
     JOIN app.article_tags at ON at.article_id = a.id AND at.tag_slug = $1
-    LEFT JOIN LATERAL (
-      SELECT at2.tag_slug
-      FROM app.article_tags at2
-      WHERE at2.article_id = a.id AND at2.tag_slug != $1
-      ORDER BY at2.score DESC
-      LIMIT 1
-    ) alt_tag ON true
-    LEFT JOIN app.tags alt_t ON alt_t.slug = alt_tag.tag_slug
+    JOIN app.tags t ON t.slug = at.tag_slug
     WHERE (a.rewritten_content_path IS NOT NULL OR a.is_consolidated = true)
       AND a.consolidated_into IS NULL
       AND ${failedGateSqlFragment('a')}
@@ -298,7 +293,13 @@ export async function generateTagPages(
           excerpt: extractExcerpt(content),
           url: a.original_url,
           imagePath: a.image_path,
-          displayTag: a.display_tag_name ? { slug: a.display_tag_slug!, name: a.display_tag_name } : null,
+          // Always show the page's own tag on every card (see Gemini HIGH
+          // feedback on PR #503). Falls back to DB name/slug; both should
+          // always be present because of the JOIN on article_tags + tags.
+          displayTag: {
+            slug: a.display_tag_slug ?? tag.slug,
+            name: a.display_tag_name ?? tag.name,
+          },
           isConsolidated: consolidation?.isConsolidated ?? false,
           sourceCount: consolidation?.sourceCount ?? 0,
           primarySourceAuthor: consolidation?.primaryAuthor ?? null,

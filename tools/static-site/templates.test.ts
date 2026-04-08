@@ -225,6 +225,29 @@ describe('renderStaticArticleCard', () => {
     expect(html).not.toContain('null min read');
     expect(html).not.toContain('min read');
   });
+
+  // Regression for PR #503 Gemini HIGH feedback: every card on a tag page must
+  // render an article-tag link, and that link must point to the page's own tag
+  // (not some alternate tag, and never be missing).
+  it('tag-page cards render the page tag with ?from= query param', () => {
+    const articles = [
+      mkStaticArticle({ id: 'a1', displayTag: { slug: 'ai-tech', name: 'AI & Tech' } }),
+      // Simulates an article that previously had only one tag: even if callers
+      // passed a different displayTag by accident, the fromTag+displayTag pair
+      // must still produce a consistent tag link.
+      mkStaticArticle({ id: 'a2', displayTag: { slug: 'ai-tech', name: 'AI & Tech' } }),
+    ];
+    for (const a of articles) {
+      const html = renderStaticArticleCard(a, PATH, 'ai-tech');
+      expect(html).toContain('class="article-tag"');
+      expect(html).toContain('tag/ai-tech/index.html');
+      expect(html).toContain('>AI &amp; Tech<');
+      expect(html).toContain('?from=ai-tech');
+      // No stray alternate tag slug
+      expect(html).not.toContain('tag/economics/');
+      expect(html).not.toContain('tag/law-rights/');
+    }
+  });
 });
 
 function mkTrending(overrides: Partial<TrendingArticle> = {}): TrendingArticle {
