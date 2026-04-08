@@ -37,8 +37,44 @@ export function stripTrump(title: string): string {
   return out;
 }
 
+/**
+ * Decode HTML entities in titles forever and always. RSS feeds, Substack, and
+ * YouTube hand us titles full of `&#039;`, `&amp;`, `&#8217;`, `&quot;`, etc.
+ * They MUST never reach the DB or downstream consumers — decode at ingest.
+ *
+ * Covers: decimal NCRs (&#039;), hex NCRs (&#x27;), and the common named
+ * entities. Runs in a loop because feeds occasionally double-encode
+ * (e.g. `&amp;#039;`).
+ */
+const NAMED_ENTITIES: Record<string, string> = {
+  amp: '&', lt: '<', gt: '>', quot: '"', apos: "'", nbsp: ' ',
+  ldquo: '\u201C', rdquo: '\u201D', lsquo: '\u2018', rsquo: '\u2019',
+  hellip: '\u2026', mdash: '\u2014', ndash: '\u2013', laquo: '\u00AB',
+  raquo: '\u00BB', copy: '\u00A9', reg: '\u00AE', trade: '\u2122',
+  middot: '\u00B7', bull: '\u2022', deg: '\u00B0', euro: '\u20AC',
+  pound: '\u00A3', yen: '\u00A5', cent: '\u00A2', sect: '\u00A7',
+  para: '\u00B6', dagger: '\u2020', Dagger: '\u2021', permil: '\u2030',
+  prime: '\u2032', Prime: '\u2033', frasl: '\u2044',
+};
+export function decodeHtmlEntities(input: string): string {
+  let prev = '';
+  let out = input;
+  // Loop because feeds sometimes double-encode (`&amp;#039;` → `&#039;` → `'`).
+  for (let i = 0; i < 5 && out !== prev; i++) {
+    prev = out;
+    out = out
+      .replace(/&#x([0-9a-fA-F]+);/g, (_m: string, h: string) => String.fromCodePoint(parseInt(h, 16)))
+      .replace(/&#(\d+);/g, (_m: string, d: string) => String.fromCodePoint(parseInt(d, 10)))
+      .replace(/&([a-zA-Z][a-zA-Z0-9]+);/g, (m: string, name: string) =>
+        Object.prototype.hasOwnProperty.call(NAMED_ENTITIES, name) ? NAMED_ENTITIES[name] : m,
+      );
+  }
+  return out;
+}
+
 export function normalizeTitle(title: string): string {
-  let t = title.trim();
+  // Decode HTML entities FIRST so every downstream rule sees real characters.
+  let t = decodeHtmlEntities(title).trim();
 
   // Editorial policy: strip Trump references before any other processing.
   t = stripTrump(t);
