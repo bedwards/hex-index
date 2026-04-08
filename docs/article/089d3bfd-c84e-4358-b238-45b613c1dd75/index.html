@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>How To Make A Legit Sound Camera - Hex Index</title>
+  <link rel="stylesheet" href="../../styles.css">
+</head>
+<body class="reading-mode">
+  <header class="reading-header">
+    <a href="../../index.html" class="back-link" id="back-link">&larr; Back to Library</a>
+  </header>
+  <main class="reading-content">
+    
+    <article class="article-page">
+      <header class="article-header">
+        <h1>How To Make A Legit Sound Camera</h1>
+        
+      <div class="article-meta">
+        <span class="author">Benn Jordan</span>
+        <span class="separator">&middot;</span>
+        <a href="../../publication/bennjordan/index.html" class="publication">
+          Benn Jordan
+        </a>
+        <span class="separator">&middot;</span><time>Sep 29, 2024</time>
+        <span class="separator">&middot;</span><span class="read-time">16 min read</span>
+      </div>
+      </header>
+
+      <div class="content-label">
+        <span class="label-text">Commentary by <a href="../../about/index.html">Brian Edwards</a></span>
+        <nav class="content-nav">
+          
+          <a href="https://www.youtube.com/watch?v=c5ynZ3lMQJc" target="_blank" rel="noopener">Original video &rarr;</a>
+        </nav>
+      </div>
+
+      
+      <div class="article-content">
+        <p>Benn Jordan challenges a fundamental assumption of modern engineering: that seeing the invisible requires expensive, proprietary hardware. In a project that blends DIY enthusiasm with rigorous signal processing, Jordan demonstrates that the subtle pixel variations in standard video files contain enough data to visualize sound waves, track heartbeats, and locate acoustic sources for a fraction of the cost of commercial alternatives. This is not just a tech demo; it is a case study in how open-source software and consumer-grade sensors are democratizing high-fidelity data analysis.</p>
+<h2>The Cost of Seeing Sound</h2>
+<p>Jordan begins by exposing the absurd economics of the current market. &quot;Acoustic cameras definitely already exist and they exist in a business to business Market,&quot; he notes, pointing out that the cheapest commercial units start around $5,000 while top-tier models approach $100,000. He argues that this pricing structure is artificial, driven by proprietary hardware rather than the actual complexity of the task. &quot;To me it just doesn&#039;t seem like it would need to cost tens of thousands of dollars and require a bunch of proprietary Hardware if you have a smartphone that could record 4K video,&quot; Jordan writes.</p>
+<figure class="inline-illustration">
+    <img src="../../images/089d3bfd-c84e-4358-b238-45b613c1dd75.webp" alt="How To Make A Legit Sound Camera" loading="lazy" width="600" height="315">
+  </figure>
+
+<p>The core of Jordan&#039;s argument is that the necessary data is already being captured by devices in our pockets. By treating video not as a visual record but as a dense stream of numerical data, one can extract information that the human eye ignores. He builds a functional acoustic imaging system using a 16-channel microphone array, a Raspberry Pi, and a global shutter camera module for under $400. &quot;This acoustic camera comes in below $400 if you already have a laptop saving you I don&#039;t know $29,000 off of buying an existing camera with similar features,&quot; he concludes. The framing is effective because it shifts the focus from hardware acquisition to algorithmic ingenuity, suggesting that the barrier to entry for advanced diagnostics is now intellectual, not financial.</p>
+<p>Critics might note that while the cost savings are real, the reliability of such DIY systems in critical industrial environments remains unproven compared to certified, calibrated commercial units. However, for prototyping and non-critical monitoring, the trade-off is compelling.</p>
+<blockquote>&quot;You and I are on this journey together and there are a lot of exploratory steps and we&#039;re going to try and accomplish all this as inexpensively as possible.&quot;</blockquote>
+<h2>The Software Bottleneck</h2>
+<p>The project&#039;s greatest hurdle was not the hardware, but the software ecosystem. Jordan admits that his lack of discipline as a developer made the process arduous, noting that &quot;anybody with a few years of python experience will probably get farther in a few hours than I did in the last two weeks.&quot; He highlights the fragmentation of open-source tools, specifically the difficulty of managing dependencies for frameworks like Ocular and Spectacular. &quot;If you attempt to get this running without running a virtual environment you will almost certainly run into some headaches,&quot; he warns, a sentiment that resonates with anyone who has tried to assemble complex scientific software stacks.</p>
+<p>Despite these friction points, the results were tangible. Jordan successfully used the system to locate the source of unwanted noise in his studio and even identify the specific chickens making a racket. &quot;I never know which one of my chickens are making noise now I do,&quot; he quips. This practical application underscores the utility of the technology: it turns abstract audio data into a visual map, allowing users to pinpoint problems without expensive consultants. The narrative choice to include the failures and the messy debugging process adds credibility, preventing the piece from feeling like a polished, unrealistic sales pitch.</p>
+<h2>Visualizing the Invisible: Pulse and Heat</h2>
+<p>The most provocative section of Jordan&#039;s work extends the concept of motion amplification beyond sound to biological and thermal phenomena. Drawing inspiration from fellow creator Poozie&#039;s work on &quot;motion extraction,&quot; Jordan demonstrates how blending video frames with slight time differences can exaggerate micro-movements. &quot;The subtle differences that your eyes with would never notice that exist between frames pixel to pixel in a video of a stationary scene holds a ton of information,&quot; he explains.</p>
+<p>He pushes this further by applying the technique to human physiology. By filtering out vibrations outside the normal pulse range, he claims to have visualized his own heartbeat through a standard webcam. &quot;This means that if we figured out a way to filter out vibrations or oscillations outside of the normal human pulse range using something like processing or python we could probably find the pulse of anyone sitting still in front of any modern webcam,&quot; Jordan writes. He even touches on the potential for corporate surveillance, joking that &quot;big companies can use this to gauge how organically excited their employees are about a PowerPoint presentation.&quot;</p>
+<p>This section raises significant privacy concerns that the piece only lightly skims over. While Jordan frames this as a triumph of data extraction, the implication that a camera could remotely monitor vital signs without consent is a double-edged sword. A counterargument worth considering is that the same technology used to diagnose machinery faults could be weaponized for non-consensual biometric surveillance, a risk that requires robust policy and technical safeguards.</p>
+<blockquote>&quot;The subtle differences that your eyes with would never notice that exist between frames pixel to pixel in a video of a stationary scene holds a ton of information.&quot;</blockquote>
+<h2>The Physics of Rolling Shutter</h2>
+<p>Jordan concludes by addressing a critical technical limitation: the rolling shutter effect common in most digital cameras. He explains that because these sensors scan horizontally rather than capturing the entire frame at once, fast-moving data can be distorted. &quot;If something is moving quickly in the shot that you&#039;re getting with the video it will be picked up inaccurately because different regions of the frame are being captured at different times,&quot; he writes. To solve this, he advocates for global shutter cameras, which capture all pixels simultaneously, ensuring data integrity for scientific analysis.</p>
+<p>He also revisits his previous work on schlieren imaging, showing how he adapted the technique to visualize sound waves and heat using simple patterns and high frame rates. &quot;As long as you are not observing photons and bookmark that for a much more fuing complicated and crazy video in the future,&quot; he jokes, before demonstrating how sound pressure waves generate detectable heat. The transition from high-level theory to a literal fireball experiment keeps the tone accessible while maintaining scientific rigor. The piece succeeds in showing that the laws of physics are not the limit; the limit is often just our willingness to look closer at the data we already have.</p>
+<h2>Bottom Line</h2>
+<p>Jordan&#039;s strongest argument is that the democratization of high-end sensing technology is already underway, driven by software innovation rather than hardware breakthroughs. The piece&#039;s biggest vulnerability is the gap between a functional prototype and a reliable, user-friendly product, particularly regarding the complex software dependencies he encountered. Readers should watch for how these open-source methods evolve into standardized tools for industrial maintenance and medical diagnostics, as the potential for non-invasive, low-cost monitoring is now undeniable.</p>
+      </div>
+
+      
+      
+      
+
+      <section id="excerpt"><section class="source-excerpts">
+      <h2>Sources</h2>
+      <article class="source-excerpt">
+      <h3>How To Make A Legit Sound Camera</h3>
+      <div class="source-meta">by Benn Jordan &middot; <a href="../../publication/bennjordan/index.html">Benn Jordan</a> &middot; <a href="https://www.youtube.com/watch?v=c5ynZ3lMQJc" target="_blank" rel="noopener">Watch video</a></div>
+      <p> disclaimer this video is definitely going to be a very deep nerdy sciency rabbit hole and some of my science videos are like hey check out this thing that cost me an absurd amount of time and resources let's check it out and I'll briefly tell you how it works this is not that at all you're coming with me on this entire journey and in fact at the time of me saying this I have no idea if this video will be about a fascinating piece of technology that I made or if it'll be about dealing with failure but the other day I woke up way too early in the morning and for some ungodly reason laid in bed thinking about those really expensive motion amplification systems used to diagnose and predict problems in engineering and Machinery Steve mold did an excellent video on them motion amplification is inarguably very cool technology but to me it just doesn't seem like it would need to cost tens of thousands of dollars and require a bunch of proprietary Hardware if you have a smartphone that could record 4K video that means that you could record nearly 8.3 million pixels in every single frame that is a lot of data and all you're really doing for motion amplification is analyzing changes in pixels and if you could detect something like this then maybe you could detect other slight vibrations like sound a big chunk of this video is going to be deciphering hidden layers of information inside everyday video files and streams such as locating an object that's causing unwanted noise or even getting people's heartbeat and vitals in real time from their webcams you and I are on this journey together and there are a lot of explor atory steps and we're going to try and accomplish all this as inexpensively as possible in fact if you have a smartphone you could do most of the stuff you'll see in this video with free software except for this first segment that'll require a few dozen cheap microphones a laptop a Raspberry Pi 5 a global shutter camera module acoustic cameras definitely already exist and they exist in a business to business Market if you wanted to go out and buy an acoustic Imaging device today the cheapest you could get one at least from what I could find is about ...</p>
+    </article>
+    </section></section>
+      
+    </article>
+  
+  </main>
+  <footer class="site-footer">
+    <div class="container">
+      <p><a href="../../privacy/index.html">Privacy</a> &middot; <a href="../../terms/index.html">Terms</a></p>
+    </div>
+  </footer>
+  <script>
+  (function() {
+    var params = new URLSearchParams(window.location.search);
+    var from = params.get('from');
+    if (from) {
+      var names = {
+        'foreign-policy':'Foreign Policy','ai-tech':'AI & Tech','housing-cities':'Housing & Cities',
+        'political-strategy':'Political Strategy','history':'History','science':'Science',
+        'culture':'Culture','economics':'Economics','faith':'Faith','writing-craft':'Writing & Craft',
+        'music':'Music','law-rights':'Law & Rights','public-health':'Public Health',
+        'philosophy':'Philosophy','media':'Media','defense':'Defense','china':'China'
+      };
+      var link = document.getElementById('back-link');
+      if (link) {
+        var name = names[from] || from;
+        link.href = '../../tag/' + from + '/index.html';
+        link.textContent = '\u2190 Back to ' + name;
+      }
+    }
+  })();
+  </script>
+</body>
+</html>
