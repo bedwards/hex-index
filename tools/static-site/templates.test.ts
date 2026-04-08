@@ -248,7 +248,7 @@ describe('renderTrendingHero', () => {
     expect(html).toContain('class="trending-grid"');
     expect(html).toContain('href="./article/abc/index.html"');
     expect(html).toContain('<h3 class="trending-title">Big Story</h3>');
-    expect(html).toContain('by Brian Edwards');
+    expect(html).not.toContain('Brian Edwards');
     expect(html).toContain('4 sources');
     expect(html).toContain('days ago');
     expect(html).toContain('src="./images/foo.jpg"');

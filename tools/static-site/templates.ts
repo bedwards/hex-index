@@ -76,7 +76,6 @@ export function renderTrendingHero(
       <h3 class="trending-title">${escapeHtml(a.title)}</h3>
     </a>
     <div class="trending-meta">
-      <span class="trending-author">by Brian Edwards</span>
       <span class="source-count-badge">${sourceCount} sources</span>
       ${timeAgo ? `<span class="trending-time">${escapeHtml(timeAgo)}</span>` : ''}
     </div>
