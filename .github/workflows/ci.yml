@@ -3,6 +3,11 @@ name: CI
 on:
   push:
     branches: [main]
+    # Skip post-merge CI on pure docs/library regens to save Actions minutes.
+    # PRs still get full CI via the pull_request trigger below.
+    paths-ignore:
+      - 'docs/**'
+      - 'library/**'
   pull_request:
     branches: [main]
 
