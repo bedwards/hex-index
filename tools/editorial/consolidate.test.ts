@@ -75,6 +75,8 @@ class FakeDb {
   meta = new Map<string, { created_at: Date; word_count: number | null; tags: string[] }>();
   /** article_id -> tag slugs (for Mode C extend tests) */
   tags = new Map<string, string[]>();
+  /** Rows in app.article_tags — used by inherit-tags tests (#514). */
+  articleTags: { article_id: string; tag_slug: string; score: number; tag_model: string }[] = [];
   /** article_id -> created_at override (for Mode C extend tests) */
   createdAt = new Map<string, Date>();
 
@@ -408,6 +410,37 @@ class FakeDb {
       return { rows: [{ count: String(this.articles.size) }] as unknown as T[] };
     }
 
+    // Inherit tags from source articles (#514).
+    if (s.startsWith('INSERT INTO app.article_tags')) {
+      const commentaryId = params[0] as string;
+      const sourceIds = this.commentarySources
+        .filter((c) => c.commentary_article_id === commentaryId)
+        .map((c) => c.source_article_id);
+      // Aggregate tag_slug -> max score from source-article tags in the
+      // articleTags store AND from the tags Map (seeded by Mode C tests).
+      const maxScore = new Map<string, number>();
+      for (const t of this.articleTags) {
+        if (!sourceIds.includes(t.article_id)) { continue; }
+        const cur = maxScore.get(t.tag_slug);
+        if (cur === undefined || t.score > cur) { maxScore.set(t.tag_slug, t.score); }
+      }
+      for (const sid of sourceIds) {
+        for (const slug of this.tags.get(sid) ?? []) {
+          if (!maxScore.has(slug)) { maxScore.set(slug, 1); }
+        }
+      }
+      for (const [tag_slug, score] of maxScore) {
+        if (
+          !this.articleTags.some(
+            (t) => t.article_id === commentaryId && t.tag_slug === tag_slug,
+          )
+        ) {
+          this.articleTags.push({ article_id: commentaryId, tag_slug, score, tag_model: 'inherited' });
+        }
+      }
+      return { rows: [] };
+    }
+
     throw new Error(`FakeDb: unhandled SQL: ${s.slice(0, 80)}`);
   }
 }
@@ -656,6 +689,54 @@ describe('runModeA dry-run on a fixture group', () => {
     const primary = db.articles.get(p.primarySourceId);
     expect(commentary?.image_path).not.toBeNull();
     expect(commentary?.image_path).toBe(primary?.image_path);
+  });
+
+  it('inherits the union of source article tags onto the commentary (#514)', async () => {
+    const db = new FakeDb();
+    const group = seedGroup(db);
+    const synth = makeStubSynthesizer();
+    const libraryRoot = await mkdtemp(join(tmpdir(), 'consolidate-tags-'));
+
+    // Seed source-article tags with overlapping slugs + varying scores.
+    const srcIds = [...db.articles.keys()];
+    db.articleTags.push(
+      { article_id: srcIds[0], tag_slug: 'china', score: 5, tag_model: 'qwen' },
+      { article_id: srcIds[0], tag_slug: 'trade', score: 3, tag_model: 'qwen' },
+      { article_id: srcIds[1], tag_slug: 'china', score: 9, tag_model: 'qwen' },
+      { article_id: srcIds[1], tag_slug: 'policy', score: 4, tag_model: 'qwen' },
+      { article_id: srcIds[2], tag_slug: 'trade', score: 7, tag_model: 'qwen' },
+    );
+
+    const plan = await runModeA({
+      db: db as unknown as Parameters<typeof runModeA>[0]['db'],
+      synthesizer: synth,
+      group,
+      groupIndex: 0,
+      apply: true,
+      libraryRoot,
+      loadSources: (rows) =>
+        Promise.resolve(rows.map((r, i) => ({
+          id: r.id,
+          title: r.title,
+          author_name: r.author_name,
+          publication_id: r.publication_id,
+          publication_name: r.publication_name,
+          original_url: r.original_url,
+          rewritten_html: '<p>stub</p>'.repeat(i === 0 ? 10 : 1),
+          excerpt: `excerpt for ${r.id}`,
+        }))),
+    });
+
+    expect(plan).not.toBeNull();
+    const p = plan as ConsolidationPlan;
+    const inherited = db.articleTags.filter((t) => t.article_id === p.commentaryId);
+    const byTag = new Map(inherited.map((t) => [t.tag_slug, t]));
+    expect(byTag.size).toBe(3);
+    // Max score wins when a tag appears in multiple sources.
+    expect(byTag.get('china')?.score).toBe(9);
+    expect(byTag.get('trade')?.score).toBe(7);
+    expect(byTag.get('policy')?.score).toBe(4);
+    for (const t of inherited) { expect(t.tag_model).toBe('inherited'); }
   });
 
   it('skips and logs (does not throw) when synthesis always returns Trump output', async () => {
