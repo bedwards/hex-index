@@ -88,6 +88,22 @@ describe('renderSourceExcerpt', () => {
     expect(html).toContain('Read full article');
   });
 
+  it('renders an "Excerpt unavailable" fallback when excerptHtml is empty (regression #490)', () => {
+    const src = mkSource({ excerptHtml: '' });
+    const html = renderSourceExcerpt(src, PATH);
+    expect(html).toContain('class="source-excerpt"');
+    expect(html).toContain('Excerpt unavailable');
+    expect(html).toContain('Read full article at Example Pub');
+    // The card should not be empty: it must have a body element after source-meta
+    expect(html).toMatch(/source-meta[\s\S]*<p>/);
+  });
+
+  it('renders fallback for whitespace-only excerptHtml', () => {
+    const src = mkSource({ excerptHtml: '   \n  ' });
+    const html = renderSourceExcerpt(src, PATH);
+    expect(html).toContain('Excerpt unavailable');
+  });
+
   it('renders "Watch video" label for YouTube sources', () => {
     const src = { ...mkSource(), originalUrl: 'https://www.youtube.com/watch?v=abc123' };
     const html = renderSourceExcerpt(src, PATH);

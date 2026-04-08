@@ -159,10 +159,17 @@ export function renderSourceExcerpt(
 ): string {
   const isYouTube = /(?:youtube\.com|youtu\.be)/i.test(source.originalUrl);
   const linkLabel = isYouTube ? 'Watch video' : 'Read full article';
+  // Defense against missing excerpt content (e.g. source row with NULL content_path
+  // because autoNullBrokenArticlePaths fired before consolidation): render a
+  // graceful fallback paragraph rather than an empty card body. See issue #490.
+  const safeUrl = escapeHtml(source.originalUrl);
+  const body = source.excerptHtml && source.excerptHtml.trim().length > 0
+    ? source.excerptHtml
+    : `<p><em>Excerpt unavailable. <a href="${safeUrl}" target="_blank" rel="noopener">${linkLabel} at ${escapeHtml(source.publicationName)}</a>.</em></p>`;
   return `<article class="source-excerpt">
       <h3>${escapeHtml(source.title)}</h3>
-      <div class="source-meta">by ${escapeHtml(source.author)} &middot; <a href="${pathToRoot}publication/${source.publicationSlug}/index.html">${escapeHtml(source.publicationName)}</a> &middot; <a href="${source.originalUrl}" target="_blank" rel="noopener">${linkLabel}</a></div>
-      ${source.excerptHtml}
+      <div class="source-meta">by ${escapeHtml(source.author)} &middot; <a href="${pathToRoot}publication/${source.publicationSlug}/index.html">${escapeHtml(source.publicationName)}</a> &middot; <a href="${safeUrl}" target="_blank" rel="noopener">${linkLabel}</a></div>
+      ${body}
     </article>`;
 }
 

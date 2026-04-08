@@ -112,9 +112,27 @@ export function extractHtmlExcerpt(htmlContent: string, wordLimit: number = 400)
     .replace(/<div[^>]*class="[^"]*embedded-post[^"]*"[^>]*>[\s\S]*?<\/div>/gi, '')
     .replace(/<div[^>]*class="[^"]*captioned-image[^"]*"[^>]*>[\s\S]*?<\/div>/gi, '')
     .replace(/<div[^>]*class="[^"]*spotify[^"]*"[^>]*>[\s\S]*?<\/div>/gi, '')
-    // Dissolve section headings: turn h1-h6 into an opening paragraph marker so the heading
-    // text becomes a sentence prefix to the next paragraph, not a visual break.
-    .replace(/<h[1-6][^>]*>([\s\S]*?)<\/h[1-6]>/gi, '<p>$1. ')
+    // Recover Substack <span class="mention-wrap" data-attrs='{"name":"..."}'></span>
+    // widgets: their visible text lives only in the data-attrs JSON, so a naive tag
+    // strip leaves an empty string and produces artifacts like ", , ". Pull the name
+    // out before the generic span stripper runs.
+    .replace(
+      /<span[^>]*class="[^"]*mention-wrap[^"]*"[^>]*data-attrs="([^"]*)"[^>]*>[\s\S]*?<\/span>/gi,
+      (_m: string, attrs: string) => {
+        try {
+          const decoded = attrs.replace(/&quot;/g, '"').replace(/&amp;/g, '&');
+          const parsed = JSON.parse(decoded) as { name?: string };
+          return parsed.name ? parsed.name : '';
+        } catch {
+          return '';
+        }
+      }
+    )
+    // Dissolve section headings: turn h1-h6 into a self-contained paragraph so the
+    // heading text becomes a sentence on its own. We must close the <p> we open here,
+    // otherwise an immediately-following <p> in the source produces invalid nested
+    // <p><p>...</p></p> markup. (See PR #495 review.)
+    .replace(/<h[1-6][^>]*>([\s\S]*?)<\/h[1-6]>/gi, '<p>$1.</p> ')
     // Strip horizontal rules
     .replace(/<hr[^>]*\/?>/gi, '')
     // Strip lists, blockquotes, tables, divs, spans, structural elements
@@ -129,6 +147,11 @@ export function extractHtmlExcerpt(htmlContent: string, wordLimit: number = 400)
     // for emoji, plus variation selectors and zero-width joiners that stitch them together.
     // eslint-disable-next-line no-misleading-character-class
     .replace(/[\u{1F300}-\u{1FAFF}\u{1F600}-\u{1F64F}\u{1F680}-\u{1F6FF}\u{2600}-\u{27BF}\u{FE00}-\u{FE0F}\u{200D}]/gu, '')
+    // Collapse empty-token punctuation runs left behind by stripped widgets/links
+    // (e.g. ", , and" → ", and"; ", ." → ".") so the prose reads cleanly.
+    .replace(/,(\s*,)+/g, ',')
+    .replace(/\(\s*\)/g, '')
+    .replace(/\s+([,.;:!?])/g, '$1')
     .trim();
 
   // Count words to find where to truncate
