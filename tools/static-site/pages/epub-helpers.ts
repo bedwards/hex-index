@@ -150,6 +150,84 @@ const VOID_ELEMENTS = new Set([
   'link', 'meta', 'param', 'source', 'track', 'wbr',
 ]);
 
+// ── Trending Story Lines nav helpers (#486) ─────────────────────────
+//
+// The weekly Reader epub leads with a "Trending Story Lines" section
+// containing every consolidated commentary whose sources include at least
+// one article published in the last 7 days. These pure helpers build the
+// nav.xhtml and toc.ncx fragments for that section so weekly.ts can keep
+// its rendering in one place and tests can exercise the structure without
+// a database or archiver.
+//
+// Entries are written as article-0.xhtml .. article-(N-1).xhtml; the rest
+// of the topic groups start at article-N and are rendered by the existing
+// topic loop. If `titles` is empty the helpers return empty strings and
+// the caller MUST omit the section heading entirely (no empty heading).
+
+function escXml(s: string): string {
+  return s
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&apos;');
+}
+
+export const TRENDING_SECTION_TITLE = 'Trending Story Lines';
+
+/**
+ * Build the nav.xhtml `<li>` for the "Trending Story Lines" section.
+ * Returns empty string when `titles` is empty.
+ *
+ * Output shape matches the existing topic-group shape in weekly.ts:
+ *   <li><a href="article-0.xhtml">Trending Story Lines</a>
+ *     <ol>
+ *       <li><a href="article-0.xhtml">Title 0</a></li>
+ *       ...
+ *     </ol>
+ *   </li>
+ */
+export function renderTrendingNavSection(titles: string[]): string {
+  if (titles.length === 0) {return '';}
+  let out = `    <li><a href="article-0.xhtml">${escXml(TRENDING_SECTION_TITLE)}</a>\n      <ol>\n`;
+  for (let i = 0; i < titles.length; i++) {
+    out += `        <li><a href="article-${i}.xhtml">${escXml(titles[i])}</a></li>\n`;
+  }
+  out += `      </ol>\n    </li>\n`;
+  return out;
+}
+
+/**
+ * Build NCX navPoints for the "Trending Story Lines" section.
+ * Returns { ncxHtml, nextPlayOrder } — the caller uses `nextPlayOrder`
+ * as the starting playOrder for subsequent topic groups.
+ *
+ * Returns { ncxHtml: '', nextPlayOrder: startPlayOrder } when titles is
+ * empty so the NCX contains no empty section.
+ */
+export function renderTrendingNcxSection(
+  titles: string[],
+  startPlayOrder: number
+): { ncxHtml: string; nextPlayOrder: number } {
+  if (titles.length === 0) {
+    return { ncxHtml: '', nextPlayOrder: startPlayOrder };
+  }
+  let order = startPlayOrder;
+  let out = `  <navPoint id="navpoint-${order}" playOrder="${order}">
+    <navLabel><text>${escXml(TRENDING_SECTION_TITLE)}</text></navLabel>
+    <content src="article-0.xhtml"/>\n`;
+  order++;
+  for (let i = 0; i < titles.length; i++) {
+    out += `    <navPoint id="navpoint-${order}" playOrder="${order}">
+      <navLabel><text>${escXml(titles[i])}</text></navLabel>
+      <content src="article-${i}.xhtml"/>
+    </navPoint>\n`;
+    order++;
+  }
+  out += `  </navPoint>\n`;
+  return { ncxHtml: out, nextPlayOrder: order };
+}
+
 // ── Epub chapter rendering ──────────────────────────────────────────
 //
 // Renders the <body>...</body> contents for one weekly-Reader chapter.

@@ -2,6 +2,9 @@ import { describe, expect, it } from 'vitest';
 import {
   truncateDeepDive,
   renderEpubChapterBody,
+  renderTrendingNavSection,
+  renderTrendingNcxSection,
+  TRENDING_SECTION_TITLE,
   type EpubChapterDeepDive,
   type EpubChapterSource,
 } from './epub-helpers.js';
@@ -293,5 +296,64 @@ describe('renderEpubChapterBody', () => {
     });
     expect(out).toContain('Author 0, Publication 0');
     expect(out).toContain('multiple sources');
+  });
+});
+
+// ── Trending Story Lines nav helpers (#486) ─────────────────────────
+
+describe('renderTrendingNavSection', () => {
+  it('returns empty string when there are no trending entries (no empty heading)', () => {
+    expect(renderTrendingNavSection([])).toBe('');
+  });
+
+  it('renders a nav <li> with the section title and nested items at top (article-0..N-1)', () => {
+    const out = renderTrendingNavSection([
+      'First Trend',
+      'Second Trend',
+      'Third & Final <Trend>',
+    ]);
+    // Section title present.
+    expect(out).toContain(TRENDING_SECTION_TITLE);
+    // Section anchor points to article-0 — trending leads the epub.
+    expect(out).toContain('<a href="article-0.xhtml">Trending Story Lines</a>');
+    // Each title gets its own nested <li> pointing at sequential chapters.
+    expect(out).toContain('<a href="article-0.xhtml">First Trend</a>');
+    expect(out).toContain('<a href="article-1.xhtml">Second Trend</a>');
+    // XML escaping applied to title content.
+    expect(out).toContain('Third &amp; Final &lt;Trend&gt;');
+    // Three nested items total inside the outer <li>.
+    expect((out.match(/<li>/g) ?? []).length).toBe(4); // 1 outer + 3 nested
+  });
+
+  it('escapes quotes and ampersands in the section title items', () => {
+    const out = renderTrendingNavSection(['Apples & "Oranges"']);
+    expect(out).toContain('Apples &amp; &quot;Oranges&quot;');
+  });
+});
+
+describe('renderTrendingNcxSection', () => {
+  it('returns empty ncx and unchanged play order when trending is empty', () => {
+    const { ncxHtml, nextPlayOrder } = renderTrendingNcxSection([], 5);
+    expect(ncxHtml).toBe('');
+    expect(nextPlayOrder).toBe(5);
+  });
+
+  it('renders NCX navPoints pointing at article-0..N-1 and advances play order', () => {
+    const { ncxHtml, nextPlayOrder } = renderTrendingNcxSection(
+      ['Alpha', 'Beta'],
+      10
+    );
+    // Parent navPoint gets play order 10, advances to 13 (1 parent + 2 children).
+    expect(nextPlayOrder).toBe(13);
+    expect(ncxHtml).toContain('id="navpoint-10"');
+    expect(ncxHtml).toContain('id="navpoint-11"');
+    expect(ncxHtml).toContain('id="navpoint-12"');
+    expect(ncxHtml).toContain(`<text>${TRENDING_SECTION_TITLE}</text>`);
+    // Children map to sequential article files.
+    expect(ncxHtml).toContain('<content src="article-0.xhtml"/>');
+    expect(ncxHtml).toContain('<content src="article-1.xhtml"/>');
+    // Parent anchor also points to article-0 (top of section).
+    const firstContent = ncxHtml.indexOf('<content src="article-0.xhtml"/>');
+    expect(firstContent).toBeGreaterThan(0);
   });
 });
