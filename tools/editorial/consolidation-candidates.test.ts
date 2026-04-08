@@ -8,6 +8,7 @@ import {
   findConsolidationCandidates,
   groupArticles,
   jaccard,
+  sortGroupsRecencyFirst,
   tokenizeTitle,
 } from './consolidation-candidates.js';
 
@@ -177,6 +178,69 @@ describe('groupArticles', () => {
     expect(g.reasoning).toContain('Pub-sinification');
     expect(g.reasoning).toContain('Pub-chinatalk');
     expect(g.reasoning).toContain('title sim');
+  });
+});
+
+describe('sortGroupsRecencyFirst', () => {
+  const NOW = new Date('2026-04-08T12:00:00Z');
+  const ago = (days: number): Date => new Date(NOW.getTime() - days * day);
+
+  function grp(score: number, ageDaysOfNewest: number, id = 'g'): CandidateGroup {
+    return {
+      articles: [
+        {
+          id: `${id}-a`,
+          title: 't',
+          publication_id: 'p1',
+          created_at: ago(ageDaysOfNewest + 10),
+          word_count: 500,
+          tags: [],
+        },
+        {
+          id: `${id}-b`,
+          title: 't',
+          publication_id: 'p2',
+          created_at: ago(ageDaysOfNewest),
+          word_count: 500,
+          tags: [],
+        },
+      ],
+      score,
+      primarySuggestion: `${id}-b`,
+      reasoning: '',
+    };
+  }
+
+  it('puts groups with a source in the last 7 days before older groups', () => {
+    const older = grp(0.9, 10, 'older'); // high score but stale
+    const recent = grp(0.5, 2, 'recent'); // lower score but recent
+    const sorted = sortGroupsRecencyFirst([older, recent], NOW);
+    expect(sorted.map(g => g.primarySuggestion)).toEqual(['recent-b', 'older-b']);
+  });
+
+  it('tie-breaks by score desc within each partition', () => {
+    const r1 = grp(0.4, 1, 'r1');
+    const r2 = grp(0.8, 3, 'r2');
+    const o1 = grp(0.3, 12, 'o1');
+    const o2 = grp(0.7, 20, 'o2');
+    const sorted = sortGroupsRecencyFirst([r1, o1, r2, o2], NOW);
+    expect(sorted.map(g => g.primarySuggestion)).toEqual([
+      'r2-b', 'r1-b', 'o2-b', 'o1-b',
+    ]);
+  });
+
+  it('treats exactly-7-days as recent (boundary inclusive)', () => {
+    const boundary = grp(0.5, 7, 'boundary');
+    const older = grp(0.9, 8, 'older');
+    const sorted = sortGroupsRecencyFirst([older, boundary], NOW);
+    expect(sorted[0].primarySuggestion).toBe('boundary-b');
+  });
+
+  it('preserves pure score order when nothing is recent', () => {
+    const o1 = grp(0.4, 10, 'o1');
+    const o2 = grp(0.8, 20, 'o2');
+    const sorted = sortGroupsRecencyFirst([o1, o2], NOW);
+    expect(sorted.map(g => g.primarySuggestion)).toEqual(['o2-b', 'o1-b']);
   });
 });
 

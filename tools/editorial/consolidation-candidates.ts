@@ -304,9 +304,32 @@ export function groupArticles(articles: Article[]): CandidateGroup[] {
     });
   }
 
-  // Sort output groups by score desc for stable presentation.
-  result.sort((a, b) => b.score - a.score);
-  return result;
+  // Recency-first ordering (issue #483): groups containing at least one
+  // source article created within the last 7 days come first, sorted by
+  // score desc; everything else follows, also by score desc.
+  return sortGroupsRecencyFirst(result);
+}
+
+/**
+ * Partition candidate groups so those with at least one source article
+ * created within the last 7 days come first (score desc), followed by
+ * the rest (score desc). Exported for testability; callers may pass an
+ * explicit `now` to make ordering deterministic.
+ */
+export function sortGroupsRecencyFirst(
+  groups: CandidateGroup[],
+  now: Date = new Date(),
+): CandidateGroup[] {
+  const cutoff = now.getTime() - 7 * 24 * 60 * 60 * 1000;
+  const recent: CandidateGroup[] = [];
+  const rest: CandidateGroup[] = [];
+  for (const g of groups) {
+    const hasRecent = g.articles.some(a => a.created_at.getTime() >= cutoff);
+    (hasRecent ? recent : rest).push(g);
+  }
+  recent.sort((a, b) => b.score - a.score);
+  rest.sort((a, b) => b.score - a.score);
+  return [...recent, ...rest];
 }
 
 // ── DB entrypoint ───────────────────────────────────────────────────
