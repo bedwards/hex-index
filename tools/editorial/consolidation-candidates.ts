@@ -25,6 +25,13 @@ export const TITLE_COSINE_MIN = 0.4;
 export const TIME_WINDOW_DAYS = 21;
 export const MAX_GROUP_SIZE = 4;
 
+/**
+ * Multiplier applied to seed thresholds when growing an existing group
+ * from size 2→3 or 3→4. The initial pair still requires the full
+ * thresholds (see issue #484).
+ */
+export const PEER_GROWTH_RELAX = 0.75;
+
 // ── Types ───────────────────────────────────────────────────────────
 export interface Article {
   id: string;
@@ -235,6 +242,57 @@ export function groupArticles(articles: Article[]): CandidateGroup[] {
       continue;
     }
     // Both already grouped — skip (no merging across existing groups).
+  }
+
+  // ── Relaxed peer growth (issue #484) ──────────────────────────────
+  // After the strict pass, try to grow existing groups from 2→3 and
+  // 3→4 by admitting unassigned articles that clear PEER_GROWTH_RELAX ×
+  // the seed thresholds against *every* current member. Publication
+  // distinctness, the time window, and the ready filter still apply.
+  const relaxedJaccard = TOPIC_JACCARD_MIN * PEER_GROWTH_RELAX;
+  const relaxedTitle = TITLE_COSINE_MIN * PEER_GROWTH_RELAX;
+
+  const clearsRelaxed = (idx: number, members: number[]): boolean => {
+    for (const m of members) {
+      const A = articles[idx];
+      const B = articles[m];
+      if (Math.abs(A.created_at.getTime() - B.created_at.getTime()) > timeMs) {
+        return false;
+      }
+      const topic = jaccard(tagSets[idx], tagSets[m]);
+      if (topic < relaxedJaccard) { return false; }
+      const title = titleSim(idx, m);
+      if (title < relaxedTitle) { return false; }
+    }
+    return true;
+  };
+
+  // Deterministic order: iterate article indices ascending.
+  let grew = true;
+  while (grew) {
+    grew = false;
+    for (let idx = 0; idx < articles.length; idx++) {
+      if (groupOf[idx] !== -1) { continue; }
+      // Find the best group to join (highest current membership,
+      // tiebreak on smallest group index for stability).
+      let bestGi = -1;
+      let bestSize = -1;
+      for (let gi = 0; gi < groups.length; gi++) {
+        const members = groups[gi];
+        if (members.length < 2 || members.length >= MAX_GROUP_SIZE) { continue; }
+        if (pubsInGroup(members).has(articles[idx].publication_id)) { continue; }
+        if (!clearsRelaxed(idx, members)) { continue; }
+        if (members.length > bestSize) {
+          bestSize = members.length;
+          bestGi = gi;
+        }
+      }
+      if (bestGi !== -1) {
+        groups[bestGi].push(idx);
+        groupOf[idx] = bestGi;
+        grew = true;
+      }
+    }
   }
 
   // Build CandidateGroup[]

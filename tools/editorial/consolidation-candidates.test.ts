@@ -4,6 +4,9 @@ import {
   type CandidateGroup,
   type QueryableDb,
   MAX_GROUP_SIZE,
+  PEER_GROWTH_RELAX,
+  TITLE_COSINE_MIN,
+  TOPIC_JACCARD_MIN,
   buildTitleTfIdf,
   findConsolidationCandidates,
   groupArticles,
@@ -241,6 +244,106 @@ describe('sortGroupsRecencyFirst', () => {
     const o2 = grp(0.8, 20, 'o2');
     const sorted = sortGroupsRecencyFirst([o1, o2], NOW);
     expect(sorted.map(g => g.primarySuggestion)).toEqual(['o2-b', 'o1-b']);
+  });
+});
+
+describe('relaxed peer growth (issue #484)', () => {
+  it('exposes a relax multiplier strictly between 0 and 1', () => {
+    expect(PEER_GROWTH_RELAX).toBeGreaterThan(0);
+    expect(PEER_GROWTH_RELAX).toBeLessThan(1);
+  });
+
+  it('admits a 3rd source at 0.75x thresholds when full thresholds would reject it', () => {
+    // Seed pair: identical titles + full tag overlap → clears full thresholds.
+    // Third: shares only 2 of 8 union tags (jaccard=0.25, between 0.225 and 0.3)
+    //        and a looser title that clears relaxed (0.3) but not full (0.4)
+    //        title-cosine when paired with the seed.
+    const seedTags = ['ukraine', 'war', 'russia', 'putin'];
+    const thirdTags = ['ukraine', 'war', 'nato', 'europe', 'geopolitics', 'economy'];
+
+    const articles: Article[] = [
+      mk('s1', 'Ukraine war enters new phase Russia pushes Donbas offensive',
+        'wendover', seedTags, 0),
+      mk('s2', 'Ukraine war enters new phase Russia pushes Donbas offensive',
+        'kingsgenerals', seedTags, 1),
+      mk('s3', 'Ukraine war Russia outlook strategic',
+        'perun', thirdTags, 2),
+      // Distractor docs to stabilize TF-IDF weights.
+      mk('d1', 'Silicon Valley banks face new regulations reform',
+        'stratechery', ['tech', 'finance'], 0),
+      mk('d2', 'Arctic sea ice hits new record low science',
+        'climatewire', ['climate', 'arctic'], 0),
+    ];
+
+    // Sanity: confirm the third would fail the seed-pair gate on its own.
+    const fullPairOnly = groupArticles([articles[0], articles[2], articles[3], articles[4]]);
+    // s1+s3 must not form a pair on their own at full thresholds.
+    for (const g of fullPairOnly) {
+      const ids = g.articles.map(a => a.id).sort().join(',');
+      expect(ids).not.toBe('s1,s3');
+    }
+
+    const groups = groupArticles(articles);
+    // Expect the seed group to have grown to 3 members.
+    const seedGroup = groups.find(g =>
+      g.articles.some(a => a.id === 's1') && g.articles.some(a => a.id === 's2'),
+    );
+    expect(seedGroup).toBeDefined();
+    expect(seedGroup!.articles.map(a => a.id).sort()).toEqual(['s1', 's2', 's3']);
+  });
+
+  it('still requires full thresholds for the initial pair (no regression)', () => {
+    // Two articles that would clear only the relaxed thresholds but not
+    // the full seed thresholds must NOT form a pair on their own.
+    // Jaccard 2/8 = 0.25 (< 0.3 full, > 0.225 relaxed).
+    const articles: Article[] = [
+      mk('n1', 'Ukraine conflict broad overview context and background notes',
+        'pub1',
+        ['ukraine', 'war', 'russia', 'putin'], 0),
+      mk('n2', 'Ukraine conflict broad overview context and background notes',
+        'pub2',
+        ['ukraine', 'war', 'nato', 'europe', 'geopolitics', 'economy'], 1),
+    ];
+    // Confirm the jaccard is indeed in the relaxed-only band.
+    const jac = 2 / 8;
+    expect(jac).toBeLessThan(TOPIC_JACCARD_MIN);
+    expect(jac).toBeGreaterThanOrEqual(TOPIC_JACCARD_MIN * PEER_GROWTH_RELAX);
+
+    expect(groupArticles(articles)).toEqual([]);
+    // And confirm TITLE_COSINE_MIN is still referenced as full.
+    expect(TITLE_COSINE_MIN).toBe(0.4);
+  });
+
+  it('still caps group size at MAX_GROUP_SIZE=4 under relaxed growth', () => {
+    const seedTags = ['ukraine', 'war', 'russia', 'putin'];
+    // Three peer tag-sets that each match the seed at relaxed jaccard
+    // (~0.286, between 0.225 and 0.3) but jaccard <0.3 against each
+    // OTHER, so they cannot seed their own group at full thresholds.
+    const peer3Tags = ['ukraine', 'war', 'nato', 'europe', 'germany'];
+    const peer4Tags = ['ukraine', 'war', 'asia', 'china', 'japan'];
+    const peer5Tags = ['ukraine', 'war', 'middle', 'east', 'iran'];
+    const title1 = 'Ukraine war enters new phase Russia pushes Donbas offensive';
+    const title2 = 'Ukraine war Russia outlook strategic phase';
+
+    const articles: Article[] = [
+      mk('m1', title1, 'pubA', seedTags, 0),
+      mk('m2', title1, 'pubB', seedTags, 1),
+      mk('m3', title2, 'pubC', peer3Tags, 2),
+      mk('m4', title2, 'pubD', peer4Tags, 3),
+      mk('m5', title2, 'pubE', peer5Tags, 4),
+      mk('d1', 'Silicon Valley banks face new regulations reform',
+        'stratechery', ['tech', 'finance'], 0),
+      mk('d2', 'Arctic sea ice hits new record low science',
+        'climatewire', ['climate', 'arctic'], 0),
+    ];
+
+    const groups = groupArticles(articles);
+    const seedGroup = groups.find(g =>
+      g.articles.some(a => a.id === 'm1') && g.articles.some(a => a.id === 'm2'),
+    );
+    expect(seedGroup).toBeDefined();
+    expect(seedGroup!.articles.length).toBeLessThanOrEqual(MAX_GROUP_SIZE);
+    expect(seedGroup!.articles.length).toBe(MAX_GROUP_SIZE);
   });
 });
 
