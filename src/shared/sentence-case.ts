@@ -27,71 +27,76 @@ export const KNOWN_ACRONYMS = new Set([
 
 // Proper nouns we want to preserve as Capital. Best-effort, expand over time.
 // Matched case-insensitively.
+// NOTE: each group is sorted alphabetically within itself to make future
+// deduping/auditing easier. Duplicates across groups are removed.
 export const PROPER_NOUNS_LC = new Set([
   // countries / regions
-  'america','american','americans','britain','british','china','chinese','russia','russian',
-  'ukraine','ukrainian','iran','iranian','israel','israeli','japan','japanese','korea','korean',
-  'india','indian','germany','german','france','french','italy','italian','spain','spanish',
-  'mexico','mexican','canada','canadian','europe','european','africa','african','asia','asian',
-  'taiwan','taiwanese','vietnam','vietnamese','venezuela','venezuelan','syria','syrian',
-  'afghanistan','afghan','iraq','iraqi','poland','polish','greece','greek','turkey','turkish',
-  'switzerland','swiss','sweden','swedish','norway','norwegian','denmark','danish','finland',
-  'finnish','netherlands','dutch','belgium','belgian','austria','austrian','hungary','hungarian',
-  'czech','romania','romanian','bulgaria','bulgarian','portugal','portuguese','egypt','egyptian',
-  'saudi','arabia','arabian','arab','arabs','argentina','argentine','brazil','brazilian',
-  'colombia','colombian','peru','peruvian','chile','chilean','australia','australian','indonesia',
-  'indonesian','malaysia','malaysian','philippines','filipino','thailand','thai','singapore',
-  'pakistan','pakistani','bangladesh','bangladeshi','nigeria','nigerian','kenya','kenyan',
-  'ethiopia','ethiopian','south','north','west','east','western','eastern','northern','southern',
+  'afghan','afghanistan','africa','african','america','american','americans','arab','arabia',
+  'arabian','arabs','argentina','argentine','asia','asian','australia','australian','austria',
+  'austrian','bangladesh','bangladeshi','belgian','belgium','brazil','brazilian','britain',
+  'british','bulgaria','bulgarian','canada','canadian','chile','chilean','china','chinese',
+  'colombia','colombian','czech','danish','denmark','dutch','east','eastern','egypt','egyptian',
+  'ethiopia','ethiopian','europe','european','filipino','finland','finnish','france','french',
+  'german','germany','greece','greek','hungarian','hungary','india','indian','indonesia',
+  'indonesian','iran','iranian','iraq','iraqi','israel','israeli','italian','italy','japan',
+  'japanese','kenya','kenyan','korea','korean','malaysia','malaysian','mexican','mexico',
+  'netherlands','nigeria','nigerian','north','northern','norway','norwegian','pakistan',
+  'pakistani','peru','peruvian','philippines','poland','polish','portugal','portuguese',
+  'romania','romanian','russia','russian','saudi','singapore','south','southern','spain',
+  'spanish','sweden','swedish','swiss','switzerland','syria','syrian','taiwan','taiwanese',
+  'thai','thailand','turkey','turkish','ukraine','ukrainian','venezuela','venezuelan',
+  'vietnam','vietnamese','west','western',
   // states + cities
-  'alabama','alaska','arizona','arkansas','california','colorado','connecticut','delaware',
-  'florida','georgia','hawaii','idaho','illinois','indiana','iowa','kansas','kentucky',
-  'louisiana','maine','maryland','massachusetts','michigan','minnesota','mississippi','missouri',
-  'montana','nebraska','nevada','ohio','oklahoma','oregon','pennsylvania','tennessee','texas',
-  'utah','vermont','virginia','washington','wisconsin','wyoming',
-  'london','paris','tokyo','beijing','moscow','berlin','rome','madrid','vienna','prague',
-  'budapest','warsaw','dublin','lisbon','athens','istanbul','cairo','jerusalem','tehran',
-  'baghdad','damascus','kabul','seoul','sydney','melbourne','mumbai','delhi','bangkok',
-  'jakarta','manila','singapore','hanoi','shanghai','hong','kong','dubai','mecca','medina',
-  'kyiv','kiev','kharkiv','mariupol','bakhmut','donetsk','luhansk','crimea','odesa','sevastopol','dnipro','lviv','zaporizhzhia','minsk','riga','tallinn','helsinki','stockholm','oslo','copenhagen','amsterdam',
-  'brussels','geneva','zurich','milan','barcelona','seville','porto','bratislava','sofia',
-  'bucharest','belgrade','sarajevo','zagreb','ljubljana','ankara','tripoli','tunis','rabat',
-  'lagos','nairobi','johannesburg','cairo','sao','rio','buenos','aires','lima','santiago',
-  'caracas','bogota','havana','toronto','montreal','vancouver','ottawa','quebec',
-  'nyc','manhattan','brooklyn','queens','bronx','boston','chicago','denver','seattle',
-  'portland','austin','dallas','houston','miami','atlanta','orlando','philadelphia','baltimore',
-  'detroit','milwaukee','cleveland','phoenix','tucson','vegas','reno','sacramento','francisco',
-  'angeles','diego','jose','oakland','berkeley',
+  'aires','alabama','alaska','amsterdam','angeles','ankara','arizona','arkansas','athens',
+  'atlanta','austin','bakhmut','baltimore','bangkok','barcelona','beijing','belgrade','berkeley',
+  'berlin','bogota','boston','bratislava','brooklyn','bronx','brussels','bucharest','budapest',
+  'buenos','cairo','california','caracas','chicago','cleveland','colorado','connecticut',
+  'copenhagen','crimea','dallas','delaware','delhi','denver','detroit','diego','dnipro',
+  'donetsk','dubai','dublin','florida','francisco','geneva','georgia','hanoi','havana','hawaii',
+  'helsinki','hong','houston','idaho','illinois','indiana','iowa','istanbul','jakarta',
+  'jerusalem','johannesburg','jose','kabul','kansas','kentucky','kharkiv','kiev','kong','kyiv',
+  'lagos','lima','lisbon','ljubljana','london','louisiana','luhansk','lviv','madrid','maine',
+  'manhattan','manila','mariupol','maryland','massachusetts','mecca','medina','melbourne',
+  'miami','michigan','milan','milwaukee','minnesota','minsk','mississippi','missouri','montana',
+  'montreal','moscow','mumbai','nairobi','nebraska','nevada','nyc','oakland','odesa','ohio',
+  'oklahoma','oregon','orlando','oslo','ottawa','paris','pennsylvania','philadelphia','phoenix',
+  'portland','porto','prague','quebec','queens','rabat','reno','riga','rio','rome','sacramento',
+  'santiago','sao','sarajevo','seattle','seoul','sevastopol','seville','shanghai','sofia',
+  'stockholm','sydney','tallinn','tehran','tennessee','texas','tokyo','toronto','tripoli',
+  'tucson','tunis','utah','vancouver','vegas','vermont','vienna','virginia','warsaw',
+  'washington','wisconsin','wyoming','zagreb','zaporizhzhia','zurich',
+  // Baghdad, Damascus appear under historical/cultural below? keep cities here too
+  'baghdad','damascus',
   // companies / brands
-  'apple','google','microsoft','amazon','meta','facebook','instagram','twitter','tiktok',
-  'youtube','netflix','spotify','uber','lyft','airbnb','tesla','spacex','starlink','openai',
-  'anthropic','claude','chatgpt','gemini','deepseek','nvidia','intel','amd','samsung','sony',
-  'huawei','xiaomi','alibaba','tencent','bytedance','walmart','target','costco','starbucks',
-  'mcdonald','disney','netflix','vanguard','blackrock','goldman','sachs','morgan','citigroup',
-  'visa','mastercard','paypal','stripe','shopify','zoom','slack','github','gitlab','reddit',
-  'discord','telegram','whatsapp','signal','vercel','cloudflare','aws','azure','docker',
-  'kubernetes','linux','android','windows','macos','ios','chrome','firefox','safari',
+  'airbnb','alibaba','amazon','amd','android','anthropic','apple','aws','azure','blackrock',
+  'bytedance','chatgpt','chrome','citigroup','claude','cloudflare','costco','deepseek','discord',
+  'disney','docker','facebook','firefox','gemini','github','gitlab','goldman','google','huawei',
+  'instagram','intel','ios','kubernetes','linux','lyft','macos','mastercard','mcdonald','meta',
+  'microsoft','morgan','netflix','nvidia','openai','paypal','reddit','sachs','safari','samsung',
+  'shopify','signal','slack','sony','spacex','spotify','starbucks','starlink','target','telegram',
+  'tencent','tesla','tiktok','twitter','uber','vanguard','vercel','visa','walmart','whatsapp',
+  'windows','xiaomi','youtube','zoom',
   // historical / cultural
-  'roman','romans','greek','greeks','egyptian','egyptians','byzantine','ottoman','ottomans',
-  'soviet','soviets','nazi','nazis','allied','axis','christian','christians','christianity',
-  'muslim','muslims','islam','islamic','jewish','jews','judaism','hindu','hindus','hinduism',
-  'buddhist','buddhism','catholic','catholics','catholicism','protestant','orthodox',
-  'mormon','sikh','jesus','christ','muhammad','buddha','moses','abraham','god','allah',
-  'bible','quran','torah','vatican','mecca','medina','jerusalem','bethlehem','rome','athens',
-  'constantinople','byzantium','sparta','troy','carthage','babylon','nineveh','jericho',
+  'abraham','allah','allied','athens','axis','babylon','bethlehem','bible','buddha','buddhism',
+  'buddhist','byzantine','byzantium','carthage','catholic','catholicism','catholics','christ',
+  'christian','christianity','christians','constantinople','egyptians','god','greeks','hindu',
+  'hinduism','hindus','islam','islamic','jericho','jesus','jewish','jews','judaism','mormon',
+  'moses','muhammad','muslim','muslims','nazi','nazis','nineveh','orthodox','ottoman','ottomans',
+  'protestant','quran','roman','romans','sikh','soviet','soviets','sparta','torah','troy',
+  'vatican',
   // common figures + leaders the loop sees often
-  'putin','xi','jinping','zelensky','netanyahu','biden','obama','clinton','reagan','kennedy',
-  'lincoln','washington','jefferson','hamilton','madison','franklin','roosevelt','truman',
-  'eisenhower','nixon','carter','bush','musk','bezos','zuckerberg','altman','hassabis',
-  'gates','jobs','buffett','dimon','powell','yellen','dimon',
+  'altman','bezos','biden','buffett','bush','carter','clinton','dimon','eisenhower','franklin',
+  'gates','hamilton','hassabis','jefferson','jinping','jobs','kennedy','lincoln','madison',
+  'musk','netanyahu','nixon','obama','powell','putin','reagan','roosevelt','truman','xi',
+  'yellen','zelensky','zuckerberg',
   // months + days (always capitalized)
-  'january','february','march','april','may','june','july','august','september','october',
-  'november','december','monday','tuesday','wednesday','thursday','friday','saturday','sunday',
+  'april','august','december','february','january','july','june','march','may','monday',
+  'november','october','saturday','september','sunday','thursday','tuesday','wednesday','friday',
   // misc proper nouns
-  'wikipedia','speechify','substack','reddit','twitter','x','medium','vox','politico',
-  'bloomberg','reuters','axios','bbc','cnn','msnbc','fox','nbc','cbs','abc','npr','wsj','ft',
-  'nytimes','wapo','guardian','telegraph','economist','atlantic','newyorker','wired','verge',
-  'derby','olympics','olympic','superbowl','worldcup','wimbledon',
+  'abc','atlantic','axios','bbc','bloomberg','cbs','cnn','derby','economist','fox','ft',
+  'guardian','medium','msnbc','nbc','newyorker','npr','nytimes','olympic','olympics','politico',
+  'reuters','speechify','substack','superbowl','telegraph','verge','vox','wapo','wikipedia',
+  'wimbledon','wired','worldcup','wsj','x',
 ]);
 
 interface ParseOpts {
@@ -125,26 +130,32 @@ export function toSentenceCase(
     let result: string;
 
     // Strip a trailing possessive `'s` or `'` for lookups (russia's, McDonald's).
-    const possMatch = core.match(/^(.+?)(['\u2019]s|['\u2019])$/);
+    const possMatch = core.match(/^(.+?)(['\u2019][sS]|['\u2019])$/);
     const lookupCore = possMatch ? possMatch[1] : core;
-    const possSuffix = possMatch ? possMatch[2] : '';
+    // Normalize possessive suffix to lowercase s (russia'S → russia's).
+    const possSuffix = possMatch ? possMatch[2].toLowerCase() : '';
 
     // 1. Acronym match (case-insensitive) on the lookup core
     if (KNOWN_ACRONYMS.has(lookupCore.toUpperCase())) {
       result = lookupCore.toUpperCase() + possSuffix;
     }
-    // 2. Intra-cap brand (e.g. iPhone, GitHub, eBay): preserve verbatim
+    // 2. Intra-cap brand/proper noun (iPhone, eBay, GitHub, McDonald's):
+    // preserve verbatim if the lookup core has an interior uppercase letter
+    // and is not all-caps (all-caps words fall through to the acronym branch
+    // above or get lowercased below). Re-append any possessive suffix.
+    // TODO(multi-word proper nouns): This word-by-word approach cannot
+    // handle multi-word place names where some components are common
+    // words (e.g. "San Francisco", "Los Angeles", "Sao Paulo", "New
+    // York"). A follow-up should introduce a LEADING_PARTICLES set
+    // ('san','los','saint','new','santa','sao','el','la','le','las',
+    // 'de','du') that, when matched, also preserves the NEXT token's
+    // capitalization. Tracked in issue #501.
     else if (
       opts.preserveIntraCap &&
-      /[A-Z]/.test(core.slice(1)) &&
-      core[0] !== core[0].toUpperCase()
+      /[A-Z]/.test(lookupCore.slice(1)) &&
+      !/^[A-Z]+$/.test(lookupCore)
     ) {
-      // word like "iPhone" — first lower, later upper. preserve.
-      result = core;
-    }
-    else if (opts.preserveIntraCap && /^[A-Z][a-z]+[A-Z]/.test(core)) {
-      // word like "McDonald" — Title + interior cap. preserve.
-      result = core;
+      result = lookupCore + possSuffix;
     }
     // 3. Proper noun match (case-insensitive) on lookup core (handles possessives)
     else if (PROPER_NOUNS_LC.has(lookupCore.toLowerCase())) {

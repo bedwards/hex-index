@@ -41,6 +41,16 @@ describe('toSentenceCase', () => {
       .toBe("McDonald's new menu");
   });
 
+  it("preserves possessive intra-cap brands (McDonald's, eBay's)", () => {
+    // Regression: intra-cap check must run on lookupCore (after stripping
+    // possessive suffix), otherwise McDonald's and eBay's fall through to
+    // the default lowercase branch.
+    expect(toSentenceCase("the McDonald's menu"))
+      .toBe("The McDonald's menu");
+    expect(toSentenceCase("the eBay's earnings report"))
+      .toBe("The eBay's earnings report");
+  });
+
   it('capitalizes after sentence-ending colon', () => {
     expect(toSentenceCase('breaking: a new era begins'))
       .toBe('Breaking: A new era begins');
