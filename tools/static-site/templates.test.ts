@@ -252,6 +252,8 @@ describe('renderTrendingHero', () => {
     expect(html).toContain('4 sources');
     expect(html).toContain('days ago');
     expect(html).toContain('src="./images/foo.jpg"');
+    // Should not emit an <hr> above the section (issue #492)
+    expect(html).not.toMatch(/<hr\b/);
   });
 
   it('renders multiple cards in order', () => {
