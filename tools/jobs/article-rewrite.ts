@@ -189,12 +189,39 @@ async function main(): Promise<void> {
           }
         } catch { /* no wiki topics available */ }
 
-        const prompt = `You are a commentator at a curated reading library. Your readers are smart, busy people who use text-to-speech. Your job: write commentary on this piece that makes them glad they spent 15 minutes with you. You are not rewriting the article — you are commenting on the author's coverage, weaving in direct quotes and paraphrasing throughout.
+        // Author handling: a clean named author gets quoted by name; a missing,
+        // unknown, or "Various"-style placeholder gets routed to publication-level
+        // attribution instead, because attributing quotes to a non-name confuses
+        // both the reader and the model. We strip these placeholders entirely
+        // before they reach Qwen and switch the prompt to a more fluid mode.
+        const rawAuthor = (article.author_name ?? '').trim();
+        const isPlaceholderAuthor =
+          rawAuthor === '' ||
+          /^(unknown|various|various authors?|staff|editor(s|ial)?( staff| board)?|admin|the[\s-]+editors?)$/i.test(rawAuthor);
+        const namedAuthor = isPlaceholderAuthor ? null : rawAuthor;
+
+        // Build a fluid, natural-language preface that explains the situation to
+        // the model rather than handing it a rigid template. Single named author
+        // → standard "commentary on the author's coverage" framing. No-name /
+        // placeholder → publication-as-voice framing where quotes are attributed
+        // to the publication and to specific contributors only when the source
+        // text itself names them inline.
+        const authorContextBlock = namedAuthor
+          ? `This piece was written by ${namedAuthor} for ${article.publication_name}. Treat ${namedAuthor} as the author throughout: attribute quotes and arguments to them by name, write about their specific framing and choices, and use their last name on second reference.`
+          : `This piece ran in ${article.publication_name} without a single named author — it's a publication-level piece (a roundup, a staff editorial, a multi-contributor newsletter, a transcript of a panel, or similar). Do NOT invent or guess at an author. Do NOT use the words "Various", "Various Authors", "Unknown", or "Staff" as if they were a person's name; never write a sentence like 'Various writes...' or 'According to Various...'. Instead, attribute quotes and arguments to ${article.publication_name} as the source ("${article.publication_name} reports...", "the piece argues...", "the editors note..."). If the source text itself names a specific contributor, expert, or quoted speaker inline, you may attribute their specific quotes to that named person; otherwise the unit of attribution is the publication.`;
+
+        const quoteAttributionExamples = namedAuthor
+          ? `'${namedAuthor} writes, "..."' or 'As ${namedAuthor} puts it, "..."'`
+          : `'${article.publication_name} reports, "..."', 'the piece argues that "..."', or — when a contributor is named in the source text itself — 'Smith, quoted in the piece, says "..."'`;
+
+        const prompt = `You are a commentator at a curated reading library. Your readers are smart, busy people who use text-to-speech. Your job: write commentary on this piece that makes them glad they spent 15 minutes with you. You are not rewriting the article — you are commenting on the coverage, weaving in direct quotes and paraphrasing throughout.
 
 EDITORIAL POLICY: Do NOT mention "Trump" or "Donald Trump" in your commentary. If the source article centers on Trump's actions or reactions, reframe around the underlying news event, the policy effect, the stakeholders affected, or institutional dynamics. The reader wants analysis of what is happening in the world — not coverage of one politician's personality or reactions. Use "the administration", "the White House", "the executive branch", or the specific agency/official by name when referring to the actions of US government actors.
 
+ABOUT THIS PIECE
+${authorContextBlock}
+
 TITLE: "${article.title}"
-AUTHOR: ${article.author_name ?? 'Unknown'}
 PUBLICATION: ${article.publication_name}
 ${wikiContext}
 
@@ -204,12 +231,12 @@ ${textForLlm}
 YOUR COMMENTARY APPROACH:
 
 1. HOOK (opening 2-3 sentences):
-Open by framing what makes this piece notable. What is the author's most surprising or distinctive claim? What evidence do they bring that you won't find elsewhere? Why should someone care right now? This is not a summary — it's a hook. Make the reader think "I need to hear this."
+Open by framing what makes this piece notable. What is its most surprising or distinctive claim? What evidence does it bring that you won't find elsewhere? Why should someone care right now? This is not a summary — it's a hook. Make the reader think "I need to hear this."
 
 2. COMMENTARY (the meat):
-Your commentary engages directly with the author's coverage — what they argued, how they argued it, and what it means. This is NOT a rewrite of the article. It is your editorial voice responding to theirs.
-- Write in third person. First mention: full name. After that: last name only.
-- DIRECT QUOTES: Pull 4-8 of the author's strongest, most distinctive sentences and quote them directly. Introduce each with attribution: '${article.author_name ?? 'The author'} writes, "..."' or 'As ${article.author_name ?? 'the author'} puts it, "..."'. Choose quotes that carry real weight — the ones a reader would highlight.
+Your commentary engages directly with the coverage — what was argued, how it was argued, and what it means. This is NOT a rewrite of the article. It is your editorial voice responding.
+- Write in third person. ${namedAuthor ? `First mention of the author: full name. After that: last name only.` : `Refer to the source as the publication ("${article.publication_name}") or as "the piece" / "the article". Do not invent an author name.`}
+- DIRECT QUOTES: Pull 4-8 of the strongest, most distinctive sentences from the source and quote them directly. Introduce each with attribution: ${quoteAttributionExamples}. Choose quotes that carry real weight — the ones a reader would highlight.
 - PARAPHRASING: Between quotes, paraphrase the author's arguments in your own words. Summarize their reasoning, then comment on it. "The core of the argument is..." followed by your take: "This lands because..." or "This overlooks..."
 - COMMENTARY LACED THROUGHOUT: After each major point or quote, add a sentence or two of editorial judgment. Does this evidence hold up? Is this framing effective? What context is missing? Your voice should be present on every page, not just at the end.
 - Add clear ## section headings where the coverage shifts.
