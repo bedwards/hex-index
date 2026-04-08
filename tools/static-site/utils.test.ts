@@ -176,6 +176,56 @@ describe('extractHtmlExcerpt', () => {
     const result = extractHtmlExcerpt(html, 5);
     expect(result).toContain('...');
   });
+
+  // Regression for PR #495: heading-to-paragraph conversion left a dangling
+  // <p> open, producing <p>Heading. <p>next</p></p> in rendered articles.
+  it('does not nest <p> inside <p> when a heading is followed by a paragraph', () => {
+    const html = '<h1>No Save Point</h1><p>Shashank Joshi: hello</p>';
+    const result = extractHtmlExcerpt(html, 100);
+    expect(result).not.toMatch(/<p>[^<]*<p>/);
+    expect(result).toContain('No Save Point');
+    expect(result).toContain('Shashank Joshi');
+  });
+
+  // Regression for PR #495: Substack mention-wrap widgets store the visible
+  // name only inside data-attrs JSON. Stripping the span without recovering
+  // the name produced ", , and" double-comma artifacts.
+  it('recovers names from Substack mention-wrap data-attrs', () => {
+    const html = '<p>Joshi of The Economist, <span class="mention-wrap" data-attrs="{&quot;name&quot;:&quot;Justin Mc&quot;}"></span>, and <span class="mention-wrap" data-attrs="{&quot;name&quot;:&quot;Tony Stark&quot;}"></span> drop in.</p>';
+    const result = extractHtmlExcerpt(html, 100);
+    expect(result).toContain('Justin Mc');
+    expect(result).toContain('Tony Stark');
+    expect(result).not.toMatch(/,\s*,/);
+  });
+
+  it('collapses double commas left by stripped widgets without recoverable names', () => {
+    const html = '<p>Foo, <span class="mention-wrap" data-attrs="{}"></span>, and bar drop in.</p>';
+    const result = extractHtmlExcerpt(html, 100);
+    expect(result).not.toMatch(/,\s*,/);
+  });
+});
+
+describe('extractHtmlExcerpt — escapeHtml on URLs (PR #495)', () => {
+  it('renderSourceExcerpt escapes quote-bearing URLs', async () => {
+    const { renderSourceExcerpt } = await import('./templates.js');
+    const html = renderSourceExcerpt(
+      {
+        articleId: 'a',
+        title: 'T',
+        author: 'A',
+        publicationName: 'P',
+        publicationSlug: 'p',
+        originalUrl: 'https://example.com/a"><script>alert(1)</script>',
+        excerptHtml: '',
+        isPrimary: true,
+        position: 0,
+      },
+      '../../'
+    );
+    // The raw quote/script must not appear unescaped in the output
+    expect(html).not.toContain('"><script>');
+    expect(html).toContain('&quot;');
+  });
 });
 
 describe('relativePath', () => {
