@@ -84,12 +84,24 @@ export function decodeHtmlEntities(input: string): string {
   return out;
 }
 
-export function normalizeTitle(title: string): string {
+import { stripPublicationFromTitle } from './strip-publication.js';
+
+export interface NormalizeTitleOptions {
+  /** When provided, strip a redundant publication-name prefix/suffix early. */
+  publicationName?: string;
+}
+
+export function normalizeTitle(title: string, opts: NormalizeTitleOptions = {}): string {
   // Decode HTML entities FIRST so every downstream rule sees real characters.
   let t = decodeHtmlEntities(title).trim();
 
   // Editorial policy: strip Trump references before any other processing.
   t = stripTrump(t);
+
+  // Strip redundant publication-name prefix/suffix (e.g. "ChinaTalk: Iran").
+  if (opts.publicationName) {
+    t = stripPublicationFromTitle(t, opts.publicationName);
+  }
 
   // Strip emoji prefixes (e.g., "🧠 Community Wisdom: ...")
   t = t.replace(/^(?:\p{Emoji_Presentation}|\p{Extended_Pictographic})+\s*/u, '');

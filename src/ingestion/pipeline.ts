@@ -152,7 +152,7 @@ export async function processArticle(
         if (!existing) {
           await createArticle(options.db, {
             publication_id: publicationId,
-            title: normalizeTitle(item.title),
+            title: normalizeTitle(item.title, { publicationName: source.name }),
             slug: articleSlug,
             original_url: item.url,
             content_path: stored.path,
