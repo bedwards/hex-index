@@ -173,7 +173,7 @@ export async function runPublishGate(
     );
     const tagCount = parseInt(tagRows[0]?.count ?? '0', 10);
     if (tagCount === 0) {
-      failures.push('article has zero topic tags (#494)');
+      failures.push('article has zero topic tags');
     }
   }
 
