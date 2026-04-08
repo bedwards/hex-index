@@ -967,6 +967,52 @@ interface CliArgs {
   backfillStatus: boolean;
   extendRecent: boolean;
   auto: boolean;
+  /**
+   * When true, the per-cycle apply limit is chosen dynamically based on
+   * how many trending consolidated commentaries (≥1 source ≤7 days old)
+   * exist in the DB:
+   *   - count < 3 → limit 3
+   *   - count ≥ 3 → limit 1
+   * Any explicit `--limit N` is ignored when `--auto-limit` is set.
+   * See issue #485.
+   */
+  autoLimit: boolean;
+}
+
+/**
+ * Count consolidated commentaries with at least one source ≤7 days old.
+ * Mirrors the SQL in tools/static-site/pages/trending.ts
+ * (`getTrendingConsolidationRefs`) — kept inline so consolidate.ts has
+ * no static dependency on the static-site module (which itself imports
+ * the publish-gate). Both queries must stay in sync; see issue #485.
+ */
+export async function countTrendingConsolidations(db: DbClient): Promise<number> {
+  const { rows } = await db.query<{ count: string }>(
+    `SELECT COUNT(*)::text AS count
+       FROM app.articles a
+       JOIN (
+         SELECT cs.commentary_article_id
+           FROM app.commentary_sources cs
+           JOIN app.articles src ON src.id = cs.source_article_id
+          GROUP BY cs.commentary_article_id
+         HAVING MAX(GREATEST(
+                  COALESCE(src.published_at, 'epoch'::timestamptz),
+                  src.created_at
+                )) >= NOW() - INTERVAL '7 days'
+       ) mr ON mr.commentary_article_id = a.id
+      WHERE a.is_consolidated = true
+        AND a.consolidated_into IS NULL`,
+  );
+  return Number(rows[0]?.count ?? 0);
+}
+
+/**
+ * Decide the per-cycle apply limit. If fewer than 3 trending hero
+ * commentaries exist, bump the limit to 3 to refill the hero faster;
+ * otherwise hold to the slow trickle of 1. Issue #485.
+ */
+export function chooseAutoLimit(trendingCount: number): number {
+  return trendingCount < 3 ? 3 : 1;
 }
 
 export function parseArgs(argv: string[]): CliArgs {
@@ -987,6 +1033,7 @@ export function parseArgs(argv: string[]): CliArgs {
       backfillStatus: false,
       extendRecent: false,
       auto: false,
+      autoLimit: false,
     };
   }
   const apply = args.includes('--apply');
@@ -997,6 +1044,7 @@ export function parseArgs(argv: string[]): CliArgs {
   const backfillStatus = args.includes('--backfill-status');
   const extendRecent = args.includes('--extend-recent');
   const auto = args.includes('--auto');
+  const autoLimit = args.includes('--auto-limit');
   return {
     dryRun,
     apply,
@@ -1006,6 +1054,7 @@ export function parseArgs(argv: string[]): CliArgs {
     backfillStatus,
     extendRecent,
     auto,
+    autoLimit,
   };
 }
 
@@ -1053,10 +1102,19 @@ async function cliMain(): Promise<void> {
       return;
     }
 
+    let effectiveLimit = cli.limit;
+    if (cli.autoLimit) {
+      const trendingCount = await countTrendingConsolidations(pool);
+      effectiveLimit = chooseAutoLimit(trendingCount);
+      console.info(
+        `auto-limit: ${trendingCount} trending commentaries → applying up to ${effectiveLimit} this run`,
+      );
+    }
+
     const runModeAPass = async (): Promise<void> => {
       const groups = await findConsolidationCandidates(pool as unknown as QueryableDb, { limit: 2000 });
       console.info(`Found ${groups.length} candidate group(s)`);
-      const capped = groups.slice(0, cli.limit);
+      const capped = groups.slice(0, effectiveLimit);
       for (let i = 0; i < capped.length; i++) {
         try {
           const plan = await runModeA({
@@ -1086,7 +1144,7 @@ async function cliMain(): Promise<void> {
         db: pool,
         synthesizer,
         apply: cli.apply,
-        limit: cli.limit,
+        limit: effectiveLimit,
       });
       console.info(`Extend-recent: ${matches.length} match(es)`);
       for (const m of matches) {

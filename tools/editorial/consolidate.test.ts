@@ -12,6 +12,8 @@ import type { CandidateGroup } from './consolidation-candidates.js';
 import {
   type ConsolidationPlan,
   buildBackfillChunks,
+  chooseAutoLimit,
+  countTrendingConsolidations,
   findExtendMatches,
   formatPlan,
   makeStubSynthesizer,
@@ -463,6 +465,7 @@ describe('parseArgs', () => {
       backfillStatus: false,
       extendRecent: false,
       auto: false,
+      autoLimit: false,
     });
   });
   it('parses --apply --limit 3', () => {
@@ -476,7 +479,17 @@ describe('parseArgs', () => {
       backfillStatus: false,
       extendRecent: false,
       auto: false,
+      autoLimit: false,
     });
+  });
+  it('parses --apply --auto-limit (issue #485)', () => {
+    const p = parseArgs(['node', 'x', '--apply', '--auto-limit']);
+    expect(p.autoLimit).toBe(true);
+    expect(p.apply).toBe(true);
+  });
+  it('does NOT set autoLimit when flag absent (backward compat)', () => {
+    expect(parseArgs(['node', 'x', '--apply']).autoLimit).toBe(false);
+    expect(parseArgs(['node', 'x', '--apply', '--limit', '5']).autoLimit).toBe(false);
   });
   it('parses --backfill --apply --limit 5', () => {
     const p = parseArgs(['node', 'x', '--backfill', '--apply', '--limit', '5']);
@@ -1104,5 +1117,71 @@ describe('runModeC apply', () => {
     });
     expect(matches.length).toBeGreaterThan(0);
     expect(db.commentarySources.length).toBe(before);
+  });
+});
+
+// ── --auto-limit (issue #485) ───────────────────────────────────────
+
+describe('chooseAutoLimit', () => {
+  it('returns 3 when zero trending commentaries exist', () => {
+    expect(chooseAutoLimit(0)).toBe(3);
+  });
+  it('returns 3 when fewer than 3 trending commentaries exist', () => {
+    expect(chooseAutoLimit(1)).toBe(3);
+    expect(chooseAutoLimit(2)).toBe(3);
+  });
+  it('returns 1 when exactly 3 trending commentaries exist', () => {
+    expect(chooseAutoLimit(3)).toBe(1);
+  });
+  it('returns 1 when more than 3 trending commentaries exist', () => {
+    expect(chooseAutoLimit(5)).toBe(1);
+    expect(chooseAutoLimit(42)).toBe(1);
+  });
+});
+
+describe('countTrendingConsolidations', () => {
+  /** Minimal mock that returns a single COUNT(*) row. */
+  function mockDbWithCount(n: number): Parameters<typeof countTrendingConsolidations>[0] {
+    return {
+      query: <T>(_sql: string, _params?: unknown[]): Promise<{ rows: T[] }> => {
+        return Promise.resolve({
+          rows: [{ count: String(n) } as unknown as T],
+        });
+      },
+    } as unknown as Parameters<typeof countTrendingConsolidations>[0];
+  }
+
+  it('parses the COUNT(*) row into a number (count=0 → 3 via chooseAutoLimit)', async () => {
+    const count = await countTrendingConsolidations(mockDbWithCount(0));
+    expect(count).toBe(0);
+    expect(chooseAutoLimit(count)).toBe(3);
+  });
+  it('count=2 → limit=3', async () => {
+    const count = await countTrendingConsolidations(mockDbWithCount(2));
+    expect(count).toBe(2);
+    expect(chooseAutoLimit(count)).toBe(3);
+  });
+  it('count=3 → limit=1', async () => {
+    const count = await countTrendingConsolidations(mockDbWithCount(3));
+    expect(count).toBe(3);
+    expect(chooseAutoLimit(count)).toBe(1);
+  });
+  it('count=5 → limit=1', async () => {
+    const count = await countTrendingConsolidations(mockDbWithCount(5));
+    expect(count).toBe(5);
+    expect(chooseAutoLimit(count)).toBe(1);
+  });
+  it('issues the trending SQL (filters by 7-day window + is_consolidated)', async () => {
+    let capturedSql = '';
+    const mock = {
+      query: <T>(sql: string, _params?: unknown[]): Promise<{ rows: T[] }> => {
+        capturedSql = sql;
+        return Promise.resolve({ rows: [{ count: '1' } as unknown as T] });
+      },
+    } as unknown as Parameters<typeof countTrendingConsolidations>[0];
+    await countTrendingConsolidations(mock);
+    expect(capturedSql).toMatch(/INTERVAL '7 days'/);
+    expect(capturedSql).toMatch(/is_consolidated\s*=\s*true/);
+    expect(capturedSql).toMatch(/consolidated_into IS NULL/);
   });
 });
