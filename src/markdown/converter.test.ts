@@ -298,7 +298,7 @@ describe('convertFeedItem', () => {
 
     const result = convertFeedItem(item, { name: 'Test Pub', slug: 'test-pub' });
 
-    expect(result.metadata.title).toBe('Test Article');
+    expect(result.metadata.title).toBe('Test article');
     expect(result.metadata.author).toBe('Test Author');
     expect(result.metadata.publication).toBe('Test Pub');
     expect(result.metadata.publication_slug).toBe('test-pub');

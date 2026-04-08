@@ -11,6 +11,7 @@ import { Pool } from 'pg';
 import { readFile } from 'fs/promises';
 import { join } from 'path';
 import { generateText } from '../../src/wikipedia/ollama.js';
+import { normalizeTitle } from '../../src/shared/title-normalizer.js';
 
 // ── CLI args ────────────────────────────────────────────────────────
 const args = process.argv.slice(2);
@@ -112,6 +113,10 @@ Output ONLY valid JSON:
           errors++;
           continue;
         }
+
+        // Deterministic safety net: run Qwen output through normalizeTitle,
+        // which enforces sentence case via the shared helper.
+        newTitle = normalizeTitle(newTitle);
 
         // Update the title and clear the dirty flag
         await pool.query(
