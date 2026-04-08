@@ -104,53 +104,63 @@ describe('normalizeTitle', () => {
   });
 });
 
-describe('stripTrump (editorial policy)', () => {
-  it("removes leading possessive \"Trump's\"", () => {
+describe('stripTrump (editorial policy: replace with "the administration")', () => {
+  it("replaces leading possessive \"Trump's\"", () => {
     expect(stripTrump("Trump's Tiger-Riding Predicament | Digest: March 2026"))
-      .toBe('Tiger-Riding Predicament | Digest: March 2026');
+      .toBe("The administration's Tiger-Riding Predicament | Digest: March 2026");
   });
 
-  it('removes bare "Trump" mid-sentence', () => {
+  it('replaces bare "Trump" mid-sentence', () => {
     expect(stripTrump('What did Trump know about Epstein?'))
-      .toBe('What did know about Epstein?');
+      .toBe('What did the administration know about Epstein?');
   });
 
-  it('removes "Trump\'s" after a colon', () => {
+  it('replaces "Trump\'s" after a colon (mid-sentence stays lowercase)', () => {
     expect(stripTrump("NEW POLL: Trump's approval stuck at record low"))
-      .toBe('NEW POLL: approval stuck at record low');
+      .toBe("NEW POLL: the administration's approval stuck at record low");
   });
 
-  it('removes "Donald Trump" full name', () => {
+  it('replaces "Donald Trump" full name and capitalizes at start', () => {
     expect(stripTrump('Donald Trump meets with European leaders'))
-      .toBe('meets with European leaders');
+      .toBe('The administration meets with European leaders');
   });
 
-  it("removes \"Donald Trump's\" full possessive", () => {
+  it("replaces \"Donald Trump's\" full possessive at start", () => {
     expect(stripTrump("Donald Trump's cabinet picks under fire"))
-      .toBe('cabinet picks under fire');
+      .toBe("The administration's cabinet picks under fire");
   });
 
-  it('is case-insensitive but preserves surrounding casing', () => {
+  it('is case-insensitive', () => {
     expect(stripTrump('TRUMP ANNOUNCES NEW TARIFFS'))
-      .toBe('ANNOUNCES NEW TARIFFS');
+      .toBe('The administration ANNOUNCES NEW TARIFFS');
   });
 
   it('handles em-dash attached: "Trump\u2014" ', () => {
     expect(stripTrump('Trump\u2014and his allies\u2014push new policy'))
-      .toBe('and his allies\u2014push new policy');
+      .toBe('The administration\u2014and his allies\u2014push new policy');
   });
 
-  it('keeps original if stripping would empty the title', () => {
-    expect(stripTrump('Trump')).toBe('Trump');
+  it('replaces a bare "Trump" title', () => {
+    expect(stripTrump('Trump')).toBe('The administration');
   });
 
   it("handles curly-apostrophe possessive \"Trump\u2019s\"", () => {
     expect(stripTrump('Trump\u2019s approval rating falls'))
-      .toBe('approval rating falls');
+      .toBe("The administration's approval rating falls");
   });
 
   it('does not touch unrelated words like "trumpet"', () => {
     expect(stripTrump('The trumpet player arrives'))
       .toBe('The trumpet player arrives');
+  });
+
+  it('produces grammatical results for "Why Trump needs X"', () => {
+    expect(stripTrump('Why Trump needs Ukraine to stop Iranian drones'))
+      .toBe('Why the administration needs Ukraine to stop Iranian drones');
+  });
+
+  it('produces grammatical results for "Does Trump Really Always Chicken Out?"', () => {
+    expect(stripTrump('Does Trump Really Always Chicken Out?'))
+      .toBe('Does the administration Really Always Chicken Out?');
   });
 });

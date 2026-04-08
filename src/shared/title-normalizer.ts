@@ -3,37 +3,47 @@
  * Applied at ingestion time and as a one-time backfill.
  */
 /**
- * Editorial policy: strip "Trump" / "Donald Trump" / possessive and dash-attached
- * variants from titles. Case-insensitive match, preserves surrounding casing.
+ * Editorial policy: replace "Trump" / "Donald Trump" / possessive variants in
+ * titles with the neutral noun phrase "the administration", so the resulting
+ * title is still grammatical and readable. (The earlier behavior — bare
+ * deletion — produced fragments like "What did know about Epstein?" or
+ * "by needs Ukraine to stop drones".)
  *
- * Matches (at word boundaries):
+ * Matches (case-insensitive, at word boundaries):
  *   - "Donald Trump's", "Donald Trump"
- *   - "Trump's", "Trump\u2019s", "Trump\u2014" (em dash), "Trump-", "Trump"
+ *   - "Trump's", "Trump\u2019s", "TRUMP", "trump"
  *
- * Returns the input unchanged if the stripped result is empty (edge case —
- * caller logs a warning).
+ * Possessives are preserved: "Trump's" → "the administration's".
+ * The replacement is capitalized at the very start of the title and after
+ * sentence-ending punctuation. Otherwise it stays lowercase, which is correct
+ * mid-sentence and within "NEW POLL: ..." style colons (downstream rules
+ * handle title casing).
+ *
+ * Does not touch "trumpet", "trumpeter", etc. — strict word boundaries.
  */
 export function stripTrump(title: string): string {
-  // Order matters: match "Donald Trump" variants before bare "Trump".
-  // Trailing optional possessive ('s / \u2019s) or dash (-, \u2013, \u2014) absorbed
-  // into the match so it gets removed cleanly.
-  const trumpRegex = /\b(?:donald\s+)?trump(?:['\u2019]s|\s*[-\u2013\u2014]|'s)?\b/gi;
-  let out = title.replace(trumpRegex, '');
+  const REPLACEMENT = 'the administration';
+  const POSSESSIVE_REPLACEMENT = "the administration's";
 
-  // Collapse multiple spaces left by the removal
-  out = out.replace(/\s{2,}/g, ' ');
+  // Order matters: match "Donald Trump" before bare "Trump".
+  let out = title.replace(
+    /\bdonald\s+trump(['\u2019]s)?\b/gi,
+    (_m: string, poss: string | undefined) => (poss ? POSSESSIVE_REPLACEMENT : REPLACEMENT),
+  );
+  out = out.replace(
+    /\btrump(['\u2019]s)?\b/gi,
+    (_m: string, poss: string | undefined) => (poss ? POSSESSIVE_REPLACEMENT : REPLACEMENT),
+  );
 
-  // Strip leading/trailing stray punctuation & whitespace left orphaned
-  // (colons, dashes, pipes, commas) — e.g. "| foo" or ": foo"
-  out = out.replace(/^[\s:|\-\u2013\u2014,;]+/, '');
-  out = out.replace(/[\s:|\-\u2013\u2014,;]+$/, '');
+  // Capitalize "the" → "The" at the very start of the title or right after
+  // sentence-ending punctuation. (Mid-sentence stays lowercase, which is
+  // correct grammar.)
+  out = out.replace(/^the administration/, 'The administration');
+  out = out.replace(/([.!?]\s+)the administration/g, '$1The administration');
 
-  out = out.trim();
+  // Collapse multiple spaces and stray spaces around dashes left by the swap.
+  out = out.replace(/\s{2,}/g, ' ').trim();
 
-  if (out.length === 0 && title.trim().length > 0) {
-    console.warn(`stripTrump: normalization emptied title, keeping original: "${title}"`);
-    return title;
-  }
   return out;
 }
 
