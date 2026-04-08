@@ -17,9 +17,13 @@ import { execSync } from 'child_process';
 import {
   truncateDeepDive,
   renderEpubChapterBody,
+  renderTrendingNavSection,
+  renderTrendingNcxSection,
+  TRENDING_SECTION_TITLE,
   type EpubChapterSource,
   type EpubChapterDeepDive,
 } from './epub-helpers.js';
+import { getTrendingConsolidationRefs } from './trending.js';
 
 // Placeholder — fill in when Brian creates the Google Sheet
 const SUBSCRIBE_URL = 'https://script.google.com/macros/s/AKfycbw484H_YXlBlQ5lFGmz4-6nOls4jEBU5lWGL3yf5ZTQpyihux47AcwZ2MN2F1R9eFfoxw/exec';
@@ -425,6 +429,73 @@ async function loadEpubSources(
   return out;
 }
 
+/**
+ * Load a single consolidated commentary article into an ArticleForEpub
+ * ready for rendering. Returns null if the article is missing, not
+ * consolidated, or has no usable rewritten content. Used for the
+ * "Trending Story Lines" section (#486).
+ */
+async function loadConsolidatedCommentaryForEpub(
+  pool: Pool,
+  articleId: string
+): Promise<ArticleForEpub | null> {
+  const { rows } = await pool.query<WeeklyArticleRow>(`
+    SELECT
+      a.id, a.title, a.author_name,
+      p.name AS publication_name, p.slug AS publication_slug,
+      a.published_at, a.estimated_read_time_minutes,
+      a.content_path, a.rewritten_content_path, a.image_path, a.original_url,
+      COALESCE(at.tag_slug, 'culture') AS tag_slug,
+      COALESCE(t.name, 'Culture') AS tag_name,
+      COALESCE(at.score, 0) AS tag_score,
+      a.affiliate_links,
+      COALESCE(a.is_consolidated, false) AS is_consolidated
+    FROM app.articles a
+    JOIN app.publications p ON a.publication_id = p.id
+    LEFT JOIN LATERAL (
+      SELECT tag_slug, score FROM app.article_tags
+      WHERE article_id = a.id ORDER BY score DESC NULLS LAST LIMIT 1
+    ) at ON true
+    LEFT JOIN app.tags t ON t.slug = at.tag_slug
+    WHERE a.id = $1
+  `, [articleId]);
+  if (rows.length === 0) {return null;}
+  const row = rows[0];
+  if (!row.is_consolidated) {return null;}
+
+  let content: string | undefined;
+  if (row.rewritten_content_path) {
+    content = await loadContent(row.rewritten_content_path);
+  }
+  if (!content) {
+    content = await loadContent(row.content_path);
+  }
+  if (!content) {return null;}
+
+  const deepDiveRows = await getDeepDives(pool, row.id);
+  const deepDives: { title: string; content: string; slug: string }[] = [];
+  for (const dd of deepDiveRows) {
+    const ddContent = await loadWikipediaContent(dd.slug);
+    deepDives.push({ title: dd.title, content: ddContent, slug: dd.slug });
+  }
+
+  let imageData: Buffer | null = null;
+  let imageExt = 'webp';
+  if (row.image_path) {
+    try {
+      imageData = await readFile(join(process.cwd(), row.image_path));
+      const ext = row.image_path.split('.').pop()?.toLowerCase();
+      if (ext) {imageExt = ext;}
+    } catch {
+      imageData = null;
+    }
+  }
+
+  const affiliateLinks: AffiliateLink[] = row.affiliate_links ?? [];
+  const epubSources = await loadEpubSources(pool, row);
+  return { row, content, deepDives, imageData, imageExt, affiliateLinks, epubSources };
+}
+
 async function getDeepDives(pool: Pool, articleId: string): Promise<WikipediaDeepDive[]> {
   const { rows } = await pool.query<WikipediaDeepDive>(`
     SELECT w.slug, w.title, w.estimated_read_time_minutes
@@ -541,7 +612,8 @@ async function buildEpub(
   week: WeekRange,
   articlesByTopic: Map<string, ArticleForEpub[]>,
   outputPath: string,
-  weeklyDir: string
+  weeklyDir: string,
+  trendingArticles: ArticleForEpub[] = []
 ): Promise<void> {
   await ensureDir(join(outputPath, '..'));
 
@@ -630,9 +702,15 @@ async function buildEpub(
       manifestItems.push('<item id="cover-image" href="images/cover.webp" media-type="image/webp" properties="cover-image"/>');
     }
 
-    // Nav (epub3) — build with topic grouping
+    // Nav (epub3) — build with topic grouping.
+    // Trending Story Lines (#486) leads, occupying article-0..(T-1).xhtml;
+    // topic loop picks up at article-T. When there are no trending entries
+    // the helper returns '' and the nav contains no empty heading.
     let navTocHtml = '';
     let navIdx = 0;
+    const trendingTitles = trendingArticles.map((a) => a.row.title);
+    navTocHtml += renderTrendingNavSection(trendingTitles);
+    navIdx += trendingArticles.length;
     for (const topic of sortedTopics) {
       const articles = articlesByTopic.get(topic)!;
       const topicName = articles[0].row.tag_name || 'Culture';
@@ -660,10 +738,21 @@ ${navTocHtml}    </ol>
     manifestItems.push('<item id="nav" href="nav.xhtml" media-type="application/xhtml+xml" properties="nav"/>');
     spineItems.push('<itemref idref="nav"/>');
 
-    // Articles
+    // Articles — trending leads (#486), then topic groups.
+    // Build an iteration plan: synthetic "trending" pseudo-topic first.
+    interface TopicBlock { name: string; articles: ArticleForEpub[] }
+    const topicBlocks: TopicBlock[] = [];
+    if (trendingArticles.length > 0) {
+      topicBlocks.push({ name: TRENDING_SECTION_TITLE, articles: trendingArticles });
+    }
     for (const topic of sortedTopics) {
-      const articles = articlesByTopic.get(topic)!;
-      const topicName = articles[0].row.tag_name || 'Culture';
+      const arr = articlesByTopic.get(topic)!;
+      topicBlocks.push({ name: arr[0].row.tag_name || 'Culture', articles: arr });
+    }
+
+    for (const block of topicBlocks) {
+      const topicName = block.name;
+      const articles = block.articles;
 
       let isFirstInTopic = true;
       for (const article of articles) {
@@ -768,6 +857,15 @@ ${bookItems}
     ncxOrder++;
 
     let ncxIdx = 0;
+
+    // Trending Story Lines NCX section (#486) — omitted when empty.
+    if (trendingArticles.length > 0) {
+      const trendingNcx = renderTrendingNcxSection(trendingTitles, ncxOrder);
+      ncxNavPoints += trendingNcx.ncxHtml;
+      ncxOrder = trendingNcx.nextPlayOrder;
+      ncxIdx += trendingArticles.length;
+    }
+
     for (const topic of sortedTopics) {
       const articles = articlesByTopic.get(topic)!;
       const topicName = articles[0].row.tag_name || 'Culture';
@@ -835,6 +933,18 @@ export async function generateWeeklyEpubs(
 ): Promise<{ weeksGenerated: number }> {
   const weeks = getWeeksToGenerate(8);
   let weeksGenerated = 0;
+
+  // Trending Story Lines (#486) — load once and only apply to the current
+  // week's epub (weeks[0], the most recent). Historical epubs are left
+  // unchanged: "trending" is inherently relative to NOW, so stamping
+  // today's trending list onto a back-week would be misleading.
+  const trendingRefs = await getTrendingConsolidationRefs(pool);
+  const trendingArticles: ArticleForEpub[] = [];
+  for (const ref of trendingRefs) {
+    const entry = await loadConsolidatedCommentaryForEpub(pool, ref.commentaryArticleId);
+    if (entry) {trendingArticles.push(entry);}
+  }
+  const currentWeekLabel = weeks[0]?.label;
 
   const weeklyDir = join(outputDir, 'weekly');
   await ensureDir(weeklyDir);
@@ -1052,12 +1162,14 @@ export async function generateWeeklyEpubs(
       });
     }
 
-    if (byTopic.size === 0) {continue;}
+    const isCurrentWeek = week.label === currentWeekLabel;
+    if (byTopic.size === 0 && !(isCurrentWeek && trendingArticles.length > 0)) {continue;}
 
     // Generate cover image for this week (if not already present)
     const hasCover = await ensureCoverImage(week.label, week.display, weeklyDir, pool, week.start, week.end);
 
-    await buildEpub(week, byTopic, epubPath, weeklyDir);
+    const trendingForWeek = week.label === currentWeekLabel ? trendingArticles : [];
+    await buildEpub(week, byTopic, epubPath, weeklyDir, trendingForWeek);
     weeksGenerated++;
 
     const s = await stat(epubPath);
