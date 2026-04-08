@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Regularized Adjusted Plus-Minus (RAPM) Metrics For NFL Players - Hex Index</title>
+  <title>Regularized adjusted plus-minus (rapm) metrics for NFL players - Hex Index</title>
   <link rel="stylesheet" href="../../styles.css">
 </head>
 <body class="reading-mode">
@@ -14,7 +14,7 @@
     
     <article class="article-page">
       <header class="article-header">
-        <h1>Regularized Adjusted Plus-Minus (RAPM) Metrics For NFL Players</h1>
+        <h1>Regularized adjusted plus-minus (rapm) metrics for NFL players</h1>
         
       <div class="article-meta">
         <span class="author">Ray Carpenter</span>
@@ -41,7 +41,7 @@
 <h2>The Data Dilemma</h2>
 <p>Carpenter begins by acknowledging the structural mismatch between the two sports. He writes, &quot;Plus/minus ratings don&#039;t exactly translate perfectly to NFL play, but that&#039;s never stopped us from exploring the topic before.&quot; This admission sets the stage for a rigorous, iterative process rather than a simple copy-paste of NBA methodology. The author leverages a decade of snap participation data, merging it with play-by-play metrics like Expected Points Added (EPA) to create a baseline. By applying &quot;heavier weights to more recent data,&quot; he attempts to solve the problem of obsolescence, noting that &quot;good play in 2025 matters more than good play in 2019.&quot; This approach mirrors the temporal decay concepts found in broader sports modeling, similar to the exponential decay methods used in predicting Super Bowl outcomes, yet Carpenter pushes further by testing a &quot;ridge regression&quot; to prevent statistical noise from distorting player value.</p>
 <figure class="inline-illustration">
-    <img src="../../images/44fd4ca0-82e3-4f59-9a49-4cc91380b78e.webp" alt="Regularized Adjusted Plus-Minus (RAPM) Metrics For NFL Players" loading="lazy" width="600" height="315">
+    <img src="../../images/44fd4ca0-82e3-4f59-9a49-4cc91380b78e.webp" alt="Regularized adjusted plus-minus (rapm) metrics for NFL players" loading="lazy" width="600" height="315">
   </figure>
 
 <p>The core of his argument rests on the &quot;shrinkage&quot; technique, which pulls extreme values toward the mean. Carpenter explains, &quot;The ridge portion of this pulls everyone&#039;s average down towards zero, to try and avoid the classic pitfalls of the NBA&#039;s RAPM like over-valuing a player who doesn&#039;t play many minutes at all.&quot; This is a critical distinction. In basketball, a player with limited minutes might still have a massive impact per possession. In football, a lineman who plays one snap and gets lucky with a touchdown play could skew the entire dataset without this correction. Critics might note that even with shrinkage, the model struggles to isolate individual impact in a sport where 11 players move as a single unit, making the &quot;plus-minus&quot; concept inherently noisy.</p>
@@ -64,7 +64,7 @@
       <section id="excerpt"><section class="source-excerpts">
       <h2>Sources</h2>
       <article class="source-excerpt">
-      <h3>Regularized Adjusted Plus-Minus (RAPM) Metrics For NFL Players</h3>
+      <h3>Regularized adjusted plus-minus (rapm) metrics for NFL players</h3>
       <div class="source-meta">by Ray Carpenter &middot; <a href="../../publication/thespade/index.html">The Spade</a> &middot; <a href="https://thespade.substack.com/p/regularized-adjusted-plus-minus-rapm" target="_blank" rel="noopener">Read full article</a></div>
       <p>Good morning everyone,</p><p>It’s the NFL off-season and we’re heading for an amazing March Madness. If I had to explain why I’m on a basketball kick again, those are probably the two reasons why. And of course, the endless pool of knowledge in the world of basketball analytics. A couple of weeks ago, I attempted to calculate NFL on/off stats since nflreadR released their snap participation data for the season and freed me from the shackles of web scraping. That was me dipping my toes in the shallow end of basketball analytics, and this week’s edition is me diving head first into the deep end. We’re going to attempt to apply an NBA stat called Regularized Adjusted Plus-Minus (RAPM) to football. </p><p>You may be asking yourself, what is adjusted plus-minus?  did a better job explaining it than I ever could here, and here. The gist of adjusted plus-minus is that it’s a stat trying to measure the impact of individual NBA players. Plus/minus ratings don’t exactly translate perfectly to NFL play, but that’s never stopped us from exploring the topic before. </p><p>The Spade is a weekly football analytics newsletter covering the NFL, college football, and everything in between. Lately we’ve been focused on the landscape of the college football transfer portal and applying NBA stats to the NFL. In the coming weeks, I’ll be publishing some NFL draft content. If that stuff sounds interesting to you, I’d love to have you along for the ride as a subscriber for free:</p><p>There’s a paid option as well if you’d like access to my coding tutorials for R, Python SQL, and soon, D3. Let’s dig up some more football data visualizations. </p><p>Inputs. <p>We’re using nflreadR’s participation data back from 2016 until now to grab snap participation data and merge it to play-by-play data that has all the good stuff we’re looking for, like Expected Points Added (EPA) per play. Like NBA RAPM, we’re applying heavier weights to more recent data. That’s just a fancy way of saying that good play in 2025 matters more than good play in 2019. I got that idea of recency decay from this paper by Joseph Sill, and applied something similar. I was messing with concepts of exponential decay back when we were predicting the Super Bowl winning Gatorade Shower color.</p><p>I chose a ridge regression for version 1 of the NFL RAPM equivalent. Per 100 plays, </p>...</p>
     </article>

@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Dissecting Nvidia Blackwell - Tensor Cores, PTX Instructions, SASS, Floorsweep, Yield - Hex Index</title>
+  <title>Dissecting Nvidia blackwell - tensor cores, ptx instructions, sass, floorsweep, yield - Hex Index</title>
   <link rel="stylesheet" href="../../styles.css">
 </head>
 <body class="reading-mode">
@@ -14,7 +14,7 @@
     
     <article class="article-page">
       <header class="article-header">
-        <h1>Dissecting Nvidia Blackwell - Tensor Cores, PTX Instructions, SASS, Floorsweep, Yield</h1>
+        <h1>Dissecting Nvidia blackwell - tensor cores, ptx instructions, sass, floorsweep, yield</h1>
         
       <div class="article-meta">
         <span class="author">Dylan Patel</span>
@@ -41,7 +41,7 @@
 <h2>The Architecture of Defects</h2>
 <p>Patel&#039;s most striking revelation is that the physical reality of the chip often contradicts the software&#039;s view of it. He writes, &quot;Manufacturing of semiconductors results in defects and those defects can land all over the chip. As such Nvidia has to engineer their chips in a way such that they can still have those yielded units still exposed to software in a relatively uniform way.&quot; This is a critical insight for anyone building infrastructure, as it means two chips with identical model numbers may have different physical layouts, leading to unpredictable performance if the software isn&#039;t robust.</p>
 <figure class="inline-illustration">
-    <img src="../../images/df20de99-c89b-4a14-9f31-22cea6f2c745.webp" alt="Dissecting Nvidia Blackwell - Tensor Cores, PTX Instructions, SASS, Floorsweep, Yield" loading="lazy" width="600" height="315">
+    <img src="../../images/df20de99-c89b-4a14-9f31-22cea6f2c745.webp" alt="Dissecting Nvidia blackwell - tensor cores, ptx instructions, sass, floorsweep, yield" loading="lazy" width="600" height="315">
   </figure>
 
 <p>To solve this, the author details how engineers use &quot;floorsweeping&quot;—a technique where the software dynamically adjusts to which processing units are actually working. Patel notes that &quot;the number of yielded SMs per GPCs is not fixed, not the same between GPCs on the same chip, and may not even be symmetrical between dies in the same package.&quot; This complexity forces kernel developers to adopt fallback strategies, launching kernels with multiple cluster sizes to ensure no processing power is wasted. It is a sophisticated dance between hardware imperfection and software adaptability.</p>

@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>How our Prism NBA draft model works - Hex Index</title>
+  <title>How our prism NBA draft model works - Hex Index</title>
   <link rel="stylesheet" href="../../styles.css">
 </head>
 <body class="reading-mode">
@@ -14,7 +14,7 @@
     
     <article class="article-page">
       <header class="article-header">
-        <h1>How our Prism NBA draft model works</h1>
+        <h1>How our prism NBA draft model works</h1>
         
       <div class="article-meta">
         <span class="author">Nate Silver</span>
@@ -43,7 +43,7 @@
 <blockquote>&quot;They can also reward exceptional prospects that outperform the training set.&quot;</blockquote>
 <p>This is a crucial distinction. In a world where data often pulls predictions back to the mean, Silver&#039;s model is designed to let the outliers shine. The core of the argument is that by comparing players directly, the system can identify the rare talents who break the mold, rather than just confirming what the average college stats suggest.</p>
 <figure class="inline-illustration">
-    <img src="../../images/cc26b906-b9cf-4ee1-8a21-ca295ea4e0c3.webp" alt="How our Prism NBA draft model works" loading="lazy" width="600" height="315">
+    <img src="../../images/cc26b906-b9cf-4ee1-8a21-ca295ea4e0c3.webp" alt="How our prism NBA draft model works" loading="lazy" width="600" height="315">
   </figure>
 
 <h2>Defining the Role Before the Rank</h2>
@@ -70,7 +70,7 @@
       <section id="excerpt"><section class="source-excerpts">
       <h2>Sources</h2>
       <article class="source-excerpt">
-      <h3>How our Prism NBA draft model works</h3>
+      <h3>How our prism NBA draft model works</h3>
       <div class="source-meta">by Nate Silver &middot; <a href="../../publication/natesilver/index.html"></a> &middot; <a href="https://www.natesilver.net/p/how-our-prism-nba-draft-model-works" target="_blank" rel="noopener">Read full article</a></div>
       <p>Most draft models try to predict how good each player will be — some number representing future WAR, or a tier classification, or an over/under on career minutes. PRISM doesn’t quite do that. Instead, it asks a different question based on pairwise comparisons: given two prospects, which one will have the better NBA career?</p><p>This design choice matters for a few reasons. Gradient boosting regression to a target like WAR has a few limitations, one of them being that the projections tend to compress towards the training set. While pairwise rankings don’t necessarily change accuracy, they preserve the structure of a gradient boosting model while allowing us more interpretability into prospect volatility, as we’ll demonstrate later. They can also reward exceptional prospects that outperform the training set.</p><p>More technically, PRISM is a machine learning model: a CatBoost gradient boosted tree classifier. Each training example is the difference between two prospects’ feature vectors. Every prospect in a draft pool is compared head-to-head against every other, producing an N×N matrix of win probabilities. The PRISM score is a player’s average win rate across all of those matchups.</p><p>Stage 1: Role prediction. <p>Basketball evaluation is inherently position-dependent. A high post-up rate is expected for a big but unusual for a guard. A 40 percent three-point clip means something different for a point guard than for a center. Before the main ranking model can evaluate prospects, it needs to know what role each one is likely to play.</p><p>PRISM’s role predictions assign each prospect a probability distribution across three offensive archetypes (creator, spacer, big) and three defensive archetypes (perimeter, help, anchor). A prospect with 45 percent creator, 35 percent spacer, and 20 percent big is meaningfully different from one at 90/5/5 — the first is a “tweener”, the second fits the archetype. Either way, the classification is potentially useful.</p><p>These role probabilities get used in various ways by the model. They enter the ranking model directly as features. They define positional baselines, so that a prospect’s playstyle can be evaluated relative to what’s normal for their predicted role. And they drive a “tweener score”, which measures how cleanly a player maps to a single archetype.</p><p>Playstyle versatility is often an indicator of tweener status — prospects who spread their possessions across isolation, spot-up, transition, and self-creation without a dominant mode tend to have less concentration in any one archetype. But tweener-ness isn’t about current </p>...</p>
     </article>
