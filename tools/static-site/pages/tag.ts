@@ -48,15 +48,37 @@ async function loadContent(contentPath: string | null): Promise<string> {
 }
 
 /**
- * Get all tags with article counts
+ * Shared WHERE fragment for "ready" articles on tag pages.
+ *
+ * Keeps the tag-page count query and listing query in lock-step so the
+ * last numbered page can never render empty (see issue #506). Any filter
+ * that excludes articles from the listing MUST also exclude them from the
+ * count that drives `totalPages`.
+ */
+export function tagPageReadyWhereSql(articleAlias = 'a'): string {
+  const a = articleAlias;
+  return `(${a}.rewritten_content_path IS NOT NULL OR ${a}.is_consolidated = true)
+      AND ${a}.consolidated_into IS NULL
+      AND ${a}.image_path IS NOT NULL
+      AND ${failedGateSqlFragment(a)}`;
+}
+
+/**
+ * Get all tags with article counts.
+ *
+ * The count here drives `totalPages` in `generateTagPages`, so it MUST use
+ * the same ready filter as `getArticlesForTagPage`. Otherwise the last
+ * numbered page renders empty (#506).
  */
 async function getTagsWithCounts(pool: Pool): Promise<TagRow[]> {
   const { rows } = await pool.query<TagRow>(`
-    SELECT t.slug, t.name, COUNT(at.id)::text AS article_count
+    SELECT t.slug, t.name, COUNT(DISTINCT a.id)::text AS article_count
     FROM app.tags t
     JOIN app.article_tags at ON at.tag_slug = t.slug
+    JOIN app.articles a ON a.id = at.article_id
+    WHERE ${tagPageReadyWhereSql('a')}
     GROUP BY t.slug, t.name
-    HAVING COUNT(at.id) > 0
+    HAVING COUNT(DISTINCT a.id) > 0
     ORDER BY t.name ASC
   `);
   return rows;
@@ -75,16 +97,13 @@ async function getArticlesForTagPage(
 ): Promise<{ articles: TaggedArticleRow[]; total: number }> {
   const offset = (page - 1) * ARTICLES_PER_PAGE;
 
-  // Count total
+  // Count total — MUST match the listing WHERE clause exactly (#506).
   const { rows: countRows } = await pool.query<{ count: string }>(`
     SELECT COUNT(DISTINCT a.id) AS count
     FROM app.articles a
     JOIN app.article_tags at ON at.article_id = a.id
     WHERE at.tag_slug = $1
-      AND (a.rewritten_content_path IS NOT NULL OR a.is_consolidated = true)
-      AND a.consolidated_into IS NULL
-      AND a.image_path IS NOT NULL
-      AND ${failedGateSqlFragment('a')}
+      AND ${tagPageReadyWhereSql('a')}
   `, [tagSlug]);
   const total = parseInt(countRows[0].count, 10);
 
@@ -101,9 +120,7 @@ async function getArticlesForTagPage(
     JOIN app.publications p ON a.publication_id = p.id
     JOIN app.article_tags at ON at.article_id = a.id AND at.tag_slug = $1
     JOIN app.tags t ON t.slug = at.tag_slug
-    WHERE (a.rewritten_content_path IS NOT NULL OR a.is_consolidated = true)
-      AND a.consolidated_into IS NULL
-      AND ${failedGateSqlFragment('a')}
+    WHERE ${tagPageReadyWhereSql('a')}
     ORDER BY a.published_at DESC NULLS LAST
     LIMIT $2 OFFSET $3
   `, [tagSlug, ARTICLES_PER_PAGE, offset]);
