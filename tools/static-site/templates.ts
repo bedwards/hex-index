@@ -52,7 +52,7 @@ export function formatTimeAgo(iso: string, now: Date = new Date()): string {
 }
 
 /**
- * Render the "Trending story lines" hero section for the home page.
+ * Render the "Trending Story Lines" hero section for the home page.
  * Returns an empty string when there are no qualifying consolidations,
  * so the home page renders identically to before.
  */
@@ -83,8 +83,8 @@ export function renderTrendingHero(
 </article>`;
   }).join('\n');
 
-  return `<section class="trending-hero" aria-label="Trending story lines">
-  <h2 class="trending-hero-title">Trending story lines</h2>
+  return `<section class="trending-hero" aria-label="Trending Story Lines">
+  <h2 class="trending-hero-title">Trending Story Lines</h2>
   <div class="trending-grid">
     ${cards}
   </div>

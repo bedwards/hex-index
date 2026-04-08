@@ -2,6 +2,9 @@
  * Snapshot tests for multi-source commentary rendering (#450).
  * Covers single-source (no change), 2-source, and 4-source cases.
  */
+import { readFileSync } from 'node:fs';
+import { fileURLToPath } from 'node:url';
+import { dirname, resolve } from 'node:path';
 import { describe, expect, it } from 'vitest';
 import {
   renderArticleMeta,
@@ -259,7 +262,7 @@ describe('renderTrendingHero', () => {
   it('renders a section with header, card, image, badge, author, and time ago', () => {
     const html = renderTrendingHero([mkTrending({ id: 'abc', title: 'Big Story', sourceCount: 4 })], './');
     expect(html).toContain('class="trending-hero"');
-    expect(html).toContain('Trending story lines');
+    expect(html).toContain('Trending Story Lines');
     expect(html).toContain('class="trending-card"');
     expect(html).toContain('class="trending-grid"');
     expect(html).toContain('href="./article/abc/index.html"');
@@ -270,6 +273,18 @@ describe('renderTrendingHero', () => {
     expect(html).toContain('src="./images/foo.jpg"');
     // Should not emit an <hr> above the section (issue #492)
     expect(html).not.toMatch(/<hr\b/);
+  });
+
+  it('CSS regression (#499): .trending-hero-title does not uppercase', () => {
+    const here = dirname(fileURLToPath(import.meta.url));
+    const css = readFileSync(resolve(here, '../../public/styles.css'), 'utf8');
+    const match = css.match(/\.trending-hero-title\s*\{[^}]*\}/);
+    expect(match, '.trending-hero-title rule not found').toBeTruthy();
+    expect(match![0]).not.toContain('text-transform: uppercase');
+    // And .trending-hero should have padding-top for breathing room (#499)
+    const heroMatch = css.match(/\.trending-hero\s*\{[^}]*\}/);
+    expect(heroMatch, '.trending-hero rule not found').toBeTruthy();
+    expect(heroMatch![0]).toMatch(/padding:\s*1rem/);
   });
 
   it('renders multiple cards in order', () => {
