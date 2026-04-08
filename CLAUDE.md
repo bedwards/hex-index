@@ -290,6 +290,10 @@ If the database is empty, that's a bug. Test with actual content, not mocks. No 
 - Include **1-2 pull quotes**
 - **Never delete content** — mark dirty for re-processing instead
 
+### Casing Convention
+- **Article titles** (the `app.articles.title` column): sentence case. Implementation in `src/shared/sentence-case.ts`.
+- **Section / UI headers** (page titles, hero labels, navigation): Title Case. Never use `text-transform: uppercase` — Speechify and screen readers pronounce the literal string.
+
 ## Code Standards
 
 ### Lint: Zero Warnings
