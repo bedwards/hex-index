@@ -21,7 +21,7 @@ export const KNOWN_ACRONYMS = new Set([
   'EPA','EU','FAA','FBI','FCC','FDA','FEMA','FTC','GDP','GOP','GPT','HHS','HUD',
   'ICE','IDF','IMF','IRS','ISIS','LLC','LLM','MAGA','MIT','NASA','NATO','NBA','NCAA',
   'NFL','NHL','NHS','NIH','NSA','NYC','OECD','OPEC','PBS','PR','RNC','SCOTUS','SEC',
-  'TSA','UK','UN','US','USA','USD','VA','WHO','WTO','XR','II','III','IV','VI','VII',
+  'TSA','UK','UN','US','USA','USD','VA','WTO','XR','II','III','IV','VI','VII',
   'VIII','IX','XI','XII','EV','EVs','UFO','UFOs','OK',
 ]);
 
@@ -85,10 +85,10 @@ export const PROPER_NOUNS_LC = new Set([
   'protestant','quran','roman','romans','sikh','soviet','soviets','sparta','torah','troy',
   'vatican',
   // common figures + leaders the loop sees often
-  'altman','bezos','biden','buffett','bush','carter','clinton','dimon','eisenhower','franklin',
-  'gates','hamilton','hassabis','jefferson','jinping','jobs','kennedy','lincoln','madison',
-  'musk','netanyahu','nixon','obama','powell','putin','reagan','roosevelt','truman','xi',
-  'yellen','zelensky','zuckerberg',
+  'altman','bezos','biden','buffett','bush','carter','clinton','cohn','dimon','doctorow',
+  'eisenhower','franklin','gates','hamilton','hassabis','jefferson','jinping','jobs','kennedy',
+  'lincoln','madison','musk','netanyahu','nixon','obama','powell','putin','raskin','reagan',
+  'roosevelt','snowden','truman','xi','yellen','zelensky','zuckerberg',
   // months + days (always capitalized)
   'april','august','december','february','january','july','june','march','may','monday',
   'november','october','saturday','september','sunday','thursday','tuesday','wednesday','friday',
