@@ -21,4 +21,5 @@ export const BANNED_SLUGS: ReadonlySet<string> = new Set([
   'simplicius',
   'sinocism',
   'web3-with-a16z',
+  'drjohncampbell',
 ]);
