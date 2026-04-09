@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Here&#039;s how they built the most secure phone on the planet - Hex Index</title>
+  <link rel="stylesheet" href="../../styles.css">
+</head>
+<body class="reading-mode">
+  <header class="reading-header">
+    <a href="../../index.html" class="back-link" id="back-link">&larr; Back to Library</a>
+  </header>
+  <main class="reading-content">
+    
+    <article class="article-page">
+      <header class="article-header">
+        <h1>Here&#039;s how they built the most secure phone on the planet</h1>
+        
+      <div class="article-meta">
+        <span class="author">The Hated One</span>
+        <span class="separator">&middot;</span>
+        <a href="../../publication/thehatedone/index.html" class="publication">
+          The Hated One
+        </a>
+        <span class="separator">&middot;</span><time>Jul 1, 2022</time>
+        <span class="separator">&middot;</span><span class="read-time">20 min read</span>
+      </div>
+      </header>
+
+      <div class="content-label">
+        <span class="label-text">Commentary by <a href="../../about/index.html">Brian Edwards</a></span>
+        <nav class="content-nav">
+          
+          <a href="https://www.youtube.com/watch?v=yTeAFoQnQPo" target="_blank" rel="noopener">Original video &rarr;</a>
+        </nav>
+      </div>
+
+      
+      <div class="article-content">
+        <p>In an era where ransomware can paralyze entire continents in hours, The Hated One makes a startling claim: the most secure phone on the planet isn&#039;t a niche military device, but a hardened version of a consumer smartphone. This piece doesn&#039;t just list features; it dissects the architectural philosophy that turns a standard Android device into a fortress against state-level adversaries. For busy professionals managing high-stakes data, understanding why this specific hardware and software combination raises the cost of attack to millions of dollars is no longer optional—it is essential risk management.</p>
+<h2>The Architecture of Denial</h2>
+<p>The Hated One begins by dismantling the myth that traditional desktop security models apply to mobile devices. The author contrasts the &quot;default permissive mode&quot; of Windows, where a single infection can encrypt every file on a network, with the &quot;strict enforcing mode&quot; of modern mobile operating systems. &quot;Modern mobile operating systems are running in a strict enforcing mode at default deny which means all actions that aren&#039;t explicitly granted by the system&#039;s policy will be denied,&quot; The Hated One explains. This shift is not merely a software patch; it is a fundamental rethinking of how trust is established in a hostile digital environment.</p>
+<figure class="inline-illustration">
+    <img src="../../images/7217fcb6-1a2b-4d57-8c79-1278fc3aa882.webp" alt="Here&#039;s how they built the most secure phone on the planet" loading="lazy" width="600" height="315">
+  </figure>
+
+<p>The commentary highlights that while no system is impenetrable, the economic reality has shifted. A skilled threat actor might still find a way in, but as The Hated One notes, &quot;that will always be the case but I think there&#039;s so much defense in depth improvements happening across the android space... they&#039;re going to drastically drive up the cost for adversaries.&quot; This framing is crucial. It moves the conversation from &quot;is it secure?&quot; to &quot;is it worth the attacker&#039;s budget?&quot; By raising the price of entry, the system effectively deters all but the most determined and well-funded entities.</p>
+<blockquote>&quot;We&#039;re investing substantial amounts of effort into eliminating actual vulnerability classes simultaneously rather than just focusing on cherry picking low hanging fruit.&quot;</blockquote>
+<p>The Hated One attributes this rigorous approach to Graphene OS, a non-profit project that hardens the Android operating system. The argument here is that true security requires systemic improvement, not just patching known bugs. Critics might argue that this level of hardening sacrifices usability for the average consumer, but the piece contends that the trade-off is necessary for those facing active, sophisticated threats. The focus on &quot;systemic privacy and security improvements&quot; suggests a long-term vision that prioritizes the integrity of the device over short-term convenience.</p>
+<h2>The Hardware Cage</h2>
+<p>The piece then dives into the physical layer of security, focusing on the Titan M security chip. This is where the abstract concept of &quot;encryption&quot; becomes a tangible, physical barrier. The Hated One describes the chip as being &quot;essentially in a cage of wires&quot; that detects tampering, temperature changes, or even laser attacks, triggering a self-destruct sequence for the stored keys. &quot;It&#039;s literally resistant to lasers they find lasers at the thing they know what they&#039;re doing,&quot; the author writes, emphasizing the extreme measures taken to protect the cryptographic keys that unlock everything from passwords to biometric data.</p>
+<p>This hardware isolation is the linchpin of the security model. Even if an attacker gains full control of the main processor, they cannot extract the secrets stored in the Titan M. The Hated One explains that the chip &quot;never exposes or releases secret keys to the application processor,&quot; ensuring that a software compromise does not lead to a total data breach. This design directly addresses the &quot;San Bernardino&quot; scenario, where law enforcement sought to force a manufacturer to create a backdoor. The Hated One argues that on a Pixel device with these protections, &quot;it&#039;s impossible for a malicious employee or google being forced by a court order to make custom firmware to unlock your phone.&quot;</p>
+<p>The mechanism for this protection is a feature called &quot;insider attack resistance.&quot; If an attempt is made to load unauthorized firmware, the device wipes its own cryptographic secrets. &quot;The insider attack resistance feature would have wiped all the cryptographic secrets used for unbiased encryption,&quot; The Hated One states. This creates a zero-trust environment where the device itself is the final arbiter of security, refusing to comply with external coercion that would compromise the user&#039;s data.</p>
+<blockquote>&quot;The titan m can literally make a four-digit passcode reasonably secure because it can withstand these brute force attempts so well.&quot;</blockquote>
+<p>The author details how the chip enforces rate limiting, introducing exponential delays between failed unlock attempts. After a few tries, the wait time stretches from seconds to hours, and eventually to a full day. This effectively neutralizes brute-force attacks, turning a simple four-digit code into a robust barrier. While some might argue that this is overkill for the average user, The Hated One makes a compelling case that for high-value targets, the cost of a single breach far outweighs the inconvenience of a slightly slower unlock process.</p>
+<h2>Verified Boot and the Chain of Trust</h2>
+<p>The final pillar of the argument centers on &quot;verified boot,&quot; a process that ensures the operating system has not been tampered with since it left the factory. The Hated One describes this as a &quot;full chain of trust&quot; that starts from the hardware and extends up to the operating system. &quot;The vendor&#039;s cryptographic key is embedded into the phone&#039;s hardware is an immutable route of trust,&quot; the author writes. This system provides immediate visual feedback to the user: a green screen for a secure boot, yellow for a custom but verified boot, orange for an unlocked bootloader, and red for a compromised system.</p>
+<p>Graphene OS leverages the &quot;yellow state&quot; to allow custom operating systems while maintaining the security model. &quot;Graphene os takes advantage of the yellow state of verified boot that is using its custom sign-in key while keeping the bootloader locked and maintaining full verified boot,&quot; The Hated One explains. This is a sophisticated move that balances the need for customization with the necessity of integrity. By disabling &quot;chain verified boot&quot; in favor of full system updates, the project reduces the attack surface, making it harder for malware to persist across reboots.</p>
+<p>The piece also introduces the &quot;attestation service,&quot; which allows a second device to verify the identity and integrity of the phone. This feature is designed to catch sophisticated attacks where an adversary might modify the operating system to hide their presence. &quot;If the operating system was tampered with or downgraded by an adversary the graphene os attestation service would detect it,&quot; The Hated One notes. This adds a layer of external verification that is critical for users who need to be certain their device has not been compromised.</p>
+<blockquote>&quot;Android acknowledges this reality and so it designs its security model with a clear goal to render individual software vulnerabilities more difficult or impossible to exploit and raising the bar for the number of vulnerabilities required for adversaries to bypass the defenses.&quot;</blockquote>
+<p>The Hated One concludes by framing this entire architecture as a strategy of &quot;defense in depth.&quot; The goal is not to create a perfect system, but to make the cost of breaking it so high that it becomes unviable for most attackers. This approach acknowledges the complexity of modern software while providing a pragmatic solution to the problem of security.</p>
+<h2>Bottom Line</h2>
+<p>The Hated One&#039;s analysis succeeds by shifting the focus from fear to economics: security is about raising the cost of attack until it is no longer profitable. The strongest part of this argument is the detailed explanation of how hardware and software work in tandem to create a &quot;default deny&quot; environment that is fundamentally different from traditional computing. The biggest vulnerability remains the human element, as no amount of technical hardening can fully protect against a user who willingly installs malicious software or falls for social engineering. However, for those facing targeted threats, this piece provides a clear roadmap to the most secure mobile environment currently available.</p>
+<blockquote>&quot;The most secure phone you can get has been built on top of android.&quot;</blockquote>
+<p>Watch for how these hardware-based security models evolve as the line between consumer and enterprise devices continues to blur. The technology described here is rapidly becoming the standard for high-security environments, and understanding its mechanics is the first step toward adopting it.</p>
+      </div>
+
+      
+      
+      
+
+      <section id="excerpt"><section class="source-excerpts">
+      <h2>Sources</h2>
+      <article class="source-excerpt">
+      <h3>Here&#039;s how they built the most secure phone on the planet</h3>
+      <div class="source-meta">by The Hated One &middot; <a href="../../publication/thehatedone/index.html">The Hated One</a> &middot; <a href="https://www.youtube.com/watch?v=yTeAFoQnQPo" target="_blank" rel="noopener">Watch video</a></div>
+      <p> this is ransomware the cyber attack that paralyzed hundreds of thousands of computers it's a malicious encryption tool that once loaded into a computer it infects all of the files the malware has access to the biggest online extortion attack ever recorded criminals use ransomware to extort money out of unsuspecting victims and the consequences were beyond economic in 2017 the biggest ransomware war spread through europe like wildfire we've never seen something on this scale infecting 70 000 windows computers in just the first few hours within half a day the ransomware spread to six continents wannacry was using a vulnerability inside a windows smb port to spread itself from network to network well the ransomware used the vulnerability to infect new machines but it didn't need the vulnerability to encrypt an infected computer any execution of the ransomware file would result in a successful attack even on an offline device and that is because the security model of a traditional operating system like windows mac or linux runs in a default permissive mode generally all execution and access is based on the permission of the logged in user which means if you have access to all your files so does every app you install on your system windows which is unlucky in this particular instance because just a few months ago a malicious hacker group called shadow brokers publicly revealed the windows smb vulnerability the wannacry hackers later used for their exploit the windows vulnerability was just a vector for the ransomware to spread like a warm if a ransomware attack was written for mac or linux it'll be just as successful at encrypting all of the files on infected machines malware and computer operating systems oftentimes doesn't need to exploit availabilities or bypass the system security model in contrast if the same ransomware was written for a mobile operating system like ios or android it would only be able to encrypt itself the rest of your files and app data would be completely safe in order for a ransomware attack to achieve its goal on your phone it would have to bypass the security model of the whole operating system on an up-to-date modern android or ios such as vulnerability would cost the attacker several millions of dollars this is because modern mobile operating systems are running in a strict enforcing mode at default deny which means ...</p>
+      
+    </article>
+    </section></section>
+      
+    </article>
+  
+  </main>
+  <footer class="site-footer">
+    <div class="container">
+      <p><a href="../../privacy/index.html">Privacy</a> &middot; <a href="../../terms/index.html">Terms</a></p>
+    </div>
+  </footer>
+  <script>
+  (function() {
+    var params = new URLSearchParams(window.location.search);
+    var from = params.get('from');
+    if (from) {
+      var names = {
+        'foreign-policy':'Foreign Policy','ai-tech':'AI & Tech','housing-cities':'Housing & Cities',
+        'political-strategy':'Political Strategy','history':'History','science':'Science',
+        'culture':'Culture','economics':'Economics','faith':'Faith','writing-craft':'Writing & Craft',
+        'music':'Music','law-rights':'Law & Rights','public-health':'Public Health',
+        'philosophy':'Philosophy','media':'Media','defense':'Defense','china':'China'
+      };
+      var link = document.getElementById('back-link');
+      if (link) {
+        var name = names[from] || from;
+        link.href = '../../tag/' + from + '/index.html';
+        link.textContent = '\u2190 Back to ' + name;
+      }
+    }
+  })();
+  </script>
+</body>
+</html>
