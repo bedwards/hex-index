@@ -256,6 +256,24 @@ export function toSentenceCase(
     // ---- Per-token sentence-case (original logic) ----
     const { bare: lookupCore, suffix: possSuffix } = stripPossessive(t.core);
 
+    // Special case: "WHO" the World Health Organization vs "who" the pronoun.
+    // Treat as the org only when the original was uppercase AND the previous
+    // word is "the" (case-insensitive). The English pronoun "who" is virtually
+    // never preceded by "the".
+    if (lookupCore === 'WHO') {
+      let prevWordIdx = -1;
+      for (let k = i - 1; k >= 0; k--) {
+        if (!tokens[k].isWhitespace && tokens[k].core) { prevWordIdx = k; break; }
+      }
+      const prevLc = prevWordIdx >= 0 ? tokens[prevWordIdx].core.toLowerCase() : '';
+      if (prevLc === 'the') {
+        results[i] = t.lead + 'WHO' + possSuffix + t.trail;
+        handled[i] = true;
+        nextIsSentenceStart = /[.!?:]$/.test(t.trail) || /[.!?:]$/.test(t.core);
+        continue;
+      }
+    }
+
     let result: string;
     if (KNOWN_ACRONYMS.has(lookupCore.toUpperCase())) {
       result = lookupCore.toUpperCase() + possSuffix;
