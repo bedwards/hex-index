@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>An interview with MatX CEO reiner pope about LLM chips - Hex Index</title>
+  <link rel="stylesheet" href="../../styles.css">
+</head>
+<body class="reading-mode">
+  <header class="reading-header">
+    <a href="../../index.html" class="back-link" id="back-link">&larr; Back to Library</a>
+  </header>
+  <main class="reading-content">
+    
+    <article class="article-page">
+      <header class="article-header">
+        <h1>An interview with MatX CEO reiner pope about LLM chips</h1>
+        
+      <div class="article-meta">
+        <span class="author">Various</span>
+        <span class="separator">&middot;</span>
+        <a href="../../publication/chipstrat/index.html" class="publication">
+          Chipstrat
+        </a>
+        <span class="separator">&middot;</span><time>Apr 9, 2026</time>
+        <span class="separator">&middot;</span><span class="read-time">28 min read</span>
+      </div>
+      </header>
+
+      <div class="content-label">
+        <span class="label-text">Commentary by <a href="../../about/index.html">Brian Edwards</a></span>
+        <nav class="content-nav">
+          <a href="#deep-dives">Deep dives</a><span class="separator">&middot;</span>
+          <a href="https://www.chipstrat.com/p/an-interview-with-matx-ceo-reiner" target="_blank" rel="noopener">Original article &rarr;</a>
+        </nav>
+      </div>
+
+      
+      <div class="article-content">
+        <p>This interview cuts through the hardware hype cycle with a rare combination of insider credibility and first-principles economics. Chipstrat doesn&#039;t just ask about specs; it forces a confrontation with the most expensive bottleneck in modern computing: the belief that software lock-in is unbreakable. The piece argues that the era of blindly trusting a single vendor&#039;s ecosystem is over, not because of politics, but because the math of trillion-dollar compute bills has finally tipped the scales.</p>
+<h2>The Economics of Breaking Lock-in</h2>
+<p>The narrative begins with a striking coincidence: the founders of MatX, Reiner Pope and Mike Gunter, exited Google&#039;s Brain and TPU teams just one week before the public release of ChatGPT. Pope notes that while the public was just waking up, insiders knew the economics were broken. &quot;The big question prior to ChatGPT was: okay, cool demo, but it&#039;s too expensive. Can you actually productize it?&quot; the piece reports. This framing is crucial; it shifts the conversation from &quot;who will build the best model&quot; to &quot;who can afford to run it.&quot;</p>
+<figure class="inline-illustration">
+    <img src="../../images/b07a3e1f-b3b3-40cf-8e3a-c4822bda2f9a.webp" alt="An interview with MatX CEO reiner pope about LLM chips" loading="lazy" width="600" height="315">
+  </figure>
+
+<p>The article&#039;s most compelling argument challenges the notion of Nvidia&#039;s CUDA moat. Historically, software engineering costs dwarfed hardware costs, making it rational to optimize for developer convenience over raw efficiency. Chipstrat highlights Pope&#039;s counter-intuitive insight: &quot;This is really the first time that balance has changed, and it has violated a lot of people&#039;s intuitions.&quot; With frontier labs now spending tens of billions on compute, the calculus has flipped. The rational choice is no longer to stick with the familiar tool, but to rewrite the software stack to slash hardware bills.</p>
+<p>Critics might note that rewriting decades of CUDA-optimized code is a massive operational risk that few companies can afford. However, the piece points to the reality that major players like OpenAI, Anthropic, and Meta are already running multi-platform strategies, suggesting the lock-in is more fragile than the market assumes.</p>
+<blockquote>&quot;The rational choice is to do anything you can to get hardware costs down, be multi-platform, get the negotiating power that comes from that.&quot;</blockquote>
+<h2>A Hybrid Architecture for a New Era</h2>
+<p>The technical core of the interview focuses on MatX&#039;s attempt to solve the memory bottleneck that has plagued deep learning since the rise of the Transformer architecture in 2017. The piece details a hybrid approach that merges the low-latency benefits of Static Random-Access Memory (SRAM) with the high-throughput capacity of High Bandwidth Memory (HBM). This isn&#039;t just a tweak; it&#039;s a structural reimagining designed to handle the massive context windows required by modern agentic AI.</p>
+<p>Pope explains that while competitors like Cerebras and Groq excel at latency using SRAM, they struggle with capacity. Conversely, traditional designs using HBM suffer from latency. &quot;It takes careful engineering and you need to balance the system right,&quot; Chipstrat reports, quoting Pope. The result is a system where pipeline parallelism—often the &quot;ugly stepchild&quot; of distributed training techniques—finally becomes as efficient as tensor or expert parallelism.</p>
+<p>This architectural bet relies on a specific insight about how models process data. By optimizing for the specific memory access patterns of Large Language Models, MatX aims to deliver performance that physics allows, rather than settling for the compromises of general-purpose GPUs. The piece notes that this approach was a &quot;core idea going in,&quot; driven by a deep understanding of workload mapping that predates the current AI boom.</p>
+<h2>The Publishing Paradox</h2>
+<p>A subtle but significant tension runs through the interview: the trade-off between open research and competitive advantage. Pope reflects on the &quot;disappointing inflection point in 2022&quot; when Google ceased publishing its research, a move that stalled the industry&#039;s collective knowledge base. &quot;You could get all of the trend lines of where the best models are going until then, and then that stopped,&quot; the article quotes.</p>
+<p>MatX attempts to navigate this by continuing to publish on attention mechanisms and memory efficiency, while keeping their proprietary numerics secret for a one-to-two-year delay. This strategy serves a dual purpose: it advocates for better hardware-aware model design while protecting their core IP. The piece argues that this ability to publish remains a key differentiator for hiring top talent in a market where secrecy is becoming the norm.</p>
+<blockquote>&quot;We&#039;re not selling ML, we&#039;re selling GEMMs. But the agenda of our ML team is twofold. First is attention research... The second is numerics.&quot;</blockquote>
+<h2>Bottom Line</h2>
+<p>Chipstrat&#039;s coverage effectively dismantles the myth of inevitable hardware monopolies by grounding the argument in the brutal economics of AI scaling. The strongest part of the piece is its demonstration that the software lock-in narrative is crumbling under the weight of trillion-dollar compute bills. Its biggest vulnerability lies in the execution risk: can a 100-person startup truly manufacture and deploy at the scale required to challenge the incumbents? The reader should watch for the first real-world benchmarks of the MatX One chip, as that will be the ultimate test of whether this hybrid architecture can deliver on its physics-based promises.</p>
+      </div>
+
+      
+      
+      <section id="deep-dives" class="deep-dives">
+        <h2>Deep Dives</h2>
+        <p class="deep-dives-intro">Explore these related deep dives:</p>
+        <ul class="deep-dive-list">
+          
+      <li class="deep-dive-item">
+        <a href="../../wikipedia/cuda/index.html">
+          <strong>CUDA</strong>
+        </a>
+        <p class="topic-summary">Understanding the specific technical and economic moat of Nvidia&#039;s CUDA platform is essential to grasp the CEO&#039;s claim that MatX must overcome this &#039;lock-in&#039; to compete with established players.</p>
+      </li>
+        </ul>
+      </section>
+    
+      
+
+      <section id="excerpt"><section class="source-excerpts">
+      <h2>Sources</h2>
+      <article class="source-excerpt">
+      <h3>An interview with MatX CEO reiner pope about LLM chips</h3>
+      <div class="source-meta">by Various &middot; <a href="../../publication/chipstrat/index.html">Chipstrat</a> &middot; <a href="https://www.chipstrat.com/p/an-interview-with-matx-ceo-reiner" target="_blank" rel="noopener">Read full article</a></div>
+      <p>This interview is with Reiner Pope, co-founder and CEO of MatX. Pope and his co-founder Mike Gunter left Google — Pope from the Brain team, Gunter from the TPU team — one week before ChatGPT launched to build what they believe will be the best chips for LLMs that physics allows. The company has raised ~$600 million to date.</p><p>In this interview we discuss why Pope left Google to start a chip company, how to overcome the CUDA lock-in, and why frontier labs are the natural first customers. We get into the chip itself: a hybrid SRAM-HBM memory architecture that combines the low latency of Cerebras and Groq with the throughput of traditional HBM designs, and why that unlocks advantages across training, prefill, and decode. We also cover how agentic AI changes hardware requirements, how MatX uses AI internally in chip design, and the biggest skepticism Pope hears: can a 100-person startup manufacture at datacenter scale?</p><p>This interview is lightly edited for clarity.</p><p>Origin Story.</p> <p>Hello listeners, we have a special guest today, co-founder and CEO of MatX, Reiner Pope. Welcome Reiner, for listeners who haven’t heard of you and MatX, who are you, what is MatX, what are you guys trying to do?</p><p>RP: Thanks, very happy to be here. As you mentioned, I’m CEO at MatX. What we’re doing is making the best chips for LLMs that is allowable by physics. My co-founder Mike Gunter and I, prior to MatX, were working at Google for a long time. Most recently, I was on the Google Brain Team training one of the LLMs at the time, and Mike was on the TPU team. There were a lot of things we wanted to do to make the TPUs much better for running LLMs. Things like running at much lower precision, having much more compute performance based on large matrix support, and generally optimizing for LLMs, reducing a lot of the other circuitry that was needed for non-LLM workloads. At the time, this was in 2022, and it turned out the best way to do this would be by starting a separate company, which is MatX.</p><p>So take me back, you mentioned 2022, you came out of Google, which I will say, it seems like everyone came out of Google that’s at the forefront of AI and hardware.</p><p>RP: It’s like the Bell Labs of the time.</p><p>Yes! There’ll be a ...</p>
+      <footer class="source-bio" aria-label="About this source">
+      <p class="sb-heading">About this source</p>
+      <p class="sb-meta"><span class="sb-type">independent newsletter</span> &middot; <span class="sb-country">United States</span> &middot; <span class="sb-funding">paid Substack subscriptions</span> &middot; <span class="sb-leaning">Semiconductor industry strategy analyst; broadly aligned with US techno-industrial policy and export controls, focused on business rather than partisan framing.</span></p>
+      <p class="sb-audit">Last reviewed: <time datetime="2026-04-08">2026-04-08</time> &middot; <a href="https://www.chipstrat.com/" target="_blank" rel="noopener">source</a></p>
+    </footer>
+    </article>
+    </section></section>
+      
+    </article>
+  
+  </main>
+  <footer class="site-footer">
+    <div class="container">
+      <p><a href="../../privacy/index.html">Privacy</a> &middot; <a href="../../terms/index.html">Terms</a></p>
+    </div>
+  </footer>
+  <script>
+  (function() {
+    var params = new URLSearchParams(window.location.search);
+    var from = params.get('from');
+    if (from) {
+      var names = {
+        'foreign-policy':'Foreign Policy','ai-tech':'AI & Tech','housing-cities':'Housing & Cities',
+        'political-strategy':'Political Strategy','history':'History','science':'Science',
+        'culture':'Culture','economics':'Economics','faith':'Faith','writing-craft':'Writing & Craft',
+        'music':'Music','law-rights':'Law & Rights','public-health':'Public Health',
+        'philosophy':'Philosophy','media':'Media','defense':'Defense','china':'China'
+      };
+      var link = document.getElementById('back-link');
+      if (link) {
+        var name = names[from] || from;
+        link.href = '../../tag/' + from + '/index.html';
+        link.textContent = '\u2190 Back to ' + name;
+      }
+    }
+  })();
+  </script>
+</body>
+</html>
