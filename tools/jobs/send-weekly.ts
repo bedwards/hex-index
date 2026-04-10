@@ -103,8 +103,8 @@ interface SmsFailure {
 }
 
 function isTwilioRestException(err: unknown): err is RestException {
-  if (err instanceof RestException) { return true; }
-  // Fallback: ESM interop can break instanceof — duck-type check
+  // ESM interop can make RestException a module object instead of a class,
+  // causing instanceof to throw "not callable". Duck-type instead.
   return (
     typeof err === 'object' &&
     err !== null &&
