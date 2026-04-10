@@ -244,6 +244,13 @@ STYLE GUIDE:
 - Aim for 1500-3000 words.
 - Write with authority and specificity. Cite dates, names, numbers.
 
+TONE — CRITICAL:
+- For articles involving conflict, war, or violence: center the human cost. Civilian casualties are not footnotes between strike descriptions. Give them weight and specificity — names, places, ages when available.
+- Never glorify military operations. No "hammer," "fury," "symphony of explosions," or breathless descriptions of weapons platforms. Write with the gravity the subject demands.
+- Present multiple perspectives: military rationale AND humanitarian consequences, government claims AND civilian experience, strategic logic AND its failures.
+- Question official framing when the evidence warrants it. If "precision strikes" hit schools, say so plainly.
+- For any topic with human suffering: write with empathy, not detachment. Cold recitation of facts without human context is a failure of the essay.
+
 BAD OPENING: "Imagine walking into a bank and being told your neighborhood is too risky..."
 GOOD OPENING: "In 1935, the federal government drew red lines around Black neighborhoods on city maps and declared them unfit for investment. The practice was called redlining, and its effects persist ninety years later."
 
