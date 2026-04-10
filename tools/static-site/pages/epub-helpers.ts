@@ -328,7 +328,7 @@ function renderSourceExcerptBlock(src: EpubChapterSource): string {
   return `
   <div class="source-excerpt">
     <h3>${escAttr(src.title)}</h3>
-    <p class="source-meta">by ${escAttr(src.author)} &#183; ${escAttr(src.publicationName)} &#183; <a href="${escAttr(src.originalUrl)}">${linkLabel}</a></p>
+    <p class="source-meta">by ${escAttr(src.author)} · ${escAttr(src.publicationName)} · <a href="${escAttr(src.originalUrl)}">${linkLabel}</a></p>
     ${src.excerptHtml}
   </div>`;
 }
@@ -353,7 +353,7 @@ export function renderEpubChapterBody(input: EpubChapterInput): string {
   ${input.imageHtml}
   <div class="article-header">
     <h1>${escAttr(input.title)}</h1>
-    <p class="article-meta">${escAttr(input.authorName)} &#183; ${escAttr(input.publicationName)}${date ? ` &#183; ${date}` : ''} &#183; ${input.estimatedReadTimeMinutes} min read</p>
+    <p class="article-meta">${escAttr(input.authorName)} · ${escAttr(input.publicationName)}${date ? ` · ${date}` : ''}${input.estimatedReadTimeMinutes ? ` · ${input.estimatedReadTimeMinutes} min read` : ''}</p>
   </div>
   ${input.bodyHtml}
   ${input.affiliateHtml}
@@ -364,7 +364,7 @@ export function renderEpubChapterBody(input: EpubChapterInput): string {
   const ordered = [...input.sources].sort((a, b) => a.position - b.position);
   const primary = ordered.find(s => s.isPrimary) ?? ordered[0];
   const attribution = primary
-    ? `by Brian Edwards &#8212; multiple sources including ${escAttr(primary.author)}, ${escAttr(primary.publicationName)}`
+    ? `by Brian Edwards  — multiple sources including ${escAttr(primary.author)}, ${escAttr(primary.publicationName)}`
     : `by Brian Edwards`;
 
   const interlacedParts: string[] = [];
@@ -385,7 +385,7 @@ export function renderEpubChapterBody(input: EpubChapterInput): string {
   ${input.imageHtml}
   <div class="article-header">
     <h1>${escAttr(input.title)}</h1>
-    <p class="article-meta">${attribution}${date ? ` &#183; ${date}` : ''} &#183; ${input.estimatedReadTimeMinutes} min read</p>
+    <p class="article-meta">${attribution}${date ? ` · ${date}` : ''}${input.estimatedReadTimeMinutes ? ` · ${input.estimatedReadTimeMinutes} min read` : ''}</p>
   </div>
   ${input.bodyHtml}${sourcesAndDeepDives}
   ${input.affiliateHtml}`;
