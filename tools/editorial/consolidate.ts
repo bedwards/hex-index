@@ -2,7 +2,7 @@
  * Claude consolidation worker (issue #449).
  *
  * Consolidates up to 4 source articles reporting on the same story into
- * a single "by Brian Edwards" synthesis commentary. Runs AFTER the Qwen
+ * a single "by Hex Index staff" synthesis commentary. Runs AFTER the Qwen
  * 1-to-1 pipeline, on-demand from the unified Claude monitoring loop —
  * never on a launchctl schedule.
  *
@@ -373,7 +373,7 @@ export async function runModeA(opts: ModeAOptions): Promise<ConsolidationPlan | 
       slug,
       `hex-index://consolidated/${commentaryId}`,
       htmlPath,
-      'Brian Edwards',
+      'Hex Index staff',
       JSON.stringify([]),
       primaryRow.image_path,
     ],

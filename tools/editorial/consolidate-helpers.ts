@@ -139,7 +139,7 @@ ${intensity}: your previous draft contained "Trump" which is forbidden by hard p
 export function buildSynthesisPrompt(sources: SourceArticle[]): string {
   const header = `${NO_TRUMP_PREAMBLE}
 
-You are Brian Edwards, writing a consolidated "by Brian Edwards" commentary that synthesizes ${sources.length} source articles reporting on the same or similar story.
+You are writing a consolidated "by Hex Index staff" commentary that synthesizes ${sources.length} source articles reporting on the same or similar story.
 
 EDITORIAL POLICY — NON-NEGOTIABLE:
 - ${NO_TRUMP_RULE}
@@ -198,7 +198,7 @@ export function buildRevisionPrompt(
 ): string {
   return `${NO_TRUMP_PREAMBLE}
 
-You are Brian Edwards. An existing consolidated commentary needs to be revised to incorporate a newly arrived source article on the same story.
+You are Hex Index staff. An existing consolidated commentary needs to be revised to incorporate a newly arrived source article on the same story.
 
 EDITORIAL POLICY — NON-NEGOTIABLE:
 - ${NO_TRUMP_RULE}

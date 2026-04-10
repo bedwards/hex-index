@@ -428,7 +428,7 @@ export function generateArticlePage(
   const hasDeepDives = wikipediaLinks.length > 0;
   const contentLabel = isFullRewrite
     ? `<div class="content-label">
-        <span class="label-text">Commentary by <a href="${pathToRoot}about/index.html">Brian Edwards</a></span>
+        <span class="label-text">Commentary by <a href="${pathToRoot}about/index.html">Hex Index staff</a></span>
         <nav class="content-nav">
           ${hasDeepDives ? `<a href="#deep-dives">Deep dives</a><span class="separator">&middot;</span>` : ''}
           <a href="${article.original_url}" target="_blank" rel="noopener">${isYouTube ? 'Original video' : 'Original article'} &rarr;</a>

@@ -111,7 +111,7 @@ export interface CommentarySource {
 /**
  * Render the top article-meta line.
  * For single-source articles: {author} · {publication} · {date} · {read-time}
- * For consolidated commentary: by Brian Edwards · multiple sources including
+ * For consolidated commentary: by Hex Index staff · multiple sources including
  *   {primary author}, {primary publication} · {date} · {read-time}
  */
 export function renderArticleMeta(
