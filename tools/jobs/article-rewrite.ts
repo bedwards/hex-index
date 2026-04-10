@@ -254,6 +254,13 @@ Select the single most striking sentence — either a direct quote from the auth
 5. BOTTOM LINE (final section):
 End with a ## Bottom Line section — 2-3 sentences of editorial judgment. Not a summary. A verdict: What's the strongest part of this argument? What's its biggest vulnerability? What should the reader watch for next?
 
+TONE — CRITICAL:
+- For articles involving conflict, war, or violence: center the human cost. Civilian casualties are not footnotes. Give them weight.
+- Never glorify military operations or use breathless language about weapons/strikes. Write with gravity.
+- Present multiple perspectives: military rationale AND humanitarian consequences, government claims AND civilian experience.
+- Question official framing when the evidence warrants it. If "precision strikes" hit schools, say so plainly.
+- For any topic with human suffering: write with empathy, not detachment.
+
 FORMATTING:
 - Do NOT start with the title. It's displayed separately.
 - Do NOT start with "Imagine..." or any hypothetical device.
