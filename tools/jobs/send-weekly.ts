@@ -103,7 +103,15 @@ interface SmsFailure {
 }
 
 function isTwilioRestException(err: unknown): err is RestException {
-  return err instanceof RestException;
+  if (err instanceof RestException) { return true; }
+  // Fallback: ESM interop can break instanceof — duck-type check
+  return (
+    typeof err === 'object' &&
+    err !== null &&
+    'status' in err &&
+    'code' in err &&
+    'message' in err
+  );
 }
 
 function isTransientError(err: unknown): boolean {
