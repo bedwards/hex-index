@@ -353,7 +353,7 @@ export function renderEpubChapterBody(input: EpubChapterInput): string {
   ${input.imageHtml}
   <div class="article-header">
     <h1>${escAttr(input.title)}</h1>
-    <p class="article-meta">${escAttr(input.authorName)} &#183; ${escAttr(input.publicationName)}${date ? ` &#183; ${date}` : ''} &#183; ${input.estimatedReadTimeMinutes} min read</p>
+    <p class="article-meta">${escAttr(input.authorName)} &#183; ${escAttr(input.publicationName)}${date ? ` &#183; ${date}` : ''}${input.estimatedReadTimeMinutes ? ` &#183; ${input.estimatedReadTimeMinutes} min read` : ''}</p>
   </div>
   ${input.bodyHtml}
   ${input.affiliateHtml}
@@ -385,7 +385,7 @@ export function renderEpubChapterBody(input: EpubChapterInput): string {
   ${input.imageHtml}
   <div class="article-header">
     <h1>${escAttr(input.title)}</h1>
-    <p class="article-meta">${attribution}${date ? ` &#183; ${date}` : ''} &#183; ${input.estimatedReadTimeMinutes} min read</p>
+    <p class="article-meta">${attribution}${date ? ` &#183; ${date}` : ''}${input.estimatedReadTimeMinutes ? ` &#183; ${input.estimatedReadTimeMinutes} min read` : ''}</p>
   </div>
   ${input.bodyHtml}${sourcesAndDeepDives}
   ${input.affiliateHtml}`;

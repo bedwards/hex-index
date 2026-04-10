@@ -356,6 +356,10 @@ export async function runModeA(opts: ModeAOptions): Promise<ConsolidationPlan | 
   const primaryRow =
     rows.find((r) => r.id === synth.primarySourceId) ?? rows[0];
 
+  // Compute word count and read time from the generated HTML.
+  const wordCount = synth.html.replace(/<[^>]+>/g, ' ').split(/\s+/).filter(Boolean).length;
+  const estimatedReadTimeMinutes = Math.ceil(wordCount / 200);
+
   // Insert commentary article row. Slug derived from commentary id.
   const slug = `consolidated-${commentaryId.slice(0, 8)}`;
   // Inherit image_path from the primary source so the new commentary
@@ -364,8 +368,9 @@ export async function runModeA(opts: ModeAOptions): Promise<ConsolidationPlan | 
     `INSERT INTO app.articles
        (id, publication_id, title, slug, original_url,
         rewritten_content_path, author_name,
-        media_type, is_consolidated, affiliate_links, image_path)
-     VALUES ($1, $2, $3, $4, $5, $6, $7, 'text', true, $8, $9)`,
+        media_type, is_consolidated, affiliate_links, image_path,
+        word_count, estimated_read_time_minutes)
+     VALUES ($1, $2, $3, $4, $5, $6, $7, 'text', true, $8, $9, $10, $11)`,
     [
       commentaryId,
       primaryRow.publication_id,
@@ -376,6 +381,8 @@ export async function runModeA(opts: ModeAOptions): Promise<ConsolidationPlan | 
       'Brian Edwards',
       JSON.stringify([]),
       primaryRow.image_path,
+      wordCount,
+      estimatedReadTimeMinutes,
     ],
   );
 
