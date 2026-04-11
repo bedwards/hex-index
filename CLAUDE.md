@@ -83,10 +83,13 @@ ODD HOURS (01, 03, 05, ..., 23):
   :15  wiki-rewrite                        [Qwen, 45 min]
 
 WEEKLY:
-  Thu 22:00  Stop Qwen, consolidate
   Fri 05:00  build-weekly                  [no LLM]
   Fri 05:30–07:00  epub editorial review window
   Fri 07:30  send-weekly                   [no LLM, email + text]
+
+  Consolidation runs incrementally from the unified Claude loop
+  (`tools/editorial/consolidate.ts --auto --apply --limit 1`), not
+  on a scheduled "stop Qwen" batch. Qwen and consolidation coexist.
 
 ALWAYS:
   every 5m: postgres-watchdog
