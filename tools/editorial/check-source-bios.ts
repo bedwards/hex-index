@@ -27,16 +27,15 @@ async function main(): Promise<void> {
   const pool = new Pool({
     connectionString:
       process.env.DATABASE_URL ??
-      'postgresql://postgres:postgres@localhost:5432/hex_index',
+      'postgresql://postgres:postgres@localhost:5432/hex-index',
   });
   try {
     const result = await pool.query<{ slug: string }>(
-      // Skip deleted/orphaned publications: require at least one non-deleted
-      // article associated with the publication.
+      // Only lint publications that actually have at least one ingested
+      // article — drops orphaned publication rows from the check.
       `SELECT DISTINCT p.slug
          FROM app.publications p
-         JOIN app.articles a ON a.publication_id = p.id
-        WHERE COALESCE(a.deleted, false) = false`
+         JOIN app.articles a ON a.publication_id = p.id`
     );
     publicationSlugs = result.rows.map((r) => r.slug);
   } catch (err: unknown) {
