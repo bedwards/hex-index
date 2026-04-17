@@ -22,7 +22,7 @@ There is exactly **one** Claude Code session running at a time, driven by a 5-mi
 - `ingest`, `yt-ingest` — article/video acquisition
 - `gen-images` — Gemini image generation
 - `wiki-discover`, `wiki-rewrite`, `article-rewrite`, `affiliate-suggest` — Qwen content generation
-- `build-weekly` (Fri 05:00), `send-weekly` (Fri 07:30) — weekly Reader pipeline
+- `build-weekly` (Thu 23:00), `send-weekly` (Fri 05:30) — weekly Reader pipeline
 - `postgres-watchdog` — DB health
 
 **This unified loop is responsible for everything else:**
@@ -31,7 +31,7 @@ There is exactly **one** Claude Code session running at a time, driven by a 5-mi
 3. **Format error scanning** — run `tools/editorial/find-format-errors.ts` + `fix-format-errors.ts` on new content. Markdown artifacts in HTML break Speechify.
 4. **PR pipeline** — review open PRs, merge green ones, fix red ones, triage Claude/Gemini review comments (critical → fix; non-critical → file issue).
 5. **Main branch CI health** — if `gh run list --branch main` shows failures, fix.
-6. **Weekly epub verification** — Friday morning after 05:00, confirm build-weekly produced a current epub in `docs/weekly/` and it was committed + pushed. Before Friday 07:30 CT, do editorial review. After 07:30, confirm send-weekly fired (email + SMS).
+6. **Weekly epub verification** — after Thursday 23:00, confirm build-weekly produced a current epub in `docs/weekly/` and it was committed + pushed. Before Friday 05:30 CT, do editorial review. After 05:30, confirm send-weekly fired (email + SMS).
 7. **Content quality audits** — periodically sample recent Qwen output for refusals, `<think>` tags, mojibake, LLM preamble, missing quotes/counterpoints/Bottom Line.
 8. **Issue triage** — create GH issues for things you notice but can't fix in-loop.
 9. **Dependabot / upgrades** — keep deps current.
@@ -83,9 +83,9 @@ ODD HOURS (01, 03, 05, ..., 23):
   :15  wiki-rewrite                        [Qwen, 45 min]
 
 WEEKLY:
-  Fri 05:00  build-weekly                  [no LLM]
-  Fri 05:30–07:00  epub editorial review window
-  Fri 07:30  send-weekly                   [no LLM, email + text]
+  Thu 23:00  build-weekly                  [no LLM]
+  Thu 23:30–Fri 05:30  epub editorial review window
+  Fri 05:30  send-weekly                   [no LLM, email + text]
 
   Consolidation runs incrementally from the unified Claude loop
   (`tools/editorial/consolidate.ts --auto --apply --limit 1`), not
