@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ISSCC 2026: Nvidia &amp; Broadcom CPO, HBM4 &amp; LPDDR6, TSMC active LSI, logic-based SRAM, UCIe-S and more - Hex Index</title>
+  <link rel="stylesheet" href="../../styles.css">
+</head>
+<body class="reading-mode">
+  <header class="reading-header">
+    <a href="../../index.html" class="back-link" id="back-link">&larr; Back to Library</a>
+  </header>
+  <main class="reading-content">
+    
+    <article class="article-page">
+      <header class="article-header">
+        <h1>ISSCC 2026: Nvidia &amp; Broadcom CPO, HBM4 &amp; LPDDR6, TSMC active LSI, logic-based SRAM, UCIe-S and more</h1>
+        
+      <div class="article-meta">
+        <span class="author">Dylan Patel</span>
+        <span class="separator">&middot;</span>
+        <a href="../../publication/semianalysis/index.html" class="publication">
+          SemiAnalysis
+        </a>
+        <span class="separator">&middot;</span><time>Apr 15, 2026</time>
+        <span class="separator">&middot;</span><span class="read-time">45 min read</span>
+      </div>
+      </header>
+
+      <div class="content-label">
+        <span class="label-text">Commentary by <a href="../../about/index.html">Hex Index staff</a></span>
+        <nav class="content-nav">
+          <a href="#deep-dives">Deep dives</a><span class="separator">&middot;</span>
+          <a href="https://newsletter.semianalysis.com/p/isscc-2026-nvidia-and-broadcom-cpo" target="_blank" rel="noopener">Original article &rarr;</a>
+        </nav>
+      </div>
+
+      
+      <div class="article-content">
+        <p>Dylan Patel has delivered a rare piece of semiconductor journalism that cuts through the usual hype to reveal the gritty engineering realities shaping the next decade of AI infrastructure. While most coverage fixates on marketing slides, this analysis of ISSCC 2026 exposes how memory vendors are fundamentally rewriting the rules of physics to keep pace with computational demands. The most startling revelation isn&#039;t just that speeds are increasing, but that the very architecture of memory stacks is being dismantled and rebuilt to solve problems that seemed unsolvable just a year ago.</p>
+<h2>The Architecture of Speed</h2>
+<p>Patel identifies a seismic shift in how High Bandwidth Memory (HBM) is constructed, moving away from the monolithic approaches of the past. &quot;The most obvious architectural change from HBM3E to HBM4 is the process technology split between the core DRAM dies and the base die,&quot; Patel writes, noting that Samsung is now using advanced logic nodes for the base while keeping the core on DRAM processes. This is not a minor tweak; it is a strategic pivot that allows for higher transistor density and significantly lower power consumption. By decoupling these layers, the industry can finally address the thermal and electrical bottlenecks that have plagued AI accelerators.</p>
+<figure class="inline-illustration">
+    <img src="../../images/fee0cee7-7565-4575-a61d-2d30043a8a92.webp" alt="ISSCC 2026: Nvidia &amp; Broadcom CPO, HBM4 &amp; LPDDR6, TSMC active LSI, logic-based SRAM, UCIe-S and more" loading="lazy" width="600" height="315">
+  </figure>
+
+<p>The data presented supports a bold claim: Samsung&#039;s new HBM4 stack is not merely competitive but, in specific metrics, superior to the current market leader. &quot;Samsung demonstrated a 36 GB, 12-high HBM4 stack featuring 2048 IO pins and 3.3 TB/s of bandwidth,&quot; Patel notes, highlighting that this performance significantly exceeds the official industry standard. The implication is clear: the JEDEC standard, which sets the baseline for interoperability, is already being outpaced by the cutting edge of R&amp;D. This creates a fascinating dynamic where the &quot;standard&quot; becomes a floor rather than a ceiling, forcing the entire ecosystem to accelerate.</p>
+<blockquote>Samsung&#039;s implementation significantly exceeds the baseline specification of the official JEDEC HBM4 standard, reaching 13 Gb/s per pin and delivering 3.3 TB/s of bandwidth.</blockquote>
+<p>However, this aggressive performance comes with a significant caveat that Patel does not shy away from. The move to advanced logic nodes for the base die introduces cost and yield challenges. &quot;The 1c front-end manufacturing process has proved challenging for Samsung throughout 2025... Front-end yields for the 1c node were only around 50% last year,&quot; Patel explains. Critics might argue that prioritizing raw speed over yield stability is a dangerous gamble, especially when the alternative competitors are using more mature, lower-cost processes. Yet, Patel&#039;s framing suggests that in the AI arms race, performance is the only currency that matters, even if it erodes margins in the short term.</p>
+<h2>Solving the Timing Nightmare</h2>
+<p>As memory stacks grow taller and channel counts double, the physical reality of signal propagation becomes a major hurdle. Patel dives deep into the concept of &quot;tCCDR,&quot; the minimum interval required between consecutive read commands, which directly impacts how fast an AI model can access data. &quot;As the stack heights and channel counts increase, the variation between the dies accumulates, causing larger timing mismatches across channels and dies,&quot; Patel writes. This is a profound engineering challenge; without a solution, the theoretical bandwidth of the memory would be useless due to synchronization errors.</p>
+<p>Samsung&#039;s response is a sophisticated calibration system that Patel describes as a game-changer. &quot;To address this issue, Samsung introduces a &#039;per-channel TSV RDQS timing auto-calibration scheme,&#039;&quot; he explains. This system measures delay variations and compensates for them in real-time, effectively aligning the timing across the entire stack. The result is a tangible performance boost: &quot;This scheme alone increased data rates from 7.8 Gb/s to 9.4 Gb/s.&quot; This level of granular detail is what separates this commentary from generic industry reports. It moves beyond the &quot;what&quot; to explain the &quot;how,&quot; showing that the gains are not magic but the result of solving specific, complex timing problems.</p>
+<p>The article also touches on the broader context of testing, noting that traditional methods are insufficient for these new architectures. &quot;By moving the base die to Samsung Foundry&#039;s SF4 logic process, Samsung enables a fully programmable testing framework capable of running complex test algorithms,&quot; Patel argues. This shift from fixed-pattern testing to programmable, real-world simulation is critical for yield learning. It mirrors the evolution seen in through-silicon via (TSV) technology, where early adoption required similar leaps in testing methodology to ensure reliability in 3D stacked chips. Without these advanced testing capabilities, the yield penalties Patel mentioned earlier would be catastrophic.</p>
+<h2>The Mobile Memory Revolution</h2>
+<p>While HBM grabs the headlines for AI, Patel ensures the reader understands that the mobile market is undergoing a similar transformation with LPDDR6. The analysis of Samsung&#039;s LPDDR6 chip reveals a clever trade-off between power and area. &quot;LPDDR6 adopts a 2 sub-channel per die architecture... However, there is a latency penalty for accessing data in the secondary sub-channel,&quot; Patel writes. This dual-channel design doubles the peripheral circuitry, leading to a &quot;5% of the total die area&quot; penalty. For a busy executive, this is a crucial data point: the industry is willing to sacrifice silicon real estate to gain the power efficiency required for next-generation mobile devices.</p>
+<p>The power-saving techniques described are equally impressive. &quot;By carefully choosing which peripheral logic is using which power domain, read power has been reduced by 27% and write power reduced by 22%,&quot; Patel notes. This is not just about battery life; it is about thermal management in increasingly dense devices. The use of wide NRZ signaling and Data Bus Inversion (DBI) further illustrates the complexity of modern memory design. &quot;DBI is a power-saving and signal integrity mechanism... It limits the maximum number of simultaneous switching outputs to half the bus width, reducing power consumption and supply noise,&quot; Patel explains.</p>
+<blockquote>This approach represents a notable departure from HBM3E, enabling much more robust debugging and better yield learning for HBM stacks.</blockquote>
+<p>Patel&#039;s analysis of the density metrics offers a sobering counterpoint to the speed gains. &quot;The memory density described leads us to believe that this prototype LPDDR6 chip was manufactured on their 1b process,&quot; he suggests, noting that the density is actually lower than previous generations. This raises a valid question: are we trading density for speed and power efficiency? A counterargument worth considering is that this trade-off might limit the scalability of mobile memory in the long run, forcing device manufacturers to choose between larger chips or lower capacities. However, given the immediate demand for power efficiency in edge AI, this seems a calculated risk.</p>
+<h2>Bottom Line</h2>
+<p>Patel&#039;s coverage of ISSCC 2026 succeeds by refusing to treat semiconductor advancements as black boxes, instead illuminating the specific architectural choices that will define the next generation of computing. The strongest part of the argument is the detailed breakdown of how splitting the base die process is enabling performance leaps that defy current standards. The biggest vulnerability remains the yield and cost implications of these aggressive manufacturing strategies, which could delay mass adoption. Readers should watch closely to see if Samsung&#039;s high-risk, high-reward approach forces competitors to follow suit or if the market corrects toward more cost-effective solutions.</p>
+      </div>
+
+      
+      
+      <section id="deep-dives" class="deep-dives">
+        <h2>Deep Dives</h2>
+        <p class="deep-dives-intro">Explore these related deep dives:</p>
+        <ul class="deep-dive-list">
+          
+      <li class="deep-dive-item">
+        <a href="../../wikipedia/through-silicon-via/index.html">
+          <strong>Through-silicon via</strong>
+        </a>
+        <p class="topic-summary">Understanding the physical limitations and thermal challenges of TSVs is essential to grasping why Samsung&#039;s move to a logic-based base die in HBM4 represents a critical architectural shift rather than just a process node upgrade.</p>
+      </li>
+
+      <li class="deep-dive-item">
+        <a href="../../wikipedia/shmoo-plot/index.html">
+          <strong>Shmoo plot</strong>
+        </a>
+        <p class="topic-summary">The article mentions &#039;Shmoo Plot&#039; as a key data visualization; knowing this specific engineering tool reveals how manufacturers rigorously map the voltage-frequency boundaries that determine if a chip like HBM4 can actually meet the strict power constraints of the Rubin platform.</p>
+      </li>
+        </ul>
+      </section>
+    
+      
+
+      <section id="excerpt"><section class="source-excerpts">
+      <h2>Sources</h2>
+      <article class="source-excerpt">
+      <h3>ISSCC 2026: Nvidia &amp; Broadcom CPO, HBM4 &amp; LPDDR6, TSMC active LSI, logic-based SRAM, UCIe-S and more</h3>
+      <div class="source-meta">by Dylan Patel &middot; <a href="../../publication/semianalysis/index.html">SemiAnalysis</a> &middot; <a href="https://newsletter.semianalysis.com/p/isscc-2026-nvidia-and-broadcom-cpo" target="_blank" rel="noopener">Read full article</a></div>
+      <p>There are three major semiconductor conferences each year, IEDM, VLSI and finally ISSCC. We have covered the former two in great detail over the past few years. Today, we finally complete the trinity with our roundup on ISSCC 2026. </p><p>Compared to IEDM and VLSI, ISSCC has a much bigger focus on integration and circuits. Almost every paper comes with some form of circuit diagram, together with clear measurements and data.</p><p>In past years, ISSCC findings have been hit or miss when it comes to industry impact. This year was different, a significant number of papers and presentations were directly relevant to market trends. Topics covered range from the latest advancements in HBM4, LPDDR6, GDDR7, and NAND, to co-packaged optics, advanced die-to-die interfaces, and advanced processors from the likes of MediaTek, AMD, Nvidia, and Microsoft.</p><p>In this roundup, we will cover major categories such as Memory, Optical Networking, High-Speed Electrical Interconnects, Processors.</p><p>Memory.</p> <p>One key theme that caught our attention at this year’s ISSCC was memory, including Samsung HBM4, Samsung and SK Hynix LPDDR6, and SK Hynix GDDR7. Other than DRAM, logic-based SRAM and MRAM also piqued our interest.</p><p>Samsung HBM4 - Paper 15.6.</p> <p>Samsung was the only one among the top three memory vendors to present a technical paper on HBM4. Before ISSCC, we noted in our Accelerator &amp; HBM model that Samsung had made great improvements in their HBM4 generation over their HBM3E. The data presented at ISSCC confirmed our analysis, with Samsung posting best-in-class performance - we have also detailed this development months ago, in a model update note.The technical details presented at ISSCC, combined with industry chatter we have gathered, clearly demonstrate that Samsung’s HBM4 is competitive with its peers. Notably, it can meet the pin speed required for Rubin while staying below 1V. While Samsung still lags SK Hynix in terms of reliability and stability, the company has made meaningful progress in closing the gap on the technology front and could challenge SK Hynix’s dominance in HBM. Their 1c-based HBM4 paired with an SF4 logic base die appears to deliver stronger performance in pin speed.</p><p>Samsung demonstrated a 36 GB, 12-high HBM4 stack featuring 2048 IO pins and 3.3 TB/s of bandwidth, built using 6th-generation 10nm-class (1c) DRAM core dies paired with an SF4 logic base die.</p><p>The most obvious architectural change from HBM3E to HBM4 is the process technology split between the core DRAM dies ...</p>
+      <footer class="source-bio" aria-label="About this source">
+      <p class="sb-heading">About this source</p>
+      <p class="sb-meta"><span class="sb-type">independent research firm</span> &middot; <span class="sb-country">United States</span> &middot; <span class="sb-funding">paid subscriptions, enterprise research contracts</span> &middot; <span class="sb-leaning">Hawkish US-industrial-policy techno-nationalist on semiconductors; pro-export-controls on China, bullish on Western fab buildout and AI compute supremacy.</span></p>
+      <p class="sb-audit">Last reviewed: <time datetime="2026-04-08">2026-04-08</time> &middot; <a href="https://www.semianalysis.com/" target="_blank" rel="noopener">source</a></p>
+    </footer>
+    </article>
+    </section></section>
+      
+    </article>
+  
+  </main>
+  <footer class="site-footer">
+    <div class="container">
+      <p><a href="../../privacy/index.html">Privacy</a> &middot; <a href="../../terms/index.html">Terms</a></p>
+    </div>
+  </footer>
+  <script>
+  (function() {
+    var params = new URLSearchParams(window.location.search);
+    var from = params.get('from');
+    if (from) {
+      var names = {
+        'foreign-policy':'Foreign Policy','ai-tech':'AI & Tech','housing-cities':'Housing & Cities',
+        'political-strategy':'Political Strategy','history':'History','science':'Science',
+        'culture':'Culture','economics':'Economics','faith':'Faith','writing-craft':'Writing & Craft',
+        'music':'Music','law-rights':'Law & Rights','public-health':'Public Health',
+        'philosophy':'Philosophy','media':'Media','defense':'Defense','china':'China'
+      };
+      var link = document.getElementById('back-link');
+      if (link) {
+        var name = names[from] || from;
+        link.href = '../../tag/' + from + '/index.html';
+        link.textContent = '\u2190 Back to ' + name;
+      }
+    }
+  })();
+  </script>
+</body>
+</html>
