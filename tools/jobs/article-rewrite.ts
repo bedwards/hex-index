@@ -108,12 +108,14 @@ async function main(): Promise<void> {
     const validSlugs = new Set(tags.map(t => t.slug));
 
     // Find articles with full text available but no rewrite yet
+    // Prefer full_content_path (scraped), fall back to content_path (RSS feed)
     const { rows: articles } = await pool.query<{
       id: string;
       title: string;
       slug: string;
       original_url: string;
-      full_content_path: string;
+      full_content_path: string | null;
+      content_path: string | null;
       author_name: string;
       publication_name: string;
       publication_slug: string;
@@ -124,12 +126,13 @@ async function main(): Promise<void> {
         a.slug,
         a.original_url,
         a.full_content_path,
+        a.content_path,
         a.author_name,
         p.name AS publication_name,
         p.slug AS publication_slug
       FROM app.articles a
       JOIN app.publications p ON a.publication_id = p.id
-      WHERE a.full_content_path IS NOT NULL
+      WHERE (a.full_content_path IS NOT NULL OR a.content_path IS NOT NULL)
         AND a.consolidated_into IS NULL
         AND (a.rewritten_content_path IS NULL OR a.rewrite_dirty = true)
         ${ARTICLE_IDS.length > 0 ? `AND a.id = ANY($2)` : ''}
@@ -151,14 +154,33 @@ async function main(): Promise<void> {
       console.info(`\n[${rewritten + errors + 1}/${articles.length}] ${article.title}`);
 
       try {
-        // Load full text
-        const fullPath = join(process.cwd(), 'library', article.full_content_path);
+        // Load full text — try full_content_path first, fall back to content_path
+        const fullPath = article.full_content_path
+          ? join(process.cwd(), 'library', article.full_content_path)
+          : null;
         let fullHtml: string;
+        let contentSource = 'content_path'; // default fallback label
         try {
-          fullHtml = await readFile(fullPath, 'utf-8');
+          if (fullPath) {
+            fullHtml = await readFile(fullPath, 'utf-8');
+            contentSource = 'full_content_path';
+          } else {
+            throw new Error('no full_content_path');
+          }
         } catch {
-          console.info('  Skipping: full content file not found');
-          continue;
+          // Fall back to content_path (RSS feed HTML, typically 2K-4K words)
+          if (!article.content_path) {
+            console.info('  Skipping: no content file available');
+            continue;
+          }
+          const fallbackPath = join(process.cwd(), 'library', article.content_path);
+          try {
+            fullHtml = await readFile(fallbackPath, 'utf-8');
+            contentSource = 'content_path (RSS fallback)';
+          } catch {
+            console.info('  Skipping: content file not found');
+            continue;
+          }
         }
 
         // Strip HTML to plain text for LLM
@@ -362,6 +384,7 @@ Output ONLY the JSON. No preamble, no explanation, no markdown fences.
           type: 'article-rewrite',
           title: article.title,
           slug: article.slug,
+          content_source: contentSource,
           duration_ms: genMs,
           word_count: wordCount,
           response_len: responseText.length,
