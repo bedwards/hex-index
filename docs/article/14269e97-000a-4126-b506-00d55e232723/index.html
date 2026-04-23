@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Import AI 444: LLM societies; Huawei makes kernels with AI; ChipBench - Hex Index</title>
+  <link rel="stylesheet" href="../../styles.css">
+</head>
+<body class="reading-mode">
+  <header class="reading-header">
+    <a href="../../index.html" class="back-link" id="back-link">&larr; Back to Library</a>
+  </header>
+  <main class="reading-content">
+    
+    <article class="article-page">
+      <header class="article-header">
+        <h1>Import AI 444: LLM societies; Huawei makes kernels with AI; ChipBench</h1>
+        
+      <div class="article-meta">
+        <span class="author">Jack Clark</span>
+        <span class="separator">&middot;</span>
+        <a href="../../publication/importai/index.html" class="publication">
+          Import AI
+        </a>
+        <span class="separator">&middot;</span><time>Feb 9, 2026</time>
+        <span class="separator">&middot;</span><span class="read-time">14 min read</span>
+      </div>
+      </header>
+
+      <div class="content-label">
+        <span class="label-text">Commentary by <a href="../../about/index.html">Hex Index staff</a></span>
+        <nav class="content-nav">
+          <a href="#deep-dives">Deep dives</a><span class="separator">&middot;</span>
+          <a href="https://importai.substack.com/p/import-ai-444-llm-societies-huawei" target="_blank" rel="noopener">Original article &rarr;</a>
+        </nav>
+      </div>
+
+      
+      <div class="article-content">
+        <h2>When AI Starts Talking to Itself</h2>
+<p>Three separate studies published this week reveal something unsettling about artificial intelligence: the systems are no longer just computing answers. They are simulating entire societies of thought inside their own architectures. What emerges is not cleaner computation but something that resembles internal debate, conflict, and reconciliation between distinct cognitive personas.</p>
+<h2>The Society Inside the Machine</h2>
+<p>Researchers from Google, the University of Chicago, and the Santa Fe Institute tested DeepSeek-R1 and QwQ-32B on complex reasoning tasks. Their conclusion challenges the standard view of how language models work. Jack Clark writes, &quot;enhanced reasoning emerges not from extended computation alone, but from the implicit simulation of complex, multi-agent-like interactions—a society of thought—which enables the deliberate diversification and debate among internal cognitive perspectives characterized by distinct personality traits and domain expertise.&quot;</p>
+<figure class="inline-illustration">
+    <img src="../../images/14269e97-000a-4126-b506-00d55e232723.webp" alt="Import AI 444: LLM societies; Huawei makes kernels with AI; ChipBench" loading="lazy" width="600" height="315">
+  </figure>
+
+<p>The mechanics are specific. Different personas emerge through reinforcement learning training for reasoning. Base pre-trained models like DeepSeek v3 do not show these patterns. Clark explains, &quot;In an organic chemistry problem requiring multistep reaction analysis to identify the final product&#039;s structure (i.e., multi-step Diels-Alder synthesis), DeepSeek-R1 exhibits perspective shifts and conflict, expressed through socio-emotional roles such as disagreement, giving opinion, and giving orientation.&quot;</p>
+<p>One creative writing example produced seven distinct perspectives. A creative ideator with high openness and extraversion generated stylistic alternatives. A semantic fidelity checker with low agreeableness and high neuroticism prevented scope creep. Clark quotes the checker directly: &quot;But that adds &#039;deep-seated&#039; which wasn&#039;t in the original.&quot;</p>
+<p>The mathematical puzzle traces show evolution over time. At step 40, the model produces mechanical, enumerative reasoning. By step 120, two distinctive simulated personas have appeared, recognizing their collectivity with the pronoun &quot;we&quot;. Clark writes, &quot;Again no luck&quot; expresses uncertainty, while &quot;Maybe we can try using negative numbers&quot; considers alternatives.</p>
+<p>This aligns with a 2022 LessWrong post by Janus arguing LLMs should be viewed as simulators. Clark notes, &quot;Calling GPT a simulator gets across that in order to do anything, it has to simulate something.&quot; The Google paper suggests these internal world models are becoming richer and more powerful as models advance.</p>
+<blockquote>&quot;Our findings suggest that reasoning models like DeepSeek-R1 do not simply generate longer or more elaborate chains of thought. Rather, they exhibit patterns characteristic of a social and conversational process generating &#039;societies of thought&#039;—posing questions, introducing alternative perspectives, generating and resolving conflicts, and coordinating diverse socio-emotional roles.&quot;</blockquote>
+<p>Critics might note the study examined only DeepSeek and QwQ models, not Google&#039;s own systems. The authors also cannot distinguish between genuine multi-agent simulation and sophisticated pattern matching that resembles social dynamics.</p>
+<h2>Chip Design Remains Hard</h2>
+<p>A separate benchmark from UC San Diego and Columbia University tests AI systems on real-world chip design in Verilog. The results are sobering. Clark writes, &quot;ChipBench shows that no frontier model is great at real world Verilog yet.&quot;</p>
+<p>Three limitations plague current benchmarks. Many Verilog benchmarks contain simple functional modules ranging from 10 to 76 lines. Real-world deployments exceed 10,000 lines. Debugging receives insufficient focus despite bugs costing heavily in physical hardware. Verilog focus detracts from reference model evaluation, where verification engineers outnumber design engineers by ratios of 1:1 to 5:1 in industrial workflows.</p>
+<p>ChipBench tests three competencies: writing Verilog code, debugging Verilog code, and writing reference models. Clark reports the results bluntly: &quot;Despite testing on advanced models, the average pass@1 is relatively low.&quot;</p>
+<p>For CPU IP modules, the highest Verilog generation pass rate is 22.22% (Claude 4.5 Opus, Gemini 3 Flash, GPT 5.2). Non-self-contained modules reach 50% (DeepSeek-Coder). Self-contained modules reach 36.67% (Claude 4.5 Opus, Gemini 3 Flash). Python reference model generation for CPU IP achieves only 11.1%. Verilog debugging performs better but no model cracks 50% pass@1 when averaged across tasks.</p>
+<p>Clark offers a crucial qualification: &quot;Though some AI systems have been used to build chips, they&#039;ve been typically highly specialized, or stuck inside incredibly good scaffolds for eliciting good chip design behavior and stopping them from causing problems.&quot; He adds, &quot;I can&#039;t escape the feeling that there&#039;s a scaffold for &#039;being good at Verilog&#039; which a contemporary AI system might be able to build if asked to and which would radically improve performance of systems on this benchmark.&quot;</p>
+<p>Critics might note the benchmark tests out-of-the-box performance without specialized scaffolding. Industrial deployments rarely use raw models without extensive fine-tuning and guardrails.</p>
+<h2>Mathematics: 700 Candidates, One Genuine Solution</h2>
+<p>Google DeepMind and collaborators used an internal Gemini-based system called Aletheia to tackle 700 remaining open Erdős mathematical conjectures. The numbers tell a story about automation&#039;s limits.</p>
+<p>Aletheia surfaced 200 candidate solutions. Human grading slimmed this to 63 correct responses. Further expert evaluation reduced this to 13 solves deemed &quot;correct meaningful responses.&quot; Clark explains, &quot;The remaining 50 of Aletheia&#039;s correct solutions were technically valid but mathematically meaningless because the problem statements were interpreted in a way that did not capture Erdős intent, often (but not always) leading to trivial solutions.&quot;</p>
+<p>Of the 13, five were literature identification (solutions already existed). Three were partial AI solutions. Three were independent rediscovery (humans found solutions independently afterward). This leaves two autonomous novel solutions. Clark writes, &quot;We tentatively believe Aletheia&#039;s solution to Erdős-1051 represents an early example of an AI system autonomously resolving a slightly non-trivial open Erdős problem of somewhat broader (mild) mathematical interest.&quot;</p>
+<p>The participation list spans Google DeepMind, UC Berkeley, Seoul National University, Stanford, Korea Institute for Advanced Study, Cambridge, Brown, Yonsei, Concordia, Academia Sinica, and National Taiwan University.</p>
+<p>Clark identifies the bottleneck clearly: &quot;Large Language Models can easily generate candidate solutions, but the number of experts who can judge the correctness of a solution is relatively small, and even for experts, substantial time is required to carry out such evaluations.&quot; He warns of &quot;subconscious plagiarism&quot; where AI reproduces training literature without acknowledgment.</p>
+<p>Critics might note that 700 candidates yielding one genuinely novel solution suggests AI accelerates generation far more than it accelerates validation. The human bottleneck remains.</p>
+<h2>Huawei&#039;s Kernel Automation</h2>
+<p>Researchers from Nanjing University and Huawei developed AscendCraft to automate kernel design for AscendC Huawei chips. Clark writes, &quot;LLMs need scaffolds for more obscure chips.&quot;</p>
+<p>Publicly available NPU kernel implementations are far scarcer than GPU counterparts, limiting training data for language models. Clark notes, &quot;The lack of large-scale, high-quality NPU code makes it difficult for LLMs to generate correct and efficient kernels.&quot;</p>
+<p>AscendCraft uses a two-stage pipeline. Stage one has an LLM build a high-level DSL program describing the kernel&#039;s core computation, tiling strategy, and on-chip dataflow. The DSL is designed to be LLM-friendly, appropriately abstracted, and sufficiently expressive.</p>
+<p>Critics might note this represents another specialized scaffold rather than general capability. Huawei&#039;s closed ecosystem limits external verification of results.</p>
+<h2>Bottom Line</h2>
+<p>The week&#039;s research reveals a pattern: AI systems are developing internal complexity that resembles social dynamics, yet remain profoundly limited in industrial applications without extensive scaffolding. The gap between simulating multiple perspectives and solving real-world problems at scale has not closed. Human expertise remains the bottleneck for validation, whether in mathematics, chip design, or kernel optimization.</p>
+      </div>
+
+      
+      
+      <section id="deep-dives" class="deep-dives">
+        <h2>Deep Dives</h2>
+        <p class="deep-dives-intro">Explore these related deep dives:</p>
+        <ul class="deep-dive-list">
+          
+      <li class="deep-dive-item">
+        <a href="../../wikipedia/deepseek/index.html">
+          <strong>DeepSeek</strong>
+        </a>
+        <p class="topic-summary">The article discusses DeepSeek-R1 and QwQ-32B models specifically</p>
+      </li>
+
+      <li class="deep-dive-item">
+        <a href="../../wikipedia/multi-agent-system/index.html">
+          <strong>Multi-agent system</strong>
+        </a>
+        <p class="topic-summary">The core finding is that enhanced reasoning emerges from implicit simulation of multi-agent-like interactions</p>
+      </li>
+        </ul>
+      </section>
+    
+      
+
+      <section id="excerpt"><section class="source-excerpts">
+      <h2>Sources</h2>
+      <article class="source-excerpt">
+      <h3>Import AI 444: LLM societies; Huawei makes kernels with AI; ChipBench</h3>
+      <div class="source-meta">by Jack Clark &middot; <a href="../../publication/importai/index.html">Import AI</a> &middot; <a href="https://importai.substack.com/p/import-ai-444-llm-societies-huawei" target="_blank" rel="noopener">Read full article</a></div>
+      <p>Welcome to Import AI, a newsletter about AI research. Import AI runs on arXiv and feedback from readers. If you’d like to support this, please subscribe.</p><p>Google paper suggests that LLMs simulate multiple personalities to answer questions:…The smarter we make language models, the more they tend towards building and manipulating rich, multi-agent world models…When thinking about hard problems, I often find it’s helpful to try and view them from multiple perspectives, especially when it comes to checking my own assumptions and biases. Now, researchers with Google, the University of Chicago, and the Santa Fe Institute, have studied how AI reasoning models work and have concluded they do the same thing, with LLMs seeming to invoke multiple different perspectives in their chains of thought when solving hard problems.The key finding: In tests on DeepSeek-R1 and QwQ-32B (one wonders why the Google researchers didn’t touch Google models here…) they find that “enhanced reasoning emerges not from extended computation alone, but from the implicit simulation of complex, multi-agent-like interactions—a society of thought—which enables the deliberate diversification and debate among internal cognitive perspectives characterized by distinct personality traits and domain expertise.”How it works: It appears that different forms of persona and discussion style modeling emerge as a consequence of training models through RL to do reasoning - the results don’t show up on base pre-trained models like DeepSeek v3. The authors find that models embody a variety of conversational styles, including question and answering, perspective shifts, reconciliation, and conflict of perspectives.   “In an organic chemistry problem requiring multistep reaction analysis to identify the final product’s structure (i.e., multi-step Diels-Alder synthesis), DeepSeek-R1 exhibits perspective shifts and conflict, expressed through socio-emotional roles such as disagreement, giving opinion, and giving orientation,” they find.    Similarly, “In a creative writing trace where the model rewrites the sentence “I flung my hatred into the burning fire,” seven perspectives emerge, including a creative ideator (highest Openness and Extraversion) who generates stylistic alternatives and a semantic fidelity checker (low agreeableness, high neuroticism) who prevents scope creep—“But that adds ‘deep-seated’ which wasn’t in the original”.    And in a mathematical puzzle “at step 40, the model produces mechanical, enumerative chain-of-thought-style reasoning, whereas by step 120, two distinctive simulated personas have appeared, recognizing their collectivity with the pronoun “we”— expressing uncertainty (“Again no luck”), considering alternatives (“Maybe we can try using negative numbers”), and reflecting on problem constraints.”Why this matters: Janus strikes again: Back in ...</p>
+      <footer class="source-bio" aria-label="About this source">
+      <p class="sb-heading">About this source</p>
+      <p class="sb-meta"><span class="sb-type">independent newsletter</span> &middot; <span class="sb-country">United States</span> &middot; <span class="sb-funding">free newsletter</span> &middot; <span class="sb-affiliations">Anthropic (co-founder) &middot; OpenAI (former policy director)</span> &middot; <span class="sb-leaning">AI-safety-aligned frontier-lab insider; believes in serious capability risks, favors government oversight and coordination, skeptical of pure accelerationism.</span></p>
+      <p class="sb-audit">Last reviewed: <time datetime="2026-04-08">2026-04-08</time> &middot; <a href="https://importai.substack.com/" target="_blank" rel="noopener">source</a></p>
+    </footer>
+    </article>
+    </section></section>
+      
+    </article>
+  
+  </main>
+  <footer class="site-footer">
+    <div class="container">
+      <p><a href="../../privacy/index.html">Privacy</a> &middot; <a href="../../terms/index.html">Terms</a></p>
+    </div>
+  </footer>
+  <script>
+  (function() {
+    var params = new URLSearchParams(window.location.search);
+    var from = params.get('from');
+    if (from) {
+      var names = {
+        'foreign-policy':'Foreign Policy','ai-tech':'AI & Tech','housing-cities':'Housing & Cities',
+        'political-strategy':'Political Strategy','history':'History','science':'Science',
+        'culture':'Culture','economics':'Economics','faith':'Faith','writing-craft':'Writing & Craft',
+        'music':'Music','law-rights':'Law & Rights','public-health':'Public Health',
+        'philosophy':'Philosophy','media':'Media','defense':'Defense','china':'China'
+      };
+      var link = document.getElementById('back-link');
+      if (link) {
+        var name = names[from] || from;
+        link.href = '../../tag/' + from + '/index.html';
+        link.textContent = '\u2190 Back to ' + name;
+      }
+    }
+  })();
+  </script>
+</body>
+</html>

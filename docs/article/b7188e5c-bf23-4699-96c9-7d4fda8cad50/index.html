@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>How grab built a vision LLM to scan images - Hex Index</title>
+  <link rel="stylesheet" href="../../styles.css">
+</head>
+<body class="reading-mode">
+  <header class="reading-header">
+    <a href="../../index.html" class="back-link" id="back-link">&larr; Back to Library</a>
+  </header>
+  <main class="reading-content">
+    
+    <article class="article-page">
+      <header class="article-header">
+        <h1>How grab built a vision LLM to scan images</h1>
+        
+      <div class="article-meta">
+        <span class="author">Alex Xu</span>
+        <span class="separator">&middot;</span>
+        <a href="../../publication/bytebytego/index.html" class="publication">
+          ByteByteGo Newsletter
+        </a>
+        <span class="separator">&middot;</span><time>Feb 3, 2026</time>
+        <span class="separator">&middot;</span><span class="read-time">12 min read</span>
+      </div>
+      </header>
+
+      <div class="content-label">
+        <span class="label-text">Commentary by <a href="../../about/index.html">Hex Index staff</a></span>
+        <nav class="content-nav">
+          <a href="#deep-dives">Deep dives</a><span class="separator">&middot;</span>
+          <a href="https://blog.bytebytego.com/p/how-grab-built-a-vision-llm-to-scan" target="_blank" rel="noopener">Original article &rarr;</a>
+        </nav>
+      </div>
+
+      
+      <div class="article-content">
+        <p>In a landscape where tech giants often chase the largest possible models, Grab&#039;s engineering team made a counterintuitive move: they built a smaller, custom vision model from scratch to solve a problem that massive general-purpose AI couldn&#039;t crack. Alex Xu&#039;s breakdown of this journey reveals that for complex, region-specific tasks like document verification in Southeast Asia, <strong>specialization beats scale</strong> every time. This isn&#039;t just a case study in machine learning; it&#039;s a masterclass in why one-size-fits-all AI often fails when it meets the messy reality of global diversity.</p>
+<h2>The Architecture of Understanding</h2>
+<p>Xu begins by dismantling the assumption that a standard text-based Large Language Model (LLM) can simply &quot;look&quot; at a document. He explains that a Vision LLM requires a distinct three-part architecture: an image encoder to translate pixels into numbers, a projector to bridge the gap between vision and language, and the language model itself to generate the output. &quot;The first component is the image encoder... Think of it as translating visual information into a structured representation of numbers and vectors,&quot; Xu writes. This distinction is crucial because it highlights that seeing and reading are fundamentally different cognitive tasks for a machine.</p>
+<figure class="inline-illustration">
+    <img src="../../images/b7188e5c-bf23-4699-96c9-7d4fda8cad50.webp" alt="How grab built a vision LLM to scan images" loading="lazy" width="600" height="315">
+  </figure>
+
+<p>The core of the argument rests on the failure of existing tools. Traditional Optical Character Recognition (OCR) systems, which have been the industry standard since the 1970s, crumbled under the sheer variety of Southeast Asian document templates. Even powerful proprietary models struggled, often producing &quot;hallucinations&quot;—confidently incorrect outputs—when faced with local languages. Xu notes that while open-source models offered efficiency, they &quot;lacked the accuracy required for production deployment.&quot; This gap between theoretical capability and practical utility is where the engineering team had to intervene.</p>
+<blockquote>&quot;Preserving the original resolution maintains text integrity and improves accuracy.&quot;</blockquote>
+<p>The decision to select the Qwen2-VL 2B model as a starting point was driven by a specific technical necessity: dynamic resolution. Unlike models that force images into fixed sizes, distorting text in the process, this model could handle images in their native resolution. This choice was not merely about convenience; it was a prerequisite for accuracy. As Xu puts it, &quot;resizing or cropping images can distort text characters, leading to recognition errors.&quot; For busy engineers, this is a vital reminder that data preprocessing is often more critical than model selection.</p>
+<h2>The Data Dilemma</h2>
+<p>The most compelling part of Xu&#039;s narrative is the realization that the model&#039;s intelligence was limited not by its brain, but by its eyes. The team discovered that while the language decoder understood Thai or Vietnamese text, the vision encoder had never learned to recognize what those characters looked like in an image. &quot;The language model might understand Thai text, but the vision encoder had never learned to recognize what Thai characters look like in images,&quot; Xu observes. This insight drove a pivot from simple fine-tuning to a more rigorous training regimen.</p>
+<p>To solve this, Grab didn&#039;t just scrape the web; they engineered their own reality. They created a synthetic dataset by rendering text from Common Crawl in various fonts and backgrounds, effectively teaching the model to &quot;see&quot; before it could &quot;read.&quot; They also built Documint, an internal framework to auto-label real documents. This dual approach allowed them to generate unlimited variations of training data, a strategy that echoes the early days of computer vision where synthetic data was often the only way to get models to recognize rare objects.</p>
+<p>Critics might argue that relying heavily on synthetic data introduces a &quot;sim-to-real&quot; gap, where the model performs well on artificial images but fails on real-world scans. However, Xu counters this by showing how the team used human reviewers to refine the auto-labeled data, ensuring high accuracy before the model ever saw it. The result was a model that could handle the chaotic reality of a crumpled, tilted, or poorly lit driver&#039;s license.</p>
+<h2>From 2 Billion to 1 Billion Parameters</h2>
+<p>The final phase of the project is where the story becomes truly distinctive. Instead of settling for the improved 2-billion-parameter model, the team decided to build a 1-billion-parameter model from scratch. They combined the best vision encoder from the larger model with a compact language decoder. &quot;A smaller model of approximately 1 billion parameters, built from scratch and trained comprehensively, can achieve near state-of-the-art results,&quot; Xu concludes. This is a bold claim in an era obsessed with parameter counts, suggesting that <strong>efficiency is the new frontier</strong>.</p>
+<p>The performance gains were staggering. The custom 1B model was 48% faster at median latency and 56% faster in worst-case scenarios compared to the larger model. &quot;Grab identified that one of the biggest weaknesses of external APIs like ChatGPT or Gemini was the P99 latency, which can easily be 3 to 4 times higher than the P50 latency,&quot; Xu writes. For a service like electronic know-your-customer (eKYC) verification, where users are waiting for approval, that consistency is the difference between a seamless experience and a frustrated customer.</p>
+<blockquote>&quot;Full parameter fine-tuning proved superior to LoRA for specialized, non-Latin script domains.&quot;</blockquote>
+<p>This finding challenges the prevailing trend of using Low-Rank Adaptation (LoRA) for all fine-tuning tasks. While LoRA is resource-efficient, Xu demonstrates that for domains with significant visual differences—like the unique scripts of Southeast Asia—updating all model parameters is necessary to capture the nuance. This is a critical lesson for any organization trying to deploy AI in non-Western contexts.</p>
+<h2>Bottom Line</h2>
+<p>Xu&#039;s analysis succeeds because it moves beyond the hype of &quot;bigger is better&quot; to demonstrate that <strong>context is king</strong>. The strongest part of this argument is the empirical proof that a custom, smaller model can outperform massive generalists when trained on high-quality, region-specific data. The biggest vulnerability, however, is the immense resource investment required to build such a system from scratch; not every company has the engineering bandwidth to create a synthetic data pipeline and an internal labeling framework. For the smart, busy reader, the takeaway is clear: in the race for AI adoption, the winner won&#039;t be the one with the biggest model, but the one with the most relevant data.</p>
+      </div>
+
+      
+      
+      <section id="deep-dives" class="deep-dives">
+        <h2>Deep Dives</h2>
+        <p class="deep-dives-intro">Explore these related deep dives:</p>
+        <ul class="deep-dive-list">
+          
+      <li class="deep-dive-item">
+        <a href="../../wikipedia/optical-character-recognition/index.html">
+          <strong>Optical character recognition</strong>
+        </a>
+        <p class="topic-summary">Traditional OCR systems struggled with diverse document formats in Southeast Asia</p>
+      </li>
+
+      <li class="deep-dive-item">
+        <a href="../../wikipedia/large-language-model/index.html">
+          <strong>Large language model</strong>
+        </a>
+        <p class="topic-summary">The foundation technology Grab adapted for vision-based document processing</p>
+      </li>
+        </ul>
+      </section>
+    
+      
+
+      <section id="excerpt"><section class="source-excerpts">
+      <h2>Sources</h2>
+      <article class="source-excerpt">
+      <h3>How grab built a vision LLM to scan images</h3>
+      <div class="source-meta">by Alex Xu &middot; <a href="../../publication/bytebytego/index.html">ByteByteGo Newsletter</a> &middot; <a href="https://blog.bytebytego.com/p/how-grab-built-a-vision-llm-to-scan" target="_blank" rel="noopener">Read full article</a></div>
+      <p>Kubernetes Quick-Start Guide (Sponsored).</p> <p>Cut through the noise with this engineer-friendly guide to Kubernetes observability. Save this reference for fast-track access to essential kubectl commands and critical metrics, from disk I/O and network latency to real-time cluster events. Perfect for scaling, debugging, and tuning your workloads without sifting through endless docs.</p><p>Digital services require accurate extraction of information from user-submitted documents such as identification cards, driver’s licenses, and vehicle registration certificates. This process is essential for electronic know-your-customer (eKYC) verification. However, the diversity of languages and document formats across the region makes this task particularly challenging.</p><p>Grab Engineering Team faced significant obstacles with traditional Optical Character Recognition (OCR) systems, which struggled to handle the variety of document templates. While powerful proprietary Large Language Models (LLMs) were available, they often failed to adequately understand Southeast Asian languages, produced errors and hallucinations, and suffered from high latency. Open-source Vision LLMs offered better efficiency but lacked the accuracy required for production deployment.</p><p>This situation prompted Grab to fine-tune existing models and eventually build a lightweight, specialized Vision LLM from the ground up. In this article, we will look at the complete architecture, the technical decisions made, and the results achieved.</p><p>Disclaimer: This post is based on publicly shared details from the Grab Engineering Team. Please comment if you notice any inaccuracies.</p><p>Understanding Vision LLMs.</p> <p>Before diving into the solution, it helps to understand what a Vision LLM is and how it differs from traditional text-based language models.</p><p>A standard LLM processes text inputs and generates text outputs. A Vision LLM extends this capability by enabling the model to understand and process images. The architecture consists of three essential components working together:</p><p>The first component is the image encoder. This module processes an image and converts it into a numerical format that computers can work with. Think of it as translating visual information into a structured representation of numbers and vectors.</p><p>The second component is the vision-language projector. This acts as a bridge between the image encoder and the language model. It transforms the numerical representation of the image into a format that the language model can interpret and use alongside text inputs.</p><p>The third component is the language model itself. This is the familiar text-processing model that takes both the transformed image information and any text instructions to generate a final text output. In the case of document processing, this output would be ...</p>
+      <footer class="source-bio" aria-label="About this source">
+      <p class="sb-heading">About this source</p>
+      <p class="sb-meta"><span class="sb-type">independent newsletter</span> &middot; <span class="sb-country">United States</span> &middot; <span class="sb-funding">paid subscriptions, book sales, course sales</span> &middot; <span class="sb-leaning">Apolitical FAANG-interview systems-design explainer; technocratic-pragmatic with no discernible political agenda.</span></p>
+      <p class="sb-audit">Last reviewed: <time datetime="2026-04-08">2026-04-08</time> &middot; <a href="https://bytebytego.com/" target="_blank" rel="noopener">source</a></p>
+    </footer>
+    </article>
+    </section></section>
+      
+    </article>
+  
+  </main>
+  <footer class="site-footer">
+    <div class="container">
+      <p><a href="../../privacy/index.html">Privacy</a> &middot; <a href="../../terms/index.html">Terms</a></p>
+    </div>
+  </footer>
+  <script>
+  (function() {
+    var params = new URLSearchParams(window.location.search);
+    var from = params.get('from');
+    if (from) {
+      var names = {
+        'foreign-policy':'Foreign Policy','ai-tech':'AI & Tech','housing-cities':'Housing & Cities',
+        'political-strategy':'Political Strategy','history':'History','science':'Science',
+        'culture':'Culture','economics':'Economics','faith':'Faith','writing-craft':'Writing & Craft',
+        'music':'Music','law-rights':'Law & Rights','public-health':'Public Health',
+        'philosophy':'Philosophy','media':'Media','defense':'Defense','china':'China'
+      };
+      var link = document.getElementById('back-link');
+      if (link) {
+        var name = names[from] || from;
+        link.href = '../../tag/' + from + '/index.html';
+        link.textContent = '\u2190 Back to ' + name;
+      }
+    }
+  })();
+  </script>
+</body>
+</html>

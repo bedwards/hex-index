@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>How LinkedIn built a next-gen service discovery for 1000s of services - Hex Index</title>
+  <link rel="stylesheet" href="../../styles.css">
+</head>
+<body class="reading-mode">
+  <header class="reading-header">
+    <a href="../../index.html" class="back-link" id="back-link">&larr; Back to Library</a>
+  </header>
+  <main class="reading-content">
+    
+    <article class="article-page">
+      <header class="article-header">
+        <h1>How LinkedIn built a next-gen service discovery for 1000s of services</h1>
+        
+      <div class="article-meta">
+        <span class="author">Alex Xu</span>
+        <span class="separator">&middot;</span>
+        <a href="../../publication/bytebytego/index.html" class="publication">
+          ByteByteGo Newsletter
+        </a>
+        <span class="separator">&middot;</span><time>Feb 10, 2026</time>
+        <span class="separator">&middot;</span><span class="read-time">15 min read</span>
+      </div>
+      </header>
+
+      <div class="content-label">
+        <span class="label-text">Commentary by <a href="../../about/index.html">Hex Index staff</a></span>
+        <nav class="content-nav">
+          
+          <a href="https://blog.bytebytego.com/p/how-linkedin-built-a-next-gen-service" target="_blank" rel="noopener">Original article &rarr;</a>
+        </nav>
+      </div>
+
+      
+      <div class="article-content">
+        <h2>The Invisible Infrastructure That Keeps LinkedIn Running</h2>
+<p>At hundreds of millions of members loading feeds and sending messages, LinkedIn&#039;s speed depends on something users never see: a coordination system that tracks where tens of thousands of software services live at any given moment. Alex Xu documents how LinkedIn replaced a decade-old architecture that was approaching capacity limits with a next-generation design built for extreme scale.</p>
+<h2>The Coordination Problem</h2>
+<p>Every modern platform breaks functionality into microservices—small programs handling authentication, messaging, feed generation, and countless other tasks. These services must find each other constantly. Hardcoding addresses fails when servers restart or scale. Service discovery maintains a living directory of IP addresses and port numbers for every active instance.</p>
+<figure class="inline-illustration">
+    <img src="../../images/c1a2c89a-f214-4d2f-96af-d664ce506bb1.webp" alt="How LinkedIn built a next-gen service discovery for 1000s of services" loading="lazy" width="600" height="315">
+  </figure>
+
+<p>Alex Xu writes, &quot;At LinkedIn&#039;s scale, with tens of thousands of microservices running across global data centers and handling billions of requests each day, service discovery becomes exceptionally challenging.&quot; The system must update in real time, remain highly reliable, and respond within milliseconds.</p>
+<p>For ten years, LinkedIn used Apache ZooKeeper as the control plane. ZooKeeper is a coordination service that maintains a centralized registry. Server applications registered endpoint addresses as ephemeral nodes—temporary entries existing only while connections remained active. Clients set watchers on server clusters they needed to call, reading updates when changes occurred.</p>
+<h2>Three Critical Failures</h2>
+<p>The ZooKeeper-based architecture had fundamental problems in scalability, compatibility, and extensibility.</p>
+<p>On scalability, Alex Xu writes, &quot;Zookeeper is a strong consistency system, meaning it enforces strict ordering over availability. All reads, writes, and session health checks go through the same request queue.&quot; When the queue backlog grew, write requests couldn&#039;t process. Sessions dropped due to health check timeouts. Ephemeral nodes disappeared. Capacity vanished. Site availability suffered.</p>
+<blockquote>&quot;As of July 2022, LinkedIn had about 2.5 years of capacity left with a 50 to 100 percent yearly growth rate in cluster size and number of watchers, even after increasing the number of Zookeeper hosts to 80.&quot;</blockquote>
+<p>The compatibility problems stemmed from LinkedIn&#039;s custom D2 schemas, which stood for Dynamic Discovery. These were incompatible with modern technologies like gRPC and Envoy. The logic was implemented primarily in Java, with partial and outdated Python support. Onboarding other languages required rewriting everything from scratch.</p>
+<p>Extensibility suffered because no intermediary layer existed between the service registry and application instances. Centralized load balancing couldn&#039;t develop. Integrating new registries like Etcd with Kubernetes created challenges.</p>
+<h2>The Next-Gen Architecture</h2>
+<p>LinkedIn&#039;s engineering team designed a new architecture with two separate paths: Kafka for writes and Service Discovery Observer for reads.</p>
+<p>Kafka handles application server writes and periodic heartbeats through events called Service Discovery URIs. Each URI contains service name, IP address, port number, health status, and metadata. Kafka is a distributed streaming platform capable of handling millions of messages per second.</p>
+<p>The Service Discovery Observer consumes URIs from Kafka and writes them into main memory. Application clients open bidirectional gRPC streams to the Observer, sending subscription requests using the xDS protocol—an industry standard created by the Envoy project. The Observer keeps streams open, pushing changes as they happen rather than waiting for clients to poll.</p>
+<p>Alex Xu writes, &quot;As of today, one Observer can maintain 40,000 client streams while sending 10,000 updates per second and consuming 11,000 Kafka events per second.&quot; With fleet projections growing to three million instances, LinkedIn will need approximately one hundred Observers.</p>
+<h2>Availability Over Consistency</h2>
+<p>The new architecture represents a fundamental philosophical shift. LinkedIn prioritized availability over consistency because service discovery data only needs to eventually converge. Short-term inconsistency across servers is acceptable. The data must be highly available to the huge fleet of clients.</p>
+<p>As Alex Xu puts it, &quot;Even when Kafka experiences significant lag or goes down, Observer continues serving client requests with its cached data, preventing cascading failures.&quot; Multiple Observer replicas reach eventual consistency after a Kafka event is consumed and processed on all replicas.</p>
+<p>The Observer component is horizontally scalable and written in Go, chosen for high concurrency capabilities. It processes large volumes of client requests, dispatches data updates, and consumes URIs for the entire LinkedIn fleet efficiently.</p>
+<h2>The Migration Challenge</h2>
+<p>Rolling out Next-Gen Service Discovery to hundreds of thousands of hosts without impacting current requests required careful planning. LinkedIn needed the new control plane&#039;s data to exactly match ZooKeeper&#039;s data. All application servers and clients needed related mechanisms through just an infrastructure library version bump. Central control was required to switch reads and writes on and off by application.</p>
+<p>Alex Xu writes, &quot;First, service discovery is mission-critical, and any error could lead to severe site-wide incidents.&quot; Since ZooKeeper was approaching capacity limits, LinkedIn needed to migrate as many applications off ZooKeeper as quickly as possible.</p>
+<p>Application states were complex and unpredictable. Rest.li applications had existed for over a decade in very different states regarding dependencies, gRPC SSL, and network access. Compatibility for many applications was unpredictable without actually enabling the read.</p>
+<p>Read and write migrations were coupled. If write wasn&#039;t migrated, no data could be read on Next-Gen Service Discovery. If read wasn&#039;t migrated, data was still read on ZooKeeper, blocking write migration. Since read path connectivity was vulnerable to application-specific states, read migration had to start first.</p>
+<h2>Dual Mode Strategy</h2>
+<p>LinkedIn implemented a dual mode strategy where applications run both old and new systems simultaneously, verifying the new flow behind the scenes. To decouple read and write migration, the new control plane served a combined dataset of Kafka and ZooKeeper URIs, with Kafka as primary source and ZooKeeper as backup.</p>
+<p>Alex Xu writes, &quot;This enabled read migration to start independently.&quot; In Dual Read mode, an application client reads data from both Next-Gen Service Discovery and ZooKeeper, keeping ZooKeeper as the source of truth for serving traffic. Using an independent background thread, the client tried to resolve traffic as if served by Next-Gen Service Discovery data and reported any errors.</p>
+<p>LinkedIn built comprehensive metrics to verify connectivity, performance, and data correctness on both client and Observer sides. Connectivity and latency metrics watched connection status and data latencies. Dual Read metrics compared data received from ZooKeeper and Next-Gen Service Discovery to identify mismatches.</p>
+<h2>What This Means for Microservices</h2>
+<p>The LinkedIn case illustrates why microservices architectures demand sophisticated coordination infrastructure. Apache ZooKeeper served countless organizations for over a decade as a reliable coordination service. But at extreme scale—with tens of thousands of services, billions of daily requests, and global data center distribution—the strong consistency model becomes a liability.</p>
+<p>Critics might note that the dual-mode migration strategy, while safe, adds operational complexity that smaller organizations cannot afford. The Observer component requires Go expertise, gRPC infrastructure, and Kafka operational knowledge. Not every engineering team has these capabilities.</p>
+<p>Critics might also observe that separating reads and writes introduces eventual consistency as a trade-off. For service discovery, this works. For other coordination problems—distributed locks, leader election, configuration management—strong consistency remains necessary. ZooKeeper isn&#039;t obsolete; it&#039;s mismatched for this specific scale.</p>
+<p>Alex Xu writes, &quot;Adding Next-Gen Service Discovery as a central control plane between the service registry and clients enables LinkedIn to extend to modern service mesh features.&quot; These include centralized load balancing, security policies, and transforming endpoint addresses between IPv4 and IPv6. LinkedIn can integrate with Kubernetes to leverage application readiness probes, converting servers from actively making announcements to passively receiving status probes.</p>
+<h2>Bottom Line</h2>
+<p>LinkedIn&#039;s service discovery migration demonstrates that infrastructure built for yesterday&#039;s scale becomes tomorrow&#039;s bottleneck—even when it&#039;s working perfectly. The engineering discipline here isn&#039;t fixing broken systems; it&#039;s replacing working systems before they break, while maintaining zero user impact. The dual-mode strategy and comprehensive metrics show mature operational thinking: migrate mission-critical infrastructure without betting the company on the transition.</p>
+      </div>
+
+      
+      
+      
+
+      <section id="excerpt"><section class="source-excerpts">
+      <h2>Sources</h2>
+      <article class="source-excerpt">
+      <h3>How LinkedIn built a next-gen service discovery for 1000s of services</h3>
+      <div class="source-meta">by Alex Xu &middot; <a href="../../publication/bytebytego/index.html">ByteByteGo Newsletter</a> &middot; <a href="https://blog.bytebytego.com/p/how-linkedin-built-a-next-gen-service" target="_blank" rel="noopener">Read full article</a></div>
+      <p>Your free ticket to Monster SCALE Summit is waiting — 50+ engineering talks on data-intensive applications (Sponsored).</p> <p>Monster SCALE Summit is a virtual conference all about extreme-scale engineering and data-intensive applications. Engineers from Discord, Disney, LinkedIn, Uber, Pinterest, Rivian, ClickHouse, Redis, MongoDB, ScyllaDB + more will be sharing 50+ talks on topics like:</p><p>Distributed databases</p><p>Streaming and real-time processing</p><p>Intriguing system designs</p><p>Approaches to a massive scaling challenge</p><p>Methods for balancing latency/concurrency/throughput</p><p>Infrastructure built for unprecedented demands.</p><p>Don’t miss this chance to connect with 20K of your peers designing, implementing, and optimizing data-intensive applications – for free, from anywhere.</p><p>LinkedIn serves hundreds of millions of members worldwide, delivering fast experiences whether someone is loading their feed or sending a message. Behind the scenes, this seamless experience depends on thousands of software services working together. Service Discovery is the infrastructure system that makes this coordination possible.</p><p>Consider a modern application at scale. Instead of building one massive program, LinkedIn breaks functionality into tens of thousands of microservices. Each microservice handles a specific task like authentication, messaging, or feed generation. These services need to communicate with each other constantly, and they need to know where to find each other.</p><p>Service discovery solves this location problem. Instead of hardcoding addresses that can change as servers restart or scale, services use a directory that tracks where every service currently lives. This directory maintains IP addresses and port numbers for all active service instances.</p><p>At LinkedIn’s scale, with tens of thousands of microservices running across global data centers and handling billions of requests each day, service discovery becomes exceptionally challenging. The system must update in real time as servers scale up or down, remain highly reliable, and respond within milliseconds.</p><p>In this article, we learn how LinkedIn built and rolled out Next-Gen Service Discovery, a scalable control plane supporting app containers in multiple programming languages.</p><p>Disclaimer: This post is based on publicly shared details from the LinkedIn Engineering Team. Please comment if you notice any inaccuracies.</p><p>Zookeeper-Based Architecture.</p> <p>For the past decade, LinkedIn used Apache Zookeeper as the control plane for service discovery. Zookeeper is a coordination service that maintains a centralized registry of services.</p><p>In this architecture, Zookeeper allows server applications to register their endpoint addresses in a custom format called D2, which stands for Dynamic Discovery. The system stored the configuration about how RPC traffic should flow as D2 configs and served them ...</p>
+      <footer class="source-bio" aria-label="About this source">
+      <p class="sb-heading">About this source</p>
+      <p class="sb-meta"><span class="sb-type">independent newsletter</span> &middot; <span class="sb-country">United States</span> &middot; <span class="sb-funding">paid subscriptions, book sales, course sales</span> &middot; <span class="sb-leaning">Apolitical FAANG-interview systems-design explainer; technocratic-pragmatic with no discernible political agenda.</span></p>
+      <p class="sb-audit">Last reviewed: <time datetime="2026-04-08">2026-04-08</time> &middot; <a href="https://bytebytego.com/" target="_blank" rel="noopener">source</a></p>
+    </footer>
+    </article>
+    </section></section>
+      
+    </article>
+  
+  </main>
+  <footer class="site-footer">
+    <div class="container">
+      <p><a href="../../privacy/index.html">Privacy</a> &middot; <a href="../../terms/index.html">Terms</a></p>
+    </div>
+  </footer>
+  <script>
+  (function() {
+    var params = new URLSearchParams(window.location.search);
+    var from = params.get('from');
+    if (from) {
+      var names = {
+        'foreign-policy':'Foreign Policy','ai-tech':'AI & Tech','housing-cities':'Housing & Cities',
+        'political-strategy':'Political Strategy','history':'History','science':'Science',
+        'culture':'Culture','economics':'Economics','faith':'Faith','writing-craft':'Writing & Craft',
+        'music':'Music','law-rights':'Law & Rights','public-health':'Public Health',
+        'philosophy':'Philosophy','media':'Media','defense':'Defense','china':'China'
+      };
+      var link = document.getElementById('back-link');
+      if (link) {
+        var name = names[from] || from;
+        link.href = '../../tag/' + from + '/index.html';
+        link.textContent = '\u2190 Back to ' + name;
+      }
+    }
+  })();
+  </script>
+</body>
+</html>

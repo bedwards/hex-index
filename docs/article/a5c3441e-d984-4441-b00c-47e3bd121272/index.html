@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The architecture behind atlas: OpenAI’s new ChatGPT-based browser - Hex Index</title>
+  <link rel="stylesheet" href="../../styles.css">
+</head>
+<body class="reading-mode">
+  <header class="reading-header">
+    <a href="../../index.html" class="back-link" id="back-link">&larr; Back to Library</a>
+  </header>
+  <main class="reading-content">
+    
+    <article class="article-page">
+      <header class="article-header">
+        <h1>The architecture behind atlas: OpenAI’s new ChatGPT-based browser</h1>
+        
+      <div class="article-meta">
+        <span class="author">Alex Xu</span>
+        <span class="separator">&middot;</span>
+        <a href="../../publication/bytebytego/index.html" class="publication">
+          ByteByteGo Newsletter
+        </a>
+        <span class="separator">&middot;</span><time>Feb 11, 2026</time>
+        <span class="separator">&middot;</span><span class="read-time">10 min read</span>
+      </div>
+      </header>
+
+      <div class="content-label">
+        <span class="label-text">Commentary by <a href="../../about/index.html">Hex Index staff</a></span>
+        <nav class="content-nav">
+          <a href="#deep-dives">Deep dives</a><span class="separator">&middot;</span>
+          <a href="https://blog.bytebytego.com/p/the-architecture-behind-atlas-openais" target="_blank" rel="noopener">Original article &rarr;</a>
+        </nav>
+      </div>
+
+      
+      <div class="article-content">
+        <h2>The Browser That Runs Chromium Outside itself</h2>
+<p>OpenAI&#039;s Atlas browser represents something rare in software engineering: an architecture that solves cultural problems as much as technical ones. Alex Xu documents how the team achieved instant startup, rich animations, and hundreds of tabs without modifying Chromium itself.</p>
+<h2>The Chromium Trap</h2>
+<p>Chromium powers Chrome, Edge, Brave, and countless other browsers. Its rendering engine is state-of-the-art. But Chromium also imposes rigid constraints on boot sequences, threading models, and tab management. Xu writes, &quot;Making substantial changes to Chromium&#039;s core would mean maintaining a large set of custom patches. Every time a new Chromium version was released, merging those changes would become increasingly difficult and time-consuming.&quot;</p>
+<figure class="inline-illustration">
+    <img src="../../images/a5c3441e-d984-4441-b00c-47e3bd121272.webp" alt="The architecture behind atlas: OpenAI’s new ChatGPT-based browser" loading="lazy" width="600" height="315">
+  </figure>
+
+<p>OpenAI faced another obstacle: their engineering culture. The company practices &quot;shipping on day one,&quot; where new engineers merge code on their first afternoon. Chromium takes hours to build from source. Xu notes, &quot;Making this requirement work with traditional Chromium integration seemed nearly impossible.&quot;</p>
+<h2>OWL: Running Chromium as a Separate Process</h2>
+<p>The solution was OWL — OpenAI&#039;s Web Layer. Instead of embedding Chromium inside Atlas, the team runs Chromium&#039;s browser process outside the main application. Xu explains, &quot;In this architecture, Atlas is the OWL Client, and the Chromium browser process is the OWL Host. These two components communicate through IPC using Mojo, which is Chromium&#039;s own message-passing system.&quot;</p>
+<p>IPC stands for inter-process communication. Mojo is Chromium&#039;s protocol for sending messages between separate programs running on the same machine. Xu writes that OpenAI &quot;wrote custom Swift and TypeScript bindings for Mojo, allowing their Swift-based Atlas application to call Chromium functions directly.&quot;</p>
+<blockquote>&quot;Instead of embedding Chromium inside the Atlas application, OpenAI runs Chromium&#039;s browser process outside the main Atlas application process.&quot;</blockquote>
+<h2>Rendering Across Process Boundaries</h2>
+<p>How do pixels rendered in one process appear in windows belonging to another? OpenAI borrowed from macOS graphics primitives. On the Chromium side, web content renders to a CALayer with a unique context ID. On the Atlas side, an NSView embeds this layer using the private CALayerHost API. Xu writes, &quot;The context ID tells Atlas which layer to display.&quot;</p>
+<p>The GPU compositor handles this efficiently because both processes share graphics memory. When switching tabs, Atlas swaps which WebView connects to the visible container. Xu notes, &quot;Multiple tabs can share a single compositing container.&quot;</p>
+<p>Input events require similar care. Normally Chromium translates macOS NSEvents into Blink&#039;s WebInputEvent format. In OWL, Atlas performs this translation and forwards already-translated events over IPC. Xu explains, &quot;If a web page indicates it did not handle an event, Chromium returns it to the Atlas client. When this happens, Atlas resynthesizes an NSEvent and gives the rest of the application a chance to handle the input.&quot;</p>
+<h2>Agent Mode&#039;s Special Requirements</h2>
+<p>Atlas includes agentic browsing where ChatGPT controls the browser. This poses unique challenges. The computer use model expects a single screenshot, but dropdown menus render outside main tab bounds. Xu writes, &quot;To solve this, Atlas composites these pop-up windows back into the main page image at their correct coordinates in Agent mode.&quot;</p>
+<p>Security matters here. Agent-generated events route directly to the web page renderer, never passing through the privileged browser layer. Xu notes this &quot;preserves the security sandbox even under automated control.&quot; Ephemeral sessions use Chromium&#039;s StoragePartition infrastructure to create isolated, in-memory data stores. Each agent session starts fresh; cookies and site data discard when the session ends.</p>
+<h2>Benefits and Trade-offs</h2>
+<p>OWL delivers fast startup because Chromium boots asynchronously while Atlas UI appears instantly. Xu writes, &quot;Users see pixels on screen within milliseconds, even though the web engine may still be initializing.&quot; Process isolation means Atlas remains responsive if Chromium&#039;s main thread hangs. If Chromium crashes, Atlas stays running and can recover.</p>
+<p>Developer productivity improves dramatically. Xu explains, &quot;Most engineers never need to build Chromium locally. OWL ships internally as a prebuilt binary, so Atlas builds completely in minutes rather than hours.&quot;</p>
+<p>Trade-offs exist. Running two processes uses more memory than monolithic architecture. The IPC layer adds complexity. Xu acknowledges, &quot;Cross-process rendering could potentially add latency, although OpenAI mitigates this through efficient use of CALayerHost and GPU memory sharing.&quot;</p>
+<p>Critics might note that OWL&#039;s prebuilt binary approach creates a dependency lock — teams must trust OpenAI&#039;s Chromium builds rather than auditing them themselves. The memory overhead matters for users on constrained devices. And while process isolation protects against crashes, it also means debugging cross-process issues requires tooling that most engineers don&#039;t have.</p>
+<h2>Bottom Line</h2>
+<p>OWL solves the real problem: browser teams need Chromium&#039;s rendering without Chromium&#039;s cultural constraints. The architecture trades memory for developer velocity and user experience. For AI-powered browsing where agent sessions demand isolation, the separation becomes essential rather than optional.</p>
+      </div>
+
+      
+      
+      <section id="deep-dives" class="deep-dives">
+        <h2>Deep Dives</h2>
+        <p class="deep-dives-intro">Explore these related deep dives:</p>
+        <ul class="deep-dive-list">
+          
+      <li class="deep-dive-item">
+        <a href="../../wikipedia/chatgpt/index.html">
+          <strong>ChatGPT</strong>
+        </a>
+        <p class="topic-summary">The article discusses ChatGPT Atlas, OpenAI&#039;s new browser powered by their LLM</p>
+      </li>
+
+      <li class="deep-dive-item">
+        <a href="../../wikipedia/swift-programming-language/index.html">
+          <strong>Swift (programming language)</strong>
+        </a>
+        <p class="topic-summary">The article mentions using SwiftUI, Apple&#039;s modern framework for rich animations and visual effects</p>
+      </li>
+        </ul>
+      </section>
+    
+      
+
+      <section id="excerpt"><section class="source-excerpts">
+      <h2>Sources</h2>
+      <article class="source-excerpt">
+      <h3>The architecture behind atlas: OpenAI’s new ChatGPT-based browser</h3>
+      <div class="source-meta">by Alex Xu &middot; <a href="../../publication/bytebytego/index.html">ByteByteGo Newsletter</a> &middot; <a href="https://blog.bytebytego.com/p/the-architecture-behind-atlas-openais" target="_blank" rel="noopener">Read full article</a></div>
+      <p>Sonar Summit: global conversation building software in the AI era (Sponsored).</p> <p>Join us for Sonar Summit on March 3rd, a global virtual event, bringing together the brightest minds in software development.</p><p>In a world increasingly shaped by AI, it’s more crucial than ever to cut through the noise and amplify the ideas and practices that lead to truly good code. We created Sonar Summit to help you navigate the future with clarity and knowledge you need to build better software, faster.</p><p>OpenAI recently launched ChatGPT Atlas, a web browser where the LLM acts as your co-pilot across the internet. You can ask questions about any page, have ChatGPT complete tasks for you, or let it browse in Agent mode while you work on something else.</p><p>Delivering this experience wasn’t trivial. ChatGPT Atlas needed to start instantly and stay responsive even with hundreds of tabs open. To make development faster and avoid reinventing the wheel, the team built on top of Chromium, the engine that powers many other modern browsers.</p><p>However, Atlas is not just another Chromium-based browser with a different skin. Most Chromium-based browsers embed the web engine directly into their application, which creates tight coupling between the UI and the rendering engine. This architecture works fine for traditional browsing, but it makes certain capabilities extremely difficult to achieve.</p><p>Therefore, OpenAI’s solution was to build OWL (OpenAI’s Web Layer), an architectural layer that runs Chromium as a separate process, thereby unlocking capabilities that would have been nearly impossible otherwise.</p><p>In this article, we learn how the OpenAI Engineering Team built OWL and the technical challenges they faced around rendering and inter-process communication.</p><p>Disclaimer: This post is based on publicly shared details from the OpenAI Engineering Team. Please comment if you notice any inaccuracies.</p><p>Why Chromium?.</p> <p>Chromium was the natural choice as the web engine for Atlas. Chromium provides a state-of-the-art rendering engine with strong security, proven performance, and complete web compatibility. It powers many modern browsers, including Chrome, Edge, and Brave. Furthermore, Chromium benefits from continuous improvements by a global developer community. For any team building a browser today, Chromium is the logical starting point.</p><p>However, using Chromium comes with significant challenges. The OpenAI Engineering Team had ambitious goals that were difficult to achieve with Chromium’s default architecture:</p><p>First, they wanted instant startup times. Users should see the browser interface immediately, not after waiting for everything to load.</p><p>Second, they ...</p>
+      <footer class="source-bio" aria-label="About this source">
+      <p class="sb-heading">About this source</p>
+      <p class="sb-meta"><span class="sb-type">independent newsletter</span> &middot; <span class="sb-country">United States</span> &middot; <span class="sb-funding">paid subscriptions, book sales, course sales</span> &middot; <span class="sb-leaning">Apolitical FAANG-interview systems-design explainer; technocratic-pragmatic with no discernible political agenda.</span></p>
+      <p class="sb-audit">Last reviewed: <time datetime="2026-04-08">2026-04-08</time> &middot; <a href="https://bytebytego.com/" target="_blank" rel="noopener">source</a></p>
+    </footer>
+    </article>
+    </section></section>
+      
+    </article>
+  
+  </main>
+  <footer class="site-footer">
+    <div class="container">
+      <p><a href="../../privacy/index.html">Privacy</a> &middot; <a href="../../terms/index.html">Terms</a></p>
+    </div>
+  </footer>
+  <script>
+  (function() {
+    var params = new URLSearchParams(window.location.search);
+    var from = params.get('from');
+    if (from) {
+      var names = {
+        'foreign-policy':'Foreign Policy','ai-tech':'AI & Tech','housing-cities':'Housing & Cities',
+        'political-strategy':'Political Strategy','history':'History','science':'Science',
+        'culture':'Culture','economics':'Economics','faith':'Faith','writing-craft':'Writing & Craft',
+        'music':'Music','law-rights':'Law & Rights','public-health':'Public Health',
+        'philosophy':'Philosophy','media':'Media','defense':'Defense','china':'China'
+      };
+      var link = document.getElementById('back-link');
+      if (link) {
+        var name = names[from] || from;
+        link.href = '../../tag/' + from + '/index.html';
+        link.textContent = '\u2190 Back to ' + name;
+      }
+    }
+  })();
+  </script>
+</body>
+</html>

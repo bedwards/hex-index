@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>A guide to effective prompt engineering - Hex Index</title>
+  <link rel="stylesheet" href="../../styles.css">
+</head>
+<body class="reading-mode">
+  <header class="reading-header">
+    <a href="../../index.html" class="back-link" id="back-link">&larr; Back to Library</a>
+  </header>
+  <main class="reading-content">
+    
+    <article class="article-page">
+      <header class="article-header">
+        <h1>A guide to effective prompt engineering</h1>
+        
+      <div class="article-meta">
+        <span class="author">Alex Xu</span>
+        <span class="separator">&middot;</span>
+        <a href="../../publication/bytebytego/index.html" class="publication">
+          ByteByteGo Newsletter
+        </a>
+        <span class="separator">&middot;</span><time>Feb 4, 2026</time>
+        <span class="separator">&middot;</span><span class="read-time">12 min read</span>
+      </div>
+      </header>
+
+      <div class="content-label">
+        <span class="label-text">Commentary by <a href="../../about/index.html">Hex Index staff</a></span>
+        <nav class="content-nav">
+          <a href="#deep-dives">Deep dives</a><span class="separator">&middot;</span>
+          <a href="https://blog.bytebytego.com/p/a-guide-to-effective-prompt-engineering" target="_blank" rel="noopener">Original article &rarr;</a>
+        </nav>
+      </div>
+
+      
+      <div class="article-content">
+        <p>Alex Xu&#039;s guide cuts through the prompt engineering hype with something rare: practical specificity over magical thinking. For readers drowning in AI fatigue from tools that nitpick without understanding context, this piece offers a different frame — <strong>prompting as craft, not wizardry</strong>.</p>
+<h2>The Context Gap</h2>
+<p>Xu opens by contrasting typical AI code review tools with how experienced engineers actually work. They remember the Slack thread explaining why a database pattern exists. They know which colleague has strong opinions about error handling. They&#039;ve internalized dozens of unwritten conventions.</p>
+<figure class="inline-illustration">
+    <img src="../../images/d4f5bbee-e4b8-41d7-af36-6a999f860928.webp" alt="A guide to effective prompt engineering" loading="lazy" width="600" height="315">
+  </figure>
+
+<p>Xu writes, &quot;Unblocked is the only AI code review tool that uses deep insight of your codebase, docs, and discussions to give high-signal feedback based on how your system actually works – instead of flooding your PR with stylistic nitpicks.&quot;</p>
+<p>The point extends beyond code review. <strong>Large language models</strong> process prompts through in-context learning — they adapt from examples in the prompt itself, without weight updates. But they lack the institutional memory that human engineers accumulate. Xu&#039;s framing suggests prompt engineering isn&#039;t about tricking models into brilliance. It&#039;s about compensating for what they fundamentally cannot know.</p>
+<blockquote>&quot;The ease of getting started with prompt engineering can be misleading. While anyone can write a prompt, not everyone can write one that consistently produces high-quality results.&quot;</blockquote>
+<h2>Five Techniques, Real Trade-offs</h2>
+<p>Xu structures the guide around five core techniques, each with explicit costs and benefits.</p>
+<p><strong>Zero-shot prompting</strong> — instructions without examples — works for straightforward tasks like translation or summarization. Xu notes it uses fewer tokens, reducing cost and latency. But when specific formatting or non-default behavior is needed, zero-shot often fails. As Xu puts it, &quot;If the model&#039;s initial response is not what we expected, we should revise the prompt to add more detail rather than immediately jumping to few-shot examples.&quot;</p>
+<p><strong>Few-shot prompting</strong> adds examples to demonstrate desired behavior. Xu&#039;s illustration — a bot responding to children&#039;s questions about fictional characters — shows why this matters. Without examples, a model might explain Santa is fictional. With a示范 example (&quot;Q: Is the tooth fairy real? A: Of course! Put your tooth under your pillow tonight&quot;), it learns to maintain the magical perspective. Xu recommends three to five examples as a balance point, and suggests token-efficient formatting like &quot;pizza → edible&quot; over verbose structures.</p>
+<p><strong>Chain-of-thought prompting</strong> — asking models to &quot;think step by step&quot; — improves performance on complex reasoning tasks. Xu writes, &quot;CoT often improves model performance across various benchmarks, particularly for mathematical problems, logic puzzles, and multi-step reasoning tasks.&quot; The trade-off: more tokens, more time, higher cost. For accuracy-critical work, Xu argues it&#039;s worthwhile.</p>
+<p><strong>Role prompting</strong> assigns personas to shape responses. Xu&#039;s example — grading an essay as a first-grade teacher versus a general evaluator — shows how role shifts judgment. &quot;Rather than just saying &#039;act as a teacher,&#039; we might say &#039;act as an encouraging first-grade teacher who focuses on effort and improvement.&#039;&quot; Specificity matters.</p>
+<p><strong>Prompt chaining</strong> decomposes complex tasks into subtasks. A customer support bot might first classify intent, then generate responses. Xu notes this makes prompts simpler to write and debug, allows different models for different steps, and enables parallel execution. The drawback: increased latency for users waiting on multiple steps.</p>
+<p>Critics might note that Xu&#039;s guide assumes stable model behavior — but <strong>zero-shot learning</strong> research shows models vary significantly across versions and providers. A prompt optimized for one model may fail on another. The &quot;best practices&quot; here are model-dependent, not universal.</p>
+<h2>The Clarity Principle</h2>
+<p>Xu&#039;s central thesis: clarity is the key factor. Ambiguity is the enemy. Xu writes, &quot;We should explain exactly what we want, define any scoring systems or formats we expect, and eliminate assumptions about what the model might already know.&quot;</p>
+<p>This extends to output format specification. Xu warns that failing to specify format causes problems when outputs feed into other systems. &quot;If we need structured data but do not request it explicitly, the model might generate unstructured text that requires additional parsing or cleaning.&quot;</p>
+<p>Xu also emphasizes iteration. &quot;Prompt engineering is iterative. We rarely write the perfect prompt on the first try.&quot; Versioning prompts and testing with consistent evaluation data allows objective comparison across variations.</p>
+<p>Another critic&#039;s point: Xu&#039;s guide treats prompt engineering as individual craft, but <strong>GitHub Copilot</strong> and similar tools are shifting toward agentic workflows where prompts are generated, chained, and executed automatically. The skill may become less about writing prompts and more about designing prompt-generation systems.</p>
+<h2>Bottom Line</h2>
+<p>Xu&#039;s guide succeeds where most AI tutorials fail: it acknowledges trade-offs explicitly and treats prompting as engineering, not alchemy. The five techniques are genuinely useful, and the costs — token count, latency, complexity — are stated plainly. For developers building AI-enabled tools, this is a working reference, not a hype piece. The limitation: it assumes prompt engineering remains a core skill rather than a transitional one as agentic systems mature.</p>
+      </div>
+
+      
+      
+      <section id="deep-dives" class="deep-dives">
+        <h2>Deep Dives</h2>
+        <p class="deep-dives-intro">Explore these related deep dives:</p>
+        <ul class="deep-dive-list">
+          
+      <li class="deep-dive-item">
+        <a href="../../wikipedia/large-language-model/index.html">
+          <strong>Large language model</strong>
+        </a>
+        <p class="topic-summary">Provides essential context on how AI models process information and generate responses</p>
+      </li>
+
+      <li class="deep-dive-item">
+        <a href="../../wikipedia/github-copilot/index.html">
+          <strong>GitHub Copilot</strong>
+        </a>
+        <p class="topic-summary">Directly mentioned in the article as an example of AI code assistance tool</p>
+      </li>
+        </ul>
+      </section>
+    
+      
+
+      <section id="excerpt"><section class="source-excerpts">
+      <h2>Sources</h2>
+      <article class="source-excerpt">
+      <h3>A guide to effective prompt engineering</h3>
+      <div class="source-meta">by Alex Xu &middot; <a href="../../publication/bytebytego/index.html">ByteByteGo Newsletter</a> &middot; <a href="https://blog.bytebytego.com/p/a-guide-to-effective-prompt-engineering" target="_blank" rel="noopener">Read full article</a></div>
+      <p>Unblocked is the AI code review with judgment of your best engineer. (Sponsored).</p> <p>Most AI code review tools analyze the diff. Sometimes the file, occasionally the repo.</p><p>Experienced engineers work differently. They remember that Slack thread that explains why this database pattern exists. They know David on the platform team has strong opinions about error handling. They’ve internalized dozens of unwritten conventions.</p><p>Unblocked is the only AI code review tool that uses deep insight of your codebase, docs, and discussions to give high-signal feedback based on how your system actually works – instead of flooding your PR with stylistic nitpicks.</p><p>“Unblocked has reversed my AI fatigue completely. The level of precision is wild.” - Senior developer, Clio</p><p>Prompt engineering is the process of crafting instructions that guide AI language models to generate desired outcomes. At first glance, it might seem straightforward. We simply tell the AI what we want, and it delivers. However, anyone who has worked with these models quickly discovers that writing effective prompts is more challenging than it appears.</p><p>The ease of getting started with prompt engineering can be misleading.</p><p>While anyone can write a prompt, not everyone can write one that consistently produces high-quality results. Think of it as the difference between being able to communicate and being able to communicate effectively. The fundamentals are accessible, but mastery requires practice, experimentation, and understanding how these models process information.</p><p>In this article, we will look at the core techniques and best practices for prompt engineering. We will explore different prompting approaches, from simple zero-shot instructions to advanced chain-of-thought reasoning.</p><p>What Makes a Good Prompt.</p> <p>A prompt typically consists of several components:</p><p>The task description explains what we want the model to do, including any role or persona we want it to adopt.</p><p>The context provides necessary background information. Examples demonstrate the desired behavior or format.</p><p>Finally, the concrete task is the specific question to answer or action to perform.</p><p>Most model APIs allow us to split prompts into system prompts and user prompts.</p><p>System prompts typically contain task descriptions and role-playing instructions that shape how the model behaves throughout the conversation.</p><p>On the other hand, user prompts contain the actual task or question. For instance, if we are building a chatbot that helps buyers understand property disclosures, the system prompt might instruct the model to act as an experienced real estate agent, while the user prompt contains ...</p>
+      <footer class="source-bio" aria-label="About this source">
+      <p class="sb-heading">About this source</p>
+      <p class="sb-meta"><span class="sb-type">independent newsletter</span> &middot; <span class="sb-country">United States</span> &middot; <span class="sb-funding">paid subscriptions, book sales, course sales</span> &middot; <span class="sb-leaning">Apolitical FAANG-interview systems-design explainer; technocratic-pragmatic with no discernible political agenda.</span></p>
+      <p class="sb-audit">Last reviewed: <time datetime="2026-04-08">2026-04-08</time> &middot; <a href="https://bytebytego.com/" target="_blank" rel="noopener">source</a></p>
+    </footer>
+    </article>
+    </section></section>
+      
+    </article>
+  
+  </main>
+  <footer class="site-footer">
+    <div class="container">
+      <p><a href="../../privacy/index.html">Privacy</a> &middot; <a href="../../terms/index.html">Terms</a></p>
+    </div>
+  </footer>
+  <script>
+  (function() {
+    var params = new URLSearchParams(window.location.search);
+    var from = params.get('from');
+    if (from) {
+      var names = {
+        'foreign-policy':'Foreign Policy','ai-tech':'AI & Tech','housing-cities':'Housing & Cities',
+        'political-strategy':'Political Strategy','history':'History','science':'Science',
+        'culture':'Culture','economics':'Economics','faith':'Faith','writing-craft':'Writing & Craft',
+        'music':'Music','law-rights':'Law & Rights','public-health':'Public Health',
+        'philosophy':'Philosophy','media':'Media','defense':'Defense','china':'China'
+      };
+      var link = document.getElementById('back-link');
+      if (link) {
+        var name = names[from] || from;
+        link.href = '../../tag/' + from + '/index.html';
+        link.textContent = '\u2190 Back to ' + name;
+      }
+    }
+  })();
+  </script>
+</body>
+</html>

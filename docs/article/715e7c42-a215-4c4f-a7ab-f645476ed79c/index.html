@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>How codex is built - Hex Index</title>
+  <link rel="stylesheet" href="../../styles.css">
+</head>
+<body class="reading-mode">
+  <header class="reading-header">
+    <a href="../../index.html" class="back-link" id="back-link">&larr; Back to Library</a>
+  </header>
+  <main class="reading-content">
+    
+    <article class="article-page">
+      <header class="article-header">
+        <h1>How codex is built</h1>
+        
+      <div class="article-meta">
+        <span class="author">Gergely Orosz</span>
+        <span class="separator">&middot;</span>
+        <a href="../../publication/pragmaticengineer/index.html" class="publication">
+          The Pragmatic Engineer
+        </a>
+        <span class="separator">&middot;</span><time>Feb 17, 2026</time>
+        <span class="separator">&middot;</span><span class="read-time">14 min read</span>
+      </div>
+      </header>
+
+      <div class="content-label">
+        <span class="label-text">Commentary by <a href="../../about/index.html">Hex Index staff</a></span>
+        <nav class="content-nav">
+          <a href="#deep-dives">Deep dives</a><span class="separator">&middot;</span>
+          <a href="https://newsletter.pragmaticengineer.com/p/how-codex-is-built" target="_blank" rel="noopener">Original article &rarr;</a>
+        </nav>
+      </div>
+
+      
+      <div class="article-content">
+        <p>Gergely Orosz delivers a rare, granular look inside the engine room of autonomous software development, moving beyond the hype of &quot;AI writing code&quot; to reveal the specific architectural decisions that make it viable. The most striking claim here isn&#039;t that an AI wrote software, but that the team intentionally chose the difficult path of Rust and strict sandboxing to ensure the tool is safe enough for mass adoption, even if it slows initial momentum. This is a blueprint for how the industry might actually scale agentic workflows without creating a security nightmare.</p>
+<h2>The Architecture of Trust</h2>
+<p>Orosz frames the story not as a race to launch, but as a deliberate engineering gamble. The decision to build the Codex command-line interface in Rust, rather than the more common TypeScript or Go, is central to his narrative. He writes, &quot;We debated TypeScript, Go, and Rust. All three seemed like solid contenders for different time horizons. In the end, our reasoning came down to a few layers: Performance... Correctness... Engineering culture and engineering quality.&quot; This choice reflects a shift in priorities for AI-native tools; speed of iteration is secondary to the stability required when an agent has filesystem access.</p>
+<figure class="inline-illustration">
+    <img src="../../images/715e7c42-a215-4c4f-a7ab-f645476ed79c.webp" alt="How codex is built" loading="lazy" width="600" height="315">
+  </figure>
+
+<p>The author highlights that this wasn&#039;t just about raw speed. By avoiding the npm package manager and its often opaque dependency trees, the team gained the ability to audit every line of code the agent relies on. Orosz notes that this approach allows them to &quot;thoroughly look through the few dependencies there are,&quot; a crucial distinction when an AI is executing commands on a user&#039;s machine. Critics might argue that Rust&#039;s steep learning curve slows down feature development, but the text suggests the long-term payoff in reliability is the only way to scale to millions of users.</p>
+<blockquote>&quot;We take a stance with the sandboxing that hurts us in terms of general adoption. However, we do not want to promote something that could be unsafe by default.&quot;</blockquote>
+<p>This quote from Thibault Sottiaux, head of Codex, as reported by Orosz, underscores a critical tension in the industry: the trade-off between user convenience and safety. While other tools might prioritize frictionless access, the Codex team defaults to a restrictive environment where network and filesystem access are blocked unless explicitly enabled. Orosz argues this is a necessary evil, noting that without it, &quot;many of our users are not that technical&quot; and could suffer unintended consequences from a misfiring agent. The coverage effectively positions this as a maturity marker for the technology—moving from a toy to a professional tool requires constraints.</p>
+<h2>The Meta-Circular Loop</h2>
+<p>The piece gets its most compelling data point from the team&#039;s own workflow: the agent writes the agent. Orosz reports that &quot;Codex itself writes more than 90% of the app&#039;s code,&quot; a figure that mirrors similar claims from Anthropic&#039;s Claude Code. This meta-circularity isn&#039;t just a marketing stunt; it&#039;s the primary mechanism for scaling the team&#039;s output. The author describes how engineers have transitioned from writing code to managing agents, running four to eight parallel instances to handle code reviews, security audits, and feature implementations simultaneously.</p>
+<p>Orosz details the &quot;agent loop&quot;—a state machine that orchestrates prompts, inference, and tool usage. He explains that when a command fails, the error is fed back to the model, which then attempts to diagnose and retry. This iterative process is what allows the system to handle complex, long-running tasks. The author draws a parallel to the development of OpenClaw, noting that Peter Steinberger, its creator, recently joined OpenAI, signaling a convergence of talent around this specific agentic architecture. The coverage suggests that the future of software engineering isn&#039;t about humans typing faster, but about humans curating the constraints and goals for autonomous loops.</p>
+<blockquote>&quot;Codex is really built for multitasking. There&#039;s this understanding that most tasks will just get done to completion.&quot;</blockquote>
+<p>This observation from Sottiaux, as cited by Orosz, captures the fundamental shift in the developer experience. The tool is designed to run for hours, not seconds. The author highlights the use of &quot;Agent Skills&quot;—pre-packaged capabilities like security best practices or Datadog integrations—that allow the model to steer itself toward specific behaviors. This modularity is key to the system&#039;s adaptability. However, Orosz also notes a vulnerability: &quot;There is a tricky thing in all of this, though: we have to relearn these capabilities with every model.&quot; As the underlying intelligence evolves, the human operators must constantly recalibrate how they interact with the system.</p>
+<h2>The Human Element in an Automated World</h2>
+<p>Perhaps the most insightful part of Orosz&#039;s coverage is his focus on the cultural shift within OpenAI. The article details how new hires are onboarded not by learning a codebase, but by shadowing an engineer to see how they manage a fleet of agents. The expectation is that a new joiner will ship code to production on their very first day, aided by the tools. Orosz writes that the team has deliberately structured their codebase &quot;to make it inevitable for the model to succeed,&quot; emphasizing tests and clear module boundaries.</p>
+<p>This approach treats the codebase as a conversation partner rather than a static artifact. The author points out the use of `AGENTS.md` files, which serve as instructions for the AI, similar to README files for humans. This standardization is becoming a de facto requirement for AI-driven development. Orosz also touches on the tiered review process, where AI reviews handle non-critical code, but human oversight remains mandatory for core components. This hybrid model acknowledges that while the AI can handle volume, human judgment is still required for high-stakes decisions.</p>
+<blockquote>&quot;We have to relearn these capabilities with every model.&quot;</blockquote>
+<p>This admission from the team, relayed by Orosz, serves as a sobering counterpoint to the narrative of seamless automation. It suggests that the human cost of AI adoption is not just job displacement, but a constant cognitive load of adapting to new tool behaviors. The coverage implies that the most successful engineers will be those who can best manage this relationship, acting as &quot;agent managers&quot; rather than traditional coders.</p>
+<h2>Bottom Line</h2>
+<p>Orosz&#039;s deep dive succeeds by stripping away the mystique of AI to reveal the gritty engineering realities of building a self-writing system. The strongest part of the argument is the defense of Rust and strict sandboxing as non-negotiable foundations for trust, a stance that contrasts sharply with the &quot;move fast and break things&quot; ethos of the past. The biggest vulnerability remains the human element: as the tools become more autonomous, the requirement for humans to constantly relearn how to guide them creates a new, demanding layer of cognitive work. The industry should watch closely to see if this rigorous, safety-first approach can be replicated outside of a well-resourced lab like OpenAI, or if it remains a luxury few can afford.</p>
+      </div>
+
+      
+      
+      <section id="deep-dives" class="deep-dives">
+        <h2>Deep Dives</h2>
+        <p class="deep-dives-intro">Explore these related deep dives:</p>
+        <ul class="deep-dive-list">
+          
+      <li class="deep-dive-item">
+        <a href="../../wikipedia/openai/index.html">
+          <strong>OpenAI</strong>
+        </a>
+        <p class="topic-summary">The article discusses Codex, an OpenAI product, and interviews with three OpenAI employees including Tibo who leads Codex</p>
+      </li>
+
+      <li class="deep-dive-item">
+        <a href="../../wikipedia/claude-language-model/index.html">
+          <strong>Claude (language model)</strong>
+        </a>
+        <p class="topic-summary">The article compares Codex with Claude Code, a competitor product from Anthropic that made similar bets</p>
+      </li>
+        </ul>
+      </section>
+    
+      
+
+      <section id="excerpt"><section class="source-excerpts">
+      <h2>Sources</h2>
+      <article class="source-excerpt">
+      <h3>How codex is built</h3>
+      <div class="source-meta">by Gergely Orosz &middot; <a href="../../publication/pragmaticengineer/index.html">The Pragmatic Engineer</a> &middot; <a href="https://newsletter.pragmaticengineer.com/p/how-codex-is-built" target="_blank" rel="noopener">Read full article</a></div>
+      <p>More than a million developers use OpenAI’s command-line coding interface every week. Named Codex, usage has increased 5x since the start of January, the team tells me. In the first week of February, OpenAI launched the Codex desktop app, a macOS application that CEO Sam Altman calls “the most loved internal product we’ve ever had”. A few days later, OpenAI shipped GPT-5.3-Codex, which they describe as the first model that helped create itself.</p><p>Personally, I’ve been warming up to Codex since doing an interview for The Pragmatic Engineer podcast with Peter Steinberger, the creator of OpenClaw, in which he revealed that he writes all of OpenClaw with Codex, preferring longer-running agentic loops. Update: on Monday, Peter announced he is joining OpenAI to work on building next-generation agents. It’s a major win for OpenAI and the Codex team, while OpenClaw remains independent and open source. Check out my podcast with Peter in his first in-depth interview, around when OpenClaw (back then: Clawd) was getting massive momentum.</p><p>To find out how Codex was built, how teams at OpenAI use it, and what effect it’s having on software engineering practices at the ChatGPT maker, I spoke with three people at OpenAI:</p><p>Thibault Sottiaux (Tibo), head of Codex.</p><p>Shao-Qian (SQ) Mah, researcher on the Codex team who trains the models that power it.</p><p>Emma Tang, head of data infrastructure, who isn’t on the Codex team but whose team uses Codex heavily.</p><p>This deep dive covers:</p><p>How it started. From an internal experiment in late 2024, to a product used by more than a million devs.</p><p>Technology and architecture choices. Why Rust and open source? In-depth on how the agent loop works.</p><p>How Codex builds itself. Codex itself writes more than 90% of the app’s code, the team estimates.</p><p>Research. Training the next Codex model with the current one.</p><p>Codex usage at OpenAI. Using it has transformed another team there.</p><p>How software engineering is changing at OpenAI. According to those living through it.</p><p>Next steps. GPT-5.2 step change, the capability overhang, and where Codex goes next.</p><p>Last week’s debut Pragmatic Summit, in San Francisco, featured a fireside chat with Tibo, myself, and the audience, and featured new details about how Codex is built. Paid subscribers can watch this recording now. Free subscribers will get access to all videos from the Pragmatic Summit in a couple of weeks.</p><p>Longtime readers might recall a deepdive entitled How ...</p>
+      <footer class="source-bio" aria-label="About this source">
+      <p class="sb-heading">About this source</p>
+      <p class="sb-meta"><span class="sb-type">independent newsletter</span> &middot; <span class="sb-country">Netherlands</span> &middot; <span class="sb-funding">paid Substack subscriptions</span> &middot; <span class="sb-affiliations">Uber (former engineering manager)</span> &middot; <span class="sb-leaning">Software-engineering career and management advice; politically near-absent, culturally aligned with FAANG-adjacent pragmatic technocracy.</span></p>
+      <p class="sb-audit">Last reviewed: <time datetime="2026-04-08">2026-04-08</time> &middot; <a href="https://newsletter.pragmaticengineer.com/" target="_blank" rel="noopener">source</a></p>
+    </footer>
+    </article>
+    </section></section>
+      
+    </article>
+  
+  </main>
+  <footer class="site-footer">
+    <div class="container">
+      <p><a href="../../privacy/index.html">Privacy</a> &middot; <a href="../../terms/index.html">Terms</a></p>
+    </div>
+  </footer>
+  <script>
+  (function() {
+    var params = new URLSearchParams(window.location.search);
+    var from = params.get('from');
+    if (from) {
+      var names = {
+        'foreign-policy':'Foreign Policy','ai-tech':'AI & Tech','housing-cities':'Housing & Cities',
+        'political-strategy':'Political Strategy','history':'History','science':'Science',
+        'culture':'Culture','economics':'Economics','faith':'Faith','writing-craft':'Writing & Craft',
+        'music':'Music','law-rights':'Law & Rights','public-health':'Public Health',
+        'philosophy':'Philosophy','media':'Media','defense':'Defense','china':'China'
+      };
+      var link = document.getElementById('back-link');
+      if (link) {
+        var name = names[from] || from;
+        link.href = '../../tag/' + from + '/index.html';
+        link.textContent = '\u2190 Back to ' + name;
+      }
+    }
+  })();
+  </script>
+</body>
+</html>

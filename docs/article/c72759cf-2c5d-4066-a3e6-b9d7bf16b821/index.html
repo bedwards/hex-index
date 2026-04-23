@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>How Cloudflare eliminates cold starts for serverless workers - Hex Index</title>
+  <link rel="stylesheet" href="../../styles.css">
+</head>
+<body class="reading-mode">
+  <header class="reading-header">
+    <a href="../../index.html" class="back-link" id="back-link">&larr; Back to Library</a>
+  </header>
+  <main class="reading-content">
+    
+    <article class="article-page">
+      <header class="article-header">
+        <h1>How Cloudflare eliminates cold starts for serverless workers</h1>
+        
+      <div class="article-meta">
+        <span class="author">Alex Xu</span>
+        <span class="separator">&middot;</span>
+        <a href="../../publication/bytebytego/index.html" class="publication">
+          ByteByteGo Newsletter
+        </a>
+        <span class="separator">&middot;</span><time>Feb 17, 2026</time>
+        <span class="separator">&middot;</span><span class="read-time">11 min read</span>
+      </div>
+      </header>
+
+      <div class="content-label">
+        <span class="label-text">Commentary by <a href="../../about/index.html">Hex Index staff</a></span>
+        <nav class="content-nav">
+          
+          <a href="https://blog.bytebytego.com/p/how-cloudflare-eliminates-cold-starts" target="_blank" rel="noopener">Original article &rarr;</a>
+        </nav>
+      </div>
+
+      
+      <div class="article-content">
+        <p>Alex Xu delivers a masterclass in distributed systems engineering by revealing a counterintuitive truth: the most effective way to eliminate latency isn&#039;t to make things faster, but to stop them from starting over. In a landscape where serverless computing is often sold on the promise of infinite scale, Xu exposes the hidden tax of &quot;cold starts&quot;—the delay when code must initialize from scratch—and details how Cloudflare engineered a solution that reduced these delays by a factor of ten. This isn&#039;t just a technical deep dive; it&#039;s a case study in how understanding traffic patterns can outperform raw computational power.</p>
+<h2>The Broken Promise of Hiding Delays</h2>
+<p>Xu begins by dissecting the original strategy Cloudflare employed in 2020, which relied on a clever timing trick. The team masked initialization delays by pre-warming code during the Transport Layer Security (TLS) handshake, the security protocol that encrypts web traffic. &quot;The original technique worked because Cloudflare could identify which Worker to start from the Server Name Indication (SNI) field in the very first TLS message,&quot; Xu writes. This approach was elegant because it utilized the inherent latency of network round-trips to hide the work of compiling code.</p>
+<figure class="inline-illustration">
+    <img src="../../images/c72759cf-2c5d-4066-a3e6-b9d7bf16b821.webp" alt="How Cloudflare eliminates cold starts for serverless workers" loading="lazy" width="600" height="315">
+  </figure>
+
+<p>However, this solution was fragile, built on a specific temporal balance that has since collapsed. As Xu notes, &quot;Over the past five years, this relationship broke down for two reasons.&quot; First, the code itself grew heavier; Cloudflare increased script size limits, meaning more data to transfer and compile. Second, the security protocol became more efficient. &quot;TLS 1.3 reduced the handshake from three round-trips to just one round-trip,&quot; Xu explains. The very efficiency of modern security protocols stripped away the time buffer needed to hide the initialization lag. Critics might argue that simply optimizing the compilation speed would have been a more direct fix, but Xu&#039;s analysis suggests that without changing the architecture, the problem would merely resurface with the next software update.</p>
+<blockquote>The original solution no longer eliminated the problem because cold starts became longer and TLS handshakes became faster.</blockquote>
+<h2>Sharding: The Power of Consistency</h2>
+<p>The core of Xu&#039;s argument is a pivot from optimization to routing. Instead of trying to make a cold start faster, Cloudflare decided to make cold starts unnecessary. The author describes a scenario where a low-traffic application receives one request every five hours across a 300-server data center, forcing a restart every single time. &quot;The solution involves routing all requests for a specific Worker to the same server within a data center,&quot; Xu writes. By concentrating traffic, the code stays warm in memory, turning a 100% cold start rate into a near-zero one.</p>
+<p>To achieve this without causing chaos when servers go offline, Xu details the implementation of a &quot;consistent hash ring.&quot; This data structure maps both servers and workers to a number line, ensuring that when a server is added or removed, only a tiny fraction of the workers need to be reassigned. &quot;When a server disappears from the ring, only the Workers positioned immediately before it need reassignment,&quot; he notes. This stability is crucial; if the system constantly reshuffled assignments, the benefits of keeping code warm would vanish. This approach mirrors the logic used in distributed caching systems, proving that sometimes the best new technology is a refined application of old principles.</p>
+<h2>Handling the Human Cost of Overload</h2>
+<p>The engineering challenge didn&#039;t end with routing; it shifted to managing what happens when a single server becomes a bottleneck. Xu outlines two approaches: a pessimistic one where the client asks for permission before sending data, and an optimistic one where the client sends the request immediately. Cloudflare chose the latter. &quot;Cloudflare chose the optimistic approach for two reasons,&quot; Xu writes, noting that refusals are rare and that the system has a fallback mechanism.</p>
+<p>When a server is overloaded, it doesn&#039;t just reject the request; it returns a &quot;capability&quot; that tells the client to handle the work locally. This is where the system&#039;s sophistication shines. Xu explains that the Workers runtime uses Cap&#039;n Proto RPC to manage this handoff. &quot;The RPC system recognizes that the capability actually points back to a local lazy Worker. Once it realizes the request would loop back to the shard client, it stops sending additional request bytes to the shard server and handles everything locally.&quot; This prevents the waste of bandwidth that would occur if large data payloads were sent to a server only to be bounced back. It is a graceful degradation strategy that prioritizes user experience over rigid system boundaries.</p>
+<blockquote>Forwarding a request to a warm Worker is always faster than starting a cold Worker locally.</blockquote>
+<h2>The Bottom Line</h2>
+<p>Xu&#039;s piece succeeds because it reframes a performance problem as a distribution problem, demonstrating that 99.99% reliability is achieved not by making the fast faster, but by ensuring the slow never happens. The strongest part of the argument is the empirical evidence: a 10x reduction in eviction rates achieved by sharding only 4% of requests, leveraging the power law distribution of internet traffic. The biggest vulnerability lies in the complexity introduced; as Xu admits, supporting nested Worker invocations requires serializing execution context across servers, adding a layer of architectural fragility. For engineers and architects, the takeaway is clear: in distributed systems, the most efficient path forward is often to stop fighting the network and start working with it.</p>
+<h2>Bottom Line</h2>
+<p>Alex Xu&#039;s analysis proves that in the era of serverless computing, the most valuable resource is not raw CPU cycles, but memory locality. By shifting the focus from optimizing initialization speed to optimizing request routing, Cloudflare achieved a tenfold improvement in performance that brute-force optimization could never match. The lesson for the industry is that architectural elegance often trumps incremental efficiency gains.</p>
+      </div>
+
+      
+      
+      
+
+      <section id="excerpt"><section class="source-excerpts">
+      <h2>Sources</h2>
+      <article class="source-excerpt">
+      <h3>How Cloudflare eliminates cold starts for serverless workers</h3>
+      <div class="source-meta">by Alex Xu &middot; <a href="../../publication/bytebytego/index.html">ByteByteGo Newsletter</a> &middot; <a href="https://blog.bytebytego.com/p/how-cloudflare-eliminates-cold-starts" target="_blank" rel="noopener">Read full article</a></div>
+      <p>Cut Code Review Time &amp; Bugs in Half (Sponsored).</p> <p>Code reviews are critical but time-consuming. CodeRabbit acts as your AI co-pilot, providing instant Code review comments and potential impacts of every pull request.</p><p>Beyond just flagging issues, CodeRabbit provides one-click fix suggestions and lets you define custom code quality rules using AST Grep patterns, catching subtle issues that traditional static analysis tools might miss.</p><p>CodeRabbit reviews 1 million PRs every week across 3 million repositories and is used by 100 thousand Open-source projects.</p><p>CodeRabbit is free for all open-source repo’s.</p><p>Cloudflare has reduced cold start delays in its Workers platform by 10 times through a technique called worker sharding.</p><p>A cold start occurs when serverless code must initialize completely before handling a request. For Cloudflare Workers, this initialization involves four distinct phases:</p><p>Fetching the JavaScript source code from storage</p><p>Compiling that code into executable machine instructions</p><p>Executing any top-level initialization code</p><p>Finally, invoking the code to handle the incoming request</p><p>See the diagram below:</p><p>The improvement around cold starts means that 99.99% of requests now hit already-running code instances instead of waiting for code to start up.</p><p>The overall solution works by routing all requests for a specific application to the same server using a consistent hash ring, reducing the number of times code needs to be initialized from scratch.</p><p>In this article, we will look at how Cloudflare built this system and the challenges it faced.</p><p>Disclaimer: This post is based on publicly shared details from the Cloudflare Engineering Team. Please comment if you notice any inaccuracies.</p><p>The Initial Solution.</p> <p>In 2020, Cloudflare introduced a solution that masked cold starts by pre-warming Workers during TLS handshakes.</p><p>TLS is the security protocol that encrypts web traffic and makes HTTPS possible. Before any actual data flows between a browser and server, they perform a handshake to establish encryption. This handshake requires multiple round-trip messages across the network, which takes time.</p><p>The original technique worked because Cloudflare could identify which Worker to start from the Server Name Indication (SNI) field in the very first TLS message. While the rest of the handshake continued, they would initialize the Worker in the background. If the Worker finished starting up before the handshake completed, the user experienced zero visible delay.</p><p>See the diagram below:</p><p>This technique succeeded initially because cold starts took only 5 milliseconds while TLS 1.2 handshakes required three network round-trips. The handshake ...</p>
+      <footer class="source-bio" aria-label="About this source">
+      <p class="sb-heading">About this source</p>
+      <p class="sb-meta"><span class="sb-type">independent newsletter</span> &middot; <span class="sb-country">United States</span> &middot; <span class="sb-funding">paid subscriptions, book sales, course sales</span> &middot; <span class="sb-leaning">Apolitical FAANG-interview systems-design explainer; technocratic-pragmatic with no discernible political agenda.</span></p>
+      <p class="sb-audit">Last reviewed: <time datetime="2026-04-08">2026-04-08</time> &middot; <a href="https://bytebytego.com/" target="_blank" rel="noopener">source</a></p>
+    </footer>
+    </article>
+    </section></section>
+      
+    </article>
+  
+  </main>
+  <footer class="site-footer">
+    <div class="container">
+      <p><a href="../../privacy/index.html">Privacy</a> &middot; <a href="../../terms/index.html">Terms</a></p>
+    </div>
+  </footer>
+  <script>
+  (function() {
+    var params = new URLSearchParams(window.location.search);
+    var from = params.get('from');
+    if (from) {
+      var names = {
+        'foreign-policy':'Foreign Policy','ai-tech':'AI & Tech','housing-cities':'Housing & Cities',
+        'political-strategy':'Political Strategy','history':'History','science':'Science',
+        'culture':'Culture','economics':'Economics','faith':'Faith','writing-craft':'Writing & Craft',
+        'music':'Music','law-rights':'Law & Rights','public-health':'Public Health',
+        'philosophy':'Philosophy','media':'Media','defense':'Defense','china':'China'
+      };
+      var link = document.getElementById('back-link');
+      if (link) {
+        var name = names[from] || from;
+        link.href = '../../tag/' + from + '/index.html';
+        link.textContent = '\u2190 Back to ' + name;
+      }
+    }
+  })();
+  </script>
+</body>
+</html>

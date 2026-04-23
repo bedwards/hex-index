@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>How Netflix built a real-time distributed graph for internet scale - Hex Index</title>
+  <link rel="stylesheet" href="../../styles.css">
+</head>
+<body class="reading-mode">
+  <header class="reading-header">
+    <a href="../../index.html" class="back-link" id="back-link">&larr; Back to Library</a>
+  </header>
+  <main class="reading-content">
+    
+    <article class="article-page">
+      <header class="article-header">
+        <h1>How Netflix built a real-time distributed graph for internet scale</h1>
+        
+      <div class="article-meta">
+        <span class="author">Alex Xu</span>
+        <span class="separator">&middot;</span>
+        <a href="../../publication/bytebytego/index.html" class="publication">
+          ByteByteGo Newsletter
+        </a>
+        <span class="separator">&middot;</span><time>Jan 21, 2026</time>
+        <span class="separator">&middot;</span><span class="read-time">10 min read</span>
+      </div>
+      </header>
+
+      <div class="content-label">
+        <span class="label-text">Commentary by <a href="../../about/index.html">Hex Index staff</a></span>
+        <nav class="content-nav">
+          
+          <a href="https://blog.bytebytego.com/p/how-netflix-built-a-real-time-distributed" target="_blank" rel="noopener">Original article &rarr;</a>
+        </nav>
+      </div>
+
+      
+      <div class="article-content">
+        <p>Alex Xu delivers a rare, granular look inside the engine room of a tech giant, arguing that the most scalable solution for real-time personalization isn&#039;t a specialized database, but a clever repurposing of existing infrastructure. While the industry chases the latest graph database hype, Xu reveals how Netflix bypassed it entirely to handle billions of interactions, proving that operational maturity often trumps architectural novelty.</p>
+<h2>The Myth of the Perfect Tool</h2>
+<p>Xu opens by dismantling the assumption that a microservices architecture naturally leads to a unified view of the customer. He notes that &quot;when each service manages its own data, information can become siloed,&quot; creating a fragmented reality where a user&#039;s gaming habits and viewing history exist in separate, unconnected universes. This is a critical insight for any organization scaling beyond a single product line; the technical debt of data silos grows exponentially as business models diversify.</p>
+<figure class="inline-illustration">
+    <img src="../../images/10016ba5-1622-46b8-b95b-a835e7f6b2ff.webp" alt="How Netflix built a real-time distributed graph for internet scale" loading="lazy" width="600" height="315">
+  </figure>
+
+<p>The author argues that traditional data warehouses were insufficient because &quot;the data lands in different tables and processes at different times,&quot; making real-time stitching impossible. Instead, Xu details Netflix&#039;s pivot to a graph representation, not because it was the trendy choice, but because &quot;graphs enable fast relationship traversals without expensive database joins.&quot; This reframing is powerful: it positions the graph not as a database type, but as a logical model for connectivity that can be implemented in unexpected ways.</p>
+<blockquote>&quot;Sometimes the right solution is not the obvious one. Netflix could have used purpose-built graph databases, but chose to emulate graph capabilities using key-value storage based on operational realities like internal expertise and existing platform support.&quot;</blockquote>
+<p>This admission is the piece&#039;s intellectual anchor. It suggests that in high-scale engineering, the &quot;best&quot; technology is often the one your team knows how to operate at 3 a.m., not the one with the most impressive feature list.</p>
+<h2>Building the Pipeline</h2>
+<p>The article then dives into the mechanics of the Real-Time Distributed Graph (RDG). Xu explains that the ingestion backbone relies on Apache Kafka, chosen because it offers &quot;durable, replayable streams that downstream processors can consume in real time.&quot; He highlights the sheer volume involved, noting that Netflix&#039;s applications generate &quot;up to one million messages per second&quot; across various topics. This isn&#039;t just about speed; it&#039;s about the ability to reconstruct a user&#039;s journey the moment they switch from a phone to a TV.</p>
+<p>The processing layer utilizes Apache Flink, which Xu praises for its &quot;strong capabilities around near-real-time event processing.&quot; However, he doesn&#039;t shy away from the failures encountered during development. The team initially tried a monolithic approach, but &quot;different topics have vastly different volumes and throughput patterns, making tuning impossible.&quot; The solution was counter-intuitive: they moved to a one-to-one mapping from topic to job. &quot;While this added operational overhead, each job became simpler to maintain and tune,&quot; Xu writes. This is a vital lesson for system architects: sometimes adding complexity in the orchestration layer reduces complexity in the execution layer.</p>
+<p>Critics might argue that maintaining thousands of separate jobs creates an unsustainable operational burden for smaller teams. However, Xu&#039;s point is that for an organization of Netflix&#039;s size, the cost of tuning a single massive job outweighs the cost of managing many small ones. The trade-off shifts as scale increases.</p>
+<h2>The Storage Challenge and the KVDAL Solution</h2>
+<p>Perhaps the most surprising section is the rejection of established graph databases. Xu writes that &quot;native graph databases struggle to scale horizontally for large, real-time datasets,&quot; citing how systems like Neo4j and AWS Neptune degrade under the weight of hundreds of millions of records. He points out that these systems are &quot;not inherently designed for the continuous, high-throughput event streaming workloads critical to Netflix operations.&quot;</p>
+<p>Instead, Netflix turned to KVDAL, an internal abstraction layer built on Apache Cassandra. Xu describes how they emulated graph relationships using a &quot;two-level map architecture&quot; where records are identified by ID and contain sorted items. &quot;To find all titles a member watched, Netflix retrieves the entire record with one KVDAL lookup,&quot; he explains. This approach allowed them to bypass the limitations of specialized graph engines while leveraging the battle-tested scalability of a key-value store.</p>
+<blockquote>&quot;Netflix found it simpler to emulate graph-like relationships in existing data storage systems rather than adopting specialized graph infrastructure.&quot;</blockquote>
+<p>This decision underscores a broader trend in infrastructure: the move away from &quot;silver bullet&quot; databases toward composable, general-purpose systems that can be tailored to specific needs. The flexibility of KVDAL allowed Netflix to assign a separate &quot;namespace&quot; for every node and edge type, enabling independent scaling. &quot;If one namespace needs more storage or traffic capacity, you can move it to its own cluster for independent management,&quot; Xu notes. This granular control is what allows the system to sustain &quot;two million reads per second and six million writes per second&quot; without collapsing.</p>
+<h2>Bottom Line</h2>
+<p>Xu&#039;s analysis is a masterclass in pragmatic engineering, demonstrating that the most robust systems are often built by adapting proven tools rather than chasing new ones. The piece&#039;s greatest strength is its honest accounting of failure, showing how the team learned that &quot;isolation and independence matter at scale.&quot; The only vulnerability in the argument is its specificity; while the lessons on scaling and operational reality are universal, the sheer magnitude of Netflix&#039;s infrastructure makes the solution difficult to replicate for smaller entities without significant investment. For builders, the takeaway is clear: understand your operational constraints before you choose your database.</p>
+      </div>
+
+      
+      
+      
+
+      <section id="excerpt"><section class="source-excerpts">
+      <h2>Sources</h2>
+      <article class="source-excerpt">
+      <h3>How Netflix built a real-time distributed graph for internet scale</h3>
+      <div class="source-meta">by Alex Xu &middot; <a href="../../publication/bytebytego/index.html">ByteByteGo Newsletter</a> &middot; <a href="https://blog.bytebytego.com/p/how-netflix-built-a-real-time-distributed" target="_blank" rel="noopener">Read full article</a></div>
+      <p>2026 AI predictions for builders (Sponsored).</p> <p>The AI landscape is changing fast—and the way you build AI systems in 2026 will look very different.</p><p>Join us live on January 28 as we unpack the first take from Redis’ 2026 predictions report: why AI apps won’t succeed without a unified context engine.</p><p>You’ll learn:</p><p>One architectural standard for AI across teams</p><p>Lower operational overhead via shared context infrastructure</p><p>Predictable, production-grade performance</p><p>Clear observability and governance for agent data access</p><p>Faster time to market for new AI features</p><p>Read the full 2026 predictions report →</p><p>Netflix is no longer just a streaming service. The company has expanded into live events, mobile gaming, and ad-supported subscription plans. This evolution created an unexpected technical challenge.</p><p>To understand the challenge, consider a typical member journey. Assume that a user watches Stranger Things on their smartphone, continues on their smart TV, and then launches the Stranger Things mobile game on a tablet. These activities happen at different times on different devices and involve different platform services. Yet they all belong to the same member experience.</p><p>Disclaimer: This post is based on publicly shared details from the Netflix Engineering Team. Please comment if you notice any inaccuracies.</p><p>Understanding these cross-domain journeys became critical for creating personalized experiences. However, Netflix’s architecture made this difficult.</p><p>Netflix uses a microservices architecture with hundreds of services developed by separate teams. Each service can be developed, deployed, and scaled independently, and teams can choose the best data storage technology for their needs. However, when each service manages its own data, information can become siloed. Video streaming data lives in one database, gaming data in another, and authentication data separately. Traditional data warehouses collect this information, but the data lands in different tables and processes at different times.</p><p>Manually stitching together information from dozens of siloed databases became overwhelming. Therefore, the Netflix engineering team needed a different approach to process and store interconnected data while enabling fast queries. They chose a graph representation for the same due to the following reasons:</p><p>First, graphs enable fast relationship traversals without expensive database joins.</p><p>Second, graphs adapt easily when new connections emerge without significant schema changes.</p><p>Third, graphs naturally support pattern detection. Identifying hidden relationships and cycles is more efficient using graph traversals than siloed lookups.</p><p>This led Netflix to build the Real-Time Distributed Graph, or RDG. In this article, we will look at the architecture ...</p>
+      <footer class="source-bio" aria-label="About this source">
+      <p class="sb-heading">About this source</p>
+      <p class="sb-meta"><span class="sb-type">independent newsletter</span> &middot; <span class="sb-country">United States</span> &middot; <span class="sb-funding">paid subscriptions, book sales, course sales</span> &middot; <span class="sb-leaning">Apolitical FAANG-interview systems-design explainer; technocratic-pragmatic with no discernible political agenda.</span></p>
+      <p class="sb-audit">Last reviewed: <time datetime="2026-04-08">2026-04-08</time> &middot; <a href="https://bytebytego.com/" target="_blank" rel="noopener">source</a></p>
+    </footer>
+    </article>
+    </section></section>
+      
+    </article>
+  
+  </main>
+  <footer class="site-footer">
+    <div class="container">
+      <p><a href="../../privacy/index.html">Privacy</a> &middot; <a href="../../terms/index.html">Terms</a></p>
+    </div>
+  </footer>
+  <script>
+  (function() {
+    var params = new URLSearchParams(window.location.search);
+    var from = params.get('from');
+    if (from) {
+      var names = {
+        'foreign-policy':'Foreign Policy','ai-tech':'AI & Tech','housing-cities':'Housing & Cities',
+        'political-strategy':'Political Strategy','history':'History','science':'Science',
+        'culture':'Culture','economics':'Economics','faith':'Faith','writing-craft':'Writing & Craft',
+        'music':'Music','law-rights':'Law & Rights','public-health':'Public Health',
+        'philosophy':'Philosophy','media':'Media','defense':'Defense','china':'China'
+      };
+      var link = document.getElementById('back-link');
+      if (link) {
+        var name = names[from] || from;
+        link.href = '../../tag/' + from + '/index.html';
+        link.textContent = '\u2190 Back to ' + name;
+      }
+    }
+  })();
+  </script>
+</body>
+</html>
