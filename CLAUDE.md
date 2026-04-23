@@ -24,10 +24,12 @@ There is exactly **one** Claude Code session running at a time, driven by a 5-mi
 - `wiki-discover`, `wiki-rewrite`, `article-rewrite`, `affiliate-suggest` — Qwen content generation
 - `build-weekly` (Thu 23:00), `send-weekly` (Fri 05:30) — weekly Reader pipeline
 - `postgres-watchdog` — DB health
+- `static-regen` — regenerate docs/ from DB (hourly, no GPU)
 
 **This unified loop is responsible for everything else:**
-1. **Static site freshness** — detect new DB articles each cycle, regenerate `docs/`, commit + push. The top priority; articles in DB but not on hex-index.com are worthless.
-2. **Duplicate detection** — catch same-title articles across publications (cf. Sinocism/Sinification incident, 2026-04-06). Delete dups, remove offending feed from `tools/create-comprehensive-sources.ts`, delete publication row so ingest drops it.
+1. **Static site freshness** — detect new DB articles each cycle, regenerate `docs/`, commit + push. The top priority; articles in DB but not on hex-index.com are worthless. If the loop is down, the `static-regen` scheduled job (hourly) acts as safety net.
+2. **Backlog catchup** — if article rewrite backlog > 500, spawn background pi agents (cloud LLM) to do parallel rewrites. See "Backlog Catchup" section below.
+3. **Duplicate detection** — catch same-title articles across publications (cf. Sinocism/Sinification incident, 2026-04-06). Delete dups, remove offending feed from `tools/create-comprehensive-sources.ts`, delete publication row so ingest drops it.
 3. **Format error scanning** — run `tools/editorial/find-format-errors.ts` + `fix-format-errors.ts` on new content. Markdown artifacts in HTML break Speechify.
 4. **PR pipeline** — review open PRs, merge green ones, fix red ones, triage Claude/Gemini review comments (critical → fix; non-critical → file issue).
 5. **Main branch CI health** — if `gh run list --branch main` shows failures, fix.
@@ -77,10 +79,12 @@ EVEN HOURS (00, 02, 04, ..., 22):
   :00  ingest + yt-ingest + gen-images    [no GPU]
   :05  wiki-discover                       [Qwen, 10 min]
   :15  article-rewrite                     [Qwen, 45 min]
+  :30  static-regen                        [no GPU, incremental]
 
 ODD HOURS (01, 03, 05, ..., 23):
   :05  affiliate-suggest                   [Qwen, 10 min]
   :15  wiki-rewrite                        [Qwen, 45 min]
+  :30  static-regen                        [no GPU, incremental]
 
 WEEKLY:
   Thu 23:00  build-weekly                  [no LLM]
@@ -229,6 +233,34 @@ An article is "ready" when all three are true:
 3. It has an image (`image_path IS NOT NULL`)
 
 Plus runtime: the rewrite file at the path **must exist on disk and be ≥200 chars**, AND the source content file must exist if the article uses an excerpt section. The runtime skip auto-NULLs broken paths so the next ingest cycle requeues them.
+
+### Article Rewrite: content_path vs full_content_path
+
+**Critical architecture detail (discovered 2026-04-22):**
+
+| Column | What it stores | Directory | When set |
+|--------|---------------|-----------|----------|
+| `content_path` | Full article HTML from RSS feed | `library/<pub>/<slug>.html` | Always (RSS always has content) |
+| `full_content_path` | Scraped full article HTML | `library/full-text/<pub>/<slug>.html` | Only when scraper succeeds |
+
+`content_path` is **NOT** an excerpt — it contains the full article HTML (typically 20-50KB, 2,000-4,000 words). The ~200-word excerpt is only created during static site generation via `extractHtmlExcerpt()`.
+
+The article rewrite tool (`tools/jobs/article-rewrite.ts`) currently requires `full_content_path` to be set and the file to exist. This excludes 2,700+ articles that have `content_path` but no `full_content_path` (paywalls, anti-bot, rate limits).
+
+**Fix (issue #552)**: The rewrite tool must fall back to `content_path` when `full_content_path` is unavailable. Until the fix lands, articles without `full_content_path` cannot be rewritten by the Qwen job.
+
+### Backlog Catchup
+
+When the article rewrite backlog exceeds 500 articles:
+
+1. **Check the count**: `SELECT COUNT(*) FROM app.articles WHERE rewritten_content_path IS NULL AND (content_path IS NOT NULL OR full_content_path IS NOT NULL) AND consolidated_into IS NULL`
+2. **Spawn parallel workers**: Use background pi agents with `isolation: "worktree"` (cloud LLM = Claude, not Qwen). Each agent runs `tools/jobs/article-rewrite.ts` with `--article-id <id1> <id2> ...` for its batch.
+3. **Tell the worker**: "do not invoke launchctl, svc, Qwen, or `npx tsx tools/jobs/...` — do the work yourself." The worker uses the local Ollama model (qwen3.5:122b-a10b-q8) or cloud LLM depending on the tool available.
+4. **Batch size**: ~50 articles per worker to keep each run under 30 min
+5. **Monitor**: Check progress via `SELECT COUNT(*) FILTER (WHERE rewritten_content_path IS NOT NULL) FROM app.articles`
+6. **Stop** when backlog < 200, let the scheduled Qwen job handle the rest
+
+**IMPORTANT**: When spawning workers for rewrites, they must write to the main repo's `library/` directory (NOT the worktree's library/) and commit as part of the same change. See "Library Files Are Source-of-Truth" above.
 
 When adding new listing queries, copy the SQL filter verbatim. Single ingest source file: `content/ingest-subscribed.json`. There is no `ingest-all-sources.json` anymore — adding sources to that file is a no-op.
 
