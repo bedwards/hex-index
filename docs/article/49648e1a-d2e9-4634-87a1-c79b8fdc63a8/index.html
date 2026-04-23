@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>How OpenAI scaled to 800 million users with postgres - Hex Index</title>
+  <link rel="stylesheet" href="../../styles.css">
+</head>
+<body class="reading-mode">
+  <header class="reading-header">
+    <a href="../../index.html" class="back-link" id="back-link">&larr; Back to Library</a>
+  </header>
+  <main class="reading-content">
+    
+    <article class="article-page">
+      <header class="article-header">
+        <h1>How OpenAI scaled to 800 million users with postgres</h1>
+        
+      <div class="article-meta">
+        <span class="author">Alex Xu</span>
+        <span class="separator">&middot;</span>
+        <a href="../../publication/bytebytego/index.html" class="publication">
+          ByteByteGo Newsletter
+        </a>
+        <span class="separator">&middot;</span><time>Feb 16, 2026</time>
+        <span class="separator">&middot;</span><span class="read-time">11 min read</span>
+      </div>
+      </header>
+
+      <div class="content-label">
+        <span class="label-text">Commentary by <a href="../../about/index.html">Hex Index staff</a></span>
+        <nav class="content-nav">
+          
+          <a href="https://blog.bytebytego.com/p/how-openai-scaled-to-800-million" target="_blank" rel="noopener">Original article &rarr;</a>
+        </nav>
+      </div>
+
+      
+      <div class="article-content">
+        <p>In an era where every scaling crisis is met with a reflexive rush to shard databases, Alex Xu presents a counterintuitive case study that challenges the very foundation of modern distributed systems dogma. The claim is audacious: OpenAI scaled PostgreSQL to serve 800 million users and handle millions of queries per second without a single primary writer, relying instead on aggressive optimization and read replicas. For busy engineers and architects, this isn&#039;t just a technical deep dive; it&#039;s a strategic reminder that <strong>pragmatism often beats theoretical perfection</strong>.</p>
+<h2>The Myth of the Sharding Threshold</h2>
+<p>Xu opens by dismantling the industry&#039;s default assumption. &quot;The common wisdom suggests that beyond a certain scale, you must shard the database or risk failure,&quot; he writes, immediately setting up the central tension of the piece. Instead of following the conventional playbook of splitting data across independent databases—a move that introduces immense complexity—the OpenAI engineering team chose to push a single primary PostgreSQL instance to its absolute limit.</p>
+<figure class="inline-illustration">
+    <img src="../../images/49648e1a-d2e9-4634-87a1-c79b8fdc63a8.webp" alt="How OpenAI scaled to 800 million users with postgres" loading="lazy" width="600" height="315">
+  </figure>
+
+<p>This decision was driven by a starkly pragmatic calculation. Xu notes that sharding would have required &quot;modifying hundreds of application endpoints and could take months or years to complete.&quot; In the fast-paced world of AI development, that timeline was a non-starter. The team realized their workload was overwhelmingly read-heavy, making a single-primary architecture viable if they could eliminate bottlenecks elsewhere. This is a crucial distinction often lost in system design debates: <strong>scale is not just about raw capacity, but about matching architecture to workload characteristics</strong>.</p>
+<p>Critics might argue that relying on a single writer creates a single point of failure that no amount of optimization can fully mitigate. While valid, Xu&#039;s evidence suggests that for read-dominant systems, the operational cost of sharding often outweighs the theoretical risk of a bottleneck, provided the primary is treated with surgical precision.</p>
+<blockquote>&quot;OpenAI&#039;s success came not from adopting the latest distributed database technology but from deeply understanding their workload characteristics and eliminating bottlenecks.&quot;</blockquote>
+<h2>The Three Pillars of Optimization</h2>
+<p>The core of Xu&#039;s argument rests on three specific pillars, each addressing a different layer of the stack. First, minimizing load on the primary. The team didn&#039;t just offload reads; they migrated write-heavy workloads to sharded systems like Azure Cosmos DB, leaving PostgreSQL to do what it does best. &quot;They implemented lazy writes where appropriate to smooth traffic spikes rather than hitting the database with sudden bursts,&quot; Xu explains. This approach of smoothing traffic rather than fighting it is a masterclass in operational discipline.</p>
+<p>Second, the article dives into query and connection optimization. Xu highlights a particularly instructive failure mode: a single query joining 12 tables that caused high-severity incidents. &quot;The team learned to avoid complex multi-table joins in their OLTP system,&quot; he writes, opting instead to move join logic to the application layer. This is a significant departure from the convenience of Object-Relational Mapping (ORM) frameworks, which Xu notes can &quot;produce inefficient queries.&quot; By manually reviewing ORM-generated SQL and implementing strict timeouts, they prevented long-running queries from blocking the database&#039;s cleanup processes.</p>
+<p>The third pillar focuses on preventing cascading failures. Xu describes a dangerous feedback loop where cache misses trigger database spikes, leading to retries that amplify the load. To break this cycle, OpenAI implemented a &quot;cache locking and leasing mechanism.&quot; When multiple requests miss the cache, only one fetches the data while others wait. This simple logic prevents the database from being hammered by a thundering herd. &quot;This targeted load shedding enables rapid recovery from sudden surges of expensive queries,&quot; Xu concludes, emphasizing that <strong>resilience is often about what you block, not just what you allow</strong>.</p>
+<h2>Navigating Architectural Constraints</h2>
+<p>No system is without its historical baggage, and Xu does not shy away from PostgreSQL&#039;s specific constraints. He explains how Multi-Version Concurrency Control (MVCC), a feature dating back to the early 1990s that allows concurrent transactions without blocking, creates challenges for write-heavy workloads. &quot;MVCC creates challenges for write-heavy workloads,&quot; Xu writes, noting that it causes write amplification and table bloat. The team&#039;s solution was to migrate these specific workloads away from Postgres entirely, a decision that acknowledges the database&#039;s strengths while respecting its limits.</p>
+<p>Similarly, the article addresses the pain of schema changes. In many systems, altering a column type can trigger a full table rewrite, locking the database for hours. OpenAI enforced strict rules: &quot;Only lightweight schema changes are permitted,&quot; and &quot;All schema changes have a 5-second timeout.&quot; This discipline prevents the database from grinding to a halt during maintenance, a lesson that echoes the early days of database administration when a single bad migration could take down a service for a day. The team also leverages the concept of Write Ahead Log (WAL) streaming to keep replicas synchronized, though Xu notes the network bandwidth limits of this approach as the number of replicas grows.</p>
+<h2>The Human Cost of Complexity</h2>
+<p>While the technical details are dense, the underlying message is about the human cost of architectural complexity. Xu points out that sharding is not just a technical challenge but an organizational one. &quot;Sharding would require modifying hundreds of application endpoints,&quot; he writes, implying a massive coordination effort across engineering teams. By avoiding this, OpenAI preserved its velocity. The article serves as a reminder that <strong>the most scalable system is often the one that allows your team to move fast without breaking things</strong>.</p>
+<blockquote>&quot;The road wasn&#039;t easy. In this article, we will look at the challenges OpenAI faced while scaling Postgres and how the team handled the various scenarios.&quot;</blockquote>
+<p>This admission of difficulty is refreshing. Xu does not present the solution as a magic bullet but as the result of rigorous optimization, careful monitoring, and operational discipline. The team achieved five-nines availability (99.999% uptime) not by magic, but by systematically eliminating failure points. Even with these measures, they faced a SEV-0 incident during the viral launch of a new feature, proving that <strong>no architecture is immune to the chaos of viral growth</strong>.</p>
+<h2>Bottom Line</h2>
+<p>Alex Xu&#039;s analysis delivers a powerful verdict: the rush to distributed databases is often premature, and a single-primary PostgreSQL instance can handle massive scale if treated with extreme care. The strongest part of this argument is its grounding in real-world constraints—specifically, the time and complexity costs of sharding. The biggest vulnerability remains the inherent risk of a single writer, a risk that will only grow as the user base expands further. For now, the lesson is clear: optimize the boring stuff before you build the complex stuff. Watch for how OpenAI&#039;s collaboration on cascading replication evolves, as that will be the true test of whether this architecture can scale indefinitely without a fundamental redesign.</p>
+      </div>
+
+      
+      
+      
+
+      <section id="excerpt"><section class="source-excerpts">
+      <h2>Sources</h2>
+      <article class="source-excerpt">
+      <h3>How OpenAI scaled to 800 million users with postgres</h3>
+      <div class="source-meta">by Alex Xu &middot; <a href="../../publication/bytebytego/index.html">ByteByteGo Newsletter</a> &middot; <a href="https://blog.bytebytego.com/p/how-openai-scaled-to-800-million" target="_blank" rel="noopener">Read full article</a></div>
+      <p>Sentry’s AI debugger fixes code wherever it breaks (Sponsored).</p> <p>Most AI coding tools only see your source code. Seer, Sentry’s AI debugging agent, uses everything Sentry knows about how your code has behaved in production to debug locally, in your PR, and in production.</p><p>How it works:</p><p>Seer scans &amp; analyzes issues using all Sentry’s available context.</p><p>In development, Seer debugs alongside you as you build</p><p>In review, Seer alerts you to bugs that are likely to break production, not nits</p><p>In production, Seer can find a bug’s root cause, suggest a fix, open a PR automatically, or send the fix to your preferred IDE.</p><p>OpenAI scaled PostgreSQL to handle millions of queries per second for 800 million ChatGPT users. They did it with just a single primary writer supported by read replicas.</p><p>At first glance, this should sound impossible. The common wisdom suggests that beyond a certain scale, you must shard the database or risk failure. The conventional playbook recommends embracing the complexity of splitting the data across multiple independent databases.</p><p>OpenAI’s engineering team chose a different path. They decided to see just how far they could push PostgreSQL.</p><p>Over the past year, their database load grew by more than 10X. They experienced the familiar pattern of database-related incidents: cache layer failures causing sudden read spikes, expensive queries consuming CPU, and write storms from new features. Yet through systematic optimization across every layer of their stack, they achieved five-nines availability with low double-digit millisecond latency. But the road wasn’t easy.</p><p>In this article, we will look at the challenges OpenAI faced while scaling Postgres and how the team handled the various scenarios.</p><p>Disclaimer: This post is based on publicly shared details from the OpenAI Engineering Team. Please comment if you notice any inaccuracies.</p><p>Understanding Single-Primary Architecture.</p> <p>A single-primary architecture means one database instance handles all writes, while multiple read replicas handle read queries.</p><p>See the diagram below:</p><p>This design creates an inherent bottleneck because writes cannot be distributed. However, for read-heavy workloads like ChatGPT, where users primarily fetch data rather than modify it, this architecture can scale effectively if properly optimized.</p><p>OpenAI avoided sharding its PostgreSQL deployment for pragmatic reasons. Sharding would require modifying hundreds of application endpoints and could take months or years to complete. Since their workload is primarily read-heavy and current optimizations provide sufficient capacity, sharding remains a future consideration rather than an immediate necessity.</p><p>So ...</p>
+      <footer class="source-bio" aria-label="About this source">
+      <p class="sb-heading">About this source</p>
+      <p class="sb-meta"><span class="sb-type">independent newsletter</span> &middot; <span class="sb-country">United States</span> &middot; <span class="sb-funding">paid subscriptions, book sales, course sales</span> &middot; <span class="sb-leaning">Apolitical FAANG-interview systems-design explainer; technocratic-pragmatic with no discernible political agenda.</span></p>
+      <p class="sb-audit">Last reviewed: <time datetime="2026-04-08">2026-04-08</time> &middot; <a href="https://bytebytego.com/" target="_blank" rel="noopener">source</a></p>
+    </footer>
+    </article>
+    </section></section>
+      
+    </article>
+  
+  </main>
+  <footer class="site-footer">
+    <div class="container">
+      <p><a href="../../privacy/index.html">Privacy</a> &middot; <a href="../../terms/index.html">Terms</a></p>
+    </div>
+  </footer>
+  <script>
+  (function() {
+    var params = new URLSearchParams(window.location.search);
+    var from = params.get('from');
+    if (from) {
+      var names = {
+        'foreign-policy':'Foreign Policy','ai-tech':'AI & Tech','housing-cities':'Housing & Cities',
+        'political-strategy':'Political Strategy','history':'History','science':'Science',
+        'culture':'Culture','economics':'Economics','faith':'Faith','writing-craft':'Writing & Craft',
+        'music':'Music','law-rights':'Law & Rights','public-health':'Public Health',
+        'philosophy':'Philosophy','media':'Media','defense':'Defense','china':'China'
+      };
+      var link = document.getElementById('back-link');
+      if (link) {
+        var name = names[from] || from;
+        link.href = '../../tag/' + from + '/index.html';
+        link.textContent = '\u2190 Back to ' + name;
+      }
+    }
+  })();
+  </script>
+</body>
+</html>

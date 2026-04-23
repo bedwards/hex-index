@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>InferenceX v2: Nvidia blackwell vs Amd vs hopper - formerly InferenceMAX - Hex Index</title>
+  <link rel="stylesheet" href="../../styles.css">
+</head>
+<body class="reading-mode">
+  <header class="reading-header">
+    <a href="../../index.html" class="back-link" id="back-link">&larr; Back to Library</a>
+  </header>
+  <main class="reading-content">
+    
+    <article class="article-page">
+      <header class="article-header">
+        <h1>InferenceX v2: Nvidia blackwell vs Amd vs hopper - formerly InferenceMAX</h1>
+        
+      <div class="article-meta">
+        <span class="author">Dylan Patel</span>
+        <span class="separator">&middot;</span>
+        <a href="../../publication/semianalysis/index.html" class="publication">
+          SemiAnalysis
+        </a>
+        <span class="separator">&middot;</span><time>Feb 16, 2026</time>
+        <span class="separator">&middot;</span><span class="read-time">57 min read</span>
+      </div>
+      </header>
+
+      <div class="content-label">
+        <span class="label-text">Commentary by <a href="../../about/index.html">Hex Index staff</a></span>
+        <nav class="content-nav">
+          
+          <a href="https://newsletter.semianalysis.com/p/inferencex-v2-nvidia-blackwell-vs" target="_blank" rel="noopener">Original article &rarr;</a>
+        </nav>
+      </div>
+
+      
+      <div class="article-content">
+        <p>In a field often clouded by marketing hype and static point-in-time tests, Dylan Patel delivers a rare, dynamic truth: the battle for AI dominance is no longer just about raw silicon, but about the intricate software ecosystems that make that silicon usable. While competitors focus on peak theoretical numbers, Patel&#039;s InferenceX v2 benchmark cuts through the noise with a continuous, open-source approach that reveals a stark reality—Nvidia&#039;s Blackwell architecture is currently operating on a different plane of efficiency, while AMD&#039;s rapid hardware gains are being throttled by software fragmentation. For the busy executive or engineer trying to navigate the next two years of infrastructure spend, this is not just a performance chart; it is a warning about the hidden costs of composability.</p>
+<h2>The Software Gap and the Composability Crisis</h2>
+<p>Patel&#039;s central thesis is that hardware specs are becoming secondary to how well different optimization techniques work together. He writes, &quot;The biggest issue with inference on their systems and using their software is composability. That is, many of AMDs inference optimization implementations work well in isolation, but when combined with other optimizations, the result is not as competitive as one would expect.&quot; This observation is critical because it shifts the conversation from &quot;which chip is faster&quot; to &quot;which stack actually runs your model.&quot; In the context of modern large language models, which rely on complex techniques like disaggregated prefill and wide expert parallelism, a chip that cannot handle the combination of these tasks efficiently is a liability, regardless of its raw FLOPs.</p>
+<figure class="inline-illustration">
+    <img src="../../images/775cb7cb-e729-4524-b79a-4d780e6ef3a2.webp" alt="InferenceX v2: Nvidia blackwell vs Amd vs hopper - formerly InferenceMAX" loading="lazy" width="600" height="315">
+  </figure>
+
+<p>The author highlights that while AMD&#039;s SGLang implementation can match Nvidia&#039;s performance when using a subset of optimizations, the gap widens significantly when all three major optimizations are enabled. Patel notes, &quot;While performance is competitive on AMD when enabling just a subset of the SOTA inference optimizations, enabling all three major optimizations that labs use, AMD&#039;s performance is currently not competitive with Nvidia&#039;s.&quot; This is a nuanced but devastating critique for AMD. It suggests that their engineering efforts, while impressive in isolation, have not yet achieved the systemic integration required for frontier AI workloads. A counterargument worth considering is that AMD&#039;s software stack is younger and that the rapid pace of upstream contributions mentioned by Patel suggests this gap is closing faster than historical trends would predict.</p>
+<blockquote>&quot;Nvidia absolutely frame mogs with the B200, B300 and ASU frat leader, rack scale GB200/GB300 NVL72 across both SGLang and TRTLLM.&quot;</blockquote>
+<p>The use of the phrase &quot;frame mogs&quot;—internet slang for dominating a visual or performance comparison—might seem informal, but it underscores the magnitude of the lead. Patel is not describing a close race; he is describing a scenario where the incumbent&#039;s ecosystem integration creates a moat that hardware parity alone cannot breach. This aligns with the historical context of GPU computing, where the CUDA ecosystem has long been the primary barrier to entry for competitors, a dynamic that Patel argues is now being replicated in the inference layer with even greater intensity.</p>
+<h2>The Blackwell Leap and the Hopper Obsolescence</h2>
+<p>The benchmark results for Nvidia&#039;s latest Blackwell architecture are presented not as an incremental update, but as a generational leap that renders previous generations nearly obsolete for high-performance inference. Patel writes, &quot;Nvidia&#039;s GB300 NVL72 doesn&#039;t disappoint. It achieves up to 100x on FP8 vs FP4 compared to even a strong H100 disagg+wideEP+MTP baseline and 65x on FP8 vs FP8.&quot; This data point is staggering. It implies that for organizations running at the frontier, the cost-per-token economics of the Hopper architecture (H100) are being fundamentally broken by the new Blackwell Ultra systems.</p>
+<p>The commentary on energy efficiency is particularly sharp for a C-suite audience concerned with operational expenditure. &quot;Nvidia GPUs also dominate when it comes to energy efficiency, with much lower all-in provisioned picoJoules of energy per token across all workloads,&quot; Patel states. In an era where data center power constraints are a primary bottleneck, this efficiency advantage is as valuable as the raw speed. The author further contextualizes this by noting that the administration&#039;s push for domestic AI capacity often overlooks the physical reality of power consumption, making these efficiency gains a strategic imperative rather than just a technical nicety.</p>
+<p>Patel also addresses the narrative around Nvidia&#039;s CEO, reframing the &quot;Jensen Math&quot; skepticism that has plagued the company&#039;s previous announcements. He writes, &quot;At GTC 2024, Jensen claimed that Blackwell will deliver up to 30x perf on inference compared to H100, Jensen under promised &amp; overdelivered on Blackwell inference performance.&quot; This is a significant moment of validation for the executive branch and industry analysts who have been wary of the company&#039;s aggressive projections. The benchmark suggests that the physical limits of silicon are being pushed further than anticipated, likely due to the rack-scale integration of the NVL72 systems, which was a key focus of the Blackwell microarchitecture deep dive.</p>
+<blockquote>&quot;Rack scale Blackwell NVL72 is framemogging hopper and makes hopper looks like it is jestermaxxing.&quot;</blockquote>
+<p>Again, the informal language serves to emphasize the absurdity of the performance gap. To describe the previous generation as &quot;jestermaxxing&quot;—a term implying looking foolish or out of touch—is a bold rhetorical choice that signals the end of the Hopper era for high-end inference. Critics might argue that such language undermines the technical rigor of the report, but in the fast-moving world of AI, the speed of obsolescence is the most important metric, and Patel is effectively communicating that the clock has run out on the old guard.</p>
+<h2>The Path Forward for AMD and the Open Ecosystem</h2>
+<p>Despite the overwhelming dominance of Nvidia, Patel does not write AMD off. Instead, he identifies a clear, actionable path for the competitor to regain relevance: upstreaming their code and focusing on composability. He writes, &quot;We also see that for single node aggregated serving, AMD&#039;s SGLang delivers better perf per TCO than NVIDIA&#039;s SGLang for FP8.&quot; This finding is a crucial lifeline. It suggests that for specific, less complex workloads, AMD&#039;s Total Cost of Ownership (TCO) advantage is real and significant.</p>
+<p>The author praises AMD&#039;s recent decision to deprecate their forked versions of open-source tools in favor of contributing to the mainline code. &quot;It is also great to see that AMD has deprecated their second class fork of vllm to move further upstream and closer to delivering first class experience,&quot; Patel notes. This is a strategic pivot that addresses the root cause of their composability issues. By moving their engineers to work directly with the maintainers of SGLang and vLLM, AMD is attempting to solve the integration problem at the source rather than trying to patch it with proprietary solutions.</p>
+<p>Patel also highlights the role of AMD&#039;s China-based engineering team in driving these improvements. &quot;MoRI is AMD&#039;s MoE dispatch/combine collective and KV Cache transfer library built from first principles by AMD&#039;s cracked 10x China-based engineering team,&quot; he writes. This acknowledgment of the specific engineering teams adds a layer of human depth to the technical analysis, recognizing that the software gap is being closed by dedicated individuals working on the ground. The author recommends that Nvidia, too, should invest more in these open ecosystems, writing, &quot;Jensen needs to staff more resources &amp; engineers towards contributing open ecosystems like SGLang &amp; vLLM.&quot; This is a subtle but important critique of the incumbent&#039;s strategy, suggesting that their dominance in proprietary tools (like TensorRT-LLM) may eventually backfire if they neglect the open-source community that drives innovation.</p>
+<h2>Bottom Line</h2>
+<p>Dylan Patel&#039;s InferenceX v2 is a definitive moment in the AI infrastructure debate, proving that the next frontier of competition is not just silicon, but the software glue that holds it together. The strongest part of the argument is the empirical evidence showing that Nvidia&#039;s Blackwell architecture has achieved a level of composability and energy efficiency that makes the previous generation economically unviable for frontier workloads. However, the analysis&#039;s biggest vulnerability is its heavy reliance on the current state of open-source adoption; if the open ecosystem fractures or if proprietary solutions become the standard, the TCO advantages for AMD could evaporate. Readers should watch closely to see if AMD&#039;s commitment to upstreaming code translates into a sustained reduction in the composability gap over the next six months.</p>
+<blockquote>&quot;Nvidia absolutely frame mogs with the B200, B300 and ASU frat leader, rack scale GB200/GB300 NVL72 across both SGLang and TRTLLM.&quot;</blockquote>
+<p>The verdict is clear: for those building the next generation of AI services, the choice of hardware is now inextricably linked to the maturity of the software stack. The administration and private sector alike must recognize that the race is no longer about who has the fastest chip, but who has the most cohesive system. As Patel demonstrates, the gap between the two is not just a technical detail; it is a strategic chasm.</p>
+      </div>
+
+      
+      
+      
+
+      <section id="excerpt"><section class="source-excerpts">
+      <h2>Sources</h2>
+      <article class="source-excerpt">
+      <h3>InferenceX v2: Nvidia blackwell vs Amd vs hopper - formerly InferenceMAX</h3>
+      <div class="source-meta">by Dylan Patel &middot; <a href="../../publication/semianalysis/index.html">SemiAnalysis</a> &middot; <a href="https://newsletter.semianalysis.com/p/inferencex-v2-nvidia-blackwell-vs" target="_blank" rel="noopener">Read full article</a></div>
+      <p>Introduction.</p> <p>InferenceXv2 (formerly InferenceMAX) builds on the foundation established by InferenceMAXv1, our open-source, continuously updated inference benchmark that has set a new standard for AI inference performance and economics. InferenceMAXv1 moved beyond static, point-in-time benchmarks by running continuous tests across hundreds of chips and popular open-source frameworks. Free dashboard available here.</p><p>Our benchmark has been widely reproduced, validated and/or supported by almost every major buyer of compute from Google Cloud to Microsoft Azure to Oracle, OpenAI, and many more.</p><p>InferenceXv2 builds on this foundation. It expands coverage to include large scale DeepSeek MoE disaggregated inference (disagg prefill, or simply “disagg”) with wide expert parallelism (wideEP) optimization to all 6 NVIDIA western GPU SKUs from the past 4 years as well as to every single AMD western GPU SKU released in the past 3 years – in total InferenceXv2 utilizes close to 1000 frontier GPUs for a full benchmark run across all SKUs. </p><p>With today’s release, InferenceXv2 is now the first suite to benchmark the Blackwell Ultra GB300 NVL72 and B300 across the whole pareto frontier curve, and it is the first third party benchmark to test disagg+wideEP multi-node FP4 and FP8 MI355X performance. In future iterations of InferenceX, we will continue to focus heavily on disaggregated serving with wide expert parallelism as that is what is deployed in production at Frontier AI Labs like OpenAI, Anthropic, xAI, Google Deepmind, DeepSeek as well as advanced API providers like TogetherAI, Baseten, and Fireworks. In this article, we will also break down the system engineering principles and economics in play around the latest Claude Code Fast mode feature.</p><p>Our benchmark is completely open-source under Apache 2.0 – this means that we are able to move at the same rapid speed at which the AI software ecosystem is advancing. If you like our work and would like to show us some support, please drop a star on our GitHub! We also provide a free data visualizer at https://inferencex.com for everyone in the ML community to explore the complete dataset themselves.</p><p>We will add DeepSeekv4 and other popular Chinese frontier models with day 0 support as over the past 6 months, we now have cleaned up a lot of tech debt and are able to move fast with stable infrastructure. We will also be adding TPUv7 Ironwood and Trainium3 to InferenceX later this year! If you want to contribute to our impactful mission while earning ...</p>
+      <footer class="source-bio" aria-label="About this source">
+      <p class="sb-heading">About this source</p>
+      <p class="sb-meta"><span class="sb-type">independent research firm</span> &middot; <span class="sb-country">United States</span> &middot; <span class="sb-funding">paid subscriptions, enterprise research contracts</span> &middot; <span class="sb-leaning">Hawkish US-industrial-policy techno-nationalist on semiconductors; pro-export-controls on China, bullish on Western fab buildout and AI compute supremacy.</span></p>
+      <p class="sb-audit">Last reviewed: <time datetime="2026-04-08">2026-04-08</time> &middot; <a href="https://www.semianalysis.com/" target="_blank" rel="noopener">source</a></p>
+    </footer>
+    </article>
+    </section></section>
+      
+    </article>
+  
+  </main>
+  <footer class="site-footer">
+    <div class="container">
+      <p><a href="../../privacy/index.html">Privacy</a> &middot; <a href="../../terms/index.html">Terms</a></p>
+    </div>
+  </footer>
+  <script>
+  (function() {
+    var params = new URLSearchParams(window.location.search);
+    var from = params.get('from');
+    if (from) {
+      var names = {
+        'foreign-policy':'Foreign Policy','ai-tech':'AI & Tech','housing-cities':'Housing & Cities',
+        'political-strategy':'Political Strategy','history':'History','science':'Science',
+        'culture':'Culture','economics':'Economics','faith':'Faith','writing-craft':'Writing & Craft',
+        'music':'Music','law-rights':'Law & Rights','public-health':'Public Health',
+        'philosophy':'Philosophy','media':'Media','defense':'Defense','china':'China'
+      };
+      var link = document.getElementById('back-link');
+      if (link) {
+        var name = names[from] || from;
+        link.href = '../../tag/' + from + '/index.html';
+        link.textContent = '\u2190 Back to ' + name;
+      }
+    }
+  })();
+  </script>
+</body>
+</html>

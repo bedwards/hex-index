@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>How yelp built “yelp assistant” - Hex Index</title>
+  <link rel="stylesheet" href="../../styles.css">
+</head>
+<body class="reading-mode">
+  <header class="reading-header">
+    <a href="../../index.html" class="back-link" id="back-link">&larr; Back to Library</a>
+  </header>
+  <main class="reading-content">
+    
+    <article class="article-page">
+      <header class="article-header">
+        <h1>How yelp built “yelp assistant”</h1>
+        
+      <div class="article-meta">
+        <span class="author">Alex Xu</span>
+        <span class="separator">&middot;</span>
+        <a href="../../publication/bytebytego/index.html" class="publication">
+          ByteByteGo Newsletter
+        </a>
+        <span class="separator">&middot;</span><time>Feb 9, 2026</time>
+        <span class="separator">&middot;</span><span class="read-time">14 min read</span>
+      </div>
+      </header>
+
+      <div class="content-label">
+        <span class="label-text">Commentary by <a href="../../about/index.html">Hex Index staff</a></span>
+        <nav class="content-nav">
+          <a href="#deep-dives">Deep dives</a><span class="separator">&middot;</span>
+          <a href="https://blog.bytebytego.com/p/how-yelp-built-yelp-assistant" target="_blank" rel="noopener">Original article &rarr;</a>
+        </nav>
+      </div>
+
+      
+      <div class="article-content">
+        <h2>The Engineering Behind the Answer</h2>
+<p>You ask a simple question: Is the patio heated? What should be a quick answer forces you to scroll through reviews, photos, and attribute fields. Alex Xu documents how Yelp solved this problem by building an AI assistant that retrieves evidence and delivers direct answers with citations. The piece is a rare window into production RAG architecture — retrieval-augmented generation — at scale.</p>
+<h2>From Demo to Production</h2>
+<p>The prototype was simple. Batch dumps into Redis. Each business treated as a static bundle. Xu writes, &quot;In production, this approach collapses because content changes continuously and the corpus grows without bound.&quot; A stale answer about operating hours is worse than no answer. Yelp&#039;s engineering team faced a fundamental tension: real-time ingestion is expensive, but batch processing creates stale responses.</p>
+<figure class="inline-illustration">
+    <img src="../../images/fbbc1e8d-7516-41a0-b211-a0f590f8bffc.webp" alt="How yelp built “yelp assistant”" loading="lazy" width="600" height="315">
+  </figure>
+
+<p>Xu writes, &quot;Treating every data source as real-time makes ingestion expensive to operate while treating everything as a weekly batch results in stale answers.&quot; Yelp&#039;s solution was hybrid. Reviews and business attributes stream in within ten minutes. Menus and website text update weekly. The system matches freshness to the velocity of the data itself.</p>
+<blockquote>&quot;A stale answer regarding operating hours is worse than no answer at all&quot;</blockquote>
+<h2>Separation of Concerns</h2>
+<p>Not all questions deserve the same treatment. Xu writes, &quot;Not all questions should be answered the same way. Some require searching through noisy text while others require a single precise fact.&quot; Yelp split their storage. Unstructured content — reviews, photos — flows through search indices. Structured facts — hours, amenities — live in Cassandra with an Entity-Attribute-Value layout. This separation prevents hallucinated facts. Adding a new attribute like EV charging requires no migration.</p>
+<p>Photos present their own challenge. Caption-only retrieval fails when captions are missing. Embedding-only retrieval misses literal constraints. Xu writes, &quot;Yelp bridged this gap by implementing hybrid retrieval.&quot; The system ranks photos using both caption matches and image embedding similarity. A user asking about a heated patio gets results whether &quot;heaters&quot; appears in text or shows as a heat lamp in the image.</p>
+<p>Critics might note that this architecture assumes Yelp&#039;s engineering resources are replicable. Smaller teams cannot afford separate stores, hybrid retrieval, and streaming pipelines. The gap between prototype and production remains a gap most cannot cross.</p>
+<h2>The Inference Pipeline</h2>
+<p>Prototypes rely on one large model. The backend stuffs everything into one massive prompt. Xu writes, &quot;While this works for a demo, it collapses under real traffic.&quot; Yelp deconstructed the monolith into specialized models. Retrieval finds evidence. A content source selector routes questions to the right store. A keyword generator translates user queries into search terms. Input guardrails block adversarial requests.</p>
+<p>Xu writes, &quot;Yelp adopted a hybrid approach: Fine-tuning for question analysis... Prompting for final generation.&quot; Small fine-tuned models handle Trust &amp; Safety, Inquiry Type, and Source Selection. The large model — GPT-4.1 — handles final generation where nuance matters. This tiered approach improved inference speed by nearly twenty percent.</p>
+<h2>Serving Efficiency</h2>
+<p>Latency dropped from over ten seconds to under three. Xu writes, &quot;Yelp optimized serving to reduce latency from over 10 seconds in prototypes to under 3 seconds in production.&quot; Streaming renders text token-by-token. Parallelism runs independent tasks concurrently. Early stopping cancels downstream work when guardrails flag a request. Xu writes, &quot;This prevents wasting compute and retrieval resources on blocked queries.&quot;</p>
+<p>The latency breakdown at median: question analysis takes 1.4 seconds. Retrieval takes 0.03 seconds. Time to first byte is 0.9 seconds. Full answer generation takes 3.5 seconds.</p>
+<h2>Evaluation at Scale</h2>
+<p>Prototype evaluation is informal. Developers try questions and tweak prompts until results feel right. Xu writes, &quot;In production, failures show up as confident hallucinations or technically correct but unhelpful replies.&quot; Yelp defined six quality dimensions. An LLM-as-judge system scores each dimension against a strict rubric. Correctness is easy to automate. Tone and style are not. Xu writes, &quot;Rather than forcing an unreliable automated judge early, Yelp tackled this by co-designing principles with their marketing team and enforcing them via curated few-shot examples in the prompt.&quot;</p>
+<p>Critics might observe that LLM-as-judge systems inherit the biases and blind spots of their judge models. What counts as &quot;correct&quot; depends on the grader&#039;s training. Automated evaluation remains an open problem.</p>
+<h2>Bottom Line</h2>
+<p>Yelp&#039;s assistant demonstrates that production RAG requires architectural discipline: separate stores for structured and unstructured data, tiered models for analysis and generation, and evaluation systems that acknowledge their own limits. The engineering is sound. The resource requirements are steep. Most teams will struggle to replicate this without Yelp&#039;s infrastructure budget.</p>
+      </div>
+
+      
+      
+      <section id="deep-dives" class="deep-dives">
+        <h2>Deep Dives</h2>
+        <p class="deep-dives-intro">Explore these related deep dives:</p>
+        <ul class="deep-dive-list">
+          
+      <li class="deep-dive-item">
+        <a href="../../wikipedia/retrieval-augmented-generation/index.html">
+          <strong>Retrieval-augmented generation</strong>
+        </a>
+        <p class="topic-summary">Core technique used to build Yelp Assistant with accurate citations</p>
+      </li>
+        </ul>
+      </section>
+    
+      
+
+      <section id="excerpt"><section class="source-excerpts">
+      <h2>Sources</h2>
+      <article class="source-excerpt">
+      <h3>How yelp built “yelp assistant”</h3>
+      <div class="source-meta">by Alex Xu &middot; <a href="../../publication/bytebytego/index.html">ByteByteGo Newsletter</a> &middot; <a href="https://blog.bytebytego.com/p/how-yelp-built-yelp-assistant" target="_blank" rel="noopener">Read full article</a></div>
+      <p>How to stop bots from abusing free trials (Sponsored).</p> <p>Free trials help AI apps grow, but bots and fake accounts exploit them. They steal tokens, burn compute, and disrupt real users.</p><p>Cursor, the fast-growing AI code assistant, uses WorkOS Radar to detect and stop abuse in real time. With device fingerprinting and behavioral signals, Radar blocks fraud before it reaches your app.</p><p>You open an app with one specific question in mind, but the answer is usually hidden in a sea of reviews, photos, and structured facts. Modern content platforms are information-rich, though surfacing direct answers can still be a challenge. A good example is Yelp business pages. Imagine you are deciding where to go and you ask “Is the patio heated?”. The page might contain the answer in a couple of reviews, a photo caption, or an attribute field, but you still have to scan multiple sections to piece it together.</p><p>A common way to solve this is to integrate an AI assistant inside the app. The assistant retrieves the right evidence and turns it into a single direct answer with citations to the supporting snippets.</p><p>This article walks through what it takes to ship a production-ready AI assistant using Yelp Assistant on business pages as a concrete case study. We’ll cover the engineering challenges, architectural trade-offs, and practical lessons from the development of the Yelp Assistant.</p><p>Note: This article is written in collaboration with Yelp. Special thanks to the Yelp team for sharing details with us about their work and for reviewing the final article before publication.</p><p>High-Level System Design.</p> <p>To deliver answers that are both accurate and cited, we cannot rely on an LLM’s internal knowledge alone. Instead, we use Retrieval-Augmented Generation (RAG).</p><p>RAG decouples the problem into two distinct phases: retrieval and generation, supported by an offline indexing pipeline that prepares the knowledge store.</p><p>The development of a RAG system starts with an indexing pipeline, which builds a knowledge store from raw data offline. Upon receiving a user query, the retrieval system scans this store using both lexical search for keywords and semantic search for intent to locate the most relevant snippets. Finally, the generation phase feeds these snippets to the LLM with strict instructions to answer solely based on the provided evidence and to cite specific sources.</p><p>Citations are typically produced by having the model output citation markers that refer to specific snippets. For example, ...</p>
+      <footer class="source-bio" aria-label="About this source">
+      <p class="sb-heading">About this source</p>
+      <p class="sb-meta"><span class="sb-type">independent newsletter</span> &middot; <span class="sb-country">United States</span> &middot; <span class="sb-funding">paid subscriptions, book sales, course sales</span> &middot; <span class="sb-leaning">Apolitical FAANG-interview systems-design explainer; technocratic-pragmatic with no discernible political agenda.</span></p>
+      <p class="sb-audit">Last reviewed: <time datetime="2026-04-08">2026-04-08</time> &middot; <a href="https://bytebytego.com/" target="_blank" rel="noopener">source</a></p>
+    </footer>
+    </article>
+    </section></section>
+      
+    </article>
+  
+  </main>
+  <footer class="site-footer">
+    <div class="container">
+      <p><a href="../../privacy/index.html">Privacy</a> &middot; <a href="../../terms/index.html">Terms</a></p>
+    </div>
+  </footer>
+  <script>
+  (function() {
+    var params = new URLSearchParams(window.location.search);
+    var from = params.get('from');
+    if (from) {
+      var names = {
+        'foreign-policy':'Foreign Policy','ai-tech':'AI & Tech','housing-cities':'Housing & Cities',
+        'political-strategy':'Political Strategy','history':'History','science':'Science',
+        'culture':'Culture','economics':'Economics','faith':'Faith','writing-craft':'Writing & Craft',
+        'music':'Music','law-rights':'Law & Rights','public-health':'Public Health',
+        'philosophy':'Philosophy','media':'Media','defense':'Defense','china':'China'
+      };
+      var link = document.getElementById('back-link');
+      if (link) {
+        var name = names[from] || from;
+        link.href = '../../tag/' + from + '/index.html';
+        link.textContent = '\u2190 Back to ' + name;
+      }
+    }
+  })();
+  </script>
+</body>
+</html>

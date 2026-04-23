@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>How silver bulletin calculates our polling averages - Hex Index</title>
+  <link rel="stylesheet" href="../../styles.css">
+</head>
+<body class="reading-mode">
+  <header class="reading-header">
+    <a href="../../index.html" class="back-link" id="back-link">&larr; Back to Library</a>
+  </header>
+  <main class="reading-content">
+    
+    <article class="article-page">
+      <header class="article-header">
+        <h1>How silver bulletin calculates our polling averages</h1>
+        
+      <div class="article-meta">
+        <span class="author">Nate Silver</span>
+        <span class="separator">&middot;</span>
+        <a href="../../publication/natesilver/index.html" class="publication">
+          
+        </a>
+        <span class="separator">&middot;</span><time>Jan 22, 2026</time>
+        <span class="separator">&middot;</span><span class="read-time">11 min read</span>
+      </div>
+      </header>
+
+      <div class="content-label">
+        <span class="label-text">Commentary by <a href="../../about/index.html">Hex Index staff</a></span>
+        <nav class="content-nav">
+          
+          <a href="https://www.natesilver.net/p/silver-bulletin-polling-average-methodology" target="_blank" rel="noopener">Original article &rarr;</a>
+        </nav>
+      </div>
+
+      
+      <div class="article-content">
+        <p>In an era where political noise often drowns out signal, Nate Silver offers a rare, transparent look into the black box of polling aggregation. This isn&#039;t just a technical manual; it&#039;s a manifesto for rigor in a landscape increasingly polluted by DIY surveys and partisan manipulation. For the busy professional trying to gauge the true temperature of the electorate, Silver&#039;s methodology provides the only reliable compass we have.</p>
+<h2>The Architecture of Inclusion</h2>
+<p>Silver begins by defining the boundaries of his data, a crucial step often glossed over in public discourse. &quot;Our general aim is for inclusivity,&quot; he writes, &quot;We seek to include all professionally-conducted surveys.&quot; This commitment to breadth is immediately tempered by a commitment to quality control. He explicitly excludes polls that blend data using methods like multilevel regression and post-stratification (MRP) or those that rely on online hobbyist platforms, noting that &quot;DIY polls commissioned by nonprofessional hobbyists on online platforms such as Google Surveys&quot; are becoming &quot;increasingly common.&quot;</p>
+<figure class="inline-illustration">
+    <img src="../../images/89a37857-b223-4ec5-b283-7fff9199a952.webp" alt="How silver bulletin calculates our polling averages" loading="lazy" width="600" height="315">
+  </figure>
+
+<p>This distinction is vital. By filtering out unverified data, Silver ensures the average reflects professional standards rather than the whims of internet algorithms. However, this inclusivity has limits. He draws a hard line at polls that lead respondents with biased information, stating, &quot;If, for instance, a poll says &#039;Republicans hate puppies. Who do you plan to support: Republicans or Democrats?&#039; we won&#039;t include it.&quot; This simple example underscores a complex reality: the integrity of the average depends entirely on the integrity of the inputs.</p>
+<p>Critics might argue that excluding certain methodologies like MRP throws away valuable data, especially in states with sparse polling. Yet, Silver&#039;s defense is empirical: without professional oversight, the signal-to-noise ratio collapses. The choice to prioritize transparency over sheer volume is a calculated risk that pays off in reliability.</p>
+<blockquote>If you smooth too much, however, the curve may be aesthetically pleasing but won&#039;t do all that good a job of describing the data and may be slow to catch up to new trends.</blockquote>
+<h2>The Mathematics of Trust</h2>
+<p>The core of Silver&#039;s argument lies in how he weights these diverse inputs. He rejects the idea that a larger sample size automatically equals better data. &quot;The importance of sample size is determined empirically,&quot; he explains, noting that &quot;there are considerable diminishing returns from adding additional voters to the sample.&quot; This is a counterintuitive insight for many who equate &quot;more data&quot; with &quot;more truth.&quot; Instead, Silver prioritizes the pollster&#039;s historical accuracy and recency.</p>
+<p>He also addresses the problem of &quot;flooding the zone,&quot; where a single firm releases dozens of surveys to manipulate the narrative. &quot;If a pollster conducts a new survey every day or every week, it essentially &#039;maxes out&#039; the total weight assigned to the firm,&quot; Silver writes. This mechanism prevents any single entity from hijacking the average, a safeguard that is increasingly necessary as political actors weaponize polling data. The model uses local polynomial regression to balance stability with responsiveness, a delicate dance between smoothing out noise and catching real shifts.</p>
+<h2>Correcting for Bias</h2>
+<p>Perhaps the most sophisticated part of the methodology is the handling of &quot;house effects&quot;—the persistent bias of a specific polling firm. Silver describes an iterative process where the model adjusts for these biases until it finds a &quot;true north.&quot; &quot;Firms with higher pollster ratings have more influence on what our model considers to be &#039;true north&#039;,&quot; he notes. This creates a self-correcting system where high-quality pollsters anchor the average, while lower-quality ones are pulled toward the consensus.</p>
+<p>For partisan polls, the model applies a &quot;prior,&quot; assuming a slight bias toward the sponsoring party. &quot;More specifically, by a net of about 1.7 points,&quot; Silver details. This is a bold move: it admits that partisan polling is inherently skewed but refuses to discard it entirely. Instead, it quantifies the skew and adjusts for it. This approach acknowledges the messy reality of American politics without surrendering to cynicism.</p>
+<h2>State-Level Nuance</h2>
+<p>Moving beyond national averages, Silver introduces the concept of &quot;elasticity&quot; to explain how different states react to political shifts. He contrasts states like New Hampshire, with a high proportion of swing voters, against Mississippi, where the electorate is deeply polarized. &quot;States with more of these voters have higher elasticity,&quot; he writes, meaning small shifts in the national mood can cause dramatic swings in state-level results.</p>
+<p>This granular approach is essential for understanding the mechanics of the generic congressional ballot. By weighting recent election results and legislative trends, the model creates a dynamic benchmark for each state. It&#039;s a reminder that the American electorate is not a monolith; it is a collection of distinct communities with unique political DNA.</p>
+<blockquote>If a voter is toward the tail end of the bell curve, i.e. with nearly a 100 percent chance of voting for the Republican or the Democrat, shifts in the political environment likely make little difference in their vote.</blockquote>
+<h2>Bottom Line</h2>
+<p>Silver&#039;s methodology is a triumph of statistical humility, admitting that no single poll tells the whole story but that a carefully weighted average can reveal the truth. Its greatest strength is its transparency, laying bare the assumptions and adjustments that underpin every number. The biggest vulnerability remains the human element: if the underlying data is fundamentally flawed or if political actors successfully game the system, even the most sophisticated model can only do so much. For now, however, this framework remains the gold standard for navigating the chaos of modern polling.</p>
+      </div>
+
+      
+      
+      
+
+      <section id="excerpt"><section class="source-excerpts">
+      <h2>Sources</h2>
+      <article class="source-excerpt">
+      <h3>How silver bulletin calculates our polling averages</h3>
+      <div class="source-meta">by Nate Silver &middot; <a href="../../publication/natesilver/index.html"></a> &middot; <a href="https://www.natesilver.net/p/silver-bulletin-polling-average-methodology" target="_blank" rel="noopener">Read full article</a></div>
+      <p>This is a quick explainer of the methods Silver Bulletin uses to calculate its continually updating polling averages: presidential approval ratings, the generic congressional ballot, and Elon Musk favorablity ratings. These polling averages are a direct descendant of methods that Nate designed for FiveThirtyEight.1 Our past methodology pages provide some additional context, though Disney/ABC will inevitably nuke what’s left of the FiveThirtyEight archive at some point.</p><p>There are some minor differences between our approval rating calculations and our generic ballot numbers, which we’ll explain throughout the text. There are also some differences between these “simple” polling averages and the methods we use to calculate our election forecasts, which include additional steps and leverage the larger volume of polling data available (such as the ability to infer information from both state and national polls). Our forecast for the 2026 midterms will launch mid-year. This page describes solely our continually-updating averages.</p><p>Which polls are included.</p> <p>Our general aim is for inclusivity. We seek to include all professionally-conducted surveys. If you don’t see a poll listed, it may be because it’s included under a different name — we list the name of the polling firm rather than the media sponsor (for example, Beacon Research/Shaw &amp; Co. rather than Fox News) — or because we haven’t gotten around to adding it. (Polling averages are typically updated ~6 times per week.) However, here are certain exceptions:</p><p>We don’t use polls banned by Silver Bulletin because we know or suspect that the pollster faked data.</p><p>We don’t use DIY polls commissioned by nonprofessional hobbyists on online platforms such as Google Surveys. These are becoming increasingly common. (Professional or campaign polls using these platforms are fine.)</p><p>We don’t use “polls” that blend or smooth their data using methods such as MRP.</p><p>We exclude polls that ask the voter who they support only after revealing leading information about the candidates. If, for instance, a poll says “Republicans hate puppies. Who do you plan to support: Republicans or Democrats?” we won’t include it.</p><p>Internal or campaign polls are included, provided they meet these other standards. For our approval rating averages, there is no distinction between partisan and nonpartisan polls. For the generic ballot, partisan polls are subject to different assumptions about “house effects” (see below). If ostensibly non-partisan pollsters have a history of producing polls for political campaigns or partisan organizations without disclosing these relationships, they may be automatically ...</p>
+      <footer class="source-bio" aria-label="About this source">
+      <p class="sb-heading">About this source</p>
+      <p class="sb-meta"><span class="sb-type">individual newsletter</span> &middot; <span class="sb-country">United States, New York</span> &middot; <span class="sb-funding">paid Substack subscriptions</span> &middot; <span class="sb-affiliations">Polymarket (advisor)</span> &middot; <span class="sb-leaning">Self-styled Bayesian centrist; contrarian toward progressive &#039;indigo blob&#039; media, bullish on prediction markets, allergic to activism-as-journalism.</span></p>
+      <p class="sb-audit">Last reviewed: <time datetime="2026-04-08">2026-04-08</time> &middot; <a href="https://www.natesilver.net/" target="_blank" rel="noopener">source</a></p>
+    </footer>
+    </article>
+    </section></section>
+      
+    </article>
+  
+  </main>
+  <footer class="site-footer">
+    <div class="container">
+      <p><a href="../../privacy/index.html">Privacy</a> &middot; <a href="../../terms/index.html">Terms</a></p>
+    </div>
+  </footer>
+  <script>
+  (function() {
+    var params = new URLSearchParams(window.location.search);
+    var from = params.get('from');
+    if (from) {
+      var names = {
+        'foreign-policy':'Foreign Policy','ai-tech':'AI & Tech','housing-cities':'Housing & Cities',
+        'political-strategy':'Political Strategy','history':'History','science':'Science',
+        'culture':'Culture','economics':'Economics','faith':'Faith','writing-craft':'Writing & Craft',
+        'music':'Music','law-rights':'Law & Rights','public-health':'Public Health',
+        'philosophy':'Philosophy','media':'Media','defense':'Defense','china':'China'
+      };
+      var link = document.getElementById('back-link');
+      if (link) {
+        var name = names[from] || from;
+        link.href = '../../tag/' + from + '/index.html';
+        link.textContent = '\u2190 Back to ' + name;
+      }
+    }
+  })();
+  </script>
+</body>
+</html>

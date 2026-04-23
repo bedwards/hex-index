@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Explore LLM word representations using similarity analysis - Hex Index</title>
+  <link rel="stylesheet" href="../../styles.css">
+</head>
+<body class="reading-mode">
+  <header class="reading-header">
+    <a href="../../index.html" class="back-link" id="back-link">&larr; Back to Library</a>
+  </header>
+  <main class="reading-content">
+    
+    <article class="article-page">
+      <header class="article-header">
+        <h1>Explore LLM word representations using similarity analysis</h1>
+        
+      <div class="article-meta">
+        <span class="author">Tivadar Danka</span>
+        <span class="separator">&middot;</span>
+        <a href="../../publication/thepalindrome/index.html" class="publication">
+          The Palindrome
+        </a>
+        <span class="separator">&middot;</span><time>Apr 22, 2026</time>
+        <span class="separator">&middot;</span><span class="read-time">13 min read</span>
+      </div>
+      </header>
+
+      <div class="content-label">
+        <span class="label-text">Commentary by <a href="../../about/index.html">Hex Index staff</a></span>
+        <nav class="content-nav">
+          
+          <a href="https://thepalindrome.org/p/explore-llm-word-representations" target="_blank" rel="noopener">Original article &rarr;</a>
+        </nav>
+      </div>
+
+      
+      <div class="article-content">
+        <p>Tivadar Danka dismantles a fundamental misconception in artificial intelligence: that we can directly compare the internal &quot;thoughts&quot; of different large language models by lining up their numbers. In this technical deep dive, Danka reveals that while two models might speak entirely different numerical dialects, they often arrive at the same semantic conclusions, a discovery that reframes how we understand machine intelligence and safety.</p>
+<h2>The Illusion of Direct Comparison</h2>
+<p>Danka begins by stripping away the romanticized view of how these systems process language. He writes, &quot;Language models do not process text; they process numbers.&quot; This is not merely a technical detail but a crucial distinction for anyone trying to interpret AI behavior. He explains that when a user prompts a chatbot, the text is converted into high-dimensional vectors—essentially coordinates in a space with thousands of dimensions. However, Danka warns that our human intuition fails here. &quot;The dimensions are not human-crafted, nor do they correspond to human-interpretable traits like size and friendliness,&quot; he notes. In fact, he is blunt about the opacity of these systems: &quot;humans cannot understand what the axes mean, because the axes don&#039;t mean anything in the sense of corresponding to physical characteristics of nature.&quot;</p>
+<figure class="inline-illustration">
+    <img src="../../images/8993b904-f239-4c5b-b394-a926c8ac8088.webp" alt="Explore LLM word representations using similarity analysis" loading="lazy" width="600" height="315">
+  </figure>
+
+<p>This framing is vital because it stops readers from trying to force a human narrative onto mathematical structures that don&#039;t support it. The author argues that because these vectors are initialized with random numbers and trained on vast, unstructured datasets, the specific values for a word like &quot;banana&quot; will be completely different in a BERT model versus a GPT-2 model. Danka demonstrates this by attempting a direct correlation between the two, only to find &quot;basically zero-valued correlations.&quot; The evidence is clear: if you try to compare the raw coordinates, the models look nothing alike.</p>
+<h2>The Power of Relational Structure</h2>
+<p>So, if the raw numbers don&#039;t match, how do we know if the models are thinking similarly? Danka introduces Representational Similarity Analysis (RSA), a technique borrowed from neuroscience to solve exactly this problem. Instead of comparing the coordinates directly, RSA compares the <em>relationships</em> between the coordinates. Danka explains the logic simply: &quot;Instead of correlating embeddings vectors directly between models, calculate similarities within models across embeddings, and then determine whether the patterns of across-embeddings similarities are similar.&quot;</p>
+<p>He uses a striking analogy to make this abstract concept concrete. Imagine taking a picture of the number &quot;7,&quot; then rotating that picture. If you compare the pixels of the original and the rotated image, the correlation is near zero. Yet, the information content is identical. Danka writes, &quot;The token pairs that have higher similarity in GPT-2&#039;s embeddings also have higher similarity in BERT&#039;s embeddings.&quot; This indicates that while the &quot;language&quot; of the vectors is different, the underlying map of meaning is shared. This is a profound insight for the field of AI safety; it suggests that different architectures may converge on similar semantic structures despite their divergent training paths.</p>
+<blockquote>The embeddings vector of &quot;banana&quot; might be very different between BERT and GPT-2, but the way that &quot;banana&quot; and &quot;apple&quot; relate to each other within each model might be similar.</blockquote>
+<p>Danka&#039;s choice to use cosine similarity for the internal comparisons and correlation for the cross-model analysis is technically precise. He notes that while the mean offsets of vectors matter within a single model, they can bias comparisons across models. By focusing on the <em>pattern</em> of similarities rather than the absolute values, RSA cuts through the noise of random initialization. This approach mirrors historical developments in the field, such as the evolution of Word2vec, where the focus shifted from isolated word definitions to the geometric relationships between words. Danka&#039;s application of RSA to modern transformers shows that this relational approach remains the gold standard for understanding distributed representations.</p>
+<h2>Robustness Across Architectures</h2>
+<p>One of the most compelling aspects of Danka&#039;s argument is the robustness of RSA across different model sizes. He points out that direct comparison fails when models have different embedding dimensions, such as comparing BERT-large (1024 dimensions) to GPT-2-XL (1600 dimensions). &quot;Directly comparing their embeddings will not be insightful,&quot; he admits, noting that standard correlation requires identical vector lengths. However, RSA bypasses this limitation entirely. Because it operates on the similarity matrices rather than the raw vectors, it can compare a model with 768 dimensions against one with 1600 without error.</p>
+<p>Critics might note that while RSA proves structural similarity, it does not explain <em>why</em> different models converge on these patterns or whether those patterns are truly robust across all semantic domains. The analysis relies on the assumption that the internal statistical structures are the primary carriers of meaning, which may overlook emergent behaviors that only appear at the surface level of text generation. Furthermore, Danka acknowledges that the embeddings spaces are not simply rotated versions of each other; they are distinct. This raises the question of whether the shared structure is a universal truth of language or merely a byproduct of training on similar internet-scale datasets.</p>
+<h2>Bottom Line</h2>
+<p>Tivadar Danka&#039;s analysis provides a necessary corrective to the tendency to treat large language models as monolithic, comparable entities. By proving that we must look at the relationships between data points rather than the points themselves, he offers a more accurate lens for evaluating AI alignment and safety. The strongest part of this argument is its demonstration that semantic convergence is real even when numerical divergence is absolute. The biggest vulnerability remains the interpretability gap: while we can measure that the structures are similar, we still cannot easily read the &quot;axes&quot; to understand what those structures actually represent to the machine.</p>
+      </div>
+
+      
+      
+      
+
+      
+      
+    </article>
+  
+  </main>
+  <footer class="site-footer">
+    <div class="container">
+      <p><a href="../../privacy/index.html">Privacy</a> &middot; <a href="../../terms/index.html">Terms</a></p>
+    </div>
+  </footer>
+  <script>
+  (function() {
+    var params = new URLSearchParams(window.location.search);
+    var from = params.get('from');
+    if (from) {
+      var names = {
+        'foreign-policy':'Foreign Policy','ai-tech':'AI & Tech','housing-cities':'Housing & Cities',
+        'political-strategy':'Political Strategy','history':'History','science':'Science',
+        'culture':'Culture','economics':'Economics','faith':'Faith','writing-craft':'Writing & Craft',
+        'music':'Music','law-rights':'Law & Rights','public-health':'Public Health',
+        'philosophy':'Philosophy','media':'Media','defense':'Defense','china':'China'
+      };
+      var link = document.getElementById('back-link');
+      if (link) {
+        var name = names[from] || from;
+        link.href = '../../tag/' + from + '/index.html';
+        link.textContent = '\u2190 Back to ' + name;
+      }
+    }
+  })();
+  </script>
+</body>
+</html>

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The cpu bottleneck in agentic AI and why server CPUs matter more than ever - Hex Index</title>
+  <link rel="stylesheet" href="../../styles.css">
+</head>
+<body class="reading-mode">
+  <header class="reading-header">
+    <a href="../../index.html" class="back-link" id="back-link">&larr; Back to Library</a>
+  </header>
+  <main class="reading-content">
+    
+    <article class="article-page">
+      <header class="article-header">
+        <h1>The cpu bottleneck in agentic AI and why server CPUs matter more than ever</h1>
+        
+      <div class="article-meta">
+        <span class="author">Vikram Sekar</span>
+        <span class="separator">&middot;</span>
+        <a href="../../publication/viksnewsletter/index.html" class="publication">
+          Vik&#039;s Newsletter
+        </a>
+        <span class="separator">&middot;</span><time>Feb 17, 2026</time>
+        <span class="separator">&middot;</span><span class="read-time">16 min read</span>
+      </div>
+      </header>
+
+      <div class="content-label">
+        <span class="label-text">Commentary by <a href="../../about/index.html">Hex Index staff</a></span>
+        <nav class="content-nav">
+          
+          <a href="https://www.viksnewsletter.com/p/the-cpu-bottleneck-in-agentic-ai" target="_blank" rel="noopener">Original article &rarr;</a>
+        </nav>
+      </div>
+
+      
+      <div class="article-content">
+        <p>For two years, the AI infrastructure narrative has been a one-sided love affair with graphics processing units, but a new analysis suggests that the very engines of the future are being held back by their silent partners. Vikram Sekar argues that while the world fixated on GPU training power, the rise of autonomous agents has exposed a critical, overlooked bottleneck in the central processing unit. This is not merely a hardware update; it is a fundamental shift in how we must architect the machines that will soon run our economies.</p>
+<h2>The Hidden Bottleneck</h2>
+<p>Sekar begins by dismantling the prevailing assumption that AI infrastructure is solely about raw matrix multiplication. &quot;For the better part of two years, CPUs have been an afterthought in AI infrastructure while GPUs got all the attention for training, and more recently inference,&quot; he writes. This framing is crucial because it corrects a massive blind spot in capital allocation and engineering strategy. The industry assumed the CPU was just a gatekeeper, a simple traffic cop for data. Sekar contends that this view is now obsolete.</p>
+<figure class="inline-illustration">
+    <img src="../../images/9a0b7412-ad9b-4107-8c2f-295944ad1633.webp" alt="The cpu bottleneck in agentic AI and why server CPUs matter more than ever" loading="lazy" width="600" height="315">
+  </figure>
+
+<p>The core of his argument rests on the distinction between a human asking a question and an autonomous agent executing a plan. In the old model, the CPU&#039;s job was limited: tokenize the input, hand it to the GPU, and wait. But in the era of agentic AI, the CPU becomes the conductor of a complex orchestra. &quot;Agentic AI systems chain together tool calls, API requests, memory lookups, orchestration logic, all of which is handled by the CPU while the GPU sits underutilized,&quot; Sekar observes. This is a striking reversal of fortune. The expensive, power-hungry GPU is now the idle passenger, while the CPU does the heavy lifting of decision-making and coordination.</p>
+<blockquote>In the new era of agents, CPU core count, tasks per core, and memory hierarchy/bandwidth determine GPU utilization, overall throughput and TCO.</blockquote>
+<p>This insight lands with significant force because it reframes the entire economics of data centers. If the CPU dictates the speed of the entire system, then simply buying more GPUs is a waste of money if the CPU cannot keep up. A counterargument worth considering is whether specialized accelerators could eventually offload these orchestration tasks, but Sekar&#039;s evidence suggests that for the foreseeable future, general-purpose processing remains the bottleneck.</p>
+<h2>The Sliding Scale of Reasoning and Action</h2>
+<p>Sekar provides a sophisticated mental model for understanding these shifts, moving beyond a binary &quot;CPU vs. GPU&quot; debate to a sliding scale of workloads. He distinguishes between &quot;reasoning-heavy&quot; tasks, where an agent spends time thinking and generating long chains of thought, and &quot;action-oriented&quot; tasks, where the agent spends time interacting with the outside world.</p>
+<p>For reasoning tasks, the priority is raw speed and memory bandwidth to keep the GPU fed with context. Sekar points to NVIDIA&#039;s upcoming Vera CPU as a prime example, noting its &quot;massive interconnect bandwidth to GPU, fast cores, and lots of DRAM&quot; make it uniquely suited for this role. However, he acknowledges the trade-off: &quot;Although the choice of Vera locks you into the NVIDIA ecosystem, and the ARM architecture makes tool compatibility questionable.&quot; This is a vital nuance; performance gains often come with the cost of vendor lock-in, a risk that enterprise architects must weigh carefully.</p>
+<blockquote>A Georgia Tech and Intel paper from November 2025 estimates that tool processing on CPUs accounts for anywhere between 50-90% of total latency in agentic workloads.</blockquote>
+<p>When the workload shifts to action—scraping websites, updating databases, making API calls—the CPU&#039;s role explodes in importance. Here, the focus moves to core count, cache size, and input/output speed. Sekar highlights AMD&#039;s upcoming Venice Dense CPU as a contender for this space, praising its &quot;256 Zen6c cores&quot; and broad x86 compatibility. The argument here is that different problems require different silicon, and a one-size-fits-all approach to server hardware is becoming a liability.</p>
+<p>Critics might argue that the rapid evolution of software could eventually abstract away these hardware differences, allowing a single chip type to handle both roles efficiently. Yet, the physical limits of memory latency and the sheer volume of parallel tool calls suggest that hardware specialization will remain a competitive advantage.</p>
+<h2>The Nine Metrics of Agentic Success</h2>
+<p>To make this abstract shift concrete, Sekar introduces a framework of nine specific metrics to evaluate server CPUs. He moves the conversation from marketing buzzwords to engineering realities. He emphasizes that &quot;per-core performance and clock speed&quot; are non-negotiable for monitoring tokens with minimal latency, while &quot;CPU memory bandwidth and capacity&quot; are essential for handling the massive context windows of modern agents.</p>
+<p>Perhaps the most overlooked metric he highlights is Non-Uniform Memory Access (NUMA) domains. As chips grow larger and are built from multiple &quot;chiplets,&quot; the time it takes for a core to access memory can vary depending on its physical location on the chip. &quot;Depending on the interconnect technology between chiplets and physical layout, each CPU can have a non-uniform access latency to memory,&quot; Sekar explains. This technical detail is often ignored in high-level strategy, yet it can cripple the performance of thousands of parallel agents if not managed correctly.</p>
+<blockquote>The workload characteristics for agents shifts the CPU-to-GPU ratio in a compute tray, rack or cluster, higher, to a point where we may need more CPUs than GPUs, significantly increasing CPU TAM.</blockquote>
+<p>This conclusion is the piece&#039;s most provocative claim. The Total Addressable Market (TAM) for CPUs is about to expand dramatically, potentially reversing the trend where GPUs were the primary cost driver. The fact that even major players like Intel were caught off guard by this demand, as noted in their recent earnings calls, underscores how early and how sudden this shift is.</p>
+<blockquote>Jensen hinted in a Bloomberg interview that &quot;there are going to be many more.&quot;</blockquote>
+<p>The reference to Jensen Huang, the CEO of NVIDIA, signaling a move toward standalone CPU platforms for agentic processing, serves as a powerful validation of Sekar&#039;s thesis. It suggests that the industry&#039;s leading innovator sees the same bottleneck that Sekar has identified.</p>
+<h2>Bottom Line</h2>
+<p>Sekar&#039;s analysis is a necessary correction to an industry that has been sleepwalking into a hardware mismatch. His strongest contribution is the clear distinction between reasoning and action workloads, proving that the &quot;best&quot; CPU depends entirely on the task at hand. The argument&#039;s greatest vulnerability lies in the speed of software adaptation; if orchestration layers become more efficient, the hardware bottleneck may shift again. However, for now, the evidence is overwhelming: the future of AI is not just about how fast a model can think, but how fast the machine can act.</p>
+      </div>
+
+      
+      
+      
+
+      
+      
+    </article>
+  
+  </main>
+  <footer class="site-footer">
+    <div class="container">
+      <p><a href="../../privacy/index.html">Privacy</a> &middot; <a href="../../terms/index.html">Terms</a></p>
+    </div>
+  </footer>
+  <script>
+  (function() {
+    var params = new URLSearchParams(window.location.search);
+    var from = params.get('from');
+    if (from) {
+      var names = {
+        'foreign-policy':'Foreign Policy','ai-tech':'AI & Tech','housing-cities':'Housing & Cities',
+        'political-strategy':'Political Strategy','history':'History','science':'Science',
+        'culture':'Culture','economics':'Economics','faith':'Faith','writing-craft':'Writing & Craft',
+        'music':'Music','law-rights':'Law & Rights','public-health':'Public Health',
+        'philosophy':'Philosophy','media':'Media','defense':'Defense','china':'China'
+      };
+      var link = document.getElementById('back-link');
+      if (link) {
+        var name = names[from] || from;
+        link.href = '../../tag/' + from + '/index.html';
+        link.textContent = '\u2190 Back to ' + name;
+      }
+    }
+  })();
+  </script>
+</body>
+</html>

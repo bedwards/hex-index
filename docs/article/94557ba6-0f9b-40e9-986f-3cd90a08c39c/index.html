@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>How to write high-performance code - Hex Index</title>
+  <link rel="stylesheet" href="../../styles.css">
+</head>
+<body class="reading-mode">
+  <header class="reading-header">
+    <a href="../../index.html" class="back-link" id="back-link">&larr; Back to Library</a>
+  </header>
+  <main class="reading-content">
+    
+    <article class="article-page">
+      <header class="article-header">
+        <h1>How to write high-performance code</h1>
+        
+      <div class="article-meta">
+        <span class="author">Alex Xu</span>
+        <span class="separator">&middot;</span>
+        <a href="../../publication/bytebytego/index.html" class="publication">
+          ByteByteGo Newsletter
+        </a>
+        <span class="separator">&middot;</span><time>Jan 28, 2026</time>
+        <span class="separator">&middot;</span><span class="read-time">14 min read</span>
+      </div>
+      </header>
+
+      <div class="content-label">
+        <span class="label-text">Commentary by <a href="../../about/index.html">Hex Index staff</a></span>
+        <nav class="content-nav">
+          
+          <a href="https://blog.bytebytego.com/p/how-to-write-high-performance-code" target="_blank" rel="noopener">Original article &rarr;</a>
+        </nav>
+      </div>
+
+      
+      <div class="article-content">
+        <p>Alex Xu challenges a deeply ingrained myth in software engineering: that high performance is the domain of geniuses tweaking assembly code. The piece&#039;s most striking claim is that the &quot;root of all evil&quot; quote by Donald Knuth is almost universally misunderstood, and that the real opportunity for speed lies not in micro-optimization, but in fundamental architectural intuition. For busy engineers shipping code daily, this reframing is vital because it shifts the focus from expensive, late-stage tuning to early, high-impact design choices.</p>
+<h2>The 3% That Matters</h2>
+<p>Xu dismantles the common excuse that performance tuning is too complex for the average developer. He writes, &quot;The truth is that writing reasonably fast code doesn&#039;t require advanced computer science knowledge or years of experience. It requires developing an intuition about where performance matters and learning some fundamental principles.&quot; This is a powerful assertion in an industry often paralyzed by imposter syndrome. By isolating the &quot;critical 3%&quot; of code that actually dictates system speed, Xu argues that developers can stop worrying about the 97% where efficiency is negligible.</p>
+<figure class="inline-illustration">
+    <img src="../../images/94557ba6-0f9b-40e9-986f-3cd90a08c39c.webp" alt="How to write high-performance code" loading="lazy" width="600" height="315">
+  </figure>
+
+<p>The author&#039;s approach to estimating performance is grounded in the physical reality of hardware, not abstract theory. He illustrates the staggering difference in speed tiers: &quot;CPU cache access, which happens in nanoseconds... is roughly 100 times faster than accessing main memory (RAM).&quot; He drives the point home with a concrete calculation: processing one million records via individual network calls could take 14 hours, whereas batching them into groups of 1,000 reduces that time to 50 seconds. This back-of-the-envelope math is the article&#039;s strongest tool, proving that architectural decisions outweigh code-level tweaks.</p>
+<blockquote>The fastest code is code that never runs.</blockquote>
+<p>Critics might argue that in modern cloud environments with auto-scaling, such granular efficiency matters less than developer velocity. However, Xu&#039;s logic holds up when considering the cumulative cost of latency at scale; a 50-millisecond delay per user compounds into thousands of wasted server-hours and frustrated customers.</p>
+<h2>Measure First, Optimize Second</h2>
+<p>A recurring theme in the piece is the danger of trusting human intuition. Xu notes, &quot;Our intuition about performance bottlenels is usually wrong. We might spend days optimizing a function we think is slow, only to discover through profiling that some completely different part of the code is the actual problem.&quot; This is a crucial corrective to the &quot;premature optimization&quot; mindset. The article advocates for a data-driven workflow where profiling tools, rather than hunches, dictate where effort is spent.</p>
+<p>He distinguishes between obvious bottlenecks and the more subtle &quot;flat profile,&quot; where no single function dominates the runtime. In these cases, Xu suggests looking for patterns across multiple functions or making structural changes higher up in the call chain. This nuanced advice moves beyond the standard &quot;find the slow function&quot; trope and addresses the reality of mature, complex codebases.</p>
+<h2>The Algorithmic and Memory Hierarchy</h2>
+<p>The core of Xu&#039;s argument rests on the idea that algorithmic efficiency dwarfs all other optimizations. He explains that converting a nested loop approach (O(N²)) to a hash table lookup (O(N)) can mean the difference between finishing in milliseconds or seconds. &quot;A better algorithm can provide a 10x or 100x speedup, dwarfing any micro-optimization we make,&quot; he writes. This is the most valuable takeaway for senior engineers who might be tempted to optimize syntax before structure.</p>
+<p>Equally important is the discussion on memory locality. Xu highlights that modern CPUs are so fast that the bottleneck is often fetching data from memory. &quot;When the CPU fetches data from memory, it doesn&#039;t fetch just one byte. It fetches an entire cache line, typically 64 bytes.&quot; He argues that storing related data contiguously in arrays is superior to scattered storage in linked lists, even if the latter has theoretical advantages for insertion. This physical constraint of hardware often overrides theoretical computer science preferences.</p>
+<h2>Eliminating Unnecessary Work</h2>
+<p>The final layer of Xu&#039;s strategy is about reduction. He emphasizes that &quot;creating fast paths for common cases is a powerful technique,&quot; noting that 80% of cases often follow a simple pattern. By optimizing for the common path and deferring complex logic, systems can achieve massive gains. He also champions lazy evaluation and bailing out early on validation checks to avoid expensive downstream processing.</p>
+<blockquote>The key point is that we should let data guide our optimization decisions.</blockquote>
+<p>While the advice is sound, a counterargument worth considering is the trade-off with code readability. Highly specialized, optimized paths can sometimes obscure the logic for future maintainers. Xu acknowledges the need for balance but prioritizes performance in critical sections, a stance that resonates with high-throughput systems but might feel aggressive for standard business applications.</p>
+<h2>Bottom Line</h2>
+<p>Alex Xu&#039;s piece succeeds by demystifying performance engineering, moving it from a black art to a set of practical, measurable principles. Its greatest strength is the emphasis on algorithmic choice and memory layout over syntax tweaks, while its only vulnerability is the potential complexity of implementing these changes in legacy codebases. For any developer looking to build systems that scale, the shift from &quot;optimizing later&quot; to &quot;estimating early&quot; is the single most important lesson here.</p>
+      </div>
+
+      
+      
+      
+
+      <section id="excerpt"><section class="source-excerpts">
+      <h2>Sources</h2>
+      <article class="source-excerpt">
+      <h3>How to write high-performance code</h3>
+      <div class="source-meta">by Alex Xu &middot; <a href="../../publication/bytebytego/index.html">ByteByteGo Newsletter</a> &middot; <a href="https://blog.bytebytego.com/p/how-to-write-high-performance-code" target="_blank" rel="noopener">Read full article</a></div>
+      <p> Kiss bugs goodbye with fully automated end-to-end test coverage (Sponsored).</p> <p>Bugs sneak out when less than 80% of user flows are tested before shipping. However, getting that kind of coverage (and staying there) is hard and pricey for any team.</p><p>QA Wolf’s AI-native service provides high-volume, high-speed test coverage for web and mobile apps, reducing your organization’s QA cycle to less than 15 minutes.</p><p>They can get you:</p><p>80% automated E2E test coverage in weeks</p><p>Unlimited parallel test runs</p><p>24-hour maintenance and on-demand test creation</p><p>Zero flakes, guaranteed</p><p>Engineering teams move faster, releases stay on track, and testing happens automatically—so developers can focus on building, not debugging.</p><p>Drata’s team of 80+ engineers achieved 4x more test cases and 86% faster QA cycles.</p><p>⭐ Rated 4.8/5 on G2.</p><p>We’ve all been there. Our code works perfectly, passes all tests, and does exactly what it’s supposed to do. Then we deploy it to production and realize it takes 10 seconds to load a page when users expect instant results. Or worse, it works fine with test data but crawls to a halt with real-world volumes.</p><p>The common reaction is to think about optimizing later, or leaving performance tuning for experts. Both assumptions are wrong. The truth is that writing reasonably fast code doesn’t require advanced computer science knowledge or years of experience. It requires developing an intuition about where performance matters and learning some fundamental principles.</p><p>Many developers have heard the famous quote about premature optimization being “the root of all evil.” However, this quote from Donald Knuth is almost always taken out of context. The full statement reads: “We should forget about small efficiencies, say about 97% of the time: premature optimization is the root of all evil. Yet we should not pass up our opportunities in that critical 3%”.</p><p>This article is about that critical 3%, where we’ll explore how to estimate performance impact, when to measure, what to look for, and practical techniques that work across different programming languages.</p><p>Learning to Estimate.</p> <p>One of the most valuable skills in performance-aware development is the ability to estimate rough performance costs before writing code. We don’t need precise measurements at this stage, but we just need to understand orders of magnitude.</p><p>Think of computer operations as existing in different speed tiers. At the fastest tier, we have CPU cache access, which happens in nanoseconds. These are operations where the data is ...</p>
+      <footer class="source-bio" aria-label="About this source">
+      <p class="sb-heading">About this source</p>
+      <p class="sb-meta"><span class="sb-type">independent newsletter</span> &middot; <span class="sb-country">United States</span> &middot; <span class="sb-funding">paid subscriptions, book sales, course sales</span> &middot; <span class="sb-leaning">Apolitical FAANG-interview systems-design explainer; technocratic-pragmatic with no discernible political agenda.</span></p>
+      <p class="sb-audit">Last reviewed: <time datetime="2026-04-08">2026-04-08</time> &middot; <a href="https://bytebytego.com/" target="_blank" rel="noopener">source</a></p>
+    </footer>
+    </article>
+    </section></section>
+      
+    </article>
+  
+  </main>
+  <footer class="site-footer">
+    <div class="container">
+      <p><a href="../../privacy/index.html">Privacy</a> &middot; <a href="../../terms/index.html">Terms</a></p>
+    </div>
+  </footer>
+  <script>
+  (function() {
+    var params = new URLSearchParams(window.location.search);
+    var from = params.get('from');
+    if (from) {
+      var names = {
+        'foreign-policy':'Foreign Policy','ai-tech':'AI & Tech','housing-cities':'Housing & Cities',
+        'political-strategy':'Political Strategy','history':'History','science':'Science',
+        'culture':'Culture','economics':'Economics','faith':'Faith','writing-craft':'Writing & Craft',
+        'music':'Music','law-rights':'Law & Rights','public-health':'Public Health',
+        'philosophy':'Philosophy','media':'Media','defense':'Defense','china':'China'
+      };
+      var link = document.getElementById('back-link');
+      if (link) {
+        var name = names[from] || from;
+        link.href = '../../tag/' + from + '/index.html';
+        link.textContent = '\u2190 Back to ' + name;
+      }
+    }
+  })();
+  </script>
+</body>
+</html>
