@@ -79,7 +79,26 @@
     
       
 
-      
+      <section id="excerpt"><section class="source-excerpts">
+      <h2>Sources</h2>
+      <article class="source-excerpt">
+      <h3>A visual guide to attention variants in modern llms</h3>
+      <div class="source-meta">by Sebastian Raschka &middot; <a href="../../publication/sebastianraschka/index.html">Ahead of AI</a> &middot; <a href="https://magazine.sebastianraschka.com/p/visual-attention-variants" target="_blank" rel="noopener">Read full article</a></div>
+      <p>Sebastian Raschka offers a rare, visual clarity in a field often obscured by dense mathematical notation, arguing that the evolution of large language models is less about reinventing the wheel and more about a pragmatic, incremental war on memory costs. He doesn&#039;t just list architectures; he maps a clear trajectory from the theoretical breakthroughs of 2017 to the engineering constraints of 2026, revealing that the &quot;best&quot; attention mechanism is entirely dependent on the scale of the model and the length of the context window.</p>
+<p>The Original Bottleneck.</p> 
+<p>Raschka begins by grounding the reader in the historical necessity of attention, reminding us that before the transformer, models struggled with a &quot;bottleneck&quot; where an encoder had to compress an entire sentence into a single hidden state. He writes, &quot;The limitation is that the hidden state can&#039;t store infinitely much information or context, and sometimes it would be useful to just refer back to the full input sequence.&quot; This is a crucial reminder that the transformer&#039;s dominance wasn&#039;t inevitable; it was a solution to a specific memory failure in recurrent neural networks. By letting the decoder &quot;revisit the full input sequence directly,&quot; attention broke the chain of dependency that slowed down earlier systems.</p>
+<p>The author&#039;s visual approach shines here, illustrating how the attention matrix allows a model to weigh the relevance of every previous token against the current one. He notes that &quot;self-attention is fundamentally about learning these token-to-token weight patterns, under a causal mask, and then using them to build context-aware token representations.&quot; This framing is effective because it demystifies the &quot;black box&quot; nature of AI, showing that the model is essentially learning a dynamic, weighted map of relationships rather than just predicting the next word in a vacuum.</p>
+Attention breaks the RNN bottleneck by letting the current output position revisit the full input sequence instead of relying on one compressed state alone.
+<p>However, while the original multi-head attention mechanism solved the context problem, it introduced a new one: massive memory usage during inference. As Raschka explains, the standard approach requires the model to store a separate key and value vector for every single head, which becomes unsustainable as models grow larger and context windows expand.</p>
+<p>The Pragmatic Shift to GQA.</p> 
+<p>The article&#039;s most practical insight lies in its analysis of Grouped-Query Attention (GQA), which Raschka frames not as a theoretical upgrade, but as a necessary compromise for deployment. He writes, &quot;Standard ...</p>
+      <footer class="source-bio" aria-label="About this source">
+      <p class="sb-heading">About this source</p>
+      <p class="sb-meta"><span class="sb-type">individual newsletter</span> &middot; <span class="sb-country">United States, Wisconsin</span> &middot; <span class="sb-funding">paid Substack subscriptions, books</span> &middot; <span class="sb-affiliations">Lightning AI (staff research engineer)</span> &middot; <span class="sb-leaning">Technical ML researcher focused on LLM internals and training; politically near-absent, culturally aligned with open-source ML practice.</span></p>
+      <p class="sb-audit">Last reviewed: <time datetime="2026-04-08">2026-04-08</time> &middot; <a href="https://magazine.sebastianraschka.com/" target="_blank" rel="noopener">source</a></p>
+    </footer>
+    </article>
+    </section></section>
       
     </article>
   

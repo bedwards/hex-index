@@ -78,7 +78,26 @@
     
       
 
-      
+      <section id="excerpt"><section class="source-excerpts">
+      <h2>Sources</h2>
+      <article class="source-excerpt">
+      <h3>Dissecting Nvidia blackwell - tensor cores, ptx instructions, sass, floorsweep, yield</h3>
+      <div class="source-meta">by Dylan Patel &middot; <a href="../../publication/semianalysis/index.html">SemiAnalysis</a> &middot; <a href="https://newsletter.semianalysis.com/p/dissecting-nvidia-blackwell-tensor" target="_blank" rel="noopener">Read full article</a></div>
+      <p>In a field where manufacturers guard their silicon secrets like state assets, Dylan Patel has done the impossible: he reverse-engineered the Blackwell GPU&#039;s internal logic without a single official whitepaper. By measuring raw instruction performance and mapping the physical layout of the chip&#039;s defects, Patel provides the first hard data on how this new architecture actually behaves under load, moving the industry from marketing slides to engineering reality.</p>
+<p>The Architecture of Defects.</p> 
+<p>Patel&#039;s most striking revelation is that the physical reality of the chip often contradicts the software&#039;s view of it. He writes, &quot;Manufacturing of semiconductors results in defects and those defects can land all over the chip. As such Nvidia has to engineer their chips in a way such that they can still have those yielded units still exposed to software in a relatively uniform way.&quot; This is a critical insight for anyone building infrastructure, as it means two chips with identical model numbers may have different physical layouts, leading to unpredictable performance if the software isn&#039;t robust.</p>
+<p>To solve this, the author details how engineers use &quot;floorsweeping&quot;—a technique where the software dynamically adjusts to which processing units are actually working. Patel notes that &quot;the number of yielded SMs per GPCs is not fixed, not the same between GPCs on the same chip, and may not even be symmetrical between dies in the same package.&quot; This complexity forces kernel developers to adopt fallback strategies, launching kernels with multiple cluster sizes to ensure no processing power is wasted. It is a sophisticated dance between hardware imperfection and software adaptability.</p>
+The logical groupings of SMs into GPCs tells us nothing about which GPC is on each of the two dies in the B200 package.
+<p>Patel&#039;s team went further, using pointer-chase arrays to measure latency between processing units, effectively creating a map of the chip&#039;s internal geography. They discovered a &quot;die-to-die latency penalty is roughly 300 cycles,&quot; a significant hurdle for workloads that require constant communication across the chip&#039;s dual-die structure. This finding is particularly relevant when considering the evolution of processor registers; just as historical register files had to balance speed and capacity, modern architects must now balance the speed of on-die communication against the physical limitations of multi-chip packaging.</p>
+<p>Memory Subsystem: The Battle for Bandwidth.</p> 
+<p>The article shifts to the memory subsystem, where the choice of data movement strategy can make or break an AI workload. Patel contrasts two primary ...</p>
+      <footer class="source-bio" aria-label="About this source">
+      <p class="sb-heading">About this source</p>
+      <p class="sb-meta"><span class="sb-type">independent research firm</span> &middot; <span class="sb-country">United States</span> &middot; <span class="sb-funding">paid subscriptions, enterprise research contracts</span> &middot; <span class="sb-leaning">Hawkish US-industrial-policy techno-nationalist on semiconductors; pro-export-controls on China, bullish on Western fab buildout and AI compute supremacy.</span></p>
+      <p class="sb-audit">Last reviewed: <time datetime="2026-04-08">2026-04-08</time> &middot; <a href="https://www.semianalysis.com/" target="_blank" rel="noopener">source</a></p>
+    </footer>
+    </article>
+    </section></section>
       
     </article>
   
