@@ -12,7 +12,7 @@ OLLAMA_URL="${OLLAMA_URL:-http://127.0.0.1:11434}"
 OLLAMA_MODEL="${OLLAMA_MODEL:-qwen3.5:122b-a10b-q8}"
 
 TIME_BUDGET=2700        # 45 minutes — starts at :15 after wiki-discover finishes
-SECS_PER_ITEM=65
+SECS_PER_ITEM=90         # ~1.5 min/article (conservative, includes content_path fallback)
 
 mkdir -p "$PROJECT_DIR/logs"
 cd "$PROJECT_DIR"
@@ -68,7 +68,7 @@ done
 step_done
 
 PENDING=$(docker compose exec -T postgres psql -U postgres -d hex-index -t -c "
-    SELECT COUNT(*) FROM app.articles WHERE full_content_path IS NOT NULL AND (rewritten_content_path IS NULL OR rewrite_dirty = true);
+    SELECT COUNT(*) FROM app.articles WHERE (full_content_path IS NOT NULL OR content_path IS NOT NULL) AND (rewritten_content_path IS NULL OR rewrite_dirty = true) AND consolidated_into IS NULL;
 " 2>/dev/null | tr -d ' ')
 LIMIT=$(( TIME_BUDGET / SECS_PER_ITEM ))
 [ "$LIMIT" -gt "${PENDING:-0}" ] && LIMIT="${PENDING:-0}"
