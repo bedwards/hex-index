@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>How transformers architecture powers modern llms - Hex Index</title>
+  <link rel="stylesheet" href="../../styles.css">
+</head>
+<body class="reading-mode">
+  <header class="reading-header">
+    <a href="../../index.html" class="back-link" id="back-link">&larr; Back to Library</a>
+  </header>
+  <main class="reading-content">
+    
+    <article class="article-page">
+      <header class="article-header">
+        <h1>How transformers architecture powers modern llms</h1>
+        
+      <div class="article-meta">
+        <span class="author">Alex Xu</span>
+        <span class="separator">&middot;</span>
+        <a href="../../publication/bytebytego/index.html" class="publication">
+          ByteByteGo Newsletter
+        </a>
+        <span class="separator">&middot;</span><time>Feb 2, 2026</time>
+        <span class="separator">&middot;</span><span class="read-time">10 min read</span>
+      </div>
+      </header>
+
+      <div class="content-label">
+        <span class="label-text">Commentary by <a href="../../about/index.html">Hex Index staff</a></span>
+        <nav class="content-nav">
+          <a href="#deep-dives">Deep dives</a><span class="separator">&middot;</span>
+          <a href="https://blog.bytebytego.com/p/how-transformers-architecture-powers" target="_blank" rel="noopener">Original article &rarr;</a>
+        </nav>
+      </div>
+
+      
+      <div class="article-content">
+        <p>Alex Xu cuts through the hype cycle with a rare, granular look at the mathematical machinery powering the AI revolution, arguing that the true bottleneck in 2026 won&#039;t be the model itself, but the &quot;context engines&quot; required to feed it. While the industry chases larger parameter counts, Xu&#039;s breakdown of the transformer architecture reveals that the real engineering challenge lies in how these systems manage memory, order, and probability at the token level.</p>
+<h2>The Architecture of Understanding</h2>
+<p>Xu begins by dismantling the common misconception that Large Language Models (LLMs) &quot;think&quot; like humans. &quot;While we naturally construct thoughts and convert them into words, LLMs operate through a cyclical conversion process,&quot; he writes. This distinction is crucial for anyone deploying these tools in production; it reminds us that we are dealing with sophisticated pattern-matching machines, not conscious entities. The article&#039;s strength lies in its refusal to treat the model as a black box, instead peeling back the layers to show the seven-step loop that repeats for every single word generated.</p>
+<figure class="inline-illustration">
+    <img src="../../images/c8dc4136-26fd-488b-9aad-6463321b21a4.webp" alt="How transformers architecture powers modern llms" loading="lazy" width="600" height="315">
+  </figure>
+
+<p>The journey starts with tokenization, a process often glossed over in high-level summaries. Xu explains that text is broken into &quot;fundamental units called tokens,&quot; which can be subwords or fragments rather than whole words. He illustrates this with the phrase &quot;I love transformers!&quot; which gets chopped into `[”I”, “ love”, “ transform”, “ers”, “!”]`. This is a vital detail for engineers, as it highlights that the model&#039;s vocabulary is a fixed set of 50,000 to 100,000 unique identifiers, not a fluid understanding of language.</p>
+<blockquote>&quot;Tokens 150 and 151 are not similar just because their numbers are close.&quot;</blockquote>
+<p>This observation underscores the arbitrary nature of the initial input layer. The model must then translate these cold integers into &quot;embeddings,&quot; or vectors of continuous numbers, to create a semantic space where related concepts cluster together. Xu notes that &quot;hundreds of dimensions allow the model to represent complex relationships without such contradictions,&quot; a necessary complexity to avoid the logical errors that would arise from a single-dimensional number line.</p>
+<h2>The Magic of Attention</h2>
+<p>The core of the transformer&#039;s power, and the article&#039;s most compelling section, is the attention mechanism. Xu describes this as a &quot;fuzzy dictionary lookup&quot; where the model compares what it is looking for against all possible answers. He walks the reader through a concrete example: determining what &quot;it&quot; refers to in the sentence &quot;The cat sat on the mat because it was comfortable.&quot;</p>
+<blockquote>&quot;The value from &#039;cat&#039; contributes 75 percent to the output, &#039;mat&#039; contributes 20 percent, and everything else is nearly ignored.&quot;</blockquote>
+<p>This weighted combination is what allows the model to resolve ambiguity, a feat that earlier architectures struggled to achieve. Xu points out that this isn&#039;t a one-step process; rather, &quot;each layer learns to detect different patterns,&quot; with early layers handling grammar and deeper layers extracting abstract meaning. This stacking of specialized layers is what enables the system to move from simple word pairs to coherent, context-aware narratives.</p>
+<p>However, a counterargument worth considering is that while attention mechanisms are powerful, they are computationally expensive. As Xu notes, &quot;Send too much [context] and latency and costs spike.&quot; This tension between depth of understanding and the cost of processing is the very reason the industry is pivoting toward context engines, a trend hinted at in the article&#039;s introduction but not fully explored in the technical deep dive.</p>
+<h2>The Illusion of Learning</h2>
+<p>One of the most clarifying distinctions Xu makes is between training and inference. He explains that during training, the model &quot;starts with random weights and gradually adjusts them&quot; over weeks of computation. But once deployed, &quot;weights are frozen.&quot;</p>
+<blockquote>&quot;The conversations do not update model weights. To teach the model new information, we would need to retrain it with new data.&quot;</blockquote>
+<p>This is a critical correction to the public narrative that LLMs &quot;learn&quot; from every conversation. In reality, they are static during inference, merely retrieving patterns learned during a massive, one-time training phase. This limitation explains why models can hallucinate or fail to incorporate very recent events without specific architectural interventions like retrieval-augmented generation.</p>
+<p>The generation process itself is described as an &quot;iterative generation loop,&quot; where the model predicts the next token, adds it to the input, and repeats. Xu highlights the randomness inherent in this process: &quot;The model does not select the highest probability token. Instead, it randomly samples from this distribution.&quot; This &quot;roulette wheel&quot; approach is what prevents robotic repetition, allowing for creative variance, though it also introduces the risk of inconsistency.</p>
+<blockquote>&quot;Each cycle processes all previous tokens. This is why generation can slow as responses lengthen.&quot;</blockquote>
+<p>This autoregressive nature creates a fundamental latency issue that scales with output length, reinforcing the article&#039;s opening thesis that context management is the next frontier.</p>
+<h2>Bottom Line</h2>
+<p>Xu&#039;s breakdown is a masterclass in demystifying the &quot;black box&quot; of modern AI, proving that the architecture&#039;s elegance lies in its mathematical rigor rather than any mystical intelligence. The strongest part of the argument is the clear delineation between the frozen weights of inference and the dynamic nature of training, a distinction that often gets lost in marketing speak. The biggest vulnerability, however, is the assumption that scaling these mechanisms will solve the context problem without addressing the exponential cost of processing ever-larger histories. As we move toward 2026, the winners won&#039;t just be those with the biggest models, but those who can most efficiently manage the data that feeds them.</p>
+      </div>
+
+      
+      
+      <section id="deep-dives" class="deep-dives">
+        <h2>Deep Dives</h2>
+        <p class="deep-dives-intro">Explore these related deep dives:</p>
+        <ul class="deep-dive-list">
+          
+      <li class="deep-dive-item">
+        <a href="../../wikipedia/large-language-model/index.html">
+          <strong>Large language model</strong>
+        </a>
+        <p class="topic-summary">The article discusses GPT, Claude, and Gemini as examples of LLMs</p>
+      </li>
+        </ul>
+      </section>
+    
+      
+
+      <section id="excerpt"><section class="source-excerpts">
+      <h2>Sources</h2>
+      <article class="source-excerpt">
+      <h3>How transformers architecture powers modern llms</h3>
+      <div class="source-meta">by Alex Xu &middot; <a href="../../publication/bytebytego/index.html">ByteByteGo Newsletter</a> &middot; <a href="https://blog.bytebytego.com/p/how-transformers-architecture-powers" target="_blank" rel="noopener">Read full article</a></div>
+      <p>Why context engines matter more than models in 2026 (Sponsored).</p> <p>One of the clearest AI predictions for 2026: models won’t be the bottleneck—context will. As AI agents pull from vector stores, session state, long-term memory, SQL, and more, finding the right data becomes the hard part. Miss critical context and responses fall apart. Send too much and latency and costs spike.</p><p>Context engines emerge as the fix. A single layer to store, index, and serve structured and unstructured data, across short- and long-term memory. The result: faster responses, lower costs, and AI apps that actually work in production.</p><p>When we interact with modern large language models like GPT, Claude, or Gemini, we are witnessing a process fundamentally different from how humans form sentences. While we naturally construct thoughts and convert them into words, LLMs operate through a cyclical conversion process.</p><p>Understanding this process reveals both the capabilities and limitations of these powerful systems.</p><p>At the heart of most modern LLMs lies an architecture called a transformer. Introduced in 2017, transformers are sequence prediction algorithms built from neural network layers. The architecture has three essential components:</p><p>An embedding layer that converts tokens into numerical representations.</p><p>Multiple transformer layers where computation happens.</p><p>Output layer that converts results back into text.</p><p>See the diagram below:</p><p>Transformers process all words simultaneously rather than one at a time, enabling them to learn from massive text datasets and capture complex word relationships.</p><p>In this article, we will look at how the transformer architecture works in a step-by-step manner.</p><p>Step 1: From Text to Tokens.</p> <p>Before any computation can happen, the model must convert text into a form it can work with. This begins with tokenization, where text gets broken down into fundamental units called tokens. These are not always complete words. They can be subwords, word fragments, or even individual characters.</p><p>Consider this example input: “I love transformers!” The tokenizer might break this into: [”I”, “ love”, “ transform”, “ers”, “!”]. Notice that “transformers” became two separate tokens. Each unique token in the vocabulary gets assigned a unique integer ID:</p><p>“I” might be token 150</p><p>“love” might be token 8942</p><p>“transform” might be token 3301</p><p>“ers” might be token 1847</p><p>“!” might be token 254</p><p>These IDs are arbitrary identifiers with no inherent relationships. Tokens 150 and 151 are not similar just because their numbers are close. The overall vocabulary typically contains 50,000 to 100,000 unique ...</p>
+      <footer class="source-bio" aria-label="About this source">
+      <p class="sb-heading">About this source</p>
+      <p class="sb-meta"><span class="sb-type">independent newsletter</span> &middot; <span class="sb-country">United States</span> &middot; <span class="sb-funding">paid subscriptions, book sales, course sales</span> &middot; <span class="sb-leaning">Apolitical FAANG-interview systems-design explainer; technocratic-pragmatic with no discernible political agenda.</span></p>
+      <p class="sb-audit">Last reviewed: <time datetime="2026-04-08">2026-04-08</time> &middot; <a href="https://bytebytego.com/" target="_blank" rel="noopener">source</a></p>
+    </footer>
+    </article>
+    </section></section>
+      
+    </article>
+  
+  </main>
+  <footer class="site-footer">
+    <div class="container">
+      <p><a href="../../privacy/index.html">Privacy</a> &middot; <a href="../../terms/index.html">Terms</a></p>
+    </div>
+  </footer>
+  <script>
+  (function() {
+    var params = new URLSearchParams(window.location.search);
+    var from = params.get('from');
+    if (from) {
+      var names = {
+        'foreign-policy':'Foreign Policy','ai-tech':'AI & Tech','housing-cities':'Housing & Cities',
+        'political-strategy':'Political Strategy','history':'History','science':'Science',
+        'culture':'Culture','economics':'Economics','faith':'Faith','writing-craft':'Writing & Craft',
+        'music':'Music','law-rights':'Law & Rights','public-health':'Public Health',
+        'philosophy':'Philosophy','media':'Media','defense':'Defense','china':'China'
+      };
+      var link = document.getElementById('back-link');
+      if (link) {
+        var name = names[from] || from;
+        link.href = '../../tag/' + from + '/index.html';
+        link.textContent = '\u2190 Back to ' + name;
+      }
+    }
+  })();
+  </script>
+</body>
+</html>
