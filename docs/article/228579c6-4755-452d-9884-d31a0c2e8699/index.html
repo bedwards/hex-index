@@ -116,7 +116,35 @@
       
       
 
-      
+      <section id="excerpt"><section class="source-excerpts">
+      <h2>Sources</h2>
+      <article class="source-excerpt">
+      <h3>Qwen3.5 quantization: Similar accuracy, more thinking — best models and recipes</h3>
+      <div class="source-meta">by Various &middot; <a href="../../publication/kaitchup/index.html">The Kaitchup</a> &middot; <a href="https://kaitchup.substack.com/p/qwen35-quantization-similar-accuracy" target="_blank" rel="noopener">Read full article</a></div>
+      <p>The conventional wisdom about running large language models on constrained hardware has always been simple: when you can't fit the big model, run the smaller one. The Kaitchup's latest technical deep dive suggests that wisdom is increasingly outdated — and that the real story of model quantization in 2025 is far more complicated than a neat size-versus-quality tradeoff.</p>
+
+<p>The piece works through an exhaustive set of benchmarks comparing Qwen3.5 models across four numerical precision formats — the full-precision BF16, the half-step FP8, the compressed INT4, and the cutting-edge NVFP4 — and arrives at findings that are simultaneously encouraging and cautionary. Quantization has matured dramatically, but it introduces failure modes that didn't exist when you were simply running a smaller model.</p>
+
+<p>The Promise: Bigger Model, Same Memory Footprint.</p> 
+
+<p>The core appeal of quantization is straightforward. Reducing the number of bits used to store each model weight shrinks the memory footprint, sometimes dramatically. The Kaitchup frames the value proposition this way: a 4-bit version of Qwen3.5 27B "can still be substantially stronger than Qwen3.5 9B while using nearly the same amount of memory." That's a meaningful claim. If accurate, it means practitioners running inference on a single high-end consumer GPU could access model quality that was previously out of reach without enterprise hardware.</p>
+
+<p>The family of models being discussed — Qwen3.5 — spans from 0.6 billion to 397 billion parameters, including both dense models and mixture-of-experts architectures. That breadth is itself notable. The piece observes that "there is nearly a model for every budget," which makes the quantization question feel almost academic. Why compress a 27-billion-parameter model when a 9-billion-parameter model already exists at roughly the same memory cost?</p>
+
+<p>The answer, the article argues, is that the compressed larger model is measurably smarter. The accuracy gap between a well-quantized 27B model and the native 9B model is real and consistent across benchmarks. Quantization, done carefully, isn't just compression — it's a path to punching above your hardware's weight class.</p>
+
+<p>The Catch: Quantization Makes Models Overthink.</p> 
+
+<p>Here is where the analysis turns genuinely surprising. The piece expected quantization to degrade accuracy by making models less capable. What it found instead is that quantization degrades accuracy by making models more verbose — specifically, more prone to extended reasoning chains that run into output length limits before producing an answer.</p>
+
+<p>The article reports: "The quantized models think more, which makes them much more likely to ...</p>
+      <footer class="source-bio" aria-label="About this source">
+      <p class="sb-heading">About this source</p>
+      <p class="sb-meta"><span class="sb-type">independent newsletter</span> &middot; <span class="sb-country">France</span> &middot; <span class="sb-funding">paid subscriptions (Substack)</span> &middot; <span class="sb-leaning">Technical LLM fine-tuning tutorials, apolitical.</span></p>
+      <p class="sb-audit">Last reviewed: <time datetime="2026-04-08">2026-04-08</time> &middot; <a href="https://kaitchup.substack.com/about" target="_blank" rel="noopener">source</a></p>
+    </footer>
+    </article>
+    </section></section>
       
     </article>
   
