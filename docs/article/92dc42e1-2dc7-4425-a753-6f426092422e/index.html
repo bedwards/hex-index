@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>A close look at sram for inference in the age of hbm supremacy - Hex Index</title>
+  <link rel="stylesheet" href="../../styles.css">
+</head>
+<body class="reading-mode">
+  <header class="reading-header">
+    <a href="../../index.html" class="back-link" id="back-link">&larr; Back to Library</a>
+  </header>
+  <main class="reading-content">
+    
+    <article class="article-page">
+      <header class="article-header">
+        <h1>A close look at sram for inference in the age of hbm supremacy</h1>
+        
+      <div class="article-meta">
+        <span class="author">Vikram Sekar</span>
+        <span class="separator">&middot;</span>
+        <a href="../../publication/viksnewsletter/index.html" class="publication">
+          Vik&#039;s Newsletter
+        </a>
+        <span class="separator">&middot;</span><time>Jan 11, 2026</time>
+        <span class="separator">&middot;</span><span class="read-time">18 min read</span>
+      </div>
+      </header>
+
+      <div class="content-label">
+        <span class="label-text">Commentary by <a href="../../about/index.html">Hex Index staff</a></span>
+        <nav class="content-nav">
+          
+          <a href="https://www.viksnewsletter.com/p/a-close-look-at-sram-for-inference" target="_blank" rel="noopener">Original article &rarr;</a>
+        </nav>
+      </div>
+
+      
+      <div class="article-content">
+        <p>In a semiconductor landscape often dominated by hype cycles, Vikram Sekar cuts through the noise with a rigorous, physics-first dissection of a recent rumor: that static RAM (SRAM) could replace high-bandwidth memory (HBM) for artificial intelligence. While social media buzzes with the idea that SRAM-based accelerators solve the industry&#039;s supply chain bottlenecks, Sekar argues that this enthusiasm ignores the fundamental laws of silicon density and thermodynamics. For leaders navigating the AI infrastructure boom, this piece offers a necessary reality check on why the industry&#039;s memory hierarchy is unlikely to be upended by a return to older technologies.</p>
+<h2>The Physics of the Trade-off</h2>
+<p>Sekar begins by dismantling the misconception that SRAM is a magical alternative to the current HBM standard. He notes that while SRAM offers &quot;blazing fast access speeds that feed data to a processor with absolute minimal latency,&quot; this performance comes at a steep price. The core of his argument rests on the structural difference between the two technologies. &quot;The amount of SRAM you can place in one square millimeter of chip area is 5-6 times lower than dynamic RAM (DRAM),&quot; he writes, a fact that becomes even more stark when considering HBM&#039;s ability to vertically stack chips. &quot;In effect, HBM easily has 80 times more capacity than SRAM.&quot;</p>
+<figure class="inline-illustration">
+    <img src="../../images/92dc42e1-2dc7-4425-a753-6f426092422e.webp" alt="A close look at sram for inference in the age of hbm supremacy" loading="lazy" width="600" height="315">
+  </figure>
+
+<p>This comparison is crucial because it shifts the debate from abstract speed to physical reality. Sekar explains that SRAM cells require six transistors to hold a single bit of data, whereas DRAM uses a much simpler one-transistor, one-capacitor design. This structural inefficiency means that every megabyte of SRAM added to a chip is a megabyte of compute logic that must be removed. As Sekar puts it, &quot;Every additional megabyte of SRAM comes at the expense of compute units, interconnect, or control logic, making its size a constant trade-off.&quot; This framing is effective because it forces the reader to visualize the silicon die not as an infinite canvas, but as a zero-sum game where memory and processing power are locked in a direct competition for space.</p>
+<p>Critics might argue that new packaging technologies could eventually overcome these density limits, but Sekar points out that even with advanced stacking, the gap remains insurmountable with current physics. He highlights that while AMD has experimented with 3D stacking for SRAM, &quot;there is no multi-stacked SRAM in production today, like DRAM is stacked 12-16 times to create HBM.&quot;</p>
+<h2>The Scaling Wall</h2>
+<p>The article&#039;s most technical and perhaps most damning section addresses the end of Moore&#039;s Law for memory. Sekar traces the history of transistor shrinking, noting that while early generations saw SRAM density double regularly, that era has ended. &quot;The days of SRAM density doubling every two years is well behind us,&quot; he states, pointing to data from TSMC and Intel showing that bit cell sizes have barely shrunk despite moving to newer process nodes like N3E and N2.</p>
+<p>He illustrates this stagnation with hard numbers: &quot;The best memory density we can get today is about 38 Mb/mm2 with SRAM.&quot; In contrast, modern HBM3e achieves roughly 200 Mb/mm2. This disparity isn&#039;t just a matter of incremental improvement; it represents a structural ceiling. Sekar argues that the industry has hit a wall where &quot;subthreshold leakage got worse with every smaller transistor generation,&quot; causing bit errors and power inefficiencies that prevent further scaling. While he mentions radical alternatives like magnetoresistive RAM (MRAM) or ferroelectric RAM (FeRAM) as potential future breakthroughs, he makes it clear that these are not immediate solutions to the current crisis.</p>
+<blockquote>The days of SRAM density doubling every two years are well behind us.</blockquote>
+<p>This analysis is vital for investors and engineers who might be betting on a rapid pivot to SRAM-heavy architectures. Sekar&#039;s evidence suggests that such a shift would not be a technological leap forward, but rather a step backward in terms of total system capacity. He notes that even if SRAM were used, the resulting systems would require &quot;a larger number of chips&quot; to handle the same models, placing a heavy burden on software orchestration. &quot;This places more responsibility on the compiler and runtime to efficiently partition and coordinate work across devices, and as a result becomes increasingly complex and inefficient to orchestrate,&quot; he warns.</p>
+<h2>Bandwidth vs. Capacity</h2>
+<p>The final piece of Sekar&#039;s argument addresses the one area where SRAM truly shines: bandwidth. He acknowledges that SRAM is indeed superior in this metric, citing the NVIDIA B200 as an example where on-chip SRAM cache provides &quot;~37.5 TB/s&quot; compared to the 8 TB/s provided by the HBM stacks. &quot;For any memory system, you can increase bandwidth by making the interface wider... or running it faster,&quot; he explains, noting that SRAM&#039;s on-chip proximity gives it a natural advantage.</p>
+<p>However, Sekar is careful to contextualize this advantage. High bandwidth is useless if the memory capacity is too small to hold the data being processed. He explains that modern large language models are so vast that they already require complex sharding strategies like tensor parallelism and pipeline parallelism just to fit into HBM. If these models were forced onto SRAM-based systems, the memory constraints would force an even more fragmented distribution across hardware. &quot;On SRAM-based accelerators, the same models would typically be distributed across a larger number of chips due to limitations in available memory per chip,&quot; he writes. This fragmentation introduces latency and coordination overhead that can negate the raw speed benefits of the SRAM itself.</p>
+<p>A counterargument worth considering is that for specific, smaller-scale inference tasks where the entire model fits on-chip, SRAM might offer a compelling power-efficiency profile. Sekar acknowledges this niche but implies it is insufficient to displace HBM as the backbone of general-purpose AI infrastructure. The administration and industry stakeholders looking to scale AI capabilities must recognize that bandwidth without capacity is a bottleneck in disguise.</p>
+<h2>Bottom Line</h2>
+<p>Vikram Sekar&#039;s analysis provides a grounded, physics-based rebuttal to the SRAM hype, successfully demonstrating that while SRAM is faster, it cannot replace HBM due to insurmountable density and scaling limitations. The strongest part of his argument is the clear visualization of the trade-off between memory capacity and compute logic, which effectively debunks the idea of a simple hardware swap. The biggest vulnerability in the SRAM narrative, as he exposes it, is the assumption that software can easily compensate for the massive increase in hardware complexity required to manage fragmented memory. For anyone watching the AI infrastructure race, the takeaway is clear: the industry will continue to rely on HBM not because of a lack of alternatives, but because the laws of physics leave no other viable path for scaling capacity.</p>
+      </div>
+
+      
+      
+      
+
+      <section id="excerpt"><section class="source-excerpts">
+      <h2>Sources</h2>
+      <article class="source-excerpt">
+      <h3>A close look at sram for inference in the age of hbm supremacy</h3>
+      <div class="source-meta">by Vikram Sekar &middot; <a href="../../publication/viksnewsletter/index.html">Vik&#039;s Newsletter</a> &middot; <a href="https://www.viksnewsletter.com/p/a-close-look-at-sram-for-inference" target="_blank" rel="noopener">Read full article</a></div>
+      <p>The recent news of static RAM (SRAM) based accelerators has led to a flurry of discussion about memory on social media. It is uniquely attractive because it avoids the use of high bandwidth memory (HBM) and chip-on-wafer-on-substrate (CoWoS) packaging, both of which are heavily supply constrained.</p><p>However, there is a lot of misunderstanding on what SRAM actually is, and how it differs from the incumbent HBM solution. There are also misguided fears that SRAM will affect demand for HBM in future AI accelerators. Even Jensen Huang got asked about SRAM vs. HBM. I made a quick clarification on X about some basic SRAM facts that can help people cut through the noise, which became my most viral post ever.</p><p>In this article, we will discuss the pros and cons of SRAM compared to HBM and provide objective perspectives on the role of each kind of memory for AI inference. We will compare SRAM and HBM across five categories: structure, scaling, capacity, bandwidth, and cost.</p><p>For this piece, I am joined by Subbu who writes the Chip Log publication on Substack. He is an expert in memory interfaces for AI accelerators, and works for d-Matrix building their next generation Raptor inference architecture. Subscribe to his Substack for deep insights into chip design from someone who has worked in semiconductors for two decades.</p><p>Here is a post outline:</p><p>SRAM Overview</p><p>Unit Cell Structure: 6T SRAM vs 1T1C DRAM</p><p>Process and Density Scaling</p><p>Capacity</p><p>Bandwidth Performance</p><p>SRAM Scaling Limits</p><p>For paid subscribers:</p><p>SRAM vs. HBM cost comparisons</p><p>If you would like to purchase an ebook version of this post, use the button below. Paid subscribers get the same downloadable epub for free, after the paywall.</p><p>Note: This article has been updated since it was originally published and corrections have been propagated to all sources, including downloadable digital content. Here is the published errata.</p><p>SRAM Overview.</p> <p>SRAM is a form of memory often found in processors that holds digital information without the need for constant refreshing. Once a 0 or 1 is written to an SRAM unit cell, it holds its state as long as power is available, unless intentionally changed.</p><p>The use of SRAM in computing is as old as computers themselves. They are most commonly used in registers and low level caches often referred to as L1-L3 (L1 is closest, L3 is farthest) depending on how close to the processor it is ...</p>
+      <footer class="source-bio" aria-label="About this source">
+      <p class="sb-heading">About this source</p>
+      <p class="sb-meta"><span class="sb-type">individual creator</span> &middot; <span class="sb-country">United States</span> &middot; <span class="sb-funding">paid subscriptions (Substack)</span> &middot; <span class="sb-leaning">Tech and product commentary, pro-market and pro-startup, politically centrist.</span></p>
+      <p class="sb-audit">Last reviewed: <time datetime="2026-04-08">2026-04-08</time> &middot; <a href="https://viksnewsletter.substack.com/about" target="_blank" rel="noopener">source</a></p>
+    </footer>
+    </article>
+    </section></section>
+      
+    </article>
+  
+  </main>
+  <footer class="site-footer">
+    <div class="container">
+      <p><a href="../../privacy/index.html">Privacy</a> &middot; <a href="../../terms/index.html">Terms</a></p>
+    </div>
+  </footer>
+  <script>
+  (function() {
+    var params = new URLSearchParams(window.location.search);
+    var from = params.get('from');
+    if (from) {
+      var names = {
+        'foreign-policy':'Foreign Policy','ai-tech':'AI & Tech','housing-cities':'Housing & Cities',
+        'political-strategy':'Political Strategy','history':'History','science':'Science',
+        'culture':'Culture','economics':'Economics','faith':'Faith','writing-craft':'Writing & Craft',
+        'music':'Music','law-rights':'Law & Rights','public-health':'Public Health',
+        'philosophy':'Philosophy','media':'Media','defense':'Defense','china':'China'
+      };
+      var link = document.getElementById('back-link');
+      if (link) {
+        var name = names[from] || from;
+        link.href = '../../tag/' + from + '/index.html';
+        link.textContent = '\u2190 Back to ' + name;
+      }
+    }
+  })();
+  </script>
+</body>
+</html>

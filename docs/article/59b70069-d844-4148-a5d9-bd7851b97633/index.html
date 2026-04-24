@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>A guide to LLM evals - Hex Index</title>
+  <link rel="stylesheet" href="../../styles.css">
+</head>
+<body class="reading-mode">
+  <header class="reading-header">
+    <a href="../../index.html" class="back-link" id="back-link">&larr; Back to Library</a>
+  </header>
+  <main class="reading-content">
+    
+    <article class="article-page">
+      <header class="article-header">
+        <h1>A guide to LLM evals</h1>
+        
+      <div class="article-meta">
+        <span class="author">Alex Xu</span>
+        <span class="separator">&middot;</span>
+        <a href="../../publication/bytebytego/index.html" class="publication">
+          ByteByteGo Newsletter
+        </a>
+        <span class="separator">&middot;</span><time>Jan 12, 2026</time>
+        <span class="separator">&middot;</span><span class="read-time">10 min read</span>
+      </div>
+      </header>
+
+      <div class="content-label">
+        <span class="label-text">Commentary by <a href="../../about/index.html">Hex Index staff</a></span>
+        <nav class="content-nav">
+          <a href="#deep-dives">Deep dives</a><span class="separator">&middot;</span>
+          <a href="https://blog.bytebytego.com/p/a-guide-to-llm-evals" target="_blank" rel="noopener">Original article &rarr;</a>
+        </nav>
+      </div>
+
+      
+      <div class="article-content">
+        <p>Alex Xu cuts through the hype of artificial intelligence by delivering a sobering reality check: we are deploying probabilistic systems as if they were deterministic machines, and our failure to measure them properly is a ticking time bomb for production software. While the industry chases the next model release, Xu argues that the real bottleneck is no longer capability, but the lack of a rigorous engineering discipline to verify what these models actually do.</p>
+<h2>The Illusion of Determinism</h2>
+<p>The piece&#039;s most striking move is dismantling the developer&#039;s instinct to apply traditional testing logic to language models. Xu writes, &quot;Unlike traditional software, where we can write unit tests that check for exact outputs, LLMs are probabilistic systems. Ask the same question twice, and the model might give different answers, both of which could be perfectly valid.&quot; This distinction is not merely academic; it is the fundamental reason why so many AI projects stall or fail in the wild. By treating a language model like a standard function that must return &quot;42&quot; for input &quot;X,&quot; engineers are setting themselves up for frustration.</p>
+<figure class="inline-illustration">
+    <img src="../../images/59b70069-d844-4148-a5d9-bd7851b97633.webp" alt="A guide to LLM evals" loading="lazy" width="600" height="315">
+  </figure>
+
+<p>Xu correctly identifies that the subjectivity of language breaks the binary pass/fail logic of conventional coding. &quot;What makes a response &#039;good&#039;? One response might be concise while another is comprehensive. Both could be appropriate depending on context,&quot; he notes. This observation forces a shift in mindset: we are no longer debugging code; we are managing variance. The argument gains historical weight when one considers the evolution of metrics like BLEU, which was originally designed in 2001 to evaluate machine translation by counting word overlap. As Xu points out, such rigid metrics fail to capture the nuance of modern generative tasks, where semantic meaning matters far more than exact string matching.</p>
+<blockquote>&quot;Without proper evaluation, we&#039;re essentially flying blind, unable to know whether our latest prompt change made things better or worse.&quot;</blockquote>
+<p>The author&#039;s framing of this &quot;blindness&quot; is particularly effective because it targets the ego of the engineering team. It suggests that shipping without evals isn&#039;t just risky; it&#039;s unprofessional. However, critics might note that Xu slightly underestimates the difficulty of defining &quot;good&quot; in high-stakes domains. While he acknowledges the cost of human evaluation, the sheer complexity of defining success criteria for safety-critical applications often exceeds the capacity of even the most rigorous engineering teams.</p>
+<h2>The Hierarchy of Truth</h2>
+<p>Xu structures the available evaluation methods into a clear hierarchy, moving from cheap and brittle to expensive and reliable. He describes automatic evaluations as a necessary first step for catching &quot;obvious failures&quot; and running regression tests, but he is quick to temper expectations. &quot;Automatic evaluations shine when we need to catch obvious failures... However, they can miss subtle issues that only human judgment would catch,&quot; he writes. This is a crucial distinction for busy leaders who might be tempted to rely solely on automated dashboards to gauge model health.</p>
+<p>The piece shines when discussing the role of the &quot;LLM-as-a-judge&quot; approach, where a more powerful model evaluates the output of a target model. Xu explains that this method &quot;can capture nuance that simpler metrics miss,&quot; yet he wisely warns that this introduces a new layer of complexity. It is a recursive problem: if the judge is flawed, the evaluation is flawed. This connects to the concept of inter-rater reliability, a statistical principle dating back to the early 20th century that measures how much different evaluators agree. If an automated judge and a human judge disagree frequently, the metric itself is suspect.</p>
+<p>The author&#039;s advice on human evaluation is pragmatic: &quot;Getting high-quality human ratings is expensive and time-consuming, but for many applications, it&#039;s the only way to truly validate performance.&quot; He positions this not as a luxury, but as a necessity for subjective tasks and safety-critical scenarios. The argument here is that you cannot automate your way out of the need for human judgment in the final analysis.</p>
+<h2>The Statistical Trap</h2>
+<p>Perhaps the most vital section for the &quot;smart, busy&quot; reader is the discussion on statistical considerations. Xu warns against the trap of testing on a single run. &quot;A single test run might not be representative. Sample size matters where testing on ten examples gives us much less confidence than testing on a thousand,&quot; he argues. This is a direct rebuke to the &quot;demo-itis&quot; that plagues the industry, where a single successful interaction is mistaken for robust performance.</p>
+<p>He also highlights the danger of data contamination, a pitfall where test examples overlap with the model&#039;s training data. &quot;This can make performance look better than it actually be on truly novel inputs,&quot; Xu writes. This is a sophisticated point that often gets overlooked in favor of flashy benchmark scores. It echoes the historical lesson of Goodhart&#039;s law: &quot;When a measure becomes a target, it ceases to be a good measure.&quot; If teams optimize their models specifically to pass a known benchmark, the score becomes meaningless as a predictor of real-world utility.</p>
+<blockquote>&quot;The best practice is to maintain a diverse, evolving eval suite that grows alongside our product.&quot;</blockquote>
+<p>Xu&#039;s call for an &quot;iteration cycle&quot; is the operational heart of the article. He urges teams to &quot;run evals, identify where the model fails, make improvements... and re-evaluate.&quot; This transforms evaluation from a gatekeeping event into a continuous feedback loop. The emphasis on versioning—tracking model versions, prompt versions, and dataset versions—is a standard software engineering practice that is surprisingly absent in many AI workflows.</p>
+<p>Critics might argue that the resource burden of maintaining such a rigorous system is prohibitive for smaller startups. While Xu suggests starting small with 50-100 examples, the infrastructure required to track and version these datasets at scale can be daunting. Nevertheless, the principle remains: a basic, consistent process is superior to a sophisticated one that never launches.</p>
+<h2>Bottom Line</h2>
+<p>Xu&#039;s strongest contribution is reframing evaluation not as a final checkpoint, but as the very engine of reliable AI development. The piece&#039;s greatest vulnerability is the assumption that organizations have the cultural discipline to prioritize &quot;boring&quot; evaluation work over the excitement of model deployment. The verdict is clear: if you cannot measure it, you cannot improve it, and in the age of probabilistic software, flying blind is no longer an option.</p>
+      </div>
+
+      
+      
+      <section id="deep-dives" class="deep-dives">
+        <h2>Deep Dives</h2>
+        <p class="deep-dives-intro">Explore these related deep dives:</p>
+        <ul class="deep-dive-list">
+          
+      <li class="deep-dive-item">
+        <a href="../../wikipedia/goodharts-law/index.html">
+          <strong>Goodhart&#039;s law</strong>
+        </a>
+        <p class="topic-summary">Directly relevant to LLM evaluation challenges - when models are optimized for benchmark metrics, those metrics cease to be good measures of actual capability. The article discusses how benchmark optimization can diverge from genuine performance.</p>
+      </li>
+
+      <li class="deep-dive-item">
+        <a href="../../wikipedia/inter-rater-reliability/index.html">
+          <strong>Inter-rater reliability</strong>
+        </a>
+        <p class="topic-summary">The article discusses human evaluation and preference ranking but doesn&#039;t explain the statistical foundations. Understanding how to measure agreement between human raters is essential for valid human evaluations of LLMs.</p>
+      </li>
+
+      <li class="deep-dive-item">
+        <a href="../../wikipedia/bleu/index.html">
+          <strong>BLEU</strong>
+        </a>
+        <p class="topic-summary">The article mentions BLEU as a text generation metric with &#039;known limitations&#039; but doesn&#039;t explain what it is or why it&#039;s problematic. Understanding this foundational NLP metric and its history provides valuable context for modern LLM evaluation.</p>
+      </li>
+        </ul>
+      </section>
+    
+      
+
+      <section id="excerpt"><section class="source-excerpts">
+      <h2>Sources</h2>
+      <article class="source-excerpt">
+      <h3>A guide to LLM evals</h3>
+      <div class="source-meta">by Alex Xu &middot; <a href="../../publication/bytebytego/index.html">ByteByteGo Newsletter</a> &middot; <a href="https://blog.bytebytego.com/p/a-guide-to-llm-evals" target="_blank" rel="noopener">Read full article</a></div>
+      <p>The Developer's Guide to MCP Auth (Sponsored).</p> <p>Securely authorizing access to an MCP server is complex. You need PKCE, scopes, consent flows, and a way to revoke access when needed.Learn from WorkOS how to implement OAuth 2.1 in a production-ready setup, with clear steps and examples.</p><p>Large Language Models (LLMs) have moved from research labs into production applications at a remarkable pace. Developers are using them for everything from customer support chatbots to code generation tools to content creation systems. However, this rapid adoption brings an important question: how do we know if our LLM is actually working well?</p><p>Unlike traditional software, where we can write unit tests that check for exact outputs, LLMs are probabilistic systems. Ask the same question twice, and the model might give different answers, both of which could be perfectly valid. This uncertainty makes evaluation challenging but absolutely necessary.</p><p>This is where “evals” come in. Short for evaluations, evals are the systematic methods we use to measure how well our LLM performs. Without proper evaluation, we’re essentially flying blind, unable to know whether our latest prompt change made things better or worse, whether our model is ready for production, or whether it’s handling edge cases correctly.</p><p>In this article, we’ll explore why LLM evaluation is challenging, the different types of evaluations available, key concepts to understand, and practical guidance on setting up an evaluation process.</p><p>The 2025 Data Streaming &amp; AI Report (Sponsored).</p> <p>AI is only as powerful as the data behind it — but most teams aren’t ready.</p><p>We surveyed 200 senior IT and data leaders to uncover how enterprises are really using streaming to power AI, and where the biggest gaps still exist.</p><p>Discover the biggest challenges in real-time data infrastructure, the top obstacles slowing down AI adoption, and what high-performing teams are doing differently in 2025.</p><p>Download the full report to see where your organisation stands.</p><p>Why LLM Evaluation Is Challenging.</p> <p>If we’re used to testing traditional software, LLM evaluation will feel different in fundamental ways. In conventional programming, we write a function that takes an input and produces a deterministic output. Testing is straightforward. Given input X, we expect output Y. If we get Y, the test passes. If not, it fails.</p><p>LLMs break this model in several ways.</p><p>First, there’s the subjective nature of language itself. What makes a response “good”? One response might be concise while another is comprehensive. ...</p>
+      <footer class="source-bio" aria-label="About this source">
+      <p class="sb-heading">About this source</p>
+      <p class="sb-meta"><span class="sb-type">independent newsletter</span> &middot; <span class="sb-country">United States</span> &middot; <span class="sb-funding">paid subscriptions, book sales, course sales</span> &middot; <span class="sb-leaning">Apolitical FAANG-interview systems-design explainer; technocratic-pragmatic with no discernible political agenda.</span></p>
+      <p class="sb-audit">Last reviewed: <time datetime="2026-04-08">2026-04-08</time> &middot; <a href="https://bytebytego.com/" target="_blank" rel="noopener">source</a></p>
+    </footer>
+    </article>
+    </section></section>
+      
+    </article>
+  
+  </main>
+  <footer class="site-footer">
+    <div class="container">
+      <p><a href="../../privacy/index.html">Privacy</a> &middot; <a href="../../terms/index.html">Terms</a></p>
+    </div>
+  </footer>
+  <script>
+  (function() {
+    var params = new URLSearchParams(window.location.search);
+    var from = params.get('from');
+    if (from) {
+      var names = {
+        'foreign-policy':'Foreign Policy','ai-tech':'AI & Tech','housing-cities':'Housing & Cities',
+        'political-strategy':'Political Strategy','history':'History','science':'Science',
+        'culture':'Culture','economics':'Economics','faith':'Faith','writing-craft':'Writing & Craft',
+        'music':'Music','law-rights':'Law & Rights','public-health':'Public Health',
+        'philosophy':'Philosophy','media':'Media','defense':'Defense','china':'China'
+      };
+      var link = document.getElementById('back-link');
+      if (link) {
+        var name = names[from] || from;
+        link.href = '../../tag/' + from + '/index.html';
+        link.textContent = '\u2190 Back to ' + name;
+      }
+    }
+  })();
+  </script>
+</body>
+</html>

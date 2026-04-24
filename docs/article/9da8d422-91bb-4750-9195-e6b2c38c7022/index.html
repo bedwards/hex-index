@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>How Google’s tensor processing unit (tpu) works? - Hex Index</title>
+  <link rel="stylesheet" href="../../styles.css">
+</head>
+<body class="reading-mode">
+  <header class="reading-header">
+    <a href="../../index.html" class="back-link" id="back-link">&larr; Back to Library</a>
+  </header>
+  <main class="reading-content">
+    
+    <article class="article-page">
+      <header class="article-header">
+        <h1>How Google’s tensor processing unit (tpu) works?</h1>
+        
+      <div class="article-meta">
+        <span class="author">Alex Xu</span>
+        <span class="separator">&middot;</span>
+        <a href="../../publication/bytebytego/index.html" class="publication">
+          ByteByteGo Newsletter
+        </a>
+        <span class="separator">&middot;</span><time>Jan 5, 2026</time>
+        <span class="separator">&middot;</span><span class="read-time">13 min read</span>
+      </div>
+      </header>
+
+      <div class="content-label">
+        <span class="label-text">Commentary by <a href="../../about/index.html">Hex Index staff</a></span>
+        <nav class="content-nav">
+          <a href="#deep-dives">Deep dives</a><span class="separator">&middot;</span>
+          <a href="https://blog.bytebytego.com/p/how-googles-tensor-processing-unit" target="_blank" rel="noopener">Original article &rarr;</a>
+        </nav>
+      </div>
+
+      
+      <div class="article-content">
+        <p>Alex Xu doesn&#039;t just explain a chip; he exposes a fundamental shift in how we compute, arguing that the path to artificial intelligence isn&#039;t about making general-purpose processors faster, but about building machines that do less with absolute precision. While the industry chased Moore&#039;s Law until it stalled, Google&#039;s engineering team realized that the bottleneck wasn&#039;t speed—it was the very architecture of modern computing itself. This piece is essential reading because it demystifies the hardware powering the current AI explosion, moving beyond marketing hype to reveal the physical constraints and radical trade-offs that make large language models possible.</p>
+<h2>The Architectural Bottleneck</h2>
+<p>Xu begins by dismantling the assumption that traditional computing is sufficient for modern AI. He notes that in 2013, Google&#039;s infrastructure team calculated that if Android users adopted voice search at anticipated scales, the company would need to double its entire global data center footprint just to handle the load. &quot;Building more data centers filled with traditional processors was economically unfeasible,&quot; Xu writes, highlighting a crisis that could not be solved by simply waiting for the next generation of Intel chips. The core of his argument rests on the limitations of the Von Neumann architecture, where a processor and memory communicate through a shared bus, creating a &quot;Von Neumann bottleneck&quot; where the energy cost of moving data often exceeds the cost of the computation itself.</p>
+<figure class="inline-illustration">
+    <img src="../../images/9da8d422-91bb-4750-9195-e6b2c38c7022.webp" alt="How Google’s tensor processing unit (tpu) works?" loading="lazy" width="600" height="315">
+  </figure>
+
+<p>To illustrate this, Xu uses a vivid analogy: &quot;Imagine a chef preparing a meal but having to walk to a distant pantry for each ingredient. The cooking takes seconds, but the walking consumes hours.&quot; This framing is effective because it translates a complex electrical engineering problem into a tangible human experience. The traditional CPU, designed for unpredictable tasks like web browsing, wastes immense energy fetching instructions. GPUs improved this by adding parallelism, but Xu argues they still carried the &quot;architectural overhead from their graphics heritage.&quot; Google&#039;s solution was a radical departure: building silicon that does only what neural networks need and stripping away everything else.</p>
+<h2>The Systolic Array: A Different Way to Compute</h2>
+<p>The heart of the TPU, according to Xu, is the systolic array, an architecture where data pulses rhythmically through a grid of calculators. He contrasts this with the CPU and GPU models: &quot;A CPU operates like a single worker running back and forth between a water well and a fire... A GPU deploys thousands of workers making the same trips simultaneously... A systolic array takes a fundamentally different approach. The workers form a line and pass buckets hand to hand.&quot; This design eliminates the need to constantly fetch data from memory, as weights remain stationary while input data flows through the array, being multiplied and accumulated at every step.</p>
+<p>The efficiency gains are staggering. Xu points out that the first-generation TPU could perform 92 trillion 8-bit operations per second while consuming just 40 watts, with &quot;more than 90 percent of the silicon performed useful computation, compared to roughly 30 percent in a GPU.&quot; This specialization comes with a trade-off: the chip cannot render graphics or run spreadsheets. However, Xu makes a compelling case that for neural networks, which rely overwhelmingly on matrix multiplication, this limitation is a feature, not a bug. Critics might argue that such extreme specialization creates vendor lock-in and reduces flexibility, but the sheer scale of AI workloads suggests the trade-off is necessary for economic viability.</p>
+<blockquote>Data moves only between spatially adjacent calculators over short wires, dramatically reducing energy consumption.</blockquote>
+<h2>Precision and the Evolution of Scale</h2>
+<p>A critical insight Xu offers is the role of quantization—using lower-precision numbers to save space and power. He explains that while scientific computing demands high precision, neural networks operate on probabilities where &quot;whether a model predicts an image is 85 percent likely to be a cat versus 85.3472 percent likely makes no practical difference to the classification.&quot; This mathematical reality allowed Google to shrink multiplier circuits significantly, packing 65,536 units onto a single chip. To address the need for training precision without the overhead of 32-bit floats, Google invented BFloat16, a format that prioritizes dynamic range over fine-grained precision.</p>
+<p>The evolution of the TPU family reflects the shifting demands of AI. Xu traces the journey from the secret v1, which powered the historic AlphaGo victory in 2016, to the massive supercomputers of today. He notes that the v1 chip, running at 700 MHz, delivered performance that was &quot;factors of 15 to 30 times in speed and 30 to 80 times in power efficiency&quot; compared to contemporary GPUs. As models grew, so did the hardware: the v2 introduced inter-chip interconnects to link 256 chips into a single accelerator, while the v4 utilized optical circuit switches to route light beams between fibers, allowing pods to scale to 4,096 chips. The latest Ironwood (v7) chip, launched in 2025, delivers 4,614 teraflops, specifically optimized for the inference-heavy era of AI deployment.</p>
+<h2>Bottom Line</h2>
+<p>Alex Xu&#039;s analysis succeeds by grounding high-level AI concepts in the physical realities of silicon and energy, proving that the revolution in language models is as much about hardware architecture as it is about algorithms. The strongest part of the argument is the clear demonstration that the &quot;Von Neumann bottleneck&quot; forced a complete rethinking of computer design, leading to the specialized systolic arrays that now power the world&#039;s largest models. The biggest vulnerability lies in the assumption that this level of specialization is sustainable for all future AI tasks, but for the current trajectory of deep learning, the evidence is undeniable: sometimes, doing less means achieving more.</p>
+      </div>
+
+      
+      
+      <section id="deep-dives" class="deep-dives">
+        <h2>Deep Dives</h2>
+        <p class="deep-dives-intro">Explore these related deep dives:</p>
+        <ul class="deep-dive-list">
+          
+      <li class="deep-dive-item">
+        <a href="../../wikipedia/systolic-array/index.html">
+          <strong>Systolic array</strong>
+        </a>
+        <p class="topic-summary">Central architecture of TPU explained in detail in the article. Readers likely know general computing but not this specialized parallel computing architecture invented in 1978 by H.T. Kung.</p>
+      </li>
+
+      <li class="deep-dive-item">
+        <a href="../../wikipedia/von-neumann-architecture/index.html">
+          <strong>Von Neumann architecture</strong>
+        </a>
+        <p class="topic-summary">Article contrasts TPU design against this fundamental computer architecture and explains the &#039;Von Neumann bottleneck&#039; as a key motivation for TPU development.</p>
+      </li>
+
+      <li class="deep-dive-item">
+        <a href="../../wikipedia/alphago-versus-lee-sedol/index.html">
+          <strong>AlphaGo versus Lee Sedol</strong>
+        </a>
+        <p class="topic-summary">Article opens with this historic 2016 match as the public debut moment for TPU technology. The match details and cultural significance provide rich context beyond the brief mention.</p>
+      </li>
+        </ul>
+      </section>
+    
+      
+
+      <section id="excerpt"><section class="source-excerpts">
+      <h2>Sources</h2>
+      <article class="source-excerpt">
+      <h3>How Google’s tensor processing unit (tpu) works?</h3>
+      <div class="source-meta">by Alex Xu &middot; <a href="../../publication/bytebytego/index.html">ByteByteGo Newsletter</a> &middot; <a href="https://blog.bytebytego.com/p/how-googles-tensor-processing-unit" target="_blank" rel="noopener">Read full article</a></div>
+      <p>4 Key Insights for Scaling LLM Applications (Sponsored).</p> <p>LLM workflows can be complex, opaque, and difficult to secure. Get the latest ebook from Datadog for practical strategies to monitor, troubleshoot, and protect your LLM applications in production. You’ll get key insights into how to overcome the challenges of deploying LLMs securely and at scale, from debugging multi-step workflows to detecting prompt injection attacks.</p><p>Disclaimer: The details in this post have been derived from the details shared online by the Google Engineering Team. All credit for the technical details goes to the Google Engineering Team.  The links to the original articles and sources are present in the references section at the end of the post. We’ve attempted to analyze the details and provide our input about them. If you find any inaccuracies or omissions, please leave a comment, and we will do our best to fix them</p><p>When DeepMind’s AlphaGo defeated Go world champion Lee Sedol in March 2016, the world witnessed a big moment in artificial intelligence. The match was powered by hardware Google had been running in production for over a year, but had never publicly acknowledged.</p><p>The Tensor Processing Unit, or TPU, represented something more profound than just another fast chip. It marked a fundamental shift in computing philosophy: sometimes doing less means achieving more.</p><p>Ever since then, Google’s TPU family has evolved through seven generations since 2015, scaling from single-chip processing image recognition queries to 9216-chip supercomputers training the largest language models in existence. In this article, we look at why Google built custom silicon, and how it works, revealing the physical constraints and engineering trade-offs they had to make.</p><p>The Need for TPU.</p> <p>In 2013, Google’s infrastructure team ran a calculation. If Android users adopted voice search at the scale Google anticipated, using it for just three minutes per day, the computational demand would require doubling the company’s entire global data center footprint.</p><p>This was a problem with no obvious solution at the time. Building more data centers filled with traditional processors was economically unfeasible. More critically, Moore’s Law has been slowing for years. For decades, the semiconductor industry had relied on the observation that transistor density doubles roughly every two years, delivering regular performance improvements without architectural changes. However, by 2013, this trend was weakening. Google couldn’t simply wait for Intel’s next generation of CPUs to solve its problem.</p><p>The root cause of this situation ...</p>
+      <footer class="source-bio" aria-label="About this source">
+      <p class="sb-heading">About this source</p>
+      <p class="sb-meta"><span class="sb-type">independent newsletter</span> &middot; <span class="sb-country">United States</span> &middot; <span class="sb-funding">paid subscriptions, book sales, course sales</span> &middot; <span class="sb-leaning">Apolitical FAANG-interview systems-design explainer; technocratic-pragmatic with no discernible political agenda.</span></p>
+      <p class="sb-audit">Last reviewed: <time datetime="2026-04-08">2026-04-08</time> &middot; <a href="https://bytebytego.com/" target="_blank" rel="noopener">source</a></p>
+    </footer>
+    </article>
+    </section></section>
+      
+    </article>
+  
+  </main>
+  <footer class="site-footer">
+    <div class="container">
+      <p><a href="../../privacy/index.html">Privacy</a> &middot; <a href="../../terms/index.html">Terms</a></p>
+    </div>
+  </footer>
+  <script>
+  (function() {
+    var params = new URLSearchParams(window.location.search);
+    var from = params.get('from');
+    if (from) {
+      var names = {
+        'foreign-policy':'Foreign Policy','ai-tech':'AI & Tech','housing-cities':'Housing & Cities',
+        'political-strategy':'Political Strategy','history':'History','science':'Science',
+        'culture':'Culture','economics':'Economics','faith':'Faith','writing-craft':'Writing & Craft',
+        'music':'Music','law-rights':'Law & Rights','public-health':'Public Health',
+        'philosophy':'Philosophy','media':'Media','defense':'Defense','china':'China'
+      };
+      var link = document.getElementById('back-link');
+      if (link) {
+        var name = names[from] || from;
+        link.href = '../../tag/' + from + '/index.html';
+        link.textContent = '\u2190 Back to ' + name;
+      }
+    }
+  })();
+  </script>
+</body>
+</html>

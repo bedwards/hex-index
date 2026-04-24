@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>OpenAI clip: The model that learnt zero-shot image recognition using text - Hex Index</title>
+  <link rel="stylesheet" href="../../styles.css">
+</head>
+<body class="reading-mode">
+  <header class="reading-header">
+    <a href="../../index.html" class="back-link" id="back-link">&larr; Back to Library</a>
+  </header>
+  <main class="reading-content">
+    
+    <article class="article-page">
+      <header class="article-header">
+        <h1>OpenAI clip: The model that learnt zero-shot image recognition using text</h1>
+        
+      <div class="article-meta">
+        <span class="author">Alex Xu</span>
+        <span class="separator">&middot;</span>
+        <a href="../../publication/bytebytego/index.html" class="publication">
+          ByteByteGo Newsletter
+        </a>
+        <span class="separator">&middot;</span><time>Dec 29, 2025</time>
+        <span class="separator">&middot;</span><span class="read-time">10 min read</span>
+      </div>
+      </header>
+
+      <div class="content-label">
+        <span class="label-text">Commentary by <a href="../../about/index.html">Hex Index staff</a></span>
+        <nav class="content-nav">
+          <a href="#deep-dives">Deep dives</a><span class="separator">&middot;</span>
+          <a href="https://blog.bytebytego.com/p/openai-clip-the-model-that-learnt" target="_blank" rel="noopener">Original article &rarr;</a>
+        </nav>
+      </div>
+
+      
+      <div class="article-content">
+        <p>Alex Xu doesn&#039;t just explain a technical breakthrough; he dismantles the decades-old assumption that machines need rigid, human-labeled data to see the world. While most coverage of computer vision focuses on incremental accuracy gains, Xu argues that the real revolution lies in a model that learns by reading the internet rather than staring at a spreadsheet. This piece is essential for anyone trying to understand why modern AI systems can suddenly recognize a &quot;golden retriever playing fetch&quot; without ever being explicitly taught what a dog is.</p>
+<h2>The Death of the Labeled Dataset</h2>
+<p>Xu frames the traditional approach to computer vision as a bottleneck of human labor and narrow specialization. He notes that &quot;ImageNet, one of the most famous image datasets, required over 25,000 workers to label 14 million images,&quot; a process that created models which were expensive to build and brittle in practice. The author&#039;s point is sharp: these models were essentially memorizing the quirks of their training data rather than understanding visual concepts. He illustrates this fragility by noting that a model achieving 76% accuracy on standard tests might &quot;plummet to 2.7% on slightly modified images.&quot;</p>
+<figure class="inline-illustration">
+    <img src="../../images/bad4b05e-7332-4206-9747-e4982eb89c14.webp" alt="OpenAI clip: The model that learnt zero-shot image recognition using text" loading="lazy" width="600" height="315">
+  </figure>
+
+<p>This critique of the old paradigm is well-founded. It echoes the historical limitations of the ImageNet era, where progress was gated by the speed of human annotation. Xu writes that &quot;CLIP&#039;s approach is radically different. Instead of training on carefully labeled datasets, it learns from 400 million image-text pairs collected from across the internet.&quot; By leveraging the natural descriptions people write for photos on social media and news sites, the model bypasses the need for a massive workforce. The implication is profound: the internet itself became the teacher. However, a counterargument worth considering is whether this reliance on uncurated web data simply scales up the biases inherent in online content, a risk Xu acknowledges but does not fully resolve.</p>
+<blockquote>&quot;CLIP must learn what objects, scenes, actions, and attributes look like and how they correspond to language.&quot;</blockquote>
+<h2>The Mechanics of Matching</h2>
+<p>The technical core of Xu&#039;s argument rests on the elegance of &quot;contrastive learning.&quot; He explains that the system doesn&#039;t try to generate captions word-by-word, which would be computationally prohibitive. Instead, it plays a massive matching game. &quot;Think of it as a massive matching game,&quot; Xu writes, describing how the model must identify the single correct text description among 32,768 options for a given image. This framing makes a complex mathematical process accessible to a non-expert audience.</p>
+<p>Xu highlights the efficiency gains from this design choice, noting that &quot;contrastive learning turned out to be 4 to 10 times more efficient for achieving good zero-shot performance.&quot; He also credits the adoption of Vision Transformers, which treated image patches like words, providing a &quot;3x computational efficiency gain over traditional convolutional neural networks.&quot; These specific technical choices explain why the model could be trained on 256 GPUs in just two weeks, a feat that would have been impossible with older architectures. The argument here is that the breakthrough wasn&#039;t just in the data, but in the architecture&#039;s ability to process that data efficiently.</p>
+<h2>Zero-Shot Flexibility and Real-World Impact</h2>
+<p>The most compelling part of Xu&#039;s coverage is the demonstration of &quot;zero-shot&quot; capabilities. He argues that once trained, the model requires no retraining to handle new tasks. &quot;You just change the text descriptions. No retraining required,&quot; he states. This transforms the model from a specialist into a generalist. Xu provides vivid examples, suggesting the model could analyze satellite imagery by simply asking for &quot;a satellite photo of a forest&quot; versus &quot;a satellite photo of a city.&quot;</p>
+<p>This flexibility is transformative for enterprise applications, allowing systems to adapt to new categories instantly. However, Xu is careful not to overhype the results. He admits the model &quot;struggles with some things, such as tasks requiring precise spatial reasoning or counting.&quot; He also notes that on the MNIST dataset of handwritten digits, a task considered trivial for humans, CLIP achieved only 88% accuracy. This honesty about limitations strengthens his overall credibility. It suggests that while the model is a powerful generalist, it is not yet a perfect replacement for specialized systems in high-stakes environments.</p>
+<blockquote>&quot;Modern text-to-image systems like Stable Diffusion and DALL-E use CLIP-like models to understand text prompts.&quot;</blockquote>
+<h2>Bottom Line</h2>
+<p>Xu&#039;s strongest contribution is reframing computer vision not as a problem of image processing, but as a problem of language understanding. The piece effectively argues that the future of AI lies in connecting modalities rather than siloing them. Its biggest vulnerability is the assumption that internet-scale data is always a net positive, given the potential for amplifying societal biases. Readers should watch how this &quot;zero-shot&quot; philosophy evolves as the industry moves toward more complex, multi-modal agents that must reason about the physical world, not just match text to pixels.</p>
+      </div>
+
+      
+      
+      <section id="deep-dives" class="deep-dives">
+        <h2>Deep Dives</h2>
+        <p class="deep-dives-intro">Explore these related deep dives:</p>
+        <ul class="deep-dive-list">
+          
+      <li class="deep-dive-item">
+        <a href="../../wikipedia/imagenet/index.html">
+          <strong>ImageNet</strong>
+        </a>
+        <p class="topic-summary">The article extensively discusses ImageNet as the traditional approach CLIP moved away from, mentioning its 25,000 workers labeling 14 million images and specific accuracy metrics (76% dropping to 37% on sketches). Understanding ImageNet&#039;s history, creation, and impact on computer vision provides crucial context for appreciating CLIP&#039;s innovation.</p>
+      </li>
+
+      <li class="deep-dive-item">
+        <a href="../../wikipedia/backpropagation/index.html">
+          <strong>Backpropagation</strong>
+        </a>
+        <p class="topic-summary">The article describes backpropagation as &#039;the fundamental learning mechanism in neural networks&#039; and explains how it enables CLIP&#039;s training. Most readers understand neural networks at a high level but don&#039;t know the mathematical details of how weights actually update during training.</p>
+      </li>
+
+      <li class="deep-dive-item">
+        <a href="../../wikipedia/embedding/index.html">
+          <strong>Embedding</strong>
+        </a>
+        <p class="topic-summary">Embeddings are central to CLIP&#039;s architecture - the article explains how both image and text encoders produce vectors in the same dimensional space for comparison. Understanding vector embeddings, their mathematical properties, and why they enable semantic similarity comparisons is foundational to grasping CLIP&#039;s innovation.</p>
+      </li>
+        </ul>
+      </section>
+    
+      
+
+      <section id="excerpt"><section class="source-excerpts">
+      <h2>Sources</h2>
+      <article class="source-excerpt">
+      <h3>OpenAI clip: The model that learnt zero-shot image recognition using text</h3>
+      <div class="source-meta">by Alex Xu &middot; <a href="../../publication/bytebytego/index.html">ByteByteGo Newsletter</a> &middot; <a href="https://blog.bytebytego.com/p/openai-clip-the-model-that-learnt" target="_blank" rel="noopener">Read full article</a></div>
+      <p>If Your API Isn’t Fresh, Your Agents Aren’t Either. (Sponsored).</p> <p>In the agentic era, outdated retrieval breaks workflows. This API Benchmark Report from You.com shows how each major search API performs to reveal which can best answer real-world, time-sensitive queries.</p><p>What’s inside:</p><p>Head-to-head benchmarks comparing You.com, Google SerpAPI, Exa, and Tavily across accuracy, latency, and cost</p><p>Critical performance data to identify which APIs best handle time-sensitive queries</p><p>A data-driven analysis of the Latency vs. Accuracy trade-off to help you select the best retrieval layer for enterprise agents</p><p>Curious who performed best? </p><p>Disclaimer: The details in this post have been derived from the details shared online by the OpenAI Engineering Team. All credit for the technical details goes to the OpenAI Engineering Team.  The links to the original articles and sources are present in the references section at the end of the post. We’ve attempted to analyze the details and provide our input about them. If you find any inaccuracies or omissions, please leave a comment, and we will do our best to fix them.</p><p>Imagine teaching a computer to recognize objects not by showing it millions of labeled photos, but by letting it browse the internet and learn from how people naturally describe images. That’s exactly what OpenAI’s CLIP does, and it represents a fundamental shift in how we teach machines to understand visual content.</p><p>CLIP (Contrastive Language-Image Pre-training) is a neural network that connects vision and language. Released in January 2021, it can classify images into any categories you want without being specifically trained for that task. Just tell it what you’re looking for in plain English, and it can recognize it. This “zero-shot” capability makes CLIP different from almost every computer vision system that came before it.</p><p>In this article, we will look at how CLIP works and the problems it tries to solve.</p><p>The Problem CLIP Solves.</p> <p>Traditional computer vision followed a rigid formula. If you want a model to distinguish cats from dogs, you need thousands of labeled photos. For different car models, you need another expensive dataset. For reference, ImageNet, one of the most famous image datasets, required over 25,000 workers to label 14 million images.</p><p>This approach created three major problems:</p><p>First, datasets were expensive and time-consuming to build.</p><p>Second, models became narrow specialists. An ImageNet model could recognize 1,000 categories, but adapting it to new tasks required collecting more data and retraining.</p><p>Third, ...</p>
+      <footer class="source-bio" aria-label="About this source">
+      <p class="sb-heading">About this source</p>
+      <p class="sb-meta"><span class="sb-type">independent newsletter</span> &middot; <span class="sb-country">United States</span> &middot; <span class="sb-funding">paid subscriptions, book sales, course sales</span> &middot; <span class="sb-leaning">Apolitical FAANG-interview systems-design explainer; technocratic-pragmatic with no discernible political agenda.</span></p>
+      <p class="sb-audit">Last reviewed: <time datetime="2026-04-08">2026-04-08</time> &middot; <a href="https://bytebytego.com/" target="_blank" rel="noopener">source</a></p>
+    </footer>
+    </article>
+    </section></section>
+      
+    </article>
+  
+  </main>
+  <footer class="site-footer">
+    <div class="container">
+      <p><a href="../../privacy/index.html">Privacy</a> &middot; <a href="../../terms/index.html">Terms</a></p>
+    </div>
+  </footer>
+  <script>
+  (function() {
+    var params = new URLSearchParams(window.location.search);
+    var from = params.get('from');
+    if (from) {
+      var names = {
+        'foreign-policy':'Foreign Policy','ai-tech':'AI & Tech','housing-cities':'Housing & Cities',
+        'political-strategy':'Political Strategy','history':'History','science':'Science',
+        'culture':'Culture','economics':'Economics','faith':'Faith','writing-craft':'Writing & Craft',
+        'music':'Music','law-rights':'Law & Rights','public-health':'Public Health',
+        'philosophy':'Philosophy','media':'Media','defense':'Defense','china':'China'
+      };
+      var link = document.getElementById('back-link');
+      if (link) {
+        var name = names[from] || from;
+        link.href = '../../tag/' + from + '/index.html';
+        link.textContent = '\u2190 Back to ' + name;
+      }
+    }
+  })();
+  </script>
+</body>
+</html>

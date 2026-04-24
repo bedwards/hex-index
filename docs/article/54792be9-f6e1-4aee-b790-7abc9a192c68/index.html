@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>How Uber serves over 150 million reads per second from integrated cache - Hex Index</title>
+  <link rel="stylesheet" href="../../styles.css">
+</head>
+<body class="reading-mode">
+  <header class="reading-header">
+    <a href="../../index.html" class="back-link" id="back-link">&larr; Back to Library</a>
+  </header>
+  <main class="reading-content">
+    
+    <article class="article-page">
+      <header class="article-header">
+        <h1>How Uber serves over 150 million reads per second from integrated cache</h1>
+        
+      <div class="article-meta">
+        <span class="author">Alex Xu</span>
+        <span class="separator">&middot;</span>
+        <a href="../../publication/bytebytego/index.html" class="publication">
+          ByteByteGo Newsletter
+        </a>
+        <span class="separator">&middot;</span><time>Jan 14, 2026</time>
+        <span class="separator">&middot;</span><span class="read-time">10 min read</span>
+      </div>
+      </header>
+
+      <div class="content-label">
+        <span class="label-text">Commentary by <a href="../../about/index.html">Hex Index staff</a></span>
+        <nav class="content-nav">
+          
+          <a href="https://blog.bytebytego.com/p/how-uber-serves-over-150-million" target="_blank" rel="noopener">Original article &rarr;</a>
+        </nav>
+      </div>
+
+      
+      <div class="article-content">
+        <p>In an era where engineering teams often spend more time debugging production fires than writing new code, Alex Xu offers a rare glimpse into a system that doesn&#039;t just scale, but scales with mathematical precision. The claim that Uber&#039;s architecture serves over 150 million database reads per second while maintaining strong consistency is not just a vanity metric; it is a masterclass in solving the fundamental paradox of distributed systems: how to be fast without being wrong.</p>
+<h2>The Illusion of Speed</h2>
+<p>Xu begins by grounding the technical discussion in a universal user expectation: &quot;When you open the Uber app to request a ride, check your trip history, or view driver details, you expect instant results.&quot; He correctly identifies that this seamlessness is not magic, but a deliberate architectural choice to bypass traditional database bottlenecks. The core of the argument rests on the distinction between milliseconds and microseconds. As Xu explains, &quot;Redis can serve data in microseconds compared to milliseconds for database queries.&quot; This speed differential is the only reason the platform can handle billions of daily requests without collapsing under its own weight.</p>
+<figure class="inline-illustration">
+    <img src="../../images/54792be9-f6e1-4aee-b790-7abc9a192c68.webp" alt="How Uber serves over 150 million reads per second from integrated cache" loading="lazy" width="600" height="315">
+  </figure>
+
+<p>However, the article&#039;s true value lies in its refusal to treat caching as a simple &quot;store and retrieve&quot; problem. Xu notes that &quot;traditional databases cannot keep up&quot; when millions of users interact simultaneously, necessitating a shift to an in-memory data store. The architecture described is a three-layered defense: a stateless Query Engine, a storage engine using MySQL, and the CacheFront logic that sits between them. This setup allows for a 99.9% cache hit rate, meaning the database is rarely touched. The brilliance here is the handling of partial misses; if a request asks for ten rows and seven are cached, the system only fetches the missing three. This granularity prevents the entire system from grinding to a halt over a single missing data point.</p>
+<h2>The Consistency Trap</h2>
+<p>The most compelling section of Xu&#039;s analysis addresses the inherent danger of caching: staleness. The author dismantles the common engineering assumption that a Time-To-Live (TTL) setting guarantees data freshness. He illustrates this with a chilling scenario: &quot;A row was written to the database one year ago and has not been accessed since... The cached entry now contains one-year-old data.&quot; Even if the TTL is set to one hour, the system could serve data that is actually a year out of date if an invalidation fails.</p>
+<p>This is a critical insight that many technical teams overlook. Xu writes, &quot;The TTL only controls how long the cache entry lives, not how old the data inside it can be.&quot; This distinction reframes the entire conversation around reliability. It suggests that relying solely on expiration timers is a gamble, not a strategy. The article details how Uber&#039;s initial solution, a system called Flux, used Change Data Capture to monitor database logs. While effective, it operated asynchronously, creating a window where a user&#039;s own update might not be immediately visible to them. This violation of &quot;read-your-own-writes&quot; consistency is unacceptable for a ride-sharing platform where destination updates are time-sensitive.</p>
+<blockquote>The staleness is not bounded by the TTL duration. Even though TTL is only 1 hour, the application may be serving data that&#039;s actually 1 year out of date.</blockquote>
+<p>Critics might argue that introducing synchronous checks adds latency, potentially slowing down the very system it aims to protect. Xu anticipates this, noting that the system allows for both synchronous and asynchronous invalidation paths, ensuring that a write request never fails due to cache issues. This preserves availability even when consistency mechanisms stumble.</p>
+<h2>The Triple Defense Strategy</h2>
+<p>The breakthrough described by Xu involves a fundamental shift in how the storage engine handles data. By converting hard deletes to soft deletes and implementing strictly monotonic timestamps, Uber made conditional updates trackable. This allowed the system to identify exactly which rows changed during a transaction. The result is a &quot;Triple Defense Strategy&quot; that Xu describes as the key to their success: TTL expiration, asynchronous binlog monitoring via Flux, and synchronous write-path invalidation.</p>
+<p>This multi-layered approach is robust because it assumes failure is inevitable. &quot;Having three independent systems working together proved far more effective than relying on any single approach,&quot; Xu observes. To validate this, the engineering team built a tool called Cache Inspector, which compares database logs against the cache with a one-minute delay to detect discrepancies. The results were striking: for tables with 24-hour TTLs, the system found &quot;essentially zero stale values over week-long periods.&quot; This empirical validation is what separates the article from a theoretical whitepaper; it proves that the theoretical consistency guarantees hold up under real-world pressure.</p>
+<h2>Bottom Line</h2>
+<p>Xu&#039;s analysis succeeds because it moves beyond the hype of &quot;microservices&quot; and &quot;cloud-native&quot; buzzwords to address the gritty reality of data integrity at scale. The strongest part of the argument is the deconstruction of the TTL myth, forcing engineers to rethink how they define data freshness. The biggest vulnerability, however, remains the inherent complexity of maintaining three parallel consistency mechanisms; the operational overhead of managing such a system is immense and likely out of reach for smaller organizations. For the busy leader, the takeaway is clear: speed is useless without a rigorous, multi-layered strategy to ensure that the fast data you serve is actually the right data.</p>
+      </div>
+
+      
+      
+      
+
+      <section id="excerpt"><section class="source-excerpts">
+      <h2>Sources</h2>
+      <article class="source-excerpt">
+      <h3>How Uber serves over 150 million reads per second from integrated cache</h3>
+      <div class="source-meta">by Alex Xu &middot; <a href="../../publication/bytebytego/index.html">ByteByteGo Newsletter</a> &middot; <a href="https://blog.bytebytego.com/p/how-uber-serves-over-150-million" target="_blank" rel="noopener">Read full article</a></div>
+      <p>How Coinbase made incident investigations 72% faster (Sponsored).</p> <p>Writing code is no longer the bottleneck. Instead, engineering orgs spend 70%+ of their time investigating incidents and trying to debug the sh** out of prod.</p><p>Engineering teams at Coinbase, DoorDash, Salesforce, and Zscaler use Resolve AI’s AI SRE to help resolve incidents before on-call is out of bed and to optimize costs, team time, and new code created with production context.</p><p>Download the free buyer’s guide to learn more about the ROI of AI SRE, or join our online FinServ fireside chat on Jan 22 with eng leaders at MSCI and SoFi to hear how large-scale institutions are evaluating and implementing AI for prod in 2026.</p><p>Disclaimer: The details in this post have been derived from the details shared online by the Uber Engineering Team. All credit for the technical details goes to the Uber Engineering Team.  The links to the original articles and sources are present in the references section at the end of the post. We’ve attempted to analyze the details and provide our input about them. If you find any inaccuracies or omissions, please leave a comment, and we will do our best to fix them.</p><p>When you open the Uber app to request a ride, check your trip history, or view driver details, you expect instant results. Behind that seamless experience lies a sophisticated caching system. Uber’s CacheFront serves over 150 million database reads per second while maintaining strong consistency guarantees.</p><p>In this article, we break down how Uber built this system, the challenges they faced, and the innovative solutions they developed.</p><p>Why Caching Matters.</p> <p>Every time a user interacts with Uber’s platform, the system needs to fetch data like user profiles, trip details, driver locations, and pricing information. Reading directly from a database for every request introduces latency and creates a massive load on database servers. When you have millions of users making billions of requests per day, traditional databases cannot keep up.</p><p>Caching solves this by storing frequently accessed data in a faster storage system. Instead of querying the database every time, the application first checks the cache. If the data exists there (a cache hit), it returns immediately. If not (a cache miss), the system queries the database and stores the result in cache for future requests.</p><p>See the diagram below:</p><p>Uber uses Redis, an in-memory data store, as their cache. Redis can serve ...</p>
+      <footer class="source-bio" aria-label="About this source">
+      <p class="sb-heading">About this source</p>
+      <p class="sb-meta"><span class="sb-type">independent newsletter</span> &middot; <span class="sb-country">United States</span> &middot; <span class="sb-funding">paid subscriptions, book sales, course sales</span> &middot; <span class="sb-leaning">Apolitical FAANG-interview systems-design explainer; technocratic-pragmatic with no discernible political agenda.</span></p>
+      <p class="sb-audit">Last reviewed: <time datetime="2026-04-08">2026-04-08</time> &middot; <a href="https://bytebytego.com/" target="_blank" rel="noopener">source</a></p>
+    </footer>
+    </article>
+    </section></section>
+      
+    </article>
+  
+  </main>
+  <footer class="site-footer">
+    <div class="container">
+      <p><a href="../../privacy/index.html">Privacy</a> &middot; <a href="../../terms/index.html">Terms</a></p>
+    </div>
+  </footer>
+  <script>
+  (function() {
+    var params = new URLSearchParams(window.location.search);
+    var from = params.get('from');
+    if (from) {
+      var names = {
+        'foreign-policy':'Foreign Policy','ai-tech':'AI & Tech','housing-cities':'Housing & Cities',
+        'political-strategy':'Political Strategy','history':'History','science':'Science',
+        'culture':'Culture','economics':'Economics','faith':'Faith','writing-craft':'Writing & Craft',
+        'music':'Music','law-rights':'Law & Rights','public-health':'Public Health',
+        'philosophy':'Philosophy','media':'Media','defense':'Defense','china':'China'
+      };
+      var link = document.getElementById('back-link');
+      if (link) {
+        var name = names[from] || from;
+        link.href = '../../tag/' + from + '/index.html';
+        link.textContent = '\u2190 Back to ' + name;
+      }
+    }
+  })();
+  </script>
+</body>
+</html>
