@@ -84,13 +84,16 @@ async function main(): Promise<void> {
       writeFileSync(COUNT_FILE, String(currentCount));
 
       // Check if there are changes to commit
-      const status = run('git status --porcelain docs/', 'Git status');
+      const status = run('git status --porcelain', 'Git status');
       if (!status.trim()) {
         console.info('  No changes to commit');
         return;
       }
 
-      run('git add docs/', 'Git add');
+      // Add docs/ AND any new library/ source files (issue #474 guard)
+      // The pre-commit hook requires library/ files to be staged with their docs/ counterparts
+      run('git add docs/', 'Git add docs');
+      run('git add library/rewritten/ library/wikipedia/', 'Git add library');
       run(`git commit -m "chore(static): regen for ${currentCount} ready (+${newArticles} new)"`, 'Git commit');
       run('git push', 'Git push');
       console.info(`  Pushed ${currentCount} ready articles to hex-index.com`);
