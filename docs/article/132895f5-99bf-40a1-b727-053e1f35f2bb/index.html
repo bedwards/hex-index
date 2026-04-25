@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>How Meta built a new ai-powered ads model for 5% better conversions - Hex Index</title>
+  <link rel="stylesheet" href="../../styles.css">
+</head>
+<body class="reading-mode">
+  <header class="reading-header">
+    <a href="../../index.html" class="back-link" id="back-link">&larr; Back to Library</a>
+  </header>
+  <main class="reading-content">
+    
+    <article class="article-page">
+      <header class="article-header">
+        <h1>How Meta built a new ai-powered ads model for 5% better conversions</h1>
+        
+      <div class="article-meta">
+        <span class="author">Alex Xu</span>
+        <span class="separator">&middot;</span>
+        <a href="../../publication/bytebytego/index.html" class="publication">
+          ByteByteGo Newsletter
+        </a>
+        <span class="separator">&middot;</span><time>Dec 17, 2025</time>
+        <span class="separator">&middot;</span><span class="read-time">11 min read</span>
+      </div>
+      </header>
+
+      <div class="content-label">
+        <span class="label-text">Commentary by <a href="../../about/index.html">Hex Index staff</a></span>
+        <nav class="content-nav">
+          <a href="#deep-dives">Deep dives</a><span class="separator">&middot;</span>
+          <a href="https://blog.bytebytego.com/p/how-meta-built-a-new-ai-powered-ads" target="_blank" rel="noopener">Original article &rarr;</a>
+        </nav>
+      </div>
+
+      
+      <div class="article-content">
+        <p>Most industry analysis treats a 5% lift in ad conversions as a marginal gain, but Alex Xu reframes this metric as a fundamental architectural revolution in how artificial intelligence scales recommendation systems. By dissecting Meta&#039;s Generative Ads Model (GEM), Xu reveals a paradox: the most powerful model ever built for this purpose is too heavy to run in real-time, forcing engineers to invent a &quot;teacher-student&quot; architecture that distills its intelligence into smaller, faster agents. This isn&#039;t just a case study in efficiency; it is a blueprint for how the industry will handle the next generation of massive foundation models without bankrupting the cloud.</p>
+<h2>The Scale Paradox</h2>
+<p>Xu&#039;s central thesis hinges on a counterintuitive engineering challenge. When Meta announced that GEM drove a 5% increase in ad conversions on Instagram and a 3% lift on Facebook Feed, the raw numbers seemed modest. However, Xu points out the reality of the situation: &quot;at Meta&#039;s scale, these percentages translate to billions of dollars in additional revenue and represent a fundamental shift in how AI-powered advertising works.&quot; The significance here is not the percentage, but the underlying shift from siloed, reactive models to a unified, predictive brain.</p>
+<figure class="inline-illustration">
+    <img src="../../images/132895f5-99bf-40a1-b727-053e1f35f2bb.webp" alt="How Meta built a new ai-powered ads model for 5% better conversions" loading="lazy" width="600" height="315">
+  </figure>
+
+<p>The core problem GEM solves is the fragmentation of user data. Traditional systems treated platforms like Instagram and Facebook as separate entities, missing cross-platform behavioral patterns. Xu argues that &quot;meaningful signals like clicks and conversions are extremely sparse compared to total impression volume,&quot; making it difficult for older models to learn effectively. By creating a system that processes &quot;trillions of potential ad impression opportunities&quot; with a holistic view, Meta has moved beyond the limitations of models that could only remember a user&#039;s last 10 to 20 actions. This echoes the historical pivot in deep learning from simple feed-forward networks to the Transformer architecture, which first allowed systems to weigh the importance of different parts of a sequence simultaneously rather than sequentially.</p>
+<blockquote>&quot;GEM is the largest foundation model ever built for recommendation systems. It has been trained at the scale typically reserved for large language models like GPT-4 or Claude.&quot;</blockquote>
+<p>This comparison to large language models (LLMs) is crucial. It signals that the era of specialized, narrow AI for ads is ending, replaced by generalist foundation models that understand context, nuance, and long-term intent. Critics might argue that applying LLM-scale compute to advertising is an over-engineered solution for a simple matching problem, but Xu&#039;s data suggests the complexity is necessary to capture the &quot;progression from casual interest to serious purchase intent that might develop over months.&quot;</p>
+<h2>The Teacher-Student Architecture</h2>
+<p>The most compelling part of Xu&#039;s analysis is the solution to the speed problem. A model as massive as GEM cannot make decisions in the &quot;tens of milliseconds&quot; required for a scrolling user. Xu explains that &quot;GEM is so powerful and computationally intensive that Meta can&#039;t actually use it directly to serve ads to users.&quot; Instead, the engineering team deployed a teacher-student architecture.</p>
+<p>In this setup, GEM acts as the &quot;master teacher&quot; that trains hundreds of smaller, faster Vertical Models (VMs). These VMs are specialized for specific contexts—like predicting clicks on Instagram Stories or conversions on the Facebook Feed. Xu details the transfer mechanism: &quot;Student models learn to replicate GEM&#039;s reasoning process, not just final predictions.&quot; This is a sophisticated application of knowledge distillation, a technique that has evolved significantly since its early days in the 2010s, where the goal was simply to compress a model. Here, the goal is to preserve the <em>reasoning</em> of the large model while shedding its computational weight.</p>
+<p>The efficiency gains are staggering. Xu notes that the system employs &quot;knowledge distillation with Student Adapter,&quot; &quot;representation learning,&quot; and &quot;parameter sharing&quot; to achieve &quot;twice the effectiveness of standard knowledge distillation alone.&quot; This creates a continuous improvement cycle where user interactions feed back into the data pipelines, GEM re-trains, and the intelligence flows back down to the VMs.</p>
+<blockquote>&quot;The continuous improvement cycle works like this: Users interact with fast VMs in real time... GEM periodically re-trains on this fresh data, updated knowledge transfers to VMs through the post-training techniques, and Improved VMs get deployed to production.&quot;</blockquote>
+<p>This feedback loop effectively turns the entire user base into a real-time training ground, allowing the system to adapt to shifting trends faster than any human team could. It represents a shift from static model deployment to dynamic, self-correcting intelligence.</p>
+<h2>Infrastructure as the Real Innovation</h2>
+<p>While the algorithmic architecture is impressive, Xu dedicates significant space to the infrastructure required to build it. Training GEM required Meta to &quot;rebuild its training infrastructure from the ground up,&quot; achieving a &quot;23x increase in effective training throughput while using 16x more GPUs.&quot; This is not merely a hardware upgrade; it is a systemic re-imagining of how massive parallel computing works.</p>
+<p>Xu highlights specific innovations like &quot;multi-dimensional parallelism&quot; and &quot;custom GPU kernels designed for variable-length user sequences.&quot; These technical details matter because they explain why this model is possible now and wasn&#039;t five years ago. The use of PyTorch 2.0 graph-level compilation and FP8 quantization allowed Meta to reduce memory footprints and communication bottlenecks.</p>
+<blockquote>&quot;These might seem like minor details, but when you&#039;re training models that cost millions of dollars in compute resources, every percentage point of efficiency improvement matters enormously.&quot;</blockquote>
+<p>This observation grounds the high-level AI concepts in the gritty reality of engineering economics. Without these infrastructure breakthroughs, the theoretical benefits of GEM would remain locked in a research lab, too expensive to deploy at scale. A counterargument worth considering is whether this level of optimization creates a barrier to entry so high that only a few tech giants can compete, potentially stifling innovation from smaller players who lack the capital to rebuild their training stacks from scratch.</p>
+<h2>The Future of Seamless Integration</h2>
+<p>Xu concludes by looking ahead to a future where the distinction between organic content and advertising dissolves. The roadmap includes &quot;true multimodal learning&quot; where the model processes text, images, and video simultaneously, and &quot;inference-time scaling&quot; to dynamically allocate resources. Perhaps most ambitiously, Meta envisions a &quot;unified engagement model that ranks both organic content and ads using the same underlying intelligence.&quot;</p>
+<blockquote>&quot;This would fundamentally change how advertising integrates into social feeds, potentially creating more seamless experiences where ads feel like natural content recommendations rather than interruptions.&quot;</blockquote>
+<p>This vision suggests a future where the friction of advertising disappears entirely, replaced by a hyper-personalized stream of content that happens to be monetized. While this sounds ideal for user experience, it raises profound questions about the nature of attention and the power of algorithms to shape behavior. If ads are indistinguishable from organic content, the user&#039;s ability to opt-out or maintain a critical distance diminishes.</p>
+<h2>Bottom Line</h2>
+<p>Alex Xu&#039;s analysis succeeds by moving beyond the hype of &quot;AI for ads&quot; to reveal the specific architectural and infrastructural breakthroughs that make it viable. The strongest part of the argument is the detailed explanation of the teacher-student architecture, which solves the critical tension between model intelligence and inference speed. The biggest vulnerability lies in the potential for this technology to create an insurmountable moat for the largest tech companies, leaving competitors unable to match the scale of data and compute required. Readers should watch for how this unified engagement model evolves, as it will likely redefine the boundary between content and commerce in the coming decade.</p>
+      </div>
+
+      
+      
+      <section id="deep-dives" class="deep-dives">
+        <h2>Deep Dives</h2>
+        <p class="deep-dives-intro">Explore these related deep dives:</p>
+        <ul class="deep-dive-list">
+          
+      <li class="deep-dive-item">
+        <a href="../../wikipedia/knowledge-distillation/index.html">
+          <strong>Knowledge distillation</strong>
+        </a>
+        <p class="topic-summary">The article describes GEM&#039;s &#039;teacher-student architecture&#039; where a large model trains smaller models - this is the formal ML technique called knowledge distillation, and understanding its origins and mechanics would give readers deeper insight into why Meta chose this approach</p>
+      </li>
+
+      <li class="deep-dive-item">
+        <a href="../../wikipedia/transformer-deep-learning/index.html">
+          <strong>Transformer (deep learning)</strong>
+        </a>
+        <p class="topic-summary">GEM&#039;s InterFormer component is built on transformer architecture with its interleaving attention layers. Understanding the foundational transformer concept helps readers grasp why this architecture enables processing long behavioral sequences efficiently</p>
+      </li>
+
+      <li class="deep-dive-item">
+        <a href="../../wikipedia/recommender-system/index.html">
+          <strong>Recommender system</strong>
+        </a>
+        <p class="topic-summary">The article states GEM is &#039;the largest foundation model ever built for recommendation systems&#039; - understanding the history and evolution of recommender systems from collaborative filtering to modern deep learning approaches provides essential context for appreciating GEM&#039;s significance</p>
+      </li>
+        </ul>
+      </section>
+    
+      
+
+      <section id="excerpt"><section class="source-excerpts">
+      <h2>Sources</h2>
+      <article class="source-excerpt">
+      <h3>How Meta built a new ai-powered ads model for 5% better conversions</h3>
+      <div class="source-meta">by Alex Xu &middot; <a href="../../publication/bytebytego/index.html">ByteByteGo Newsletter</a> &middot; <a href="https://blog.bytebytego.com/p/how-meta-built-a-new-ai-powered-ads" target="_blank" rel="noopener">Read full article</a></div>
+      <p>Cut Code Review Time &amp; Bugs in Half (Sponsored).</p> <p>Code reviews are critical but time-consuming. CodeRabbit acts as your AI co-pilot, providing instant Code review comments and potential impacts of every pull request.</p><p>Beyond just flagging issues, CodeRabbit provides one-click fix suggestions and lets you define custom code quality rules using AST Grep patterns, catching subtle issues that traditional static analysis tools might miss.</p><p>CodeRabbit has so far reviewed more than 10 million PRs, installed on 2 million repositories, and used by 100 thousand Open-source projects. CodeRabbit is free for all open-source repo’s.</p><p>Disclaimer: The details in this post have been derived from the details shared online by the Meta Engineering Team. All credit for the technical details goes to the Meta Engineering Team.  The links to the original articles and sources are present in the references section at the end of the post. We’ve attempted to analyze the details and provide our input about them. If you find any inaccuracies or omissions, please leave a comment, and we will do our best to fix them.</p><p>When Meta announced in Q2 2025 that its new Generative Ads Model (GEM) had driven a 5% increase in ad conversions on Instagram and a 3% increase on Facebook Feed, the numbers might have seemed modest.</p><p>However, at Meta’s scale, these percentages translate to billions of dollars in additional revenue and represent a fundamental shift in how AI-powered advertising works.</p><p>GEM is the largest foundation model ever built for recommendation systems. It has been trained at the scale typically reserved for large language models like GPT-4 or Claude. Yet here’s the paradox: GEM is so powerful and computationally intensive that Meta can’t actually use it directly to serve ads to users.</p><p>Instead, the company developed a teacher-student architecture that lets smaller, faster models benefit from GEM’s intelligence without inheriting its computational cost.</p><p>In this article, we look at how the Meta engineering team built GEM and the challenges they overcame.</p><p> Goodbye low test coverage and slow QA cycles (Sponsored).</p> <p>Bugs sneak out when less than 80% of user flows are tested before shipping. However, getting that kind of coverage (and staying there) is hard and pricey for any team.</p><p>QA Wolf’s AI-native solution provides high-volume, high-speed test coverage for web and mobile apps, reducing your organization’s QA cycle to minutes.</p><p>They can get you:</p><p>80% automated E2E test coverage in weeks—not years</p><p>Unlimited parallel ...</p>
+      <footer class="source-bio" aria-label="About this source">
+      <p class="sb-heading">About this source</p>
+      <p class="sb-meta"><span class="sb-type">independent newsletter</span> &middot; <span class="sb-country">United States</span> &middot; <span class="sb-funding">paid subscriptions, book sales, course sales</span> &middot; <span class="sb-leaning">Apolitical FAANG-interview systems-design explainer; technocratic-pragmatic with no discernible political agenda.</span></p>
+      <p class="sb-audit">Last reviewed: <time datetime="2026-04-08">2026-04-08</time> &middot; <a href="https://bytebytego.com/" target="_blank" rel="noopener">source</a></p>
+    </footer>
+    </article>
+    </section></section>
+      
+    </article>
+  
+  </main>
+  <footer class="site-footer">
+    <div class="container">
+      <p><a href="../../privacy/index.html">Privacy</a> &middot; <a href="../../terms/index.html">Terms</a></p>
+    </div>
+  </footer>
+  <script>
+  (function() {
+    var params = new URLSearchParams(window.location.search);
+    var from = params.get('from');
+    if (from) {
+      var names = {
+        'foreign-policy':'Foreign Policy','ai-tech':'AI & Tech','housing-cities':'Housing & Cities',
+        'political-strategy':'Political Strategy','history':'History','science':'Science',
+        'culture':'Culture','economics':'Economics','faith':'Faith','writing-craft':'Writing & Craft',
+        'music':'Music','law-rights':'Law & Rights','public-health':'Public Health',
+        'philosophy':'Philosophy','media':'Media','defense':'Defense','china':'China'
+      };
+      var link = document.getElementById('back-link');
+      if (link) {
+        var name = names[from] || from;
+        link.href = '../../tag/' + from + '/index.html';
+        link.textContent = '\u2190 Back to ' + name;
+      }
+    }
+  })();
+  </script>
+</body>
+</html>
