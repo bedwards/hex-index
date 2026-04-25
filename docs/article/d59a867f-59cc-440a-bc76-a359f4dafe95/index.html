@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>How d-Matrix&#039;s in-memory compute tackles AI inference economics - Hex Index</title>
+  <link rel="stylesheet" href="../../styles.css">
+</head>
+<body class="reading-mode">
+  <header class="reading-header">
+    <a href="../../index.html" class="back-link" id="back-link">&larr; Back to Library</a>
+  </header>
+  <main class="reading-content">
+    
+    <article class="article-page">
+      <header class="article-header">
+        <h1>How d-Matrix&#039;s in-memory compute tackles AI inference economics</h1>
+        
+      <div class="article-meta">
+        <span class="author">Vikram Sekar</span>
+        <span class="separator">&middot;</span>
+        <a href="../../publication/viksnewsletter/index.html" class="publication">
+          Vik&#039;s Newsletter
+        </a>
+        <span class="separator">&middot;</span><time>Dec 9, 2025</time>
+        <span class="separator">&middot;</span><span class="read-time">13 min read</span>
+      </div>
+      </header>
+
+      <div class="content-label">
+        <span class="label-text">Commentary by <a href="../../about/index.html">Hex Index staff</a></span>
+        <nav class="content-nav">
+          <a href="#deep-dives">Deep dives</a><span class="separator">&middot;</span>
+          <a href="https://www.viksnewsletter.com/p/d-matrix-in-memory-compute" target="_blank" rel="noopener">Original article &rarr;</a>
+        </nav>
+      </div>
+
+      
+      <div class="article-content">
+        <p>Vikram Sekar cuts through the hype of the current artificial intelligence boom by focusing on a single, stubborn bottleneck: the energy and cost of moving data. While the industry chases ever-larger models, Sekar argues that the next breakthrough won&#039;t come from bigger chips, but from a fundamental architectural shift that stops shuffling bits back and forth. This piece is notable because it doesn&#039;t just praise a new startup; it dissects a specific engineering pivot that challenges the dominance of the graphics processing unit (GPU) as the default engine for AI inference.</p>
+<h2>The Physics of the Problem</h2>
+<p>Sekar begins by grounding the discussion in the physical reality of computation. He explains that the standard GPU approach, while powerful, is inefficient because it treats memory and processing as separate entities. &quot;The process of AI training and inference involves a lot of matrix multiplications, followed by additions... These operations are called multiply-accumulate (MAC) operations,&quot; he writes. The core of his argument is that nature already offers a more efficient way to perform these calculations, a concept rooted in basic physics rather than complex logic gates.</p>
+<figure class="inline-illustration">
+    <img src="../../images/d59a867f-59cc-440a-bc76-a359f4dafe95.webp" alt="How d-Matrix&#039;s in-memory compute tackles AI inference economics" loading="lazy" width="600" height="315">
+  </figure>
+
+<p>He draws a direct line to the analog world, noting that &quot;the analog multiply operation stems from Ohm&#039;s law expressed in the current-voltage relation form: I=GV.&quot; This is a crucial framing choice. By invoking Ohm&#039;s law, Sekar reminds the reader that computing isn&#039;t just about software; it&#039;s about electricity. He points out that in an analog system, the entire matrix can be computed &quot;nearly instantaneously while consuming minimal power because there are no switching transistors.&quot; This is where the historical context of the memristor becomes relevant; the theoretical groundwork for these devices was laid decades ago, yet the industry only recently began to seriously revisit them as a solution to the &quot;memory wall.&quot;</p>
+<p>However, Sekar is careful not to present this as a magic bullet. He acknowledges the significant hurdles that have kept analog computing in the lab. &quot;The main reason this has not become the de-facto computing standard is because conductance (G) varies in the analog world. Noise, temperature, and variability all make current-based AIMC challenging.&quot; This nuance is vital. It prevents the commentary from devolving into techno-optimism and instead sets the stage for why d-Matrix&#039;s specific approach matters. They didn&#039;t stick with the pure analog route; they found a middle ground.</p>
+<blockquote>&quot;Going digital alleviates a lot of the &#039;variability&#039; problems that plagues analog approaches, while being able to scale with newer technologies.&quot;</blockquote>
+<h2>The Digital Compromise</h2>
+<p>The article&#039;s most compelling section details d-Matrix&#039;s decision to abandon their initial analog prototype, Nighthawk, in favor of a digital in-memory compute (DIMC) architecture. Sekar explains that the analog approach required placing analog-to-digital converters on every bitline, a design choice that proved too costly and complex. Instead, the company wove SRAM (static random-access memory) cells directly into the compute function.</p>
+<p>This is not merely a minor tweak; it is a reimagining of the chip&#039;s internal geography. Sekar notes that &quot;instead of allocating a portion of the chip to SRAM and a portion to compute, d-Matrix has finely-tuned digital in-memory compute (DIMC) cores consisting of MAC functions and SRAM that are designed to handle very specific numeric array sizes - 64 × 64 to be exact.&quot; The result is a system where data doesn&#039;t have to travel far to be processed. The author highlights the staggering performance gains: &quot;d-Matrix chips provide a memory bandwidth up to 150 TB/s; much faster than the best-HBM based implementations which only achieve about 2 TB/s per chip.&quot;</p>
+<p>Critics might note that SRAM is inherently expensive and low-density compared to the high-bandwidth memory (HBM) used in modern GPUs. Sekar anticipates this objection, arguing that the trade-off is worth it for specific workloads where latency is the primary constraint. He suggests that the industry is moving away from &quot;once-size-fits-all&quot; racks toward architectures fine-tuned for specific tasks. This is a persuasive argument for specialized hardware, echoing the shift from general-purpose CPUs to GPUs in the last decade.</p>
+<h2>Scaling the Solution</h2>
+<p>The final challenge addressed is capacity. A single chiplet with 256 megabytes of SRAM cannot hold a massive language model. Sekar details how d-Matrix solves this by connecting four chiplets together on a single substrate, creating a 1-gigabyte pool of ultra-fast memory. &quot;The die-to-die interconnect IP called &#039;DMX Link&#039; is a custom built in-house solution that achieves a total bandwidth of 1 TB/s,&quot; he writes. This modular approach allows the system to scale up to rack-level solutions without relying on the expensive and complex CoWoS packaging required for HBM.</p>
+<p>The author emphasizes the economic implications of this design. By using standard LPDDR memory for expansion and avoiding the premium interposers of competitors, d-Matrix claims a &quot;3× lower cost&quot; and &quot;3–5× better energy efficiency than GPU-based systems.&quot; Sekar frames this as a strategic advantage for enterprises and sovereign customers who need to run inference at scale without burning through their power budgets. He points out that the system can be configured in &quot;Performance or Capacity mode,&quot; allowing operators to balance speed against memory needs depending on whether they are in the prefill or decoding phase of a query.</p>
+<blockquote>&quot;Fine-tuned AI accelerator architectures are becoming increasingly important over &#039;once-size-fits-all&#039; racks, and is a key reason why the d-Matrix approach is attractive.&quot;</blockquote>
+<h2>Bottom Line</h2>
+<p>Vikram Sekar&#039;s analysis effectively demonstrates that the path to efficient AI inference may lie in abandoning the brute-force scaling of GPUs in favor of architectural specialization. The strongest part of the argument is the clear explanation of how moving computation into memory bypasses the energy costs of data movement, a physical limitation that software alone cannot solve. The biggest vulnerability, however, remains the ecosystem lock-in; convincing the industry to adopt a new hardware standard when the GPU supply chain is already entrenched is a monumental challenge. Readers should watch to see if d-Matrix&#039;s performance claims hold up in real-world, large-scale deployments beyond the controlled environments of their test chips.</p>
+      </div>
+
+      
+      
+      <section id="deep-dives" class="deep-dives">
+        <h2>Deep Dives</h2>
+        <p class="deep-dives-intro">Explore these related deep dives:</p>
+        <ul class="deep-dive-list">
+          
+      <li class="deep-dive-item">
+        <a href="../../wikipedia/in-memory-processing/index.html">
+          <strong>In-memory processing</strong>
+        </a>
+        <p class="topic-summary">The article&#039;s central focus is on d-Matrix&#039;s in-memory compute approach for AI inference. Understanding the broader technical foundations of in-memory computing - how it differs from traditional von Neumann architectures and why moving computation closer to data reduces latency - provides essential context for evaluating d-Matrix&#039;s claims.</p>
+      </li>
+
+      <li class="deep-dive-item">
+        <a href="../../wikipedia/memristor/index.html">
+          <strong>Memristor</strong>
+        </a>
+        <p class="topic-summary">The article mentions memristors as one approach to implementing analog in-memory compute weights. Memristors are a fascinating fourth fundamental circuit element theorized by Leon Chua in 1971 and first physically realized in 2008, with significant implications for neuromorphic computing that readers may not know deeply.</p>
+      </li>
+
+      <li class="deep-dive-item">
+        <a href="../../wikipedia/ohms-law/index.html">
+          <strong>Ohm&#039;s law</strong>
+        </a>
+        <p class="topic-summary">The article explains how analog in-memory compute leverages Ohm&#039;s law (I=GV) for multiplication operations. While readers may remember the basic formula, the deeper history of Georg Ohm&#039;s discovery, the physics behind electrical resistance, and its foundational role in electronics provides enriching context for understanding why this natural property enables efficient computation.</p>
+      </li>
+        </ul>
+      </section>
+    
+      
+
+      <section id="excerpt"><section class="source-excerpts">
+      <h2>Sources</h2>
+      <article class="source-excerpt">
+      <h3>How d-Matrix&#039;s in-memory compute tackles AI inference economics</h3>
+      <div class="source-meta">by Vikram Sekar &middot; <a href="../../publication/viksnewsletter/index.html">Vik&#039;s Newsletter</a> &middot; <a href="https://www.viksnewsletter.com/p/d-matrix-in-memory-compute" target="_blank" rel="noopener">Read full article</a></div>
+      <p>Each week, I help investors and professionals stay up-to-date on the semiconductor industry. If you’re new, start here. See here for all the benefits of upgrading your subscription tier!</p><p>Paid subscribers will get have access to a video discussion of this essay, key highlights, and a google drive link to this article to parse with LLMs.</p><p>Disclaimer: This article is entirely my own opinion. I have not been paid by d-Matrix, nor do I have any access to internal documents. All information is publicly available (references cited). I do not hold any investment position in d-Matrix, and this is not investment advice. Do your own research. This article does not reflect the views of any past, present, or future employers, nor does it directly or indirectly imply any competitors are better or worse. This is my attempt at trying to understand how core technology works and where its advantages lie. I do not endorse any products.</p><p>Disclosure: I requested that d-Matrix review the article to ensure that I do not misunderstand/misrepresent their technology. I’m grateful to them for pointing out errors in my conceptual understanding. All editorial decisions are entirely mine.</p><p>Recently d-Matrix, a Bay Area AI inference chip startup, announced its Series C funding of $275M which brings its total funding up to $450M.</p><p>d-Matrix claims to have the “world’s highest performing, most efficient data center inference platform for hyperscale, enterprise, and sovereign customers,” and a “full-stack inference platform that combines breakthrough compute-memory integration, high-speed networking, and inference-optimized software to deliver 10× faster performance, 3× lower cost, and 3–5× better energy efficiency than GPU-based systems.”</p><p>Their main compute engine is called Corsair, and is based on a different approach to inference called in-memory compute. In this post, we will look at this technology in detail, how it provides all those benefits, and where it is useful.</p><p>For free subscribers:</p><p>Analog in-memory computing</p><p>d-Matrix’s digital in-memory compute solution</p><p>Four chiplets and LPDDR5</p><p>Scaling up to rack-level solutions</p><p>References</p><p>For paid subscribers:</p><p>A real-world use-case for d-Matrix DIMC hardware</p><p>Designing Hardware for Latency, Throughput, and TCO</p><p>The PCIe Advantage</p><p>Possible Uses of Small Inference Models running d-Matrix Hardware</p><p>Analog In-memory Compute (AIMC).</p> <p>The process of AI training and inference involves a lot of matrix multiplications, followed by additions, which come from vector multiplications. If you need a deeper understanding of what those operations are in the context of transformers, check out ...</p>
+      <footer class="source-bio" aria-label="About this source">
+      <p class="sb-heading">About this source</p>
+      <p class="sb-meta"><span class="sb-type">individual creator</span> &middot; <span class="sb-country">United States</span> &middot; <span class="sb-funding">paid subscriptions (Substack)</span> &middot; <span class="sb-leaning">Tech and product commentary, pro-market and pro-startup, politically centrist.</span></p>
+      <p class="sb-audit">Last reviewed: <time datetime="2026-04-08">2026-04-08</time> &middot; <a href="https://viksnewsletter.substack.com/about" target="_blank" rel="noopener">source</a></p>
+    </footer>
+    </article>
+    </section></section>
+      
+    </article>
+  
+  </main>
+  <footer class="site-footer">
+    <div class="container">
+      <p><a href="../../privacy/index.html">Privacy</a> &middot; <a href="../../terms/index.html">Terms</a></p>
+    </div>
+  </footer>
+  <script>
+  (function() {
+    var params = new URLSearchParams(window.location.search);
+    var from = params.get('from');
+    if (from) {
+      var names = {
+        'foreign-policy':'Foreign Policy','ai-tech':'AI & Tech','housing-cities':'Housing & Cities',
+        'political-strategy':'Political Strategy','history':'History','science':'Science',
+        'culture':'Culture','economics':'Economics','faith':'Faith','writing-craft':'Writing & Craft',
+        'music':'Music','law-rights':'Law & Rights','public-health':'Public Health',
+        'philosophy':'Philosophy','media':'Media','defense':'Defense','china':'China'
+      };
+      var link = document.getElementById('back-link');
+      if (link) {
+        var name = names[from] || from;
+        link.href = '../../tag/' + from + '/index.html';
+        link.textContent = '\u2190 Back to ' + name;
+      }
+    }
+  })();
+  </script>
+</body>
+</html>
