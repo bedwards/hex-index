@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>How Aws deals with a major outage - Hex Index</title>
+  <link rel="stylesheet" href="../../styles.css">
+</head>
+<body class="reading-mode">
+  <header class="reading-header">
+    <a href="../../index.html" class="back-link" id="back-link">&larr; Back to Library</a>
+  </header>
+  <main class="reading-content">
+    
+    <article class="article-page">
+      <header class="article-header">
+        <h1>How Aws deals with a major outage</h1>
+        
+      <div class="article-meta">
+        <span class="author">Gergely Orosz</span>
+        <span class="separator">&middot;</span>
+        <a href="../../publication/pragmaticengineer/index.html" class="publication">
+          The Pragmatic Engineer
+        </a>
+        <span class="separator">&middot;</span><time>Dec 16, 2025</time>
+        <span class="separator">&middot;</span><span class="read-time">14 min read</span>
+      </div>
+      </header>
+
+      <div class="content-label">
+        <span class="label-text">Commentary by <a href="../../about/index.html">Hex Index staff</a></span>
+        <nav class="content-nav">
+          <a href="#deep-dives">Deep dives</a><span class="separator">&middot;</span>
+          <a href="https://newsletter.pragmaticengineer.com/p/how-aws-deals-with-a-major-outage" target="_blank" rel="noopener">Original article &rarr;</a>
+        </nav>
+      </div>
+
+      
+      <div class="article-content">
+        <p>In an era where cloud reliability is often treated as a given, Gergely Orosz delivers a rare, granular autopsy of a catastrophic failure that shattered that illusion. Rather than settling for the media&#039;s convenient narrative of a &quot;brain drain,&quot; the piece leverages exclusive access to the engineers who actually fixed the system to reveal a far more unsettling truth: the real enemy is the hidden complexity of distributed systems themselves. This is essential listening for anyone who assumes that scale automatically equals stability.</p>
+<h2>The Myth of the Brain Drain</h2>
+<p>The immediate hook of the coverage is its direct refutation of the prevailing media story. When the outage hit the us-east-1 region, taking down giants like Signal and Amazon.com for 15 hours, headlines blamed a loss of institutional knowledge. Orosz dismantles this quickly. &quot;Spoiler alert: this outage was not caused by a brain drain,&quot; he writes, noting that five of the original architects of the failing service were on the call within hours. This framing is crucial because it shifts the blame from human error or attrition to systemic fragility. It forces the reader to confront the reality that even with the original builders present, the system can still collapse under specific, rare conditions.</p>
+<figure class="inline-illustration">
+    <img src="../../images/0330e814-becb-489d-a525-bb4bc638ad81.webp" alt="How Aws deals with a major outage" loading="lazy" width="600" height="315">
+  </figure>
+
+<p>The author&#039;s decision to center the narrative on Senior Principal Engineer Gavin McCullagh provides a level of operational detail rarely seen in post-mortems. Orosz writes, &quot;Operating distributed systems is simply hard, and it&#039;s even harder when several things go wrong at once.&quot; This sentence encapsulates the article&#039;s core thesis. The coverage details how the team initially chased a red herring—a minor network packet loss event—while the real killer, a race condition in the DNS Enactor service, went undetected. The narrative arc here is compelling because it mirrors the chaos of the actual event; the reader feels the frustration of the engineers as they pivot between two simultaneous crises.</p>
+<blockquote>&quot;The team had never had to manually overwrite the DNS zone files before, as they had a system that could reliably do this!&quot;</blockquote>
+<p>This observation highlights the &quot;automation paradox,&quot; a concept that deserves more attention in engineering circles. The very automation that makes the system efficient became a liability when it broke, leaving the team without a practiced manual override procedure. Critics might argue that this is a failure of basic operational hygiene, but Orosz&#039;s account suggests it is an inevitable byproduct of optimizing for normalcy at the expense of edge-case preparedness.</p>
+<h2>The Mechanics of Failure</h2>
+<p>Orosz excels at translating high-level technical failures into a coherent story of cause and effect. The outage wasn&#039;t a single point of failure but a cascade triggered by an &quot;unlucky, unexpected lock contention across the three DNS enactors.&quot; To understand the gravity of this, one must appreciate the underlying architecture. The system used an optimistic locking mechanism to ensure only one enactor wrote to the DNS at a time. This approach, reminiscent of how <strong>Optimistic Concurrency Control</strong> manages database writes without locking the entire table, works beautifully until the timing of updates creates a deadlock. The article notes that the team considered using DynamoDB for this locking but rejected it to avoid a circular dependency, a decision that ironically left them vulnerable to the very race condition that occurred.</p>
+<p>The commentary on the &quot;follow the sun&quot; oncall rotation adds a human dimension to the technical analysis. With teams in Seattle, Dublin, and Sydney, the response was continuous, yet the complexity of the problem outpaced the standard protocols. Orosz describes how the call was split to handle the networking issue and the DynamoDB issue in parallel, a tactical decision that likely prevented total paralysis. &quot;The root cause of the issue with DynamoDB ended up being identified as a race condition within a DNS Enactor service,&quot; he explains, emphasizing that the fix required manual intervention to overwrite the broken alias records pointing to a non-existent tree.</p>
+<p>The article also touches on the historical context of <strong>Metastability</strong>, where a system appears stable but is actually teetering on the edge of a state change. The outage was a textbook metastable failure: the system didn&#039;t crash immediately; it degraded slowly, confusing the monitoring tools and leading the team to misdiagnose the root cause. This nuance is vital for busy leaders who need to understand why their dashboards might look green even when the system is failing.</p>
+<h2>The Path Forward</h2>
+<p>The final section of the piece moves from diagnosis to prevention, outlining how the administration of the cloud is evolving. Orosz notes that improvements from a 2023 outage helped contain the damage this time, proving that the feedback loop of incident response is working. However, the solution goes beyond better checklists. &quot;There&#039;s a plan to use formal methods for verification, even for systems like DynamoDB&#039;s DNS services,&quot; Orosz writes. This is a significant pivot. Formal methods, which use mathematical proofs to verify system correctness, are traditionally reserved for safety-critical hardware or aerospace, not high-scale cloud infrastructure. Adopting them for DNS services signals a fundamental shift in how the industry views reliability.</p>
+<blockquote>&quot;The incident summary overlooked questions such as why it took so long to resolve, and some media coverage sought to fill the gap.&quot;</blockquote>
+<p>By filling that gap with the actual mechanics of the fix, the article restores a sense of agency to the engineering community. It suggests that the path to resilience isn&#039;t just about hiring more people or retaining talent, but about fundamentally rethinking how we build and verify complex systems. The vulnerability here is that formal methods are expensive and slow to implement; the industry may not be willing to pay that price for every service. Yet, as this outage demonstrated, the cost of failure is becoming too high to ignore.</p>
+<h2>Bottom Line</h2>
+<p>Gergely Orosz&#039;s coverage is a masterclass in demystifying technical catastrophe, replacing sensationalist headlines with a rigorous, human-centered analysis of system design flaws. Its greatest strength is the refusal to blame people, instead exposing the inherent fragility of the automation we rely on. The piece&#039;s biggest vulnerability is the implicit admission that even the best teams and the smartest architects cannot fully predict these edge cases, leaving readers with a sobering reminder that total reliability may be an impossible goal. Watch for how the industry adopts formal methods; if they succeed, the next major outage may be a thing of the past.</p>
+      </div>
+
+      
+      
+      <section id="deep-dives" class="deep-dives">
+        <h2>Deep Dives</h2>
+        <p class="deep-dives-intro">Explore these related deep dives:</p>
+        <ul class="deep-dive-list">
+          
+      <li class="deep-dive-item">
+        <a href="../../wikipedia/optimistic-concurrency-control/index.html">
+          <strong>Optimistic concurrency control</strong>
+        </a>
+        <p class="topic-summary">Linked in the article (5 min read)</p>
+      </li>
+
+      <li class="deep-dive-item">
+        <a href="../../wikipedia/epoch-computing/index.html">
+          <strong>Epoch (computing)</strong>
+        </a>
+        <p class="topic-summary">Linked in the article (5 min read)</p>
+      </li>
+
+      <li class="deep-dive-item">
+        <a href="../../wikipedia/metastability-electronics/index.html">
+          <strong>Metastability (electronics)</strong>
+        </a>
+        <p class="topic-summary">The article explicitly mentions &#039;metastable failures&#039; as a key learning area for AWS engineers. Metastability in distributed systems refers to conditions where a system appears stable but can suddenly cascade into failure - exactly what happened in this outage. Understanding this concept provides deep insight into why such outages are so difficult to prevent and resolve.</p>
+      </li>
+        </ul>
+      </section>
+    
+      
+
+      <section id="excerpt"><section class="source-excerpts">
+      <h2>Sources</h2>
+      <article class="source-excerpt">
+      <h3>How Aws deals with a major outage</h3>
+      <div class="source-meta">by Gergely Orosz &middot; <a href="../../publication/pragmaticengineer/index.html">The Pragmatic Engineer</a> &middot; <a href="https://newsletter.pragmaticengineer.com/p/how-aws-deals-with-a-major-outage" target="_blank" rel="noopener">Read full article</a></div>
+      <p>In October, the largest Amazon Web Services (AWS) region in the world suffered an outage lasting 15 hours, which created a global impact as thousands of sites and apps crashed or degraded – including Amazon.com, Signal, Snapchat, and others.</p><p>AWS released an incident summary three days later, revealing the outage in us-east-1 was started by a failure inside DynamoDB’s DNS system, which then spread to Amazon EC2 and to AWS’s Network Load Balancer. The incident summary overlooked questions such as why it took so long to resolve, and some media coverage sought to fill the gap.</p><p>The Register claimed that an “Amazon brain drain finally sent AWS down the spout”, because some AWS staff who knew the systems inside out had quit the company, and their institutional knowledge was sorely missed.</p><p>For more clarity and detail, I went to an internal source at Amazon: Senior Principal Engineer, Gavin McCullagh, who was part of the crew which resolved this outage from start to finish. In this article, Gavin shares his insider perspective and some new details about what happened, and we find out how incident response works at the company.</p><p>This article is based on Gavin’s account of the incident to me. We cover:</p><p>Incident Response team at AWS. An overview of how global incident response works at the leading cloud provider, and a summary of Gavin’s varied background at AWS.</p><p>Mitigating the outage (part 1). Rapid triage, two simultaneous problems, and extra details on how the DynamoDB outage was eventually resolved.</p><p>What caused the outage? An unlucky, unexpected lock contention across the three DNS enactors started it all. Also, a clever usage of Route 53 as an optimistic locking mechanism.</p><p>Oncall tooling &amp; outage coordination. Amazon’s outage severity scale, tooling used for paging and incident management, and why 3+ parallel calls are often run during a single outage.</p><p>Mitigating the outage (part 2). After the DynamoDB outage was mitigated, the EC2 and Network Load Balancer (NLB) had issues that took hours to resolve.</p><p>Post-incident. The typical ops review process at AWS, and how improvements after a previous major outage in 2023 helped to contain this one.</p><p>Improvements and learnings. Changes that AWS is making to its services, and how the team continues to learn how to handle metastable failures better. Also, there’s a plan to use formal methods for verification, even for systems like DynamoDB’s DNS services.</p><p>Spoiler alert: this ...</p>
+      <footer class="source-bio" aria-label="About this source">
+      <p class="sb-heading">About this source</p>
+      <p class="sb-meta"><span class="sb-type">independent newsletter</span> &middot; <span class="sb-country">Netherlands</span> &middot; <span class="sb-funding">paid Substack subscriptions</span> &middot; <span class="sb-affiliations">Uber (former engineering manager)</span> &middot; <span class="sb-leaning">Software-engineering career and management advice; politically near-absent, culturally aligned with FAANG-adjacent pragmatic technocracy.</span></p>
+      <p class="sb-audit">Last reviewed: <time datetime="2026-04-08">2026-04-08</time> &middot; <a href="https://newsletter.pragmaticengineer.com/" target="_blank" rel="noopener">source</a></p>
+    </footer>
+    </article>
+    </section></section>
+      
+    </article>
+  
+  </main>
+  <footer class="site-footer">
+    <div class="container">
+      <p><a href="../../privacy/index.html">Privacy</a> &middot; <a href="../../terms/index.html">Terms</a></p>
+    </div>
+  </footer>
+  <script>
+  (function() {
+    var params = new URLSearchParams(window.location.search);
+    var from = params.get('from');
+    if (from) {
+      var names = {
+        'foreign-policy':'Foreign Policy','ai-tech':'AI & Tech','housing-cities':'Housing & Cities',
+        'political-strategy':'Political Strategy','history':'History','science':'Science',
+        'culture':'Culture','economics':'Economics','faith':'Faith','writing-craft':'Writing & Craft',
+        'music':'Music','law-rights':'Law & Rights','public-health':'Public Health',
+        'philosophy':'Philosophy','media':'Media','defense':'Defense','china':'China'
+      };
+      var link = document.getElementById('back-link');
+      if (link) {
+        var name = names[from] || from;
+        link.href = '../../tag/' + from + '/index.html';
+        link.textContent = '\u2190 Back to ' + name;
+      }
+    }
+  })();
+  </script>
+</body>
+</html>
