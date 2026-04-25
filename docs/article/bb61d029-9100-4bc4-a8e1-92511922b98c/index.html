@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Efficient llms at scale: My NeurIPS week in kv caches, spec decoding, and fp4 - Hex Index</title>
+  <link rel="stylesheet" href="../../styles.css">
+</head>
+<body class="reading-mode">
+  <header class="reading-header">
+    <a href="../../index.html" class="back-link" id="back-link">&larr; Back to Library</a>
+  </header>
+  <main class="reading-content">
+    
+    <article class="article-page">
+      <header class="article-header">
+        <h1>Efficient llms at scale: My NeurIPS week in kv caches, spec decoding, and fp4</h1>
+        
+      <div class="article-meta">
+        <span class="author">Various</span>
+        <span class="separator">&middot;</span>
+        <a href="../../publication/kaitchup/index.html" class="publication">
+          The Kaitchup
+        </a>
+        <span class="separator">&middot;</span><time>Dec 14, 2025</time>
+        <span class="separator">&middot;</span><span class="read-time">24 min read</span>
+      </div>
+      </header>
+
+      <div class="content-label">
+        <span class="label-text">Commentary by <a href="../../about/index.html">Hex Index staff</a></span>
+        <nav class="content-nav">
+          <a href="#deep-dives">Deep dives</a><span class="separator">&middot;</span>
+          <a href="https://kaitchup.substack.com/p/efficient-llms-at-scale-my-neurips" target="_blank" rel="noopener">Original article &rarr;</a>
+        </nav>
+      </div>
+
+      
+      <div class="article-content">
+        <p>While the broader AI world fixates on reinforcement learning, a quieter but more urgent revolution is reshaping how we actually run these models in production. The Kaitchup reports from the floor of NeurIPS that the real bottleneck isn&#039;t intelligence anymore; it&#039;s memory bandwidth. With over 29,000 attendees flooding San Diego, the consensus has shifted from &quot;how smart can we make it?&quot; to &quot;how fast can we make it without breaking the bank?&quot; This piece cuts through the hype to argue that the future of large language models depends not on bigger parameters, but on smarter compression.</p>
+<h2>The Memory Wall</h2>
+<p>The article opens by establishing the sheer scale of the event, noting that &quot;Downtown San Diego, especially the &#039;historic&#039; Gaslamp district, was completely taken over.&quot; Yet, amidst the noise, the technical focus was laser-sharp. The Kaitchup identifies the core problem: as reasoning models generate longer chains of thought, the &quot;KV cache&quot; (the memory store of past tokens) explodes in size. &quot;With long reasoning traces, that history can easily exceed 10,000 tokens, translating to gigabytes of tensors that must be read at every decoding step.&quot; This creates a physical limit where the GPU spends more time shuffling data than calculating answers.</p>
+<figure class="inline-illustration">
+    <img src="../../images/bb61d029-9100-4bc4-a8e1-92511922b98c.webp" alt="Efficient llms at scale: My NeurIPS week in kv caches, spec decoding, and fp4" loading="lazy" width="600" height="315">
+  </figure>
+
+<p>The piece argues that the solution isn&#039;t a single silver bullet, but a family of engineering tricks unified by a simple logic: &quot;Score how important each stored token is... Keep the most important entries as full KV pairs, approximate or share the &#039;borderline&#039; ones, and drop the rest.&quot; This approach mirrors the history of signal processing, where quantization techniques have long traded minor fidelity for massive efficiency gains. Just as early audio compression algorithms learned to discard frequencies humans couldn&#039;t hear, these new methods discard tokens the model doesn&#039;t actually need to attend to.</p>
+<blockquote>&quot;Once you&#039;re serving many requests in parallel, GPU memory bandwidth quickly becomes the bottleneck.&quot;</blockquote>
+<p>The coverage details several distinct flavors of this approach. Some methods, like SmallKV, employ a &quot;helper model&quot; to predict which tokens matter, effectively outsourcing the memory management to a smaller, cheaper neural network. Others, like AttentionPredictor, use a tiny convolutional network to forecast attention patterns over time. The Kaitchup notes that while the mechanisms differ, the outcome is the same: &quot;The big model outsources attention &#039;intuition&#039; to a cheaper module.&quot; This is a pragmatic shift from theoretical purity to engineering reality.</p>
+<p>Critics might argue that aggressively pruning the cache risks degrading the model&#039;s ability to handle complex, long-context tasks. However, the piece counters this by highlighting methods like ChunkKV, which preserves semantic units rather than individual tokens, ensuring that &quot;local semantics&quot; aren&#039;t destroyed by random pruning. The evidence suggests that for many applications, the trade-off is not just acceptable, but essential.</p>
+<h2>Speculative Decoding and Architectural Shifts</h2>
+<p>Beyond compression, the article explores speculative decoding, a technique where a cheap model &quot;guesses ahead&quot; and a larger model simply verifies the work. The Kaitchup observes that this is becoming a standard tool for speed, but the real innovation lies in how these guesses are structured. The piece highlights that researchers are moving beyond simple token prediction to &quot;speculating on steps vs whole responses,&quot; fundamentally changing the inference pipeline.</p>
+<p>Perhaps the most intriguing development discussed is the architectural shift seen in models like SkipV1Former. Instead of trying to compress the cache after the fact, these models are being built to require less memory from the start. &quot;From the second block onward, each layer in SkipV1Former reuses half of its value heads directly from the first layer&#039;s values,&quot; the article explains. This design choice reduces the distinct projections needed, cutting the cache footprint by nearly half while actually improving perplexity scores. It&#039;s a reminder that efficiency is often a design constraint, not just a post-hoc optimization.</p>
+<p>The Kaitchup also touches on the visual domain, noting that ScaleKV adapts these compression techniques for image generation by recognizing that &quot;attention patterns differ drastically across layers and scales.&quot; This modality-aware approach suggests that a one-size-fits-all compression strategy is insufficient; the architecture must understand the specific nature of the data it is processing.</p>
+<blockquote>&quot;The differences that make each paper feel &#039;new&#039; are mostly engineering choices along a few axes.&quot;</blockquote>
+<p>This observation is the piece&#039;s most valuable insight. It demystifies the rapid pace of AI progress, revealing it as a series of calculated engineering trade-offs rather than magical breakthroughs. By focusing on the &quot;axes&quot; of importance signals, timing, and granularity, the article provides a framework for readers to evaluate future claims.</p>
+<h2>The Human Element and the RL Distraction</h2>
+<p>Despite the technical focus, the piece acknowledges the human cost of this relentless optimization. It notes that the official &quot;hot topic&quot; of the conference was reinforcement learning (RL), yet the author deliberately avoided it. &quot;I&#039;m not a fan of the way RL is often being run right now for LLMs,&quot; the piece admits, citing a disconnect between the hype and practical utility. This decision to focus on inference efficiency rather than RL aligns with the immediate needs of the industry, where latency and cost are the primary barriers to adoption.</p>
+<p>The article concludes with a nod to Yejin Choi&#039;s keynote, which &quot;perfectly captured the year.&quot; While the piece doesn&#039;t detail the speech, it implies that the community is beginning to grapple with the broader implications of these efficiency gains. As models become cheaper to run, the question shifts from feasibility to responsibility. The Kaitchup&#039;s focus on the &quot;how&quot; rather than the &quot;what&quot; of AI development is a necessary corrective to the current discourse.</p>
+<h2>Bottom Line</h2>
+<p>The Kaitchup delivers a vital reality check: the next leap in AI isn&#039;t about making models smarter, but making them leaner. The strongest part of this argument is its granular breakdown of the &quot;KV cache&quot; problem, turning a dry technical bottleneck into a clear narrative of engineering necessity. Its biggest vulnerability is the implicit assumption that these compression techniques will scale indefinitely without unforeseen degradation in reasoning capabilities. For the busy professional, the takeaway is clear: the future of AI infrastructure lies in the quiet, unglamorous work of memory management, not just the flashy headlines of new model releases.</p>
+      </div>
+
+      
+      
+      <section id="deep-dives" class="deep-dives">
+        <h2>Deep Dives</h2>
+        <p class="deep-dives-intro">Explore these related deep dives:</p>
+        <ul class="deep-dive-list">
+          
+      <li class="deep-dive-item">
+        <a href="../../wikipedia/attention-machine-learning/index.html">
+          <strong>Attention (machine learning)</strong>
+        </a>
+        <p class="topic-summary">The article extensively discusses KV cache compression and attention mechanisms as the core bottleneck in LLM inference. Understanding the transformer attention mechanism&#039;s mathematical foundations would help readers grasp why storing key-value pairs is necessary and why compression techniques work.</p>
+      </li>
+
+      <li class="deep-dive-item">
+        <a href="../../wikipedia/quantization-signal-processing/index.html">
+          <strong>Quantization (signal processing)</strong>
+        </a>
+        <p class="topic-summary">The article covers FP4 (4-bit floating point) training as a breakthrough topic at NeurIPS. Understanding quantization theory—how continuous values are mapped to discrete representations and the inherent tradeoffs—provides essential background for why reducing from 16-bit to 4-bit precision is both challenging and impactful.</p>
+      </li>
+        </ul>
+      </section>
+    
+      
+
+      <section id="excerpt"><section class="source-excerpts">
+      <h2>Sources</h2>
+      <article class="source-excerpt">
+      <h3>Efficient llms at scale: My NeurIPS week in kv caches, spec decoding, and fp4</h3>
+      <div class="source-meta">by Various &middot; <a href="../../publication/kaitchup/index.html">The Kaitchup</a> &middot; <a href="https://kaitchup.substack.com/p/efficient-llms-at-scale-my-neurips" target="_blank" rel="noopener">Read full article</a></div>
+      <p>One week after getting back from NeurIPS in San Diego, my full report is here. I had a lot to process and write up.</p><p>If you’re not familiar with it, NeurIPS has been the flagship conference for AI research for years, with tracks on deep learning, optimization, theory, and a growing number of applications. Ten years ago, it already felt massive with around 4,000 participants. This year, the organizers announced more than 29,000 registrations (including virtual attendees, and 500 people attending from the Mexico satellite venue,1 but not counting on-site late registrations). I’ve been to dozens of research conferences in my life, and I’ve never seen anything close to this scale.</p><p>Downtown San Diego, especially the “historic” Gaslamp district, was completely taken over. Every hotel lobby, bar, and restaurant seemed to be hosting some variation of the same conversation about LLMs and agents. French and US border agents at airports had the same remarks: “Are you going to THIS conference?”. I’m sure the local businesses did very well. It felt like every second table was a mini-NeurIPS in itself.</p><p>In this article, I want to share what I took away from the week, not a complete overview of NeurIPS, it’s impossible, but a view from my corner of it. My work is mostly about adapting LLMs: fine-tuning, quantization, evaluation, and efficient inference. So that’s where I naturally gravitated: the sessions, posters, and hallway conversations on scaling, compression, and inference tricks. I spent (almost) no time in the more theoretical or classical computer vision tracks.2 There was also a “Machine Learning” track that I didn’t visit.</p><p>I’ll structure this report around a few themes:</p><p>Highlights around three topics</p><p>KV Cache: The Enemy Number One</p><p>Speculative Decoding with Trees</p><p>FP4 at Training Time: Four Bits Are (Almost) Enough</p><p>Good paper special mentions:</p><p>How to do AdamW with a batch size of 1</p><p>How leaderboards are gamed</p><p>Comments on Yejin Choi’s keynote, which perfectly captured the year</p><p>How to survive (and enjoy) a conference as big as NeurIPS</p><p>One important disclaimer: the official hot topic of this year was clearly reinforcement learning. But you won’t find much RL in this write-up. That’s partly practical: the RL area was packed, and having the kind of in-depth discussions I’d want there would have eaten most of my conference time. It’s also because I’ve already read and played with many of the RL works that interested ...</p>
+      <footer class="source-bio" aria-label="About this source">
+      <p class="sb-heading">About this source</p>
+      <p class="sb-meta"><span class="sb-type">independent newsletter</span> &middot; <span class="sb-country">France</span> &middot; <span class="sb-funding">paid subscriptions (Substack)</span> &middot; <span class="sb-leaning">Technical LLM fine-tuning tutorials, apolitical.</span></p>
+      <p class="sb-audit">Last reviewed: <time datetime="2026-04-08">2026-04-08</time> &middot; <a href="https://kaitchup.substack.com/about" target="_blank" rel="noopener">source</a></p>
+    </footer>
+    </article>
+    </section></section>
+      
+    </article>
+  
+  </main>
+  <footer class="site-footer">
+    <div class="container">
+      <p><a href="../../privacy/index.html">Privacy</a> &middot; <a href="../../terms/index.html">Terms</a></p>
+    </div>
+  </footer>
+  <script>
+  (function() {
+    var params = new URLSearchParams(window.location.search);
+    var from = params.get('from');
+    if (from) {
+      var names = {
+        'foreign-policy':'Foreign Policy','ai-tech':'AI & Tech','housing-cities':'Housing & Cities',
+        'political-strategy':'Political Strategy','history':'History','science':'Science',
+        'culture':'Culture','economics':'Economics','faith':'Faith','writing-craft':'Writing & Craft',
+        'music':'Music','law-rights':'Law & Rights','public-health':'Public Health',
+        'philosophy':'Philosophy','media':'Media','defense':'Defense','china':'China'
+      };
+      var link = document.getElementById('back-link');
+      if (link) {
+        var name = names[from] || from;
+        link.href = '../../tag/' + from + '/index.html';
+        link.textContent = '\u2190 Back to ' + name;
+      }
+    }
+  })();
+  </script>
+</body>
+</html>
