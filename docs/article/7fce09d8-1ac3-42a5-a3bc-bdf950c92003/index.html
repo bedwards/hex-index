@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tpu mania - Hex Index</title>
+  <link rel="stylesheet" href="../../styles.css">
+</head>
+<body class="reading-mode">
+  <header class="reading-header">
+    <a href="../../index.html" class="back-link" id="back-link">&larr; Back to Library</a>
+  </header>
+  <main class="reading-content">
+    
+    <article class="article-page">
+      <header class="article-header">
+        <h1>Tpu mania</h1>
+        
+      <div class="article-meta">
+        <span class="author">Babbage</span>
+        <span class="separator">&middot;</span>
+        <a href="../../publication/thechipletter/index.html" class="publication">
+          The Chip Letter
+        </a>
+        <span class="separator">&middot;</span><time>Dec 13, 2025</time>
+        <span class="separator">&middot;</span><span class="read-time">11 min read</span>
+      </div>
+      </header>
+
+      <div class="content-label">
+        <span class="label-text">Commentary by <a href="../../about/index.html">Hex Index staff</a></span>
+        <nav class="content-nav">
+          <a href="#deep-dives">Deep dives</a><span class="separator">&middot;</span>
+          <a href="https://thechipletter.substack.com/p/tpu-mania" target="_blank" rel="noopener">Original article &rarr;</a>
+        </nav>
+      </div>
+
+      
+      <div class="article-content">
+        <p>Babbage reframes the current AI hardware frenzy not as a sudden race, but as the culmination of a twelve-year strategy that predates the generative AI boom by a decade. While the market fixates on the latest stock movements, the author reveals that the architecture powering today&#039;s most advanced models was conceived when deep learning was still an academic curiosity, not a trillion-dollar industry.</p>
+<h2>The Twelve-Year Overnight Success</h2>
+<p>The piece&#039;s most striking revelation is the sheer patience required to build a hardware empire. Babbage writes, &quot;The origins of the TPU program date Google date all the way back to 2013 - almost a decade before the launch of ChatGPT.&quot; This timeline is crucial for understanding why Google can now challenge the dominant player in the market. The author traces the architectural DNA even further back, noting that the &quot;essence of the design dates back even further - into the 1970s,&quot; specifically citing a 1978 paper by H.T. Kung and Charles E. Leiserson on systolic arrays. This historical context is vital; it reminds us that the efficiency gains driving modern AI are not magic, but the result of decades of theoretical work on rhythmic data processing that was once limited by fabrication technology.</p>
+<figure class="inline-illustration">
+    <img src="../../images/7fce09d8-1ac3-42a5-a3bc-bdf950c92003.webp" alt="Tpu mania" loading="lazy" width="600" height="315">
+  </figure>
+
+<p>Babbage argues that the first generation of these chips was surprisingly rudimentary, yet perfectly timed. &quot;With the benefit of hindsight this first Google design seems remarkably primitive,&quot; the author notes, describing it as a co-processor that &quot;could only perform integer arithmetic, and was only useful for inference.&quot; Yet, this simplicity was its strength. It met the immediate need for cost-effective, scalable inference, launching a wave of imitation across the industry. The author quips that the TPU v1 led to &quot;the launch of a thousand chips,&quot; sparking a venture capital frenzy and a buying spree by Intel for domain-specific architecture startups.</p>
+<blockquote>The approach didn&#039;t gain widespread adoption in the 1970s and 1980s, but by 2013 the time was right.</blockquote>
+<p>The commentary effectively highlights the iterative nature of this success. Unlike the &quot;big bang&quot; launches often seen in consumer tech, Google&#039;s strategy involved steady, incremental upgrades from v2 through v7. The author details how each generation introduced specific improvements, such as the shift to floating-point arithmetic with the bfloat16 format in v2—a critical evolution that allowed for the training of complex neural networks without the precision loss that plagued earlier integer-only designs. This progression mirrors the development of Apple Silicon, where control over the entire stack allowed for optimizations that general-purpose competitors couldn&#039;t match.</p>
+<h2>Leading the Accelerator Crowd</h2>
+<p>The core of Babbage&#039;s argument rests on the unique advantages Google holds over its competitors, particularly Nvidia. The author posits that Google&#039;s dominance isn&#039;t just about raw chip performance, but about ecosystem control. &quot;Full control over the stack - including software and machine learning algorithms - that it applies in its services,&quot; Babbage writes, &quot;means that there can be feedback into the hardware design as software and algorithms evolve.&quot; This vertical integration is the secret sauce that allows the administration of Google&#039;s internal AI labs to dictate hardware roadmaps that perfectly suit their models, a luxury external chipmakers struggle to replicate.</p>
+<p>The author also points out a strategic advantage often overlooked: the lack of legacy baggage. &quot;No legacy (non-AI applications) to support,&quot; Babbage notes, allowing the TPU team to optimize purely for AI workloads. This stands in contrast to Nvidia, which must maintain backward compatibility for a vast array of scientific and graphics computing tasks. The result is a chip architecture that has become increasingly specialized, with Nvidia itself moving closer to the TPU model by adding matrix multiply units and reducing support for high-precision floating-point calculations.</p>
+<blockquote>There is mythological reverence for Google&#039;s Tensor Processing Unit. While the world presently watches NVIDIA&#039;s gravity drag more companies into its orbit, there sits Google, imperial and singular.</blockquote>
+<p>Critics might argue that this &quot;imperial&quot; stance is fragile, relying heavily on Google&#039;s ability to maintain its software moat. If the open-source community can crack the code on the compiler and runtime layers, the hardware advantage could evaporate. Babbage acknowledges this vulnerability, noting that the &quot;critical missing ingredient&quot; for Google to truly challenge Nvidia&#039;s CUDA dominance is to open-source its XLA:TPU compiler and runtime code.</p>
+<h2>Google&#039;s Dilemma</h2>
+<p>Perhaps the most intriguing section of the commentary addresses the paradox of Google&#039;s recent decision to sell these chips to third parties, including rivals. Babbage frames this as a high-stakes strategic gamble. &quot;I&#039;d love to have been a fly on the wall for Google&#039;s decision to sell TPUs externally,&quot; the author muses, highlighting the tension between capturing hardware margins and empowering competitors. The decision to sell to entities like OpenAI, even at a discount, suggests a shift in priorities from pure monopoly to ecosystem dominance.</p>
+<p>The author suggests that Google&#039;s leverage lies in its ability to control the supply. &quot;It can decide, on a year by year basis, who gets TPUs and how many TPUs they get,&quot; Babbage writes. This creates a precarious dependency for customers. The commentary warns that while Google may not be &quot;truly evil,&quot; the history of the company suggests that no product is safe from discontinuation. &quot;A key takeaway from this is that none of these potential TPU customers should really make themselves reliant on Google,&quot; the author cautions, a sobering thought for any enterprise betting its infrastructure on a single vendor.</p>
+<h2>The Architecture War</h2>
+<p>Finally, Babbage challenges the prevailing narrative that GPUs are superior for training while TPUs are relegated to inference. The author points to the training of Google&#039;s latest Gemini 3 model as a definitive counter-example. &quot;Google&#039;s exclusive use of TPUs to train Gemini 3 undermines the first part of this narrative somewhat,&quot; Babbage asserts. The article suggests that the future is not a binary winner-take-all scenario, but a convergence of architectures. The competition, the author argues, will be less about the theoretical merits of the silicon and more about the quality of the software stacks and the ability to scale.</p>
+<blockquote>The competition between the two approaches (and not just between Nvidia and Google) looks likely to be the most interesting and keenly fought since CISC vs RISC in the 1980s.</blockquote>
+<p>This historical parallel to the CISC vs RISC debate of the 1980s provides a sobering perspective on the current hype cycle. Just as that battle resulted in a complex, hybrid landscape rather than a single victor, the GPU vs. TPU war will likely end in a fragmented market where different architectures serve different niches. The author&#039;s focus on the supply chain and the &quot;optical circuit switch&quot; systems in the latest TPU v7 (Ironwood) reveals that the real battleground has shifted from the chip itself to the interconnects and the ability to scale clusters to thousands of units.</p>
+<h2>Bottom Line</h2>
+<p>Babbage&#039;s strongest contribution is the dismantling of the &quot;overnight success&quot; myth, replacing it with a narrative of deliberate, long-term architectural planning that began long before the current AI gold rush. The piece&#039;s biggest vulnerability is its reliance on Google&#039;s continued benevolence in managing a competitive ecosystem, a historical track record that offers little guarantee. Readers should watch closely for whether Google&#039;s decision to open its software stack can truly break Nvidia&#039;s moat, or if the &quot;imperial&quot; nature of Google&#039;s control will ultimately limit the adoption of its hardware by the broader market.</p>
+      </div>
+
+      
+      
+      <section id="deep-dives" class="deep-dives">
+        <h2>Deep Dives</h2>
+        <p class="deep-dives-intro">Explore these related deep dives:</p>
+        <ul class="deep-dive-list">
+          
+      <li class="deep-dive-item">
+        <a href="../../wikipedia/systolic-array/index.html">
+          <strong>Systolic array</strong>
+        </a>
+        <p class="topic-summary">The article discusses how TPUs are based on systolic arrays from Kung and Leiserson&#039;s 1978 paper - understanding this fundamental architecture explains why TPUs are efficient for matrix multiplication</p>
+      </li>
+
+      <li class="deep-dive-item">
+        <a href="../../wikipedia/bfloat16-floating-point-format/index.html">
+          <strong>bfloat16 floating-point format</strong>
+        </a>
+        <p class="topic-summary">TPU v2 introduced bfloat16 for matrix multiplication - this specialized number format is crucial to understanding why AI accelerators can be more efficient than general-purpose chips</p>
+      </li>
+        </ul>
+      </section>
+    
+      
+
+      <section id="excerpt"><section class="source-excerpts">
+      <h2>Sources</h2>
+      <article class="source-excerpt">
+      <h3>Tpu mania</h3>
+      <div class="source-meta">by Babbage &middot; <a href="../../publication/thechipletter/index.html">The Chip Letter</a> &middot; <a href="https://thechipletter.substack.com/p/tpu-mania" target="_blank" rel="noopener">Read full article</a></div>
+      <p>Nobel Prize winning economist, Paul Krugman, discusses TPUs and GPUs with Paul Kedrosky. No criticism of Krugman intended, it’s great that computer architecture is getting so much attention.</p><p>All of a sudden, everyone is talking - and writing - about Google’s TPUs (Tensor Processing Units). The use of TPUs to train Google latest, market leading Gemini 3 model together with Google’s decision to sell TPUs to third parties (apparently including arch-rival Meta) have combined to create a major ‘vibe-shift’ away from Nvidia and towards Google’s hardware.</p><p>Not just a vibe-shift either as Alphabet’s stock price has been on a tear:</p><p>The coverage of the latest TPUs (v7) has been so extensive that, rather than add another series of takes, I thought it would more useful for readers to curate a selection of some of the most informative posts and links on TPUv7.</p><p>Before that, though, I wanted to briefly highlight several points that I can’t recall seeing much discussed elsewhere.</p><p>A Twelve Year Overnight Success.</p> <p>We looked at the origins of Google’s TPU programme in: </p><p>The origins of the TPU program date Google date all the way back to 2013 - almost a decade before the launch of ChatGPT - when it first became apparent that Google might need to start applying deep learning at scale.</p><p>The essence of the design dates back even further - into the 1970s. In their 1978 paper Systolic Arrays (for VLSI) H.T Kung and Charles E. Leiserson of Carnegie Mellon University had set out proposals for what they called a ‘systolic system’.</p><p>A systolic system is a network of processors which rhythmically compute and pass data through the system….In a systolic computer system, the function of a processor is analogous to that of the heart. Every processor regularly pumps data in and out, each time performing some short computation so that a regular flow of data is kept up in the network.</p><p>The approach didn’t gain widespread adoption in the 1970s and 1980s, but by 2013 the time was right:</p><p>By 2013 some of the original motivation behind Kung and Lieberson’s ideas had fallen away, particularly dealing with the limits of fabrication technology of the 1970s, had fallen away. However, the inherent efficiency, and of particular relevance in 2013, the relatively low power consumption, of this approach for tasks such as matrix multiplication remained. So the TPU would use systolic arrays.</p><p>We discussed the ...</p>
+      <footer class="source-bio" aria-label="About this source">
+      <p class="sb-heading">About this source</p>
+      <p class="sb-meta"><span class="sb-type">independent newsletter</span> &middot; <span class="sb-country">United Kingdom</span> &middot; <span class="sb-funding">paid subscriptions (Substack)</span> &middot; <span class="sb-leaning">Technical semiconductor history newsletter, largely apolitical, implicit skepticism of industrial-policy boosterism on both sides.</span></p>
+      <p class="sb-audit">Last reviewed: <time datetime="2026-04-08">2026-04-08</time> &middot; <a href="https://thechipletter.substack.com/about" target="_blank" rel="noopener">source</a></p>
+    </footer>
+    </article>
+    </section></section>
+      
+    </article>
+  
+  </main>
+  <footer class="site-footer">
+    <div class="container">
+      <p><a href="../../privacy/index.html">Privacy</a> &middot; <a href="../../terms/index.html">Terms</a></p>
+    </div>
+  </footer>
+  <script>
+  (function() {
+    var params = new URLSearchParams(window.location.search);
+    var from = params.get('from');
+    if (from) {
+      var names = {
+        'foreign-policy':'Foreign Policy','ai-tech':'AI & Tech','housing-cities':'Housing & Cities',
+        'political-strategy':'Political Strategy','history':'History','science':'Science',
+        'culture':'Culture','economics':'Economics','faith':'Faith','writing-craft':'Writing & Craft',
+        'music':'Music','law-rights':'Law & Rights','public-health':'Public Health',
+        'philosophy':'Philosophy','media':'Media','defense':'Defense','china':'China'
+      };
+      var link = document.getElementById('back-link');
+      if (link) {
+        var name = names[from] || from;
+        link.href = '../../tag/' + from + '/index.html';
+        link.textContent = '\u2190 Back to ' + name;
+      }
+    }
+  })();
+  </script>
+</body>
+</html>
