@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BioByte 143: Predicting structure of large protein complexes, restoring naive t-cell production,… - Hex Index</title>
+  <link rel="stylesheet" href="../../styles.css">
+</head>
+<body class="reading-mode">
+  <header class="reading-header">
+    <a href="../../index.html" class="back-link" id="back-link">&larr; Back to Library</a>
+  </header>
+  <main class="reading-content">
+    
+    <article class="article-page">
+      <header class="article-header">
+        <h1>BioByte 143: Predicting structure of large protein complexes, restoring naive t-cell production,…</h1>
+        
+      <div class="article-meta">
+        <span class="author">Varun Agarwal</span>
+        <span class="separator">&middot;</span>
+        <a href="../../publication/decodingbio/index.html" class="publication">
+          
+        </a>
+        <span class="separator">&middot;</span><time>Dec 18, 2025</time>
+        <span class="separator">&middot;</span><span class="read-time">15 min read</span>
+      </div>
+      </header>
+
+      <div class="content-label">
+        <span class="label-text">Commentary by <a href="../../about/index.html">Hex Index staff</a></span>
+        <nav class="content-nav">
+          <a href="#deep-dives">Deep dives</a><span class="separator">&middot;</span>
+          <a href="https://decodingbio.substack.com/p/biobyte-143-predicting-structure" target="_blank" rel="noopener">Original article &rarr;</a>
+        </nav>
+      </div>
+
+      
+      <div class="article-content">
+        <p>This week&#039;s scientific roundup doesn&#039;t just report on incremental gains; it signals a fundamental shift in how we model the machinery of life and age. Varun Agarwal presents a narrative where computational speed and biological reprogramming converge to solve problems that were previously considered computationally intractable or biologically irreversible. The most striking claim isn&#039;t just that we can predict protein shapes faster, but that we can now simulate the very architecture of viral defense and immune rejuvenation with experimental-grade accuracy in seconds.</p>
+<h2>The Geometry of Speed</h2>
+<p>Agarwal opens with a breakthrough in structural biology that challenges the dominance of current AI models. While AlphaFold revolutionized the field, Agarwal notes its critical bottleneck: &quot;the transformers underpinning AlphaFold2/3 require memory that quadratically scales with sequence length (O(L 2)), meaning that large proteins and protein complexes do not fit within a single AlphaFold prediction window.&quot; This limitation has left a vast class of symmetric protein complexes—essential for viral defense and cellular communication—largely unmodelable at scale.</p>
+<figure class="inline-illustration">
+    <img src="../../images/be964c92-a361-49df-bb6f-6ba73b52990c.webp" alt="BioByte 143: Predicting structure of large protein complexes, restoring naive t-cell production,…" loading="lazy" width="600" height="315">
+  </figure>
+
+<p>Enter EndoFold&#039;s Cosmohedra. Agarwal explains that the team leveraged a fundamental biological shortcut: symmetry. &quot;Many large complexes are just symmetric assemblies of smaller monomeric proteins!&quot; he writes. By focusing on the geometry of these assemblies rather than brute-forcing the entire sequence, they achieved a runtime dependence of &quot;O( n log n ), which is a huge upgrade over O(n 2) for large proteins.&quot; The result is staggering: a model that is &quot;10 3 -10 5 x faster - predicting large complexes in tens of seconds.&quot;</p>
+<p>This isn&#039;t just a speed run; it&#039;s a paradigm shift in accuracy. Agarwal points out that the predicted structures are so precise that &quot;it&#039;s actually difficult to tell whether the Cosmohedra structures or the original cryoEM structures are more accurate to the true underlying protein structure!&quot; This precision opens doors to drug discovery that were previously locked. For instance, the team is already &quot;testing this paradigm in a campaign to inhibit Bufavirus 1 capsid formation,&quot; using a predicted binder designed against a single monomer.</p>
+<blockquote>By turning high-quality monomer predictions into near-experimental complex structures at scale, Cosmohedra effectively acts as a synthetic data generator for large protein assemblies.</blockquote>
+<p>Critics might argue that relying on monomer accuracy creates a fragile foundation; as Agarwal admits, if a monomer is misfolded, &quot;no amount of downstream assembly can fully recover the true complex.&quot; Yet, the speed of iteration allows for a level of testing that was impossible before, turning a limitation into a workflow advantage.</p>
+<h2>Rewiring the Aging Immune System</h2>
+<p>The second major thread Agarwal explores is the potential to reverse the biological clock of the immune system. The focus here is the thymus, the organ responsible for T cell production, which famously shrinks with age—a process known as involution. &quot;As humans and most other mammals age, the thymus shrinks,&quot; Agarwal writes, leading to a &quot;decreased naive T cell output, less TCR repertoire diversity, and generally weakened primary responses.&quot;</p>
+<p>Traditional attempts to fix this have been clumsy, often relying on hormones or small molecules with &quot;limited effect size, toxic side effects, and generally suboptimal clinical feasibility.&quot; Agarwal highlights a new approach from Friedrich et al. that bypasses the damaged organ entirely. Instead of trying to repair the thymus, the researchers chose to &quot;[reconstitute] the identified signalling pathways ectopically in the liver.&quot;</p>
+<p>The mechanism is elegant. The team identified three key signaling pathways—Notch (DLL1), FLT3 ligand (FLT3L), and Interleukin-7 (IL-7)—that decline with age. They packaged mRNA for these proteins into lipid nanoparticles (LNPs) and delivered them to the liver. The liver, unlike the thymus, retains its protein-synthesis capabilities throughout life. The results were profound: the therapy &quot;reverses the characteristic &#039;memory bias&#039; of aging by restoring naive T cell counts and de novo thymopoiesis.&quot;</p>
+<p>The implications for public health are immediate. In vaccination trials, the treatment &quot;doubled the frequency of antigen-specific CD8+ T cells,&quot; effectively making the immune response of aged mice indistinguishable from young adults. Even more compelling is the cancer data: when combined with checkpoint blockade, the therapy drove &quot;complete tumor rejection in 40% of cases&quot; in aggressive melanoma models.</p>
+<blockquote>The liver-based mRNA delivery ensured that these trophic signals were produced transiently, avoiding the systemic toxicity and inflammation often associated with recombinant protein therapies.</blockquote>
+<p>One might wonder if this approach is too specific to mice to translate to humans, or if the transient nature of the treatment requires repeated dosing that could trigger immune reactions. However, the use of LNPs, a delivery system now familiar from the pandemic era, suggests a clear path to clinical translation.</p>
+<h2>Decoding Neural Circuits at Scale</h2>
+<p>The final piece of Agarwal&#039;s puzzle moves from the molecular to the macroscopic: the brain. For years, neuroscience has struggled to bridge the gap between single-cell activity and whole-brain dynamics. Agarwal notes that while all-optical neuroscience has matured, &quot;key questions about how distributed neural ensembles shape downstream dynamics requires simultaneous, cellular-resolution control and dense population readout across millimeter-scale tissue.&quot;</p>
+<p>The solution presented by Drinnenberg et al. is a hybrid experimental design that allows for the stimulation of &quot;~1,000 targeted neurons while reading out activity from ~10,000 neurons.&quot; This leap in scale revealed a hidden layer of brain organization. The researchers discovered a specific subpopulation of cells, dubbed &quot;GER (general ensemble response) cells,&quot; which act as a broad feedback mechanism.</p>
+<p>These cells, predominantly somatostatin-expressing interneurons, &quot;integrate over long spatial ranges&quot; and normalize distributed excitatory activity. &quot;Their recruitment is inconsistent with naive spatial random-connectivity models,&quot; Agarwal writes, suggesting a highly organized, previously invisible network that monitors and balances brain activity. This discovery was only possible because the new tools allowed for &quot;systematic, causal perturbation studies that can reveal circuit motifs only visible at scale.&quot;</p>
+<blockquote>This leap turns all-optical experiments from constrained, small-N manipulations into systematic, causal perturbation studies that can reveal circuit motifs only visible at scale.</blockquote>
+<p>A counterpoint to this excitement is the complexity of interpreting such massive datasets. With 10,000 neurons firing simultaneously, distinguishing signal from noise becomes a monumental computational challenge. Yet, the identification of a specific cell type defined by its functional role rather than just its molecular markers suggests a new era of functional neuroanatomy.</p>
+<h2>Bottom Line</h2>
+<p>Varun Agarwal&#039;s curation highlights a rare moment where computational efficiency and biological insight are unlocking doors that have been shut for decades. The strongest argument here is that the bottleneck in science is no longer just data collection, but the ability to synthesize that data into predictive models that work at scale. The biggest vulnerability remains the dependency on the accuracy of the underlying components—whether a misfolded protein monomer or a flawed neural model—but the speed of iteration offered by these new tools makes correcting those errors faster than ever before. The reader should watch how quickly these theoretical models move from the lab bench to clinical trials, particularly in the realm of immune rejuvenation.</p>
+      </div>
+
+      
+      
+      <section id="deep-dives" class="deep-dives">
+        <h2>Deep Dives</h2>
+        <p class="deep-dives-intro">Explore these related deep dives:</p>
+        <ul class="deep-dive-list">
+          
+      <li class="deep-dive-item">
+        <a href="../../wikipedia/thymus/index.html">
+          <strong>Thymus</strong>
+        </a>
+        <p class="topic-summary">The article discusses thymic involution and its role in T cell production decline with age. Understanding the thymus&#039;s structure, function, and developmental biology provides essential context for the mRNA-LNP therapeutic approach described.</p>
+      </li>
+
+      <li class="deep-dive-item">
+        <a href="../../wikipedia/icosahedral-symmetry/index.html">
+          <strong>Icosahedral symmetry</strong>
+        </a>
+        <p class="topic-summary">The Cosmohedra model exploits icosahedral symmetry to assemble viral capsid structures like dArc2. This geometric concept is fundamental to understanding why many viral proteins and large biological complexes share this specific symmetry pattern.</p>
+      </li>
+
+      <li class="deep-dive-item">
+        <a href="../../wikipedia/lipid-based-nanoparticle/index.html">
+          <strong>Lipid-based nanoparticle</strong>
+        </a>
+        <p class="topic-summary">The Friedrich et al. study uses mRNA-LNP delivery to reprogram liver cells. Lipid nanoparticles are the key enabling technology for mRNA therapeutics, including COVID-19 vaccines, and understanding their mechanism illuminates this immunological research.</p>
+      </li>
+        </ul>
+      </section>
+    
+      
+
+      <section id="excerpt"><section class="source-excerpts">
+      <h2>Sources</h2>
+      <article class="source-excerpt">
+      <h3>BioByte 143: Predicting structure of large protein complexes, restoring naive t-cell production,…</h3>
+      <div class="source-meta">by Varun Agarwal &middot; <a href="../../publication/decodingbio/index.html"></a> &middot; <a href="https://decodingbio.substack.com/p/biobyte-143-predicting-structure" target="_blank" rel="noopener">Read full article</a></div>
+      <p>Welcome to Decoding Bio’s BioByte: each week our writing collective highlight notable news—from the latest scientific papers to the latest funding rounds—and everything in between. All in one place.</p><p>A Note To Our Readers: This is our last post for 2025 as we will be taking a short break from posting for the holidays. We’ll be back to our regular posting the first full week of January. Thank you from all of us for your support this year and stay tuned for more coming soon, Decoders! Happy holidays! </p><p>What we read.</p> <p>Papers.</p> <p>Scalable prediction of symmetric protein complex structures [Yu et al., bioRxiv, November 2025]</p><p>Why it matters: Researchers from the startup EndoFold built Cosmohedra, a physics-based model that assembles predicted structures of large, symmetric proteins at a fraction of the time previously required. This model unlocks biological inquiry and drug discovery into this class of previously expensive-to-model proteins - including building new drugs that disrupt viral complexes.</p><p>AlphaFold has been a breakthrough in protein structure prediction and downstream drug discovery, but it has its constraints. Chief among these is the large memory requirement: the transformers underpinning AlphaFold2/3 require memory that  quadratically scales with sequence length (O(L<sup>2</sup>)), meaning that large proteins and protein complexes do not fit within a single AlphaFold prediction window without significant loss of accuracy or feasibility.</p><p>To tackle the problem of structure prediction for large proteins and complexes, the team at EndoFold take advantage of a convenient pattern in biology: protein symmetry. Many large complexes are just symmetric assemblies of smaller monomeric proteins! Take, for example, the Drosophila dArc2 capsid, a retrovirus-like capsid protein co-opted for neuronal cell-to-cell mRNA-based communication. The whole virus-like protein is an assembly of 240 identical Arc2 proteins, each 193 residues large. (Sidenote: Why does nature do this? One explanation is that it is genomically cheaper to encode a single monomer of 579 nucleotides, rather than explicitly encoding a full complex totaling 138,960 nucleotides.)</p><p>While AlphaFold can’t model the full complex, it generally can model the monomers of these large, symmetric proteins well! EndoFold builds on this foundation by constructing a physics-based assembly model Cosmohedra that uses true and predicted monomer structures and assembles them into symmetric complexes based on their symmetry class. To build the structure of the dArc2 capsid, for example, they assemble the predicted monomer of Arc2 with an icosahedral symmetry. To do this, they built their ...</p>
+      <footer class="source-bio" aria-label="About this source">
+      <p class="sb-heading">About this source</p>
+      <p class="sb-meta"><span class="sb-type">independent newsletter</span> &middot; <span class="sb-country">United States</span> &middot; <span class="sb-funding">paid Substack subscriptions</span> &middot; <span class="sb-leaning">Techbio VC-adjacent analysis; bullish on computational biology and biotech startups, aligned with Bay Area pro-innovation milieu.</span></p>
+      <p class="sb-audit">Last reviewed: <time datetime="2026-04-08">2026-04-08</time> &middot; <a href="https://www.decodingbio.com/" target="_blank" rel="noopener">source</a></p>
+    </footer>
+    </article>
+    </section></section>
+      
+    </article>
+  
+  </main>
+  <footer class="site-footer">
+    <div class="container">
+      <p><a href="../../privacy/index.html">Privacy</a> &middot; <a href="../../terms/index.html">Terms</a></p>
+    </div>
+  </footer>
+  <script>
+  (function() {
+    var params = new URLSearchParams(window.location.search);
+    var from = params.get('from');
+    if (from) {
+      var names = {
+        'foreign-policy':'Foreign Policy','ai-tech':'AI & Tech','housing-cities':'Housing & Cities',
+        'political-strategy':'Political Strategy','history':'History','science':'Science',
+        'culture':'Culture','economics':'Economics','faith':'Faith','writing-craft':'Writing & Craft',
+        'music':'Music','law-rights':'Law & Rights','public-health':'Public Health',
+        'philosophy':'Philosophy','media':'Media','defense':'Defense','china':'China'
+      };
+      var link = document.getElementById('back-link');
+      if (link) {
+        var name = names[from] || from;
+        link.href = '../../tag/' + from + '/index.html';
+        link.textContent = '\u2190 Back to ' + name;
+      }
+    }
+  })();
+  </script>
+</body>
+</html>
