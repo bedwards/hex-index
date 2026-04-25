@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>How Reddit migrated comments functionality from python to go - Hex Index</title>
+  <link rel="stylesheet" href="../../styles.css">
+</head>
+<body class="reading-mode">
+  <header class="reading-header">
+    <a href="../../index.html" class="back-link" id="back-link">&larr; Back to Library</a>
+  </header>
+  <main class="reading-content">
+    
+    <article class="article-page">
+      <header class="article-header">
+        <h1>How Reddit migrated comments functionality from python to go</h1>
+        
+      <div class="article-meta">
+        <span class="author">Alex Xu</span>
+        <span class="separator">&middot;</span>
+        <a href="../../publication/bytebytego/index.html" class="publication">
+          ByteByteGo Newsletter
+        </a>
+        <span class="separator">&middot;</span><time>Dec 7, 2025</time>
+        <span class="separator">&middot;</span><span class="read-time">10 min read</span>
+      </div>
+      </header>
+
+      <div class="content-label">
+        <span class="label-text">Commentary by <a href="../../about/index.html">Hex Index staff</a></span>
+        <nav class="content-nav">
+          <a href="#deep-dives">Deep dives</a><span class="separator">&middot;</span>
+          <a href="https://blog.bytebytego.com/p/how-reddit-migrated-comments-functionality" target="_blank" rel="noopener">Original article &rarr;</a>
+        </nav>
+      </div>
+
+      
+      <div class="article-content">
+        <p>In an era where engineering teams often chase the newest framework, Alex Xu offers a rare, grounded look at the brutal reality of modernizing a legacy monolith without breaking the internet. This piece stands out not for its theoretical elegance, but for its unflinching admission that moving from Python to Go is less about syntax and more about navigating a minefield of hidden database optimizations and cross-language serialization traps.</p>
+<h2>The High Stakes of Breaking the Monolith</h2>
+<p>Xu frames the Reddit engineering challenge with precision: the platform&#039;s four core models—Comments, Accounts, Posts, and Subreddits—had been shackled to a single legacy Python service for years. &quot;By 2024, this monolithic architecture had become a problem,&quot; Xu writes, noting that the system suffered from recurring reliability issues and fragmented ownership. The decision to migrate the Comments model first was strategic, as it represented the largest dataset and highest write throughput. This was not a casual refactor; it was a high-wire act where a single slip could disrupt the entire platform&#039;s social graph.</p>
+<figure class="inline-illustration">
+    <img src="../../images/a08ae916-6b54-46c1-b2ef-0717ccdf1443.webp" alt="How Reddit migrated comments functionality from python to go" loading="lazy" width="600" height="315">
+  </figure>
+
+<p>The article&#039;s most compelling insight is the distinction between moving read operations and write operations. For reads, the team employed a &quot;tap compare&quot; strategy, routing a fraction of traffic to the new Go service while silently comparing its output against the old Python backend. &quot;This approach meant that if the new service had bugs, users never saw them,&quot; Xu explains. This zero-risk validation is a masterclass in incremental deployment, yet it sets the stage for the much harder problem: how do you test a system that changes data without actually changing the data?</p>
+<blockquote>&quot;The team couldn&#039;t simply use basic tap compare for writes because of a fundamental constraint: comment IDs must be unique. You can&#039;t write the same comment twice to the production database because the unique key constraint would reject it.&quot;</blockquote>
+<h2>The Sister Datastore Solution</h2>
+<p>To solve the write-validation paradox, the Reddit team engineered a novel architecture Xu calls &quot;sister datastores.&quot; They built a parallel, isolated infrastructure mirroring the production Postgres, Memcached, and Redis layers. The new Go service would write to these sister stores while the legacy Python service handled the actual user-facing writes. &quot;The beauty of this approach was that even if Go&#039;s implementation had bugs, those bugs would only affect the isolated sister datastores, never touching real user data,&quot; Xu notes.</p>
+<p>This dual-write flow allowed for rigorous comparison without the risk of data duplication. However, the complexity deepened when the team had to account for Change Data Capture (CDC) events. In the world of distributed systems, CDC is the nervous system that alerts other services to data changes; missing an event can cascade into broken features elsewhere. Reddit guarantees 100% delivery of these events, a constraint that forced the team to verify not just that Go wrote the data correctly, but that the legacy Python consumers could actually read and deserialize it.</p>
+<p>Critics might argue that maintaining a full parallel infrastructure just for testing is resource-intensive and unsustainable for smaller teams. Yet, for a platform of Reddit&#039;s scale, the cost of a failed migration—measured in lost user trust and platform-wide outages—far outweighs the overhead of temporary sister stores.</p>
+<h2>The Hidden Cost of Language Switching</h2>
+<p>The article shines a light on the often-overlooked friction of polyglot architectures. The migration exposed that Python&#039;s Object-Relational Mapping (ORM) tools contained &quot;hidden optimizations&quot; that the Go team, writing direct queries, initially missed. &quot;It turned out that Python&#039;s ORM had hidden optimizations that the team didn&#039;t fully understand,&quot; Xu writes, revealing how the new Go service inadvertently placed unexpected pressure on the Postgres database.</p>
+<p>This is a critical lesson for any organization standardizing on a new language: the performance characteristics of a language are not just about raw speed, but about how it interacts with the underlying storage layer. The team had to pivot quickly, optimizing their Go queries and establishing better monitoring for database resource utilization. Furthermore, they encountered race conditions where timing mismatches between the two services created false positives in their logs. &quot;Was a mismatch caused by a real bug in the Go implementation, or just unlucky timing?&quot; Xu asks, highlighting the difficulty of debugging concurrent systems.</p>
+<blockquote>&quot;Different programming languages serialize data differently. When Go wrote data to the datastores, Python services sometimes couldn&#039;t deserialize (read back) that data correctly.&quot;</blockquote>
+<p>The solution involved running tap comparisons through actual CDC event consumers in the legacy Python service, ensuring end-to-end compatibility rather than just byte-level parity. This holistic view of the ecosystem—where the consumer of the data is as important as the producer—is a sophisticated approach that many migrations overlook.</p>
+<h2>Why Go? The Strategic Trade-off</h2>
+<p>A natural question arises: if the language switch introduced so many serialization and database access headaches, why not stick with Python? Xu provides a clear answer rooted in long-term infrastructure strategy. &quot;Reddit&#039;s infrastructure organization has made a strong commitment to Go for several reasons,&quot; he writes, citing concurrency advantages and a more consistent tooling ecosystem. The engineering team concluded that the strategic benefits of standardizing on Go outweighed the short-term pain of cross-language compatibility.</p>
+<p>The results vindicated the decision. The migration delivered an unexpected bonus: p99 latency—the metric for the slowest 1% of requests, which defines the worst user experience—was cut in half. While the legacy Python service occasionally spiked to 15 seconds, the new Go service kept typical latency well under 100 milliseconds. &quot;The migration succeeded completely,&quot; Xu concludes, marking the first of the four core models to fully escape the legacy monolith.</p>
+<blockquote>&quot;The legacy Python service occasionally had latency spikes reaching 15 seconds. New Go service shows consistently lower and more stable latency.&quot;</blockquote>
+<h2>Bottom Line</h2>
+<p>Alex Xu&#039;s analysis succeeds because it refuses to romanticize the migration, instead detailing the gritty, unglamorous work of verifying data integrity across language barriers and database layers. The piece&#039;s greatest strength is its demonstration that successful modernization requires not just new code, but new verification architectures like sister datastores and end-to-end consumer testing. However, the reliance on massive parallel infrastructure for testing remains a barrier to entry for smaller organizations, suggesting that while the technical lessons are universal, the tactical execution is not. For engineering leaders, the takeaway is clear: the path to modernization is paved with hidden ORM optimizations and race conditions, not just syntax conversion.</p>
+      </div>
+
+      
+      
+      <section id="deep-dives" class="deep-dives">
+        <h2>Deep Dives</h2>
+        <p class="deep-dives-intro">Explore these related deep dives:</p>
+        <ul class="deep-dive-list">
+          
+      <li class="deep-dive-item">
+        <a href="../../wikipedia/change-data-capture/index.html">
+          <strong>Change data capture</strong>
+        </a>
+        <p class="topic-summary">Linked in the article (7 min read)</p>
+      </li>
+
+      <li class="deep-dive-item">
+        <a href="../../wikipedia/objectrelational-mapping/index.html">
+          <strong>Object–relational mapping</strong>
+        </a>
+        <p class="topic-summary">The article highlights how Python&#039;s ORM had hidden optimizations that caused unexpected database performance issues during migration to Go, which doesn&#039;t use an ORM. Understanding ORM architecture and trade-offs provides crucial context for why this migration challenge occurred.</p>
+      </li>
+
+      <li class="deep-dive-item">
+        <a href="../../wikipedia/race-condition/index.html">
+          <strong>Race condition</strong>
+        </a>
+        <p class="topic-summary">The article describes race conditions causing false mismatches in tap compare logs during the migration. A deep understanding of race conditions—their causes, detection, and prevention—illuminates why concurrent system migrations are so challenging to validate.</p>
+      </li>
+        </ul>
+      </section>
+    
+      
+
+      <section id="excerpt"><section class="source-excerpts">
+      <h2>Sources</h2>
+      <article class="source-excerpt">
+      <h3>How Reddit migrated comments functionality from python to go</h3>
+      <div class="source-meta">by Alex Xu &middot; <a href="../../publication/bytebytego/index.html">ByteByteGo Newsletter</a> &middot; <a href="https://blog.bytebytego.com/p/how-reddit-migrated-comments-functionality" target="_blank" rel="noopener">Read full article</a></div>
+      <p>Unwrap Unbeatable Holiday Deals with Verizon (Sponsored).</p> <p>Reliability shouldn’t cost extra—and Verizon proves it this holiday season. Switch to Verizon and get four lines on Unlimited Welcome for $25 per line/month (with Auto Pay, plus taxes and fees) and everyone gets one of the hottest devices, all on them. No trade-in required. Devices include:</p><p>Apple iPhone 17 Pro</p><p>Samsung Galaxy S25+</p><p>Google Pixel 10 Pro XL</p><p>Everyone gets a better deal—flexibility, savings, and support with no extra cost.</p><p>Explore Holiday Deals and see here for terms.</p><p>Disclaimer: The details in this post have been derived from the details shared online by the Reddit Engineering Team. All credit for the technical details goes to the Reddit Engineering Team.  The links to the original articles and sources are present in the references section at the end of the post. We’ve attempted to analyze the details and provide our input about them. If you find any inaccuracies or omissions, please leave a comment, and we will do our best to fix them.</p><p>When you upvote a clever comment on Reddit or reply to a discussion thread, you’re interacting with their Comments model. This model is probably the most important and high-traffic model in Reddit’s architectural setup.</p><p>Reddit’s infrastructure was built around four Core Models: Comments, Accounts, Posts, and Subreddits.</p><p>These models power virtually everything users do on the platform. For years, all four models were served from a single legacy Python service, with ownership awkwardly split across different teams. By 2024, this monolithic architecture had become a problem:</p><p>The service suffered from recurring reliability and performance issues.</p><p>Maintaining it had become increasingly difficult for all teams involved.</p><p>Ownership responsibilities were unclear and fragmented.</p><p>In 2024, the Reddit engineering team decided to break up this monolith into modern, domain-specific Go microservices.</p><p>They chose comments as their first migration target because it represented Reddit’s largest dataset and handled the highest write throughput of any core model. If they could successfully migrate comments, they would prove their approach could handle anything.</p><p>In this article, we will look at how Reddit carried out this migration and the challenges it faced.</p><p>The Easy Part: Migrating Read Operations.</p> <p>Before diving into the complex scenario, it’s worth understanding how Reddit approached the simpler part of this migration: read endpoints.</p><p>When you view a comment, that’s a read operation. The server fetches data from storage and returns it to you without ...</p>
+      <footer class="source-bio" aria-label="About this source">
+      <p class="sb-heading">About this source</p>
+      <p class="sb-meta"><span class="sb-type">independent newsletter</span> &middot; <span class="sb-country">United States</span> &middot; <span class="sb-funding">paid subscriptions, book sales, course sales</span> &middot; <span class="sb-leaning">Apolitical FAANG-interview systems-design explainer; technocratic-pragmatic with no discernible political agenda.</span></p>
+      <p class="sb-audit">Last reviewed: <time datetime="2026-04-08">2026-04-08</time> &middot; <a href="https://bytebytego.com/" target="_blank" rel="noopener">source</a></p>
+    </footer>
+    </article>
+    </section></section>
+      
+    </article>
+  
+  </main>
+  <footer class="site-footer">
+    <div class="container">
+      <p><a href="../../privacy/index.html">Privacy</a> &middot; <a href="../../terms/index.html">Terms</a></p>
+    </div>
+  </footer>
+  <script>
+  (function() {
+    var params = new URLSearchParams(window.location.search);
+    var from = params.get('from');
+    if (from) {
+      var names = {
+        'foreign-policy':'Foreign Policy','ai-tech':'AI & Tech','housing-cities':'Housing & Cities',
+        'political-strategy':'Political Strategy','history':'History','science':'Science',
+        'culture':'Culture','economics':'Economics','faith':'Faith','writing-craft':'Writing & Craft',
+        'music':'Music','law-rights':'Law & Rights','public-health':'Public Health',
+        'philosophy':'Philosophy','media':'Media','defense':'Defense','china':'China'
+      };
+      var link = document.getElementById('back-link');
+      if (link) {
+        var name = names[from] || from;
+        link.href = '../../tag/' + from + '/index.html';
+        link.textContent = '\u2190 Back to ' + name;
+      }
+    }
+  })();
+  </script>
+</body>
+</html>
