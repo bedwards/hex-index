@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>A pragmatic guide to LLM evals for devs - Hex Index</title>
+  <link rel="stylesheet" href="../../styles.css">
+</head>
+<body class="reading-mode">
+  <header class="reading-header">
+    <a href="../../index.html" class="back-link" id="back-link">&larr; Back to Library</a>
+  </header>
+  <main class="reading-content">
+    
+    <article class="article-page">
+      <header class="article-header">
+        <h1>A pragmatic guide to LLM evals for devs</h1>
+        
+      <div class="article-meta">
+        <span class="author">Gergely Orosz</span>
+        <span class="separator">&middot;</span>
+        <a href="../../publication/pragmaticengineer/index.html" class="publication">
+          The Pragmatic Engineer
+        </a>
+        <span class="separator">&middot;</span><time>Dec 2, 2025</time>
+        <span class="separator">&middot;</span><span class="read-time">14 min read</span>
+      </div>
+      </header>
+
+      <div class="content-label">
+        <span class="label-text">Commentary by <a href="../../about/index.html">Hex Index staff</a></span>
+        <nav class="content-nav">
+          <a href="#deep-dives">Deep dives</a><span class="separator">&middot;</span>
+          <a href="https://newsletter.pragmaticengineer.com/p/evals" target="_blank" rel="noopener">Original article &rarr;</a>
+        </nav>
+      </div>
+
+      
+      <div class="article-content">
+        <p>Gergely Orosz delivers a necessary corrective to the current AI engineering frenzy, arguing that the industry&#039;s obsession with &quot;vibes-based development&quot; is a recipe for catastrophic failure. While many treat Large Language Models as magical black boxes, Orosz insists that without rigorous, data-driven evaluation, these systems are nothing more than expensive guesswork. This piece matters because it moves beyond the hype to offer a concrete, repeatable engineering discipline that bridges the gap between experimental AI and reliable software.</p>
+<h2>The Trap of Subjectivity</h2>
+<p>The article opens by dismantling the illusion that LLMs can be tested like traditional software. Orosz writes, &quot;LLMs are non-deterministic, meaning there&#039;s no guarantee they&#039;ll provide the same answer to the same question twice.&quot; This fundamental difference breaks the standard testing models engineers rely on. Instead of checking for a single correct output, developers are now navigating a landscape of infinite valid possibilities. Orosz identifies a dangerous pattern he calls the &quot;vibes-based development&quot; trap, where teams ship products based on a superficial &quot;looked good to me&quot; assessment.</p>
+<figure class="inline-illustration">
+    <img src="../../images/5f6a11ed-f7c7-4bee-9877-f05a13729438.webp" alt="A pragmatic guide to LLM evals for devs" loading="lazy" width="600" height="315">
+  </figure>
+
+<p>This framing is effective because it names a behavior many engineers recognize but lack the vocabulary to critique. The author argues that this approach fails because it ignores the &quot;Three Gulfs&quot;: the gap between developer understanding and model behavior, the gap between intent and prompt specification, and the gap between instructions and generalization. As Orosz puts it, &quot;You can&#039;t test for correctness before you&#039;ve systematically observed the range of possible outputs and have defined what &#039;good&#039; even means for your product.&quot; This is a crucial pivot point; it suggests that the industry is trying to solve the wrong problem by applying old solutions to new constraints.</p>
+<blockquote>&quot;Many teams are tempted to grab a pre-built &#039;hallucination score&#039; or &#039;helpfulness&#039; eval, but in my experience, these metrics are often worse than useless.&quot;</blockquote>
+<p>Critics might argue that off-the-shelf metrics provide a necessary baseline for early-stage startups, but Orosz counters that these generic scores create a false sense of security. He illustrates this with a mental health startup that tracked &quot;helpfulness&quot; on a 1-5 scale, only to find the data unactionable. The argument here is that without context, numbers are just noise. This aligns with the principles of grounded theory, where categories must emerge from the data itself rather than being imposed from the top down. Orosz is right to warn that optimizing for vanity metrics can lead teams to ignore the actual friction points their users face.</p>
+<h2>From Chaos to Codified Error Analysis</h2>
+<p>The core of Orosz&#039;s proposal is a return to <strong>error analysis</strong>, a discipline that has been central to machine learning for decades but was recently abandoned in the rush to deploy generative AI. He details a workflow where teams manually review conversation traces, a process he describes as &quot;unglamorous&quot; but essential. By building custom data viewers, the NurtureBoss team was able to move from random sampling to a systematic review of hundreds of interactions. This mirrors the historical rigor of Test-Driven Development, yet Orosz acknowledges that TDD fails here because &quot;there isn&#039;t one right answer, but thousands.&quot;</p>
+<p>The methodology relies on a two-step coding process: <strong>open coding</strong>, where engineers jot down descriptive notes on failures without predefined checklists, and <strong>axial coding</strong>, where these notes are grouped into themes. Orosz writes, &quot;Let the data speak for itself, and jot down descriptive observations like: &#039;The agent missed a clear opportunity to re-engage a price-sensitive user.&#039;&quot; This bottom-up approach ensures that the evaluation criteria are rooted in real user pain rather than theoretical ideals. The author&#039;s emphasis on identifying the &quot;first upstream failure&quot; is particularly sharp, noting that fixing a single root cause often resolves a cascade of downstream errors.</p>
+<blockquote>&quot;This bottom-up process is the single highest-ROI activity in AI development. It ensures you&#039;re solving real problems, not chasing vanity metrics.&quot;</blockquote>
+<p>The distinction between deterministic and subjective failures is where the article offers its most practical engineering advice. For tasks like date extraction, Orosz advocates for <strong>code-based evals</strong>, which function like traditional unit tests. However, for nuanced decisions like when to hand off a conversation to a human, he proposes an <strong>LLM-as-judge</strong> model. This requires the judge to be validated against human expertise to avoid the judge simply memorizing answers. Orosz warns, &quot;Avoid your LLM judge memorizing answers by partitioning your data and measuring how well the judge generalizes to unfamiliar data.&quot; This nuance is vital; it prevents the evaluation system from becoming a self-fulfilling prophecy where the AI just grades itself on criteria it invented.</p>
+<h2>The Flywheel of Improvement</h2>
+<p>Ultimately, Orosz frames evaluation not as a one-time checkpoint but as a continuous loop. He describes a &quot;flywheel of improvement&quot; where teams analyze data, measure performance, improve the model, and automate the process before starting again. This approach integrates evaluation directly into the CI/CD pipeline, ensuring that regressions are caught immediately. The argument is that the &quot;vibes&quot; phase must end if AI engineering is to mature into a reliable discipline. As Orosz concludes, the goal is to move from guesswork to a repeatable engineering discipline that can scale.</p>
+<blockquote>&quot;This is the antidote to the problems of generic, off-the-shelf metrics. Many teams are tempted to grab a pre-built &#039;hallucination score&#039; or &#039;helpfulness&#039; eval, but in my experience, these metrics are often worse than useless.&quot;</blockquote>
+<p>The strongest aspect of this piece is its refusal to treat AI as magic. By grounding the discussion in established software engineering principles and qualitative research methods, Orosz provides a roadmap for stability in a chaotic field. However, the approach demands a level of manual labor and tooling investment that may be prohibitive for smaller teams without significant resources. While the methodology is sound, the barrier to entry for building custom data viewers and maintaining large golden datasets remains a practical hurdle.</p>
+<h2>Bottom Line</h2>
+<p>Orosz&#039;s argument is a vital intervention that shifts the conversation from model capabilities to system reliability. The piece&#039;s greatest strength is its insistence that error analysis must be data-driven and bottom-up, rather than relying on generic, off-the-shelf metrics. The biggest vulnerability lies in the execution: the rigorous, manual processes required to build these evaluation systems are resource-intensive and may slow down the rapid iteration cycles many startups crave. Engineers should watch for how the industry adapts these manual workflows into automated tooling, as that will determine whether this discipline becomes standard practice or remains an elite luxury.</p>
+      </div>
+
+      
+      
+      <section id="deep-dives" class="deep-dives">
+        <h2>Deep Dives</h2>
+        <p class="deep-dives-intro">Explore these related deep dives:</p>
+        <ul class="deep-dive-list">
+          
+      <li class="deep-dive-item">
+        <a href="../../wikipedia/grounded-theory/index.html">
+          <strong>Grounded theory</strong>
+        </a>
+        <p class="topic-summary">Linked in the article (30 min read)</p>
+      </li>
+
+      <li class="deep-dive-item">
+        <a href="../../wikipedia/likert-scale/index.html">
+          <strong>Likert scale</strong>
+        </a>
+        <p class="topic-summary">Linked in the article (13 min read)</p>
+      </li>
+
+      <li class="deep-dive-item">
+        <a href="../../wikipedia/test-driven-development/index.html">
+          <strong>Test-driven development</strong>
+        </a>
+        <p class="topic-summary">The article discusses how traditional TDD falls short for LLM applications due to non-deterministic outputs. Understanding the formal methodology of TDD - its red-green-refactor cycle, origins in extreme programming, and assumptions about deterministic correctness - provides essential context for why LLM evals represent a paradigm shift in software quality assurance.</p>
+      </li>
+        </ul>
+      </section>
+    
+      
+
+      <section id="excerpt"><section class="source-excerpts">
+      <h2>Sources</h2>
+      <article class="source-excerpt">
+      <h3>A pragmatic guide to LLM evals for devs</h3>
+      <div class="source-meta">by Gergely Orosz &middot; <a href="../../publication/pragmaticengineer/index.html">The Pragmatic Engineer</a> &middot; <a href="https://newsletter.pragmaticengineer.com/p/evals" target="_blank" rel="noopener">Read full article</a></div>
+      <p>One word that keeps cropping up when I talk with software engineers who build large language model (LLM)-based solutions is “evals”. They use evaluations to verify that LLM solutions work well enough because LLMs are non-deterministic, meaning there’s no guarantee they’ll provide the same answer to the same question twice. This makes it more complicated to verify that things work according to spec than it does with other software, for which automated tests are available.</p><p>Evals feel like they are becoming a core part of the AI engineering toolset. And because they are also becoming part of CI/CD pipelines, we, software engineers, should understand them better — especially because we might need to use them sooner rather than later! So, what do good evals look like, and how should this non-deterministic-testing space be approached?</p><p>For directions, I turned to an expert on the topic, Hamel Husain. He’s worked as a Machine Learning engineer at companies including Airbnb and GitHub, and teaches the online course AI Evals For Engineers &amp; PMs — the upcoming cohort starts in January. Hamel is currently writing a book, Evals for AI Engineers, to be published by O’Reilly next year.</p><p>In today’s issue, we cover:</p><p>Vibe-check development trap. An agent appears to work well, but as soon as it is modified, it can’t be established that it’s working correctly.</p><p>Core workflow: error analysis. Error analysis has been a key part of machine learning for decades and is useful for building LLM applications.</p><p>Building evals: the right tools for the job. Use code-based evals for deterministic failures, and an LLM-as-judge for subjective cases.</p><p>Building an LLM-as-judge. Avoid your LLM judge memorizing answers by partitioning your data and measuring how well the judge generalizes to unfamiliar data.</p><p>Align the judge, keep trust. The LLM judge’s expertise needs to be validated against human expertise. Consider metrics like True Positive Rate (TPR) and True Negative Rate (TNR).</p><p>Evals in practice: from CI/CD to production monitoring. Use evals in the CI/CD pipeline, but use production data to continuously validate that they work as expected, too.</p><p>Flywheel of improvement. Analyze → measure → Improve → automate → start again</p><p>With that, it’s over to Hamel:</p><p>1. Vibe-check development trap.</p> <p>Organizations are embedding LLMs into applications from customer service to content creation. Yet, unlike traditional software, LLM pipelines don’t produce deterministic outputs; their responses are often subjective and context-dependent. A response might be ...</p>
+      <footer class="source-bio" aria-label="About this source">
+      <p class="sb-heading">About this source</p>
+      <p class="sb-meta"><span class="sb-type">independent newsletter</span> &middot; <span class="sb-country">Netherlands</span> &middot; <span class="sb-funding">paid Substack subscriptions</span> &middot; <span class="sb-affiliations">Uber (former engineering manager)</span> &middot; <span class="sb-leaning">Software-engineering career and management advice; politically near-absent, culturally aligned with FAANG-adjacent pragmatic technocracy.</span></p>
+      <p class="sb-audit">Last reviewed: <time datetime="2026-04-08">2026-04-08</time> &middot; <a href="https://newsletter.pragmaticengineer.com/" target="_blank" rel="noopener">source</a></p>
+    </footer>
+    </article>
+    </section></section>
+      
+    </article>
+  
+  </main>
+  <footer class="site-footer">
+    <div class="container">
+      <p><a href="../../privacy/index.html">Privacy</a> &middot; <a href="../../terms/index.html">Terms</a></p>
+    </div>
+  </footer>
+  <script>
+  (function() {
+    var params = new URLSearchParams(window.location.search);
+    var from = params.get('from');
+    if (from) {
+      var names = {
+        'foreign-policy':'Foreign Policy','ai-tech':'AI & Tech','housing-cities':'Housing & Cities',
+        'political-strategy':'Political Strategy','history':'History','science':'Science',
+        'culture':'Culture','economics':'Economics','faith':'Faith','writing-craft':'Writing & Craft',
+        'music':'Music','law-rights':'Law & Rights','public-health':'Public Health',
+        'philosophy':'Philosophy','media':'Media','defense':'Defense','china':'China'
+      };
+      var link = document.getElementById('back-link');
+      if (link) {
+        var name = names[from] || from;
+        link.href = '../../tag/' + from + '/index.html';
+        link.textContent = '\u2190 Back to ' + name;
+      }
+    }
+  })();
+  </script>
+</body>
+</html>
