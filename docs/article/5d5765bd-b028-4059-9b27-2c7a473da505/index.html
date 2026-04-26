@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>How DoorDash moved to a service mesh to handle 80m requests/second - Hex Index</title>
+  <link rel="stylesheet" href="../../styles.css">
+</head>
+<body class="reading-mode">
+  <header class="reading-header">
+    <a href="../../index.html" class="back-link" id="back-link">&larr; Back to Library</a>
+  </header>
+  <main class="reading-content">
+    
+    <article class="article-page">
+      <header class="article-header">
+        <h1>How DoorDash moved to a service mesh to handle 80m requests/second</h1>
+        
+      <div class="article-meta">
+        <span class="author">Alex Xu</span>
+        <span class="separator">&middot;</span>
+        <a href="../../publication/bytebytego/index.html" class="publication">
+          ByteByteGo Newsletter
+        </a>
+        <span class="separator">&middot;</span><time>Dec 5, 2025</time>
+        <span class="separator">&middot;</span><span class="read-time">16 min read</span>
+      </div>
+      </header>
+
+      <div class="content-label">
+        <span class="label-text">Commentary by <a href="../../about/index.html">Hex Index staff</a></span>
+        <nav class="content-nav">
+          <a href="#deep-dives">Deep dives</a><span class="separator">&middot;</span>
+          <a href="https://blog.bytebytego.com/p/how-doordash-moved-to-a-service-mesh" target="_blank" rel="noopener">Original article &rarr;</a>
+        </nav>
+      </div>
+
+      
+      <div class="article-content">
+        <p>Most engineering case studies celebrate the glory of scale, but Alex Xu&#039;s analysis of DoorDash&#039;s infrastructure pivot reveals a far more urgent truth: reliability is often a casualty of fragmentation, not a lack of technology. While the headline boasts handling 80 million requests per second, the real story is how a single payment latency spike nearly collapsed the entire platform, exposing a dangerous patchwork of inconsistent reliability mechanisms. This is not just a technical deep dive; it is a cautionary tale for any organization transitioning from monoliths to microservices without a unified safety net.</p>
+<h2>The Cost of Fragmentation</h2>
+<p>Xu frames the narrative around a specific, devastating failure in mid-2021, where a payment service outage triggered a &quot;retry storm&quot; that brought the platform down for over two hours. He writes, &quot;The incident started with the payment service experiencing high latency. Clients of this service interpreted the slow responses as potential failures and retried their requests. This created a retry storm where each retry added more load to an already overwhelmed service.&quot; This description perfectly captures the cascading nature of distributed system failures, where the cure (retries) becomes the poison.</p>
+<figure class="inline-illustration">
+    <img src="../../images/5d5765bd-b028-4059-9b27-2c7a473da505.webp" alt="How DoorDash moved to a service mesh to handle 80m requests/second" loading="lazy" width="600" height="315">
+  </figure>
+
+<p>The author argues that the root cause wasn&#039;t a lack of effort, but a lack of standardization. DoorDash had moved to microservices between 2019 and 2023, yet &quot;reliability features like Layer 7 metrics-aware circuit breakers and load shedding couldn&#039;t remain the responsibility of individual application teams.&quot; Xu&#039;s point is sharp: when every team builds their own safety gear, some will inevitably be left without a parachute. This is a critical insight for leaders who assume that moving to the cloud automatically solves operational complexity.</p>
+<blockquote>Reliability features like Layer 7 metrics-aware circuit breakers and load shedding couldn&#039;t remain the responsibility of individual application teams.</blockquote>
+<p>Critics might argue that enforcing a single reliability model across diverse programming languages and teams stifles innovation or slows down development velocity. However, Xu counters this by showing that the alternative—a fragmented system prone to total collapse—is far more costly. The outage demonstrated that the &quot;patchwork approach to reliability wasn&#039;t working,&quot; forcing a complete architectural rethink.</p>
+<h2>The Pragmatic Choice: Custom Over Off-the-Shelf</h2>
+<p>Perhaps the most distinctive part of Xu&#039;s coverage is the decision-making process behind the new architecture. Many companies default to the most popular open-source tools, but DoorDash took a contrarian path. Xu details how they evaluated Istio, the &quot;power user&quot; approach, and rejected it because &quot;this power comes at a cost: complexity, a steep learning curve, and heavier resource usage.&quot; With only two engineers initially dedicated to the project, the operational burden of Istio was simply unsustainable.</p>
+<p>Similarly, they looked at Linkerd2, which prioritizes simplicity, but found it lacking in essential features like adaptive concurrency and the ability to integrate with their existing Consul-based service discovery without significant upstream contributions. Xu notes, &quot;The team ultimately chose Envoy as their data plane because it was battle-tested (originally built by Lyft), performant, and had strong community support.&quot; This choice reflects a mature understanding that the &quot;best&quot; tool is the one that fits the specific constraints of the organization, not the one with the most marketing hype.</p>
+<p>The decision to build a custom control plane rather than adopting a full suite was a calculated risk. Xu explains, &quot;A minimal custom control plane was faster to build and deploy than learning and operating the full complexity of Istio.&quot; This aligns with the broader history of cloud-native computing, where the Cloud Native Computing Foundation (CNCF) has seen a shift from monolithic platforms to modular, composable tools. Just as the CNCF&#039;s 2015 founding aimed to standardize container orchestration, DoorDash&#039;s move to a custom Envoy implementation shows how mature organizations often need to diverge from standard paths to solve unique scale problems.</p>
+<blockquote>The team ultimately chose Envoy as their data plane because it was battle-tested (originally built by Lyft), performant, and had strong community support.</blockquote>
+<p>A counterargument worth considering is whether building a custom control plane creates a long-term maintenance burden that could eventually outpace the complexity of using a standard tool like Istio. Xu acknowledges this by emphasizing the &quot;pragmatic MVP approach,&quot; suggesting that the custom solution was a stepping stone to a unified platform rather than a permanent state.</p>
+<h2>The MVP and the Rollout Strategy</h2>
+<p>The execution phase is where Xu&#039;s commentary shines, detailing a &quot;minimal feature set&quot; focused strictly on the problems that caused the outage. The architecture relied on a Kubernetes mutating webhook to inject Envoy sidecars, but the configuration model was surprisingly primitive: &quot;Users wrote raw Envoy configurations in a GitHub repository, which were versioned and reviewed like code through their standard pull request process.&quot; This human-centric approach to infrastructure configuration is a refreshing departure from the trend of fully automated, opaque systems.</p>
+<p>The rollout strategy was equally deliberate. Xu describes a canary deployment where &quot;developers controlled traffic exposure by adjusting the number of canary replicas.&quot; By starting with the payment and notification services—the very culprits of the outage—the team could validate the solution in the most critical areas first. &quot;The rollout happened gradually over two weeks to allow any unknown issues to surface in a controlled manner.&quot; This methodical pace stands in stark contrast to the &quot;move fast and break things&quot; mentality that often plagues tech companies.</p>
+<p>The success of this approach is evident in the results. Xu writes, &quot;The initial onboarding was smooth and successful with no delivery loss.&quot; This outcome validates the argument that simplicity and focus often outperform feature-rich complexity, especially when dealing with high-stakes infrastructure.</p>
+<blockquote>The rollout happened gradually over two weeks to allow any unknown issues to surface in a controlled manner.</blockquote>
+<h2>Bottom Line</h2>
+<p>Alex Xu&#039;s analysis succeeds because it prioritizes the human and operational realities of engineering over the allure of buzzwords. The strongest part of the argument is the clear demonstration that a custom, minimal solution often outperforms complex, off-the-shelf platforms when scale and speed are critical. However, the biggest vulnerability remains the long-term sustainability of a custom control plane, which requires continuous investment to avoid becoming a technical debt trap. For busy leaders, the takeaway is clear: reliability is not a feature you buy; it is a system you build, one that must be unified, visible, and rigorously tested before it is ever needed.</p>
+      </div>
+
+      
+      
+      <section id="deep-dives" class="deep-dives">
+        <h2>Deep Dives</h2>
+        <p class="deep-dives-intro">Explore these related deep dives:</p>
+        <ul class="deep-dive-list">
+          
+      <li class="deep-dive-item">
+        <a href="../../wikipedia/cloud-native-computing-foundation/index.html">
+          <strong>Cloud Native Computing Foundation</strong>
+        </a>
+        <p class="topic-summary">Envoy is mentioned as Istio&#039;s data plane and is the core proxy technology behind modern service meshes. Understanding its origins at Lyft, its design philosophy as a sidecar proxy, and how it handles observability and traffic management illuminates why DoorDash evaluated Istio and ultimately chose their approach.</p>
+      </li>
+        </ul>
+      </section>
+    
+      
+
+      <section id="excerpt"><section class="source-excerpts">
+      <h2>Sources</h2>
+      <article class="source-excerpt">
+      <h3>How DoorDash moved to a service mesh to handle 80m requests/second</h3>
+      <div class="source-meta">by Alex Xu &middot; <a href="../../publication/bytebytego/index.html">ByteByteGo Newsletter</a> &middot; <a href="https://blog.bytebytego.com/p/how-doordash-moved-to-a-service-mesh" target="_blank" rel="noopener">Read full article</a></div>
+      <p>AI Meets Streaming: Build Real-Time Architectures with AWS + Redpanda (Sponsored).</p> <p>Join us live on December 11 for a Redpanda Tech Talk with AWS experts on how to bring Agentic and Generative AI into real-time data pipelines. Redpanda Solutions Engineer Garrett Raska and AWS Partner Solutions Architect Dr. Art Sedighi will walk through emerging AI patterns from AWS re:Invent and show how to integrate AI inference directly into streaming architectures. Learn how to build low-latency, context-aware applications, combine real-time signals with GenAI models, and architect reliable, production-ready AI workflows. If you’re exploring how AI transforms streaming systems, this session delivers the patterns you need to get started.</p><p>Disclaimer: The details in this post have been derived from the details shared online by the DoorDash Engineering Team. All credit for the technical details goes to the DoorDash Engineering Team.  The links to the original articles and sources are present in the references section at the end of the post. We’ve attempted to analyze the details and provide our input about them. If you find any inaccuracies or omissions, please leave a comment, and we will do our best to fix them.</p><p>In mid-2021, DoorDash experienced a production outage that brought down the entire platform for more than two hours.</p><p>The incident started with the payment service experiencing high latency. Clients of this service interpreted the slow responses as potential failures and retried their requests. This created a retry storm where each retry added more load to an already overwhelmed service. The cascading failure spread through DoorDash’s microservices architecture as services depending on payments started timing out and failing.</p><p>See the diagram below:</p><p>This wasn’t an isolated incident. DoorDash had experienced a series of similar issues earlier as well. The problems may have been prompted by their transition from a monolith to a microservices architecture between 2019 and 2023.</p><p>Of course, it wasn’t that DoorDash was blind to reliability concerns. The team had already implemented several reliability features in their primary Kotlin-based services. However, not all services used Kotlin, which meant they either had to build their own mechanisms or go without. The payment service was also one of them.</p><p>The outage made one thing clear: their patchwork approach to reliability wasn’t working. The incident demonstrated that reliability features like Layer 7 metrics-aware circuit breakers and load shedding couldn’t remain the responsibility of individual application teams.</p><p>Based on this realization, the DoorDash ...</p>
+      <footer class="source-bio" aria-label="About this source">
+      <p class="sb-heading">About this source</p>
+      <p class="sb-meta"><span class="sb-type">independent newsletter</span> &middot; <span class="sb-country">United States</span> &middot; <span class="sb-funding">paid subscriptions, book sales, course sales</span> &middot; <span class="sb-leaning">Apolitical FAANG-interview systems-design explainer; technocratic-pragmatic with no discernible political agenda.</span></p>
+      <p class="sb-audit">Last reviewed: <time datetime="2026-04-08">2026-04-08</time> &middot; <a href="https://bytebytego.com/" target="_blank" rel="noopener">source</a></p>
+    </footer>
+    </article>
+    </section></section>
+      
+    </article>
+  
+  </main>
+  <footer class="site-footer">
+    <div class="container">
+      <p><a href="../../privacy/index.html">Privacy</a> &middot; <a href="../../terms/index.html">Terms</a></p>
+    </div>
+  </footer>
+  <script>
+  (function() {
+    var params = new URLSearchParams(window.location.search);
+    var from = params.get('from');
+    if (from) {
+      var names = {
+        'foreign-policy':'Foreign Policy','ai-tech':'AI & Tech','housing-cities':'Housing & Cities',
+        'political-strategy':'Political Strategy','history':'History','science':'Science',
+        'culture':'Culture','economics':'Economics','faith':'Faith','writing-craft':'Writing & Craft',
+        'music':'Music','law-rights':'Law & Rights','public-health':'Public Health',
+        'philosophy':'Philosophy','media':'Media','defense':'Defense','china':'China'
+      };
+      var link = document.getElementById('back-link');
+      if (link) {
+        var name = names[from] || from;
+        link.href = '../../tag/' + from + '/index.html';
+        link.textContent = '\u2190 Back to ' + name;
+      }
+    }
+  })();
+  </script>
+</body>
+</html>
