@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>How llms learn from the internet: The training process - Hex Index</title>
+  <link rel="stylesheet" href="../../styles.css">
+</head>
+<body class="reading-mode">
+  <header class="reading-header">
+    <a href="../../index.html" class="back-link" id="back-link">&larr; Back to Library</a>
+  </header>
+  <main class="reading-content">
+    
+    <article class="article-page">
+      <header class="article-header">
+        <h1>How llms learn from the internet: The training process</h1>
+        
+      <div class="article-meta">
+        <span class="author">Alex Xu</span>
+        <span class="separator">&middot;</span>
+        <a href="../../publication/bytebytego/index.html" class="publication">
+          ByteByteGo Newsletter
+        </a>
+        <span class="separator">&middot;</span><time>Dec 1, 2025</time>
+        <span class="separator">&middot;</span><span class="read-time">16 min read</span>
+      </div>
+      </header>
+
+      <div class="content-label">
+        <span class="label-text">Commentary by <a href="../../about/index.html">Hex Index staff</a></span>
+        <nav class="content-nav">
+          <a href="#deep-dives">Deep dives</a><span class="separator">&middot;</span>
+          <a href="https://blog.bytebytego.com/p/how-llms-learn-from-the-internet" target="_blank" rel="noopener">Original article &rarr;</a>
+        </nav>
+      </div>
+
+      
+      <div class="article-content">
+        <p>Alex Xu strips away the mystique surrounding artificial intelligence, arguing that the &quot;magic&quot; of modern chatbots is actually the result of a brutal, statistical grind rather than any form of conscious understanding. For busy professionals navigating a landscape of AI hype, this piece is a necessary corrective: it reveals that these systems are not databases of truth, but rather sophisticated pattern-matching engines that can confidently lie because they are optimized for plausibility, not accuracy.</p>
+<h2>The Illusion of Understanding</h2>
+<p>The core of Xu&#039;s argument is a demystification of the Large Language Model (LLM). He posits that these systems do not &quot;think&quot; in the human sense. &quot;Despite the almost magical appearance of their capabilities, these models don&#039;t think, reason, or understand like human beings,&quot; Xu writes. Instead, he frames them as &quot;extraordinarily sophisticated pattern recognition systems that have learned the statistical structure of human language by processing billions of examples.&quot; This distinction is vital for leaders deploying AI; it shifts the expectation from a reliable oracle to a probabilistic generator.</p>
+<figure class="inline-illustration">
+    <img src="../../images/01dd2d12-7eb1-499c-8475-b341b1ef7186.webp" alt="How llms learn from the internet: The training process" loading="lazy" width="600" height="315">
+  </figure>
+
+<p>Xu explains that the fundamental task is deceptively simple: predicting the next token. A token, he notes, is &quot;roughly equivalent to a word or a piece of a word.&quot; By mastering this single objective, the model inadvertently acquires grammar, facts, and reasoning patterns. &quot;What makes this remarkable is that by learning to predict the next token, the model inadvertently learns far more,&quot; he observes. However, this mechanism carries a built-in risk. Because the model is chasing statistical likelihood rather than factual verification, &quot;the model generates plausible-sounding text based on learned patterns that may not have been verified against a trusted database.&quot; This explains the phenomenon of hallucination not as a bug, but as a feature of the training objective.</p>
+<blockquote>The model isn&#039;t retrieving a stored fact. Instead, it&#039;s generating a response based on patterns it learned by processing enormous amounts of text during training.</blockquote>
+<p>Critics might argue that this framing underestimates the emergent reasoning capabilities that appear in larger models, suggesting that at scale, statistical prediction begins to mimic logic in ways that are functionally indistinguishable from understanding. While Xu acknowledges these emergent abilities, he maintains that the underlying mechanism remains purely mathematical.</p>
+<h2>The Hidden Cost of Data Preparation</h2>
+<p>Before any learning occurs, Xu details the staggering logistical effort required to clean the internet&#039;s raw output. He describes the training data as &quot;hundreds of terabytes of text from diverse sources across the internet,&quot; which must be rigorously scrubbed. The preprocessing phase is where the model&#039;s future capabilities are largely determined. &quot;The quality and diversity of training data directly shape what the model will be capable of,&quot; Xu asserts.</p>
+<p>He highlights the necessity of deduplication to prevent the model from simply memorizing verbatim text rather than learning general patterns. Furthermore, the filtering process involves removing personally identifiable information and toxic content, a task Xu admits is fraught with difficulty: &quot;Filters identify and try to reduce the prevalence of toxic content, hate speech, and explicit material, though perfect filtering proves impossible at this scale.&quot; This section underscores that the &quot;intelligence&quot; of an AI is inextricably linked to the human labor and algorithmic choices involved in curating its diet. A model trained on scientific papers will fail at casual conversation, while one trained on social media may struggle with technical precision.</p>
+<p>The technical method for this data ingestion, tokenization, relies on breaking text into manageable units. Xu notes that this approach, often using methods like Byte Pair Encoding, &quot;allows the model to work with a fixed vocabulary of perhaps 50,000 to 100,000 tokens that can represent essentially any text.&quot; This connects to the broader history of compression algorithms; much like how early data compression techniques evolved to handle limited bandwidth, modern tokenization is an evolutionary step to make the vastness of human language computationally tractable for neural networks.</p>
+<h2>The Mathematics of Learning</h2>
+<p>The article then moves to the training loop itself, describing a process of continuous error correction. Xu paints a vivid picture of the initial state: &quot;an LLM starts in a state of complete ignorance. Its billions of parameters are set to small random values... essentially meaningless.&quot; The transformation from gibberish to coherence is driven by gradient descent, which Xu likens to &quot;standing in a foggy, hilly landscape where the goal is to reach the lowest valley, but visibility is limited to just a few feet.&quot;</p>
+<p>He explains that the system uses backpropagation to calculate how each of the billions of parameters contributed to the error. &quot;Backpropagation works backward through the model&#039;s layers, calculating gradients that indicate the direction and magnitude each parameter should change,&quot; he writes. The scale of this operation is immense, involving &quot;trillions of parameter adjustments&quot; over weeks or months on massive processor clusters. &quot;No individual parameter adjustment teaches the model anything specific,&quot; Xu emphasizes. &quot;Instead, sophisticated capabilities emerge from the collective effect of countless tiny optimizations.&quot;</p>
+<blockquote>No individual parameter adjustment teaches the model anything specific. There&#039;s no moment where we explicitly program in grammar rules or facts about the world.</blockquote>
+<p>This section effectively counters the intuition that AI is programmed with rules. Instead, it is shaped by an optimization landscape. The reference to backpropagation here is particularly apt; while the concept dates back to the 1970s, its application to the massive, deep architectures of today represents a scaling of an old idea that fundamentally changed the trajectory of computer science.</p>
+<h2>Architecture and Attention</h2>
+<p>Finally, Xu addresses the structural innovation that made this possible: the Transformer architecture. Introduced in a 2017 paper titled &quot;Attention Is All You Need,&quot; this design solved the limitations of earlier sequential models. &quot;Before Transformers, earlier neural networks processed text sequentially, reading one word at a time,&quot; Xu explains, noting that this made it difficult to connect distant information. The Transformer&#039;s &quot;attention mechanism&quot; allows the model to focus on relevant parts of the input regardless of their position.</p>
+<p>He illustrates this with the classic example of pronoun resolution: &quot;The animal didn&#039;t cross the street because it was too tired.&quot; The model learns to assign high attention scores to the relationship between &quot;it&quot; and &quot;animal.&quot; &quot;These attention scores are learned during training,&quot; Xu notes. The architecture is layered, with early layers handling syntax and later layers capturing abstract reasoning. &quot;The interesting aspect is that different layers learn to extract different kinds of patterns,&quot; he writes, describing a hierarchy of understanding that emerges from the data flow.</p>
+<blockquote>The attention mechanism in Transformers does something mathematically analogous [to human context awareness]. For each word the model processes, it calculates attention scores that determine how much that word should consider every other word in the sequence.</blockquote>
+<h2>Bottom Line</h2>
+<p>Xu&#039;s piece succeeds by replacing the mystique of AI with a clear, mechanical explanation of its limitations and strengths. The strongest part of the argument is the insistence that these models are pattern matchers, not truth-tellers, a distinction that is critical for anyone relying on them for decision-making. However, the piece slightly underplays the ethical implications of the data scraping process, focusing more on the technical necessity of cleaning than the legal and moral controversies surrounding the use of copyrighted and private data. As the industry moves toward more complex agents, the focus on memory and context retention mentioned in the opening sponsorship will likely become the next frontier, but the fundamental constraint Xu identifies—that these systems predict, they do not know—will remain the defining characteristic of the technology. &quot;</p>
+      </div>
+
+      
+      
+      <section id="deep-dives" class="deep-dives">
+        <h2>Deep Dives</h2>
+        <p class="deep-dives-intro">Explore these related deep dives:</p>
+        <ul class="deep-dive-list">
+          
+      <li class="deep-dive-item">
+        <a href="../../wikipedia/byte-pair-encoding/index.html">
+          <strong>Byte-pair encoding</strong>
+        </a>
+        <p class="topic-summary">The article specifically mentions Byte Pair Encoding as the tokenization method LLMs use, but doesn&#039;t explain how this compression algorithm works. Understanding BPE&#039;s origins in data compression and its adaptation for NLP would give readers deeper insight into why LLMs break words into subword units.</p>
+      </li>
+
+      <li class="deep-dive-item">
+        <a href="../../wikipedia/backpropagation/index.html">
+          <strong>Backpropagation</strong>
+        </a>
+        <p class="topic-summary">The article discusses how parameters are &#039;tuned during training&#039; and mentions gradient descent conceptually, but doesn&#039;t explain the fundamental algorithm that makes neural network learning possible. Backpropagation is the mathematical process that enables LLMs to adjust their billions of parameters.</p>
+      </li>
+
+      <li class="deep-dive-item">
+        <a href="../../wikipedia/perceptron/index.html">
+          <strong>Perceptron</strong>
+        </a>
+        <p class="topic-summary">The article describes LLMs as &#039;extraordinarily sophisticated pattern recognition systems&#039; with billions of parameters acting as weights. The perceptron, invented by Frank Rosenblatt in 1958, was the first trainable neural network and establishes the historical foundation for understanding how weighted connections learn patterns—the basic building block that modern LLMs scale up massively.</p>
+      </li>
+        </ul>
+      </section>
+    
+      
+
+      <section id="excerpt"><section class="source-excerpts">
+      <h2>Sources</h2>
+      <article class="source-excerpt">
+      <h3>How llms learn from the internet: The training process</h3>
+      <div class="source-meta">by Alex Xu &middot; <a href="../../publication/bytebytego/index.html">ByteByteGo Newsletter</a> &middot; <a href="https://blog.bytebytego.com/p/how-llms-learn-from-the-internet" target="_blank" rel="noopener">Read full article</a></div>
+      <p>Is your team building or scaling AI agents?(Sponsored).</p> <p>One of AI’s biggest challenges today is memory—how agents retain, recall, and remember over time. Without it, even the best models struggle with context loss, inconsistency, and limited scalability.</p><p>This new O’Reilly + Redis report breaks down why memory is the foundation of scalable AI systems and how real-time architectures make it possible.</p><p>Inside the report:</p><p>The role of short-term, long-term, and persistent memory in agent performance</p><p>Frameworks like LangGraph, Mem0, and Redis</p><p>Architectural patterns for faster, more reliable, context-aware systems</p><p>The first time most people interact with a modern AI assistant like ChatGPT or Claude, there’s often a moment of genuine surprise. The system doesn’t just spit out canned responses or perform simple keyword matching. It writes essays, debugs code, explains complex concepts, and engages in conversations that feel remarkably natural.</p><p>The immediate question becomes: how does this actually work? What’s happening under the hood that enables a computer program to understand and generate human-like text?</p><p>The answer lies in a training process that transforms vast quantities of internet text into something called a Large Language Model, or LLM. Despite the almost magical appearance of their capabilities, these models don’t think, reason, or understand like human beings. Instead, they’re extraordinarily sophisticated pattern recognition systems that have learned the statistical structure of human language by processing billions of examples.</p><p>In this article, we will walk through the complete journey of how LLMs are trained, from the initial collection of raw data to the final conversational assistant. We’ll explore how these models learn, what their architecture looks like, the mathematical processes that drive their training, and the challenges involved in ensuring they learn appropriately rather than simply memorizing their training data.</p><p>What Models Actually Learn?.</p> <p>LLMs don’t work like search engines or databases, looking up stored facts when asked questions.</p><p>Everything an LLM knows is encoded in its parameters, which are billions of numerical values that determine how the model processes and generates text. These parameters are essentially adjustable weights that get tuned during training. When someone asks an LLM about a historical event or a programming concept, the model isn’t retrieving a stored fact. Instead, it’s generating a response based on patterns it learned by processing enormous amounts of text during training.</p><p>Think about how humans learn a new language by reading extensively. After reading thousands of books and articles, we develop ...</p>
+      <footer class="source-bio" aria-label="About this source">
+      <p class="sb-heading">About this source</p>
+      <p class="sb-meta"><span class="sb-type">independent newsletter</span> &middot; <span class="sb-country">United States</span> &middot; <span class="sb-funding">paid subscriptions, book sales, course sales</span> &middot; <span class="sb-leaning">Apolitical FAANG-interview systems-design explainer; technocratic-pragmatic with no discernible political agenda.</span></p>
+      <p class="sb-audit">Last reviewed: <time datetime="2026-04-08">2026-04-08</time> &middot; <a href="https://bytebytego.com/" target="_blank" rel="noopener">source</a></p>
+    </footer>
+    </article>
+    </section></section>
+      
+    </article>
+  
+  </main>
+  <footer class="site-footer">
+    <div class="container">
+      <p><a href="../../privacy/index.html">Privacy</a> &middot; <a href="../../terms/index.html">Terms</a></p>
+    </div>
+  </footer>
+  <script>
+  (function() {
+    var params = new URLSearchParams(window.location.search);
+    var from = params.get('from');
+    if (from) {
+      var names = {
+        'foreign-policy':'Foreign Policy','ai-tech':'AI & Tech','housing-cities':'Housing & Cities',
+        'political-strategy':'Political Strategy','history':'History','science':'Science',
+        'culture':'Culture','economics':'Economics','faith':'Faith','writing-craft':'Writing & Craft',
+        'music':'Music','law-rights':'Law & Rights','public-health':'Public Health',
+        'philosophy':'Philosophy','media':'Media','defense':'Defense','china':'China'
+      };
+      var link = document.getElementById('back-link');
+      if (link) {
+        var name = names[from] || from;
+        link.href = '../../tag/' + from + '/index.html';
+        link.textContent = '\u2190 Back to ' + name;
+      }
+    }
+  })();
+  </script>
+</body>
+</html>
