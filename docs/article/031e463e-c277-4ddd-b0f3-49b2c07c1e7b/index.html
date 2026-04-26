@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>From DeepSeek v3 to v3.2: Architecture, sparse attention, and rl updates - Hex Index</title>
+  <link rel="stylesheet" href="../../styles.css">
+</head>
+<body class="reading-mode">
+  <header class="reading-header">
+    <a href="../../index.html" class="back-link" id="back-link">&larr; Back to Library</a>
+  </header>
+  <main class="reading-content">
+    
+    <article class="article-page">
+      <header class="article-header">
+        <h1>From DeepSeek v3 to v3.2: Architecture, sparse attention, and rl updates</h1>
+        
+      <div class="article-meta">
+        <span class="author">Sebastian Raschka</span>
+        <span class="separator">&middot;</span>
+        <a href="../../publication/sebastianraschka/index.html" class="publication">
+          Ahead of AI
+        </a>
+        <span class="separator">&middot;</span><time>Dec 3, 2025</time>
+        <span class="separator">&middot;</span><span class="read-time">29 min read</span>
+      </div>
+      </header>
+
+      <div class="content-label">
+        <span class="label-text">Commentary by <a href="../../about/index.html">Hex Index staff</a></span>
+        <nav class="content-nav">
+          
+          <a href="https://magazine.sebastianraschka.com/p/technical-deepseek" target="_blank" rel="noopener">Original article &rarr;</a>
+        </nav>
+      </div>
+
+      
+      <div class="article-content">
+        <p>Sebastian Raschka delivers a rare, granular autopsy of a model release that arrived quietly over a holiday weekend, yet carries the weight of a paradigm shift. While the industry fixates on proprietary black boxes, Raschka argues that the real story lies in how an open-weight contender is redefining efficiency through architectural gymnastics rather than brute force. This is not just a benchmark update; it is a blueprint for how to compete when compute resources are scarce and the hardware landscape is volatile.</p>
+<h2>The Architecture of Efficiency</h2>
+<p>Raschka immediately dismantles the narrative that the DeepSeek team went dormant after their initial success. He notes that while there was a quiet period, the team was &quot;navigating the switch from NVIDIA to Huawei chips,&quot; a critical detail that underscores the geopolitical fragility of modern AI development. This context is vital for any observer trying to understand the supply chain realities behind the code.</p>
+<figure class="inline-illustration">
+    <img src="../../images/031e463e-c277-4ddd-b0f3-49b2c07c1e7b.webp" alt="From DeepSeek v3 to v3.2: Architecture, sparse attention, and rl updates" loading="lazy" width="600" height="315">
+  </figure>
+
+<p>The core of the piece focuses on the transition from DeepSeek V3 to the new V3.2. Raschka highlights the persistence of Multi-Head Latent Attention (MLA), a memory-saving strategy that compresses data before storage. He explains that &quot;MLA... offers a memory-saving strategy that pairs particularly well with KV caching,&quot; allowing the model to store compressed tensors and project them back only when needed. This is a sophisticated engineering choice that prioritizes inference speed and memory footprint over raw parameter count.</p>
+<blockquote>&quot;The idea in MLA is that it compresses the key and value tensors into a lower-dimensional space before storing them in the KV cache.&quot;</blockquote>
+<p>This approach is particularly striking because it mirrors techniques used in fine-tuning, yet here it is baked into the fundamental architecture. Raschka suggests this is not a new invention but a refinement of a strategy introduced in V2, proving that iterative optimization can sometimes outpace radical reinvention. Critics might argue that relying on such complex compression adds latency during the up-projection phase, but Raschka&#039;s analysis suggests the trade-off is favorable for long-context scenarios.</p>
+<h2>The Reasoning Pivot</h2>
+<p>Perhaps the most provocative argument in the piece is Raschka&#039;s observation about the shifting philosophy of reasoning models. He contrasts the dedicated reasoning approach of DeepSeek R1 with the new hybrid nature of V3.2. He posits that the earlier R1 model was essentially a &quot;testbed or prototype model&quot; designed to prove that Reinforcement Learning with Verifiable Rewards (RLVR) could work.</p>
+<p>The shift to a hybrid model, where users can toggle between general chat and reasoning modes, signals a maturation of the technology. Raschka writes, &quot;The V3.2 release may be more about developing the best overall model for different use cases.&quot; This move away from siloed models suggests the industry is moving toward more versatile, cost-effective solutions that don&#039;t require users to maintain multiple versions of a model for different tasks.</p>
+<blockquote>&quot;DeepSeek V3 is a base model, and DeepSeek R1 is a dedicated reasoning model... The V3.2 release may be more about developing the best overall model for different use cases.&quot;</blockquote>
+<p>This framing challenges the prevailing hype cycle that treats every new model as a distinct, singular purpose tool. Instead, Raschka sees a consolidation of capabilities. He notes that while the team developed V3.1 and V3.2 with reasoning capabilities, they &quot;might still be working on a dedicated R2 model,&quot; implying that the hybrid approach is a strategic bridge rather than a final destination.</p>
+<h2>The Sparse Attention Breakthrough</h2>
+<p>The technical climax of Raschka&#039;s commentary is his deep dive into the DeepSeek Sparse Attention (DSA) mechanism introduced in the V3.2-Exp variant. This is where the piece moves from observation to technical revelation. Unlike standard attention mechanisms that look at all previous tokens, or sliding windows that look at a fixed block, DSA uses a &quot;lightning indexer&quot; to selectively attend to specific past tokens.</p>
+<p>Raschka explains that this mechanism is not random but learned, using a &quot;fine-grained sparse attention mechanism powered by a lightning indexer&quot; to decide which tokens matter. This allows the model to ignore irrelevant context, drastically reducing computational load during long sequences. He details how the indexer computes relevance scores based on compressed token representations, effectively creating a dynamic, intelligent filter for information.</p>
+<blockquote>&quot;With DSA, a fine-grained sparse attention mechanism powered by a lightning indexer, DeepSeek-V3.2-Exp achieves significant efficiency improvements in both training and inference, especially in long-context scenarios.&quot;</blockquote>
+<p>This is a significant departure from the &quot;sliding window&quot; approach used by other recent models. While sliding windows are predictable, Raschka points out that DSA&#039;s selection is &quot;more random&quot; in appearance but actually driven by learned relevance. This distinction is crucial: it means the model is learning <em>what</em> to remember, not just <em>how much</em> to remember. A counterargument worth considering is whether this dynamic selection introduces instability in reasoning tasks where context continuity is paramount, but Raschka&#039;s evidence suggests the efficiency gains outweigh these risks for most applications.</p>
+<blockquote>&quot;The sparsity rather comes from the separate token selector. The separate token selector keeps only a small number of high-scoring tokens... and constructs a sparse attention mask that masks out the other tokens.&quot;</blockquote>
+<h2>Bottom Line</h2>
+<p>Raschka&#039;s analysis succeeds in reframing the DeepSeek V3.2 release not as a mere incremental update, but as a strategic masterclass in resource-constrained innovation. The strongest part of his argument is the identification of sparse attention as the new frontier for efficiency, moving the industry beyond the brute-force scaling of the past. However, the piece&#039;s biggest vulnerability is its reliance on the assumption that these architectural gains will translate seamlessly to real-world, high-stakes applications without hidden latency costs. For the busy professional, the takeaway is clear: the future of AI isn&#039;t just about bigger models, but smarter, leaner architectures that can operate effectively even when the hardware landscape shifts beneath them.</p>
+      </div>
+
+      
+      
+      
+
+      <section id="excerpt"><section class="source-excerpts">
+      <h2>Sources</h2>
+      <article class="source-excerpt">
+      <h3>From DeepSeek v3 to v3.2: Architecture, sparse attention, and rl updates</h3>
+      <div class="source-meta">by Sebastian Raschka &middot; <a href="../../publication/sebastianraschka/index.html">Ahead of AI</a> &middot; <a href="https://magazine.sebastianraschka.com/p/technical-deepseek" target="_blank" rel="noopener">Read full article</a></div>
+      <p>Last updated: January 1st, 2026</p><p>Similar to DeepSeek V3, the team released their new flagship model over a major US holiday weekend. Given DeepSeek V3.2’s really good performance (on GPT-5 and Gemini 3.0 Pro) level, and the fact that it’s also available as an open-weight model, it’s definitely worth a closer look.</p><p>I covered the predecessor, DeepSeek V3, at the very beginning of my The Big LLM Architecture Comparison article, which I kept extending over the months as new architectures got released. Originally, as I just got back from Thanksgiving holidays with my family, I planned to “just” extend the article with this new DeepSeek V3.2 release by adding another section, but I then realized that there’s just too much interesting information to cover, so I decided to make this a longer, standalone article.</p><p>There’s a lot of interesting ground to cover and a lot to learn from their technical reports, so let’s get started!</p><p>1. The DeepSeek Release Timeline.</p> <p>While DeepSeek V3 wasn’t popular immediately upon release in December 2024, the DeepSeek R1 reasoning model (based on the identical architecture, using DeepSeek V3 as a base model) helped DeepSeek become one of the most popular open-weight models and a legit alternative to proprietary models such as the ones by OpenAI, Google, xAI, and Anthropic.</p><p>So, what’s new since V3/R1? I am sure that the DeepSeek team has been super busy this year. However, there hasn’t been a major release in the last 10-11 months since DeepSeek R1.</p><p>Personally, I think it’s reasonable to go ~1 year for a major LLM release since it’s A LOT of work. However, I saw on various social media platforms that people were pronouncing the team “dead” (as a one-hit wonder).</p><p>I am sure the DeepSeek team has also been busy navigating the switch from NVIDIA to Huawei chips. By the way, I am not affiliated with them or have spoken with them; everything here is based on public information. As far as I know, they are back to using NVIDIA chips.</p><p>Finally, it’s also not that they haven’t released anything. There have been a couple of smaller releases that trickled in this year, for instance, DeepSeek V3.1 and V3.2-Exp.</p><p>As I predicted back in September, the DeepSeek V3.2-Exp release was intended to get the ecosystem and inference infrastructure ready to host the just-released V3.2 model.</p><p>V3.2-Exp and V3.2 use a non-standard sparse attention ...</p>
+      <footer class="source-bio" aria-label="About this source">
+      <p class="sb-heading">About this source</p>
+      <p class="sb-meta"><span class="sb-type">individual newsletter</span> &middot; <span class="sb-country">United States, Wisconsin</span> &middot; <span class="sb-funding">paid Substack subscriptions, books</span> &middot; <span class="sb-affiliations">Lightning AI (staff research engineer)</span> &middot; <span class="sb-leaning">Technical ML researcher focused on LLM internals and training; politically near-absent, culturally aligned with open-source ML practice.</span></p>
+      <p class="sb-audit">Last reviewed: <time datetime="2026-04-08">2026-04-08</time> &middot; <a href="https://magazine.sebastianraschka.com/" target="_blank" rel="noopener">source</a></p>
+    </footer>
+    </article>
+    </section></section>
+      
+    </article>
+  
+  </main>
+  <footer class="site-footer">
+    <div class="container">
+      <p><a href="../../privacy/index.html">Privacy</a> &middot; <a href="../../terms/index.html">Terms</a></p>
+    </div>
+  </footer>
+  <script>
+  (function() {
+    var params = new URLSearchParams(window.location.search);
+    var from = params.get('from');
+    if (from) {
+      var names = {
+        'foreign-policy':'Foreign Policy','ai-tech':'AI & Tech','housing-cities':'Housing & Cities',
+        'political-strategy':'Political Strategy','history':'History','science':'Science',
+        'culture':'Culture','economics':'Economics','faith':'Faith','writing-craft':'Writing & Craft',
+        'music':'Music','law-rights':'Law & Rights','public-health':'Public Health',
+        'philosophy':'Philosophy','media':'Media','defense':'Defense','china':'China'
+      };
+      var link = document.getElementById('back-link');
+      if (link) {
+        var name = names[from] || from;
+        link.href = '../../tag/' + from + '/index.html';
+        link.textContent = '\u2190 Back to ' + name;
+      }
+    }
+  })();
+  </script>
+</body>
+</html>
