@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home - Hex Index</title>
+  <link rel="stylesheet" href="../../styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <nav class="container">
+      <a href="../../index.html" class="logo">Hex Index</a>
+      <a href="../../tag/index.html" class="header-link">Topics</a>
+      <a href="../../weekly/index.html" class="header-link">Reader</a>
+      <a href="../../about/index.html" class="header-link">About</a>
+      <div class="search-wrap">
+        <input type="text" id="search" class="search-input" placeholder="Search" autocomplete="off" spellcheck="false">
+      </div>
+    </nav>
+  </header>
+  <main class="container">
+    <div id="search-results" class="article-list" style="display:none"></div>
+    <div id="main-content">
+      
+    
+    <section class="article-list">
+      <article class="article-card">
+  <div>
+    <a href="../../article/b4dadbf9-c42c-4406-a6cd-e4fccb03c392/index.html" class="article-link">
+      <h2 class="article-title">Friedrich nietzsche&#039;s life and philosophy</h2>
+    </a>
+    <div class="article-meta">
+      <span class="author">Wes Cecil</span>
+      <span class="separator">&middot;</span>
+      <a href="../../publication/wescecil/index.html" class="publication">
+        Wes Cecil
+      </a>
+      <span class="separator">&middot;</span><time>Aug 29, 2012</time>
+      <span class="separator">&middot;</span>
+      <span class="read-time">60 min read</span>
+      <span class="separator">&middot;</span>
+      <a href="../../tag/philosophy/index.html" class="article-tag">Philosophy</a>
+    </div>
+  </div>
+  <a href="../../article/b4dadbf9-c42c-4406-a6cd-e4fccb03c392/index.html" class="article-thumb-link"><img class="article-thumb" src="../../images/b4dadbf9-c42c-4406-a6cd-e4fccb03c392.webp" alt="Friedrich nietzsche&#039;s life and philosophy" loading="lazy" width="180" height="94"></a>
+</article>
+<article class="article-card">
+  <div>
+    <a href="../../article/beec110a-591a-4a01-9cca-8df1c4887c20/index.html" class="article-link">
+      <h2 class="article-title">Hanging out at crash course hq</h2>
+    </a>
+    <div class="article-meta">
+      <span class="author">Crash Course</span>
+      <span class="separator">&middot;</span>
+      <a href="../../publication/crashcourse/index.html" class="publication">
+        Crash Course
+      </a>
+      <span class="separator">&middot;</span><time>May 9, 2012</time>
+      <span class="separator">&middot;</span>
+      <span class="read-time">57 min read</span>
+      <span class="separator">&middot;</span>
+      <a href="../../tag/media/index.html" class="article-tag">Media</a>
+    </div>
+  </div>
+  <a href="../../article/beec110a-591a-4a01-9cca-8df1c4887c20/index.html" class="article-thumb-link"><img class="article-thumb" src="../../images/beec110a-591a-4a01-9cca-8df1c4887c20.webp" alt="Hanging out at crash course hq" loading="lazy" width="180" height="94"></a>
+</article>
+<article class="article-card">
+  <div>
+    <a href="../../article/cec99c37-90b2-4bec-ae97-08e81e587f29/index.html" class="article-link">
+      <h2 class="article-title">14. Purgatory xxiv, xxv, xxvi</h2>
+    </a>
+    <div class="article-meta">
+      <span class="author">Yale University</span>
+      <span class="separator">&middot;</span>
+      <a href="../../publication/yalecourses/index.html" class="publication">
+        Yale Courses
+      </a>
+      <span class="separator">&middot;</span><time>Sep 8, 2009</time>
+      <span class="separator">&middot;</span>
+      <span class="read-time">34 min read</span>
+      <span class="separator">&middot;</span>
+      <a href="../../tag/writing-craft/index.html" class="article-tag">Writing &amp; Craft</a>
+    </div>
+  </div>
+  <a href="../../article/cec99c37-90b2-4bec-ae97-08e81e587f29/index.html" class="article-thumb-link"><img class="article-thumb" src="../../images/cec99c37-90b2-4bec-ae97-08e81e587f29.webp" alt="14. Purgatory xxiv, xxv, xxvi" loading="lazy" width="180" height="94"></a>
+</article>
+      <nav class="pagination"><a href="../../page/127/index.html" class="pagination-link prev">&larr; Newer</a><div class="pagination-pages"><a href="../../index.html" class="pagination-page">1</a><span class="pagination-ellipsis">...</span><a href="../../page/124/index.html" class="pagination-page">124</a><a href="../../page/125/index.html" class="pagination-page">125</a><a href="../../page/126/index.html" class="pagination-page">126</a><a href="../../page/127/index.html" class="pagination-page">127</a><span class="pagination-page current">128</span></div><span class="pagination-link next disabled">Older &rarr;</span></nav>
+    </section>
+  
+    </div>
+  </main>
+  <footer class="site-footer">
+    <div class="container">
+      <p>A curated reading library &middot; v0.6.0</p>
+      <p><a href="../../privacy/index.html">Privacy</a> &middot; <a href="../../terms/index.html">Terms</a></p>
+    </div>
+  </footer>
+  <script src="https://cdn.jsdelivr.net/npm/fuse.js@7.1.0/dist/fuse.min.js"></script>
+  <script>
+  (function() {
+    var input = document.getElementById('search');
+    var results = document.getElementById('search-results');
+    var main = document.getElementById('main-content');
+    if (!input || !results || !main) return;
+
+    var fuse = null;
+    var indexLoaded = false;
+    var pathToRoot = '../../';
+
+    function loadIndex() {
+      if (indexLoaded) return Promise.resolve();
+      indexLoaded = true;
+      return fetch(pathToRoot + 'search-index.json')
+        .then(function(r) { return r.json(); })
+        .then(function(data) {
+          fuse = new Fuse(data, {
+            keys: [
+              { name: 't', weight: 3 },
+              { name: 'a', weight: 2 },
+              { name: 'p', weight: 1 }
+            ],
+            threshold: 0.4,
+            distance: 300,
+            minMatchCharLength: 2,
+            ignoreLocation: true,
+          });
+        });
+    }
+
+    function renderResults(items) {
+      if (items.length === 0) {
+        results.innerHTML = '<p style="padding:1rem;color:var(--ink-muted)">No results</p>';
+        return;
+      }
+      results.innerHTML = items.slice(0, 30).map(function(r) {
+        var a = r.item;
+        return '<article class="article-card"><div>' +
+          '<a href="' + pathToRoot + 'article/' + a.i + '/index.html" class="article-link">' +
+          '<h2 class="article-title">' + esc(a.t) + '</h2></a>' +
+          '<div class="article-meta">' +
+          '<span class="author">' + esc(a.a) + '</span>' +
+          '<span class="separator">&middot;</span>' +
+          '<a href="' + pathToRoot + 'publication/' + a.s + '/index.html" class="publication">' + esc(a.p) + '</a>' +
+          (a.d ? '<span class="separator">&middot;</span><time>' + a.d + '</time>' : '') +
+          '<span class="separator">&middot;</span>' +
+          '<span class="read-time">' + a.r + ' min read</span>' +
+          '</div></div></article>';
+      }).join('');
+    }
+
+    function esc(s) {
+      var d = document.createElement('div');
+      d.textContent = s;
+      return d.innerHTML;
+    }
+
+    var debounce;
+    input.addEventListener('input', function() {
+      clearTimeout(debounce);
+      var q = input.value.trim();
+      if (q.length < 2) {
+        results.style.display = 'none';
+        main.style.display = '';
+        return;
+      }
+      debounce = setTimeout(function() {
+        loadIndex().then(function() {
+          if (!fuse) return;
+          var hits = fuse.search(q);
+          results.style.display = '';
+          main.style.display = 'none';
+          renderResults(hits);
+        });
+      }, 100);
+    });
+
+    input.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') {
+        input.value = '';
+        results.style.display = 'none';
+        main.style.display = '';
+      }
+    });
+  })();
+  </script>
+</body>
+</html>
