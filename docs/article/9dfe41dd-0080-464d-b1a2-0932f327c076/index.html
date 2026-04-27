@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Agent, know thyself! - Hex Index</title>
+  <link rel="stylesheet" href="../../styles.css">
+</head>
+<body class="reading-mode">
+  <header class="reading-header">
+    <a href="../../index.html" class="back-link" id="back-link">&larr; Back to Library</a>
+  </header>
+  <main class="reading-content">
+    
+    <article class="article-page">
+      <header class="article-header">
+        <h1>Agent, know thyself!</h1>
+        
+      <div class="article-meta">
+        <span class="author">Rohit Krishnan</span>
+        <span class="separator">&middot;</span>
+        <a href="../../publication/strangeloopcanon/index.html" class="publication">
+          Strange Loop Canon
+        </a>
+        <span class="separator">&middot;</span><time>Apr 27, 2026</time>
+        <span class="separator">&middot;</span><span class="read-time">13 min read</span>
+      </div>
+      </header>
+
+      <div class="content-label">
+        <span class="label-text">Commentary by <a href="../../about/index.html">Hex Index staff</a></span>
+        <nav class="content-nav">
+          <a href="#deep-dives">Deep dives</a><span class="separator">&middot;</span>
+          <a href="https://www.strangeloopcanon.com/p/agent-know-thyself-and-bid-accordingly" target="_blank" rel="noopener">Original article &rarr;</a>
+        </nav>
+      </div>
+
+      
+      <div class="article-content">
+        <p>Rohit Krishnan challenges a foundational assumption in the rapidly scaling world of artificial intelligence: that we can simply route complex tasks to the best available model without first teaching those models to understand their own limitations. By introducing a new benchmark called MarketBench, Krishnan and his co-author Andrey Fradkin reveal a startling gap between what AI agents claim they can do and what they actually achieve, suggesting that the dream of a self-organizing AI economy is currently stalled by a lack of self-knowledge.</p>
+<h2>The Hayekian Promise vs. The Calibration Gap</h2>
+<p>Krishnan frames the problem of assigning tasks to AI agents through the lens of economic theory, specifically the work of Friedrich Hayek on the &quot;local knowledge problem.&quot; The central thesis is that no central planner—human or algorithmic—can possess the dispersed, specific information required to match every task to the perfect agent. Instead, Krishnan proposes a market mechanism where agents bid on tasks based on their own assessment of cost and probability of success. &quot;Markets tend to be superior to other forms of resource allocation when information and capabilities are distributed among a variety of people,&quot; Krishnan writes, arguing that this aggregation of private information is the only way to efficiently manage a heterogeneous ecosystem of models.</p>
+<figure class="inline-illustration">
+    <img src="../../images/9dfe41dd-0080-464d-b1a2-0932f327c076.webp" alt="Agent, know thyself!" loading="lazy" width="600" height="315">
+  </figure>
+
+<p>However, the piece quickly pivots from theory to a harsh empirical reality. To test this, the authors built MarketBench, asking six frontier models to forecast their own success rates and token consumption before attempting real software engineering tasks. The results were disqualifying for a market-based approach. &quot;Models don&#039;t know themselves very well,&quot; Krishnan states bluntly. The data showed that while actual pass rates clustered tightly between 75% and 81%, the models&#039; stated confidence spanned wildly from 61% to 93%. Some models, particularly from the Gemini family, were dramatically overconfident, while the GPT family was systematically under-confident.</p>
+<blockquote>&quot;If you were running a market and asked agents &#039;how much compute will this take?&#039; you&#039;d get answers that are off by an order of magnitude or two.&quot;</blockquote>
+<p>This calibration failure has profound implications. In a functioning market, a bidder&#039;s price signals their capability. Here, the signals are noise. Krishnan notes that when they ran a simulated procurement auction, the results were predictable but disastrous: &quot;Gemini wins 84.6% of auctions. But it&#039;s winning because it&#039;s the most overconfident, not because it&#039;s the most capable.&quot; This mirrors the historical failures of central planning not because the central planner was absent, but because the private information required to make the market work simply didn&#039;t exist in the agents&#039; internal states. The analogy to Goodhart&#039;s law is apt here: once a measure (self-reported confidence) becomes a target (winning the bid), it ceases to be a good measure of the underlying reality (actual capability).</p>
+<h2>The Limits of Prompting and the Case for Diversity</h2>
+<p>Recognizing that the models lacked self-awareness, Krishnan tested a simpler intervention: providing each model with a &quot;report card&quot; of its historical performance to help it calibrate its current bids. While this improved the models&#039; average accuracy slightly, it failed to solve the core problem of task-specific routing. &quot;The intervention improved average calibration, not comparative routing,&quot; Krishnan explains, noting that a bidder can be right on average but still useless for allocation if they cannot distinguish between tasks they can solve and those they cannot.</p>
+<p>This leads to a nuanced finding about system architecture. When the authors replaced the market mechanism with a centralized router—a single large model tasked with picking the best worker—the centralized planner actually outperformed the flawed market. &quot;Once we held model diversity constant, a LLM central planner beat the market,&quot; Krishnan admits. This suggests that until agents can reliably self-assess, the &quot;invisible hand&quot; of the market is less efficient than a visible, albeit imperfect, hand of a central router.</p>
+<blockquote>&quot;The single most robust finding in our live scaffold is that access to multiple different (frontier) models helps, almost regardless of how you route between them.&quot;</blockquote>
+<p>Despite the failure of the market mechanism itself, the study uncovers a critical practical takeaway for engineers: diversity is king. Even with crude routing, a system that leverages multiple different models significantly outperforms a single-model approach. This is a vital distinction. It implies that the immediate bottleneck is not the sophistication of the routing logic, but the fundamental architecture of the agent pool. &quot;Don&#039;t lock into one provider, even if your routing logic is crude,&quot; Krishnan advises, emphasizing that the heterogeneity of the models themselves provides a buffer against the specific blind spots of any single architecture.</p>
+<p>Critics might argue that focusing on self-assessment as a training target is a distraction from improving raw reasoning capabilities. If models simply get smarter, won&#039;t they naturally become better at estimating their own success? Krishnan anticipates this, arguing that solving a task and predicting the probability of solving it are distinct cognitive skills that require separate optimization. &quot;Models are trained to solve tasks, not to predict whether they can solve them,&quot; he writes, suggesting that without explicit training on metacognition, raw intelligence alone will not yield a functional market.</p>
+<h2>Bottom Line</h2>
+<p>Rohit Krishnan&#039;s analysis delivers a necessary reality check to the hype surrounding autonomous AI markets: the infrastructure for decentralized coordination is currently broken because the participants lack self-knowledge. While the Hayekian vision of agents bidding on tasks remains theoretically sound, the empirical evidence shows that without a fundamental shift in how models are trained to understand their own capabilities, centralized routing and model diversity remain the only reliable strategies. The most urgent next step for the field is not better algorithms for bidding, but better curricula for metacognition.</p>
+<blockquote>&quot;As agentic systems scale, the ability to say &#039;I can do this, at this cost, with this confidence&#039; becomes as important as the ability to do the thing.&quot;</blockquote>
+<h2>The Path Forward</h2>
+<p>The piece concludes with a call for a hybrid approach, acknowledging that pure decentralization is premature but that centralized planning will eventually hit a wall as the ecosystem grows too complex. Krishnan envisions a &quot;scoring auction&quot; where bids are weighted by reputation and observed history, effectively creating a market augmented by AI oversight. This middle ground recognizes that while the agents cannot yet be trusted to tell the truth, a system can be built to verify their claims over time. For now, the advice is pragmatic: test your models&#039; self-assessment capabilities before betting your infrastructure on a market mechanism, because right now, they mostly don&#039;t know what they&#039;re good at.</p>
+      </div>
+
+      
+      
+      <section id="deep-dives" class="deep-dives">
+        <h2>Deep Dives</h2>
+        <p class="deep-dives-intro">Explore these related deep dives:</p>
+        <ul class="deep-dive-list">
+          
+      <li class="deep-dive-item">
+        <a href="../../wikipedia/goodharts-law-Goodhart's_law/index.html">
+          <strong>Goodhart&#039;s law</strong>
+        </a>
+        <p class="topic-summary">The article&#039;s critique of ad-hoc rules and default settings illustrates this principle, where optimizing for a specific metric (like a model&#039;s default behavior) causes the system to fail at the broader goal of cost-efficiency and capability matching.</p>
+      </li>
+
+      <li class="deep-dive-item">
+        <a href="../../wikipedia/mechanism-design/index.html">
+          <strong>Mechanism design</strong>
+        </a>
+        <p class="topic-summary">The proposed &#039;market harness&#039; where models bid for tasks is a direct application of this field, which studies how to construct rules and incentives to achieve desired outcomes when participants have private information about their own capabilities.</p>
+      </li>
+        </ul>
+      </section>
+    
+      
+
+      <section id="excerpt"><section class="source-excerpts">
+      <h2>Sources</h2>
+      <article class="source-excerpt">
+      <h3>Agent, know thyself!</h3>
+      <div class="source-meta">by Rohit Krishnan &middot; <a href="../../publication/strangeloopcanon/index.html">Strange Loop Canon</a> &middot; <a href="https://www.strangeloopcanon.com/p/agent-know-thyself-and-bid-accordingly" target="_blank" rel="noopener">Read full article</a></div>
+      <p>Written with the wonderful Andrey Fradkin, who does the Justified Posteriors podcast.Attention conservation notice: We developed a new benchmark, MarketBench, and scaffold. Based on our findings, we argue that self-assessment of capabilities and costs is a key capability, and it needs to be a target of training. This is work in progress, and we are looking for collaborators and funding to pursue this research. Paper here. Repo here.</p><p>Let’s say you have a large-scale project to work on. How do you choose which model, scaffolding, or system to use? If you’re like most folks, you go with what your coding agent does by default. For Claude Code, this means that the model called is determined by a set of ad-hoc rules set by Anthropic. But this strategy is not guaranteed to be the most effective or cost-efficient way to build your project, especially since it ignores non-Anthropic models. In fact, it reminds us of central planning.</p><p>You could also go with an intelligent router. But turns out, routing is a wicked problem. To know which model should do which task requires computation and knowledge. For one-shot queries you can probably do this - any model can answer “what’s the capital of France” and few models can solve Erdos problems, especially without bespoke prompts. But what about that research question you asked this morning, in a chat you started three weeks ago, which has been forked four times and has had dozens of compactions? How do you train a router to figure out who should do the next task when it requires so much context?</p><p>This led us to think, what if we used markets instead of ad-hoc rules to assign tasks to AI agents? It turns out society has had this debate before. Markets tend to be superior to other forms of resource allocation when information and capabilities are distributed among a variety of people. In these cases, markets aggregate information and allocate resources in a relatively efficient manner, as well argued by Hayek.</p><p>You may be wondering, why would models have distributed information and capabilities? Aren’t there relatively few models and shouldn’t they only have the information you’ve given them. In a narrow interpretation, the private information could be the specific neural network weights of the model and how they relate to the task. These neural network weights result in models that have drastically different token consumption and success ...</p>
+      <footer class="source-bio" aria-label="About this source">
+      <p class="sb-heading">About this source</p>
+      <p class="sb-meta"><span class="sb-type">individual newsletter</span> &middot; <span class="sb-country">United Kingdom</span> &middot; <span class="sb-funding">paid Substack subscriptions</span> &middot; <span class="sb-leaning">Eclectic techno-optimist-adjacent essayist; interested in complexity, innovation, and progress studies from a broadly classical-liberal vantage.</span></p>
+      <p class="sb-audit">Last reviewed: <time datetime="2026-04-08">2026-04-08</time> &middot; <a href="https://www.strangeloopcanon.com/" target="_blank" rel="noopener">source</a></p>
+    </footer>
+    </article>
+    </section></section>
+      
+    </article>
+  
+  </main>
+  <footer class="site-footer">
+    <div class="container">
+      <p><a href="../../privacy/index.html">Privacy</a> &middot; <a href="../../terms/index.html">Terms</a></p>
+    </div>
+  </footer>
+  <script>
+  (function() {
+    var params = new URLSearchParams(window.location.search);
+    var from = params.get('from');
+    if (from) {
+      var names = {
+        'foreign-policy':'Foreign Policy','ai-tech':'AI & Tech','housing-cities':'Housing & Cities',
+        'political-strategy':'Political Strategy','history':'History','science':'Science',
+        'culture':'Culture','economics':'Economics','faith':'Faith','writing-craft':'Writing & Craft',
+        'music':'Music','law-rights':'Law & Rights','public-health':'Public Health',
+        'philosophy':'Philosophy','media':'Media','defense':'Defense','china':'China'
+      };
+      var link = document.getElementById('back-link');
+      if (link) {
+        var name = names[from] || from;
+        link.href = '../../tag/' + from + '/index.html';
+        link.textContent = '\u2190 Back to ' + name;
+      }
+    }
+  })();
+  </script>
+</body>
+</html>
