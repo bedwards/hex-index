@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Separation of duties - Hex Index</title>
+  <link rel="stylesheet" href="../../styles.css">
+</head>
+<body class="reading-mode">
+  <header class="reading-header">
+    <a href="../../index.html" class="back-link" id="back-link">&larr; Back to Library</a>
+  </header>
+  <main class="reading-content">
+    
+    <article class="wikipedia-page">
+      <header class="wikipedia-header">
+        <div class="type-badge">Wikipedia Deep Dive</div>
+        <h1>Separation of duties</h1>
+        <div class="article-meta">
+          <span class="read-time">15 min read</span>
+        </div>
+      </header>
+
+      
+
+      <div class="wikipedia-content"><p class="source-note">Based on <a href="https://en.wikipedia.org/wiki/Separation_of_duties">Wikipedia: Separation of duties</a></p>
+<p>In 1935, the federal government drew red lines around Black neighborhoods on city maps and declared them unfit for investment. The practice was called redlining, and its effects persist ninety years later. Decades before the digital age, a similar logic of containment and verification was being applied to the flow of money and power, not through maps, but through the rigid assignment of human roles. It began with a simple, almost archaic observation: if one person holds the pen that signs the check and the hand that deposits the cash, the money will eventually disappear. This realization birthed the concept of <strong>separation of duties</strong> (SoD), also known as segregation of duties, a structural imperative designed to prevent fraud, sabotage, theft, and the misuse of information. It is the administrative architecture of trust, a system where no single individual possesses the complete key to a vault, ensuring that the ability to commit a crime is mathematically dismantled by the necessity of collusion.</p>
+<p>At its core, SoD is a concept of having more than one person required to complete a task. It is not merely a suggestion for good governance; it is an administrative control used by organizations to act as a firewall against the darkest impulses of human nature. In the political realm, this concept scales up to the monumental <strong>separation of powers</strong>, the bedrock of modern democracies where the government is fractured into three independent branches: a legislature to write the laws, an executive to enforce them, and a judiciary to interpret them. This tripartite structure is the grandest expression of checks and balances, a deliberate friction designed to prevent tyranny. In the corporate world, the scale is smaller, but the stakes are equally high. The objective remains the same: to prevent a single point of failure where one person can corrupt the entire system.</p>
+<p>The mechanics of this control rely on a fundamental tension. Increased protection from fraud and errors must be balanced with the increased cost and effort required to maintain it. In a small startup, asking for two signatures on every expense report might cripple agility. In a multinational conglomerate, the lack of such scrutiny can lead to billions in losses. In essence, SoD implements an appropriate level of checks and balances upon the activities of individuals, forcing a rhythm of verification that is often tedious but always necessary. As R. A. Botha and J. H. P. Eloff described in the <em>IBM Systems Journal</em>, separation of duty, as a security principle, has as its primary objective the prevention of fraud and errors. This objective is achieved by disseminating the tasks and associated privileges for a specific business process among multiple users.</p>
+<blockquote>&quot;The principle is demonstrated in the traditional example of separation of duty found in the requirement of two signatures on a cheque.&quot;</blockquote>
+<p>This traditional example—the dual signature—is the DNA of the modern control framework. It is a physical manifestation of the idea that power, when concentrated, becomes dangerous. Actual job titles and organizational structure may vary greatly from one organization to another, depending on the size and nature of the business. A five-person company and a five-thousand-person corporation will look different on paper, but the logic of risk remains constant. Accordingly, rank or hierarchy are less important than the skillset and capabilities of the individuals involved. It is not about who is the boss; it is about who holds the keys. A junior developer with administrative access to the production database is a greater risk than a senior executive who cannot touch the code.</p>
+<p>With the concept of SoD, business-critical duties can be categorized into four distinct types of functions: <strong>authorization</strong>, <strong>custody</strong>, <strong>record keeping</strong>, and <strong>reconciliation</strong>. In a perfect system, no one person should handle more than one type of function. Authorization is the act of approving a transaction or a change. Custody is the physical or digital possession of the asset being moved. Record keeping is the documentation of the event. Reconciliation is the independent verification that the record matches the asset. If a single person can authorize a payment, hold the funds, record the transaction, and then reconcile the bank statement, they have the total power to steal and hide the evidence simultaneously. The pattern to minimize risk is brutally simple: start with a function that is indispensable, but potentially subject to abuse. Divide the function into separate steps, each necessary for the function to work or for the power that enables that function to be abused. Assign each step to a different person or organization.</p>
+<p>There are several approaches to achieving this separation, ranging from the sequential to the spatial. Sequential separation relies on the &quot;two signatures principle,&quot; where a process must move from one person to another to be completed. Individual separation, often called the <strong>four eyes principle</strong>, requires that two people view or approve a specific action simultaneously. Spatial separation involves performing actions in separate locations, making collusion logistically difficult. Factorial separation requires that several distinct factors, such as a password and a physical token, contribute to the completion of a task. While these methods differ in execution, the goal is identical: to ensure that a person with multiple functional roles does not have the opportunity to abuse those powers.</p>
+<p>The accounting profession has invested significantly in separation of duties because of the understood risks accumulated over hundreds of years of accounting practice. The lessons were learned through blood and bankruptcy. Companies of all sizes understand not to combine roles such as receiving cheques (payment on account) and approving write-offs, depositing cash and reconciling bank statements, or approving time cards and having custody of pay cheques. These are the classic conflicts of interest, the obvious traps that have been mapped out since the days of ledgers and quill pens.</p>
+<p>However, the landscape of risk shifted dramatically with the advent of the digital age. SoD is fairly new to most Information Technology (IT) departments, yet a high percentage of Sarbanes-Oxley internal audit issues come from IT. This was a blind spot for many corporations. In the physical world, moving cash requires a person to physically pick up an envelope. In the digital world, a developer can move millions of dollars of data, alter financial records, or install backdoors with a few lines of code, often without anyone ever seeing the transaction happen. The potential for damage from the actions of one person in an IT environment is exponential compared to the physical world. An IS or end-user department should be organized in a way to achieve adequate separation of duties, but this requires a fundamental shift in how technology roles are defined.</p>
+<p>According to ISACA&#039;s Segregation of Duties Control matrix, some duties should not be combined into one position. This matrix is not an industry standard, just a general guideline suggesting which positions should be separated and which require compensating controls when combined. The matrix highlights the specific dangers of IT roles. For instance, a person who designs a software application should not be the one who approves it for deployment to production. A database administrator who manages the data structure should not be the one who audits the data for compliance. If these roles are combined, the individual can alter the data, hide the alteration in the code, and then approve their own work as correct.</p>
+<p>Smaller companies with a lack of SoD typically face concerns in disbursement cycles where unauthorized purchases and payments can occur. In a small firm, the CEO might also be the CFO, the IT manager, and the HR director. This centralization of power is often a necessity of limited resources, but it creates a massive vulnerability. When duties cannot be separated, <strong>compensating controls</strong> should be in place. Compensating controls are internal controls that are intended to reduce the risk of an existing or potential control weakness. They are the safety net when the structural separation is impossible. If a single person can carry out and conceal errors and/or irregularities in the course of performing their day-to-day activities, they have been assigned SoD incompatible duties, and the organization must find another way to watch them.</p>
+<p>There are several control mechanisms that can help to enforce the segregation of duties, acting as the digital equivalent of the second signature. <strong>Audit trails</strong> enable IT managers or auditors to recreate the actual transaction flow from the point of origination to its existence on an updated file. A good audit trail is a forensic tool. It should provide information on who initiated the transaction, the time of day and date of entry, the type of entry, what fields of information it contained, and what files it updated. Without this, a theft is just a number that changed; with it, the theft becomes a story with a protagonist and a timeline.</p>
+<p>Reconciliation of applications and an independent verification process is ultimately the responsibility of users, which can be used to increase the level of confidence that an application ran successfully. This is the digital version of the bank statement check. <strong>Exception reports</strong> are handled at the supervisory level, backed up by evidence noting that exceptions are handled properly and in a timely fashion. A signature of the person who prepares the report is normally required, ensuring that the review is not a rubber stamp. Manual or automated system or application transaction logs should be maintained, which record all processed system commands or application transactions. Supervisory review should be performed through observation and inquiry, a human element that algorithms cannot replace. To compensate for mistakes or intentional failures by following a prescribed procedure, independent reviews are recommended. Such reviews can help detect errors and irregularities that the primary actor missed or deliberately ignored.</p>
+<p>The transition to the digital age brought a specific set of challenges that the Sarbanes-Oxley Act of 2002 brought into sharp focus. Many corporations in the United States found that an unexpectedly high proportion of their Sarbanes-Oxley internal control issues came from IT. The law required rigorous internal controls over financial reporting, but companies realized that their IT systems were the weak link. Separation of duties is commonly used in large IT organizations so that no single person is in a position to introduce fraudulent or malicious code or data without detection. The complexity of modern software means that a single developer could theoretically write a program that steals data, hides its tracks, and reports the theft as a system error. SoD prevents this by forcing the developer to work within a pipeline where others review, approve, and deploy the code.</p>
+<p>Role-based access control (RBAC) is frequently used in IT systems where SoD is required. This model assigns permissions to roles rather than individuals, simplifying the management of access. A developer role gets code access; an auditor role gets read-only access; a manager role gets approval rights. However, as the number of roles increases in a growing organization, the rigidity of RBAC can become a limitation. More recently, a hybrid access control model with <strong>Attribute-based access control</strong> (ABAC) is used to resolve the limitations of its role-based counterpart. ABAC allows for more granular control based on attributes such as time of day, location, device type, and the specific data being accessed. This adds a layer of dynamic separation that static roles cannot provide.</p>
+<p>Strict control of software and data changes will require that the same person or organizations performs only one of the following roles: the identification of a requirement (or change request) by a business person; the authorization and approval by an IT governance board or manager; the design and development by a developer; the review, inspection, and approval by another developer or architect; and the implementation in production by a software change or system administrator. This is not an exhaustive presentation of the software development life cycle, but a list of critical development functions applicable to separation of duties. Each step is a gate, and the key to each gate must be held by a different hand.</p>
+<p>To successfully implement separation of duties in information systems, a number of concerns need to be addressed. The process used to ensure a person&#039;s authorization rights in the system must be in line with his role in the organization. The authentication method used, such as knowledge of a password, possession of an object (key, token), or a biometrical characteristic, must be robust. If a password is shared, the entire structure collapses. Furthermore, circumvention of rights in the system can occur through database administration access, user administration access, tools which provide back-door access, or supplier-installed user accounts. These are the hidden doors that bypass the front gate. Specific controls, such as a review of an activity log, may be required to address this specific concern. The administrator with the master key must be watched by someone who has the key to the log.</p>
+<p>The history of SoD is a history of learning from failure. It is a recognition that human nature is flawed and that systems must be designed to withstand that flaw. The political realm understood this centuries ago, fracturing power to preserve liberty. The financial sector understood it through the pain of embezzlement, fracturing tasks to preserve capital. The technology sector is still catching up, struggling to apply these ancient principles to the fluid, invisible world of code and data. The stakes are higher now than ever. In the physical world, a thief steals a ledger. In the digital world, a compromised system can steal the identity of millions, alter the stock market, or erase the history of a nation.</p>
+<p>Nick Szabo, a pioneer in the field of digital currencies and cryptography, wrote an essay on Separation of Duties that highlighted the intersection of these concepts with the emerging world of blockchain and decentralized systems. His work, archived at the Wayback Machine, suggests that the principles of SoD are not just for centralized corporations but are fundamental to the trust mechanisms of any distributed system. Whether in a democracy, a bank, or a blockchain, the logic remains unchanged: power must be divided. If one person holds the power to create, the power to destroy, and the power to hide the destruction, the system is not secure. It is merely waiting for the inevitable failure of human character.</p>
+<p>The application of these principles requires a cultural shift. It is not enough to have the software controls; the people must understand the <em>why</em>. A developer must understand that they cannot deploy their own code not because they are untrusted, but because the system is too valuable to be left to a single point of failure. An accountant must understand that they cannot reconcile their own transactions not because they are suspected, but because the integrity of the financial record depends on the independence of the verifier. This is the essence of the <strong>four eyes principle</strong>: it is not a sign of distrust, but a sign of respect for the magnitude of the risk.</p>
+<p>As organizations grow, the complexity of these controls grows with them. The matrix of who can do what becomes a labyrinth. In large enterprises, the risk of SoD conflicts is high because of the sheer number of roles and the fluidity of project teams. A person might be a developer on one project and a reviewer on another, creating a conflict that is hard to track. This is where the hybrid models and advanced access controls become essential. They provide the flexibility to manage the complexity without sacrificing the security. But the core principle remains: the task is divided, the power is shared, and the risk is mitigated.</p>
+<p>The journey of separation of duties from the physical ledger to the digital cloud is a testament to the enduring nature of the problem. The tools change, the environment changes, but the human element remains the constant. Fraud, sabotage, and error are not bugs in the system; they are features of the human condition. Separation of duties is the only known antidote. It is a humble, bureaucratic, often annoying requirement that two people must sign off, that one person cannot do it all. But in that annoyance lies the safety. It is the friction that stops the slide into chaos. It is the check that balances the power. It is the realization that in a world of increasing complexity, the only way to stay safe is to never trust a single pair of hands with everything.</p>
+<p>In the end, the concept of separation of duties is a recognition of our own limitations. It is an admission that we are fallible, that we are tempted, and that we are prone to error. By building systems that account for these flaws, we create a space where trust can exist, not because we are perfect, but because the system is designed to survive our imperfections. Whether it is the three branches of government, the four functions of accounting, or the five stages of software development, the message is the same. Power, left to itself, corrupts. Power, divided, endures.</p></div>
+
+      
+
+      <footer class="wikipedia-footer">
+        <p class="source-link">
+          <a href="https://en.wikipedia.org/wiki/Separation_of_duties" target="_blank" rel="noopener">
+            View original Wikipedia article &rarr;
+          </a>
+        </p>
+        <p class="rewrite-note">
+        This article has been rewritten from Wikipedia source material for enjoyable reading.
+        Content may have been condensed, restructured, or simplified.
+      </p>
+      </footer>
+
+      
+      <section class="related-articles">
+        <h2>Related Articles</h2>
+        <p class="related-intro">This deep dive was written in connection with these articles:</p>
+        <ul class="related-list">
+          
+      <li class="related-article-item">
+        <a href="../../article/9ffdbd66-bcb2-4790-b7ad-025094c658ac/index.html">
+          <strong>Infra + security: Why more &amp; more CISOs are starting to own infrastructure</strong>
+        </a>
+        <span class="article-meta">
+          by Ross Haleliuk in Venture in Security
+        </span>
+      </li>
+        </ul>
+      </section>
+    
+    </article>
+  
+  </main>
+  <footer class="site-footer">
+    <div class="container">
+      <p><a href="../../privacy/index.html">Privacy</a> &middot; <a href="../../terms/index.html">Terms</a></p>
+    </div>
+  </footer>
+  <script>
+  (function() {
+    var params = new URLSearchParams(window.location.search);
+    var from = params.get('from');
+    if (from) {
+      var names = {
+        'foreign-policy':'Foreign Policy','ai-tech':'AI & Tech','housing-cities':'Housing & Cities',
+        'political-strategy':'Political Strategy','history':'History','science':'Science',
+        'culture':'Culture','economics':'Economics','faith':'Faith','writing-craft':'Writing & Craft',
+        'music':'Music','law-rights':'Law & Rights','public-health':'Public Health',
+        'philosophy':'Philosophy','media':'Media','defense':'Defense','china':'China'
+      };
+      var link = document.getElementById('back-link');
+      if (link) {
+        var name = names[from] || from;
+        link.href = '../../tag/' + from + '/index.html';
+        link.textContent = '\u2190 Back to ' + name;
+      }
+    }
+  })();
+  </script>
+</body>
+</html>
