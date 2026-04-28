@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chiplet - Hex Index</title>
+  <link rel="stylesheet" href="../../styles.css">
+</head>
+<body class="reading-mode">
+  <header class="reading-header">
+    <a href="../../index.html" class="back-link" id="back-link">&larr; Back to Library</a>
+  </header>
+  <main class="reading-content">
+    
+    <article class="wikipedia-page">
+      <header class="wikipedia-header">
+        <div class="type-badge">Wikipedia Deep Dive</div>
+        <h1>Chiplet</h1>
+        <div class="article-meta">
+          <span class="read-time">12 min read</span>
+        </div>
+      </header>
+
+      
+
+      <div class="wikipedia-content"><p class="source-note">Based on <a href="https://en.wikipedia.org/wiki/Chiplet">Wikipedia: Chiplet</a></p>
+<p>In 2006, at the University of California, Berkeley, a professor named John Wawrzynek sat down to draft a proposal for a Department of Energy project that would eventually reshape the very architecture of modern computing. He needed a term for a new way of thinking about silicon, a concept that moved away from the industry&#039;s obsession with building massive, single-piece processors. He coined the word &quot;chiplet.&quot; It was not merely a label for a smaller chip; it was the seed of a paradigm shift that would allow engineers to treat computer processors less like a monolithic sculpture carved from a single block of stone and more like a complex, modular machine built from interchangeable, specialized bricks. Two decades later, as we stand in the spring of 2026, the chiplet has evolved from a research concept into the dominant strategy for high-performance computing, powering everything from the supercomputers driving climate models to the graphics engines rendering the digital worlds we inhabit.</p>
+<p>To understand why this matters, one must first understand the wall the semiconductor industry hit. For decades, the mantra was &quot;monolithic.&quot; The goal was to fit every function of a computer—the central processing unit, the graphics card, the memory controller, the input/output ports—onto a single, massive piece of silicon known as a System on a Chip, or SoC. This approach worked beautifully when transistors were large and expensive, and when the yield of manufacturing defects was low. But as the industry pushed toward the limits of physics, shrinking transistors to mere nanometers, the monolithic model began to fracture under its own weight. The cost of a single defect on a massive die meant that a perfect chip with a single microscopic flaw was rendered useless. The yield rates plummeted. The cost per functional processor skyrocketed. The laws of physics, specifically the limitations of light wavelength in lithography and the heat density of packing too many transistors together, began to scream &quot;stop.&quot;</p>
+<p>The chiplet architecture offered a way out of this trap by fundamentally redefining the problem. Instead of trying to build a giant, perfect silicon die, engineers began to break the processor into tiny, well-defined subsets of functionality. Each of these subsets is a chiplet. A chiplet might handle only the arithmetic logic, another only the memory cache, and a third only the input/output communication. These are not random fragments; they are precision-engineered modules designed to be combined with others on an interposer—a specialized silicon or organic substrate that acts as a high-speed motherboard within the package. This assembly creates a complex component, a single processor that appears to the computer as one unit, even though it is physically a collection of distinct dies working in concert.</p>
+<p>This shift is best described as a &quot;Lego-like&quot; assembly. Just as a child can snap together different colored and shaped blocks to build a castle, a car, or a spaceship, semiconductor designers can now mix and match chiplets to create processors tailored for specific needs. The advantages of this approach over the traditional monolithic SoC are profound and multifaceted. The first and perhaps most immediate benefit is the concept of Reusable Intellectual Property (IP). In the old world, if a company wanted to update the graphics capability of its processor, it might have to redesign the entire chip, discarding the perfectly functional CPU cores it had already perfected. With chiplets, the graphics chiplet can be swapped out for a newer, more powerful version while the CPU chiplet remains unchanged. The same chiplet design can be used across dozens of different devices, from a low-power laptop to a high-end server, simply by pairing it with different companions. This reuse drastically reduces the time and cost of bringing new products to market.</p>
+<p>Then there is the revolution of Heterogeneous Integration. This is where the true genius of the chiplet architecture shines. In a monolithic chip, every part of the processor must be built using the same manufacturing process and the same materials. If you want to use the most advanced, expensive 2-nanometer process for your CPU cores, you are forced to use that same expensive process for your analog I/O circuits, your power management, and your cache, even if those components would work just fine (and much cheaper) on a 7-nanometer or 14-nanometer process. Chiplets break this constraint. A single package can now house a chiplet made on a cutting-edge, bleeding-edge node for the logic cores, while the high-bandwidth memory interface is built on a mature, cost-effective node, and the analog components are fabricated using specialized materials like gallium nitride. Each chiplet is optimized for its particular function, allowing the final product to be faster, more efficient, and significantly cheaper than a monolithic equivalent ever could be.</p>
+<p>Perhaps the most critical economic driver, however, is the concept of the &quot;Known Good Die.&quot; In the monolithic era, the entire massive die had to be tested after fabrication. If a single transistor failed in the middle of a billion-transistor chip, the whole thing was trash. The yield—the percentage of manufactured chips that actually work—was a gamble. With chiplets, the manufacturing process changes the risk profile entirely. Each small chiplet can be tested individually before it is ever placed on the interposer. Engineers can verify that every arithmetic chiplet is perfect, every memory chiplet is flawless, and every I/O chiplet is ready. Only the &quot;known good&quot; ones are assembled into the final package. This dramatically improves the yield of the final device, turning what was once a high-stakes gamble into a predictable manufacturing process. The result is a supply chain that is more robust and a product that is more reliable.</p>
+<p>The physical realization of these concepts has given rise to a new vocabulary in the semiconductor world. Multiple chiplets working together in a single integrated circuit are now referred to by several names depending on the architecture: a Multi-Chip Module (MCM), a Hybrid IC, a 2.5D IC, or an advanced package. The &quot;2.5D&quot; terminology is particularly evocative; it describes the stacking of chips side-by-side on an interposer, which sits atop the main package substrate. It is not quite the 3D stacking of memory on top of logic, but it is more integrated than the traditional 2D placement of chips on a circuit board. This middle ground allows for data to travel between chiplets at speeds that approach those of a monolithic chip, while retaining the manufacturing flexibility of discrete components.</p>
+<p>However, this modular future is not without its technical hurdles. The biggest challenge is connectivity. If the chiplets are to function as a single brain, they must talk to each other instantly. The wires connecting them must carry vast amounts of data with minimal latency and power consumption. In the early days, connections were often proprietary, a chaotic landscape where every company used its own secret language. This changed as the industry realized that for the chiplet economy to flourish, interoperability was non-negotiable. Chiplets not designed by the same company must be designed with a common language in mind.</p>
+<p>This need for standardization led to the creation of new interface protocols. The Universal Chiplet Interconnect Express (UCIe) has emerged as a pivotal standard, aiming to create a universal connector for chiplets much like USB did for peripheral devices. Alongside UCIe, other standards have risen to meet specific needs: Bunch of Wires (BoW) for simpler, lower-cost connections; AIB (Advanced Interface Bus) developed by AMD for high-bandwidth needs; OpenHBI (Open High Bandwidth Interface); and OIF (Optical Internetworking Forum) XSR (Extra Short Reach) for optical interconnects. These standards are the glue holding the chiplet revolution together, ensuring that a memory chiplet from one foundry can speak fluently to a logic chiplet from another.</p>
+<p>The impact of this technology is no longer theoretical; it is visible in the silicon that powers our world. One of the most famous examples of the chiplet architecture in action is the AMD Ryzen processor, specifically those based on the Zen 2 architecture and later. AMD made the bold decision to abandon the monolithic design for its high-end desktop processors, splitting the CPU into multiple chiplets. This move allowed them to achieve performance levels and yield rates that were impossible for their competitors at the time, effectively turning the tables in the CPU market. The strategy was so successful that it forced the entire industry to take notice. Similarly, the NVIDIA H100, the workhorse of the modern AI revolution, relies heavily on chiplet technology to pack the massive computational power required for large language models into a single package. Intel, long a proponent of monolithic designs, has pivoted with its Sapphire Rapids, Meteor Lake, and Arrow Lake architectures, embracing the multi-chip approach to remain competitive.</p>
+<p>The trajectory of this technology is being watched with intense scrutiny by governments and corporations alike. In May 2023, Don Clark wrote in The New York Times that the United States was focusing its efforts on invigorating &quot;chiplets&quot; as a strategy to stay cutting-edge in technology. The logic is clear: chiplets offer a way to advance computing performance even as the physical limits of transistor scaling become harder to push. By optimizing the mix of processes and materials, the industry can squeeze more performance out of every watt of energy and every dollar of manufacturing cost. It is a path to innovation that does not rely solely on shrinking transistors further, but on smarter architectural integration.</p>
+<p>The story of the chiplet is a story of adaptation. It is a narrative of an industry that, facing the walls of physical and economic impossibility, chose to break the problem apart rather than force it through a narrow door. The monolithic dream, once the holy grail of silicon, has been replaced by a more pragmatic, more flexible, and ultimately more powerful reality. We have moved from the era of the single, perfect stone to the era of the intricate, assembled mosaic. The chiplet is not just a component; it is the new philosophy of computing. It acknowledges that complexity is too great to be managed in one piece and that the future lies in the seamless, high-speed collaboration of specialized parts. As we look toward the next generation of processors, the legacy of John Wawrzynek&#039;s 2006 insight is undeniable. The computer of the future is not a single thing; it is a team of tiny things, working together, bound by standards and driven by the relentless human desire to compute faster, better, and more efficiently than ever before.</p>
+<p>The implications extend far beyond the server room or the gaming rig. The ability to mix and match processes means that specialized chiplets can be developed for niche applications—biomedical sensors, quantum control units, or environmental monitoring systems—and then integrated into general-purpose computing platforms with ease. This modularity democratizes high-performance computing. Smaller companies, without the billions of dollars required to build a cutting-edge monolithic fab, can now participate in the high-end market by designing a specialized chiplet and assembling it with others. The barrier to entry shifts from the cost of manufacturing to the creativity of design. The &quot;Lego-like&quot; assembly is not just a manufacturing tactic; it is a strategic advantage that reshapes the competitive landscape of the global technology sector.</p>
+<p>Yet, as with any technological leap, the challenges remain. The complexity of designing a system where multiple dies from different foundries must operate as one is immense. The thermal management of packing so many high-power chips into a single package is a nightmare for engineers. The software stack must be rewritten to manage resources across different physical domains. The supply chain, once linear, has become a complex web of dependencies. But these are the growing pains of a new era. The industry is learning to speak the new language of chiplets, to build the tools for the new architecture, and to master the art of heterogeneous integration.</p>
+<p>The chiplet represents a fundamental shift in how we think about the building blocks of the digital age. It is a testament to the power of reimagining the problem. Where others saw a dead end in the scaling of silicon, the chiplet architects saw a new beginning. They realized that the strength of the system does not come from the perfection of a single part, but from the synergy of many. In the spring of 2026, as we deploy the next generation of AI models, as we tackle the climate crisis with massive simulations, and as we push the boundaries of virtual and augmented reality, we are doing so with processors that are built, quite literally, from the ground up. They are built from chiplets. And in that modular, interconnected future, the potential for innovation is as boundless as the imagination of the engineers who designed them.</p>
+<p>The journey from the monolithic die to the chiplet architecture is a reminder that in engineering, as in life, the path forward is rarely a straight line. Sometimes, to move forward, you have to break things apart. You have to separate the logic from the memory, the core from the cache, the analog from the digital. You have to build them separately, test them individually, and then bring them together in a new way. It is a philosophy of decomposition and recomposition. It is the understanding that the whole is greater than the sum of its parts, but only if the parts are designed to work together. The chiplet is the embodiment of this truth. It is the technology that will carry us through the next decade of computing, a technology born from a professor&#039;s notebook in 2006 and forged in the fires of modern manufacturing, ready to power the world of tomorrow.</p>
+<p>As the industry continues to evolve, the standards like UCIe will become the bedrock upon which the next generation of devices are built. The interoperability that is now a requirement will soon be a given. The mix-and-match approach will become the default, not the exception. The days of the monolithic SoC are not over, but they are no longer the only way. The future is modular. The future is heterogeneous. The future is the chiplet. And in this future, the constraints of the past are no longer the limiters of the possible. The only limit is the creativity of those who dare to assemble the next great machine, one tiny chiplet at a time.</p></div>
+
+      
+
+      <footer class="wikipedia-footer">
+        <p class="source-link">
+          <a href="https://en.wikipedia.org/wiki/Chiplet" target="_blank" rel="noopener">
+            View original Wikipedia article &rarr;
+          </a>
+        </p>
+        <p class="rewrite-note">
+        This article has been rewritten from Wikipedia source material for enjoyable reading.
+        Content may have been condensed, restructured, or simplified.
+      </p>
+      </footer>
+
+      
+      <section class="related-articles">
+        <h2>Related Articles</h2>
+        <p class="related-intro">This deep dive was written in connection with these articles:</p>
+        <ul class="related-list">
+          
+      <li class="related-article-item">
+        <a href="../../article/64252be6-5f1e-4505-bc87-3cbb5bb8518a/index.html">
+          <strong>No jensen, not all compute is created equal</strong>
+        </a>
+        <span class="article-meta">
+          by Jordan Schneider in ChinaTalk
+        </span>
+      </li>
+        </ul>
+      </section>
+    
+    </article>
+  
+  </main>
+  <footer class="site-footer">
+    <div class="container">
+      <p><a href="../../privacy/index.html">Privacy</a> &middot; <a href="../../terms/index.html">Terms</a></p>
+    </div>
+  </footer>
+  <script>
+  (function() {
+    var params = new URLSearchParams(window.location.search);
+    var from = params.get('from');
+    if (from) {
+      var names = {
+        'foreign-policy':'Foreign Policy','ai-tech':'AI & Tech','housing-cities':'Housing & Cities',
+        'political-strategy':'Political Strategy','history':'History','science':'Science',
+        'culture':'Culture','economics':'Economics','faith':'Faith','writing-craft':'Writing & Craft',
+        'music':'Music','law-rights':'Law & Rights','public-health':'Public Health',
+        'philosophy':'Philosophy','media':'Media','defense':'Defense','china':'China'
+      };
+      var link = document.getElementById('back-link');
+      if (link) {
+        var name = names[from] || from;
+        link.href = '../../tag/' + from + '/index.html';
+        link.textContent = '\u2190 Back to ' + name;
+      }
+    }
+  })();
+  </script>
+</body>
+</html>
