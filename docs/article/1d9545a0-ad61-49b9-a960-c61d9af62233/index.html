@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Qualcomm&#039;s hexagon AI accelerators - Hex Index</title>
+  <link rel="stylesheet" href="../../styles.css">
+</head>
+<body class="reading-mode">
+  <header class="reading-header">
+    <a href="../../index.html" class="back-link" id="back-link">&larr; Back to Library</a>
+  </header>
+  <main class="reading-content">
+    
+    <article class="article-page">
+      <header class="article-header">
+        <h1>Qualcomm&#039;s hexagon AI accelerators</h1>
+        
+      <div class="article-meta">
+        <span class="author">Babbage</span>
+        <span class="separator">&middot;</span>
+        <a href="../../publication/thechipletter/index.html" class="publication">
+          The Chip Letter
+        </a>
+        <span class="separator">&middot;</span><time>Nov 6, 2025</time>
+        <span class="separator">&middot;</span><span class="read-time">14 min read</span>
+      </div>
+      </header>
+
+      <div class="content-label">
+        <span class="label-text">Commentary by <a href="../../about/index.html">Hex Index staff</a></span>
+        <nav class="content-nav">
+          <a href="#deep-dives">Deep dives</a><span class="separator">&middot;</span>
+          <a href="https://thechipletter.substack.com/p/qualcomms-hexagon-ai-accelerators" target="_blank" rel="noopener">Original article &rarr;</a>
+        </nav>
+      </div>
+
+      
+      <div class="article-content">
+        <p>In a market obsessed with raw speed and massive memory bandwidth, Babbage makes a counter-intuitive claim: the most critical architecture for the next decade of AI might be the one quietly running in your pocket. While the industry fixates on high-cost, high-power server chips, Babbage argues that Qualcomm&#039;s decades-long investment in power-efficient mobile processing could finally solve the energy bottleneck choking data centers. This is not just a product launch analysis; it is a historical deep dive suggesting that the future of artificial intelligence may depend on scaling down rather than scaling up.</p>
+<h2>The Power Efficiency Pivot</h2>
+<p>Babbage opens by dissecting the recent announcement of the AI200 and AI250 servers, noting that the market&#039;s initial reaction was a mix of skepticism and a surprising $20 billion jump in Qualcomm&#039;s valuation. The author points out that while competitors rely on expensive and scarce High Bandwidth Memory (HBM), Qualcomm is betting on Low Power Double Data Rate (LPDDR) memory. &quot;Qualcomm AI250 introduces an innovative memory architecture, offering a generational leap in effective memory bandwidth and efficiency for AI workloads,&quot; Babbage writes, highlighting the strategic shift toward cost and power management over pure peak performance.</p>
+<figure class="inline-illustration">
+    <img src="../../images/1d9545a0-ad61-49b9-a960-c61d9af62233.webp" alt="Qualcomm&#039;s hexagon AI accelerators" loading="lazy" width="600" height="315">
+  </figure>
+
+<p>This framing is compelling because it addresses the industry&#039;s growing anxiety about energy consumption. As Babbage notes, &quot;Power draw is now clearly a key constraint on the growth of AI datacenter.&quot; The argument suggests that the efficiency principles honed over twenty years in smartphones could be the secret weapon for servers. However, critics might note that the gap between mobile inference and massive data center training is vast; what works for a phone battery may not scale to a 200-megawatt facility without significant architectural changes.</p>
+<blockquote>&quot;Qualcomm&#039;s Hexagon might just be the most important architecture that no-one is talking about.&quot;</blockquote>
+<p>The author draws a parallel to the rise of Arm processors in laptops, suggesting a similar trajectory for NPUs (Neural Processing Units). Babbage explains that while the industry often dismisses mobile chips as too weak for heavy lifting, the sheer volume of deployment offers a unique advantage. &quot;The overwhelming majority of Hexagon NPUs, though, have shipped in smartphones using Snapdragon SoCs or in Qualcomm&#039;s cellular modems used by Apple amongst others. In fact Qualcomm has shipped billions of Hexagon cores over the last two decades. Hexagon NPUs are, quite literally, almost everywhere!&quot; This ubiquity provides a mature, tested foundation that new entrants lack, even if the skepticism regarding previous server attempts remains a valid concern.</p>
+<h2>From Space Signals to Smartphone Chips</h2>
+<p>To understand the potential of this architecture, Babbage takes the reader on a historical tour, tracing the lineage back to the 1970s and the Linkabit Microprocessor. The narrative reveals that the roots of this technology lie in decoding signals from outer space, not in consumer electronics. &quot;In 1973, only two years after Intel released the world&#039;s first microprocessor, the Intel 4004, Gilhousen began writing the microcode describing the operations of the LMP,&quot; Babbage writes, detailing how early designs were built for military command platforms like the Boeing EC-135.</p>
+<p>This historical context is crucial. It reframes the Hexagon architecture not as a derivative mobile chip, but as a specialized tool born from the rigorous demands of telecommunications and signal processing. The author notes that the first DSP (Digital Signal Processor) was developed around 1988-1989 specifically because off-the-shelf options from Texas Instruments and Motorola &quot;weren&#039;t up to the job.&quot; This origin story explains why the architecture is so adept at handling the complex, real-time data streams required for modern AI inference.</p>
+<p>The evolution from DSP to NPU is presented as a natural progression. Babbage observes that &quot;Qualcomm&#039;s DSPs have changed so much that Qualcomm isn&#039;t calling them DSPs any more: they&#039;ve evolved into a higher form of life in the shape of the AI-focused &#039;Neural Processing Unit&#039; or NPU although it&#039;s important to note that they still perform &#039;DSP type&#039; roles.&quot; This continuity suggests that the new AI accelerators are not untested experiments but the culmination of a specific engineering philosophy focused on specialized, efficient computation.</p>
+<blockquote>&quot;The nature of that compute, and the power constraints inherent in cellular designs, means that a general purpose CPU architecture such as Arm or x86 isn&#039;t up to the task.&quot;</blockquote>
+<p>Babbage also addresses the elephant in the room: Qualcomm&#039;s history of failed server attempts. The author candidly admits that the company &quot;attempted entry into the Arm server market twice before only to abandon its efforts,&quot; citing the Centriq project which &quot;didn&#039;t even ship a single chip before giving up!&quot; Yet, the argument pivots to the idea that the current landscape is different. With the acquisition of Nuvia and the subsequent court victory over Arm, the company now has the freedom to deploy high-performance server CPU cores without legal encumbrance. &quot;The original Nuvia designs themselves were high performance server CPU cores which might come in handy in &#039;AI servers&#039;,&quot; Babbage suggests, implying that the combination of Nuvia&#039;s CPU power with Hexagon&#039;s efficiency could finally break the deadlock.</p>
+<h2>The Bottom Line</h2>
+<p>Babbage&#039;s strongest argument lies in reframing the AI hardware race: the winner may not be the one with the fastest chip, but the one that can deliver the most inference per watt at the lowest cost. The historical depth provided—from 1970s military comms to modern smartphone NPUs—gives weight to the claim that Hexagon is a mature, battle-tested architecture ready for the data center. However, the biggest vulnerability remains execution; the gap between shipping billions of mobile chips and successfully deploying a 200-megawatt data center in Saudi Arabia is a chasm of logistics and scale that skepticism is right to question. The world is watching to see if efficiency can indeed trump raw power in the AI era.</p>
+      </div>
+
+      
+      
+      <section id="deep-dives" class="deep-dives">
+        <h2>Deep Dives</h2>
+        <p class="deep-dives-intro">Explore these related deep dives:</p>
+        <ul class="deep-dive-list">
+          
+      <li class="deep-dive-item">
+        <a href="../../wikipedia/digital-signal-processing/index.html">
+          <strong>Digital signal processing</strong>
+        </a>
+        <p class="topic-summary">Linked in the article (8 min read)</p>
+      </li>
+
+      <li class="deep-dive-item">
+        <a href="../../wikipedia/audio-signal-processing/index.html">
+          <strong>Audio signal processing</strong>
+        </a>
+        <p class="topic-summary">Linked in the article (6 min read)</p>
+      </li>
+
+      <li class="deep-dive-item">
+        <a href="../../wikipedia/speech-processing/index.html">
+          <strong>Speech processing</strong>
+        </a>
+        <p class="topic-summary">Linked in the article (5 min read)</p>
+      </li>
+        </ul>
+      </section>
+    
+      
+
+      <section id="excerpt"><section class="source-excerpts">
+      <h2>Sources</h2>
+      <article class="source-excerpt">
+      <h3>Qualcomm&#039;s hexagon AI accelerators</h3>
+      <div class="source-meta">by Babbage &middot; <a href="../../publication/thechipletter/index.html">The Chip Letter</a> &middot; <a href="https://thechipletter.substack.com/p/qualcomms-hexagon-ai-accelerators" target="_blank" rel="noopener">Read full article</a></div>
+      <p>This is a part free and part paid post. The first part, discussing Qualcomm’s recently announced AI200 and AI250 AI accelerators and the history of the Hexagon architecture is free, whilst the detailed look at the Hexagon architecture that follows is paid. None of what follows is investment advice.You can upgrade to a paid subscription and support The Chip Letter using the button below.</p><p>“Qualcomm’s Hexagon might just be the most important architecture that no-one is talking about”</p><p>On 28 Oct 2025 Qualcomm announced two new data-centre AI inference servers, the AI200 and AI250. According to the press release:</p><p>Qualcomm AI200 and AI250 solutions deliver rack-scale performance and superior memory capacity for fast data center generative AI inference at industry-leading total cost of ownership (TCO). Qualcomm AI250 introduces an innovative memory architecture, offering a generational leap in effective memory bandwidth and efficiency for AI workloads.</p><p>Qualcomm also announced a partnership with Saudi Arabia’s HUMAIN to deploy its new data-centre technology:</p><p>Under the program, HUMAIN is targeting 200 megawatts starting in 2026 of Qualcomm AI200 and AI250 rack solutions to deliver high-performance AI inference services in the Kingdom of Saudi Arabia and globally.</p><p>The AI200 won’t be available until the end of 2026 and the AI250 until 2027 - an age in terms of the AI server market - and many are sceptical about Qualcomm’s chances of success in a market with lots of competitors. Qualcomm already has AI server products in the shape of the AI100 series and their lower cost cousins the AI80 series, announced as far back as 2019, which have made very little impression.</p><p>Despite all this the AI200 and AI250 announcements led to a pop in Qualcomm’s share price on the day.</p><p>That’s an extra $20 billion or so in market value which seems a lot but is of course less than 1/2% of Nvidia’s market cap!</p><p>What is in the AI200 and AI250 to cause this excitement? Qualcomm are leading with ‘low total cost of ownership’ as the key selling point of the new designs.</p><p>Part of this is probably Qualcomm’s use of LPDDR memory rather than the more expensive and scarce HBM. This should allow higher memory capacity - Qualcomm quotes up to 768GB per card - as well as reducing costs.</p><p>The idea of avoiding HBM isn’t new though, with Groq in particular apparently building a promising architecture and business on the concept.</p><p>SemiAnalysis ...</p>
+      <footer class="source-bio" aria-label="About this source">
+      <p class="sb-heading">About this source</p>
+      <p class="sb-meta"><span class="sb-type">independent newsletter</span> &middot; <span class="sb-country">United Kingdom</span> &middot; <span class="sb-funding">paid subscriptions (Substack)</span> &middot; <span class="sb-leaning">Technical semiconductor history newsletter, largely apolitical, implicit skepticism of industrial-policy boosterism on both sides.</span></p>
+      <p class="sb-audit">Last reviewed: <time datetime="2026-04-08">2026-04-08</time> &middot; <a href="https://thechipletter.substack.com/about" target="_blank" rel="noopener">source</a></p>
+    </footer>
+    </article>
+    </section></section>
+      
+    </article>
+  
+  </main>
+  <footer class="site-footer">
+    <div class="container">
+      <p><a href="../../privacy/index.html">Privacy</a> &middot; <a href="../../terms/index.html">Terms</a></p>
+    </div>
+  </footer>
+  <script>
+  (function() {
+    var params = new URLSearchParams(window.location.search);
+    var from = params.get('from');
+    if (from) {
+      var names = {
+        'foreign-policy':'Foreign Policy','ai-tech':'AI & Tech','housing-cities':'Housing & Cities',
+        'political-strategy':'Political Strategy','history':'History','science':'Science',
+        'culture':'Culture','economics':'Economics','faith':'Faith','writing-craft':'Writing & Craft',
+        'music':'Music','law-rights':'Law & Rights','public-health':'Public Health',
+        'philosophy':'Philosophy','media':'Media','defense':'Defense','china':'China'
+      };
+      var link = document.getElementById('back-link');
+      if (link) {
+        var name = names[from] || from;
+        link.href = '../../tag/' + from + '/index.html';
+        link.textContent = '\u2190 Back to ' + name;
+      }
+    }
+  })();
+  </script>
+</body>
+</html>
