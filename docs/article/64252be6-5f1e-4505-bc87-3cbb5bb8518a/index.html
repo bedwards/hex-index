@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>No jensen, not all compute is created equal - Hex Index</title>
+  <link rel="stylesheet" href="../../styles.css">
+</head>
+<body class="reading-mode">
+  <header class="reading-header">
+    <a href="../../index.html" class="back-link" id="back-link">&larr; Back to Library</a>
+  </header>
+  <main class="reading-content">
+    
+    <article class="article-page">
+      <header class="article-header">
+        <h1>No jensen, not all compute is created equal</h1>
+        
+      <div class="article-meta">
+        <span class="author">Jordan Schneider</span>
+        <span class="separator">&middot;</span>
+        <a href="../../publication/chinatalk/index.html" class="publication">
+          ChinaTalk
+        </a>
+        <span class="separator">&middot;</span><time>Apr 28, 2026</time>
+        <span class="separator">&middot;</span><span class="read-time">12 min read</span>
+      </div>
+      </header>
+
+      <div class="content-label">
+        <span class="label-text">Commentary by <a href="../../about/index.html">Hex Index staff</a></span>
+        <nav class="content-nav">
+          <a href="#deep-dives">Deep dives</a><span class="separator">&middot;</span>
+          <a href="https://www.chinatalk.media/p/no-jensen-not-all-compute-is-created" target="_blank" rel="noopener">Original article &rarr;</a>
+        </nav>
+      </div>
+
+      
+      <div class="article-content">
+        <p>Jordan Schneider cuts through the noise of aggregate statistics to deliver a counterintuitive truth: in the race for artificial intelligence, quantity is a dangerous illusion. While popular narratives obsess over total chip counts or raw floating-point operations, Schneider argues that the architecture of the hardware itself creates an unbridgeable chasm between nations. This piece is essential listening because it dismantles the comforting notion that a massive stockpile of older, weaker chips can simply &quot;scale up&quot; to match the performance of a smaller number of cutting-edge accelerators.</p>
+<h2>The Illusion of Aggregate Power</h2>
+<p>The article begins by challenging a provocative claim from Jensen Huang, the CEO of Nvidia, who recently suggested on a podcast that China possesses sufficient computing power to build frontier AI models. Huang argued, &quot;AI is a parallel computing problem, isn&#039;t it? Why can&#039;t they just put 4x, 10x, as many chips together because energy&#039;s free?&quot; Schneider immediately pushes back, noting that while this line of reasoning is compelling to some policymakers, it fundamentally misunderstands the physics of modern computing. The author points out that the House Select Committee on China has already begun to grapple with this nuance, proposing a &quot;rolling technical threshold&quot; to prevent what they call &quot;death by a thousand sub-threshold chips.&quot;</p>
+<figure class="inline-illustration">
+    <img src="../../images/64252be6-5f1e-4505-bc87-3cbb5bb8518a.webp" alt="No jensen, not all compute is created equal" loading="lazy" width="600" height="315">
+  </figure>
+
+<p>Schneider writes, &quot;Legacy chips don&#039;t matter for AI,&quot; a blunt assertion that reorients the entire debate. The author explains that the vast majority of chips manufactured in China are &quot;mainstream&quot; components found in washing machines, car engine management systems, and industrial motors. These are typically produced at 28-nanometer nodes or larger. As Schneider puts it, &quot;A chip in your microwave cannot do matrix multiplication for a transformer, and a 40nm microcontroller in a Chinese EV does not help run DeepSeek-V4.&quot; This distinction is critical; it separates the industrial backbone of an economy from the specific, high-performance silicon required to train the next generation of intelligence.</p>
+<blockquote>A chip in your microwave cannot do matrix multiplication for a transformer.</blockquote>
+<p>The argument gains depth when Schneider introduces the concept of FLOPs (floating-point operations per second) as the true currency of AI, rather than simple chip counts. The disparity is staggering: a single Nvidia Blackwell B200 chip delivers roughly 10 petaFLOPs, while a typical automotive microcontroller delivers only 0.12 teraFLOPs. Schneider illustrates this gap with a vivid comparison: &quot;if a country had 100,000 Blackwells, its rival would need more than the absurd number of two billion legacy chips to match the same FLOPs output.&quot; This reframing forces the reader to abandon the idea that volume can compensate for obsolescence.</p>
+<h2>The Architecture of Failure</h2>
+<p>To make the technical limitations concrete, Schneider constructs a hypothetical scenario comparing two nations: &quot;Nvidiana,&quot; which possesses a lean stockpile of top-tier frontier chips, and &quot;Huaweiopolis,&quot; which relies on a massive volume of weaker, older accelerators. Even if both nations possess the same total number of &quot;H100-equivalents&quot; on paper, their capabilities diverge radically. Schneider notes that Nvidiana can train the next generation of models, while Huaweiopolis &quot;cannot, and more chips will not close the gap.&quot;</p>
+<p>The author identifies three specific bottlenecks that prevent the &quot;quantity over quality&quot; strategy from working: numerical precision, memory bandwidth, and network bandwidth. On precision, Schneider explains that newer chips like the Blackwell series can perform calculations at FP4 (four-digit precision), effectively doubling their speed compared to older chips limited to INT8. &quot;By calculating half the digits, they have double the speed,&quot; Schneider writes, highlighting how older hardware is not just slower, but fundamentally incompatible with the efficiency demands of modern AI training.</p>
+<p>Memory bandwidth presents an even steeper hurdle. Schneider uses a powerful analogy to describe the problem: &quot;A chip with ample FLOPs but insufficient memory bandwidth is like a chef with incredible knife skills but a single narrow hallway between the pantry and the kitchen.&quot; In this scenario, the chef (the processor) is ready to work, but the ingredients (data) arrive too slowly to keep pace. The article notes that while the latest chips utilize HBM3e or HBM4 memory with bandwidths exceeding 22 terabytes per second, domestic Chinese chips like the Ascend 910C are still reliant on older HBM2E technology with only 3.2 terabytes per second. This creates a situation where the logic units are constantly idle, waiting for data.</p>
+<p>Finally, the piece addresses network bandwidth, the speed at which chips communicate with one another. This is the Achilles&#039; heel for a strategy based on stacking millions of weaker chips. Schneider argues that as the cluster grows, the communication overhead becomes the dominant cost. &quot;At scale, this turns communication into the dominant cost, meaning that adding more chips yields diminishing returns and eventually no additional performance at all,&quot; the author writes. The result is not just slower training, but potential system failure. Schneider warns that if communication is too slow, &quot;gradients do not reliably descend — and training can become unstable or fail to converge altogether.&quot;</p>
+<p>Critics might note that this analysis assumes a static technological landscape where Chinese firms cannot innovate rapidly enough to close the memory and interconnect gaps. However, the current constraints on high-bandwidth memory (HBM) production, a technology where the global supply chain is tightly controlled, suggest these bottlenecks are structural rather than temporary. Furthermore, the historical context of chiplet technology—which attempts to combine smaller, cheaper dies to mimic larger ones—has shown that while it can extend the life of older nodes, it cannot fully replicate the raw throughput of monolithic, advanced-node designs without incurring massive latency penalties.</p>
+<blockquote>A naive equivalence on FLOPs of a Huaweiopolis cluster with a Nvidiana cluster hides the fact that the Huaweiopolis cluster will suffer in performance for both training and inference.</blockquote>
+<h2>Policy Implications and the Path Forward</h2>
+<p>The commentary concludes by observing a shift in how US policymakers are interpreting these technical realities. Schneider points to the recent introduction of the SCALE Act by Representative John Moolenaar, which moves away from a blunt cap on aggregate compute capacity. Instead, the new proposal would limit exports to &quot;110% of the performance of the best chips China can already manufacture domestically at scale.&quot; Schneider views this as a significant maturation of policy, stating, &quot;It is a narrower, more observable target, and it takes the quality-over-quantity insight more seriously than the aggregate headcount approach did.&quot;</p>
+<p>The author argues that future enforcement must focus on these &quot;crown jewels&quot;—the specific chips that enable frontier model training—rather than trying to police a vague aggregate number. &quot;We should be building enforcement around these crown jewels rather than solely around an aggregate FLOP count, and definitely not based on dubious chip counts!&quot; Schneider asserts. This approach acknowledges that while aggregate compute matters for the broad diffusion of AI across an economy, the race for the most powerful models is won by the concentration of the best hardware, not the sheer volume of the rest.</p>
+<h2>Bottom Line</h2>
+<p>Schneider&#039;s strongest contribution is the dismantling of the &quot;parallel computing&quot; fallacy, proving that architectural superiority in memory and interconnects creates a performance floor that sheer volume cannot breach. The argument&#039;s vulnerability lies in its assumption that the gap in memory bandwidth and network efficiency will remain insurmountable, a premise that could be challenged by unexpected breakthroughs in domestic Chinese supply chains. Readers should watch for how the new legislative thresholds, pegged to domestic capability rather than total capacity, will be enforced in practice, as this will likely define the next phase of the global AI hardware race.</p>
+      </div>
+
+      
+      
+      <section id="deep-dives" class="deep-dives">
+        <h2>Deep Dives</h2>
+        <p class="deep-dives-intro">Explore these related deep dives:</p>
+        <ul class="deep-dive-list">
+          
+      <li class="deep-dive-item">
+        <a href="../../wikipedia/high-bandwidth-memory/index.html">
+          <strong>High Bandwidth Memory</strong>
+        </a>
+        <p class="topic-summary">Jensen Huang&#039;s argument that &#039;energy is free&#039; ignores the critical bottleneck of memory bandwidth, which High Bandwidth Memory specifications define as the limiting factor for scaling AI clusters beyond simple chip counts.</p>
+      </li>
+
+      <li class="deep-dive-item">
+        <a href="../../wikipedia/list-of-huawei-products/index.html">
+          <strong>List of Huawei products</strong>
+        </a>
+        <p class="topic-summary">While the article mentions Huawei&#039;s Ascend line as China&#039;s primary AI alternative, the specific Wikipedia entry details the architectural constraints and yield challenges of these chips compared to Nvidia&#039;s Hopper and Blackwell architectures.</p>
+      </li>
+        </ul>
+      </section>
+    
+      
+
+      <section id="excerpt"><section class="source-excerpts">
+      <h2>Sources</h2>
+      <article class="source-excerpt">
+      <h3>No jensen, not all compute is created equal</h3>
+      <div class="source-meta">by Jordan Schneider &middot; <a href="../../publication/chinatalk/index.html">ChinaTalk</a> &middot; <a href="https://www.chinatalk.media/p/no-jensen-not-all-compute-is-created" target="_blank" rel="noopener">Read full article</a></div>
+      <p>Nick Corvino is in Cape Town for two weeks… email Nick at nick@chinatalk.media if you’re interested in joining a ChinaTalk meetup!</p><p>We’ve recently tried to pin down how much compute China actually has, approaching the question from both the supply and demand sides. We converged on roughly 2.5 to 2.8 million H100-equivalents. But a single aggregate figure only captures part of the picture.</p><p>Jensen on China.</p> <p>On Dwarkesh’s podcast last week, Jensen Huang argued that China already has enough compute to build frontier AI.</p><p>“They manufacture 60% of the world’s mainstream chips, maybe more.”</p><p>When Dwarkesh raised the gap in advanced chips, Jensen responded,</p><p>“AI is a parallel computing problem, isn’t it? Why can’t they just put 4x, 10x, as many chips together because energy’s free?”</p><p>Jensen is wrong, but that doesn’t mean people aren’t compelled by this line of reasoning. John Moolenaar, who chairs the House Select Committee on China, sent a letter to Lutnick in December proposing a rolling technical threshold that would cap Chinese aggregate AI compute at 10% of US compute capacity. It’s much more nuanced — accounting for memory and network bandwidth as part of this calculus — but ultimately seems motivated by preventing, as the letter calls it, “death by a thousand sub‐threshold chips.”</p><p>Export restrictions are a difficult line to walk, and total computing power does matter. But not all compute is created equal. The compute that can train a frontier model, serve inference on an existing one, and power your laptop are different things, and a “death by a thousand sub-threshold chips” is less concerning for the trajectory of AI than a concentration of the most important chips.</p><p>Legacy Chips Don’t Matter for AI.</p> <p>It’s hard to know where Jensen is getting his claim that “China manufactures 60% of the world’s mainstream chips.” Perhaps originally from a 2024 projection from previous Commerce Secretary Gina Raimondo about new legacy chip capacity coming online in China. But this is not a measure of AI compute. It includes the chips running your car’s engine management system, your washing machine’s control board, and the power electronics in an industrial motor, typically manufactured at 28nm or larger. They matter, but they are not the chips that train frontier AI. A chip in your microwave cannot do matrix multiplication for a transformer, and a 40nm microcontroller in a Chinese EV does not help run DeepSeek-V4.</p><p>The sliver of ...</p>
+      <footer class="source-bio" aria-label="About this source">
+      <p class="sb-heading">About this source</p>
+      <p class="sb-meta"><span class="sb-type">independent newsletter</span> &middot; <span class="sb-country">United States</span> &middot; <span class="sb-funding">paid subscriptions (Substack) plus institutional sponsorships</span> &middot; <span class="sb-affiliations">Center for Strategic and International Studies (contributor relationships)</span> &middot; <span class="sb-leaning">Hawkish-curious on US-China technology competition, broadly aligned with the Washington national-security consensus but willing to platform heterodox voices on industrial policy and export controls.</span></p>
+      <p class="sb-audit">Last reviewed: <time datetime="2026-04-08">2026-04-08</time> &middot; <a href="https://www.chinatalk.media/about" target="_blank" rel="noopener">source</a></p>
+    </footer>
+    </article>
+    </section></section>
+      
+    </article>
+  
+  </main>
+  <footer class="site-footer">
+    <div class="container">
+      <p><a href="../../privacy/index.html">Privacy</a> &middot; <a href="../../terms/index.html">Terms</a></p>
+    </div>
+  </footer>
+  <script>
+  (function() {
+    var params = new URLSearchParams(window.location.search);
+    var from = params.get('from');
+    if (from) {
+      var names = {
+        'foreign-policy':'Foreign Policy','ai-tech':'AI & Tech','housing-cities':'Housing & Cities',
+        'political-strategy':'Political Strategy','history':'History','science':'Science',
+        'culture':'Culture','economics':'Economics','faith':'Faith','writing-craft':'Writing & Craft',
+        'music':'Music','law-rights':'Law & Rights','public-health':'Public Health',
+        'philosophy':'Philosophy','media':'Media','defense':'Defense','china':'China'
+      };
+      var link = document.getElementById('back-link');
+      if (link) {
+        var name = names[from] || from;
+        link.href = '../../tag/' + from + '/index.html';
+        link.textContent = '\u2190 Back to ' + name;
+      }
+    }
+  })();
+  </script>
+</body>
+</html>
