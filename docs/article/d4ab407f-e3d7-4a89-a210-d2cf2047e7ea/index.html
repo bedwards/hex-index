@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BioByte 140: Predicting anti-cancer mechanisms of action with DeepTarget, mog-dfm optimizes… - Hex Index</title>
+  <link rel="stylesheet" href="../../styles.css">
+</head>
+<body class="reading-mode">
+  <header class="reading-header">
+    <a href="../../index.html" class="back-link" id="back-link">&larr; Back to Library</a>
+  </header>
+  <main class="reading-content">
+    
+    <article class="article-page">
+      <header class="article-header">
+        <h1>BioByte 140: Predicting anti-cancer mechanisms of action with DeepTarget, mog-dfm optimizes…</h1>
+        
+      <div class="article-meta">
+        <span class="author">Pranay Satya</span>
+        <span class="separator">&middot;</span>
+        <a href="../../publication/decodingbio/index.html" class="publication">
+          
+        </a>
+        <span class="separator">&middot;</span><time>Nov 13, 2025</time>
+        <span class="separator">&middot;</span><span class="read-time">14 min read</span>
+      </div>
+      </header>
+
+      <div class="content-label">
+        <span class="label-text">Commentary by <a href="../../about/index.html">Hex Index staff</a></span>
+        <nav class="content-nav">
+          <a href="#deep-dives">Deep dives</a><span class="separator">&middot;</span>
+          <a href="https://decodingbio.substack.com/p/biobyte-140-predicting-anti-cancer" target="_blank" rel="noopener">Original article &rarr;</a>
+        </nav>
+      </div>
+
+      
+      <div class="article-content">
+        <p>This week&#039;s coverage from Decoding Bio cuts through the noise of generic AI hype to reveal two distinct, high-stakes shifts in how we engineer biology: one that treats drug design as a multi-dimensional puzzle rather than a single-score race, and another that finally maps the invisible machinery behind why certain cancer drugs work when their targets remain a mystery. Pranay Satya doesn&#039;t just list new tools; they frame a pivotal moment where computational biology is moving from passive observation to active, guided intervention, promising to slash the cost of autoimmune care and unlock the logic of failed clinical trials.</p>
+<h2>The Multi-Objective Puzzle</h2>
+<p>Satya opens with a sobering reality check on the current state of therapeutic peptide design. &quot;Biomolecular design is a multi-objective puzzle – therapeutic peptides face tradeoffs on properties such as affinity, stability, solubility, and safety,&quot; they write, noting that the relationships between these traits are &quot;non-linear and epistatic, forming a complex, high-dimensional landscape to traverse.&quot; This framing is crucial because it exposes the brittleness of older models that optimize for a single goal, often at the expense of the drug&#039;s viability in the human body.</p>
+<figure class="inline-illustration">
+    <img src="../../images/d4ab407f-e3d7-4a89-a210-d2cf2047e7ea.webp" alt="BioByte 140: Predicting anti-cancer mechanisms of action with DeepTarget, mog-dfm optimizes…" loading="lazy" width="600" height="315">
+  </figure>
+
+<p>The piece highlights MOG-DFM (Multi-Objective Guided Discrete Flow Matching) as the antidote to this myopia. Unlike previous iterations that required retraining for every new constraint, this new algorithm offers a &quot;single pre-trained DFM generator that, at sampling time, can steer token-level proposals toward any user-specified set of objectives.&quot; Satya explains that the core innovation is a &quot;lightweight, local guidance rule&quot; that computes a hybrid rank and directional improvement score for every potential change. This allows the system to navigate the trade-offs dynamically, ensuring that a gain in solubility doesn&#039;t accidentally destroy binding affinity.</p>
+<blockquote>&quot;This unlocks the ability to produce diverse, Pareto-tuned candidate sets without retraining for every tradeoff – a compelling capability for teams exploring competing design constraints.&quot;</blockquote>
+<p>The reference to Pareto efficiency here is not merely academic; it mirrors the economic principle where one cannot improve one objective without worsening another, a concept that has defined resource allocation since Vilfredo Pareto first described it in the late 19th century. By applying this to molecular sequences, Satya argues that we are finally learning to traverse the &quot;frontiers of feasible designs&quot; rather than getting stuck in local optima. The wet-lab validation is promising but cautious: of 24 designed peptides, 23 expressed, and 6 showed measurable binding. However, Satya rightly flags a critical vulnerability: &quot;the method&#039;s guidance here is dependent on surrogate predictors that have modest performances,&quot; particularly when trained on small datasets.</p>
+<p>Critics might note that relying on imperfect predictors to guide the generation of new molecules creates a feedback loop of error, where the AI optimizes for the flaws in its own training data rather than biological reality. Yet, the article&#039;s insistence on &quot;closing the loop&quot; with larger, blinded syntheses suggests the authors are aware of this trap.</p>
+<h2>Decoding the Unknown</h2>
+<p>The second half of the coverage tackles a more fundamental problem in oncology: we often know a drug works, but not why. Satya introduces DeepTarget, a pipeline designed to reverse-engineer the mechanism of action (MOA) by integrating drug response profiles with genetic screens. &quot;Even if a drug is clinically effective, the inherent complexity of biological systems can mean that scientists do not know the exact mechanisms of action (MOA) that make it successful,&quot; Satya writes, highlighting the gap between clinical success and mechanistic understanding.</p>
+<p>The tool&#039;s approach is elegantly simple yet powerful. It leverages the insight that &quot;single-gene CRISPR-Cas9 knockout experiments can emulate the effect of a direct drug-target interaction.&quot; By comparing drug response profiles against these genetic knockout profiles, DeepTarget calculates a &quot;Drug-KO Similarity (DKS) score&quot; to identify targets. Satya notes that this method &quot;showed that UMAP projections of nearly 1500 drugs seemed to cluster based on known mechanisms of action,&quot; effectively mapping the chemical space without needing high-resolution structural data.</p>
+<blockquote>&quot;DeepTarget is designed to predict both on-target and off-target effects to &#039;capture both direct and indirect, context dependent mechanisms driving drug efficacy in living cells.&#039;&quot;</blockquote>
+<p>This is a significant departure from the traditional structure-based modeling that dominates the field. While tools like RosettaFold rely on static 3D structures, DeepTarget operates on functional data, making it applicable even when structural information is missing. The results are striking: in benchmark tests, DeepTarget achieved a mean AUC of 0.73, outperforming structure-based tools, and successfully identified EGFR as a secondary target for Ibrutinib in specific cell contexts. The application to the anti-malarial drug pyrimethamine, which revealed a previously unknown mechanism involving mitochondrial oxidative phosphorylation, serves as a compelling proof of concept for drug repurposing.</p>
+<p>However, the article is careful not to overhype the technology. Satya points out that DeepTarget &quot;struggles on certain target classes like GPCRs, nuclear receptors, and ion channels,&quot; and acknowledges that structure-based tools remain superior when high-resolution data is available. This nuance is refreshing; it positions DeepTarget not as a replacement, but as a necessary complement to existing paradigms.</p>
+<h2>Engineering Immunity at Scale</h2>
+<p>The final segment shifts from cancer to autoimmune disease, focusing on the work of the Ravetch group at Rockefeller University. The problem is stark: Intravenous Immunoglobulin (IVIG) is a life-saving treatment for autoimmune conditions, but it is expensive, requires massive doses, and depends on a fragile supply of human plasma. Satya writes, &quot;IVIG works, but it&#039;s expensive, requires gram-per-kilogram dosing, and depends entirely on donor plasma.&quot;</p>
+<p>The breakthrough described is the identification of a specific pathway: the sialylated Fc fragment of IgG engaging with both type I and type II Fc receptors. &quot;Blocking SIGN-R1 completely eliminates sFc activity, indicating that sFc requires coordinated engagement of both type I (FcγRIIB) and type II (DC-SIGN/SIGN-R1) receptors,&quot; Satya explains. This mechanistic clarity allowed researchers to engineer a new variant, V11, which binds with 37-fold higher affinity.</p>
+<blockquote>&quot;Their new V11 sFc suppresses arthritis and neuroinflammation in the mouse model at roughly 10 mg/kg, matching the efficacy of 1 g/kg IVIG while preserving endogenous IgG levels.&quot;</blockquote>
+<p>The implication is profound: a 100-fold reduction in dose could transform this from a scarce, plasma-dependent therapy into a mass-manufacturable recombinant drug. The article captures the excitement of this potential, noting that this brings us &quot;one step closer toward a future where this autoimmune therapy can be mass-manufactured.&quot; Yet, the editorial voice remains grounded, ending with a call for clinical validation: &quot;let&#039;s cheer them on as we see if these results still hold in the clinic (in humans)!&quot;</p>
+<blockquote>&quot;DeepTarget is designed to predict both on-target and off-target effects to &#039;capture both direct and indirect, context dependent mechanisms driving drug efficacy in living cells.&#039;&quot;</blockquote>
+<h2>Bottom Line</h2>
+<p>Satya&#039;s coverage succeeds by refusing to treat these breakthroughs as isolated technical victories; instead, they are woven into a narrative about the maturation of computational biology from a descriptive tool to a generative engine. The strongest argument is the demonstration that multi-objective optimization and functional genomics can solve problems that structural biology alone cannot. The biggest vulnerability remains the reliance on imperfect surrogate data, a risk that Satya acknowledges but cannot yet fully resolve. For the busy reader, the takeaway is clear: the era of guessing drug mechanisms and designing peptides by trial and error is ending, replaced by a more precise, data-driven, and scalable approach to healing.</p>
+      </div>
+
+      
+      
+      <section id="deep-dives" class="deep-dives">
+        <h2>Deep Dives</h2>
+        <p class="deep-dives-intro">Explore these related deep dives:</p>
+        <ul class="deep-dive-list">
+          
+      <li class="deep-dive-item">
+        <a href="../../wikipedia/pareto-efficiency/index.html">
+          <strong>Pareto efficiency</strong>
+        </a>
+        <p class="topic-summary">The article discusses MOG-DFM&#039;s ability to produce &#039;Pareto-tuned candidate sets&#039; and optimize across &#039;predicted Pareto fronts&#039; - understanding Pareto efficiency and Pareto frontiers is essential for grasping how multi-objective optimization works in therapeutic peptide design</p>
+      </li>
+
+      <li class="deep-dive-item">
+        <a href="../../wikipedia/crispr-gene-editing/index.html">
+          <strong>CRISPR gene editing</strong>
+        </a>
+        <p class="topic-summary">DeepTarget&#039;s core methodology relies on comparing drug responses to genome-wide CRISPR-Cas9 knockout experiments to predict mechanisms of action - understanding how CRISPR knockouts work provides crucial context for the computational approach</p>
+      </li>
+
+      <li class="deep-dive-item">
+        <a href="../../wikipedia/mechanism-of-action/index.html">
+          <strong>Mechanism of action</strong>
+        </a>
+        <p class="topic-summary">The article centers on predicting drug mechanisms of action in cancer treatment, discussing how many successful drugs have unknown MOAs - this Wikipedia article provides the pharmacological foundation for understanding why MOA prediction matters</p>
+      </li>
+        </ul>
+      </section>
+    
+      
+
+      <section id="excerpt"><section class="source-excerpts">
+      <h2>Sources</h2>
+      <article class="source-excerpt">
+      <h3>BioByte 140: Predicting anti-cancer mechanisms of action with DeepTarget, mog-dfm optimizes…</h3>
+      <div class="source-meta">by Pranay Satya &middot; <a href="../../publication/decodingbio/index.html"></a> &middot; <a href="https://decodingbio.substack.com/p/biobyte-140-predicting-anti-cancer" target="_blank" rel="noopener">Read full article</a></div>
+      <p>Welcome to Decoding Bio’s BioByte: each week our writing collective highlight notable news—from the latest scientific papers to the latest funding rounds—and everything in between. All in one place.</p><p>Peter van der Doort, The Alchemist’s Laboratory (1595) [from Heinrich Khunrath, Amphitheatrum sapientiae aeternae]</p><p>A Note To Our Readers: Following this post, we will be taking a short break from posting, but will be back to regular posting the first week of December. We appreciate your support and stay tuned for more coming soon, Decoders! </p><p>What we read.</p> <p>Blogs.</p> <p>Designer Spotlight: Navigating the multi-property maze for therapeutic peptide design [Adaptyv Bio, Adaptyv Bio, November 2025 (based on original paper by Chen et al., arXiv, May 2025)]</p><p>Biomolecular design is a multi-objective puzzle – therapeutic peptides face tradeoffs on properties such as affinity, stability, solubility, and safety. Navigating to the frontiers of feasible designs is a challenging task: properties are interdependent and sequence-phenotype relationships are non-linear and epistatic, forming a complex, high-dimensional landscape to traverse. Many generative models optimize for a single score and re-train for each desired objective, yielding a slow, brittle exploration of the design space. MOG-DFM (Multi-Objective Guided Discrete Flow Matching) offers a single pre-trained DFM generator that, at sampling time, can steer token-level proposals toward any user-specified set of objectives. This unlocks the ability to produce diverse, Pareto-tuned candidate sets without retraining for every tradeoff – a compelling capability for teams exploring competing design constraints.</p><p>The core development is a lightweight, local guidance rule: for each candidate token change, the algorithm computes a hybrid rank (relative candidate ordering on surrogate property predictors) and directional improvement score (expected improvement on the target tradeoff), measuring how a local edit shifts the multi-objective vector. These scores re-weight the DFM token transition rates so the continuous-time Markov chain sampler preferentially proposes beneficial edits. To avoid per-token ‘myopia’ or conflicting edits across multiple properties, the authors introduce an adaptive hypercone: an angular filter that requires proposed moves to lie within a tunable cone around a target objective direction, preserving coordination across tokens while allowing exploration.</p><p>The hypercone facilitates coordinated improvements across multiple properties and surpasses classical multi-objective optimization baselines on predicted Pareto fronts (hemolysis, half-life, solubility, binding, non-fouling). In silico, MOG-DFM shifts predicted trade-offs substantially (e.g. lower predicted hemolysis and higher solubility &amp; half-life, while retaining affinity). Adaptyv provides wet-lab validation: of the 24 designed 10-mer peptides that were synthesized, 23 expressed and ...</p>
+      <footer class="source-bio" aria-label="About this source">
+      <p class="sb-heading">About this source</p>
+      <p class="sb-meta"><span class="sb-type">independent newsletter</span> &middot; <span class="sb-country">United States</span> &middot; <span class="sb-funding">paid Substack subscriptions</span> &middot; <span class="sb-leaning">Techbio VC-adjacent analysis; bullish on computational biology and biotech startups, aligned with Bay Area pro-innovation milieu.</span></p>
+      <p class="sb-audit">Last reviewed: <time datetime="2026-04-08">2026-04-08</time> &middot; <a href="https://www.decodingbio.com/" target="_blank" rel="noopener">source</a></p>
+    </footer>
+    </article>
+    </section></section>
+      
+    </article>
+  
+  </main>
+  <footer class="site-footer">
+    <div class="container">
+      <p><a href="../../privacy/index.html">Privacy</a> &middot; <a href="../../terms/index.html">Terms</a></p>
+    </div>
+  </footer>
+  <script>
+  (function() {
+    var params = new URLSearchParams(window.location.search);
+    var from = params.get('from');
+    if (from) {
+      var names = {
+        'foreign-policy':'Foreign Policy','ai-tech':'AI & Tech','housing-cities':'Housing & Cities',
+        'political-strategy':'Political Strategy','history':'History','science':'Science',
+        'culture':'Culture','economics':'Economics','faith':'Faith','writing-craft':'Writing & Craft',
+        'music':'Music','law-rights':'Law & Rights','public-health':'Public Health',
+        'philosophy':'Philosophy','media':'Media','defense':'Defense','china':'China'
+      };
+      var link = document.getElementById('back-link');
+      if (link) {
+        var name = names[from] || from;
+        link.href = '../../tag/' + from + '/index.html';
+        link.textContent = '\u2190 Back to ' + name;
+      }
+    }
+  })();
+  </script>
+</body>
+</html>
