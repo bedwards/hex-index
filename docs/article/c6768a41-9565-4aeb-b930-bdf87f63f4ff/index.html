@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Beyond standard llms - Hex Index</title>
+  <link rel="stylesheet" href="../../styles.css">
+</head>
+<body class="reading-mode">
+  <header class="reading-header">
+    <a href="../../index.html" class="back-link" id="back-link">&larr; Back to Library</a>
+  </header>
+  <main class="reading-content">
+    
+    <article class="article-page">
+      <header class="article-header">
+        <h1>Beyond standard llms</h1>
+        
+      <div class="article-meta">
+        <span class="author">Sebastian Raschka</span>
+        <span class="separator">&middot;</span>
+        <a href="../../publication/sebastianraschka/index.html" class="publication">
+          Ahead of AI
+        </a>
+        <span class="separator">&middot;</span><time>Nov 4, 2025</time>
+        <span class="separator">&middot;</span><span class="read-time">36 min read</span>
+      </div>
+      </header>
+
+      <div class="content-label">
+        <span class="label-text">Commentary by <a href="../../about/index.html">Hex Index staff</a></span>
+        <nav class="content-nav">
+          
+          <a href="https://magazine.sebastianraschka.com/p/beyond-standard-llms" target="_blank" rel="noopener">Original article &rarr;</a>
+        </nav>
+      </div>
+
+      
+      <div class="article-content">
+        <p>Sebastian Raschka delivers a crucial reality check for the artificial intelligence sector: the industry&#039;s obsession with efficiency may have hit a wall. While the rush to replace standard transformer models with linear-attention hybrids promised to unlock infinite context windows and slash costs, Raschka reveals a startling pivot where leading developers are abandoning these very architectures due to performance failures in complex reasoning tasks.</p>
+<h2>The Efficiency Trap</h2>
+<p>Raschka begins by acknowledging the dominance of the current standard. &quot;Transformer-based LLMs based on the classic Attention Is All You Need architecture are still state-of-the-art across text and code,&quot; he writes, listing a parade of recent open-weight models that rely on this proven foundation. He notes that while efficiency tweaks like grouped-query attention have helped, the fundamental quadratic cost of processing long sequences remains a bottleneck. This sets the stage for the industry&#039;s desperate search for alternatives.</p>
+<figure class="inline-illustration">
+    <img src="../../images/c6768a41-9565-4aeb-b930-bdf87f63f4ff.webp" alt="Beyond standard llms" loading="lazy" width="600" height="315">
+  </figure>
+
+<p>The core of the piece examines the recent &quot;revival&quot; of linear attention mechanisms. These architectures attempt to reduce computational complexity from quadratic to linear, theoretically allowing models to handle massive amounts of data without exploding memory costs. Raschka details how major players like MiniMax and Qwen experimented with these hybrids, replacing standard attention layers with mechanisms like Gated DeltaNet. &quot;All three models (MiniMax-M1, Qwen3-Next, DeepSeek V3.2) replace the traditional quadratic attention variants in most or all of their layers with efficient linear variants,&quot; he observes, highlighting the speed at which the industry adopted these experimental designs.</p>
+<blockquote>The attention mechanism introduced in the Attention Is All You Need paper (2017), aka scaled-dot-product attention, remains the most popular attention variant in today&#039;s LLMs.</blockquote>
+<p>However, Raschka&#039;s reporting takes a sharp turn when he describes the MiniMax team&#039;s decision to release their M2 model without linear attention, reverting to standard mechanisms. He explains that while the linear models worked for simple prompts, they faltered significantly in reasoning and multi-turn interactions. &quot;It seemed to work fine with regular prompts, but it had poor accuracy in reasoning and multi-turn tasks,&quot; Raschka writes, noting that these are critical for agentic applications. This is a vital distinction often missed in hype cycles: a model that is fast but cannot reason is functionally limited.</p>
+<p>Critics might argue that abandoning linear attention now is premature, given that the technology is still maturing. Yet, the practical evidence from production environments suggests that the trade-off between memory efficiency and cognitive capability is not yet worth making for high-stakes tasks.</p>
+<h2>The Hybrid Compromise</h2>
+<p>The article then dissects the specific architecture of Qwen3-Next, which attempts to solve this dilemma through a hybrid approach. Instead of a full replacement, the model alternates between linear and standard attention layers in a specific ratio. Raschka explains that this design uses a &quot;3:1 ratio&quot; where three layers of linear attention (Gated DeltaNet) are followed by one layer of full attention. This structure allows the model to maintain a running memory state for efficiency while periodically refreshing its global context.</p>
+<p>The mechanism relies on a &quot;delta rule&quot; to update a hidden state, a concept Raschka likens to biological learning. &quot;It&#039;s basically a precursor of the perceptron update rule and gradient descent-based learning, but without supervision,&quot; he notes. This recurrent state update allows the model to process tokens one by one, avoiding the massive n-by-n attention matrix that slows down traditional transformers. However, this efficiency comes with a structural cost: the model must compress past context into a fixed-size hidden state.</p>
+<blockquote>In Gated DeltaNet, there&#039;s no n-by-n attention matrix. Instead, the model processes tokens one by one. It keeps a running memory (a state) that gets updated as each new token comes in.</blockquote>
+<p>Raschka points out that this compression creates a &quot;bottleneck&quot; that limits the model&#039;s ability to capture global context compared to full pairwise attention. The hybrid solution, therefore, is a compromise. It acknowledges that while linear attention is necessary for scaling context length, it cannot fully replace the global modeling power of standard transformers. The inclusion of &quot;gated attention&quot; layers, which use a sigmoid gate to modulate outputs, further attempts to stabilize training and prevent issues like &quot;Attention Sink.&quot;</p>
+<blockquote>The attention output gating mechanism helps eliminate issues like Attention Sink and Massive Activation, ensuring numerical stability across the model.</blockquote>
+<p>This nuanced framing is the piece&#039;s greatest strength. Rather than declaring one architecture the winner, Raschka illustrates a landscape where engineers are forced to balance competing priorities. The shift away from pure linear attention in the MiniMax M2 model suggests that the industry is learning that raw efficiency cannot come at the expense of intelligence.</p>
+<h2>Bottom Line</h2>
+<p>Raschka&#039;s analysis provides a necessary correction to the narrative that linear attention is the inevitable future of large language models. The strongest part of his argument is the empirical evidence that efficiency gains often degrade reasoning capabilities, forcing a return to hybrid or standard architectures. The biggest vulnerability remains the scalability of these hybrid models; if they cannot handle the context lengths promised by linear attention without sacrificing accuracy, the industry may be stuck with expensive, quadratic bottlenecks. Readers should watch for whether future iterations can solve the &quot;memory bottleneck&quot; without reverting to the computational costs of full attention.</p>
+<blockquote>The industry is learning that raw efficiency cannot come at the expense of intelligence.</blockquote>
+      </div>
+
+      
+      
+      
+
+      <section id="excerpt"><section class="source-excerpts">
+      <h2>Sources</h2>
+      <article class="source-excerpt">
+      <h3>Beyond standard llms</h3>
+      <div class="source-meta">by Sebastian Raschka &middot; <a href="../../publication/sebastianraschka/index.html">Ahead of AI</a> &middot; <a href="https://magazine.sebastianraschka.com/p/beyond-standard-llms" target="_blank" rel="noopener">Read full article</a></div>
+      <p>From DeepSeek R1 to MiniMax-M2, the largest and most capable open-weight LLMs today remain autoregressive decoder-style transformers, which are built on flavors of the original multi-head attention mechanism.</p><p>However, we have also seen alternatives to standard LLMs popping up in recent years, from text diffusion models to the most recent linear attention hybrid architectures. Some of them are geared towards better efficiency, and others, like code world models, aim to improve modeling performance.</p><p>After I shared my Big LLM Architecture Comparison a few months ago, which focused on the main transformer-based LLMs, I received a lot of questions with respect to what I think about alternative approaches. (I also recently gave a short talk about that at the PyTorch Conference 2025, where I also promised attendees to follow up with a write-up of these alternative approaches). So here it is!</p><p>Note that ideally each of these topics shown in the figure above would deserve at least a whole article itself (and hopefully get it in the future). So, to keep this article at a reasonable length, many sections are reasonably short. However, I hope this article is still useful as an introduction to all the interesting LLM alternatives that emerged in recent years.</p><p>PS: The aforementioned PyTorch conference talk will be uploaded to the official PyTorch YouTube channel. In the meantime, if you are curious, you can find a practice recording version below.</p><p>(There is also a YouTube version here.)</p><p>1. Transformer-Based LLMs.</p> <p>Transformer-based LLMs based on the classic Attention Is All You Need architecture are still state-of-the-art across text and code. If we just consider some of the highlights from late 2024 to today, notable models include</p><p>DeepSeek V3/R1</p><p>OLMo 2</p><p>Gemma 3</p><p>Mistral Small 3.1</p><p>Llama 4</p><p>Qwen3</p><p>SmolLM3</p><p>Kimi K2</p><p>gpt-oss</p><p>GLM-4.5</p><p>GLM-4.6</p><p>MiniMax-M2</p><p>and many more.</p><p>(The list above focuses on the open-weight models; there are proprietary models like GPT-5, Grok 4, Gemini 2.5, etc. that also fall into this category.)</p><p>Since I talked and wrote about transformer-based LLMs so many times, I assume you are familiar with the broad idea and architecture. If you’d like a deeper coverage, I compared the architectures listed above (and shown in the figure below) in my The Big LLM Architecture Comparison article.</p><p>(Side note: I could have grouped Qwen3-Next and Kimi Linear with the other transformer-state space model (SSM) hybrids in the overview figure. Personally, I see these other ...</p>
+      <footer class="source-bio" aria-label="About this source">
+      <p class="sb-heading">About this source</p>
+      <p class="sb-meta"><span class="sb-type">individual newsletter</span> &middot; <span class="sb-country">United States, Wisconsin</span> &middot; <span class="sb-funding">paid Substack subscriptions, books</span> &middot; <span class="sb-affiliations">Lightning AI (staff research engineer)</span> &middot; <span class="sb-leaning">Technical ML researcher focused on LLM internals and training; politically near-absent, culturally aligned with open-source ML practice.</span></p>
+      <p class="sb-audit">Last reviewed: <time datetime="2026-04-08">2026-04-08</time> &middot; <a href="https://magazine.sebastianraschka.com/" target="_blank" rel="noopener">source</a></p>
+    </footer>
+    </article>
+    </section></section>
+      
+    </article>
+  
+  </main>
+  <footer class="site-footer">
+    <div class="container">
+      <p><a href="../../privacy/index.html">Privacy</a> &middot; <a href="../../terms/index.html">Terms</a></p>
+    </div>
+  </footer>
+  <script>
+  (function() {
+    var params = new URLSearchParams(window.location.search);
+    var from = params.get('from');
+    if (from) {
+      var names = {
+        'foreign-policy':'Foreign Policy','ai-tech':'AI & Tech','housing-cities':'Housing & Cities',
+        'political-strategy':'Political Strategy','history':'History','science':'Science',
+        'culture':'Culture','economics':'Economics','faith':'Faith','writing-craft':'Writing & Craft',
+        'music':'Music','law-rights':'Law & Rights','public-health':'Public Health',
+        'philosophy':'Philosophy','media':'Media','defense':'Defense','china':'China'
+      };
+      var link = document.getElementById('back-link');
+      if (link) {
+        var name = names[from] || from;
+        link.href = '../../tag/' + from + '/index.html';
+        link.textContent = '\u2190 Back to ' + name;
+      }
+    }
+  })();
+  </script>
+</body>
+</html>
