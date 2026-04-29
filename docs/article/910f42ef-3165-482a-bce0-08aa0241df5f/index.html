@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Role of storage in AI, primer on nand flash, and deep-dive into qlc ssds - Hex Index</title>
+  <link rel="stylesheet" href="../../styles.css">
+</head>
+<body class="reading-mode">
+  <header class="reading-header">
+    <a href="../../index.html" class="back-link" id="back-link">&larr; Back to Library</a>
+  </header>
+  <main class="reading-content">
+    
+    <article class="article-page">
+      <header class="article-header">
+        <h1>Role of storage in AI, primer on nand flash, and deep-dive into qlc ssds</h1>
+        
+      <div class="article-meta">
+        <span class="author">Vikram Sekar</span>
+        <span class="separator">&middot;</span>
+        <a href="../../publication/viksnewsletter/index.html" class="publication">
+          Vik&#039;s Newsletter
+        </a>
+        <span class="separator">&middot;</span><time>Oct 19, 2025</time>
+        <span class="separator">&middot;</span><span class="read-time">13 min read</span>
+      </div>
+      </header>
+
+      <div class="content-label">
+        <span class="label-text">Commentary by <a href="../../about/index.html">Hex Index staff</a></span>
+        <nav class="content-nav">
+          
+          <a href="https://www.viksnewsletter.com/p/role-of-storage-in-ai-primer-on-nand" target="_blank" rel="noopener">Original article &rarr;</a>
+        </nav>
+      </div>
+
+      
+      <div class="article-content">
+        <p>Vikram Sekar makes a compelling case that the bottleneck in artificial intelligence isn&#039;t just about how fast chips can think, but how quickly they can remember. While the industry fixates on graphics processing units, Sekar argues that the silent hero of the AI revolution is the storage hierarchy, specifically the evolution of NAND flash technology. This is a crucial pivot for investors and engineers who might otherwise overlook the physical constraints of data movement in favor of raw compute power.</p>
+<h2>The Hidden Cost of Idle Compute</h2>
+<p>Sekar begins by dismantling the assumption that faster processors alone solve AI scaling problems. He writes, &quot;What gets less attention is the design of high capacity storage for AI workloads.&quot; This observation is vital because the economics of AI training are brutal; every second a powerful GPU sits waiting for data is money burned. Sekar explains that frontier models require tens of trillions of tokens, and the sheer volume of data needed for inference—handling hundreds of millions of user queries—demands storage systems capable of holding 50 to 100 petabytes in a single rack.</p>
+<figure class="inline-illustration">
+    <img src="../../images/910f42ef-3165-482a-bce0-08aa0241df5f.webp" alt="Role of storage in AI, primer on nand flash, and deep-dive into qlc ssds" loading="lazy" width="600" height="315">
+  </figure>
+
+<p>The author effectively reframes the data center not as a collection of brains, but as a complex logistics network. He notes that &quot;underutilizing GPU time quickly adds to model training costs,&quot; a stark reminder that efficiency is the primary currency in this sector. The hierarchy he describes moves from the ultra-fast, expensive High Bandwidth Memory (HBM) closest to the chip, down to the slower, cheaper hard disk drives used for cold storage. The efficiency of this flow determines whether a data center is a profit center or a money pit.</p>
+<p>Critics might argue that emerging technologies like optical interconnects or new memory architectures could eventually render this specific storage hierarchy obsolete. However, Sekar&#039;s grounding in current physical constraints makes his analysis immediately actionable for anyone deploying infrastructure today.</p>
+<blockquote>&quot;The efficiency of this hierarchy determines GPU utilization. A bottleneck at any level translates directly into idle compute time and wasted resources.&quot;</blockquote>
+<h2>The Physics of Density</h2>
+<p>The core of Sekar&#039;s technical argument lies in the trade-offs of NAND flash cells. He details how the industry has moved from Single Layer Cells (SLC), which store one bit per cell, to Quad Level Cells (QLC), which store four bits. This shift is not merely a marketing upgrade; it is a fundamental physical compromise. Sekar writes, &quot;The downside to storing multiple bits in a cell requires charge storage levels to be precisely controlled, and there are many more voltage reference levels that must be determined for every cell.&quot;</p>
+<p>This precision comes at a cost. As Sekar points out, higher density results in higher latency and lower endurance. The more voltage levels a cell must distinguish between, the longer it takes to read or write data, and the more stress is placed on the cell&#039;s oxide layer. He explains that while QLC offers incredible storage density, making it a potential replacement for hard disk drives in some scenarios, it introduces significant thermal stability issues and requires more powerful CPU controllers to manage the error correction.</p>
+<p>The author&#039;s breakdown of the &quot;charge trap flash&quot; technology versus the older &quot;floating gate&quot; design provides necessary context for why modern drives behave the way they do. He notes that the industry has largely adopted charge trap flash due to &quot;better cell endurance, lower leakage and better ease of 3D stacking.&quot; This technical nuance is often glossed over in broader market reports, yet it dictates the reliability of the storage systems powering the next generation of AI models.</p>
+<h2>The QLC vs. HDD Battle</h2>
+<p>Perhaps the most significant implication of Sekar&#039;s analysis is the looming displacement of traditional hard disk drives. For decades, spinning disks have been the go-to for archival storage due to their low cost per terabyte. However, Sekar suggests that the advent of QLC-based storage systems is changing the equation. He asks, &quot;What the advent of QLC-based storage systems means for HDD storage,&quot; implying a shift where the speed advantage of flash begins to outweigh the cost advantage of magnetic media.</p>
+<p>This transition is not without friction. Sekar highlights that testing QLC SSDs presents unique challenges, particularly regarding performance consistency under heavy load. He argues that while QLC offers a middle ground between the speed of TLC (Triple Level Cell) and the capacity of HDDs, it requires a rethinking of how data centers are architected. The move to QLC isn&#039;t just about buying bigger drives; it&#039;s about redesigning the entire data flow to accommodate the specific latency profiles of these new cells.</p>
+<p>A counterargument worth considering is that the cost per gigabyte of HDDs may remain lower for the foreseeable future, especially for truly &quot;cold&quot; data that is rarely accessed. Sekar acknowledges the role of HDDs for long-term archival but suggests that as AI workloads demand faster retrieval of historical data, the line between &quot;warm&quot; and &quot;cold&quot; storage will blur, favoring the speed of flash.</p>
+<blockquote>&quot;Since only one charge level exists (other than zero charge), this kind of cell is called a single layer cell (SLC). SLC flash is typically fast because only one voltage comparison needs to be made to the reference level.&quot;</blockquote>
+<h2>Bottom Line</h2>
+<p>Vikram Sekar&#039;s analysis succeeds by shifting the focus from the glamour of AI compute to the gritty reality of data movement, proving that storage architecture is the unsung determinant of AI scalability. While the piece is dense with technical specifics on voltage levels and cell endurance, its strongest argument is economic: the cost of idle GPUs makes storage efficiency a non-negotiable priority. The biggest vulnerability in this narrative is the assumption that QLC technology will scale perfectly to replace HDDs without unforeseen reliability issues, but the trajectory toward flash-only data centers seems increasingly inevitable. Investors and engineers should watch how quickly the industry adapts its infrastructure to these new physical limits, as the next bottleneck in AI will likely be found in the storage rack, not the processor.</p>
+      </div>
+
+      
+      
+      
+
+      <section id="excerpt"><section class="source-excerpts">
+      <h2>Sources</h2>
+      <article class="source-excerpt">
+      <h3>Role of storage in AI, primer on nand flash, and deep-dive into qlc ssds</h3>
+      <div class="source-meta">by Vikram Sekar &middot; <a href="../../publication/viksnewsletter/index.html">Vik&#039;s Newsletter</a> &middot; <a href="https://www.viksnewsletter.com/p/role-of-storage-in-ai-primer-on-nand" target="_blank" rel="noopener">Read full article</a></div>
+      <p>Welcome to a  subscriber-only deep-dive edition  of my weekly newsletter. Each week, I help investors, professionals and students stay up-to-date on complex topics, and navigate the semiconductor industry.</p><p>If you’re new, start here. As a paid subscriber, you will get additional in-depth content. See here for all the benefits of upgrading your subscription tier!</p><p>Note to paid subscribers: This post is long, and to save you time, here is an executive summary post. Thanks for all your support! I still recommend reading the full post for a comprehensive understanding.</p><p>I have a video version, if you want to understand the fundamentals of NAND flash!</p><p>A lot of attention is given to compute, memory and networking in an AI data center - from how quickly GPUs get data from HBM, to how fast the interconnects in a datacenter are. What gets less attention is the design of high capacity storage for AI workloads.</p><p>Frontier models are trained on tens of trillions of tokens, which typically occupy multiple terabytes of training data depending on the precision format used. During the training process, voluminous amounts of data need to be delivered to the GPU on time for computation because underutilizing GPU time quickly adds to model training costs.</p><p>The storage demands on the inference side are even higher. With 800 million ChatGPT users and counting, all the queries, documents, images, and videos generated or uploaded need to be stored somewhere, and query results must be generated in a matter of milliseconds, or a few seconds at most. This requires in the range of 50-100 petabytes (1 PB = 1,000 TB) in a single storage rack.</p><p>All these workloads require fast access to high capacity storage, which is present as local SSDs within the compute tray, networked SSDs in a storage server connected over fabrics like Ethernet/Infiniband, or just massive clusters of HDDs for long term archival as shown in the picture below.</p><p>In this article, we will look at how data flows during training and inference, understand storage hierarchies in a datacenter, develop a thorough understanding of NAND flash technologies, and discuss emerging QLC NAND flash in quite some detail.</p><p>For free subscribers:</p><p>Role of Storage in LLMs: How the interplay between HBM and SSDs is essential to training and inference.</p><p>Storage hierarchy in AI datacenters: Understanding the cost, capacity and speed constraints of various storage devices.</p><p>Basic types of NAND cells: Floating ...</p>
+      <footer class="source-bio" aria-label="About this source">
+      <p class="sb-heading">About this source</p>
+      <p class="sb-meta"><span class="sb-type">individual creator</span> &middot; <span class="sb-country">United States</span> &middot; <span class="sb-funding">paid subscriptions (Substack)</span> &middot; <span class="sb-leaning">Tech and product commentary, pro-market and pro-startup, politically centrist.</span></p>
+      <p class="sb-audit">Last reviewed: <time datetime="2026-04-08">2026-04-08</time> &middot; <a href="https://viksnewsletter.substack.com/about" target="_blank" rel="noopener">source</a></p>
+    </footer>
+    </article>
+    </section></section>
+      
+    </article>
+  
+  </main>
+  <footer class="site-footer">
+    <div class="container">
+      <p><a href="../../privacy/index.html">Privacy</a> &middot; <a href="../../terms/index.html">Terms</a></p>
+    </div>
+  </footer>
+  <script>
+  (function() {
+    var params = new URLSearchParams(window.location.search);
+    var from = params.get('from');
+    if (from) {
+      var names = {
+        'foreign-policy':'Foreign Policy','ai-tech':'AI & Tech','housing-cities':'Housing & Cities',
+        'political-strategy':'Political Strategy','history':'History','science':'Science',
+        'culture':'Culture','economics':'Economics','faith':'Faith','writing-craft':'Writing & Craft',
+        'music':'Music','law-rights':'Law & Rights','public-health':'Public Health',
+        'philosophy':'Philosophy','media':'Media','defense':'Defense','china':'China'
+      };
+      var link = document.getElementById('back-link');
+      if (link) {
+        var name = names[from] || from;
+        link.href = '../../tag/' + from + '/index.html';
+        link.textContent = '\u2190 Back to ' + name;
+      }
+    }
+  })();
+  </script>
+</body>
+</html>
