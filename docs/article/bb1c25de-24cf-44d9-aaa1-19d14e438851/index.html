@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BioByte 136: Scaling laws for pLMs, DeepSomatic and castle for oncological variant calling,… - Hex Index</title>
+  <link rel="stylesheet" href="../../styles.css">
+</head>
+<body class="reading-mode">
+  <header class="reading-header">
+    <a href="../../index.html" class="back-link" id="back-link">&larr; Back to Library</a>
+  </header>
+  <main class="reading-content">
+    
+    <article class="article-page">
+      <header class="article-header">
+        <h1>BioByte 136: Scaling laws for pLMs, DeepSomatic and castle for oncological variant calling,…</h1>
+        
+      <div class="article-meta">
+        <span class="author">Pranay Satya</span>
+        <span class="separator">&middot;</span>
+        <a href="../../publication/decodingbio/index.html" class="publication">
+          
+        </a>
+        <span class="separator">&middot;</span><time>Oct 16, 2025</time>
+        <span class="separator">&middot;</span><span class="read-time">16 min read</span>
+      </div>
+      </header>
+
+      <div class="content-label">
+        <span class="label-text">Commentary by <a href="../../about/index.html">Hex Index staff</a></span>
+        <nav class="content-nav">
+          
+          <a href="https://decodingbio.substack.com/p/biobyte-136-scaling-laws-for-plms" target="_blank" rel="noopener">Original article &rarr;</a>
+        </nav>
+      </div>
+
+      
+      <div class="article-content">
+        <p>This week&#039;s scientific landscape is defined not by a single breakthrough, but by a fundamental reckoning with how we measure progress in biology. The prevailing assumption that &quot;more data equals better models&quot; is crumbling under the weight of new evidence, while a radical new microscopy technique suggests we can photograph the inside of a living cell by shooting bullets through it. Pranay Satya&#039;s curation forces a pause on the hype cycle, revealing that the next leap in precision oncology and cellular imaging depends less on raw compute and more on data hygiene and engineering creativity.</p>
+<h2>The Myth of Infinite Scaling</h2>
+<p>Satya opens with a critical examination of protein language models, challenging the tech industry&#039;s favorite mantra. In the realm of natural language processing, scaling laws have allowed researchers to predict model performance based on compute and data size. Satya notes that Align Bio sought to apply this logic to proteins, training their AMPLIFY suite on yearly snapshots of protein databases from 2011 to 2024. The results were jarring. &quot;From their results, they found that the increase in performance, as measured by the Spearman correlation, fluctuated quite significantly, and even decreased some years with the addition of billions of new protein sequences.&quot;</p>
+<figure class="inline-illustration">
+    <img src="../../images/bb1c25de-24cf-44d9-aaa1-19d14e438851.webp" alt="BioByte 136: Scaling laws for pLMs, DeepSomatic and castle for oncological variant calling,…" loading="lazy" width="600" height="315">
+  </figure>
+
+<p>This finding upends the idea that simply feeding a model more sequences will automatically yield smarter predictions. Satya explains that the authors discovered the issue wasn&#039;t a lack of volume, but a lack of variety. &quot;The later years were often dominated by redundant sequences, and relative composition of the dataset was also in constant flux with events like the COVID-19 pandemic increasing the relative percentage of a specific group of proteins.&quot; The argument here is compelling because it shifts the burden of proof from quantity to quality. The authors conclude that &quot;the size of the dataset is not the predominant driver of predictive capability, but rather the diversity within the training set is.&quot;</p>
+<p>Critics might argue that diversity is difficult to quantify and that the field has historically relied on volume as a proxy for robustness. However, Satya highlights that the authors&#039; follow-up experiments showed that while adding labeled data helped in some contexts, it failed entirely in others, implying a &quot;nuanced&quot; relationship that simple scaling laws cannot capture. The takeaway is clear: without proper data hygiene, the industry risks building massive models on shaky foundations.</p>
+<blockquote>The size of the dataset is not the predominant driver of predictive capability, but rather the diversity within the training set is.</blockquote>
+<h2>Rewriting the Rules of Cancer Detection</h2>
+<p>Shifting from protein modeling to clinical application, Satya turns to a significant leap in oncology. For years, the tools used to identify cancer-causing mutations have been limited by the technology they were built for: short-read sequencing. These tools struggle with repetitive regions of the genome, often missing the very mutations that drive tumor progression. Satya introduces DeepSomatic, a new model from Google and collaborators that leverages long-read sequencing to overcome these blind spots.</p>
+<p>The core of the innovation lies in the creation of the CASTLE dataset. Because high-quality benchmark data for somatic mutations was scarce, the team had to build their own. Satya describes how they sequenced cell lines from breast and lung cancers using multiple technologies, then used a consensus approach to label the data. &quot;This process yielded the CASTLE dataset, with the long-read sequencing data and variant predictions made publicly available.&quot; This is a massive contribution in itself; by releasing the data, the authors have lowered the barrier for the entire field to improve.</p>
+<p>The performance gains are not marginal; they are transformative. Satya reports that the model achieved a &quot;substantial decrease in error rate of 95% when classifying indel variants and 37% when classifying single nucleotide variants.&quot; Furthermore, the tool excels at detecting low-frequency mutations, which are critical for understanding how tumors evolve and resist treatment. &quot;DeepSomatic also showed high accuracy when evaluated on held-out cell lines, demonstrating more robust generalizability.&quot;</p>
+<p>The practical implications are immediate. Satya notes that the model was tested on real patient data, including glioblastoma and pediatric blood cancers, where it identified mutations that previous methods missed. &quot;The model demonstrated higher recall performance on the glioblastoma sample when compared to the ClairS method, and was also able to identify ten additional somatic mutations not found by ClairS in pediatric blood cancers.&quot; While the model did miss a couple of mutations, the overall trajectory points toward a future where clinicians can characterize complex tumors with unprecedented precision.</p>
+<h2>Shooting Bullets to Map the Cell</h2>
+<p>Perhaps the most visually arresting piece of coverage Satya presents is the introduction of Ballistic Microscopy (BaM). The challenge in cellular biology has long been the trade-off between spatial resolution and molecular depth. You can see where a protein is, but not what it&#039;s interacting with, or vice versa. Satya describes a solution that sounds like science fiction: &quot;Jijumon et al. decouple spatial extraction and molecular by introducing Ballistic Microscopy (BaM), where high-speed nanoparticles are blasted through living cells to extract tiny attoliter droplets of cytoplasm onto hydrogels, preserving the cell&#039;s spatial information for later molecular analysis, akin to taking a molecular photograph onto a hydrogel film.&quot;</p>
+<p>The engineering required to make this work is staggering. The team modeled heat transfer and drag to ensure that firing gold nanoparticles at 1,000 meters per second would pierce the cell without vaporizing it. Satya writes that they &quot;showed that the particles wouldn&#039;t overheat (transient temperature rises only ~200K for a microsecond), would not cavitate beyond 0.2 μm, and could safely traverse the cell membrane without blowing it apart.&quot;</p>
+<p>Once the physics were confirmed, the biological results were equally striking. The technique allowed researchers to pool thousands of tiny samples and run mass spectrometry, revealing a dense interaction network of proteins. &quot;The proteomic analysis revealed 641 associated proteins forming a dense interaction network. Among them, Keratin-18 emerged as a consistent and surprising interactor.&quot; This discovery, linking intermediate filaments to the structural organization of protein condensates, would have been nearly impossible with traditional methods.</p>
+<p>Satya acknowledges the limitations: the method currently lacks z-depth resolution and requires pooling samples due to the tiny amount of material captured. &quot;There&#039;s no z-depth resolution yet, and mechanical shock from gas acceleration can limit repeated sampling.&quot; Yet, the modularity of the approach—separating capture from analysis—opens doors for combining destructive techniques on the same sample. &quot;This is an insanely creative piece of engineering - shooting little bullets to form a splatter map of a cell is a wild idea that hopefully will never be accepted as obvious!&quot;</p>
+<h2>The Brain&#039;s Pattern Completion</h2>
+<p>Finally, Satya touches on neuroscience, exploring how the brain constructs reality from incomplete data. Using illusory contours, the study by Shin et al. investigates how the visual cortex infers edges that aren&#039;t physically present. Satya explains that the team identified a sparse population of neurons in the primary visual cortex that specifically encodes these inferred shapes.</p>
+<p>The study goes beyond observation to causation. By using a closed-loop optical pipeline to stimulate these specific neurons, the researchers could recreate the perceptual experience in the subject. &quot;To test whether the IC-encoders causally drive the representation of these inferred contours, the team implemented a closed-loop optical pipeline: imaging thousands of neurons, identifying functional ensembles in real time, and selectively stimulating them with two-photon holographic optogenetics.&quot; This suggests a compact, generalizable circuit motif that could inform not only biological understanding but also the design of more efficient artificial intelligence systems.</p>
+<h2>Bottom Line</h2>
+<p>Pranay Satya&#039;s curation delivers a powerful corrective to the &quot;bigger is better&quot; mindset that has dominated AI and biotech. The strongest argument here is that data diversity and quality are the new bottlenecks, not compute power or dataset size. The biggest vulnerability in the field remains the scarcity of high-quality, diverse benchmark data, a gap that the CASTLE dataset begins to fill. As the industry moves forward, the focus must shift from scaling parameters to engineering smarter, more nuanced data collection and analysis strategies.</p>
+<blockquote>This is an insanely creative piece of engineering - shooting little bullets to form a splatter map of a cell is a wild idea that hopefully will never be accepted as obvious!</blockquote>
+      </div>
+
+      
+      
+      
+
+      <section id="excerpt"><section class="source-excerpts">
+      <h2>Sources</h2>
+      <article class="source-excerpt">
+      <h3>BioByte 136: Scaling laws for pLMs, DeepSomatic and castle for oncological variant calling,…</h3>
+      <div class="source-meta">by Pranay Satya &middot; <a href="../../publication/decodingbio/index.html"></a> &middot; <a href="https://decodingbio.substack.com/p/biobyte-136-scaling-laws-for-plms" target="_blank" rel="noopener">Read full article</a></div>
+      <p>Welcome to Decoding Bio’s BioByte: each week our writing collective highlight notable news—from the latest scientific papers to the latest funding rounds—and everything in between. All in one place.</p><p>What we read.</p> <p>Blogs.</p> <p>Do Scaling Laws Hold for Protein Language Models? [Align Bio, October 2025]</p><p>An understanding of scaling laws has allowed natural language processing (NLP) researchers to accurately predict the impact of compute, parameters, and data on model loss. Given the relationship, a desired loss target can be selected and the necessary resources to meet that requirement can be derived. With the stagnation of protein variant effect prediction even with ever growing databases, Align Bio sought to answer whether this same sort of empirical relationship can be applied to protein language models (pLMs).</p><p>To investigate this question, the team elected to train the AMPLIFY suite of pLMs with a zero-shot approach on yearly snapshots of UniRef100 from 2011 to 2024, holding all else constant. From their results, they found that the increase in performance, as measured by the Spearman correlation, fluctuated quite significantly, and even decreased some years with the addition of billions of new protein sequences. A follow-up experiment which employed a simple linear regression approach with AMPLIFY embeddings did show consistent improvement as more labeled data was added, but a further trial with a targeted β-lactamase dataset exhibited no improvement over the years, implying that the relationship with labeled data is rather nuanced.</p><p>From their observations, the authors conclude that the size of the dataset is not the predominant driver of predictive capability, but rather the diversity within the training set is. The later years were often dominated by redundant sequences, and relative composition of the dataset was also in constant flux with events like the COVID-19 pandemic increasing the relative percentage of a specific group of proteins. To address the issues facing reliable scaling laws in biology, the authors emphasize the need for proper data hygiene and dataset diversity, while also highlighting concerns regarding the scarcity of labels and the generalizability of models.</p><p>Papers.</p> <p>Accurate somatic small variant discovery for multiple sequencing technologies with DeepSomatic [Park and Cook et al., Nature Biotechnology, October 2025]</p><p>Special thanks to the team at Google for reaching out with the paper pre-release!</p><p>Why it matters: Accurately classifying the thousands of somatic variants that contribute to cancer is a challenging task in precision oncology research. While the vast majority of previous ...</p>
+      <footer class="source-bio" aria-label="About this source">
+      <p class="sb-heading">About this source</p>
+      <p class="sb-meta"><span class="sb-type">independent newsletter</span> &middot; <span class="sb-country">United States</span> &middot; <span class="sb-funding">paid Substack subscriptions</span> &middot; <span class="sb-leaning">Techbio VC-adjacent analysis; bullish on computational biology and biotech startups, aligned with Bay Area pro-innovation milieu.</span></p>
+      <p class="sb-audit">Last reviewed: <time datetime="2026-04-08">2026-04-08</time> &middot; <a href="https://www.decodingbio.com/" target="_blank" rel="noopener">source</a></p>
+    </footer>
+    </article>
+    </section></section>
+      
+    </article>
+  
+  </main>
+  <footer class="site-footer">
+    <div class="container">
+      <p><a href="../../privacy/index.html">Privacy</a> &middot; <a href="../../terms/index.html">Terms</a></p>
+    </div>
+  </footer>
+  <script>
+  (function() {
+    var params = new URLSearchParams(window.location.search);
+    var from = params.get('from');
+    if (from) {
+      var names = {
+        'foreign-policy':'Foreign Policy','ai-tech':'AI & Tech','housing-cities':'Housing & Cities',
+        'political-strategy':'Political Strategy','history':'History','science':'Science',
+        'culture':'Culture','economics':'Economics','faith':'Faith','writing-craft':'Writing & Craft',
+        'music':'Music','law-rights':'Law & Rights','public-health':'Public Health',
+        'philosophy':'Philosophy','media':'Media','defense':'Defense','china':'China'
+      };
+      var link = document.getElementById('back-link');
+      if (link) {
+        var name = names[from] || from;
+        link.href = '../../tag/' + from + '/index.html';
+        link.textContent = '\u2190 Back to ' + name;
+      }
+    }
+  })();
+  </script>
+</body>
+</html>
