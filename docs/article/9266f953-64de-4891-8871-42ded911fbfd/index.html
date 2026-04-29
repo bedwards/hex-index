@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The anatomy of the least squares method, part two - Hex Index</title>
+  <link rel="stylesheet" href="../../styles.css">
+</head>
+<body class="reading-mode">
+  <header class="reading-header">
+    <a href="../../index.html" class="back-link" id="back-link">&larr; Back to Library</a>
+  </header>
+  <main class="reading-content">
+    
+    <article class="article-page">
+      <header class="article-header">
+        <h1>The anatomy of the least squares method, part two</h1>
+        
+      <div class="article-meta">
+        <span class="author">Tivadar Danka</span>
+        <span class="separator">&middot;</span>
+        <a href="../../publication/thepalindrome/index.html" class="publication">
+          The Palindrome
+        </a>
+        <span class="separator">&middot;</span><time>Oct 20, 2025</time>
+        <span class="separator">&middot;</span><span class="read-time">19 min read</span>
+      </div>
+      </header>
+
+      <div class="content-label">
+        <span class="label-text">Commentary by <a href="../../about/index.html">Hex Index staff</a></span>
+        <nav class="content-nav">
+          
+          <a href="https://thepalindrome.org/p/the-anatomy-of-the-least-squares-ab5" target="_blank" rel="noopener">Original article &rarr;</a>
+        </nav>
+      </div>
+
+      
+      <div class="article-content">
+        <p>Tivadar Danka makes a counterintuitive claim that will reshape how busy data practitioners approach their craft: the fastest route to mastering machine learning isn&#039;t wrestling with messy real-world datasets, but deliberately fabricating them. In a field often paralyzed by the tedious grind of data cleaning, Danka argues that simulation is not a shortcut, but a rigorous training ground for intuition that real data simply cannot provide.</p>
+<h2>The Case for Invented Reality</h2>
+<p>Danka reframes the standard workflow, suggesting that &quot;finding, formatting, and processing data can be tedious and time-consuming,&quot; to the point where a practitioner might waste hours on a &quot;barely usable dataset&quot; when they could generate the exact scenario they need in minutes. This is a provocative stance for an industry obsessed with &quot;big data,&quot; yet it holds up under scrutiny. By controlling the variables, the learner gains access to the one thing real-world analysis denies: ground truth.</p>
+<figure class="inline-illustration">
+    <img src="../../images/9266f953-64de-4891-8871-42ded911fbfd.webp" alt="The anatomy of the least squares method, part two" loading="lazy" width="600" height="315">
+  </figure>
+
+<p>The author writes, &quot;Simulated data gives ground truth. With real data, you run an analysis and get something, but you have no way of knowing whether that result is real, a quirk in the dataset, or a bug in your code.&quot; This distinction is critical. When you simulate a relationship between variables—say, the number of punk rock concerts attended and a person&#039;s reported happiness—you know the exact mathematical parameters used to create the noise. This allows you to verify if your algorithm is actually working or just hallucinating patterns.</p>
+<blockquote>&quot;Running experiments with simulated data helps you speed up that skill development like a racehorse on Red Bull.&quot;</blockquote>
+<p>Danka&#039;s analogy is vivid, but the substance behind it is what matters. He posits that understanding how an algorithm behaves under controlled stress—varying sample sizes, injecting specific noise levels, or introducing outliers—builds a mental model of the tool&#039;s limits. This is the difference between driving a car on a familiar commute and taking it to a test track to understand its braking distance. A counterargument worth considering is that real-world data contains &quot;annoyances&quot; and structural quirks that simulations rarely capture, potentially leaving a practitioner unprepared for the chaos of live deployment. Danka acknowledges this, noting that the &quot;best way to master machine learning is to know how to use both simulated and real data.&quot;</p>
+<h2>The Mechanics of Trust</h2>
+<p>The piece moves from philosophy to practice, demonstrating how to translate abstract equations into code that generates infinite data. Danka walks through a specific example where he sets a &quot;ground-truth relationship&quot; between an independent variable and an outcome, then deliberately adds random noise to mimic human variability. He is careful to note that while the data is fake, the conclusions drawn about the method are real.</p>
+<p>He emphasizes the importance of visualizing the results, specifically the residuals—the errors between what the model predicted and what actually happened. &quot;The correlation between the predicted data and the residuals is always exactly zero,&quot; he explains, a mathematical certainty of the least-squares method. However, he warns that the <em>shape</em> of the residual plot matters more than the correlation number. If the plot looks like a funnel or a teardrop rather than an &quot;amorphous cloud,&quot; the model is failing to capture a non-linear relationship.</p>
+<blockquote>&quot;The goal of statistical modeling is to capture the key essence of the data, not to overfit every tiny variation.&quot;</blockquote>
+<p>This warning against overfitting is the article&#039;s most practical takeaway. Danka explains how the standard R-squared metric can be misleading because it artificially inflates when you add more variables, even if those variables are just random noise. To combat this, he advocates for the &quot;adjusted R-squared,&quot; which penalizes the model for adding unnecessary complexity. By scaling the metric based on the number of parameters versus the number of observations, the adjusted score ensures that a model only improves if the new data actually adds predictive power.</p>
+<p>Critics might argue that relying too heavily on simulated data creates a false sense of security, where a model performs perfectly on clean, generated data but collapses when faced with the messy, biased reality of human behavior. Danka addresses this by promising a future post dedicated to the unique challenges of real data, suggesting a balanced curriculum rather than a replacement of one for the other.</p>
+<h2>Bottom Line</h2>
+<p>Danka&#039;s argument is a necessary correction to the &quot;data hoarding&quot; mentality, proving that controlled experimentation is superior to blind analysis for building deep intuition. While the risk of simulation is that it cannot replicate the full complexity of the real world, its value as a diagnostic tool for understanding model mechanics is undeniable. Readers should watch for the upcoming installment on real-data applications to see how these simulated intuitions hold up against the chaos of unstructured reality.</p>
+      </div>
+
+      
+      
+      
+
+      <section id="excerpt"><section class="source-excerpts">
+      <h2>Sources</h2>
+      <article class="source-excerpt">
+      <h3>The anatomy of the least squares method, part two</h3>
+      <div class="source-meta">by Tivadar Danka &middot; <a href="../../publication/thepalindrome/index.html">The Palindrome</a> &middot; <a href="https://thepalindrome.org/p/the-anatomy-of-the-least-squares-ab5" target="_blank" rel="noopener">Read full article</a></div>
+      <p>Hey! It’s Tivadar from The Palindrome.</p><p>Mike X Cohen, PhD is here to continue our deep dive into the least squares method, the bread and butter of data science and machine learning.</p><p>Without further ado, I’ll pass the mic to him.</p><p>Enjoy!</p><p>Cheers,Tivadar</p><p>By the end of this post series, you will be confident about understanding, applying, and interpreting regression models (general linear models) that are solved using the famous least-squares algorithm. Here’s a breakdown of the post series:</p><p>Post 1 (the previous post): Theory and math. If you haven’t read this post yet, please do so before reading this one!</p><p>Post 2 (this post): Explorations in simulations. You’ll learn how to simulate data to supercharge your intuition for least-squares, how to visualize the results, and how to run experiments. You’ll also learn about residuals and overfitting.</p><p>Post 3: real-data examples. Simulated data are great because you have full control over the data characteristics and noise, but there’s no substitute for real data. And that’s what you’ll experience in this post. I’ll also teach you how to use the Python statsmodels library.</p><p>Post 4: modeling GPT activations. This post will be fun and fascinating. We’ll dissect OpenAI’s LLM GPT2, the precursor to its state-of-the-art ChatGPT. You’ll learn more about least-squares and also about LLM mechanisms.</p><p>Following along with code.</p> <p>I’m a huge fan of learning math through coding. You can learn a lot of math with a bit of code.</p><p>That’s why I have Python notebook files that accompany my posts. The essential code bits are pasted directly into this post, but the complete code files, including all the code for visualization and additional explorations, are here on my GitHub.</p><p>If you’re more interested in the theory/concepts, then it’s completely fine to ignore the code and just read the post. But if you want a deeper level of understanding and intuition — and the tools to continue exploring and applying the analyses to your own projects — then I strongly encourage following along with the code while reading this post.</p><p>Here’s a video where I explain how to get my code from GitHub and follow along using Google Colab. It’s free (you need a Google account, but who doesn’t have one??) and runs in your browser, so you don’t need to install anything.</p><p>Why you should use simulated data when learning machine-learning.</p> <p>Here’s why I love teaching data science using ...</p>
+      <footer class="source-bio" aria-label="About this source">
+      <p class="sb-heading">About this source</p>
+      <p class="sb-meta"><span class="sb-type">independent newsletter</span> &middot; <span class="sb-country">Hungary</span> &middot; <span class="sb-funding">paid subscriptions (Substack)</span> &middot; <span class="sb-leaning">Mathematics-for-ML explainer, politically non-partisan.</span></p>
+      <p class="sb-audit">Last reviewed: <time datetime="2026-04-08">2026-04-08</time> &middot; <a href="https://thepalindrome.org/about" target="_blank" rel="noopener">source</a></p>
+    </footer>
+    </article>
+    </section></section>
+      
+    </article>
+  
+  </main>
+  <footer class="site-footer">
+    <div class="container">
+      <p><a href="../../privacy/index.html">Privacy</a> &middot; <a href="../../terms/index.html">Terms</a></p>
+    </div>
+  </footer>
+  <script>
+  (function() {
+    var params = new URLSearchParams(window.location.search);
+    var from = params.get('from');
+    if (from) {
+      var names = {
+        'foreign-policy':'Foreign Policy','ai-tech':'AI & Tech','housing-cities':'Housing & Cities',
+        'political-strategy':'Political Strategy','history':'History','science':'Science',
+        'culture':'Culture','economics':'Economics','faith':'Faith','writing-craft':'Writing & Craft',
+        'music':'Music','law-rights':'Law & Rights','public-health':'Public Health',
+        'philosophy':'Philosophy','media':'Media','defense':'Defense','china':'China'
+      };
+      var link = document.getElementById('back-link');
+      if (link) {
+        var name = names[from] || from;
+        link.href = '../../tag/' + from + '/index.html';
+        link.textContent = '\u2190 Back to ' + name;
+      }
+    }
+  })();
+  </script>
+</body>
+</html>
