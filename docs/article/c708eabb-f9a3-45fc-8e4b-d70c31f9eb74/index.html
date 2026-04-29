@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BioByte 135: Improvements to biosecurity screening, cptac-protstruct and kronos demonstrate LLM… - Hex Index</title>
+  <link rel="stylesheet" href="../../styles.css">
+</head>
+<body class="reading-mode">
+  <header class="reading-header">
+    <a href="../../index.html" class="back-link" id="back-link">&larr; Back to Library</a>
+  </header>
+  <main class="reading-content">
+    
+    <article class="article-page">
+      <header class="article-header">
+        <h1>BioByte 135: Improvements to biosecurity screening, cptac-protstruct and kronos demonstrate LLM…</h1>
+        
+      <div class="article-meta">
+        <span class="author">Matthew&#039;s Biotech Musings</span>
+        <span class="separator">&middot;</span>
+        <a href="../../publication/decodingbio/index.html" class="publication">
+          
+        </a>
+        <span class="separator">&middot;</span><time>Oct 9, 2025</time>
+        <span class="separator">&middot;</span><span class="read-time">13 min read</span>
+      </div>
+      </header>
+
+      <div class="content-label">
+        <span class="label-text">Commentary by <a href="../../about/index.html">Hex Index staff</a></span>
+        <nav class="content-nav">
+          
+          <a href="https://decodingbio.substack.com/p/biobyte-135-improvements-to-biosecurity" target="_blank" rel="noopener">Original article &rarr;</a>
+        </nav>
+      </div>
+
+      
+      <div class="article-content">
+        <p>This week&#039;s coverage from Matthew&#039;s Biotech Musings delivers a stark warning: the very tools accelerating medical breakthroughs are simultaneously arming potential bad actors with the ability to design undetectable biological threats. The piece argues that the era of simple sequence-based screening is over, replaced by an arms race where artificial intelligence can generate toxins that look harmless on paper but are deadly in structure. For busy leaders in biotech and policy, this is not a distant theoretical risk; it is an immediate infrastructure failure that has already required emergency patches from major screening providers.</p>
+<h2>The Collapse of Sequence-Based Defense</h2>
+<p>Matthew&#039;s Biotech Musings opens with a compelling analogy, describing nucleic acid screening companies as &quot;the watchtowers that ensure that new strands of DNA being ordered are not harmful for humanity.&quot; The author effectively frames the problem by contrasting old methods with new realities. Historically, scientists relied on tools like BLAST to flag sequences that looked like known toxins. But as the author notes, &quot;with modern deep-learning tools, we can now predict 3D protein structures with remarkable accuracy and compare them using structure-based tools like FoldSeek, revealing similarities that sequence alone might miss.&quot;</p>
+<figure class="inline-illustration">
+    <img src="../../images/c708eabb-f9a3-45fc-8e4b-d70c31f9eb74.webp" alt="BioByte 135: Improvements to biosecurity screening, cptac-protstruct and kronos demonstrate LLM…" loading="lazy" width="600" height="315">
+  </figure>
+
+<p>The core of the argument rests on a recent red-team exercise led by Microsoft researchers. They didn&#039;t just theorize; they computationally generated over 76,000 synthetic variants of dangerous proteins, including ricin and botulinum neurotoxins. The results were alarming. The author writes, &quot;The red-team exercise revealed that existing &#039;best-match&#039; sequence-based frameworks missed a substantial fraction of these AI-reformulated toxins.&quot; This is a critical finding because it proves that a malicious actor could use open-source models to create a protein that folds into a lethal shape while having a DNA sequence that looks completely benign to current filters.</p>
+<blockquote>&quot;Next-generation biosecurity must combine sequence, structure, and contextual threat modeling to remain effective in the age of AI-driven protein design.&quot;</blockquote>
+<p>The response from the industry was swift, with major providers like Aclid and IBBIS updating their pipelines to catch 97% of these threats. However, the author points out a lingering vulnerability: DNA obfuscation. By fragmenting and scrambling sequences, bad actors can still hide intent. This suggests that while the industry is catching up, the defensive infrastructure is playing catch-up to the offensive capabilities of generative AI. Critics might note that the study relied on computational predictions rather than wet-lab synthesis, meaning the real-world efficacy of these evasion tactics remains unproven, though the structural data strongly suggests the risk is genuine.</p>
+<h2>From Data to Diagnosis: The Rise of Graph-LLMs</h2>
+<p>Shifting from biosecurity to clinical application, the piece explores how large language models (LLMs) are finally being adapted to handle the complexity of human biology. Matthew&#039;s Biotech Musings highlights a new startup, Standard Model Bio, which has developed a system to turn raw proteomics data into actionable clinical insights. The author argues that while LLMs are great at text, they struggle with the &quot;individualized semantic molecular reasoning&quot; required for cancer care.</p>
+<p>To solve this, the team created CPTAC-PROTSTRUCT, described as &quot;the first patient-level instruction tuning dataset for molecular oncology understanding.&quot; This dataset bridges the gap between raw protein data and the questions oncologists actually ask. The author explains that the team used curated protein-protein interaction networks to generate question-and-answer pairs that mimic real clinical scenarios. This is a significant methodological leap, moving beyond simple data matching to true reasoning over biological networks.</p>
+<p>The result is KRONOS, a graph-based model that outperformed traditional linear methods in predicting mortality and disease stage. The author attributes this success to the model&#039;s ability to see connections that linear models miss: &quot;The authors hypothesized that linear methods fail due to their assumptions of independence between protein features, showing the value of explicit PPI network information.&quot; This framing is persuasive because it directly addresses why previous AI attempts in oncology have often fallen short—they treated proteins as isolated data points rather than a dynamic, interacting system.</p>
+<blockquote>&quot;Together, these advancements show a potential way forward to capitalize on the immense power of LLM frameworks and high-throughput patient-specific biological data to guide clinical decision making.&quot;</blockquote>
+<p>Despite the high performance, the author remains grounded, noting that the &quot;overall computational footprint of the model may pose some challenges in its clinical deployment.&quot; This is a crucial caveat for hospital administrators and investors; a model that requires massive computing power may not be scalable in resource-constrained environments. Furthermore, the generalizability of the model across different institutional datasets remains an open question, a common hurdle for specialized AI in medicine.</p>
+<h2>Democratizing the Nanoscale and the Microbiome</h2>
+<p>The coverage also touches on two distinct but equally vital advancements: imaging and environmental health. In the realm of microscopy, the author discusses a new technique using left-handed DNA probes to achieve high-plex, single-protein imaging. The innovation allows researchers to double the number of targets they can visualize simultaneously without complex chemical workarounds. Matthew&#039;s Biotech Musings writes that this method &quot;effectively double usable channels, and shorten per-target imaging time so single-protein, nanoscale atlases across hundreds of microns move from bespoke, specialist feats toward routine experiments.&quot; This shift from bespoke to routine is the key takeaway; it means that understanding cellular architecture at the nanometer scale will soon be a standard tool, not a luxury for elite labs.</p>
+<p>Finally, the piece addresses the environmental crisis of &quot;forever chemicals&quot; (PFAS). The author highlights a surprising discovery: human gut bacteria can bioaccumulate these toxins. The study found that bacteria like <em>Bacteroides uniformis</em> concentrated PFAS at high levels while remaining viable. The author notes, &quot;If the human microbiome concentrates PFAS and increases fecal elimination, it could change systemic exposure levels.&quot; This reframes the problem from a purely environmental one to a biological one, suggesting that our own microbiome might be a natural defense mechanism that could be harnessed. However, the author also implies a darker side: if these bacteria are sequestering toxins, they might also be protecting the host from immediate toxicity while creating a long-term reservoir of pollution within the body.</p>
+<blockquote>&quot;The upside remains significant: Unterauer et al. remove notable engineering frictions, effectively double usable channels, and shorten per-target imaging time so single-protein, nanoscale atlases across hundreds of microns move from bespoke, specialist feats toward routine experiments.&quot;</blockquote>
+<h2>Bottom Line</h2>
+<p>Matthew&#039;s Biotech Musings succeeds in connecting disparate scientific threads into a cohesive narrative about the dual-use nature of modern biology. The strongest part of the argument is the urgent call to modernize biosecurity infrastructure before generative AI makes current defenses obsolete. The biggest vulnerability lies in the assumption that software patches can keep pace with the rapid evolution of AI-generated threats. Readers should watch for how regulatory bodies respond to the new screening standards and whether the clinical AI models like KRONOS can transition from research papers to hospital wards without prohibitive costs.</p>
+      </div>
+
+      
+      
+      
+
+      <section id="excerpt"><section class="source-excerpts">
+      <h2>Sources</h2>
+      <article class="source-excerpt">
+      <h3>BioByte 135: Improvements to biosecurity screening, cptac-protstruct and kronos demonstrate LLM…</h3>
+      <div class="source-meta">by Matthew&#039;s Biotech Musings &middot; <a href="../../publication/decodingbio/index.html"></a> &middot; <a href="https://decodingbio.substack.com/p/biobyte-135-improvements-to-biosecurity" target="_blank" rel="noopener">Read full article</a></div>
+      <p>Welcome to Decoding Bio’s BioByte: each week our writing collective highlight notable news—from the latest scientific papers to the latest funding rounds—and everything in between. All in one place.</p><p>What we read.</p> <p>Papers.</p> <p>Strengthening nucleic acid biosecurity screening against generative protein design tools [Wittman et al., Science, October 2025]</p><p>Why it matters: Nucleic acid screening companies are the watchtowers that ensure that new strands of DNA being ordered are not harmful for humanity. As deep learning has transformed protein design, bad actors’ ability to design harmful sequences becomes more robust. Researchers from Microsoft led a red-teaming collaboration to help nucleic acid screening companies improve their ability to catch potentially toxic proteins that look benign in sequence space but could be troublesome based on their structure.</p><p>Historically, biosecurity screening has relied on sequence-based homology searches. Methods like BLAST enable scientists to flag sequences if they closely resemble a known toxin or pathogen gene. This approach worked because dangerous proteins were generally sequence-similar to previously cataloged ones. But with modern deep-learning tools, we can now predict 3D protein structures with remarkable accuracy and compare them using structure-based tools like FoldSeek, revealing similarities that sequence alone might miss. At the same time, generative protein-design models such as ProteinMPNN and EvoDiff can create entirely new sequences that differ dramatically in amino-acid identity yet still fold into the same functional structures as known toxins. To test and strengthen global biosecurity infrastructure, Microsoft researchers conducted a biosecurity red-team exercise with synthesis providers to “attack” and stress-test their screening systems using AI-designed proteins meant to evade detection.</p><p>The team computationally generated 76,080 synthetic homologs derived from 72 wild-type proteins of concern (including ricin, botulinum neurotoxins, and viral effectors). Each variant was designed using open-source generative models at different mutation levels to test how far sequence drift could go while preserving structure. Although the study did not synthesize or experimentally validate the proteins, structure predictions with OpenFold showed that many variants retained folds strongly resembling the originals - meaning they should, in principle, trigger screening alerts. The researchers also explored a DNA-obfuscation strategy, in which protein-coding sequences were fragmented, scrambled, and reversed across reading frames to mimic how a malicious actor might further disguise intent from DNA-level screens.</p><p>The red-team exercise revealed that existing “best-match” sequence-based frameworks missed a substantial fraction of these AI-reformulated toxins. In response, three major biosecurity-screening providers (Aclid, IBBIS, and RTX BBN) rapidly updated ...</p>
+      <footer class="source-bio" aria-label="About this source">
+      <p class="sb-heading">About this source</p>
+      <p class="sb-meta"><span class="sb-type">independent newsletter</span> &middot; <span class="sb-country">United States</span> &middot; <span class="sb-funding">paid Substack subscriptions</span> &middot; <span class="sb-leaning">Techbio VC-adjacent analysis; bullish on computational biology and biotech startups, aligned with Bay Area pro-innovation milieu.</span></p>
+      <p class="sb-audit">Last reviewed: <time datetime="2026-04-08">2026-04-08</time> &middot; <a href="https://www.decodingbio.com/" target="_blank" rel="noopener">source</a></p>
+    </footer>
+    </article>
+    </section></section>
+      
+    </article>
+  
+  </main>
+  <footer class="site-footer">
+    <div class="container">
+      <p><a href="../../privacy/index.html">Privacy</a> &middot; <a href="../../terms/index.html">Terms</a></p>
+    </div>
+  </footer>
+  <script>
+  (function() {
+    var params = new URLSearchParams(window.location.search);
+    var from = params.get('from');
+    if (from) {
+      var names = {
+        'foreign-policy':'Foreign Policy','ai-tech':'AI & Tech','housing-cities':'Housing & Cities',
+        'political-strategy':'Political Strategy','history':'History','science':'Science',
+        'culture':'Culture','economics':'Economics','faith':'Faith','writing-craft':'Writing & Craft',
+        'music':'Music','law-rights':'Law & Rights','public-health':'Public Health',
+        'philosophy':'Philosophy','media':'Media','defense':'Defense','china':'China'
+      };
+      var link = document.getElementById('back-link');
+      if (link) {
+        var name = names[from] || from;
+        link.href = '../../tag/' + from + '/index.html';
+        link.textContent = '\u2190 Back to ' + name;
+      }
+    }
+  })();
+  </script>
+</body>
+</html>
