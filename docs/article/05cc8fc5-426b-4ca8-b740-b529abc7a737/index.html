@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The anatomy of the least squares method, part one - Hex Index</title>
+  <link rel="stylesheet" href="../../styles.css">
+</head>
+<body class="reading-mode">
+  <header class="reading-header">
+    <a href="../../index.html" class="back-link" id="back-link">&larr; Back to Library</a>
+  </header>
+  <main class="reading-content">
+    
+    <article class="article-page">
+      <header class="article-header">
+        <h1>The anatomy of the least squares method, part one</h1>
+        
+      <div class="article-meta">
+        <span class="author">Tivadar Danka</span>
+        <span class="separator">&middot;</span>
+        <a href="../../publication/thepalindrome/index.html" class="publication">
+          The Palindrome
+        </a>
+        <span class="separator">&middot;</span><time>Oct 13, 2025</time>
+        <span class="separator">&middot;</span><span class="read-time">14 min read</span>
+      </div>
+      </header>
+
+      <div class="content-label">
+        <span class="label-text">Commentary by <a href="../../about/index.html">Hex Index staff</a></span>
+        <nav class="content-nav">
+          
+          <a href="https://thepalindrome.org/p/the-anatomy-of-the-least-squares" target="_blank" rel="noopener">Original article &rarr;</a>
+        </nav>
+      </div>
+
+      
+      <div class="article-content">
+        <p>In a field often obscured by black-box algorithms and hype, Tivadar Danka delivers a rare, lucid dissection of the mathematical engine that actually powers most predictive modeling. While the tech world chases the next large language model, Danka argues that the &quot;least-squares method&quot; remains the <strong>indispensable foundation</strong> for understanding data relationships, offering a one-shot, mathematically optimal solution that requires no iterative guessing. This piece is not merely a tutorial; it is a corrective to the notion that modern data science has outgrown classical statistics.</p>
+<h2>The Human Element in Mathematical Optimization</h2>
+<p>Danka opens by reframing the role of the data scientist, stripping away the mystique of automation to reveal the creative labor involved. He writes, &quot;Most of the hard work in finding that balance is up to the human data scientist. Least-squares takes care of the math once the human has done the creative work.&quot; This is a crucial distinction often lost in marketing materials that promise AI will solve everything. The author correctly identifies that the algorithm is a tool for execution, not a substitute for the intellectual work of defining variables and understanding context.</p>
+<figure class="inline-illustration">
+    <img src="../../images/05cc8fc5-426b-4ca8-b740-b529abc7a737.webp" alt="The anatomy of the least squares method, part one" loading="lazy" width="600" height="315">
+  </figure>
+
+<p>To illustrate the mechanics, Danka employs a whimsical, fabricated dataset linking &quot;Hungarian punk band concerts&quot; to &quot;life happiness.&quot; He notes, &quot;The data in this example are fake! I made up the numbers, but the conclusions might be valid.&quot; By using such a stark, humorous example, he forces the reader to confront the difference between statistical correlation and causal reality. He warns, &quot;Statistical models alone cannot prove causality. It&#039;s also possible that happier people just find Hungarian punk more sonorous.&quot; This is a vital reminder: the math will happily find a line through any noise, but it cannot tell you if that line represents truth or coincidence. A counterargument worth considering is whether such playful examples might trivialize the rigor required for high-stakes domains like medicine or finance, though Danka&#039;s explicit caveats mitigate this risk.</p>
+<blockquote>The goal of statistical modeling is not to fit the data perfectly, but instead, to fit the data as well as possible with a simple model that captures the essence of the system.</blockquote>
+<h2>From Abstract Equations to Concrete Code</h2>
+<p>The commentary then shifts to the structural elegance of the method. Danka explains how a tedious list of individual equations is condensed into a single matrix operation, describing the design matrix and the regressors. He acknowledges the intimidation factor for those less versed in linear algebra, writing, &quot;If you&#039;re a linear algebra noob, the equations in this section might look intimidating... try to focus on the gist without worrying about the details.&quot; This accessibility is the piece&#039;s greatest strength; it demystifies the &quot;tall matrix&quot; problem without dumbing down the solution.</p>
+<p>He describes the resulting formula as &quot;elegant, deterministic (a.k.a. one-shot, meaning we don&#039;t need to iterate to get an approximate solution that could change each time we re-run the code), and easy for computers to calculate with high accuracy.&quot; This stands in stark contrast to the iterative, often unstable nature of training deep neural networks. The author emphasizes that while least-squares is not perfect and does not power large language models, it is the bedrock for linear solutions. He clarifies a common misconception: &quot;Least-squares can identify nonlinear relationships in data, for example, polynomial regressions, as long as the model parameters are linear.&quot; This nuance is essential for readers who might assume linearity implies a rigid, straight-line limitation.</p>
+<h2>The Optimization Perspective</h2>
+<p>Finally, Danka bridges the gap between linear algebra and calculus, explaining why we square the errors rather than simply minimizing them. He argues that squaring ensures all residuals are positive and creates a smooth function for optimization, noting, &quot;If we just minimized the errors, we&#039;d get beta values that push the errors towards negative infinity.&quot; The author&#039;s insistence on following along with Python code to see the theory in action reinforces his belief that &quot;you can learn a lot of math with a bit of code.&quot; This practical approach transforms abstract symbols into tangible results, allowing the reader to verify the intercept and slope values themselves.</p>
+<p>Critics might argue that in an era of massive datasets and non-linear complexities, focusing so heavily on a 200-year-old method seems backward-looking. However, Danka&#039;s point is that without mastering this fundamental tool, one cannot truly understand the more complex models built upon it. The &quot;least-squares&quot; solution remains the gold standard for interpretability and speed in scenarios where the underlying relationships are approximately linear.</p>
+<h2>Bottom Line</h2>
+<p>Danka&#039;s piece succeeds by stripping away the jargon to reveal the <strong>mathematical elegance</strong> at the heart of modern data science, proving that the oldest tools are often the most reliable. Its greatest vulnerability lies in the inherent limitation of linear models, which the author acknowledges but cannot fully resolve for non-linear real-world phenomena. For any professional working with data, the takeaway is clear: before chasing the newest algorithm, master the least-squares method, because it is the lens through which all predictive accuracy is measured.</p>
+      </div>
+
+      
+      
+      
+
+      <section id="excerpt"><section class="source-excerpts">
+      <h2>Sources</h2>
+      <article class="source-excerpt">
+      <h3>The anatomy of the least squares method, part one</h3>
+      <div class="source-meta">by Tivadar Danka &middot; <a href="../../publication/thepalindrome/index.html">The Palindrome</a> &middot; <a href="https://thepalindrome.org/p/the-anatomy-of-the-least-squares" target="_blank" rel="noopener">Read full article</a></div>
+      <p>Hi there! It’s Tivadar from The Palindrome.</p><p>Today’s post is the first in a series by the legendary Mike X Cohen, PhD, educator extraordinaire.</p><p>In case you haven’t encountered him yet, Mike is an extremely prolific author; his textbooks and online courses range from time series analysis through statistics to linear algebra, all with a focus on practical implementations as well.</p><p>He also recently started on Substack, and if you enjoy The Palindrome, you’ll enjoy his publication too. So, make sure to subscribe!</p><p>The following series explores the least squares method, a foundational tool in mathematics, data science, and machine learning.</p><p>Have fun!</p><p>Cheers,Tivadar</p><p>By the end of this post series, you will be confident about understanding, applying, and interpreting the least-squares algorithm for fitting machine learning models to data. “Least-squares” is one of the most important techniques in machine learning and statistics. It is fast, one-shot (non-iterative), easy to interpret, and mathematically optimal. Here’s a breakdown of what you’ll learn:</p><p>Post 1 (what you’re reading now ): Theory and math. You’ll learn what “least-squares” means, why it works, and how to find the optimal solution. There’s some linear algebra and calculus in this post, but I’ll explain the main take-home points in case you’re not so familiar with the math bits.</p><p>Post 2: Explorations in simulations. You’ll learn how to simulate data to supercharge your intuition for least-squares, and how to visualize the results. You’ll also learn about residuals and overfitting.</p><p>Post 3: real-data examples. There’s no real substitute for real data. And that’s what you’ll experience in this post. I’ll also teach you how to use the Python <code>statsmodels</code> library.</p><p>Post 4: modeling GPT activations. This post will be fun and fascinating. We’ll dissect OpenAI’s LLM GPT2, the precursor to its state-of-the-art ChatGPT. You’ll learn more about least-squares and also about LLM mechanisms.</p><p>Following along with code.</p> <p>I’m a huge fan of learning math through coding. You can learn a lot of math with a bit of code.</p><p>That’s why I have Python notebook files that accompany my posts. The essential code bits are pasted directly into this post, but the complete code files, including all the code for visualization and additional explorations, are here on my GitHub.</p><p>If you’re more interested in the theory/concepts, then it’s completely fine to ignore the code and just read the post. But if you want a deeper level of understanding and ...</p>
+      <footer class="source-bio" aria-label="About this source">
+      <p class="sb-heading">About this source</p>
+      <p class="sb-meta"><span class="sb-type">independent newsletter</span> &middot; <span class="sb-country">Hungary</span> &middot; <span class="sb-funding">paid subscriptions (Substack)</span> &middot; <span class="sb-leaning">Mathematics-for-ML explainer, politically non-partisan.</span></p>
+      <p class="sb-audit">Last reviewed: <time datetime="2026-04-08">2026-04-08</time> &middot; <a href="https://thepalindrome.org/about" target="_blank" rel="noopener">source</a></p>
+    </footer>
+    </article>
+    </section></section>
+      
+    </article>
+  
+  </main>
+  <footer class="site-footer">
+    <div class="container">
+      <p><a href="../../privacy/index.html">Privacy</a> &middot; <a href="../../terms/index.html">Terms</a></p>
+    </div>
+  </footer>
+  <script>
+  (function() {
+    var params = new URLSearchParams(window.location.search);
+    var from = params.get('from');
+    if (from) {
+      var names = {
+        'foreign-policy':'Foreign Policy','ai-tech':'AI & Tech','housing-cities':'Housing & Cities',
+        'political-strategy':'Political Strategy','history':'History','science':'Science',
+        'culture':'Culture','economics':'Economics','faith':'Faith','writing-craft':'Writing & Craft',
+        'music':'Music','law-rights':'Law & Rights','public-health':'Public Health',
+        'philosophy':'Philosophy','media':'Media','defense':'Defense','china':'China'
+      };
+      var link = document.getElementById('back-link');
+      if (link) {
+        var name = names[from] || from;
+        link.href = '../../tag/' + from + '/index.html';
+        link.textContent = '\u2190 Back to ' + name;
+      }
+    }
+  })();
+  </script>
+</body>
+</html>
