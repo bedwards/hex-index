@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Understanding the 4 main approaches to LLM evaluation - Hex Index</title>
+  <link rel="stylesheet" href="../../styles.css">
+</head>
+<body class="reading-mode">
+  <header class="reading-header">
+    <a href="../../index.html" class="back-link" id="back-link">&larr; Back to Library</a>
+  </header>
+  <main class="reading-content">
+    
+    <article class="article-page">
+      <header class="article-header">
+        <h1>Understanding the 4 main approaches to LLM evaluation</h1>
+        
+      <div class="article-meta">
+        <span class="author">Sebastian Raschka</span>
+        <span class="separator">&middot;</span>
+        <a href="../../publication/sebastianraschka/index.html" class="publication">
+          Ahead of AI
+        </a>
+        <span class="separator">&middot;</span><time>Oct 5, 2025</time>
+        <span class="separator">&middot;</span><span class="read-time">32 min read</span>
+      </div>
+      </header>
+
+      <div class="content-label">
+        <span class="label-text">Commentary by <a href="../../about/index.html">Hex Index staff</a></span>
+        <nav class="content-nav">
+          
+          <a href="https://magazine.sebastianraschka.com/p/llm-evaluation-4-approaches" target="_blank" rel="noopener">Original article &rarr;</a>
+        </nav>
+      </div>
+
+      
+      <div class="article-content">
+        <p>In a field drowning in hype and opaque leaderboards, Sebastian Raschka offers a rare, grounded map for navigating the chaotic landscape of large language model evaluation. Rather than accepting marketing claims at face value, he dissects the four dominant methodologies—multiple-choice benchmarks, verifiers, leaderboards, and LLM judges—revealing how each distorts or clarifies our understanding of AI progress. This is not just a technical manual; it is a necessary corrective to the industry&#039;s tendency to conflate high scores with genuine intelligence.</p>
+<h2>The Illusion of the Multiple-Choice Test</h2>
+<p>Raschka begins by dismantling the reliance on standardized tests like the Massive Multitask Language Understanding (MMLU) dataset, which has become the de facto metric for model capability. He notes that while these benchmarks are &quot;simple and useful diagnostics,&quot; they suffer from a critical blind spot. &quot;A limitation of multiple‑choice benchmarks like MMLU is that they only measure an LLM’s ability to select from predefined options and thus is not very useful for evaluating reasoning capabilities,&quot; he writes. This is a crucial distinction: a model can memorize the correct letter without ever understanding the underlying logic.</p>
+<figure class="inline-illustration">
+    <img src="../../images/ed3b63ac-6363-4fb7-a62e-9b3faa424ea6.webp" alt="Understanding the 4 main approaches to LLM evaluation" loading="lazy" width="600" height="315">
+  </figure>
+
+<p>He illustrates this by walking through code that forces a model to predict a single letter (A, B, C, or D) for a math problem. The result is often a binary pass or fail that masks the nuance of the model&#039;s thought process. &quot;It does not capture free-form writing ability or real-world utility,&quot; Raschka argues, highlighting that a high score on a static dataset might simply indicate that the model has &quot;forgotten&quot; less knowledge compared to its base version, rather than demonstrating superior reasoning. This framing is effective because it shifts the focus from the <em>result</em> to the <em>mechanism</em> of evaluation, exposing how easily a model can game a system designed to test human knowledge recall.</p>
+<p>Critics might note that multiple-choice tests remain the only scalable way to evaluate models across dozens of subjects simultaneously, making them a pragmatic, if imperfect, necessity. However, Raschka&#039;s insistence that a low score can highlight &quot;potential knowledge gaps&quot; while a high score doesn&#039;t guarantee practical strength serves as a vital warning against over-interpreting leaderboard positions.</p>
+<blockquote>A high MMLU score doesn&#039;t necessarily mean the model is strong in practical use, but a low score can highlight potential knowledge gaps.</blockquote>
+<h2>The Promise and Peril of Verifiers</h2>
+<p>Moving beyond static tests, Raschka introduces verification-based approaches as a more robust alternative for specific domains like mathematics and coding. Here, the model generates a free-form answer, and an external tool—such as a code interpreter or calculator—determines if the final result is correct. &quot;This approach can introduce additional complexity and dependencies, and it may shift part of the evaluation burden from the model itself to the external tool,&quot; he admits. Yet, he contends that this trade-off is worth it because it allows for the generation of &quot;unlimited number of math problem variations programmatically.&quot;</p>
+<p>This method represents a significant shift in how we measure progress. Instead of asking the model to guess the right letter, we ask it to solve the problem and then use a deterministic tool to check the work. Raschka explains that this has &quot;become a cornerstone of reasoning model evaluation and development&quot; precisely because it forces the model to engage in step-by-step logic rather than pattern matching. The argument lands strongly here: by decoupling the generation of the solution from the verification of the answer, we get a clearer picture of whether the model is actually reasoning or just hallucinating a plausible-looking conclusion.</p>
+<p>However, the reliance on external tools introduces a new variable. If the verifier itself is flawed or if the domain is too complex to be reduced to a deterministic check (like creative writing or nuanced policy analysis), the evaluation breaks down. Raschka acknowledges this limitation by noting that this method is best suited for domains that can be &quot;easily (and ideally deterministically) verified.&quot;</p>
+<h2>The Road Ahead</h2>
+<p>As the field pivots toward &quot;reasoning models,&quot; Raschka&#039;s breakdown suggests that the old metrics are becoming obsolete. He points out that while reasoning is &quot;one of the most exciting and important recent advances,&quot; it is also &quot;one of the easiest to misunderstand if you only hear the term reasoning and read about it in theory.&quot; His hands-on approach, complete with from-scratch code examples, serves as a reminder that true understanding requires digging into the mechanics, not just reading the headlines.</p>
+<p>The piece ultimately argues that we need a more nuanced mental map to interpret the flood of new research. &quot;Having a clear mental map of these main approaches makes it much easier to interpret benchmarks, leaderboards, and papers,&quot; Raschka writes. This is the piece&#039;s most valuable contribution: it empowers the reader to look at a model&#039;s score and ask not just &quot;how high is it?&quot; but &quot;what exactly does this number measure, and what does it miss?&quot;</p>
+<h2>Bottom Line</h2>
+<p>Raschka&#039;s analysis is a masterclass in demystifying AI evaluation, successfully arguing that no single metric can capture the complexity of modern language models. His strongest move is exposing the gap between multiple-choice accuracy and genuine reasoning, a distinction that is often lost in the rush to publish new leaderboard records. The biggest vulnerability remains the lack of a perfect, universal evaluation framework, but by clarifying the trade-offs of each method, he provides the best possible tool for navigating the current uncertainty.</p>
+      </div>
+
+      
+      
+      
+
+      <section id="excerpt"><section class="source-excerpts">
+      <h2>Sources</h2>
+      <article class="source-excerpt">
+      <h3>Understanding the 4 main approaches to LLM evaluation</h3>
+      <div class="source-meta">by Sebastian Raschka &middot; <a href="../../publication/sebastianraschka/index.html">Ahead of AI</a> &middot; <a href="https://magazine.sebastianraschka.com/p/llm-evaluation-4-approaches" target="_blank" rel="noopener">Read full article</a></div>
+      <p>How do we actually evaluate LLMs?It’s a simple question, but one that tends to open up a much bigger discussion.</p><p>When advising or collaborating on projects, one of the things I get asked most often is how to choose between different models and how to make sense of the evaluation results out there. (And, of course, how to measure progress when fine-tuning or developing our own.)</p><p>Since this comes up so often, I thought it might be helpful to share a short overview of the main evaluation methods people use to compare LLMs. Of course, LLM evaluation is a very big topic that can’t be exhaustively covered in a single resource, but I think that having a clear mental map of these main approaches makes it much easier to interpret benchmarks, leaderboards, and papers.</p><p>I originally planned to include these evaluation techniques in my upcoming book, Build a Reasoning Model (From Scratch), but they ended up being a bit outside the main scope. (The book itself focuses more on verifier-based evaluation.) So I figured that sharing this as a longer article with from-scratch code examples would be nice.</p><p>In Build A Reasoning Model (From Scratch), I am taking a hands-on approach to building a reasoning LLM from scratch.If you liked “Build A Large Language Model (From Scratch)”, this book is written in a similar style in terms of building everything from scratch in pure PyTorch.</p><p>The book is currently in early-access with &gt;100 pages already online, and I have just finished another 30 pages that are currently being added by the layout team. If you joined the early access program (a big thank you for your support!), you should receive an email when those go live.</p><p>PS: There’s a lot happening on the LLM research front right now. I’m still catching up on my growing list of bookmarked papers and plan to highlight some of the most interesting ones in the next article.</p><p>But now, let’s discuss the four main LLM evaluation methods along with their from-scratch code implementations to better understand their advantages and weaknesses.</p><p>Understanding the main evaluation methods for LLMs.</p> <p>There are four common ways of evaluating trained LLMs in practice: multiple choice, verifiers, leaderboards, and LLM judges, as shown in Figure 1 below. Research papers, marketing materials, technical reports, and model cards (a term for LLM-specific technical reports) often include results from two or more of ...</p>
+      <footer class="source-bio" aria-label="About this source">
+      <p class="sb-heading">About this source</p>
+      <p class="sb-meta"><span class="sb-type">individual newsletter</span> &middot; <span class="sb-country">United States, Wisconsin</span> &middot; <span class="sb-funding">paid Substack subscriptions, books</span> &middot; <span class="sb-affiliations">Lightning AI (staff research engineer)</span> &middot; <span class="sb-leaning">Technical ML researcher focused on LLM internals and training; politically near-absent, culturally aligned with open-source ML practice.</span></p>
+      <p class="sb-audit">Last reviewed: <time datetime="2026-04-08">2026-04-08</time> &middot; <a href="https://magazine.sebastianraschka.com/" target="_blank" rel="noopener">source</a></p>
+    </footer>
+    </article>
+    </section></section>
+      
+    </article>
+  
+  </main>
+  <footer class="site-footer">
+    <div class="container">
+      <p><a href="../../privacy/index.html">Privacy</a> &middot; <a href="../../terms/index.html">Terms</a></p>
+    </div>
+  </footer>
+  <script>
+  (function() {
+    var params = new URLSearchParams(window.location.search);
+    var from = params.get('from');
+    if (from) {
+      var names = {
+        'foreign-policy':'Foreign Policy','ai-tech':'AI & Tech','housing-cities':'Housing & Cities',
+        'political-strategy':'Political Strategy','history':'History','science':'Science',
+        'culture':'Culture','economics':'Economics','faith':'Faith','writing-craft':'Writing & Craft',
+        'music':'Music','law-rights':'Law & Rights','public-health':'Public Health',
+        'philosophy':'Philosophy','media':'Media','defense':'Defense','china':'China'
+      };
+      var link = document.getElementById('back-link');
+      if (link) {
+        var name = names[from] || from;
+        link.href = '../../tag/' + from + '/index.html';
+        link.textContent = '\u2190 Back to ' + name;
+      }
+    }
+  })();
+  </script>
+</body>
+</html>
