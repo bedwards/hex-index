@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gpu networking basics part 3: Scale-out - Hex Index</title>
+  <link rel="stylesheet" href="../../styles.css">
+</head>
+<body class="reading-mode">
+  <header class="reading-header">
+    <a href="../../index.html" class="back-link" id="back-link">&larr; Back to Library</a>
+  </header>
+  <main class="reading-content">
+    
+    <article class="article-page">
+      <header class="article-header">
+        <h1>Gpu networking basics part 3: Scale-out</h1>
+        
+      <div class="article-meta">
+        <span class="author">Various</span>
+        <span class="separator">&middot;</span>
+        <a href="../../publication/chipstrat/index.html" class="publication">
+          Chipstrat
+        </a>
+        <span class="separator">&middot;</span><time>Sep 8, 2025</time>
+        <span class="separator">&middot;</span><span class="read-time">24 min read</span>
+      </div>
+      </header>
+
+      <div class="content-label">
+        <span class="label-text">Commentary by <a href="../../about/index.html">Hex Index staff</a></span>
+        <nav class="content-nav">
+          
+          <a href="https://www.chipstrat.com/p/gpu-networking-basics-part-3-scale" target="_blank" rel="noopener">Original article &rarr;</a>
+        </nav>
+      </div>
+
+      
+      <div class="article-content">
+        <p>Most industry analysis treats AI infrastructure as a simple hardware arms race, but Chipstrat makes a compelling case that the real bottleneck isn&#039;t the processor—it&#039;s the network connecting them. The piece argues that the economics of training frontier models hinge on a single, often overlooked metric: <strong>deterministic, low-jitter communication</strong>. This reframes the entire conversation from raw compute power to the invisible fabric that keeps thousands of chips from idling while waiting for a single straggler.</p>
+<h2>The Lockstep Problem</h2>
+<p>Chipstrat begins by dismantling the assumption that traditional data center networking can handle the demands of modern large language model training. The article draws a sharp distinction between general-purpose enterprise traffic and the rigid synchronization required for AI. &quot;AI training is conceptually a few steps repeated over and over,&quot; the piece explains, detailing the cycle of forward passes, backward passes, and gradient aggregation. The critical insight here is the concept of <strong>all-reduce</strong>, where every GPU must share its calculations before any can proceed. &quot;If one GPU is late, all others stall,&quot; Chipstrat reports, noting that in a cluster of 10,000 GPUs, a single device lagging by just 20 microseconds can waste 0.2 seconds of collective compute time. &quot;For such massive clusters, that can be significant dollars of depreciating GPUs idling due to poor networking performance.&quot;</p>
+<figure class="inline-illustration">
+    <img src="../../images/de2ebe1f-9d97-4ab6-b69e-b3651e652d5a.webp" alt="Gpu networking basics part 3: Scale-out" loading="lazy" width="600" height="315">
+  </figure>
+
+<p>This analysis effectively highlights why standard Ethernet, designed for flexibility and feature-richness, fails in this specific context. The editors note that enterprise networks prioritize security and traffic management over speed, while hyperscale clouds tolerate variability because their workloads are independent. &quot;A delayed packet in a database query or email transfer doesn&#039;t stall other applications,&quot; the article observes, contrasting this with the &quot;lockstep&quot; nature of AI training where variability, or <strong>jitter</strong>, is fatal. Critics might argue that modern Ethernet variants are closing this gap rapidly, but the piece maintains that the fundamental design philosophy of traditional networks remains a mismatch for the synchronous requirements of distributed training.</p>
+<blockquote>&quot;Latency and jitter are so important in AI networking... Deterministic, low-jitter communication is therefore essential to keep GPUs quickly advancing in lockstep.&quot;</blockquote>
+<h2>The HPC Heritage</h2>
+<p>The commentary then pivots to the historical roots of the solution, challenging the common misconception that InfiniBand is a proprietary invention of a single vendor. Chipstrat clarifies that &quot;InfiniBand is not proprietary, but rather an open standard born from an industry consortium.&quot; The piece traces the lineage of high-performance computing back to supercomputers used for scientific simulations, where the need for ultra-low latency was long established. &quot;Unlike enterprise or hyperscale environments, HPC jobs are single workloads that span thousands of servers at once,&quot; the editors explain, drawing a direct parallel to the architecture of modern AI clusters. The article details how InfiniBand was purpose-built for this environment, utilizing features like <strong>Remote Direct Memory Access (RDMA)</strong> to bypass the CPU and <strong>lossless forwarding</strong> to prevent packet drops. &quot;It uses credit-based flow control to avoid packet drops, which prevents jitter and expensive retransmissions,&quot; Chipstrat reports, emphasizing that these are not mere optimizations but architectural necessities.</p>
+<p>The piece also addresses the vendor landscape with nuance, acknowledging that while the standard is open, the market is dominated by specific players who have invested heavily in the ecosystem. &quot;Mellanox did not invent InfiniBand,&quot; the article asserts, correcting a widespread industry myth. However, it concedes that the current commercial reality involves a heavy reliance on Nvidia&#039;s implementation of these standards, alongside emerging alternatives like the Ultra Ethernet Consortium. &quot;Single vendor doesn&#039;t mean proprietary,&quot; the editors argue, though they acknowledge the practical monopoly that exists in the supply chain for these specialized components.</p>
+<h2>The Economic Stakes</h2>
+<p>Ultimately, the article positions networking not as a supporting cast member but as a primary driver of the total addressable market for AI infrastructure. Chipstrat suggests that the shift toward AI is forcing a re-evaluation of the entire data center stack. &quot;Nvidia&#039;s monster networking business&quot; is highlighted as a critical component of its expanding market reach, with the piece noting that the company&#039;s mix of InfiniBand, NVLink, and Spectrum-X creates a formidable barrier to entry for competitors. The editors point out that the physical reality of these clusters is staggering, referencing images of &quot;purple cables&quot; and active electrical cables connecting hundreds of thousands of GPUs. &quot;Nvidia networking TAM expansion!&quot; the piece exclaims, underscoring the financial magnitude of the shift from general-purpose networking to specialized AI fabrics.</p>
+<p>While the focus on Nvidia&#039;s dominance is clear, the article leaves room for the evolution of open standards, noting that the industry is actively working on alternatives like Spectrum-X and the Ultra Ethernet Consortium&#039;s specifications. &quot;We will contrast InfiniBand with modern Ethernet-for-AI stacks,&quot; the editors promise, suggesting that the future may see a hybrid approach where the rigid determinism of InfiniBand competes with the cost-efficiency of re-engineered Ethernet.</p>
+<blockquote>&quot;The moment those results need to be shared is when networking shines… or is the bottleneck!&quot;</blockquote>
+<h2>Bottom Line</h2>
+<p>Chipstrat&#039;s strongest contribution is its rigorous explanation of why <strong>jitter</strong> is the silent killer of AI efficiency, a concept often glossed over in favor of raw bandwidth metrics. The piece&#039;s vulnerability lies in its heavy reliance on the current dominance of a single vendor&#039;s ecosystem, potentially underestimating the speed at which open Ethernet standards might mature to meet these deterministic demands. For investors and technologists alike, the takeaway is clear: the next frontier of AI progress depends less on the next generation of chips and more on the invisible threads that bind them together.</p>
+      </div>
+
+      
+      
+      
+
+      <section id="excerpt"><section class="source-excerpts">
+      <h2>Sources</h2>
+      <article class="source-excerpt">
+      <h3>Gpu networking basics part 3: Scale-out</h3>
+      <div class="source-meta">by Various &middot; <a href="../../publication/chipstrat/index.html">Chipstrat</a> &middot; <a href="https://www.chipstrat.com/p/gpu-networking-basics-part-3-scale" target="_blank" rel="noopener">Read full article</a></div>
+      <p>AI networking is heating up, and Chipstrat is here to make sense of it. If you’re new to the series, start with Part 1 and Part 2. In Part 3 we go deeper on scale-out networking for AI and why it matters for training at cluster scale.</p><p>We will explain why low latency and low jitter govern iteration time in distributed training. We will show where traditional Ethernet falls short and why InfiniBand became the default fabric for HPC-style, lockstep workloads.</p><p>We will also clear up common misconceptions. (No worries, I had these coming into this article too!) For example, Mellanox did not invent InfiniBand. InfiniBand is not proprietary, but rather an open standard born from an industry consortium. Mellanox, and later Nvidia, have long supported Ethernet for scale-out via RoCE and its evolution. Along the way we will define what “open” actually means in networking. And more! </p><p>We will then contrast InfiniBand with modern Ethernet-for-AI stacks such as Nvidia Spectrum-X and the Ultra Ethernet Consortium’s 1.0 spec.</p><p>Then behind the paywall we’ll examine Nvidia’s monster networking business. We will compare Nvidia’s mix across InfiniBand, NVLink, and Spectrum-X with Broadcom and Arista to show why networking is an important piece of Nvidia’s expanding TAM.</p><p>But first, context. I’ll walk through a simple example to make it clear why AI networking is a different beast than networking of the past. </p><p>If you already know the basics, feel free to skip ahead!  Many readers have said they value starting in the shallow end before diving deep, so we’ll ease in there first.</p><p>AI Networking is Different.</p> <p>So what are the networking needs of an AI workload? </p><p>BTW: when I say AI training here, I mean LLMs and transformer variants driving the Generative AI boom.</p><p>LLM Training  Networking.</p> <p>At its core, LLM training is a distributed computing workload, with thousands of machines working together on a single problem. </p><p>The idea of distributed computing isn’t new. Anyone remember Folding@Home, which harnessed volunteer PCs to run protein simulations?</p><p>Vijay Pande: So in 2000 we had the idea of how we could actually use lots and lots of computers to solve our problems—instead of waiting for a million days on one computer to get the problem done in 10 days on 100,000 computers. But then you reach a sort of fork in the road where you decide whether you just want to talk about how you ...</p>
+      <footer class="source-bio" aria-label="About this source">
+      <p class="sb-heading">About this source</p>
+      <p class="sb-meta"><span class="sb-type">independent newsletter</span> &middot; <span class="sb-country">United States</span> &middot; <span class="sb-funding">paid Substack subscriptions</span> &middot; <span class="sb-leaning">Semiconductor industry strategy analyst; broadly aligned with US techno-industrial policy and export controls, focused on business rather than partisan framing.</span></p>
+      <p class="sb-audit">Last reviewed: <time datetime="2026-04-08">2026-04-08</time> &middot; <a href="https://www.chipstrat.com/" target="_blank" rel="noopener">source</a></p>
+    </footer>
+    </article>
+    </section></section>
+      
+    </article>
+  
+  </main>
+  <footer class="site-footer">
+    <div class="container">
+      <p><a href="../../privacy/index.html">Privacy</a> &middot; <a href="../../terms/index.html">Terms</a></p>
+    </div>
+  </footer>
+  <script>
+  (function() {
+    var params = new URLSearchParams(window.location.search);
+    var from = params.get('from');
+    if (from) {
+      var names = {
+        'foreign-policy':'Foreign Policy','ai-tech':'AI & Tech','housing-cities':'Housing & Cities',
+        'political-strategy':'Political Strategy','history':'History','science':'Science',
+        'culture':'Culture','economics':'Economics','faith':'Faith','writing-craft':'Writing & Craft',
+        'music':'Music','law-rights':'Law & Rights','public-health':'Public Health',
+        'philosophy':'Philosophy','media':'Media','defense':'Defense','china':'China'
+      };
+      var link = document.getElementById('back-link');
+      if (link) {
+        var name = names[from] || from;
+        link.href = '../../tag/' + from + '/index.html';
+        link.textContent = '\u2190 Back to ' + name;
+      }
+    }
+  })();
+  </script>
+</body>
+</html>
