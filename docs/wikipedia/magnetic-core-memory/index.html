@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Magnetic-core memory - Hex Index</title>
+  <link rel="stylesheet" href="../../styles.css">
+</head>
+<body class="reading-mode">
+  <header class="reading-header">
+    <a href="../../index.html" class="back-link" id="back-link">&larr; Back to Library</a>
+  </header>
+  <main class="reading-content">
+    
+    <article class="wikipedia-page">
+      <header class="wikipedia-header">
+        <div class="type-badge">Wikipedia Deep Dive</div>
+        <h1>Magnetic-core memory</h1>
+        <div class="article-meta">
+          <span class="read-time">15 min read</span>
+        </div>
+      </header>
+
+      
+
+      <div class="wikipedia-content"><p class="source-note">Based on <a href="https://en.wikipedia.org/wiki/Magnetic-core_memory">Wikipedia: Magnetic-core memory</a></p>
+<p>In the summer of 1953, a massive computer at MIT known as Whirlwind hummed with a new kind of certainty. For years, the machine had relied on Williams tubes, fragile glass cathode-ray devices that stored data as fleeting patterns of electricity, prone to fading and failure. They were temperamental, requiring constant adjustment and maintenance, a source of endless frustration for the engineers trying to track aircraft in real-time. Then, the engineers installed a grid of tiny, donut-shaped rings threaded with copper wire. This was the first true random-access magnetic-core memory. The result was immediate and profound. Access times plummeted from 25 microseconds to just 9. Reliability soared. For the next two decades, these ceramic rings became the beating heart of every major computer on the planet, from the guidance systems that would eventually land humans on the Moon to the mainframes that ran the global banking infrastructure. They were the physical manifestation of digital logic, a time when memory was not a ghost in the silicon, but a tangible, woven tapestry of magnetism and copper.</p>
+<p>To understand the elegance of core memory, one must first understand the humble toroid. It is a ring, roughly the size of a grain of sand, made of a hard magnetic material, usually a semi-hard ferrite. This material possesses a unique property known as hysteresis: it remembers. When you magnetize it, it stays magnetized. It has two stable states, clockwise and counter-clockwise. In the language of computing, these are the 1 and the 0. A single core stores a single bit of information. The magic lies not in the core itself, which is passive and inert, but in how it is threaded. Wires are passed through the center of these rings, arranged in a precise X-Y grid. This creates a matrix where every intersection point holds a core.</p>
+<p>Writing data to this grid is a feat of electrical engineering precision. To change the state of a specific core, you cannot simply run a full current through a wire, or you would flip every core along that line. Instead, the system uses a trick called coincident current. The computer sends a current pulse through one X-wire and one Y-wire simultaneously, but each pulse carries only half the energy required to flip a magnet. By themselves, these half-pulses are harmless; they pass through the other cores on their respective lines without affecting them. But at the single intersection where the X and Y wires cross, the currents combine. The total energy doubles, exceeding the threshold, and the core at that specific point flips its magnetic field. Depending on the direction of the current, it becomes a 1 or a 0. It is a binary lock, opened only by the precise alignment of two keys.</p>
+<p>Reading the data, however, reveals a fundamental flaw in this design that would come to define the entire era of computing: the read is destructive. To check if a core holds a 1 or a 0, the computer attempts to write a 0 to it. If the core was already a 0, nothing happens. The magnetic field remains unchanged, and no electricity is induced in the nearby wires. But if the core was a 1, the attempt to force it to a 0 causes the magnetic field to collapse and reverse. This sudden change in magnetic flux induces a pulse of electricity in a separate &quot;sense&quot; wire running through the array. The computer detects this pulse and knows, &quot;Ah, that core was a 1.&quot; But in the process of reading it, the core has been wiped clean. It is now a 0. The information is gone.</p>
+<p>This necessitates a complex dance of circuitry. Every time the computer reads a bit, it must immediately rewrite it if the read revealed it was a 1. The system must remember what it just destroyed and restore it. This &quot;destructive readout&quot; required additional hardware and processing cycles, adding latency and complexity to the machine. Yet, despite this inefficiency, core memory possessed a superpower that modern memory struggles to replicate without constant power: non-volatility. As long as the magnetic field remained, the data remained. You could turn the power off to a core memory system, wait years, and turn it back on, and the bits would still be there, sitting in their rings, unchanged. This reliability made it indispensable for mission-critical applications where failure was not an option.</p>
+<p>The reliability of core memory was not just a technical specification; it was a lifeline. Consider the Apollo Guidance Computer. The software that navigated the spacecraft to the Moon and back relied on a variant of core memory known as core rope memory. In this system, the wiring itself was the data. Wires were woven through the cores in a specific pattern; if a wire passed through a core, it was a 1. If it bypassed the core, it was a 0. This was read-only memory, manufactured with such precision that it could never change. A single mistake in the weaving would corrupt the guidance logic, potentially dooming the mission. The astronauts did not carry a backup drive; they carried a piece of cloth woven with the laws of physics. When the computer encountered the infamous &quot;1202&quot; alarm during the lunar landing, it was this robust, non-volatile memory that allowed the system to prioritize tasks and save the mission. The memory did not crash; it did not lose power; it simply held the line.</p>
+<p>Manufacturing this memory was a grueling, almost artisanal process. As the density of cores increased, the rings became microscopic, and the wires became thinner than a human hair. In the late 1960s, a typical density was about 32 kilobits per cubic foot, or roughly 0.9 kilobits per litre. While this sounds negligible by modern standards—where a smartphone holds millions of times more data—it was a monumental achievement for the time. The cost of this memory fell dramatically, from about $1 per bit in the 1950s to just 1 cent per bit by the 1970s. But the path to that low cost was paved with human labor. For decades, the threading of these cores was done almost entirely by hand.</p>
+<p>Rows of women, often referred to as &quot;core threaders,&quot; sat at long tables, their eyes strained from focusing on the microscopic rings. They used fine needles to thread the copper wires through the tiny holes, creating the X-Y arrays that would store the world&#039;s data. It was a task requiring immense dexterity and patience. There were repeated, major efforts to automate this process, to build machines that could thread the cores faster and cheaper than humans. But the machines struggled with the flexibility of the wire and the fragility of the rings. They jammed, they broke cores, and they produced inconsistent results. The human hand, with its ability to feel the tension and adjust to the microscopic irregularities, remained superior. The cost of a bit was not just a function of materials; it was a function of wages, hours, and the sheer repetition of a thousand tiny movements. The global digital economy was built, bit by bit, by the fingers of these invisible workers.</p>
+<p>The history of this technology is a tapestry of competing minds, patent battles, and the slow convergence of ideas. The concept of using magnetic materials for storage was not born in a vacuum. It grew from the understanding of transformers, devices that had long been used to amplify and switch signals in electrical engineering. The stable switching behavior of these materials was well known, but applying it to the chaotic, high-speed world of computing was a leap of imagination. In 1945, J. Presper Eckert and Jeffrey Chuan Chu worked on the concept at the Moore School during the ENIAC efforts, laying the early groundwork. But it was the post-war era that saw the real explosion of innovation.</p>
+<p>George Devol, a robotics pioneer, filed a patent for the first static magnetic memory on April 3, 1946. His invention was refined through five additional patents and eventually found its way into the first industrial robot, a testament to the versatility of the technology. Around the same time, Frederick Viehe began applying for patents on using transformers to build digital logic circuits, replacing the clunky relay logic of the past. A fully developed core system was patented in 1947 and later purchased by IBM in 1956, a move that would eventually dominate the industry. Yet, this early development remained somewhat obscure, overshadowed by the mainstream narrative that would soon emerge.</p>
+<p>Three independent teams would ultimately drive the mainstream development of core memory, each contributing a piece of the puzzle. The first was a duo of Shanghai-born American physicists, An Wang and Way-Dong Woo, working at Harvard University&#039;s Computation Laboratory. In 1949, they created the pulse transfer controlling device. Their invention was a type of delay-line system, where bits were stored using pairs of transformers. A signal generator sent pulses into the control transformers at half the energy needed to flip the polarity. These pulses were timed precisely so that the magnetic field in the transformers hadn&#039;t faded before the next pulse arrived. If the storage transformer&#039;s field matched the pulse, the combined energy would inject a pulse into the next transformer pair. If not, the value faded out. The data moved bit by bit down the chain, cycling continuously.</p>
+<p>Wang and Woo&#039;s system had a critical flaw: it was not random-access. To read a specific bit of data, the computer had to wait for it to cycle through the entire chain. It was like waiting for a specific song on a radio station that played a loop; you couldn&#039;t just tune in, you had to wait for the song to come around. Harvard, uninterested in promoting inventions from their labs, did not patent the system for them. Wang, undeterred, patented it on his own. He went on to found Wang Laboratories, a major player in the calculator and word processor markets, but his delay-line memory was not the future of computing. The future required speed and direct access.</p>
+<p>That future was being forged in the labs of MIT&#039;s Project Whirlwind. The project was a desperate race to build a computer capable of real-time aircraft tracking for the US Air Force. The existing memory solutions were failing. Williams tubes were unreliable, and magnetic drums were too slow. In the late 1940s, researchers began to conceptualize the use of magnetic cores for memory. Jay Forrester, a computer engineer at MIT, would receive the principal patent for his invention of coincident-current core memory. This was the breakthrough that enabled 3D storage and true random access.</p>
+<p>Forrester&#039;s work was not an isolated stroke of genius; it was a response to the specific, high-stakes needs of the Whirlwind project. William Papian, a colleague on the project, cited Harvard&#039;s &quot;Static Magnetic Delay Line&quot; in an internal memo, acknowledging the prior work. But Forrester&#039;s system was different. It allowed the computer to jump instantly to any location in memory. In the summer of 1953, the first core memory, a grid of 32 × 32 × 16 bits, was installed on Whirlwind. The impact was immediate. Papian noted the two big advantages: greater reliability, which reduced maintenance time, and shorter access time. The core access time of 9 microseconds was a revelation compared to the 25 microseconds of the tubes. The speed of computer operation increased exponentially.</p>
+<p>Forrester&#039;s path was not without its battles. In 2011, he recalled the years of struggle. &quot;The Wang use of cores did not have any influence on my development of random-access memory,&quot; he stated. &quot;The Wang memory was expensive and complicated... essentially a delay line that moved a bit forward. To the extent that I may have focused on it, the approach was not suitable for our purposes.&quot; The road to adoption was steep. It took the team about seven years to convince the industry that random-access magnetic-core memory was the solution to a missing link in computer technology. Then, they spent the following seven years in patent courts, defending their invention against claims that others had thought of it first. The legal battles were as fierce as the engineering challenges, a testament to the value of the technology they had created.</p>
+<p>A third key figure in this saga was Jan A. Rajchman at RCA. A prolific inventor, Rajchman was deeply involved in the development of vacuum tubes and early memory systems. His contributions helped refine the materials and manufacturing processes that made core memory viable. The convergence of these three streams of thought—Wang&#039;s delay lines, Forrester&#039;s coincident current, and Rajchman&#039;s material science—created the foundation for the digital age.</p>
+<p>By the late 1960s, core memory was the universal standard. It was the backbone of the world&#039;s computing infrastructure. But the seeds of its demise were already sown. In the late 1960s, the first semiconductor memory chips began to appear. By the early 1970s, dynamic random-access memory (DRAM) had arrived. DRAM was smaller, simpler to manufacture, and eventually, cheaper. Initially, DRAM was around the same price as core memory, but it held a distinct advantage: it did not require the hand-threading of millions of tiny rings. It could be mass-produced on silicon wafers with lithography, a process that was rapidly becoming cheaper and more precise.</p>
+<p>The transition was gradual but inevitable. Between 1973 and 1978, core memory was driven from the market. The hand-threaders were laid off. The factories that wove the ceramic rings were repurposed or closed. The world moved to silicon. Yet, the legacy of core memory remained deeply embedded in the language and culture of computing. Even after the technology was replaced, main memory was often still referred to as &quot;core.&quot; People who had worked on the older machines, who had seen the grids of rings, kept the term alive.</p>
+<p>The most enduring ghost of core memory is the &quot;core dump.&quot; When a computer crashes or needs to be analyzed, the system copies the entire content of its main memory to a disk file for inspection. This process is still called a core dump, a linguistic fossil from an era when the memory was physical, tangible, and magnetic. Similarly, the concept of swapping data &quot;out of core&quot; onto slower storage, used when the working set of data exceeded the size of main memory, gave rise to the terms &quot;out-of-core algorithms&quot; and &quot;in-core algorithms.&quot; These terms describe the relationship between the fast, central memory and the slower, external storage, a relationship that defined computer architecture for decades.</p>
+<p>The story of magnetic-core memory is a story of human ingenuity and the physical constraints of technology. It is a reminder that the digital world we inhabit today was once built on ceramic rings and copper wire, threaded by hand, one bit at a time. It was a time when memory was heavy, expensive, and fragile, yet incredibly reliable. It was a time when the act of reading a piece of data destroyed it, requiring a constant, vigilant process of restoration. It was a time when the boundaries of computing were defined by the limits of human dexterity and the physics of magnetism.</p>
+<p>As we look back at the history of computing, it is easy to dismiss core memory as a primitive precursor to the sleek silicon chips of today. But to do so is to miss the profound engineering achievement it represented. It solved the problem of random access in a way that no other technology could for twenty years. It made the Apollo landings possible. It built the foundation of the modern information age. The rings are gone, the threaders have retired, and the term &quot;core&quot; has faded from technical jargon, but the logic they embodied—the ability to store, retrieve, and manipulate information at the speed of thought—remains the defining characteristic of our world. The memory of the rings lives on in every line of code we write, every file we save, and every system that boots up, a silent tribute to the ceramic donuts that held the world&#039;s data together.</p>
+<p>The transition from core to semiconductor was not just a change in materials; it was a shift in the very nature of computing. Core memory was an analog of the physical world, a mechanical, magnetic device that required physical manipulation. Semiconductor memory is abstract, a quantum mechanical phenomenon hidden within a block of silicon. The loss of the tangible, the loss of the hand-threaded, marked the beginning of an era where computing became invisible, ubiquitous, and infinitely scalable. But the lessons of core memory remain. Reliability is paramount. Non-volatility is a feature, not a bug. And sometimes, the most advanced technology is the one that can be built by hand, with patience and precision.</p>
+<p>In the end, the story of magnetic-core memory is a story of persistence. It is a story of engineers who refused to accept the limitations of the technology of their time. It is a story of women whose hands wove the future of the digital age. It is a story of a technology that served humanity for two decades, holding the data of nations, the calculations of scientists, and the dreams of astronauts, before quietly fading away to make room for the next revolution. The rings are gone, but the memory of them endures, a testament to the power of human innovation and the enduring quest to build a better machine.</p></div>
+
+      
+
+      <footer class="wikipedia-footer">
+        <p class="source-link">
+          <a href="https://en.wikipedia.org/wiki/Magnetic-core_memory" target="_blank" rel="noopener">
+            View original Wikipedia article &rarr;
+          </a>
+        </p>
+        <p class="rewrite-note">
+        This article has been rewritten from Wikipedia source material for enjoyable reading.
+        Content may have been condensed, restructured, or simplified.
+      </p>
+      </footer>
+
+      
+      <section class="related-articles">
+        <h2>Related Articles</h2>
+        <p class="related-intro">This deep dive was written in connection with these articles:</p>
+        <ul class="related-list">
+          
+      <li class="related-article-item">
+        <a href="../../article/172a10cc-211e-4a01-94d3-f91d5de0e732/index.html">
+          <strong>34 little ways moms say i love you</strong>
+        </a>
+        <span class="article-meta">
+          by Caroline Chambers in What to Cook
+        </span>
+      </li>
+        </ul>
+      </section>
+    
+    </article>
+  
+  </main>
+  <footer class="site-footer">
+    <div class="container">
+      <p><a href="../../privacy/index.html">Privacy</a> &middot; <a href="../../terms/index.html">Terms</a></p>
+    </div>
+  </footer>
+  <script>
+  (function() {
+    var params = new URLSearchParams(window.location.search);
+    var from = params.get('from');
+    if (from) {
+      var names = {
+        'foreign-policy':'Foreign Policy','ai-tech':'AI & Tech','housing-cities':'Housing & Cities',
+        'political-strategy':'Political Strategy','history':'History','science':'Science',
+        'culture':'Culture','economics':'Economics','faith':'Faith','writing-craft':'Writing & Craft',
+        'music':'Music','law-rights':'Law & Rights','public-health':'Public Health',
+        'philosophy':'Philosophy','media':'Media','defense':'Defense','china':'China'
+      };
+      var link = document.getElementById('back-link');
+      if (link) {
+        var name = names[from] || from;
+        link.href = '../../tag/' + from + '/index.html';
+        link.textContent = '\u2190 Back to ' + name;
+      }
+    }
+  })();
+  </script>
+</body>
+</html>
