@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>From gpt-2 to gpt-oss: Analyzing the architectural advances - Hex Index</title>
+  <link rel="stylesheet" href="../../styles.css">
+</head>
+<body class="reading-mode">
+  <header class="reading-header">
+    <a href="../../index.html" class="back-link" id="back-link">&larr; Back to Library</a>
+  </header>
+  <main class="reading-content">
+    
+    <article class="article-page">
+      <header class="article-header">
+        <h1>From gpt-2 to gpt-oss: Analyzing the architectural advances</h1>
+        
+      <div class="article-meta">
+        <span class="author">Sebastian Raschka</span>
+        <span class="separator">&middot;</span>
+        <a href="../../publication/sebastianraschka/index.html" class="publication">
+          Ahead of AI
+        </a>
+        <span class="separator">&middot;</span><time>Aug 9, 2025</time>
+        <span class="separator">&middot;</span><span class="read-time">28 min read</span>
+      </div>
+      </header>
+
+      <div class="content-label">
+        <span class="label-text">Commentary by <a href="../../about/index.html">Hex Index staff</a></span>
+        <nav class="content-nav">
+          
+          <a href="https://magazine.sebastianraschka.com/p/from-gpt-2-to-gpt-oss-analyzing-the" target="_blank" rel="noopener">Original article &rarr;</a>
+        </nav>
+      </div>
+
+      
+      <div class="article-content">
+        <p>In a landscape dominated by closed ecosystems and proprietary black boxes, OpenAI&#039;s release of gpt-oss marks a seismic shift back to the open-weight era. Sebastian Raschka dissects this move not as a nostalgic return to 2019, but as a masterclass in architectural efficiency, revealing how modern models achieve massive scale without bloating hardware requirements. For the busy professional watching the AI race, the takeaway isn&#039;t just about a new model; it&#039;s about the democratization of high-performance intelligence that can now run on a single consumer graphics card.</p>
+<h2>The Architecture of Efficiency</h2>
+<p>Raschka begins by dismantling the assumption that progress requires radical structural reinvention. &quot;There is significant rotation of employees between these labs,&quot; he speculates, noting that the industry has largely converged on the transformer architecture because &quot;we still have not found anything better than the transformer architecture.&quot; This observation is crucial: it suggests that the current gold rush is about optimization and data, not a fundamental breakthrough in how machines &quot;think.&quot; The author argues that while alternatives like state space models exist, &quot;no one has shown that they perform as well as transformers at this scale.&quot;</p>
+<figure class="inline-illustration">
+    <img src="../../images/0fbdbe59-fc74-4f0c-80ec-a3bf06bb108d.webp" alt="From gpt-2 to gpt-oss: Analyzing the architectural advances" loading="lazy" width="600" height="315">
+  </figure>
+
+<p>The core of the gpt-oss innovation lies in how it strips away legacy components that no longer serve a purpose. Raschka points out that dropout, a technique to prevent overfitting, has been abandoned in modern large language models. &quot;I assume that dropout was originally used in GPT-2 because it was inherited from the original transformer architecture,&quot; he writes, explaining that because these models train on massive datasets for a single epoch, &quot;there is little risk of overfitting.&quot; This is a pragmatic evolution, shedding the baggage of older deep learning paradigms.</p>
+<blockquote>&quot;Most of the gains likely come from data and algorithm tweaks rather than from major architecture changes.&quot;</blockquote>
+<p>This framing is effective because it grounds the reader&#039;s expectations. We aren&#039;t seeing a new species of AI; we are seeing a highly refined version of the same engine, tuned for speed and accessibility. Raschka notes that the shift from GELU to Swish activation functions is driven largely by computational cost rather than a massive leap in modeling performance, stating, &quot;Swish is computationally slightly cheaper than GELU, and that&#039;s probably the main reason it replaced GELU in most newer models.&quot; Critics might argue that this focus on efficiency comes at the cost of theoretical elegance, but in a field where inference costs dictate deployment, the practical choice wins.</p>
+<h2>Scaling Down to Scale Up</h2>
+<p>Perhaps the most striking aspect of the coverage is how Raschka explains the use of Mixture-of-Experts (MoE) to balance capacity with speed. By activating only a subset of the model&#039;s parameters for each token, the architecture can hold vast amounts of knowledge without slowing down the user. &quot;The sparsity keeps inference efficient, though, as we don&#039;t use all the parameters at the same time,&quot; Raschka explains. This is the secret sauce that allows the 120-billion parameter model to run on a single H100 GPU, a feat that would have been impossible with a dense architecture.</p>
+<p>The commentary also highlights the clever use of Grouped Query Attention (GQA) and sliding window attention to reduce memory bandwidth. &quot;GQA reduces memory usage by grouping multiple heads to share the same key and value projections,&quot; Raschka writes, noting that this leads to &quot;lower memory usage and improved efficiency without noticeably affecting modeling performance.&quot; The inclusion of sliding window attention, where the model only looks back 128 tokens in alternating layers, is a bold move. &quot;The window is just 128 tokens, which is remarkably small,&quot; he observes, yet ablation studies suggest this has a minimal impact on the model&#039;s ability to handle complex tasks.</p>
+<blockquote>&quot;In most MoE models, expert weights account for more than 90% of the total model parameters.&quot;</blockquote>
+<p>This statistic underscores the sheer scale of the hidden capacity in these models. The trade-off is clear: the model is massive in potential, but lightweight in operation. Raschka&#039;s analysis of the transition from absolute positional embeddings to Rotary Position Embeddings (RoPE) further illustrates this trend toward elegant, mathematically efficient solutions. &quot;RoPE encodes position by rotating the query and key vectors in a way that depends on each token&#039;s position,&quot; he notes, a method that has become a staple in modern architectures like Llama.</p>
+<h2>The Bottom Line</h2>
+<p>Sebastian Raschka&#039;s analysis succeeds in demystifying the technical wizardry behind OpenAI&#039;s latest release, proving that the path to accessible AI is paved with incremental, highly optimized engineering rather than sudden, magical breakthroughs. The strongest part of this argument is its focus on the &quot;why&quot; behind the architectural choices—efficiency, cost, and hardware constraints—rather than just the &quot;what.&quot; The biggest vulnerability, however, is the assumption that the transformer architecture will remain dominant indefinitely; as the author admits, the search for a better alternative is ongoing. For now, though, the gpt-oss models represent a pivotal moment where high-end intelligence becomes a local, manageable tool for the individual developer.</p>
+<blockquote>&quot;Most of the gains likely come from data and algorithm tweaks rather than from major architecture changes.&quot;</blockquote>
+<p>The industry has reached a plateau of structural innovation, and the next frontier is purely about how efficiently we can run what we already have. This piece is essential reading for anyone who wants to understand not just what AI can do, but how it can actually be deployed in the real world.</p>
+      </div>
+
+      
+      
+      
+
+      <section id="excerpt"><section class="source-excerpts">
+      <h2>Sources</h2>
+      <article class="source-excerpt">
+      <h3>From gpt-2 to gpt-oss: Analyzing the architectural advances</h3>
+      <div class="source-meta">by Sebastian Raschka &middot; <a href="../../publication/sebastianraschka/index.html">Ahead of AI</a> &middot; <a href="https://magazine.sebastianraschka.com/p/from-gpt-2-to-gpt-oss-analyzing-the" target="_blank" rel="noopener">Read full article</a></div>
+      <p>OpenAI just released their new open-weight LLMs this week: gpt-oss-120b and gpt-oss-20b, their first open-weight models since GPT-2 in 2019. And yes, thanks to some clever optimizations, they can run locally (but more about this later).</p><p>This is the first time since GPT-2 that OpenAI has shared a large, fully open-weight model. Earlier GPT models showed how the transformer architecture scales. The 2022 ChatGPT release then made these models mainstream by demonstrating concrete usefulness for writing and knowledge (and later coding) tasks. Now they have shared some long-awaited weight model, and the architecture has some interesting details.</p><p>I spent the past few days reading through the code and technical reports to summarize the most interesting details. (Just days after, OpenAI also announced GPT-5, which I will briefly discuss in the context of the gpt-oss models at the end of this article.)</p><p>Below is a quick preview of what the article covers. For easier navigation, I recommend using the Table of Contents on the left of on the article page.</p><p>Model architecture comparisons with GPT-2</p><p>MXFP4 optimization to fit gpt-oss models onto single GPUs</p><p>Width versus depth trade-offs (gpt-oss vs Qwen3)</p><p>Attention bias and sinks</p><p>Benchmarks and comparisons with GPT-5</p><p>I hope you find it informative!</p><p>1. Model Architecture Overview.</p> <p>Before we discuss the architecture in more detail, let's start with an overview of the two models, gpt-oss-20b and gpt-oss-120b, shown in Figure 1 below.</p><p>If you have looked at recent LLM architecture diagrams before, or read my previous Big Architecture Comparison article, you may notice that there is nothing novel or unusual at first glance. </p><p>This is not surprising, since leading LLM developers tend to use the same base architecture and then apply smaller tweaks. This is pure speculation on my part, but I think this is because</p><p>There is significant rotation of employees between these labs.</p><p>We still have not found anything better than the transformer architecture. Even though state space models and text diffusion models exist, as far as I know no one has shown that they perform as well as transformers at this scale. (Most of the comparisons I found focus only on benchmark performance. It is still unclear how well the models handle real-world, multi-turn writing and coding tasks. At the time of writing, the highest-ranking non-purely-transformer-based model on the LM Arena is Jamba, which is a transformer–state space model hybrid, at rank 96. EDIT: Someone ...</p>
+      <footer class="source-bio" aria-label="About this source">
+      <p class="sb-heading">About this source</p>
+      <p class="sb-meta"><span class="sb-type">individual newsletter</span> &middot; <span class="sb-country">United States, Wisconsin</span> &middot; <span class="sb-funding">paid Substack subscriptions, books</span> &middot; <span class="sb-affiliations">Lightning AI (staff research engineer)</span> &middot; <span class="sb-leaning">Technical ML researcher focused on LLM internals and training; politically near-absent, culturally aligned with open-source ML practice.</span></p>
+      <p class="sb-audit">Last reviewed: <time datetime="2026-04-08">2026-04-08</time> &middot; <a href="https://magazine.sebastianraschka.com/" target="_blank" rel="noopener">source</a></p>
+    </footer>
+    </article>
+    </section></section>
+      
+    </article>
+  
+  </main>
+  <footer class="site-footer">
+    <div class="container">
+      <p><a href="../../privacy/index.html">Privacy</a> &middot; <a href="../../terms/index.html">Terms</a></p>
+    </div>
+  </footer>
+  <script>
+  (function() {
+    var params = new URLSearchParams(window.location.search);
+    var from = params.get('from');
+    if (from) {
+      var names = {
+        'foreign-policy':'Foreign Policy','ai-tech':'AI & Tech','housing-cities':'Housing & Cities',
+        'political-strategy':'Political Strategy','history':'History','science':'Science',
+        'culture':'Culture','economics':'Economics','faith':'Faith','writing-craft':'Writing & Craft',
+        'music':'Music','law-rights':'Law & Rights','public-health':'Public Health',
+        'philosophy':'Philosophy','media':'Media','defense':'Defense','china':'China'
+      };
+      var link = document.getElementById('back-link');
+      if (link) {
+        var name = names[from] || from;
+        link.href = '../../tag/' + from + '/index.html';
+        link.textContent = '\u2190 Back to ' + name;
+      }
+    }
+  })();
+  </script>
+</body>
+</html>

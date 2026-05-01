@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Scaling the memory wall: The rise and roadmap of hbm - Hex Index</title>
+  <link rel="stylesheet" href="../../styles.css">
+</head>
+<body class="reading-mode">
+  <header class="reading-header">
+    <a href="../../index.html" class="back-link" id="back-link">&larr; Back to Library</a>
+  </header>
+  <main class="reading-content">
+    
+    <article class="article-page">
+      <header class="article-header">
+        <h1>Scaling the memory wall: The rise and roadmap of hbm</h1>
+        
+      <div class="article-meta">
+        <span class="author">Dylan Patel</span>
+        <span class="separator">&middot;</span>
+        <a href="../../publication/semianalysis/index.html" class="publication">
+          SemiAnalysis
+        </a>
+        <span class="separator">&middot;</span><time>Aug 11, 2025</time>
+        <span class="separator">&middot;</span><span class="read-time">23 min read</span>
+      </div>
+      </header>
+
+      <div class="content-label">
+        <span class="label-text">Commentary by <a href="../../about/index.html">Hex Index staff</a></span>
+        <nav class="content-nav">
+          
+          <a href="https://newsletter.semianalysis.com/p/scaling-the-memory-wall-the-rise-and-roadmap-of-hbm" target="_blank" rel="noopener">Original article &rarr;</a>
+        </nav>
+      </div>
+
+      
+      <div class="article-content">
+        <p>Dylan Patel doesn&#039;t just explain the memory bottleneck choking artificial intelligence; he exposes the fragile, high-stakes industrial ballet required to keep it running. While most coverage fixates on the speed of the chips, Patel turns the lens to the vertical stacking of silicon itself, revealing how a single manufacturing dispute between a toolmaker and a memory giant could halt the entire global supply of AI accelerators. This is not a dry technical manual; it is a roadmap of where the next trillion dollars in infrastructure will be won or lost.</p>
+<h2>The Physics of the Wall</h2>
+<p>Patel begins by dismantling the assumption that faster chips alone will solve AI&#039;s scaling problems. He argues that the industry has hit a &quot;memory wall&quot; where data cannot move fast enough to feed the processors. &quot;HBM combines vertically stacked DRAM chips with ultra-wide data paths and has the optimal balance of bandwidth, density, and energy consumption for AI workloads,&quot; Patel writes. This is the critical pivot: standard memory is too slow, and on-chip memory is too small. The only solution is High Bandwidth Memory (HBM), a technology that requires stacking dozens of memory layers directly next to the processor.</p>
+<figure class="inline-illustration">
+    <img src="../../images/2cc43c5b-6073-4db9-bf6d-dc6401a2cb4a.webp" alt="Scaling the memory wall: The rise and roadmap of hbm" loading="lazy" width="600" height="315">
+  </figure>
+
+<p>The author illustrates the sheer physical complexity of this solution. &quot;Each I/O requires an individual wire/trace... For a HBM3E stack, there are over a 1,000 wires between the adjacent XPU and the HBM.&quot; This density forces a radical change in how chips are built, moving from traditional circuit boards to 2.5D packaging where an interposer connects the memory to the logic. Patel notes that this makes the &quot;shoreline area&quot;—the edge of the chip where connections are made—the most valuable real estate in the data center. &quot;To reduce latency and energy consumption for data transfer, HBM needs to be placed directly adjacent to the shoreline of the compute engine,&quot; he explains. This constraint limits how much memory can be added, forcing the industry to stack higher rather than wider, a decision that exponentially increases manufacturing difficulty.</p>
+<blockquote>The shoreline area problem is not just an engineering constraint; it is the single biggest bottleneck determining the pace of AI progress.</blockquote>
+<h2>The Fragility of the Stack</h2>
+<p>The report&#039;s most compelling section details the manufacturing process, specifically the Through-Silicon Vias (TSVs) that act as the vertical elevators for electricity and data. Patel points out that converting standard memory production lines to HBM is not a simple switch. &quot;TSVs require etchers to create the vias, and deposition and plating tools to fill them... This is why HBM capacity is now quoted in terms of TSV capacity.&quot; The bottleneck is no longer just the silicon wafer; it is the ability to drill microscopic holes through dozens of layers without breaking the stack.</p>
+<p>Yield rates become a game of mathematical attrition. Patel breaks down the terrifying math of stacking: &quot;Simplistically if the stack yield of a single layer is x%, each layer&#039;s yield will accumulate to x% to the power of n bond steps.&quot; He illustrates that while a 99% yield per layer sounds perfect, an 8-layer stack drops to 92% total yield, and a 12-layer stack plummets to 87%. This fragility explains why HBM is so expensive and why only a few players can do it. &quot;For Samsung, yields are even worse. Ironically, their low yields tighten up the total DRAM wafer supply, leading to higher pricing,&quot; Patel observes. This counterintuitive dynamic—where poor manufacturing performance actually drives up prices by restricting supply—is a crucial insight for understanding current market volatility.</p>
+<p>Critics might argue that focusing so heavily on current yield limitations underestimates the speed of process innovation. However, Patel&#039;s data on the physical limits of warpage and heat dissipation suggests that these are not merely teething problems but fundamental physics challenges that will persist for years.</p>
+<h2>The Geopolitics of Bonding</h2>
+<p>Perhaps the most dramatic narrative arc in the piece is the hidden war over bonding tools. The industry relies on machines that align and fuse these microscopic layers with sub-micron precision. For years, a single company, Hanmi, held a near-monopoly on the specific thermocompression bonders needed for HBM. Patel describes a tense standoff where Hanmi pulled its service teams from SK Hynix&#039;s factories after the memory giant tried to switch to a competitor&#039;s tools. &quot;Without service, it would be months if not weeks before Hynix was unable to ship its marquee products,&quot; Patel writes. The threat was so severe that the entire accelerator supply chain was held hostage by a tooling dispute.</p>
+<p>This incident highlights the extreme concentration of risk in the semiconductor supply chain. &quot;It appears this was more to placate Hanmi than a large volume order, but it was enough to restore field service to the tools,&quot; he notes regarding the resolution. The episode reveals that the bottleneck for AI isn&#039;t just the design of the chip, but the availability of the specialized machinery to assemble it. As Patel puts it, &quot;Hanmi made an early bet to focus on thermocompression bonders for HBM... This paid off in a near monopoly in current HBM processes.&quot;</p>
+<p>The report also touches on the geopolitical dimensions, noting that while export bans prevent raw HBM stacks from entering China, a shadow network exists to reclaim the memory from used GPUs. &quot;Currently, banned HBM is still being reexported to China through a network involving CoAsia Electronics, Faraday and SPIL which allows end users in China to desolder and reclaim the HBM from GPU packages.&quot; Meanwhile, China is pouring $200 billion into domestic efforts, with state champions like CXMT and Huawei&#039;s affiliates racing to build their own stacks, though they face significant hurdles due to equipment restrictions.</p>
+<h2>The Road to HBM4</h2>
+<p>Looking forward, Patel identifies a revolutionary shift in how memory will be built. The industry is moving toward custom base dies and hybrid bonding, which eliminates the physical bumps between layers to save space. &quot;The main benefit of Hybrid bonding (HB) for HBM is it is bump-less. By eliminating the bump gap this frees up room for more DRAM core layers,&quot; he writes. This transition is not just an incremental upgrade; it is a fundamental re-architecting of the memory stack that will define the next generation of AI hardware.</p>
+<p>The author also notes the strategic divergence among major players. &quot;Nvidia will still command the lion&#039;s share of HBM demand in 2027, driven by its aggressive roadmap, where Rubin Ultra alone pushes per GPU capacity to 1 TB.&quot; However, hyperscalers like Amazon and OpenAI are increasingly designing their own accelerators and procuring memory directly, bypassing traditional design partners to lower costs. This shift signals a future where the line between chip designer and memory integrator blurs, potentially disrupting the traditional vendor ecosystem.</p>
+<blockquote>The TSV network seems likely to be the point of differentiation that allows Micron to claim 30% lower power consumption, though that claim is yet to be verified.</blockquote>
+<h2>Bottom Line</h2>
+<p>Patel&#039;s analysis succeeds by grounding the abstract concept of &quot;AI scaling&quot; in the gritty reality of manufacturing yields, tooling monopolies, and physical heat limits. The strongest part of the argument is the demonstration of how a single point of failure in the supply chain—whether a bonding tool or a TSV etcher—can ripple out to constrain the entire industry&#039;s growth. The biggest vulnerability remains the rapid pace of technological change; while the current bottlenecks are severe, the industry&#039;s history of overcoming physics through hybrid bonding and new materials suggests that today&#039;s limits may be tomorrow&#039;s stepping stones. Readers should watch not just for new chip designs, but for the consolidation of the tooling and packaging supply chain, as that is where the true power now resides.</p>
+      </div>
+
+      
+      
+      
+
+      <section id="excerpt"><section class="source-excerpts">
+      <h2>Sources</h2>
+      <article class="source-excerpt">
+      <h3>Scaling the memory wall: The rise and roadmap of hbm</h3>
+      <div class="source-meta">by Dylan Patel &middot; <a href="../../publication/semianalysis/index.html">SemiAnalysis</a> &middot; <a href="https://newsletter.semianalysis.com/p/scaling-the-memory-wall-the-rise-and-roadmap-of-hbm" target="_blank" rel="noopener">Read full article</a></div>
+      <p>The first portion of this report will explain HBM, the manufacturing process, dynamics between vendors, KVCache offload, disaggregated prefill decode, and wide / high-rank EP. The rest of the report will dive deeply into the future of HBM. We will cover the revolutionary change coming to HBM4 with custom base dies for HBM, what various different accelerators are doing with custom HBM including OpenAI, Nvidia, and AMD, the shoreline area problem, memory controller offload, repeater PHYs, LPDDR + HBM combos, and various beachfront expansion techniques. We will also discuss SRAM tags, compute under memory, supply chain implications, and Samsung.</p><p>A Brief Overview of HBM.</p> <p>As AI models grow in complexity, AI systems require memory with higher capacity, lower latency, higher bandwidth, and improved energy efficiency. Different forms of memory have different tradeoffs. SRAM is extremely fast but low density. DDR DRAM is high density and cheap but lacks bandwidth. The most popular memory today is on-chip HBM which strikes the balance between capacity and bandwidth.</p><p>HBM combines vertically stacked DRAM chips with ultra-wide data paths and has the optimal balance of bandwidth, density, and energy consumption for AI workloads. HBM is much more expensive to produce and has a warranted price premium to DDR5, but demand remains strong for HBM. All leading AI accelerators deployed for GenAI training and inference use HBM. The common trend across accelerator roadmaps is to scale memory capacity and bandwidth per chip by adding more stacks, higher layer counts, with faster generations of HBM. Architectures that rely on other forms of memory offer sub-optimal performance, as we have demonstrated.</p><p>In this report, we will examine HBM's present state, what’s happening in the supply chain, and the groundbreaking changes happening in the future. We’ll examine HBM’s critical role in AI accelerator architecture, the impact HBM is having on the DRAM market, and why it is upending the way memory market analysis is being performed. For subscribers, we will also address the major questions on Samsung's future viability as a supplier, as well as highlight one technological change that may reverse the trend of increasing HBM capacity.</p><p>HBM Primer.</p> <p>First, a brief primer on HBM - what makes it special and challenging to manufacture. While HBM is commonly associated with multiple DRAM dies stacked in a 3DIC assembly, the other key feature is HBM’s much wider data bus, improving bandwidth even with mediocre signaling speeds. This significantly ...</p>
+      <footer class="source-bio" aria-label="About this source">
+      <p class="sb-heading">About this source</p>
+      <p class="sb-meta"><span class="sb-type">independent research firm</span> &middot; <span class="sb-country">United States</span> &middot; <span class="sb-funding">paid subscriptions, enterprise research contracts</span> &middot; <span class="sb-leaning">Hawkish US-industrial-policy techno-nationalist on semiconductors; pro-export-controls on China, bullish on Western fab buildout and AI compute supremacy.</span></p>
+      <p class="sb-audit">Last reviewed: <time datetime="2026-04-08">2026-04-08</time> &middot; <a href="https://www.semianalysis.com/" target="_blank" rel="noopener">source</a></p>
+    </footer>
+    </article>
+    </section></section>
+      
+    </article>
+  
+  </main>
+  <footer class="site-footer">
+    <div class="container">
+      <p><a href="../../privacy/index.html">Privacy</a> &middot; <a href="../../terms/index.html">Terms</a></p>
+    </div>
+  </footer>
+  <script>
+  (function() {
+    var params = new URLSearchParams(window.location.search);
+    var from = params.get('from');
+    if (from) {
+      var names = {
+        'foreign-policy':'Foreign Policy','ai-tech':'AI & Tech','housing-cities':'Housing & Cities',
+        'political-strategy':'Political Strategy','history':'History','science':'Science',
+        'culture':'Culture','economics':'Economics','faith':'Faith','writing-craft':'Writing & Craft',
+        'music':'Music','law-rights':'Law & Rights','public-health':'Public Health',
+        'philosophy':'Philosophy','media':'Media','defense':'Defense','china':'China'
+      };
+      var link = document.getElementById('back-link');
+      if (link) {
+        var name = names[from] || from;
+        link.href = '../../tag/' + from + '/index.html';
+        link.textContent = '\u2190 Back to ' + name;
+      }
+    }
+  })();
+  </script>
+</body>
+</html>
