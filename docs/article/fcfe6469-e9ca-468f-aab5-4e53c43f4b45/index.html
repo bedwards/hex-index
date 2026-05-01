@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The big LLM architecture comparison - Hex Index</title>
+  <link rel="stylesheet" href="../../styles.css">
+</head>
+<body class="reading-mode">
+  <header class="reading-header">
+    <a href="../../index.html" class="back-link" id="back-link">&larr; Back to Library</a>
+  </header>
+  <main class="reading-content">
+    
+    <article class="article-page">
+      <header class="article-header">
+        <h1>The big LLM architecture comparison</h1>
+        
+      <div class="article-meta">
+        <span class="author">Sebastian Raschka</span>
+        <span class="separator">&middot;</span>
+        <a href="../../publication/sebastianraschka/index.html" class="publication">
+          Ahead of AI
+        </a>
+        <span class="separator">&middot;</span><time>Jul 19, 2025</time>
+        <span class="separator">&middot;</span><span class="read-time">55 min read</span>
+      </div>
+      </header>
+
+      <div class="content-label">
+        <span class="label-text">Commentary by <a href="../../about/index.html">Hex Index staff</a></span>
+        <nav class="content-nav">
+          
+          <a href="https://magazine.sebastianraschka.com/p/the-big-llm-architecture-comparison" target="_blank" rel="noopener">Original article &rarr;</a>
+        </nav>
+      </div>
+
+      
+      <div class="article-content">
+        <p>In an era where the industry chases ever-larger parameter counts, Sebastian Raschka offers a sobering, technical reality check: the fundamental architecture of large language models has barely changed in seven years. While the headlines scream about new breakthroughs, Raschka argues that beneath the hype, we are largely &quot;polishing the same architectural foundations&quot; rather than reinventing the wheel. This distinction is critical for any professional trying to separate genuine engineering progress from marketing noise.</p>
+<h2>The Illusion of Radical Change</h2>
+<p>Raschka begins by dismantling the assumption that recent models represent a structural revolution. He notes that despite the passage of time from GPT-2 to the latest 2025 releases, the core DNA remains strikingly consistent. &quot;At first glance, looking back at GPT-2 (2019) and forward to DeepSeek V3 and Llama 4 (2024-2025), one might be surprised at how structurally similar these models still are,&quot; he writes. This observation is not merely nostalgic; it serves as a grounding mechanism for readers overwhelmed by the pace of AI announcements.</p>
+<figure class="inline-illustration">
+    <img src="../../images/fcfe6469-e9ca-468f-aab5-4e53c43f4b45.webp" alt="The big LLM architecture comparison" loading="lazy" width="600" height="315">
+  </figure>
+
+<p>The author acknowledges that refinements exist, such as the shift from absolute to rotational positional embeddings or the replacement of GELU activation functions with SwiGLU. However, he frames these as incremental optimizations rather than paradigm shifts. &quot;But beneath these minor refinements, have we truly seen groundbreaking changes, or are we simply polishing the same architectural foundations?&quot; Raschka asks. This rhetorical question effectively challenges the reader to look past the surface-level marketing of &quot;new&quot; models and examine the actual engineering under the hood.</p>
+<h2>DeepSeek&#039;s Efficiency Gambit</h2>
+<p>The commentary then pivots to DeepSeek V3 and R1, which Raschka identifies as the most significant architectural deviations in the current landscape. The piece highlights two specific innovations: Multi-Head Latent Attention (MLA) and Mixture-of-Experts (MoE). Raschka explains that while Grouped-Query Attention (GQA) has become the standard for reducing memory usage by sharing key and value projections, DeepSeek chose a different path. &quot;Multi-Head Latent Attention (MLA) offers a different memory-saving strategy that also pairs particularly well with KV caching,&quot; he notes.</p>
+<p>The distinction is technical but vital. Unlike GQA, which groups heads to share data, MLA compresses the key and value tensors into a lower-dimensional space before storage. Raschka points out a crucial trade-off: &quot;This adds an extra matrix multiplication but reduces memory usage.&quot; He further clarifies that this isn&#039;t just a theoretical exercise; empirical evidence suggests it yields better results. Citing ablation studies from the DeepSeek-V2 paper, he writes, &quot;GQA appears to perform worse than MHA, whereas MLA offers better modeling performance than MHA, which is likely why the DeepSeek team chose MLA over GQA.&quot;</p>
+<p>This section is particularly strong because it moves beyond the &quot;bigger is better&quot; narrative to focus on efficiency. Raschka details how DeepSeek V3 utilizes a massive 671-billion-parameter MoE architecture but only activates a fraction of those parameters during inference. &quot;DeepSeek V3 has 256 experts per MoE module and a total of 671 billion parameters. Yet during inference, only 9 experts are active at a time,&quot; he explains. This sparsity allows the model to hold vast knowledge while remaining computationally feasible. A counterargument worth considering is whether this complexity introduces new failure modes or instability that simpler, dense models avoid, but Raschka&#039;s data suggests the efficiency gains currently outweigh these risks.</p>
+<blockquote>By compressing the key and value tensors, DeepSeek achieves a rare feat: reducing memory usage while actually improving modeling performance compared to standard alternatives.</blockquote>
+<h2>The OLMo 2 Anomaly</h2>
+<p>Shifting focus to the non-profit Allen Institute for AI, Raschka examines OLMo 2, a model that stands out for its transparency rather than its raw scale. He describes OLMo 2 as a &quot;great blueprint for developing LLMs&quot; due to its open documentation of training data and code. Interestingly, OLMo 2 bucks the trend of adopting efficiency hacks like MLA or GQA, sticking instead to traditional Multi-Head Attention. Instead, its innovation lies in the placement of normalization layers.</p>
+<p>Raschka details how OLMo 2 reverted to a form of Post-LN (Post-Norm), a design choice that had largely been abandoned in favor of Pre-LN in models like Llama. &quot;In 2020, Xiong et al. showed that Pre-LN results in more well-behaved gradients at initialization,&quot; he writes, noting that OLMo 2&#039;s return to Post-LN was a deliberate move to enhance training stability. He further introduces the concept of QK-Norm, an additional normalization step applied to queries and keys within the attention mechanism. &quot;QK-Norm is essentially yet another RMSNorm layer,&quot; Raschka clarifies, explaining that its placement helps stabilize the attention scores before they are processed.</p>
+<p>The inclusion of OLMo 2 is a strategic choice by Raschka to show that innovation isn&#039;t monolithic. While DeepSeek pushes the boundaries of efficiency through complex compression, OLMo 2 explores the stability of foundational components. &quot;Unfortunately this figure shows the results of the reordering together with QK-Norm, which is a separate concept. So, it&#039;s hard to tell how much the normalization layer reordering contributed by itself,&quot; he admits. This honesty about the limitations of current research data adds significant credibility to his analysis.</p>
+<p>Critics might argue that focusing on architectural tweaks ignores the more significant driver of performance: the scale and quality of training data. However, Raschka&#039;s premise is that understanding the structural skeleton is essential for diagnosing why models behave the way they do, regardless of data volume.</p>
+<h2>Bottom Line</h2>
+<p>Sebastian Raschka&#039;s analysis provides a necessary corrective to the industry&#039;s tendency to conflate parameter count with architectural innovation. The strongest part of his argument is the evidence that efficiency gains, particularly through MLA and MoE, are now the primary battleground for model performance, not just raw size. The biggest vulnerability in the current landscape remains the opacity of training methodologies, which makes it difficult to fully isolate the impact of these architectural choices. As the field moves forward, professionals should watch whether these efficiency-focused designs can scale without hitting the same diminishing returns that have plagued previous generations of dense models.</p>
+      </div>
+
+      
+      
+      
+
+      <section id="excerpt"><section class="source-excerpts">
+      <h2>Sources</h2>
+      <article class="source-excerpt">
+      <h3>The big LLM architecture comparison</h3>
+      <div class="source-meta">by Sebastian Raschka &middot; <a href="../../publication/sebastianraschka/index.html">Ahead of AI</a> &middot; <a href="https://magazine.sebastianraschka.com/p/the-big-llm-architecture-comparison" target="_blank" rel="noopener">Read full article</a></div>
+      <p>It has been seven years since the original GPT architecture was developed. At first glance, looking back at GPT-2 (2019) and forward to DeepSeek V3 and Llama 4 (2024-2025), one might be surprised at how structurally similar these models still are.</p><p>Sure, positional embeddings have evolved from absolute to rotational (RoPE), Multi-Head Attention has largely given way to Grouped-Query Attention, and the more efficient SwiGLU has replaced activation functions like GELU. But beneath these minor refinements, have we truly seen groundbreaking changes, or are we simply polishing the same architectural foundations?</p><p>Comparing LLMs to determine the key ingredients that contribute to their good (or not-so-good) performance is notoriously challenging: datasets, training techniques, and hyperparameters vary widely and are often not well documented.</p><p>However, I think that there is still a lot of value in examining the structural changes of the architectures themselves to see what LLM developers are up to in 2025. (A subset of them are shown in Figure 1 below.)</p><p>So, in this article, rather than writing about benchmark performance or training algorithms, I will focus on the architectural developments that define today's flagship open models.</p><p>(As you may remember, I wrote about multimodal LLMs not too long ago; in this article, I will focus on the text capabilities of recent models and leave the discussion of multimodal capabilities for another time.)</p><p>Tip: This is a fairly comprehensive article, so I recommend using the navigation bar to access the table of contents (just hover over the left side of the Substack page).</p><p>Optional: The video below is a narrated and abridged version of this article.</p><p>1. DeepSeek V3/R1.</p> <p>As you have probably heard more than once by now, DeepSeek R1 made a big impact when it was released in January 2025. DeepSeek R1 is a reasoning model built on top of the DeepSeek V3 architecture, which was introduced in December 2024.</p><p>While my focus here is on architectures released in 2025, I think it’s reasonable to include DeepSeek V3, since it only gained widespread attention and adoption following the launch of DeepSeek R1 in 2025.</p><p>If you are interested in the training of DeepSeek R1 specifically, you may also find my article from earlier this year useful: </p><p>In this section, I’ll focus on two key architectural techniques introduced in DeepSeek V3 that improved its computational efficiency and distinguish it from many other LLMs:</p><p>Multi-Head Latent Attention (MLA)</p><p>Mixture-of-Experts ...</p>
+      <footer class="source-bio" aria-label="About this source">
+      <p class="sb-heading">About this source</p>
+      <p class="sb-meta"><span class="sb-type">individual newsletter</span> &middot; <span class="sb-country">United States, Wisconsin</span> &middot; <span class="sb-funding">paid Substack subscriptions, books</span> &middot; <span class="sb-affiliations">Lightning AI (staff research engineer)</span> &middot; <span class="sb-leaning">Technical ML researcher focused on LLM internals and training; politically near-absent, culturally aligned with open-source ML practice.</span></p>
+      <p class="sb-audit">Last reviewed: <time datetime="2026-04-08">2026-04-08</time> &middot; <a href="https://magazine.sebastianraschka.com/" target="_blank" rel="noopener">source</a></p>
+    </footer>
+    </article>
+    </section></section>
+      
+    </article>
+  
+  </main>
+  <footer class="site-footer">
+    <div class="container">
+      <p><a href="../../privacy/index.html">Privacy</a> &middot; <a href="../../terms/index.html">Terms</a></p>
+    </div>
+  </footer>
+  <script>
+  (function() {
+    var params = new URLSearchParams(window.location.search);
+    var from = params.get('from');
+    if (from) {
+      var names = {
+        'foreign-policy':'Foreign Policy','ai-tech':'AI & Tech','housing-cities':'Housing & Cities',
+        'political-strategy':'Political Strategy','history':'History','science':'Science',
+        'culture':'Culture','economics':'Economics','faith':'Faith','writing-craft':'Writing & Craft',
+        'music':'Music','law-rights':'Law & Rights','public-health':'Public Health',
+        'philosophy':'Philosophy','media':'Media','defense':'Defense','china':'China'
+      };
+      var link = document.getElementById('back-link');
+      if (link) {
+        var name = names[from] || from;
+        link.href = '../../tag/' + from + '/index.html';
+        link.textContent = '\u2190 Back to ' + name;
+      }
+    }
+  })();
+  </script>
+</body>
+</html>
