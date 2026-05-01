@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Import AI 423: Multilingual clip; anti-drone tracking; and Huawei kernel design - Hex Index</title>
+  <link rel="stylesheet" href="../../styles.css">
+</head>
+<body class="reading-mode">
+  <header class="reading-header">
+    <a href="../../index.html" class="back-link" id="back-link">&larr; Back to Library</a>
+  </header>
+  <main class="reading-content">
+    
+    <article class="article-page">
+      <header class="article-header">
+        <h1>Import AI 423: Multilingual clip; anti-drone tracking; and Huawei kernel design</h1>
+        
+      <div class="article-meta">
+        <span class="author">Jack Clark</span>
+        <span class="separator">&middot;</span>
+        <a href="../../publication/importai/index.html" class="publication">
+          Import AI
+        </a>
+        <span class="separator">&middot;</span><time>Aug 4, 2025</time>
+        <span class="separator">&middot;</span><span class="read-time">16 min read</span>
+      </div>
+      </header>
+
+      <div class="content-label">
+        <span class="label-text">Commentary by <a href="../../about/index.html">Hex Index staff</a></span>
+        <nav class="content-nav">
+          
+          <a href="https://importai.substack.com/p/import-ai-423-multilingual-clip-anti" target="_blank" rel="noopener">Original article &rarr;</a>
+        </nav>
+      </div>
+
+      
+      <div class="article-content">
+        <p>Jack Clark delivers a sobering reality check on the gap between AI hype and economic reality, proving that while machines can generate poetry, they still cannot reliably file your taxes or write code for every chip on the market. This week&#039;s coverage strips away the veneer of &quot;general intelligence&quot; to reveal a landscape where scale solves some problems but exposes critical fragility in others, from multilingual understanding to the very kernels that power our hardware.</p>
+<h2>The Scale Solution and the Tax Trap</h2>
+<p>Clark begins by highlighting a significant leap in how AI perceives the world, noting that Meta has finally cracked the code on multilingual image-text models. He writes, &quot;We empirically show that the curse of multilinguality in CLIP is the consequence of insufficient scaling due to the lack of a proper recipe for worldwide data curation and model training.&quot; This is a crucial distinction: the failure wasn&#039;t a lack of cleverness, but a lack of volume and the right data ordering. By curating 29 billion pairs across 300 languages, Meta&#039;s new model, CLIP 2, manages to outperform its English-only predecessor.</p>
+<figure class="inline-illustration">
+    <img src="../../images/58a15781-e63b-473a-9611-0803ef31539b.webp" alt="Import AI 423: Multilingual clip; anti-drone tracking; and Huawei kernel design" loading="lazy" width="600" height="315">
+  </figure>
+
+<p>However, Clark pivots sharply to a domain where sheer scale has not yet delivered reliability: financial compliance. He introduces a benchmark from startup Column Tax that tests whether AI can file returns, with results that are frankly alarming for anyone hoping for automation. &quot;No model score above ~33% on the benchmark,&quot; Clark notes, observing that even the strongest performers like Gemini 2.5 Pro fail to consistently use correct tax tables or determine eligibility. The gap between a 50% success rate in a controlled test and the zero-error tolerance required by law is a chasm. &quot;Our analysis finds that models consistently use incorrect tax tables, make calculation errors, and incorrectly determine eligibility, leading to overall incorrectly computed tax returns,&quot; the researchers behind the benchmark write.</p>
+<p>This juxtaposition is the piece&#039;s analytical core. Clark argues that while we can scale our way to better visual understanding, the &quot;ecologically valid&quot; nature of tax law exposes the brittleness of current reasoning capabilities. A counterargument worth considering is that tax law is uniquely rigid and jurisdiction-specific, perhaps an outlier compared to other economic tasks. Yet, Clark&#039;s point stands: if an AI cannot navigate the rules of a single country&#039;s tax code without hallucinating eligibility, the promise of autonomous economic agents is still distant.</p>
+<blockquote>&quot;None of us would hire a tax accountant who has a 50% success rate!&quot;</blockquote>
+<h2>The Geopolitics of Vision and Compute</h2>
+<p>The newsletter then turns to the darker side of AI advancement: the militarization of computer vision. Clark details a new dataset from Chinese researchers designed to track tiny drones in cluttered urban environments, a direct response to the realities of modern conflict. He describes the CST Anti-UAV dataset as a tool to test how well AI can spot small, distant objects against complex backgrounds. &quot;Our dataset contains 78,224 tiny objects, which is 4.5 times larger than existing large datasets,&quot; the authors write, emphasizing the sheer volume of data required to teach a machine to distinguish a drone from a bird or a building.</p>
+<p>The implications here are heavy. Clark frames this not just as a technical milestone but as a necessary evolution in defense capabilities. &quot;We believe the CST Anti-UAV benchmark will inspire the development of more robust UAV tracking methods and accelerate the deployment of reliable vision-based anti-UAV systems in the real world,&quot; the researchers claim. While the technical achievement is notable, the human cost of the conflict driving this innovation is the unspoken backdrop. These systems are being built to identify and neutralize threats in populated areas, where the margin for error is non-existent and the consequences of failure are catastrophic. Critics might argue that open-sourcing such datasets lowers the barrier for bad actors to develop their own tracking systems, but the authors frame it as a way to improve defensive reliability.</p>
+<p>Shifting from vision to architecture, Clark examines a &quot;frankenmodel&quot; from Abu Dhabi&#039;s Technology Innovation Institute (TII). The Falcon-H1 family combines standard transformer architectures with state-space models to create efficient, high-performance systems. Clark highlights the sheer resource disparity this represents: the team trained on a cluster of 4,096 H100 GPUs, a setup costing roughly $120 million. &quot;This performance gain is particularly impactful at smaller scales, where our 1.5B-Deep model delivers capabilities competitive with leading 7B-10B models,&quot; the authors write. This is a clear signal that &quot;sovereign AI&quot; is no longer just a slogan; it is a capital-intensive race where state-backed entities can outmaneuver typical academic or even some commercial efforts.</p>
+<h2>The Chip Divide and the Kernel Gap</h2>
+<p>Finally, Clark exposes a critical vulnerability in the AI supply chain: the inability of large language models to write code for non-NVIDIA hardware. In a benchmark testing kernel generation for NVIDIA, Google, and Huawei chips, the results show a stark bias. &quot;Claude Sonnet 4 gets 92.3% compilation accuracy on CUDA versus 5.3% on Huawei AscendC,&quot; Clark reports. This isn&#039;t just a performance gap; it&#039;s a data gap. The models have been trained on vast amounts of NVIDIA documentation, leaving them blind to the intricacies of other architectures.</p>
+<p>The study suggests that AI&#039;s ability to accelerate AI research is currently bottlenecked by its familiarity with specific hardware ecosystems. &quot;For AscendC kernels, using category-aware one-shot examples significantly improves both compilation and execution success rates,&quot; the researchers found, showing that context can bridge the gap. However, the underlying issue remains: the AI&#039;s understanding of kernel development is proxying its knowledge of NVIDIA&#039;s tools rather than the fundamental principles of computing. This creates a dangerous dependency where the future of AI acceleration is tied to the dominance of a single hardware vendor&#039;s documentation.</p>
+<blockquote>&quot;Benchmarks like MultiKernelBench tell us that some of the data we get about kernel development could be actually just a proxy for &#039;how much do LLMs know about NVIDIA chips and CUDA&#039; rather than &#039;how much do AI systems understand the core principles of kernel development.&#039;&quot;</blockquote>
+<h2>Bottom Line</h2>
+<p>Clark&#039;s analysis effectively dismantles the notion of a monolithic AI progress curve, revealing instead a patchwork of breakthroughs and blind spots. The strongest part of his argument is the demonstration that scale solves visual and linguistic tasks but fails to guarantee reliability in high-stakes, rule-based domains like taxation or hardware programming. The biggest vulnerability in the current landscape is the over-reliance on specific data ecosystems, from NVIDIA&#039;s documentation to English-centric training sets, which leaves the technology fragile when faced with the complexity of the real world or geopolitical shifts. Readers should watch for how these hardware and data bottlenecks will shape the next generation of sovereign AI strategies and economic automation.</p>
+      </div>
+
+      
+      
+      
+
+      <section id="excerpt"><section class="source-excerpts">
+      <h2>Sources</h2>
+      <article class="source-excerpt">
+      <h3>Import AI 423: Multilingual clip; anti-drone tracking; and Huawei kernel design</h3>
+      <div class="source-meta">by Jack Clark &middot; <a href="../../publication/importai/index.html">Import AI</a> &middot; <a href="https://importai.substack.com/p/import-ai-423-multilingual-clip-anti" target="_blank" rel="noopener">Read full article</a></div>
+      <p>Welcome to Import AI, a newsletter about AI research. Import AI runs on lattes, ramen, and feedback from readers. If you’d like to support this, please subscribe.</p><p>Meta makes CLIP multilingual:…Meta CLIP 2 will help AI systems reason about text and images in hundreds of languages…Researchers with Meta, Princeton University, New York University have built Meta CLIP 2, a larger-scale, multilingual version of OpenAI's venerable CLIP model. CLIP, short for Contrastive Language-Image Pretraining (CLIP), is a way to train a pair of neural nets to understand images and text and being able to map between them. CLIP is a utility technology which is used for a vast range of downstream purposes, from image generation to image search and classification.   The original CLIP was trained to map English text to images. Meta CLIP 2 is a scaled up version which also maps non-English text to images. Along with releasing the model, Meta has also released a detailed paper going through "the first recipe training CLIP from scratch on worldwide web-scale image-text pairs".Scale is all that matters: As usual, the main lesson here is one of scale. Earlier attempts to train versions of CLIP on multiple languages failed, leading to degraded performance relative to the original model. "We empirically show that the curse of multilinguality in CLIP is the consequence of insufficient scaling due to the lack of a proper recipe for worldwide data curation and model training".   To scale the system, Meta had to do three things: 1) it gathered large-scale multilingual metadata across 300+ languages, 2) it built its own curation algorithm to help it curate a representative multilingual dataset to train on, and 3) it figured out the right proportion and ordering of data to use when training its system.   To get an idea of scale, there were 12.8B pairs in the original OpenAI CLIP, and 29B in CLIP2.   The main training trick was "increasing the global training batch size, which encourages cross-lingual learning, and meanwhile keeping the other training hyperparameters unchanged. We choose a 2.3× scaling of global batch to reflect that English pairs constitute 44% of our training data".Best results: Meta CLIP 2 beats its English-only counterpart by 0.8% on zero-shot image classification and by 0.7% on mSigLIP, and also sets new state-of-the-art scores on multilingual benchmarks like CVQA (57.4%), Babel-ImageNet (50.2%), and XM3600 (64.3%).Why this matters - multilingual sensors for the internet: CLIP is less a ...</p>
+      <footer class="source-bio" aria-label="About this source">
+      <p class="sb-heading">About this source</p>
+      <p class="sb-meta"><span class="sb-type">independent newsletter</span> &middot; <span class="sb-country">United States</span> &middot; <span class="sb-funding">free newsletter</span> &middot; <span class="sb-affiliations">Anthropic (co-founder) &middot; OpenAI (former policy director)</span> &middot; <span class="sb-leaning">AI-safety-aligned frontier-lab insider; believes in serious capability risks, favors government oversight and coordination, skeptical of pure accelerationism.</span></p>
+      <p class="sb-audit">Last reviewed: <time datetime="2026-04-08">2026-04-08</time> &middot; <a href="https://importai.substack.com/" target="_blank" rel="noopener">source</a></p>
+    </footer>
+    </article>
+    </section></section>
+      
+    </article>
+  
+  </main>
+  <footer class="site-footer">
+    <div class="container">
+      <p><a href="../../privacy/index.html">Privacy</a> &middot; <a href="../../terms/index.html">Terms</a></p>
+    </div>
+  </footer>
+  <script>
+  (function() {
+    var params = new URLSearchParams(window.location.search);
+    var from = params.get('from');
+    if (from) {
+      var names = {
+        'foreign-policy':'Foreign Policy','ai-tech':'AI & Tech','housing-cities':'Housing & Cities',
+        'political-strategy':'Political Strategy','history':'History','science':'Science',
+        'culture':'Culture','economics':'Economics','faith':'Faith','writing-craft':'Writing & Craft',
+        'music':'Music','law-rights':'Law & Rights','public-health':'Public Health',
+        'philosophy':'Philosophy','media':'Media','defense':'Defense','china':'China'
+      };
+      var link = document.getElementById('back-link');
+      if (link) {
+        var name = names[from] || from;
+        link.href = '../../tag/' + from + '/index.html';
+        link.textContent = '\u2190 Back to ' + name;
+      }
+    }
+  })();
+  </script>
+</body>
+</html>
