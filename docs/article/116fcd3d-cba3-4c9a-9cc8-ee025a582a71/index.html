@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Understanding and coding the kv cache in llms from scratch - Hex Index</title>
+  <link rel="stylesheet" href="../../styles.css">
+</head>
+<body class="reading-mode">
+  <header class="reading-header">
+    <a href="../../index.html" class="back-link" id="back-link">&larr; Back to Library</a>
+  </header>
+  <main class="reading-content">
+    
+    <article class="article-page">
+      <header class="article-header">
+        <h1>Understanding and coding the kv cache in llms from scratch</h1>
+        
+      <div class="article-meta">
+        <span class="author">Sebastian Raschka</span>
+        <span class="separator">&middot;</span>
+        <a href="../../publication/sebastianraschka/index.html" class="publication">
+          Ahead of AI
+        </a>
+        <span class="separator">&middot;</span><time>Jun 17, 2025</time>
+        <span class="separator">&middot;</span><span class="read-time">15 min read</span>
+      </div>
+      </header>
+
+      <div class="content-label">
+        <span class="label-text">Commentary by <a href="../../about/index.html">Hex Index staff</a></span>
+        <nav class="content-nav">
+          
+          <a href="https://magazine.sebastianraschka.com/p/coding-the-kv-cache-in-llms" target="_blank" rel="noopener">Original article &rarr;</a>
+        </nav>
+      </div>
+
+      
+      <div class="article-content">
+        <p>In a field often obsessed with scaling laws and massive parameter counts, Sebastian Raschka turns his attention to the quiet engine room of modern artificial intelligence: the mechanics of efficiency. While the industry chases bigger models, Raschka argues that the real bottleneck for production systems isn&#039;t just raw compute power, but the redundancy of recalculating the same data over and over. He offers a rare, human-readable dissection of the &quot;KV cache,&quot; a technique that transforms how large language models generate text, proving that optimization is just as critical as innovation.</p>
+<h2>The Cost of Redundancy</h2>
+<p>Raschka begins by dismantling a common misconception about how these models work. He illustrates that without optimization, an AI generating a sentence like &quot;Time flies fast&quot; effectively re-reads &quot;Time&quot; and &quot;flies&quot; from scratch every single time it predicts the next word. &quot;The LLM does not cache intermediate key/value states, it re-encodes the full sequence every time a new token is generated,&quot; he explains. This is a profound inefficiency. As the text grows, the computational load doesn&#039;t just grow; it explodes quadratically, making long-form generation prohibitively slow.</p>
+<figure class="inline-illustration">
+    <img src="../../images/116fcd3d-cba3-4c9a-9cc8-ee025a582a71.webp" alt="Understanding and coding the kv cache in llms from scratch" loading="lazy" width="600" height="315">
+  </figure>
+
+<p>The author&#039;s framing is distinct because he refuses to treat this as a mere engineering footnote. Instead, he positions the cache as the dividing line between a theoretical model and a usable product. &quot;The downside of a KV cache is that it adds more complexity to the code, increases memory requirements... and can&#039;t be used during training,&quot; Raschka admits. This honesty about trade-offs is refreshing. He acknowledges that while the cache demands more memory, &quot;the inference speed-ups are often well worth the trade-offs in code complexity and memory when using LLMs in production.&quot; This pragmatic stance cuts through the hype, reminding developers that real-world deployment requires balancing speed against resource constraints.</p>
+<blockquote>&quot;Without caching, the attention at step t must compare the new query with t previous keys, so the cumulative work scales quadratically... With a cache, each key and value is computed once and then reused, reducing the total per-step complexity to linear.&quot;</blockquote>
+<h2>The Mechanics of Memory</h2>
+<p>Moving from theory to practice, Raschka provides a &quot;from-scratch&quot; implementation that demystifies the black box. He walks the reader through the specific code changes required to store these intermediate states, noting that the core logic is surprisingly simple: &quot;all we have to do is compute the keys and values as usual but then store them so that we can retrieve them in the next round.&quot; He details how the model must be modified to register buffer variables, `cache_k` and `cache_v`, which hold the concatenated data across generation steps.</p>
+<p>His approach to teaching is deliberate. He avoids obfuscating the logic with complex abstractions, opting instead for a direct comparison between a standard model and one with the cache enabled. &quot;I opted for a simple one that emphasizes code readability,&quot; Raschka writes, acknowledging that his goal is clarity over raw performance optimization. This choice serves the reader well, as it reveals the fundamental architecture without getting lost in the weeds of GPU-specific optimizations. However, critics might note that while this implementation is excellent for understanding, it relies on concatenating tensors which can be memory-intensive compared to pre-allocated strategies used in high-performance production environments.</p>
+<p>The author also highlights a critical, often overlooked detail: the necessity of resetting the cache between different prompts. &quot;Otherwise, the queries of a new prompt will attend to stale keys left over from the previous sequence, which causes the model to rely on irrelevant context and produce incoherent output,&quot; he warns. This is a crucial lesson for engineers; the cache is a double-edged sword that can corrupt output if not managed with surgical precision.</p>
+<h2>The Performance Verdict</h2>
+<p>To prove the concept, Raschka runs a side-by-side comparison using a small, untrained model. The results are stark. On a consumer-grade Mac Mini, the cached version achieves a five-fold speed increase. &quot;So, as we can see, we already get a ~5x speed-up with a small 124 M parameter model and a short 200-token sequence length,&quot; he reports. The significance here is not just the speed, but the validation of the logic: &quot;both the gpt_ch04.py and gpt_with_kv_cache.py implementations produce exactly the same text,&quot; confirming that the optimization does not alter the model&#039;s intelligence, only its velocity.</p>
+<blockquote>&quot;This tells us that the KV cache is implemented correctly -- it is easy to make indexing mistakes that can lead to divergent results.&quot;</blockquote>
+<p>The piece concludes by reiterating that while the current example generates &quot;gibberish&quot; due to a lack of training, the mechanism itself is sound and ready for trained models. Raschka&#039;s work serves as a vital reminder that the future of AI isn&#039;t just about building larger brains, but about ensuring those brains can think fast enough to be useful.</p>
+<h2>Bottom Line</h2>
+<p>Sebastian Raschka&#039;s tutorial succeeds by stripping away the mystique of large language models to reveal the elegant, necessary engineering beneath. His strongest argument is that efficiency is not an afterthought but a prerequisite for production viability, a point proven by the dramatic speed gains in his code examples. The piece&#039;s only vulnerability is its focus on readability over high-performance optimization, but this is a deliberate and effective choice for educational clarity. For any developer looking to move beyond theory, this is the essential bridge to building systems that actually work.</p>
+      </div>
+
+      
+      
+      
+
+      <section id="excerpt"><section class="source-excerpts">
+      <h2>Sources</h2>
+      <article class="source-excerpt">
+      <h3>Understanding and coding the kv cache in llms from scratch</h3>
+      <div class="source-meta">by Sebastian Raschka &middot; <a href="../../publication/sebastianraschka/index.html">Ahead of AI</a> &middot; <a href="https://magazine.sebastianraschka.com/p/coding-the-kv-cache-in-llms" target="_blank" rel="noopener">Read full article</a></div>
+      <p>KV caches are one of the most critical techniques for efficient inference in LLMs in production. KV caches are an important component for compute-efficient LLM inference in production. This article explains how they work conceptually and in code with a from-scratch, human-readable implementation.</p><p>It's been a while since I shared a technical tutorial explaining fundamental LLM concepts. As I am currently recovering from an injury and working on a bigger LLM research-focused article, I thought I'd share a tutorial article on a topic several readers asked me about (as it was not included in my Building a Large Language Model From Scratch book).</p><p>Happy reading!</p><p>Overview.</p> <p>In short, a KV cache stores intermediate key (K) and value (V) computations for reuse during inference (after training), which results in a substantial speed-up when generating text. The downside of a KV cache is that it adds more complexity to the code, increases memory requirements (the main reason I initially didn't include it in the book), and can't be used during training. However, the inference speed-ups are often well worth the trade-offs in code complexity and memory when using LLMs in production.</p><p>What Is a KV Cache?.</p> <p>Imagine the LLM is generating some text. Concretely, suppose the LLM is given the following prompt: "Time". As you may already know, LLMs generate one word (or token) at a time, and the two following text generation steps may look as illustrated in the figure below:</p><p>Note that there is some redundancy in the generated LLM text outputs, as highlighted in the next figure:</p><p>When we implement an LLM text generation function, we typically only use the last generated token from each step. However, the visualization above highlights one of the main inefficiencies on a conceptual level. This inefficiency (or redundancy) becomes more clear if we zoom in on the attention mechanism itself. (If you are curious about attention mechanisms, you can read more in Chapter 3 of my Build a Large Language Model (From Scratch) book or my Understanding and Coding Self-Attention, Multi-Head Attention, Causal-Attention, and Cross-Attention in LLMs article).</p><p>The following figure shows an excerpt of an attention mechanism computation that is at the core of an LLM. Here, the input tokens ("Time" and "flies") are encoded as 3-dimensional vectors (in reality, these vectors are much larger, but this would make it challenging to fit them into a small figure). The matrices W are ...</p>
+      <footer class="source-bio" aria-label="About this source">
+      <p class="sb-heading">About this source</p>
+      <p class="sb-meta"><span class="sb-type">individual newsletter</span> &middot; <span class="sb-country">United States, Wisconsin</span> &middot; <span class="sb-funding">paid Substack subscriptions, books</span> &middot; <span class="sb-affiliations">Lightning AI (staff research engineer)</span> &middot; <span class="sb-leaning">Technical ML researcher focused on LLM internals and training; politically near-absent, culturally aligned with open-source ML practice.</span></p>
+      <p class="sb-audit">Last reviewed: <time datetime="2026-04-08">2026-04-08</time> &middot; <a href="https://magazine.sebastianraschka.com/" target="_blank" rel="noopener">source</a></p>
+    </footer>
+    </article>
+    </section></section>
+      
+    </article>
+  
+  </main>
+  <footer class="site-footer">
+    <div class="container">
+      <p><a href="../../privacy/index.html">Privacy</a> &middot; <a href="../../terms/index.html">Terms</a></p>
+    </div>
+  </footer>
+  <script>
+  (function() {
+    var params = new URLSearchParams(window.location.search);
+    var from = params.get('from');
+    if (from) {
+      var names = {
+        'foreign-policy':'Foreign Policy','ai-tech':'AI & Tech','housing-cities':'Housing & Cities',
+        'political-strategy':'Political Strategy','history':'History','science':'Science',
+        'culture':'Culture','economics':'Economics','faith':'Faith','writing-craft':'Writing & Craft',
+        'music':'Music','law-rights':'Law & Rights','public-health':'Public Health',
+        'philosophy':'Philosophy','media':'Media','defense':'Defense','china':'China'
+      };
+      var link = document.getElementById('back-link');
+      if (link) {
+        var name = names[from] || from;
+        link.href = '../../tag/' + from + '/index.html';
+        link.textContent = '\u2190 Back to ' + name;
+      }
+    }
+  })();
+  </script>
+</body>
+</html>
