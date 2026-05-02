@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Import AI 418: 100b distributed training run; decentralized robots; AI myths - Hex Index</title>
+  <link rel="stylesheet" href="../../styles.css">
+</head>
+<body class="reading-mode">
+  <header class="reading-header">
+    <a href="../../index.html" class="back-link" id="back-link">&larr; Back to Library</a>
+  </header>
+  <main class="reading-content">
+    
+    <article class="article-page">
+      <header class="article-header">
+        <h1>Import AI 418: 100b distributed training run; decentralized robots; AI myths</h1>
+        
+      <div class="article-meta">
+        <span class="author">Jack Clark</span>
+        <span class="separator">&middot;</span>
+        <a href="../../publication/importai/index.html" class="publication">
+          Import AI
+        </a>
+        <span class="separator">&middot;</span><time>Jun 30, 2025</time>
+        <span class="separator">&middot;</span><span class="read-time">16 min read</span>
+      </div>
+      </header>
+
+      <div class="content-label">
+        <span class="label-text">Commentary by <a href="../../about/index.html">Hex Index staff</a></span>
+        <nav class="content-nav">
+          <a href="#deep-dives">Deep dives</a><span class="separator">&middot;</span>
+          <a href="https://importai.substack.com/p/import-ai-418-100b-distributed-training" target="_blank" rel="noopener">Original article &rarr;</a>
+        </nav>
+      </div>
+
+      
+      <div class="article-content">
+        <p>Jack Clark delivers a rare glimpse into the shifting geography of artificial intelligence, arguing that the era of centralized, gatekept compute is beginning to fracture. This newsletter doesn&#039;t just list papers; it identifies a structural pivot where efficiency gains in video generation and decentralized training protocols are actively dismantling the monopoly of massive data centers. For the busy professional, the takeaway is stark: the tools to build frontier AI are becoming cheaper, more distributed, and harder to contain.</p>
+<h2>Rewriting the Economics of Video</h2>
+<p>The first major shift Clark highlights is technical but has profound economic implications. He focuses on &quot;Radial Attention,&quot; a new mechanism developed by researchers from MIT, NVIDIA, and others that fundamentally changes how video models process time. Clark notes that unlike static images, video requires handling a temporal dimension that &quot;dramatically increasing the number of tokens to process.&quot; Because standard self-attention scales quadratically with sequence length, long videos have been prohibitively expensive to train.</p>
+<figure class="inline-illustration">
+    <img src="../../images/d77c7de1-dad7-48f3-a2fd-67c6c2bec3c7.webp" alt="Import AI 418: 100b distributed training run; decentralized robots; AI myths" loading="lazy" width="600" height="315">
+  </figure>
+
+<p>The innovation here is a shift in how the model allocates resources. Clark writes, &quot;The key insight of Radial Attention is that attention scores between tokens decay with increasing spatial and temporal distance. This motivates us to allocate computation based on the inherent spatiotemporal correlations in video data.&quot; This isn&#039;t just a minor tweak; the results are aggressive. The team achieved a 2.78X training speedup on Tencent&#039;s Hunyuan Video model and up to a 4.4X speedup for longer videos while maintaining quality.</p>
+<blockquote>&quot;Where the internet before was the place that we stored videos that were gathered from the world, it will now increasingly become a machine where people use internet-mediated services to generate videos, then internet-mediated services to propagate them as well.&quot;</blockquote>
+<p>Clark&#039;s framing is compelling because it moves beyond the &quot;cool factor&quot; of AI video to the infrastructure of content creation. If the cost of generating high-fidelity video drops by a factor of four, the barrier to entry for synthetic media collapses. This echoes the historical trajectory of the Mars Exploration Rover missions, where incremental improvements in autonomous navigation allowed rovers to operate with less ground control, eventually leading to the current era of high-autonomy exploration. Similarly, Radial Attention allows video models to operate with less computational &quot;ground control,&quot; making the generation of synthetic content a commodity rather than a luxury. Critics might argue that this efficiency simply accelerates the flood of low-quality content, but the underlying economic reality remains: the cost of production is the primary bottleneck, and it is being removed.</p>
+<h2>The Democratization of Compute</h2>
+<p>The second, perhaps more politically significant, thread in Clark&#039;s analysis is the rise of decentralized training. He details a breakthrough by Chinese researchers at China Mobile and Zero Gravity Labs, who developed &quot;DiLoCoX.&quot; This system allows for the training of models with over 100 billion parameters on decentralized clusters with low-bandwidth connections.</p>
+<p>Clark explains that until now, the frontier of distributed training hovered around 30 billion parameters, leaving the 100B+ scale to entities with massive, centralized data centers. The DiLoCoX team, however, managed to train a 107B parameter model on nodes with only 1Gbps network bandwidth. &quot;Compared to vanilla AllReduce, DiLoCoX can achieve a 357x speedup in distributed training while maintaining negligible degradation in model convergence,&quot; the researchers write, a claim Clark treats with cautious optimism.</p>
+<blockquote>&quot;Distributed training is one of the most significant &#039;political technologies&#039; within AI research - the better distributed training gets, the less likely frontier AI will be defined by a small number of entities operating very large data centers, and the more likely it&#039;ll be defined by federations of companies and organizations sharing compute over crappy network connections to collectively train large models.&quot;</blockquote>
+<p>This is the core of Clark&#039;s argument: the technology is becoming a &quot;political technology.&quot; By reducing the communication overhead, DiLoCoX closes the gap between centralized and decentralized training. It suggests a future where a federation of smaller organizations, perhaps even across national borders, can collectively train industrial-grade models without needing a single, massive facility. This mirrors the evolution of federated learning, where data privacy concerns drove the development of techniques to train models across disparate devices without centralizing the raw data.</p>
+<p>However, Clark is careful to note the caveats. The researchers did not disclose the full token count or publish detailed evaluations, meaning the models are likely &quot;significantly undertrained.&quot; A counterargument worth considering is that centralized training will always hold an efficiency advantage due to lower latency and higher bandwidth. Yet, as Clark points out, the gap is narrowing, and even a partial shift in the distribution of players capable of training large models represents a seismic shift in the industry&#039;s power dynamics.</p>
+<h2>Safety in the Void</h2>
+<p>The newsletter then pivots to the high-stakes environment of space exploration, where AI must operate without the safety net of real-time human intervention. Clark discusses research from NASA-JPL and Caltech on &quot;Risk-Guided Diffusion,&quot; a system designed to help robots navigate hazardous terrains like Mars lava tubes.</p>
+<p>The challenge is immediate and physical: if a robot fails on Mars, it cannot be remotely fixed. &quot;Hardware experiments conducted at the NASA JPL&#039;s Mars-analog facility, Mars Yard show that our approach reduces failure rates by up to 4× while matching the goal-reaching performance of learning based robotic models by leveraging inference-time compute without any additional training,&quot; the authors write.</p>
+<p>Clark highlights a fascinating nuance in the research: a simple safety filter was nearly as effective as a complex physics-based model. The simple filter &quot;truncates the output trajectory at the waypoint immediately preceding the first predicted collision,&quot; guaranteeing the robot stays within safe bounds. While the complex physics approach offered better performance in difficult environments, both interventions drastically reduced failure rates.</p>
+<blockquote>&quot;The current gains over a basic safety filter are modest, limited by trajectory diversity and short-term memory in today&#039;s foundation models. We therefore invite the community to push these fronts—richer multimodal training, longer horizon memory, and tighter guarantees—so that the method can mature into a dependable navigator for Mars lava tubes, the icy terrains of Europa and Enceladus, and other uncharted worlds.&quot;</blockquote>
+<p>This section serves as a sobering reminder that as we push AI into the real world, the margin for error vanishes. The &quot;null result&quot; aspect of the paper—that a simple filter works almost as well as a complex one—suggests that our current foundation models may lack the deep, long-horizon reasoning required for true autonomy in unstructured environments. The focus must shift from raw capability to robust, verifiable safety guarantees.</p>
+<h2>The Global Laboratory for Robotics</h2>
+<p>Finally, Clark introduces &quot;RoboArena,&quot; a decentralized platform for evaluating robot control policies. This initiative, involving seven academic institutions and NVIDIA, addresses the &quot;resource problem&quot; of robotics: testing on physical hardware is expensive and difficult to standardize.</p>
+<p>RoboArena creates a global network where researchers can upload policies to be tested on physical robots distributed around the world. &quot;RoboArena aggregates crowd-sourced pairwise A/B policy evaluations across a broad spectrum of environments and tasks to derive a global policy ranking,&quot; the researchers write. The system uses a clever credit economy: &quot;for every pairwise policy evaluation that an evaluator runs, they receive a credit, which they can use to request an equal number of pairwise comparisons between their own policies and other policies from the pool.&quot;</p>
+<p>This approach democratizes the evaluation process, much like how the early internet allowed for decentralized content creation. Clark argues that this is essential for the future of robotics. &quot;If we see more people adopt RoboArena, we&#039;ll be able to look forward to faster progress of robotics because we&#039;ll have a more trustworthy large-scale signal for how good robots are at particular tasks.&quot; The move toward commoditization and standardization, exemplified by the DROID platform used in the tests, is a necessary step to move robotics out of the lab and into the real world.</p>
+<h2>The Human Element</h2>
+<p>The newsletter concludes with a &quot;Tech Tale,&quot; an oral story about a king and a mirror, which serves as a metaphorical counterpoint to the technical density of the rest of the piece. It reminds us that as we build systems that reflect our world back to us—whether through video generation, decentralized training, or robotic navigation—we are also building mirrors that will eventually look back at us.</p>
+<blockquote>&quot;The terms of what it is like to be a human are about to change in ways that rival the transformations of the Enlightenment or the Industrial Revolution, only much more quickly.&quot;</blockquote>
+<p>Clark cites former politician Pete Buttigieg to underscore the magnitude of this shift. The speed of change is the critical variable. While the technical papers discuss speedups and bandwidth, the societal impact requires a level of &quot;economic and political imagination&quot; that we have yet to summon.</p>
+<h2>Bottom Line</h2>
+<p>Jack Clark&#039;s analysis succeeds in connecting disparate technical breakthroughs into a coherent narrative about the decentralization of AI power. The strongest part of the argument is the identification of efficiency gains not just as cost-saving measures, but as geopolitical levers that could break the monopoly of centralized compute. The biggest vulnerability remains the gap between technical feasibility and real-world deployment, particularly in safety-critical domains like space exploration. Readers should watch for how quickly these decentralized protocols are adopted by the broader industry, as that will determine whether the future of AI is a fortress or a network.</p>
+      </div>
+
+      
+      
+      <section id="deep-dives" class="deep-dives">
+        <h2>Deep Dives</h2>
+        <p class="deep-dives-intro">Explore these related deep dives:</p>
+        <ul class="deep-dive-list">
+          
+      <li class="deep-dive-item">
+        <a href="../../wikipedia/federated-learning/index.html">
+          <strong>Federated learning</strong>
+        </a>
+        <p class="topic-summary">The article discusses DiLoCoX and distributed training across decentralized clusters - federated learning is the foundational paradigm for training AI models across distributed nodes without centralizing data, directly relevant to understanding why distributed training matters politically and technically</p>
+      </li>
+
+      <li class="deep-dive-item">
+        <a href="../../wikipedia/mars-exploration-rover/index.html">
+          <strong>Mars Exploration Rover</strong>
+        </a>
+        <p class="topic-summary">The article mentions NASA-JPL&#039;s work on AI route-finding systems for planetary exploration robots tested at Mars Yard - understanding the actual Mars rovers provides concrete context for why failure-resistant AI navigation matters in space exploration</p>
+      </li>
+
+      <li class="deep-dive-item">
+        <a href="../../wikipedia/attention-machine-learning/index.html">
+          <strong>Attention (machine learning)</strong>
+        </a>
+        <p class="topic-summary">Radial Attention is a core technical innovation discussed in the article - understanding the attention mechanism in neural networks provides essential background for grasping why this efficiency improvement for video models matters</p>
+      </li>
+        </ul>
+      </section>
+    
+      
+
+      <section id="excerpt"><section class="source-excerpts">
+      <h2>Sources</h2>
+      <article class="source-excerpt">
+      <h3>Import AI 418: 100b distributed training run; decentralized robots; AI myths</h3>
+      <div class="source-meta">by Jack Clark &middot; <a href="../../publication/importai/index.html">Import AI</a> &middot; <a href="https://importai.substack.com/p/import-ai-418-100b-distributed-training" target="_blank" rel="noopener">Read full article</a></div>
+      <p>Welcome to Import AI, a newsletter about AI research. Import AI runs on lattes, ramen, and feedback from readers. If you’d like to support this, please subscribe.</p><p>Better video models with radial attention:…Efficiency improvements for internet-generated media…Researchers with MIT, NVIDIA, Princeton, UC Berkeley, Stanford and startup First Intelligence have built and released Radial Attention, an attention mechanism that can be used for training and sampling from video generation models.   "Unlike image generation, video synthesis involves an additional temporal dimension, dramatically increasing the number of tokens to process. As self attention scales quadratically with sequence length, training and inference on long videos become prohibitively expensive, limiting model practicality and scalability," they write. "The key insight of Radial Attention is that attention scores between tokens decay with increasing spatial and temporal distance. This motivates us to allocate computation based on the inherent spatiotemporal correlations in video data".Good performance on real world models: The results are convincing: the authors show that they're able to get a 2.78X training speedup and 2.35X inference speedup on Hunyuan Video, a good video generation model from Tencent.   They also demonstrate similarly good performance (1.78X training, 1.63X inference) on the Mochi 1 video model.   "At default video lengths, Radial Attention achieves up to a 1.9× speedup while maintaining video quality. For videos up to 4× longer, Radial Attention preserves video fidelity and delivers up to 4.4× and 3.7× speedups in training and inference, respectively, with minimal LoRA fine-tuning," they write.Why this matters - making it cheaper to do AI entertainment: The internet has become a vast engine for the consumption of video content - see social media shorts, YouTube, the streaming services, etc. Technologies like Radial Attention will help lower the cost of training and sampling from AI video models, which will make it cheaper to produce synthetic video content. Where the internet before was the place that we stored videos that were gathered from the world, it will now increasingly become a machine where people use internet-mediated services to generate videos, then internet-mediated services to propagate them as well.   Read more: Radial Attention: O(nlogn) Sparse Attention with Energy Decay for Long Video Generation (arXiv).   Get the code for Radial Attention here (MIT-han-lab, GitHub).***Pete Buttigieg thinks AI is a big deal:Fellow Substacker and former presidential candidate Pete Buttigieg has written a post about how he thinks AI will be a big deal and people aren't prepared for it. ...</p>
+      <footer class="source-bio" aria-label="About this source">
+      <p class="sb-heading">About this source</p>
+      <p class="sb-meta"><span class="sb-type">independent newsletter</span> &middot; <span class="sb-country">United States</span> &middot; <span class="sb-funding">free newsletter</span> &middot; <span class="sb-affiliations">Anthropic (co-founder) &middot; OpenAI (former policy director)</span> &middot; <span class="sb-leaning">AI-safety-aligned frontier-lab insider; believes in serious capability risks, favors government oversight and coordination, skeptical of pure accelerationism.</span></p>
+      <p class="sb-audit">Last reviewed: <time datetime="2026-04-08">2026-04-08</time> &middot; <a href="https://importai.substack.com/" target="_blank" rel="noopener">source</a></p>
+    </footer>
+    </article>
+    </section></section>
+      
+    </article>
+  
+  </main>
+  <footer class="site-footer">
+    <div class="container">
+      <p><a href="../../privacy/index.html">Privacy</a> &middot; <a href="../../terms/index.html">Terms</a></p>
+    </div>
+  </footer>
+  <script>
+  (function() {
+    var params = new URLSearchParams(window.location.search);
+    var from = params.get('from');
+    if (from) {
+      var names = {
+        'foreign-policy':'Foreign Policy','ai-tech':'AI & Tech','housing-cities':'Housing & Cities',
+        'political-strategy':'Political Strategy','history':'History','science':'Science',
+        'culture':'Culture','economics':'Economics','faith':'Faith','writing-craft':'Writing & Craft',
+        'music':'Music','law-rights':'Law & Rights','public-health':'Public Health',
+        'philosophy':'Philosophy','media':'Media','defense':'Defense','china':'China'
+      };
+      var link = document.getElementById('back-link');
+      if (link) {
+        var name = names[from] || from;
+        link.href = '../../tag/' + from + '/index.html';
+        link.textContent = '\u2190 Back to ' + name;
+      }
+    }
+  })();
+  </script>
+</body>
+</html>
