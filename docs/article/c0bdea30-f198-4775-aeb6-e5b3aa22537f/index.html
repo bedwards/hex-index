@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nvidia&#039;s ptx - Hex Index</title>
+  <link rel="stylesheet" href="../../styles.css">
+</head>
+<body class="reading-mode">
+  <header class="reading-header">
+    <a href="../../index.html" class="back-link" id="back-link">&larr; Back to Library</a>
+  </header>
+  <main class="reading-content">
+    
+    <article class="article-page">
+      <header class="article-header">
+        <h1>Nvidia&#039;s ptx</h1>
+        
+      <div class="article-meta">
+        <span class="author">Babbage</span>
+        <span class="separator">&middot;</span>
+        <a href="../../publication/thechipletter/index.html" class="publication">
+          The Chip Letter
+        </a>
+        <span class="separator">&middot;</span><time>Apr 8, 2025</time>
+        <span class="separator">&middot;</span><span class="read-time">13 min read</span>
+      </div>
+      </header>
+
+      <div class="content-label">
+        <span class="label-text">Commentary by <a href="../../about/index.html">Hex Index staff</a></span>
+        <nav class="content-nav">
+          <a href="#deep-dives">Deep dives</a><span class="separator">&middot;</span>
+          <a href="https://thechipletter.substack.com/p/nvidias-ptx" target="_blank" rel="noopener">Original article &rarr;</a>
+        </nav>
+      </div>
+
+      
+      <div class="article-content">
+        <p>In a field obsessed with raw silicon speed, Babbage makes a counterintuitive claim: Nvidia&#039;s most valuable asset isn&#039;t its hardware, but a 600-page manual for a virtual instruction set that acts as a firewall between code and chip. While the industry fixates on memory bandwidth constraints and export-controlled H800s, this piece reveals how a software layer called PTX allows engineers to bypass the very limitations that bind their competitors. This is not just a technical deep dive; it is a masterclass in how a company weaponizes software architecture to maintain a monopoly on the future of artificial intelligence.</p>
+<h2>The Assembly Language of AI</h2>
+<p>Babbage frames the recent breakthrough by DeepSeek not as a miracle of hardware hacking, but as a necessary descent into the machine&#039;s basement. When the Chinese AI lab needed to optimize their R3 Large Language Model on restricted chips, they couldn&#039;t rely on the standard CUDA platform. Babbage writes, &quot;DeepSeek engineers had to drop down to PTX, a low-level instruction set for Nvidia GPUs that is basically like assembly language.&quot; This distinction is critical. While CUDA is the polished interface for most developers, PTX is the raw, unfiltered instruction set that speaks directly to the GPU&#039;s virtual heart.</p>
+<figure class="inline-illustration">
+    <img src="../../images/c0bdea30-f198-4775-aeb6-e5b3aa22537f.webp" alt="Nvidia&#039;s ptx" loading="lazy" width="600" height="315">
+  </figure>
+
+<p>The author highlights the sheer audacity of this move, citing Ben Thompson of Stratechery to underscore the difficulty. &quot;This is actually impossible to do in CUDA,&quot; Babbage notes, quoting Thompson&#039;s observation that DeepSeek programmed specific processing units to manage cross-chip communications. This is an &quot;insane level of optimization that only makes sense if you are using H800s.&quot; The commentary here is sharp: the administration&#039;s export controls, designed to cripple access to top-tier chips, inadvertently forced a level of innovation that bypassed the very barriers they erected. By forcing engineers to abandon high-level abstractions, the restrictions may have accelerated the development of more efficient, albeit harder-to-maintain, code.</p>
+<blockquote>&quot;This is actually impossible to do in CUDA. DeepSeek engineers had to drop down to PTX, a low-level instruction set for Nvidia GPUs that is basically like assembly language.&quot;</blockquote>
+<h2>The Ghost of the N-M Problem</h2>
+<p>To understand why PTX exists, Babbage takes the reader on a historical detour to the 1950s, connecting modern AI infrastructure to the birth of the &quot;n * m problem.&quot; The author explains that in the early days of computing, every new language required a new compiler for every new machine architecture. This inefficiency led to the concept of an &quot;Intermediate Representation&quot; or a virtual instruction set. Babbage traces this lineage from the SHARE user group&#039;s 1958 proposal for a &quot;Universal Computer Oriented Language&quot; to modern standards like the Java Virtual Machine and WebAssembly.</p>
+<p>The argument is compelling because it reframes Nvidia&#039;s strategy not as a technical necessity, but as a deliberate historical echo. Unlike Intel, which struggled to maintain binary compatibility across decades of x86 architecture changes, Nvidia chose a different path. &quot;Nvidia took a different approach with PTX,&quot; Babbage writes, noting that the company accepted the overhead of maintaining a virtual layer to gain the freedom to change its hardware without breaking software. This decision allowed Nvidia to evolve its architecture aggressively—changing instruction sizes from 8 to 16 bytes between generations—while keeping the software ecosystem intact.</p>
+<p>Critics might note that this strategy relies on the assumption that Nvidia can always stay ahead of the compiler curve. If the gap between the virtual instruction set and the physical hardware widens too much, the performance penalty of the &quot;just-in-time&quot; compilation could become a bottleneck. However, Babbage argues that this risk is a calculated trade-off for the company&#039;s long-term dominance.</p>
+<h2>The Software Moat</h2>
+<p>The piece&#039;s most insightful observation is that Nvidia has effectively transformed itself from a hardware vendor into a software platform. Babbage points out that &quot;half of Nvidia&#039;s engineers are software engineers,&quot; a statistic that underscores the company&#039;s true identity. The rationale for PTX is succinctly captured in the company&#039;s own documentation, which Babbage highlights: &quot;Provide a stable ISA that spans multiple GPU generations.&quot; This stability is the bedrock of the CUDA ecosystem, allowing developers to write code once and run it on everything from a consumer GeForce card to a data center supercomputer.</p>
+<p>The author contrasts this with the &quot;binary compatibility&quot; strategy of the past, where companies like IBM and Intel relied on hardware continuity. Nvidia, however, realized that in the fast-moving world of AI, hardware must evolve faster than software can adapt. By introducing PTX as a virtual instruction set, they created a buffer zone. &quot;Nvidia gave itself the ability to deal with an &#039;n * m&#039; problem and so gave itself the ability to evolve its architecture,&quot; Babbage concludes. This is the hidden engine of their success: the ability to reinvent the silicon underneath without forcing the world to rewrite the code on top.</p>
+<blockquote>&quot;Nvidia gave itself the ability to deal with an &#039;n * m&#039; problem and so gave itself the ability to evolve its architecture.&quot;</blockquote>
+<p>Yet, this strategy is not without cost. The author acknowledges the friction this creates, citing a former Nvidia engineer who described CUDA as an &quot;annoyance&quot; that had to be treated as a &quot;first class citizen.&quot; The maintenance of PTX is a massive undertaking, requiring a dedicated team to ensure that the virtual instruction set remains robust across generations. But as the DeepSeek example proves, this overhead is the price of admission for the most powerful computing platform on earth.</p>
+<h2>Bottom Line</h2>
+<p>Babbage&#039;s analysis successfully reframes the narrative around AI hardware, shifting focus from the physical constraints of chips to the strategic brilliance of Nvidia&#039;s software architecture. The strongest part of the argument is the historical context, which reveals that PTX is not a bug but a feature designed to solve a problem that has plagued computing since the 1950s. The biggest vulnerability lies in the assumption that this virtual layer can indefinitely shield hardware evolution from software stagnation, a balance that becomes harder to maintain as the complexity of models explodes. For the busy reader, the takeaway is clear: in the race for AI dominance, the winner will not be the one with the fastest silicon, but the one who controls the language the silicon speaks.</p>
+      </div>
+
+      
+      
+      <section id="deep-dives" class="deep-dives">
+        <h2>Deep Dives</h2>
+        <p class="deep-dives-intro">Explore these related deep dives:</p>
+        <ul class="deep-dive-list">
+          
+      <li class="deep-dive-item">
+        <a href="../../wikipedia/cuda/index.html">
+          <strong>CUDA</strong>
+        </a>
+        <p class="topic-summary">Linked in the article (13 min read)</p>
+      </li>
+        </ul>
+      </section>
+    
+      
+
+      <section id="excerpt"><section class="source-excerpts">
+      <h2>Sources</h2>
+      <article class="source-excerpt">
+      <h3>Nvidia&#039;s ptx</h3>
+      <div class="source-meta">by Babbage &middot; <a href="../../publication/thechipletter/index.html">The Chip Letter</a> &middot; <a href="https://thechipletter.substack.com/p/nvidias-ptx" target="_blank" rel="noopener">Read full article</a></div>
+      <p>We discussed the history of Nvidia’s CUDA in Happy 18th Birthday CUDA!</p><p>Let’s recap how Wikipedia defines CUDA. It’s:</p><p>… a software layer that gives direct access to the GPU's virtual instruction set and parallel computational elements for the execution of compute kernels. In addition to drivers and runtime kernels, the CUDA platform includes compilers, libraries and developer tools to help programmers accelerate their applications.</p><p>So CUDA sits on top of, what Wikipedia calls, the GPU’s virtual instruction set. </p><p>Nvidia call this virtual instruction set PTX for Parallel Thread eXecution. PTX has been in the news because DeepSeek highlighted their use of PTX in their technical report on their R3 Large Language Model.</p><p>Here’s Ben Thompson of Stratechery commenting on DeepSeek’s use of PTX:</p><p>Here’s the thing: a huge number of the innovations I explained above are about overcoming the lack of memory bandwidth implied in using H800s instead of H100s. Moreover, if you actually did the math on the previous question, you would realize that DeepSeek actually had an excess of computing; that’s because DeepSeek actually programmed 20 of the 132 processing units on each H800 specifically to manage cross-chip communications. This is actually impossible to do in CUDA. DeepSeek engineers had to drop down to PTX, a low-level instruction set for Nvidia GPUs that is basically like assembly language. This is an insane level of optimization that only makes sense if you are using H800s.</p><p>So Ben calls use of PTX an ‘insane level of optimization’ that does things that are ‘impossible to do in CUDA’.</p><p>So what’s PTX all about and just what is a ‘virtual instruction set’? And, perhaps, most intriguingly, why has Nvidia decided to use PTX rather than a real instruction set? In this post we’ll set out to understand why.</p><p>The Origins of Virtual Instruction Sets.</p> <p>The earliest programs on modern computers were written first in machine code and then in what we now call assembly language. Use of these ‘low level' languages was both inefficient and error prone, so soon led to the development of ‘high level’ languages which a compiler converted to machine code.</p><p>This also enabled a greater level of portability between machines. In theory code written in Fortran, for example, would then run on computers from IBM, Univac, GE or a number of other firms.</p><p>However, even this wasn’t ideal. In the 1950s new languages and computer architectures  proliferated. ...</p>
+      <footer class="source-bio" aria-label="About this source">
+      <p class="sb-heading">About this source</p>
+      <p class="sb-meta"><span class="sb-type">independent newsletter</span> &middot; <span class="sb-country">United Kingdom</span> &middot; <span class="sb-funding">paid subscriptions (Substack)</span> &middot; <span class="sb-leaning">Technical semiconductor history newsletter, largely apolitical, implicit skepticism of industrial-policy boosterism on both sides.</span></p>
+      <p class="sb-audit">Last reviewed: <time datetime="2026-04-08">2026-04-08</time> &middot; <a href="https://thechipletter.substack.com/about" target="_blank" rel="noopener">source</a></p>
+    </footer>
+    </article>
+    </section></section>
+      
+    </article>
+  
+  </main>
+  <footer class="site-footer">
+    <div class="container">
+      <p><a href="../../privacy/index.html">Privacy</a> &middot; <a href="../../terms/index.html">Terms</a></p>
+    </div>
+  </footer>
+  <script>
+  (function() {
+    var params = new URLSearchParams(window.location.search);
+    var from = params.get('from');
+    if (from) {
+      var names = {
+        'foreign-policy':'Foreign Policy','ai-tech':'AI & Tech','housing-cities':'Housing & Cities',
+        'political-strategy':'Political Strategy','history':'History','science':'Science',
+        'culture':'Culture','economics':'Economics','faith':'Faith','writing-craft':'Writing & Craft',
+        'music':'Music','law-rights':'Law & Rights','public-health':'Public Health',
+        'philosophy':'Philosophy','media':'Media','defense':'Defense','china':'China'
+      };
+      var link = document.getElementById('back-link');
+      if (link) {
+        var name = names[from] || from;
+        link.href = '../../tag/' + from + '/index.html';
+        link.textContent = '\u2190 Back to ' + name;
+      }
+    }
+  })();
+  </script>
+</body>
+</html>
