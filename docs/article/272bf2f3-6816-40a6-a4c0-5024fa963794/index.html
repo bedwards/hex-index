@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Beyond conversation: Teaching llms to call functions for agentic tasks - Hex Index</title>
+  <link rel="stylesheet" href="../../styles.css">
+</head>
+<body class="reading-mode">
+  <header class="reading-header">
+    <a href="../../index.html" class="back-link" id="back-link">&larr; Back to Library</a>
+  </header>
+  <main class="reading-content">
+    
+    <article class="article-page">
+      <header class="article-header">
+        <h1>Beyond conversation: Teaching llms to call functions for agentic tasks</h1>
+        
+      <div class="article-meta">
+        <span class="author">Various</span>
+        <span class="separator">&middot;</span>
+        <a href="../../publication/nobsai/index.html" class="publication">
+          NO BS AI
+        </a>
+        <span class="separator">&middot;</span><time>Apr 14, 2025</time>
+        <span class="separator">&middot;</span><span class="read-time">7 min read</span>
+      </div>
+      </header>
+
+      <div class="content-label">
+        <span class="label-text">Commentary by <a href="../../about/index.html">Hex Index staff</a></span>
+        <nav class="content-nav">
+          
+          <a href="https://nobsai.substack.com/p/beyond-conversation-teaching-llms" target="_blank" rel="noopener">Original article &rarr;</a>
+        </nav>
+      </div>
+
+      
+      <div class="article-content">
+        <p>Most AI coverage fixates on how well models chat, but this piece from NO BS AI makes a far more consequential claim: the real breakthrough isn&#039;t conversation, it&#039;s the ability to execute code. The article shifts the focus from generating text to triggering actions, arguing that without mastering function calling, large language models remain little more than sophisticated parrots. This matters now because the industry is pivoting from passive assistants to active agents that can book flights, query databases, and manipulate software without human intervention.</p>
+<h2>The Architecture of Action</h2>
+<p>The editors begin by dismantling the standard narrative of how these models are built, noting that &quot;Large language models like ChatGPT can follow instructions because they&#039;ve been trained to do just that.&quot; They break this down into a three-step evolution: base training for language comprehension, instruction tuning for helpfulness, and finally, the critical leap to tool usage. The piece argues that &quot;if we want to build something more powerful—like an AI Agent that can do things for you... we need to teach the model how to use tools.&quot; This distinction is vital; it separates the current generation of chatbots from the next generation of autonomous workers.</p>
+<figure class="inline-illustration">
+    <img src="../../images/272bf2f3-6816-40a6-a4c0-5024fa963794.webp" alt="Beyond conversation: Teaching llms to call functions for agentic tasks" loading="lazy" width="600" height="315">
+  </figure>
+
+<p>The core challenge, as the article explains, is that a model must not only recognize a user&#039;s intent but also map that intent to a specific piece of software. &quot;From the model&#039;s point of view, this is how it &#039;uses Google,&#039;&quot; the text notes, describing the process of calling a function like `search(query)` with precise parameters. The editors emphasize that this isn&#039;t magic; it requires specialized datasets where the model learns to recognize that an instruction like &quot;Find the latest Booker Prize nominees&quot; should trigger a specific function call with the correct arguments. This reframing is effective because it demystifies the &quot;agent&quot; concept, revealing it as a rigorous engineering problem of data mapping rather than a sudden leap in intelligence.</p>
+<blockquote>Just like humans use apps, LLMs can use tools by calling functions—little blocks of code with parameters that tell the tool exactly what to do.</blockquote>
+<h2>The Data Dilemma</h2>
+<p>Where the coverage becomes most valuable is in its granular look at the data construction process. The author, writing from experience with the Bielik team, admits that &quot;even though there&#039;s a lot of research out there, it&#039;s hard to find clear, step-by-step explanations of how people actually do it.&quot; This transparency is refreshing in a field often shrouded in marketing hype. The piece details the struggle to find high-quality function descriptions, noting that public datasets like RapidAPI often contained &quot;unclear or poorly written&quot; descriptions that would confuse a model.</p>
+<p>To solve this, the team turned to the Argilla project, translating functions into Polish and accepting that &quot;having imperfect data can actually help the model become more flexible.&quot; This is a nuanced take on data quality; perfection isn&#039;t always the goal if it stifles the model&#039;s ability to generalize. The editors then describe a clever workaround for generating the hundreds of thousands of instructions needed: using another language model to create the training data. However, they quickly identify the trap of homogeneity, where models tend to &quot;give similar answers if you ask the same thing repeatedly.&quot;</p>
+<p>The solution offered is a creative injection of diversity through &quot;Personas.&quot; By instructing the data-generation model to adopt specific identities, the training set becomes richer and more realistic. The article illustrates this with a striking contrast: a &quot;local priest&quot; asking for facts about a papal visit versus a &quot;bohemian artist&quot; inquiring about summer concerts. &quot;That variety makes a huge difference when training a model that&#039;s supposed to understand a wide range of people,&quot; the piece concludes. This approach highlights a critical insight: for AI to be truly agentic, it must understand the context and voice of the user, not just the literal command.</p>
+<p>Critics might note that relying on synthetic data generated by other models risks compounding biases or creating a feedback loop where the training data only reflects the limitations of the generator. However, the article acknowledges this by emphasizing the need for diverse personas to break the pattern of repetition.</p>
+<h2>Real-World Scenarios and Quality Control</h2>
+<p>The final section of the coverage tackles the complexity of real-world application. The editors stress that a robust dataset must include edge cases, such as instructions where &quot;no tool is needed&quot; or situations requiring the model to &quot;choose between similar tools.&quot; They draw inspiration from the Berkeley Function Calling (BFCL) dataset to ensure the training covers scenarios where a model must distinguish between `insert_record` and `update_record`. This attention to nuance is where the piece separates itself from superficial overviews. It acknowledges that the hardest part of AI isn&#039;t the happy path; it&#039;s handling the ambiguity and errors inherent in human requests.</p>
+<p>The editors wrap up by reinforcing that scale is not a substitute for precision. &quot;But quantity alone isn&#039;t enough—quality is absolutely critical,&quot; they state, noting that their entire dataset underwent a &quot;careful and thorough verification process.&quot; This commitment to validation is the strongest signal in the piece that the industry is maturing from experimental prototypes to reliable infrastructure.</p>
+<blockquote>That variety makes a huge difference when training a model that&#039;s supposed to understand a wide range of people.</blockquote>
+<h2>Bottom Line</h2>
+<p>The strongest part of this argument is its practical deconstruction of how to build reliable AI agents, moving beyond theory to the gritty reality of dataset engineering. Its biggest vulnerability is the reliance on synthetic data generation, which, despite the use of personas, may still struggle with the chaotic unpredictability of actual human interaction. Readers should watch for the promised follow-up on the quality-checking pipeline, as that will likely determine whether these agents can be trusted in production environments.</p>
+      </div>
+
+      
+      
+      
+
+      <section id="excerpt"><section class="source-excerpts">
+      <h2>Sources</h2>
+      <article class="source-excerpt">
+      <h3>Beyond conversation: Teaching llms to call functions for agentic tasks</h3>
+      <div class="source-meta">by Various &middot; <a href="../../publication/nobsai/index.html">NO BS AI</a> &middot; <a href="https://nobsai.substack.com/p/beyond-conversation-teaching-llms" target="_blank" rel="noopener">Read full article</a></div>
+      <p>Large language models (LLMs) like ChatGPT can follow instructions because they’ve been trained to do just that. The training process usually happens in three main steps.</p><p>DISCLAIMER: This blogpost is based on my experiences as part of Bielik team - Polish Large Language Model (https://huggingface.co/speakleash/Bielik-11B-v2.3-Instruct)</p><p>First, the model learns how language works—how words, sentences, and ideas fit together. This is called the base training. It doesn’t yet know how to follow instructions, but it gets really good at understanding and generating human-like text.</p><p>Next comes instruction tuning. Here, the model is shown lots of examples where someone gives an instruction, and the model learns to respond helpfully. Because it already understands language well from the first phase, it can start generalizing to new instructions it hasn’t seen before.</p><p>After that, there are more advanced training techniques to make the model’s responses even more useful, accurate, and polished.</p><p>Now, if we want to build something more powerful—like an AI Agent that can do things for you, such as searching the internet or booking a calendar event—we need to teach the model how to use tools.</p><p>Think of a tool as a piece of software that performs a task. Just like humans use apps, LLMs can use tools by calling functions—little blocks of code with parameters that tell the tool exactly what to do.</p><p>Let’s say you want to search the web. A developer would create a function like <code>search(query)</code>, where the “query” is what you want to look up, like "newest Booker nominations". From the model’s point of view, this is how it “uses Google.”</p><p>But here’s the tricky part: the model needs to learn how to recognize that your instruction—“Find the latest Booker Prize nominees”—should trigger that <code>search</code> function, and it also needs to know how to fill in the right parameter in this case - "latest Booker Prize nominees'.</p><p>That’s why we create special datasets that teach the model how to use these tools. We give it lots of examples showing which function to use and how to fill in the blanks, so it can learn to use tools just as naturally as it learns to chat.</p><p>How I Created a Dataset to Teach Model to Use Functions</p><p>When I started learning how to train language models to use functions (also called function calling), I realized something surprising: even though there’s a lot of research out there, it’s ...</p>
+      <footer class="source-bio" aria-label="About this source">
+      <p class="sb-heading">About this source</p>
+      <p class="sb-meta"><span class="sb-type">independent newsletter</span> &middot; <span class="sb-country">United States</span> &middot; <span class="sb-funding">paid subscriptions (Substack)</span> &middot; <span class="sb-leaning">Skeptical-pragmatist on AI hype, anti-marketing-speak, avoids culture-war politics in favor of deflating vendor claims.</span></p>
+      <p class="sb-audit">Last reviewed: <time datetime="2026-04-08">2026-04-08</time> &middot; <a href="https://nobsai.substack.com/about" target="_blank" rel="noopener">source</a></p>
+    </footer>
+    </article>
+    </section></section>
+      
+    </article>
+  
+  </main>
+  <footer class="site-footer">
+    <div class="container">
+      <p><a href="../../privacy/index.html">Privacy</a> &middot; <a href="../../terms/index.html">Terms</a></p>
+    </div>
+  </footer>
+  <script>
+  (function() {
+    var params = new URLSearchParams(window.location.search);
+    var from = params.get('from');
+    if (from) {
+      var names = {
+        'foreign-policy':'Foreign Policy','ai-tech':'AI & Tech','housing-cities':'Housing & Cities',
+        'political-strategy':'Political Strategy','history':'History','science':'Science',
+        'culture':'Culture','economics':'Economics','faith':'Faith','writing-craft':'Writing & Craft',
+        'music':'Music','law-rights':'Law & Rights','public-health':'Public Health',
+        'philosophy':'Philosophy','media':'Media','defense':'Defense','china':'China'
+      };
+      var link = document.getElementById('back-link');
+      if (link) {
+        var name = names[from] || from;
+        link.href = '../../tag/' + from + '/index.html';
+        link.textContent = '\u2190 Back to ' + name;
+      }
+    }
+  })();
+  </script>
+</body>
+</html>
