@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Understanding reasoning llms - Hex Index</title>
+  <link rel="stylesheet" href="../../styles.css">
+</head>
+<body class="reading-mode">
+  <header class="reading-header">
+    <a href="../../index.html" class="back-link" id="back-link">&larr; Back to Library</a>
+  </header>
+  <main class="reading-content">
+    
+    <article class="article-page">
+      <header class="article-header">
+        <h1>Understanding reasoning llms</h1>
+        
+      <div class="article-meta">
+        <span class="author">Sebastian Raschka</span>
+        <span class="separator">&middot;</span>
+        <a href="../../publication/sebastianraschka/index.html" class="publication">
+          Ahead of AI
+        </a>
+        <span class="separator">&middot;</span><time>Feb 5, 2025</time>
+        <span class="separator">&middot;</span><span class="read-time">22 min read</span>
+      </div>
+      </header>
+
+      <div class="content-label">
+        <span class="label-text">Commentary by <a href="../../about/index.html">Hex Index staff</a></span>
+        <nav class="content-nav">
+          
+          <a href="https://magazine.sebastianraschka.com/p/understanding-reasoning-llms" target="_blank" rel="noopener">Original article &rarr;</a>
+        </nav>
+      </div>
+
+      
+      <div class="article-content">
+        <p>In a field often clouded by marketing hype, Sebastian Raschka cuts through the noise to reveal that the latest breakthrough in artificial intelligence isn&#039;t a new architecture, but a fundamental shift in how models are trained to think. The most surprising claim here isn&#039;t that machines can solve complex math problems, but that this capability can emerge from pure reinforcement learning without the traditional, labor-intensive step of supervised fine-tuning. For executives and engineers navigating the 2025 landscape, this distinction is not academic; it dictates whether you build a custom reasoning engine or simply prompt a general model to &quot;think harder.&quot;</p>
+<h2>Defining the Reasoning Gap</h2>
+<p>Raschka begins by dismantling the vague terminology that plagues the industry. He argues that we must stop conflating basic knowledge retrieval with actual reasoning. &quot;If you work in AI (or machine learning in general), you are probably familiar with vague and hotly debated definitions,&quot; he writes, before offering a precise operational definition: &quot;reasoning&quot; as the process of answering questions that require complex, multi-step generation with intermediate steps.</p>
+<figure class="inline-illustration">
+    <img src="../../images/0fed6930-2c98-4596-be16-3e296daa67f0.webp" alt="Understanding reasoning llms" loading="lazy" width="600" height="315">
+  </figure>
+
+<p>This framing is crucial because it separates the trivial from the transformative. A model reciting the capital of France is not reasoning; a model calculating the trajectory of a projectile based on variable wind speeds is. Raschka notes that while many modern models can mimic this behavior, true &quot;reasoning models&quot; are those specifically refined to excel at puzzles, advanced math, and coding challenges. The distinction matters because, as he points out, &quot;transforming an LLM into a reasoning model also introduces certain drawbacks.&quot; These models are more expensive, more verbose, and prone to &quot;overthinking&quot; on simple tasks. The strategic takeaway is clear: using a sledgehammer to crack a nut is not just inefficient; it is a costly error in resource allocation.</p>
+<blockquote>Use the right tool (or type of LLM) for the task.</blockquote>
+<h2>The DeepSeek Blueprint</h2>
+<p>The article&#039;s centerpiece is a dissection of the DeepSeek R1 pipeline, which Raschka presents as a new industry standard. He outlines a three-stage evolution that challenges the conventional wisdom of model development. The first stage, DeepSeek-R1-Zero, is particularly provocative. It was trained using &quot;pure&quot; reinforcement learning, skipping the supervised fine-tuning (SFT) step that has been the bedrock of alignment for years.</p>
+<p>Raschka highlights the significance of this &quot;cold start&quot; approach: &quot;The researchers observed an &#039;Aha!&#039; moment, where the model began generating reasoning traces as part of its responses despite not being explicitly trained to do so.&quot; This suggests that the ability to chain thoughts together is not merely a result of mimicking human data, but an emergent behavior when a model is rewarded strictly for accuracy and format. This is a powerful argument for the potential of reinforcement learning to unlock capabilities that supervised data alone cannot teach.</p>
+<p>However, the pure RL approach had limits. The flagship model, DeepSeek-R1, returned to a hybrid approach, combining the &quot;cold-start&quot; data with additional supervised fine-tuning and further reinforcement learning. Raschka explains that this hybrid method, which includes a &quot;consistency reward&quot; to prevent language mixing, mirrors the likely development path of other top-tier models like OpenAI&#039;s o1. The implication is that while pure RL can spark reasoning, a polished, production-ready model still requires the stability of supervised data.</p>
+<p>Critics might note that relying on &quot;cold start&quot; data generated by an unrefined model could introduce feedback loops of error, potentially cementing bad habits before the model is even fully trained. Yet, Raschka&#039;s analysis suggests that the sheer volume of verifiable rewards—using compilers for code and deterministic systems for math—acts as a sufficient guardrail against this risk.</p>
+<h2>Scaling Thought at Inference Time</h2>
+<p>Beyond training pipelines, Raschka explores the concept of &quot;inference-time scaling.&quot; This is the idea that we can improve a model&#039;s output quality not by making the model bigger, but by giving it more time and computational resources to &quot;think&quot; before answering. He draws a compelling analogy to human cognition: &quot;A rough analogy is how humans tend to generate better responses when given more time to think through complex problems.&quot;</p>
+<p>This section moves the conversation from model weights to application architecture. Techniques like chain-of-thought prompting, where the user explicitly asks the model to &quot;think step by step,&quot; are described as a form of inference-time scaling. More advanced strategies involve voting mechanisms or search algorithms that generate multiple potential answers and select the best one. Raschka notes that while DeepSeek categorized some of these explicit search methods as &quot;unsuccessful attempts&quot; in their specific report, the broader industry is likely to embrace them. &quot;I suspect that OpenAI&#039;s o1 and o3 models use inference-time scaling,&quot; he writes, which would explain their higher operational costs compared to standard models.</p>
+<blockquote>Reasoning models are designed to be good at complex tasks such as solving puzzles, advanced math problems, and challenging coding tasks.</blockquote>
+<p>This observation forces a re-evaluation of cost-benefit analysis for AI deployments. If the best results come from models that spend more tokens generating intermediate steps, the cost per query rises significantly. For a business application, this means reasoning models are a specialized tool for high-stakes problems, not a drop-in replacement for every customer service chatbot.</p>
+<h2>Bottom Line</h2>
+<p>Sebastian Raschka&#039;s most valuable contribution is demystifying the &quot;reasoning&quot; label, stripping away the mystique to reveal a concrete methodology centered on reinforcement learning and intermediate step generation. The strongest part of his argument is the demonstration that reasoning can emerge from pure RL, challenging the industry&#039;s reliance on massive supervised datasets. However, the biggest vulnerability remains the economic reality: these models are expensive and inefficient for general tasks, meaning the future of AI will likely be a fragmented landscape of specialized, costly reasoning engines alongside cheaper, faster generalists. Readers should watch how the industry balances the high cost of these &quot;thinking&quot; models against the tangible value they bring to complex problem-solving.</p>
+      </div>
+
+      
+      
+      
+
+      <section id="excerpt"><section class="source-excerpts">
+      <h2>Sources</h2>
+      <article class="source-excerpt">
+      <h3>Understanding reasoning llms</h3>
+      <div class="source-meta">by Sebastian Raschka &middot; <a href="../../publication/sebastianraschka/index.html">Ahead of AI</a> &middot; <a href="https://magazine.sebastianraschka.com/p/understanding-reasoning-llms" target="_blank" rel="noopener">Read full article</a></div>
+      <p>This article describes the four main approaches to building reasoning models, or how we can enhance LLMs with reasoning capabilities. I hope this provides valuable insights and helps you navigate the rapidly evolving literature and hype surrounding this topic.</p><p>In 2024, the LLM field saw increasing specialization. Beyond pre-training and fine-tuning, we witnessed the rise of specialized applications, from RAGs to code assistants. I expect this trend to accelerate in 2025, with an even greater emphasis on domain- and application-specific optimizations (i.e., "specializations").</p><p>The development of reasoning models is one of these specializations. This means we refine LLMs to excel at complex tasks that are best solved with intermediate steps, such as puzzles, advanced math, and coding challenges. However, this specialization does not replace other LLM applications. Because transforming an LLM into a reasoning model also introduces certain drawbacks, which I will discuss later.</p><p>To give you a brief glimpse of what's covered below, in this article, I will:</p><p>Explain the meaning of "reasoning model"</p><p>Discuss the advantages and disadvantages of reasoning models</p><p>Outline the methodology behind DeepSeek R1</p><p>Describe the four main approaches to building and improving reasoning models</p><p>Share thoughts on the LLM landscape following the DeepSeek V3 and R1 releases</p><p>Provide tips for developing reasoning models on a tight budget</p><p>I hope you find this article useful as AI continues its rapid development this year!</p><p>How do we define "reasoning model"?.</p> <p>If you work in AI (or machine learning in general), you are probably familiar with vague and hotly debated definitions. The term "reasoning models" is no exception. Eventually, someone will define it formally in a paper, only for it to be redefined in the next, and so on.</p><p>In this article, I define "reasoning" as the process of answering questions that require complex, multi-step generation with intermediate steps. For example, factual question-answering like "What is the capital of France?" does not involve reasoning. In contrast, a question like "If a train is moving at 60 mph and travels for 3 hours, how far does it go?" requires some simple reasoning. For instance, it requires recognizing the relationship between distance, speed, and time before arriving at the answer.</p><p>Most modern LLMs are capable of basic reasoning and can answer questions like, "If a train is moving at 60 mph and travels for 3 hours, how far does it go?" So, today, when we refer to reasoning models, ...</p>
+      <footer class="source-bio" aria-label="About this source">
+      <p class="sb-heading">About this source</p>
+      <p class="sb-meta"><span class="sb-type">individual newsletter</span> &middot; <span class="sb-country">United States, Wisconsin</span> &middot; <span class="sb-funding">paid Substack subscriptions, books</span> &middot; <span class="sb-affiliations">Lightning AI (staff research engineer)</span> &middot; <span class="sb-leaning">Technical ML researcher focused on LLM internals and training; politically near-absent, culturally aligned with open-source ML practice.</span></p>
+      <p class="sb-audit">Last reviewed: <time datetime="2026-04-08">2026-04-08</time> &middot; <a href="https://magazine.sebastianraschka.com/" target="_blank" rel="noopener">source</a></p>
+    </footer>
+    </article>
+    </section></section>
+      
+    </article>
+  
+  </main>
+  <footer class="site-footer">
+    <div class="container">
+      <p><a href="../../privacy/index.html">Privacy</a> &middot; <a href="../../terms/index.html">Terms</a></p>
+    </div>
+  </footer>
+  <script>
+  (function() {
+    var params = new URLSearchParams(window.location.search);
+    var from = params.get('from');
+    if (from) {
+      var names = {
+        'foreign-policy':'Foreign Policy','ai-tech':'AI & Tech','housing-cities':'Housing & Cities',
+        'political-strategy':'Political Strategy','history':'History','science':'Science',
+        'culture':'Culture','economics':'Economics','faith':'Faith','writing-craft':'Writing & Craft',
+        'music':'Music','law-rights':'Law & Rights','public-health':'Public Health',
+        'philosophy':'Philosophy','media':'Media','defense':'Defense','china':'China'
+      };
+      var link = document.getElementById('back-link');
+      if (link) {
+        var name = names[from] || from;
+        link.href = '../../tag/' + from + '/index.html';
+        link.textContent = '\u2190 Back to ' + name;
+      }
+    }
+  })();
+  </script>
+</body>
+</html>
