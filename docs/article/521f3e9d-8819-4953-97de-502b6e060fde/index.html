@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The state of LLM reasoning model inference - Hex Index</title>
+  <link rel="stylesheet" href="../../styles.css">
+</head>
+<body class="reading-mode">
+  <header class="reading-header">
+    <a href="../../index.html" class="back-link" id="back-link">&larr; Back to Library</a>
+  </header>
+  <main class="reading-content">
+    
+    <article class="article-page">
+      <header class="article-header">
+        <h1>The state of LLM reasoning model inference</h1>
+        
+      <div class="article-meta">
+        <span class="author">Sebastian Raschka</span>
+        <span class="separator">&middot;</span>
+        <a href="../../publication/sebastianraschka/index.html" class="publication">
+          Ahead of AI
+        </a>
+        <span class="separator">&middot;</span><time>Mar 8, 2025</time>
+        <span class="separator">&middot;</span><span class="read-time">23 min read</span>
+      </div>
+      </header>
+
+      <div class="content-label">
+        <span class="label-text">Commentary by <a href="../../about/index.html">Hex Index staff</a></span>
+        <nav class="content-nav">
+          
+          <a href="https://magazine.sebastianraschka.com/p/state-of-llm-reasoning-and-inference-scaling" target="_blank" rel="noopener">Original article &rarr;</a>
+        </nav>
+      </div>
+
+      
+      <div class="article-content">
+        <p>Sebastian Raschka cuts through the hype of 2025&#039;s AI boom to reveal a counterintuitive truth: the next leap in artificial intelligence isn&#039;t necessarily about building bigger brains, but about giving existing ones more time to think. While the industry obsesses over training costs, Raschka argues that the real breakthrough lies in &quot;inference-time compute scaling&quot;—a strategy where models trade computational power for deeper, more deliberate reasoning during the moment a user asks a question. This is not just a technical tweak; it is a fundamental shift in how we expect machines to solve complex problems, moving from instant retrieval to simulated deliberation.</p>
+<h2>The Cost of Thought</h2>
+<p>Raschka frames the current landscape by distinguishing between two primary paths to intelligence: increasing the compute used during training versus increasing the compute used during inference. He writes, &quot;Stronger reasoning skills allow LLMs to tackle more complex problems, making them more capable across a wide range of tasks users care about.&quot; This distinction is crucial because it suggests that the ceiling for current models is not yet hit; we simply haven&#039;t allocated enough processing power to the moment of generation.</p>
+<figure class="inline-illustration">
+    <img src="../../images/521f3e9d-8819-4953-97de-502b6e060fde.webp" alt="The state of LLM reasoning model inference" loading="lazy" width="600" height="315">
+  </figure>
+
+<p>The author explains that unlike simple question-answering bots, reasoning models are designed to &quot;generate intermediate steps or structured &#039;thought&#039; processes.&quot; This is the engine behind the new wave of models that can solve math puzzles or debug code. Raschka notes that while training compute is a one-time expense, inference scaling is an ongoing cost that scales directly with the length of the response. &quot;Since inference costs scale with response length (e.g., a response twice as long requires twice the compute), these training approaches are inherently linked to inference scaling,&quot; he observes. This creates a new economic reality for the industry: accuracy is no longer free, and the most capable answers will inevitably be the most expensive to generate.</p>
+<blockquote>Humans give better responses when given more time to think, and similarly, LLMs can improve with techniques that encourage more &#039;thought&#039; during generation.</blockquote>
+<p>This analogy is the piece&#039;s most effective rhetorical device. It demystifies the black box of neural networks by comparing them to human cognition. However, critics might argue that this comparison glosses over the massive energy consumption required to simulate that &quot;thinking&quot; process, raising sustainability questions that the article touches on only implicitly through the lens of cost.</p>
+<h2>The Mechanics of &#039;Wait&#039;</h2>
+<p>Raschka dives deep into the recent explosion of research following the release of DeepSeek R1, specifically highlighting a paper titled &quot;s1: Simple Test-Time Scaling.&quot; The core innovation here is the use of &quot;wait&quot; tokens to force the model to pause and extend its reasoning chain. He describes this as a modern evolution of the classic &quot;think step by step&quot; prompt. &quot;Their approach is twofold: Create a curated SFT dataset with 1k training examples that include reasoning traces. Control the length of responses by: a) Appending &#039;Wait&#039; tokens to get the LLM to generate longer responses, self-verify, and correct itself,&quot; Raschka writes.</p>
+<p>This technique, which the researchers call &quot;budget forcing,&quot; allows developers to explicitly regulate how long a model thinks before answering. Raschka finds the results compelling, noting that the team &quot;found their budget-forcing method more effective than other inference-scaling techniques I&#039;ve discussed, like majority voting.&quot; The implication is that a single, extended chain of thought is often superior to aggregating multiple short, shallow guesses.</p>
+<p>Yet, Raschka remains critical of the methodology&#039;s limitations. He points out that the study lacked comparisons with more sophisticated search strategies like beam search or lookahead methods. &quot;If there&#039;s something to criticize or improve, I would&#039;ve liked to see results for more sophisticated parallel inference-scaling methods,&quot; he admits. This intellectual honesty strengthens his credibility; he is not just selling the latest trend but evaluating its actual performance against the theoretical maximum.</p>
+<blockquote>The researchers were inspired by the &#039;Aha moment&#039; figure in the DeepSeek-R1 paper, where researchers saw LLMs coming up with something like &#039;Wait, wait. Wait. That&#039;s an aha moment I can flag here.&#039;</blockquote>
+<p>The choice of the word &quot;Wait&quot; is not arbitrary. It reflects a specific behavioral pattern observed in reinforcement learning where models self-correct. Raschka notes that while researchers tried tokens like &quot;Hmm,&quot; the &quot;Wait&quot; token performed slightly better. This granular detail suggests that the specific phrasing of the prompt can have a measurable impact on the model&#039;s internal logic, a finding that could revolutionize how we engineer prompts for critical applications.</p>
+<h2>Beyond the Single Path</h2>
+<p>The commentary then shifts to other emerging strategies, such as &quot;Test-Time Preference Optimization&quot; (TPO) and methods to combat &quot;underthinking.&quot; TPO involves an iterative process where the model generates multiple responses, scores them, and refines its output based on textual feedback. Raschka explains that this allows for &quot;on-the-fly alignment&quot; without altering the underlying model weights. This is a significant development because it suggests that models can be aligned to human values dynamically, rather than being frozen in the state they were in at the end of training.</p>
+<p>Another paper, &quot;Thoughts Are All Over the Place,&quot; addresses a phenomenon where models switch reasoning paths too frequently, leading to errors. The authors introduce a &quot;Thought Switching Penalty&quot; to discourage these premature transitions. Raschka highlights that this approach &quot;does not require model fine-tuning and empirically improves accuracy across multiple challenging test sets.&quot; This reinforces the central thesis: we can extract significant performance gains by simply changing how the model navigates its own thought process, rather than retraining it from scratch.</p>
+<p>However, the article also acknowledges the limits of this approach. In the section on adversarial robustness, Raschka notes that while increased compute helps defend against attacks, &quot;improvements in settings involving policy ambiguities or loophole exploitation are limited.&quot; This is a vital caveat. It reminds the reader that more compute is not a panacea; it cannot solve fundamental logical gaps or exploit ambiguities in the model&#039;s training data.</p>
+<blockquote>Unlike adversarial training, this method does not need any special training or require prior knowledge of specific attack types.</blockquote>
+<p>This observation underscores the efficiency of inference-time scaling. It offers a defensive capability that is adaptable and immediate, contrasting with the slow, resource-intensive process of retraining models to patch security holes. Yet, the limitation regarding policy ambiguities suggests that the models are still bound by the quality of their initial training, and no amount of &quot;thinking time&quot; can fully overcome a flawed foundation.</p>
+<h2>Bottom Line</h2>
+<p>Sebastian Raschka&#039;s analysis provides a necessary corrective to the industry&#039;s obsession with model size, proving that the path to superior reasoning lies in the strategic allocation of compute during the inference phase. The strongest part of his argument is the demonstration that simple interventions, like &quot;wait&quot; tokens, can yield disproportionate gains in accuracy. However, the piece&#039;s biggest vulnerability is the assumption that the cost of this extra compute will be sustainable for widespread commercial use. As we move forward, the industry will need to balance the brilliance of these reasoning models against the economic reality of paying for every extra second of &quot;thought.&quot;</p>
+<blockquote>Accuracy improvements can be achieved through increased training or test-time compute, where test-time compute is synonymous with inference-time compute and inference-time scaling.</blockquote>
+      </div>
+
+      
+      
+      
+
+      <section id="excerpt"><section class="source-excerpts">
+      <h2>Sources</h2>
+      <article class="source-excerpt">
+      <h3>The state of LLM reasoning model inference</h3>
+      <div class="source-meta">by Sebastian Raschka &middot; <a href="../../publication/sebastianraschka/index.html">Ahead of AI</a> &middot; <a href="https://magazine.sebastianraschka.com/p/state-of-llm-reasoning-and-inference-scaling" target="_blank" rel="noopener">Read full article</a></div>
+      <p>Improving the reasoning abilities of large language models (LLMs) has become one of the hottest topics in 2025, and for good reason. Stronger reasoning skills allow LLMs to tackle more complex problems, making them more capable across a wide range of tasks users care about.</p><p>In the last few weeks, researchers have shared a large number of new strategies to improve reasoning, including scaling inference-time compute, reinforcement learning, supervised fine-tuning, and distillation. And many approaches combine these techniques for greater effect.&nbsp;</p><p>This article explores recent research advancements in reasoning-optimized LLMs, with a particular focus on inference-time compute scaling that have emerged since the release of DeepSeek R1.</p><p>Implementing and improving reasoning in LLMs: The four main categories.</p> <p>Since most readers are likely already familiar with LLM reasoning models, I will keep the definition short: An LLM-based reasoning model is an LLM designed to solve multi-step problems by generating intermediate steps or structured "thought" processes. Unlike simple question-answering LLMs that just share the final answer, reasoning models either explicitly display their thought process or handle it internally, which helps them to perform better at complex tasks such as puzzles, coding challenges, and mathematical problems.</p><p>In general, there are two main strategies to improve reasoning: (1) increasing training compute or (2) increasing inference compute, also known as inference-time scaling or test-time scaling. (Inference compute refers to the processing power required to generate model outputs in response to a user query after training.)</p><p>Note that the plots shown above make it look like we improve reasoning either via train-time compute OR test-time compute. However, LLMs are usually designed to improve reasoning by combining heavy train-time compute (extensive training or fine-tuning, often with reinforcement learning or specialized data) and increased test-time compute (allowing the model to "think longer" or perform extra computation during inference).</p><p>To understand how reasoning models are being developed and improved, I think it remains useful to look at the different techniques separately. In my previous article, Understanding Reasoning LLMs, I discussed a finer categorization into four categories, as summarized in the figure below.</p><p>Methods 2-4 in the figure above typically produce models that generate longer responses because they include intermediate steps and explanations in their outputs. Since inference costs scale with response length (e.g., a response twice as long requires twice the compute), these training approaches are inherently linked to inference scaling. However, in this section on inference-time compute scaling, ...</p>
+      <footer class="source-bio" aria-label="About this source">
+      <p class="sb-heading">About this source</p>
+      <p class="sb-meta"><span class="sb-type">individual newsletter</span> &middot; <span class="sb-country">United States, Wisconsin</span> &middot; <span class="sb-funding">paid Substack subscriptions, books</span> &middot; <span class="sb-affiliations">Lightning AI (staff research engineer)</span> &middot; <span class="sb-leaning">Technical ML researcher focused on LLM internals and training; politically near-absent, culturally aligned with open-source ML practice.</span></p>
+      <p class="sb-audit">Last reviewed: <time datetime="2026-04-08">2026-04-08</time> &middot; <a href="https://magazine.sebastianraschka.com/" target="_blank" rel="noopener">source</a></p>
+    </footer>
+    </article>
+    </section></section>
+      
+    </article>
+  
+  </main>
+  <footer class="site-footer">
+    <div class="container">
+      <p><a href="../../privacy/index.html">Privacy</a> &middot; <a href="../../terms/index.html">Terms</a></p>
+    </div>
+  </footer>
+  <script>
+  (function() {
+    var params = new URLSearchParams(window.location.search);
+    var from = params.get('from');
+    if (from) {
+      var names = {
+        'foreign-policy':'Foreign Policy','ai-tech':'AI & Tech','housing-cities':'Housing & Cities',
+        'political-strategy':'Political Strategy','history':'History','science':'Science',
+        'culture':'Culture','economics':'Economics','faith':'Faith','writing-craft':'Writing & Craft',
+        'music':'Music','law-rights':'Law & Rights','public-health':'Public Health',
+        'philosophy':'Philosophy','media':'Media','defense':'Defense','china':'China'
+      };
+      var link = document.getElementById('back-link');
+      if (link) {
+        var name = names[from] || from;
+        link.href = '../../tag/' + from + '/index.html';
+        link.textContent = '\u2190 Back to ' + name;
+      }
+    }
+  })();
+  </script>
+</body>
+</html>
