@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bringing AI solution to the end-user  - Hex Index</title>
+  <link rel="stylesheet" href="../../styles.css">
+</head>
+<body class="reading-mode">
+  <header class="reading-header">
+    <a href="../../index.html" class="back-link" id="back-link">&larr; Back to Library</a>
+  </header>
+  <main class="reading-content">
+    
+    <article class="article-page">
+      <header class="article-header">
+        <h1>Bringing AI solution to the end-user </h1>
+        
+      <div class="article-meta">
+        <span class="author">Various</span>
+        <span class="separator">&middot;</span>
+        <a href="../../publication/nobsai/index.html" class="publication">
+          NO BS AI
+        </a>
+        <span class="separator">&middot;</span><time>Mar 3, 2025</time>
+        <span class="separator">&middot;</span><span class="read-time">7 min read</span>
+      </div>
+      </header>
+
+      <div class="content-label">
+        <span class="label-text">Commentary by <a href="../../about/index.html">Hex Index staff</a></span>
+        <nav class="content-nav">
+          
+          <a href="https://nobsai.substack.com/p/bringing-ai-solution-to-the-end-user" target="_blank" rel="noopener">Original article &rarr;</a>
+        </nav>
+      </div>
+
+      
+      <div class="article-content">
+        <p>The most valuable insight in this technical deep dive isn&#039;t about the latest model architecture, but a stark admission that often gets buried in hype: &quot;An AI solution is useless until it&#039;s deployed. Period.&quot; While much of the industry chases theoretical performance, this piece from NO BS AI cuts through the noise to expose the gritty reality of getting a system running in the real world without bankrupting the client. It is a rare, grounded look at the &quot;last mile&quot; of artificial intelligence, where the magic of the lab often crashes into the hard constraints of budget and legacy software.</p>
+<h2>The Reality of Deployment</h2>
+<p>The article opens by dismantling the romanticized view of AI development, arguing that the &quot;most exciting part&quot; of experimenting with technology is often overshadowed by the &quot;most daunting—and often overlooked—challenge&quot; of production. NO BS AI reports, &quot;In theory, the RAG (Retrieval-Augmented Generation) space offers ready-to-use building blocks for deployment. However, in our experience, they lack the flexibility we need.&quot; This is a crucial distinction for any organization looking to adopt these tools; the off-the-shelf solutions often fail because they cannot handle the &quot;messy knowledge base&quot; or integrate with specific tools like HubSpot that businesses already rely on.</p>
+<figure class="inline-illustration">
+    <img src="../../images/c0af80d3-054a-4c48-b1d0-0e9c03c92307.webp" alt="Bringing AI solution to the end-user " loading="lazy" width="600" height="315">
+  </figure>
+
+<p>The piece details a specific failure mode where standard components &quot;returned incorrect answers to the questions sent to customer support,&quot; falling &quot;well below the acceptance threshold.&quot; This highlights a critical gap in the current market: the tools are too rigid for complex, real-world data. The editors note that the project would have failed entirely if they had stuck with these generic frameworks. Instead, they made a conscious choice to build custom logic, prioritizing &quot;safety and savings&quot; over the convenience of a black-box solution.</p>
+<blockquote>&quot;We opted to deploy our own custom code rather than relying on frameworks. We find that many frameworks lack transparency, making it difficult to understand what&#039;s happening under the hood.&quot;</blockquote>
+<p>This stance is a refreshing counter-narrative to the &quot;no-code&quot; movement. By rejecting opaque frameworks, the team maintained full control, ensuring that the system could actually handle the specific volume of 500–600 emails per month without unnecessary bloat. Critics might argue that building from scratch increases the initial development burden and creates long-term maintenance debt, but the authors justify this by noting that &quot;premature optimizations were made for future scaling that may never be needed.&quot; In an era of over-engineering, this restraint is a strategic asset.</p>
+<h2>The Economics of Intelligence</h2>
+<p>Perhaps the most striking section of the coverage is the explicit focus on cost constraints as a primary design driver. The team set a hard ceiling: &quot;500 dollars per month of fixed costs is the upper limit.&quot; This is not a theoretical exercise; it is a survival strategy for small businesses where &quot;a couple of hundred dollars per month can be substantial in the budget.&quot; NO BS AI points out that &quot;Azure deployments can be expensive,&quot; and many developers mistakenly assume their costs will be dominated by the AI model itself, when in reality, &quot;the costs of some Azure tools can be surprisingly high&quot; due to the infrastructure required to run them.</p>
+<p>The article outlines a series of architectural trade-offs designed to keep the system within this budget. For instance, they chose to use polling via Azure Durable Functions rather than event-driven solutions, acknowledging that &quot;polling introduces latency&quot; but accepting it as a necessary compromise for cost efficiency. Similarly, they hosted their vector database on Azure Container Instances (ACI) despite it being &quot;relatively expensive for persistent workloads,&quot; because it offered the only viable path to run a containerized database within a secure Virtual Network (VNet).</p>
+<blockquote>&quot;While the VPN Gateway is expensive, it was a necessary trade-off for security and compliance.&quot;</blockquote>
+<p>This admission underscores a vital truth: security and cost are often in direct tension. The piece argues that while some choices &quot;come with limitations, they were made consciously with the current operational scope in mind.&quot; By interviewing end-users to understand their workflow, the team ensured the technology didn&#039;t disrupt human operations, creating a system where agents could review AI-generated responses before sending them. This human-in-the-loop approach is a pragmatic solution to the &quot;correctness&quot; problem, acknowledging that AI is an assistant, not a replacement, in high-stakes customer support.</p>
+<h2>Bottom Line</h2>
+<p>The strongest part of this argument is its unflinching focus on the economic and operational realities of AI deployment, proving that a &quot;robust, yet cost-efficient system&quot; is possible without over-engineering. Its biggest vulnerability lies in the assumption that custom-built solutions are always the answer; for larger enterprises, the maintenance overhead of bypassing established frameworks could eventually outweigh the initial savings. Readers should watch for how this &quot;safety and savings&quot; philosophy scales as the volume of data grows beyond the current 600-email threshold.</p>
+      </div>
+
+      
+      
+      
+
+      <section id="excerpt"><section class="source-excerpts">
+      <h2>Sources</h2>
+      <article class="source-excerpt">
+      <h3>Bringing AI solution to the end-user </h3>
+      <div class="source-meta">by Various &middot; <a href="../../publication/nobsai/index.html">NO BS AI</a> &middot; <a href="https://nobsai.substack.com/p/bringing-ai-solution-to-the-end-user" target="_blank" rel="noopener">Read full article</a></div>
+      <p>The most exciting part? Experimenting with AI and developing the core technical solution.</p><p>The most daunting—and often overlooked—challenge? Deploying it to production.</p><p>An AI solution is useless until it’s deployed. Period. That’s why we knew from the start that we needed MLOps expertise to deliver value from end to end.</p><p>In theory, the RAG (Retrieval-Augmented Generation) space offers ready-to-use building blocks for deployment. However, in our experience, they lack the flexibility we need:</p><p>No built-in integration with HubSpot, the tool of choice of our client.</p><p>The off-the-shelf RAG component was too basic and didn’t account for our required preprocessing and messy knowledge base.</p><p>The architecture was rigid, limiting our ability to customize it for the client’s needs.</p><p>We tested off-the-shelf solutions, but they simply didn’t work—they returned incorrect answers to the questions sent to customer support. The correctness level was well below the acceptance threshold of the customer and the project would fail if we couldn't get off the ready-made solutions.</p><p>After reading this article you will have a clear idea on how you can deploy your RAG application which is more complex than basic tutorial examples..</p> <p>We outline our architectural decisions, trade-offs, and the rationale behind them, demonstrating that while some choices come with limitations, they were made consciously with the current operational scope in mind.</p><p>Our goal was to create a robust, yet cost-efficient system tailored to the customer's needs while avoiding overengineering.</p><p>The system was designed with a clear set of assumptions to ensure efficiency, cost-effectiveness, and rapid implementation.</p> <p>With an estimated volume of 500–600 emails per month, the focus was on scaling to meet this demand rather than over-engineering for hypothetical future growth. This strategic decision helped avoid unnecessary costs and complexity while ensuring a robust and stable system. The primary goal was to rapidly implement and validate the system’s usefulness, prioritizing deployment speed and real-world client feedback over building a long-term, future-proof solution.</p><p>As a key principle was to avoid over-engineering—no premature optimizations were made for future scaling that may never be needed. Instead, we made conscious technological choices with two principles in mind - safety and savings.</p><p>It turns out that Azure deployments can be expensive and if you are a small business a couple of hundred dollars per month can be substantial in your budget. We agreed that 500 dollars per month of fixed costs is the upper limit. It meant that we ...</p>
+      <footer class="source-bio" aria-label="About this source">
+      <p class="sb-heading">About this source</p>
+      <p class="sb-meta"><span class="sb-type">independent newsletter</span> &middot; <span class="sb-country">United States</span> &middot; <span class="sb-funding">paid subscriptions (Substack)</span> &middot; <span class="sb-leaning">Skeptical-pragmatist on AI hype, anti-marketing-speak, avoids culture-war politics in favor of deflating vendor claims.</span></p>
+      <p class="sb-audit">Last reviewed: <time datetime="2026-04-08">2026-04-08</time> &middot; <a href="https://nobsai.substack.com/about" target="_blank" rel="noopener">source</a></p>
+    </footer>
+    </article>
+    </section></section>
+      
+    </article>
+  
+  </main>
+  <footer class="site-footer">
+    <div class="container">
+      <p><a href="../../privacy/index.html">Privacy</a> &middot; <a href="../../terms/index.html">Terms</a></p>
+    </div>
+  </footer>
+  <script>
+  (function() {
+    var params = new URLSearchParams(window.location.search);
+    var from = params.get('from');
+    if (from) {
+      var names = {
+        'foreign-policy':'Foreign Policy','ai-tech':'AI & Tech','housing-cities':'Housing & Cities',
+        'political-strategy':'Political Strategy','history':'History','science':'Science',
+        'culture':'Culture','economics':'Economics','faith':'Faith','writing-craft':'Writing & Craft',
+        'music':'Music','law-rights':'Law & Rights','public-health':'Public Health',
+        'philosophy':'Philosophy','media':'Media','defense':'Defense','china':'China'
+      };
+      var link = document.getElementById('back-link');
+      if (link) {
+        var name = names[from] || from;
+        link.href = '../../tag/' + from + '/index.html';
+        link.textContent = '\u2190 Back to ' + name;
+      }
+    }
+  })();
+  </script>
+</body>
+</html>
