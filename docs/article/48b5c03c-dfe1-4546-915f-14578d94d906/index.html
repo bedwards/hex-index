@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Noteworthy AI research papers of 2024 - Hex Index</title>
+  <link rel="stylesheet" href="../../styles.css">
+</head>
+<body class="reading-mode">
+  <header class="reading-header">
+    <a href="../../index.html" class="back-link" id="back-link">&larr; Back to Library</a>
+  </header>
+  <main class="reading-content">
+    
+    <article class="article-page">
+      <header class="article-header">
+        <h1>Noteworthy AI research papers of 2024</h1>
+        
+      <div class="article-meta">
+        <span class="author">Sebastian Raschka</span>
+        <span class="separator">&middot;</span>
+        <a href="../../publication/sebastianraschka/index.html" class="publication">
+          Ahead of AI
+        </a>
+        <span class="separator">&middot;</span><time>Jan 15, 2025</time>
+        <span class="separator">&middot;</span><span class="read-time">28 min read</span>
+      </div>
+      </header>
+
+      <div class="content-label">
+        <span class="label-text">Commentary by <a href="../../about/index.html">Hex Index staff</a></span>
+        <nav class="content-nav">
+          
+          <a href="https://magazine.sebastianraschka.com/p/ai-research-papers-2024-part-2" target="_blank" rel="noopener">Original article &rarr;</a>
+        </nav>
+      </div>
+
+      
+      <div class="article-content">
+        <p>In a year dominated by hype cycles and parameter races, Sebastian Raschka offers a rare, grounded audit of what actually moved the needle in artificial intelligence. Rather than chasing the latest marketing claims, Raschka dissects the mechanical shifts in how models are trained, how they reason, and how they see the world. This is not a list of shiny new toys; it is a technical roadmap for understanding why the industry is pivoting from simply building bigger models to making them think harder.</p>
+<h2>The Evolution of Open Weights</h2>
+<p>Raschka begins by anchoring the year in the release of Meta&#039;s Llama 3 family, noting that the true story isn&#039;t just the model sizes, but the sophistication of the training pipeline. He writes, &quot;What&#039;s notable about the Llama 3 model family is the increased sophistication of the pre-training and post-training pipelines compared to its Llama 2 predecessor.&quot; This observation is crucial because it signals a maturation in the field; the low-hanging fruit of simply scaling data is being replaced by more nuanced engineering. The author details how the pre-training process became multi-staged and how post-training shifted from Reinforcement Learning with Human Feedback to Direct Preference Optimization.</p>
+<figure class="inline-illustration">
+    <img src="../../images/48b5c03c-dfe1-4546-915f-14578d94d906.webp" alt="Noteworthy AI research papers of 2024" loading="lazy" width="600" height="315">
+  </figure>
+
+<p>This shift matters for anyone deploying these systems. Raschka notes that while the architecture resembles its predecessor, the &quot;larger vocabulary and the introduction of grouped-query attention&quot; represent practical upgrades for efficiency. He argues that despite fierce competition from models like Qwen 2.5 and Gemma 2, Llama remains the industry standard. &quot;I believe Llama will remain the go-to model for most users, much like ChatGPT has retained its popularity despite competition from options like Anthropic Claude, Google Gemini, DeepSeek, and others,&quot; Raschka asserts.</p>
+<blockquote>The field now includes many competitive open-source and open-weight LLMs, yet Llama will remain the go-to model for most users.</blockquote>
+<p>Critics might argue that this brand loyalty is fragile, especially as proprietary models pull ahead in reasoning benchmarks. However, Raschka&#039;s point about the ecosystem—how easy these models are to finetune and understand—suggests that community adoption creates a moat that raw performance metrics alone cannot breach.</p>
+<h2>The Inference Revolution</h2>
+<p>Perhaps the most significant insight in Raschka&#039;s analysis comes from his examination of test-time compute. The conventional wisdom has been that to get better answers, you must train a bigger model. Raschka challenges this by highlighting research suggesting that &quot;improving LLM responses during inference time&quot; can be more effective than scaling parameters. He draws a compelling analogy: &quot;Suppose that humans, on hard tasks, can generate better responses if they are given more time to think. Analogously, LLMs may be able to produce better outputs given more time/resources to generate their responses.&quot;</p>
+<p>The paper he highlights suggests that for easy and medium questions, a smaller model with extra compute can match the performance of a model fourteen times its size. This is a massive economic and environmental implication. Raschka explains that the strategy involves generating multiple solutions and using a verifier to pick the best one, or sequentially revising the response. &quot;For challenging questions, larger models outperform smaller models that get additional inference compute via the inference scaling strategies discussed earlier. However, for easy and medium questions, inference time compute can be used to match the performance of 14x larger models at the same compute budget!&quot; he writes.</p>
+<p>This reframing moves the conversation from &quot;how big is your model?&quot; to &quot;how smart is your deployment strategy?&quot; It suggests that the future of AI efficiency lies in dynamic resource allocation rather than static model bloat. While this approach increases latency and cost per query for complex tasks, Raschka rightly identifies it as a critical tool for on-device AI, where massive models simply cannot fit.</p>
+<h2>Seeing and Reasoning</h2>
+<p>The commentary then turns to the messy reality of multimodal systems and the elusive nature of reasoning. Raschka analyzes NVIDIA&#039;s NVLM paper, which provides a rare, head-to-head comparison of different architectural approaches to vision and language. He notes that the industry is split between unified embedding decoders and cross-modality attention mechanisms. The hybrid approach, which combines a thumbnail for context with high-resolution patches for detail, emerges as the most robust solution. &quot;NVLM-H: Combines the strengths of both approaches for optimal performance,&quot; Raschka summarizes, highlighting the trend toward specialized architectures rather than one-size-fits-all models.</p>
+<p>Finally, Raschka tackles the mystery of OpenAI&#039;s o1 model and the concept of &quot;journey learning.&quot; He contrasts this with traditional &quot;shortcut learning,&quot; where models are trained only on the correct answer. In journey learning, the model is trained on the entire trial-and-error process. &quot;Traditionally, LLMs are trained on the correct solution path (shortcut learning); in journey learning, the supervised finetuning encompasses the whole trial-and-error correction process,&quot; he explains. This distinction is vital because it suggests that the next generation of AI intelligence won&#039;t come from more data, but from teaching models how to struggle with a problem before solving it.</p>
+<blockquote>The next generation of AI intelligence won&#039;t come from more data, but from teaching models how to struggle with a problem before solving it.</blockquote>
+<p>A counterargument worth considering is whether this &quot;journey learning&quot; is simply a more expensive form of reinforcement learning that may not scale indefinitely. However, the philosophical shift Raschka identifies—that the path to the answer is as important as the answer itself—resonates with how human cognition actually works.</p>
+<h2>Bottom Line</h2>
+<p>Sebastian Raschka&#039;s analysis succeeds by stripping away the marketing veneer to reveal the mechanical gears turning beneath. The strongest part of his argument is the pivot from parameter scaling to inference-time compute, a shift that promises to redefine the economics of AI deployment. The biggest vulnerability in the current landscape remains the opacity of proprietary reasoning models, leaving the open-source community to reverse-engineer the very techniques that define the next frontier. For the busy professional, the takeaway is clear: the future belongs not to those with the biggest models, but to those who know how to make them think.</p>
+      </div>
+
+      
+      
+      
+
+      <section id="excerpt"><section class="source-excerpts">
+      <h2>Sources</h2>
+      <article class="source-excerpt">
+      <h3>Noteworthy AI research papers of 2024</h3>
+      <div class="source-meta">by Sebastian Raschka &middot; <a href="../../publication/sebastianraschka/index.html">Ahead of AI</a> &middot; <a href="https://magazine.sebastianraschka.com/p/ai-research-papers-2024-part-2" target="_blank" rel="noopener">Read full article</a></div>
+      <p>I hope your 2025 is off to a great start! To kick off the year, I've finally been able to complete the draft and second part of this AI Research Highlights of 2024 article. It covers a variety of relevant topics, from mixture-of-experts models to new LLM scaling laws for precision.</p><p>Note that this article is Part Two in this series, focusing on the second half of 2024 from July through December. You can find Part One, covering January to June here. </p><p>The selection criteria are admittedly subjective, based on what stood out to me this year. I've also aimed for some variety, so it's not all just about LLM model releases.</p><p>I hope you are having a great 2025, and happy reading!</p><p>7. July: The Llama 3 Herd of Models.</p> <p>Readers are probably already well familiar with Meta AI's Llama 3 models and paper, but since these are such important and widely-used models, I want to dedicate the July section to The Llama 3 Herd of Models (July 2024) paper by Grattafiori and colleagues.</p><p>What's notable about the Llama 3 model family is the increased sophistication of the pre-training and post-training pipelines compared to its Llama 2 predecessor. Note that this is not only true for Llama 3 but other LLMs like Gemma 2, Qwen 2, Apple's Foundation Models, and others, as I described a few months ago in my New LLM Pre-training and Post-training Paradigms article.</p><p>7.1 Llama 3 architecture summary.</p> <p>Llama 3 was first released in 8 billion and 70 billion parameter sizes, but the team kept iterating on the model, releasing 3.1, 3.2, and 3.3 versions of Llama. The sizes are summarized below:&nbsp;</p><p>Llama 3 (April 2024)</p><p>8B parameters</p><p>70B parameters&nbsp;</p><p>Llama 3.1 (July 2024, discussed in the paper)</p><p>8B parameters</p><p>70B parameters</p><p>405B parameters&nbsp;</p><p>Llama 3.2 (September 2024)</p><p>1B parameters</p><p>3B parameters</p><p>11B parameters (vision-enabled)</p><p>90B parameters (vision-enabled)&nbsp;</p><p>Llama 3.3 (December 2024)</p><p>70B parameters</p><p>Overall, the Llama 3 architecture closely resembles that of Llama 2. The key differences lie in its larger vocabulary and the introduction of grouped-query attention for the smaller model variant. A summary of the differences is shown in the figure below.</p><p>If you're curious about architectural details, a great way to learn is by implementing the model from scratch and loading pretrained weights as a sanity check. I have a GitHub repository with a from-scratch implementation that converts GPT-2 to Llama ...</p>
+      <footer class="source-bio" aria-label="About this source">
+      <p class="sb-heading">About this source</p>
+      <p class="sb-meta"><span class="sb-type">individual newsletter</span> &middot; <span class="sb-country">United States, Wisconsin</span> &middot; <span class="sb-funding">paid Substack subscriptions, books</span> &middot; <span class="sb-affiliations">Lightning AI (staff research engineer)</span> &middot; <span class="sb-leaning">Technical ML researcher focused on LLM internals and training; politically near-absent, culturally aligned with open-source ML practice.</span></p>
+      <p class="sb-audit">Last reviewed: <time datetime="2026-04-08">2026-04-08</time> &middot; <a href="https://magazine.sebastianraschka.com/" target="_blank" rel="noopener">source</a></p>
+    </footer>
+    </article>
+    </section></section>
+      
+    </article>
+  
+  </main>
+  <footer class="site-footer">
+    <div class="container">
+      <p><a href="../../privacy/index.html">Privacy</a> &middot; <a href="../../terms/index.html">Terms</a></p>
+    </div>
+  </footer>
+  <script>
+  (function() {
+    var params = new URLSearchParams(window.location.search);
+    var from = params.get('from');
+    if (from) {
+      var names = {
+        'foreign-policy':'Foreign Policy','ai-tech':'AI & Tech','housing-cities':'Housing & Cities',
+        'political-strategy':'Political Strategy','history':'History','science':'Science',
+        'culture':'Culture','economics':'Economics','faith':'Faith','writing-craft':'Writing & Craft',
+        'music':'Music','law-rights':'Law & Rights','public-health':'Public Health',
+        'philosophy':'Philosophy','media':'Media','defense':'Defense','china':'China'
+      };
+      var link = document.getElementById('back-link');
+      if (link) {
+        var name = names[from] || from;
+        link.href = '../../tag/' + from + '/index.html';
+        link.textContent = '\u2190 Back to ' + name;
+      }
+    }
+  })();
+  </script>
+</body>
+</html>
