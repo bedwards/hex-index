@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Noteworthy AI research papers of 2024 - Hex Index</title>
+  <link rel="stylesheet" href="../../styles.css">
+</head>
+<body class="reading-mode">
+  <header class="reading-header">
+    <a href="../../index.html" class="back-link" id="back-link">&larr; Back to Library</a>
+  </header>
+  <main class="reading-content">
+    
+    <article class="article-page">
+      <header class="article-header">
+        <h1>Noteworthy AI research papers of 2024</h1>
+        
+      <div class="article-meta">
+        <span class="author">Sebastian Raschka</span>
+        <span class="separator">&middot;</span>
+        <a href="../../publication/sebastianraschka/index.html" class="publication">
+          Ahead of AI
+        </a>
+        <span class="separator">&middot;</span><time>Dec 31, 2024</time>
+        <span class="separator">&middot;</span><span class="read-time">17 min read</span>
+      </div>
+      </header>
+
+      <div class="content-label">
+        <span class="label-text">Commentary by <a href="../../about/index.html">Hex Index staff</a></span>
+        <nav class="content-nav">
+          
+          <a href="https://magazine.sebastianraschka.com/p/ai-research-papers-2024-part-1" target="_blank" rel="noopener">Original article &rarr;</a>
+        </nav>
+      </div>
+
+      
+      <div class="article-content">
+        <p>In a field defined by relentless churn, Sebastian Raschka offers a rare moment of clarity: the most transformative AI breakthroughs of 2024 weren&#039;t always the flashiest model releases, but rather the quiet, structural refinements that make these systems actually usable. While the industry chases scale, Raschka argues that efficiency and stability are the true bottlenecks, curating a list where a single paper on learning rates matters as much as a new architecture. This is not a hype cycle recap; it is a technical autopsy of what actually moved the needle.</p>
+<h2>The Architecture of Efficiency</h2>
+<p>Raschka begins his year-in-review by dismantling the assumption that bigger is always better, spotlighting the January release of Mixtral 8x7B. He writes, &quot;The idea here is that by using multiple smaller subnetworks instead of one large network, MoEs aim to allocate computational resources more efficiently.&quot; This Mixture of Experts approach allows a model to activate only a subset of its parameters for any given task, a crucial distinction for anyone concerned with the environmental and economic costs of running large language models.</p>
+<figure class="inline-illustration">
+    <img src="../../images/c04e9ab7-8333-4b67-bc32-c5951b349714.webp" alt="Noteworthy AI research papers of 2024" loading="lazy" width="600" height="315">
+  </figure>
+
+<p>The author notes that while open-weight models like Mixtral initially seemed poised to dominate, the industry has largely pivoted back to dense architectures for state-of-the-art performance. &quot;While they are not irrelevant, many state-of-the-art models still rely on dense (traditional) LLMs rather than MoEs,&quot; Raschka observes, citing Llama 3 and Gemma 2. This is a critical nuance often missed in breathless press releases: the most efficient architecture on paper isn&#039;t always the one that wins the benchmark war. However, he concedes that the efficiency gains are too significant to ignore, noting that proprietary giants like GPT-4 likely utilize these methods under the hood.</p>
+<blockquote>MoE architectures are still relevant, especially as they offer a way to scale large language models efficiently by activating only a subset of the model&#039;s parameters for each input, thus reducing computation costs without sacrificing model capacity.</blockquote>
+<p>Critics might argue that the reliance on proprietary black boxes makes it impossible to verify these architectural choices, leaving the open-source community to guess at the optimal path forward. Yet, Raschka&#039;s point stands: the direction of travel is toward smarter resource allocation, not just brute force.</p>
+<h2>The Subtle Art of Fine-Tuning</h2>
+<p>Moving into February, Raschka shifts focus from model architecture to the mechanics of adaptation, introducing DoRA (Weight-Decomposed Low-Rank Adaptation). He explains that standard fine-tuning methods often update weights in a way that is computationally expensive, whereas DoRA &quot;extends LoRA by first decomposing a pretrained weight matrix into two parts: a magnitude vector m and a directional matrix V.&quot; This allows the model to adjust the direction of its knowledge without unnecessarily inflating the magnitude, a subtle but powerful optimization.</p>
+<p>The argument here is that these incremental improvements are the lifeblood of practical AI deployment. &quot;DoRA can make subtle directional adjustments without necessarily increasing the magnitude,&quot; Raschka writes, highlighting how this leads to better performance with fewer parameters. He points to Apple&#039;s recent use of LoRA for on-device specialization as evidence that these methods are moving from research papers to real-world products. The implication is clear: the future of AI isn&#039;t just in the cloud; it&#039;s in the ability to specialize models on local devices with minimal overhead.</p>
+<p>However, Raschka remains grounded, admitting that while DoRA is a &quot;small, logical improvement,&quot; it hasn&#039;t yet seen widespread adoption. This hesitation is healthy. In a field prone to overhyping every new acronym, acknowledging that a method is &quot;worth considering&quot; rather than &quot;revolutionary&quot; is a rare and valuable editorial stance.</p>
+<h2>Stability Over Novelty</h2>
+<p>Perhaps the most surprising entry in Raschka&#039;s list is the March paper on continual pretraining, which champions simplicity over complexity. He summarizes the findings of Ibrahim and colleagues: &quot;Simple re-warming and re-decaying the learning rate&quot; and &quot;adding a small portion (e.g., 5%) of the original pretraining data&quot; are the keys to preventing models from forgetting what they already know.</p>
+<p>This finding challenges the prevailing narrative that AI progress requires increasingly complex training pipelines. &quot;I really appreciate that the researchers took the time to formally test this method in this very detailed 24-page report,&quot; Raschka notes, suggesting that the industry has been too eager to discard basic principles in favor of novel, unproven techniques. The core of the argument is that stability—preventing catastrophic forgetting—is just as important as acquiring new knowledge.</p>
+<blockquote>Simple techniques work... I have no reason to believe that these methods will not continue to work for future LLMs.</blockquote>
+<p>A counterargument worth considering is that as models grow larger and contexts longer, these simple heuristics may break down. Raschka acknowledges this, noting that &quot;pretraining pipelines have become more sophisticated&quot; and that these recipes may need tweaking. Yet, the emphasis on empirical validation over theoretical novelty remains a strong corrective to the field&#039;s tendency toward over-engineering.</p>
+<h2>The Alignment Dilemma</h2>
+<p>In April, Raschka tackles the contentious debate between Direct Preference Optimization (DPO) and Proximal Policy Optimization (PPO) for aligning models with human values. He writes, &quot;PPO tends to outperform DPO, and that DPO is inferior when dealing with out-of-distribution data.&quot; This is a significant finding, as DPO has been widely adopted for its simplicity, often at the expense of robustness.</p>
+<p>The author explains that while PPO requires a separate reward model and is computationally heavier, it produces more reliable results when the model encounters data it wasn&#039;t explicitly trained on. &quot;DPO is much easier to implement and computationally more efficient to apply,&quot; Raschka admits, which explains its popularity despite the performance gap. He notes that Meta&#039;s Llama 3 shifted from PPO to DPO, yet newer models like Apple&#039;s Foundation Models are now using both.</p>
+<p>This tension between ease of use and performance is the defining characteristic of the current AI landscape. Raschka&#039;s analysis suggests that the industry is currently prioritizing speed and cost-efficiency, potentially at the risk of model robustness. &quot;Recent models even use both PPO and DPO nowadays,&quot; he writes, hinting that the optimal path forward may be a hybrid approach that leverages the strengths of both methods.</p>
+<h2>The Limits of Adaptation</h2>
+<p>The commentary concludes with a May paper that serves as a sobering reality check: &quot;LoRA learns less and forgets less.&quot; Raschka highlights that while LoRA is excellent for instruction tuning, it struggles when the goal is to teach a model entirely new knowledge, such as in coding or mathematics. &quot;The gap is smaller when only instruction finetuning is performed,&quot; he notes, but for tasks requiring new knowledge acquisition, full fine-tuning remains superior.</p>
+<p>This distinction is crucial for practitioners who might assume that parameter-efficient methods are a panacea. Raschka&#039;s analysis forces a re-evaluation of when to use which tool: LoRA for specialization, full fine-tuning for knowledge expansion. It is a reminder that there is no one-size-fits-all solution in AI development.</p>
+<blockquote>LoRA learns less and forgets less... This suggests that pretraining on new data (learning new knowledge) benefit more from full finetuning than converting a pretrained model into an instruction follower.</blockquote>
+<p>Critics might argue that as LoRA variants improve, this gap will close. However, Raschka&#039;s empirical evidence suggests that the fundamental limitations of low-rank adaptation are not yet solved. This is a vital insight for anyone investing in AI infrastructure: the choice of training method has profound implications for what a model can actually learn.</p>
+<h2>Bottom Line</h2>
+<p>Sebastian Raschka&#039;s curation succeeds because it prioritizes engineering reality over marketing hype, revealing that the most significant advances of 2024 were in efficiency, stability, and nuanced adaptation rather than raw scale. The piece&#039;s greatest strength is its willingness to highlight simple, often overlooked techniques that outperform complex, novel architectures. The biggest vulnerability lies in the rapid pace of the field; a method deemed &quot;simple and scalable&quot; today may be obsolete by the time this article is read, but the underlying principle—that efficiency and robustness matter more than novelty—remains a timeless guide for navigating the AI landscape.</p>
+      </div>
+
+      
+      
+      
+
+      <section id="excerpt"><section class="source-excerpts">
+      <h2>Sources</h2>
+      <article class="source-excerpt">
+      <h3>Noteworthy AI research papers of 2024</h3>
+      <div class="source-meta">by Sebastian Raschka &middot; <a href="../../publication/sebastianraschka/index.html">Ahead of AI</a> &middot; <a href="https://magazine.sebastianraschka.com/p/ai-research-papers-2024-part-1" target="_blank" rel="noopener">Read full article</a></div>
+      <p>To kick off the year, I've finally been able to complete the draft of this AI Research Highlights of 2024 article. It covers a variety of topics, from mixture-of-experts models to new LLM scaling laws for precision.</p><p>Reflecting on all the major research highlights of 2024 would probably require writing an entire book. It's been an extraordinarily productive year, even for such a fast-moving field. To keep things reasonably concise, I decided to focus exclusively on LLM research this year. But even then, how does one choose a subset of papers from such an eventful year? The simplest approach I could think of was to highlight one paper per month: January through December 2024.</p><p>So, in this article, I'll share research papers that I personally found fascinating, impactful, or, ideally, both. However, note that this article is just Part One, focusing on the first half of 2024 from January through June. Part 2 of this series, covering July to December, will be shared later in January.</p><p>The selection criteria are admittedly subjective, based on what stood out to me this year. I've also aimed for some variety, so it's not all just about LLM model releases.</p><p>If you're looking for a broader list of AI research papers, feel free to check out my earlier article (LLM Research Papers: The 2024 List).</p><p>For those who read my previous article, I’m happy to share that I’m already feeling a bit better and slowly but steadily recovering! I also want to express my heartfelt thanks for all the kind wishes and support. It truly meant the world to me and helped me through some tough days!</p><p>Happy new year and happy reading!</p><p>1. January: Mixtral's Mixture of Experts Approach.</p> <p>Only a few days into January 2024, the Mistral AI team shared the Mixtral of Experts paper (8 Jan 2024), which described Mixtral 8x7B, a Sparse Mixture of Experts (SMoE) model.</p><p>The paper and model were both very influential at the time, as Mixtral 8x7B was (one of) the first open-weight MoE LLMs with an impressive performance: it outperformed Llama 2 70B and GPT-3.5 across various benchmarks.</p><p>1.1 Understanding MoE models.</p> <p>An MoE, or Mixture of Experts, is an ensemble model that combines several smaller "expert" subnetworks inside the GPT-like decoder architecture. Each subnetwork is said to be responsible for handling different types of tasks or, more concretely, tokens. The idea here is that ...</p>
+      <footer class="source-bio" aria-label="About this source">
+      <p class="sb-heading">About this source</p>
+      <p class="sb-meta"><span class="sb-type">individual newsletter</span> &middot; <span class="sb-country">United States, Wisconsin</span> &middot; <span class="sb-funding">paid Substack subscriptions, books</span> &middot; <span class="sb-affiliations">Lightning AI (staff research engineer)</span> &middot; <span class="sb-leaning">Technical ML researcher focused on LLM internals and training; politically near-absent, culturally aligned with open-source ML practice.</span></p>
+      <p class="sb-audit">Last reviewed: <time datetime="2026-04-08">2026-04-08</time> &middot; <a href="https://magazine.sebastianraschka.com/" target="_blank" rel="noopener">source</a></p>
+    </footer>
+    </article>
+    </section></section>
+      
+    </article>
+  
+  </main>
+  <footer class="site-footer">
+    <div class="container">
+      <p><a href="../../privacy/index.html">Privacy</a> &middot; <a href="../../terms/index.html">Terms</a></p>
+    </div>
+  </footer>
+  <script>
+  (function() {
+    var params = new URLSearchParams(window.location.search);
+    var from = params.get('from');
+    if (from) {
+      var names = {
+        'foreign-policy':'Foreign Policy','ai-tech':'AI & Tech','housing-cities':'Housing & Cities',
+        'political-strategy':'Political Strategy','history':'History','science':'Science',
+        'culture':'Culture','economics':'Economics','faith':'Faith','writing-craft':'Writing & Craft',
+        'music':'Music','law-rights':'Law & Rights','public-health':'Public Health',
+        'philosophy':'Philosophy','media':'Media','defense':'Defense','china':'China'
+      };
+      var link = document.getElementById('back-link');
+      if (link) {
+        var name = names[from] || from;
+        link.href = '../../tag/' + from + '/index.html';
+        link.textContent = '\u2190 Back to ' + name;
+      }
+    }
+  })();
+  </script>
+</body>
+</html>
