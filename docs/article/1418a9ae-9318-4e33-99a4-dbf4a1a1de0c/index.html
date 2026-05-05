@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The necessity of overfitting LLM applications - Hex Index</title>
+  <link rel="stylesheet" href="../../styles.css">
+</head>
+<body class="reading-mode">
+  <header class="reading-header">
+    <a href="../../index.html" class="back-link" id="back-link">&larr; Back to Library</a>
+  </header>
+  <main class="reading-content">
+    
+    <article class="article-page">
+      <header class="article-header">
+        <h1>The necessity of overfitting LLM applications</h1>
+        
+      <div class="article-meta">
+        <span class="author">Various</span>
+        <span class="separator">&middot;</span>
+        <a href="../../publication/nobsai/index.html" class="publication">
+          NO BS AI
+        </a>
+        <span class="separator">&middot;</span><time>Dec 6, 2024</time>
+        <span class="separator">&middot;</span><span class="read-time">8 min read</span>
+      </div>
+      </header>
+
+      <div class="content-label">
+        <span class="label-text">Commentary by <a href="../../about/index.html">Hex Index staff</a></span>
+        <nav class="content-nav">
+          
+          <a href="https://nobsai.substack.com/p/the-necessity-of-overfitting-llm" target="_blank" rel="noopener">Original article &rarr;</a>
+        </nav>
+      </div>
+
+      
+      <div class="article-content">
+        <p>In an era where businesses rush to deploy generic AI solutions, NO BS AI makes a counterintuitive claim: the path to reliable automation isn&#039;t broader data, but narrower, hyper-specific tuning. The piece argues that the industry&#039;s obsession with general-purpose models often blinds companies to the immediate, high-value gains found in &quot;overfitting&quot; to their own messy, repetitive customer service logs.</p>
+<h2>The Myth of the Perfect Knowledge Base</h2>
+<p>The editors at NO BS AI challenge the prevailing wisdom that Artificial Intelligence requires pristine, structured data to function. They note that &quot;many companies lack a well-structured knowledge base,&quot; which makes standard Retrieval Augmented Generation (RAG) approaches difficult to implement. Instead of waiting for perfect data, the piece advocates for a pragmatic shift: &quot;Deeply understand your data and evaluate the technical feasibility of automating 20%, 40%, 60%, or even 90% of customer requests.&quot;</p>
+<figure class="inline-illustration">
+    <img src="../../images/1418a9ae-9318-4e33-99a4-dbf4a1a1de0c.webp" alt="The necessity of overfitting LLM applications" loading="lazy" width="600" height="315">
+  </figure>
+
+<p>This reframing is crucial for busy executives who have been told they must build massive data warehouses before seeing a return on investment. The argument suggests that modern Large Language Models (LLMs) can act as zero-shot or few-shot learners, meaning they can be guided by examples rather than retrained from scratch. &quot;If you explain in prompt which emails fall into a specific category, there&#039;s a high chance the LLM will correctly identify the class,&quot; the piece observes. This lowers the barrier to entry significantly, allowing organizations to bypass the labor-intensive annotation processes of the past.</p>
+<blockquote>Senior practitioners always analyze the data and tailor solutions to the specific situation, while junior engineers often jump straight into the technology.</blockquote>
+<p>This distinction between senior and junior approaches highlights a critical gap in current AI deployment strategies. The piece posits that real gains come not from the sophistication of the model, but from the depth of the business context applied to it. However, critics might note that this &quot;low-hanging fruit&quot; approach risks creating brittle systems that fail when customer language evolves beyond the initial training set, potentially shifting rather than solving the support burden.</p>
+<h2>The Fragility of Generalization</h2>
+<p>The core of the commentary lies in a detailed case study involving a kitchen robot manufacturer. The editors illustrate how a seemingly simple task—classifying a customer email about a &quot;malfunction&quot;—can trip up even advanced models like GPT-4o mini. The piece describes a scenario where a user complains about the robot disconnecting from an app, a symptom that actually points to a mechanical failure, not a software bug.</p>
+<p>When the model is given a simple prompt, it falls into a trap: &quot;The customer mentions that the robot disconnects from the app frequently, which indicates an issue with the application connectivity.&quot; The editors argue that this is a failure of context, not capability. Even when refining the categories to be more descriptive, the model struggles, often misclassifying the issue because it takes shortcuts. &quot;In spite of the &#039;intelligence&#039; of the generative models, they often tend to take shortcuts - seeing a category about an &#039;app&#039;, they tend to classify all texts mentioning &#039;app&#039; to this category.&quot;</p>
+<p>The solution proposed is radical in its specificity: overfitting the prompt to the exact nuances of the business problem. The editors demonstrate that by explicitly defining forbidden phrases and providing concrete examples of what <em>not</em> to classify, accuracy improves. They warn, however, that &quot;this example is very fragile—it may classify as either Category 4 or Category 3, depending on the run,&quot; attributing this inconsistency to the model&#039;s &quot;temperature&quot; parameter.</p>
+<h2>The Necessity of Precision</h2>
+<p>Ultimately, the piece concludes that the era of &quot;good enough&quot; prompting is over for mission-critical applications. The editors assert that &quot;for any application to be practical in a business environment, it must be reliable.&quot; This reliability demands a level of precision that feels almost contradictory to the flexible nature of generative AI. The authors suggest that developers must &quot;explicitly define forbidden and allowed phrases within the class definition&quot; to prevent the model from hallucinating connections that don&#039;t exist.</p>
+<p>The argument culminates in a return to fundamental data science principles, adapted for the generative age. &quot;This is why, even though we are not training the model in the traditional sense when using LLMs, it is still very easy to overfit to the sample we are developing a prompt on,&quot; NO BS AI reports. The takeaway is clear: treat your prompt as a trained model, complete with a representative test set and rigorous validation.</p>
+<blockquote>The old rules still apply: develop the prompt on a training set and always reserve a representative test set.</blockquote>
+<p>This insistence on testing is a sobering reminder that the novelty of AI should not replace the discipline of engineering. While the piece focuses on customer service, the principle applies broadly to any automated decision-making system. The biggest vulnerability in this approach is the maintenance burden; as customer language shifts, these highly specific prompts may require constant, manual updates to remain effective.</p>
+<h2>Bottom Line</h2>
+<p>NO BS AI delivers a vital correction to the hype cycle, proving that the most effective AI strategy is often the most specific one. The piece&#039;s strongest asset is its refusal to promise magic, instead offering a rigorous, data-driven roadmap for immediate automation. However, the reader must weigh the high initial effort of crafting these fragile, overfitted prompts against the long-term risk of system brittleness as real-world data inevitably drifts.</p>
+      </div>
+
+      
+      
+      
+
+      <section id="excerpt"><section class="source-excerpts">
+      <h2>Sources</h2>
+      <article class="source-excerpt">
+      <h3>The necessity of overfitting LLM applications</h3>
+      <div class="source-meta">by Various &middot; <a href="../../publication/nobsai/index.html">NO BS AI</a> &middot; <a href="https://nobsai.substack.com/p/the-necessity-of-overfitting-llm" target="_blank" rel="noopener">Read full article</a></div>
+      <p>In this post I will explain:</p><p>How to quickly automate parts of customer service traffic with minimal investment.</p><p>Which technology to use for achieving a high ROI on your first automation solution.</p><p>The challenges encountered when using AI for the seemingly simple task of email classification.</p><p>To create an effective automated customer support solution, it’s essential to view it as a system of interconnected components working seamlessly together.</p><p>Previously, we’ve discussed RAG (Retrieval Augmented Generation) and why it is often the preferred choice for automating customer service. </p><p>However, a significant challenge remains: many companies lack a well-structured knowledge base. As a result, applying the standard RAG approach—which relies on high-quality data and organized knowledge—becomes difficult.</p><p>That said, even without an optimal dataset, the capabilities of modern LLMs (Large Language Models) offer an opportunity to take a crucial first step and achieve two key objectives simultaneously:</p><p>Deeply understand your data and evaluate the technical feasibility of automating 20%, 40%, 60%, or even 90% of customer requests.</p><p>Implement an initial automation solution that delivers immediate, measurable business impact.</p><p>I firmly believe in the “low-hanging fruit” approach. While it may sound like a cliché, my experience shows it builds trust and helps uncover unknowns. You can’t fully anticipate the challenges or benefits until you begin testing and iterating.</p><p>For many companies, a significant portion of incoming customer requests are repetitive. While they may not appear so at first glance—since each issue is described differently and reflects the unique perspective of the customer—the underlying problem is often the same.</p><p>In my experience, a considerable percentage of these inquiries involve recurring questions that human customer support routinely addresses..</p> <p>This process, which often requires agents to send standardized responses, is both monotonous and unnecessary given current technological advancements.</p><p>Before the advent of LLMs, automating such workflows required training a classification model. Each email would be categorized into a specific topic, and once classified, a predefined template would be used to respond to the customer. This process, while functional, was far more labor-intensive and less adaptable than modern solutions.</p><p>This approach has a relatively low ROI because it requires extensive data collection and annotation. For instance, if you introduce a new feature and customers frequently ask specific questions about it, updating the system is impossible without retraining. Moreover, since this solution is not generative, it remains imperfect and inflexible. </p><p>In contrast, LLMs do not have this issue. ...</p>
+      <footer class="source-bio" aria-label="About this source">
+      <p class="sb-heading">About this source</p>
+      <p class="sb-meta"><span class="sb-type">independent newsletter</span> &middot; <span class="sb-country">United States</span> &middot; <span class="sb-funding">paid subscriptions (Substack)</span> &middot; <span class="sb-leaning">Skeptical-pragmatist on AI hype, anti-marketing-speak, avoids culture-war politics in favor of deflating vendor claims.</span></p>
+      <p class="sb-audit">Last reviewed: <time datetime="2026-04-08">2026-04-08</time> &middot; <a href="https://nobsai.substack.com/about" target="_blank" rel="noopener">source</a></p>
+    </footer>
+    </article>
+    </section></section>
+      
+    </article>
+  
+  </main>
+  <footer class="site-footer">
+    <div class="container">
+      <p><a href="../../privacy/index.html">Privacy</a> &middot; <a href="../../terms/index.html">Terms</a></p>
+    </div>
+  </footer>
+  <script>
+  (function() {
+    var params = new URLSearchParams(window.location.search);
+    var from = params.get('from');
+    if (from) {
+      var names = {
+        'foreign-policy':'Foreign Policy','ai-tech':'AI & Tech','housing-cities':'Housing & Cities',
+        'political-strategy':'Political Strategy','history':'History','science':'Science',
+        'culture':'Culture','economics':'Economics','faith':'Faith','writing-craft':'Writing & Craft',
+        'music':'Music','law-rights':'Law & Rights','public-health':'Public Health',
+        'philosophy':'Philosophy','media':'Media','defense':'Defense','china':'China'
+      };
+      var link = document.getElementById('back-link');
+      if (link) {
+        var name = names[from] || from;
+        link.href = '../../tag/' + from + '/index.html';
+        link.textContent = '\u2190 Back to ' + name;
+      }
+    }
+  })();
+  </script>
+</body>
+</html>
