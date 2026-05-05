@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Llms as ground truth - Hex Index</title>
+  <link rel="stylesheet" href="../../styles.css">
+</head>
+<body class="reading-mode">
+  <header class="reading-header">
+    <a href="../../index.html" class="back-link" id="back-link">&larr; Back to Library</a>
+  </header>
+  <main class="reading-content">
+    
+    <article class="article-page">
+      <header class="article-header">
+        <h1>Llms as ground truth</h1>
+        
+      <div class="article-meta">
+        <span class="author">Various</span>
+        <span class="separator">&middot;</span>
+        <a href="../../publication/nobsai/index.html" class="publication">
+          NO BS AI
+        </a>
+        <span class="separator">&middot;</span><time>Dec 12, 2024</time>
+        <span class="separator">&middot;</span><span class="read-time">4 min read</span>
+      </div>
+      </header>
+
+      <div class="content-label">
+        <span class="label-text">Commentary by <a href="../../about/index.html">Hex Index staff</a></span>
+        <nav class="content-nav">
+          
+          <a href="https://nobsai.substack.com/p/llms-as-ground-truth" target="_blank" rel="noopener">Original article &rarr;</a>
+        </nav>
+      </div>
+
+      
+      <div class="article-content">
+        <p>In an era where every dollar spent on artificial intelligence feels like a gamble, a new technical argument suggests we may have been overpaying for a service that traditional tools can handle just as well. NO BS AI challenges the prevailing assumption that large language models must do the heavy lifting in production, proposing instead a hybrid architecture that slashes costs by ninety percent without sacrificing accuracy. This is not just a cost-cutting hack; it is a fundamental rethinking of how we deploy machine learning in real-world customer service.</p>
+<h2>The Cost of Brittleness</h2>
+<p>The piece begins by dismantling the allure of the &quot;perfect prompt.&quot; While elaborate instructions can coax a large language model into high-quality classification, the editors note that this approach is inherently fragile. &quot;They are brittle - as demonstrated in the article, classification results can often be unstable, influenced by parameters like temperature,&quot; the report warns. Beyond instability, the financial burden is steep. The article argues that &quot;detailed prompts like this have their problems... They are costly - their length and level of detail mean they contain a significant number of tokens, which increases expense.&quot;</p>
+<figure class="inline-illustration">
+    <img src="../../images/ea21a96e-e193-4cd9-b48c-738b82dd0be3.webp" alt="Llms as ground truth" loading="lazy" width="600" height="315">
+  </figure>
+
+<p>This observation hits a nerve for any organization scaling AI operations. The reliance on massive, token-heavy prompts creates a feedback loop where accuracy demands more money, and more money invites more complexity. NO BS AI suggests that the industry has conflated &quot;smart&quot; with &quot;expensive,&quot; overlooking a more efficient path.</p>
+<h2>The Hybrid Solution</h2>
+<p>The core of the argument is a two-step process that treats the large language model not as the worker, but as the teacher. The editors describe a pipeline where a refined prompt is used once to generate high-quality training data, effectively turning the expensive model into an annotator. &quot;Today, a well-designed prompt can transform an LLM into an excellent annotator for our purposes,&quot; the piece states. This one-time investment creates a dataset of &quot;ground truth&quot; that can then train a significantly cheaper, traditional machine learning classifier like XGBoost.</p>
+<p>The results presented are striking. By feeding embeddings from a standard model into a classifier trained on this AI-generated data, the system achieved robust performance on real customer inquiries. The editors report, &quot;We obtained the following results... on a test set normalized to 1000 examples,&quot; showing that the hybrid model could handle the vast majority of cases instantly and cheaply. This shifts the paradigm from running a massive model on every single query to using it only where absolutely necessary.</p>
+<blockquote>&quot;By leveraging the &#039;overfitted&#039; prompts as a source of high-quality training data, we successfully trained a traditional machine learning classifier that performs effectively in production.&quot;</blockquote>
+<h2>The Safety Net Strategy</h2>
+<p>The most compelling part of the coverage is how it handles the inevitable errors of the cheaper model. The editors acknowledge that no classifier is perfect, particularly with &quot;False Negatives - texts which really belong to &#039;Class1&#039; but they are classified as &#039;Other&#039;.&quot; Rather than trying to force the cheap model to be perfect, the strategy uses statistical probability to create a safety net. The system flags the top five percent of uncertain cases and routes them to the large language model for a final check.</p>
+<p>This targeted approach is where the economics truly shift. The piece explains, &quot;Most likely, the offenders will get classified correctly as &#039;Other&#039; at the final correctness check,&quot; but the real savings come from not checking the easy ones. &quot;We cannot double-check them with our LLM prompt, because we would have to check almost 1000 examples classified as &#039;Other&#039; - that&#039;s definitely too costly.&quot; By only querying the large model for the ambiguous cases and the high-confidence positives, the system maintains high quality while drastically reducing token usage.</p>
+<p>Critics might note that this approach assumes the initial &quot;ground truth&quot; generated by the large model is flawless. If the prompt contains subtle biases or errors, the traditional classifier will simply learn to replicate them at scale, potentially automating mistakes rather than fixing them. However, the editors counter this by emphasizing the iterative nature of the process, suggesting that the initial prompt can be refined until the training data is robust.</p>
+<h2>Bottom Line</h2>
+<p>The strongest part of this argument is its pragmatic refusal to accept that high cost is the price of high intelligence; it proves that a small amount of expensive compute can unlock massive savings in production. Its biggest vulnerability lies in the initial setup, which requires significant engineering expertise to craft the perfect &quot;teacher&quot; prompt. For organizations willing to invest in that upfront design, the path to a ninety percent cost reduction is not a distant dream, but a deployable reality.</p>
+      </div>
+
+      
+      
+      
+
+      <section id="excerpt"><section class="source-excerpts">
+      <h2>Sources</h2>
+      <article class="source-excerpt">
+      <h3>Llms as ground truth</h3>
+      <div class="source-meta">by Various &middot; <a href="../../publication/nobsai/index.html">NO BS AI</a> &middot; <a href="https://nobsai.substack.com/p/llms-as-ground-truth" target="_blank" rel="noopener">Read full article</a></div>
+      <p>In this post I will show:</p><p>How to save around 90% of LLM cost of your customer service agent in production.</p><p>How to combine LLMs with old-school ML to acquire an accurate and cost-efficient hybrid system.</p><p>In our previous article, we described the "overfitting" of LLMs via prompting: https://nobsai.substack.com/p/the-necessity-of-overfitting-llm By crafting a very precise, elaborate prompt, she was able to carefully detect the true intent of a customer question and assign it to a correct class.</p><p>However, detailed prompts like this have their problems:</p><p>They are brittle - as demonstrated in the article, classification results can often be unstable, influenced by parameters like temperature.</p><p>They are costly - their length and level of detail mean they contain a significant number of tokens, which increases expense.</p><p>In this article, I demonstrate a solution to the second problem. In the course of our real-life work, we replaced the expensive LLM with a significantly more affordable model. By leveraging the "overfitted" prompts as a source of high-quality training data, we successfully trained a traditional machine learning classifier that performs effectively in production. This approach enables the system to operate at minimal cost.</p><p>The concept is illustrated in the image below:</p><p>Before the era of LLMs, a significant amount of time (and money) was usually spent on annotating data. Today, a well-designed prompt can transform an LLM into an excellent annotator for our purposes. While it may incur some cost—since the prompts need to be sufficiently detailed and extensive to ensure high-quality "classification"—this investment is a one-time effort aimed at generating training data.</p><p>The pipeline:.</p> <p>Refine your prompt to ensure it is detailed enough to capture the necessary nuances. Incorporate the secrets of the business, so that it correctly identifies the intents in text (as done in https://nobsai.substack.com/p/the-necessity-of-overfitting-llm)</p><p>Once the prompt is finalized and delivers satisfactory classification quality, use it to process your data and generate the "ground truth." In my case, I required results for approximately 2,000 examples per class.</p><p>Embed the data - I used ada-002 embedder from OpenAI, without any finetuning, and it proved good enough for this case. Much better results will likely come from finetuning the embedder - even if it's a smallish model from Huggingface.</p><p>Feed the embeddings, together with their class labels assigned by an LLM, to a classifier like XGBoost.</p><p>The result?.</p> <p>I have trained the classifiers for 3 classes. Each class reflects a single type ...</p>
+      <footer class="source-bio" aria-label="About this source">
+      <p class="sb-heading">About this source</p>
+      <p class="sb-meta"><span class="sb-type">independent newsletter</span> &middot; <span class="sb-country">United States</span> &middot; <span class="sb-funding">paid subscriptions (Substack)</span> &middot; <span class="sb-leaning">Skeptical-pragmatist on AI hype, anti-marketing-speak, avoids culture-war politics in favor of deflating vendor claims.</span></p>
+      <p class="sb-audit">Last reviewed: <time datetime="2026-04-08">2026-04-08</time> &middot; <a href="https://nobsai.substack.com/about" target="_blank" rel="noopener">source</a></p>
+    </footer>
+    </article>
+    </section></section>
+      
+    </article>
+  
+  </main>
+  <footer class="site-footer">
+    <div class="container">
+      <p><a href="../../privacy/index.html">Privacy</a> &middot; <a href="../../terms/index.html">Terms</a></p>
+    </div>
+  </footer>
+  <script>
+  (function() {
+    var params = new URLSearchParams(window.location.search);
+    var from = params.get('from');
+    if (from) {
+      var names = {
+        'foreign-policy':'Foreign Policy','ai-tech':'AI & Tech','housing-cities':'Housing & Cities',
+        'political-strategy':'Political Strategy','history':'History','science':'Science',
+        'culture':'Culture','economics':'Economics','faith':'Faith','writing-craft':'Writing & Craft',
+        'music':'Music','law-rights':'Law & Rights','public-health':'Public Health',
+        'philosophy':'Philosophy','media':'Media','defense':'Defense','china':'China'
+      };
+      var link = document.getElementById('back-link');
+      if (link) {
+        var name = names[from] || from;
+        link.href = '../../tag/' + from + '/index.html';
+        link.textContent = '\u2190 Back to ' + name;
+      }
+    }
+  })();
+  </script>
+</body>
+</html>
