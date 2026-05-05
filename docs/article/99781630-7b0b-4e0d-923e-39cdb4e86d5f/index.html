@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Graph rag in customer service - beyond the buzz (part 1: Community summaries) - Hex Index</title>
+  <link rel="stylesheet" href="../../styles.css">
+</head>
+<body class="reading-mode">
+  <header class="reading-header">
+    <a href="../../index.html" class="back-link" id="back-link">&larr; Back to Library</a>
+  </header>
+  <main class="reading-content">
+    
+    <article class="article-page">
+      <header class="article-header">
+        <h1>Graph rag in customer service - beyond the buzz (part 1: Community summaries)</h1>
+        
+      <div class="article-meta">
+        <span class="author">Various</span>
+        <span class="separator">&middot;</span>
+        <a href="../../publication/nobsai/index.html" class="publication">
+          NO BS AI
+        </a>
+        <span class="separator">&middot;</span><time>Nov 28, 2024</time>
+        <span class="separator">&middot;</span><span class="read-time">6 min read</span>
+      </div>
+      </header>
+
+      <div class="content-label">
+        <span class="label-text">Commentary by <a href="../../about/index.html">Hex Index staff</a></span>
+        <nav class="content-nav">
+          
+          <a href="https://nobsai.substack.com/p/graph-rag-in-customer-service-beyond" target="_blank" rel="noopener">Original article &rarr;</a>
+        </nav>
+      </div>
+
+      
+      <div class="article-content">
+        <p>In a field drowning in hype, this piece from NO BS AI cuts through the noise by asking a brutally practical question: does Graph RAG actually work for real customer support, or is it just another expensive toy for data scientists? While most coverage stops at abstract diagrams of nodes and edges, the editors here roll up their sleeves with actual technical documentation from a major kitchen appliance brand to test if the theory holds water. This matters now because businesses are burning cash on complex AI architectures without knowing if they deliver a single extra percentage point of accuracy over simpler, cheaper systems.</p>
+<h2>The Gap Between Theory and Reality</h2>
+<p>The piece opens by dismantling the current state of the industry. &quot;From the business perspective, they hold the potential to enhance the quality of traditional RAG systems, delivering more accurate and contextually relevant answers to users,&quot; NO BS AI reports. Yet, they immediately undercut this optimism by noting that &quot;how this would work in real-world settings remains unclear.&quot; This is a crucial distinction. Too many articles rely on generic examples like &quot;Paris IS_A city&quot; that fail to demonstrate concrete benefits. The editors argue that for technical support, where devices have a &quot;deep structural logic&quot; of internal construction and system cooperation, a graph structure is the logical choice. This framing is effective because it grounds the technology in the specific problem domain rather than treating it as a universal silver bullet.</p>
+<blockquote>&quot;Most articles and tutorials on the subject were vague. The examples provided were often generic... rather than demonstrating concrete benefits over traditional RAG systems through case studies.&quot;</blockquote>
+<p>The authors admit the complexity involved. They utilized LlamaIndex to build a basic setup, acknowledging that while &quot;pro&quot; graph databases like Neo4j offer power, they come with a &quot;steep learning curve for many AI practitioners.&quot; This pragmatic approach to tooling selection adds credibility; they aren&#039;t trying to build a perfect enterprise solution, but rather a functional prototype to test a hypothesis. Critics might note that using a basic framework like LlamaIndex could limit the system&#039;s ability to handle the full scale of a production environment, but for a proof-of-concept, it&#039;s a reasonable trade-off.</p>
+<figure class="inline-illustration">
+    <img src="../../images/99781630-7b0b-4e0d-923e-39cdb4e86d5f.webp" alt="Graph rag in customer service - beyond the buzz (part 1: Community summaries)" loading="lazy" width="600" height="315">
+  </figure>
+
+<h2>The Power of Community Summaries</h2>
+<p>The core innovation tested here is the &quot;Community Summary.&quot; Instead of retrieving isolated text chunks, the system groups related entities and summarizes their relationships. NO BS AI observes that these summaries &quot;tend to normalize entity names,&quot; turning variations like &quot;scaling,&quot; &quot;scaled recipes,&quot; and &quot;Scaling&quot; into a single, consistent concept. This normalization is a quiet game-changer. It removes the burden from the Large Language Model to figure out if two different phrases mean the same thing, allowing it to focus on answering the user&#039;s actual question.</p>
+<p>The structure of these summaries is equally deliberate. &quot;The summaries usually begins with the introduction of 2 or more entities which are (inter)connected, then define the nature of each connection,&quot; the piece argues. This predictable format ensures that the context fed back into the final answer generator is dense and structured, not a scattered collection of sentences. The editors demonstrate this with a query about why a user can&#039;t &quot;scale&quot; a recipe. A traditional system might just pull a FAQ about membership upgrades. The Graph RAG system, however, synthesizes information about membership, recipe compatibility, and specific device models.</p>
+<blockquote>&quot;Thanks to the Community Summaries which often gather multiple interconnected entities in the same summary, it is possible to detect that the app Cookidoo can indeed provide Scaled recipes, but also provides dedicated recipes to specific Thermomix models.&quot;</blockquote>
+<p>This ability to see the &quot;related structures/systems&quot; is where the technology shines. It moves the conversation from &quot;your membership is expired&quot; to a nuanced explanation involving recipe compatibility and potential technical issues. The piece notes that this allows the system to uncover insights a standard RAG simply cannot, such as the fact that a specific recipe might be unsuitable for a user&#039;s specific appliance model.</p>
+<h2>The Cost of Complexity</h2>
+<p>Despite the promising results, the editors remain grounded in economic reality. &quot;We don&#039;t have such a system in production,&quot; they admit, citing the need for more data to determine if improvements are consistent. The biggest hurdle remains the &quot;increased processing costs associated with Graph RAG systems.&quot; This is a vital counterpoint that often gets lost in the enthusiasm for new AI capabilities. Building a graph, running community detection algorithms like Leiden, and generating summaries for every community is computationally expensive.</p>
+<p>The article concludes that the main advantages are &quot;more structured and normalized contexts&quot; and the ability to &quot;gather multiple entities into one Community Summary.&quot; However, they caution that a full-blown system requires features like graph traversal, which they plan to explore in future posts. This transparency about the current limitations prevents the piece from feeling like a sales pitch. It acknowledges that while the theory is sound, the practical implementation is still a work in progress.</p>
+<blockquote>&quot;We need more data to determine whether these improvements will be consistently achievable—particularly when factoring in the increased processing costs associated with Graph RAG systems.&quot;</blockquote>
+<h2>Bottom Line</h2>
+<p>The strongest part of this argument is its refusal to accept Graph RAG as a solved problem, instead treating it as a hypothesis to be tested against messy, real-world data. Its biggest vulnerability is the uncertainty around cost-benefit ratios; until the processing overhead is justified by a clear, measurable drop in support tickets, many businesses will hesitate to adopt it. Readers should watch for the next installment on graph traversal, which will determine if these community summaries can scale from a clever experiment to a production-ready engine.</p>
+      </div>
+
+      
+      
+      
+
+      <section id="excerpt"><section class="source-excerpts">
+      <h2>Sources</h2>
+      <article class="source-excerpt">
+      <h3>Graph rag in customer service - beyond the buzz (part 1: Community summaries)</h3>
+      <div class="source-meta">by Various &middot; <a href="../../publication/nobsai/index.html">NO BS AI</a> &middot; <a href="https://nobsai.substack.com/p/graph-rag-in-customer-service-beyond" target="_blank" rel="noopener">Read full article</a></div>
+      <p>Graph RAGs are all the rage now. From the business perspective, they hold the potential to enhance the quality of traditional RAG systems, delivering more accurate and contextually relevant answers to users. However, how this would work in real-world settings remains unclear. During our investigation, we found that most articles and tutorials on the subject were vague. The examples provided were often generic (“Paris IS_A city”) rather than demonstrating concrete benefits over traditional RAG systems through case studies. In this post, I provide observations based on experiments on real customer support data.</p><p>The theory of Graph RAG seems promising, especially given that we’re working on technical customer support. Our systems are usually based on documentations, manuals and blogposts, in particular about electronic devices. Such data has a deep structural logic of how the devices work, regarding both their internal construction and cooperation with other systems. So, a graph structure seems like a logical choice.</p><p>Graph RAG systems are quite complex, but the main idea is to detect entities and their relationships in text chunks. This allows to build an interconnected structure (a graph), where some entities (and by proxy, their corresponding chunks) are more strongly connected than others, building communities. Community detection is done using classic graph algorithms such as Leiden algorithm. After detection, it is possible to summarize the contents of each community using an LLM. The Community Summaries are an important feature of a Graph RAG retrieval system (however, in a full-blown Graph RAG, they are just one of many multi-level sources of information).</p><p>In this post, I focus specifically on Community Summaries and their potential role in a technical customer support RAG system. What unique value can they provide compared to a traditional RAG? Can they uncover insights that a standard RAG system cannot?</p><p>Although I observed some promising results, we don’t have such a system in production. We need more data to determine whether these improvements will be consistently achievable—particularly when factoring in the increased processing costs associated with Graph RAG systems.</p><p>Technical setting.</p> <p>I use a basic Graph RAG setup with LlamaIndex, similar to the one described in the post: https://docs.llamaindex.ai/en/stable/examples/cookbooks/GraphRAG_v1/</p><p>I chose to experiment with LlamaIndex primarily because “pro” graph databases like Neo4j often come with a steep learning curve for many AI practitioners. While LlamaIndex offers only basic support for Graph RAGs, it is sufficient for studying graph communities. However, it currently lacks ...</p>
+      <footer class="source-bio" aria-label="About this source">
+      <p class="sb-heading">About this source</p>
+      <p class="sb-meta"><span class="sb-type">independent newsletter</span> &middot; <span class="sb-country">United States</span> &middot; <span class="sb-funding">paid subscriptions (Substack)</span> &middot; <span class="sb-leaning">Skeptical-pragmatist on AI hype, anti-marketing-speak, avoids culture-war politics in favor of deflating vendor claims.</span></p>
+      <p class="sb-audit">Last reviewed: <time datetime="2026-04-08">2026-04-08</time> &middot; <a href="https://nobsai.substack.com/about" target="_blank" rel="noopener">source</a></p>
+    </footer>
+    </article>
+    </section></section>
+      
+    </article>
+  
+  </main>
+  <footer class="site-footer">
+    <div class="container">
+      <p><a href="../../privacy/index.html">Privacy</a> &middot; <a href="../../terms/index.html">Terms</a></p>
+    </div>
+  </footer>
+  <script>
+  (function() {
+    var params = new URLSearchParams(window.location.search);
+    var from = params.get('from');
+    if (from) {
+      var names = {
+        'foreign-policy':'Foreign Policy','ai-tech':'AI & Tech','housing-cities':'Housing & Cities',
+        'political-strategy':'Political Strategy','history':'History','science':'Science',
+        'culture':'Culture','economics':'Economics','faith':'Faith','writing-craft':'Writing & Craft',
+        'music':'Music','law-rights':'Law & Rights','public-health':'Public Health',
+        'philosophy':'Philosophy','media':'Media','defense':'Defense','china':'China'
+      };
+      var link = document.getElementById('back-link');
+      if (link) {
+        var name = names[from] || from;
+        link.href = '../../tag/' + from + '/index.html';
+        link.textContent = '\u2190 Back to ' + name;
+      }
+    }
+  })();
+  </script>
+</body>
+</html>
