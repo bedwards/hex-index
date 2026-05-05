@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Does the UK’s liver transplant matching algorithm systematically exclude younger patients? - Hex Index</title>
+  <link rel="stylesheet" href="../../styles.css">
+</head>
+<body class="reading-mode">
+  <header class="reading-header">
+    <a href="../../index.html" class="back-link" id="back-link">&larr; Back to Library</a>
+  </header>
+  <main class="reading-content">
+    
+    <article class="article-page">
+      <header class="article-header">
+        <h1>Does the UK’s liver transplant matching algorithm systematically exclude younger patients?</h1>
+        
+      <div class="article-meta">
+        <span class="author">Arvind Narayanan</span>
+        <span class="separator">&middot;</span>
+        <a href="../../publication/aisnakeoil/index.html" class="publication">
+          AI Snake Oil
+        </a>
+        <span class="separator">&middot;</span><time>Nov 11, 2024</time>
+        <span class="separator">&middot;</span><span class="read-time">18 min read</span>
+      </div>
+      </header>
+
+      <div class="content-label">
+        <span class="label-text">Commentary by <a href="../../about/index.html">Hex Index staff</a></span>
+        <nav class="content-nav">
+          
+          <a href="https://www.normaltech.ai/p/does-the-uks-liver-transplant-matching" target="_blank" rel="noopener">Original article &rarr;</a>
+        </nav>
+      </div>
+
+      
+      <div class="article-content">
+        <p>This piece exposes a chilling paradox at the heart of modern healthcare: an algorithm designed to save the most lives is systematically denying them to the young. Arvind Narayanan, writing for AI Snake Oil, dissects the UK&#039;s liver transplant matching system to reveal how a well-intentioned utilitarian calculation has devolved into a mechanism that effectively writes off patients under 45, regardless of how critically ill they are. For busy leaders in health policy, this is not just a technical glitch; it is a stark warning about the hidden costs of outsourcing life-and-death decisions to opaque models.</p>
+<h2>The Illusion of Optimization</h2>
+<p>The core of Narayanan&#039;s argument rests on the distinction between what an algorithm is told to predict and what we actually want it to achieve. The UK system, implemented in 2018, calculates a Transplant Benefit Score (TBS) by comparing a patient&#039;s predicted survival with a transplant against their predicted survival without one. On paper, this should favor younger patients who have more potential life years to gain. Narayanan writes, &quot;Given this description, one would expect that the algorithm would favor younger patients, as they will potentially gain many more decades of life through a transplant compared to older patients.&quot; Yet, the reality is the exact opposite.</p>
+<figure class="inline-illustration">
+    <img src="../../images/54ce7973-1701-48f2-9e19-8724a7aff2df.webp" alt="Does the UK’s liver transplant matching algorithm systematically exclude younger patients?" loading="lazy" width="600" height="315">
+  </figure>
+
+<p>The failure lies in a specific design choice: the model caps survival predictions at five years. Narayanan explains that this was likely a pragmatic decision due to data availability, but the consequence is catastrophic for fairness. &quot;Capping survival at five years in effect diminishes the benefits for younger patients as it underestimates the gain in life years by predicting lifetime gain over 5 years, as opposed to the total lifetime gain.&quot; By truncating the timeline, the algorithm ignores the decades of life a 20-year-old stands to lose, while an 80-year-old&#039;s remaining years fit neatly within the five-year window. This is a classic &quot;target-construct mismatch,&quot; where the metric being optimized diverges from the moral goal of saving the most life-years.</p>
+<blockquote>&quot;The choice of a 5-year period seems to be because of data availability... In our experience, there is almost always some difficulty that prevents accurately measuring the true construct of interest, which is why this is one of the recurring flaws we identify in the Against Predictive Optimization paper.&quot;</blockquote>
+<p>Critics might argue that without long-term data, the system had to rely on what was available, and that any system is better than the chaos of human bias. However, Narayanan counters that the alternative was not chaos, but a simpler, transparent formula that did not systematically penalize youth. The complexity here is not a feature; it is a shield.</p>
+<h2>The Black Box and the Human Cost</h2>
+<p>The article moves from technical failure to human tragedy, centering on the experience of Sarah Meredith, a 31-year-old patient who discovered her fate was being decided by a score she couldn&#039;t see. Narayanan highlights the toxic combination of medical paternalism and algorithmic mystique. &quot;Meredith was repeatedly told she wouldn&#039;t understand,&quot; he notes, illustrating how the system&#039;s opacity prevents accountability. The lack of a physician override or an appeals process means that a mathematical error becomes a death sentence.</p>
+<p>The investigation reveals a disturbing consensus among medical professionals that the system is broken. Narayanan quotes Palak Trivedi, a consultant hepatologist, who states, &quot;If you&#039;re below 45 years, no matter how ill, it is impossible for you to score high enough to be given priority scores on the list.&quot; This is not a theoretical risk; it is a documented exclusion. The algorithm effectively treats a young person&#039;s death as less tragic than an older person&#039;s, not because of the value of the life, but because of the arbitrary five-year horizon.</p>
+<p>The piece also uncovers a second, bizarre flaw: the algorithm initially predicted that patients with cancer would survive longer than those without, leading to cancer patients being rarely allocated livers. Narayanan describes this as &quot;algorithmic absurdity,&quot; noting that the model learned from data where cancer patients received better care, not that cancer itself was benign. &quot;This finding is reminiscent of a well-known failure from a few decades ago wherein a model predicted that patients with asthma were at lower risk of developing complications from pneumonia,&quot; he writes, drawing a parallel to historical failures where correlation was mistaken for causation.</p>
+<blockquote>&quot;The fact that there are two different sets of models may also explain why it went undetected for so long — the problem is not obvious from the regression coefficients and can only be detected by simulating a patient population.&quot;</blockquote>
+<p>This section underscores a critical vulnerability in predictive AI: the inability of stakeholders to interrogate the logic. While the model uses interpretable regression, the separation of patient groups into different models created a blind spot that only a simulation could reveal. Narayanan argues that this obscurity is dangerous, noting that the failure was buried in the comment-and-response section of an academic paper, &quot;the academic equivalent of Wikipedia&#039;s Talk pages.&quot;</p>
+<h2>The Ethical Vacuum</h2>
+<p>Finally, Narayanan addresses the philosophical underpinnings of the system. The algorithm enforces a rigid utilitarianism that ignores concepts of deservingness or the societal impact of losing a young person. &quot;Predictive logic bakes in a utilitarian worldview — the most good for the greatest number,&quot; he observes. This framework struggles to account for the intuition that a child or young adult, whose disease was not self-inflicted, deserves a different consideration than an older adult with lifestyle-related conditions.</p>
+<p>The article suggests that the drive for efficiency has overshadowed the need for ethical nuance. &quot;It seems at least plausible that this complexity is justified in this context because health outcomes are much more predictable than who will commit a crime,&quot; Narayanan concedes, but the evidence suggests the complexity is actually a liability. The system saves more lives overall than the previous regional system, but it does so by sacrificing the most vulnerable cohorts. This trade-off was never explicitly debated; it was simply baked into the code.</p>
+<blockquote>&quot;The objective of the matching system is to identify the recipient whose life expectancy would be increased the most through the transplant. The obvious way to do this is to predict each patient&#039;s expected survival time with and without the transplant. This is almost what the algorithm does, but not quite.&quot;</blockquote>
+<h2>Bottom Line</h2>
+<p>Arvind Narayanan delivers a devastating critique of the UK&#039;s liver allocation algorithm, proving that predictive models can be mathematically sound yet morally bankrupt when the target variable is misaligned with human values. The strongest part of the argument is the exposure of the &quot;five-year cap&quot; as the root cause of age discrimination, a flaw that persisted for years due to a lack of transparency and oversight. The biggest vulnerability in the current system is its reliance on data availability rather than ethical constructs, a trap that health systems globally must avoid. As the executive branch and health agencies increasingly turn to AI for resource allocation, the lesson is clear: if you cannot explain why a young person is being denied a life-saving organ, the algorithm is broken, not the patient.</p>
+      </div>
+
+      
+      
+      
+
+      <section id="excerpt"><section class="source-excerpts">
+      <h2>Sources</h2>
+      <article class="source-excerpt">
+      <h3>Does the UK’s liver transplant matching algorithm systematically exclude younger patients?</h3>
+      <div class="source-meta">by Arvind Narayanan &middot; <a href="../../publication/aisnakeoil/index.html">AI Snake Oil</a> &middot; <a href="https://www.normaltech.ai/p/does-the-uks-liver-transplant-matching" target="_blank" rel="noopener">Read full article</a></div>
+      <p>By Arvind Narayanan, Angelina Wang, Sayash Kapoor, and Solon Barocas</p><p>Predictive algorithms are used in many life-or-death situations. In the paper Against Predictive Optimization, we argued that the use of predictive logic for making decisions about people has recurring, inherent flaws, and should be rejected in many cases.</p><p>A wrenching case study comes from the UK’s liver allocation algorithm, which appears to discriminate by age, with some younger patients seemingly unable to receive a transplant, no matter how ill. What went wrong here? Can it be fixed? Or should health systems avoid using algorithms for liver transplant matching?</p><p>How the liver allocation algorithm works.</p> <p>The UK nationalized its liver transplant system in 2018, replacing previous regional systems where livers were prioritized based on disease severity.1 When a liver becomes available, the new algorithm uses predictive logic to calculate how much each patient on the national waiting list would benefit from being given that liver.&nbsp;</p><p>Specifically, the algorithm predicts how long each patient would live if they were given that liver, and how long they would live if they didn’t get a transplant. The difference between the two is the patient’s Transplant Benefit Score (TBS). Patients are sorted in decreasing order of the score, and the top patient is offered the liver (if they decline, the next patient is offered, and so on).</p><p>Given this description, one would expect that the algorithm would favor younger patients, as they will potentially gain many more decades of life through a transplant compared to older patients. If the algorithm has the opposite effect, either the score has been inaccurately portrayed or it is being calculated incorrectly. We’ll see which one it is. But first, let’s discuss a more basic question.</p><p>Why is predictive AI even needed?.</p> <p>Discussions of the ethics of algorithmic decision making often narrowly focus on bias, ignoring the question of whether it is legitimate to use an algorithm in the first place. For example, consider pretrial risk prediction in the criminal justice system. While bias is a serious concern, a deeper question is whether it is morally justified to deny defendants their freedom based on a prediction of what they might do rather than a determination of guilt, especially when that prediction is barely more accurate than a coin flip.&nbsp;</p><p>Organ transplantation is different in many ways. The health system needs to make efficient and ethical use of a very limited ...</p>
+      <footer class="source-bio" aria-label="About this source">
+      <p class="sb-heading">About this source</p>
+      <p class="sb-meta"><span class="sb-type">academic newsletter</span> &middot; <span class="sb-country">United States, New Jersey</span> &middot; <span class="sb-funding">free Substack, university salary, book</span> &middot; <span class="sb-affiliations">Princeton University (Center for Information Technology Policy)</span> &middot; <span class="sb-leaning">Academic AI skeptics pushing back on existential-risk framings and on snake-oil predictive AI; pragmatic, pro-regulation, wary of hype cycles.</span></p>
+      <p class="sb-audit">Last reviewed: <time datetime="2026-04-08">2026-04-08</time> &middot; <a href="https://www.aisnakeoil.com/" target="_blank" rel="noopener">source</a></p>
+    </footer>
+    </article>
+    </section></section>
+      
+    </article>
+  
+  </main>
+  <footer class="site-footer">
+    <div class="container">
+      <p><a href="../../privacy/index.html">Privacy</a> &middot; <a href="../../terms/index.html">Terms</a></p>
+    </div>
+  </footer>
+  <script>
+  (function() {
+    var params = new URLSearchParams(window.location.search);
+    var from = params.get('from');
+    if (from) {
+      var names = {
+        'foreign-policy':'Foreign Policy','ai-tech':'AI & Tech','housing-cities':'Housing & Cities',
+        'political-strategy':'Political Strategy','history':'History','science':'Science',
+        'culture':'Culture','economics':'Economics','faith':'Faith','writing-craft':'Writing & Craft',
+        'music':'Music','law-rights':'Law & Rights','public-health':'Public Health',
+        'philosophy':'Philosophy','media':'Media','defense':'Defense','china':'China'
+      };
+      var link = document.getElementById('back-link');
+      if (link) {
+        var name = names[from] || from;
+        link.href = '../../tag/' + from + '/index.html';
+        link.textContent = '\u2190 Back to ' + name;
+      }
+    }
+  })();
+  </script>
+</body>
+</html>
