@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>New LLM pre-training and post-training paradigms - Hex Index</title>
+  <link rel="stylesheet" href="../../styles.css">
+</head>
+<body class="reading-mode">
+  <header class="reading-header">
+    <a href="../../index.html" class="back-link" id="back-link">&larr; Back to Library</a>
+  </header>
+  <main class="reading-content">
+    
+    <article class="article-page">
+      <header class="article-header">
+        <h1>New LLM pre-training and post-training paradigms</h1>
+        
+      <div class="article-meta">
+        <span class="author">Sebastian Raschka</span>
+        <span class="separator">&middot;</span>
+        <a href="../../publication/sebastianraschka/index.html" class="publication">
+          Ahead of AI
+        </a>
+        <span class="separator">&middot;</span><time>Aug 17, 2024</time>
+        <span class="separator">&middot;</span><span class="read-time">23 min read</span>
+      </div>
+      </header>
+
+      <div class="content-label">
+        <span class="label-text">Commentary by <a href="../../about/index.html">Hex Index staff</a></span>
+        <nav class="content-nav">
+          
+          <a href="https://magazine.sebastianraschka.com/p/new-llm-pre-training-and-post-training" target="_blank" rel="noopener">Original article &rarr;</a>
+        </nav>
+      </div>
+
+      
+      <div class="article-content">
+        <p>Sebastian Raschka cuts through the noise of hundreds of monthly AI papers to reveal a quiet but seismic shift: the era of brute-force data scaling is ending, replaced by a ruthless obsession with data quality and synthetic augmentation. For busy professionals tracking the AI landscape, this analysis is vital because it exposes the hidden engineering trade-offs behind the latest models from Apple, Google, and Alibaba, proving that raw parameter counts no longer guarantee dominance.</p>
+<h2>The Quality Over Quantity Pivot</h2>
+<p>Raschka begins by dismantling the assumption that more data always equals better performance. He points to Alibaba&#039;s Qwen 2, which achieved competitive results using significantly fewer tokens than its peers, provided those tokens were rigorously filtered. &quot;One of the focus areas has been improving the data filtering pipeline to remove low-quality data and enhancing data mixing to increase data diversity,&quot; Raschka writes. This observation is critical; it suggests the industry has hit a point of diminishing returns on raw internet scrapes. The argument lands because it aligns with the practical reality that garbage in still produces garbage out, regardless of model size.</p>
+<figure class="inline-illustration">
+    <img src="../../images/4b5d8a6b-dc95-4915-a4d6-36d888eada95.webp" alt="New LLM pre-training and post-training paradigms" loading="lazy" width="600" height="315">
+  </figure>
+
+<p>However, the most striking revelation in Raschka&#039;s analysis is the heavy reliance on synthetic data—using existing AI models to generate training material for new ones. He notes that Qwen 2 used previous generations of itself to &quot;synthesize additional pre-training data&quot; and create high-quality instruction pairs. This creates a fascinating, if slightly circular, feedback loop. Critics might note that training on AI-generated data risks &quot;model collapse,&quot; where errors compound over generations, but Raschka&#039;s evidence suggests that when combined with strict human filtering, this approach currently yields superior efficiency.</p>
+<blockquote>&quot;More is better, but only if it meets certain quality standards.&quot;</blockquote>
+<h2>Apple&#039;s Three-Stage Discipline</h2>
+<p>Moving to Apple&#039;s Foundation Models, Raschka highlights a disciplined, three-stage pre-training process that prioritizes specific skills over general breadth. He praises the company for respecting `robots.txt` files and decontaminating benchmark data, actions that are increasingly rare in the industry. &quot;Quality was much more important than quantity,&quot; Raschka observes, noting that Apple&#039;s team deliberately down-weighted lower-quality web crawls in favor of math and code.</p>
+<p>This approach is particularly notable for its use of knowledge distillation, where a massive &quot;teacher&quot; model trains a smaller &quot;student&quot; model. Raschka explains that the on-device Apple model was &quot;distilled and pruned from a larger 6.4-billion-parameter model,&quot; allowing it to punch above its weight class. This is a strategic masterstroke for mobile deployment, where compute and battery life are constrained. The core of the argument is that the future of AI isn&#039;t just about building bigger servers; it&#039;s about compressing intelligence into devices we carry in our pockets.</p>
+<p>Yet, Raschka acknowledges the opacity that remains. He admits, &quot;Unfortunately, another theme of the technical reports is that details about the dataset are scarce,&quot; a frustration shared by the entire research community. Without full transparency on data sources, it is difficult to independently verify the robustness of these quality claims.</p>
+<h2>The Post-Training Convergence</h2>
+<p>In the realm of post-training, Raschka identifies a clear convergence toward Direct Preference Optimization (DPO) as the new standard for aligning models with human values. He contrasts this with older, more complex reinforcement learning methods, noting that the SFT (Supervised Fine-Tuning) plus DPO pipeline is becoming dominant due to its stability and ease of use. &quot;The SFT+DPO approach seems to be the most popular preference tuning strategy at the moment due to the ease of use compared to other methods,&quot; he writes.</p>
+<p>This shift matters because it lowers the barrier to entry for creating aligned models, potentially democratizing access to high-quality AI assistants. However, the reliance on synthetic data in this phase also raises questions about the diversity of human preferences being captured. If the training data is generated by the model itself, there is a risk of narrowing the scope of what the AI considers &quot;helpful&quot; or &quot;harmless.&quot;</p>
+<h2>Bottom Line</h2>
+<p>Raschka&#039;s analysis provides a crucial corrective to the hype cycle, demonstrating that the next leap in AI capability will come from smarter data curation and architectural efficiency rather than just scaling up. The strongest part of his argument is the empirical evidence that smaller, cleaner datasets outperform massive, noisy ones, a lesson that will likely reshape how organizations approach their own AI strategies. The biggest vulnerability remains the lack of transparency in data sourcing, which leaves the industry to trust vendor claims over independent verification.</p>
+      </div>
+
+      
+      
+      
+
+      <section id="excerpt"><section class="source-excerpts">
+      <h2>Sources</h2>
+      <article class="source-excerpt">
+      <h3>New LLM pre-training and post-training paradigms</h3>
+      <div class="source-meta">by Sebastian Raschka &middot; <a href="../../publication/sebastianraschka/index.html">Ahead of AI</a> &middot; <a href="https://magazine.sebastianraschka.com/p/new-llm-pre-training-and-post-training" target="_blank" rel="noopener">Read full article</a></div>
+      <p>The development of large language models (LLMs) has come a long way, from the early GPT models to the sophisticated open-weight LLMs we have today. Initially, the LLM training process focused solely on pre-training, but it has since expanded to include both pre-training and post-training. Post-training typically encompasses supervised instruction fine-tuning and alignment, which was popularized by ChatGPT.</p><p>Training methodologies have evolved since ChatGPT was first released. In this article, I review the latest advancements in both pre-training and post-training methodologies, particularly those made in recent months.</p><p>There are hundreds of LLM papers each month proposing new techniques and approaches. However, one of the best ways to see what actually works well in practice is to look at the pre-training and post-training pipelines of the most recent state-of-the-art models. Luckily, four major new LLMs have been released in the last months, accompanied by relatively detailed technical reports.</p><p>In this article, I focus on the pre-training and post-training pipelines of the following models:</p><p>Alibaba's Qwen 2</p><p>Apple Intelligence Foundation Language Models</p><p>Google's Gemma 2</p><p>Meta AI's Llama 3.1</p><p>These models are presented in order based on the publication dates of their respective technical papers on arXiv.org, which also happens to align with their alphabetical order.</p><p>This article is a passion project that I created in my free time and over the weekends. If you find it valuable and would like to support my work, please consider purchasing a copy of my books and recommending them to your colleagues. Your review on Amazon would also be greatly appreciated!</p><p>Build a Large Language Model (from Scratch) is a highly focused book dedicated to coding LLMs from the ground up in PyTorch, covering everything from pre-training to post-training—arguably the best way to truly understand LLMs.</p><p>Machine Learning Q and AI is a great book for those who are already familiar with the basics; it dives into intermediate and advanced concepts covering deep neural networks, vision transformers, multi-GPU training paradigms, LLMs, and many more.</p><p>Machine Learning with PyTorch and Scikit-Learn is a comprehensive guide to machine learning, deep learning, and AI, offering a well-balanced mix of theory and practical code. It's the ideal starting point for anyone new to the field.&nbsp;</p><p>1. Alibaba's Qwen 2.</p> <p>Let's begin with Qwen 2, a really strong LLM model family that is competitive with other major LLMs. However, for some reason, it's less popular than the open-weight models from ...</p>
+      <footer class="source-bio" aria-label="About this source">
+      <p class="sb-heading">About this source</p>
+      <p class="sb-meta"><span class="sb-type">individual newsletter</span> &middot; <span class="sb-country">United States, Wisconsin</span> &middot; <span class="sb-funding">paid Substack subscriptions, books</span> &middot; <span class="sb-affiliations">Lightning AI (staff research engineer)</span> &middot; <span class="sb-leaning">Technical ML researcher focused on LLM internals and training; politically near-absent, culturally aligned with open-source ML practice.</span></p>
+      <p class="sb-audit">Last reviewed: <time datetime="2026-04-08">2026-04-08</time> &middot; <a href="https://magazine.sebastianraschka.com/" target="_blank" rel="noopener">source</a></p>
+    </footer>
+    </article>
+    </section></section>
+      
+    </article>
+  
+  </main>
+  <footer class="site-footer">
+    <div class="container">
+      <p><a href="../../privacy/index.html">Privacy</a> &middot; <a href="../../terms/index.html">Terms</a></p>
+    </div>
+  </footer>
+  <script>
+  (function() {
+    var params = new URLSearchParams(window.location.search);
+    var from = params.get('from');
+    if (from) {
+      var names = {
+        'foreign-policy':'Foreign Policy','ai-tech':'AI & Tech','housing-cities':'Housing & Cities',
+        'political-strategy':'Political Strategy','history':'History','science':'Science',
+        'culture':'Culture','economics':'Economics','faith':'Faith','writing-craft':'Writing & Craft',
+        'music':'Music','law-rights':'Law & Rights','public-health':'Public Health',
+        'philosophy':'Philosophy','media':'Media','defense':'Defense','china':'China'
+      };
+      var link = document.getElementById('back-link');
+      if (link) {
+        var name = names[from] || from;
+        link.href = '../../tag/' + from + '/index.html';
+        link.textContent = '\u2190 Back to ' + name;
+      }
+    }
+  })();
+  </script>
+</body>
+</html>
