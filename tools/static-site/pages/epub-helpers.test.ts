@@ -141,6 +141,7 @@ describe('renderEpubChapterBody', () => {
       affiliateHtml: '',
       topicHeaderHtml: '\n  <h2 class="topic-header">Culture</h2>',
       isConsolidated: false,
+      originalUrl: 'https://somepub.substack.com/p/solo-article',
       sources: [],
       deepDives: [makeDeepDive(1)],
     });
@@ -163,6 +164,10 @@ describe('renderEpubChapterBody', () => {
     expect(out).toContain('DD1 para three.');
     expect(out).toContain('Read full deep dive');
 
+    // Source link is rendered after body.
+    expect(out).toContain('Read full article');
+    expect(out).toContain('https://somepub.substack.com/p/solo-article');
+
     // No multi-source plumbing.
     expect(out).not.toContain('Sources');
     expect(out).not.toContain('source-excerpt');
@@ -183,6 +188,7 @@ describe('renderEpubChapterBody', () => {
       affiliateHtml: '<div class="affiliate-section">books</div>',
       topicHeaderHtml: '',
       isConsolidated: true,
+      originalUrl: '',
       sources,
       deepDives,
     });
@@ -245,6 +251,7 @@ describe('renderEpubChapterBody', () => {
       affiliateHtml: '',
       topicHeaderHtml: '',
       isConsolidated: true,
+      originalUrl: '',
       sources,
       deepDives,
     });
@@ -291,6 +298,7 @@ describe('renderEpubChapterBody', () => {
       affiliateHtml: '',
       topicHeaderHtml: '',
       isConsolidated: true,
+      originalUrl: '',
       sources,
       deepDives: [],
     });

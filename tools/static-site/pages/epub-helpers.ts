@@ -298,6 +298,8 @@ export interface EpubChapterInput {
   /** XHTML-ready topic header (h2) for the first article in a topic group. */
   topicHeaderHtml: string;
   isConsolidated: boolean;
+  /** URL of the original source article or YouTube video. Used for the "Read full article" / "Watch video" link in single-source chapters. */
+  originalUrl: string;
   /** Sorted by position; ignored when isConsolidated is false. */
   sources: EpubChapterSource[];
   deepDives: EpubChapterDeepDive[];
@@ -349,13 +351,18 @@ export function renderEpubChapterBody(input: EpubChapterInput): string {
     for (const dd of input.deepDives) {
       deepDiveHtml += renderDeepDiveBlock(dd);
     }
+    const isYouTube = /(?:youtube\.com|youtu\.be)/i.test(input.originalUrl);
+    const linkLabel = isYouTube ? 'Watch video' : 'Read full article';
+    const sourceLink = input.originalUrl
+      ? `\n  <p class="source-link"><a href="${escAttr(input.originalUrl)}">${linkLabel}: ${escAttr(input.originalUrl)}</a></p>`
+      : '';
     return `${input.topicHeaderHtml}
   ${input.imageHtml}
   <div class="article-header">
     <h1>${escAttr(input.title)}</h1>
     <p class="article-meta">${escAttr(input.authorName)} · ${escAttr(input.publicationName)}${date ? ` · ${date}` : ''}${input.estimatedReadTimeMinutes ? ` · ${input.estimatedReadTimeMinutes} min read` : ''}</p>
   </div>
-  ${input.bodyHtml}
+  ${input.bodyHtml}${sourceLink}
   ${input.affiliateHtml}
   ${deepDiveHtml}`;
   }

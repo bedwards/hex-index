@@ -828,6 +828,7 @@ ${bookItems}
           affiliateHtml,
           topicHeaderHtml,
           isConsolidated: article.row.is_consolidated,
+          originalUrl: article.row.original_url ?? '',
           sources: epubSources,
           deepDives: epubDeepDives,
         });
