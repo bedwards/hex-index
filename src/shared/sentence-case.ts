@@ -22,7 +22,7 @@ export const KNOWN_ACRONYMS = new Set([
   'ICE','IDF','IMF','IRS','ISIS','LLC','LLM','MAGA','MIT','NASA','NATO','NBA','NCAA',
   'NFL','NHL','NHS','NIH','NSA','NYC','OECD','OPEC','PBS','PR','RNC','SCOTUS','SEC',
   'TSA','UK','UN','US','USA','USD','VA','WTO','XR','II','III','IV','VI','VII',
-  'VIII','IX','XI','XII','EV','EVs','UFO','UFOs','OK',
+  'VIII','IX','XI','XII','EV','EVs','UFO','UFOs','OK','ID','IDs',
 ]);
 
 // Proper nouns we want to preserve as Capital. Best-effort, expand over time.
@@ -84,11 +84,14 @@ export const PROPER_NOUNS_LC = new Set([
   'moses','muhammad','muslim','muslims','nazi','nazis','nineveh','orthodox','ottoman','ottomans',
   'protestant','quran','roman','romans','sikh','soviet','soviets','sparta','torah','troy',
   'vatican',
+  // US government institutions + political parties (plural party names only — avoid adjectival ambiguity)
+  'capitol','congress','congressional','congressman','congressmen','congresswoman','congresswomen',
+  'democrats','pentagon','republicans','senate','senator','senators',
   // common figures + leaders the loop sees often
-  'altman','bezos','biden','buffett','bush','carter','clinton','cohn','dimon','doctorow',
+  'altman','bezos','biden','buffett','bush','carlson','carter','clinton','cohn','dimon','doctorow',
   'eisenhower','franklin','gates','hamilton','hassabis','jefferson','jinping','jobs','kennedy',
   'lincoln','madison','musk','netanyahu','nixon','obama','powell','putin','raskin','reagan',
-  'roosevelt','snowden','truman','xi','yellen','zelensky','zuckerberg',
+  'roosevelt','snowden','truman','tucker','xi','yellen','zelensky','zuckerberg',
   // months + days (always capitalized)
   'april','august','december','february','january','july','june','march','may','monday',
   'november','october','saturday','september','sunday','thursday','tuesday','wednesday','friday',
