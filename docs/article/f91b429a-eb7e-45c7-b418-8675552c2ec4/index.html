@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>How we calculate our pele ratings - Hex Index</title>
+  <link rel="stylesheet" href="../../styles.css">
+</head>
+<body class="reading-mode">
+  <header class="reading-header">
+    <a href="../../index.html" class="back-link" id="back-link">&larr; Back to Library</a>
+  </header>
+  <main class="reading-content">
+    
+    <article class="article-page">
+      <header class="article-header">
+        <h1>How we calculate our pele ratings</h1>
+        
+      <div class="article-meta">
+        <span class="author">Nate Silver</span>
+        <span class="separator">&middot;</span>
+        <a href="../../publication/natesilver/index.html" class="publication">
+          
+        </a>
+        <span class="separator">&middot;</span><time>May 8, 2026</time>
+        <span class="separator">&middot;</span><span class="read-time">35 min read</span>
+      </div>
+      </header>
+
+      <div class="content-label">
+        <span class="label-text">Commentary by <a href="../../about/index.html">Hex Index staff</a></span>
+        <nav class="content-nav">
+          
+          <a href="https://www.natesilver.net/p/pele-methodology" target="_blank" rel="noopener">Original article &rarr;</a>
+        </nav>
+      </div>
+
+      
+      <div class="article-content">
+        <p>Most soccer fans treat team rankings as a static scoreboard of past glory, but Nate Silver argues that true predictive power requires a living model that accounts for economics, geography, and the shifting tides of player age. This piece is notable not just for its technical depth, but for its radical claim: that a team&#039;s future performance is often better predicted by its GDP and the market value of its youth than by its last match result. For the busy reader, this reframes the entire 2026 World Cup not as a tournament of luck, but as a collision of long-term structural forces.</p>
+<h2>The Architecture of Prediction</h2>
+<p>Silver opens by dismantling the traditional view of team strength. &quot;PELE stands for Predictive Elo with Lineup Equilibria,&quot; he writes, immediately signaling that this system prioritizes future probability over historical prestige. He contrasts this sharply with standard FIFA rankings, noting, &quot;we&#039;re not interested in which teams are most &#039;deserving&#039; of a particular slot. Rather, we&#039;re looking for factors that have a predictive impact.&quot; This distinction is crucial; it shifts the focus from moral judgment to statistical utility.</p>
+<figure class="inline-illustration">
+    <img src="../../images/f91b429a-eb7e-45c7-b418-8675552c2ec4.webp" alt="How we calculate our pele ratings" loading="lazy" width="600" height="315">
+  </figure>
+
+<p>The model&#039;s core innovation lies in its &quot;Lineup&quot; component, which anchors ratings to real-world data rather than just match outcomes. Silver explains, &quot;For years since 2005... team ratings are gradually &#039;nudged&#039; toward team aptitude as estimated by these player values.&quot; This approach acknowledges that a team&#039;s potential is physically embodied in its roster. By integrating age data, the system anticipates trajectories: &quot;younger teams are expected to improve, while older teams are expected to decline.&quot; This dynamic adjustment is what separates PELE from static historical lists.</p>
+<p>However, this reliance on market values introduces a potential blind spot. Critics might note that Transfermarkt valuations can be speculative bubbles, potentially overvaluing young stars in wealthy leagues while undervaluing gritty veterans in less commercialized regions. Silver&#039;s model assumes the market is efficient, a premise that doesn&#039;t always hold in the chaotic world of international football.</p>
+<h2>The Geography of Home Advantage</h2>
+<p>Perhaps the most compelling section of Silver&#039;s analysis is his granular treatment of home-field advantage (HFA). He rejects the idea that playing at home is a uniform bonus, arguing instead that &quot;HFA varies over time&quot; and is heavily influenced by logistics. He points out that &quot;traveling from Brussels to Amsterdam is less burdensome than flying from South Korea to Brazil,&quot; a nuance often ignored by simpler models.</p>
+<p>The treatment of altitude is particularly striking. Silver notes, &quot;As you may have experienced yourself, engaging in intensive physical activity at 10,000 feet is more than twice as hard as at 5000 feet.&quot; This leads to a nonlinear formula where teams like Bolivia gain a massive, physics-based edge. He further refines this by customizing HFA for each nation, observing that &quot;teams in far-flung and war-torn places tend to have larger HFAs, while richer nations in Europe and the Middle East tend to have smaller ones.&quot; This economic and geopolitical layering adds a depth of realism that pure match-result models miss.</p>
+<blockquote>The impact of home-field advantage is underrated by other systems, yet it is often the difference between a draw and a victory.</blockquote>
+<p>Silver also tackles the weight of match importance, rejecting the binary of &quot;friendly&quot; versus &quot;serious.&quot; He argues that &quot;low-impact matches, such as friendlies, tend to predict performance in future low-impact matches,&quot; while high-stakes games predict high-stakes outcomes. By applying a multiplier system—where World Cup matches count 1.6x and friendlies only 0.5x to 0.7x—he creates a more accurate signal-to-noise ratio. This is a sophisticated move that respects the context of every single game played.</p>
+<h2>Historical Continuity and Discontinuity</h2>
+<p>The article&#039;s scope is staggering, covering nearly 50,000 matches since 1872. Silver faces the difficult task of defining what constitutes a &quot;team&quot; over a century of shifting borders. He draws a parallel to hockey history, noting that his system recognizes an &quot;Original Ten&quot; of pre-FIFA nations, &quot;analogous to the NHL&#039;s &#039;Original Six&#039;.&quot; This historical framing helps ground the data in a recognizable lineage.</p>
+<p>However, the decisions on political continuity are where the model&#039;s philosophy shines. Silver writes, &quot;FIFA regards West Germany as having inherited pre-WW2 Germany&#039;s football legacy... Our definitions are stricter and treat major changes in national boundaries as discontinuous.&quot; He treats the breakup of the Soviet Union and Yugoslavia as resets, yet tolerates minor splits like &quot;Timor-Leste splitting from Indonesia.&quot; This approach prioritizes the economic and geographic reality of a nation over bureaucratic continuity. It&#039;s a bold choice that acknowledges that a team representing a dissolved state is fundamentally different from the state that replaced it.</p>
+<p>Critics might argue that treating every border change as a discontinuity ignores the cultural continuity of footballing traditions. A team like Czechoslovakia had a distinct identity that didn&#039;t vanish simply because the political map changed. Silver&#039;s strict adherence to geography risks losing some of the soul of the sport in favor of data purity.</p>
+<h2>The Economics of the Starting Line</h2>
+<p>Finally, Silver addresses the starting conditions of the model. In traditional Elo systems, everyone starts equal. Silver rejects this, arguing that &quot;which teams are strong at football is predictable&quot; based on first principles. He introduces a &quot;GDP prior,&quot; where a country&#039;s purchasing power parity and population size set the initial baseline. &quot;We use aggregate GDP, not GDP per capita, so both population size and living standards per citizen matter,&quot; he explains. This ensures that a nation like Argentina doesn&#039;t start the simulation at the same level as American Samoa, reflecting the reality that football success is inextricably linked to the resources available to the nation.</p>
+<p>This economic determinism is the model&#039;s most controversial yet defensible pillar. It suggests that the gap between the Global North and South in football is not just about talent, but about the structural capacity to develop it. As Silver puts it, &quot;Even if you&#039;d never seen a soccer game, you&#039;d know that Argentina is much larger, has a much longer football legacy, and comes from a region where football plays a much more prominent role in the culture.&quot;</p>
+<h2>Bottom Line</h2>
+<p>Silver&#039;s PELE system is a triumph of contextual modeling, successfully weaving together economics, geography, and roster dynamics to create a forecast that feels alive. Its greatest strength is the refusal to treat football as an isolated sport, instead viewing it as a reflection of the nations that play it. The model&#039;s biggest vulnerability remains its reliance on market values and GDP as proxies for talent, which may struggle to account for the unpredictable magic of a team that punches above its weight. For the 2026 World Cup, this is the most rigorous lens through which to view the coming chaos.</p>
+      </div>
+
+      
+      
+      
+
+      <section id="excerpt"><section class="source-excerpts">
+      <h2>Sources</h2>
+      <article class="source-excerpt">
+      <h3>How we calculate our pele ratings</h3>
+      <div class="source-meta">by Nate Silver &middot; <a href="../../publication/natesilver/index.html"></a> &middot; <a href="https://www.natesilver.net/p/pele-methodology" target="_blank" rel="noopener">Read full article</a></div>
+      <p>PELE is Silver Bulletin’s rating system for international soccer teams. Each team gets two principal ratings: a PELE rating describing its overall skill level and a Tilt rating indicating its propensity toward attacking or defensive play. Based on these ratings, we can evaluate past match results and forecast future matches. PELE ratings are updated continuously and backdated to 1872 (!). </p><p>PELE is also the backbone of our 2026 World Cup forecasts, set to be published later. We’ll update this article with any World Cup-specific adjustments once they’re ready.</p><p>We’re extremely proud of PELE, but it was a lot of work, and it’s not our simplest model. This article describes the system in detail.</p><p>The basics of PELE.</p> <p>PELE stands for Predictive Elo with Lineup Equilibria. We know it’s a little bit nerdy, but this backronym captures most of the essential features of the system:</p><p>Predictive means that the goal of PELE is to probabilistically forecast the outcome of future soccer games. These aren’t the FIFA rankings: we’re not interested in which teams are most “deserving” of a particular slot. Rather, we’re looking for factors that have a predictive impact. International football teams play relatively few important games, and some of the most predictive indicators don’t derive from match results alone.</p><p>Elo means that PELE shares many properties with an Elo rating system — and indeed, PELE ratings are designed to be comparable to Elo ratings such as the FIFA rankings or the World Football Elo Ratings.1 As with other Elo ratings systems, PELE ratings are updated iteratively at the end of each match, and updates are zero-sum. (If Brazil beats Bolivia 4-1, whatever gain Brazil makes in its PELE rating is offset by a loss of points for Bolivia.) However, PELE deviates from traditional Elo ratings in other important respects, as we’ll describe below.</p><p>Lineup means we use player market values and age data from Transfermarkt to help anchor PELE ratings. We look at the market values for the top 23 nationals2 with their respective club teams, with some soft positional constraints. For years since 2005 (when Transfermarkt’s coverage begins3) team ratings are gradually “nudged” toward team aptitude as estimated by these player values. Player ages, weighted by market value, also affect the system — younger teams are expected to improve, while older teams are expected to decline. PELE also uses market values to help calculate whether a team’s strengths ...</p>
+      <footer class="source-bio" aria-label="About this source">
+      <p class="sb-heading">About this source</p>
+      <p class="sb-meta"><span class="sb-type">individual newsletter</span> &middot; <span class="sb-country">United States, New York</span> &middot; <span class="sb-funding">paid Substack subscriptions</span> &middot; <span class="sb-affiliations">Polymarket (advisor)</span> &middot; <span class="sb-leaning">Self-styled Bayesian centrist; contrarian toward progressive &#039;indigo blob&#039; media, bullish on prediction markets, allergic to activism-as-journalism.</span></p>
+      <p class="sb-audit">Last reviewed: <time datetime="2026-04-08">2026-04-08</time> &middot; <a href="https://www.natesilver.net/" target="_blank" rel="noopener">source</a></p>
+    </footer>
+    </article>
+    </section></section>
+      
+    </article>
+  
+  </main>
+  <footer class="site-footer">
+    <div class="container">
+      <p><a href="../../privacy/index.html">Privacy</a> &middot; <a href="../../terms/index.html">Terms</a></p>
+    </div>
+  </footer>
+  <script>
+  (function() {
+    var params = new URLSearchParams(window.location.search);
+    var from = params.get('from');
+    if (from) {
+      var names = {
+        'foreign-policy':'Foreign Policy','ai-tech':'AI & Tech','housing-cities':'Housing & Cities',
+        'political-strategy':'Political Strategy','history':'History','science':'Science',
+        'culture':'Culture','economics':'Economics','faith':'Faith','writing-craft':'Writing & Craft',
+        'music':'Music','law-rights':'Law & Rights','public-health':'Public Health',
+        'philosophy':'Philosophy','media':'Media','defense':'Defense','china':'China'
+      };
+      var link = document.getElementById('back-link');
+      if (link) {
+        var name = names[from] || from;
+        link.href = '../../tag/' + from + '/index.html';
+        link.textContent = '\u2190 Back to ' + name;
+      }
+    }
+  })();
+  </script>
+</body>
+</html>
