@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Berkson&#039;s paradox - Hex Index</title>
+  <link rel="stylesheet" href="../../styles.css">
+</head>
+<body class="reading-mode">
+  <header class="reading-header">
+    <a href="../../index.html" class="back-link" id="back-link">&larr; Back to Library</a>
+  </header>
+  <main class="reading-content">
+    
+    <article class="wikipedia-page">
+      <header class="wikipedia-header">
+        <div class="type-badge">Wikipedia Deep Dive</div>
+        <h1>Berkson&#039;s paradox</h1>
+        <div class="article-meta">
+          <span class="read-time">14 min read</span>
+        </div>
+      </header>
+
+      
+
+      <div class="wikipedia-content"><p class="source-note">Based on <a href="https://en.wikipedia.org/wiki/Berkson&#039;s_paradox">Wikipedia: Berkson&#039;s paradox</a></p>
+<p>In 1935, Joseph Berkson, a biostatistician at the University of Minnesota, published a paper that would upend how researchers understood the relationship between disease and risk factors. He was not studying a new virus or a mysterious plague; he was studying the very nature of statistical observation itself. Berkson noticed something deeply unsettling in the data from his hospital: patients who were admitted for diabetes were significantly less likely to be admitted for cholecystitis (gallbladder inflammation) than patients in the general population. At first glance, the numbers suggested a protective effect—that having diabetes somehow shielded a person from gallbladder disease. This was a conclusion that defied biological logic, as there was no known physiological mechanism linking the two conditions in such a way. The truth, Berkson realized, was far more mundane and far more dangerous to the integrity of science: the hospital itself was lying.</p>
+<p>This is Berkson&#039;s paradox, a statistical phenomenon that has haunted everything from medical research to dating apps, and from academic admissions to the political analysis of judicial decisions. It is a result in conditional probability that is often counterintuitive, making it what statisticians call a &quot;veridical paradox.&quot; It is not a lie in the sense of deception, but a truth that reveals a falsehood when viewed through the wrong lens. It arises when there is a sampling bias inherent in a study design, specifically when the sample is selected based on the presence of one or more traits, effectively filtering out a massive portion of the population. The effect is related to the &quot;explaining away&quot; phenomenon in Bayesian networks and the conditioning on a &quot;collider&quot; in graphical models. When we condition on a variable that is caused by two other independent variables, we create a spurious correlation between those two variables, often a negative one, where none exists in reality.</p>
+<p>The paradox is most easily understood by looking at the most common example: the false observation of a negative correlation between two desirable traits. In the general population, a person might be attractive, talented, both, or neither. These traits are often statistically independent; being a great singer does not make you ugly, nor does being handsome make you tone-deaf. However, if you restrict your observation to a specific subset of the population—say, famous celebrities—you will likely observe a striking pattern: the attractive ones seem untalented, and the talented ones seem unattractive. This is not because beauty kills talent or vice versa. It is because the mechanism that gets you into the &quot;celebrity&quot; box requires you to have at least one of these traits in abundance. If you are neither attractive nor talented, you do not become a celebrity. You are invisible to the observer.</p>
+<p>Consequently, within the visible pool of celebrities, if you see someone who is stunningly beautiful, the statistical pressure suggests they are less likely to be exceptionally talented, because they had to rely on their looks to get in. Conversely, if you see someone who is incredibly talented but not conventionally handsome, they must have possessed that talent in such a high degree to overcome the lack of looks. The selection bias has created a seesaw effect. The population where both traits are absent has been systematically removed from the data set. This is the essence of the paradox: the absence of a trait in a selected group does not imply the presence of its opposite in the general world; it implies that the selection criteria have forced a trade-off that doesn&#039;t exist outside the sample.</p>
+<p>Berkson&#039;s original illustration involved a retrospective study examining a risk factor for a disease in a statistical sample from a hospital in-patient population. This is where the human cost of statistical error becomes most apparent. In the medical field, the stakes are life and death. If a researcher looks only at hospital records to determine if a specific risk factor causes a disease, they may conclude there is no link, or even a negative link, when in fact the link is strong and positive in the real world. Consider the example of diabetes and cholecystitis. In the general public, these two conditions might occur independently. A person with diabetes might get gallbladder disease just as often as anyone else. But in a hospital, the rules of admission change. To be in the hospital, you must have a reason. If you have diabetes, you might be admitted for that. If you have cholecystitis, you might be admitted for that. But if you have neither, you are not in the hospital. You are at home.</p>
+<p>Now, imagine a hospital patient who does <em>not</em> have diabetes. Why are they there? They must have a non-diabetes reason to enter the hospital. Cholecystitis is a very strong candidate for that reason. Therefore, among the non-diabetic patients in the hospital, the proportion with cholecystitis will be artificially high. Conversely, among the diabetic patients, they are already in the hospital because of their diabetes; they don&#039;t <em>need</em> cholecystitis to be there. So, the proportion of diabetics with cholecystitis in the hospital sample will look lower than the proportion of non-diabetics with cholecystitis. The data will scream that diabetes is protective against gallbladder disease. This result will be obtained regardless of whether there is any association between the two conditions in the general population. If a doctor makes a treatment decision based on this hospital data, they might stop screening diabetics for gallbladder issues, potentially missing a diagnosis that could save a life. The error is not in the math; the math is perfect. The error is in the assumption that the hospital sample represents the population.</p>
+<p>The phenomenon extends far beyond the sterile halls of a clinic. Mathematician Jordan Ellenberg, in his analysis of the paradox, presents a relatable scenario involving the dating pool. Imagine a person, let&#039;s call her Alice, who has specific standards for a partner. She will only date men whose combined score of &quot;niceness&quot; and &quot;handsomeness&quot; exceeds a certain threshold. In the general population of men, niceness and handsomeness are uncorrelated. A man can be kind and ugly, handsome and rude, kind and handsome, or rude and ugly. But Alice&#039;s selection criteria act as a filter. She does not date the men who are neither nice nor handsome. She also does not date men who are just barely nice and just barely handsome; they don&#039;t make the cut.</p>
+<p>As a result, in the subset of men that Alice actually dates, a strange inverse relationship emerges. The nicer men she dates do not have to be as handsome to qualify for her pool. Therefore, among the men she dates, the nicer ones are, on average, less handsome. Conversely, the handsome men she dates do not have to be as nice. So, the handsome ones are, on average, less nice. Alice might look at her dating history and conclude, &quot;The handsome ones tend not to be nice, and the nice ones tend not to be handsome.&quot; She might generalize this to the entire world, believing that beauty and kindness are mutually exclusive. This is a profound misunderstanding of reality. The men in her dating pool are not representative of all men. In fact, the average nice man she dates is actually more handsome than the average man in the general population, because the ugliest portion of the nice men was filtered out. The average handsome man she dates is actually nicer than the average man in the population. The negative correlation is an artifact of her high standards, a mathematical illusion created by the gatekeeping of the dating pool. The rude men she dates must have been exceptionally handsome to qualify, and the ugly men she dates must have been exceptionally nice.</p>
+<p>This dynamic is not limited to romance or medicine; it permeates the analysis of human institutions, including the judiciary. When a reader encounters an article suggesting that Republican Supreme Court justices used a specific statistical error to gut the Voting Rights Act (VRA), they are likely encountering the shadow of Berkson&#039;s paradox. The VRA requires courts to assess whether a district&#039;s map has a disparate impact on minority voters. If the data used to assess this impact comes from a sample that has been selected based on specific outcomes—such as only looking at districts where a lawsuit was filed, or only analyzing precincts where a specific demographic threshold was met—Berkson&#039;s paradox can create a false narrative of causality.</p>
+<p>For instance, if a court only looks at districts where a specific type of election challenge was successful, they might observe a negative correlation between a certain demographic characteristic and a specific voting outcome, leading them to believe there is no racial discrimination, when in fact the selection of the districts themselves (based on the presence of a lawsuit) has conditioned the data in a way that hides the true correlation. The &quot;collider&quot; in this scenario is the fact that the district is in the study sample. Just as the hospital patient must have a disease to be in the hospital, the district must have a specific legal characteristic to be in the study. If two independent factors (say, demographic composition and voting behavior) both contribute to the likelihood of a district being included in the sample, then within that sample, those two factors will appear negatively correlated. This can lead judges to dismiss claims of discrimination because the data, filtered through the lens of the selection bias, suggests the variables are unrelated or even inversely related.</p>
+<p>To understand the mechanics of this, we must look at the probability. Berkson&#039;s paradox occurs when two independent events, A and B, become conditionally dependent given that at least one of them occurs. Symbolically, if A and B are independent, P(A ∩ B) = P(A)P(B). However, if we condition on the event (A ∪ B) — meaning we only look at cases where A happens, or B happens, or both — the probability changes. The probability of A given (A ∪ B) is P(A) / P(A ∪ B). Since P(A ∪ B) is less than 1, this conditional probability is inflated. But if we know that B has occurred, the probability of A given (B and (A ∪ B)) is simply P(A), because B already satisfies the condition of (A ∪ B). This creates a situation where the presence of B seems to decrease the probability of A within the selected group, even though they are independent in the total population.</p>
+<p>Consider a quantitative example involving a stamp collector. Suppose a collector has 1,000 postage stamps. Of these, 300 are pretty, and 100 are rare. There is no correlation between prettiness and rarity in the total collection; 10% of all stamps are rare, and 10% of the pretty stamps are rare (30 stamps). Prettiness tells us nothing about rarity. Now, the collector puts the 370 stamps that are either pretty or rare on display. This is the selection criteria. The observer only sees the 370 stamps on the display board. Among these 370 stamps, 100 are rare. That is over 27% of the displayed stamps. However, among the 300 pretty stamps on display, only 30 are rare (still 10%). But among the 70 stamps on display that are <em>not</em> pretty (these must be the rare ones, since non-pretty non-rare stamps were not put on display), 100% are rare. If an observer only considers the stamps on display, they will observe a spurious negative relationship: the non-prettier stamps on display are almost certainly rare, while the pretty ones are mostly common. The observer concludes, &quot;Prettiness is negatively correlated with rarity.&quot; This is false. The correlation exists only because the &quot;neither pretty nor rare&quot; stamps were removed from the view. The selection bias has created a false reality.</p>
+<p>The effect is particularly large when one event is rare but strongly correlated with the other in the total population. If A is rare (P(A) is very small) but almost always occurs when B occurs, then conditioning on (A ∪ B) can completely reverse the perceived relationship. In a scenario where A occurs rarely unless B is present, B dramatically increases the likelihood of A in the general population. But if we condition on (A ∪ B), meaning we only look at cases where at least one occurs, A occurs always in the subset (because if B is there, A is there; if B is not there, A must be there for the condition to be met). Suddenly, B has no impact on the likelihood of A within the subset. A huge positive correlation in the real world is effectively removed or even flipped to a negative one in the selected sample.</p>
+<p>This is why the distinction between &quot;correlation&quot; and &quot;causation&quot; is not enough. One must also distinguish between &quot;correlation in the population&quot; and &quot;correlation in the sample.&quot; Berkson&#039;s paradox is a reminder that the way we collect data shapes the reality we see. It is a warning against the seduction of convenience. It is easy to study the patients who show up at the hospital. It is easy to study the celebrities who make the covers of magazines. It is easy to study the court cases that are appealed. But these are not the world. They are the world filtered through a sieve of selection.</p>
+<p>The implications for the analysis of judicial behavior, particularly regarding the Voting Rights Act, are profound. When legal scholars and justices analyze the success rates of certain types of claims, they must be acutely aware of the selection criteria that determined which cases made it to their docket. If the data is conditioned on the presence of a specific type of legal argument or a specific demographic outcome, the resulting correlations may be artifacts of the selection process rather than reflections of the underlying legal or social reality. A negative correlation observed in the data might be interpreted as evidence of a lack of discrimination, when in fact it is the result of Berkson&#039;s paradox masking the true positive correlation in the broader population. This is not a theoretical concern; it is a practical danger that can lead to the erosion of civil rights protections. If the court believes the data shows no racial bias because the biased cases were filtered out by the very nature of the legal system&#039;s selection process, they may vote to dismantle protections that are still desperately needed.</p>
+<p>The paradox also intersects with other statistical fallacies, such as Simpson&#039;s paradox and survivorship bias. While Simpson&#039;s paradox involves the reversal of a trend when data is aggregated across different groups, and survivorship bias involves focusing on those who &quot;survived&quot; a process while ignoring those who did not, Berkson&#039;s paradox is specifically about the conditioning on a collider—a variable that is caused by two other variables. In all these cases, the lesson is the same: the sample is not the population. The data we see is a distorted reflection of the truth, shaped by the mechanisms of selection.</p>
+<p>In the end, Berkson&#039;s paradox teaches us humility. It reminds us that our observations are limited by the boundaries of our samples. It warns us that the most obvious patterns in our data may be the most misleading. Whether we are doctors trying to cure a disease, daters looking for love, collectors curating a display, or judges interpreting the law, we must ask ourselves: who is missing from this picture? What have we filtered out? And how has that filtering changed the story the data tells? The answer to these questions is the difference between a statistical error and a profound truth. In the context of the Voting Rights Act, the cost of ignoring this paradox is not just a wrong calculation; it is the denial of a fundamental right. The human cost of statistical blindness is measured in the votes that are not counted, the districts that are not protected, and the communities that are left behind. The paradox is not just a mathematical curiosity; it is a mirror reflecting the biases of the observer, and in the case of the law, the biases of the observer can have devastating consequences for the vulnerable. We must look beyond the sample, beyond the hospital, beyond the celebrity, beyond the courtroom, to see the whole picture. Only then can we avoid the fallacy and understand the true nature of the world.</p></div>
+
+      
+
+      <footer class="wikipedia-footer">
+        <p class="source-link">
+          <a href="https://en.wikipedia.org/wiki/Berkson's_paradox" target="_blank" rel="noopener">
+            View original Wikipedia article &rarr;
+          </a>
+        </p>
+        <p class="rewrite-note">
+        This article has been rewritten from Wikipedia source material for enjoyable reading.
+        Content may have been condensed, restructured, or simplified.
+      </p>
+      </footer>
+
+      
+      <section class="related-articles">
+        <h2>Related Articles</h2>
+        <p class="related-intro">This deep dive was written in connection with these articles:</p>
+        <ul class="related-list">
+          
+      <li class="related-article-item">
+        <a href="../../article/586a1177-50df-4ea6-b744-d449317f5f96/index.html">
+          <strong>The simple statistical error republican supreme court justices used to gut the vra</strong>
+        </a>
+        <span class="article-meta">
+          by G. Elliott Morris in G. Elliott Morris
+        </span>
+      </li>
+        </ul>
+      </section>
+    
+    </article>
+  
+  </main>
+  <footer class="site-footer">
+    <div class="container">
+      <p><a href="../../privacy/index.html">Privacy</a> &middot; <a href="../../terms/index.html">Terms</a></p>
+    </div>
+  </footer>
+  <script>
+  (function() {
+    var params = new URLSearchParams(window.location.search);
+    var from = params.get('from');
+    if (from) {
+      var names = {
+        'foreign-policy':'Foreign Policy','ai-tech':'AI & Tech','housing-cities':'Housing & Cities',
+        'political-strategy':'Political Strategy','history':'History','science':'Science',
+        'culture':'Culture','economics':'Economics','faith':'Faith','writing-craft':'Writing & Craft',
+        'music':'Music','law-rights':'Law & Rights','public-health':'Public Health',
+        'philosophy':'Philosophy','media':'Media','defense':'Defense','china':'China'
+      };
+      var link = document.getElementById('back-link');
+      if (link) {
+        var name = names[from] || from;
+        link.href = '../../tag/' + from + '/index.html';
+        link.textContent = '\u2190 Back to ' + name;
+      }
+    }
+  })();
+  </script>
+</body>
+</html>
