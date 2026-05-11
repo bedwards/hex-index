@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The inference shift - Hex Index</title>
+  <link rel="stylesheet" href="../../styles.css">
+</head>
+<body class="reading-mode">
+  <header class="reading-header">
+    <a href="../../index.html" class="back-link" id="back-link">&larr; Back to Library</a>
+  </header>
+  <main class="reading-content">
+    
+    <article class="article-page">
+      <header class="article-header">
+        <h1>The inference shift</h1>
+        
+      <div class="article-meta">
+        <span class="author">Ben Thompson</span>
+        <span class="separator">&middot;</span>
+        <a href="../../publication/stratechery/index.html" class="publication">
+          Stratechery
+        </a>
+        <span class="separator">&middot;</span><time>May 11, 2026</time>
+        <span class="separator">&middot;</span><span class="read-time">12 min read</span>
+      </div>
+      </header>
+
+      <div class="content-label">
+        <span class="label-text">Commentary by <a href="../../about/index.html">Hex Index staff</a></span>
+        <nav class="content-nav">
+          <a href="#deep-dives">Deep dives</a><span class="separator">&middot;</span>
+          <a href="https://stratechery.com/2026/the-inference-shift/" target="_blank" rel="noopener">Original article &rarr;</a>
+        </nav>
+      </div>
+
+      
+      <div class="article-content">
+        <p>Ben Thompson&#039;s latest analysis cuts through the current hype cycle surrounding artificial intelligence hardware to reveal a coming architectural fracture. While the market obsesses over raw speed and the dominance of a single chipmaker, Thompson argues that the next decade of AI will be defined not by faster processors, but by a fundamental shift in how we value memory and latency. This is a crucial distinction for investors and technologists alike, as it suggests the current gold rush for high-bandwidth memory may be a temporary peak before a massive pivot to capacity-driven, cost-efficient systems.</p>
+<h2>The GPU Monoculture</h2>
+<p>Thompson begins by contextualizing the current dominance of Graphics Processing Units (GPUs), noting that their rise was a fortunate accident of parallel processing needs. &quot;Just as drawing pixels on a computer screen was a parallel process, which meant there was a direct connection between the number of processing units and graphics speed, making AI-related calculations was a parallel process,&quot; he writes. This historical parallel explains why Nvidia became the de facto standard: the hardware designed for video games happened to be perfect for training massive models.</p>
+<figure class="inline-illustration">
+    <img src="../../images/4f9fd5a5-df7a-4c1a-af8a-3bbfdcc2422a.webp" alt="The inference shift" loading="lazy" width="600" height="315">
+  </figure>
+
+<p>However, Thompson points out that this architecture is a &quot;jack of all trades, master of none&quot; for the future. The current model relies on linking thousands of chips together to create a single massive memory pool, a strategy that is incredibly expensive and energy-intensive. He illustrates the scale of this dependency by citing a recent deal where a major AI firm secured over 220,000 GPUs from a space company&#039;s data center simply to handle inference workloads. &quot;The GPUs Anthropic is contracting for... were originally used for training as well; the fact that GPUs are so flexible is a big advantage,&quot; Thompson notes. This flexibility is currently the industry&#039;s greatest asset, but it is also its biggest vulnerability.</p>
+<p>Critics might argue that Nvidia&#039;s software ecosystem (CUDA) creates a moat so deep that hardware alternatives cannot penetrate it, regardless of efficiency. Thompson acknowledges this inertia but suggests that economic pressure from the sheer scale of future workloads will eventually force a change.</p>
+<h2>The Wafer-Scale Experiment</h2>
+<p>Enter Cerebras Systems, a company attempting to break the &quot;reticle limit&quot;—the physical size constraint that forces traditional chipmakers to stitch smaller chips together. Thompson explains that Cerebras has managed to turn an entire silicon wafer into a single chip, eliminating the slow connections between separate units. The result is a machine with blistering speed. &quot;The WSE-3 has just over half the memory of an H100, but 6,000 times the memory bandwidth,&quot; he writes. This is a staggering statistic that redefines what is physically possible in silicon.</p>
+<p>Yet, Thompson is quick to temper the excitement. This approach, reminiscent of the ambitious but ultimately niche wafer-scale integration experiments of the 1980s, comes with severe trade-offs. The yield rates for manufacturing a single massive chip are notoriously difficult, driving up costs. Furthermore, the architecture is best suited for a specific type of workload: &quot;answer inference,&quot; where a human is waiting for a response. &quot;As long as everything fits in on-chip memory Cerebras&#039; speed is an incredible experience; the moment you need more memory... then Cerebras doesn&#039;t make much sense,&quot; Thompson warns. This limitation suggests that while Cerebras may win the race for immediate user satisfaction, it may not be the engine for the long-term future of autonomous systems.</p>
+<blockquote>The most important aspect for answer inference is token speed; the most important aspect for agentic inference, however, is memory.</blockquote>
+<h2>The Agentic Shift</h2>
+<p>The core of Thompson&#039;s argument lies in the distinction between &quot;answer inference&quot; and &quot;agentic inference.&quot; The former is about a human asking a question and getting a fast reply. The latter is about autonomous agents performing complex tasks without human intervention. Thompson posits that the requirements for these two modes are fundamentally opposed. For an agent working overnight to solve a logistics problem or manage a database, latency is irrelevant; capacity is everything.</p>
+<p>&quot;If an agent is waiting around for a job that is being run overnight, the agent doesn&#039;t know or care about the user experience impact; what is most important is being able to accomplish a task,&quot; Thompson writes. This insight flips the entire current hardware investment thesis on its head. If the future is dominated by agents, then the industry&#039;s obsession with high-bandwidth memory (HBM) and extreme compute speed becomes a misallocation of resources. &quot;If latency isn&#039;t the top priority, then slower and cheaper memory — like traditional DRAM, for example — makes a lot more sense,&quot; he argues.</p>
+<p>This shift implies a unbundling of the GPU. The current architecture forces a trade-off where high-speed compute sits idle while waiting for data, or high-speed memory sits idle while waiting for compute. Thompson suggests that future systems will prioritize &quot;good enough&quot; compute paired with massive, cheap storage hierarchies. This has profound geopolitical implications. &quot;China, meanwhile, for all of its lack of leading edge compute, has everything it needs for agentic inference: fast-enough (but not leading-edge) GPUs, fast-enough (but not leading-edge) CPUs, DRAM, hard drives, etc,&quot; he observes. The barrier to entry for running the next generation of AI agents may drop significantly lower than the barrier for training the models that power them.</p>
+<h2>Beyond Moore&#039;s Law</h2>
+<p>Thompson concludes by challenging the prevailing wisdom that computing speed must always increase. &quot;Jensen Huang regularly says that &#039;Moore&#039;s Law is Dead&#039;... Maybe the most profound implication of agents that act without humans in the loop, however, will be that Moore&#039;s Law doesn&#039;t matter, and that the way we get more compute is by realizing that the compute we have is already good enough,&quot; he writes. This is a radical departure from the tech industry&#039;s relentless pursuit of the next nanometer.</p>
+<p>He even points to the potential for space-based data centers, where older, larger, and slower chips would be more radiation-resistant and power-efficient. &quot;Slower chips actually make space data centers more viable,&quot; Thompson notes, highlighting how the constraints of the physical world might finally align with the economic realities of software. The argument here is that the &quot;inference shift&quot; is not just a hardware upgrade, but a philosophical pivot from speed to scale.</p>
+<h2>Bottom Line</h2>
+<p>Thompson&#039;s most compelling insight is that the market&#039;s current valuation of AI hardware is priced for a human-centric future that may be shrinking, while undervaluing the massive, latency-insensitive market of autonomous agents. The argument&#039;s greatest vulnerability is the sheer momentum of the current GPU ecosystem; even if a cheaper, slower architecture is theoretically superior for agents, displacing the entrenched software and hardware standards of the last decade will be a monumental task. Readers should watch closely for how hyperscalers begin to balance their portfolios between high-speed inference for users and high-capacity, low-cost infrastructure for agents.</p>
+      </div>
+
+      
+      
+      <section id="deep-dives" class="deep-dives">
+        <h2>Deep Dives</h2>
+        <p class="deep-dives-intro">Explore these related deep dives:</p>
+        <ul class="deep-dive-list">
+          
+      <li class="deep-dive-item">
+        <a href="../../wikipedia/wafer-scale-integration/index.html">
+          <strong>Wafer-scale integration</strong>
+        </a>
+        <p class="topic-summary">Cerebras&#039;s unique architecture abandons traditional chip packaging to build a single processor the size of a silicon wafer, directly challenging the industry standard of networking thousands of discrete GPUs described in the text.</p>
+      </li>
+
+      <li class="deep-dive-item">
+        <a href="../../wikipedia/cache-replacement-policies/index.html">
+          <strong>Cache replacement policies</strong>
+        </a>
+        <p class="topic-summary">The article identifies the &#039;KV cache&#039; as the critical bottleneck for inference speed, and this concept explains the specific memory management technique that allows large language models to generate text token-by-token without reprocessing the entire conversation history.</p>
+      </li>
+        </ul>
+      </section>
+    
+      
+
+      <section id="excerpt"><section class="source-excerpts">
+      <h2>Sources</h2>
+      <article class="source-excerpt">
+      <h3>The inference shift</h3>
+      <div class="source-meta">by Ben Thompson &middot; <a href="../../publication/stratechery/index.html">Stratechery</a> &middot; <a href="https://stratechery.com/2026/the-inference-shift/" target="_blank" rel="noopener">Read full article</a></div>
+      <p>Subscribe to get access.</p> 
+
+<p>Read more of this content when you subscribe today.</p>
+
+Log In
+
+
+
+<p>If you were looking for the ideal time to IPO, being a chip company in May 2026 is hard to beat. Reuters reported over the weekend:</p>
+
+
+<p>Cerebras Systems is set to raise the size and price of its initial public offering as soon as Monday, as demand for the artificial intelligence chipmaker’s shares continues to climb, two people familiar with the matter told Reuters on Sunday. The company is considering a new IPO price range of $150-$160 a share, up from $115-$125 a share, and raising the number of shares marketed to 30 million from 28 million, said the sources, who asked not to be identified because the information isn’t public yet.</p>
+
+
+<p>The fundamental driver of the ongoing surge in semiconductor stocks is, of course, AI, particularly the realization that agents are going to need a lot of compute. What Cerebras represents, however, is something broader: while the compute story for AI has been largely about GPUs, particularly from Nvidia, the future is going to look increasingly heterogeneous.</p>
+
+<p>The GPU Era.</p> 
+
+<p>The story of how Graphics Processing Units became the center of AI is a well-trodden one, but in brief:</p>
+
+
+Just as drawing pixels on a computer screen was a parallel process, which meant there was a direct connection between the number of processing units and graphics speed, making AI-related calculations was a parallel process, which meant there was a direct connection between the number of processing units and calculation speed.
+
+Nvidia enabled this dual-usage by making its graphics processors programmable, and created an entire software ecosystem called CUDA to make this programming accessible.
+
+The big difference between graphics and AI has been the size of the problem being solved — models are a lot bigger than video game textures — which has led to a dramatic expansion in high-bandwidth memory (HBM) per GPU, and dramatic innovations in terms of chip-to-chip networking to allow multiple chips to work together as one addressable system. Nvidia has been the leader in both.
+
+
+<p>The number one use case for GPUs has been training, which stresses the third point in particular. While the calculations within each training step are massively parallel, the steps themselves are serial: every GPU has to share its results with every other GPU before the next step can begin. This is why a trillion-parameter model ...</p>
+      <footer class="source-bio" aria-label="About this source">
+      <p class="sb-heading">About this source</p>
+      <p class="sb-meta"><span class="sb-type">individual creator</span> &middot; <span class="sb-country">Taiwan</span> &middot; <span class="sb-funding">paid subscriptions</span> &middot; <span class="sb-affiliations">Passport (podcast network, co-founder)</span> &middot; <span class="sb-leaning">Pro-market and pro-platform, generally skeptical of antitrust intervention in tech, libertarian-leaning on regulation while sympathetic to US strategic concerns about Chinese tech.</span></p>
+      <p class="sb-audit">Last reviewed: <time datetime="2026-04-08">2026-04-08</time> &middot; <a href="https://stratechery.com/about/" target="_blank" rel="noopener">source</a></p>
+    </footer>
+    </article>
+    </section></section>
+      
+    </article>
+  
+  </main>
+  <footer class="site-footer">
+    <div class="container">
+      <p><a href="../../privacy/index.html">Privacy</a> &middot; <a href="../../terms/index.html">Terms</a></p>
+    </div>
+  </footer>
+  <script>
+  (function() {
+    var params = new URLSearchParams(window.location.search);
+    var from = params.get('from');
+    if (from) {
+      var names = {
+        'foreign-policy':'Foreign Policy','ai-tech':'AI & Tech','housing-cities':'Housing & Cities',
+        'political-strategy':'Political Strategy','history':'History','science':'Science',
+        'culture':'Culture','economics':'Economics','faith':'Faith','writing-craft':'Writing & Craft',
+        'music':'Music','law-rights':'Law & Rights','public-health':'Public Health',
+        'philosophy':'Philosophy','media':'Media','defense':'Defense','china':'China'
+      };
+      var link = document.getElementById('back-link');
+      if (link) {
+        var name = names[from] || from;
+        link.href = '../../tag/' + from + '/index.html';
+        link.textContent = '\u2190 Back to ' + name;
+      }
+    }
+  })();
+  </script>
+</body>
+</html>

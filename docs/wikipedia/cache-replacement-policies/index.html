@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cache replacement policies - Hex Index</title>
+  <link rel="stylesheet" href="../../styles.css">
+</head>
+<body class="reading-mode">
+  <header class="reading-header">
+    <a href="../../index.html" class="back-link" id="back-link">&larr; Back to Library</a>
+  </header>
+  <main class="reading-content">
+    
+    <article class="wikipedia-page">
+      <header class="wikipedia-header">
+        <div class="type-badge">Wikipedia Deep Dive</div>
+        <h1>Cache replacement policies</h1>
+        <div class="article-meta">
+          <span class="read-time">13 min read</span>
+        </div>
+      </header>
+
+      
+
+      <div class="wikipedia-content"><p class="source-note">Based on <a href="https://en.wikipedia.org/wiki/Cache_replacement_policies">Wikipedia: Cache replacement policies</a></p>
+<p>In the nanosecond silence between a processor&#039;s request for data and its arrival, the fate of a computer&#039;s performance is decided. This is not a matter of raw speed alone, but of ruthless selection. Every second, a modern CPU generates millions of requests for information, yet the memory closest to the chip—the cache—can hold only a fraction of what is needed. When the cache fills to capacity, an algorithm must act as a gatekeeper, deciding which piece of data to discard to make room for the new. This decision, repeated billions of times per second, is governed by cache replacement policies, the optimizing instructions that determine whether a system flies or stalls.</p>
+<p>The stakes of these decisions are measured in two primary figures of merit: latency and hit ratio. The hit ratio describes the frequency with which a requested item is found within the cache; a high ratio means the computer rarely has to wait for slow main memory. Latency, conversely, measures the time it takes to retrieve that item once it is found. There is an inherent tension between these two metrics. The most efficient replacement strategy would theoretically track every detail of usage history to ensure the perfect hit ratio, but maintaining such a detailed log consumes time and processing power, thereby increasing latency. Every replacement strategy is, therefore, a compromise. It is a negotiation between the desire to know everything about the past to predict the future, and the need to make a decision so fast that the processor does not wait.</p>
+<p>The reality of these algorithms is often starkly different from their theoretical elegance. In the world of video and audio streaming, the hit ratio of standard caching strategies can plummet to near zero. This is not a failure of the hardware, but a mismatch between the algorithm and the data&#039;s nature. In a stream, each bit of data is read once, consumed, and never accessed again. This phenomenon, known as a compulsory miss, renders traditional strategies ineffective. Worse still, these algorithms often allow streaming data to flood the cache, pushing out older, critical information that will be needed again in moments. This is cache pollution, a state where the cache becomes so clogged with transient data that it ceases to function as a performance booster at all.</p>
+<h2>The Illusion of Perfection</h2>
+<p>If one were to design the theoretically perfect cache, it would discard the item that will not be needed for the longest time. This concept is known as Bélády&#039;s optimal algorithm, or the clairvoyant algorithm. It represents the gold standard, the unattainable ideal against which all other strategies are measured. In 1969, Laszlo Bélády proved that this policy minimizes the number of page faults. However, its implementation is impossible in the real world. To execute it, a system would need to know the entire future sequence of memory accesses. Since a general-purpose operating system cannot predict when a specific piece of data will be accessed next, Bélády&#039;s algorithm remains a theoretical construct.</p>
+<p>Yet, the existence of this optimal policy provides a crucial benchmark. By running experiments on specific workloads, engineers can calculate the practical minimum of page faults. This allows them to measure the effectiveness of any chosen algorithm against the absolute limit of what is possible. When a page fault occurs, the system must select a page to evict from the set currently in memory. Consider a sequence of accesses: 5, 0, and 1 are loaded into Frame 1, Frame 2, and Frame 3. When the system accesses 2, it must evict one of the existing frames. A clairvoyant algorithm would look ahead, see that 5 will not be needed soon, and discard it. A real-world algorithm must guess, often with limited information, making the wrong choice and suffering a performance penalty.</p>
+<h2>The Simplicity of Random and the Rigidity of FIFO</h2>
+<p>When complexity becomes a liability, the answer is often simplicity. Random replacement selects an item to discard purely by chance when space is needed. This algorithm requires no history, no tracking, and no complex data structures. It was notably used in ARM processors specifically for this simplicity, allowing for efficient stochastic simulation in hardware design. The trade-off is obvious: without memory of past usage, the cache behaves unpredictably. It might discard a frequently used item or keep a useless one, purely by luck.</p>
+<p>At the opposite end of the complexity spectrum lies the First-In, First-Out (FIFO) policy. Here, the cache behaves like a queue. Items are evicted in the exact order they were added, regardless of how often or how recently they were accessed. If a piece of data was accessed a billion times just before it was pushed to the back of the queue, FIFO does not care. It will be discarded the moment the queue fills up. This rigidity can be disastrous for workloads where older data is frequently reused. However, the FIFO queue has a distinct structural property: it does not behave like a stack. In a stack-based system, the most recently added item is the first to go. In a FIFO queue, it is the oldest.</p>
+<p>This structural distinction is vital. A stack-based eviction policy, which removes the most recently added block first, operates on the assumption that the newest data is the most likely to be transient. This is the logic behind the Least Recently Used (LRU) family&#039;s inverse, but applied to insertion time rather than access time. The FIFO algorithm&#039;s lack of awareness of access patterns makes it robust against certain types of cache pollution but vulnerable to others. It is a blunt instrument, effective only when the temporal locality of data is minimal or when the overhead of tracking usage is too high.</p>
+<h2>The Dominance of LRU and Its Variants</h2>
+<p>For decades, the Least Recently Used (LRU) algorithm has been the workhorse of caching. It operates on a simple principle: discard the item that has not been used for the longest time. To implement this, the system must track the &quot;age&quot; of every cache line. When a line is accessed, it becomes the &quot;most recently used,&quot; and the relative age of all other lines shifts. This tracking is cumbersome. It requires &quot;age bits&quot; for every cache line and constant updates to the ordering of the data. Every access, even a read, can trigger a reorganization of the cache&#039;s internal structure.</p>
+<p>Despite this overhead, LRU is a family of algorithms, not a single rigid rule. Variants like 2Q, proposed by Theodore Johnson and Dennis Shasha, and LRU/K, developed by Pat O&#039;Neil, Betty O&#039;Neil, and Gerhard Weikum, attempt to refine the basic concept. LRU/K, for instance, looks at the last K references to an item, rather than just the most recent one, to make a more informed decision about its value. The access sequence in a standard LRU example illustrates the mechanism: if the sequence is A, B, C, D, and the cache is full, a new access to E forces the eviction of A, as A has the lowest rank (the oldest access). If D is accessed again, its rank is updated to the top, protecting it from eviction. When F arrives, it might evict B, which has now become the least recently used.</p>
+<p>However, LRU is not immune to the pitfalls of modern workloads. In scenarios with cyclic access patterns or repeated scans over large datasets, LRU can perform poorly. It tends to push out older data that might be needed again soon, simply because it hasn&#039;t been touched in the last few accesses. This is where the Time-Aware, Least Recently Used (TLRU) variant steps in. Designed for network caches, Content Delivery Networks (CDNs), and Information-Centric Networking (ICN), TLRU introduces the concept of TTU, or Time To Use. This is a timestamp assigned by the content publisher that stipulates the usability time of the content. When a cache node receives content, it calculates a local TTU based on the publisher&#039;s assignment and a locally defined function. This allows the cache to prioritize content that is both popular and valid. Less popular and short-lived content is replaced with incoming data, ensuring that the cache does not waste space on expired or irrelevant information.</p>
+<h2>The Counter-Intuitive Power of MRU</h2>
+<p>Sometimes, the best strategy is the one that seems most illogical. Most Recently Used (MRU) discards the most recently used items first. At the 11th VLDB conference, Chou and DeWitt observed that when a file is being repeatedly scanned in a looping sequential reference pattern, MRU is the best replacement algorithm. This defies the intuition that recent usage implies future relevance. In a sequential scan, every item is accessed in order. By the time the scan loops back to the beginning, the items at the start are the &quot;least recently used&quot; in terms of time, but they are about to be needed again. LRU would have discarded them, assuming they were done. MRU, by discarding the items just accessed, keeps the older, unaccessed items in the cache, ready for the next loop.</p>
+<p>Researchers at the 22nd VLDB conference confirmed that for random access patterns and repeated scans over large datasets, MRU often outperforms LRU. The logic holds that in these specific scenarios, the older an item is, the more likely it is to be accessed again soon. Consider the sequence A, B, C, D, E. If the cache is full and E is accessed, MRU evicts D, the most recently used block. When D is accessed again in the next cycle, C is evicted. This strategy effectively retains the &quot;cold&quot; data that is about to become &quot;hot&quot; again. MRU is most useful in situations where the access pattern is predictable and cyclic, a common occurrence in database management and large-scale data processing.</p>
+<h2>The Evolution of Web Caching: SIEVE and SLRU</h2>
+<p>The rise of the web and high-traffic content delivery networks demanded algorithms that could handle massive throughput with minimal overhead. Enter SIEVE, a simple eviction algorithm designed specifically for web caches, key-value stores, and CDNs. SIEVE is built on the philosophy of &quot;lazy promotion&quot; and &quot;quick demotion.&quot; It recognizes a fundamental truth of web traffic: a high percentage of objects are &quot;one-hit wonders.&quot; They are requested once and never seen again. Traditional algorithms like LRU waste cycles promoting these objects to the top of the stack, only to evict them later when they are not accessed again.</p>
+<p>SIEVE avoids this by using a single FIFO queue and a moving &quot;hand.&quot; Objects in the cache have a single bit of metadata indicating whether they have been requested after admission. When the eviction hand moves toward the head of the queue, it checks this bit. If an object has not been accessed since it was admitted, it is quickly evicted. This &quot;quick demotion&quot; prevents the cache from being clogged with transient data. If an object is accessed, it is not immediately promoted to the top; instead, it simply marks the bit. The object only stays if it is accessed again later. This delay in updating the global data structure until eviction time significantly reduces the computational overhead. Unlike the CLOCK algorithm, where retained objects move to the front, in SIEVE, retained objects stay in their position. New objects are always at the head, and old objects are at the tail. As the hand moves, new objects are the first to be tested and the first to be discarded if they fail the &quot;two-hit&quot; test.</p>
+<p>Another approach to handling the complexity of modern workloads is the Segmented LRU (SLRU). This algorithm divides the cache into two distinct segments: a probationary segment and a protected segment. Lines in each segment are ordered from most to least recently accessed. New data from misses is added to the most-recently-accessed end of the probationary segment. It is there, in the probationary zone, that the data is tested. If a line is accessed again, it is removed from its current position and moved to the most-recently-accessed end of the protected segment. Lines in the protected segment have, by definition, been accessed at least twice. This two-tiered system ensures that only proven, frequently accessed data occupies the precious space of the protected segment. The protected segment is finite; if a new line needs to migrate from probationary to protected, the LRU line in the protected segment may be forced out, maintaining the balance. This structure effectively filters out the noise of one-hit wonders while preserving the signal of frequently reused data.</p>
+<h2>The Human Cost of Efficiency</h2>
+<p>While the discourse around cache replacement policies is often abstract, filled with terms like &quot;latency,&quot; &quot;hit ratio,&quot; and &quot;stochastic simulation,&quot; the implications of these algorithms extend far beyond the silicon. In the realm of critical infrastructure, the choice of a replacement policy can determine whether a medical monitoring system updates a patient&#039;s vital signs in real time or lags by seconds, potentially costing a life. In financial trading, where milliseconds translate to millions of dollars, the efficiency of the cache can mean the difference between a profitable trade and a catastrophic loss.</p>
+<p>The &quot;inference shift&quot; mentioned in your recent reading highlights how modern systems are moving from static rules to dynamic, learned behaviors. Yet, the fundamental constraints of physics and memory remain. The cache is a finite resource in a world of infinite data. The algorithm that manages it is the arbiter of what is remembered and what is forgotten. In a way, these policies mirror the human condition: we too must decide what to keep and what to discard to make room for new experiences. We rely on our own &quot;replacement policies,&quot; favoring the recent, the frequent, or the emotionally significant, often at the expense of older, quieter truths.</p>
+<p>As we look to the future, the complexity of these algorithms will only increase. With the advent of non-volatile memory and heterogeneous computing architectures, the distinction between cache and main memory blurs. The policies of tomorrow may not just be about speed, but about energy efficiency, thermal management, and even security. The &quot;clairvoyant&quot; algorithm remains a dream, but the relentless pursuit of it drives the innovation that powers our digital world. Every time you stream a video, load a webpage, or run a complex simulation, an invisible army of algorithms is at work, making split-second decisions that shape your experience. They are the silent guardians of performance, balancing the impossible equation of finite space and infinite demand.</p>
+<p>The study of cache replacement is a testament to the ingenuity of computer scientists. From the theoretical perfection of Bélády to the pragmatic simplicity of SIEVE, each algorithm represents a solution to a specific set of constraints. There is no one-size-fits-all answer. The optimal policy depends entirely on the nature of the data and the pattern of access. Whether it is the cyclic scanning of a database or the one-hit wonders of a web cache, the right choice can mean the difference between a system that thrives and one that chokes. As we continue to build systems that are faster and more complex, the need for these optimizing instructions becomes ever more critical. They are the unsung heroes of the digital age, ensuring that the right data is in the right place at the right time, preventing the chaos of a system overwhelmed by its own memory.</p></div>
+
+      
+
+      <footer class="wikipedia-footer">
+        <p class="source-link">
+          <a href="https://en.wikipedia.org/wiki/Cache_replacement_policies" target="_blank" rel="noopener">
+            View original Wikipedia article &rarr;
+          </a>
+        </p>
+        <p class="rewrite-note">
+        This article has been rewritten from Wikipedia source material for enjoyable reading.
+        Content may have been condensed, restructured, or simplified.
+      </p>
+      </footer>
+
+      
+      <section class="related-articles">
+        <h2>Related Articles</h2>
+        <p class="related-intro">This deep dive was written in connection with these articles:</p>
+        <ul class="related-list">
+          
+      <li class="related-article-item">
+        <a href="../../article/4f9fd5a5-df7a-4c1a-af8a-3bbfdcc2422a/index.html">
+          <strong>The inference shift</strong>
+        </a>
+        <span class="article-meta">
+          by Ben Thompson in Stratechery
+        </span>
+      </li>
+        </ul>
+      </section>
+    
+    </article>
+  
+  </main>
+  <footer class="site-footer">
+    <div class="container">
+      <p><a href="../../privacy/index.html">Privacy</a> &middot; <a href="../../terms/index.html">Terms</a></p>
+    </div>
+  </footer>
+  <script>
+  (function() {
+    var params = new URLSearchParams(window.location.search);
+    var from = params.get('from');
+    if (from) {
+      var names = {
+        'foreign-policy':'Foreign Policy','ai-tech':'AI & Tech','housing-cities':'Housing & Cities',
+        'political-strategy':'Political Strategy','history':'History','science':'Science',
+        'culture':'Culture','economics':'Economics','faith':'Faith','writing-craft':'Writing & Craft',
+        'music':'Music','law-rights':'Law & Rights','public-health':'Public Health',
+        'philosophy':'Philosophy','media':'Media','defense':'Defense','china':'China'
+      };
+      var link = document.getElementById('back-link');
+      if (link) {
+        var name = names[from] || from;
+        link.href = '../../tag/' + from + '/index.html';
+        link.textContent = '\u2190 Back to ' + name;
+      }
+    }
+  })();
+  </script>
+</body>
+</html>
