@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>An interview with the gimlet labs team about heterogeneous inference for AI agents - Hex Index</title>
+  <link rel="stylesheet" href="../../styles.css">
+</head>
+<body class="reading-mode">
+  <header class="reading-header">
+    <a href="../../index.html" class="back-link" id="back-link">&larr; Back to Library</a>
+  </header>
+  <main class="reading-content">
+    
+    <article class="article-page">
+      <header class="article-header">
+        <h1>An interview with the gimlet labs team about heterogeneous inference for AI agents</h1>
+        
+      <div class="article-meta">
+        <span class="author">Various</span>
+        <span class="separator">&middot;</span>
+        <a href="../../publication/chipstrat/index.html" class="publication">
+          Chipstrat
+        </a>
+        <span class="separator">&middot;</span><time>May 12, 2026</time>
+        <span class="separator">&middot;</span><span class="read-time">42 min read</span>
+      </div>
+      </header>
+
+      <div class="content-label">
+        <span class="label-text">Commentary by <a href="../../about/index.html">Hex Index staff</a></span>
+        <nav class="content-nav">
+          <a href="#deep-dives">Deep dives</a><span class="separator">&middot;</span>
+          <a href="https://www.chipstrat.com/p/an-interview-with-the-gimlet-labs" target="_blank" rel="noopener">Original article &rarr;</a>
+        </nav>
+      </div>
+
+      
+      <div class="article-content">
+        <p>This piece cuts through the noise of the current AI infrastructure boom by challenging a fundamental assumption: that a single, dominant chip vendor can efficiently power the next generation of artificial intelligence. Chipstrat reports that the era of &quot;one-size-fits-all GPU&quot; is ending, replaced by a complex, multi-vendor reality where the real innovation lies not in the silicon itself, but in the software that orchestrates it. For investors and technical leaders watching the capital expenditure arms race, the article offers a crucial pivot point: the companies winning the next decade won&#039;t be those with the most expensive hardware, but those with the smartest software to manage a heterogeneous mix of it.</p>
+<h2>The Economics of Hardware Entanglement</h2>
+<p>The article&#039;s most striking revelation concerns the financial straitjackets binding many new &quot;neoclouds.&quot; Chipstrat notes that &quot;most neoclouds are backed by one silicon vendor and gave significant equity in return,&quot; creating a structural inability to diversify. This is a critical insight for anyone analyzing the competitive landscape. When hardware amortization accounts for roughly &quot;70% of their annual costs,&quot; the margin for optimization vanishes. The piece argues that this equity entanglement means these competitors &quot;can&#039;t diversify their silicon, which is why the only software innovation they can ship is disaggregation on top of a single vendor&#039;s stack — never across vendors.&quot;</p>
+<figure class="inline-illustration">
+    <img src="../../images/7e8b08cc-2192-4150-a87d-c82bcf87e7d4.webp" alt="An interview with the gimlet labs team about heterogeneous inference for AI agents" loading="lazy" width="600" height="315">
+  </figure>
+
+<p>This dynamic mirrors the historical constraints seen in the early days of cloud computing, where proprietary lock-in often stifled broader ecosystem growth. Just as the industry eventually moved away from monolithic mainframes to distributed systems, the current AI infrastructure is hitting a wall where a single supply chain cannot meet the diverse needs of agentic workloads. The editors highlight that Gimlet Labs, founded in 2023, is attempting to break this cycle with a &quot;two-track business&quot; model that deploys software inside customer data centers while operating its own mixed-silicon cloud. This approach allows them to &quot;optimize the bottom line&quot; through supply-chain diversity while commanding a &quot;price premium on the top line&quot; via differentiated token performance.</p>
+<blockquote>&quot;Supply-chain diversity optimizes the bottom line, differentiated token performance commands a price premium on the top line, and one track funds the CapEx of the other.&quot;</blockquote>
+<p>Critics might note that managing a multi-vendor stack introduces significant operational complexity and potential points of failure that single-vendor solutions elegantly avoid. However, the article suggests that the cost of inefficiency in a homogeneous stack is becoming untenable as workloads grow more complex.</p>
+<h2>From Monolithic Chips to Disaggregated Workloads</h2>
+<p>The core technical argument rests on the idea that different parts of an AI agent&#039;s workflow require fundamentally different hardware. Natalie, a co-founder quoted in the piece, explains that &quot;agentic inference is not a uniform workload. Different parts of it have different compute needs and different bottlenecks.&quot; The article details how Gimlet traces a PyTorch workload as a graph, splits it at optimal points, and then lowers each segment to the target vendor&#039;s framework, such as TensorRT for NVIDIA chips or equivalent frameworks for others. They explicitly avoid trying to build a &quot;universal programming language across chips,&quot; instead choosing to leverage the native frameworks of each hardware partner.</p>
+<p>This strategy represents a shift from the &quot;one-size-fits-all&quot; mentality that has dominated since the early days of CUDA. Much like how Moore&#039;s Law eventually slowed, forcing architects to look at specialized accelerators rather than just raw clock speed, the industry is now realizing that a single chip cannot be optimal for every stage of inference. The piece reports a compelling case study: on a large model with 120 billion parameters, running a speculative decoder on a specialized d-Matrix card while using NVIDIA B200s for the verifier delivered a &quot;roughly a 4× shift in the throughput-vs-interactivity Pareto frontier compared to GPU-only speculative decode.&quot;</p>
+<p>This level of optimization is not just about cost; it is about latency. The article emphasizes that &quot;AI-native customers aren&#039;t just price-sensitive — they have product latency budgets (e.g. one-second response windows, voice agents) where faster tokens unlock entirely new user experiences, not just cheaper ones.&quot; This distinction is vital. It moves the conversation from &quot;cheaper compute&quot; to &quot;better user experience,&quot; a shift that could redefine market winners.</p>
+<h2>The Sovereign Cloud and the Talent Gap</h2>
+<p>A particularly nuanced section of the interview addresses the geopolitical dimension of AI infrastructure. Chipstrat identifies &quot;sovereign clouds&quot; in Europe, the Middle East, India, Asia, and Korea as a prime customer segment. These regions often have government funding and emerging local silicon vendors but lack the deep software talent required to write optimized kernels across different chips. The piece captures Gimlet&#039;s pitch perfectly: &quot;make an API call, not a porting project.&quot;</p>
+<p>This observation highlights a growing talent gap in the industry. As the hardware landscape fragments, the ability to write efficient code for specific architectures becomes a scarce resource. The article notes that &quot;hyperscalers and frontier labs already run multi-vendor silicon... but the orchestration layer is getting more complex faster than internal teams can keep up.&quot; Consequently, these large entities are increasingly outsourcing orchestration to specialists like Gimlet, allowing them to focus their engineering attention on &quot;next-gen training and product differentiation.&quot;</p>
+<blockquote>&quot;We think that all of these options are really great for different purposes. And that&#039;s important because agentic inference is not a uniform workload.&quot;</blockquote>
+<h2>Bottom Line</h2>
+<p>The strongest part of this argument is its clear-eyed assessment of the financial and technical limitations of single-vendor lock-in, a reality that many neoclouds are currently ignoring. The piece effectively demonstrates that the future of AI infrastructure is not about finding the single best chip, but about building the software layer that can seamlessly weave together the best chips for specific tasks. The biggest vulnerability remains the execution risk of managing such a complex, heterogeneous stack at scale; while the theory is sound, the practical challenges of debugging and maintaining a multi-vendor environment are non-trivial. Readers should watch closely to see if Gimlet&#039;s two-track model can indeed scale without the operational friction that has historically plagued similar attempts at hardware abstraction.</p>
+      </div>
+
+      
+      
+      <section id="deep-dives" class="deep-dives">
+        <h2>Deep Dives</h2>
+        <p class="deep-dives-intro">Explore these related deep dives:</p>
+        <ul class="deep-dive-list">
+          
+      <li class="deep-dive-item">
+        <a href="../../wikipedia/cuda/index.html">
+          <strong>CUDA</strong>
+        </a>
+        <p class="topic-summary">Understanding NVIDIA&#039;s proprietary programming model explains why Gimlet&#039;s ability to lower PyTorch graphs to non-NVIDIA frameworks is a technical breakthrough that breaks the industry&#039;s single-vendor lock-in.</p>
+      </li>
+
+      <li class="deep-dive-item">
+        <a href="../../wikipedia/moores-law-Moore's_law/index.html">
+          <strong>Moore&#039;s law</strong>
+        </a>
+        <p class="topic-summary">The article&#039;s argument that hardware amortization is the primary cost driver relies on the slowing of this historical trend, which forces the industry to seek efficiency gains through heterogeneous silicon rather than raw transistor scaling.</p>
+      </li>
+        </ul>
+      </section>
+    
+      
+
+      <section id="excerpt"><section class="source-excerpts">
+      <h2>Sources</h2>
+      <article class="source-excerpt">
+      <h3>An interview with the gimlet labs team about heterogeneous inference for AI agents</h3>
+      <div class="source-meta">by Various &middot; <a href="../../publication/chipstrat/index.html">Chipstrat</a> &middot; <a href="https://www.chipstrat.com/p/an-interview-with-the-gimlet-labs" target="_blank" rel="noopener">Read full article</a></div>
+      <p>I’ve been writing for a while about the shift from a one-size-fits-all GPU to multi-vendor, multi-silicon environments, so I wanted to talk to Gimlet directly about how cross-vendor orchestration actually works — and why most neoclouds, locked into a single-silicon vendor by equity terms, can’t compete with this model by design. See previous articles for more: multi-silicon era is here, right systems for agentic workloads, and right-sized AI infra.</p><p>Natalie is a co-founder of Gimlet, alongside CEO Zain Asgar (a Stanford CS professor). Beltir spent years at Intel before joining Gimlet five months ago, after Gimlet had been one of her portfolio companies. The company was founded in 2023, has raised $92M (Series A this March), reports more than $10M in annualized revenue, and runs a two-track business — deploying its orchestration software inside customers’ data centers, and operating its own neocloud with mixed silicon.</p><p>In this interview, we walk through how Gimlet thinks about both the architecture and the business. Important insights:</p><p>Most neoclouds are backed by one silicon vendor and gave significant equity in return. Hardware amortization is ~70% of their annual costs, leaving very little room to optimize bottom line. That equity entanglement means they can’t diversify their silicon, which is why the only software innovation they can ship is disaggregation on top of a single vendor’s stack — never across vendors</p><p>Gimlet’s two-track business model is the answer to that constraint: deploy software inside customer data centers (frontier labs, hyperscalers, sovereigns) and operate their own neocloud with mixed silicon for AI-native customers. Supply-chain diversity optimizes the bottom line, differentiated token performance commands a price premium on the top line, and one track funds the CapEx of the other</p><p>Hyperscalers and frontier labs already run multi-vendor silicon (NVIDIA, AMD, in-house ASICs), but the orchestration layer is getting more complex faster than internal teams can keep up. They’d rather spend engineering attention on next-gen training and product differentiation, so some outsource orchestration to Gimlet — and some go further, having Gimlet take on the CapEx and data-center burden so they can experiment with hardware combinations without staffing a forever-team</p><p>AI-native customers aren’t just price-sensitive — they have product latency budgets (e.g. one-second response windows, voice agents) where faster tokens unlock entirely new user experiences, not just cheaper ones</p><p>Sovereign clouds are a prime customer segment — Europe, the Middle East, India, Asia, and Korea have government funding and ...</p>
+      <footer class="source-bio" aria-label="About this source">
+      <p class="sb-heading">About this source</p>
+      <p class="sb-meta"><span class="sb-type">independent newsletter</span> &middot; <span class="sb-country">United States</span> &middot; <span class="sb-funding">paid Substack subscriptions</span> &middot; <span class="sb-leaning">Semiconductor industry strategy analyst; broadly aligned with US techno-industrial policy and export controls, focused on business rather than partisan framing.</span></p>
+      <p class="sb-audit">Last reviewed: <time datetime="2026-04-08">2026-04-08</time> &middot; <a href="https://www.chipstrat.com/" target="_blank" rel="noopener">source</a></p>
+    </footer>
+    </article>
+    </section></section>
+      
+    </article>
+  
+  </main>
+  <footer class="site-footer">
+    <div class="container">
+      <p><a href="../../privacy/index.html">Privacy</a> &middot; <a href="../../terms/index.html">Terms</a></p>
+    </div>
+  </footer>
+  <script>
+  (function() {
+    var params = new URLSearchParams(window.location.search);
+    var from = params.get('from');
+    if (from) {
+      var names = {
+        'foreign-policy':'Foreign Policy','ai-tech':'AI & Tech','housing-cities':'Housing & Cities',
+        'political-strategy':'Political Strategy','history':'History','science':'Science',
+        'culture':'Culture','economics':'Economics','faith':'Faith','writing-craft':'Writing & Craft',
+        'music':'Music','law-rights':'Law & Rights','public-health':'Public Health',
+        'philosophy':'Philosophy','media':'Media','defense':'Defense','china':'China'
+      };
+      var link = document.getElementById('back-link');
+      if (link) {
+        var name = names[from] || from;
+        link.href = '../../tag/' + from + '/index.html';
+        link.textContent = '\u2190 Back to ' + name;
+      }
+    }
+  })();
+  </script>
+</body>
+</html>
