@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SAP Cloud Infrastructure - Hex Index</title>
+  <link rel="stylesheet" href="../../styles.css">
+</head>
+<body class="reading-mode">
+  <header class="reading-header">
+    <a href="../../index.html" class="back-link" id="back-link">&larr; Back to Library</a>
+  </header>
+  <main class="reading-content">
+    
+    <article class="wikipedia-page">
+      <header class="wikipedia-header">
+        <div class="type-badge">Wikipedia Deep Dive</div>
+        <h1>SAP Cloud Infrastructure</h1>
+        <div class="article-meta">
+          <span class="read-time">12 min read</span>
+        </div>
+      </header>
+
+      
+
+      <div class="wikipedia-content"><p class="source-note">Based on <a href="https://en.wikipedia.org/wiki/SAP_Cloud_Infrastructure">Wikipedia: SAP Cloud Infrastructure</a></p>
+<p>In September 2025, SAP made a decisive move that signaled a fundamental shift in how the world&#039;s largest enterprise software provider views the future of digital sovereignty. The company announced an expansion of its European &quot;SAP Sovereign Cloud&quot; portfolio, explicitly naming SAP Cloud Infrastructure (SCI) as a cornerstone of this strategy. This was not merely a product update; it was a declaration of independence. For years, the global cloud market has been dominated by a handful of American hyperscalers, but SCI represents a deliberate, engineered alternative built on open-source foundations, designed to keep critical data within the borders of the European Union and under the strict control of local laws. It is a massive, invisible engine room where 200,000 active virtual machines hum in tandem, orchestrated by a complex web of Kubernetes and OpenStack technologies, all managed by SAP&#039;s own data center network.</p>
+<p>To understand the magnitude of this achievement, one must first strip away the marketing gloss and look at the architecture from first principles. What exactly is SAP Cloud Infrastructure? At its core, it is an Infrastructure-as-a-Service (IaaS) platform. In the simplest terms, IaaS is the digital equivalent of renting the land, the electricity, and the physical building blocks of a factory, rather than buying the factory itself. It provides the raw, virtualized compute power, storage capacity, and networking capabilities that allow software to run. Before SCI, SAP&#039;s cloud ambitions were often a patchwork of internal experiments and partnerships with third-party giants. The journey to a unified, proprietary infrastructure was a decade-long evolution. It began in earnest in 2012, when SAP first promoted its cloud computing aspects, launching the SAP Cloud Platform as a Platform-as-a-Service (PaaS) offering in October of that year. By May 2013, the company had introduced the S/4HANA Enterprise Cloud service, a managed private cloud solution. The vision crystallized in January 2015 with the announcement of SAP Converged Cloud. Originally developed as an internal standardized IaaS offering to support SAP&#039;s own solutions, Converged Cloud served as the crucible for what would become SCI. It was the realization that to truly control the customer experience, SAP needed to own the underlying infrastructure, not just the applications running on top of it.</p>
+<p>Today, the scale of this operation is staggering. As of 2025, SAP Cloud Infrastructure boasts a global footprint of 15 regions and 29 data centers. Within these facilities, more than 6,000 hypervisors manage the virtualization of hardware resources, creating a vast, elastic grid of computing power. This is not a theoretical construct; it is the bedrock upon which SAP&#039;s cloud business and customer-facing deployments run. It supports everything from SAP&#039;s own S/4HANA enterprise resource planning systems to general-purpose applications developed by customers and third parties. The platform is built on the twin pillars of OpenStack and Kubernetes, two of the most significant open-source technologies in modern computing. OpenStack handles the orchestration of the cloud infrastructure itself—managing the compute, storage, and networking—while Kubernetes manages the containerized applications that run on top of it. This reliance on open source is a strategic differentiator. It means SCI is not locked into the proprietary ecosystems of competitors like AWS, Microsoft Azure, or Google Cloud. It is a sovereign stack, built by the community, for the community, yet operated and secured by SAP.</p>
+<p>The user experience of SCI is designed around the principle of self-service. Through a web-based user interface or a suite of APIs, customers can provision resources instantly. They do not need to wait for a hardware installation or a network configuration team. They select an operating system image, choose a &quot;flavor&quot; (a predefined size for the virtual machine instance), and click to deploy. The system handles the rest. These instances can be created, modified, resized, or deleted on demand. Power control is instantaneous, and snapshots allow for the creation of point-in-time backups that can be restored in seconds. This flexibility extends to how instances are organized; users can group servers to influence placement policies, ensuring that critical workloads are distributed across different physical hardware to prevent a single point of failure.</p>
+<p>Storage, the lifeblood of any enterprise, is treated with equal sophistication. SCI offers a triad of storage services, each addressing different needs. Block storage functions like a virtual hard drive that can be attached or detached from virtual machines on the fly. It supports online expansion, meaning a database can grow without downtime, and allows for cloning and snapshots to create test environments or secure backups. Object storage, meanwhile, is designed for unstructured data—images, videos, logs—managed via API or command-line interface with granular access control lists and configurable redundancy options. For shared file systems, SCI provides file storage that allows multiple instances to access the same data simultaneously, complete with access controls, online resizing, and replication across availability zones. This last feature is crucial for resilience. If one data center goes offline, the file system remains accessible from another, ensuring business continuity.</p>
+<p>Networking in SCI is equally advanced, utilizing software-defined networking (SDN) to create tenant networks that are logically isolated from one another despite sharing the same physical hardware. Customers can define their own networks, subnets, and routers, creating a custom topology for their applications. For public reachability, the platform offers floating IPs, allowing virtual machines to be accessible from the internet. Security is woven into the fabric of the network through security groups and firewall policies that act as virtual gatekeepers. For those needing to connect their on-premise data centers to the cloud, SCI offers BGP-based VPN networking, creating a secure, encrypted tunnel over the public internet. To manage the flow of traffic, the platform includes managed load balancing, which distributes incoming requests across multiple backend instances to prevent any single server from becoming overwhelmed. Complementing this is an authoritative DNS service (DNSaaS), which allows for the API-based management of domain names and records, including the ability to share or transfer zones across projects and tenants.</p>
+<p>Identity and security management form the guardrails of this entire ecosystem. SCI includes robust identity and access management (IAM) capabilities, handling authentication and authorization for projects and tenants. This involves complex token handling, role assignment, and credential management to ensure that only the right people have access to the right resources. Beyond user identities, the platform provides key and secrets management for storing and controlling access to sensitive material such as encryption keys and certificates. This is supported by different backends depending on the configuration, offering flexibility for organizations with specific security requirements. For developers, a container image registry allows for the push and pull of application images, with access policies and lifecycle controls to manage the software supply chain. An auto-scaling capability for file shares further enhances efficiency, adjusting resources based on configurable rules to match demand.</p>
+<p>The operational backbone of SCI is visible through its metrics and audit logging capabilities. These tools provide a window into the health of the system, listing and filtering audit-relevant events across all services. This transparency is not just for troubleshooting; it is a requirement for compliance. In the regulated industries that SAP serves—finance, healthcare, public sector—knowing who did what and when is non-negotiable. SAP cloud services are governed by contractual service-level agreements (SLAs), and SCI references a specific SLA supplement that defines infrastructure-specific terms. This ensures that customers have legal recourse if the platform fails to meet its promised availability or performance standards.</p>
+<p>However, the true story of SAP Cloud Infrastructure in 2026 is not just about technology; it is about trust and sovereignty. The concept of &quot;Sovereign Cloud&quot; has moved from a niche concern to a global imperative, particularly in Europe. In September 2025, SAP&#039;s announcement of the expansion of its sovereign portfolio highlighted this shift. SAP Cloud Infrastructure is positioned as a critical deployment option for public sector bodies and highly regulated organizations that cannot risk their data being subject to foreign laws or extraterritorial jurisdiction. In Europe, SCI operates on SAP&#039;s own data center network, ensuring that customer data is stored within the European Union. This is a direct response to the geopolitical realities of the digital age, where data is a strategic asset and its location determines its legal protection.</p>
+<p>The European footprint of SCI is a testament to this commitment. It includes SAP-operated data centers in Germany, specifically in St. Leon-Rot and Walldorf, as well as co-location sites in Frankfurt. These facilities are not just buildings; they are fortified bastions of digital sovereignty. They feature three independent availability zones, each located in a separate data center and connected via SAP-owned fiber on SAP-owned property. This physical separation ensures that a disaster in one location cannot take down the entire system. The facilities adhere to the highest standards of availability and security, including EN 50600 availability class 3 (the European standard) and ISO/IEC 22237 availability class 3 (the international equivalent). Security is governed by ISO/IEC 27001, which covers the delivery and operations of SAP cloud services and data centers. Operational sovereignty is strictly enforced, with administration and maintenance restricted to approved, security-cleared personnel. There are no backdoors for foreign intelligence services; the gatekeepers are trusted, local experts.</p>
+<p>This sovereignty extends to the realm of artificial intelligence. The &quot;EU AI Cloud,&quot; a sovereign AI offering for Europe, leverages SAP Cloud Infrastructure to provide secure, compliant environments for building and running AI applications. In an era where AI models can be trained on sensitive corporate data, the ability to run these workloads on high-performance European infrastructure is a game-changer. The EU AI Cloud offers governed access to auditable large language models from SAP and its partners, enabling the deployment of AI applications on infrastructure that is free from the influence of non-EU regulations. This includes access to accelerator and GPU-based compute specifically designed for AI workloads, all running on the SAP Cloud Infrastructure and SAP Business Technology Platform (SAP BTP).</p>
+<p>Sustainability is another pillar of the SCI narrative, reflecting a broader corporate commitment to environmental responsibility. SAP describes significant initiatives for its data centers, including the use of energy-efficient infrastructure such as advanced cooling systems and power management technologies. The company has committed to using renewable electricity where feasible and has operational practices in place for recycling electronic waste and minimizing water usage. These efforts are certified by international standards such as ISO 14001 for environmental management and ISO 50001 for energy management. Since 2014, SAP-owned data centers have run on 100% renewable electricity, a fact that underscores the company&#039;s long-term dedication to reducing its carbon footprint. This is not just a marketing claim; it is a measured, certified reality that powers the millions of transactions processed by the cloud every day.</p>
+<p>The ecosystem surrounding SAP Cloud Infrastructure is vast and diverse. It supports a wide array of SAP cloud solutions, including SAP Cloud ERP, SAP HCM (Human Capital Management), and solutions for Spend Management, Supply Chain Management, and Business Transformation Management. It also serves as the foundation for the SAP Business Technology Platform, which includes related analytics and business data solutions. Even SAP HANA Cloud, the company&#039;s flagship in-memory database, lists SAP Cloud Infrastructure as one of its supported infrastructures, alongside hyperscalers. This interoperability is key to SAP&#039;s strategy: offering customers the choice to run their workloads on the infrastructure that best fits their needs, whether that be the sovereign control of SCI or the global scale of a hyperscaler.</p>
+<p>The journey from the early experiments of 2012 to the robust, sovereign platform of 2026 illustrates a fundamental shift in the enterprise software landscape. SAP Cloud Infrastructure is no longer just a supporting actor; it is a lead player in the drama of digital transformation. It represents a convergence of technology, policy, and ethics. It proves that it is possible to build a cloud platform that is not only powerful and scalable but also secure, sustainable, and sovereign. For the millions of users who rely on SAP&#039;s software to run their businesses, this infrastructure is the invisible foundation of their daily operations. It is the engine that powers the global economy, one virtual machine at a time.</p>
+<p>As we look toward the future, the role of SCI will likely only grow in importance. The demand for sovereign cloud solutions is driven by a complex interplay of national security concerns, data privacy regulations, and the need for digital independence. SAP&#039;s investment in this infrastructure signals a clear belief that the future of enterprise computing will be decentralized, diverse, and deeply rooted in local control. The open-source technologies that underpin SCI—OpenStack and Kubernetes—ensure that the platform remains adaptable and innovative, capable of evolving with the changing needs of the market. The commitment to sustainability ensures that this growth does not come at the expense of the planet. And the focus on sovereignty ensures that the data of Europe, and the world, remains in the hands of those who created it.</p>
+<p>In the end, SAP Cloud Infrastructure is more than a collection of servers and software. It is a statement of intent. It is a declaration that the cloud can be built differently. It challenges the dominance of the hyperscalers and offers a viable, secure, and ethical alternative. For the IT leaders and CTOs of the world&#039;s largest corporations, it provides a path forward that balances the need for innovation with the imperative of control. As the digital landscape becomes increasingly complex and fragmented, the ability to choose where and how your data is stored and processed is not just a technical detail; it is a strategic necessity. SAP Cloud Infrastructure stands ready to meet that challenge, one virtual machine, one data center, one sovereign region at a time.</p>
+<p>The story of SCI is still being written. With 15 regions and 29 data centers already in operation, and with the continued expansion of its sovereign capabilities, the platform is poised to play a central role in the next decade of enterprise computing. It is a testament to the power of open-source technology, the importance of sustainability, and the enduring value of digital sovereignty. For those who have followed the evolution of cloud computing, from the early days of virtualization to the age of AI, SAP Cloud Infrastructure represents a new chapter. It is a chapter written with precision, purpose, and a deep understanding of the stakes involved. It is a reminder that in the digital age, the infrastructure is not just the stage; it is the story.</p></div>
+
+      
+
+      <footer class="wikipedia-footer">
+        <p class="source-link">
+          <a href="https://en.wikipedia.org/wiki/SAP_Cloud_Infrastructure" target="_blank" rel="noopener">
+            View original Wikipedia article &rarr;
+          </a>
+        </p>
+        <p class="rewrite-note">
+        This article has been rewritten from Wikipedia source material for enjoyable reading.
+        Content may have been condensed, restructured, or simplified.
+      </p>
+      </footer>
+
+      
+      <section class="related-articles">
+        <h2>Related Articles</h2>
+        <p class="related-intro">This deep dive was written in connection with these articles:</p>
+        <ul class="related-list">
+          
+      <li class="related-article-item">
+        <a href="../../article/7e8b08cc-2192-4150-a87d-c82bcf87e7d4/index.html">
+          <strong>An interview with the gimlet labs team about heterogeneous inference for AI agents</strong>
+        </a>
+        <span class="article-meta">
+          by Various in Chipstrat
+        </span>
+      </li>
+        </ul>
+      </section>
+    
+    </article>
+  
+  </main>
+  <footer class="site-footer">
+    <div class="container">
+      <p><a href="../../privacy/index.html">Privacy</a> &middot; <a href="../../terms/index.html">Terms</a></p>
+    </div>
+  </footer>
+  <script>
+  (function() {
+    var params = new URLSearchParams(window.location.search);
+    var from = params.get('from');
+    if (from) {
+      var names = {
+        'foreign-policy':'Foreign Policy','ai-tech':'AI & Tech','housing-cities':'Housing & Cities',
+        'political-strategy':'Political Strategy','history':'History','science':'Science',
+        'culture':'Culture','economics':'Economics','faith':'Faith','writing-craft':'Writing & Craft',
+        'music':'Music','law-rights':'Law & Rights','public-health':'Public Health',
+        'philosophy':'Philosophy','media':'Media','defense':'Defense','china':'China'
+      };
+      var link = document.getElementById('back-link');
+      if (link) {
+        var name = names[from] || from;
+        link.href = '../../tag/' + from + '/index.html';
+        link.textContent = '\u2190 Back to ' + name;
+      }
+    }
+  })();
+  </script>
+</body>
+</html>
