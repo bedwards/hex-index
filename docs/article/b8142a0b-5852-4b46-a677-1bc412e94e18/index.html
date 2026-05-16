@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Recent developments in LLM architectures: Kv sharing, mHC, and compressed attention - Hex Index</title>
+  <link rel="stylesheet" href="../../styles.css">
+</head>
+<body class="reading-mode">
+  <header class="reading-header">
+    <a href="../../index.html" class="back-link" id="back-link">&larr; Back to Library</a>
+  </header>
+  <main class="reading-content">
+    
+    <article class="article-page">
+      <header class="article-header">
+        <h1>Recent developments in LLM architectures: Kv sharing, mHC, and compressed attention</h1>
+        
+      <div class="article-meta">
+        <span class="author">Sebastian Raschka</span>
+        <span class="separator">&middot;</span>
+        <a href="../../publication/sebastianraschka/index.html" class="publication">
+          Ahead of AI
+        </a>
+        <span class="separator">&middot;</span><time>May 16, 2026</time>
+        <span class="separator">&middot;</span><span class="read-time">27 min read</span>
+      </div>
+      </header>
+
+      <div class="content-label">
+        <span class="label-text">Commentary by <a href="../../about/index.html">Hex Index staff</a></span>
+        <nav class="content-nav">
+          <a href="#deep-dives">Deep dives</a><span class="separator">&middot;</span>
+          <a href="https://magazine.sebastianraschka.com/p/recent-developments-in-llm-architectures" target="_blank" rel="noopener">Original article &rarr;</a>
+        </nav>
+      </div>
+
+      
+      <div class="article-content">
+        <p>Sebastian Raschka has shifted the spotlight from the hype of model size to the quiet, critical engineering that actually enables long-context reasoning. While the industry chases parameter counts, Raschka argues that the real bottleneck is no longer intelligence, but memory traffic and the physical limits of the KV cache. This piece is notable because it dissects specific, recent architectural shifts in open-weight models like Gemma 4 and DeepSeek V4, revealing how developers are fundamentally rewriting the transformer block to make agents and reasoning models viable on consumer hardware.</p>
+<h2>The Memory Bottleneck</h2>
+<p>The core of Raschka&#039;s argument is that efficiency is now the primary driver of innovation. &quot;As reasoning models and agent workflows keep more tokens around (for longer), KV-cache size, memory traffic, and attention cost quickly become the main constraints,&quot; he writes. This observation reframes the entire landscape: the next leap in capability won&#039;t come from simply adding more data, but from smarter ways to store and retrieve context.</p>
+<figure class="inline-illustration">
+    <img src="../../images/b8142a0b-5852-4b46-a677-1bc412e94e18.webp" alt="Recent developments in LLM architectures: Kv sharing, mHC, and compressed attention" loading="lazy" width="600" height="315">
+  </figure>
+
+<p>Raschka highlights Google&#039;s Gemma 4 as a pivotal case study, specifically its use of &quot;cross-layer attention.&quot; In a standard transformer, every layer computes its own key and value projections, which is computationally expensive. Raschka explains that Gemma 4 changes this by having later layers &quot;reuse key-value states from earlier layers to reduce long-context memory and compute.&quot; He notes that while the concept isn&#039;t new, citing a 2024 NeurIPS paper by Brandon et al., &quot;it&#039;s the first popular architecture where I saw this concept applied.&quot;</p>
+<p>The impact is tangible. By sharing roughly half of the key-value tensors across layers, the model achieves significant memory savings without a proportional drop in quality. Raschka illustrates this with hard numbers: for the smallest Gemma 4 variant, this results in a &quot;2.7 GB saving (at bfloat16 precision) in long 128K contexts.&quot; This is a crucial distinction for anyone deploying models locally; it means the difference between a model running on a high-end laptop versus one requiring enterprise-grade server clusters.</p>
+<blockquote>&quot;Most of these changes look like small tweaks in my architecture diagrams, but some of them are quite intricate design changes that are worth a more detailed discussion.&quot;</blockquote>
+<p>Critics might argue that sharing KV tensors is merely an approximation that inevitably degrades model performance. Raschka acknowledges this, noting that the scheme &quot;reduces model capacity,&quot; but points out that existing research suggests the impact is minimal for smaller models. The trade-off appears to be a calculated risk that pays off in deployment feasibility.</p>
+<h2>Redefining Model Size</h2>
+<p>Perhaps the most provocative claim in the piece concerns how we define a model&#039;s size. Raschka dissects Gemma 4&#039;s &quot;E&quot; series, which stands for &quot;effective&quot; parameters, introducing a design called per-layer embeddings (PLE). This technique allows the model to store additional capacity in embedding tables rather than in the heavy transformer blocks.</p>
+<p>&quot;The &#039;E&#039; in Gemma 4 E2B and E4B stands for &#039;effective&#039;,&quot; Raschka clarifies. &quot;Gemma 4 E2B is listed as 2.3B effective parameters, or 5.1B parameters when the embeddings are counted.&quot; This distinction is vital because it separates the computational cost of inference from the total parameter count. The transformer stack remains small and fast, while the embedding layers provide the necessary nuance for token-specific information.</p>
+<p>Raschka describes the mechanism: the model prepares a &quot;packed PLE tensor that contains one small vector per decoder layer,&quot; which is then gated and added as an extra residual update. This design choice allows the model to &quot;increase representational capacity through embedding parameters and small projections&quot; without the latency penalty of scaling the entire stack.</p>
+<p>This approach challenges the industry&#039;s obsession with raw parameter counts. Raschka suggests that for larger models, this trick is less necessary because they already have sufficient capacity, but for smaller, efficient models, it is a game-changer. He admits, however, that &quot;we have to take Google&#039;s word here that this is an effective and worthwhile design choice,&quot; noting that independent comparison studies against standard dense models are still needed.</p>
+<h2>Strategic Attention Budgeting</h2>
+<p>The final major innovation Raschka examines is &quot;layer-wise attention budgeting&quot; in Poolside&#039;s Laguna XS.2. This model abandons the idea that every layer needs the same attention capacity. Instead, it varies the number of query heads per layer, allocating more heads to sliding-window layers and fewer to global attention layers.</p>
+<p>&quot;The point is to spend attention capacity where it is most useful, instead of giving every layer the same attention budget,&quot; Raschka writes. This mirrors the logic of the &quot;Gating mechanism&quot; discussed in his previous deep dives, where resources are dynamically routed, but here the routing is static and architectural. The Laguna XS.2 config explicitly allows for different query-head counts per layer, a move Raschka calls &quot;one of the most prominent recent examples of this per-layer query-head budgeting in a production-style open model.&quot;</p>
+<p>This strategy echoes the design philosophy seen in Apple&#039;s 2024 OpenELM, where model capacity is varied by layer to optimize efficiency. By keeping the key-value heads fixed while adjusting query heads, Laguna XS.2 maintains a compatible KV cache shape while fine-tuning the attention mechanism. This suggests a future where model architectures are no longer monolithic but are instead highly specialized, with different layers performing distinct roles in the processing pipeline.</p>
+<blockquote>&quot;The point is to spend attention capacity where it is most useful, instead of giving every layer the same attention budget.&quot;</blockquote>
+<p>A counterargument worth considering is whether this level of architectural complexity makes models harder to train and debug. If every layer has unique constraints, the training dynamics become more fragile. Raschka does not fully address the training stability implications of such heterogeneous layers, leaving a gap for future research.</p>
+<h2>Bottom Line</h2>
+<p>Sebastian Raschka&#039;s analysis provides a necessary corrective to the industry&#039;s fixation on scale, demonstrating that the path to viable long-context agents lies in architectural efficiency rather than brute force. The strongest part of the argument is the concrete evidence that techniques like KV sharing and per-layer embeddings can drastically reduce memory footprints without sacrificing utility. The biggest vulnerability remains the reliance on vendor claims regarding performance trade-offs, as independent benchmarks for these specific architectural tweaks are still emerging. Readers should watch for how these efficiency gains translate into real-world agent performance in the coming months.</p>
+      </div>
+
+      
+      
+      <section id="deep-dives" class="deep-dives">
+        <h2>Deep Dives</h2>
+        <p class="deep-dives-intro">Explore these related deep dives:</p>
+        <ul class="deep-dive-list">
+          
+      <li class="deep-dive-item">
+        <a href="../../wikipedia/deepseek/index.html">
+          <strong>DeepSeek</strong>
+        </a>
+        <p class="topic-summary">This specific mechanism, pioneered by DeepSeek, explains how the article&#039;s discussion of &#039;mHC&#039; compresses the KV cache by projecting keys and values into a lower-dimensional latent space rather than storing full vectors.</p>
+      </li>
+
+      <li class="deep-dive-item">
+        <a href="../../wikipedia/attention-is-all-you-need/index.html">
+          <strong>Attention Is All You Need</strong>
+        </a>
+        <p class="topic-summary">The article contrasts new compression techniques against this established method, which limits attention to a fixed local context window to reduce quadratic complexity, serving as the baseline for the &#039;compressed attention&#039; innovations discussed.</p>
+      </li>
+        </ul>
+      </section>
+    
+      
+
+      <section id="excerpt"><section class="source-excerpts">
+      <h2>Sources</h2>
+      <article class="source-excerpt">
+      <h3>Recent developments in LLM architectures: Kv sharing, mHC, and compressed attention</h3>
+      <div class="source-meta">by Sebastian Raschka &middot; <a href="../../publication/sebastianraschka/index.html">Ahead of AI</a> &middot; <a href="https://magazine.sebastianraschka.com/p/recent-developments-in-llm-architectures" target="_blank" rel="noopener">Read full article</a></div>
+      <p>After a short family break, I am excited to be back and catching up on a busy few weeks of open-weight LLM releases. The thing that stood out to me is how much newer architectures are focused on long-context efficiency.</p><p>As reasoning models and agent workflows keep more tokens around (for longer), KV-cache size, memory traffic, and attention cost quickly become the main constraints, and LLM developers are adding a growing number of architecture tricks to reduce those costs.</p><p>The main examples I want to look at are KV sharing and per-layer embeddings in Gemma 4, layer-wise attention budgeting in Laguna XS.2, compressed convolutional attention in ZAYA1-8B, and mHC plus compressed attention in DeepSeek V4.</p><p>Most of these changes look like small tweaks in my architecture diagrams, but some of them are quite intricate design changes that are worth a more detailed discussion.</p><p>Note that this article is about architecture designs, so I will mostly skip dataset mixtures, training schedules, post-training details, RL recipes, benchmark tables, and product comparisons. Even with that narrower scope, there is a lot to cover. And, like always, the article turned out longer than I expected, so I will keep the focus on what changes inside the transformer block, residual stream, KV cache, or attention computation.</p><p>Please also note that I am only covering those topics that are interesting (new) design choices and that I haven’t covered elsewhere, yet. This list includes:</p><p>KV sharing and per-layer embeddings in Gemma 4</p><p>Compressed convolutional attention in ZAYA1</p><p>Attention budgeting in Laguna XS.2</p><p>mHC and compressed attention in DeepSeek V4</p><p>Previous Topics.</p> <p>Before getting into the new parts, here are the two previous articles I will refer back to. The first one gives a broader architecture background on recent MoE models, routed experts, active parameters, and model-size comparisons. The second one covers the attention background that comes up repeatedly below, including MHA, MQA, GQA, MLA, sliding-window attention, sparse attention, and hybrid attention designs.</p><p>I also turned several of these explanations into short, standalone tutorial pages in the LLM Architecture Gallery. For example, readers can find compact explainers for GQA, MLA, sliding-window attention, DeepSeek Sparse Attention, MoE routing, and other concepts linked from the corresponding model cards and concept labels.</p><p>1. Reusing KV Tensors Across Layers to Shrink the Cache (Gemma 4).</p> <p>For this tour of architecture advances and tweaks, we will go back to the beginning of April ...</p>
+      <footer class="source-bio" aria-label="About this source">
+      <p class="sb-heading">About this source</p>
+      <p class="sb-meta"><span class="sb-type">individual newsletter</span> &middot; <span class="sb-country">United States, Wisconsin</span> &middot; <span class="sb-funding">paid Substack subscriptions, books</span> &middot; <span class="sb-affiliations">Lightning AI (staff research engineer)</span> &middot; <span class="sb-leaning">Technical ML researcher focused on LLM internals and training; politically near-absent, culturally aligned with open-source ML practice.</span></p>
+      <p class="sb-audit">Last reviewed: <time datetime="2026-04-08">2026-04-08</time> &middot; <a href="https://magazine.sebastianraschka.com/" target="_blank" rel="noopener">source</a></p>
+    </footer>
+    </article>
+    </section></section>
+      
+    </article>
+  
+  </main>
+  <footer class="site-footer">
+    <div class="container">
+      <p><a href="../../privacy/index.html">Privacy</a> &middot; <a href="../../terms/index.html">Terms</a></p>
+    </div>
+  </footer>
+  <script>
+  (function() {
+    var params = new URLSearchParams(window.location.search);
+    var from = params.get('from');
+    if (from) {
+      var names = {
+        'foreign-policy':'Foreign Policy','ai-tech':'AI & Tech','housing-cities':'Housing & Cities',
+        'political-strategy':'Political Strategy','history':'History','science':'Science',
+        'culture':'Culture','economics':'Economics','faith':'Faith','writing-craft':'Writing & Craft',
+        'music':'Music','law-rights':'Law & Rights','public-health':'Public Health',
+        'philosophy':'Philosophy','media':'Media','defense':'Defense','china':'China'
+      };
+      var link = document.getElementById('back-link');
+      if (link) {
+        var name = names[from] || from;
+        link.href = '../../tag/' + from + '/index.html';
+        link.textContent = '\u2190 Back to ' + name;
+      }
+    }
+  })();
+  </script>
+</body>
+</html>
