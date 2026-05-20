@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Explore LLM word representations using similarity analysis - Hex Index</title>
+  <link rel="stylesheet" href="../../styles.css">
+</head>
+<body class="reading-mode">
+  <header class="reading-header">
+    <a href="../../index.html" class="back-link" id="back-link">&larr; Back to Library</a>
+  </header>
+  <main class="reading-content">
+    
+    <article class="article-page">
+      <header class="article-header">
+        <h1>Explore LLM word representations using similarity analysis</h1>
+        
+      <div class="article-meta">
+        <span class="author">Tivadar Danka</span>
+        <span class="separator">&middot;</span>
+        <a href="../../publication/thepalindrome/index.html" class="publication">
+          The Palindrome
+        </a>
+        <span class="separator">&middot;</span><time>May 20, 2026</time>
+        <span class="separator">&middot;</span><span class="read-time">16 min read</span>
+      </div>
+      </header>
+
+      <div class="content-label">
+        <span class="label-text">Commentary by <a href="../../about/index.html">Hex Index staff</a></span>
+        <nav class="content-nav">
+          <a href="#deep-dives">Deep dives</a><span class="separator">&middot;</span>
+          <a href="https://thepalindrome.org/p/explore-llm-word-representations-c57" target="_blank" rel="noopener">Original article &rarr;</a>
+        </nav>
+      </div>
+
+      
+      <div class="article-content">
+        <p>Tivadar Danka peels back the curtain on the black box of artificial intelligence, revealing that the internal mechanics of language models are far more structured than their chaotic outputs suggest. While most observers marvel at what these systems say, Danka focuses on how they think, using a technique called Representational Similarity Analysis to prove that distinct mathematical pathways within a neural network converge on the same semantic truths. This is not just a tutorial on code; it is a rigorous demonstration that even when individual components appear uncorrelated, the collective architecture learns elegant, meaningful representations of the world.</p>
+<h2>The Architecture of Attention</h2>
+<p>Danka begins by dissecting the core mechanism of the transformer block: the attention algorithm. He explains that for every token processed, the model generates three distinct sets of activations—Query (Q), Keys (K), and Values (V). &quot;The idea is this: For each pair of tokens, the dot product between their corresponding Q and K vectors creates a scalar weighting value, with higher dot products indicating that more importance (attention) should be paid to that pair,&quot; Danka writes. This weighting then dictates how much information from the V vectors is integrated into the final prediction.</p>
+<figure class="inline-illustration">
+    <img src="../../images/0b81124c-982a-47c0-9bcd-5fb16fb81c4c.webp" alt="Explore LLM word representations using similarity analysis" loading="lazy" width="600" height="315">
+  </figure>
+
+<p>This framing is crucial because it shifts the reader&#039;s perspective from viewing the model as a static database to seeing it as a dynamic processor of context. Danka notes that these vectors are not merely storing data but are actively &quot;rotated and scaled by each transformer layer,&quot; nudging the representation of a word based on everything that came before it. The author&#039;s decision to ignore the specific &quot;attention heads&quot; for this analysis is a strategic choice to isolate the fundamental mechanics, even though he admits that a per-head analysis could reveal even more granular details.</p>
+<blockquote>&quot;These results show that although individual attention matrices have idiosyncratic internal calculations, they learn meaningful representations and words that allow them to interact in elegant and semantically meaningful ways.&quot;</blockquote>
+<p>The elegance of this argument lies in its counter-intuitive finding: the raw activation values of Q, K, and V are largely uncorrelated. Danka visualizes this with scatter plots showing near-zero correlations between the matrices. &quot;The correlation between Q and K is weakly negative, while the other two pairs have correlations near zero,&quot; he observes. This might suggest a lack of coordination, but Danka argues the opposite. The lack of direct correlation is actually a feature, not a bug, allowing the system to maintain distinct computational roles while still achieving a unified understanding.</p>
+<h2>The Power of Representational Similarity</h2>
+<p>To prove that these distinct vectors are working together, Danka introduces Representational Similarity Analysis (RSA). This method does not compare the raw numbers directly; instead, it compares the <em>relationships</em> between the numbers. &quot;An RSA (representational similarity analysis) works by comparing cosine similarity matrices across different embeddings spaces,&quot; Danka explains. The core insight is that even if two systems use different coordinate systems or dimensionalities, their internal structures can be identical if the relative similarities between concepts are strongly correlated.</p>
+<p>This approach echoes the foundational work on Word2vec from 2013, which first demonstrated that words could be mapped to vectors where semantic relationships (like king minus man plus woman equals queen) were preserved mathematically. Danka extends this logic to the deep layers of modern models, showing that the &quot;hidden layers&quot; are not just noise but highly organized spaces. By creating binary matrix masks to isolate within-category similarities (like &quot;galaxy-comet&quot;) versus across-category ones (like &quot;star-sofa&quot;), he demonstrates that the model consistently groups semantically related words, regardless of which vector (Q, K, or V) is being examined.</p>
+<blockquote>&quot;The primary goal of this post series is to teach you the Representational Similarity Analysis (RSA), which is a machine-learning analysis that is used to compare distributed representations in different systems.&quot;</blockquote>
+<p>The experimental design here is particularly robust. Danka acknowledges that language models struggle with isolated words, often producing &quot;unusual and outlier-like activations.&quot; To solve this, he prompts the model with the sentence &quot;The next word is ___&quot; for each target word. &quot;This is good experimental design because it means that all words have identical context, and thus any differences and similarities can only be attributed to world-knowledge that the model learned about each word,&quot; he argues. This control ensures that the observed patterns are due to the model&#039;s internal knowledge, not the quirks of the input sequence.</p>
+<h2>Interpreting the Hidden Layers</h2>
+<p>The most striking revelation in Danka&#039;s analysis is the disconnect between direct correlation and structural similarity. While the raw values of the Q, K, and V vectors move independently, their <em>similarity structures</em> are highly consistent. Danka writes, &quot;You will discover that the adjustment vectors are largely uncorrelated while their RSA scores are quite high.&quot; This suggests that the model uses different mathematical tools to arrive at the same semantic conclusion, a form of redundancy that likely contributes to the robustness of these systems.</p>
+<p>A counterargument worth considering is whether this structural consistency implies true understanding or merely sophisticated pattern matching. Critics might argue that high RSA scores simply reflect the statistical regularities of the training data rather than a genuine grasp of semantics. However, Danka&#039;s focus on the <em>relational</em> nature of the data—how words relate to each other rather than their absolute values—offers a compelling middle ground. It suggests that the model has internalized a map of concepts that mirrors human categorization, even if the underlying mechanics are alien.</p>
+<blockquote>&quot;The result of the attention algorithm is an adjustment to the embeddings vectors as they pass through the transformer stack... those adjustments nudge the vectors from pointing towards the tokens in the input... towards other tokens to generate an appropriate and context-relevant output.&quot;</blockquote>
+<p>Danka&#039;s work also highlights the practical challenges of interpretability. Accessing these internal calculations requires &quot;hook functions&quot; in PyTorch to capture data before it is destroyed, a process that generates massive amounts of data. &quot;Even small LLMs create huge data matrices during each forward pass, and storing all of those internal calculations for each prompt would require terabytes of space,&quot; he notes. This technical hurdle underscores why such deep dives are rare; they require not just theoretical insight but significant computational engineering.</p>
+<h2>Bottom Line</h2>
+<p>Tivadar Danka&#039;s analysis successfully demystifies the attention mechanism by proving that the apparent chaos of raw activations masks a highly ordered, semantically rich internal structure. The piece&#039;s greatest strength is its methodological rigor, using RSA to reveal consistency where direct comparison fails, though it leaves open the philosophical question of whether this structural mimicry constitutes true understanding. For anyone seeking to move beyond the hype of what these models say to understand how they think, this is essential reading.</p>
+      </div>
+
+      
+      
+      <section id="deep-dives" class="deep-dives">
+        <h2>Deep Dives</h2>
+        <p class="deep-dives-intro">Explore these related deep dives:</p>
+        <ul class="deep-dive-list">
+          
+      <li class="deep-dive-item">
+        <a href="../../wikipedia/attention-machine-learning/index.html">
+          <strong>Attention (machine learning)</strong>
+        </a>
+        <p class="topic-summary">While the article mentions this as a core component of transformers, understanding its specific role in dynamically weighting input tokens reveals exactly how the model constructs the context-dependent embeddings that RSA measures.</p>
+      </li>
+        </ul>
+      </section>
+    
+      
+
+      <section id="excerpt"><section class="source-excerpts">
+      <h2>Sources</h2>
+      <article class="source-excerpt">
+      <h3>Explore LLM word representations using similarity analysis</h3>
+      <div class="source-meta">by Tivadar Danka &middot; <a href="../../publication/thepalindrome/index.html">The Palindrome</a> &middot; <a href="https://thepalindrome.org/p/explore-llm-word-representations-c57" target="_blank" rel="noopener">Read full article</a></div>
+      <p>Hey! It’s Tivadar.</p><p>Mike X Cohen, PhD returns to The Palindrome! You know I’m a big fan of his work, and if you are into machine learning, you should be too. His posts always strike the perfect balance between educational, practical, and entertaining.</p><p>He recently published the book 50 ML Projects to Understand LLMs, and his upcoming two-part series on exploring word representations is taken directly from the book. If you want to understand how Large Language Models work under the hood, don’t miss the post below.</p><p>Enjoy!</p><p>Cheers,Tivadar</p><p>What you will learn in this 2-part post series.</p> <p>The primary goal of this post series is to teach you the Representational Similarity Analysis (RSA), which is a machine-learning analysis that compares distributed representations in different systems. It was originally developed as a neuroscience tool to compare how image categories are represented in different parts of the brain, and was then adapted to compare across different brain-imaging methods, different species, and between brains and computer vision models. Here in this post, I’ll teach you how to use RSA to explore whether different language models encode words in similar ways.</p><p>The secondary goal of this post series is to use RSA to learn about LLM architecture and representations. You’ll use RSA as a tool to peer into the internal calculations and representations inside LLMs, including embeddings vectors and the famous “attention” algorithm in the transformer blocks.</p><p>This post roughly corresponds to Project 12 in my recent book on using machine-learning projects to understand how LLMs work. Don’t worry, you don’t need the book to follow this post.</p><p>The main prerequisite for these posts is understanding correlation and cosine similarity. If you don’t know those two analyses — or if you want a refresher — check out this post. If you want to follow the code that accompanies this post, you’ll also need some Python coding skills.</p><p>How to use the code with these posts.</p> <p>Here’s the most important learning tip: Don’t just read the post; follow along with the code! The accompanying code will reproduce all the figures in this post — but you can do so much more by thinking of the code as a starting-point for your continued explorations. Try changing parameters, adding new words or categories, using different similarity/distance metrics, different models, etc.</p><p>The code is available here on my GitHub. In the video below, I show how to ...</p>
+      <footer class="source-bio" aria-label="About this source">
+      <p class="sb-heading">About this source</p>
+      <p class="sb-meta"><span class="sb-type">independent newsletter</span> &middot; <span class="sb-country">Hungary</span> &middot; <span class="sb-funding">paid subscriptions (Substack)</span> &middot; <span class="sb-leaning">Mathematics-for-ML explainer, politically non-partisan.</span></p>
+      <p class="sb-audit">Last reviewed: <time datetime="2026-04-08">2026-04-08</time> &middot; <a href="https://thepalindrome.org/about" target="_blank" rel="noopener">source</a></p>
+    </footer>
+    </article>
+    </section></section>
+      
+    </article>
+  
+  </main>
+  <footer class="site-footer">
+    <div class="container">
+      <p><a href="../../privacy/index.html">Privacy</a> &middot; <a href="../../terms/index.html">Terms</a></p>
+    </div>
+  </footer>
+  <script>
+  (function() {
+    var params = new URLSearchParams(window.location.search);
+    var from = params.get('from');
+    if (from) {
+      var names = {
+        'foreign-policy':'Foreign Policy','ai-tech':'AI & Tech','housing-cities':'Housing & Cities',
+        'political-strategy':'Political Strategy','history':'History','science':'Science',
+        'culture':'Culture','economics':'Economics','faith':'Faith','writing-craft':'Writing & Craft',
+        'music':'Music','law-rights':'Law & Rights','public-health':'Public Health',
+        'philosophy':'Philosophy','media':'Media','defense':'Defense','china':'China'
+      };
+      var link = document.getElementById('back-link');
+      if (link) {
+        var name = names[from] || from;
+        link.href = '../../tag/' + from + '/index.html';
+        link.textContent = '\u2190 Back to ' + name;
+      }
+    }
+  })();
+  </script>
+</body>
+</html>
