@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>wOBA - Hex Index</title>
+  <link rel="stylesheet" href="../../styles.css">
+</head>
+<body class="reading-mode">
+  <header class="reading-header">
+    <a href="../../index.html" class="back-link" id="back-link">&larr; Back to Library</a>
+  </header>
+  <main class="reading-content">
+    
+    <article class="wikipedia-page">
+      <header class="wikipedia-header">
+        <div class="type-badge">Wikipedia Deep Dive</div>
+        <h1>wOBA</h1>
+        <div class="article-meta">
+          <span class="read-time">12 min read</span>
+        </div>
+      </header>
+
+      
+
+      <div class="wikipedia-content"><p class="source-note">Based on <a href="https://en.wikipedia.org/wiki/WOBA">Wikipedia: wOBA</a></p>
+<p>In the summer of 2007, three men sat in a room in Washington, D.C., and fundamentally broke the way we understand baseball offense. Tom Tango, Mitchel Lichtman, and Andrew Dolphin were not merely crunching numbers; they were dismantling a century of intuition. Their collaboration resulted in <em>The Book: Playing the Percentages in Baseball</em>, a text that would eventually give birth to the most reliable metric for measuring a hitter&#039;s true value: weighted on-base average, or wOBA. Before this moment, the baseball world was largely content to rely on clumsy proxies. We had OPS, which added on-base percentage and slugging percentage together, assuming that a home run was exactly twice as valuable as a single and that a walk was worth the same as a triple. It was a mathematically lazy approach that treated the nuance of the game as a rounding error. wOBA arrived to correct that error, offering a statistic that did not just count whether a player reached base, but exactly how they did it, and what that specific action meant for the probability of scoring runs.</p>
+<p>To understand why wOBA was necessary, one must first appreciate the chaos of the baseball inning. It is not a linear progression of events. A single with no outs and the bases empty changes the game in a completely different way than a single with two outs and runners on second and third. For decades, the traditional box score ignored this context. It recorded a &#039;single&#039; as a single, regardless of the situation. The human mind, however, is terrible at intuitively calculating the complex, shifting probabilities of run expectancy. We guess. We assume a home run is great and a walk is okay. But the gap between &#039;great&#039; and &#039;okay&#039; is not a fixed number; it is a fluid variable that shifts with every pitch, every runner on base, and every out recorded.</p>
+<p>Tango and his co-authors realized that to measure a player&#039;s contribution, you had to measure the change in run expectancy. This is the first principle of wOBA. Imagine a game state: bases empty, no outs. Historical data shows that, on average, a team will score 0.51 runs from that point forward. This is the run expectancy. Now, imagine the batter hits a home run. The run expectancy resets to 0.51 (bases empty, no outs again, because the inning continues), but one run has been scored immediately. The value of that event is the run scored (1) plus the change in future expectancy (0.51 minus 0.51). The value is exactly 1.00 run.</p>
+<p>Now, shift the scenario slightly. Bases loaded, two outs. The run expectancy is high because a run is almost certainly coming. If the batter hits a home run, the value is not just 1.00. It is the four runs that crossed the plate plus the difference between the high probability of scoring before the hit and the low probability of scoring after the hit. By averaging these values across millions of historical plays, Tango&#039;s team derived a &#039;linear weight&#039; for every possible offensive event. A home run in 2023 was worth approximately 2.014 runs. A double was worth 1.248. A single was worth 0.855. A walk? Just 0.697. These numbers are not arbitrary; they are the cold, hard truth of how the game is actually played, distilled from the collective memory of every inning ever recorded.</p>
+<p>The genius of wOBA lies in its simplicity of application despite the complexity of its derivation. Unlike OPS, which treats a single and a triple as merely different points on a sliding scale of power, wOBA recognizes that a triple is significantly more valuable than a single because it places the runner in scoring position with a much higher likelihood of driving them in. It also recognizes that a walk is more valuable than an out, but less valuable than a single. The formula takes the sum of these weighted events—non-intentional walks, hit-by-pitches, singles, doubles, triples, and home runs—and divides them by a player&#039;s total plate appearances (excluding intentional walks and including sacrifice flies and hit-by-pitches). The result is a number that looks and feels like an on-base percentage, usually hovering around .320 to .360 for league-average players. This scaling was a deliberate choice. The creators knew that if they left the numbers as raw run values, they would be alienating to the average fan. By normalizing the weights so that the league average wOBA equals the league average on-base percentage, they created a bridge between the old world of traditional stats and the new world of sabermetrics.</p>
+<p>But the story of wOBA is not just about a single formula; it is about the evolution of how we view player control. In the early iterations, presented in <em>The Book</em>, the formula included &#039;Reached Base on Error&#039; (RBOE). The logic was sound: if a fielder makes an error and a batter reaches, it is an offensive event. However, as the data evolved, specifically with the rise of sites like FanGraphs which began tracking wOBA for every Major League player in 2008, the definition shifted. FanGraphs dropped RBOE from the standard wOBA calculation. Why? Because an error is, by definition, a failure of the defense, not a skill of the batter. Including it muddied the waters of player evaluation. A player who reaches base on a sloppy throw should not be credited with the same level of offensive production as a player who hits a clean single. This distinction highlights the core philosophy of wOBA: it attempts to isolate the batter&#039;s contribution from the noise of the game.</p>
+<p>This isolation of skill has become even more critical in the modern era of baseball, where the introduction of Statcast has revolutionized our ability to measure the quality of contact. We now have a metric called Expected Weighted On-base Average, or xwOBA. If wOBA tells us what a player <em>did</em>, xwOBA tells us what they <em>should have done</em> based on the physics of their swing. It uses machine learning models to analyze the launch angle and exit velocity of every batted ball. A ball hit with a high exit velocity and a perfect launch angle is assigned a high probability of becoming a hit. If a player hits a ball with those characteristics and it is caught by a diving center fielder, their actual wOBA might be low because they made an out. But their xwOBA will remain high, because the quality of contact was elite.</p>
+<blockquote>&quot;Like FIP, xwOBA attempts to remove the noise added by defense, focusing only on evaluating what batters can control.&quot;</blockquote>
+<p>This is a profound shift in perspective. For years, we judged hitters by their batting average, a statistic that is heavily dependent on the defense playing behind them. A hitter could be swinging the bat with the precision of a surgeon, but if the defense is making spectacular plays, their average will suffer. xwOBA strips away the defense. It looks at the ball leaving the bat and asks, &quot;Given this exit velocity and launch angle, how likely was this to be a hit?&quot; If a player consistently generates high xwOBA but low actual wOBA, we know we are looking at a victim of bad luck or a great defense. If the reverse is true, we are looking at a player who might be due for regression. This metric has become indispensable for front offices and fans alike, allowing us to see the future performance of a player hidden within their past results.</p>
+<p>The coefficients used in these formulas are not static. They change every season. This is a crucial detail that often goes unnoticed. The value of a home run in 2010 is not the same as the value of a home run in 2024. Why? Because the frequency of events changes. If home runs become more common, the run value of a home run decreases slightly because it is less of a rarity and the overall run environment shifts. The run-expectancy matrix, which calculates the average runs scored from every base-out state, is recalculated annually. FanGraphs maintains a historical record of these coefficients, allowing analysts to look back and see how the value of a single, a double, or a walk has shifted over decades. In 2023, the coefficient for a home run was 2.014. In a different era, with a different run environment, that number would be different. This fluidity ensures that wOBA remains a relative measure, always comparing a player&#039;s performance to the specific context of their season.</p>
+<p>The impact of wOBA extends far beyond the box score. It forms the backbone of Wins Above Replacement (WAR), specifically the offensive component used by FanGraphs. WAR is the attempt to answer the ultimate question in sports: how many wins did this player add to their team? To answer that, you first need to know how many runs they created. wOBA provides the most accurate estimate of run creation per plate appearance. By converting wOBA into runs, and then converting runs into wins, we can finally compare a leadoff hitter who gets on base constantly to a cleanup hitter who hits for power on a single scale. Before wOBA, this comparison was fraught with error. OPS suggested they were comparable if their numbers added up to the same total, but wOBA reveals the true cost and value of their specific contributions.</p>
+<p>Consider the implications for team strategy. If a team manager understands that a walk is worth 0.7 runs and a single is worth 0.85 runs, the strategy changes. The obsession with the &#039;big hit&#039; is tempered by the recognition that getting on base in any way is the primary engine of offense. This aligns with the &#039;Moneyball&#039; philosophy, but wOBA provides the mathematical proof that the philosophy was correct. It validates the idea that the most valuable players are those who avoid outs and reach base, regardless of the method. It also helps explain why some players who hit for a low average can still be MVP candidates. If a player has a high walk rate and hits for extra-base power, their wOBA will be sky-high, even if their batting average is .240. The traditional stats would label them a &#039;bad hitter&#039;; wOBA would label them a &#039;gold standard&#039; offensive force.</p>
+<p>The adoption of wOBA has not been without its critics, though the criticism is often a matter of preference rather than accuracy. Some traditionalists argue that the complexity of the formula makes it inaccessible. They prefer the simplicity of batting average or home runs. But the complexity is the point. Baseball is a complex game, and simple metrics often fail to capture its depth. As the website The Hardball Times noted in their early studies, wOBA performs comparably to or better than other similar tools like RC (Runs Created) or OPS. It is the gold standard because it is grounded in the actual run-scoring environment of the game, not in arbitrary assumptions.</p>
+<p>Furthermore, the distinction between wOBA and xwOBA offers a fascinating lens into the human element of the game. We are seeing a divergence in the narrative of player performance. A player might have a career year in terms of wOBA, but a decline in xwOBA. This suggests they have been the beneficiary of luck—perhaps the wind was blowing out, or the defense was shifting poorly. Conversely, a player with a career-low wOBA but a soaring xwOBA is likely a star in the making, waiting for the luck to turn. This predictive power is what makes wOBA and its derivatives so valuable. They allow us to see past the immediate results and understand the underlying process.</p>
+<p>The evolution of this statistic mirrors the evolution of baseball itself. From the era of the dead ball, where a single was the most common event, to the steroid era of power, to the modern era of launch angles and exit velocities, the game has changed. The metrics must change with it. The coefficients in the wOBA formula are a reflection of the game&#039;s current state. They tell us what the game values right now. If the game becomes more power-oriented, the weight of the home run increases relative to the single. If the game becomes more contact-oriented, the value of the single and the walk rises. wOBA is a living document, a snapshot of the game&#039;s DNA at any given moment.</p>
+<p>Tom Tango, Mitchel Lichtman, and Andrew Dolphin did not just create a statistic; they created a language. They gave us the vocabulary to discuss the game with precision. When we say a player has a wOBA of .400, we are not just saying they are &#039;good.&#039; We are saying they are generating runs at a rate that is 80 points above the league average, a feat that translates directly to wins. We are saying that every time they step to the plate, they are adding value to their team that is quantifiable, predictable, and undeniable. The old stats were like looking at a painting in black and white. wOBA put the color back in, showing us the full spectrum of offensive contribution. It showed us that a walk is not just a &#039;no-out,&#039; but a run-scoring opportunity. It showed us that a triple is not just a &#039;three-bagger,&#039; but a near-certain run. It showed us that the game is a complex web of probabilities, and that the best way to understand it is to measure the change in those probabilities, one plate appearance at a time.</p>
+<p>In the end, wOBA is a testament to the power of data to reveal truth. It stripped away the myths of the &#039;clutch hitter&#039; and the &#039;natural instinct&#039; to show that baseball, at its core, is a game of expected values. The human element—the grit, the drama, the moment of silence before the pitch—is still there, but it is no longer hidden behind a fog of inaccurate statistics. We can now see the game as it is: a series of events, each with a specific value, contributing to the ultimate goal of scoring runs. And in that clarity, we find a deeper appreciation for the art of hitting, and the science of winning.</p></div>
+
+      
+
+      <footer class="wikipedia-footer">
+        <p class="source-link">
+          <a href="https://en.wikipedia.org/wiki/WOBA" target="_blank" rel="noopener">
+            View original Wikipedia article &rarr;
+          </a>
+        </p>
+        <p class="rewrite-note">
+        This article has been rewritten from Wikipedia source material for enjoyable reading.
+        Content may have been condensed, restructured, or simplified.
+      </p>
+      </footer>
+
+      
+      <section class="related-articles">
+        <h2>Related Articles</h2>
+        <p class="related-intro">This deep dive was written in connection with these articles:</p>
+        <ul class="related-list">
+          
+      <li class="related-article-item">
+        <a href="../../article/32a20b1c-d8e3-44dc-bf5a-39abbcf37b8d/index.html">
+          <strong>From hot to not: What happened to the cubs this week?</strong>
+        </a>
+        <span class="article-meta">
+          by The Baseball Nerd in The Baseball Nerd
+        </span>
+      </li>
+        </ul>
+      </section>
+    
+    </article>
+  
+  </main>
+  <footer class="site-footer">
+    <div class="container">
+      <p><a href="../../privacy/index.html">Privacy</a> &middot; <a href="../../terms/index.html">Terms</a></p>
+    </div>
+  </footer>
+  <script>
+  (function() {
+    var params = new URLSearchParams(window.location.search);
+    var from = params.get('from');
+    if (from) {
+      var names = {
+        'foreign-policy':'Foreign Policy','ai-tech':'AI & Tech','housing-cities':'Housing & Cities',
+        'political-strategy':'Political Strategy','history':'History','science':'Science',
+        'culture':'Culture','economics':'Economics','faith':'Faith','writing-craft':'Writing & Craft',
+        'music':'Music','law-rights':'Law & Rights','public-health':'Public Health',
+        'philosophy':'Philosophy','media':'Media','defense':'Defense','china':'China'
+      };
+      var link = document.getElementById('back-link');
+      if (link) {
+        var name = names[from] || from;
+        link.href = '../../tag/' + from + '/index.html';
+        link.textContent = '\u2190 Back to ' + name;
+      }
+    }
+  })();
+  </script>
+</body>
+</html>
