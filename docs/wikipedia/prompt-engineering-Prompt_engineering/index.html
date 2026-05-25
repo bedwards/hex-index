@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Prompt engineering - Hex Index</title>
+  <link rel="stylesheet" href="../../styles.css">
+</head>
+<body class="reading-mode">
+  <header class="reading-header">
+    <a href="../../index.html" class="back-link" id="back-link">&larr; Back to Library</a>
+  </header>
+  <main class="reading-content">
+    
+    <article class="wikipedia-page">
+      <header class="wikipedia-header">
+        <div class="type-badge">Wikipedia Deep Dive</div>
+        <h1>Prompt engineering</h1>
+        <div class="article-meta">
+          <span class="read-time">11 min read</span>
+        </div>
+      </header>
+
+      
+
+      <div class="wikipedia-content"><p class="source-note">Based on <a href="https://en.wikipedia.org/wiki/Prompt_engineering">Wikipedia: Prompt engineering</a></p>
+<p>In 2023, the word &quot;prompt&quot; was the runner-up for the Oxford English Dictionary&#039;s Word of the Year, signaling a seismic shift in how humanity interacts with intelligence. It was no longer just a grammatical term for a cue or a signal; it had become the primary interface between human intent and artificial cognition. That year, a new job title emerged with startling velocity: prompt engineer. Corporations across every sector, from finance to healthcare, began hiring individuals specifically to craft the natural language inputs that would coax the best possible outputs from generative artificial intelligence (GenAI) models. The premise was simple yet profound: the quality of the AI&#039;s answer was directly proportional to the quality of the question. However, the landscape of this discipline is not static. By 2026, the specialized title of &quot;prompt engineer&quot; has largely lost its traction in the corporate hierarchy. The very models they were hired to master have evolved to write better prompts than their human creators, and the skill has been democratized through widespread corporate training for general employees. What remains, however, is a critical, foundational discipline that has fundamentally altered the architecture of software development and data analysis.</p>
+<p>At its core, prompt engineering is the process of structuring natural language inputs to produce specified, high-fidelity outputs from a generative model. It is the art and science of communication with a machine that possesses vast knowledge but lacks inherent direction. A prompt is simply a text-based instruction given to an AI program that determines or influences the content it generates. For a text-to-text language model, this might be a query, a command, or a complex statement weaving together context, instructions, and conversation history. When communicating with a text-to-image model, the prompt transforms into a descriptive vision, such as &quot;a high-quality photo of an astronaut riding a horse,&quot; or for audio models, &quot;Lo-fi slow BPM electro chill with organic samples.&quot; The engineer&#039;s task is to design these queries with such precision that the model&#039;s latent potential is unlocked, guiding it toward accurate, useful, and consistent responses.</p>
+<p>The sensitivity of these models to linguistic nuance is not merely a curiosity; it is a defining characteristic of their operation. Research has consistently demonstrated that the performance of large language models (LLMs) is highly fragile. Small variations in phrasing, the ordering of examples, or even the specific choice of words can lead to dramatic shifts in accuracy. In some documented cases, simply reordering the examples provided in a prompt produced accuracy shifts of more than 40 percent. Other studies have shown that formatting changes in few-shot settings can result in accuracy fluctuations of up to 76 points. This sensitivity persists even as models grow larger, are provided with more examples, or undergo instruction tuning. The model&#039;s ability to &quot;learn&quot; from these prompts in the moment is known as in-context learning, an emergent property that scales non-linearly with model size. Unlike traditional training or fine-tuning, which produce permanent changes to a model&#039;s weights, in-context learning is temporary and ephemeral. It is a form of meta-learning, or &quot;learning to learn,&quot; where the model temporarily adopts the patterns presented in the prompt to solve a specific task.</p>
+<h2>The Evolution of Techniques</h2>
+<p>As the field matured during the 2020s AI boom, a diverse vocabulary of techniques emerged to manage this sensitivity and maximize output quality. By 2024, a survey of the field identified over 50 distinct text-based prompting techniques, 40 multimodal variants, and a vocabulary of 33 terms used across prompting research. This proliferation highlights a significant lack of standardized terminology, yet several methodologies have risen to prominence due to their efficacy in solving complex problems.</p>
+<p>One of the most transformative techniques is Chain-of-Thought (CoT) prompting. Before CoT, models often struggled with multi-step reasoning tasks, such as arithmetic or commonsense logic, frequently arriving at incorrect conclusions by skipping intermediate steps. In 2022, Google Brain reported that inducing the model to answer a problem by generating a series of intermediate reasoning steps—mimicking a human train of thought—significantly improved its reasoning ability. When applied to PaLM, a massive 540 billion parameter language model, CoT prompting allowed the system to perform comparably with task-specific fine-tuned models on several complex benchmarks. It achieved state-of-the-art results on the GSM8K mathematical reasoning benchmark, a feat previously thought to require specialized training. Originally, CoT was a few-shot technique, requiring the engineer to provide input/output examples that demonstrated the desired step-by-step reasoning. However, a subsequent discovery by researchers at Google and the University of Tokyo revolutionized the approach: simply appending the phrase &quot;Let&#039;s think step-by-step&quot; to a prompt was sufficient to trigger this behavior, transforming CoT into a powerful zero-shot technique.</p>
+<p>Building upon the foundation of CoT, Tree-of-Thought (ToT) prompting generalizes the concept by allowing the model to explore multiple lines of reasoning in parallel. Instead of a single linear path, ToT generates a tree of possible thought processes, enabling the model to backtrack, evaluate different paths, and select the most promising one using search algorithms like breadth-first, depth-first, or beam search. This approach is particularly valuable for tasks requiring strategic planning or creative problem-solving where a single path of logic is insufficient.</p>
+<p>Another critical advancement is Retrieval-Augmented Generation (RAG). While traditional prompting relies solely on the model&#039;s internal training data, RAG allows for the integration of external knowledge. By retrieving relevant documents or data points and feeding them into the prompt context, RAG provides greater accuracy and a wider scope of functions, effectively grounding the model&#039;s responses in up-to-date, verified information rather than relying on potentially outdated or hallucinated internal weights. This technique has become indispensable for enterprise applications where factual precision is non-negotiable.</p>
+<h2>The Human Element and the Rise of &quot;Vibe Coding&quot;</h2>
+<p>The impact of these techniques extends far beyond academic benchmarks; they have fundamentally reshaped the workflow of software development and creative production. In 2025, the term &quot;vibe coding&quot; was named the Collins Dictionary Word of the Year, encapsulating a new era of AI-assisted software development. In this paradigm, a user prompts an LLM with a high-level description of what they want—focusing on the &quot;vibe&quot; or the desired outcome—and lets the AI generate or edit the code. This represents a shift from the granular syntax of traditional programming to the semantic logic of intent. It lowers the barrier to entry, allowing individuals without deep coding expertise to build complex software, yet it demands a new kind of literacy: the ability to articulate intent clearly and iteratively.</p>
+<p>The role of the human in this loop has shifted from a direct operator to a curator and validator. The engineer no longer just writes code or crafts a single prompt; they design systems that manage the flow of information. This has given rise to the concept of context engineering, a related area of software engineering that focuses on the management of non-prompt contexts supplied to the GenAI model. While prompt engineering deals with the user&#039;s direct input, context engineering manages the surrounding ecosystem: system instructions, retrieved knowledge, tool definitions, conversation summaries, and task metadata. The goal is to improve reliability, provenance, and token efficiency in production LLM systems.</p>
+<p>Context engineering is performed through rigorous operational practices. It involves token budgeting to manage costs, the use of provenance tags to track the source of information, and the versioning of context artifacts to ensure reproducibility. Observability is paramount; engineers must log exactly which context was supplied to the model to understand why a specific output was generated. Perhaps most critically, context regression tests are employed to ensure that changes to the supplied context do not silently alter system behavior. In a world where a minor change in the order of examples can swing accuracy by 40 percent, these engineering controls are the only thing preventing chaos in production environments.</p>
+<h2>The Dark Side: Security and Robustness</h2>
+<p>As these systems became more integrated into the fabric of society, they also became targets. Prompt injection emerged as a distinct and dangerous type of cybersecurity attack. This technique involves targeting machine learning models through malicious prompts designed to hijack the model&#039;s behavior, bypass safety filters, or leak sensitive data. Just as SQL injection attacks exploit vulnerabilities in database queries, prompt injection exploits the natural language interface of the AI. A user might craft a prompt that tricks the model into ignoring its original instructions, revealing system prompts, or executing unauthorized actions. The stakes are high, as these models are increasingly used to manage financial transactions, control physical devices, and process personal information.</p>
+<p>The sensitivity of LLMs to formatting and linguistic properties, which makes them powerful, also makes them vulnerable. Morphology, syntax, and lexico-semantic changes can meaningfully enhance or degrade task performance, but they can also be weaponized. To address this, researchers have proposed several evaluative methods to make models more robust. FormatSpread facilitates systematic analysis by evaluating a range of plausible prompt formats, offering a more comprehensive performance interval rather than a single data point. Similarly, PromptEval estimates performance distributions across diverse prompts, enabling robust metrics such as performance quantiles. These tools allow engineers to understand the boundaries of a model&#039;s reliability and to design systems that can withstand adversarial inputs.</p>
+<h2>The Future of the Discipline</h2>
+<p>The trajectory of prompt engineering suggests a future where the distinction between the engineer and the user blurs further. The Oxford English Dictionary defines prompt engineering as &quot;The action or process of formulating and refining prompts for an artificial intelligence program, algorithm, etc., in order to optimize its output or to achieve a desired outcome; the discipline or profession concerned with this.&quot; In the early days of the 2020s boom, this was a specialized profession requiring deep technical knowledge of model architectures and linguistic nuances. Today, it is a fundamental literacy, a skill set that is being integrated into general education and corporate training.</p>
+<p>The decline of the specific job title &quot;prompt engineer&quot; does not signal the death of the discipline; rather, it signals its maturation. Just as the title &quot;webmaster&quot; faded as web development became a standard part of software engineering, the specialized role of the prompt engineer is being absorbed into the broader ecosystem of AI interaction. The tools are becoming more intuitive, and the models are becoming more capable of self-correcting and self-optimizing. Automated prompt generation methods are now standard, allowing systems to refine their own inputs for greater accuracy.</p>
+<p>Yet, the human element remains irreplaceable. The ability to define the problem, to provide the necessary context, and to interpret the output with critical judgment is a uniquely human capability. As we move deeper into the 2020s, the focus shifts from simply crafting the perfect prompt to designing the systems in which those prompts operate. It is about ensuring that the AI serves human intent with reliability, safety, and ethical alignment. The vocabulary may change, the techniques may evolve, and the models may grow more powerful, but the fundamental challenge remains: how do we effectively communicate our desires to a machine that thinks differently than we do?</p>
+<p>The answer lies in a continuous, iterative dialogue. It is a process of refinement, of testing, of learning from failure, and of adapting to the unique sensitivities of the model. Whether through the structured logic of Chain-of-Thought, the exploratory depth of Tree-of-Thought, or the contextual richness of RAG, the goal is the same: to bridge the gap between human intent and machine execution. As we stand in 2026, looking back at the rapid evolution of this field, it is clear that prompt engineering was not just a fleeting trend of the AI boom. It was the foundation upon which the new era of intelligent systems was built. It taught us that how we ask is just as important as what we ask. And in a world increasingly mediated by algorithms, that lesson is one that will endure long after the specific techniques of today have been superseded by the innovations of tomorrow.</p>
+<p>The journey from the first crude queries to the sophisticated context-aware systems of 2026 has been nothing short of revolutionary. It has transformed how we code, how we create art, how we analyze data, and how we interact with the world. It has shown us that intelligence is not just a property of the machine, but a collaboration between the machine and the human who guides it. As we continue to refine this collaboration, the potential for discovery, creativity, and problem-solving seems boundless. The only limit is the clarity of our vision and the precision of our words.</p></div>
+
+      
+
+      <footer class="wikipedia-footer">
+        <p class="source-link">
+          <a href="https://en.wikipedia.org/wiki/Prompt_engineering" target="_blank" rel="noopener">
+            View original Wikipedia article &rarr;
+          </a>
+        </p>
+        <p class="rewrite-note">
+        This article has been rewritten from Wikipedia source material for enjoyable reading.
+        Content may have been condensed, restructured, or simplified.
+      </p>
+      </footer>
+
+      
+      <section class="related-articles">
+        <h2>Related Articles</h2>
+        <p class="related-intro">This deep dive was written in connection with these articles:</p>
+        <ul class="related-list">
+          
+      <li class="related-article-item">
+        <a href="../../article/32858f84-ca32-4b4d-8036-8d926eba7ee3/index.html">
+          <strong>How can teachers find clarity in a sea of confusing data?</strong>
+        </a>
+        <span class="article-meta">
+          by Natalie Wexler in Natalie Wexler
+        </span>
+      </li>
+
+      <li class="related-article-item">
+        <a href="../../article/fa534cda-1ba0-48cb-aa3a-f491ddcab670/index.html">
+          <strong>&#039;Prompting&#039; just split into 4 skills. You only know one. Here&#039;s why you need the other 3 in 2026</strong>
+        </a>
+        <span class="article-meta">
+          by Nate B Jones in Nate B Jones
+        </span>
+      </li>
+        </ul>
+      </section>
+    
+    </article>
+  
+  </main>
+  <footer class="site-footer">
+    <div class="container">
+      <p><a href="../../privacy/index.html">Privacy</a> &middot; <a href="../../terms/index.html">Terms</a></p>
+    </div>
+  </footer>
+  <script>
+  (function() {
+    var params = new URLSearchParams(window.location.search);
+    var from = params.get('from');
+    if (from) {
+      var names = {
+        'foreign-policy':'Foreign Policy','ai-tech':'AI & Tech','housing-cities':'Housing & Cities',
+        'political-strategy':'Political Strategy','history':'History','science':'Science',
+        'culture':'Culture','economics':'Economics','faith':'Faith','writing-craft':'Writing & Craft',
+        'music':'Music','law-rights':'Law & Rights','public-health':'Public Health',
+        'philosophy':'Philosophy','media':'Media','defense':'Defense','china':'China'
+      };
+      var link = document.getElementById('back-link');
+      if (link) {
+        var name = names[from] || from;
+        link.href = '../../tag/' + from + '/index.html';
+        link.textContent = '\u2190 Back to ' + name;
+      }
+    }
+  })();
+  </script>
+</body>
+</html>
