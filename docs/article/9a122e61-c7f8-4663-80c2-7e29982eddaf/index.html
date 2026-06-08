@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Floating point: The origin story - Hex Index</title>
+  <link rel="stylesheet" href="../../styles.css">
+</head>
+<body class="reading-mode">
+  <header class="reading-header">
+    <a href="../../index.html" class="back-link" id="back-link">&larr; Back to Library</a>
+  </header>
+  <main class="reading-content">
+    
+    <article class="article-page">
+      <header class="article-header">
+        <h1>Floating point: The origin story</h1>
+        
+      <div class="article-meta">
+        <span class="author">Babbage</span>
+        <span class="separator">&middot;</span>
+        <a href="../../publication/thechipletter/index.html" class="publication">
+          The Chip Letter
+        </a>
+        <span class="separator">&middot;</span><time>Jun 2, 2026</time>
+        <span class="separator">&middot;</span><span class="read-time">13 min read</span>
+      </div>
+      </header>
+
+      <div class="content-label">
+        <span class="label-text">Commentary by <a href="../../about/index.html">Hex Index staff</a></span>
+        <nav class="content-nav">
+          
+          <a href="https://thechipletter.substack.com/p/floating-point-the-origin-story" target="_blank" rel="noopener">Original article &rarr;</a>
+        </nav>
+      </div>
+
+      
+      <div class="article-content">
+        <p>Babbage reframes a cornerstone of modern artificial intelligence not as a Silicon Valley invention, but as a desperate engineering solution to the sheer scale of the physical universe. While today&#039;s engineers obsess over floating point units to train machine learning models, Babbage reveals that this architecture was born from a 19th-century struggle to fit the cosmos into brass wheels without bankrupting the British government.</p>
+<h2>The Economics of Scale</h2>
+<p>The piece opens by grounding abstract mathematics in the visceral reality of cosmic distance. &quot;Space is big. You just won&amp;#8217;t believe how vastly, hugely, mind-bogglingly big it is,&quot; Babbage writes, invoking Douglas Adams to illustrate why standard decimal notation fails at both stellar and atomic scales. This framing is effective because it immediately connects the reader&#039;s intuitive sense of wonder with a technical necessity: we need floating point not for complexity&#039;s sake, but for survival in a universe that refuses to fit on a single page.</p>
+<figure class="inline-illustration">
+    <img src="../../images/9a122e61-c7f8-4663-80c2-7e29982eddaf.webp" alt="Floating point: The origin story" loading="lazy" width="600" height="315">
+  </figure>
+
+<p>Babbage traces the lineage of this notation back to René Descartes&#039; <em>La Géométrie</em> (1637) and Michael Stifel&#039;s 1544 introduction of the term &quot;exponent.&quot; However, the author quickly pivots from history to the brutal economics of implementation. The Royal Society supported Charles Babbage&#039;s Difference Engine for astronomy and navigation, noting that &quot;they regard as obvious to every one who considers the immense advantage of accurate numerical Tables in all matters of calculation.&quot; Yet, this demand for precision came with a price tag that doomed the project.</p>
+<blockquote>These costs in turn doomed the projects. In the end the Babbage&amp;#8217;s backers ran out of patience.</blockquote>
+<p>The commentary highlights a crucial vulnerability often missed in tech history: the Difference Engine required 31 brass wheels to store decimal digits, costing £17,000 in the 1840s—roughly $1 billion in today&#039;s terms. Babbage argues that &quot;a less costly approach might have enabled him to turn the Difference Engine into a viable &amp;#8216;commercial&amp;#8217; proposition and history could have been very different.&quot; This is a compelling counterfactual, suggesting that floating point arithmetic wasn&#039;t just an intellectual leap, but a financial imperative. Critics might argue that even with cheaper hardware, the mechanical complexity of 31 wheels would still have made mass production impossible in the mid-19th century, regardless of the number format used.</p>
+<h2>The Spanish Engineer&#039;s Shortcut</h2>
+<p>The narrative then shifts to Leonardo Torres y Quevedo, a polymath whose work on airships and cable-cars often overshadows his computational genius. Babbage notes that while Torres y Quevedo built upon Babbage&#039;s ideas, he correctly identified the hardware bottleneck: &quot;Very large numbers are as embarrassing in mechanical calculations as in usual calculations.&quot;</p>
+<p>In his 1915 <em>Essays on Automatics</em>, Torres y Quevedo proposed a radical simplification. Instead of storing every digit of a massive number, he suggested fixing the number of significant figures and using an exponent to denote magnitude. &quot;We could greatly simplify this writing by arbitrarily establishing these three simple rules,&quot; Babbage paraphrases, detailing how Torres y Quevedo reduced complex quantities to just eight or ten digits. This was a pragmatic move that anticipated modern binary floating point standards decades before electronic computers existed.</p>
+<blockquote>The paper [Essays on Automatics] ends with a comparison of the advantages of electromechanical devices over the sort of mechanical devices that were all that were available to Babbage.</blockquote>
+<p>Babbage credits Brian Rendell&#039;s research, which suggests Torres y Quevedo &quot;would have been quite capable of building a general-purpose electromechanical computer, more than 20 years ahead of its time.&quot; The author acknowledges the ambiguity here: while Torres y Quevedo documented the theory and built working prototypes like an electromechanical arithmometer, he never fully realized a floating-point machine. This hesitation leaves the reader wondering if the idea was truly novel or simply a practical adaptation that lacked the right industrial moment to flourish.</p>
+<h2>The German Breakthrough</h2>
+<p>The climax of Babbage&#039;s historical survey arrives with Konrad Zuse, an engineer who worked in total isolation from his predecessors. &quot;Coming from a civil engineering background, he had no formal training in electronics and was not acquainted with the technology used in conventional mechanical calculators,&quot; Babbage writes. This ignorance became his greatest asset, forcing him to rethink arithmetic from scratch.</p>
+<p>In 1936, Zuse built the Z1, a machine that implemented floating point hardware long before it was standard. The architecture included &quot;a sign bit, a 7-bit exponent, and a 16-bit mantissa,&quot; operating on binary rather than decimal wheels. Babbage emphasizes the sophistication of this design, noting that division was handled via microcode using &quot;non-restoring floating-point division.&quot; Unlike Torres y Quevedo&#039;s theoretical elegance or Babbage&#039;s expensive mechanical dreams, Zuse delivered a working, albeit unreliable, prototype.</p>
+<blockquote>If I feel a little equivocal about Torres Quevedo&amp;#8217;s work on floating point I have no such reluctance to give Zuse his full due.</blockquote>
+<p>The author is particularly striking when discussing the destruction of the original Z1 during World War II and its subsequent recreation. Babbage notes that even the reconstructed machine &quot;was, like the original, never reliable enough to run unattended for long stretches of time.&quot; This adds a layer of tragedy to the technical triumph; the first floating-point computer was a fragile ghost, destroyed by war and barely resurrected before Zuse&#039;s death in 1995.</p>
+<h2>Bottom Line</h2>
+<p>Babbage successfully argues that floating point arithmetic is less a mathematical abstraction and more a pragmatic response to the limits of physical hardware and financial resources. The piece&#039;s greatest strength lies in connecting the dots between 17th-century notation, 19th-century economic failure, and 20th-century engineering isolationism. Its biggest vulnerability is a slight romanticization of Zuse&#039;s &quot;independent&quot; discovery, which overlooks how quickly these ideas converged globally once electronic relays became viable. For the modern reader, the takeaway is clear: every time your device calculates an AI model or simulates a star cluster, it is running on a solution forged in the desperate need to save money and space.</p>
+      </div>
+
+      
+      
+      
+
+      <section id="excerpt"><section class="source-excerpts">
+      <h2>Sources</h2>
+      <article class="source-excerpt">
+      <h3>Floating point: The origin story</h3>
+      <div class="source-meta">by Babbage &middot; <a href="../../publication/thechipletter/index.html">The Chip Letter</a> &middot; <a href="https://thechipletter.substack.com/p/floating-point-the-origin-story" target="_blank" rel="noopener">Read full article</a></div>
+      <p>Floating point arithmetic is a crucial part of modern computing. A large proportion of the silicon currently being installed consists of ‘floating point units’ and floating point standards continue to emerge to meet the needs of modern machine learning.</p><p>But where did floating point arithmetic come from and where was it first implemented? Perhaps surprisingly it can trace its beginnings to the origins of the development of the computing universe as we know it today ….</p><p>Space is big. You just won’t believe how vastly, hugely, mind-bogglingly big it is. I mean, you may think it’s a long way down the road to the chemist’s, but that’s just peanuts to space.</p><p>Douglas Adams: The Hitchhikers Guide to the Galaxy</p><p>Douglas Adams was right. The distance to the nearest star - roughly equivalent in astronomical terms to the chemist down the road - is roughly 40,200,000,000,000 kilometres. We’d normally say 40.2 trillion, which is a lot easier to write than a long list of digits, but has the drawback that you have to remind yourself what a trillion is.</p><p>Of course we have a better alternative to either of these in the form:</p><p>This notation has the immediate advantage of giving the reader a sense of scale without having to count lots of digits. </p><p>It also has the advantage of working for both much bigger and much smaller numbers. The number of atoms in the known universe? Not a problem: it’s roughly:</p><p>In words that’s roughly ten quadrillion vigintillion, which is really not a useful description at all. </p><p>The mass of an electron? That’s:</p><p>The notation has three key elements:</p><p>Mantissa: 9.109 in our last example</p><p>Exponent: -31</p><p>Base: 10</p><p>This notation dates back as far as René Descartes and his text La Géométrie of 1637. The term exponent, from the Latin exponere meaning “to put out”, dates back even earlier to German mathematician Michael Stifel in 1544, and mantissa again has a Latin source meaning “makeweight” or something of minor value.</p><p>We’ve boiled the scale of objects in the universe, big and small, down to a simple, compact notation. </p><p>That’s terrific and we could leave it there but, from a computing perspective we can make this even more convenient.</p><p>In these examples we’ve chosen different numbers of digits for the mantissa and exponent but we could easily have fixed these to a predetermined number. Let’s say we’ll use sixteen for ...</p>
+      <footer class="source-bio" aria-label="About this source">
+      <p class="sb-heading">About this source</p>
+      <p class="sb-meta"><span class="sb-type">independent newsletter</span> &middot; <span class="sb-country">United Kingdom</span> &middot; <span class="sb-funding">paid subscriptions (Substack)</span> &middot; <span class="sb-leaning">Technical semiconductor history newsletter, largely apolitical, implicit skepticism of industrial-policy boosterism on both sides.</span></p>
+      <p class="sb-audit">Last reviewed: <time datetime="2026-04-08">2026-04-08</time> &middot; <a href="https://thechipletter.substack.com/about" target="_blank" rel="noopener">source</a></p>
+    </footer>
+    </article>
+    </section></section>
+      
+    </article>
+  
+  </main>
+  <footer class="site-footer">
+    <div class="container">
+      <p><a href="../../privacy/index.html">Privacy</a> &middot; <a href="../../terms/index.html">Terms</a></p>
+    </div>
+  </footer>
+  <script>
+  (function() {
+    var params = new URLSearchParams(window.location.search);
+    var from = params.get('from');
+    if (from) {
+      var names = {
+        'foreign-policy':'Foreign Policy','ai-tech':'AI & Tech','housing-cities':'Housing & Cities',
+        'political-strategy':'Political Strategy','history':'History','science':'Science',
+        'culture':'Culture','economics':'Economics','faith':'Faith','writing-craft':'Writing & Craft',
+        'music':'Music','law-rights':'Law & Rights','public-health':'Public Health',
+        'philosophy':'Philosophy','media':'Media','defense':'Defense','china':'China'
+      };
+      var link = document.getElementById('back-link');
+      if (link) {
+        var name = names[from] || from;
+        link.href = '../../tag/' + from + '/index.html';
+        link.textContent = '\u2190 Back to ' + name;
+      }
+    }
+  })();
+  </script>
+</body>
+</html>
