@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DeepSeekV4 1.6T day 0 to day 43 performance over time - Huawei, GB300 NVL72, MI355X, b200 - Hex Index</title>
+  <link rel="stylesheet" href="../../styles.css">
+</head>
+<body class="reading-mode">
+  <header class="reading-header">
+    <a href="../../index.html" class="back-link" id="back-link">&larr; Back to Library</a>
+  </header>
+  <main class="reading-content">
+    
+    <article class="article-page">
+      <header class="article-header">
+        <h1>DeepSeekV4 1.6T day 0 to day 43 performance over time - Huawei, GB300 NVL72, MI355X, b200</h1>
+        
+      <div class="article-meta">
+        <span class="author">Dylan Patel</span>
+        <span class="separator">&middot;</span>
+        <a href="../../publication/semianalysis/index.html" class="publication">
+          SemiAnalysis
+        </a>
+        <span class="separator">&middot;</span><time>Jun 9, 2026</time>
+        <span class="separator">&middot;</span><span class="read-time">31 min read</span>
+      </div>
+      </header>
+
+      <div class="content-label">
+        <span class="label-text">Commentary by <a href="../../about/index.html">Hex Index staff</a></span>
+        <nav class="content-nav">
+          <a href="#deep-dives">Deep dives</a><span class="separator">&middot;</span>
+          <a href="https://newsletter.semianalysis.com/p/deepseekv4-16t-day-0-to-day-43-performance" target="_blank" rel="noopener">Original article &rarr;</a>
+        </nav>
+      </div>
+
+      
+      <div class="article-content">
+        <p>This isn&#039;t just another benchmark chart; it is a forensic audit of the AI industry&#039;s fragility on launch day. Dylan Patel exposes a startling reality: while the open-source community achieved near-instantaneous deployment, major proprietary stacks from giants like Nvidia and AMD were functionally broken for weeks. The evidence here suggests that the &#039;moat&#039; of advanced hardware is only as strong as the software ecosystem surrounding it, and right now, that ecosystem is being built by volunteers, not the chip vendors themselves.</p>
+<h2>The Day 0 Reality Check</h2>
+<p>Patel frames the narrative around a critical window: the first forty-three days after DeepSeek v4&#039;s release. He argues that this period reveals the true state of engineering maturity across different hardware architectures. &quot;The open-source InferenceX engineering team has pulled multiple all-nighters to measure performance results for this model on Day 0, Day 1, Day 2, and beyond,&quot; he writes, highlighting the frantic pace required just to get a baseline.</p>
+<figure class="inline-illustration">
+    <img src="../../images/f31088f4-3e75-4b7c-8cb3-817d57b8cf9f.webp" alt="DeepSeekV4 1.6T day 0 to day 43 performance over time - Huawei, GB300 NVL72, MI355X, b200" loading="lazy" width="600" height="315">
+  </figure>
+
+<p>This focus on the immediate aftermath of a release is distinctive. Most industry analysis waits for polished press releases; Patel looks at the raw, broken code. He notes that while CUDA-based engines like vLLM and SGLang worked &quot;out of the box,&quot; other major players stumbled immediately. &quot;Nvidia&#039;s in house TensorRT-LLM did not work well for DeepSeek v4, and we at SemiAnalysis had to fix their open source mHC kernel launch code,&quot; Patel admits, a rare moment where an analyst publicly patches the vendor&#039;s own product.</p>
+<p>The implications are stark. The argument here is that proprietary optimization is lagging behind community-driven development. &quot;One of the north star goals of InferenceX... is to highlight the iterative improvements to performance over time, instead of just snapshots of performance,&quot; Patel explains. This approach shifts the metric from peak theoretical speed to real-world deployability. It suggests that for busy engineers, a chip that works on Day 1 with open tools is more valuable than one that requires weeks of vendor-specific debugging.</p>
+<blockquote>The CUDA moat at work: With CUDA, distributed inferencing tends to be supported near Day 0 for the latest open models.</blockquote>
+<p>Critics might argue that focusing on Day 0 bugs ignores the long-term stability vendors eventually achieve. However, in a sector moving as fast as generative AI, a two-week delay can mean missing an entire product cycle. The evidence of broken kernels and hardcoded constants suggests these aren&#039;t minor glitches but fundamental architectural oversights.</p>
+<h2>The Software Gap: Nvidia vs. AMD</h2>
+<p>The article draws sharp distinctions between how different hardware ecosystems handled the new model architecture. On the Nvidia side, Patel details a specific failure mode where engineers simply removed error guards rather than fixing the underlying logic. &quot;Nvidia engineers also encountered this guard error and instead of adding code to support DeepSeek v4 Pro&#039;s 7168 hidden size, they simply removed the guard,&quot; he writes.</p>
+<p>This is a damning critique of corporate engineering culture. By removing the safety check, the system didn&#039;t crash; it produced &quot;invalid generations&quot; silently. Patel notes that this issue persisted for over a week until his team intervened. &quot;Running inference with these settings results in an inference run without triggering an immediate crash, but there are hidden consequences: the engine ends up corrupting hidden states and producing invalid generations,&quot; he warns.</p>
+<p>In contrast, the AMD story is one of rapid, albeit late, redemption. On Day 0, their performance was &quot;an unusable experience given extremely low interactivity levels.&quot; Yet, Patel highlights a dramatic turnaround led by the engineering team under HaiShaw. &quot;The AMD SGLang engineering team... massively improved performance in the first month - achieving a more than 100x performance by Day 26,&quot; he reports.</p>
+<p>This 100x improvement is not just a number; it represents a fundamental shift from PyTorch fallbacks to custom kernels. Patel explains that the gains came from replacing generic paths with specialized code for tasks like flash attention and sparse indexing. &quot;The gain came almost entirely from AMD replacing PyTorch-native fallback paths with real AITER, Triton, TileLang, and FlyDSL kernels,&quot; he details.</p>
+<p>The historical context here is vital. This mirrors the early struggles of the ROCm ecosystem seen in previous deep dives on TensorRT-LLM, where proprietary stacks often lag behind open frameworks like vLLM. The fact that AMD&#039;s team had to rebuild their stack from first principles underscores a broader truth: hardware dominance does not guarantee software readiness.</p>
+<h2>The Open Source Advantage</h2>
+<p>The core thesis of Patel&#039;s coverage is the superiority of the open-source inference ecosystem in speed and adaptability. He points out that the open models, largely driven by Chinese labs like DeepSeek, are forcing the industry to evolve faster than ever. &quot;China currently dominates the open model landscape, with Kimi K2.6 still beating Jensen&#039;s Nemotron Committee Coalition&#039;s Nemotron 3 Ultra on coding,&quot; he observes.</p>
+<p>This dominance forces Western vendors to react or risk obsolescence in the inference layer. Patel emphasizes that the community tools are not just alternatives but often the primary drivers of innovation. &quot;These inference engines are so fundamental to the global ML ecosystem that both teams have started their own company, Inferact and RadixArk, with each raising hundreds of millions of dollars,&quot; he notes.</p>
+<p>The reliance on community support was further highlighted when hardware failures threatened the study itself. When Patel&#039;s own cluster went down, it was CoreWeave that stepped in to provide spare racks. &quot;Luckily, CoreWeave came through and contributed compute to the open source community... scrambling to find two spare dev GB300 NVL72 racks,&quot; he writes.</p>
+<p>This collaborative dynamic stands in contrast to the siloed approach of major chipmakers. The argument suggests that the future of AI infrastructure may depend less on who makes the best silicon and more on who builds the most responsive software layer.</p>
+<blockquote>In the early days of DeepSeek v4 Pro, CUDA vLLM and CUDA SGLang... worked great out of the box, proving the strength of the open ecosystems.</blockquote>
+<p>A counterargument worth considering is that proprietary engines like TensorRT-LLM may eventually offer superior performance at scale once these bugs are ironed out. Patel acknowledges this, noting that &quot;as of today, TRT-LLM&#039;s performance is superior at higher batch sizes.&quot; However, he maintains that the time-to-market advantage of open tools remains a critical differentiator for most enterprises.</p>
+<h2>Bottom Line</h2>
+<p>The strongest part of Dylan Patel&#039;s analysis is its unflinching exposure of how easily proprietary software stacks can fail when faced with novel model architectures. The evidence that major vendors produced silent data corruption rather than simple crashes is a significant warning for enterprise adopters. The piece&#039;s biggest vulnerability lies in its heavy reliance on open-source benchmarks, which may not fully capture the optimized performance these vendors claim to deliver in controlled, long-term deployments. Readers should watch closely whether the rapid iterative improvements seen in the first month can be sustained as models grow even larger and more complex.</p>
+      </div>
+
+      
+      
+      <section id="deep-dives" class="deep-dives">
+        <h2>Deep Dives</h2>
+        <p class="deep-dives-intro">Explore these related deep dives:</p>
+        <ul class="deep-dive-list">
+          
+      <li class="deep-dive-item">
+        <a href="../../wikipedia/vllm/index.html">
+          <strong>vLLM</strong>
+        </a>
+        <p class="topic-summary">The article credits this specific open-source inference engine with enabling the rapid Day 0 performance tracking and subsequent iterative optimizations that define DeepSeek v4&#039;s deployment success.</p>
+      </li>
+
+      <li class="deep-dive-item">
+        <a href="../../wikipedia/tensorrt/index.html">
+          <strong>TensorRT</strong>
+        </a>
+        <p class="topic-summary">Understanding why Nvidia&#039;s proprietary optimization suite initially failed to support DeepSeek v4 highlights the critical friction between closed hardware ecosystems and emerging open-model architectures.</p>
+      </li>
+
+      <li class="deep-dive-item">
+        <a href="../../wikipedia/hisilicon/index.html">
+          <strong>HiSilicon</strong>
+        </a>
+        <p class="topic-summary">While the article focuses on the newer 950DT, this predecessor chip provides essential context for the specific architectural constraints and software stack evolution that Chinese labs had to navigate to achieve inference parity with Nvidia GPUs.</p>
+      </li>
+        </ul>
+      </section>
+    
+      
+
+      <section id="excerpt"><section class="source-excerpts">
+      <h2>Sources</h2>
+      <article class="source-excerpt">
+      <h3>DeepSeekV4 1.6T day 0 to day 43 performance over time - Huawei, GB300 NVL72, MI355X, b200</h3>
+      <div class="source-meta">by Dylan Patel &middot; <a href="../../publication/semianalysis/index.html">SemiAnalysis</a> &middot; <a href="https://newsletter.semianalysis.com/p/deepseekv4-16t-day-0-to-day-43-performance" target="_blank" rel="noopener">Read full article</a></div>
+      <p>The release of DeepSeek v4 marks another step forward for the open model community - unsurprisingly, it is the product of a Chinese lab. The evolution of its performance over time is of paramount importance to the AI Ecosystem. The open-source InferenceX engineering team has pulled multiple all-nighters to measure performance results for this model on Day 0, Day 1, Day 2, and beyond and bring these results to the world. In this article, we will highlight DeepSeek v4’s Day 0 performance as and explain the significant improvements made the subsequent weeks following the model’s release. We will also explain core components of DeepSeek v4’s model architecture and discuss how it was co-designed in part for Huawei Ascend inference. </p><p>In section 2 of our blog post, we do an comprehensive analysis of DeepSeekv4’s inference on Day 0 Huawei Ascend 950DT. This article serves is the first analysis of Ascend 950DT DeepSeekv4 inference and we breakdown the compute&lt;&gt;communication lap &amp; the different compute streams that Huawei did to optimize performance.</p><p>A key goal of InferenceX, especially during a model’s Day 0 release window, is to record each SKU’s performance using open-sourced images and recipes across as many frameworks as possible, regardless of how well these images and recipes perform. This enables us to track improvements over time, which we believe best reflects the real, deployable performance of each chip. The video below shows iterative improvements for non-MTP configs from Day 0 onward for vLLM/SGLang, respectively. visit inference.com to see the MTP configs from day 0 onwards too. </p><p>The graphics reflect the thousands of engineering hours that went into tuning DeepSeek v4 inference performance and most of the optimizations are merged into the master branch of SGLang/vLLM. One of the north start goals of InferenceX is to highlight the iterative improvements to performance over time, instead of just snapshots of performance, after all when it comes to engineering, the things you learn along the way are often just as important as the end result.</p><p>In the early days of DeepSeek v4 Pro, CUDA vLLM and CUDA SGLang and CUDA vLLM disaggregated prefill worked great out of the box, proving the strength of the vLLM and SGLang open ecosystems. These inference engines are so fundamental to the global ML ecosystem that both teams have started their own company, Inferact and RadixArk, with each raising hundreds of millions of dollars to continue to fuel ...</p>
+      <footer class="source-bio" aria-label="About this source">
+      <p class="sb-heading">About this source</p>
+      <p class="sb-meta"><span class="sb-type">independent research firm</span> &middot; <span class="sb-country">United States</span> &middot; <span class="sb-funding">paid subscriptions, enterprise research contracts</span> &middot; <span class="sb-leaning">Hawkish US-industrial-policy techno-nationalist on semiconductors; pro-export-controls on China, bullish on Western fab buildout and AI compute supremacy.</span></p>
+      <p class="sb-audit">Last reviewed: <time datetime="2026-04-08">2026-04-08</time> &middot; <a href="https://www.semianalysis.com/" target="_blank" rel="noopener">source</a></p>
+    </footer>
+    </article>
+    </section></section>
+      
+    </article>
+  
+  </main>
+  <footer class="site-footer">
+    <div class="container">
+      <p><a href="../../privacy/index.html">Privacy</a> &middot; <a href="../../terms/index.html">Terms</a></p>
+    </div>
+  </footer>
+  <script>
+  (function() {
+    var params = new URLSearchParams(window.location.search);
+    var from = params.get('from');
+    if (from) {
+      var names = {
+        'foreign-policy':'Foreign Policy','ai-tech':'AI & Tech','housing-cities':'Housing & Cities',
+        'political-strategy':'Political Strategy','history':'History','science':'Science',
+        'culture':'Culture','economics':'Economics','faith':'Faith','writing-craft':'Writing & Craft',
+        'music':'Music','law-rights':'Law & Rights','public-health':'Public Health',
+        'philosophy':'Philosophy','media':'Media','defense':'Defense','china':'China'
+      };
+      var link = document.getElementById('back-link');
+      if (link) {
+        var name = names[from] || from;
+        link.href = '../../tag/' + from + '/index.html';
+        link.textContent = '\u2190 Back to ' + name;
+      }
+    }
+  })();
+  </script>
+</body>
+</html>

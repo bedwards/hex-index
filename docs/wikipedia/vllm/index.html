@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>vLLM - Hex Index</title>
+  <link rel="stylesheet" href="../../styles.css">
+</head>
+<body class="reading-mode">
+  <header class="reading-header">
+    <a href="../../index.html" class="back-link" id="back-link">&larr; Back to Library</a>
+  </header>
+  <main class="reading-content">
+    
+    <article class="wikipedia-page">
+      <header class="wikipedia-header">
+        <div class="type-badge">Wikipedia Deep Dive</div>
+        <h1>vLLM</h1>
+        <div class="article-meta">
+          <span class="read-time">11 min read</span>
+        </div>
+      </header>
+
+      
+
+      <div class="wikipedia-content"><p class="source-note">Based on <a href="https://en.wikipedia.org/wiki/VLLM">Wikipedia: vLLM</a></p>
+<p>In January 2026, a California-based startup named Inferact announced it had secured $150 million in seed funding. The valuation was not built on a proprietary dataset or a unique model architecture, but on the software that makes those models run efficiently: vLLM. This open-source framework, originally forged in the academic crucible of UC Berkeley&#039;s Sky Computing Lab, has evolved from a research paper into the backbone of the modern generative AI infrastructure. Its journey from a university experiment to a PyTorch Foundation-hosted project and finally to a venture-backed commercial entity mirrors the explosive maturation of large language models themselves. To understand why vLLM commands such attention in 2026, one must look past the hype of model parameters and examine the memory constraints that threatened to stall the entire industry just three years prior.</p>
+<p>The story begins with a fundamental bottleneck. By late 2023, as researchers raced to train models with billions, then trillions of parameters, a silent crisis emerged in the serving layer. The problem was not generating text; it was keeping the model&#039;s &quot;thought process&quot; alive in memory while processing multiple user requests simultaneously. Large language models rely on transformer architectures that maintain a Key-Value (KV) cache during inference. This cache stores the context of previous tokens so the model doesn&#039;t have to re-calculate them for every new word generated. As the conversation lengthens or as more users connect, this cache grows linearly. In traditional frameworks, this memory was allocated in fixed, contiguous chunks, leading to massive fragmentation and waste.</p>
+<p>Enter PagedAttention.</p>
+<p>Published in a 2023 paper titled &quot;Efficient Memory Management for Large Language Model Serving with PagedAttention,&quot; the core innovation of vLLM borrowed an idea that had been fundamental to operating systems since the 1960s: virtual memory paging. Just as modern computers manage physical RAM by breaking it into non-contiguous blocks and mapping them logically, vLLM breaks the KV cache into fixed-size blocks. This seemingly simple shift allowed the system to store memory in a non-contiguous manner, eliminating fragmentation and drastically reducing waste. The result was a serving engine that could handle significantly more concurrent requests with the same hardware, or the same load with far less expensive GPU memory.</p>
+<p>The &quot;v&quot; in vLLM originally stood for &quot;virtual,&quot; a direct nod to this inspiration from virtual memory systems. It was not merely a branding choice but a philosophical alignment with how computers actually manage resources. The researchers at Berkeley realized that while the AI community was obsessed with scaling model sizes, they were ignoring the inefficiencies of serving them. By 2023, the gap between what models could theoretically do and what hardware could practically serve had become a chasm. vLLM proposed to bridge it not by building bigger chips, but by rewriting how software spoke to those chips.</p>
+<h2>The Architecture of Efficiency</h2>
+<p>To grasp the magnitude of this shift, one must understand the mechanics of &quot;continuous batching.&quot; Before vLLM, serving frameworks often processed requests in static batches. If a batch was designed for 32 tokens and only 16 slots were filled with active user requests, the remaining capacity sat idle, wasting compute cycles. Furthermore, if some requests finished generating while others were still running, the system had to wait or restart the batch inefficiently. vLLM introduced continuous batching, allowing new requests to be injected into a batch as soon as space became available from completed requests. This dynamic scheduling meant that GPU utilization remained near saturation for extended periods.</p>
+<p>Combined with PagedAttention, this created a high-throughput engine capable of supporting &quot;chunked prefill,&quot; where the processing of long input prompts is broken into smaller chunks to prevent latency spikes. The framework also integrated speculative decoding and prefix caching, techniques that further reduce the time it takes to generate tokens by reusing previously computed results or predicting future steps with lightweight models. These are not minor optimizations; they are structural changes that determine whether an AI application feels instantaneous or sluggish.</p>
+<p>The documentation for vLLM describes a system built on flexibility. It supports quantization, which reduces the precision of model weights to save memory without significant loss in accuracy. It handles distributed inference across multiple GPUs and even different hardware backends. In 2024, PyTorch&#039;s project page highlighted this versatility, noting that vLLM runs seamlessly on NVIDIA and AMD GPUs, Google TPUs, AWS Trainium, and Intel processors. This hardware agnosticism was crucial. As the AI industry fragmented into competing silicon ecosystems—NVIDIA&#039;s dominance challenged by AMD&#039;s MI355X, Google&#039;s custom TPUs, and Huawei&#039;s Ascend chips—a framework that could abstract these differences became a critical piece of infrastructure.</p>
+<p>The open-source nature of the project accelerated its adoption. Developers did not have to wait for commercial licensing or proprietary APIs; they could inspect the code, modify it, and deploy it immediately. This transparency fostered a rapid iteration cycle. While other frameworks struggled with compatibility issues as new models like DeepSeekV4 emerged, vLLM&#039;s community-driven development allowed it to adapt quickly. The repository became a living document of the state-of-the-art in serving efficiency, integrating features like OpenAI-compatible APIs so that existing applications could switch engines without rewriting their code.</p>
+<h2>From Berkeley to the PyTorch Foundation</h2>
+<p>The trajectory of vLLM from an academic project to industry standard was remarkably swift. In July 2024, the University of California, Berkeley formally contributed the project to the Linux Foundation. This move signaled a shift in perception: vLLM was no longer just a research prototype; it was becoming critical infrastructure for the global economy&#039;s digital layer. The transition to the Linux Foundation provided governance and stability, ensuring that the project would not be beholden to the whims of a single corporation or the career goals of its original researchers.</p>
+<p>In 2025, the PyTorch Foundation announced that vLLM had become one of its hosted projects. This integration was significant because PyTorch is the de facto standard for training and inference in the AI research community. By bringing vLLM under the PyTorch umbrella, the framework solidified its position as a first-class citizen in the deep learning ecosystem. The announcement underscored the industry&#039;s recognition that efficient serving was just as important as efficient training. The &quot;Day 0 to Day 43&quot; performance metrics that engineers obsess over—like those seen in benchmarks for DeepSeekV4 on Huawei GB300 NVL72 or Nvidia B200 hardware—are meaningless if the software layer cannot sustain throughput under load. vLLM provided the engine to make those hardware gains actionable.</p>
+<p>The synergy between PyTorch and vLLM created a virtuous cycle. As new models were trained in PyTorch, they could be deployed immediately with optimized serving via vLLM. Conversely, as vLLM evolved to support new hardware features—such as specific tensor cores on the latest GPUs—the training frameworks could leverage those efficiencies for inference-heavy tasks like RLHF (Reinforcement Learning from Human Feedback). This tight integration reduced the friction between research and production, allowing startups and enterprises alike to scale their AI deployments with unprecedented speed.</p>
+<h2>The Commercial Pivot: Inferact and the Seed Round</h2>
+<p>By January 2026, the narrative around vLLM shifted again. While the open-source community continued to drive innovation in the repository, the creators recognized the growing complexity of enterprise deployment. Managing a high-performance inference engine at scale requires more than just code; it demands dedicated support, security auditing, and integration with proprietary cloud environments. In response, the original team launched Inferact.</p>
+<p>The startup&#039;s $150 million seed funding round was a clear signal to the market: the value of AI was increasingly concentrated in the infrastructure layer. Investors were no longer betting solely on which model would win the parameter war; they were betting on who could serve those models most efficiently and reliably at scale. Inferact&#039;s mission was to commercialize vLLM, offering enterprise-grade support, managed services, and specialized optimization tools for large-scale deployments.</p>
+<p>This pivot did not diminish the open-source project. Instead, it mirrored the trajectory of other successful open-source foundations like Kubernetes or Elasticsearch. The core remains free and community-driven, while a commercial entity monetizes the complexity of running it at scale. For companies deploying models on clusters of thousands of GPUs, the cost savings from vLLM&#039;s memory efficiency could amount to millions of dollars annually. Inferact positioned itself as the partner to ensure those savings were realized without operational headaches.</p>
+<p>The timing was precise. By 2026, the landscape had shifted from experimental pilots to full-scale production. The &quot;Day 43&quot; benchmarks mentioned in industry reports highlighted how models like DeepSeekV4 could perform over time, but sustaining that performance required robust serving engines. Inferact&#039;s funding allowed it to expand its engineering team, focus on security compliance, and build out a global support network. This commercial layer ensured that vLLM would remain the default choice for enterprises looking to deploy multimodal models, not just text generators.</p>
+<h2>The Broader Ecosystem and Competition</h2>
+<p>vLLM did not exist in a vacuum. By 2026, it stood alongside other major players like SGLang, TensorRT-LLM, llama.cpp, OpenVINO, and the ONNX (Open Neural Network Exchange) ecosystem. Each of these frameworks brought its own strengths to the table. TensorRT-LLM offered deep integration with NVIDIA hardware, optimizing for specific GPU architectures. llama.cpp focused on running models on consumer-grade CPUs and Apple Silicon, democratizing access on the edge. SGLang introduced its own novel scheduling algorithms, while OpenVINO targeted Intel&#039;s heterogeneous computing environments.</p>
+<p>Yet, vLLM maintained a unique position due to its PagedAttention algorithm. While competitors often relied on static memory allocation or less flexible paging strategies, vLLM&#039;s approach provided a consistent advantage in throughput and memory utilization across diverse hardware backends. The &quot;Comparison of deep learning software&quot; charts from 2026 consistently showed vLLM leading in tokens-per-second metrics for long-context scenarios. This was particularly relevant for multimodal models, which require processing vast amounts of visual and textual data simultaneously, placing immense pressure on the KV cache.</p>
+<p>The open-source philosophy also fostered a cross-pollination of ideas. Innovations developed in the vLLM community often found their way into other frameworks, raising the baseline for the entire industry. The &quot;List of software developed at universities&quot; now prominently features vLLM as a case study of how academic research can transition into global infrastructure. It demonstrated that the most impactful AI innovations were not always new model architectures, but rather the underlying systems that made them usable.</p>
+<h2>A Legacy of Memory Management</h2>
+<p>The impact of vLLM extends beyond raw performance numbers. By reducing memory waste, it lowered the barrier to entry for deploying large models. Startups with limited capital could now run sophisticated models on fewer GPUs. Researchers in developing nations could access state-of-the-art capabilities without needing access to massive data centers. The democratization of AI was not just about open weights; it was about open efficiency.</p>
+<p>The journey from a 2023 paper at UC Berkeley to a $150 million startup in 2026 is a testament to the rapid pace of the field. What began as a solution to a specific memory management problem became the standard for how the world serves intelligence. The PagedAttention algorithm, inspired by decades-old operating system concepts, proved that sometimes the most powerful innovations are those that look backward to move forward.</p>
+<p>As we look at the landscape in 2026, vLLM stands as a pillar of the AI stack. It is the engine room where the theoretical power of trillions of parameters is converted into practical utility for millions of users. From the Sky Computing Lab to the PyTorch Foundation and finally to Inferact, the project&#039;s evolution reflects the maturation of the entire industry. The future of large language models will not be defined solely by how smart they are, but by how efficiently we can run them. vLLM has already proven that efficiency is the key to unlocking the next generation of AI capabilities.</p>
+<blockquote>&quot;vLLM was designed to improve the efficiency of large language model serving by reducing memory waste in the key–value cache used during transformer inference.&quot;</blockquote>
+<p>This statement, from the original 2023 paper, remains the core truth of the project three years later. It is a reminder that in an industry obsessed with scale, the most critical breakthroughs are often found in the subtle art of managing resources. The &quot;v&quot; stands for virtual, but its impact is undeniably real.</p></div>
+
+      
+
+      <footer class="wikipedia-footer">
+        <p class="source-link">
+          <a href="https://en.wikipedia.org/wiki/VLLM" target="_blank" rel="noopener">
+            View original Wikipedia article &rarr;
+          </a>
+        </p>
+        <p class="rewrite-note">
+        This article has been rewritten from Wikipedia source material for enjoyable reading.
+        Content may have been condensed, restructured, or simplified.
+      </p>
+      </footer>
+
+      
+      <section class="related-articles">
+        <h2>Related Articles</h2>
+        <p class="related-intro">This deep dive was written in connection with these articles:</p>
+        <ul class="related-list">
+          
+      <li class="related-article-item">
+        <a href="../../article/f31088f4-3e75-4b7c-8cb3-817d57b8cf9f/index.html">
+          <strong>DeepSeekV4 1.6T day 0 to day 43 performance over time - Huawei, GB300 NVL72, MI355X, b200</strong>
+        </a>
+        <span class="article-meta">
+          by Dylan Patel in SemiAnalysis
+        </span>
+      </li>
+        </ul>
+      </section>
+    
+    </article>
+  
+  </main>
+  <footer class="site-footer">
+    <div class="container">
+      <p><a href="../../privacy/index.html">Privacy</a> &middot; <a href="../../terms/index.html">Terms</a></p>
+    </div>
+  </footer>
+  <script>
+  (function() {
+    var params = new URLSearchParams(window.location.search);
+    var from = params.get('from');
+    if (from) {
+      var names = {
+        'foreign-policy':'Foreign Policy','ai-tech':'AI & Tech','housing-cities':'Housing & Cities',
+        'political-strategy':'Political Strategy','history':'History','science':'Science',
+        'culture':'Culture','economics':'Economics','faith':'Faith','writing-craft':'Writing & Craft',
+        'music':'Music','law-rights':'Law & Rights','public-health':'Public Health',
+        'philosophy':'Philosophy','media':'Media','defense':'Defense','china':'China'
+      };
+      var link = document.getElementById('back-link');
+      if (link) {
+        var name = names[from] || from;
+        link.href = '../../tag/' + from + '/index.html';
+        link.textContent = '\u2190 Back to ' + name;
+      }
+    }
+  })();
+  </script>
+</body>
+</html>
