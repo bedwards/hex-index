@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NVLink - Hex Index</title>
+  <link rel="stylesheet" href="../../styles.css">
+</head>
+<body class="reading-mode">
+  <header class="reading-header">
+    <a href="../../index.html" class="back-link" id="back-link">&larr; Back to Library</a>
+  </header>
+  <main class="reading-content">
+    
+    <article class="wikipedia-page">
+      <header class="wikipedia-header">
+        <div class="type-badge">Wikipedia Deep Dive</div>
+        <h1>NVLink</h1>
+        <div class="article-meta">
+          <span class="read-time">14 min read</span>
+        </div>
+      </header>
+
+      
+
+      <div class="wikipedia-content"><p class="source-note">Based on <a href="https://en.wikipedia.org/wiki/NVLink">Wikipedia: NVLink</a></p>
+<p>In March 2014, Nvidia announced a technology that would fundamentally rewrite the rules of how computers talk to one another, moving beyond the rigid hierarchies of the past into a fluid, meshed future. They called it NVLink. It was not merely an incremental speed boost; it was a declaration that the bottleneck of data transfer between processors had become the single greatest obstacle to artificial intelligence and high-performance computing. Before this moment, the industry relied on PCI Express, a standard that funneled all communication through a central hub or switch, creating a traffic jam whenever multiple graphics processing units (GPUs) tried to collaborate. NVLink shattered that model, proposing a wire-based serial connection where devices could talk directly to each other in an all-to-all mesh, bypassing the congestion of a central switch entirely. This shift from a star topology to a distributed network was not just an engineering tweak; it was the architectural foundation upon which modern large-scale AI models are built.</p>
+<p>The physics behind NVLink is rooted in a proprietary high-speed signaling interconnect known as NVHS. Unlike its predecessors, this protocol does not treat every connection as a lonely point-to-point link that must wait for permission to speak. Instead, it allows for a dynamic routing of data packets across multiple lanes. For smaller clusters of GPUs, the NVLink lanes on a single device are sufficient to create a complete web of connectivity where every chip can reach every other chip without intermediaries. However, as the ambition of computing grew from single servers to massive racks housing dozens of accelerators, the need for a more robust solution became apparent. By 2018, Nvidia introduced a packet-switched architecture centered around NVSwitch. This central switch could serve up to thirty-two two-lane ports, acting not just as a traffic cop but as an active participant in the computation itself. The evolution of this technology culminated with the introduction of &quot;SHARP,&quot; an accelerator embedded within the NVLink 4.0 switch that can perform simple mathematical operations like summation and broadcasting directly on the wire. This innovation reduced the need for data to travel back and forth between processors, effectively cutting down communication latency and freeing up processing cycles for actual work.</p>
+<p>To understand the magnitude of this achievement, one must look at the raw numbers that define each generation of the protocol. NVLink was designed specifically for the transfer of data and control code between CPUs and GPUs, as well as between GPUs themselves. The first iteration, NVLink 1.0, specified a point-to-point connection with data rates of 20 Gbit/s per differential pair. In this architecture, eight differential pairs were bundled together to form a &quot;sub-link,&quot; and two sub-links—one for each direction—created a full &quot;link.&quot; This was then doubled in version 2.0, where the total data rate for a sub-link reached 25 GB/s, resulting in a bidirectional link speed of 50 GB/s. The V100 GPU, launched with this architecture, could support up to six such links, granting it a staggering total bi-directional bandwidth of 300 GB/s. To put that in perspective, traditional PCIe connections were often struggling to move data at speeds an order of magnitude lower, forcing GPUs to sit idle while waiting for instructions or memory.</p>
+<p>The trajectory of NVLink is defined by a relentless pursuit of density and speed without a proportional increase in physical complexity. A fascinating pivot occurred with the announcement of NVLink 3.0 on May 14, 2020. While earlier versions required eight differential pairs per sub-link to achieve their speeds, Nvidia managed to double the data rate per pair from 25 Gbit/s to 50 Gbit/s while simultaneously cutting the number of pairs required down to just four. This engineering feat meant that for the Ampere-based A100 GPU, which featured twelve such links, the total bandwidth exploded to 600 GB/s. The physical footprint did not balloon; instead, the efficiency of the signal transmission was revolutionized. By the time the Hopper microarchitecture arrived in March 2022, the system had evolved further with NVLink 4.0. This iteration utilized eighteen links per GPU, pushing the total bandwidth to an almost incomprehensible 900 GB/s. Despite these leaps in performance, a consistent thread remained: versions 2.0, 3.0, and 4.0 all maintained a 50 GB/s per bidirectional link data rate. The difference lay entirely in the number of links integrated into the chip—6 for NVLink 2.0, 12 for 3.0, and 18 for 4.0—showcasing a strategy of scaling bandwidth by increasing parallelism rather than merely pushing signal speeds to their physical limits.</p>
+<p>However, raw bandwidth numbers on a datasheet often tell only half the story. The real-world performance of these interconnects is governed by the invisible taxes levied by data transmission protocols and hardware overhead. Just as a highway has speed limits and construction zones that slow traffic even if the cars are capable of going faster, digital signals incur costs in the form of line coding, transaction headers, and buffering capabilities. NVLink utilizes 128b/130b line code, a standard method for ensuring data integrity that sacrifices roughly two percent of the raw bandwidth to overhead characters. When accounting for link control characters, DMA usage on the computer side, and other physical limitations, the achievable transfer rate typically settles between 90 and 95 percent of the theoretical maximum. Benchmarks from early deployments illustrate this reality vividly. In a system driven by IBM POWER8 CPUs connected to an NVLink P100 GPU with a nominal 40 Gbit/s connection, the actual host-to-device transfer rate was measured at approximately 35.3 Gbit/s. This gap is not a failure of design but a fundamental characteristic of digital communication, where reliability and error correction require a portion of every transmission to be dedicated to administrative tasks rather than payload data.</p>
+<p>The physical manifestation of NVLink technology is as distinctive as its electrical architecture. For the high-end professional and gaming boards that exposed extra connectors for joining GPUs into a cluster, Nvidia developed a unique form factor that has become iconic in data centers. These interconnects are often referred to by the legacy name &quot;Scalable Link Interface&quot; or SLI, a term borrowed from 2004 consumer technology, yet the modern NVLink design is technically distinct and far more powerful. The typical plug is U-shaped, featuring a fine grid edge connector on each of the end strokes facing away from the viewer. This shape is not merely aesthetic; it dictates the physical spacing between cards. The width of the bridge determines how far apart the GPU boards must be seated on the main motherboard, with known widths accommodating card placements ranging from three to five slots depending on the specific board type and thermal requirements. To achieve full data rates in certain configurations, two identical plugs are required, creating a dual-bridge setup that doubles the connectivity between the cards. This physical constraint means that not all boards can mate; typically, only boards of the exact same type can connect due to their rigid logical and physical design specifications.</p>
+<p>The ecosystem of devices supporting NVLink has expanded from niche scientific supercomputers to professional workstations and high-end consumer graphics cards. In the realm of professional visualization and compute, the Quadro GP100 was among the first to utilize this technology, where a pair of cards could employ up to two bridges to realize either two or four NVLink connections with bandwidths reaching 160 GB/s. This setup closely resembled the capabilities of NVLink 1.0 operating at 20 GT/s. As the architecture matured, the Quadro GV100 arrived, requiring a similar dual-bridge configuration but achieving speeds up to 200 GB/s, aligning with the performance profile of NVLink 2.0. The consumer market saw its own iteration with the GeForce RTX 2080 and 2080 Ti, which utilized single bridges labeled &quot;GeForce RTX NVLink-Bridge&quot; to link two cards for gaming or rendering workloads. The evolution continued into the Ampere generation with the GeForce RTX 3090, which introduced a unique bridge specifically designed for the 30 series products, maintaining the ability to connect two high-end GPUs in a consumer chassis—a rare feat that blurred the line between desktop gaming and workstation computing. In the professional segment, the Quadro RTX 5000 offered a single link up to 50 GB/s, while the Quadro RTX 6000 and 8000 utilized the &quot;NVLink HB&quot; (High Bandwidth) bridge to double that capacity to 100 GB/s per pair.</p>
+<p>Managing this complex web of connections requires sophisticated software tools that translate hardware capabilities into usable performance metrics. Nvidia developed the NVML-API, or Nvidia Management Library API, specifically for its Tesla, Quadro, and Grid product lines. This library provides a set of functions allowing system administrators to programmatically control aspects of the NVLink interconnects on both Windows and Linux systems. Through this interface, engineers can query component evaluation data, check version compatibility, monitor error statuses, and track real-time performance metrics. The utility of these tools is best realized in applications like the CUDA sample program &quot;simpleP2P,&quot; which demonstrates peer-to-peer memory access across GPUs, or the Nvidia Control Panel&#039;s &quot;3D Settings&quot; menu where users can configure SLI profiles. On Linux systems, the command line application `nvidia-smi` with the sub-command `nvlink` offers a similar window into the health and status of the interconnects, providing advanced information that is critical for maintaining large-scale clusters. Furthermore, the NCCL library (Nvidia Collective Communications Library) empowers developers in the public space to build powerful implementations for artificial intelligence and other computation-heavy tasks that rely on the seamless communication NVLink provides. Without these software layers, the raw bandwidth of the hardware would remain inaccessible to the applications that need it most.</p>
+<p>The integration of NVLink into the broader computing landscape reached a pivotal moment on April 5, 2016, when Nvidia announced its implementation in the Pascal-microarchitecture-based GP100 GPU. This announcement was not limited to a standalone chip; it marked the beginning of the DGX-1 high-performance computer base, a system designed to house up to eight P100 modules in a single rack unit connected to two host CPUs. The engineering challenge here was immense. The carrier board for this system required a dedicated routing layer for NVLink connections alone, with each P100 requiring 800 pins—400 for PCIe and power, and another 400 specifically for the NVLinks. This added up to nearly 1600 board traces dedicated solely to the interconnect, a testament to the complexity of moving data at these speeds within a confined physical space. The topology of this system was carefully designed: each CPU had a direct connection via PCIe to four P100 units, while the NVLink mesh connected the GPUs in a specific pattern. Each P100 had one NVLink to three other P100s within its own CPU group and one additional link to a P100 in the other CPU group.</p>
+<p>The topology of the DGX-1&#039;s NVLink network was a masterclass in optimizing reachability with minimal hops. With four links per GP100 GPU, each unit could directly reach four of the other seven GPUs in the system, providing an aggregate bandwidth of 80 GB/sec up and another 80 GB/sec down to those direct neighbors. The remaining three GPUs were reachable with only a single hop through the mesh, ensuring that no two processors were ever more than one step away from each other in the communication graph. According to Nvidia&#039;s own blog publications from the time, this design allowed for the bundling of individual links to increase point-to-point performance dramatically. In a scenario involving just two P100s with all available links established between them, the full NVLink bandwidth of 80 GB/s could be utilized in both directions simultaneously. This was a radical departure from previous systems where adding more GPUs often resulted in diminishing returns due to communication bottlenecks; here, the network scaled linearly with the hardware.</p>
+<p>By GTC2017 (GPU Technology Conference), Nvidia presented its Volta generation of GPUs and signaled the next leap forward with NVLink 2.0. The presentation highlighted that this revised version would allow total I/O data rates of 300 GB/s for a single chip, effectively tripling the communication capacity compared to the Pascal generation. This was not just about moving more bytes per second; it was about enabling a new class of algorithms that required massive datasets to be shared across multiple accelerators in real-time. The shift from the all-to-all mesh of smaller clusters to the packet-switched architecture of larger systems meant that NVLink could now support thousands of cores working in unison without the latency penalties of traditional switching fabrics. The announcement of Volta also solidified the role of NVLink as the backbone of deep learning, where training models with billions of parameters requires a communication fabric that can keep pace with the computational engines.</p>
+<p>The evolution from the initial 2014 concept to the Hopper architecture in 2022 represents one of the most significant advancements in computer interconnect history. What began as a proprietary solution for Nvidia&#039;s own high-performance chips has become the de facto standard for AI infrastructure. The progression from 20 Gbit/s pairs in version 1.0 to the sophisticated packet-switched, SHARP-enabled NVLink 4.0 illustrates a consistent commitment to overcoming the &quot;memory wall&quot; that plagues modern computing. Every generation brought not only higher speeds but also smarter architectures that reduced the overhead of communication itself. The physical bridges, the software APIs like NCCL and NVML, and the intricate routing topologies in systems like the DGX-1 all converged to create an environment where data flows as freely as water through a network of pipes, unimpeded by the traffic jams of the past.</p>
+<p>Today, as we look at the landscape of artificial intelligence, it is impossible to separate the breakthroughs in model capability from the breakthroughs in NVLink technology. The ability to train models on thousands of GPUs simultaneously relies entirely on the 900 GB/s bandwidth provided by the Hopper architecture&#039;s eighteen links. Without this interconnect, the scaling laws that have driven AI progress would hit a hard ceiling much sooner. The journey from the U-shaped plugs and manual bridge configurations of the consumer era to the invisible, high-speed mesh networks powering data centers today shows how a single engineering decision can ripple through an entire industry. Nvidia&#039;s gamble on NVLink in 2014 was not just about selling faster chips; it was about redefining what it meant for computers to work together. The result is a system where the sum of the parts is vastly greater than the individual components, driven by a silent, high-speed current that flows through thousands of wires and switches every second.</p>
+<p>The story of NVLink is also a story of adaptation. It started as a point-to-point link for specific professional cards and evolved into a complex, programmable network fabric capable of performing calculations on the fly. The introduction of features like SHARP in version 4.0 demonstrated that the interconnect itself could become a compute resource, offloading tasks from the main processors to the wiring infrastructure. This blurring of lines between communication and computation is the next frontier for high-performance computing. As data centers continue to grow in size and complexity, the demand for even faster, more efficient interconnects will only increase. NVLink has set the bar, proving that with enough engineering ingenuity, the physical limitations of copper and silicon can be pushed far beyond what was previously thought possible. The 900 GB/s of bandwidth is not a final destination but a milestone on a road that continues to stretch toward new horizons in computing power.</p>
+<p>In the end, NVLink is more than a specification sheet or a list of technical parameters. It is the nervous system of the modern AI revolution. Every time a large language model generates a response, every time a medical imaging algorithm detects a tumor with superhuman precision, and every time a climate model predicts weather patterns years in advance, it is NVLink that ensures the billions of calculations performed across thousands of chips happen in perfect synchronization. The technology has moved from the realm of theoretical possibility to the foundation of practical reality. From the 80 GB/s of the Pascal DGX-1 to the 900 GB/s of Hopper, the trajectory is clear: as our need for intelligence grows, so too does the speed at which we can share and process it. The wires may be invisible to the end user, but their impact is visible in every breakthrough that follows.</p></div>
+
+      
+
+      <footer class="wikipedia-footer">
+        <p class="source-link">
+          <a href="https://en.wikipedia.org/wiki/NVLink" target="_blank" rel="noopener">
+            View original Wikipedia article &rarr;
+          </a>
+        </p>
+        <p class="rewrite-note">
+        This article has been rewritten from Wikipedia source material for enjoyable reading.
+        Content may have been condensed, restructured, or simplified.
+      </p>
+      </footer>
+
+      
+      <section class="related-articles">
+        <h2>Related Articles</h2>
+        <p class="related-intro">This deep dive was written in connection with these articles:</p>
+        <ul class="related-list">
+          
+      <li class="related-article-item">
+        <a href="../../article/03aa2ccb-26ff-401e-9d53-02145eec8a44/index.html">
+          <strong>The Nvidia AI pc, project solara, Microsoft AI</strong>
+        </a>
+        <span class="article-meta">
+          by Ben Thompson in Stratechery
+        </span>
+      </li>
+
+      <li class="related-article-item">
+        <a href="../../article/614098d2-75ba-4104-ad44-f4ce6398025b/index.html">
+          <strong>Vera rubin – extreme co-design: An evolution from grace blackwell oberon</strong>
+        </a>
+        <span class="article-meta">
+          by Dylan Patel in SemiAnalysis
+        </span>
+      </li>
+        </ul>
+      </section>
+    
+    </article>
+  
+  </main>
+  <footer class="site-footer">
+    <div class="container">
+      <p><a href="../../privacy/index.html">Privacy</a> &middot; <a href="../../terms/index.html">Terms</a></p>
+    </div>
+  </footer>
+  <script>
+  (function() {
+    var params = new URLSearchParams(window.location.search);
+    var from = params.get('from');
+    if (from) {
+      var names = {
+        'foreign-policy':'Foreign Policy','ai-tech':'AI & Tech','housing-cities':'Housing & Cities',
+        'political-strategy':'Political Strategy','history':'History','science':'Science',
+        'culture':'Culture','economics':'Economics','faith':'Faith','writing-craft':'Writing & Craft',
+        'music':'Music','law-rights':'Law & Rights','public-health':'Public Health',
+        'philosophy':'Philosophy','media':'Media','defense':'Defense','china':'China'
+      };
+      var link = document.getElementById('back-link');
+      if (link) {
+        var name = names[from] || from;
+        link.href = '../../tag/' + from + '/index.html';
+        link.textContent = '\u2190 Back to ' + name;
+      }
+    }
+  })();
+  </script>
+</body>
+</html>
