@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PagedAttention - Hex Index</title>
+  <link rel="stylesheet" href="../../styles.css">
+</head>
+<body class="reading-mode">
+  <header class="reading-header">
+    <a href="../../index.html" class="back-link" id="back-link">&larr; Back to Library</a>
+  </header>
+  <main class="reading-content">
+    
+    <article class="wikipedia-page">
+      <header class="wikipedia-header">
+        <div class="type-badge">Wikipedia Deep Dive</div>
+        <h1>PagedAttention</h1>
+        <div class="article-meta">
+          <span class="read-time">13 min read</span>
+        </div>
+      </header>
+
+      
+
+      <div class="wikipedia-content"><p class="source-note">Based on <a href="https://en.wikipedia.org/wiki/PagedAttention">Wikipedia: PagedAttention</a></p>
+<p>In 1935, the federal government drew red lines around Black neighborhoods on city maps and declared them unfit for investment. The practice was called redlining, and its effects persist ninety years later. Decades later, a different kind of mapping would redefine how we access intelligence itself. In 2023, Woosuk Kwon and his colleagues at the University of California, Berkeley, identified a hidden fracture in the infrastructure powering the modern age: the memory management of large language models was failing under its own weight. They didn&#039;t just propose a patch; they reinvented the way computers remember things for AI, borrowing a concept from the 1960s operating system design to solve a crisis that had emerged only months before. The result was PagedAttention, an algorithm that transformed the chaotic waste of memory allocation into a disciplined economy of data, effectively doubling or tripling the speed at which these models could think.</p>
+<p>To understand the magnitude of this breakthrough, one must first grasp the physical reality of a large language model (LLM) in motion. These are not static databases; they are dynamic engines that generate text one token at a time through a process called autoregressive decoding. As the model speaks—whether it is writing code, drafting a poem, or answering a complex query—it must constantly remember everything it has said so far to maintain context. This memory takes the form of a Key-Value (KV) cache. In technical terms, for every token processed, the model creates a pair of vectors: a &quot;key&quot; and a &quot;value.&quot; As the conversation lengthens, this cache grows linearly. If you ask an LLM to summarize a 50-page novel, it must hold the mathematical representation of that entire text in its GPU memory while generating the summary.</p>
+<p>Before PagedAttention, the standard approach to managing this growing cache was rigid and wasteful. Systems would reserve large, contiguous blocks of memory for every request before it even began. Imagine renting a warehouse where you are forced to book ten thousand square feet because your inventory might <em>eventually</em> reach that size, even if you only have one crate today. This &quot;reservation&quot; strategy created two fatal flaws: internal fragmentation and external fragmentation.</p>
+<p>Internal fragmentation occurred when a request finished early or was shorter than expected, leaving vast swathes of reserved but unused memory sitting idle. External fragmentation happened as the system tried to fit new requests into the remaining gaps. Because older systems required contiguous physical memory, they often found themselves with plenty of total free space scattered in tiny, unusable fragments, yet unable to allocate a single new request because no <em>single</em> large chunk was available. The paper by Kwon and colleagues revealed a shocking statistic: in many existing serving systems, the effective memory utilization could plummet as low as 20.4%. That means nearly four-fifths of the expensive GPU memory was being wasted simply due to poor management.</p>
+<p>PagedAttention solved this by looking backward rather than forward. It borrowed an idea from virtual memory management in operating systems—a technique dating back to the early days of computing that allows programs to use more memory than physically available by swapping data between RAM and disk. Kwon&#039;s team applied this logic to the GPU, but with a crucial twist for the era of high-speed AI. They partitioned the KV cache of each sequence into fixed-size blocks. Instead of demanding one giant, unbroken stretch of memory, the system broke the cache into small, manageable chunks, like pages in a book.</p>
+<p>This shift from contiguous to non-contiguous allocation was revolutionary. In this new architecture, a request&#039;s cache is represented as a sequence of logical blocks, while a separate &quot;block table&quot; acts as a map, linking these logical blocks to physical GPU-memory blocks wherever they happen to be free. Neighboring logical blocks no longer needed to sit next to each other in physical memory. If the model was generating a sentence and needed more space for the next word, it simply grabbed the nearest available block of memory, added it to its map, and continued writing. There was no need to reserve space in advance; allocation happened on demand, just-in-time.</p>
+<blockquote>&quot;The design also makes it easier to share cache state across related decoding paths.&quot;</blockquote>
+<p>This capability for sharing was perhaps even more powerful than the elimination of fragmentation. In traditional systems, if an AI model was asked to generate three different responses from the same prompt—perhaps using parallel sampling or beam search—it would duplicate the entire KV cache for each path. The system would store the exact same memory state three times over. PagedAttention changed this by allowing physical blocks to be reference-counted and shared among multiple requests or branches.</p>
+<p>Imagine a student reading a chapter of a book. If they then decide to write two different summaries, they don&#039;t need to reread the chapter twice; they can share their notes on that first part while only duplicating the work from the point where the paths diverge. In vLLM, the implementation engine for PagedAttention, this is achieved through block-granularity copy-on-write. If two requests share a prefix of text, they point to the same physical memory blocks. Only when one request modifies that state (by generating new tokens) does the system create a private copy for that specific path. This mechanism drastically reduced memory requirements. In experiments on beam search with OPT-13B, PagedAttention reported memory savings between 37.6% and 55.2%. For parallel sampling, the savings were 6.1–9.8%, which might seem modest but represents a massive reduction in wasted silicon real estate at scale.</p>
+<p>The mathematical formulation of this process is elegant in its simplicity, yet it required a fundamental rewrite of how attention is computed. In standard causal self-attention, for a query token $i$, the output is calculated by comparing that query against all previous keys and values. The formula involves summing exponential scores across the entire history. When Kwon et al. introduced PagedAttention, they did not alter the mathematical truth of attention; they simply changed how the data was stored and accessed to match this math.</p>
+<p>If the cache is partitioned into blocks of size $B$, the key and value tensors are no longer treated as a single continuous stream but as a sequence of block-wise arrays. The computation then proceeds by iterating over these blocks. Instead of fetching individual elements, the attention mechanism processes an entire block of keys at once, calculating a vector of attention scores for that block before moving to the next. This preserves the causal nature of the calculation—the model still only attends to past tokens—while allowing those tokens to reside in non-contiguous physical memory. The result is that the algorithm can handle sequences of arbitrary length without hitting the hard walls of fragmentation or pre-allocation limits.</p>
+<p>The impact on performance was immediate and quantifiable. In their evaluation workloads, Kwon&#039;s team reported that PagedAttention, deployed within the vLLM engine, improved serving throughput by 2–4 times over baselines like FasterTransformer and Orca. This wasn&#039;t a marginal gain; it was a qualitative leap that allowed more users to be served with fewer GPUs, or the same number of users to be served faster and cheaper. The memory savings directly translated into lower operational costs, a critical factor in an industry where the marginal cost of inference is a primary bottleneck for commercial viability.</p>
+<p>By 2024, the influence of this 2023 paper had cemented itself as an industry norm. A survey of LLM serving systems noted that PagedAttention was no longer just a research novelty; it was the foundation of modern infrastructure. Major frameworks including TGI (Text Generation Inference), TensorRT-LLM, and vLLM itself integrated the technology. The concept of paging had migrated from the theoretical realm of operating system design into the practical reality of generative AI, proving that some of the best solutions for cutting-edge problems lie in reimagining old principles.</p>
+<p>However, no technological solution is without its trade-offs, and the adoption of PagedAttention sparked a new wave of debate within the research community regarding complexity versus performance. The very mechanism that made it efficient—breaking memory into non-contiguous blocks and rewriting attention kernels to handle them—introduced software complexity. In 2025, a paper titled &quot;vAttention&quot; emerged as a counterpoint, arguing that PagedAttention had gone too far in its architectural shifts.</p>
+<p>The authors of vAttention contended that PagedAttention required developers to rewrite attention kernels specifically to support paging, creating redundancy and portability issues. They argued that the overhead of managing block tables and handling non-contiguous memory access increased software complexity and execution overhead. Instead of fragmenting the physical memory, they proposed a different approach: keeping the cache contiguous in <em>virtual</em> memory while relying on demand paging for <em>physical</em> allocation only when necessary.</p>
+<p>This distinction is subtle but significant. vAttention maintains the traditional view where the key and value tensors are allocated as 4D tensors with shapes like $[B, L, H, D]$ (Batch size, Length, Heads, Dimension). It reserves virtual memory buffers that are large enough to hold the maximum possible context for a request but does not commit physical memory until it is actually touched. This relies on the operating system&#039;s native demand paging mechanisms rather than building a custom block-management layer within the attention kernel itself.</p>
+<blockquote>&quot;vAttention preserves this contiguous virtual-memory view while deferring physical-memory allocation to runtime.&quot;</blockquote>
+<p>The vAttention paper suggested that by adhering to standard attention rules—$\operatorname{Attention}(q_i, K, V) = \operatorname{softmax}\left(\frac{q_i K^\top}{\mathrm{scale}}\right)V$—developers could avoid the need for custom kernel rewrites. It proposed that the complexity of PagedAttention might not be worth it if the operating system could handle the physical allocation efficiently enough on its own. This debate highlighted a central tension in modern AI engineering: do we optimize at the lowest level, rewriting the math and memory layout to squeeze out every drop of performance (PagedAttention), or do we leverage existing OS abstractions to maintain code simplicity and portability (vAttention)?</p>
+<p>The original proponents of PagedAttention would argue that the custom kernel approach is necessary because general-purpose operating system paging is too slow for the microsecond-level demands of transformer inference. The GPU cannot afford to wait for a page fault or swap in data from main memory; it needs everything right now, at the speed of silicon. PagedAttention ensures that the data structure itself is optimized for the specific access patterns of LLMs, where sequential access and random lookups happen in rapid succession.</p>
+<p>Yet, the vAttention critique serves as a reminder that optimization is an endless cycle. What becomes the &quot;industry norm&quot; today may be viewed as a necessary evil tomorrow once hardware or software evolves. The fact that PagedAttention sparked such a robust intellectual counter-argument just two years after its introduction proves how foundational it has become to the field. It forced researchers to rethink not just <em>how</em> they manage memory, but <em>what</em> constitutes efficient inference in the first place.</p>
+<p>The legacy of Kwon&#039;s work extends beyond the specific algorithms. It represents a shift in mindset for the entire AI community. For years, the focus was almost exclusively on model architecture—making models larger, deeper, and more complex. PagedAttention demonstrated that serving efficiency is just as critical as model capacity. A brilliant model that cannot be served efficiently due to memory fragmentation is a wasted asset. By solving the memory management problem, Kwon and his team unlocked the potential of the models that already existed, allowing them to run faster and on cheaper hardware.</p>
+<p>This has profound implications for the democratization of AI. If serving an LLM requires 4x more GPU power than necessary due to poor memory management, that cost is passed directly to the consumer or limits the ability of smaller companies to compete. PagedAttention lowered that barrier. It turned what was once a proprietary bottleneck into an open-source standard. The vLLM engine, built on this architecture, became one of the most widely used tools in the industry, enabling startups and researchers to deploy models with unprecedented efficiency.</p>
+<p>The story of PagedAttention also highlights the interdisciplinary nature of modern innovation. It did not come from a breakthrough in deep learning theory or a new mathematical discovery about attention mechanisms. It came from an insight drawn from operating systems design, a field that had largely been considered &quot;solved&quot; decades ago. By applying the concept of paging—a technique used to manage disk and RAM on personal computers since the 1970s—to the specialized memory constraints of GPU-based AI, Kwon bridged the gap between legacy computing wisdom and frontier technology.</p>
+<p>As we look toward the future, the principles established by PagedAttention will likely continue to evolve. The tension between custom kernel optimization and standard virtual memory management will persist as hardware architectures change. New algorithms like AlphaDev and AlphaEvolve from Google DeepMind are already beginning to discover new ways to optimize computer science primitives at the assembly level, suggesting that the quest for efficiency is far from over. Yet, the fundamental problem PagedAttention solved—the fragmentation of memory in a world of growing context windows—remains central.</p>
+<p>The human cost of these inefficiencies is not measured in blood, but in opportunity and accessibility. When systems waste 80% of their memory, they consume more energy, generate more heat, and require more hardware manufacturing, all while serving fewer users. Every percentage point of efficiency gained through PagedAttention translates to a reduction in carbon footprint and an increase in the number of people who can access these powerful tools. In a world where AI is becoming increasingly integral to daily life, from healthcare diagnostics to educational support, the ability to serve these models efficiently is not just a technical detail; it is a prerequisite for equitable deployment.</p>
+<p>The narrative of PagedAttention is one of resourcefulness. It teaches us that sometimes the most advanced problems require looking at old solutions with fresh eyes. Kwon&#039;s team did not try to build a bigger cache; they built a smarter way to use the cache that already existed. They recognized that the constraints were not in the silicon, but in the logic used to manage it. By treating memory as a dynamic, shared resource rather than a static reservation, they turned a bottleneck into a highway.</p>
+<p>In the end, the true measure of PagedAttention&#039;s success lies in its invisibility. Today, when you interact with an AI assistant that responds instantly to a long prompt, or when a developer deploys a model on a modest server cluster, they are benefiting from this architecture without knowing it is there. It has become the silent engine of the generative AI revolution, a testament to the power of reimagining the infrastructure that supports our most complex creations. The fragmentation that once threatened to stall progress was tamed not by force, but by a clever mapping of logical needs to physical reality, proving that in the world of computing, how you manage what you have is often more important than having everything you want.</p></div>
+
+      
+
+      <footer class="wikipedia-footer">
+        <p class="source-link">
+          <a href="https://en.wikipedia.org/wiki/PagedAttention" target="_blank" rel="noopener">
+            View original Wikipedia article &rarr;
+          </a>
+        </p>
+        <p class="rewrite-note">
+        This article has been rewritten from Wikipedia source material for enjoyable reading.
+        Content may have been condensed, restructured, or simplified.
+      </p>
+      </footer>
+
+      
+      <section class="related-articles">
+        <h2>Related Articles</h2>
+        <p class="related-intro">This deep dive was written in connection with these articles:</p>
+        <ul class="related-list">
+          
+      <li class="related-article-item">
+        <a href="../../article/3edcf661-a2e1-447c-8137-5f166a61cfc1/index.html">
+          <strong>Inference is unlikely to ever be a low marginal cost operational node, &amp; the other reasons why the…</strong>
+        </a>
+        <span class="article-meta">
+          by Brad DeLong in DeLong&#039;s Grasping Reality
+        </span>
+      </li>
+        </ul>
+      </section>
+    
+    </article>
+  
+  </main>
+  <footer class="site-footer">
+    <div class="container">
+      <p><a href="../../privacy/index.html">Privacy</a> &middot; <a href="../../terms/index.html">Terms</a></p>
+    </div>
+  </footer>
+  <script>
+  (function() {
+    var params = new URLSearchParams(window.location.search);
+    var from = params.get('from');
+    if (from) {
+      var names = {
+        'foreign-policy':'Foreign Policy','ai-tech':'AI & Tech','housing-cities':'Housing & Cities',
+        'political-strategy':'Political Strategy','history':'History','science':'Science',
+        'culture':'Culture','economics':'Economics','faith':'Faith','writing-craft':'Writing & Craft',
+        'music':'Music','law-rights':'Law & Rights','public-health':'Public Health',
+        'philosophy':'Philosophy','media':'Media','defense':'Defense','china':'China'
+      };
+      var link = document.getElementById('back-link');
+      if (link) {
+        var name = names[from] || from;
+        link.href = '../../tag/' + from + '/index.html';
+        link.textContent = '\u2190 Back to ' + name;
+      }
+    }
+  })();
+  </script>
+</body>
+</html>
