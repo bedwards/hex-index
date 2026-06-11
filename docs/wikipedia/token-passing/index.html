@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Token passing - Hex Index</title>
+  <link rel="stylesheet" href="../../styles.css">
+</head>
+<body class="reading-mode">
+  <header class="reading-header">
+    <a href="../../index.html" class="back-link" id="back-link">&larr; Back to Library</a>
+  </header>
+  <main class="reading-content">
+    
+    <article class="wikipedia-page">
+      <header class="wikipedia-header">
+        <div class="type-badge">Wikipedia Deep Dive</div>
+        <h1>Token passing</h1>
+        <div class="article-meta">
+          <span class="read-time">12 min read</span>
+        </div>
+      </header>
+
+      
+
+      <div class="wikipedia-content"><p class="source-note">Based on <a href="https://en.wikipedia.org/wiki/Token_passing">Wikipedia: Token passing</a></p>
+<p>In the early 1980s, as the digital revolution threatened to drown factory floors in chaotic data collisions, engineers at IBM and other industrial giants made a radical choice. They rejected the frenetic, &#039;first-come-first-served&#039; shouting match of early Ethernet networks for a method that demanded silence, order, and absolute predictability. This was token passing, a channel access method where a single packet called a token circulates between nodes like a baton in a relay race, granting exclusive authority to communicate only to the holder. In an era where network reliability could mean the difference between a smoothly running assembly line and a catastrophic industrial shutdown, this system offered something Ethernet could not: deterministic performance under load. While early Ethernet relied on contention-based access (CSMA/CD), where devices fought for bandwidth and collided when two spoke at once, token passing eliminated collisions entirely by design. There was no master node to poll the others; instead, the network itself became a democratic circle of permission, ensuring that even in the heaviest traffic, every station knew exactly when it could speak.</p>
+<p>To understand why this matters, one must look at the fundamental physics of shared media. In a contention-based system, if two nodes transmit simultaneously, their signals interfere, creating a &#039;collision&#039; that corrupts the data and forces both to wait a random amount of time before trying again. Under light load, this is efficient enough. But as demand increases, collisions become frequent, causing throughput to plummet and latency to spike unpredictably. For a home user browsing the web in 1990, this might have meant a slow-loading page. For an automated car manufacturing plant or a hospital&#039;s patient monitoring system, it was unacceptable. The variable delay made planning impossible. Token passing solved this by imposing a strict schedule. A node could not transmit until it physically possessed the token. Once it held the token, it had exclusive rights to the medium for a set duration, after which it passed the token to the next node in the logical ring.</p>
+<p>The most famous incarnation of this philosophy was IBM&#039;s Token Ring, introduced in 1984 and standardized as IEEE 802.5 by 1985. It operated on a physical star topology but functioned logically as a ring, circulating a token at speeds that would eventually reach 4 Mbps and later 16 Mbps. While Ethernet was cheaper and easier to deploy for office environments, Token Ring found its true home in the rigorous world of industrial control networks like MAP (Manufacturing Automation Protocol). The key advantage was deterministic degradation. As network load increased, contention-based networks degrade exponentially; token-passing networks degrade linearly. A factory manager could calculate exactly how long it would take for a sensor to report an anomaly, even if every machine on the floor was transmitting data simultaneously. This predictability made token passing the gold standard for safety-critical applications where timing is not just a metric of performance, but a requirement of survival.</p>
+<h2>The Architecture of Order</h2>
+<p>The mechanics of token passing are elegant in their simplicity, yet they require a level of discipline absent in chaotic networks. Imagine a circle of people holding hands. To pass a message to the person two spots away, you cannot simply shout; you must wait until a special object—the token—reaches your hand. Only then may you speak. Once you finish, you place the token back into the stream for the next person. In networking terms, this &#039;token&#039; is a very short frame, often just three bytes long, that circulates continuously around the ring. If a node has no data to send, it simply passes the token along immediately. If it does have data, it seizes the token, changes its status from &#039;free&#039; to &#039;busy&#039;, attaches its data packet, and transmits.</p>
+<p>This process eliminates the need for complex collision detection hardware. In CSMA/CD networks, every device must listen while it talks to detect if another voice is rising over its own—a difficult engineering task that requires significant overhead. Token passing removes this entirely. The protocol guarantees that only one node speaks at a time. Consequently, the channel bandwidth can be fully utilized without idle time caused by collisions or back-off algorithms when demand is heavy. This efficiency was particularly prized in the fiber-optic networks of the 1990s, such as FDDI (Fiber Distributed Data Interface). FDDI operated at 100 Mbps, a blistering speed for its time, and used a dual-ring topology to ensure that if one cable was cut, traffic could flow in the opposite direction. This redundancy, combined with the deterministic nature of token passing, made FDDI the backbone of many campus networks and data centers before Gigabit Ethernet became ubiquitous.</p>
+<p>However, this order comes at a cost. The most significant disadvantage is latency during periods of light load. In a contention network, if you are the only one wanting to send data, you can transmit almost immediately after detecting silence on the wire. In a token ring, even if the medium is empty, a station wishing to transmit must wait for the token to physically travel from its last holder around the entire ring to reach it. This &#039;token rotation time&#039; introduces a baseline latency that cannot be avoided, regardless of how little traffic exists. For interactive applications where milliseconds matter, this waiting period can feel like an eternity. It is a trade-off: you sacrifice responsiveness in quiet moments for guaranteed performance in chaotic ones.</p>
+<h2>The Evolution of Implicit Passing</h2>
+<p>As networking technology matured, engineers realized that explicitly sending a token frame between every node was sometimes inefficient, consuming bandwidth and adding processing overhead. This led to the development of schemes where the process of &#039;passing the token&#039; becomes implicit, woven into the fabric of the transmission protocol itself rather than existing as a separate object. A prime example of this evolution is found in the ITU-T G.hn standard, which enables high-speed networking over existing home wiring—power lines, phone lines, and coaxial cable.</p>
+<p>In the G.hn architecture, time is divided into frames containing &#039;Contention Free Time Slots.&#039; During these slots, access to the medium is strictly controlled without the need for a physical token frame to circulate. The scheduling algorithm acts as an invisible token holder, granting rights to transmit based on a pre-arranged schedule known to all nodes. If Node A has been assigned time slot 5 in the current frame, it transmits; if not, it remains silent. This implicit passing retains the collision-free benefits of traditional token rings while eliminating the overhead of generating and processing explicit token frames. It represents a maturation of the concept: the philosophy of ordered access remains, but the mechanism becomes more streamlined to fit modern high-bandwidth requirements.</p>
+<p>This shift highlights a broader trend in network design. The rigid physical rings of IBM Token Ring and ARCNET gave way to logical rings operating over switches, and eventually to time-slotted mechanisms that could coexist with other traffic types. Yet, the core principle endures: when precision is required, chaos must be tamed. In industrial settings, where a lost packet can mean a robot arm moving into the wrong position or a chemical valve failing to close, the deterministic guarantee of token-based access remains superior to the probabilistic nature of contention.</p>
+<h2>The Human Element in Digital Determinism</h2>
+<p>While we often discuss networks in terms of bits and bytes, the stakes of these protocols are deeply human. The preference for token passing in Manufacturing Automation Protocol (MAP) networks was not merely an academic preference for elegance; it was a response to the tangible dangers of uncontrolled automation. In a factory setting, &#039;latency&#039; is not just a number on a screen. It is the time between a sensor detecting a malfunction and a human operator—or another machine—being able to react.</p>
+<p>Consider the environment of an automotive plant in the 1980s and 90s. Hundreds of robots worked in close proximity, welding, painting, and assembling with terrifying speed. If the network controlling them relied on CSMA/CD, a sudden surge in data traffic could cause collisions that delayed a critical stop command by milliseconds or even seconds. In a human-centric workspace, those delays are irrelevant. In an industrial workspace, they are catastrophic. A delay of 50 milliseconds could be the difference between a welding torch missing its target and severing a hydraulic line, potentially spraying high-pressure fluid onto nearby workers.</p>
+<p>The choice to use token passing was a choice for safety. It ensured that no matter how much data the machines were generating, the control signals would always get through within a known, finite timeframe. This is why engineers in industrial sectors often view contention-based networks with suspicion when applied to critical infrastructure. The &#039;randomness&#039; of Ethernet is a feature for the internet, where occasional delays are acceptable for the sake of cheap hardware and ease of use. But for the systems that build our cars, monitor our power grids, or manage hospital equipment, randomness is a liability.</p>
+<p>The narrative of token passing also reflects a specific era in computing history where reliability was valued over raw speed. In the 1980s and early 1990s, hardware was expensive, but the cost of failure was higher. The development of FDDI, with its dual-ring redundancy, was driven by the realization that single points of failure were unacceptable for the backbone of corporate and industrial networks. When a cable was cut in a campus network, traffic didn&#039;t just stop; it wrapped around the other way, maintaining connectivity without human intervention. This self-healing capability, paired with deterministic access, created a level of trust in digital infrastructure that early Ethernet simply could not match.</p>
+<h2>The Decline and Legacy</h2>
+<p>Despite its technical advantages, token passing has largely receded from the mainstream. By the late 1990s and early 2000s, the rapid advancement of switched Ethernet rendered many of its strengths moot. Full-duplex switches eliminated collisions entirely by providing a dedicated path for every connection, effectively giving every node its own &#039;token&#039; without needing to wait in a ring. The cost of Ethernet hardware plummeted while speeds skyrocketed from 10 Mbps to 100, then 1000, and eventually 10 Gbps and beyond. Token Ring never kept pace with this exponential growth; by the time it reached 16 Mbps, Ethernet had already moved past 100 Mbps.</p>
+<p>The decline of IBM Token Ring was also a victim of its own complexity. The hardware required to implement token rings was more expensive and complex than Ethernet cards. The need for active monitors on the ring to manage token regeneration and handle error conditions added layers of potential points of failure that simple Ethernet switches did not have. As the internet exploded in popularity, the market shifted decisively toward the cheaper, faster, and &#039;good enough&#039; performance of contention-based protocols managed by intelligent switching hardware.</p>
+<p>Yet, to say token passing is dead would be a mistake. Its DNA lives on in every protocol that requires deterministic behavior. The implicit token passing in G.hn proves that the concept of scheduled access is still relevant for modern home networking standards. More importantly, the philosophy of token passing underpins modern industrial protocols like EtherCAT and PROFINET IRT (Isochronous Real-Time), which use time-triggered communication to achieve microsecond-level precision in automation. These systems are the spiritual successors to Token Ring, applying the same logic—eliminate contention, guarantee timing—to new physical layers.</p>
+<p>In the broader context of computing history, token passing represents a crucial branch of the evolutionary tree that prioritized order over chaos. It was a bold experiment in taming the unpredictability of shared media, proving that with the right rules, a network could be made predictable, safe, and reliable. For the engineers who designed these systems, it was not just about moving data; it was about building trust in the digital infrastructure that powered the physical world. They understood that while collisions might be acceptable for sending an email, they were a luxury no factory, hospital, or power plant could afford.</p>
+<p>The story of token passing is a reminder that technology does not always evolve toward the simplest solution. Sometimes, it evolves toward the most robust one, even if that robustness comes with complexity and cost. In an age where we are increasingly dependent on automated systems to manage everything from traffic lights to surgical robots, the lessons of token passing remain vital: in critical systems, you cannot rely on luck or probability. You need a guarantee. And sometimes, that guarantee requires everyone to wait for their turn.</p>
+<blockquote>&quot;The advantage over contention based channel access is that collisions are eliminated, and that the channel bandwidth can be fully utilized without idle time when demand is heavy.&quot;</blockquote>
+<p>This observation from the technical literature captures the essence of why token passing mattered. It was a system designed for the moment when everything goes wrong—or rather, when everything tries to go right at once. In that high-stakes environment, the ability to eliminate collisions and guarantee bandwidth wasn&#039;t just an optimization; it was the foundation of safety.</p>
+<p>As we move into a future dominated by the Internet of Things (IoT) and autonomous systems, where billions of devices will compete for attention on shared networks, the tension between contention and token-based access is likely to return. We may not use IBM Token Ring hardware again, but the fundamental problem remains: how do you ensure that a self-driving car&#039;s braking signal gets through when millions of other devices are streaming video? The answer may well lie in the implicit token passing schemes we see today, or in new variations of deterministic access that inherit the legacy of those early rings.</p>
+<p>The history of token passing is not just a footnote in the evolution of computer networking; it is a testament to the engineering discipline required when human lives and critical infrastructure depend on digital signals. It was a time when engineers chose to build walls around their data to keep chaos out, creating islands of perfect order in a sea of potential collisions. And while those specific rings have mostly been dismantled, the principle that some things must be controlled, scheduled, and guaranteed remains as relevant today as it was in 1985.</p></div>
+
+      
+
+      <footer class="wikipedia-footer">
+        <p class="source-link">
+          <a href="https://en.wikipedia.org/wiki/Token_passing" target="_blank" rel="noopener">
+            View original Wikipedia article &rarr;
+          </a>
+        </p>
+        <p class="rewrite-note">
+        This article has been rewritten from Wikipedia source material for enjoyable reading.
+        Content may have been condensed, restructured, or simplified.
+      </p>
+      </footer>
+
+      
+      <section class="related-articles">
+        <h2>Related Articles</h2>
+        <p class="related-intro">This deep dive was written in connection with these articles:</p>
+        <ul class="related-list">
+          
+      <li class="related-article-item">
+        <a href="../../article/56550a7d-1be6-4537-b019-440fba3be557/index.html">
+          <strong>Are agentic CPUs a commodity? It’s complicated</strong>
+        </a>
+        <span class="article-meta">
+          by Various in Chipstrat
+        </span>
+      </li>
+        </ul>
+      </section>
+    
+    </article>
+  
+  </main>
+  <footer class="site-footer">
+    <div class="container">
+      <p><a href="../../privacy/index.html">Privacy</a> &middot; <a href="../../terms/index.html">Terms</a></p>
+    </div>
+  </footer>
+  <script>
+  (function() {
+    var params = new URLSearchParams(window.location.search);
+    var from = params.get('from');
+    if (from) {
+      var names = {
+        'foreign-policy':'Foreign Policy','ai-tech':'AI & Tech','housing-cities':'Housing & Cities',
+        'political-strategy':'Political Strategy','history':'History','science':'Science',
+        'culture':'Culture','economics':'Economics','faith':'Faith','writing-craft':'Writing & Craft',
+        'music':'Music','law-rights':'Law & Rights','public-health':'Public Health',
+        'philosophy':'Philosophy','media':'Media','defense':'Defense','china':'China'
+      };
+      var link = document.getElementById('back-link');
+      if (link) {
+        var name = names[from] || from;
+        link.href = '../../tag/' + from + '/index.html';
+        link.textContent = '\u2190 Back to ' + name;
+      }
+    }
+  })();
+  </script>
+</body>
+</html>
