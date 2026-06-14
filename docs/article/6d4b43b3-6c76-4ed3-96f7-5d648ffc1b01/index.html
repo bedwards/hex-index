@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Is smic n+3’s metal pitch smaller than Intel 18A’s? - Hex Index</title>
+  <link rel="stylesheet" href="../../styles.css">
+</head>
+<body class="reading-mode">
+  <header class="reading-header">
+    <a href="../../index.html" class="back-link" id="back-link">&larr; Back to Library</a>
+  </header>
+  <main class="reading-content">
+    
+    <article class="article-page">
+      <header class="article-header">
+        <h1>Is smic n+3’s metal pitch smaller than Intel 18A’s?</h1>
+        
+      <div class="article-meta">
+        <span class="author">Dylan Patel</span>
+        <span class="separator">&middot;</span>
+        <a href="../../publication/semianalysis/index.html" class="publication">
+          SemiAnalysis
+        </a>
+        <span class="separator">&middot;</span><time>Jun 14, 2026</time>
+        <span class="separator">&middot;</span><span class="read-time">40 min read</span>
+      </div>
+      </header>
+
+      <div class="content-label">
+        <span class="label-text">Commentary by <a href="../../about/index.html">Hex Index staff</a></span>
+        <nav class="content-nav">
+          <a href="#deep-dives">Deep dives</a><span class="separator">&middot;</span>
+          <a href="https://newsletter.semianalysis.com/p/steel-smic-n3-teardown" target="_blank" rel="noopener">Original article &rarr;</a>
+        </nav>
+      </div>
+
+      
+      <div class="article-content">
+        <p>In a landscape dominated by geopolitical headlines, Dylan Patel delivers a rare, granular look at what is actually possible when advanced chip manufacturing meets severe export restrictions. The piece&#039;s most startling claim isn&#039;t that Chinese firms are stuck in the past, but that they have engineered a workaround so aggressive it rivals Western technology from several years ago—while paying a steep price in efficiency and cost.</p>
+<h2>The Illusion of Parity</h2>
+<p>Patel opens by dismantling a simplistic narrative often found in tech reporting: that a smaller number on a spec sheet equals modern capability. He notes that while SMIC&#039;s third-generation 7 nm process, known as N+3, achieves a minimum metal pitch of 32.5 nanometers—tighter than the 36 nanometers seen in Intel&#039;s latest Panther Lake CPUs—the comparison is deceptive. &quot;The headline is true, but incomplete cherry picked metric,&quot; Patel writes, immediately grounding the reader in the reality that density does not equal performance.</p>
+<figure class="inline-illustration">
+    <img src="../../images/6d4b43b3-6c76-4ed3-96f7-5d648ffc1b01.webp" alt="Is smic n+3’s metal pitch smaller than Intel 18A’s?" loading="lazy" width="600" height="315">
+  </figure>
+
+<p>This framing is crucial because it forces a shift from binary thinking (blocked vs. unblocked) to a nuanced understanding of trade-offs. By leveraging deep ultraviolet (DUV) multi-patterning—a technique that requires printing layers multiple times to achieve fine details—SMIC has managed to reach logic densities comparable to TSMC&#039;s N6 node. However, Patel points out the hidden toll: &quot;N+3 reaches the density of TSMC N6 through aggressive DUV multi-patterning and design-technology co-optimization (DTCO), but it pays for that in complexity, efficiency and process control.&quot; This is a stark reminder of the physical limits of silicon; you cannot simply bypass decades of equipment innovation without consequence.</p>
+<blockquote>Without EUV, SMIC is leaning harder on DUV multi-patterning, DTCO, and increasingly complex integration. The roadmap continues forward through tighter design rules and backside power, but each step adds cost and process risk.</blockquote>
+<p>The argument here holds up because it relies on physical teardown data rather than speculation. Patel&#039;s team at SemiAnalysis has built a state-of-the-art lab to verify these claims, moving beyond the theoretical models that often plague industry analysis. Critics might note that focusing solely on the manufacturing node overlooks software optimization or system-level design gains, but Patel anticipates this by examining the entire chip architecture.</p>
+<h2>The Architecture of Constraints</h2>
+<p>When analyzing the Kirin 9030 Pro chip inside Huawei&#039;s latest devices, Patel reveals how engineers are forced to innovate around scarcity. The die shots show a chip that is nearly identical in total area to its predecessor but packed with more cores and larger caches. &quot;A denser process lets Huawei fit an extra middle CPU core, more GPU and NPU cores, and larger caches into the same footprint,&quot; he explains. This is a masterclass in squeezing value from limited resources, reminiscent of how early semiconductor pioneers maximized yield before modern automation took over.</p>
+<p>However, the performance gap remains undeniable. Patel contrasts Huawei&#039;s prime core with Apple&#039;s efficiency cores, noting that &quot;Apple&#039;s low-power core delivers 20% higher integer performance while drawing only 1 W, compared with 4.5 W for Huawei&#039;s prime core.&quot; This disparity highlights the fundamental advantage of leading-edge nodes: they allow designers to run at lower voltages and higher frequencies without burning through power or generating excessive heat.</p>
+<p>The author emphasizes that this isn&#039;t just about raw speed but about the voltage-frequency curve, a metric that dictates how efficiently a chip operates. &quot;What Huawei cannot match is the voltage-frequency curve and transistor budget of leading-edge nodes,&quot; Patel writes, underscoring that export controls have not stopped innovation but have forced it onto a less efficient path. This reframing is vital for policymakers who might assume sanctions are failing because chips are still being made; in reality, they are succeeding by making those chips prohibitively expensive to produce at scale.</p>
+<h2>The GPU and NPU: A Mixed Bag</h2>
+<p>The analysis of the graphics and neural processing units offers a more optimistic view. Patel finds that Huawei&#039;s Maleoon 935 GPU represents a significant leap forward, even if it still lags behind current flagships. &quot;The GPU is where Huawei makes its biggest gains,&quot; he observes, noting that ray-tracing support has been added and performance has jumped significantly over the previous generation.</p>
+<p>Yet, the gap with global leaders remains wide. The chip trails behind newer parts from Qualcomm and MediaTek by a factor of two or three in certain benchmarks. Patel&#039;s conclusion is measured: &quot;Matching older high-end cores per clock is a genuine design achievement. What Huawei cannot match is the voltage-frequency curve...&quot; This distinction separates engineering brilliance from industrial parity. It suggests that while Chinese firms can catch up to specific historical milestones, they are running on a treadmill where the finish line keeps moving.</p>
+<blockquote>Export controls have not stopped Huawei and SMIC from shipping advanced silicon, but they have forced a different path.</blockquote>
+<p>This sentence captures the essence of the entire report: resilience is not the same as dominance. The ability to produce a functional chip under sanctions is impressive, but the cost in terms of power efficiency and manufacturing complexity creates a long-term competitive disadvantage.</p>
+<h2>Bottom Line</h2>
+<p>Patel&#039;s teardown provides the most credible evidence yet that export controls are working exactly as intended—not by halting progress entirely, but by forcing adversaries into an inefficient, high-cost loop. The strongest part of this argument is its refusal to accept marketing spin, relying instead on physical measurement and direct comparison. Its biggest vulnerability lies in the rapid pace of system-level innovation; if Huawei successfully pivots to advanced packaging techniques like LogicFolding to bypass node limitations, the efficiency gap could narrow faster than predicted.</p>
+<p>Readers should watch not just for new chip releases, but for changes in manufacturing yields and power consumption metrics, which will reveal whether this high-wire act can be sustained.</p>
+      </div>
+
+      
+      
+      <section id="deep-dives" class="deep-dives">
+        <h2>Deep Dives</h2>
+        <p class="deep-dives-intro">Explore these related deep dives:</p>
+        <ul class="deep-dive-list">
+          
+      <li class="deep-dive-item">
+        <a href="../../wikipedia/multiple-patterning/index.html">
+          <strong>Multiple patterning</strong>
+        </a>
+        <p class="topic-summary">This technique explains the specific workaround SMIC uses to achieve advanced node densities without EUV lithography, directly illuminating why their N+3 process incurs higher complexity and cost compared to Intel&#039;s 18A.</p>
+      </li>
+        </ul>
+      </section>
+    
+      
+
+      <section id="excerpt"><section class="source-excerpts">
+      <h2>Sources</h2>
+      <article class="source-excerpt">
+      <h3>Is smic n+3’s metal pitch smaller than Intel 18A’s?</h3>
+      <div class="source-meta">by Dylan Patel &middot; <a href="../../publication/semianalysis/index.html">SemiAnalysis</a> &middot; <a href="https://newsletter.semianalysis.com/p/steel-smic-n3-teardown" target="_blank" rel="noopener">Read full article</a></div>
+      <p>Almost four years ago, we published that SMIC had started shipping 7 nm (N+1) chips. Now, SMIC is shipping its third-generation 7 nm (N+3) process in Huawei’s Kirin 9030, with a minimum metal pitch of 32.5 nm, about 10% tighter than the 36 nm minimum metal pitch shipping in Intel’s latest Panther Lake CPUs on 18A.</p><p>The headline is true, but incomplete cherry picked metric. N+3 reaches the density of TSMC N6 through aggressive DUV multi-patterning and design-technology co-optimization (DTCO), but it pays for that in complexity, efficiency and process control. </p><p>We found this and more in our reverse engineering and teardown where we cover SMIC’s N3 process technology, Huawei’s packaging, memory, architecture, and more. SemiAnalysis has been building a state-of-the-art teardown lab in Oregon capable of analyzing the world’s most advanced and important chips over the last year and half. We have already generated revenue on advanced datacenter chip teardowns including our recent reverse engineering of a major TSMC customer’s COUPE CPO optical engine + EIC 3D stack. </p><p>This is the first public report from the SemiAnalysis Teardown Engineering &amp; Evaluation Lab, or STEEL for short. The lab is aggressively scaling up and out and we’re excited to announce it publicly. This is a bit of inconvenient timing for TechInsights as they are private equity owned and currently being sold while having enjoyed virtually no credible competition for decades. This has led to TechInsights underinvesting in CAPEX.</p><p>SemiAnalysis exceeds TechInsights in revenue despite no venture or private equity ownership and being founded only 6 years ago. Because we have no external investors and are founder led, we move faster, build faster, and we can release client chip teardowns for free regularly, while focusing on datacenter for our major clients.</p><p>Here’s the first public image from our lab, the HiSilicon Kirin 9030 Pro SoC:</p><p>This report will detail our teardown of the Kirin 9030 and our findings on SMIC’s N+3 process, the most advanced in China. For comparison, we’ll show our teardown of the MediaTek Helio G99, made on TSMC N6. Through this comparison, we can look at the effect of export controls – SMIC N+3 and TSMC N6 are comparable nodes, but one is heavily export-controlled, the other free to use the West’s most advanced equipment.</p><p>Here we see both China’s progress and constraints. SMIC N+3 reaches TSMC N6-class logic density, but it requires far more aggressive DUV multi-patterning, ...</p>
+      <footer class="source-bio" aria-label="About this source">
+      <p class="sb-heading">About this source</p>
+      <p class="sb-meta"><span class="sb-type">independent research firm</span> &middot; <span class="sb-country">United States</span> &middot; <span class="sb-funding">paid subscriptions, enterprise research contracts</span> &middot; <span class="sb-leaning">Hawkish US-industrial-policy techno-nationalist on semiconductors; pro-export-controls on China, bullish on Western fab buildout and AI compute supremacy.</span></p>
+      <p class="sb-audit">Last reviewed: <time datetime="2026-04-08">2026-04-08</time> &middot; <a href="https://www.semianalysis.com/" target="_blank" rel="noopener">source</a></p>
+    </footer>
+    </article>
+    </section></section>
+      
+    </article>
+  
+  </main>
+  <footer class="site-footer">
+    <div class="container">
+      <p><a href="../../privacy/index.html">Privacy</a> &middot; <a href="../../terms/index.html">Terms</a></p>
+    </div>
+  </footer>
+  <script>
+  (function() {
+    var params = new URLSearchParams(window.location.search);
+    var from = params.get('from');
+    if (from) {
+      var names = {
+        'foreign-policy':'Foreign Policy','ai-tech':'AI & Tech','housing-cities':'Housing & Cities',
+        'political-strategy':'Political Strategy','history':'History','science':'Science',
+        'culture':'Culture','economics':'Economics','faith':'Faith','writing-craft':'Writing & Craft',
+        'music':'Music','law-rights':'Law & Rights','public-health':'Public Health',
+        'philosophy':'Philosophy','media':'Media','defense':'Defense','china':'China'
+      };
+      var link = document.getElementById('back-link');
+      if (link) {
+        var name = names[from] || from;
+        link.href = '../../tag/' + from + '/index.html';
+        link.textContent = '\u2190 Back to ' + name;
+      }
+    }
+  })();
+  </script>
+</body>
+</html>
