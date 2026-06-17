@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reasoning model - Hex Index</title>
+  <link rel="stylesheet" href="../../styles.css">
+</head>
+<body class="reading-mode">
+  <header class="reading-header">
+    <a href="../../index.html" class="back-link" id="back-link">&larr; Back to Library</a>
+  </header>
+  <main class="reading-content">
+    
+    <article class="wikipedia-page">
+      <header class="wikipedia-header">
+        <div class="type-badge">Wikipedia Deep Dive</div>
+        <h1>Reasoning model</h1>
+        <div class="article-meta">
+          <span class="read-time">12 min read</span>
+        </div>
+      </header>
+
+      
+
+      <div class="wikipedia-content"><p class="source-note">Based on <a href="https://en.wikipedia.org/wiki/Reasoning_model">Wikipedia: Reasoning model</a></p>
+<p>In September 2024, the artificial intelligence landscape shifted not with a new parameter count or a larger dataset, but with a fundamental change in behavior: machines began to think before they spoke. OpenAI introduced the o1 series of models, explicitly framing them as a &quot;reset&quot; in how large language models operate. Unlike their predecessors, which generated responses almost instantaneously by predicting the next likely token, these new systems were designed to spend time deliberating. They would pause, generate internal chains of reasoning, revisit earlier steps, and refine their logic before ever producing an output for a human to read. This marked the formal arrival of the &quot;reasoning model,&quot; or Large Reasoning Model (LRM), a class of AI that prioritizes computational depth over speed, fundamentally altering the trade-off between inference time and problem-solving capability.</p>
+<p>The distinction is not merely semantic; it represents a structural divergence in how these systems process information. Traditional large language models function as sophisticated autocomplete engines, trained on massive corpora to predict sequences with statistical accuracy. When faced with a complex math problem or a multi-step coding challenge, they often stumble because the answer requires holding multiple variables in memory and logically chaining deductions—a task where probabilistic prediction alone frequently fails. Reasoning models, however, allocate additional compute during inference, effectively simulating a &quot;thinking&quot; phase. This process allows them to explore multiple solution paths, backtrack from errors, and verify their own work, much like a human mathematician working through a proof on a whiteboard rather than guessing the final result.</p>
+<p>This capability was not an overnight invention but the culmination of a decade-long research trajectory that began with simple prompts and evolved into complex reinforcement learning architectures. The foundational insight came in 2022 when Google Research scientists Jason Wei and Denny Zhou demonstrated that chain-of-thought prompting could &quot;significantly improve&quot; the ability of large models to handle complex reasoning. By simply instructing a model to break down a problem step-by-step, researchers unlocked latent capabilities that were previously inaccessible. The formula was deceptively simple: Input → Step 1 → Step 2 → ⋯ → Step n → Answer. A companion study showed that the phrase &quot;Let&#039;s think step by step&quot; could elicit this behavior even in zero-shot scenarios, without any specific fine-tuning.</p>
+<p>However, prompting alone had limits. The next leap forward came from generalizing these chains into search-based inference. Princeton computer scientist Shunyu Yao introduced the Tree-of-Thoughts framework, proposing that models should perform &quot;deliberate decision making&quot; by exploring a tree of intermediate thoughts and backtracking when a path led to a dead end. This moved AI beyond linear generation into a space of strategic exploration. Yet, the most critical breakthrough occurred not in how models thought, but in how they were taught to value their own thinking.</p>
+<p>Research led by Lightman et al., titled &quot;Let&#039;s Verify Step by Step,&quot; identified a crucial flaw in previous training methods: rewarding only the final outcome. When a model gets the right answer through a flawed logical path, it learns bad habits. By shifting supervision to reward each correct intermediate step, researchers found that models &quot;significantly outperformed&quot; those trained on outcomes alone. This approach aligned the chain of thought with human judgment, improving both accuracy and interpretability. OpenAI&#039;s o1 announcement essentially tied these disparate strands together, utilizing a large-scale reinforcement learning algorithm that trained models to refine their own chains of thought through massive amounts of test-time compute.</p>
+<p>The implications of this shift are profound for the economics and ethics of AI deployment. Reasoning models require significantly more computational resources during inference compared to non-reasoning counterparts. Research conducted on the American Invitational Mathematics Examination (AIME) benchmark revealed that these models were 10 to 74 times more expensive to operate than standard large language models. The cost is driven by the sheer volume of tokens generated during the &quot;thinking&quot; phase, which are often hidden from the user but consumed in vast quantities.</p>
+<p>This creates a new dynamic in the AI industry: the commodification of thinking time. Commercial deployments began documenting separate &quot;reasoning tokens&quot; to meter this hidden computation, offering users controls for &quot;reasoning effort&quot; that tune how much compute the model spends before answering. The result is a system that is demonstrably slower but far more capable on difficult problems in science, coding, and mathematics. OpenAI reported that o1&#039;s accuracy improved as the model was given more reinforcement learning during training and more test-time compute at inference, validating Richard S. Sutton&#039;s &quot;bitter lesson&quot;—the observation that scaling compute typically outperforms methods based on human-designed insights.</p>
+<p>The &quot;bitter lesson&quot; became a focal point of debate when researchers at the Generative AI Research Lab (GAIR) attempted to replicate o1&#039;s capabilities in late 2024. They initially employed sophisticated methods, including complex tree search algorithms and advanced reinforcement learning techniques, expecting that intricate engineering would be the key. Their findings, published in the &quot;o1 Replication Journey&quot; series, were counterintuitive: knowledge distillation, a comparatively straightforward technique where a smaller model is trained to mimic the outputs of the larger reasoning model, produced unexpectedly strong performance. This outcome suggested that direct scaling approaches and the ability to scale test-time compute could sometimes outperform more complex engineering solutions, reinforcing the idea that brute-force computation remains a potent force in AI development.</p>
+<p>However, this power comes with significant risks and new vulnerabilities. One researcher in early 2025 warned of potential denial-of-service concerns via &quot;overthinking attacks.&quot; In these scenarios, malicious actors could exploit the model&#039;s tendency to allocate extensive compute for difficult or adversarial inputs, effectively draining computational resources and causing system slowdowns. The extended inference time required for deep reasoning makes these models inherently more susceptible to such resource exhaustion compared to their instant-response predecessors.</p>
+<p>The release of o1 in September 2024 sparked a global race among tech giants to develop their own reasoning capabilities, accelerating the timeline from years to months. OpenAI released the full version of o1 in December 2024 and shared preliminary results on its successor, o3, by the same month, with the full model becoming available in 2025. The competition was fierce and rapid. Alibaba responded in November 2024 by releasing reasoning versions of its Qwen large language models, followed in December by the introduction of QvQ-72B-Preview, an experimental visual reasoning model designed to tackle complex image analysis tasks.</p>
+<p>Google, too, entered the fray with Deep Research in Gemini, a feature launched in December 2024 specifically designed to conduct multi-step research tasks that require synthesizing information from multiple sources. The pace of innovation was perhaps most dramatically illustrated by a study on December 16, 2024, where researchers demonstrated that by scaling test-time compute, a relatively small Llama 3B model could outperform a much larger Llama 70B model on challenging reasoning tasks. This experiment shattered the prevailing assumption that only massive models could handle complex logic, suggesting that improved inference strategies could unlock profound capabilities even in smaller, more efficient architectures.</p>
+<p>The most significant disruption to the market came in January 2025 with the release of DeepSeek R1. This Chinese AI company achieved performance comparable to OpenAI&#039;s o1 at a fraction of the computational cost, challenging the notion that such capabilities required exorbitant resources. DeepSeek R1 leveraged Group Relative Policy Optimization (GRPO), a reinforcement learning technique that proved highly effective in training reasoning models without the massive overhead previously thought necessary. By January 25, 2025, DeepSeek had enhanced R1 with web search capabilities, allowing the model to retrieve real-time information from the internet while performing its internal reasoning loops, effectively merging the depth of logical deduction with the breadth of current data.</p>
+<p>The research during this period further validated the effectiveness of knowledge distillation as a primary method for creating reasoning models. The s1-32B model, for instance, achieved strong performance through techniques that distilled the &quot;thought processes&quot; of larger models into more compact architectures. This democratization of reasoning capabilities meant that the barrier to entry was lowering, allowing smaller entities and researchers to deploy systems capable of solving problems that were previously the exclusive domain of the largest tech conglomerates.</p>
+<p>Yet, as these systems become more capable, the question of transparency looms large. OpenAI initially chose to hide raw chains of thought from end users, returning only a model-written summary of the reasoning process. The company stated it &quot;decided not to show&quot; the underlying thoughts so researchers could monitor them without exposing unaligned content or sensitive intermediate steps to the public. This decision sparked debate within the research community regarding the interpretability of these models. While hiding the raw chain protects against potential misuse, such as models revealing their training data or generating harmful intermediate steps, it also creates a &quot;black box&quot; where the user cannot verify <em>how</em> an answer was derived, only that it appears correct.</p>
+<p>The tension between performance and transparency is central to the current era of AI development. Reasoning models operate by generating internal chains of intermediate steps, then selecting and refining a final answer. The ability to revisit and revise earlier reasoning steps allows these systems to self-correct in ways that traditional LLMs cannot. However, this capability also means that the &quot;cost&quot; of an answer is no longer just monetary or temporal; it is also cognitive. When a model spends 30 seconds &quot;thinking&quot; about a question, it is consuming energy and compute that could have been used for other tasks, raising questions about the efficiency and sustainability of scaling these systems indefinitely.</p>
+<p>The rapid evolution from early chain-of-thought prompting to fully realized reasoning models illustrates a broader shift in how we understand intelligence. It suggests that the path to artificial general intelligence may not lie solely in accumulating more data or parameters, but in developing architectures that can deliberate, verify, and explore multiple possibilities before committing to a conclusion. The &quot;bitter lesson&quot; holds true: scaling compute is powerful, but the <em>way</em> that compute is applied—specifically through search, verification, and reinforcement learning on intermediate steps—is what unlocks the next frontier of capability.</p>
+<p>As we look toward the future, the distinction between a model that &quot;knows&quot; an answer and a model that can &quot;reason&quot; to it becomes increasingly blurred. The o1 series and its successors have proven that with enough compute and the right training signals, language models can master logic, mathematics, and programming in ways that were previously unimaginable for statistical systems. They have moved beyond pattern matching into genuine problem-solving. But this power demands responsibility. As these models become cheaper to replicate through distillation and more capable of accessing real-time information, the potential for misuse, resource exhaustion, and opaque decision-making grows alongside their utility.</p>
+<p>The journey from &quot;Let&#039;s think step by step&quot; to the deployment of o1 and R1 in just a few years is a testament to the speed of AI progress. It serves as a reminder that the most significant breakthroughs often come not from changing the fundamental nature of the tool, but from changing how we ask it to work. By teaching machines to pause, reflect, and verify, we have unlocked a new mode of interaction—one where the machine&#039;s silence is not an absence of response, but a moment of calculation. Whether this shift leads to a future where AI can solve humanity&#039;s most intractable problems or introduces new complexities in cost and control remains the defining question of the next decade.</p>
+<p>The era of reasoning models has arrived, and with it, a new paradigm for artificial intelligence. It is an era defined not by how fast a machine can speak, but by how deeply it can think. As companies like OpenAI, Alibaba, Google, and DeepSeek continue to iterate on these architectures, the gap between human-like reasoning and machine execution narrows. The tools are becoming more powerful, the costs are fluctuating, and the implications are far-reaching. What remains clear is that the future of AI will be built not just on data, but on the ability to process it with intent, logic, and a willingness to think before acting.</p>
+<blockquote>&quot;The development of reasoning models illustrates Richard S. Sutton&#039;s &#039;bitter lesson&#039; that scaling compute typically outperforms methods based on human-designed insights.&quot;</blockquote>
+<p>This quote encapsulates the central tension of modern AI research: the balance between clever engineering and brute-force computation. As we move forward, the industry will likely continue to grapple with this dichotomy, seeking ways to optimize the &quot;thinking&quot; process without sacrificing the raw power that makes these models so effective. The path ahead is uncertain, but one thing is sure: the machines are no longer just predicting the next word; they are building a world of logic, one step at a time.</p>
+<p>The integration of reasoning capabilities into everyday tools promises to revolutionize fields from scientific discovery to software engineering. Imagine a future where coding assistants do not just suggest syntax but debug entire architectures by simulating execution paths, or where medical research models can cross-reference thousands of papers to propose novel treatments with verified logical consistency. These are the possibilities that reasoning models unlock. But they also come with the responsibility to ensure that this power is used ethically and sustainably. As we stand on the precipice of this new era, the question is not whether these systems will become more intelligent, but how we will guide their intelligence to serve humanity&#039;s best interests.</p>
+<p>In the end, the story of reasoning models is a story of patience. It is a rejection of the instant gratification that has defined much of the digital age in favor of a slower, more deliberate process. By forcing machines to slow down and think, we have discovered that they can do things we never thought possible. And as we continue to refine these systems, perhaps the most important lesson we learn is not about artificial intelligence at all, but about the value of thinking itself.</p>
+<p>The race is on, the compute is scaling, and the models are learning to think. The question now is: what will they do with that time?</p></div>
+
+      
+
+      <footer class="wikipedia-footer">
+        <p class="source-link">
+          <a href="https://en.wikipedia.org/wiki/Reasoning_model" target="_blank" rel="noopener">
+            View original Wikipedia article &rarr;
+          </a>
+        </p>
+        <p class="rewrite-note">
+        This article has been rewritten from Wikipedia source material for enjoyable reading.
+        Content may have been condensed, restructured, or simplified.
+      </p>
+      </footer>
+
+      
+      <section class="related-articles">
+        <h2>Related Articles</h2>
+        <p class="related-intro">This deep dive was written in connection with these articles:</p>
+        <ul class="related-list">
+          
+      <li class="related-article-item">
+        <a href="../../article/1d27bed0-00c0-473f-9514-db7b9c098b83/index.html">
+          <strong>Rl systems mind the gap: Matching trainer and generator throughput</strong>
+        </a>
+        <span class="article-meta">
+          by Dylan Patel in SemiAnalysis
+        </span>
+      </li>
+        </ul>
+      </section>
+    
+    </article>
+  
+  </main>
+  <footer class="site-footer">
+    <div class="container">
+      <p><a href="../../privacy/index.html">Privacy</a> &middot; <a href="../../terms/index.html">Terms</a></p>
+    </div>
+  </footer>
+  <script>
+  (function() {
+    var params = new URLSearchParams(window.location.search);
+    var from = params.get('from');
+    if (from) {
+      var names = {
+        'foreign-policy':'Foreign Policy','ai-tech':'AI & Tech','housing-cities':'Housing & Cities',
+        'political-strategy':'Political Strategy','history':'History','science':'Science',
+        'culture':'Culture','economics':'Economics','faith':'Faith','writing-craft':'Writing & Craft',
+        'music':'Music','law-rights':'Law & Rights','public-health':'Public Health',
+        'philosophy':'Philosophy','media':'Media','defense':'Defense','china':'China'
+      };
+      var link = document.getElementById('back-link');
+      if (link) {
+        var name = names[from] || from;
+        link.href = '../../tag/' + from + '/index.html';
+        link.textContent = '\u2190 Back to ' + name;
+      }
+    }
+  })();
+  </script>
+</body>
+</html>
