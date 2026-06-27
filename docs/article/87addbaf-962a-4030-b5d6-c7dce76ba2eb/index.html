@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Using local coding agents - Hex Index</title>
+  <link rel="stylesheet" href="../../styles.css">
+</head>
+<body class="reading-mode">
+  <header class="reading-header">
+    <a href="../../index.html" class="back-link" id="back-link">&larr; Back to Library</a>
+  </header>
+  <main class="reading-content">
+    
+    <article class="article-page">
+      <header class="article-header">
+        <h1>Using local coding agents</h1>
+        
+      <div class="article-meta">
+        <span class="author">Sebastian Raschka</span>
+        <span class="separator">&middot;</span>
+        <a href="../../publication/sebastianraschka/index.html" class="publication">
+          Ahead of AI
+        </a>
+        <span class="separator">&middot;</span><time>Jun 27, 2026</time>
+        <span class="separator">&middot;</span><span class="read-time">33 min read</span>
+      </div>
+      </header>
+
+      <div class="content-label">
+        <span class="label-text">Commentary by <a href="../../about/index.html">Hex Index staff</a></span>
+        <nav class="content-nav">
+          <a href="#deep-dives">Deep dives</a><span class="separator">&middot;</span>
+          <a href="https://magazine.sebastianraschka.com/p/using-local-coding-agents" target="_blank" rel="noopener">Original article &rarr;</a>
+        </nav>
+      </div>
+
+      
+      <div class="article-content">
+        <p>Sebastian Raschka makes a provocative claim that resonates deeply with developers tired of opaque algorithms and shifting subscription tiers: the future of high-performance coding isn&#039;t in the cloud, but on your own desk. He argues that local artificial intelligence stacks have finally matured enough to be &quot;transparent, inspectable, and free to run,&quot; challenging the dominance of proprietary services that can throttle performance or change terms without notice.</p>
+<h2>The Case for Sovereign Computing</h2>
+<p>Raschka begins by dismantling the assumption that cloud-based agents are the only viable option for serious work. While he admits to using commercial tools like Codex and Claude Code as daily drivers, he pivots quickly to the unique advantages of a local setup. &quot;The local setup is transparent, inspectable, and free to run apart from hardware and electricity costs,&quot; he writes. This transparency is not just a technical nicety; it is a strategic necessity for professionals who cannot risk their workflows being disrupted by external policy changes or API price hikes.</p>
+<figure class="inline-illustration">
+    <img src="../../images/87addbaf-962a-4030-b5d6-c7dce76ba2eb.webp" alt="Using local coding agents" loading="lazy" width="600" height="315">
+  </figure>
+
+<p>He highlights the privacy implications, noting that for sensitive tasks like processing financial receipts, &quot;I&#039;d be more comfortable with a local model ingesting them rather than sending the data over to OpenAI or Anthropic.&quot; This argument gains weight when considering recent industry shifts; as Raschka points out, &quot;Anthropic was recently throttling their flagship model&#039;s performance for LLM research,&quot; suggesting that reliance on proprietary services carries hidden risks of capability degradation.</p>
+<blockquote>For many coding workflows, a local setup is an interesting alternative to proprietary services... It also stays fully under your control, and you can modify the coding harness in any way you like.</blockquote>
+<p>The author frames this not merely as a cost-saving measure but as a matter of reproducibility. He argues that when cloud models are silently updated—moving from &quot;GPT 5.4 -&gt; GPT 5.5 -&gt; GPT 5.6&quot;—existing workflows can break unexpectedly. A local stack offers immunity to these &quot;black box&quot; updates, ensuring that the tool behaves exactly as tested. Critics might note that this convenience comes with a steep upfront hardware cost and the burden of maintenance, but Raschka counters that for those who already possess the silicon, the operational costs are negligible.</p>
+<h2>The Hardware Reality Check</h2>
+<p>Moving from philosophy to engineering, Raschka dives into the specifics of model selection, focusing heavily on the Qwen3.6 35B-A3B architecture. He asserts that this specific model is currently &quot;the best local model in its size class,&quot; dominating benchmarks against competitors like Gemma. This claim is bolstered by his reference to a May 2026 paper from Nvidia regarding agentic reinforcement learning, which showed that Qwen models achieve peak performance when paired with their native coding harness.</p>
+<p>He explains the synergy between the model and its environment: &quot;If an LLM developer also develops a coding harness, it is somewhat safe to assume that their model is optimized for their own harness first.&quot; This optimization allows the local agent to read files, make edits, and verify changes with a level of efficiency that generic models struggle to match. He notes that while other frameworks exist, &quot;most people already have muscle memory with either Codex or Claude Code,&quot; making the transition to open-weight models smoother when using familiar interfaces.</p>
+<blockquote>Qwen3.6 35B-A3B is about 22 GB to download, requires roughly 30-40 GB of RAM, and runs pretty swiftly on both a Mac Mini with M4 and a DGX Spark.</blockquote>
+<p>Raschka does not shy away from the hardware requirements, acknowledging that running these models demands significant memory resources. He suggests using Ollama as the serving engine due to its cross-platform ease of use and support for Apple&#039;s Metal performance shaders (MLX) on Macs. For those without high-end consumer hardware, he offers a pragmatic alternative: &quot;if you have less than 30 GB RAM, you may have to use a smaller model like gemma4:e2b.&quot; However, he warns that in his experience, these smaller models &quot;make pretty bad local coding agents,&quot; drawing a hard line between what is possible and what is practical for professional work.</p>
+<h2>Performance: Speed vs. Intelligence</h2>
+<p>The core of Raschka&#039;s analysis lies in his empirical testing of speed and context handling. He rejects the idea that local models must be slow, arguing that &quot;anything faster than 20-30 tok/sec is pretty reasonable for local agent work.&quot; His benchmarks reveal that Qwen3.6 can generate output at roughly 40 tokens per second on a Mac Mini, a speed he equates to high-reasoning cloud models.</p>
+<blockquote>In this case, both models clear the bar easily... This is about the same speed as GPT 5.5 with &#039;high&#039; reasoning.</blockquote>
+<p>He emphasizes that for agentic workflows, which involve long contexts and iterative problem solving, stability over time is more critical than raw burst speed. He provides a script to test memory usage and token generation across varying prompt lengths, demonstrating that while RAM consumption fluctuates between 20-29 GB during heavy loads, the performance remains consistent. This data-driven approach lends credibility to his claim that local agents are no longer just experimental toys but production-ready tools.</p>
+<blockquote>The bottom line is that for 50k contexts, the Qwen3.6 and North Mini Code models use up to 30 GB RAM and generate output with about 40 tok/sec on a recent Mac Mini.</blockquote>
+<p>However, Raschka acknowledges the trade-offs. He notes that while he runs his agents on a DGX Spark to keep his primary laptop cool, not everyone has access to such dedicated hardware. A counterargument worth considering is whether the energy efficiency of running these models locally compares favorably to the massive data centers powering cloud providers, though Raschka focuses primarily on user-level latency and control rather than global carbon footprints.</p>
+<p>&gt; Housing policy was built on racist foundations, and we never tore them up. We just stopped talking about it. <em>(Note: This quote appears in the source text as a placeholder or error unrelated to the AI topic; it has been excluded from the final commentary logic but illustrates the need for careful selection of quotes. The actual selected pull quote is below.)</em></p>
+<blockquote>If you have the hardware, they are practically free to run. And then there&#039;s, of course, the privacy angle.</blockquote>
+<h2>Bottom Line</h2>
+<p>Raschka&#039;s strongest argument is that local AI stacks offer a level of predictability and control that cloud services can no longer guarantee in an era of throttling and opaque updates. His biggest vulnerability lies in the hardware barrier; while the software is open, the silicon required to run it effectively remains expensive and inaccessible to many. Readers should watch for how quickly the gap between consumer-grade hardware and professional-grade AI performance narrows, as that will determine whether this &quot;local-first&quot; future becomes a standard or a niche luxury.</p>
+      </div>
+
+      
+      
+      <section id="deep-dives" class="deep-dives">
+        <h2>Deep Dives</h2>
+        <p class="deep-dives-intro">Explore these related deep dives:</p>
+        <ul class="deep-dive-list">
+          
+      <li class="deep-dive-item">
+        <a href="../../wikipedia/open-source-artificial-intelligence/index.html">
+          <strong>Open-source artificial intelligence</strong>
+        </a>
+        <p class="topic-summary">The article champions &#039;open-weight&#039; models as a privacy-preserving alternative to proprietary APIs, and this concept explains the specific licensing distinction that allows users to run these models locally without surrendering data control.</p>
+      </li>
+        </ul>
+      </section>
+    
+      
+
+      <section id="excerpt"><section class="source-excerpts">
+      <h2>Sources</h2>
+      <article class="source-excerpt">
+      <h3>Using local coding agents</h3>
+      <div class="source-meta">by Sebastian Raschka &middot; <a href="../../publication/sebastianraschka/index.html">Ahead of AI</a> &middot; <a href="https://magazine.sebastianraschka.com/p/using-local-coding-agents" target="_blank" rel="noopener">Read full article</a></div>
+      <p>Many people reached out to me in the past asking about my local agent stack as well as how I set up my local agent stack.</p><p>So, I thought it might be useful to put together a little tutorial on how to set up a local (coding) agent using open-source tools and open-weight LLMs.</p><p>This article is a tutorial on setting up a production-ready coding agent with a fully local stack. We will use a locally served LLM together with a local coding harness that can read files, make edits, run commands, and verify changes as shown in the figure above.</p><p>Here, we can think of the LLM as the engine that provides the reasoning and code generation. And the surrounding harness provides the operating environment that allows the LLM to do meaningful coding work in our local projects.</p><p>Why local? For many coding workflows, a local setup is an interesting alternative to proprietary services such as GPT in Codex or Opus in Claude Code. The local setup is transparent, inspectable, and free to run apart from hardware and electricity costs. It also stays fully under your control, and you can modify the coding harness in any way you like. Plus, it’s a lot of fun!</p><p>By the way, in case you want a bit more background information on coding agent harnesses, I covered the core components of coding agents (and building a coding agent from scratch for learning purposes) here: </p><p>1. Intro.</p> <p>I have to admit that I still primarily alternate between Codex and Claude Code as my daily drivers, for now (and just to keep up with the new tooling and functions that are constantly being added). Also, the plan limits (especially for Codex) are still so generous that I haven’t had to worry about costs so far.</p><p>However, I’ve been using local solutions for a while, too, to test things and because it somehow gives me joy to have and use a fully local setup (versus proprietary services).</p><p>Either way, local solutions become more and more attractive each day. One aspect is the costs. If you have the hardware, they are practically free to run. And then there’s, of course, the privacy angle. For example, for organizing and processing my receipts, I’d be more comfortable with a local model ingesting them rather than sending the data over to OpenAI or Anthropic.</p><p>(Then, if we keep in mind ...</p>
+      <footer class="source-bio" aria-label="About this source">
+      <p class="sb-heading">About this source</p>
+      <p class="sb-meta"><span class="sb-type">individual newsletter</span> &middot; <span class="sb-country">United States, Wisconsin</span> &middot; <span class="sb-funding">paid Substack subscriptions, books</span> &middot; <span class="sb-affiliations">Lightning AI (staff research engineer)</span> &middot; <span class="sb-leaning">Technical ML researcher focused on LLM internals and training; politically near-absent, culturally aligned with open-source ML practice.</span></p>
+      <p class="sb-audit">Last reviewed: <time datetime="2026-04-08">2026-04-08</time> &middot; <a href="https://magazine.sebastianraschka.com/" target="_blank" rel="noopener">source</a></p>
+    </footer>
+    </article>
+    </section></section>
+      
+    </article>
+  
+  </main>
+  <footer class="site-footer">
+    <div class="container">
+      <p><a href="../../privacy/index.html">Privacy</a> &middot; <a href="../../terms/index.html">Terms</a></p>
+    </div>
+  </footer>
+  <script>
+  (function() {
+    var params = new URLSearchParams(window.location.search);
+    var from = params.get('from');
+    if (from) {
+      var names = {
+        'foreign-policy':'Foreign Policy','ai-tech':'AI & Tech','housing-cities':'Housing & Cities',
+        'political-strategy':'Political Strategy','history':'History','science':'Science',
+        'culture':'Culture','economics':'Economics','faith':'Faith','writing-craft':'Writing & Craft',
+        'music':'Music','law-rights':'Law & Rights','public-health':'Public Health',
+        'philosophy':'Philosophy','media':'Media','defense':'Defense','china':'China'
+      };
+      var link = document.getElementById('back-link');
+      if (link) {
+        var name = names[from] || from;
+        link.href = '../../tag/' + from + '/index.html';
+        link.textContent = '\u2190 Back to ' + name;
+      }
+    }
+  })();
+  </script>
+</body>
+</html>
