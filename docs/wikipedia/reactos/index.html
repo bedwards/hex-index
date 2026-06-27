@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ReactOS - Hex Index</title>
+  <link rel="stylesheet" href="../../styles.css">
+</head>
+<body class="reading-mode">
+  <header class="reading-header">
+    <a href="../../index.html" class="back-link" id="back-link">&larr; Back to Library</a>
+  </header>
+  <main class="reading-content">
+    
+    <article class="wikipedia-page">
+      <header class="wikipedia-header">
+        <div class="type-badge">Wikipedia Deep Dive</div>
+        <h1>ReactOS</h1>
+        <div class="article-meta">
+          <span class="read-time">13 min read</span>
+        </div>
+      </header>
+
+      
+
+      <div class="wikipedia-content"><p class="source-note">Based on <a href="https://en.wikipedia.org/wiki/ReactOS">Wikipedia: ReactOS</a></p>
+<p>In February 1998, a group of developers in an IRC chat room made a decision that would spark one of the most contentious and ambitious experiments in computing history. They were reacting not just to a missing piece of software, but to a monopoly. The name they chose, ReactOS, was a direct response to their dissatisfaction with Microsoft&#039;s stranglehold on the personal computer market. &quot;React&quot; stood for their refusal to accept the status quo; &quot;OS&quot; stood for the operating system they intended to build from the ground up. This was not merely a coding project; it was an act of digital defiance, a promise to create a free and open-source clone of Windows that could run existing applications without requiring users to switch ecosystems.</p>
+<p>The story began a few years earlier, in 1996, when a collective of free software enthusiasts launched a project called FreeWin95. Their goal was audacious: to replicate the functionality of Windows 95 for anyone who refused to pay licensing fees to Microsoft. For over a year, the project remained mired in theoretical debates about system architecture. By the end of 1997, no code had been released to the public. The momentum was gone, and the dream seemed to have stalled before it truly began.</p>
+<p>It was Jason Filby, then the coordinator of the group, who decided that the project needed a reboot. The team realized that trying to clone Windows 95 was a dead end; the architecture was too messy, too tied to legacy DOS constraints. They pivoted hard toward Windows NT, the more robust and modern kernel that powered Microsoft&#039;s server lines and professional workstations. To mark this fresh start, they needed a new identity. During a late-night chat session on the internet relay chat network, the name ReactOS was coined. It was a badge of honor, signaling that this project was born out of a reaction against what many in the open-source community viewed as Microsoft&#039;s monopolistic dominance.</p>
+<p>The technical challenge was immense. ReactOS aimed to achieve binary compatibility with Windows applications and device drivers designed for Windows Server 2003 and later versions. This meant that if you had an executable file built for Windows, it should theoretically run on ReactOS without modification. The project had to replicate the undocumented Application Programming Interfaces (APIs) that made Windows tick. For developers, this was a goldmine of information; for Microsoft, it was a legal nightmare waiting to happen.</p>
+<p>By October 2025, nearly three decades after its inception, ReactOS remains in alpha status. It is not a finished product ready for the average consumer&#039;s daily driver. The developers explicitly state that it should only be used for evaluation and testing purposes. Yet, within this incomplete framework, a surprising number of Windows applications function with remarkable fidelity. Users have reported success running Adobe Reader 9.3, GIMP 2.6, and LibreOffice 5.4. These are not trivial successes; they represent the culmination of thousands of hours of reverse engineering, where every system call, memory management routine, and driver interface had to be understood and reimplemented.</p>
+<p>The codebase itself is a testament to disciplined engineering. ReactOS is primarily written in C, the language of systems programming, ensuring low-level control over hardware resources. However, specific components, such as the File Explorer, are implemented in C++ to leverage modern object-oriented features. The project has also successfully ported its kernel to the AMD64 processor architecture, allowing it to run on 64-bit hardware, a critical step for relevance in the modern computing landscape.</p>
+<p>ReactOS does not exist in a vacuum; it is deeply integrated into the broader Free and Open Source Software (FOSS) ecosystem. It shares DNA with Wine, another monumental project that provides a Windows compatibility layer for Unix-like operating systems such as Linux and macOS. While Wine focuses on translating API calls at runtime, ReactOS attempts to build an actual operating system kernel that mimics Windows from the ground up. The two projects often collaborate, sharing knowledge about how undocumented Windows features actually work.</p>
+<p>The legal tightrope Walked by ReactOS is perhaps its most dramatic chapter. To avoid copyright prosecution and claims of software theft, the project had to adhere to a strict principle: clean-room reverse engineering. This means that no developer who had examined Microsoft&#039;s proprietary code could be involved in writing the new implementation based on those observations. One team would disassemble or analyze the Windows binaries and write detailed specifications of how they worked. A second, separate team would then read only those specifications and write the ReactOS code from scratch, with no memory of the original source.</p>
+<p>This delicate dance was shattered on January 17, 2006. Hartmut Birr, a developer within the project, posted a claim on the ros-dev mailing list that shocked the community. He alleged that ReactOS contained code derived directly from disassembling Microsoft Windows. The specific target of his accusation was a function called `BadStack` located in the file `syscall.S`. Birr argued that comparing this function to binaries from Windows XP revealed they were identical, suggesting a simple copy-paste job rather than an independent reimplementation.</p>
+<p>The developer credited with writing the code, Alex Ionescu, issued a forceful defense. He admitted that he had disassembled and studied the Windows XP binary but insisted that the resulting code was not stolen. His argument hinged on a technical reality: there is often only one mathematically or logically efficient way to implement a specific low-level function. If two engineers arrive at the same solution independently, it does not prove theft; it proves they both understood the problem correctly.</p>
+<p>The fallout was immediate and severe. On January 27, 2006, just ten days after Birr&#039;s accusation, the ReactOS developers disabled access to their code repository. A crisis meeting was held to address the allegations. Microsoft, when approached by NewsForge regarding the incident, declined to comment, a silence that only fueled speculation and anxiety.</p>
+<p>The reaction within the free software community was visceral. The integrity of open source relies on trust; if one project is found to be stealing code, it taints the entire ecosystem. Wine, ReactOS&#039;s closest ally, took drastic measures, barring several inactive developers from contributing until the situation could be clarified. Formal cooperation between the two projects became difficult, straining a relationship that was vital for both groups.</p>
+<p>ReactOS responded by publishing a statement on their website, citing differing legal definitions of clean-room reverse engineering as a primary source of conflict. They acknowledged that to avoid litigation, companies often require that reimplementation be done by someone who had never seen the original code. ReactOS moved swiftly to clarify its Intellectual Property Policy Statement, reinforcing these requirements to ensure compliance with United States law.</p>
+<p>An internal source code audit was launched immediately. The goal was to verify that only clean-room reverse engineering practices had been used throughout the project&#039;s history. Every developer was required to sign a new agreement committing them to these strict policies. It was a moment of existential crisis for the project; if the audit failed, ReactOS could face legal injunctions or be forced to cease development entirely.</p>
+<p>Fortunately, the contributors were not affected by the panic, and access to development tools was restored shortly after the initial lockdown. By September 2007, with the audit nearing completion, the warning status was removed from the ReactOS homepage. While the audit was declared complete, specific details were never made public. The project leadership decided that the internal effort was sufficient to ensure compliance without exposing sensitive methodologies or inviting further scrutiny.</p>
+<p>The shadow of legal risk did not disappear entirely in 2015. Axel Rietschin, a kernel engineer at Microsoft, publicly claimed he recognized specific bits in the ReactOS kernel that were unlikely to result from a clean-room reimplementation. He pointed to internal data structures and variable names that matched those found in both ReactOS and the Windows Research Kernel (WRK), a version of Windows source code licensed to universities for educational purposes but frequently leaked online. Rietschin suggested that developers might have inadvertently accessed this leaked WRK code, blurring the lines of clean-room separation.</p>
+<p>ReactOS addressed these concerns by noting that even if the 2004 leaked Windows source code had circulated, it did not necessarily constitute a legal risk for the project once the trade secrets were so widely disseminated. The argument was that the information was no longer protected in court due to its broad spread. Despite these ongoing rumors and accusations, the project continued to move forward.</p>
+<p>Funding has always been a fragile aspect of ReactOS&#039;s existence. As a non-profit effort driven by volunteers, financial stability is never guaranteed. In 2013, when ReactOS was awarded &quot;Project of the Month&quot; on SourceForge, the team saw an opportunity to secure its future. A crowdfunding campaign on Kickstarter was announced in an interview with coordinator Aleksey Bragin. The goal was to finance additional development projects and professionalize parts of the workflow.</p>
+<p>Prior to this, in May 2012, a €30,000 funding campaign had been launched. By the end of that year, they had achieved approximately 50% of their target. Rather than stopping, the team decided to continue the campaign without a hard deadline. The funds were directed to ReactOS Deutschland e.V., a registered voluntary association in Germany. However, German tax laws for such associations made it problematic to pay developers directly as salaries. The project had to explore indirect possibilities, such as stipends, to compensate contributors legally and fairly.</p>
+<p>The story of ReactOS is not just one of code; it is also a tale of geopolitical ambition, particularly in Russia. Between 2007 and 2015, Russian contributors representing the ReactOS Foundation made significant efforts to lobby the federal government for support. The motivation was clear: reducing Russia&#039;s dependency on proprietary American software imports.</p>
+<p>In 2007, Viktor Alksnis, then a State Duma member and chairman of the Russian Center of Free Technologies, met with project coordinator Aleksey Bragin. Bragin presented a demonstration of ReactOS running popular software like Total Commander and Mozilla Firefox, showcasing its potential viability. The momentum continued into the highest levels of power. In 2011, during a visit to a high school in Verhnerusskoe, Stavropol, then-President Dmitry Medvedev was given a live demonstration by a member of the development team.</p>
+<p>The following year, on July 31, 2012, Vladimir Putin received his own demonstration. During his visit as President to the Seliger Youth Forum, Marat Karatov, another team member, showed him how ReactOS could function as a domestic alternative to Windows. These high-profile meetings suggested that Russia might be willing to embrace an open-source operating system to achieve digital sovereignty.</p>
+<p>The efforts culminated on April 1, 2015, when Bragin attended an expert meeting of the Russian Ministry of Communications regarding reducing dependency on foreign software. The official minutes of this meeting explicitly named the &quot;creation of an open source operating system based on ReactOS for PCs, laptops and other mobile devices&quot; as a key proposal. Another proposal for a server-based version was also noted, placing ReactOS second among three major proposals in the Russian strategic plan.</p>
+<p>Despite these high-level endorsements, the tangible results were elusive. As of April 2019, these lobbying efforts had not yielded significant government support or funding. The Russia-based ReactOS Foundation was dissolved in November 2015, marking the end of that specific chapter of political aspiration. The dream of a state-sponsored ReactOS remained just that—a dream.</p>
+<p>Yet, the project survived the loss of its political patrons and the legal threats. Since 2006, ReactOS has participated in several Google Summer of Code (GSoC) programs, bringing new blood into the community. In GSoC 2011 alone, a mentored student project successfully integrated lwIP, a lightweight TCP/IP stack, into the network architecture, a critical step for improving connectivity and performance.</p>
+<p>Today, ReactOS stands as a unique anomaly in the computing world. It is a system that refuses to die, sustained by a global community of developers who believe in the principle of software freedom. It challenges the idea that users must be beholden to a single corporation for their operating environment. While it remains an alpha product, incomplete and intended for testing, its existence proves that replicating the complexity of a proprietary giant is possible through sheer persistence and open collaboration.</p>
+<p>The journey from the stalled FreeWin95 project in 1996 to the sophisticated kernel of 2025 is a testament to the resilience of the open-source movement. It has weathered accusations of theft, financial precarity, and political disillusionment. The code may still be incomplete, but the mission remains clear: to provide a free alternative where none existed before.</p>
+<p>For the user who installs ReactOS today, it is not about having a perfect replacement for Windows immediately. It is about participation in an ongoing experiment that questions the very nature of software ownership. Every line of code rewritten, every driver ported, and every application made to run is a small victory against enclosure.</p>
+<p>The story of ReactOS reminds us that technology is not just about bits and bytes; it is about people, their values, and their willingness to fight for them. From the IRC chat rooms where the name was born to the high-security meeting rooms in Moscow, the project has been driven by a singular conviction: that users should have control over their own machines.</p>
+<p>As the computing landscape continues to evolve, with cloud services and proprietary ecosystems tightening their grip, ReactOS offers a different path. It is a reminder that alternatives are possible, even if they require decades of work to build. The project may never replace Windows for the masses, but it serves as a vital insurance policy for the future of digital freedom.</p>
+<p>In the end, ReactOS is more than an operating system; it is a monument to human ingenuity and the refusal to accept limitations imposed by corporate monopolies. It stands as proof that with enough determination, a group of volunteers can build something that rivals the efforts of one of the world&#039;s most powerful companies.</p>
+<p>The developers continue their work, aware that the road ahead is long. They know that achieving feature parity with modern Windows versions will take years, perhaps decades more. But they also know that every step forward expands the horizon of what is possible in free software. The code continues to grow, one function at a time, driven by the same spirit of reaction and resistance that sparked it all those years ago.</p>
+<p>The legacy of ReactOS is not just in its current functionality but in its enduring presence. It serves as a beacon for developers who want to understand how operating systems really work, free from the black box of proprietary secrecy. For students, researchers, and hobbyists, it offers a living laboratory where they can experiment with kernel design and API implementation.</p>
+<p>As we look toward the future, the relevance of ReactOS may shift, but its core mission remains unchanged. It is a testament to the idea that software should be free, not just in price, but in liberty. The journey from 1998 to 2026 has been fraught with challenges, legal battles, and political disappointments, yet the project endures.</p>
+<p>It is a story of persistence. A story where a group of people looked at a wall built by a giant corporation and decided to build a ladder instead. And while the climb may not be finished, they are still climbing.</p></div>
+
+      
+
+      <footer class="wikipedia-footer">
+        <p class="source-link">
+          <a href="https://en.wikipedia.org/wiki/ReactOS" target="_blank" rel="noopener">
+            View original Wikipedia article &rarr;
+          </a>
+        </p>
+        <p class="rewrite-note">
+        This article has been rewritten from Wikipedia source material for enjoyable reading.
+        Content may have been condensed, restructured, or simplified.
+      </p>
+      </footer>
+
+      
+      <section class="related-articles">
+        <h2>Related Articles</h2>
+        <p class="related-intro">This deep dive was written in connection with these articles:</p>
+        <ul class="related-list">
+          
+      <li class="related-article-item">
+        <a href="../../article/87addbaf-962a-4030-b5d6-c7dce76ba2eb/index.html">
+          <strong>Using local coding agents</strong>
+        </a>
+        <span class="article-meta">
+          by Sebastian Raschka in Ahead of AI
+        </span>
+      </li>
+        </ul>
+      </section>
+    
+    </article>
+  
+  </main>
+  <footer class="site-footer">
+    <div class="container">
+      <p><a href="../../privacy/index.html">Privacy</a> &middot; <a href="../../terms/index.html">Terms</a></p>
+    </div>
+  </footer>
+  <script>
+  (function() {
+    var params = new URLSearchParams(window.location.search);
+    var from = params.get('from');
+    if (from) {
+      var names = {
+        'foreign-policy':'Foreign Policy','ai-tech':'AI & Tech','housing-cities':'Housing & Cities',
+        'political-strategy':'Political Strategy','history':'History','science':'Science',
+        'culture':'Culture','economics':'Economics','faith':'Faith','writing-craft':'Writing & Craft',
+        'music':'Music','law-rights':'Law & Rights','public-health':'Public Health',
+        'philosophy':'Philosophy','media':'Media','defense':'Defense','china':'China'
+      };
+      var link = document.getElementById('back-link');
+      if (link) {
+        var name = names[from] || from;
+        link.href = '../../tag/' + from + '/index.html';
+        link.textContent = '\u2190 Back to ' + name;
+      }
+    }
+  })();
+  </script>
+</body>
+</html>
