@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EMIB-T roadmap, custom hbm, HBM4 packaging challenges, microfluidic cooling, photonic… - Hex Index</title>
+  <link rel="stylesheet" href="../../styles.css">
+</head>
+<body class="reading-mode">
+  <header class="reading-header">
+    <a href="../../index.html" class="back-link" id="back-link">&larr; Back to Library</a>
+  </header>
+  <main class="reading-content">
+    
+    <article class="article-page">
+      <header class="article-header">
+        <h1>EMIB-T roadmap, custom hbm, HBM4 packaging challenges, microfluidic cooling, photonic…</h1>
+        
+      <div class="article-meta">
+        <span class="author">Dylan Patel</span>
+        <span class="separator">&middot;</span>
+        <a href="../../publication/semianalysis/index.html" class="publication">
+          SemiAnalysis
+        </a>
+        <span class="separator">&middot;</span><time>Jul 2, 2026</time>
+        <span class="separator">&middot;</span><span class="read-time">31 min read</span>
+      </div>
+      </header>
+
+      <div class="content-label">
+        <span class="label-text">Commentary by <a href="../../about/index.html">Hex Index staff</a></span>
+        <nav class="content-nav">
+          <a href="#deep-dives">Deep dives</a><span class="separator">&middot;</span>
+          <a href="https://newsletter.semianalysis.com/p/ectc2026" target="_blank" rel="noopener">Original article &rarr;</a>
+        </nav>
+      </div>
+
+      
+      <div class="article-content">
+        <p>As transistor density scaling has slowed to a crawl, the entire industry is betting its future on advanced packaging, yet Dylan Patel&#039;s coverage of ECTC 2026 reveals that even these new architectures are hitting physical walls. This piece stands out because it doesn&#039;t just list new technologies; it exposes the brutal engineering trade-offs between power delivery, thermal management, and signal integrity that will dictate which companies survive the next AI boom. For busy leaders tracking capital allocation, Patel&#039;s deep dive into why &quot;the package itself is now hitting limits&quot; offers a rare look at the bottlenecks that will define the next decade of computing.</p>
+<h2>The Physics of Scaling Limits</h2>
+<p>Patel frames the central challenge with surgical precision: the industry can no longer rely on shrinking transistors to boost performance. Instead, advanced packaging has become the primary scaling vector, but AI accelerators have grown so large and require such fast interconnects that the package itself is now hitting limits. This shift forces a re-evaluation of every component in the stack, from the silicon bridge to the cooling system.</p>
+<figure class="inline-illustration">
+    <img src="../../images/025e7b0c-a547-47bb-9277-2b36dbe23882.webp" alt="EMIB-T roadmap, custom hbm, HBM4 packaging challenges, microfluidic cooling, photonic…" loading="lazy" width="600" height="315">
+  </figure>
+
+<p>Intel&#039;s presentation at ECTC serves as the primary case study for this new reality. Dylan Patel writes, &quot;Intel provided an overview of EMIB-T integration, package scaling and future roadmaps,&quot; highlighting a technology designed to be a credible alternative to TSMC&#039;s dominant CoWoS platform. The core argument is that Intel&#039;s Embedded Multi-die Interconnect Bridge with Through-Silicon Vias (EMIB-T) solves critical power delivery issues by moving vertical power paths directly through the bridge.</p>
+<p>The technical details are dense but crucial for understanding the gap between current and future capabilities. Patel notes that Intel has validated EMIB-T at a 36/35 micrometer bump pitch, representing a 65% increase in density over previous generations. However, he immediately tempers this optimism with a stark warning about physics: &quot;Below 25 micrometers, the solder volume in each bump becomes very small. Shorts, opens, and assembly-driven yield loss become much more likely.&quot; This is not merely an incremental improvement; it is a race against the limits of material science.</p>
+<p>Critics might note that while Intel&#039;s roadmap looks aggressive on paper, TSMC has already deployed similar deep-trench capacitor integrations in volume. The real question isn&#039;t whether the technology works in a lab, but whether the executive branch and private sector can scale it without catastrophic yield losses. Patel acknowledges this disparity, observing that &quot;EMIB-T is still behind TSMC&#039;s CoWoS platform on several vectors,&quot; yet he argues it narrows the gap significantly for specific use cases like Google&#039;s TPU v9.</p>
+<blockquote>Below 25 micrometers, the solder volume in each bump becomes very small. Shorts, opens, and assembly-driven yield loss become much more likely.</blockquote>
+<h2>Rethinking Memory Interfaces</h2>
+<p>Perhaps the most provocative argument in the piece concerns the standardization of memory interfaces. For years, High Bandwidth Memory (HBM) has adhered to JEDEC specifications to ensure interoperability between different vendors. Patel argues that this standardization is becoming a liability for performance-critical AI workloads.</p>
+<p>Dylan Patel writes, &quot;The JEDEC specification fixes the interface between the HBM stack and host... However, it is bad for power, performance and area.&quot; This reframing challenges a decades-old industry norm. The article details how Marvell is moving toward custom HBM, where the memory controller logic is moved off the main accelerator die and onto a custom base die within the memory stack.</p>
+<p>The implications are profound. By offloading this logic, Marvell claims to reduce the host ASIC footprint dedicated to HBM PHYs by approximately 60%. Patel explains that &quot;the custom interface moves much of the memory-side interface into the HBM base die,&quot; effectively shortening interposer channel lengths and reducing power consumption. This approach allows for bandwidth densities that standard interfaces simply cannot support.</p>
+<p>This strategy is not unique to Marvell. The piece notes that Nvidia has announced similar plans for its upcoming Rubin GPU, estimating that roughly 16% of the current die area is wasted on HBM-related logic. By customizing the interface, companies can reclaim this silicon for compute or cache. However, a counterargument worth considering is whether this fragmentation will create supply chain fragility. If every major chipmaker uses a proprietary memory stack, the economies of scale that drove down costs in previous generations could vanish.</p>
+<p>Patel also touches on Samsung&#039;s contribution to this space, specifically their 8-layer silicon interposer design for HBM4E. The company proposes a staggered routing arrangement to shield high-speed signals, but Patel points out a critical vulnerability: &quot;If routing is unbalanced, the capacitors get pushed to one side of the interface, creating uneven PDN behavior.&quot; This highlights that as we push for higher speeds, the margin for error in design shrinks dramatically.</p>
+<h2>The Thermal Wall and Cooling Architectures</h2>
+<p>The final frontier discussed is thermal management, a topic often overlooked until it causes system failure. As packages grow to multi-kilowatt scales, conventional air cooling is becoming obsolete. Patel writes, &quot;TSMC and Microsoft pushed coolant directly into silicon,&quot; signaling a shift toward microfluidic cooling where liquid flows through channels etched directly into the chip package.</p>
+<p>Samsung&#039;s data on hybrid bonding provides further evidence of this thermal crisis. The piece details how moving from traditional Thermal Compression Bonding (TCB) to Hybrid Copper Bonding (HCB) reduces internal HBM thermal resistance by over 12%. Yet, Patel cautions that &quot;the improvement is uneven as HCB only addresses part of the thermal network.&quot; Even with advanced bonding, the system-level resistance increases slightly due to the complexity of integrating new cooling solutions.</p>
+<p>This section underscores a broader trend: the industry is moving from passive optimization to active, integrated thermal management. The reference to historical context adds depth here; just as Through-Silicon Vias (TSVs) revolutionized 3D stacking in the early 2010s by enabling vertical connectivity, microfluidic channels are poised to become the standard for heat dissipation in the next decade. However, unlike TSVs which were a discrete addition, microfluidics require a fundamental redesign of the entire package architecture.</p>
+<blockquote>The industry is moving from passive optimization to active, integrated thermal management.</blockquote>
+<h2>Bottom Line</h2>
+<p>Patel&#039;s coverage effectively demonstrates that the era of easy scaling via transistor shrinking is over; the future belongs to those who can master the physics of packaging. The strongest part of this argument is the detailed breakdown of how custom interfaces and advanced cooling are no longer optional but existential necessities for high-performance AI chips. Its biggest vulnerability lies in assuming that these complex, proprietary solutions can be manufactured at scale without severe yield penalties or supply chain bottlenecks. Readers should watch closely to see if Intel&#039;s EMIB-T roadmap can actually close the gap with TSMC before thermal limits force a complete architectural reset.</p>
+      </div>
+
+      
+      
+      <section id="deep-dives" class="deep-dives">
+        <h2>Deep Dives</h2>
+        <p class="deep-dives-intro">Explore these related deep dives:</p>
+        <ul class="deep-dive-list">
+          
+      <li class="deep-dive-item">
+        <a href="../../wikipedia/through-silicon-via/index.html">
+          <strong>Through-silicon via</strong>
+        </a>
+        <p class="topic-summary">The article identifies TSVs as the critical enabler for Intel&#039;s EMIB-T architecture, and understanding this specific vertical interconnect method explains how chiplets achieve the high-bandwidth density required to bypass traditional I/O bottlenecks.</p>
+      </li>
+
+      <li class="deep-dive-item">
+        <a href="../../wikipedia/reticle/index.html">
+          <strong>Reticle</strong>
+        </a>
+        <p class="topic-summary">Intel&#039;s roadmap explicitly measures package scaling in &#039;reticles&#039; rather than square millimeters; knowing what a reticle is reveals why moving from 2× to 4.5× reticle sizes represents a massive leap in manufacturing complexity and yield risk.</p>
+      </li>
+        </ul>
+      </section>
+    
+      
+
+      <section id="excerpt"><section class="source-excerpts">
+      <h2>Sources</h2>
+      <article class="source-excerpt">
+      <h3>EMIB-T roadmap, custom hbm, HBM4 packaging challenges, microfluidic cooling, photonic…</h3>
+      <div class="source-meta">by Dylan Patel &middot; <a href="../../publication/semianalysis/index.html">SemiAnalysis</a> &middot; <a href="https://newsletter.semianalysis.com/p/ectc2026" target="_blank" rel="noopener">Read full article</a></div>
+      <p>As transistor density scaling has slowed, advanced packaging has become the primary scaling vector. However, AI accelerators have grown so large and require such fast interconnects that the package itself is now hitting limits. Circular interposers constrain package size and wafer utilization, HBM4E doubles the I/O count while increasing speed, and multi-kilowatt packages are overwhelming conventional cooling architectures.</p><p>ECTC is the industry’s premier conference for all things packaging. This year’s disclosures were closely aligned with upcoming commercial products. Intel provided an overview of EMIB-T integration, package scaling and future roadmaps. Marvell showed how custom HBM can move interface logic off the accelerator while shortening package routing. TSMC and Microsoft pushed coolant directly into silicon, while Marvell and Lightmatter brought optical interconnects onto the package.</p><p>This roundup covers ECTC 2026 technologies most likely to shape AI accelerator packages over the next several years.</p><p>Intel EMIB-T.</p> <p>Intel was the largest corporate presenter at ECTC. The key disclosure was EMIB-T. This is the next generation of EMIB with through-silicon vias (TSVs). After the initial announcement, Intel has filled in more of the architecture and roadmap, including tighter bump pitch, larger packages and on-bridge capabilities. Their disclosures show why EMIB-T is expected to be used in Google’s TPU v9, and why it is the most credible alternative to TSMC’s CoWoS platform for large-package AI accelerators.</p><p>EMIB-T scaling test vehicle with 2× reticle silicon content. Top-down SEM images show 110, 55 and 36 µm mixed bump pitches. Source: Intel, “Scaling the EMIB-T Advanced Packaging Technology to Address the Future HPC/AI Demand,” ECTC 2026</p><p>Intel has validated EMIB-T at a 36/35 µm bump pitch on a package with 2× reticle-sized silicon. This is a reduction over the 45 µm pitch used in Granite Rapids, and a 65% increase in bump density. Granite Rapids-AP is a large package, measuring 70 mm × 105 mm, or slightly less than 9 reticles of area. Validation for 36/35 µm bump pitches is now expanding to 4.5× reticle silicon packages, with certification targeted by the end of 2026.</p><p>The next pitch step is also underway, with Intel testing 25 µm bump pitch on a vehicle with two 1-reticle silicon dies connected through a single 3 mm × 18 mm EMIB-T bridge.</p><p>Further scaling gets harder. Below 25 µm, the solder volume in each bump becomes very small. Shorts, opens, and assembly-driven yield loss become much more likely. EMIB-T can keep scaling, ...</p>
+      <footer class="source-bio" aria-label="About this source">
+      <p class="sb-heading">About this source</p>
+      <p class="sb-meta"><span class="sb-type">independent research firm</span> &middot; <span class="sb-country">United States</span> &middot; <span class="sb-funding">paid subscriptions, enterprise research contracts</span> &middot; <span class="sb-leaning">Hawkish US-industrial-policy techno-nationalist on semiconductors; pro-export-controls on China, bullish on Western fab buildout and AI compute supremacy.</span></p>
+      <p class="sb-audit">Last reviewed: <time datetime="2026-04-08">2026-04-08</time> &middot; <a href="https://www.semianalysis.com/" target="_blank" rel="noopener">source</a></p>
+    </footer>
+    </article>
+    </section></section>
+      
+    </article>
+  
+  </main>
+  <footer class="site-footer">
+    <div class="container">
+      <p><a href="../../privacy/index.html">Privacy</a> &middot; <a href="../../terms/index.html">Terms</a></p>
+    </div>
+  </footer>
+  <script>
+  (function() {
+    var params = new URLSearchParams(window.location.search);
+    var from = params.get('from');
+    if (from) {
+      var names = {
+        'foreign-policy':'Foreign Policy','ai-tech':'AI & Tech','housing-cities':'Housing & Cities',
+        'political-strategy':'Political Strategy','history':'History','science':'Science',
+        'culture':'Culture','economics':'Economics','faith':'Faith','writing-craft':'Writing & Craft',
+        'music':'Music','law-rights':'Law & Rights','public-health':'Public Health',
+        'philosophy':'Philosophy','media':'Media','defense':'Defense','china':'China'
+      };
+      var link = document.getElementById('back-link');
+      if (link) {
+        var name = names[from] || from;
+        link.href = '../../tag/' + from + '/index.html';
+        link.textContent = '\u2190 Back to ' + name;
+      }
+    }
+  })();
+  </script>
+</body>
+</html>
