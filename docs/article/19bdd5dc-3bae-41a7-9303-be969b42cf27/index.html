@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Efficient and reasoning AI at the acl 2026 - Hex Index</title>
+  <link rel="stylesheet" href="../../styles.css">
+</head>
+<body class="reading-mode">
+  <header class="reading-header">
+    <a href="../../index.html" class="back-link" id="back-link">&larr; Back to Library</a>
+  </header>
+  <main class="reading-content">
+    
+    <article class="article-page">
+      <header class="article-header">
+        <h1>Efficient and reasoning AI at the acl 2026</h1>
+        
+      <div class="article-meta">
+        <span class="author">Various</span>
+        <span class="separator">&middot;</span>
+        <a href="../../publication/kaitchup/index.html" class="publication">
+          The Kaitchup
+        </a>
+        <span class="separator">&middot;</span><time>Jul 10, 2026</time>
+        <span class="separator">&middot;</span><span class="read-time">12 min read</span>
+      </div>
+      </header>
+
+      <div class="content-label">
+        <span class="label-text">Commentary by <a href="../../about/index.html">Hex Index staff</a></span>
+        <nav class="content-nav">
+          <a href="#deep-dives">Deep dives</a><span class="separator">&middot;</span>
+          <a href="https://kaitchup.substack.com/p/efficient-and-reasoning-ai-at-the" target="_blank" rel="noopener">Original article &rarr;</a>
+        </nav>
+      </div>
+
+      
+      <div class="article-content">
+        <p>This edition of The Kaitchup cuts through the noise of annual AI conferences to deliver a rare, sobering diagnosis: the very metrics we use to measure progress are actively lying to us. While most coverage celebrates new model capabilities, this piece argues that &quot;reasoning gains&quot; often come at the cost of general utility and that popular coding benchmarks are fundamentally broken. For busy leaders relying on these scores for investment or deployment decisions, the warning is stark: <strong>trust the delta, not the absolute number.</strong></p>
+<h2>The Efficiency Paradox</h2>
+<p>The article pivots immediately away from the hype of raw power to the practical reality of deployment constraints. The Kaitchup highlights a critical tension emerging at ACL 2026: as models get better at logic, they risk forgetting how to be helpful in other ways. Citing research on &quot;reasoning gain,&quot; the piece notes that reinforcement learning can improve mathematical performance while simultaneously degrading skills like perception and robust instruction following.</p>
+<blockquote>&quot;The main contribution is a clearer diagnosis of &#039;reasoning gain&#039; as a trade-off problem: a model can become better at narrow reasoning benchmarks while becoming less generally useful.&quot;</blockquote>
+<p>This observation reframes the current arms race. Instead of assuming bigger models are strictly better, the evidence suggests we are optimizing for specific test-taking abilities rather than general intelligence. The piece highlights &quot;RECAP,&quot; a method designed to replay general data during training to preserve breadth, arguing that <strong>simplicity and robustness matter as much as peak speed</strong> in production environments.</p>
+<figure class="inline-illustration">
+    <img src="../../images/19bdd5dc-3bae-41a7-9303-be969b42cf27.webp" alt="Efficient and reasoning AI at the acl 2026" loading="lazy" width="600" height="315">
+  </figure>
+
+<p>Critics might argue that sacrificing some reasoning depth for general utility is an acceptable trade-off for enterprise applications where versatility is key. However, the authors suggest this is not a choice but a necessity; without intervention, models become brittle specialists rather than reliable assistants.</p>
+<h2>The Architecture of Speed</h2>
+<p>Beyond training dynamics, the coverage dives into inference efficiency—the unsung hero of scaling AI. The Kaitchup details several &quot;training-free&quot; methods that promise to slash latency and memory usage without retraining massive weights. One standout is GemFilter, which uses early layers of a model to filter input tokens before heavy computation begins.</p>
+<blockquote>&quot;Early layers of an LLM can already identify many of the tokens that will matter for answering a query.&quot;</blockquote>
+<p>This approach mirrors historical shifts in curriculum learning, where the order and selection of data dictate how efficiently a system learns. By compressing input tokens by 1000x while retaining critical evidence, these methods address the &quot;long-context&quot; bottleneck that has plagued recent deployments. The piece also scrutinizes KV-cache compression, noting that aggressive memory savings can lead to hallucinations if retrieval heads drift from their source context.</p>
+<blockquote>&quot;The result is a decoding-time intervention that reduces hallucination while maintaining long-context efficiency.&quot;</blockquote>
+<p>This technical nuance is vital for engineers. It suggests that the next frontier of AI optimization isn&#039;t just about faster chips, but smarter data management within the model itself. The Kaitchup rightly points out that unless these methods land in standard frameworks like vLLM or llama.cpp, they remain academic curiosities rather than industry standards.</p>
+<h2>The Benchmark Crisis</h2>
+<p>The most provocative section of the piece dismantles the credibility of SWE-Bench Pro, a widely used coding benchmark recently audited by OpenAI. The editors report that approximately 30% of tasks in this benchmark are &quot;broken&quot; due to hidden requirements or contradictory specifications. This revelation strikes at the heart of how the industry measures success.</p>
+<blockquote>&quot;Approximately 30% of SWE-bench Pro tasks are broken.&quot;</blockquote>
+<p>The piece argues that while OpenAI&#039;s audit calls for caution, the market incentives remain misaligned. Labs will continue to chase inflated leaderboard numbers because stakeholders rarely ask whether a score gap reflects real capability or a benchmarking artifact. This mirrors earlier struggles with Language Model benchmarks, where early datasets were quickly &quot;solved&quot; by models memorizing answers rather than understanding tasks.</p>
+<blockquote>&quot;Most AI labs want to report the strongest possible numbers... They will simply see the lower score, and it will look bad.&quot;</blockquote>
+<p>The Kaitchup offers a pragmatic path forward: stop treating absolute scores as ground truth. Instead, focus on relative performance when comparing model variants. If you are testing a quantized version against an original, the benchmark&#039;s flaws matter less as long as the comparison is consistent. This shifts the goal from &quot;proving superiority&quot; to &quot;minimizing accuracy delta.&quot;</p>
+<blockquote>&quot;Even a flawed benchmark like SWE-Bench can still be useful for this purpose, as long as it is used consistently across both model variants.&quot;</blockquote>
+<p>This is a mature perspective in an industry often driven by vanity metrics. It acknowledges that while perfect benchmarks may not exist yet, rigorous internal consistency is achievable and far more valuable than public posturing.</p>
+<h2>Bottom Line</h2>
+<p>The Kaitchup delivers a necessary corrective to the AI narrative: <strong>progress is not linear, and our measuring sticks are cracked.</strong> The strongest part of this argument is its refusal to celebrate &quot;reasoning&quot; as an unalloyed good when it comes at the expense of general capability, and its blunt assessment that current coding benchmarks are too noisy for strategic decision-making. The biggest vulnerability lies in the industry&#039;s resistance to change; until leaders stop rewarding raw leaderboard scores, the incentive to game these flawed metrics will persist. Watch for a shift toward relative evaluation and internal consistency as the new standard for AI deployment.</p>
+      </div>
+
+      
+      
+      <section id="deep-dives" class="deep-dives">
+        <h2>Deep Dives</h2>
+        <p class="deep-dives-intro">Explore these related deep dives:</p>
+        <ul class="deep-dive-list">
+          
+      <li class="deep-dive-item">
+        <a href="../../wikipedia/language-model-benchmark/index.html">
+          <strong>Language model benchmark</strong>
+        </a>
+        <p class="topic-summary">The article critiques this specific coding benchmark for being &#039;bad&#039; and overused, so understanding its methodology reveals why the author refuses to spend compute resources on it.</p>
+      </li>
+
+      <li class="deep-dive-item">
+        <a href="../../wikipedia/reinforcement-learning-from-human-feedback/index.html">
+          <strong>Reinforcement learning from human feedback</strong>
+        </a>
+        <p class="topic-summary">While the text mentions reinforcement learning as a dominant theme at ACL 2026, this specific technique explains the mechanism behind the &#039;efficient and reasoning AI&#039; systems the author is evaluating.</p>
+      </li>
+
+      <li class="deep-dive-item">
+        <a href="../../wikipedia/curriculum-learning/index.html">
+          <strong>Curriculum learning</strong>
+        </a>
+        <p class="topic-summary">As a nuanced concept often discussed alongside LLM efficiency and reasoning improvements, this training strategy illuminates how researchers might be solving the computational bottlenecks highlighted in the conference papers.</p>
+      </li>
+        </ul>
+      </section>
+    
+      
+
+      <section id="excerpt"><section class="source-excerpts">
+      <h2>Sources</h2>
+      <article class="source-excerpt">
+      <h3>Efficient and reasoning AI at the acl 2026</h3>
+      <div class="source-meta">by Various &middot; <a href="../../publication/kaitchup/index.html">The Kaitchup</a> &middot; <a href="https://kaitchup.substack.com/p/efficient-and-reasoning-ai-at-the" target="_blank" rel="noopener">Read full article</a></div>
+      <p>Hi everyone,</p><p>In this edition of The Weekly Kaitchup, I’ll highlight some of the most interesting work I saw at ACL 2026, which I attended this week in San Diego.</p><p>I’ll also discuss OpenAI’s recent take on benchmarking with SWE-Bench Pro, one of the most widely used coding benchmark. Once again, a SWE-Bench is being declared “bad.” I can’t say I’m too upset about having never spent compute on it.</p><p>A $50 Coupon to Try Verda’s GPUs.</p> <p>In collaboration with Verda, I’m sharing a $50 coupon that you can redeem in your Verda account, after provisionning it with $5, to try their GPUs (B200, B300, RTX Pro 6000, …).</p><p>Coupon code: <code>KAITCHUP-50</code></p><p>Follow these instructions to redeem it.</p><p>ACL 2026: Why I Went, and Why I Skipped ICML 2026.</p> <p>This year, two of the major annual research conferences shaping the development of AI, ACL and ICML, took place at the same time, on opposite sides of the Pacific: ACL in San Diego and ICML in Seoul.</p><p>While there is significant, and increasing, overlap between the two communities, they tend to emphasize different areas. ICML is often the place for deeper discussions about machine learning methods, algorithms, and theoretical foundations. ACL, by contrast, is where I usually find the most relevant work on evaluation, multilinguality, benchmarks, datasets, and language-centered applications.</p><p>That distinction is far from absolute. Many of the key ideas behind today’s Transformers and LLMs, as well as many of the benchmarks and evaluation tasks we still rely on, originated in papers published within the ACL community.</p><p>I chose to attend ACL this year primarily because it aligns more closely with my own research background. It is also the community where I know more people, having published several papers there during my Ph.D.</p><p>ACL 2026 was capped at 3,500 onsite attendees. For reference, ACL 2025 in Vienna had more than 5,000 in-person attendees.</p><p>The smaller scale made ACL easier to navigate, but it was still impossible to see everything I had planned. As I did for NeurIPS 2025, I will mainly focus on the papers I actually saw and discussed at the conference rather than trying to summarize the full program.</p><p>I spent most of my time in the poster sessions, which were by far the best place to have useful conversations with authors. The talks were less crowded, and some large rooms were surprisingly almost empty, especially on the ...</p>
+      <footer class="source-bio" aria-label="About this source">
+      <p class="sb-heading">About this source</p>
+      <p class="sb-meta"><span class="sb-type">independent newsletter</span> &middot; <span class="sb-country">France</span> &middot; <span class="sb-funding">paid subscriptions (Substack)</span> &middot; <span class="sb-leaning">Technical LLM fine-tuning tutorials, apolitical.</span></p>
+      <p class="sb-audit">Last reviewed: <time datetime="2026-04-08">2026-04-08</time> &middot; <a href="https://kaitchup.substack.com/about" target="_blank" rel="noopener">source</a></p>
+    </footer>
+    </article>
+    </section></section>
+      
+    </article>
+  
+  </main>
+  <footer class="site-footer">
+    <div class="container">
+      <p><a href="../../privacy/index.html">Privacy</a> &middot; <a href="../../terms/index.html">Terms</a></p>
+    </div>
+  </footer>
+  <script>
+  (function() {
+    var params = new URLSearchParams(window.location.search);
+    var from = params.get('from');
+    if (from) {
+      var names = {
+        'foreign-policy':'Foreign Policy','ai-tech':'AI & Tech','housing-cities':'Housing & Cities',
+        'political-strategy':'Political Strategy','history':'History','science':'Science',
+        'culture':'Culture','economics':'Economics','faith':'Faith','writing-craft':'Writing & Craft',
+        'music':'Music','law-rights':'Law & Rights','public-health':'Public Health',
+        'philosophy':'Philosophy','media':'Media','defense':'Defense','china':'China'
+      };
+      var link = document.getElementById('back-link');
+      if (link) {
+        var name = names[from] || from;
+        link.href = '../../tag/' + from + '/index.html';
+        link.textContent = '\u2190 Back to ' + name;
+      }
+    }
+  })();
+  </script>
+</body>
+</html>
