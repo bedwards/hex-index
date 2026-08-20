@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kimi k3, the manos, the mythos, the legendos - Hex Index</title>
+  <link rel="stylesheet" href="../../styles.css">
+</head>
+<body class="reading-mode">
+  <header class="reading-header">
+    <a href="../../index.html" class="back-link" id="back-link">&larr; Back to Library</a>
+  </header>
+  <main class="reading-content">
+    
+    <article class="article-page">
+      <header class="article-header">
+        <h1>Kimi k3, the manos, the mythos, the legendos</h1>
+        
+      <div class="article-meta">
+        <span class="author">Dylan Patel</span>
+        <span class="separator">&middot;</span>
+        <a href="../../publication/semianalysis/index.html" class="publication">
+          SemiAnalysis
+        </a>
+        <span class="separator">&middot;</span><time>Aug 3, 2026</time>
+        <span class="separator">&middot;</span><span class="read-time">25 min read</span>
+      </div>
+      </header>
+
+      <div class="content-label">
+        <span class="label-text">Commentary by <a href="../../about/index.html">Hex Index staff</a></span>
+        <nav class="content-nav">
+          <a href="#deep-dives">Deep dives</a><span class="separator">&middot;</span>
+          <a href="https://newsletter.semianalysis.com/p/kimi-k3-the-manos-the-mythos-the" target="_blank" rel="noopener">Original article &rarr;</a>
+        </nav>
+      </div>
+
+      
+      <div class="article-content">
+        <p>Dylan Patel&#039;s latest deep dive into the Kimi K3 model doesn&#039;t just explain a new AI release; it exposes a fundamental architectural pivot that could redefine how we build efficient, long-context systems. While the industry chases larger parameter counts, Patel reveals that Moonshot&#039;s breakthrough lies in a return to linear attention mechanisms, specifically a novel hybrid layer called Kimi Delta Attention (KDA). This is not merely an incremental tweak; it is a strategic recalibration of the trade-off between memory bandwidth and computational speed that has long plagued large language models.</p>
+<h2>The Return of Linear Attention</h2>
+<p>Patel traces the lineage of Kimi K3&#039;s performance back to a specific mathematical evolution: the shift from standard softmax attention to linear attention. He explains that traditional attention scales quadratically, meaning &quot;removing the softmax operation... reduce[s] the computation complexity of attention from quadratic to linear.&quot; This is the critical differentiator. By treating the hidden state as an &quot;associative memory that stores the associations between key vector k and value vector v,&quot; the model avoids the bottleneck of constantly re-accessing all past data.</p>
+<figure class="inline-illustration">
+    <img src="../../images/00602410-b983-49c5-8b16-1887a4aa693b.webp" alt="Kimi k3, the manos, the mythos, the legendos" loading="lazy" width="600" height="315">
+  </figure>
+
+<p>However, Patel is careful to note that early linear attention models suffered from instability, where &quot;old and new information gets blurred together in S as the sequence grows.&quot; To solve this, he details how Kimi Delta Attention adapts the &quot;Delta Rule&quot; to regularize memory growth. The result is a system where the model can &quot;perform targeted removal of those associations,&quot; ensuring that relevant context isn&#039;t lost to noise. This framing is compelling because it moves the conversation away from brute-force scaling and toward algorithmic elegance.</p>
+<blockquote>&quot;We reinterpret the new equations as an online learning objective... continuously updating the matrix S at every position to perfect the retrieval.&quot;</blockquote>
+<p>This interpretation of the math as an &quot;online learning objective&quot; is a powerful conceptual hook. It suggests that the model isn&#039;t just recalling data; it is actively learning to manage its own memory in real-time. Critics might argue that linear attention has historically struggled with complex reasoning tasks compared to full softmax attention, but Patel&#039;s analysis of the &quot;Gated DeltaNet&quot; adaptation suggests this gap is closing. By introducing a diagonal matrix for &quot;fine-grained per-channel memory decay,&quot; the architecture gains the precision previously reserved for more expensive models.</p>
+<h2>The Agentic Workload Problem</h2>
+<p>The most distinctive part of Patel&#039;s argument is his critique of the current industry favorite: Multi-Head Latent Attention (MLA). While many labs have adopted MLA to save memory, Patel argues it is ill-suited for the next generation of AI applications. He writes, &quot;MLA doesn&#039;t suit agentic workloads,&quot; a claim that challenges the prevailing wisdom of the last year.</p>
+<p>Patel breaks down why this matters. Agentic workloads—where AI tools call other tools and process long streams of data—often involve &quot;append-prefill&quot; scenarios. In these cases, a model must ingest a massive amount of new context while maintaining a long history. Patel points out that &quot;neither mode of MLA suits append-prefill.&quot; The standard Multi-Head Attention mode is too memory-intensive, while the Multi-Query Attention mode incurs a &quot;3.4x FLOPs per token&quot; penalty that makes it computationally prohibitive for long sequences.</p>
+<blockquote>&quot;DeepSeek and Zhipu opted for adapting MQA mode to sparse attention in order to reduce the FLOPs... We suspect Moonshot&#039;s future models such as Kimi K4 will feature attention mechanisms that replace MLA.&quot;</blockquote>
+<p>This observation is a sharp critique of the &quot;one-size-fits-all&quot; approach to model architecture. Patel suggests that the industry&#039;s rush to adopt MLA was a reaction to the specific needs of reasoning tasks, which favor short inputs and long outputs. However, as AI moves toward autonomous agents that must process vast amounts of tool output, the &quot;append-prefill&quot; bottleneck becomes a critical failure point. The reference to the &quot;Delta rule&quot; here is particularly apt; just as the mathematical rule allows for targeted memory updates, Patel&#039;s analysis suggests the industry needs a targeted architectural shift away from MLA for agentic use cases.</p>
+<blockquote>&quot;KV cache size is not a standalone factor but a property of the model design... we propose considering both the model architecture system efficiency and the KV cache size to understand the KV cache efficiency.&quot;</blockquote>
+<p>Patel&#039;s redefinition of efficiency metrics is a necessary correction to the current hype cycle. By introducing &quot;KV throughput&quot; as a metric, he forces readers to look beyond simple cache size and consider the actual bandwidth required to serve models. This is a crucial distinction for anyone deploying these models at scale. The argument holds up well against the backdrop of recent hardware constraints, where memory bandwidth is often the true limiting factor, not just raw compute power.</p>
+<h2>The Bottom Line</h2>
+<p>Patel&#039;s analysis succeeds by stripping away the marketing hype to reveal the mechanical realities of the Kimi K3 architecture. The strongest part of his argument is the identification of the &quot;append-prefill&quot; bottleneck in current attention mechanisms, a vulnerability that could derail the deployment of complex AI agents if left unaddressed. His biggest vulnerability, however, is the reliance on Moonshot&#039;s internal benchmarks; without independent verification of the &quot;FlashKDA&quot; kernel performance, the theoretical gains remain just that—theoretical. As the industry watches, the real test will be whether this linear attention approach can maintain its efficiency when scaled to the massive, messy datasets of the real world.</p>
+<blockquote>&quot;This concretely shows that the computational complexity of KDA: Prefill: Linear to sequence length for both computation and memory; Decode: Constant to sequence length for both computation and memory.&quot;</blockquote>
+      </div>
+
+      
+      
+      <section id="deep-dives" class="deep-dives">
+        <h2>Deep Dives</h2>
+        <p class="deep-dives-intro">Explore these related deep dives:</p>
+        <ul class="deep-dive-list">
+          
+      <li class="deep-dive-item">
+        <a href="../../wikipedia/attention-is-all-you-need/index.html">
+          <strong>Attention Is All You Need</strong>
+        </a>
+        <p class="topic-summary">Understanding the mathematical removal of the softmax operation explains how Kimi K3 achieves linear computational complexity instead of the quadratic bottleneck found in standard transformers.</p>
+      </li>
+        </ul>
+      </section>
+    
+      
+
+      <section id="excerpt"><section class="source-excerpts">
+      <h2>Sources</h2>
+      <article class="source-excerpt">
+      <h3>Kimi k3, the manos, the mythos, the legendos</h3>
+      <div class="source-meta">by Dylan Patel &middot; <a href="../../publication/semianalysis/index.html">SemiAnalysis</a> &middot; <a href="https://newsletter.semianalysis.com/p/kimi-k3-the-manos-the-mythos-the" target="_blank" rel="noopener">Read full article</a></div>
+      <p>Kimi K3 took the world by storm at its announcement, sweeping leaderboards and establishing itself as the open frontier model. While the community is eager to understand how Kimi K3 works, many have been surprised by the unconventional techniques driving its performance. This article serves as a primer to understanding the core techniques of the Kimi K3 model architecture.</p><p>Kimi Delta Attention.</p> <p>Kimi Delta Attention (KDA) is the linear attention layer in Kimi K3’s hybrid attention mechanism. We trace the origins of KDA, starting from linear attention, DeltaNet, Gated DeltaNet (GDN), then to KDA.</p><p>Linear Attention.</p> <p>The derivation of linear attention stems from removing the softmax operation in the standard softmax attention. Below we compare the iterative inference formulas, which show the computation of the output vector at token position t:</p><p>By removing the softmax operation, we can reorder the operations and reduce the computation complexity of attention from quadratic to linear:</p><p>The new equations are as follows:</p><p>Vectors q, k, v, have dimensions L by d. The computational complexity of both equations are O(Ld²), thereby making the computation linear. Comparing the new equations with softmax attention’s equation, we see that softmax attention requires accessing all past key and value vectors, whereas linear attention compresses all past key and value vectors into one hidden state S.</p><p>We reinterpret the new equations as an online learning objective. We view matrix S as an associative memory that stores the associations between key vector k and value vector v, and we retrieve v by multiplying S with k. We can then interpret the first equation as continuously updating the matrix S at every position to perfect the retrieval. Finally, we can interpret the vt @ kt.T term as the gradient of loss function -(S @ kt.T) @ vt with respect to S.</p><p>DeltaNet.</p> <p>Under the online learning objective view, we see the values of matrix S will grow unboundedly: old and new information gets blurred together in S as the sequence grows, which destabilizes learning. Without softmax giving well-scaled and bounded outputs, linear attention typically lags behind softmax attention on long-range recall tasks.</p><p>DeltaNet improves upon linear attention by changing the loss function to minimizing the L2 norm of the value retrieval. Unlike linear attention’s loss function, DeltaNet’s loss function regularizes the growth of S. This creates a new matrix S update rule, the Delta Rule, as below:</p><p>Source: Linear Attention and Beyond ...</p>
+      <footer class="source-bio" aria-label="About this source">
+      <p class="sb-heading">About this source</p>
+      <p class="sb-meta"><span class="sb-type">independent research firm</span> &middot; <span class="sb-country">United States</span> &middot; <span class="sb-funding">paid subscriptions, enterprise research contracts</span> &middot; <span class="sb-leaning">Hawkish US-industrial-policy techno-nationalist on semiconductors; pro-export-controls on China, bullish on Western fab buildout and AI compute supremacy.</span></p>
+      <p class="sb-audit">Last reviewed: <time datetime="2026-04-08">2026-04-08</time> &middot; <a href="https://www.semianalysis.com/" target="_blank" rel="noopener">source</a></p>
+    </footer>
+    </article>
+    </section></section>
+      
+    </article>
+  
+  </main>
+  <footer class="site-footer">
+    <div class="container">
+      <p><a href="../../privacy/index.html">Privacy</a> &middot; <a href="../../terms/index.html">Terms</a></p>
+    </div>
+  </footer>
+  <script>
+  (function() {
+    var params = new URLSearchParams(window.location.search);
+    var from = params.get('from');
+    if (from) {
+      var names = {
+        'foreign-policy':'Foreign Policy','ai-tech':'AI & Tech','housing-cities':'Housing & Cities',
+        'political-strategy':'Political Strategy','history':'History','science':'Science',
+        'culture':'Culture','economics':'Economics','faith':'Faith','writing-craft':'Writing & Craft',
+        'music':'Music','law-rights':'Law & Rights','public-health':'Public Health',
+        'philosophy':'Philosophy','media':'Media','defense':'Defense','china':'China'
+      };
+      var link = document.getElementById('back-link');
+      if (link) {
+        var name = names[from] || from;
+        link.href = '../../tag/' + from + '/index.html';
+        link.textContent = '\u2190 Back to ' + name;
+      }
+    }
+  })();
+  </script>
+</body>
+</html>
