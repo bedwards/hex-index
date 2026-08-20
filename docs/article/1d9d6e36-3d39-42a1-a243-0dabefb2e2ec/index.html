@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cerebras&#039;s next generation CS-4: Fast just got faster - Hex Index</title>
+  <link rel="stylesheet" href="../../styles.css">
+</head>
+<body class="reading-mode">
+  <header class="reading-header">
+    <a href="../../index.html" class="back-link" id="back-link">&larr; Back to Library</a>
+  </header>
+  <main class="reading-content">
+    
+    <article class="article-page">
+      <header class="article-header">
+        <h1>Cerebras&#039;s next generation CS-4: Fast just got faster</h1>
+        
+      <div class="article-meta">
+        <span class="author">Dylan Patel</span>
+        <span class="separator">&middot;</span>
+        <a href="../../publication/semianalysis/index.html" class="publication">
+          SemiAnalysis
+        </a>
+        <span class="separator">&middot;</span><time>Aug 18, 2026</time>
+        <span class="separator">&middot;</span><span class="read-time">11 min read</span>
+      </div>
+      </header>
+
+      <div class="content-label">
+        <span class="label-text">Commentary by <a href="../../about/index.html">Hex Index staff</a></span>
+        <nav class="content-nav">
+          <a href="#deep-dives">Deep dives</a><span class="separator">&middot;</span>
+          <a href="https://newsletter.semianalysis.com/p/cerebrass-next-generation-cs-4-fast" target="_blank" rel="noopener">Original article &rarr;</a>
+        </nav>
+      </div>
+
+      
+      <div class="article-content">
+        <p>Dylan Patel&#039;s latest analysis cuts through the marketing noise surrounding Cerebras&#039;s new CS-4 rack to reveal a critical shift in AI infrastructure strategy: the industry is moving from chasing raw silicon density to optimizing for system-level modularity and disaggregation. While competitors tout next-generation chips, Patel argues that the real breakthrough here isn&#039;t a new processor, but a redesigned chassis that allows the same third-generation wafer to double its performance simply by feeding it more power and rethinking how it connects to the outside world. This is not just an incremental update; it is a strategic pivot that challenges the prevailing assumption that every generation of AI hardware must rely on shrinking transistor nodes to gain speed.</p>
+<h2>The Power of Reuse</h2>
+<p>Patel immediately dismantles the idea that staying on the same silicon process is a weakness. He writes, &quot;While staying on the 5nm silicon sounds underwhelming, Cerebras can still double the metric that matters most: memory bandwidth.&quot; By doubling the clock speed and power delivery, the CS-4 effectively extracts double the performance from the existing WSE-3 wafer. This approach is a masterclass in engineering pragmatism, prioritizing the throughput that actually drives token generation over the theoretical gains of a new lithography node. The author notes that this results in &quot;nearly double the interactivity and token revenue but at similar TCO,&quot; a proposition that is hard for cost-conscious operators to ignore.</p>
+<figure class="inline-illustration">
+    <img src="../../images/1d9d6e36-3d39-42a1-a243-0dabefb2e2ec.webp" alt="Cerebras&#039;s next generation CS-4: Fast just got faster" loading="lazy" width="600" height="315">
+  </figure>
+
+<p>However, this strategy exposes a fundamental trade-off inherent in wafer-scale integration. Patel points out that &quot;the main drawback of re-using the same WSE-3 is the low memory capacity per wafer,&quot; which remains fixed at 44GB of SRAM. Unlike traditional GPUs that rely on external High Bandwidth Memory (HBM), Cerebras&#039;s architecture keeps everything on the chip, which is incredibly fast but physically limited by the silicon area. As Patel explains, &quot;we&#039;ll have to wait for the next generation silicon before we can see any improvement here.&quot; This constraint forces a specific architectural choice that defines the rest of the CS-4&#039;s value proposition.</p>
+<blockquote>The doubling in memory bandwidth should translate into a near doubling of tokens/sec/user all else equal, and this is what customers want from Cerebras.</blockquote>
+<h2>The Backpack Revolution</h2>
+<p>The most tangible innovation in the CS-4 is not the chip itself, but the rack architecture. Patel describes a radical redesign where the rack is split into a front half for power and a rear half for compute, packaged as modular &quot;backpacks.&quot; Each backpack houses a single wafer-scale engine, allowing the system to hold three wafers per rack, up from two in the previous generation. &quot;The backpack design allows a smoother deployment process,&quot; Patel writes, noting that customers can set up power modules before simply socketing in the wafer backpack on-site. This modularity significantly reduces manufacturing complexity and deployment time, addressing a major bottleneck in scaling wafer-scale systems.</p>
+<p>Critics might note that increasing the power draw to 125-135kW per rack pushes the limits of what many existing data centers can support without major retrofitting. Yet, Patel argues that the reduction in components and simpler assembly offsets the higher Bill of Materials (BOM) costs. The result is a system that is &quot;meaningfully simpler to manufacture than CS-3,&quot; a crucial factor for scaling production. This focus on manufacturability suggests that Cerebras is finally ready to move from pilot deployments to mass adoption.</p>
+<h2>Disaggregation and the Network Bottleneck</h2>
+<p>Perhaps the most forward-looking element of Patel&#039;s analysis is the focus on disaggregated inference. The CS-4 introduces a new I/O module that enables &quot;open, heterogeneous and disaggregated inference architectures.&quot; This allows the CS-4 to pair with HBM-based systems, effectively using external memory to overcome the on-wafer capacity limits. Patel observes that &quot;these disaggregated inference setups will go a long way to help overcome the memory capacity constraints of the CS-4 by pairing it with HBM-based systems.&quot; This positions Cerebras not as a standalone solution, but as a specialized component in a larger, heterogeneous cluster.</p>
+<p>The networking improvements are significant but nuanced. Patel notes that latency has been reduced to 3 microseconds, with direct wafer-to-wafer links dropping to 2 microseconds. However, he tempers expectations, stating, &quot;with many Cerebras competitors now quoting all in switch latencies in nanoseconds, &#039;ultrafast&#039; networking is relative and we view it as a modest improvement.&quot; This honesty about the limitations is refreshing. The author acknowledges that &quot;this 3μs and bandwidth limitations continues to be a bottleneck that prevents parallelism setups such as EP and ETP where expert layers span multiple wafers.&quot; This constraint forces Cerebras to rely on pipeline parallelism, a strategy that differs fundamentally from the tensor parallelism common in GPU clusters.</p>
+<blockquote>One P:D ratio to rule them all is unlikely to be perfectly optimal for the 5+ year lifespan of these systems.</blockquote>
+<p>Patel highlights a critical risk in this approach: the fixed ratio of prefill to decode resources. In a disaggregated setup, the hardware purchase locks in a specific ratio of resources for the next five years. &quot;Meanwhile a fleet of GPUs or TPUs can be dynamically allocated into different ratios as workload profiles from users shift over time,&quot; he writes. Given that reasoning models and agentic workflows are shifting the balance between prefill and decode costs, a rigid hardware architecture could become a liability. This is a sophisticated insight that goes beyond simple performance metrics to consider the long-term economic viability of the infrastructure.</p>
+<h2>The Cost of Long Context</h2>
+<p>The analysis also tackles the often-overlooked economics of long-context inference. Patel explains that while the memory for model weights is static, the memory required for the Key-Value (KV) cache grows with the number of concurrent users and the context window size. &quot;Running a model with a large context window, and supporting many concurrent users, requires lots of memory capacity,&quot; he writes. For a massive model like the hypothetical 1.6T parameter DeepSeek V4 Pro, running at a 1M context window could require 40 systems and over $20M in capital expenditure just to get a single forward pass.</p>
+<p>This stark reality underscores why Cerebras is betting on disaggregation. By offloading the KV cache to external HBM-based systems, they can avoid the prohibitive cost of scaling on-wafer memory. Patel notes that &quot;the cost of supporting long context inference is massive,&quot; and this architectural choice is a direct response to that economic pressure. It suggests that the future of AI infrastructure may not be monolithic super-chips, but highly specialized, interconnected systems where each component does what it does best.</p>
+<h2>Bottom Line</h2>
+<p>Patel&#039;s commentary effectively reframes the CS-4 launch not as a silicon breakthrough, but as a systems engineering triumph that prioritizes modularity and economic efficiency over raw transistor density. The argument is strongest in its honest assessment of the memory capacity trade-offs and the strategic necessity of disaggregation for long-context workloads. However, the biggest vulnerability remains the rigidity of the prefill-to-decode ratio in a rapidly shifting workload landscape, a risk that could limit the system&#039;s relevance as AI applications evolve. Readers should watch closely to see if Cerebras can successfully navigate the transition to heterogeneous clusters without losing the speed advantages that make their architecture unique.</p>
+      </div>
+
+      
+      
+      <section id="deep-dives" class="deep-dives">
+        <h2>Deep Dives</h2>
+        <p class="deep-dives-intro">Explore these related deep dives:</p>
+        <ul class="deep-dive-list">
+          
+      <li class="deep-dive-item">
+        <a href="../../wikipedia/wafer-scale-integration/index.html">
+          <strong>Wafer-scale integration</strong>
+        </a>
+        <p class="topic-summary">This article explains the radical manufacturing philosophy of using an entire silicon wafer as a single chip, which is the foundational concept enabling Cerebras&#039;s unique architecture and its specific trade-offs regarding memory capacity.</p>
+      </li>
+
+      <li class="deep-dive-item">
+        <a href="../../wikipedia/roofline-model/index.html">
+          <strong>Roofline model</strong>
+        </a>
+        <p class="topic-summary">The article explicitly links Cerebras&#039;s performance advantage to this specific metric, and understanding how low arithmetic intensity workloads behave is essential to grasping why this hardware excels at inference but faces limitations elsewhere.</p>
+      </li>
+        </ul>
+      </section>
+    
+      
+
+      <section id="excerpt"><section class="source-excerpts">
+      <h2>Sources</h2>
+      <article class="source-excerpt">
+      <h3>Cerebras&#039;s next generation CS-4: Fast just got faster</h3>
+      <div class="source-meta">by Dylan Patel &middot; <a href="../../publication/semianalysis/index.html">SemiAnalysis</a> &middot; <a href="https://newsletter.semianalysis.com/p/cerebrass-next-generation-cs-4-fast" target="_blank" rel="noopener">Read full article</a></div>
+      <p>Cerebras revealed CS-4 this week, with more details to come at Hot Chips. CS-4 is their fourth-generation rack built around the same third generation 5nm wafer-scale engine: WSE-3. CS-4 doubles the performance of CS-3 through increased power consumption and clock frequency per wafer, and better rack-scale density.</p><p>This all translates into CS-4 being able to double the tokens/s/user per wafer from CS-3, and at around the same cost as the previous generation. This is a no-brainer for customers who can enjoy double the token revenue with the same hardware spend. It’s not only the tokens that are getting faster, but so is time to market: the rack architecture itself is redesigned to be more modular, allowing improved manufacturability and deployment times. Last but not least, a new I/O module will enable open, heterogeneous and disaggregated inference architectures going forward. These disaggregated inference setups will go a long way to help overcome the memory capacity constraints of the CS-4 by pairing it with HBM-based systems.</p><p>Same Wafer, Double the Clock.</p> <p>The CS-4 uses the same 5nm WSE-3 as the CS-3, but Cerebras is extracting double the performance by doubling clock speeds. This comes from feeding dramatically more power to the wafer, and is enabled by the CS-4’s improvement in power delivery and cooling technology. While staying on the same 5nm silicon sounds underwhelming, Cerebras can still double the metric that matters most: memory bandwidth. The doubling in memory bandwidth should translate into a near doubling of tokens/sec/user all else equal, and this is what customers want from Cerebras. Clock speed doubling also drives double the peak theoretical FLOPs and the WSE’s parallel off-wafer I/O, allowing the CS-4 to upgrade to 2.4Tb/s of off-wafer I/O from 1.2Tb/s with CS-3. However, what remains the same is 44GB of SRAM capacity per wafer, as this is determined by the number of SRAM bit cells available on each wafer. so we’ll have to wait for the next generation silicon before we can see any improvement here. This is the main drawback of re-using the same WSE-3 as the low memory capacity per wafer is one of the key tradeoffs inherent with Cerebras’s architecture. </p><p>As we described in our previous article on Cerebras, the wafer has an incredibly unique architecture due to the use of SRAM that makes it well suited for running kernels with low Arithmetic Intensity, such as low-batch size decode.</p><p>Network Improvements.</p> <p>Beyond ...</p>
+      <footer class="source-bio" aria-label="About this source">
+      <p class="sb-heading">About this source</p>
+      <p class="sb-meta"><span class="sb-type">independent research firm</span> &middot; <span class="sb-country">United States</span> &middot; <span class="sb-funding">paid subscriptions, enterprise research contracts</span> &middot; <span class="sb-leaning">Hawkish US-industrial-policy techno-nationalist on semiconductors; pro-export-controls on China, bullish on Western fab buildout and AI compute supremacy.</span></p>
+      <p class="sb-audit">Last reviewed: <time datetime="2026-04-08">2026-04-08</time> &middot; <a href="https://www.semianalysis.com/" target="_blank" rel="noopener">source</a></p>
+    </footer>
+    </article>
+    </section></section>
+      
+    </article>
+  
+  </main>
+  <footer class="site-footer">
+    <div class="container">
+      <p><a href="../../privacy/index.html">Privacy</a> &middot; <a href="../../terms/index.html">Terms</a></p>
+    </div>
+  </footer>
+  <script>
+  (function() {
+    var params = new URLSearchParams(window.location.search);
+    var from = params.get('from');
+    if (from) {
+      var names = {
+        'foreign-policy':'Foreign Policy','ai-tech':'AI & Tech','housing-cities':'Housing & Cities',
+        'political-strategy':'Political Strategy','history':'History','science':'Science',
+        'culture':'Culture','economics':'Economics','faith':'Faith','writing-craft':'Writing & Craft',
+        'music':'Music','law-rights':'Law & Rights','public-health':'Public Health',
+        'philosophy':'Philosophy','media':'Media','defense':'Defense','china':'China'
+      };
+      var link = document.getElementById('back-link');
+      if (link) {
+        var name = names[from] || from;
+        link.href = '../../tag/' + from + '/index.html';
+        link.textContent = '\u2190 Back to ' + name;
+      }
+    }
+  })();
+  </script>
+</body>
+</html>
