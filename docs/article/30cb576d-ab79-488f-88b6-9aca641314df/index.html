@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>How flipr forecasts the midterm elections - Hex Index</title>
+  <link rel="stylesheet" href="../../styles.css">
+</head>
+<body class="reading-mode">
+  <header class="reading-header">
+    <a href="../../index.html" class="back-link" id="back-link">&larr; Back to Library</a>
+  </header>
+  <main class="reading-content">
+    
+    <article class="article-page">
+      <header class="article-header">
+        <h1>How flipr forecasts the midterm elections</h1>
+        
+      <div class="article-meta">
+        <span class="author">Nate Silver</span>
+        <span class="separator">&middot;</span>
+        <a href="../../publication/natesilver/index.html" class="publication">
+          
+        </a>
+        <span class="separator">&middot;</span><time>Aug 11, 2026</time>
+        <span class="separator">&middot;</span><span class="read-time">36 min read</span>
+      </div>
+      </header>
+
+      <div class="content-label">
+        <span class="label-text">Commentary by <a href="../../about/index.html">Hex Index staff</a></span>
+        <nav class="content-nav">
+          <a href="#deep-dives">Deep dives</a><span class="separator">&middot;</span>
+          <a href="https://www.natesilver.net/p/flipr-midterms-model-methodology" target="_blank" rel="noopener">Original article &rarr;</a>
+        </nav>
+      </div>
+
+      
+      <div class="article-content">
+        <p>Nate Silver doesn&#039;t just rename a model; he exposes the paradox of a forecasting engine that is both ancient and brand new. In a landscape of fleeting political narratives, Silver argues that the true value of his new FLIPR system lies not in its novel name, but in its sixteen-year lineage—a rare continuity in a field defined by churn. For the busy reader, the real story isn&#039;t the acronym, but the admission that in an era of hyper-polarization, the old rules of polling are breaking, forcing a fundamental shift toward &quot;fundamentals&quot; like fundraising and incumbency.</p>
+<h2>The Ship of Theseus in Code</h2>
+<p>Silver begins by addressing the elephant in the room: is this actually a new model? He candidly admits that the code celebrating its &quot;16th birthday&quot; traces back to his first midterms forecast in 2010. Yet, he invokes the <strong>Ship of Theseus</strong> paradox to explain the transformation. &quot;While the basic foundation is similar to 2010, nearly every component of the model has been swapped out for a new version at some point,&quot; Silver writes. This is not mere maintenance; it is a total refit. The model underwent a near-complete overhaul in 2018 and again in 2022 to account for rising polarization, with further precision tuning happening in 2026.</p>
+<figure class="inline-illustration">
+    <img src="../../images/30cb576d-ab79-488f-88b6-9aca641314df.webp" alt="How flipr forecasts the midterm elections" loading="lazy" width="600" height="315">
+  </figure>
+
+<p>The use of AI coding tools here is particularly telling. Silver notes, &quot;Probably, in fact, they&#039;re better for reviewing and refining an existing model than for building one from scratch.&quot; He argues that while AI cannot replace human judgment, it has allowed for a &quot;code hygiene&quot; audit that freed up time to test complex hypotheses, such as simulating ranked-choice voting in Alaska and Maine. This practical application of technology highlights a crucial distinction: automation handles the tedious, but human expertise defines the architecture.</p>
+<blockquote>&quot;If every component of a model has been upgraded at some point, is it still the same model?&quot;</blockquote>
+<p>Critics might argue that relying on a model with such a long history risks anchoring forecasts to outdated political realities, especially given how rapidly the electorate is shifting. However, Silver counters this by emphasizing that the model&#039;s strength is its ability to adapt its internal weights rather than its structure, acknowledging that the &quot;basic philosophy&quot; remains while the execution evolves.</p>
+<h2>Beyond the Polling Bubble</h2>
+<p>The most significant shift in FLIPR is its departure from the &quot;polls-only&quot; mentality that often dominates presidential forecasting. Silver explains that for congressional and gubernatorial races, polling data is often too sparse to be reliable on its own. &quot;Many important House races receive little to no nonpartisan polling, for example, so we need other methods to forecast these races,&quot; he writes. Consequently, FLIPR blends polls with &quot;fundamentals&quot;—non-polling indicators like fundraising and incumbency—and expert ratings.</p>
+<p>Silver introduces a three-tiered approach to this data: &quot;Lite derives as much information as possible from polls alone; Classic is polls + fundamentals; And Deluxe is polls + fundamentals + expert ratings.&quot; He is transparent about the hierarchy, noting that the expert ratings are &quot;the proverbial &#039;icing on top&#039;&quot; and arguably the least important layer. The core engine relies on the interplay between the &quot;micro&quot; indicators of a specific race and the &quot;macro&quot; environment of the national mood.</p>
+<p>This approach addresses a critical failure point in modern forecasting: the assumption that every race can be treated as an independent variable. Silver points out that &quot;race outcomes are somewhat correlated,&quot; citing years like 2016 where systemic bias caused a party to beat its polls across the board. However, he also notes that this correlation is weaker in midterms than in presidential years because the presidential race does not serve as a single anchor for every contest. &quot;The 2018 midterm was strong for Democrats, but also featured pockets of Republican strength,&quot; Silver observes, illustrating the patchwork nature of these elections that a simple national average would miss.</p>
+<blockquote>&quot;In an era of intensive partisanship, races don&#039;t necessarily shift that much between August and November, and there are fewer unexpected shifts.&quot;</blockquote>
+<p>A counterargument worth considering is whether increasing the weight on &quot;fundamentals&quot; too heavily might make the model less responsive to sudden, ground-level surges in enthusiasm that polls capture but historical data misses. Silver acknowledges the rough years for polling but argues that the data now supports a heavier reliance on structural indicators because the political environment &quot;locks in&quot; more quickly than in the past.</p>
+<h2>The Mechanics of Uncertainty</h2>
+<p>The article delves into the granular mechanics of how FLIPR handles uncertainty, running 40,000 simulations to capture the &quot;fat-tailed distribution&quot; of potential outcomes. Silver explains that the model applies a &quot;likely voter&quot; adjustment, which has already shown a material difference in the current cycle. &quot;As of early August, for example, Democrats are up by about 6.5 points in our default generic ballot average, but that advantage expands to around 8 points after likely voter adjustments,&quot; he notes. This adjustment is not arbitrary; it is derived by comparing registered voter polls against likely voter versions to gauge enthusiasm gaps.</p>
+<p>Furthermore, the model employs a &quot;timeline adjustment&quot; to account for stale polling. If a race hasn&#039;t been polled since March, but the national generic ballot has shifted, FLIPR applies a fraction of that shift to the specific race. &quot;It does mean that our polling averages in individual races can shift slightly even if there is no new polling in that contest,&quot; Silver writes. This ensures the forecast remains dynamic, estimating what a poll would say today rather than what it said months ago.</p>
+<p>The introduction of the CANTOR system (Congressional Algorithm using Neighboring Typologies to Optimize Regression) is another key innovation for filling data gaps. By using &quot;partisan lean scores&quot; based on past voting patterns and redistricting data, the model can impute estimates for unpolled races. &quot;When you apply this technique to all polled Senate and House races, these differences tend to cancel out,&quot; Silver explains, turning noisy individual data points into a coherent national picture.</p>
+<blockquote>&quot;It&#039;s not as simple as &#039;flipping coins&#039;, but the simulations are necessary because of the complex relationships between different types of races.&quot;</blockquote>
+<h2>Bottom Line</h2>
+<p>Silver&#039;s most compelling argument is that the future of political forecasting lies not in chasing the latest poll, but in rigorously integrating structural &quot;fundamentals&quot; with a sophisticated understanding of national versus local dynamics. The model&#039;s greatest vulnerability remains the inherent unpredictability of human behavior in an era of extreme polarization, where historical precedents may fail to hold. Readers should watch how FLIPR&#039;s &quot;fundamentals-heavy&quot; approach performs as the election nears, particularly in close races where enthusiasm and turnout could override structural advantages. The name is new, but the real story is the model&#039;s evolution from a simple poll aggregator to a complex, adaptive system capable of navigating a fractured political landscape.</p>
+      </div>
+
+      
+      
+      <section id="deep-dives" class="deep-dives">
+        <h2>Deep Dives</h2>
+        <p class="deep-dives-intro">Explore these related deep dives:</p>
+        <ul class="deep-dive-list">
+          
+      <li class="deep-dive-item">
+        <a href="../../wikipedia/ship-of-theseus/index.html">
+          <strong>Ship of Theseus</strong>
+        </a>
+        <p class="topic-summary">The article uses this paradox to question whether FLIPR is a new model or merely a renamed version of code that has survived since 2010.</p>
+      </li>
+        </ul>
+      </section>
+    
+      
+
+      <section id="excerpt"><section class="source-excerpts">
+      <h2>Sources</h2>
+      <article class="source-excerpt">
+      <h3>How flipr forecasts the midterm elections</h3>
+      <div class="source-meta">by Nate Silver &middot; <a href="../../publication/natesilver/index.html"></a> &middot; <a href="https://www.natesilver.net/p/flipr-midterms-model-methodology" target="_blank" rel="noopener">Read full article</a></div>
+      <p>In the Silver Bulletin/FiveThirtyEight tradition, we’ve always given names to our sports models (PELE, ELWAY) — but never to our election forecasts. I suppose we’d like to think that our presidential model is renowned enough at this point that it doesn't necessarily need any further identifier. But we’ve decided we do need a name for what we informally call our “midterms model.”</p><p>That’s because “midterms model” is actually a misnomer. The model forecasts both Congressional and gubernatorial races, but it’s trained on both midterm years like 2022 and years where these races coincide with presidential elections. </p><p>“House, Senate and gubernatorial model” is a mouthful, however. So now we’re calling our model FLIPR  instead.1 In line with our tradition of silly backronyms, FLIPR stands for Forecast with Leading Indicators, Polls and (Expert) Ratings.</p><p>We like this name because it’s sort of a triple entendre:</p><p>The principal goal of these elections is flipping individual seats, and ultimately the House and Senate. </p><p>FLIPR is a hat tip to the inherently probabilistic nature of the forecast — we run 40,000 simulations every time the model is updated. It’s not as simple as “flipping coins”, but the simulations are necessary because of the complex relationships between different types of races.</p><p>And the FLIPR acronym is also rather descriptive. FLIPR essentially consists of three different layers stacked on top of one another: polls, non-polling leading indicators (e.g., fundraising, incumbency) or what we sometimes call “fundamentals”, and then a final layer of race ratings from longstanding outside expert groups like the Cook Political Report. </p><p>In fact, there are three versions of FLIPR that correspond to each layer:</p><p>Lite derives as much information as possible from polls alone;</p><p>Classic is polls + fundamentals;</p><p>And Deluxe is polls + fundamentals + expert ratings.</p><p>While Deluxe is our default version, almost all of the charts and tables on the FLIPR landing page allow you to, uh, flip back and forth between these versions. The way FLIPR is designed, the expert ratings layer is probably the least important — the proverbial “icing on top.” But if you want a forecast without any expert ratings, we have you covered with Lite and Classic.</p><p>FLIPR is part of the FiveThirtyEight model lineage.</p> <p>FLIPR has a new name — but is it a new model? I’d say probably not. If you’re a former FiveThirtyEight reader — I retained the rights to all of the ...</p>
+      <footer class="source-bio" aria-label="About this source">
+      <p class="sb-heading">About this source</p>
+      <p class="sb-meta"><span class="sb-type">individual newsletter</span> &middot; <span class="sb-country">United States, New York</span> &middot; <span class="sb-funding">paid Substack subscriptions</span> &middot; <span class="sb-affiliations">Polymarket (advisor)</span> &middot; <span class="sb-leaning">Self-styled Bayesian centrist; contrarian toward progressive &#039;indigo blob&#039; media, bullish on prediction markets, allergic to activism-as-journalism.</span></p>
+      <p class="sb-audit">Last reviewed: <time datetime="2026-04-08">2026-04-08</time> &middot; <a href="https://www.natesilver.net/" target="_blank" rel="noopener">source</a></p>
+    </footer>
+    </article>
+    </section></section>
+      
+    </article>
+  
+  </main>
+  <footer class="site-footer">
+    <div class="container">
+      <p><a href="../../privacy/index.html">Privacy</a> &middot; <a href="../../terms/index.html">Terms</a></p>
+    </div>
+  </footer>
+  <script>
+  (function() {
+    var params = new URLSearchParams(window.location.search);
+    var from = params.get('from');
+    if (from) {
+      var names = {
+        'foreign-policy':'Foreign Policy','ai-tech':'AI & Tech','housing-cities':'Housing & Cities',
+        'political-strategy':'Political Strategy','history':'History','science':'Science',
+        'culture':'Culture','economics':'Economics','faith':'Faith','writing-craft':'Writing & Craft',
+        'music':'Music','law-rights':'Law & Rights','public-health':'Public Health',
+        'philosophy':'Philosophy','media':'Media','defense':'Defense','china':'China'
+      };
+      var link = document.getElementById('back-link');
+      if (link) {
+        var name = names[from] || from;
+        link.href = '../../tag/' + from + '/index.html';
+        link.textContent = '\u2190 Back to ' + name;
+      }
+    }
+  })();
+  </script>
+</body>
+</html>
