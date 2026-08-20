@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ultra-High interactivity on Nvidia GPUs? - TileRT InferenceX - Hex Index</title>
+  <link rel="stylesheet" href="../../styles.css">
+</head>
+<body class="reading-mode">
+  <header class="reading-header">
+    <a href="../../index.html" class="back-link" id="back-link">&larr; Back to Library</a>
+  </header>
+  <main class="reading-content">
+    
+    <article class="article-page">
+      <header class="article-header">
+        <h1>Ultra-High interactivity on Nvidia GPUs? - TileRT InferenceX</h1>
+        
+      <div class="article-meta">
+        <span class="author">Dylan Patel</span>
+        <span class="separator">&middot;</span>
+        <a href="../../publication/semianalysis/index.html" class="publication">
+          SemiAnalysis
+        </a>
+        <span class="separator">&middot;</span><time>Aug 9, 2026</time>
+        <span class="separator">&middot;</span><span class="read-time">18 min read</span>
+      </div>
+      </header>
+
+      <div class="content-label">
+        <span class="label-text">Commentary by <a href="../../about/index.html">Hex Index staff</a></span>
+        <nav class="content-nav">
+          <a href="#deep-dives">Deep dives</a><span class="separator">&middot;</span>
+          <a href="https://newsletter.semianalysis.com/p/ultra-high-interactivity-on-nvidia" target="_blank" rel="noopener">Original article &rarr;</a>
+        </nav>
+      </div>
+
+      
+      <div class="article-content">
+        <p>This piece cuts through the hype of specialized AI hardware with a counterintuitive claim: you don&#039;t need a new chip to achieve ultra-low latency, you just need to rewrite the software that runs on the chips we already have. Dylan Patel argues that the industry&#039;s rush to buy purpose-built inference accelerators may be premature, as a software breakthrough called TileRT is already shattering performance records on standard Nvidia GPUs. For leaders managing compute budgets, the implication is stark—massive capital expenditure might be avoidable if the bottleneck isn&#039;t silicon, but rather the operating system&#039;s inefficiency.</p>
+<h2>The Latency Ceiling</h2>
+<p>Patel begins by dismantling the assumption that GPUs are inherently too slow for real-time, interactive AI. He notes that while traditional models prioritize batched throughput—processing thousands of requests at once—interactive applications like voice assistants require a different metric: tokens per second per user. &quot;GPUs perform exceptionally well at high throughput and low-to-medium interactivity, but their architecture is less suited for ultra-low-latency inference,&quot; he writes. This distinction is critical because the current market is bifurcating between systems designed for cost-efficiency and those designed for human-like responsiveness.</p>
+<figure class="inline-illustration">
+    <img src="../../images/cfb53f23-1abb-433d-a86f-74fa3b46e2b0.webp" alt="Ultra-High interactivity on Nvidia GPUs? - TileRT InferenceX" loading="lazy" width="600" height="315">
+  </figure>
+
+<p>The author highlights a frustrating reality in hardware design: while memory bandwidth has skyrocketed, memory latency has remained stagnant. &quot;While GPU memory bandwidth increases by roughly 2–3× each generation, memory latency has not improved at all,&quot; Patel observes. This creates a paradox where newer, more expensive hardware often fails to deliver faster interactive responses because the software overhead of launching and synchronizing thousands of tiny tasks eats up the gains. This framing is effective because it shifts the blame from the hardware manufacturer to the software stack, a nuance often lost in hardware-centric reporting.</p>
+<blockquote>&quot;The traditional GPU programming model launches and synchronizes many individual kernels, whose setup and teardown overhead becomes significant at ultra-high levels of interactivity.&quot;</blockquote>
+<p>Critics might argue that software optimization has diminishing returns compared to the raw architectural shifts of dedicated dataflow chips. However, Patel&#039;s data suggests that the gap is not yet closed, leaving room for software to bridge the divide.</p>
+<h2>The Persistent Kernel Solution</h2>
+<p>The core of Patel&#039;s analysis focuses on TileRT, a project that fundamentally changes how code executes on a GPU. Instead of treating the GPU as a collection of independent workers that wake up, do a task, and go to sleep, TileRT compiles the entire model into a single, persistent engine. &quot;TileRT statically compiles the entire decode graph into a single persistent kernel on NVIDIA GPUs, maximizing overlap across computation, memory loads and stores, and communication,&quot; he explains. This approach draws on historical lessons from kernel optimization, where the overhead of context switching can destroy performance, similar to how early operating systems struggled with process scheduling before modern pre-emptive multitasking became standard.</p>
+<p>By keeping the engine resident on the GPU and overlapping data movement with computation, TileRT eliminates the &quot;stop-and-go&quot; nature of traditional inference. Patel illustrates this with a striking analogy: &quot;A bus amortizes its cost across many passengers but makes each passenger wait for shared stops. A race car carries only one or two people and reaches the destination faster, but at much higher cost per passenger.&quot; He positions TileRT not as a bus, but as a &quot;private rocket ship with room for just one passenger,&quot; designed specifically for the latency-sensitive decode phase of AI generation.</p>
+<p>The results presented are difficult to ignore. On an eight-GPU B200 server, TileRT achieved 340 tokens per second per user, nearly double the previous best on comparable hardware. &quot;TileRT at FP8 outperforms the best previously recorded GLM-5.1 result by 4.5× at 1k/1k and 3.0× at 8k/1k,&quot; Patel writes. This evidence suggests that the &quot;specialized chip&quot; narrative may be a solution in search of a problem that software can solve.</p>
+<blockquote>&quot;A CUDA graph optimizes the launching of kernels, while TileRT abolishes the kernel as the unit of execution.&quot;</blockquote>
+<p>This is the piece&#039;s most technically significant claim. It suggests a paradigm shift where the unit of execution moves from the kernel to the entire graph, effectively turning the GPU into a dedicated inference engine without changing the silicon.</p>
+<h2>The Trade-Off and the Ecosystem</h2>
+<p>Patel is careful not to present TileRT as a silver bullet. He explicitly acknowledges the trade-off: extreme interactivity comes at the cost of aggregate throughput. While TileRT delivers blistering speed for a single user, it cannot match the total volume of tokens a conventional engine can process across thousands of users simultaneously. &quot;TileRT provides much higher per-user speed, but the conventional GB300 point completes more aggregate work per GPU,&quot; he admits. This honesty strengthens his credibility, as it avoids the trap of claiming one technology solves every problem.</p>
+<p>The proposed solution is a disaggregated architecture, where the system splits the workload. High-throughput engines like vLLM handle the initial &quot;prefill&quot; phase (reading the prompt), while TileRT takes over the &quot;decode&quot; phase (generating the response). &quot;With PD disaggregation inference technique, the hyperspecialized TileRT engine handles latency-sensitive decode while throughput-optimized engines such as vLLM and SGLang continuing to serving prefill,&quot; Patel writes. This hybrid approach allows data centers to use their existing Nvidia fleets more efficiently, potentially disrupting the total addressable market for companies like Cerebras and Groq that rely on selling proprietary hardware for low-latency tasks.</p>
+<h2>Bottom Line</h2>
+<p>Patel&#039;s argument is compelling because it leverages the massive installed base of Nvidia GPUs to challenge the necessity of a hardware arms race. The strongest part of the analysis is the demonstration that software architecture, not just silicon, dictates the limits of interactivity. However, the biggest vulnerability lies in the scalability of the &quot;single-passenger&quot; model; if the cost of running a dedicated decode node for every user becomes prohibitive, the economic case for specialized hardware may still win out. The industry should watch closely to see if TileRT can scale its single-user speed to a multi-user environment without losing its latency advantage.</p>
+<blockquote>&quot;TileRT abolishes the kernel as the unit of execution.&quot;</blockquote>
+      </div>
+
+      
+      
+      <section id="deep-dives" class="deep-dives">
+        <h2>Deep Dives</h2>
+        <p class="deep-dives-intro">Explore these related deep dives:</p>
+        <ul class="deep-dive-list">
+          
+      <li class="deep-dive-item">
+        <a href="../../wikipedia/roofline-model/index.html">
+          <strong>Roofline model</strong>
+        </a>
+        <p class="topic-summary">The article uses this performance visualization technique to explain why Nvidia&#039;s massive memory bandwidth fails to translate into speed for single-token inference due to latency bottlenecks.</p>
+      </li>
+
+      <li class="deep-dive-item">
+        <a href="../../wikipedia/kernel-operating-system/index.html">
+          <strong>Kernel (operating system)</strong>
+        </a>
+        <p class="topic-summary">Understanding the overhead of launching and synchronizing individual GPU kernels is essential to grasping why TileRT&#039;s strategy of compiling the entire decode graph into a single persistent kernel breaks the latency barrier.</p>
+      </li>
+        </ul>
+      </section>
+    
+      
+
+      <section id="excerpt"><section class="source-excerpts">
+      <h2>Sources</h2>
+      <article class="source-excerpt">
+      <h3>Ultra-High interactivity on Nvidia GPUs? - TileRT InferenceX</h3>
+      <div class="source-meta">by Dylan Patel &middot; <a href="../../publication/semianalysis/index.html">SemiAnalysis</a> &middot; <a href="https://newsletter.semianalysis.com/p/ultra-high-interactivity-on-nvidia" target="_blank" rel="noopener">Read full article</a></div>
+      <p>Premium-priced “fast modes” are proving that users will pay more for lower latency and faster tokens, potentially yielding higher gross margins. Frontier AI labs such as OpenAI are therefore evaluating purpose-built inference systems, including Cerebras and NVIDIA Groq LPUs that prioritize ultra-high interactivity over maximum batched throughput. Ultra-low latency matters most in interactive workloads, including real-time assistants, and full-duplex voice. OpenAI GPT‑Live, for example, can listen and speak simultaneously, making response delay immediately perceptible to the user, described as feeling like Ironman JARVIS.</p><p>GPUs perform exceptionally well at high throughput and low-to-medium interactivity, but their architecture is less suited for ultra-low-latency inference. An 8-GPU HGX B200 server provides a theoretical HBM memory bandwidth of 64 TB/s of in aggregate. At batch size 1, GLM-5 at NVFP4 requires only approximately 21 GB of active-parameter traffic per generated token. The B200 HBM bandwidth roofline would therefore suggest up to 3,047 tokens/s/user without speculative decoding. In practice, GPUs come nowhere close to this limit.</p><p>The gap comes from latency rather than bandwidth. The traditional GPU programming model launches and synchronizes many individual kernels, whose setup and teardown overhead becomes significant at ultra-high levels of interactivity. While these latency costs are less visible at conventional serving speeds, even with CUDA graphs, they dominate as token latency approaches the sub-millisecond Time Per Output Token (TPOT) range. Furthermore, although GPU memory bandwidth increases by roughly 2–3× each generation, memory latency has not improved at all.</p><p>While using alternative hardware is popular, there are ways to use GPUs to do this too. This is where TileRT’s persistent engine comes in. TileRT statically compiles the entire decode graph into a single persistent kernel on NVIDIA GPUs, maximizing overlap across computation, memory loads and stores, and communication. On the InferenceX GLM5 FP8 744B benchmark on a single B200 decode server, tileRT has been verified to reach up to 500 tokens/s/user, approximately 3× faster than GB300 NVL72 running traditional inference engines. Iso-cost per output token, TileRT can achieve up to 2x faster interactivity than traditional engines. </p><p>We thank the TileRT maintainers for collaborating on TileRT InferenceX benchmarks and also in general thankful to the vLLM community for their amazing design on the V1 connector. TileRT comes from the same community maintainer organization that built the widely popular TileLang DSL.</p><p>With PD disaggregation inference technique, the hyperspecialized TileRT engine handles latency-sensitive decode while throughput-optimized engines such as vLLM and SGLang continuing ...</p>
+      <footer class="source-bio" aria-label="About this source">
+      <p class="sb-heading">About this source</p>
+      <p class="sb-meta"><span class="sb-type">independent research firm</span> &middot; <span class="sb-country">United States</span> &middot; <span class="sb-funding">paid subscriptions, enterprise research contracts</span> &middot; <span class="sb-leaning">Hawkish US-industrial-policy techno-nationalist on semiconductors; pro-export-controls on China, bullish on Western fab buildout and AI compute supremacy.</span></p>
+      <p class="sb-audit">Last reviewed: <time datetime="2026-04-08">2026-04-08</time> &middot; <a href="https://www.semianalysis.com/" target="_blank" rel="noopener">source</a></p>
+    </footer>
+    </article>
+    </section></section>
+      
+    </article>
+  
+  </main>
+  <footer class="site-footer">
+    <div class="container">
+      <p><a href="../../privacy/index.html">Privacy</a> &middot; <a href="../../terms/index.html">Terms</a></p>
+    </div>
+  </footer>
+  <script>
+  (function() {
+    var params = new URLSearchParams(window.location.search);
+    var from = params.get('from');
+    if (from) {
+      var names = {
+        'foreign-policy':'Foreign Policy','ai-tech':'AI & Tech','housing-cities':'Housing & Cities',
+        'political-strategy':'Political Strategy','history':'History','science':'Science',
+        'culture':'Culture','economics':'Economics','faith':'Faith','writing-craft':'Writing & Craft',
+        'music':'Music','law-rights':'Law & Rights','public-health':'Public Health',
+        'philosophy':'Philosophy','media':'Media','defense':'Defense','china':'China'
+      };
+      var link = document.getElementById('back-link');
+      if (link) {
+        var name = names[from] || from;
+        link.href = '../../tag/' + from + '/index.html';
+        link.textContent = '\u2190 Back to ' + name;
+      }
+    }
+  })();
+  </script>
+</body>
+</html>
