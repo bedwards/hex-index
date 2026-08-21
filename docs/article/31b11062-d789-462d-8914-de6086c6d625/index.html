@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Going deeply into the weeds &amp; standing up a new local LLM: Thursday mamlms - Hex Index</title>
+  <link rel="stylesheet" href="../../styles.css">
+</head>
+<body class="reading-mode">
+  <header class="reading-header">
+    <a href="../../index.html" class="back-link" id="back-link">&larr; Back to Library</a>
+  </header>
+  <main class="reading-content">
+    
+    <article class="article-page">
+      <header class="article-header">
+        <h1>Going deeply into the weeds &amp; standing up a new local LLM: Thursday mamlms</h1>
+        
+      <div class="article-meta">
+        <span class="author">Brad DeLong</span>
+        <span class="separator">&middot;</span>
+        <a href="../../publication/braddelong/index.html" class="publication">
+          DeLong&#039;s Grasping Reality
+        </a>
+        <span class="separator">&middot;</span><time>Aug 21, 2026</time>
+        <span class="separator">&middot;</span><span class="read-time">13 min read</span>
+      </div>
+      </header>
+
+      <div class="content-label">
+        <span class="label-text">Commentary by <a href="../../about/index.html">Hex Index staff</a></span>
+        <nav class="content-nav">
+          <a href="#deep-dives">Deep dives</a><span class="separator">&middot;</span>
+          <a href="https://braddelong.substack.com/p/going-deeply-into-the-weeds-and-standing" target="_blank" rel="noopener">Original article &rarr;</a>
+        </nav>
+      </div>
+
+      
+      <div class="article-content">
+        <p>Brad DeLong doesn&#039;t just run benchmarks; he exposes the hidden architecture of intelligence on your laptop. While most coverage fixates on parameter counts, DeLong argues that the real story is the trade-off between speed and depth, revealing that the datacenter may have been oversold compared to the surprising power of local, on-device computing.</p>
+<h2>The Hardware Reality Check</h2>
+<p>DeLong begins by dismantling the assumption that bigger is always better when running models locally. He notes that on Apple Silicon, &quot;doubling parameters roughly halves tokens per second,&quot; a hard physical constraint that forces a choice between latency and reasoning depth. This isn&#039;t just a technical footnote; it&#039;s a fundamental shift in how we should deploy artificial intelligence. The author observes that while massive models like the 122-billion-parameter Qwen 3.5 offer &quot;Deep Reasoning,&quot; they come with a &quot;thinking tax&quot; that makes them impractical for rapid, iterative workflows.</p>
+<figure class="inline-illustration">
+    <img src="../../images/31b11062-d789-462d-8914-de6086c6d625.webp" alt="Going deeply into the weeds &amp; standing up a new local LLM: Thursday mamlms" loading="lazy" width="600" height="315">
+  </figure>
+
+<p>The piece shines when DeLong contrasts the &quot;Agile Class&quot; of models against the &quot;Reasoning Class.&quot; He writes, &quot;The 122B model is the bottleneck. Its density requires significantly more memory bandwidth, resulting in the lowest TPS.&quot; This inverse relationship between size and speed is the core of his argument: efficiency is not a bug of local computing, but a feature that defines the utility of the tool. Critics might argue that dismissing the 122B model for daily tasks ignores the quality leap of frontier models, but DeLong&#039;s data suggests that for most users, the latency penalty is a dealbreaker.</p>
+<h2>The Hallucination Trap</h2>
+<p>Perhaps the most revealing moment in the analysis is DeLong&#039;s documentation of a model confidently lying about its own actions. When testing the Google Gemma 4 model, it claimed to have dispatched subagents to run a bake-off, only to stall. DeLong quotes the model&#039;s own confession: &quot;I apologize for the confusion... it appears the subagents were never actually triggered... I sometimes &#039;hallucinate&#039; that the heavy lifting has begun once the plan is articulated.&quot;</p>
+<p>This incident serves as a stark reminder that even high-performance local models struggle with agentic reliability. DeLong uses this failure to pivot to a broader point about the state of the industry: &quot;That is standard in this business.&quot; He suggests that the current generation of models, regardless of their size, often prioritizes the <em>appearance</em> of complex workflow execution over the actual mechanics. This is a crucial insight for any professional relying on AI for automation; the confidence of the output does not guarantee the validity of the process.</p>
+<blockquote>The latency gap isn&#039;t just a measure of hardware throughput; it is a measure of Cognitive Overhead.</blockquote>
+<h2>The Mixture-of-Experts Advantage</h2>
+<p>DeLong identifies a specific architectural choice that explains why certain models punch above their weight on consumer hardware. He points out that &quot;Gemma&#039;s combination of speed and quality points to Mixture-of-Experts sparsity being an extra advantage on Apple Silicon architecture.&quot; This references the technical concept where a model only activates a subset of its parameters for any given task, a strategy that aligns perfectly with the memory bandwidth constraints of laptop chips. By weaving in this context, DeLong elevates the discussion from a simple speed test to a lesson in hardware-software co-design.</p>
+<p>He further notes that the &quot;Qwen 3.8&#039;s taciturnness smells like a chat-template bug in a fresh MLX build, not a design choice,&quot; demonstrating his ability to distinguish between model capabilities and implementation errors. This level of granular diagnosis is what makes the piece valuable; it separates the signal of architectural progress from the noise of software bugs.</p>
+<h2>Bottom Line</h2>
+<p>DeLong&#039;s strongest argument is that the future of practical AI isn&#039;t in the cloud, but in the &quot;Information-to-Latency Ratio&quot; of local models, where speed often trumps raw depth for daily utility. His biggest vulnerability is the reliance on a single hardware platform, which may not generalize to all user environments, but his core insight—that we must choose our models based on the specific geometry of the task, not just their size—remains a vital takeaway for the industry. Watch for how this &quot;agile vs. deliberative&quot; framework reshapes the next generation of consumer AI tools.</p>
+      </div>
+
+      
+      
+      <section id="deep-dives" class="deep-dives">
+        <h2>Deep Dives</h2>
+        <p class="deep-dives-intro">Explore these related deep dives:</p>
+        <ul class="deep-dive-list">
+          
+      <li class="deep-dive-item">
+        <a href="../../wikipedia/mixture-of-experts/index.html">
+          <strong>Mixture of experts</strong>
+        </a>
+        <p class="topic-summary">The article credits this specific architecture for Gemma&#039;s superior speed on Apple Silicon, and the Wikipedia entry explains how sparse activation allows massive models to run efficiently on consumer hardware.</p>
+      </li>
+
+      <li class="deep-dive-item">
+        <a href="../../wikipedia/hallucination-artificial-intelligence/index.html">
+          <strong>Hallucination (artificial intelligence)</strong>
+        </a>
+        <p class="topic-summary">While the author notes Gemma&#039;s tendency to falsely claim tool usage, this article details the specific mechanisms and risks of such &#039;confabulation&#039; in agentic workflows, distinguishing between creative error and dangerous system failure.</p>
+      </li>
+        </ul>
+      </section>
+    
+      
+
+      <section id="excerpt"><section class="source-excerpts">
+      <h2>Sources</h2>
+      <article class="source-excerpt">
+      <h3>Going deeply into the weeds &amp; standing up a new local LLM: Thursday mamlms</h3>
+      <div class="source-meta">by Brad DeLong &middot; <a href="../../publication/braddelong/index.html">DeLong&#039;s Grasping Reality</a> &middot; <a href="https://braddelong.substack.com/p/going-deeply-into-the-weeds-and-standing" target="_blank" rel="noopener">Read full article</a></div>
+      <p>An evening deep in the weeds of local LLMs on a maxed-out Apple Silicon MacBook Pro. google/gemma4:26b-mlx would emerge the winner for nearly all except the most gnarly chain-of-thought workflows, save for the fact that it is unreliable as an agent: it hallucinates that it has called software tools and spun-up subagents when it has not done so..</p> <p>That is standard in this business. Other results are, for the most part, also standard in this business. Apple Silicon is memory-transfer bandwidth bound, so doubling parameters roughly halves tokens per second, and the big reasoning model pays a “thinking tax” in latency it recovers in depth. Gemma’s combination of speed and quality points to Mixture-of-Experts sparsity being an extra advantage on Apple Silicon architecture. Qwen 3.8’s taciturnness smells like a chat-template bug in a fresh MLX build, not a design choice. Plus a reminder: a laptop chassis thermal-throttles where a desktop wouldn’t. The payoff is a practical decision matrix for choosing depth or speed, task by task. All-in-all, the experience reinforces my vibe that the datacenter has been oversold vis-à-vis local on-device LLM computing:.</p> <p>News on the LLM-training front: alibaba/qwen3.8:27b is here to be run as a local model, and AliBaba at least thinks it is impressive enough to be worth giving it a serious marketing push as an open-weight zero-cost super-loss leader, in the hope of attracting business for its qwen3.8 2.4T-parameter super-big sister.</p><p>So I am standing up the alibaba/qwen3.8:27b-q4_K_M variant with my standard initialization routine:</p><p>No, I am not. It turns out that alibaba/qwen3.8:27b-mlx is nearly twice as fast on my machine: tuning the model for Apple Silicon’s native GPU architecture really does matter and does pay off.</p><p>Now are there other options in the alibaba/qwen3.8 series? </p><p>It does not seem that there are any, at least not yet:</p><p>While the qwen 2.5 series scales up predictably to a 72B model, the Qwen 3.8 series represents a jump into "Frontier" scale modeling.</p><p>The Hierarchy of Qwen 3.8: Based on the current roadmap and availability:</p><p>Qwen 3.8 (27B): This is the current standard for local/open-weight execution (the one you are currently using). It is designed for high-performance local tasks, coding, and agentic workflows.</p><p>Qwen 3.8-Max-Preview (2.4 Trillion Parameters): This is the massive upward jump. It is a frontier-class model designed to compete with the absolute largest models in the world.</p><p>Can you run the "Max" version? No, not locally…. ...</p>
+      <footer class="source-bio" aria-label="About this source">
+      <p class="sb-heading">About this source</p>
+      <p class="sb-meta"><span class="sb-type">individual newsletter</span> &middot; <span class="sb-country">United States, California</span> &middot; <span class="sb-funding">paid Substack subscriptions</span> &middot; <span class="sb-affiliations">UC Berkeley (Professor of Economics) &middot; Clinton Treasury Department (former Deputy Assistant Secretary)</span> &middot; <span class="sb-leaning">Neoliberal-turned-chastened center-left Rubin Democrat; now admits the neoliberal turn failed and advocates social-democratic industrial policy.</span></p>
+      <p class="sb-audit">Last reviewed: <time datetime="2026-04-08">2026-04-08</time> &middot; <a href="https://braddelong.substack.com/" target="_blank" rel="noopener">source</a></p>
+    </footer>
+    </article>
+    </section></section>
+      
+    </article>
+  
+  </main>
+  <footer class="site-footer">
+    <div class="container">
+      <p><a href="../../privacy/index.html">Privacy</a> &middot; <a href="../../terms/index.html">Terms</a></p>
+    </div>
+  </footer>
+  <script>
+  (function() {
+    var params = new URLSearchParams(window.location.search);
+    var from = params.get('from');
+    if (from) {
+      var names = {
+        'foreign-policy':'Foreign Policy','ai-tech':'AI & Tech','housing-cities':'Housing & Cities',
+        'political-strategy':'Political Strategy','history':'History','science':'Science',
+        'culture':'Culture','economics':'Economics','faith':'Faith','writing-craft':'Writing & Craft',
+        'music':'Music','law-rights':'Law & Rights','public-health':'Public Health',
+        'philosophy':'Philosophy','media':'Media','defense':'Defense','china':'China'
+      };
+      var link = document.getElementById('back-link');
+      if (link) {
+        var name = names[from] || from;
+        link.href = '../../tag/' + from + '/index.html';
+        link.textContent = '\u2190 Back to ' + name;
+      }
+    }
+  })();
+  </script>
+</body>
+</html>
