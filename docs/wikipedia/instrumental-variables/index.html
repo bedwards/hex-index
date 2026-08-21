@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Instrumental variables - Hex Index</title>
+  <link rel="stylesheet" href="../../styles.css">
+</head>
+<body class="reading-mode">
+  <header class="reading-header">
+    <a href="../../index.html" class="back-link" id="back-link">&larr; Back to Library</a>
+  </header>
+  <main class="reading-content">
+    
+    <article class="wikipedia-page">
+      <header class="wikipedia-header">
+        <div class="type-badge">Wikipedia Deep Dive</div>
+        <h1>Instrumental variables</h1>
+        <div class="article-meta">
+          <span class="read-time">12 min read</span>
+        </div>
+      </header>
+
+      
+
+      <div class="wikipedia-content"><p class="source-note">Based on <a href="https://en.wikipedia.org/wiki/Instrumental_variables">Wikipedia: Instrumental variables</a></p>
+<p>In the summer of 1998, a young economist named Joshua Angrist found himself staring at a problem that defied the standard tools of his trade. He wanted to know the true effect of military service on future earnings, a question that seemed simple on its face but was buried under a mountain of statistical noise. If he simply compared the lifetime wages of veterans to non-veterans, the results would be hopelessly contaminated. Those who chose to enlist were different from those who did not; they were likely more risk-tolerant, perhaps less educated, or driven by economic desperation that predated their service. To attribute the wage gap solely to the military would be a lie, a <strong>confounding error</strong> that would distort policy for decades. The solution, which would eventually earn Angrist the Nobel Prize, was not a new dataset or a more powerful computer, but a clever, almost surgical statistical trick known as the instrumental variable. It was a method designed to extract causal truth from a world that only offers correlation, turning the chaos of human choice into a laboratory for rigorous inquiry.</p>
+<p>The fundamental challenge that instrumental variables (IV) attempt to solve is the <strong>omitted variable bias</strong>, a ghost that haunts almost every attempt to measure cause and effect in the social sciences. In a perfect world, an economist could run a randomized controlled trial. They could flip a coin to decide who goes to war, who gets a scholarship, or who receives a new medical treatment. By randomizing the treatment, they ensure that the treated group and the control group are identical in every way except for the treatment itself. Any difference in the outcome can then be confidently attributed to the cause. But in the real world, such randomization is often impossible, unethical, or prohibitively expensive. We cannot force people to go to college, nor can we assign children to specific neighborhoods to measure the impact of poverty. We are left with <strong>observational data</strong>, where people make choices based on their own circumstances, desires, and constraints.</p>
+<p>When individuals self-select into a treatment group, the correlation between the treatment and the outcome is rarely clean. Consider the relationship between education and earnings. It is widely accepted that more schooling leads to higher wages. But is this because education makes you more productive, or is it because the kind of people who stay in school longer are already more motivated, come from wealthier families, or possess higher innate intelligence? If you simply regress earnings on years of schooling, you capture all of these factors mixed together. The estimated return to education is inflated by the &quot;ability&quot; of the students. This is the <strong>endogeneity problem</strong>: the explanatory variable (education) is correlated with the error term (unobserved factors like ability), violating the core assumption of ordinary least squares (OLS) regression. The result is a coefficient that is biased and inconsistent, a number that looks precise but tells a fundamentally false story.</p>
+<p>Enter the instrumental variable. The concept is deceptively simple yet mathematically profound. An instrumental variable is a third variable, let&#039;s call it $Z$, that satisfies two strict conditions. First, it must be <strong>relevant</strong>: it must be strongly correlated with the endogenous explanatory variable $X$ (the treatment). Second, and far more difficult to prove, it must be <strong>exogenous</strong>: it must affect the outcome $Y$ <em>only</em> through its effect on $X$. It cannot have any direct path to the outcome, nor can it be correlated with any other unobserved factors that influence the outcome. In essence, the instrument acts as a proxy for random assignment. It shoves people into the treatment group in a way that mimics a coin flip, isolating the variation in $X$ that is &quot;as good as random&quot; from the variation that is driven by human choice and confounding factors.</p>
+<p>To understand how this works in practice, one must return to the story of the Vietnam War draft. This was the natural experiment that made the method famous. In the United States during the 1960s, the government instituted a lottery system to determine who would be conscripted into the military. The lottery drew numbers based on birth dates. For any given individual, whether they were drafted was effectively random, unrelated to their intelligence, motivation, or family background. However, the lottery did not determine who served; it only determined who was <em>eligible</em> to serve. Some men with low lottery numbers (high risk of draft) chose to enlist early to get a better choice of job, while others with high numbers found ways to avoid service through college deferments or other means. The draft lottery number became the <strong>instrument</strong>. It was correlated with military service (relevant), but it had no direct effect on future earnings other than through its influence on the probability of serving (exogenous). By using the lottery number as an instrument, economists could estimate the causal effect of military service on earnings, stripping away the bias caused by the pre-existing differences between those who chose to serve and those who did not. The result was a stark revelation: the long-term economic penalty of military service was far higher than standard regressions had suggested, because the standard methods were failing to account for the fact that the men who avoided the draft were systematically more employable.</p>
+<p>The logic of the instrumental variable can be visualized as a two-stage process, a mathematical choreography that separates the signal from the noise. In the <strong>first stage</strong>, the researcher regresses the endogenous variable (education, military service, etc.) on the instrument. This step isolates the portion of the variation in the treatment that is driven <em>solely</em> by the instrument. This is the &quot;clean&quot; variation, the part that is uncorrelated with the unobserved confounders. In the <strong>second stage</strong>, the researcher replaces the original endogenous variable with the predicted values from the first stage and regresses the outcome on these predicted values. Because the predicted values are constructed entirely from the instrument, and the instrument is assumed to be exogenous, the resulting coefficient is a consistent estimate of the causal effect. It is a way of filtering the data, allowing only the &quot;randomized&quot; portion of the treatment to influence the final estimate.</p>
+<p>However, the elegance of the theory often collides with the messiness of reality. The most critical assumption of the instrumental variable approach—the <strong>exclusion restriction</strong>—is untestable. You cannot statistically prove that the instrument has no direct effect on the outcome. You can only argue for it based on theory, institutional knowledge, and the specific context of the study. If the Vietnam draft lottery numbers were correlated with something else that affected earnings, such as the date of birth influencing school starting age or seasonal health effects, the entire analysis would collapse. This is why the validity of an IV study often hinges on the credibility of the story told about the instrument. It is a narrative argument as much as a statistical one. Critics, including those who have scrutinized the work of David Card, David Albouy, and others, have frequently attacked the validity of specific instruments, arguing that the exclusion restriction is violated in subtle ways. For instance, if an instrument for education is &quot;proximity to a college,&quot; one must argue that living near a college does not affect earnings through other channels, such as access to better local jobs or networks, independent of actually attending the college. If it does, the instrument is flawed, and the estimates are biased.</p>
+<p>The debate over instrumental variables has intensified in recent years, particularly regarding the concept of the <strong>Local Average Treatment Effect (LATE)</strong>. The IV estimator does not measure the average effect of the treatment on the entire population. Instead, it measures the effect only for the &quot;compliers&quot;—the subset of the population whose behavior is actually changed by the instrument. In the draft example, the IV estimate tells us the effect of military service only on those men who served <em>because</em> they were drafted. It tells us nothing about the effect on those who would have served regardless of their lottery number (always-takers) or those who would never serve no matter the lottery number (never-takers). This distinction is crucial. The men forced into service by a draft lottery might have different characteristics and different outcomes than the men who voluntarily enlisted. If the effect of military service is different for compliers than for the general population, the IV estimate cannot be generalized. This limitation, often referred to as the <strong>LATE theorem</strong>, has reshaped how economists interpret their findings, forcing a humility that was previously absent. The result is not a universal truth, but a specific truth about a specific group under specific conditions.</p>
+<p>Despite these challenges, the instrumental variables method has revolutionized empirical economics, shifting the field from a discipline of pattern-matching to one of causal inference. It has allowed researchers to tackle questions that were once deemed impossible. In the realm of education, researchers have used class size variations induced by population thresholds to measure the impact of schooling on achievement. In health economics, instruments like the distance to the nearest hospital have been used to isolate the effects of medical treatment on mortality. In development economics, the timing of rainfall has been used as an instrument for agricultural output to study the effects of economic growth on political stability. Each of these applications relies on a creative identification of a natural experiment, a moment where nature or policy intervened in a way that approximates randomization.</p>
+<p>The rise of the IV method has also brought a new level of scrutiny to the data itself. The era of &quot;big data&quot; and machine learning often tempts researchers to throw everything into a regression and let the algorithm find the patterns. But IV reminds us that without a clear causal story, the patterns are meaningless. A correlation between ice cream sales and drowning deaths is statistically robust but causally nonsensical; both are driven by a third factor: the weather. An instrumental variable approach forces the researcher to ask <em>why</em> the correlation exists. It demands a deep understanding of the institutional mechanisms at play. It requires the researcher to know the history of the draft, the geography of school districts, and the biology of disease transmission. It is a method that rewards curiosity and penalizes laziness.</p>
+<p>Yet, the method is not without its critics. Some argue that the reliance on weak instruments—those that are only weakly correlated with the endogenous variable—leads to biased estimates that are even worse than OLS. When the first-stage relationship is weak, the two-stage least squares estimator can become unstable, producing wildly inaccurate results that are sensitive to small changes in the data. This has led to the development of new diagnostic tests, such as the <strong>F-statistic</strong> for the first stage, which serves as a warning light. If the F-statistic is too low, the instrument is weak, and the results should be treated with extreme skepticism. Furthermore, the search for valid instruments has sometimes led researchers to find &quot;fishing expeditions&quot; where they test dozens of potential instruments until one produces a statistically significant result, a practice that undermines the integrity of the research.</p>
+<p>The story of instrumental variables is ultimately a story about the limits of human knowledge and the ingenuity required to overcome them. We live in a complex world where causes and effects are tangled in a web of feedback loops, unobserved variables, and human agency. We cannot run the perfect experiment. We cannot isolate the variables. But we can look for the cracks in the system, the moments where the randomness of life or the quirks of policy create a natural experiment. We can use these moments to approximate the truth, to peel back the layers of confounding noise and see the causal mechanism beneath. It is a humble endeavor, one that admits its own limitations and relies on the strength of its assumptions. But it is also a powerful one, offering a way to answer the most important questions in economics, medicine, and policy with a degree of rigor that was previously unattainable.</p>
+<p>The legacy of this method is visible in the policies that shape our lives. The decisions about how much to invest in education, how to structure the healthcare system, and how to address the root causes of poverty are all informed by studies that use instrumental variables to cut through the noise. Without this tool, we would be left with nothing but correlations, guessing at causality based on the patterns we see in the data. We would not know if the policy works, or if it is the context that makes it look like it works. The instrumental variable is the lens that brings the picture into focus, allowing us to see the world not just as it appears, but as it truly is. It is a testament to the power of human reason to impose order on chaos, to find the signal in the noise, and to tell the truth about the consequences of our choices.</p>
+<p>As we move further into the twenty-first century, the challenges of causal inference will only grow more complex. The data will become larger, the systems more interconnected, and the confounding factors more subtle. The demand for rigorous evidence in policy-making will only increase. The instrumental variable method, with its blend of theoretical elegance and practical ingenuity, remains one of the most important tools in the economist&#039;s toolkit. It reminds us that while we cannot control the world, we can understand it. We can find the instruments in the data, the natural experiments in history, and the hidden paths to causality that others miss. And in doing so, we can build a world that is not just better described, but better understood, and perhaps, better made.</p></div>
+
+      
+
+      <footer class="wikipedia-footer">
+        <p class="source-link">
+          <a href="https://en.wikipedia.org/wiki/Instrumental_variables" target="_blank" rel="noopener">
+            View original Wikipedia article &rarr;
+          </a>
+        </p>
+        <p class="rewrite-note">
+        This article has been rewritten from Wikipedia source material for enjoyable reading.
+        Content may have been condensed, restructured, or simplified.
+      </p>
+      </footer>
+
+      
+      <section class="related-articles">
+        <h2>Related Articles</h2>
+        <p class="related-intro">This deep dive was written in connection with these articles:</p>
+        <ul class="related-list">
+          
+      <li class="related-article-item">
+        <a href="../../article/427f09ab-2d0e-48b9-8bd3-fdd5ce61317e/index.html">
+          <strong>Wait! What?!?!: “Mr albouy reaches his conclusion by omitting half the data from the original…</strong>
+        </a>
+        <span class="article-meta">
+          by Brad DeLong in DeLong&#039;s Grasping Reality
+        </span>
+      </li>
+        </ul>
+      </section>
+    
+    </article>
+  
+  </main>
+  <footer class="site-footer">
+    <div class="container">
+      <p><a href="../../privacy/index.html">Privacy</a> &middot; <a href="../../terms/index.html">Terms</a></p>
+    </div>
+  </footer>
+  <script>
+  (function() {
+    var params = new URLSearchParams(window.location.search);
+    var from = params.get('from');
+    if (from) {
+      var names = {
+        'foreign-policy':'Foreign Policy','ai-tech':'AI & Tech','housing-cities':'Housing & Cities',
+        'political-strategy':'Political Strategy','history':'History','science':'Science',
+        'culture':'Culture','economics':'Economics','faith':'Faith','writing-craft':'Writing & Craft',
+        'music':'Music','law-rights':'Law & Rights','public-health':'Public Health',
+        'philosophy':'Philosophy','media':'Media','defense':'Defense','china':'China'
+      };
+      var link = document.getElementById('back-link');
+      if (link) {
+        var name = names[from] || from;
+        link.href = '../../tag/' + from + '/index.html';
+        link.textContent = '\u2190 Back to ' + name;
+      }
+    }
+  })();
+  </script>
+</body>
+</html>
