@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vera rubin NVL72 vs GB200 NVL72? Inference tco &amp; architecture analysis - Hex Index</title>
+  <link rel="stylesheet" href="../../styles.css">
+</head>
+<body class="reading-mode">
+  <header class="reading-header">
+    <a href="../../index.html" class="back-link" id="back-link">&larr; Back to Library</a>
+  </header>
+  <main class="reading-content">
+    
+    <article class="article-page">
+      <header class="article-header">
+        <h1>Vera rubin NVL72 vs GB200 NVL72? Inference tco &amp; architecture analysis</h1>
+        
+      <div class="article-meta">
+        <span class="author">Dylan Patel</span>
+        <span class="separator">&middot;</span>
+        <a href="../../publication/semianalysis/index.html" class="publication">
+          SemiAnalysis
+        </a>
+        <span class="separator">&middot;</span><time>Jul 22, 2026</time>
+        <span class="separator">&middot;</span><span class="read-time">20 min read</span>
+      </div>
+      </header>
+
+      <div class="content-label">
+        <span class="label-text">Commentary by <a href="../../about/index.html">Hex Index staff</a></span>
+        <nav class="content-nav">
+          <a href="#deep-dives">Deep dives</a><span class="separator">&middot;</span>
+          <a href="https://newsletter.semianalysis.com/p/vera-rubin-nvl72-vs-gb200-nvl72-inference" target="_blank" rel="noopener">Original article &rarr;</a>
+        </nav>
+      </div>
+
+      
+      <div class="article-content">
+        <p>Dylan Patel doesn&#039;t just compare chips; he dissects the hidden economics of the AI arms race, revealing that the next leap in performance isn&#039;t about raw speed, but about how efficiently silicon can be coaxed into thinking. The most startling claim here isn&#039;t a theoretical maximum, but a concrete, early-stage metric: the Vera Rubin architecture is already delivering five times the performance per dollar over its predecessor, a gap that widens as software matures. For the busy executive or engineer trying to justify a capital expenditure in an era of skyrocketing energy costs, this distinction between a hardware spec sheet and a total cost of ownership reality is the difference between a gamble and a strategy.</p>
+<h2>The Architecture of Efficiency</h2>
+<p>Patel frames the Vera Rubin NVL72 not merely as a faster chip, but as a lesson in <strong>extreme co-design</strong>, where hardware and software evolve in lockstep rather than in sequence. He writes, &quot;Vera Rubin NVL72 running DeepSeek R1 delivers 5.4x performance per MW and 5x performance per dollar over GB200 NVL72 today.&quot; This is a massive claim, but Patel grounds it by acknowledging the data comes from engineering samples at CoreWeave, noting that &quot;we have not independently verified them.&quot; This transparency is crucial; it tells the reader that while the numbers are preliminary, the trajectory is the real story.</p>
+<figure class="inline-illustration">
+    <img src="../../images/9cf45555-dd2d-405c-a5cc-8fe33dc12fd9.webp" alt="Vera rubin NVL72 vs GB200 NVL72? Inference tco &amp; architecture analysis" loading="lazy" width="600" height="315">
+  </figure>
+
+<p>The argument hinges on a critical shift in how the industry handles software transitions. In the past, moving to a new architecture meant rewriting the foundational code that makes the chips run. Patel points out that &quot;Blackwell was not able to reuse Hopper WGMMA kernels, Rubin is able to reuse Blackwell&#039;s kernels, which makes the software bring up process much smoother.&quot; This continuity is a strategic masterstroke. It means the industry can skip the painful, months-long debugging phase that plagued previous generations, allowing engineers to focus on optimization rather than reconstruction.</p>
+<blockquote>&quot;Rubin is able to reuse Blackwell&#039;s kernels, which makes the software bring up process much smoother.&quot;</blockquote>
+<p>Critics might argue that relying on legacy kernels could limit the ultimate performance ceiling, but Patel counters that for &quot;speed of light&quot; performance, engineers will still tune kernels, but the reuse &quot;buys them time to focus much more on this kernel tuning.&quot; This reframing of the transition from a technical hurdle to a time-to-market advantage is the piece&#039;s strongest analytical move.</p>
+<h2>The Physics of Memory and Sparsity</h2>
+<p>The commentary then dives into the granular details of memory bandwidth and sparsity, areas where the physical limits of silicon usually dictate the pace of progress. Patel highlights a specific architectural tweak: &quot;Rubin adds 2:4 sparsity support for activations,&quot; which allows the chip to skip processing zeroed-out values in real-time without requiring the model to be retrained. This is a significant departure from previous attempts at sparsity, which often required a complete overhaul of the model weights.</p>
+<p>He explains the mechanism of the new Lookup Table (LUT) weight decompression, a feature that allows the chip to reconstruct weights from a compressed 3-bit index inside the tensor core itself. &quot;The lookup happens inside the MMA, so the kernel never has to construct a separate dequantization pass,&quot; Patel writes. This elimination of a separate processing step is a profound efficiency gain. It reduces the data movement that typically bottlenecks AI inference, effectively shrinking the memory footprint of massive models like Kimi K3 from nearly 1.5 terabytes to just over 1 terabyte.</p>
+<p>The author connects this to the broader context of datacenter economics, noting that &quot;a lower bit rate cuts the HBM capacity that the weights need. It also cuts the bytes that the GPU reads for each weight.&quot; This is where the abstract math meets the bottom line: less data movement means lower power consumption and reduced cooling requirements. As Patel puts it, &quot;This feature should also have an impact on power efficiency, as fewer bits will need to move through the memory system for each flop.&quot;</p>
+<p>However, the piece does not shy away from the uncertainties. Patel notes that &quot;Nvidia has published no accuracy data, and throwing out half the attention scores before softmax is not obviously free.&quot; This caveat is essential. It reminds the reader that while the hardware is ready, the software ecosystem to fully exploit these features is still in its infancy. The performance gains are real, but they are contingent on the development of tuned kernels that can leverage these new capabilities.</p>
+<h2>The Road Ahead: From Rubin to Feynman</h2>
+<p>Looking beyond the immediate release, Patel offers a sobering look at the next generation, codenamed Feynman. He warns that the transition from Rubin to Feynman will be &quot;much more complex,&quot; requiring a complete rewrite of kernels similar to the difficult jump from Hopper to Blackwell. This historical context is vital for long-term planning. It suggests that the smooth ride offered by Rubin might be an anomaly, a brief window of stability before the industry faces another architectural upheaval.</p>
+<p>Patel writes, &quot;Unlike Blackwell to Rubin, Rubin to Feynman will be an much more complex transition on the kernel front.&quot; This distinction highlights the cyclical nature of hardware innovation: periods of refinement followed by periods of radical reinvention. For the reader, this implies that while investing in Rubin makes sense for the next 18 to 24 months, the long-term strategy must account for the inevitable disruption of the next architecture.</p>
+<p>The piece concludes by emphasizing the need for objective benchmarks. With Google and AMD committing to submit their own results, the ecosystem is moving toward a more transparent comparison. &quot;Once those land, the ecosystem gets an objective comparison across systems,&quot; Patel notes. This call for independent verification is a reminder that in the high-stakes world of AI infrastructure, claims must be backed by data, not just marketing slides.</p>
+<h2>Bottom Line</h2>
+<p>Patel&#039;s analysis succeeds by cutting through the hype to reveal the structural efficiencies that will define the next era of AI infrastructure. The strongest part of the argument is the focus on software continuity and memory efficiency as the true drivers of cost reduction, rather than raw clock speeds. The biggest vulnerability remains the reliance on unverified early data and the assumption that software optimization will keep pace with hardware capabilities. Readers should watch for the arrival of independent benchmarks in late 2026 to see if the five-fold performance gains materialize in the real world.</p>
+      </div>
+
+      
+      
+      <section id="deep-dives" class="deep-dives">
+        <h2>Deep Dives</h2>
+        <p class="deep-dives-intro">Explore these related deep dives:</p>
+        <ul class="deep-dive-list">
+          
+      <li class="deep-dive-item">
+        <a href="../../wikipedia/cuda/index.html">
+          <strong>CUDA</strong>
+        </a>
+        <p class="topic-summary">The excerpt notes that Rubin can reuse Blackwell&#039;s WGMMA kernels; this concept explains the specific GPU instruction set optimization that allows software to efficiently parallelize matrix operations across thread groups, which is critical for the claimed performance gains.</p>
+      </li>
+        </ul>
+      </section>
+    
+      
+
+      <section id="excerpt"><section class="source-excerpts">
+      <h2>Sources</h2>
+      <article class="source-excerpt">
+      <h3>Vera rubin NVL72 vs GB200 NVL72? Inference tco &amp; architecture analysis</h3>
+      <div class="source-meta">by Dylan Patel &middot; <a href="../../publication/semianalysis/index.html">SemiAnalysis</a> &middot; <a href="https://newsletter.semianalysis.com/p/vera-rubin-nvl72-vs-gb200-nvl72-inference" target="_blank" rel="noopener">Read full article</a></div>
+      <p>Vera Rubin NVL72 is the second generation of Nvidia’s rack-scale Oberon architecture, and its gains on inference come from extreme co-design. Early results from engineering samples are encouraging. Vera Rubin NVL72 running DeepSeek R1 delivers 5.4x performance per MW and 5x performance per dollar over GB200 NVL72 today, and the gap is even wider against GB200 NVL72 during its early bringup in 2025. Vera Rubin is still in the early bringup stage now, so we expect the gap to continue widen. Rubin's inference performance will keep improving as software matures, the same pattern we demonstrated for Blackwell in our InferenceX benchmarks, and Rubin still has a long runway ahead.</p><p>Nvidia has also recently made available their first public release of the Rubin (SM_107) software stack with CUDA13.4 and has upstreamed Rubin PRs to PyTorch, vLLM and OpenAI Triton Compiler. Blackwell was not able to reuse Hopper WGMMA kernels, Rubin is able to reuse Blackwell's kernels, which makes the software bring up process much smoother. For speed of light (SOL) performance, engineers will still need to tune and rewrite kernels but for those that are focused on time to market, Blackwell kernels can be reused. We will also explain Rubin’s new 3 bit programmable LUT tensor core. </p><p>NVIDIA has also released on GitHub that Feynman is SM_140.  Unlike Blackwell to Rubin, Rubin to Feynman will be an much more complex transition on the kernel front.</p><p>The early metrics gathered on VR NVL72 come from CoreWeave. We have not independently verified them. Nvidia has committed to submitting verifiable numbers to InferenceX by Q3 CY2026. Google should submit TPUv7 results in the next couple of months, and AMD has committed to MI455X UALoE72. Once those land, the ecosystem gets an objective comparison across systems.</p><p>In this article we break down Nvidia's Rubin claims against several baselines, showing where Rubin clearly leads Blackwell and where the lead is thinner. We will also analyze Rubin’s performance per total cost of ownership using our already existing estimates for Rubin’s total cost of ownership (TCO). The TCO for Rubin and many other systems is sourced from our  AI TCO model, which tracks the total cost of ownership of different AI chips, factoring in capex, opex and different other expenses. We also consider performance per watt using our All-in Utility Provisioned Power Estimates from our Datacenter Model.</p><p>Finally, we will present a component by component build up of ...</p>
+      <footer class="source-bio" aria-label="About this source">
+      <p class="sb-heading">About this source</p>
+      <p class="sb-meta"><span class="sb-type">independent research firm</span> &middot; <span class="sb-country">United States</span> &middot; <span class="sb-funding">paid subscriptions, enterprise research contracts</span> &middot; <span class="sb-leaning">Hawkish US-industrial-policy techno-nationalist on semiconductors; pro-export-controls on China, bullish on Western fab buildout and AI compute supremacy.</span></p>
+      <p class="sb-audit">Last reviewed: <time datetime="2026-04-08">2026-04-08</time> &middot; <a href="https://www.semianalysis.com/" target="_blank" rel="noopener">source</a></p>
+    </footer>
+    </article>
+    </section></section>
+      
+    </article>
+  
+  </main>
+  <footer class="site-footer">
+    <div class="container">
+      <p><a href="../../privacy/index.html">Privacy</a> &middot; <a href="../../terms/index.html">Terms</a></p>
+    </div>
+  </footer>
+  <script>
+  (function() {
+    var params = new URLSearchParams(window.location.search);
+    var from = params.get('from');
+    if (from) {
+      var names = {
+        'foreign-policy':'Foreign Policy','ai-tech':'AI & Tech','housing-cities':'Housing & Cities',
+        'political-strategy':'Political Strategy','history':'History','science':'Science',
+        'culture':'Culture','economics':'Economics','faith':'Faith','writing-craft':'Writing & Craft',
+        'music':'Music','law-rights':'Law & Rights','public-health':'Public Health',
+        'philosophy':'Philosophy','media':'Media','defense':'Defense','china':'China'
+      };
+      var link = document.getElementById('back-link');
+      if (link) {
+        var name = names[from] || from;
+        link.href = '../../tag/' + from + '/index.html';
+        link.textContent = '\u2190 Back to ' + name;
+      }
+    }
+  })();
+  </script>
+</body>
+</html>
