@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AgentX - InferenceXv3: Does cuda moat hold up in agentic inferencing? - Hex Index</title>
+  <link rel="stylesheet" href="../../styles.css">
+</head>
+<body class="reading-mode">
+  <header class="reading-header">
+    <a href="../../index.html" class="back-link" id="back-link">&larr; Back to Library</a>
+  </header>
+  <main class="reading-content">
+    
+    <article class="article-page">
+      <header class="article-header">
+        <h1>AgentX - InferenceXv3: Does cuda moat hold up in agentic inferencing?</h1>
+        
+      <div class="article-meta">
+        <span class="author">Dylan Patel</span>
+        <span class="separator">&middot;</span>
+        <a href="../../publication/semianalysis/index.html" class="publication">
+          SemiAnalysis
+        </a>
+        <span class="separator">&middot;</span><time>Aug 23, 2026</time>
+        <span class="separator">&middot;</span><span class="read-time">79 min read</span>
+      </div>
+      </header>
+
+      <div class="content-label">
+        <span class="label-text">Commentary by <a href="../../about/index.html">Hex Index staff</a></span>
+        <nav class="content-nav">
+          
+          <a href="https://newsletter.semianalysis.com/p/agentx-inferencexv3-does-cuda-moat" target="_blank" rel="noopener">Original article &rarr;</a>
+        </nav>
+      </div>
+
+      
+      <div class="article-content">
+        <p>This piece arrives at a critical inflection point where the industry&#039;s obsession with raw chip speed collides with the messy reality of how AI is actually being used. Dylan Patel argues that the old metrics are not just outdated; they are actively misleading, masking a fundamental shift from simple chatbots to complex, multi-turn coding agents that stress memory and networking in ways previous benchmarks never anticipated.</p>
+<h2>The Death of the &quot;Fixed Sequence&quot; Myth</h2>
+<p>Patel opens with a stark assessment of the current landscape: &quot;Since the Claude Code inflection point in November 2025, long-context, multi-turn agentic workloads have grown rapidly. They now dominate traffic for production inferencing.&quot; This is not a subtle trend; it is a complete overhaul of the workload profile. The author contends that measuring performance based on &quot;fixed sequence length prefill and decode workloads&quot; is fundamentally broken because it ignores the reality of &quot;multi-turn, long context, high prefill reuse, with sub agent bursts, KVCache offload, and numerous tool calls.&quot;</p>
+<figure class="inline-illustration">
+    <img src="../../images/9dc0b428-7501-4b81-89a3-78d69f8394c1.webp" alt="AgentX - InferenceXv3: Does cuda moat hold up in agentic inferencing?" loading="lazy" width="600" height="315">
+  </figure>
+
+<p>The argument here is compelling because it shifts the focus from the silicon itself to the system architecture surrounding it. Patel notes that &quot;agentic inference is inherently a systems problem,&quot; driven by the need to efficiently transfer KV tensors across nodes and manage massive memory hierarchies. This reframing is crucial for investors and engineers who have been optimizing for single-turn throughput while their production systems choke on context accumulation.</p>
+<blockquote>&quot;Reality is multi-turn, long context, high prefill reuse, with sub agent bursts, KVCache offload, and numerous tool calls.&quot;</blockquote>
+<p>By releasing a benchmark built on 393 internal traces and over $3 million in compute costs, Patel provides the industry with a &quot;north star&quot; that reflects actual customer behavior rather than theoretical maximums. The impact is already visible, with over 70 upstream pull requests in major frameworks like vLLM and SGLang using this new standard. This suggests the industry is desperate for a metric that doesn&#039;t lie.</p>
+<h2>The Hardware Battle: Memory Over Raw Compute</h2>
+<p>The coverage dives deep into the specific hardware implications of this shift, revealing that the &quot;cuda moat&quot; is no longer just about raw processing power but about High Bandwidth Memory (HBM) capacity and cache hit rates. Patel observes that &quot;performance per megawatt is also important, considering that terrestrial datacenter power is a critical constraint,&quot; noting that while money is a &quot;social construct,&quot; power is &quot;physically hard to come by.&quot;</p>
+<p>In comparing the latest chips, the analysis highlights a nuanced trade-off. The newer B300 architecture, with its 50% increase in HBM capacity, allows it to &quot;squeeze out extra throughput&quot; by keeping more of the conversation in fast memory. Patel illustrates this with data showing the B300 achieving a 91% HBM cache hit rate, whereas the B200 drops to 73%, forcing reliance on slower DRAM offloading. This is a decisive win for the architecture that understands the memory-bound nature of agentic work.</p>
+<p>However, the analysis of AMD&#039;s position is equally rigorous. Patel writes that while &quot;AMD does well on some frontier models for specific comparisons,&quot; the ecosystem maturity remains a hurdle. The author notes that &quot;most AI labs in China or the west do not want to use ATOM in production&quot; due to missing features, despite the chip&#039;s competitive performance on paper. This is a sobering reminder that raw silicon performance means little without a robust software stack.</p>
+<blockquote>&quot;The main Qwen LLM org at baba does not use ATOM in production.&quot;</blockquote>
+<p>Critics might argue that the benchmark is too heavily weighted toward specific coding use cases, potentially skewing the results for other types of agentic tasks like customer service or data analysis. While the dataset is anonymized and diverse, the focus on coding traces from tools like Claude Code could underrepresent the latency requirements of other sectors. Nevertheless, the shift toward open-source transparency—providing a public database and REST API—allows the community to stress-test these claims immediately.</p>
+<h2>The Open Source Catalyst</h2>
+<p>Perhaps the most significant contribution of this piece is the argument that open source is the only viable path forward for accurate benchmarking. Patel emphasizes that &quot;InferenceX is 100% committed to being open-source,&quot; releasing everything from the frontend to the accuracy validation logs. This openness has forced rapid iteration, with the author noting that &quot;optimization improvements are transferable to production traffic.&quot;</p>
+<p>The article details how the benchmark forced collaboration between competitors, with contributions from NVIDIA, AMD, and major labs like Anthropic and Meta. Patel writes, &quot;It is great to see amazing performance from both NVIDIA and AMD on agentic workloads,&quot; but the real story is the collective effort to fix the underlying software layers. The benchmark has become a shared language for the industry, moving beyond marketing claims to verifiable data.</p>
+<blockquote>&quot;The most valuable thing AgentX produced in its first months was not the initial results. It was the massive industry impact the benchmark is already having.&quot;</blockquote>
+<p>This collaborative approach stands in stark contrast to the &quot;black box&quot; benchmarking of the past, where vendors would cherry-pick metrics to favor their own hardware. By making the data public and the methodology transparent, Patel has created a system where the only way to win is to actually improve the technology for everyone.</p>
+<h2>Bottom Line</h2>
+<p>Patel&#039;s analysis succeeds by exposing the gap between theoretical chip performance and the systemic demands of real-world AI agents, proving that memory architecture and software optimization now matter more than raw FLOPS. The strongest part of the argument is the empirical evidence showing how cache hit rates dictate efficiency, but the reliance on coding-specific traces remains a potential blind spot for broader enterprise applications. The industry must now watch whether this new open standard can force the rapid software maturation needed to unlock the next generation of hardware.</p>
+      </div>
+
+      
+      
+      <section id="deep-dives" class="deep-dives">
+        <h2>Deep Dives</h2>
+        <p class="deep-dives-intro">Explore these related deep dives:</p>
+        <ul class="deep-dive-list">
+          
+      <li class="deep-dive-item">
+        <a href="https://www.amazon.com/s?k=1491903112&i=stripbooks&tag=hexindex0d-20" target="_blank" rel="noopener"><strong>Designing Data-Intensive Applications</strong></a>
+        <span class="read-time"><a href="https://www.amazon.com/s?k=1491903112&i=stripbooks&tag=hexindex0d-20" target="_blank" rel="noopener sponsored" class="buy-link">Amazon</a> · <a href="https://www.betterworldbooks.com/product/detail/9788426734679" target="_blank" rel="noopener sponsored" class="buy-link">Better World Books</a></span>
+        <span class="deep-dive-author">by Martin Kleppmann</span>
+        <p class="topic-summary"></p>
+      </li>
+
+      <li class="deep-dive-item">
+        <a href="https://www.amazon.com/s?k=1449344747&i=stripbooks&tag=hexindex0d-20" target="_blank" rel="noopener"><strong>High Performance Browser Networking</strong></a>
+        <span class="read-time"><a href="https://www.amazon.com/s?k=1449344747&i=stripbooks&tag=hexindex0d-20" target="_blank" rel="noopener sponsored" class="buy-link">Amazon</a> · <a href="https://www.betterworldbooks.com/product/detail/9781449344726" target="_blank" rel="noopener sponsored" class="buy-link">Better World Books</a></span>
+        <span class="deep-dive-author">by Ilya Grigorik</span>
+        <p class="topic-summary"></p>
+      </li>
+
+      <li class="deep-dive-item">
+        <a href="https://www.amazon.com/s?k=0123859638&i=stripbooks&tag=hexindex0d-20" target="_blank" rel="noopener"><strong>GPU Computing Gems</strong></a>
+        <span class="read-time"><a href="https://www.amazon.com/s?k=0123859638&i=stripbooks&tag=hexindex0d-20" target="_blank" rel="noopener sponsored" class="buy-link">Amazon</a> · <a href="https://www.betterworldbooks.com/product/detail/9780123859631" target="_blank" rel="noopener sponsored" class="buy-link">Better World Books</a></span>
+        <span class="deep-dive-author">by Wen-mei W. Hwu</span>
+        <p class="topic-summary"></p>
+      </li>
+        </ul>
+      </section>
+    
+      
+
+      <section id="excerpt"><section class="source-excerpts">
+      <h2>Sources</h2>
+      <article class="source-excerpt">
+      <h3>AgentX - InferenceXv3: Does cuda moat hold up in agentic inferencing?</h3>
+      <div class="source-meta">by Dylan Patel &middot; <a href="../../publication/semianalysis/index.html">SemiAnalysis</a> &middot; <a href="https://newsletter.semianalysis.com/p/agentx-inferencexv3-does-cuda-moat" target="_blank" rel="noopener">Read full article</a></div>
+      <p>Since the Claude Code inflection point in November 2025, long-context, multi-turn agentic workloads have grown rapidly. They now dominate traffic for production inferencing. In April 2026, OpenAI’s Enterprise agentic spending overtook ChatGPT spending.</p><p>Agentic workflows have decisively taken the baton. Today, we announce AgentX 1.0 - the world’s first fully open source, multi-turn agentic coding inference benchmark at 1 million context, released under Apache 2.0. Our full dashboard is available here.</p><p>In the past most measured performance based on fixed sequence length prefill and decode workloads, but this is an inaccurate way to measure workloads. Reality is multi-turn, long context, high prefill reuse, with sub agent bursts, KVCache offload, and numerous tool calls. As such we aimed to build the correct way for the industry to measure AI hardware and software performance.</p><p>We have spent more than $3M building this dataset. Today, we open source everything. InferenceXv3 implements AgentX, a new realistic scenario in addition to the existing “fixed sequence length” scenarios (8k1k, 1k1k, 1k8k). It improves the benchmark scenarios by using agentic coding traffic instead of the previous single-turn traffic of 8k input and 1k output tokens.</p><p>The full matrix runs on ~2MW of continuously operated compute across over 1000 chips spanning a wide range of SKUs, featuring the MI355X, GB300 NVL72, GB200 NVL72, B300, B200, MI325, MI300X, H200, and RTX Pro Servers. Rubin arrives later this month, and TPUs and Mi455X UALoE72 arrive later this year.  Please drop a star if you found our free open source work valuable. </p><p>It is great to see amazing performance from both NVIDIA and AMD on agentic workloads. NVIDIA does very good on a lot of frontier models while AMD also does well on some frontier models for specific comparsions.</p><p>The most valuable thing AgentX produced in its first months was not the initial results. It was the massive industry impact the benchmark is already having. Over 70+ upstream PRs for optimizing real world production agentic workloads across vLLM, SGLang, TensorRT-LLM, ATOM, AITER, Dynamo, LMCache, and Mooncake, uses AgentX as the north star benchmark proxy. Most of these optimization improvements are transferable to production traffic. We deep dive into each of these optimizations later in the article.</p><p>Open source is a core principle for InferenceX and thus, we open more of the stack than most people who use that word. That includes an open frontend, a public database served through an easily ...</p>
+      <footer class="source-bio" aria-label="About this source">
+      <p class="sb-heading">About this source</p>
+      <p class="sb-meta"><span class="sb-type">independent research firm</span> &middot; <span class="sb-country">United States</span> &middot; <span class="sb-funding">paid subscriptions, enterprise research contracts</span> &middot; <span class="sb-leaning">Hawkish US-industrial-policy techno-nationalist on semiconductors; pro-export-controls on China, bullish on Western fab buildout and AI compute supremacy.</span></p>
+      <p class="sb-audit">Last reviewed: <time datetime="2026-04-08">2026-04-08</time> &middot; <a href="https://www.semianalysis.com/" target="_blank" rel="noopener">source</a></p>
+    </footer>
+    </article>
+    </section></section>
+      
+    </article>
+  
+  </main>
+  <footer class="site-footer">
+    <div class="container">
+      <p><a href="../../privacy/index.html">Privacy</a> &middot; <a href="../../terms/index.html">Terms</a></p>
+    </div>
+  </footer>
+  <script>
+  (function() {
+    var params = new URLSearchParams(window.location.search);
+    var from = params.get('from');
+    if (from) {
+      var names = {
+        'foreign-policy':'Foreign Policy','ai-tech':'AI & Tech','housing-cities':'Housing & Cities',
+        'political-strategy':'Political Strategy','history':'History','science':'Science',
+        'culture':'Culture','economics':'Economics','faith':'Faith','writing-craft':'Writing & Craft',
+        'music':'Music','law-rights':'Law & Rights','public-health':'Public Health',
+        'philosophy':'Philosophy','media':'Media','defense':'Defense','china':'China'
+      };
+      var link = document.getElementById('back-link');
+      if (link) {
+        var name = names[from] || from;
+        link.href = '../../tag/' + from + '/index.html';
+        link.textContent = '\u2190 Back to ' + name;
+      }
+    }
+  })();
+  </script>
+</body>
+</html>
