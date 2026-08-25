@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>OpenAI jalapeño: Better than Nvidia blackwell - Hex Index</title>
+  <link rel="stylesheet" href="../../styles.css">
+</head>
+<body class="reading-mode">
+  <header class="reading-header">
+    <a href="../../index.html" class="back-link" id="back-link">&larr; Back to Library</a>
+  </header>
+  <main class="reading-content">
+    
+    <article class="article-page">
+      <header class="article-header">
+        <h1>OpenAI jalapeño: Better than Nvidia blackwell</h1>
+        
+      <div class="article-meta">
+        <span class="author">Dylan Patel</span>
+        <span class="separator">&middot;</span>
+        <a href="../../publication/semianalysis/index.html" class="publication">
+          SemiAnalysis
+        </a>
+        <span class="separator">&middot;</span><time>Aug 25, 2026</time>
+        <span class="separator">&middot;</span><span class="read-time">24 min read</span>
+      </div>
+      </header>
+
+      <div class="content-label">
+        <span class="label-text">Commentary by <a href="../../about/index.html">Hex Index staff</a></span>
+        <nav class="content-nav">
+          <a href="#deep-dives">Deep dives</a><span class="separator">&middot;</span>
+          <a href="https://newsletter.semianalysis.com/p/openai-jalapeno-better-than-nvidia" target="_blank" rel="noopener">Original article &rarr;</a>
+        </nav>
+      </div>
+
+      
+      <div class="article-content">
+        <p>In a landscape dominated by the belief that only massive, general-purpose hardware giants can win the AI race, Dylan Patel presents a startling counter-narrative: a custom chip built in under 16 months is already outperforming the industry&#039;s most hyped flagship. This isn&#039;t just a story about a new processor; it is a definitive case study in how extreme hardware-software co-design can shatter the timeline expectations of the semiconductor industry. For the busy executive watching their data center power bills climb, Patel&#039;s analysis suggests that the bottleneck is no longer silicon availability, but architectural rigidity.</p>
+<h2>The Power of a Clean Slate</h2>
+<p>Patel&#039;s central thesis challenges the conventional wisdom that first-generation custom chips are inherently inferior. He argues that OpenAI&#039;s &quot;Jalapeño&quot; chip, developed in partnership with Broadcom, has achieved what many thought impossible for a debut product. &quot;OpenAI bucks the trend by being industry leading and beating every Nvidia, AMD, and Google chip we have been able to test on multiple top open source models,&quot; Patel writes. The speed of this development is as remarkable as the performance. Design work began in mid-2024, moving from hiring to manufacturing tape-out in roughly 16 months. This timeline is a testament to the efficacy of using AI to accelerate chip design itself, a concept that was once theoretical but is now demonstrably real.</p>
+<figure class="inline-illustration">
+    <img src="../../images/959f9dab-20a7-41ab-98c8-a542520ab776.webp" alt="OpenAI jalapeño: Better than Nvidia blackwell" loading="lazy" width="600" height="315">
+  </figure>
+
+<p>The author emphasizes that the chip&#039;s success stems not from narrow specialization, but from a deliberate choice to build a generalized inference engine. &quot;Jalapeño is a generalized inference chip capable of running all sorts of models, and all sorts of workloads,&quot; Patel notes, debunking rumors that the hardware was locked to a single model family. This flexibility is crucial. While competitors often optimize for specific workloads, Jalapeño&#039;s architecture was designed to handle the shifting ratios of input, cache, and output tokens that define the evolution from knowledge-based to agentic AI models.</p>
+<blockquote>&quot;If you have 1 gigawatt of power, then throughput per watt is revenue.&quot;</blockquote>
+<p>This quote, attributed to Nvidia&#039;s Jensen Huang at Computex 2026, serves as the anchor for Patel&#039;s entire performance analysis. The argument is simple yet profound: in a world where data centers are hitting hard limits on grid capacity and cooling, efficiency is the only metric that matters. Patel points out that operators cannot simply buy more megawatts; grid interconnection delays often outpace hardware construction. Consequently, the ability to generate more tokens per joule becomes the primary driver of profitability. Jalapeño&#039;s design, which prioritizes performance-per-watt over raw peak FLOPs, directly addresses this constraint.</p>
+<h2>Efficiency as the New Moat</h2>
+<p>The performance data presented by Patel is aggressive. The chip reportedly delivers superior token throughput per megawatt compared to Nvidia&#039;s Blackwell architecture, even without utilizing speculative decoding techniques that competitors rely on. &quot;Jalapeño smokes every other chip&quot; in efficiency benchmarks, according to the author. This is particularly striking given that the chip is running on early engineering samples, whereas the competing Nvidia systems are further along in their deployment cycles.</p>
+<p>Patel draws a sharp distinction between the current results and the future potential. The chip is currently using single-token prediction, yet it still outperforms systems using multi-token prediction. &quot;At low concurrency scenarios, Jalapeño demonstrates remarkable interactivity, hitting over 700 tokens per sec per user at concurrency 1,&quot; he observes. This suggests that the architectural choices—specifically the decision to avoid disaggregating prefill and decode processes—have paid off in real-world latency scenarios. By using a homogeneous pool of chips rather than specialized silos, the system avoids the inefficiencies that arise when workload mixes shift over time.</p>
+<p>However, a counterargument worth considering is the maturity of the software stack. Patel himself acknowledges that the benchmarks rely on 8k-context models, which are significantly easier to optimize than the long-context, multi-turn workloads that define modern agentic AI. &quot;Frameworks that perform well on 8k1k may perform worse on AgentX as real production loads stress components like routers, prefix cache mechanisms,&quot; he warns. This is a critical caveat. While the raw silicon efficiency is undeniable, the true test will be how the chip handles the complex cache management required for extended reasoning tasks. Critics might note that early wins on simpler benchmarks do not guarantee dominance in the chaotic reality of production agentic workflows.</p>
+<h2>The Architecture of Speed</h2>
+<p>The technical deep dive reveals why Jalapeño is moving so fast. The chip utilizes HBM4 memory, a technology that provides 15.4TB/s of bandwidth per package, surpassing the HBM3E used in many current competitors. &quot;As one of the key architectural principles behind Jalapeño is getting the most out of HBM bandwidth, settling for anything but the best HBM would run counter to that goal,&quot; Patel explains. This decision places OpenAI ahead of the curve, as HBM4 adoption is still in its infancy across the industry.</p>
+<p>Furthermore, the development timeline highlights a distinct advantage of starting from scratch. Unlike legacy players burdened by backward compatibility, OpenAI could make clean-slate architectural decisions. &quot;While OpenAI has engineering samples of Jalapeño, production is currently scheduled to gradually ramp over 2027,&quot; Patel writes. The speed of this ramp-up is staggering. The chip was taped out in late 2025, and within nine months, the team had already delivered results that challenge established players. This rapid iteration cycle suggests that the barrier to entry for high-performance AI chips may be lower than previously thought, provided one has the software expertise to match the hardware.</p>
+<blockquote>&quot;The data center is power limited today.&quot;</blockquote>
+<p>This observation, repeated by both Nvidia and OpenAI in Patel&#039;s analysis, underscores a fundamental shift in the industry. The era of infinite power growth is over. The future belongs to those who can do more with less. Jalapeño&#039;s success is not just a technical victory; it is a strategic pivot toward a power-constrained reality. By trading Nvidia&#039;s high margins for Broadcom&#039;s lower margins and focusing on efficiency, OpenAI is positioning itself to scale its inference costs in a way that merchant silicon providers may struggle to match.</p>
+<h2>Bottom Line</h2>
+<p>Patel&#039;s analysis effectively dismantles the notion that custom silicon is a slow, risky endeavor for startups, proving instead that a focused team with deep software integration can outpace even the most resource-rich incumbents. The strongest part of this argument is the rigorous focus on performance-per-watt as the definitive metric for the next decade of AI infrastructure. However, the biggest vulnerability remains the gap between current benchmark results and the complexities of long-context, multi-turn production workloads; until Jalapeño is tested on the full spectrum of agentic tasks, its dominance is promising but not yet proven. Watch for the transition from these engineering samples to mass deployment in late 2027, which will be the true litmus test for this new architecture.</p>
+      </div>
+
+      
+      
+      <section id="deep-dives" class="deep-dives">
+        <h2>Deep Dives</h2>
+        <p class="deep-dives-intro">Explore these related deep dives:</p>
+        <ul class="deep-dive-list">
+          
+      <li class="deep-dive-item">
+        <a href="../../wikipedia/device-driver-synthesis-and-verification/index.html">
+          <strong>Device driver synthesis and verification</strong>
+        </a>
+        <p class="topic-summary">The article credits OpenAI&#039;s performance breakthroughs to this specific engineering methodology, explaining how tightly integrating chip architecture with model software allows them to bypass the limitations of general-purpose GPUs.</p>
+      </li>
+
+      <li class="deep-dive-item">
+        <a href="../../wikipedia/tape-out/index.html">
+          <strong>Tape-out</strong>
+        </a>
+        <p class="topic-summary">Understanding this critical milestone in semiconductor manufacturing is essential to grasp the article&#039;s claim that OpenAI achieved a full chip design cycle in just 16 months, a timeline that defies traditional industry norms.</p>
+      </li>
+
+      <li class="deep-dive-item">
+        <a href="../../wikipedia/high-bandwidth-memory/index.html">
+          <strong>High Bandwidth Memory</strong>
+        </a>
+        <p class="topic-summary">The article highlights HBM4 as a key differentiator for the Jalapeño chip, and this concept explains the specific memory bandwidth constraints that determine whether an inference chip can handle massive LLM workloads efficiently.</p>
+      </li>
+        </ul>
+      </section>
+    
+      
+
+      <section id="excerpt"><section class="source-excerpts">
+      <h2>Sources</h2>
+      <article class="source-excerpt">
+      <h3>OpenAI jalapeño: Better than Nvidia blackwell</h3>
+      <div class="source-meta">by Dylan Patel &middot; <a href="../../publication/semianalysis/index.html">SemiAnalysis</a> &middot; <a href="https://newsletter.semianalysis.com/p/openai-jalapeno-better-than-nvidia" target="_blank" rel="noopener">Read full article</a></div>
+      <p>OpenAI has spent the past couple years quietly building “Jalapeño,” an inference chip just announced at Hot Chips. Rumors of a successful tapeout had been swirling for a while. But now we have details. OpenAI invited us to look at their chip,  go to their labs to check out how real it is, and benchmark it with our InferenceX suite.</p><p>In June, OpenAI unveiled the chip program in partnership with Broadcom, built from a blank slate exclusively for LLM inference. Design work began in the middle of 2024, going from initial team hiring to manufacturing tape-out in ~16 months, an extremely fast ASIC development cycle.</p><p>In general first generation chips are not competitive, but OpenAI bucks the trend by being industry leading and beating every Nvidia, AMD, and Google chip we have been able to test on multiple top open source models. OpenAI does this with extreme hardware software codesign. Surprisingly, OpenAI is not over specialization on any specific part of model inference, but instead by focusing on being a general chip that delivers high performance in all scenarios. </p><p>In this article, we will go into architectural details, software details and performance results for Jalapeño on InferenceX.</p><p>A generalized inference chip.</p> <p>Everyone says that OpenAI’s chip is specialized for OpenAI models, but that’s wrong, OpenAI made a generalized chip for AI inference.</p><p>The timelines are insane. It shows that claims that use of AI is being used to accelerate chip design are real. Regardless of the quick timelines,Open AI spent a bunch of money, made pragmatic design decisions and their team is cracked, so this comes as no surprise.</p><p>Just looking at the specs, it is an immediate contender:</p><p>And the use of HBM4 makes it stand out as comparable to flagship GPUs from NVIDIA and AMD:</p><p>A lot of the media coverage of this chip has followed a few throwaway comments from OpenAI that claim the chip will be optimized for their models in a way that other chips are not. This is wrong. Jalapeño is a generalized inference chip capable of running all sorts of models, and all sorts of workloads, including our benchmark InferenceX, where we ran the benchmark with OpenAI engineers in the lab. As a joke, OpenAI even showed us it running Doom, which was ported to their chip with just Codex prompts.</p><p>The following is our headline perf/W result, looking at token throughput per ...</p>
+      <footer class="source-bio" aria-label="About this source">
+      <p class="sb-heading">About this source</p>
+      <p class="sb-meta"><span class="sb-type">independent research firm</span> &middot; <span class="sb-country">United States</span> &middot; <span class="sb-funding">paid subscriptions, enterprise research contracts</span> &middot; <span class="sb-leaning">Hawkish US-industrial-policy techno-nationalist on semiconductors; pro-export-controls on China, bullish on Western fab buildout and AI compute supremacy.</span></p>
+      <p class="sb-audit">Last reviewed: <time datetime="2026-04-08">2026-04-08</time> &middot; <a href="https://www.semianalysis.com/" target="_blank" rel="noopener">source</a></p>
+    </footer>
+    </article>
+    </section></section>
+      
+    </article>
+  
+  </main>
+  <footer class="site-footer">
+    <div class="container">
+      <p><a href="../../privacy/index.html">Privacy</a> &middot; <a href="../../terms/index.html">Terms</a></p>
+    </div>
+  </footer>
+  <script>
+  (function() {
+    var params = new URLSearchParams(window.location.search);
+    var from = params.get('from');
+    if (from) {
+      var names = {
+        'foreign-policy':'Foreign Policy','ai-tech':'AI & Tech','housing-cities':'Housing & Cities',
+        'political-strategy':'Political Strategy','history':'History','science':'Science',
+        'culture':'Culture','economics':'Economics','faith':'Faith','writing-craft':'Writing & Craft',
+        'music':'Music','law-rights':'Law & Rights','public-health':'Public Health',
+        'philosophy':'Philosophy','media':'Media','defense':'Defense','china':'China'
+      };
+      var link = document.getElementById('back-link');
+      if (link) {
+        var name = names[from] || from;
+        link.href = '../../tag/' + from + '/index.html';
+        link.textContent = '\u2190 Back to ' + name;
+      }
+    }
+  })();
+  </script>
+</body>
+</html>
